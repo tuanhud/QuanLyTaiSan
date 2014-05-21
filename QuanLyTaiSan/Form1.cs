@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace QuanLyTaiSan
         public Form1()
         {
             InitializeComponent();
+            //test Code first
+            DbCtx db = new DbCtx();
+            HocSinh h = new HocSinh("Nguyễn Quốc Dũng");
+            Lop l= new Lop("DCT1103");
+            h.lop = l;
+
+            db.HOCSINHS.Add(h);
+            db.SaveChanges();
         }
     }
 }
