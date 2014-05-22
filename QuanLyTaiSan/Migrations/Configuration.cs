@@ -5,14 +5,14 @@ namespace QuanLyTaiSan.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QuanLyTaiSan.Entities.DbCtx>
+    internal sealed class Configuration : DbMigrationsConfiguration<QuanLyTaiSan.Entities.MyDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(QuanLyTaiSan.Entities.DbCtx context)
+        protected override void Seed(QuanLyTaiSan.Entities.MyDB context)
         {
             //  This method will be called after migrating to the latest version.
 

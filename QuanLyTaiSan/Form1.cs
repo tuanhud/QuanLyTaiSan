@@ -17,12 +17,8 @@ namespace QuanLyTaiSan
         {
             InitializeComponent();
             //test Code first
-            DbCtx db = new DbCtx();
-            HocSinh h = new HocSinh("Nguyễn Quốc Dũng");
-            Lop l= new Lop("DCT1103");
-            h.lop = l;
-
-            db.HOCSINHS.Add(h);
+            MyDB db = new MyDB();
+            
             db.SaveChanges();
         }
     }
