@@ -66,6 +66,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\LogTinhTrang.cs" />
+    <Compile Include="Entities\LogHeThong.cs" />
+    <Compile Include="Entities\TinhTrang.cs" />
+    <Compile Include="Entities\CTThietBi.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\NhanVien.cs" />

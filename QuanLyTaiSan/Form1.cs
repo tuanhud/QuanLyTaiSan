@@ -18,8 +18,17 @@ namespace QuanLyTaiSan
             InitializeComponent();
             //test Code first
             MyDB db = new MyDB();
+            foreach(ThietBi item in db.PHONGS.Where(p => p.id > 0).FirstOrDefault().thietbis)
+            {
+                
+            }
+            Group gp = db.GROUPS.Where(p => p.id > 0).FirstOrDefault();
+            foreach (Permission item in gp.permissions)
+            {
+                if(item.isInGroup(gp))
+                Console.WriteLine(item.key);
+            }
             
-            db.SaveChanges();
         }
     }
 }

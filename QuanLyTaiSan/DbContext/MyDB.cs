@@ -17,8 +17,18 @@ namespace QuanLyTaiSan.Entities
         public DbSet<CoSo> COSOS { get; set; }
         public DbSet<Phong> PHONGS { get; set; }
         public DbSet<ThietBi> THIETBIS { get; set; }
+        public DbSet<CTThietBi> CTTHIETBIS { get; set; }
         public DbSet<DonViTinh> DONVITINHS { get; set; }
         public DbSet<GiaTri> GIATRIS { get; set; }
+        public DbSet<HinhAnh> HINHANHS { get; set; }
+        public DbSet<Group> GROUPS { get; set; }
+        public DbSet<NhanVien> NHANVIENS { get; set; }
+        public DbSet<Permission> PERMISSIONS { get; set; }
+        public DbSet<LogHeThong> LOGHETHONGS { get; set; }
+        public DbSet<LogTinhTrang> LOGTINHTRANGS { get; set; }
+        public DbSet<TinhTrang> TINHTRANGS { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CoSo>().Map(x =>
@@ -74,6 +84,29 @@ namespace QuanLyTaiSan.Entities
             {
                 x.MapInheritedProperties();
                 x.ToTable("PERMISSIONS");
+            });
+            modelBuilder.Entity<LogHeThong>().Map(x =>
+            {
+                x.MapInheritedProperties();
+                x.ToTable("LOGHETHONGS");
+            });
+
+            modelBuilder.Entity<LogTinhTrang>().Map(x =>
+            {
+                x.MapInheritedProperties();
+                x.ToTable("LOGTINHTRANGS");
+            });
+
+            modelBuilder.Entity<CTThietBi>().Map(x =>
+            {
+                x.MapInheritedProperties();
+                x.ToTable("CTTHIETBIS");
+            });
+
+            modelBuilder.Entity<TinhTrang>().Map(x =>
+            {
+                x.MapInheritedProperties();
+                x.ToTable("TINHTRANGS");
             });
 
             modelBuilder.Entity<Group>().

@@ -10,6 +10,12 @@ namespace QuanLyTaiSan.Entities
 {
     public class CoSo:_EntityAbstract<Phong>
     {
+        public CoSo():base()
+        {
+            this.phongs = new List<Phong>();
+        }
+        public String diachi { get; set; }
+        public String lienhe { get; set; }
         public virtual ICollection<Phong> phongs { get; set; }
     }
 }

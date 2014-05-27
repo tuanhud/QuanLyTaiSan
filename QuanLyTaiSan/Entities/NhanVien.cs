@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    [Table("NHANVIENS")]
     public class NhanVien
     {
+        public NhanVien()
+        {
+
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        [Index(IsUnique = true)]
-        public int subId { get; set; }
+        public String subId { get; set; }
         [Required]
         public String hoten { get; set; }
         [Index(IsUnique = true)]

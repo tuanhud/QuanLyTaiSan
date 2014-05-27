@@ -9,26 +9,21 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class DonViTinh
+    /*
+     * Tinh trang thiet bi
+     */
+    [Table("TINHTRANGS")]
+    public class TinhTrang
     {
-        public DonViTinh()
-        {
-            this.giatris = new List<GiaTri>();
-        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        [Required]
         [Index(IsUnique = true)]
-        [StringLength(20)]
+        [StringLength(100)]
         public String key { get; set; }
         [Required]
         [Index(IsUnique = true)]
-        [StringLength(100)]
-        public String ten { get; set; }
-        /*
-         * FK
-         */
-        public virtual ICollection<GiaTri> giatris { get; set; }
+        [StringLength(255)]
+        public String value { get; set; }
     }
 }

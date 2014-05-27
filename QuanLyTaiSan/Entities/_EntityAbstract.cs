@@ -11,11 +11,20 @@ namespace QuanLyTaiSan.Entities
 {
     public class _EntityAbstract<T>
     {
+        public _EntityAbstract()
+        {
+            if (this.date_create == null)
+            {
+                this.date_create = DateTime.Now;
+            }
+            if (this.date_modified == null)
+            {
+                this.date_modified = DateTime.Now;
+            }
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        [Index(IsUnique = true)]
-        [StringLength(100)]
         public String subId { get; set; }
         [Required]
         public String ten { get; set; }

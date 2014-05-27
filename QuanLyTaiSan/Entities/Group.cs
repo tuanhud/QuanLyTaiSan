@@ -11,6 +11,11 @@ namespace QuanLyTaiSan.Entities
 {
     public class Group
     {
+        public Group()
+        {
+            this.permissions = new List<Permission>();
+            this.nhanviens = new List<NhanVien>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
@@ -22,5 +27,13 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         public virtual ICollection<Permission> permissions { get; set; }
+        public virtual ICollection<NhanVien> nhanviens { get; set; }
+        /*
+         * Manual method
+         */
+        public Boolean isHasPermission(Permission obj)
+        {
+            return obj.isInGroup(this);
+        }
     }
 }

@@ -9,26 +9,22 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class DonViTinh
+    public class LogHeThong
     {
-        public DonViTinh()
+        public LogHeThong()
         {
-            this.giatris = new List<GiaTri>();
+
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
-        [Index(IsUnique = true)]
-        [StringLength(20)]
-        public String key { get; set; }
+        public DateTime datetime { get; set; }
         [Required]
-        [Index(IsUnique = true)]
-        [StringLength(100)]
-        public String ten { get; set; }
-        /*
-         * FK
-         */
-        public virtual ICollection<GiaTri> giatris { get; set; }
+        public String where { get; set; }
+        [Required]
+        public String action { get; set; }
+        public String result { get; set; }
+        public String other { get; set; }
     }
 }
