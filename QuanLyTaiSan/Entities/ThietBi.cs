@@ -16,17 +16,18 @@ namespace QuanLyTaiSan.Entities
         {
             this.ctthietbis = new List<CTThietBi>();
         }
-        public DateTime ngaymua { get; set; }
-        public DateTime ngaylap { get; set; }
         /*
-         * Donvi: Thang
+         * Ngày mua
          */
-        public virtual int baohanh { get; set; }
-        public virtual GiaTri giatri { get; set; }
+        public DateTime ngaymua { get; set; }
+        /*
+         * Ngày đưa vào sử dụng, ngày lắp
+         */
+        public DateTime ngaylap { get; set; }
         /*
          * FK
          */
-        public virtual Phong phong { get; set; }
+        public virtual LoaiThietBi loaithietbi { get; set; }
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
     }
 }

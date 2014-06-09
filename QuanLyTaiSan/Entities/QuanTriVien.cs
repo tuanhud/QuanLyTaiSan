@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    [Table("NHANVIENS")]
-    public class NhanVien
+    [Table("QUANTRIVIENS")]
+    public class QuanTriVien
     {
-        public NhanVien()
+        public QuanTriVien()
         {
 
         }
@@ -24,7 +24,9 @@ namespace QuanLyTaiSan.Entities
         public String hoten { get; set; }
         [Index(IsUnique = true)]
         [StringLength(100)]
+        [Required]
         public String username { get; set; }
+        [Required]
         public String password { get; set; }
         /*
          * Ngay record insert vao he thong 
@@ -37,6 +39,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        [Required]
         public virtual Group group { get; set; }
         
     }

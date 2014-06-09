@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    [Table("LOGHETHONGS")]
     public class LogHeThong
     {
         public LogHeThong()
@@ -19,12 +20,8 @@ namespace QuanLyTaiSan.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
-        public DateTime datetime { get; set; }
+        public DateTime ngay { get; set; }
         [Required]
-        public String where { get; set; }
-        [Required]
-        public String action { get; set; }
-        public String result { get; set; }
-        public String other { get; set; }
+        public String mota { get; set; } //vd: { "USER":quocdunginfo, "ACTION":DELETE_USER, "PARAM": nguoibixoa }
     }
 }

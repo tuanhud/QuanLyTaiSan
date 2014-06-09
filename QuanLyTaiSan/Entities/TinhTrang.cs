@@ -20,10 +20,10 @@ namespace QuanLyTaiSan.Entities
         public int id { get; set; }
         [Index(IsUnique = true)]
         [StringLength(100)]
-        public String key { get; set; }
+        public String key { get; set; } //vd:huhong
         [Required]
         [Index(IsUnique = true)]
         [StringLength(255)]
-        public String value { get; set; }
+        public String value { get; set; } //vd: Hư hỏng
     }
 }

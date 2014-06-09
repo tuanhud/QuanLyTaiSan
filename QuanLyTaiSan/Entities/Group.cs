@@ -14,20 +14,24 @@ namespace QuanLyTaiSan.Entities
         public Group()
         {
             this.permissions = new List<Permission>();
-            this.nhanviens = new List<NhanVien>();
+            this.nhanviens = new List<QuanTriVien>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+
+        [StringLength(100)]
+        public String key { get; set; } //vd: quantri1
+
         [Required]
         [Index(IsUnique = true)]
         [StringLength(100)]
-        public String ten { get; set; }
+        public String ten { get; set; } //vd: Quản trị 1
         /*
          * FK
          */
         public virtual ICollection<Permission> permissions { get; set; }
-        public virtual ICollection<NhanVien> nhanviens { get; set; }
+        public virtual ICollection<QuanTriVien> nhanviens { get; set; }
         /*
          * Manual method
          */

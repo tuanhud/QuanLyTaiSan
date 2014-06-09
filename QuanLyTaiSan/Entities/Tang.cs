@@ -9,13 +9,19 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class GiaTri
+    [Table("TANGS")]
+    public class Tang:_EntityAbstract<Tang>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public int value { get; set; }
+        public Tang():base()
+        {
+            
+        }
+        
+        /*
+         * FK
+         */
         [Required]
-        public virtual DonViTinh donvitinh { get; set; }
+        public virtual Day day { get; set; }
+        public virtual ICollection<ViTri> vitris { get; set; }
     }
 }

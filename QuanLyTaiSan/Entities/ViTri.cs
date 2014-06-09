@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,29 +8,28 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class CTThietBi
+    [Table("VITRIS")]
+    public class ViTri
     {
-        public CTThietBi()
-        {
-            
-        }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-
-        [Required]
-        public int soluong { get; set; }
+        public ViTri()
+        {
+            
+        }
         /*
          * FK
          */
         [Index("nothing", 1, IsUnique = true)]
-        public virtual Phong phong { get; set; }
+        public virtual CoSo coso { get; set; }
 
-        [Index("nothing", 2,IsUnique=true)]
-        public virtual ThietBi thietbi { get; set; }
+        [Index("nothing", 2, IsUnique = true)]
+        public virtual Day day { get; set; }
 
         [Index("nothing", 3, IsUnique = true)]
-        public virtual TinhTrang tinhtrang { get; set; }
+        public virtual Tang tang { get; set; }
+
+        public virtual ICollection<Phong> phongs { get; set; }
     }
 }

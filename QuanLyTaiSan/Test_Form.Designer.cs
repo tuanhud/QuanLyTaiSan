@@ -1,6 +1,6 @@
 ﻿namespace QuanLyTaiSan
 {
-    partial class Form1
+    partial class Test_Form
     {
         /// <summary>
         /// Required designer variable.

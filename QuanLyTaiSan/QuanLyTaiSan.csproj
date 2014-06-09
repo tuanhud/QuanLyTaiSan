@@ -66,26 +66,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\LoaiThietBi.cs" />
+    <Compile Include="Entities\NhanVienPT.cs" />
+    <Compile Include="Entities\Tang.cs" />
+    <Compile Include="Entities\Day.cs" />
     <Compile Include="Entities\LogTinhTrang.cs" />
     <Compile Include="Entities\LogHeThong.cs" />
     <Compile Include="Entities\TinhTrang.cs" />
     <Compile Include="Entities\CTThietBi.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Group.cs" />
-    <Compile Include="Entities\NhanVien.cs" />
+    <Compile Include="Entities\QuanTriVien.cs" />
     <Compile Include="Entities\HinhAnh.cs" />
     <Compile Include="Entities\ThietBi.cs" />
-    <Compile Include="Entities\DonViTinh.cs" />
-    <Compile Include="Entities\GiaTri.cs" />
     <Compile Include="Entities\Phong.cs" />
+    <Compile Include="Entities\ViTri.cs" />
     <Compile Include="Entities\_EntityAbstract.cs" />
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\MyDB.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Test_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Test_Form.Designer.cs">
+      <DependentUpon>Test_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />

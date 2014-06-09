@@ -9,25 +9,23 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class _EntityAbstract<T>
+    [Table("NHANVIENPTS")]
+    public class NhanVienPT
     {
-        public _EntityAbstract()
+        public NhanVienPT()
         {
-            if (this.date_create == null)
-            {
-                this.date_create = DateTime.Now;
-            }
-            if (this.date_modified == null)
-            {
-                this.date_modified = DateTime.Now;
-            }
+
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public String subId { get; set; }
-        public String ten { get; set; }
-        public String mota { get; set; }
+        [Required]
+        public String hoten { get; set; }
+        [Index(IsUnique = true)]
+        [StringLength(100)]
+        public HinhAnh hinh { get; set; }
+        public String sodienthoai { get; set; }
         /*
          * Ngay record insert vao he thong 
          */
@@ -37,8 +35,8 @@ namespace QuanLyTaiSan.Entities
          */
         public DateTime date_modified { get; set; }
         /*
-         * FK
+         * FK 
          */
-        public virtual HinhAnh hinhanh { get; set; }
+        public virtual ICollection<Phong> phongs { get; set; }
     }
 }

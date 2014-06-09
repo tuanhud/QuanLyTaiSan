@@ -21,14 +21,5 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(255)]
         public String path { get; set; }
-        /*
-         * Donvi: Byte
-         */
-        public int size { get; set; }
-        /*
-         * Donvi: Pixel
-         */
-        public int height { get; set; }
-        public int width { get; set; }
     }
 }

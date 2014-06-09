@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    [Table("PHONGS")]
-    public class Phong:_EntityAbstract<Phong>
+    [Table("DAYS")]
+    public class Day:_EntityAbstract<Day>
     {
-        public Phong()
+        public Day()
         {
-            this.thietbis = new List<ThietBi>();
+            
         }
         /*
          * FK
          */
-        [Required]
-        public virtual ViTri vitri { get; set; }
-        public virtual ICollection<ThietBi> thietbis { get; set; }
-        public virtual NhanVienPT nhanvienpt { get; set; }
+        public virtual CoSo coso { get; set; }
+        public virtual ICollection<Tang> tangs { get; set; }
+        public virtual ICollection<ViTri> vitris { get; set; }
     }
 }

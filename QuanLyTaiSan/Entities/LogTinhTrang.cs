@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     /*
-     * Log Tinh trang thiet bi, phuc vu thong ke
+     * Log thiet bi, phuc vu thong ke
      */
-    public class LogTinhTrang
+    [Table("LOGTHIETBIS")]
+    public class LogThietBi
     {
-        public LogTinhTrang()
+        public LogThietBi()
         {
 
         }
@@ -32,5 +33,7 @@ namespace QuanLyTaiSan.Entities
         public virtual ThietBi thietbi { get; set; }
         [Index("nothing", 3, IsUnique = true)]
         public virtual TinhTrang tinhtrang { get; set; }
+        [Index("nothing", 4, IsUnique = true)]
+        public virtual Phong phong { get; set; }
     }
 }

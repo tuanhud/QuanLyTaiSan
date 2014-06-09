@@ -12,10 +12,9 @@ namespace QuanLyTaiSan.Entities
     {
         public CoSo():base()
         {
-            this.phongs = new List<Phong>();
+            this.days = new List<Day>();
         }
-        public String diachi { get; set; }
-        public String lienhe { get; set; }
-        public virtual ICollection<Phong> phongs { get; set; }
+        public virtual ICollection<Day> days { get; set; }
+        public virtual ICollection<ViTri> vitris { get; set; }
     }
 }

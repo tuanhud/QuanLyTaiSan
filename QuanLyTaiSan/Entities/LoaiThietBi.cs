@@ -9,23 +9,17 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class _EntityAbstract<T>
+    [Table("LOAITHIETBIS")]
+    public class LoaiThietBi
     {
-        public _EntityAbstract()
+        public LoaiThietBi() : base()
         {
-            if (this.date_create == null)
-            {
-                this.date_create = DateTime.Now;
-            }
-            if (this.date_modified == null)
-            {
-                this.date_modified = DateTime.Now;
-            }
+            this.childs = new List<LoaiThietBi>();
+            this.thietbis = new List<ThietBi>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public String subId { get; set; }
         public String ten { get; set; }
         public String mota { get; set; }
         /*
@@ -39,6 +33,10 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public virtual HinhAnh hinhanh { get; set; }
+        public virtual ICollection<ThietBi> thietbis { get; set; }
+
+        public int? parent_id { get; set; }
+        public virtual LoaiThietBi parent { get; set; }
+        public virtual ICollection<LoaiThietBi> childs { get; set; }
     }
 }
