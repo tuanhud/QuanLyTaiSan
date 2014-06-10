@@ -70,7 +70,7 @@
     <Compile Include="Entities\NhanVienPT.cs" />
     <Compile Include="Entities\Tang.cs" />
     <Compile Include="Entities\Day.cs" />
-    <Compile Include="Entities\LogTinhTrang.cs" />
+    <Compile Include="Entities\LogThietBi.cs" />
     <Compile Include="Entities\LogHeThong.cs" />
     <Compile Include="Entities\TinhTrang.cs" />
     <Compile Include="Entities\CTThietBi.cs" />
@@ -81,9 +81,11 @@
     <Compile Include="Entities\ThietBi.cs" />
     <Compile Include="Entities\Phong.cs" />
     <Compile Include="Entities\ViTri.cs" />
+    <Compile Include="Entities\_CRUDInterface.cs" />
     <Compile Include="Entities\_EntityAbstract.cs" />
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\MyDB.cs" />
+    <Compile Include="Libraries\ServerDateTime.cs" />
     <Compile Include="Test_Form.cs">
       <SubType>Form</SubType>
     </Compile>

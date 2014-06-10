@@ -2,13 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class CoSo:_EntityAbstract<Phong>
+    [Table("COSOS")]
+    public class CoSo:_EntityAbstract<CoSo>
     {
         public CoSo():base()
         {
@@ -16,5 +18,6 @@ namespace QuanLyTaiSan.Entities
         }
         public virtual ICollection<Day> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
+        
     }
 }

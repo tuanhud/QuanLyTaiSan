@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    [Table("HINHANHS")]
     public class HinhAnh
     {
         [Key]

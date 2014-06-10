@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    [Table("GROUPS")]
     public class Group
     {
         public Group()

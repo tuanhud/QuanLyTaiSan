@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    [Table("CTTHIETBIS")]
     public class CTThietBi
     {
         public CTThietBi()
