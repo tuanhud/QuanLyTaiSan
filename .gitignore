@@ -213,3 +213,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#quocdunginfo
+#tránh bị lợi dụng CSDL
+QuanLyTaiSan\App.config
