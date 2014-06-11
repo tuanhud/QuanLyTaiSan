@@ -16,7 +16,7 @@ namespace QuanLyTaiSan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Test_Form());
+            Application.Run(new Test_Form_2());
         }
     }
 }

@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("LOGHETHONGS")]
-    public class LogHeThong
+    public class LogHeThong : _EntityAbstract1<LogHeThong>
     {
-        public LogHeThong()
+        public LogHeThong():base()
         {
 
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        
         [Required]
         public DateTime ngay { get; set; }
         [Required]

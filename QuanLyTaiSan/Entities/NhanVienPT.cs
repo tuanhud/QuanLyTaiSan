@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("NHANVIENPTS")]
-    public class NhanVienPT
+    public class NhanVienPT : _EntityAbstract1<NhanVienPT>
     {
-        public NhanVienPT()
+        public NhanVienPT():base()
         {
 
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        
         public String subId { get; set; }
         [Required]
         public String hoten { get; set; }
@@ -29,11 +27,11 @@ namespace QuanLyTaiSan.Entities
         /*
          * Ngay record insert vao he thong 
          */
-        public DateTime date_create { get; set; }
+        public DateTime? date_create { get; set; }
         /*
          * Ngay update gan day nhat
          */
-        public DateTime date_modified { get; set; }
+        public DateTime? date_modified { get; set; }
         /*
          * FK 
          */

@@ -9,15 +9,13 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("VITRIS")]
-    public class ViTri
+    public class ViTri : _EntityAbstract1<ViTri>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public ViTri()
+        public ViTri():base()
         {
             
         }
+        public String mota { get; set; }
         /*
          * FK
          */

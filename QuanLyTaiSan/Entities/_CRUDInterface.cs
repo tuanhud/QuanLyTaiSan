@@ -8,8 +8,10 @@ namespace QuanLyTaiSan.Entities
 {
     public interface _CRUDInterface<T>
     {
+        List<T> getAll();
+        T getById(int id);
         int add();
-        Boolean update();
-        Boolean delete();
+        int update();
+        int delete();
     }
 }

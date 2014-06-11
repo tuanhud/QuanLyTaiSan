@@ -10,16 +10,14 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("LOAITHIETBIS")]
-    public class LoaiThietBi
+    public class LoaiThietBi : _EntityAbstract1<LoaiThietBi>
     {
         public LoaiThietBi() : base()
         {
             this.childs = new List<LoaiThietBi>();
             this.thietbis = new List<ThietBi>();
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        
         public String ten { get; set; }
         public String mota { get; set; }
         /*

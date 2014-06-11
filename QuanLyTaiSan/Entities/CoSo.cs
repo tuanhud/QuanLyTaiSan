@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("COSOS")]
-    public class CoSo:_EntityAbstract<CoSo>
+    public class CoSo:_EntityAbstract2<CoSo>
     {
         public CoSo():base()
         {

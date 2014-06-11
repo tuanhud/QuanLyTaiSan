@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("TANGS")]
-    public class Tang:_EntityAbstract<Tang>
+    public class Tang:_EntityAbstract2<Tang>
     {
         public Tang():base()
         {

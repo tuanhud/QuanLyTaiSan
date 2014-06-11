@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("DAYS")]
-    public class Day:_EntityAbstract<Day>
+    public class Day:_EntityAbstract2<Day>
     {
-        public Day()
+        public Day():base()
         {
             
         }

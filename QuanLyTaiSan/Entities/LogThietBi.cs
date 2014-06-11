@@ -13,15 +13,13 @@ namespace QuanLyTaiSan.Entities
      * Log thiet bi, phuc vu thong ke
      */
     [Table("LOGTHIETBIS")]
-    public class LogThietBi
+    public class LogThietBi : _EntityAbstract1<LogThietBi>
     {
-        public LogThietBi()
+        public LogThietBi():base()
         {
 
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        
         [Index("nothing", 1, IsUnique = true)]
         public DateTime ngay { get; set; }
         [Required]

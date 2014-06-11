@@ -10,16 +10,12 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("CTTHIETBIS")]
-    public class CTThietBi
+    public class CTThietBi:_EntityAbstract1<CTThietBi>
     {
-        public CTThietBi()
+        public CTThietBi():base()
         {
             
         }
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
 
         [Required]
         public int soluong { get; set; }

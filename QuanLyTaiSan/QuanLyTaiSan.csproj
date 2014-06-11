@@ -82,10 +82,23 @@
     <Compile Include="Entities\Phong.cs" />
     <Compile Include="Entities\ViTri.cs" />
     <Compile Include="Entities\_CRUDInterface.cs" />
-    <Compile Include="Entities\_EntityAbstract.cs" />
+    <Compile Include="Entities\_EntityAbstract2.cs" />
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\MyDB.cs" />
+    <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Libraries\ServerDateTime.cs" />
+    <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.cs" />
+    <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.Designer.cs">
+      <DependentUpon>201406110430408_remove_phongId_trong_table_thietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406110439374_sua_lai_tiep_them_mota.cs" />
+    <Compile Include="Migrations\201406110439374_sua_lai_tiep_them_mota.Designer.cs">
+      <DependentUpon>201406110439374_sua_lai_tiep_them_mota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.cs" />
+    <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.Designer.cs">
+      <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +108,21 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test_Form_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test_Form_2.Designer.cs">
+      <DependentUpon>Test_Form_2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.resx">
+      <DependentUpon>201406110430408_remove_phongId_trong_table_thietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406110439374_sua_lai_tiep_them_mota.resx">
+      <DependentUpon>201406110439374_sua_lai_tiep_them_mota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.resx">
+      <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -106,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="Test_Form.resx">
       <DependentUpon>Test_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test_Form_2.resx">
+      <DependentUpon>Test_Form_2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

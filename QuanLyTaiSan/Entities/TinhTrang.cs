@@ -13,11 +13,13 @@ namespace QuanLyTaiSan.Entities
      * Tinh trang thiet bi
      */
     [Table("TINHTRANGS")]
-    public class TinhTrang
+    public class TinhTrang : _EntityAbstract1<TinhTrang>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public TinhTrang()
+            : base()
+        {
+
+        }
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String key { get; set; } //vd:huhong
@@ -25,5 +27,6 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(255)]
         public String value { get; set; } //vd: Hư hỏng
+        public String mota { get; set; }
     }
 }

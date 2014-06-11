@@ -10,16 +10,13 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("GROUPS")]
-    public class Group
+    public class Group : _EntityAbstract1<Group>
     {
-        public Group()
+        public Group():base()
         {
             this.permissions = new List<Permission>();
             this.nhanviens = new List<QuanTriVien>();
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
 
         [StringLength(100)]
         public String key { get; set; } //vd: quantri1
@@ -28,6 +25,7 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String ten { get; set; } //vd: Quản trị 1
+        public String mota { get; set; }
         /*
          * FK
          */

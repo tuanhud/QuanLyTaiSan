@@ -1,6 +1,4 @@
-﻿using QuanLyTaiSan.Libraries;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,50 +9,33 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public abstract class _EntityAbstract<T> : _CRUDInterface<T> where T : _EntityAbstract<T>
+    public abstract class _EntityAbstract1<T> : _CRUDInterface<T> where T : _EntityAbstract1<T>
     {
-        private MyDB db = null;
-        public _EntityAbstract()
+        public _EntityAbstract1()
         {
-            //init common
+            this.db = new MyDB();
             init();
-        }
-        private void init()
-        {
-            //sql server time
-            this.date_create = this.date_modified = ServerDateTime.getNow();            
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public String subId { get; set; }
-        public String ten { get; set; }
-        public String mota { get; set; }
-        /*
-         * Ngay record insert vao he thong 
-         */
-        public DateTime date_create { get; set; }
-        /*
-         * Ngay update gan day nhat
-         */
-        public DateTime date_modified { get; set; }
-        /*
-         * FK
-         */
-        public virtual HinhAnh hinhanh { get; set; }
+        protected virtual void init()
+        {
 
+        }
         /*
          * Method of interface
          */
-        public int add()
+        [NotMapped]
+        private MyDB db = null;
+
+        public virtual int add()
         {
-            //update datetime
-            date_create = date_modified = ServerDateTime.getNow();
             //add
             try
             {
                 db = new MyDB();
-                db.Set(typeof(T)).Add(this);
+                db.Set<T>().Add((T)this);
                 db.SaveChanges();
                 return id;
             }
@@ -68,22 +49,20 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public bool update()
+        public virtual int update()
         {
-            //update datetime
-            date_modified = ServerDateTime.getNow();
             //update
             try
             {
                 db = new MyDB();
-                db.Set(typeof(T)).Attach(this);
+                db.Set<T>().Attach((T)this);
                 db.Entry(this).State = EntityState.Modified;//importance
                 db.SaveChanges();
-                return true;
+                return 1;
             }
             catch (Exception ex)
             {
-                return false;
+                return -1;
             }
             finally
             {
@@ -91,30 +70,28 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public bool delete()
+        public virtual int delete()
         {
             try
             {
                 db = new MyDB();
-                db.Set(typeof(T)).Remove(this);
+                db.Set<T>().Attach((T)this);
+                db.Set<T>().Remove((T)this);
                 db.SaveChanges();
-                return true;
+                return 1;
             }
             catch (Exception ex)
             {
-                return false;
+                return -1;
             }
             finally
             {
                 db.Dispose();
             }
         }
-        /*
-         * STATIC method
-         */
-        public static T getById(int id)
+        public T getById(int id)
         {
-            MyDB db = new MyDB();
+            db = new MyDB();
             try
             {
                 return db.Set<T>().Where(c => c.id == id).FirstOrDefault();
@@ -126,7 +103,24 @@ namespace QuanLyTaiSan.Entities
             finally
             {
                 db.Dispose();
-            }   
+            }
+        }
+
+        public List<T> getAll()
+        {
+            db = new MyDB();
+            try
+            {
+                return db.Set<T>().ToList();
+            }
+            catch (Exception ex)
+            {
+                return new List<T>();
+            }
+            finally
+            {
+                db.Dispose();
+            }
         }
     }
 }

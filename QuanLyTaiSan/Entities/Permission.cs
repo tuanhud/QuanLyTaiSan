@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("PERMISSIONS")]
-    public class Permission
+    public class Permission : _EntityAbstract1<Permission>
     {
-        public Permission()
+        public Permission():base()
         {
             this.groups = new List<Group>();
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+       
         [Required]
         [Index(IsUnique = true)]
         [StringLength(100)]

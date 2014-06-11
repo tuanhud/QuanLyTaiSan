@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("PHONGS")]
-    public class Phong:_EntityAbstract<Phong>
+    public class Phong:_EntityAbstract2<Phong>
     {
-        public Phong()
+        public Phong():base()
         {
-            this.thietbis = new List<ThietBi>();
+            this.ctthietbis = new List<CTThietBi>();
         }
         /*
          * FK
          */
         [Required]
         public virtual ViTri vitri { get; set; }
-        public virtual ICollection<ThietBi> thietbis { get; set; }
+        public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual NhanVienPT nhanvienpt { get; set; }
     }
 }

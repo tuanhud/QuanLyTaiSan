@@ -17,13 +17,14 @@ namespace QuanLyTaiSan
         public Test_Form()
         {
             InitializeComponent();
-
+            /*
             CoSo obj = CoSo.getById(1);
             obj.ten = "CS1";
             //obj.mota = "Cơ sở 1";
             //int re = obj.add();
             obj.mota= "Edited44444444";
             obj.update();
+             **/
             
         }
         private MyDB db;

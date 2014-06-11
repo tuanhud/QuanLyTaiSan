@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("HINHANHS")]
-    public class HinhAnh
+    public class HinhAnh : _EntityAbstract1<HinhAnh>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public HinhAnh():base()
+        {
+
+        }
         /*
          * Relative path
          */

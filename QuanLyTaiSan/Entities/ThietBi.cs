@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("THIETBIS")]
-    public class ThietBi:_EntityAbstract<ThietBi>
+    public class ThietBi:_EntityAbstract2<ThietBi>
     {
         public ThietBi():base()
         {
@@ -19,11 +19,11 @@ namespace QuanLyTaiSan.Entities
         /*
          * Ngày mua
          */
-        public DateTime ngaymua { get; set; }
+        public DateTime? ngaymua { get; set; }
         /*
          * Ngày đưa vào sử dụng, ngày lắp
          */
-        public DateTime ngaylap { get; set; }
+        public DateTime? ngaylap { get; set; }
         /*
          * FK
          */
