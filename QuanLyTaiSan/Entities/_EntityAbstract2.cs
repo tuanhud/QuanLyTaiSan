@@ -18,6 +18,11 @@ namespace QuanLyTaiSan.Entities
         {
             init();
         }
+        public _EntityAbstract2(MyDB db)
+            : base(db)
+        {
+            init();
+        }
         protected override void init()
         {
             //sql server time

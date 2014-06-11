@@ -14,6 +14,16 @@ namespace QuanLyTaiSan.Entities
     {
         public Group():base()
         {
+            init();
+        }
+        public Group(MyDB db)
+            : base(db)
+        {
+            
+        }
+        protected override void init()
+        {
+            base.init();
             this.permissions = new List<Permission>();
             this.nhanviens = new List<QuanTriVien>();
         }

@@ -26,33 +26,41 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
-            /*
-            QuanLyTaiSan.Entities.Day obj = new QuanLyTaiSan.Entities.Day();
-            obj = obj.getById(1);
-            obj.mota = "wtf";
-            Console.WriteLine(obj.coso.ten);
-            obj.update();
-            */
             
-            QuanTriVien obj = new QuanTriVien();
-            obj = obj.getById(2);
-            Console.WriteLine(obj.hoten);
-            Console.WriteLine(obj.group.key);
-            obj.hoten = "nmnmnm";
 
-            //int re = obj.update();
-            //obj.update();
-
-            //obj.hoten = "78";
-            //int re = obj.update();
-            //int re = obj.changePassword("admin2", "admin2");
-
-            /*
-            obj.username = "admin";
-            obj.password = "admin2";
-             * */
+            ////init Entity
+            //QuanTriVien obj = new QuanTriVien();//context not init yet
+            ////get from DB
+            //obj = obj.getById(2);//new context created inside
+            ////reference to FK obj via context
             //Console.WriteLine(obj.group.key);
+            ////assign
+            //obj.hoten = "new value";
+            ////update
+            //obj.update();//use existing context created before to avoid Exception because of multiple Context tracking
             
+            //Console.WriteLine("Finish");
+
+            //init Entity
+            QuanTriVien obj = new QuanTriVien();//context not init yet
+            //init new value
+            obj.hoten = "hoten_shudghfgdf";
+            obj.password = "password_6t37434";
+            obj.username = "admin_ghyty6t734";
+            //init new group
+            Group gp = new Group(obj.DB);//context created using GET, SET procedure, passing context to Group obj
+            //init new value
+            gp.key = "admin333";
+            gp.ten = "bhsgd6t34";
+            gp.mota = "Quarn tri cap cao";
+            //assign FK obj
+            obj.group = gp;
+            //add
+            obj.add();//use existing context created before to avoid Exception because of multiple Context tracking, both "obj" and "gp" is under same context
+            //update
+            obj.update();//use existing context created before to avoid Exception because of multiple Context tracking
+
+            Console.WriteLine("Finish");
         }
     }
 }

@@ -18,6 +18,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        public QuanTriVien(MyDB db)
+            : base(db)
+        {
+
+        }
         
         #region Định nghĩa thuộc tính
         public String subId { get; set; }
@@ -93,12 +98,15 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                db = new MyDB();
+                //db = new MyDB();
                 //select doi tuong len
                 QuanTriVien obj = db.QUANTRIVIENS.Where(
                     c => c.username.ToUpper().Equals(username.ToUpper())
                     ).FirstOrDefault();
-                
+                if (obj != null)
+                {
+                    obj.DB = db;
+                }
                 return obj;
             }
             catch (Exception ex)
@@ -113,6 +121,7 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Obj phải được load lên trước (có id, password rồi),
         /// return
+        /// -4: update fail
         /// -3: dữ liệu không hợp lệ,
         /// -1: passConfirm fail,
         /// -2: user chưa được set password dạng Hash (không thể xác thực)
@@ -135,7 +144,11 @@ namespace QuanLyTaiSan.Entities
             //đổi pass
             password = StringHelper.SHA1_Salt(newPass);
             //update
-            return this.update();
+            if (update() < 0)
+            {
+                return -4;
+            }
+            return 1;
         }
         #endregion
     }

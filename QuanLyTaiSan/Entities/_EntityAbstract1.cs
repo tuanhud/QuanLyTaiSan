@@ -13,7 +13,11 @@ namespace QuanLyTaiSan.Entities
     {
         public _EntityAbstract1()
         {
-            this.db = new MyDB();
+            init();
+        }
+        public _EntityAbstract1(MyDB db)
+        {
+            this.db = db;
             init();
         }
         [Key]
@@ -28,13 +32,34 @@ namespace QuanLyTaiSan.Entities
          */
         [NotMapped]
         protected MyDB db = null;
+        [NotMapped]
+        public MyDB DB
+        {
+            get
+            {
+                initDb();
+                return db;
+            }
+            set
+            {
+                db = value;
+            }
+        }
+        protected void initDb()
+        {
+            if (db == null)
+            {
+                db = new MyDB();
+            }
+        }
 
         public virtual int add()
         {
+            initDb();
             //add
             try
             {
-                db = new MyDB();
+                //db = new MyDB();
                 db.Set<T>().Add((T)this);
                 db.SaveChanges();
                 return id;
@@ -45,16 +70,17 @@ namespace QuanLyTaiSan.Entities
             }
             finally
             {
-                db.Dispose();
+                //db.Dispose();
             }
         }
 
         public virtual int update()
         {
+            initDb();
             //update
             try
             {
-                db = new MyDB();
+                //db = new MyDB();
                 db.Set<T>().Attach((T)this);
                 db.Entry(this).State = EntityState.Modified;//importance
                 db.SaveChanges();
@@ -66,15 +92,16 @@ namespace QuanLyTaiSan.Entities
             }
             finally
             {
-                db.Dispose();
+                //db.Dispose();
             }
         }
 
         public virtual int delete()
         {
+            initDb();
             try
             {
-                db = new MyDB();
+                //db = new MyDB();
                 db.Set<T>().Attach((T)this);
                 db.Set<T>().Remove((T)this);
                 db.SaveChanges();
@@ -86,15 +113,21 @@ namespace QuanLyTaiSan.Entities
             }
             finally
             {
-                db.Dispose();
+                //db.Dispose();
             }
         }
         public T getById(int id)
         {
-            db = new MyDB();
+            initDb();
+            //db = new MyDB();
             try
             {
-                return db.Set<T>().Where(c => c.id == id).FirstOrDefault();
+                T obj = db.Set<T>().Where(c => c.id == id).FirstOrDefault();
+                if (obj != null)
+                {
+                    obj.DB = db;
+                }
+                return obj;
             }
             catch (Exception ex)
             {
@@ -102,16 +135,22 @@ namespace QuanLyTaiSan.Entities
             }
             finally
             {
-                db.Dispose();
+                //db.Dispose();
             }
         }
 
         public List<T> getAll()
         {
-            db = new MyDB();
+            initDb();
+            //db = new MyDB();
             try
             {
-                return db.Set<T>().ToList();
+                List<T> objs = db.Set<T>().ToList();
+                foreach (T item in objs)
+                {
+                    item.DB = db;
+                }
+                return objs;
             }
             catch (Exception ex)
             {
@@ -119,7 +158,7 @@ namespace QuanLyTaiSan.Entities
             }
             finally
             {
-                db.Dispose();
+                //db.Dispose();
             }
         }
     }
