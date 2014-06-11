@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Libraries
 {
-    public class ServerDateTime
+    public class ServerTimeHelper
     {
         /// <summary>
         /// Lấy ngày hiện tại từ SQL Server bằng hàm GETDATE() </summary>

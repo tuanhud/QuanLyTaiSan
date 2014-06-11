@@ -86,7 +86,8 @@
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\MyDB.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
-    <Compile Include="Libraries\ServerDateTime.cs" />
+    <Compile Include="Libraries\ServerTimeHelper.cs" />
+    <Compile Include="Libraries\StringHelper.cs" />
     <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.cs" />
     <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.Designer.cs">
       <DependentUpon>201406110430408_remove_phongId_trong_table_thietBi.cs</DependentUpon>
@@ -98,6 +99,12 @@
     <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.cs" />
     <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.Designer.cs">
       <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test_Area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test_Area.Designer.cs">
+      <DependentUpon>Test_Area.cs</DependentUpon>
     </Compile>
     <Compile Include="Test_Form.cs">
       <SubType>Form</SubType>
@@ -132,6 +139,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Test_Area.resx">
+      <DependentUpon>Test_Area.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test_Form.resx">
       <DependentUpon>Test_Form.cs</DependentUpon>
     </EmbeddedResource>

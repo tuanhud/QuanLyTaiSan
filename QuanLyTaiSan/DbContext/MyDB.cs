@@ -20,19 +20,20 @@ namespace QuanLyTaiSan.Entities
         public DbSet<CTThietBi> CTTHIETBIS { get; set; }        
         public DbSet<HinhAnh> HINHANHS { get; set; }
         public DbSet<Group> GROUPS { get; set; }
-        public DbSet<QuanTriVien> NHANVIENS { get; set; }
+        public DbSet<QuanTriVien> QUANTRIVIENS { get; set; }
         public DbSet<Permission> PERMISSIONS { get; set; }
         public DbSet<LogHeThong> LOGHETHONGS { get; set; }
-        public DbSet<LogThietBi> LOGTINHTRANGS { get; set; }
+        public DbSet<LogThietBi> LOGTHIETBIS { get; set; }
         public DbSet<TinhTrang> TINHTRANGS { get; set; }
         public DbSet<NhanVienPT> NHANVIENPTS { get; set; }
         public DbSet<Tang> TANGS { get; set; }
-        public DbSet<Day> KHUS { get; set; }
+        public DbSet<Day> DAYS { get; set; }
         public DbSet<ViTri> VITRIS { get; set; }
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //this.Configuration.LazyLoadingEnabled = false; 
             /*
              * TPC Mapping
              */
