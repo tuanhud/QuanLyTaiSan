@@ -21,7 +21,7 @@ namespace QuanLyTaiSan.Entities
         protected override void init()
         {
             //sql server time
-            this.date_create = this.date_modified = ServerDateTime.getNow();            
+            this.date_create = this.date_modified = ServerTimeHelper.getNow();            
         }
         /*
         [Key]
@@ -50,14 +50,14 @@ namespace QuanLyTaiSan.Entities
         public override int add()
         {
             //update datetime
-            date_create = date_modified = ServerDateTime.getNow();
+            date_create = date_modified = ServerTimeHelper.getNow();
             return base.add();
         }
 
         public override int update()
         {
             //update datetime
-            date_modified = ServerDateTime.getNow();
+            date_modified = ServerTimeHelper.getNow();
             return base.update();
         }
     }

@@ -27,7 +27,7 @@ namespace QuanLyTaiSan.Entities
          * Method of interface
          */
         [NotMapped]
-        private MyDB db = null;
+        protected MyDB db = null;
 
         public virtual int add()
         {
