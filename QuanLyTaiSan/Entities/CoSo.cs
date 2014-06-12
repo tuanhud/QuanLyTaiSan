@@ -14,9 +14,9 @@ namespace QuanLyTaiSan.Entities
     {
         public CoSo():base()
         {
-            this.dayys = new List<Dayy>();
+            this.days = new List<Dayy>();
         }
-        public virtual ICollection<Dayy> dayys { get; set; }
+        public virtual ICollection<Dayy> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
         public override int update()
         {

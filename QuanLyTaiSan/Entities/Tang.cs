@@ -21,7 +21,7 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         [Required]
-        public virtual Dayy dayy { get; set; }
+        public virtual Dayy day { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
     }
 }
