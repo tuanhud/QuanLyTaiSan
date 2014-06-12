@@ -86,7 +86,7 @@ namespace QuanLyTaiSan
             obj = obj.getById(1);
             obj.mota = "WTFWTWFWTWF";
             obj.update();
-            List<Dayy> day = obj.dayys.ToList();
+            List<Dayy> day = obj.days.ToList();
             Console.WriteLine(day[0].date_modified);
         }
     }
