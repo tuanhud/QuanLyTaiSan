@@ -13,7 +13,6 @@ namespace QuanLyTaiSan.Entities
 {
     public abstract class _EntityAbstract2<T> : _EntityAbstract1<T>, _CRUDInterface<T> where T : _EntityAbstract1<T>
     {
-        private MyDB db = null;
         public _EntityAbstract2():base()
         {
             init();
@@ -23,16 +22,8 @@ namespace QuanLyTaiSan.Entities
         {
             init();
         }
-        protected override void init()
-        {
-            //sql server time
-            this.date_create = this.date_modified = ServerTimeHelper.getNow();            
-        }
-        /*
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-         * */
+
+        #region Định nghĩa Entity
         public String subId { get; set; }
         public String ten { get; set; }
         public String mota { get; set; }
@@ -48,7 +39,13 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         public virtual HinhAnh hinhanh { get; set; }
-
+        #endregion
+        #region Nghiệp vụ
+        protected override void init()
+        {
+            //sql server time
+            this.date_create = this.date_modified = ServerTimeHelper.getNow();
+        }
         /*
          * override Method of interface
          */
@@ -63,7 +60,13 @@ namespace QuanLyTaiSan.Entities
         {
             //update datetime
             date_modified = ServerTimeHelper.getNow();
+            //trigger FK Object
+            if (hinhanh != null)
+            {
+                hinhanh.trigger();
+            }
             return base.update();
         }
+        #endregion
     }
 }

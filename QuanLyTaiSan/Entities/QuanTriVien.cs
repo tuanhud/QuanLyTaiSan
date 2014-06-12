@@ -98,14 +98,14 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                //db = new MyDB();
+                initDb();
                 //select doi tuong len
                 QuanTriVien obj = db.QUANTRIVIENS.Where(
                     c => c.username.ToUpper().Equals(username.ToUpper())
                     ).FirstOrDefault();
                 if (obj != null)
                 {
-                    obj.DB = db;
+                    obj.DB = db;//PASSING DB Context
                 }
                 return obj;
             }
@@ -115,11 +115,12 @@ namespace QuanLyTaiSan.Entities
             }
             finally
             {
-                //db.Dispose();
+                
             }
         }
         /// <summary>
         /// Obj phải được load lên trước (có id, password rồi),
+        /// update sẽ được gọi tự động
         /// return
         /// -4: update fail
         /// -3: dữ liệu không hợp lệ,
@@ -150,6 +151,20 @@ namespace QuanLyTaiSan.Entities
             }
             return 1;
         }
+        #endregion
+
+        #region Override method
+        public override int update()
+        {
+            //have to load all FK object first
+            if (group != null)
+            {
+                group.trigger();
+            }
+            //...
+            return base.update();
+        }
+
         #endregion
     }
 }

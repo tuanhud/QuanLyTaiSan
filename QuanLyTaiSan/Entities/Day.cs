@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    [Table("DAYS")]
-    public class Day:_EntityAbstract2<Day>
+    /*
+     * Không thể đặt tên là Day vì trùng class Day của Winform
+     */
+    [Table("DAYYS")]
+    public class Dayy:_EntityAbstract2<Dayy>
     {
-        public Day():base()
+        public Dayy():base()
         {
             
         }

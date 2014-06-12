@@ -23,7 +23,7 @@ namespace QuanLyTaiSan.Entities
         public virtual CoSo coso { get; set; }
 
         [Index("nothing", 2, IsUnique = true)]
-        public virtual Day day { get; set; }
+        public virtual Dayy dayy { get; set; }
 
         [Index("nothing", 3, IsUnique = true)]
         public virtual Tang tang { get; set; }

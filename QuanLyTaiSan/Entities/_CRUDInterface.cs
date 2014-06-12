@@ -13,5 +13,8 @@ namespace QuanLyTaiSan.Entities
         int add();
         int update();
         int delete();
+        void dispose();
+        T reload();
+        void trigger();
     }
 }

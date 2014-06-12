@@ -14,10 +14,13 @@ namespace QuanLyTaiSan.Entities
     {
         public CoSo():base()
         {
-            this.days = new List<Day>();
+            this.dayys = new List<Dayy>();
         }
-        public virtual ICollection<Day> days { get; set; }
+        public virtual ICollection<Dayy> dayys { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
-        
+        public override int update()
+        {
+            return base.update();
+        }
     }
 }

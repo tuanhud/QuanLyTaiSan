@@ -27,7 +27,7 @@ namespace QuanLyTaiSan.Entities
         public DbSet<TinhTrang> TINHTRANGS { get; set; }
         public DbSet<NhanVienPT> NHANVIENPTS { get; set; }
         public DbSet<Tang> TANGS { get; set; }
-        public DbSet<Day> DAYS { get; set; }
+        public DbSet<Dayy> DAYYS { get; set; }
         public DbSet<ViTri> VITRIS { get; set; }
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
 
@@ -113,7 +113,7 @@ namespace QuanLyTaiSan.Entities
                 x.ToTable("TANGS");
             });
 
-            modelBuilder.Entity<Day>().Map(x =>
+            modelBuilder.Entity<Dayy>().Map(x =>
             {
                 x.MapInheritedProperties();
                 x.ToTable("DAYS");
