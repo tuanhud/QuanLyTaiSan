@@ -99,6 +99,12 @@ namespace QuanLyTaiSan
             
             //Console.WriteLine(obj.checkLoginByUserName());
             //Console.WriteLine(obj.checkLoginByUserName());
+            CoSo obj = new CoSo();
+            obj = obj.getById(1);
+            obj.mota = "WTFWTWFWTWF";
+            obj.update();
+            List<Dayy> day = obj.dayys.ToList();
+            Console.WriteLine(day[0].date_modified);
         }
     }
 }
