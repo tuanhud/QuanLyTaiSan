@@ -15,6 +15,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
+        public ViTri(MyDB db)
+            : base(db)
+        {
+
+        }
         public String mota { get; set; }
         /*
          * FK

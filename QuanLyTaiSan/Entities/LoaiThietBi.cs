@@ -14,6 +14,16 @@ namespace QuanLyTaiSan.Entities
     {
         public LoaiThietBi() : base()
         {
+            
+        }
+        public LoaiThietBi(MyDB db)
+            : base(db)
+        {
+            
+        }
+        protected override void init()
+        {
+            base.init();
             this.childs = new List<LoaiThietBi>();
             this.thietbis = new List<ThietBi>();
         }

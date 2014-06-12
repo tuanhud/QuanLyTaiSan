@@ -16,11 +16,30 @@ namespace QuanLyTaiSan.Entities
         {
             this.days = new List<Dayy>();
         }
+        public CoSo(MyDB db)
+            : base(db)
+        {
+            
+        }
+        #region Định nghĩa
         public virtual ICollection<Dayy> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
-        public override int update()
+        #endregion
+        
+
+        #region Nghiệp vụ
+        
+
+        #endregion
+
+        #region Override method
+        protected override void init()
         {
-            return base.update();
+            base.init();
+            days = new List<Dayy>();
+            vitris = new List<ViTri>();
         }
+        #endregion
+
     }
 }

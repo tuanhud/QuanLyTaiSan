@@ -16,6 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        public LogHeThong(MyDB db)
+            : base(db)
+        {
+            
+        }
         
         [Required]
         public DateTime ngay { get; set; }

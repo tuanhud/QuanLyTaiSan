@@ -14,9 +14,18 @@ namespace QuanLyTaiSan.Entities
     {
         public Permission():base()
         {
+            
+        }
+        public Permission(MyDB db)
+            : base(db)
+        {
+            
+        }
+        protected override void init()
+        {
+            base.init();
             this.groups = new List<Group>();
         }
-       
         [Required]
         [Index(IsUnique = true)]
         [StringLength(100)]

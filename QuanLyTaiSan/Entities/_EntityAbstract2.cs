@@ -11,19 +11,23 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    /// <summary>
+    /// Có thêm những thuộc tính nâng cao
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class _EntityAbstract2<T> : _EntityAbstract1<T>, _CRUDInterface<T> where T : _EntityAbstract1<T>
     {
         public _EntityAbstract2():base()
         {
-            init();
+            
         }
         public _EntityAbstract2(MyDB db)
             : base(db)
         {
-            init();
+            
         }
 
-        #region Định nghĩa Entity
+        #region Định nghĩa
         public String subId { get; set; }
         public String ten { get; set; }
         public String mota { get; set; }
@@ -40,9 +44,11 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual HinhAnh hinhanh { get; set; }
         #endregion
-        #region Nghiệp vụ
+
+        #region Override method
         protected override void init()
         {
+            base.init();
             //sql server time
             this.date_create = this.date_modified = ServerTimeHelper.getNow();
         }

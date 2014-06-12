@@ -16,7 +16,16 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        
+        public Tang(MyDB db)
+            : base(db)
+        {
+
+        }
+        protected override void init()
+        {
+            base.init();
+            this.vitris = new List<ViTri>();
+        }
         /*
          * FK
          */

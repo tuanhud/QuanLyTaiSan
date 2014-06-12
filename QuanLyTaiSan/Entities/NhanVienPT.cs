@@ -14,9 +14,18 @@ namespace QuanLyTaiSan.Entities
     {
         public NhanVienPT():base()
         {
-
+            
         }
-        
+        public NhanVienPT(MyDB db)
+            : base(db)
+        {
+            
+        }
+        protected override void init()
+        {
+            base.init();
+            phongs = new List<Phong>();
+        }
         public String subId { get; set; }
         [Required]
         public String hoten { get; set; }

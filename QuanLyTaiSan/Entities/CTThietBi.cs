@@ -16,6 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
+        public CTThietBi(MyDB db)
+            : base(db)
+        {
+            
+        }
 
         [Required]
         public int soluong { get; set; }

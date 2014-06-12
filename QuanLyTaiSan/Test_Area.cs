@@ -26,6 +26,7 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
+            Permission obj = new Permission();
 
             //QuanTriVien obj = new QuanTriVien();
             //obj = obj.getById(2);
@@ -82,12 +83,22 @@ namespace QuanLyTaiSan
             //Console.WriteLine(obj.group.ten);
             //db.SaveChanges();
 
-            CoSo obj = new CoSo();
-            obj = obj.getById(1);
-            obj.mota = "WTFWTWFWTWF";
-            obj.update();
-            List<Dayy> day = obj.days.ToList();
-            Console.WriteLine(day[0].date_modified);
+            //CoSo obj = new CoSo();
+            //obj = obj.getById(1);
+            //obj.mota = "WTFWTWFWTWF";
+            //obj.update();
+            //List<Dayy> day = obj.days.ToList();
+            //Console.WriteLine(day[0].date_modified);
+
+            //QuanTriVien obj = new QuanTriVien();
+            ////obj = obj.getByUserName("admin");
+            ////int re = obj.changePassword("123123","123123");
+
+            //obj.username = "admin";
+            //obj.hashPassword("123123");
+            
+            //Console.WriteLine(obj.checkLoginByUserName());
+            //Console.WriteLine(obj.checkLoginByUserName());
         }
     }
 }

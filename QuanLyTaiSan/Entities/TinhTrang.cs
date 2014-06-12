@@ -20,6 +20,12 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        public TinhTrang(MyDB db)
+            : base(db)
+        {
+            
+        }
+        
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String key { get; set; } //vd:huhong

@@ -16,6 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        public HinhAnh(MyDB db)
+            : base(db)
+        {
+            
+        }
         /*
          * Relative path
          */

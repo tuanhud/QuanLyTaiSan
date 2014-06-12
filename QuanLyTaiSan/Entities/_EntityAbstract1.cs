@@ -10,27 +10,31 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    /// <summary>
+    /// Chỉ bao gồm định nghĩa về id
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class _EntityAbstract1<T> : _CRUDInterface<T> where T : _EntityAbstract1<T>
     {
         public _EntityAbstract1()
         {
-            init();
+            init();//it will call TOP level first
         }
         public _EntityAbstract1(MyDB db)
         {
             this.db = db;
-            init();
+            init();//it will call TOP level first
         }
-        #region Định nghĩa Entity
+        #region Định nghĩa
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         #endregion
         
-        #region Khu vực nghiệp vụ
+        #region Nghiệp vụ
         protected virtual void init()
         {
-
+            
         }
         /*
          * Method of interface
@@ -90,7 +94,7 @@ namespace QuanLyTaiSan.Entities
             {
                 initDb();
                 db.Set<T>().Attach((T)this);
-                //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có FK object khác, mà FK Object  chưa được load ít nhất 1 lần
+                //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
                 db.Entry(this).State = EntityState.Modified;//importance
                 db.SaveChanges();
                 return 1;
@@ -179,6 +183,11 @@ namespace QuanLyTaiSan.Entities
                 db = null;
             }
         }
+        /// <summary>
+        /// Trả về object tương đương object hiện tại (giá trị thuộc tính bị đè bởi CSDL)
+        /// cần phải có id trước
+        /// </summary>
+        /// <returns></returns>
         public virtual T reload()
         {
             try

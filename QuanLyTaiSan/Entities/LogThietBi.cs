@@ -19,6 +19,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        public LogThietBi(MyDB db)
+            : base(db)
+        {
+            
+        }
         
         [Index("nothing", 1, IsUnique = true)]
         public DateTime ngay { get; set; }

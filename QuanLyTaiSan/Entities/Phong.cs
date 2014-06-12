@@ -14,6 +14,16 @@ namespace QuanLyTaiSan.Entities
     {
         public Phong():base()
         {
+            
+        }
+        public Phong(MyDB db)
+            : base(db)
+        {
+            
+        }
+        protected override void init()
+        {
+            base.init();
             this.ctthietbis = new List<CTThietBi>();
         }
         /*

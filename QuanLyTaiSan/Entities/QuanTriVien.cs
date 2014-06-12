@@ -32,6 +32,10 @@ namespace QuanLyTaiSan.Entities
         [StringLength(100)]
         [Required]
         public String username { get; set; }
+        /// <summary>
+        /// 
+        /// Luôn luôn ở dạng Hashed
+        /// </summary>
         [Required]
         public String password { get; set; }
         /*
@@ -50,8 +54,10 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Hàm nghiệp vụ
+        [NotMapped]
+        protected Boolean hashed = false;
         /// <summary>
-        /// id, password thô phải đưa vào trước </summary>
+        /// id, password hashed phải đưa vào trước </summary>
         public Boolean checkLoginById()
         {
             //select doi tuong len
@@ -62,18 +68,26 @@ namespace QuanLyTaiSan.Entities
                 return false;
             }
             //hash password
-            String hash = StringHelper.SHA1_Salt(password);
-            if (hash.ToUpper().Equals(obj.password.ToUpper())
-                ||
-                password.ToUpper().Equals(obj.password.ToUpper())
-                )
+            if (hashed)
             {
-                return true;
+                if (password.ToUpper().Equals(obj.password.ToUpper()))
+                {
+                    return true;
+                }
             }
+            else
+            {
+                String hash = StringHelper.SHA1_Salt(password);
+                if (hash.ToUpper().Equals(obj.password.ToUpper()))
+                {
+                    return true;
+                }
+            }
+            
             return false;
         }
         /// <summary>
-        /// username, password thô phải đưa vào trước </summary>
+        /// username phải đưa vào trước, password đưa vào qua hàm hashPassword </summary>
         public Boolean checkLoginByUserName()
         {
             //select doi tuong len
@@ -84,13 +98,20 @@ namespace QuanLyTaiSan.Entities
                 return false;
             }
             //hash password
-            String hash = StringHelper.SHA1_Salt(password);
-            if (hash.ToUpper().Equals(obj.password.ToUpper())
-                ||
-                password.ToUpper().Equals(obj.password.ToUpper())
-                )
+            if (hashed)
             {
-                return true;
+                if (password.ToUpper().Equals(obj.password.ToUpper()))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                String hash = StringHelper.SHA1_Salt(password);
+                if (hash.ToUpper().Equals(obj.password.ToUpper()))
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -125,7 +146,6 @@ namespace QuanLyTaiSan.Entities
         /// -4: update fail
         /// -3: dữ liệu không hợp lệ,
         /// -1: passConfirm fail,
-        /// -2: user chưa được set password dạng Hash (không thể xác thực)
         ///  >0: thành công
         /// </summary>
         public int changePassword(String newPass, String newPassConfirm)
@@ -138,12 +158,9 @@ namespace QuanLyTaiSan.Entities
             {
                 return -1;
             }
-            if (!checkLoginById())
-            {
-                return -2;
-            }
+            
             //đổi pass
-            password = StringHelper.SHA1_Salt(newPass);
+            hashPassword(newPass);
             //update
             if (update() < 0)
             {
@@ -151,16 +168,27 @@ namespace QuanLyTaiSan.Entities
             }
             return 1;
         }
+        /// <summary>
+        /// Hash password và SET vào this.password
+        /// 
+        /// </summary>
+        /// <param name="raw_pass">Mật khẩu thô</param>
+        public void hashPassword(String raw_pass)
+        {
+            password = StringHelper.SHA1_Salt(raw_pass);
+            hashed = true;
+        }
         #endregion
 
         #region Override method
         public override int update()
         {
-            //have to load all FK object first
+            //have to load all [Required] FK object first
             if (group != null)
             {
                 group.trigger();
             }
+            
             //...
             return base.update();
         }

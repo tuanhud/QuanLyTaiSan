@@ -69,7 +69,7 @@
     <Compile Include="Entities\LoaiThietBi.cs" />
     <Compile Include="Entities\NhanVienPT.cs" />
     <Compile Include="Entities\Tang.cs" />
-    <Compile Include="Entities\Day.cs" />
+    <Compile Include="Entities\Dayy.cs" />
     <Compile Include="Entities\LogThietBi.cs" />
     <Compile Include="Entities\LogHeThong.cs" />
     <Compile Include="Entities\TinhTrang.cs" />
@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.Designer.cs">
       <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406121532241_them_rangbuoc_day_thuoc_coso.cs" />
+    <Compile Include="Migrations\201406121532241_them_rangbuoc_day_thuoc_coso.Designer.cs">
+      <DependentUpon>201406121532241_them_rangbuoc_day_thuoc_coso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.resx">
       <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406121532241_them_rangbuoc_day_thuoc_coso.resx">
+      <DependentUpon>201406121532241_them_rangbuoc_day_thuoc_coso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

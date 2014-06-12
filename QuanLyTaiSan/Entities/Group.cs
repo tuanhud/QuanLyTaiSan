@@ -14,7 +14,7 @@ namespace QuanLyTaiSan.Entities
     {
         public Group():base()
         {
-            init();
+            
         }
         public Group(MyDB db)
             : base(db)
@@ -41,12 +41,12 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual ICollection<Permission> permissions { get; set; }
         public virtual ICollection<QuanTriVien> nhanviens { get; set; }
-        /*
-         * Manual method
-         */
+
+        #region Nghiệp vụ
         public Boolean isHasPermission(Permission obj)
         {
             return obj.isInGroup(this);
         }
+        #endregion
     }
 }

@@ -19,9 +19,21 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
+        public Dayy(MyDB db)
+            : base(db)
+        {
+            
+        }
+        protected override void init()
+        {
+            base.init();
+            vitris = new List<ViTri>();
+            tangs = new List<Tang>();
+        }
         /*
          * FK
          */
+        [Required]
         public virtual CoSo coso { get; set; }
         public virtual ICollection<Tang> tangs { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
