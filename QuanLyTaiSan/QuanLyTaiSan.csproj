@@ -86,6 +86,8 @@
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\MyDB.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
+    <Compile Include="Global\Global.cs" />
+    <Compile Include="Libraries\FTPHelper.cs" />
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />
     <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.cs" />
