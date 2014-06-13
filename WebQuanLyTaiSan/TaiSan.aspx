@@ -9,11 +9,86 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- start: Content -->
-    <div id="content" class="span10">
+    <div id="content" class="span12">
         <div class="row-fluid">
-            <div class="box span6">
+            <div class="box span4">
                 <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Danh sách cơ sở</h2>
+                    <h2><i class="icon-align-justify"></i><span class="break"></span>Sơ đồ trường</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content clearfix">
+                    <menu id="nestable-menu">
+						<button class="btn btn-info" type="button" data-action="expand-all">Mở rộng</button>
+						<button class="btn btn-danger" type="button" data-action="collapse-all">Thu nhỏ</button>
+					</menu>
+					<div class="dd" id="nestable3">
+						<ol class="dd-list">
+							<li class="dd-item dd3-item" data-id="13">
+								<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Cơ sở chính</div>
+								<ol class="dd-list">
+									<li class="dd-item dd3-item" data-id="16">
+										<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Dãy A</div>
+										<ol class="dd-list">
+											<li class="dd-item dd3-item" data-id="16">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.A201</div>
+											</li>
+											<li class="dd-item dd3-item" data-id="17">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.A202</div>
+											</li>
+											<li class="dd-item dd3-item" data-id="18">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.A203</div>
+											</li>
+											<li class="dd-item dd3-item" data-id="18">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.A204</div>
+											</li>
+										</ol>
+									</li>
+									<li class="dd-item dd3-item" data-id="17">
+										<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Dãy B</div>
+										<ol class="dd-list">
+											<li class="dd-item dd3-item" data-id="16">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.B103</div>
+											</li>
+											<li class="dd-item dd3-item" data-id="17">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.B104</div>
+											</li>
+											<li class="dd-item dd3-item" data-id="18">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.B105</div>
+											</li>
+											<li class="dd-item dd3-item" data-id="18">
+												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Phòng C.B106</div>
+											</li>
+										</ol>
+									</li>
+									<li class="dd-item dd3-item" data-id="18">
+										<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Dãy C</div>
+									</li>
+									<li class="dd-item dd3-item" data-id="18">
+										<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Dãy D</div>
+									</li>
+								</ol>
+							</li>
+							<li class="dd-item dd3-item" data-id="14">
+								<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Cơ sở 1</div>
+							</li>
+							<li class="dd-item dd3-item" data-id="15">
+								<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Cơ sở 2</div>
+							</li>
+							<li class="dd-item dd3-item" data-id="15">
+								<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Cơ sở 3</div>
+							</li>							
+						</ol>
+					</div>
+                </div>
+            </div>
+            <!--/span-->
+            <div class="box span8">
+                <div class="box-header">
+                    <h2><i class="icon-align-justify"></i><span class="break"></span>Danh sách thiết bị</h2>
                     <div class="box-icon">
                         <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
                         <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
@@ -24,1147 +99,123 @@
                     <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                         <thead>
                             <tr>
-                                <th>Hình ảnh</th>
-                                <th>Mã cơ sở</th>
-                                <th>Tên cơ sở</th>
-                                <th>Mô tả</th>
+                                <th>Tên thiết bị</th>
+                                <th>Số lượng</th>
+								<th>Loại</th>
+                                <th>Tình trạng</th>
+								<th>Phòng</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="center"><img src="img/avatar2.jpg" /></td>
-                                <td>C</td>
-                                <td>Cơ sở chính</td>
-                                <td>Cơ sở chính: 273 An Dương Vương</td>
+                                <td>Máy chiếu</td>
+								<td>1</td>
+                                <td>Máy chiếu</td>
+								<td><span class="label label-success">Đang sử dụng</span></td>
+								<td>C.A201</td>
                             </tr>
-                            <tr>
-                                <td class="center"><img src="img/avatar3.jpg" /></td>
-                                <td>1</td>
-                                <td>Cơ sở 1</td>
-                                <td>Cơ sở 1: 105 Bà Huyện Thanh Quan</td>
+							<tr>
+                                <td>Màn chiếu</td>
+								<td>1</td>
+                                <td>Màn chiếu</td>
+								<td><span class="label label-success">Đang sử dụng</span></td>
+								<td>C.A201</td>
                             </tr>
-                            <tr>
-                                <td class="center"><img src="img/avatar4.jpg" /></td>
-                                <td>2</td>
-                                <td>Cơ sở 2</td>
-                                <td>Cơ sở 2: 04 Tôn Đức Thằng</td>
+							<tr>
+                                <td>Bàn giáo viên</td>
+								<td>1</td>
+                                <td>Bàn giáo viên</td>
+								<td><span class="label label-success">Đang sử dụng</span></td>
+								<td>C.A201</td>
                             </tr>
-                            <tr>
-                                <td class="center"><img src="img/avatar5.jpg" /></td>
-                                <td>3</td>
-                                <td>Cơ sở 3</td>
-                                <td>Cơ sở 3: 20 Ngô Thời Nhiệm</td>
+							<tr>
+                                <td>Ghế giáo viên</td>
+								<td>1</td>
+                                <td>Ghế giáo viên</td>
+								<td><span class="label label-success">Đang sử dụng</span></td>
+								<td>C.A201</td>
+                            </tr>
+							<tr>
+                                <td>Bàn sinh viên</td>
+								<td>30</td>
+                                <td>Bàn sinh viên</td>
+								<td><span class="label label-success">Đang sử dụng</span></td>
+								<td>C.A201</td>
+                            </tr>
+							<tr>
+                                <td>Bàn sinh viên</td>
+								<td>2</td>
+                                <td>Bàn sinh viên</td>
+								<td><span class="label label-important">Hỏng</span></td>
+								<td>C.A201</td>
+                            </tr>							
+							<tr>
+                                <td>Ghế sinh viên</td>
+								<td>28</td>
+                                <td>Ghế sinh viên</td>
+								<td><span class="label label-success">Đang sử dụng</span></td>
+								<td>C.A201</td>
+                            </tr>							
+							<tr>
+                                <td>Ghế sinh viên</td>
+								<td>4</td>
+                                <td>Ghế sinh viên</td>
+								<td><span class="label label-important">Hỏng</span></td>
+								<td>C.A201</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <!--/span-->
-            <div class="box span6">
-                <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Danh sách Dãy</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
-                        <thead>
-                            <tr>
-                                <th>Hình ảnh</th>
-                                <th>Tên dãy</th>
-                                <th>Mô tả</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="center"><img src="img/avatar2.jpg" /></td>
-                                <td>Dãy A</td>
-                                <td>Dãy A</td>
-                            </tr>
-                            <tr>
-                                <td class="center"><img src="img/avatar3.jpg" /></td>
-                                <td>Dãy B</td>
-                                <td>Dãy B</td>
-                            </tr>
-                            <tr>
-                                <td class="center"><img src="img/avatar4.jpg" /></td>
-                                <td>Dãy C</td>
-                                <td>Dãy C</td>
-                            </tr>
-                            <tr>
-                                <td class="center"><img src="img/avatar5.jpg" /></td>
-                                <td>Dãy D</td>
-                                <td>Dãy D</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!--/span-->
-        </div>
-
-        <div class="row-fluid">
-            <div class="box span12">
-                <div class="box-header" data-original-title="">
-                    <h2><i class="icon-eye-open"></i><span class="break"></span>Danh sách tài sản</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Anton Phunihel</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Alphonse Ivo</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Thancmar Theophanes</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Walerian Khwaja</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Clemens Janko</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Chidubem Gottlob</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hristofor Sergio</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tadhg Griogair</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Pollux Beaumont</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Adam Alister</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Carlito Roffe</td>
-                                <td class="center">2012/08/23</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sana Amrin</td>
-                                <td class="center">2012/08/23</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Adinah Ralph</td>
-                                <td class="center">2012/06/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Dederick Mihail</td>
-                                <td class="center">2012/06/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hipólito András</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Fricis Arieh</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Scottie Maximilian</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bao Gaspar</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tullio Luka</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Felice Arseniy</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Finlay Alf</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Theophilus Nala</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sullivan Robert</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kristóf Filiberto</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kuzma Edvard</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bünyamin Kasper</td>
-                                <td class="center">2012/08/23</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Crofton Arran</td>
-                                <td class="center">2012/08/23</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bernhard Shelah</td>
-                                <td class="center">2012/06/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Grahame Miodrag</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Innokentiy Celio</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kostandin Warinhari</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ajith Hristijan</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        <i class="icon-zoom-in "></i>
-                                    </a>
-                                    <a class="btn btn-info" href="#">
-                                        <i class="icon-edit "></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash "></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!--/span-->
-
-        </div>
-        <!--/row-->
-
-        <div class="row-fluid">
-            <div class="box span6">
-                <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Simple Table</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Samppa Nori</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Estavan Lykos</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Chetan Mohamed</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Derick Maximinus</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Friderik Dávid</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="pagination pagination-centered">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/span-->
-
-            <div class="box span6">
-                <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Striped Table</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Yiorgos Avraamu</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Avram Tarasios</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Quintin Ed</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Enéas Kwadwo</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Agapetus Tadeáš</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="pagination pagination-centered">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/span-->
-        </div>
-        <!--/row-->
-
-        <div class="row-fluid">
-            <div class="box span6">
-                <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Bordered Table</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Pompeius René</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Paĉjo Jadon</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Micheal Mercurius</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ganesha Dubhghall</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hiroto Šimun</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="pagination pagination-centered">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/span-->
-
-            <div class="box span6">
-                <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Condensed Table</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Carwyn Fachtna</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Nehemiah Tatius</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-important">Banned</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ebbe Gemariah</td>
-                                <td class="center">2012/02/01</td>
-                                <td class="center">Admin</td>
-                                <td class="center">
-                                    <span class="label">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Eustorgios Amulius</td>
-                                <td class="center">2012/03/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Leopold Gáspár</td>
-                                <td class="center">2012/01/21</td>
-                                <td class="center">Staff</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="pagination pagination-centered">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--/span-->
-
-        </div>
-        <!--/row-->
-
-        <div class="row-fluid">
-            <div class="box span12">
-                <div class="box-header">
-                    <h2><i class="icon-align-justify"></i><span class="break"></span>Combined All Table</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        Combined All Table</h2>
-                    <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                    </div>
-                    </div>
-                    <div class="box-content">
-                        <table class="table table-bordered table-striped table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>
-                                    Username               
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Vishnu Serghei</td>
-                                    <td class="center">2012/01/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Zbyněk Phoibos</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-important">Banned</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Einar Randall</td>
-                                    <td class="center">2012/02/01</td>
-                                    <td class="center">Admin</td>
-                                    <td class="center">
-                                        <span class="label">Inactive</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Félix Troels</td>
-                                    <td class="center">2012/03/01</td>
-                                    <td class="center">Member</td>
-                                    <td class="center">
-                                        <span class="label label-warning">Pending</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Aulus Agmundr</td>
-                                    <td class="center">2012/01/21</td>
-                                    <td class="center">Staff</td>
-                                    <td class="center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="pagination pagination-centered">
-                            <ul>
-                                <li><a href="#">Prev</a></li>
-                                <li class="active">
-                                    <a href="#">1</a>
-                                </li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--/span-->
-            </div>
-            <!--/row-->
         </div>
     </div>
     <!-- end: Content -->
+	<script>
+		$(document).ready(function()
+		{
+
+			var updateOutput = function(e)
+			{
+				var list   = e.length ? e : $(e.target),
+					output = list.data('output');
+				if (window.JSON) {
+					output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+				} else {
+					output.val('JSON browser support required for this demo.');
+				}
+			};
+
+			// activate Nestable for list 1
+			$('#nestable').nestable({
+				group: 1
+			})
+			.on('change', updateOutput);
+			
+			// activate Nestable for list 2
+			$('#nestable2').nestable({
+				group: 1
+			})
+			.on('change', updateOutput);
+
+			// output initial serialised data
+			updateOutput($('#nestable').data('output', $('#nestable-output')));
+			updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+
+			$('#nestable-menu').on('click', function(e)
+			{
+				var target = $(e.target),
+					action = target.data('action');
+				if (action === 'expand-all') {
+					alert('sasa');
+					$('.dd').nestable('expandAll');
+				}
+				if (action === 'collapse-all') {
+					$('.dd').nestable('collapseAll');
+				}
+			});
+
+			$('#nestable3').nestable();
+
+		});
+	</script>
 </asp:Content>
