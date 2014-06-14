@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyTaiSan", "QuanLyTaiSa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebQuanLyTaiSan", "WebQuanLyTaiSan\WebQuanLyTaiSan.csproj", "{22802F67-CA57-4B2C-80DB-A71B073281BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyTaiSanGUI", "QuanLyTaiSanGUI\QuanLyTaiSanGUI.csproj", "{3270269A-0084-40B9-807D-91D29C3F5444}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{22802F67-CA57-4B2C-80DB-A71B073281BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22802F67-CA57-4B2C-80DB-A71B073281BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22802F67-CA57-4B2C-80DB-A71B073281BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3270269A-0084-40B9-807D-91D29C3F5444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3270269A-0084-40B9-807D-91D29C3F5444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3270269A-0084-40B9-807D-91D29C3F5444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3270269A-0084-40B9-807D-91D29C3F5444}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
