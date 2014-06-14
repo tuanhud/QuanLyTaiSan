@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace WebQuanLyTaiSan
 {
-    public partial class Main : System.Web.UI.MasterPage
+    public partial class NhanVien : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Convert.ToString(Page.Session["Username"]) != "admin")
-            {
-                Response.Redirect("DangNhap.aspx");
-            }
+
         }
     }
 }

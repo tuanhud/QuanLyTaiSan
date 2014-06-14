@@ -552,7 +552,7 @@
             <!--/span-->
         </div>
         <div class="row-fluid">
-            <div class="span7" ontablet="span12" ondesktop="span7">
+            <div class="span8" ontablet="span12" ondesktop="span8">
                 <div class="row-fluid">
                     <div class="box calendar span12">
                         <div class="calendar-details">
@@ -572,8 +572,11 @@
                     </div>
                     <!--/span-->
                 </div>
-                <div class="row-fluid">
-                    <div class="span6 smallchart blue box mobileHalf">
+            </div>
+
+            <div class="span4" ontablet="span12" ondesktop="span4">
+				<div class="row-fluid">
+                    <div class="span12 smallchart blue box mobileHalf">
                         <div class="title">Số tiền trong tài khoản</div>
                         <div class="content">
                             <div class="chart-stat">
@@ -582,7 +585,9 @@
                         </div>
                         <div class="value">1.000.000.000 Đ</div>
                     </div>
-                    <div class="span6 smallchart red box mobileHalf">
+                </div>
+				<div class="row-fluid">
+					<div class="span12 smallchart red box mobileHalf">
                         <div class="title">Số tiền chi hàng tuần</div>
                         <div class="content">
                             <div class="chart-stat">
@@ -591,10 +596,8 @@
                         </div>
                         <div class="value">8.213.200 Đ</div>
                     </div>
-                </div>
-            </div>
-
-            <div class="box chat alt span5 noMargin" ontablet="span12" ondesktop="span5">
+				</div>
+				<!--
                 <div class="contacts">
                     <ul class="list">
                         <li>
@@ -656,19 +659,19 @@
                     <div class="form">
                         <input type="text" class="write-message" placeholder="Write Message" />
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="row-fluid">
-            <div class="box span8" ontablet="span12" ondesktop="span8">
+            <div class="box span12" ontablet="span12" ondesktop="span12">
                 <div class="box-header">
-                    <h2>tickets</h2>
+                    <h2>Thống kê yêu cầu hỗ trợ theo từng tháng năm 2014</h2>
                 </div>
                 <div class="box-content" style="height: 308px">
                     <div id="stats-chart2" class="span12" style="height: 308px"></div>
                 </div>
             </div>
-            <div class="box span4 noMargin" ontablet="span12" ondesktop="span4">
+            <!--<div class="box span4 noMargin" ontablet="span12" ondesktop="span4">
                 <div class="box-header">
                     <h2><i class="icon-check"></i>To Do List</h2>
                     <div class="box-icon">
@@ -739,9 +742,9 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
-        <div class="row-fluid">
+        <!--<div class="row-fluid">
             <div class="span12 discussions">
                 <ul>
                     <li>
@@ -834,6 +837,6 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- end: Content -->
 </asp:Content>

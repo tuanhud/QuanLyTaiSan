@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3270269A-0084-40B9-807D-91D29C3F5444}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyTaiSanGUI</RootNamespace>
+    <AssemblyName>QuanLyTaiSanGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDataSet\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmChuyen.Designer.cs">
+      <DependentUpon>frmChuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewCoSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewCoSo.Designer.cs">
+      <DependentUpon>frmNewCoSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewDay.Designer.cs">
+      <DependentUpon>frmNewDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewLoaiThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewLoaiThietBi.Designer.cs">
+      <DependentUpon>frmNewLoaiThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewPhong.Designer.cs">
+      <DependentUpon>frmNewPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewTang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewTang.Designer.cs">
+      <DependentUpon>frmNewTang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewThietBi.Designer.cs">
+      <DependentUpon>frmNewThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmNewThongTinThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmNewThongTinThietBi.Designer.cs">
+      <DependentUpon>frmNewThongTinThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ucChiTietPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucChiTietPhong.Designer.cs">
+      <DependentUpon>ucChiTietPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ucChiTietThietBi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucChiTietThietBi.Designer.cs">
+      <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxPhong.Designer.cs">
+      <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ucKhac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucKhac.Designer.cs">
+      <DependentUpon>ucKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ucQuanLyPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucQuanLyPhong.Designer.cs">
+      <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RibbonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RibbonForm1.Designer.cs">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MyForm\frmChuyen.resx">
+      <DependentUpon>frmChuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewCoSo.resx">
+      <DependentUpon>frmNewCoSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewDay.resx">
+      <DependentUpon>frmNewDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewLoaiThietBi.resx">
+      <DependentUpon>frmNewLoaiThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewPhong.resx">
+      <DependentUpon>frmNewPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewTang.resx">
+      <DependentUpon>frmNewTang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewThietBi.resx">
+      <DependentUpon>frmNewThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmNewThongTinThietBi.resx">
+      <DependentUpon>frmNewThongTinThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucChiTietPhong.resx">
+      <DependentUpon>ucChiTietPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucChiTietThietBi.resx">
+      <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucComboBoxPhong.resx">
+      <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucQuanLyPhong.resx">
+      <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RibbonForm1.resx">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MyDataSet\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MyDataSet\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MyDataSet\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyTaiSan\QuanLyTaiSan.csproj">
+      <Project>{3a9615f6-7f5b-4e10-ba63-b46b4cc00de1}</Project>
+      <Name>QuanLyTaiSan</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
