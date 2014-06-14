@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TaiSan.aspx.cs" Inherits="WebQuanLyTaiSan.TaiSan" %>
 
-<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
-
-<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Danh sách tài sản :: Quản lý tài sản</title>
 </asp:Content>
@@ -100,6 +96,7 @@
                         <thead>
                             <tr>
                                 <th>Tên thiết bị</th>
+								<th>Hình ảnh</th>
                                 <th>Số lượng</th>
 								<th>Loại</th>
                                 <th>Tình trạng</th>
@@ -109,6 +106,7 @@
                         <tbody>
                             <tr>
                                 <td>Máy chiếu</td>
+								<td style="text-align:center;"><img src="img/taisan/maychieu.jpg" /></td>
 								<td>1</td>
                                 <td>Máy chiếu</td>
 								<td><span class="label label-success">Đang sử dụng</span></td>
@@ -116,6 +114,7 @@
                             </tr>
 							<tr>
                                 <td>Màn chiếu</td>
+								<td style="text-align:center;"><img src="img/taisan/manchieu.jpg" /></td>
 								<td>1</td>
                                 <td>Màn chiếu</td>
 								<td><span class="label label-success">Đang sử dụng</span></td>
@@ -123,6 +122,7 @@
                             </tr>
 							<tr>
                                 <td>Bàn giáo viên</td>
+								<td style="text-align:center;"><img src="img/taisan/bangiaovien.jpg" /></td>
 								<td>1</td>
                                 <td>Bàn giáo viên</td>
 								<td><span class="label label-success">Đang sử dụng</span></td>
@@ -130,6 +130,7 @@
                             </tr>
 							<tr>
                                 <td>Ghế giáo viên</td>
+								<td style="text-align:center;"><img src="img/taisan/ghegiaovien.jpg" /></td>
 								<td>1</td>
                                 <td>Ghế giáo viên</td>
 								<td><span class="label label-success">Đang sử dụng</span></td>
@@ -137,6 +138,7 @@
                             </tr>
 							<tr>
                                 <td>Bàn sinh viên</td>
+								<td style="text-align:center;"><img src="img/taisan/bansinhvien.jpg" /></td>
 								<td>30</td>
                                 <td>Bàn sinh viên</td>
 								<td><span class="label label-success">Đang sử dụng</span></td>
@@ -144,6 +146,7 @@
                             </tr>
 							<tr>
                                 <td>Bàn sinh viên</td>
+								<td style="text-align:center;"><img src="img/taisan/bansinhvien.jpg" /></td>
 								<td>2</td>
                                 <td>Bàn sinh viên</td>
 								<td><span class="label label-important">Hỏng</span></td>
@@ -151,6 +154,7 @@
                             </tr>							
 							<tr>
                                 <td>Ghế sinh viên</td>
+								<td style="text-align:center;"><img src="img/taisan/ghesinhvien.jpg" /></td>
 								<td>28</td>
                                 <td>Ghế sinh viên</td>
 								<td><span class="label label-success">Đang sử dụng</span></td>
@@ -158,6 +162,7 @@
                             </tr>							
 							<tr>
                                 <td>Ghế sinh viên</td>
+								<td style="text-align:center;"><img src="img/taisan/ghesinhvien.jpg" /></td>
 								<td>4</td>
                                 <td>Ghế sinh viên</td>
 								<td><span class="label label-important">Hỏng</span></td>

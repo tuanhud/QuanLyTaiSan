@@ -11,10 +11,10 @@ namespace WebQuanLyTaiSan
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Convert.ToString(Page.Session["Username"]) != "admin")
+            if (Convert.ToString(Page.Session["Username"]) != "admin")
             {
                 Response.Redirect("DangNhap.aspx");
-            }*/
+            }
         }
     }
 }

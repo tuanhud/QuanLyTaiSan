@@ -35,22 +35,22 @@
 							<td style="text-align:center;"><span class="label label-success">Đang làm</span></td>
 						</tr>
 						<tr>
-							<td style="text-align:center;"><img src = "img/avatar2.jpg" /></td>
-							<th>Nguyễn Hoàng Thanh</th>
+							<td style="text-align:center;"><img src = "img/avatar3.jpg" /></td>
+							<th>Nguyễn Quốc Dũng</th>
 							<td>01694466134</td>
 							<th>22-03-2013</th>
 							<td style="text-align:center;"><span class="label label-success">Đang làm</span></td>
 						</tr>
 						<tr>
-							<td style="text-align:center;"><img src = "img/avatar2.jpg" /></td>
-							<th>Nguyễn Hoàng Thanh</th>
+							<td style="text-align:center;"><img src = "img/avatar4.jpg" /></td>
+							<th>Huỳnh Công Khánh</th>
 							<td>01694466134</td>
 							<th>22-03-2013</th>
 							<td style="text-align:center;"><span class="label label-success">Đang làm</span></td>
 						</tr>
 						<tr>
-							<td style="text-align:center;"><img src = "img/avatar2.jpg" /></td>
-							<th>Nguyễn Hoàng Thanh</th>
+							<td style="text-align:center;"><img src = "img/avatar5.jpg" /></td>
+							<th>Vương Xương Nhơn</th>
 							<td>01694466134</td>
 							<th>22-03-2013</th>
 							<td style="text-align:center;"><span class="label label-success">Đang làm</span></td>
