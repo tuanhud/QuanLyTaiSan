@@ -11,13 +11,14 @@ using DevExpress.XtraBars;
 using QuanLyTaiSanGUI.MyUserControl;
 using DevExpress.XtraGrid.Columns;
 using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 
 namespace QuanLyTaiSanGUI
 {
     public partial class RibbonForm1 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         ucQuanLyPhong uc = new ucQuanLyPhong();
-        //ucChiTietPhong uc2 = new ucChiTietPhong();
+        ucQuanLyCoSo uc2 = new ucQuanLyCoSo();
         ucKhac uck = new ucKhac();
         public RibbonForm1()
         {
@@ -123,6 +124,12 @@ namespace QuanLyTaiSanGUI
                 uck.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(uck);
+            }
+            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroup5"))
+            {
+                uc2.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                panelControl1.Controls.Add(uc2);
             }
             else
             {

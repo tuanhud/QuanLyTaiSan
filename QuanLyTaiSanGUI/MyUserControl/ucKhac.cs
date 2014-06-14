@@ -16,5 +16,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             InitializeComponent();
         }
+
+        private void ucKhac_Load(object sender, EventArgs e)
+        {
+            this.dAYSTableAdapter.Fill(this.dataSet1.DAYS);
+            this.cOSOSTableAdapter.Fill(this.dataSet1.COSOS);
+            this.lOAITHIETBISTableAdapter.Fill(this.dataSet1.LOAITHIETBIS);
+        }
     }
 }

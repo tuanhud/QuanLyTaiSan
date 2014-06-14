@@ -160,8 +160,6 @@
             this.coltenloai.Caption = "Loại";
             this.coltenloai.FieldName = "tenloai";
             this.coltenloai.Name = "coltenloai";
-            this.coltenloai.Visible = true;
-            this.coltenloai.VisibleIndex = 1;
             this.coltenloai.Width = 323;
             // 
             // coltinhtrang
@@ -179,7 +177,7 @@
             this.colsoluong.FieldName = "soluong";
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.Visible = true;
-            this.colsoluong.VisibleIndex = 2;
+            this.colsoluong.VisibleIndex = 1;
             this.colsoluong.Width = 202;
             // 
             // coltenphong
