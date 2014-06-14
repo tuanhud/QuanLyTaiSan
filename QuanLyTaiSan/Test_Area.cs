@@ -1,4 +1,5 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,12 @@ namespace QuanLyTaiSan
             InitializeComponent();
 
 
+            QuanTriVienFilter obj = new QuanTriVienFilter();
+            List<QuanTriVienFilter> list = obj.getAll();
 
+
+            dataGridView1.DataSource = list;
             
-
-
-
 
 
 
