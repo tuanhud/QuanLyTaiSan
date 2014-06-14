@@ -30,6 +30,7 @@ namespace QuanLyTaiSan.Entities
         
         public String ten { get; set; }
         public String mota { get; set; }
+        public Boolean loaichung { get; set; }
         /*
          * Ngay record insert vao he thong 
          */

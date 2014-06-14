@@ -29,6 +29,7 @@ namespace QuanLyTaiSan.Entities
         public DateTime ngay { get; set; }
         [Required]
         public int soluong { get; set; }
+        public String mota { get; set; }
         /*
          * FK
          */

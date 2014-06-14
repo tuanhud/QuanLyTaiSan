@@ -26,7 +26,20 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
-            Permission obj = new Permission();
+
+
+
+            
+
+
+
+
+
+
+
+
+
+            //Permission obj = new Permission();
 
             //QuanTriVien obj = new QuanTriVien();
             //obj = obj.getById(2);
