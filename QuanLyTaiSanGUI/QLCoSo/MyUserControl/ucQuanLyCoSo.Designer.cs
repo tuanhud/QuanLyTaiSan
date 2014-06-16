@@ -86,10 +86,12 @@
             this.treeListViTri.KeyFieldName = "id";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
+            this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.PopulateServiceColumns = true;
             this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.Size = new System.Drawing.Size(429, 471);
             this.treeListViTri.TabIndex = 0;
+            this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             // 
             // colid
             // 
@@ -138,6 +140,7 @@
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 10;
             this.btnImage.Text = "Chọn";
+            this.btnImage.Visible = false;
             // 
             // btnHuy
             // 
@@ -146,6 +149,7 @@
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Visible = false;
             // 
             // btnOK
             // 
@@ -154,12 +158,14 @@
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
+            this.btnOK.Visible = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // panelControl1
             // 
             this.panelControl1.Location = new System.Drawing.Point(58, 182);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(150, 20);
+            this.panelControl1.Size = new System.Drawing.Size(200, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // labelControl4
@@ -205,16 +211,22 @@
             // 
             // txtTen
             // 
+            this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTen.Location = new System.Drawing.Point(58, 156);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(195, 20);
+            this.txtTen.Properties.ReadOnly = true;
+            this.txtTen.Size = new System.Drawing.Size(214, 20);
             this.txtTen.TabIndex = 0;
             // 
             // txtMoTa
             // 
+            this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoTa.Location = new System.Drawing.Point(58, 208);
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(195, 106);
+            this.txtMoTa.Properties.ReadOnly = true;
+            this.txtMoTa.Size = new System.Drawing.Size(214, 106);
             this.txtMoTa.TabIndex = 1;
             this.txtMoTa.UseOptimizedRendering = true;
             // 

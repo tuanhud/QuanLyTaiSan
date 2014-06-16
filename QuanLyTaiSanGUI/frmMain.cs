@@ -18,8 +18,8 @@ namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        ucQuanLyPhong uc = new ucQuanLyPhong();
-        ucQuanLyCoSo ucCoSo = new ucQuanLyCoSo();
+        ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
+        ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucKhac uck = new ucKhac();
         public frmMain()
@@ -31,9 +31,9 @@ namespace QuanLyTaiSanGUI
         {
             // TODO: This line of code loads data into the 'dataSet1.PHONGS' table. You can move, or remove it, as needed.
             this.pHONGSTableAdapter.FillBy(this.dataSet1.PHONGS);
-            uc.Dock = DockStyle.Fill;
-            panelControl1.Controls.Add(uc);
-            uc.LoadDataSet(-1, -1, -1,-1);
+            _ucQuanLyPhong.Dock = DockStyle.Fill;
+            panelControl1.Controls.Add(_ucQuanLyPhong);
+            _ucQuanLyPhong.LoadDataSet(-1, -1, -1, -1);
             //uc2.Dock = DockStyle.Fill;
             //uc.AddControl(uc2);
             
@@ -60,25 +60,25 @@ namespace QuanLyTaiSanGUI
                         _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj3.ToString()));
                         _obj2id = Convert.ToInt32(this.daysTableAdapter1.ScalarQuery(obj2.ToString(), _objid));
                         _obj3id = Convert.ToInt32(this.tangsTableAdapter1.ScalarQuery(obj.ToString(), _obj2id));
-                        uc.LoadDataSet(_objid, _obj2id, _obj3id, -1);
+                        _ucQuanLyPhong.LoadDataSet(_objid, _obj2id, _obj3id, -1);
                     }
                     else
                     {
                         _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj2.ToString()));
                         _obj2id = Convert.ToInt32(this.daysTableAdapter1.ScalarQuery(obj.ToString(), _objid));
-                        uc.LoadDataSet(_objid, _obj2id, -1, -1);
+                        _ucQuanLyPhong.LoadDataSet(_objid, _obj2id, -1, -1);
                     }
                 }
                 else
                 {
                     _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj.ToString()));
-                    uc.LoadDataSet(_objid, -1, -1, -1);
+                    _ucQuanLyPhong.LoadDataSet(_objid, -1, -1, -1);
                 }
             }
             else
             {
                 int _id = Convert.ToInt32(gridViewPhong.GetFocusedRowCellValue(colid));
-                uc.LoadDataSet(-1, -1, -1, _id);
+                _ucQuanLyPhong.LoadDataSet(-1, -1, -1, _id);
             }
         }
 
@@ -118,9 +118,9 @@ namespace QuanLyTaiSanGUI
             {
                 rbnPageViTri_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageViTri_Home;
-                ucCoSo.Dock = DockStyle.Fill;
+                _ucQuanLyCoSo.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
-                panelControl1.Controls.Add(ucCoSo);
+                panelControl1.Controls.Add(_ucQuanLyCoSo);
             }
             else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupNhanVien"))
             {
@@ -135,9 +135,9 @@ namespace QuanLyTaiSanGUI
             {
                 rbnPagePhong_Home.Visible = true;
                 ribbon.SelectedPage = rbnPagePhong_Home;
-                uc.Dock = DockStyle.Fill;
+                _ucQuanLyPhong.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
-                panelControl1.Controls.Add(uc);
+                panelControl1.Controls.Add(_ucQuanLyPhong);
             }
         }
 
@@ -152,6 +152,21 @@ namespace QuanLyTaiSanGUI
         {
             frmChuyen frm = new frmChuyen();
             frm.ShowDialog();
+        }
+
+        private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true);
+        }
+
+        private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true);
+        }
+
+        private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true);
         }
     }
 }
