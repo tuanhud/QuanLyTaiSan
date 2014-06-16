@@ -29,9 +29,6 @@ namespace QuanLyTaiSan.Entities
         public String subId { get; set; }
         [Required]
         public String hoten { get; set; }
-        [Index(IsUnique = true)]
-        [StringLength(100)]
-        public HinhAnh hinh { get; set; }
         public String sodienthoai { get; set; }
         /*
          * Ngay record insert vao he thong 
@@ -45,5 +42,6 @@ namespace QuanLyTaiSan.Entities
          * FK 
          */
         public virtual ICollection<Phong> phongs { get; set; }
+        public virtual ICollection<HinhAnh> hinhanhs { get; set; }
     }
 }

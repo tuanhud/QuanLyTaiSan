@@ -98,6 +98,52 @@ namespace QuanLyTaiSan.Entities
                 }
 
             }
+            public static class http_host
+            {
+                private static String host_name = null;
+                public static String HOST_NAME
+                {
+                    get
+                    {
+                        if (host_name == null)
+                        {
+                            //load from DB
+                            host_name = "ftp://ts.hoangthanhit.com";
+                        }
+                        return host_name;
+                    }
+                }
+
+                private static String pre_path = null;
+                /// <summary>
+                /// Đường dẫn đến thư mục hình trên HOST,
+                /// (Đường dẫn tuyệt đối)
+                /// </summary>
+                public static String PRE_PATH
+                {
+                    get
+                    {
+                        if (pre_path == null)
+                        {
+                            //load from DB
+                            pre_path = "/_hinhanh/";
+                        }
+                        return pre_path;
+                    }
+                }
+                /// <summary>
+                /// Kiểm tra thông tin HTTP đã được load đầy đủ
+                /// </summary>
+                public static Boolean IS_READY
+                {
+                    get
+                    {
+                        //force to get all
+                        return true;
+                    }
+                }
+
+            }
         }
     }
 }

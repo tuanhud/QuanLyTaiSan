@@ -31,9 +31,22 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(255)]
         public String path { get; set; }
+        /*
+         * FK
+         */
+        public virtual Tang tang { get; set; }
+        public virtual CoSo coso { get; set; }
+        public virtual Dayy day { get; set; }
+        public virtual NhanVienPT nhanvienpt { get; set; }
+        public virtual Phong phong { get; set; }
+        public virtual ThietBi thietbi { get; set; }
 
         #region Nghiệp vụ
+        [NotMapped]
+        protected Bitmap cached_image=null;
+        [NotMapped]
         protected static String cache_path;
+        [NotMapped]
         public static String CACHE_PATH
         {
             get
@@ -48,29 +61,28 @@ namespace QuanLyTaiSan.Entities
         /// Global.remote_setting.ftp_host
         /// </summary>
         /// <returns>null: Chưa load được tài khoản FTP, hình không tồn tại</returns>
-        public Bitmap getImage()
+        public Bitmap getImage() 
         {
             //check cached first
-            //...
+            if (cached_image != null)
+            {
+                return cached_image;
+            }
 
-            //get ftp info from Global
-            if (!Global.remote_setting.ftp_host.IS_READY)
+            //get http info from Global
+            if (!Global.remote_setting.http_host.IS_READY)
             {
                 return null;
             }
             //build abs path
-            String abs_path = Path.Combine(
-                Global.remote_setting.ftp_host.PRE_PATH,
-                this.path
-                );
+            String abs_path =
+                Global.remote_setting.http_host.HOST_NAME +
+                Global.remote_setting.http_host.PRE_PATH +
+                this.path;
 
             //stream image from host via FTPHelper
-            Bitmap re = FTPHelper.getImage(
-                Global.remote_setting.ftp_host.HOST_NAME,
-                Global.remote_setting.ftp_host.USER_NAME,
-                Global.remote_setting.ftp_host.PASS_WORD,
-                abs_path
-                );
+            Bitmap re = HTTPHelper.getImage(abs_path);
+            this.cached_image = re;
             //finish
             return re;
         }

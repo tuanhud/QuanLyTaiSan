@@ -89,6 +89,8 @@
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Global\Global.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
+    <Compile Include="Libraries\HTTPHelper.cs" />
+    <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />
     <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.cs" />
@@ -110,6 +112,10 @@
     <Compile Include="Migrations\201406140633592_them_mota_loaichung_loairieng.cs" />
     <Compile Include="Migrations\201406140633592_them_mota_loaichung_loairieng.Designer.cs">
       <DependentUpon>201406140633592_them_mota_loaichung_loairieng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.cs" />
+    <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.Designer.cs">
+      <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
     </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406140633592_them_mota_loaichung_loairieng.resx">
       <DependentUpon>201406140633592_them_mota_loaichung_loairieng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.resx">
+      <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
