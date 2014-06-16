@@ -36,73 +36,102 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void CreateNodes(TreeList tl)
         {
-            tl.BeginUnboundLoad();
-            // Create a root node .
-            TreeListNode parentForRootNodes = null;
-            listCoSos = new CoSo().getAll();
-            foreach (CoSo _coso in listCoSos)
+            try
             {
-                TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
-                // Create a child of the rootNode
-                listDays = _coso.days.ToList();
-                foreach (Dayy _day in listDays)
+                tl.BeginUnboundLoad();
+                // Create a root node .
+                TreeListNode parentForRootNodes = null;
+                listCoSos = new CoSo().getAll();
+                foreach (CoSo _coso in listCoSos)
                 {
-                    TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
                     // Create a child of the rootNode
-                    listTangs = _day.tangs.ToList();
-                    foreach (Tang _tang in listTangs)
+                    listDays = _coso.days.ToList();
+                    foreach (Dayy _day in listDays)
                     {
-                        tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
-                        // Creating more nodes
-                        // ...
+                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                        // Create a child of the rootNode
+                        listTangs = _day.tangs.ToList();
+                        foreach (Tang _tang in listTangs)
+                        {
+                            tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                            // Creating more nodes
+                            // ...
+                        }
                     }
                 }
+                tl.EndUnboundLoad();
             }
-            tl.EndUnboundLoad();
+            catch (Exception ex)
+            { }
+            finally
+            { }
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
-            if (e.Node != null)
+            try
             {
-                if (e.Node.GetValue(2).ToString().Equals("coso"))
+                if (e.Node != null)
                 {
-                    CoSo objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
-                    txtTen.Text = objCoSo.ten;
-                    txtMoTa.Text = objCoSo.mota;
-                    panelControl1.Controls.Clear();
-                    LabelControl lbl = new LabelControl();
-                    lbl.Text = "Đại học Sài Gòn";
-                    lbl.Dock = DockStyle.Left;
-                    panelControl1.Controls.Add(lbl);
-                    type = "coso";
-                }
-                else if (e.Node.GetValue(2).ToString().Equals("day"))
-                {
-                    panelControl1.Controls.Clear();
+                    if (e.Node.GetValue(2).ToString().Equals("coso"))
+                    {
+                        CoSo objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        txtTen.Text = objCoSo.ten;
+                        txtMoTa.Text = objCoSo.mota;
+                        panelControl1.Controls.Clear();
+                        LabelControl lbl = new LabelControl();
+                        lbl.Text = "Đại học Sài Gòn";
+                        lbl.Dock = DockStyle.Left;
+                        panelControl1.Controls.Add(lbl);
+                        type = "coso";
+                        if (this.ParentForm != null)
+                        {
+                            frmMain frm = (frmMain)this.ParentForm;
+                            frm.enableGroupViTri(true, false);
+                        }
+                    }
+                    else if (e.Node.GetValue(2).ToString().Equals("day"))
+                    {
+                        panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucTreeViTri);
-                    Dayy objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
-                    txtTen.Text = objDay.ten;
-                    txtMoTa.Text = objDay.mota;
-                    ViTri objViTri = new ViTri();
-                    objViTri.coso = objDay.coso;
-                    _ucTreeViTri.setViTri(objViTri);
-                    type = "day";
-                }
-                else if (e.Node.GetValue(2).ToString().Equals("tang"))
-                {
-                    panelControl1.Controls.Clear();
+                        Dayy objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        txtTen.Text = objDay.ten;
+                        txtMoTa.Text = objDay.mota;
+                        ViTri objViTri = new ViTri();
+                        objViTri.coso = objDay.coso;
+                        _ucTreeViTri.setViTri(objViTri);
+                        type = "day";
+                        if (this.ParentForm != null)
+                        {
+                            frmMain frm = (frmMain)this.ParentForm;
+                            frm.enableGroupViTri(true, true);
+                        }
+                    }
+                    else if (e.Node.GetValue(2).ToString().Equals("tang"))
+                    {
+                        panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucTreeViTri);
-                    Tang objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
-                    txtTen.Text = objTang.ten;
-                    txtMoTa.Text = objTang.mota;
-                    ViTri objViTri = new ViTri();
-                    objViTri.day = objTang.day;
-                    objViTri.coso = objTang.day.coso;
-                    _ucTreeViTri.setViTri(objViTri);
-                    type = "tang";
+                        Tang objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        txtTen.Text = objTang.ten;
+                        txtMoTa.Text = objTang.mota;
+                        ViTri objViTri = new ViTri();
+                        objViTri.day = objTang.day;
+                        objViTri.coso = objTang.day.coso;
+                        _ucTreeViTri.setViTri(objViTri);
+                        type = "tang";
+                        if (this.ParentForm != null)
+                        {
+                            frmMain frm = (frmMain)this.ParentForm;
+                            frm.enableGroupViTri(true, true);
+                        }
+                    }
                 }
             }
+            catch (Exception ex)
+            { }
+            finally
+            { }
         }
 
         public void enableEdit(bool _enable)

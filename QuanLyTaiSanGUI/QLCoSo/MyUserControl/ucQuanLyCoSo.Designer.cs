@@ -78,6 +78,8 @@
             // 
             // treeListViTri
             // 
+            this.treeListViTri.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.treeListViTri.Appearance.FocusedCell.Options.UseBackColor = true;
             this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,

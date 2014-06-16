@@ -30,55 +30,68 @@ namespace QuanLyTaiSanGUI.MyUC
         }
         private void CreateNodes(TreeList tl)
         {
-            tl.BeginUnboundLoad();
-            // Create a root node .
-            TreeListNode parentForRootNodes = null;
-            listCoSos = new CoSo().getAll();
-            foreach (CoSo _coso in listCoSos)
+            try
             {
-                TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
-                // Create a child of the rootNode
-                listDays = _coso.days.ToList();
-                foreach (Dayy _day in listDays)
+                tl.BeginUnboundLoad();
+                // Create a root node .
+                TreeListNode parentForRootNodes = null;
+                listCoSos = new CoSo().getAll();
+                foreach (CoSo _coso in listCoSos)
                 {
-                    TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
-                    if (haveTang)
+                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
+                    // Create a child of the rootNode
+                    listDays = _coso.days.ToList();
+                    foreach (Dayy _day in listDays)
                     {
-                        // Create a child of the rootNode
-                        listTangs = _day.tangs.ToList();
-                        foreach (Tang _tang in listTangs)
+                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                        if (haveTang)
                         {
-                            tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
-                            // Creating more nodes
-                            // ...
+                            // Create a child of the rootNode
+                            listTangs = _day.tangs.ToList();
+                            foreach (Tang _tang in listTangs)
+                            {
+                                tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                                // Creating more nodes
+                                // ...
+                            }
                         }
                     }
                 }
+                tl.EndUnboundLoad();
             }
-            tl.EndUnboundLoad();
+            catch (Exception ex)
+            { }
+            finally
+            { }
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
-            if (e.Node.GetValue(2).ToString().Equals("coso"))
+            try
             {
-                popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                idCoSo = Convert.ToInt32(e.Node.GetValue(0));
+                if (e.Node.GetValue(2).ToString().Equals("coso"))
+                {
+                    popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
+                    idCoSo = Convert.ToInt32(e.Node.GetValue(0));
+                }
+                else if (e.Node.GetValue(2).ToString().Equals("day"))
+                {
+                    popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + ">" + e.Node.GetValue(1).ToString();
+                    idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                    idDay = Convert.ToInt32(e.Node.GetValue(0));
+                }
+                else if (e.Node.GetValue(2).ToString().Equals("tang"))
+                {
+                    popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + ">" + e.Node.ParentNode.GetValue(1).ToString() + ">" + e.Node.GetValue(1).ToString();
+                    idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                    idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                    idTang = Convert.ToInt32(e.Node.GetValue(0));
+                }
             }
-            else if (e.Node.GetValue(2).ToString().Equals("day"))
-            {
-                popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() +">"+ e.Node.GetValue(1).ToString();
-                idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                idDay = Convert.ToInt32(e.Node.GetValue(0));
-            }
-            else if (e.Node.GetValue(2).ToString().Equals("tang"))
-            {
-                popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + ">" + e.Node.ParentNode.GetValue(1).ToString() + ">" + e.Node.GetValue(1).ToString();
-                idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                idTang = Convert.ToInt32(e.Node.GetValue(0));
-            }
-
+            catch (Exception ex)
+            { }
+            finally
+            { }
         }
         public ViTri getViTri()
         {
@@ -93,54 +106,60 @@ namespace QuanLyTaiSanGUI.MyUC
         }
         public void setViTri(ViTri _vitri)
         {
-            idCoSo = -1;
-            idDay = -1;
-            idTang = -1;
-            TreeListNode _node = null;
-            if(_vitri.tang!=null)
+            try
             {
-                foreach (TreeListNode node in treeListViTri.Nodes)
+                idCoSo = -1;
+                idDay = -1;
+                idTang = -1;
+                TreeListNode _node = null;
+                if (_vitri.tang != null)
                 {
-                    foreach (TreeListNode node2 in node.Nodes)
+                    foreach (TreeListNode node in treeListViTri.Nodes)
                     {
-                        foreach (TreeListNode node3 in node2.Nodes)
+                        foreach (TreeListNode node2 in node.Nodes)
                         {
-                            if ((int)node3.GetValue(0) == _vitri.tang.id && node3.GetValue(2).ToString().Equals("tang"))
+                            foreach (TreeListNode node3 in node2.Nodes)
                             {
-                                _node = node3;
+                                if ((int)node3.GetValue(0) == _vitri.tang.id && node3.GetValue(2).ToString().Equals("tang"))
+                                {
+                                    _node = node3;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (_vitri.day != null)
+                {
+                    foreach (TreeListNode node in treeListViTri.Nodes)
+                    {
+                        foreach (TreeListNode node2 in node.Nodes)
+                        {
+                            if ((int)node2.GetValue(0) == _vitri.day.id && node2.GetValue(2).ToString().Equals("day"))
+                            {
+                                _node = node2;
                                 break;
                             }
                         }
                     }
                 }
-            }
-            else if (_vitri.day != null)
-            {
-                foreach (TreeListNode node in treeListViTri.Nodes)
+                else if (_vitri.coso != null)
                 {
-                    foreach (TreeListNode node2 in node.Nodes)
+                    foreach (TreeListNode node in treeListViTri.Nodes)
                     {
-                        if ((int)node2.GetValue(0) == _vitri.day.id && node2.GetValue(2).ToString().Equals("day"))
+                        if ((int)node.GetValue(0) == _vitri.coso.id && node.GetValue(2).ToString().Equals("coso"))
                         {
-                            _node = node2;
+                            _node = node;
                             break;
                         }
                     }
                 }
+                treeListViTri.SetFocusedNode(_node);
             }
-            else if (_vitri.coso != null)
-            {
-                foreach (TreeListNode node in treeListViTri.Nodes)
-                {
-                    if ((int)node.GetValue(0) == _vitri.coso.id && node.GetValue(2).ToString().Equals("coso"))
-                    {
-                        _node = node;
-                        break;
-                    }
-                }
-            }
-            treeListViTri.SetFocusedNode(_node);
-            
+            catch (Exception ex)
+            { }
+            finally
+            { }
         }
         public void setReadOnly(bool b)
         {
