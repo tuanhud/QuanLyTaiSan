@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlThietBi = new DevExpress.XtraGrid.GridControl();
             this.cTTHIETBISBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colthietbi_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,10 +56,10 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTTHIETBISBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.gridControl1);
+            this.splitContainerControl1.Panel1.Controls.Add(this.gridControlThietBi);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(675, 469);
@@ -78,17 +78,17 @@
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
-            // gridControl1
+            // gridControlThietBi
             // 
-            this.gridControl1.DataSource = this.cTTHIETBISBindingSource;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(387, 469);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridControlThietBi.DataSource = this.cTTHIETBISBindingSource;
+            this.gridControlThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
+            this.gridControlThietBi.MainView = this.gridViewThietBi;
+            this.gridControlThietBi.Name = "gridControlThietBi";
+            this.gridControlThietBi.Size = new System.Drawing.Size(387, 469);
+            this.gridControlThietBi.TabIndex = 0;
+            this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewThietBi});
             // 
             // cTTHIETBISBindingSource
             // 
@@ -100,9 +100,9 @@
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gridView1
+            // gridViewThietBi
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewThietBi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
             this.colphong_id,
             this.colthietbi_id,
@@ -112,18 +112,18 @@
             this.coltinhtrang,
             this.colsoluong,
             this.coltenphong});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupCount = 2;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.ReadOnly = true;
-            this.gridView1.OptionsDetail.EnableMasterViewMode = false;
-            this.gridView1.OptionsFind.AlwaysVisible = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            this.gridViewThietBi.GridControl = this.gridControlThietBi;
+            this.gridViewThietBi.GroupCount = 2;
+            this.gridViewThietBi.Name = "gridViewThietBi";
+            this.gridViewThietBi.OptionsBehavior.ReadOnly = true;
+            this.gridViewThietBi.OptionsDetail.EnableMasterViewMode = false;
+            this.gridViewThietBi.OptionsFind.AlwaysVisible = true;
+            this.gridViewThietBi.OptionsView.ShowGroupPanel = false;
+            this.gridViewThietBi.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.coltenphong, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.coltinhtrang, DevExpress.Data.ColumnSortOrder.Ascending)});
-            this.gridView1.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridView1_PopupMenuShowing);
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridViewThietBi.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridView1_PopupMenuShowing);
+            this.gridViewThietBi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colid
             // 
@@ -281,10 +281,10 @@
             this.Size = new System.Drawing.Size(675, 469);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTTHIETBISBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
@@ -294,8 +294,8 @@
         #endregion
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl gridControlThietBi;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewThietBi;
         private System.Windows.Forms.BindingSource cTTHIETBISBindingSource;
         private MyDataSet.DataSet1 dataSet1;
         private MyDataSet.DataSet1TableAdapters.CTTHIETBISTableAdapter cTTHIETBISTableAdapter;

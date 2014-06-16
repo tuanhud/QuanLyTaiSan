@@ -73,82 +73,100 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmChuyen.cs">
+    <Compile Include="MyUC\ucTreeViTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucTreeViTri.Designer.cs">
+      <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLLoaiThietBi\ucQuanLyLoaiTB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLLoaiThietBi\ucQuanLyLoaiTB.Designer.cs">
+      <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLNhanVien\ucQuanLyNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLNhanVien\ucQuanLyNhanVien.Designer.cs">
+      <DependentUpon>ucQuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhong\MyForm\frmChuyen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmChuyen.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmChuyen.Designer.cs">
       <DependentUpon>frmChuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewCoSo.cs">
+    <Compile Include="QLPhong\MyForm\frmNewCoSo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewCoSo.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewCoSo.Designer.cs">
       <DependentUpon>frmNewCoSo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewDay.cs">
+    <Compile Include="QLPhong\MyForm\frmNewDay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewDay.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewDay.Designer.cs">
       <DependentUpon>frmNewDay.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewLoaiThietBi.cs">
+    <Compile Include="QLPhong\MyForm\frmNewLoaiThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewLoaiThietBi.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewLoaiThietBi.Designer.cs">
       <DependentUpon>frmNewLoaiThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewPhong.cs">
+    <Compile Include="QLPhong\MyForm\frmNewPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewPhong.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewPhong.Designer.cs">
       <DependentUpon>frmNewPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewTang.cs">
+    <Compile Include="QLPhong\MyForm\frmNewTang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewTang.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewTang.Designer.cs">
       <DependentUpon>frmNewTang.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewThietBi.cs">
+    <Compile Include="QLPhong\MyForm\frmNewThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewThietBi.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewThietBi.Designer.cs">
       <DependentUpon>frmNewThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmNewThongTinThietBi.cs">
+    <Compile Include="QLPhong\MyForm\frmNewThongTinThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\frmNewThongTinThietBi.Designer.cs">
+    <Compile Include="QLPhong\MyForm\frmNewThongTinThietBi.Designer.cs">
       <DependentUpon>frmNewThongTinThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUserControl\ucChiTietPhong.cs">
+    <Compile Include="QLPhong\MyUserControl\ucChiTietPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUserControl\ucChiTietPhong.Designer.cs">
+    <Compile Include="QLPhong\MyUserControl\ucChiTietPhong.Designer.cs">
       <DependentUpon>ucChiTietPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUserControl\ucChiTietThietBi.cs">
+    <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUserControl\ucChiTietThietBi.Designer.cs">
+    <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.Designer.cs">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUserControl\ucComboBoxPhong.cs">
+    <Compile Include="QLPhong\MyUserControl\ucComboBoxPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUserControl\ucComboBoxPhong.Designer.cs">
+    <Compile Include="QLPhong\MyUserControl\ucComboBoxPhong.Designer.cs">
       <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUserControl\ucKhac.cs">
+    <Compile Include="QLPhong\MyUserControl\ucKhac.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUserControl\ucKhac.Designer.cs">
+    <Compile Include="QLPhong\MyUserControl\ucKhac.Designer.cs">
       <DependentUpon>ucKhac.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUserControl\ucQuanLyPhong.cs">
+    <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUserControl\ucQuanLyPhong.Designer.cs">
+    <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.Designer.cs">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -159,52 +177,61 @@
     <Compile Include="QLCoSo\MyUserControl\ucQuanLyCoSo.Designer.cs">
       <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
     </Compile>
-    <Compile Include="RibbonForm1.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RibbonForm1.Designer.cs">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmChuyen.resx">
+    <EmbeddedResource Include="MyUC\ucTreeViTri.resx">
+      <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
+      <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLNhanVien\ucQuanLyNhanVien.resx">
+      <DependentUpon>ucQuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyForm\frmChuyen.resx">
       <DependentUpon>frmChuyen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewCoSo.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewCoSo.resx">
       <DependentUpon>frmNewCoSo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewDay.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewDay.resx">
       <DependentUpon>frmNewDay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewLoaiThietBi.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewLoaiThietBi.resx">
       <DependentUpon>frmNewLoaiThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewPhong.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewPhong.resx">
       <DependentUpon>frmNewPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewTang.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewTang.resx">
       <DependentUpon>frmNewTang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewThietBi.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewThietBi.resx">
       <DependentUpon>frmNewThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\frmNewThongTinThietBi.resx">
+    <EmbeddedResource Include="QLPhong\MyForm\frmNewThongTinThietBi.resx">
       <DependentUpon>frmNewThongTinThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUserControl\ucChiTietPhong.resx">
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhong.resx">
       <DependentUpon>ucChiTietPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUserControl\ucChiTietThietBi.resx">
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietThietBi.resx">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUserControl\ucComboBoxPhong.resx">
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucComboBoxPhong.resx">
       <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUserControl\ucKhac.resx">
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucKhac.resx">
       <DependentUpon>ucKhac.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUserControl\ucQuanLyPhong.resx">
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -221,8 +248,8 @@
     <EmbeddedResource Include="QLCoSo\MyUserControl\ucQuanLyCoSo.resx">
       <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RibbonForm1.resx">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="MyDataSet\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

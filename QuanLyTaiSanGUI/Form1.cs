@@ -18,8 +18,8 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
-            CoSo obj = new CoSo();
-            List<CoSo> list = obj.getAll();
+            Dayy obj = new Dayy();
+            List<Dayy> list = obj.GetByCoSoId(1);
             gridControl1.DataSource = list;
         }
     }

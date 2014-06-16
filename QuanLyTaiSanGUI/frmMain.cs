@@ -12,15 +12,17 @@ using QuanLyTaiSanGUI.MyUserControl;
 using DevExpress.XtraGrid.Columns;
 using QuanLyTaiSanGUI.MyForm;
 using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
+using QuanLyTaiSanGUI.QLNhanVien;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class RibbonForm1 : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         ucQuanLyPhong uc = new ucQuanLyPhong();
-        ucQuanLyCoSo uc2 = new ucQuanLyCoSo();
+        ucQuanLyCoSo ucCoSo = new ucQuanLyCoSo();
+        ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucKhac uck = new ucKhac();
-        public RibbonForm1()
+        public frmMain()
         {
             InitializeComponent();
         }
@@ -42,19 +44,19 @@ namespace QuanLyTaiSanGUI
             int _objid = -1;
             int _obj2id = -1;
             int _obj3id = -1;
-            int row = gridView2.FocusedRowHandle;
+            int row = gridViewPhong.FocusedRowHandle;
             if (row < 0 && row > -9999)
             {
-                object obj = gridView2.GetGroupRowValue(row);
+                object obj = gridViewPhong.GetGroupRowValue(row);
 
-                int row2 = gridView2.GetParentRowHandle(row);
+                int row2 = gridViewPhong.GetParentRowHandle(row);
                 if (row2 < 0 && row2 > -9999)
                 {
-                    object obj2 = gridView2.GetGroupRowValue(row2);
-                    int row3 = gridView2.GetParentRowHandle(row2);
+                    object obj2 = gridViewPhong.GetGroupRowValue(row2);
+                    int row3 = gridViewPhong.GetParentRowHandle(row2);
                     if (row3 < 0 && row3 > -9999)
                     {
-                        object obj3 = gridView2.GetGroupRowValue(row3);
+                        object obj3 = gridViewPhong.GetGroupRowValue(row3);
                         _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj3.ToString()));
                         _obj2id = Convert.ToInt32(this.daysTableAdapter1.ScalarQuery(obj2.ToString(), _objid));
                         _obj3id = Convert.ToInt32(this.tangsTableAdapter1.ScalarQuery(obj.ToString(), _obj2id));
@@ -75,7 +77,7 @@ namespace QuanLyTaiSanGUI
             }
             else
             {
-                int _id = Convert.ToInt32(gridView2.GetFocusedRowCellValue(colid));
+                int _id = Convert.ToInt32(gridViewPhong.GetFocusedRowCellValue(colid));
                 uc.LoadDataSet(-1, -1, -1, _id);
             }
         }
@@ -109,37 +111,41 @@ namespace QuanLyTaiSanGUI
             frm.ShowDialog();
         }
 
-        private void navBarControl1_TabIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show(sender.ToString());
-        }
-
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
         {
-            if (navBarControl1.ActiveGroup.Name.Equals("navBarGroup2"))
+            visibleAllRibbbonPage();
+            if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupViTri"))
             {
-                ribbonPage1.Visible = false;
-                ribbonPage3.Visible = true;
-                ribbon.SelectedPage = ribbonPage3;
-                uck.Dock = DockStyle.Fill;
+                rbnPageViTri_Home.Visible = true;
+                ribbon.SelectedPage = rbnPageViTri_Home;
+                ucCoSo.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
-                panelControl1.Controls.Add(uck);
+                panelControl1.Controls.Add(ucCoSo);
             }
-            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroup5"))
+            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupNhanVien"))
             {
-                uc2.Dock = DockStyle.Fill;
+                rbnPageNhanVien_Home.Visible = true;
+                ribbon.SelectedPage = rbnPagePhong_Home;
+                _ucQuanLyNhanVien.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
-                panelControl1.Controls.Add(uc2);
+                panelControl1.Controls.Add(_ucQuanLyNhanVien);
+                gridControlPhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
             else
             {
-                ribbonPage3.Visible = false;
-                ribbonPage1.Visible = true;
-                ribbon.SelectedPage = ribbonPage1;
+                rbnPagePhong_Home.Visible = true;
+                ribbon.SelectedPage = rbnPagePhong_Home;
                 uc.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(uc);
             }
+        }
+
+        private void visibleAllRibbbonPage()
+        {
+            rbnPagePhong_Home.Visible = false;
+            rbnPageViTri_Home.Visible = false;
+            rbnPageNhanVien_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)

@@ -41,15 +41,15 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.textEdit5 = new DevExpress.XtraEditors.MemoEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.lblSoDienThoai = new DevExpress.XtraEditors.LabelControl();
+            this.lblTenNhanVien = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaNhanVien = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.imageSlider2 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.phongsTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter();
-            this.lblMaNhanVien = new DevExpress.XtraEditors.LabelControl();
-            this.lblTenNhanVien = new DevExpress.XtraEditors.LabelControl();
-            this.lblSoDienThoai = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
@@ -190,6 +190,27 @@
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Thông tin nhân viên phụ trách";
             // 
+            // lblSoDienThoai
+            // 
+            this.lblSoDienThoai.Location = new System.Drawing.Point(80, 182);
+            this.lblSoDienThoai.Name = "lblSoDienThoai";
+            this.lblSoDienThoai.Size = new System.Drawing.Size(0, 13);
+            this.lblSoDienThoai.TabIndex = 10;
+            // 
+            // lblTenNhanVien
+            // 
+            this.lblTenNhanVien.Location = new System.Drawing.Point(80, 156);
+            this.lblTenNhanVien.Name = "lblTenNhanVien";
+            this.lblTenNhanVien.Size = new System.Drawing.Size(0, 13);
+            this.lblTenNhanVien.TabIndex = 9;
+            // 
+            // lblMaNhanVien
+            // 
+            this.lblMaNhanVien.Location = new System.Drawing.Point(80, 128);
+            this.lblMaNhanVien.Name = "lblMaNhanVien";
+            this.lblMaNhanVien.Size = new System.Drawing.Size(0, 13);
+            this.lblMaNhanVien.TabIndex = 8;
+            // 
             // labelControl9
             // 
             this.labelControl9.Location = new System.Drawing.Point(6, 25);
@@ -234,27 +255,6 @@
             // phongsTableAdapter
             // 
             this.phongsTableAdapter.ClearBeforeFill = true;
-            // 
-            // lblMaNhanVien
-            // 
-            this.lblMaNhanVien.Location = new System.Drawing.Point(80, 128);
-            this.lblMaNhanVien.Name = "lblMaNhanVien";
-            this.lblMaNhanVien.Size = new System.Drawing.Size(0, 13);
-            this.lblMaNhanVien.TabIndex = 8;
-            // 
-            // lblTenNhanVien
-            // 
-            this.lblTenNhanVien.Location = new System.Drawing.Point(80, 156);
-            this.lblTenNhanVien.Name = "lblTenNhanVien";
-            this.lblTenNhanVien.Size = new System.Drawing.Size(0, 13);
-            this.lblTenNhanVien.TabIndex = 9;
-            // 
-            // lblSoDienThoai
-            // 
-            this.lblSoDienThoai.Location = new System.Drawing.Point(80, 182);
-            this.lblSoDienThoai.Name = "lblSoDienThoai";
-            this.lblSoDienThoai.Size = new System.Drawing.Size(0, 13);
-            this.lblSoDienThoai.TabIndex = 10;
             // 
             // ucChiTietPhong
             // 
