@@ -21,6 +21,28 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        //Lấy list tầng theo dãy id
+        public List<Tang> GetByDayId(int id)
+        {
+            try
+            {
+                initDb();
+                List<Tang> objs = db.Set<Tang>().Where(c => c.day.id == id).ToList();
+                foreach (Tang item in objs)
+                {
+                    item.DB = db;//importance
+                }
+                return objs;
+            }
+            catch (Exception ex)
+            {
+                return new List<Tang>();
+            }
+            finally
+            {
+
+            }
+        }
         protected override void init()
         {
             base.init();

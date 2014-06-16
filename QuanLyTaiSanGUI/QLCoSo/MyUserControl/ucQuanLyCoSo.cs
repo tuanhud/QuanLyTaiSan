@@ -10,12 +10,16 @@ using System.Windows.Forms;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
     public partial class ucQuanLyCoSo : UserControl
     {
         ucTreeViTri _ucTreeViTri = new ucTreeViTri();
+        List<CoSo> listCoSos = new List<CoSo>();
+        List<Dayy> listDays = new List<Dayy>();
+        List<Tang> listTangs = new List<Tang>();
         public ucQuanLyCoSo()
         {
             InitializeComponent();
@@ -33,20 +37,23 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             tl.BeginUnboundLoad();
             // Create a root node .
             TreeListNode parentForRootNodes = null;
-            DataTable dtCoSo = this.cososTableAdapter1.GetData();
-            foreach(DataRow row in dtCoSo.Rows)
+            CoSo obj = new CoSo();
+            listCoSos = obj.getAll();
+            foreach (CoSo _coso in listCoSos)
             {
-                TreeListNode rootNode = tl.AppendNode(new object[] { row["id"], row["ten"], "coso" }, parentForRootNodes);
+                TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
                 // Create a child of the rootNode
-                DataTable dtDay = this.daysTableAdapter1.GetDataBy1((int)row["id"]);
-                foreach (DataRow row2 in dtDay.Rows)
+                Dayy obj2 = new Dayy();
+                listDays = obj2.GetByCoSoId(_coso.id);
+                foreach (Dayy _day in listDays)
                 {
-                    TreeListNode rootNode2 = tl.AppendNode(new object[] { row2["id"], row2["ten"], "day" }, rootNode);
+                    TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
                     // Create a child of the rootNode
-                    DataTable dtTang = this.tangsTableAdapter1.GetDataBy1((int)row2["id"]);
-                    foreach (DataRow row3 in dtTang.Rows)
+                    Tang obj3 = new Tang();
+                    listTangs = obj3.GetByDayId(_day.id);
+                    foreach (Tang _tang in listTangs)
                     {
-                        tl.AppendNode(new object[] { row3["id"], row3["ten"], "tang" }, rootNode2);
+                        tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
                         // Creating more nodes
                         // ...
                     }
