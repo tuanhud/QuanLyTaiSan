@@ -39,20 +39,17 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             tl.BeginUnboundLoad();
             // Create a root node .
             TreeListNode parentForRootNodes = null;
-            CoSo obj = new CoSo();
-            listCoSos = obj.getAll();
+            listCoSos = new CoSo().getAll();
             foreach (CoSo _coso in listCoSos)
             {
                 TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
                 // Create a child of the rootNode
-                Dayy obj2 = new Dayy();
-                listDays = obj2.GetByCoSoId(_coso.id);
+                listDays = _coso.days.ToList();
                 foreach (Dayy _day in listDays)
                 {
                     TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
                     // Create a child of the rootNode
-                    Tang obj3 = new Tang();
-                    listTangs = obj3.GetByDayId(_day.id);
+                    listTangs = _day.tangs.ToList();
                     foreach (Tang _tang in listTangs)
                     {
                         tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
