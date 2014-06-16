@@ -23,12 +23,63 @@ namespace QuanLyTaiSan.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        public string connection_string {
+        [global::System.Configuration.DefaultSettingValueAttribute("DB_9B1246_ts")]
+        public string db_name {
             get {
-                return ((string)(this["Setting"]));
+                return ((string)(this["db_name"]));
+            }
+            set {
+                this["db_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DB_9B1246_ts_admin")]
+        public string db_username {
+            get {
+                return ((string)(this["db_username"]));
+            }
+            set {
+                this["db_username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("quanlytaisan")]
+        public string db_password {
+            get {
+                return ((string)(this["db_password"]));
+            }
+            set {
+                this["db_password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sqlts.hoangthanhit.com")]
+        public string db_host {
+            get {
+                return ((string)(this["db_host"]));
+            }
+            set {
+                this["db_host"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Default")]
+        public string cached_connection_string {
+            get {
+                return ((string)(this["cached_connection_string"]));
+            }
+            set {
+                this["cached_connection_string"] = value;
             }
         }
     }

@@ -42,7 +42,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public virtual HinhAnh hinhanh { get; set; }
+        public virtual ICollection<HinhAnh> hinhanhs { get; set; }
         #endregion
 
         #region Override method
@@ -67,10 +67,12 @@ namespace QuanLyTaiSan.Entities
             //update datetime
             date_modified = ServerTimeHelper.getNow();
             //trigger FK Object
+            /*
             if (hinhanh != null)
             {
                 hinhanh.trigger();
             }
+             **/
             return base.update();
         }
         #endregion

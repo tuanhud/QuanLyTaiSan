@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,9 +11,14 @@ namespace QuanLyTaiSan.Entities
     public class MyDB:DbContext
     {
         public MyDB()
+            //: base(Global.local_setting.cached_connection_string)
             : base("Default")
         {
-            
+            //Use config file OR use Global setting
+        }
+        public MyDB(String connection_string):base(connection_string)
+        {
+            //Dynamic connection String
         }
         public DbSet<CoSo> COSOS { get; set; }
         public DbSet<Phong> PHONGS { get; set; }

@@ -31,6 +31,15 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(255)]
         public String path { get; set; }
+        /*
+         * FK
+         */
+        public virtual Tang tang { get; set; }
+        public virtual CoSo coso { get; set; }
+        public virtual Dayy day { get; set; }
+        public virtual NhanVienPT nhanvienpt { get; set; }
+        public virtual Phong phong { get; set; }
+        public virtual ThietBi thietbi { get; set; }
 
         #region Nghiệp vụ
         protected static String cache_path;

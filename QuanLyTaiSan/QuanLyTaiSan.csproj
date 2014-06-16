@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201406140633592_them_mota_loaichung_loairieng.Designer.cs">
       <DependentUpon>201406140633592_them_mota_loaichung_loairieng.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.cs" />
+    <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.Designer.cs">
+      <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406140633592_them_mota_loaichung_loairieng.resx">
       <DependentUpon>201406140633592_them_mota_loaichung_loairieng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.resx">
+      <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
