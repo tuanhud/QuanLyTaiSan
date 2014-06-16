@@ -330,6 +330,7 @@
             // 
             // rbnGroupViTri_Day
             // 
+            this.rbnGroupViTri_Day.Enabled = false;
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnThemDay);
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnSuaDay);
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnXoaDay);
@@ -338,6 +339,7 @@
             // 
             // rbnGroupViTri_Tang
             // 
+            this.rbnGroupViTri_Tang.Enabled = false;
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnThemTang);
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnSuaTang);
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnXoaTang);

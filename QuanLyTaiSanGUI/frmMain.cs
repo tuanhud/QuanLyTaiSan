@@ -168,5 +168,15 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyCoSo.enableEdit(true);
         }
+
+        public void enableGroupViTri(bool _day, bool _tang)
+        {
+            if (_day)
+                rbnGroupViTri_Day.Enabled = true;
+            else rbnGroupViTri_Day.Enabled = false;
+            if (_tang)
+                rbnGroupViTri_Tang.Enabled = true;
+            else rbnGroupViTri_Tang.Enabled = false;
+        }
     }
 }
