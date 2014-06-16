@@ -18,6 +18,7 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
+            //
             Dayy obj = new Dayy();
             List<Dayy> list = obj.GetByCoSoId(1);
             gridControl1.DataSource = list;
