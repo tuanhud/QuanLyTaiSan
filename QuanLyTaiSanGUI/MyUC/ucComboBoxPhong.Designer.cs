@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.searchLookUpEdit1 = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,14 +41,15 @@
             // 
             // searchLookUpEdit1
             // 
-            this.searchLookUpEdit1.Location = new System.Drawing.Point(3, 3);
+            this.searchLookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchLookUpEdit1.Location = new System.Drawing.Point(0, 0);
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookUpEdit1.Properties.DisplayMember = "ten";
             this.searchLookUpEdit1.Properties.ValueMember = "id";
             this.searchLookUpEdit1.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEdit1.Size = new System.Drawing.Size(100, 20);
+            this.searchLookUpEdit1.Size = new System.Drawing.Size(200, 20);
             this.searchLookUpEdit1.TabIndex = 0;
             // 
             // searchLookUpEdit1View
@@ -115,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.searchLookUpEdit1);
             this.Name = "ucComboBoxPhong";
-            this.Size = new System.Drawing.Size(106, 26);
+            this.Size = new System.Drawing.Size(200, 20);
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);

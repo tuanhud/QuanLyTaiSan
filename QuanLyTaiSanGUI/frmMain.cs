@@ -13,6 +13,8 @@ using DevExpress.XtraGrid.Columns;
 using QuanLyTaiSanGUI.MyForm;
 using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
+using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSanGUI.QLLoaiThietBi;
 
 namespace QuanLyTaiSanGUI
 {
@@ -21,6 +23,8 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
+        ucTreePhong _ucTreePhong = new ucTreePhong();
+        ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         ucKhac uck = new ucKhac();
         public frmMain()
         {
@@ -31,8 +35,9 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucQuanLyPhong);
-            //uc2.Dock = DockStyle.Fill;
-            //uc.AddControl(uc2);
+            _ucTreePhong.Dock = DockStyle.Fill;
+            _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+            //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             
         }
 
@@ -73,11 +78,22 @@ namespace QuanLyTaiSanGUI
             else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupNhanVien"))
             {
                 rbnPageNhanVien_Home.Visible = true;
-                ribbon.SelectedPage = rbnPagePhong_Home;
+                ribbon.SelectedPage = rbnPageNhanVien_Home;
                 _ucQuanLyNhanVien.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyNhanVien);
-                gridControlPhong.Parent = navBarGroupNhanVien.ControlContainer;
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+            }
+            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupLoaiTB"))
+            {
+                rbnPageLoaiTB_Home.Visible = true;
+                ribbon.SelectedPage = rbnPageLoaiTB_Home;
+                _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                panelControl1.Controls.Add(_ucQuanLyLoaiTB);
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
             else
             {
@@ -86,6 +102,8 @@ namespace QuanLyTaiSanGUI
                 _ucQuanLyPhong.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyPhong);
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
             }
         }
 
@@ -94,6 +112,7 @@ namespace QuanLyTaiSanGUI
             rbnPagePhong_Home.Visible = false;
             rbnPageViTri_Home.Visible = false;
             rbnPageNhanVien_Home.Visible = false;
+            rbnPageLoaiTB_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
@@ -117,14 +136,36 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyCoSo.enableEdit(true, "tang");
         }
 
-        public void enableGroupViTri(bool _day, bool _tang)
+        public void enableGroupViTri(String _type)
         {
-            if (_day)
-                rbnGroupViTri_Day.Enabled = true;
-            else rbnGroupViTri_Day.Enabled = false;
-            if (_tang)
+            if (_type.Equals("coso"))
+            {
+                rbnGroupViTri_Tang.Enabled = false;
+                barBtnSuaDay.Enabled = false;
+                barBtnXoaDay.Enabled = false;
+                barBtnSuaCoSo.Enabled = true;
+                barBtnXoaCoSo.Enabled = true;
+            }
+            else if (_type.Equals("day"))
+            {
                 rbnGroupViTri_Tang.Enabled = true;
-            else rbnGroupViTri_Tang.Enabled = false;
+                barBtnSuaDay.Enabled = true;
+                barBtnXoaDay.Enabled = true;
+                barBtnSuaTang.Enabled = false;
+                barBtnXoaTang.Enabled = false;
+                barBtnSuaCoSo.Enabled = false;
+                barBtnXoaCoSo.Enabled = false;
+            }
+            else
+            {
+                rbnGroupViTri_Tang.Enabled = true;
+                barBtnSuaDay.Enabled = false;
+                barBtnXoaDay.Enabled = false;
+                barBtnSuaTang.Enabled = true;
+                barBtnXoaTang.Enabled = true;
+                barBtnSuaCoSo.Enabled = false;
+                barBtnXoaCoSo.Enabled = false;
+            }
         }
     }
 }

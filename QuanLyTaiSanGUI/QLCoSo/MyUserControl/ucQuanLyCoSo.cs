@@ -81,15 +81,16 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         txtTen.Text = objCoSo.ten;
                         txtMoTa.Text = objCoSo.mota;
                         panelControl1.Controls.Clear();
-                        LabelControl lbl = new LabelControl();
-                        lbl.Text = "Đại học Sài Gòn";
-                        lbl.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(lbl);
+                        TextEdit txt = new TextEdit();
+                        txt.Properties.ReadOnly = true;
+                        txt.Text = "Đại học Sài Gòn";
+                        txt.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(txt);
                         //type = "coso";
                         if (this.ParentForm != null)
                         {
                             frmMain frm = (frmMain)this.ParentForm;
-                            frm.enableGroupViTri(true, false);
+                            frm.enableGroupViTri("coso");
                         }
                     }
                     else if (e.Node.GetValue(2).ToString().Equals("day"))
@@ -107,7 +108,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         if (this.ParentForm != null)
                         {
                             frmMain frm = (frmMain)this.ParentForm;
-                            frm.enableGroupViTri(true, true);
+                            frm.enableGroupViTri("day");
                         }
                     }
                     else if (e.Node.GetValue(2).ToString().Equals("tang"))
@@ -126,7 +127,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         if (this.ParentForm != null)
                         {
                             frmMain frm = (frmMain)this.ParentForm;
-                            frm.enableGroupViTri(true, true);
+                            frm.enableGroupViTri("tang");
                         }
                     }
                 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -15,7 +16,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucComboBoxPhong()
         {
             InitializeComponent();
-            //this.pHONGSTableAdapter.FillBy(this.dataSet1.PHONGS);
+            searchLookUpEdit1.Properties.DataSource = new Phong().getAll().ToList(); 
         }
     }
 }
