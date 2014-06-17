@@ -22,10 +22,12 @@ namespace QuanLyTaiSanGUI.MyUC
         int idCoSo = -1;
         int idDay = -1;
         bool haveTang = true;
-        public ucTreeViTri(bool _haveTang)
+        bool haveDay = true;
+        public ucTreeViTri(bool _haveDay, bool _haveTang)
         {
             InitializeComponent();
             haveTang = _haveTang;
+            haveDay = _haveDay;
             CreateNodes(treeListViTri);
         }
         private void CreateNodes(TreeList tl)
@@ -39,20 +41,23 @@ namespace QuanLyTaiSanGUI.MyUC
                 foreach (CoSo _coso in listCoSos)
                 {
                     TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
-                    // Create a child of the rootNode
-                    listDays = _coso.days.ToList();
-                    foreach (Dayy _day in listDays)
+                    if (haveDay)
                     {
-                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
-                        if (haveTang)
+                        // Create a child of the rootNode
+                        listDays = _coso.days.ToList();
+                        foreach (Dayy _day in listDays)
                         {
-                            // Create a child of the rootNode
-                            listTangs = _day.tangs.ToList();
-                            foreach (Tang _tang in listTangs)
+                            TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                            if (haveTang)
                             {
-                                tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
-                                // Creating more nodes
-                                // ...
+                                // Create a child of the rootNode
+                                listTangs = _day.tangs.ToList();
+                                foreach (Tang _tang in listTangs)
+                                {
+                                    tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                                    // Creating more nodes
+                                    // ...
+                                }
                             }
                         }
                     }
