@@ -17,20 +17,14 @@ namespace QuanLyTaiSanGUI.MyForm
             InitializeComponent();
         }
 
-        private void simpleButton3_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            this.Close();
+            groupControl1.Visible = false;
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
-            frmNewLoaiThietBi frm = new frmNewLoaiThietBi();
-            frm.ShowDialog();
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            groupControl1.Visible = true;
         }
     }
 }

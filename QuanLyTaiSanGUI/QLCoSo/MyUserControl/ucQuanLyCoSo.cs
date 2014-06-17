@@ -17,7 +17,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
     public partial class ucQuanLyCoSo : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false);
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false,false);
+        ucTreeViTri _ucTreeViTri2 = new ucTreeViTri(true, false);
         List<CoSo> listCoSos = new List<CoSo>();
         List<Dayy> listDays = new List<Dayy>();
         List<Tang> listTangs = new List<Tang>();
@@ -82,9 +83,9 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         panelControl1.Controls.Clear();
                         LabelControl lbl = new LabelControl();
                         lbl.Text = "Đại học Sài Gòn";
-                        lbl.Dock = DockStyle.Left;
+                        lbl.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(lbl);
-                        type = "coso";
+                        //type = "coso";
                         if (this.ParentForm != null)
                         {
                             frmMain frm = (frmMain)this.ParentForm;
@@ -94,6 +95,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     else if (e.Node.GetValue(2).ToString().Equals("day"))
                     {
                         panelControl1.Controls.Clear();
+                        _ucTreeViTri.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(_ucTreeViTri);
                         Dayy objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
                         txtTen.Text = objDay.ten;
@@ -101,7 +103,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         ViTri objViTri = new ViTri();
                         objViTri.coso = objDay.coso;
                         _ucTreeViTri.setViTri(objViTri);
-                        type = "day";
+                        //type = "day";
                         if (this.ParentForm != null)
                         {
                             frmMain frm = (frmMain)this.ParentForm;
@@ -111,15 +113,16 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     else if (e.Node.GetValue(2).ToString().Equals("tang"))
                     {
                         panelControl1.Controls.Clear();
-                        panelControl1.Controls.Add(_ucTreeViTri);
+                        _ucTreeViTri2.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(_ucTreeViTri2);
                         Tang objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
                         txtTen.Text = objTang.ten;
                         txtMoTa.Text = objTang.mota;
                         ViTri objViTri = new ViTri();
                         objViTri.day = objTang.day;
                         objViTri.coso = objTang.day.coso;
-                        _ucTreeViTri.setViTri(objViTri);
-                        type = "tang";
+                        _ucTreeViTri2.setViTri(objViTri);
+                        //type = "tang";
                         if (this.ParentForm != null)
                         {
                             frmMain frm = (frmMain)this.ParentForm;
@@ -134,7 +137,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             { }
         }
 
-        public void enableEdit(bool _enable)
+        public void enableEdit(bool _enable, String _type)
         {
             if (_enable)
             {
@@ -144,6 +147,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtTen.Properties.ReadOnly = false;
                 txtMoTa.Properties.ReadOnly = false;
                 _ucTreeViTri.setReadOnly(false);
+                _ucTreeViTri2.setReadOnly(false);
+                type = _type;
             }
             else
             {
@@ -153,6 +158,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtTen.Properties.ReadOnly = true;
                 txtMoTa.Properties.ReadOnly = true;
                 _ucTreeViTri.setReadOnly(true);
+                _ucTreeViTri2.setReadOnly(true);
             }
         }
 

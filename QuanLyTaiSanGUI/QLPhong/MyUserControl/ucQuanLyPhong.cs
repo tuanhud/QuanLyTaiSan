@@ -20,7 +20,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
         public void LoadDataSet(int _coso, int _day, int _tang, int _phong)
         {
-            this.cTTHIETBISTableAdapter.FillBy(dataSet1.CTTHIETBIS, _coso, _day, _tang, _phong);
         }
         public void AddControl(Control _ctr)
         {
@@ -52,7 +51,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridView1_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
-            popupMenu1.ShowPopup(Control.MousePosition);
         }
     }
 }

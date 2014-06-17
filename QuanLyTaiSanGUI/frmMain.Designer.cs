@@ -69,8 +69,6 @@
             this.navBarGroupPhong = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
-            this.pHONGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,17 +82,11 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.pHONGSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter();
-            this.cososTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.COSOSTableAdapter();
-            this.daysTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.DAYSTableAdapter();
-            this.tangsTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.TANGSTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
             this.navBarGroupControlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.SuspendLayout();
@@ -421,7 +413,6 @@
             // 
             // gridControlPhong
             // 
-            this.gridControlPhong.DataSource = this.pHONGSBindingSource;
             this.gridControlPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
@@ -431,16 +422,6 @@
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
-            // 
-            // pHONGSBindingSource
-            // 
-            this.pHONGSBindingSource.DataMember = "PHONGS";
-            this.pHONGSBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridViewPhong
             // 
@@ -544,22 +525,6 @@
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
             // 
-            // pHONGSTableAdapter
-            // 
-            this.pHONGSTableAdapter.ClearBeforeFill = true;
-            // 
-            // cososTableAdapter1
-            // 
-            this.cososTableAdapter1.ClearBeforeFill = true;
-            // 
-            // daysTableAdapter1
-            // 
-            this.daysTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tangsTableAdapter1
-            // 
-            this.tangsTableAdapter1.ClearBeforeFill = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,8 +545,6 @@
             this.navBarControl1.ResumeLayout(false);
             this.navBarGroupControlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ResumeLayout(false);
@@ -602,17 +565,11 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewPhong;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupViTri;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private MyDataSet.DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource pHONGSBindingSource;
-        private MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter pHONGSTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colcoso;
         private DevExpress.XtraGrid.Columns.GridColumn colday;
         private DevExpress.XtraGrid.Columns.GridColumn coltang;
-        private MyDataSet.DataSet1TableAdapters.COSOSTableAdapter cososTableAdapter1;
-        private MyDataSet.DataSet1TableAdapters.DAYSTableAdapter daysTableAdapter1;
-        private MyDataSet.DataSet1TableAdapters.TANGSTableAdapter tangsTableAdapter1;
         private DevExpress.XtraBars.BarButtonItem barBtnThemPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaPhong;

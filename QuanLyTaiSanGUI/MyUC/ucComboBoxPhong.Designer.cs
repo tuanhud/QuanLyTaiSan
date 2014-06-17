@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
-            this.pHONGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pHONGSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter();
             this.searchLookUpEdit1 = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,25 +36,9 @@
             this.colcoso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltang = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pHONGSBindingSource
-            // 
-            this.pHONGSBindingSource.DataMember = "PHONGS";
-            this.pHONGSBindingSource.DataSource = this.dataSet1;
-            // 
-            // pHONGSTableAdapter
-            // 
-            this.pHONGSTableAdapter.ClearBeforeFill = true;
             // 
             // searchLookUpEdit1
             // 
@@ -65,7 +46,6 @@
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchLookUpEdit1.Properties.DataSource = this.pHONGSBindingSource;
             this.searchLookUpEdit1.Properties.DisplayMember = "ten";
             this.searchLookUpEdit1.Properties.ValueMember = "id";
             this.searchLookUpEdit1.Properties.View = this.searchLookUpEdit1View;
@@ -136,8 +116,6 @@
             this.Controls.Add(this.searchLookUpEdit1);
             this.Name = "ucComboBoxPhong";
             this.Size = new System.Drawing.Size(106, 26);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
@@ -146,9 +124,6 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource pHONGSBindingSource;
-        private MyDataSet.DataSet1 dataSet1;
-        private MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter pHONGSTableAdapter;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colid;

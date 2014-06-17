@@ -15,8 +15,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
-            this.nHANVIENPTSTableAdapter.Fill(this.dataSet1.NHANVIENPTS);
-            this.pHONGSTableAdapter.Fill(this.dataSet1.PHONGS);
         }
     }
 }

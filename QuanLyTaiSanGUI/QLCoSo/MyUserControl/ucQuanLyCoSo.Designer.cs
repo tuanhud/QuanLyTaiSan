@@ -45,11 +45,6 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
-            this.cososTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.COSOSTableAdapter();
-            this.daysTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.DAYSTableAdapter();
-            this.tangsTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.TANGSTableAdapter();
-            this.logtinhtrangsTableAdapter1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.LOGTINHTRANGSTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -59,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -165,9 +159,12 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(58, 182);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 20);
+            this.panelControl1.Size = new System.Drawing.Size(214, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // labelControl4
@@ -232,27 +229,6 @@
             this.txtMoTa.TabIndex = 1;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cososTableAdapter1
-            // 
-            this.cososTableAdapter1.ClearBeforeFill = true;
-            // 
-            // daysTableAdapter1
-            // 
-            this.daysTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tangsTableAdapter1
-            // 
-            this.tangsTableAdapter1.ClearBeforeFill = true;
-            // 
-            // logtinhtrangsTableAdapter1
-            // 
-            this.logtinhtrangsTableAdapter1.ClearBeforeFill = true;
-            // 
             // ucQuanLyCoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,7 +247,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,14 +255,9 @@
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraTreeList.TreeList treeListViTri;
-        private MyDataSet.DataSet1 dataSet1;
-        private MyDataSet.DataSet1TableAdapters.COSOSTableAdapter cososTableAdapter1;
-        private MyDataSet.DataSet1TableAdapters.DAYSTableAdapter daysTableAdapter1;
-        private MyDataSet.DataSet1TableAdapters.TANGSTableAdapter tangsTableAdapter1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        private MyDataSet.DataSet1TableAdapters.LOGTINHTRANGSTableAdapter logtinhtrangsTableAdapter1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;

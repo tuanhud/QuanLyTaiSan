@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.pHONGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lOAITHIETBISBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -49,22 +45,17 @@
             this.textEdit4 = new DevExpress.XtraEditors.MemoEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.lOGTINHTRANGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lOAITHIETBISTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.LOAITHIETBISTableAdapter();
-            this.pHONGSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter();
-            this.ctthietbisTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.CTTHIETBISTableAdapter();
-            this.lOGTINHTRANGSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.LOGTINHTRANGSTableAdapter();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOAITHIETBISBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
@@ -75,15 +66,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOGTINHTRANGSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.btnHuy);
+            this.groupControl1.Controls.Add(this.btnOK);
+            this.groupControl1.Controls.Add(this.btnImage);
             this.groupControl1.Controls.Add(this.panelControl1);
-            this.groupControl1.Controls.Add(this.comboBox2);
             this.groupControl1.Controls.Add(this.comboBox1);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl6);
@@ -100,48 +91,27 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(282, 333);
+            this.groupControl1.Size = new System.Drawing.Size(282, 370);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết thiết bị";
             // 
-            // comboBox2
+            // panelControl1
             // 
-            this.comboBox2.DataSource = this.pHONGSBindingSource;
-            this.comboBox2.DisplayMember = "ten";
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(67, 181);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 17;
-            this.comboBox2.ValueMember = "id";
-            // 
-            // pHONGSBindingSource
-            // 
-            this.pHONGSBindingSource.DataMember = "PHONGS";
-            this.pHONGSBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.panelControl1.Location = new System.Drawing.Point(67, 181);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(200, 20);
+            this.panelControl1.TabIndex = 18;
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.lOAITHIETBISBindingSource;
-            this.comboBox1.DisplayMember = "ten";
+            this.comboBox1.DisplayMember = "id";
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(67, 154);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
             this.comboBox1.TabIndex = 16;
             this.comboBox1.ValueMember = "id";
-            // 
-            // lOAITHIETBISBindingSource
-            // 
-            this.lOAITHIETBISBindingSource.DataMember = "LOAITHIETBIS";
-            this.lOAITHIETBISBindingSource.DataSource = this.dataSet1;
             // 
             // labelControl7
             // 
@@ -201,6 +171,8 @@
             // 
             // dateEdit2
             // 
+            this.dateEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateEdit2.EditValue = null;
             this.dateEdit2.Location = new System.Drawing.Point(67, 234);
             this.dateEdit2.Name = "dateEdit2";
@@ -208,14 +180,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEdit2.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.dateEdit2.Properties.ReadOnly = true;
-            this.dateEdit2.Size = new System.Drawing.Size(100, 20);
+            this.dateEdit2.Size = new System.Drawing.Size(200, 20);
             this.dateEdit2.TabIndex = 6;
             // 
             // dateEdit1
             // 
+            this.dateEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateEdit1.EditValue = null;
             this.dateEdit1.Location = new System.Drawing.Point(67, 208);
             this.dateEdit1.Name = "dateEdit1";
@@ -223,18 +195,18 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEdit1.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.dateEdit1.Properties.ReadOnly = true;
-            this.dateEdit1.Size = new System.Drawing.Size(100, 20);
+            this.dateEdit1.Size = new System.Drawing.Size(200, 20);
             this.dateEdit1.TabIndex = 5;
             // 
             // textEdit1
             // 
+            this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit1.Location = new System.Drawing.Point(67, 127);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.ReadOnly = true;
-            this.textEdit1.Size = new System.Drawing.Size(161, 20);
+            this.textEdit1.Size = new System.Drawing.Size(200, 20);
             this.textEdit1.TabIndex = 1;
             // 
             // imageSlider1
@@ -248,10 +220,12 @@
             // 
             // textEdit4
             // 
+            this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit4.Location = new System.Drawing.Point(67, 260);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Properties.ReadOnly = true;
-            this.textEdit4.Size = new System.Drawing.Size(210, 68);
+            this.textEdit4.Size = new System.Drawing.Size(200, 68);
             this.textEdit4.TabIndex = 4;
             this.textEdit4.UseOptimizedRendering = true;
             // 
@@ -259,28 +233,22 @@
             // 
             this.groupControl2.Controls.Add(this.gridControl1);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 333);
+            this.groupControl2.Location = new System.Drawing.Point(0, 370);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(282, 215);
+            this.groupControl2.Size = new System.Drawing.Size(282, 178);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Log";
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.lOGTINHTRANGSBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 21);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(278, 192);
+            this.gridControl1.Size = new System.Drawing.Size(278, 155);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // lOGTINHTRANGSBindingSource
-            // 
-            this.lOGTINHTRANGSBindingSource.DataMember = "LOGTINHTRANGS";
-            this.lOGTINHTRANGSBindingSource.DataSource = this.dataSet1;
             // 
             // gridView1
             // 
@@ -320,28 +288,29 @@
             this.coltinhtrang_id.Visible = true;
             this.coltinhtrang_id.VisibleIndex = 1;
             // 
-            // lOAITHIETBISTableAdapter
+            // btnImage
             // 
-            this.lOAITHIETBISTableAdapter.ClearBeforeFill = true;
+            this.btnImage.Location = new System.Drawing.Point(188, 25);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(75, 23);
+            this.btnImage.TabIndex = 19;
+            this.btnImage.Text = "Chọn";
             // 
-            // pHONGSTableAdapter
+            // btnOK
             // 
-            this.pHONGSTableAdapter.ClearBeforeFill = true;
+            this.btnOK.Location = new System.Drawing.Point(67, 335);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 20;
+            this.btnOK.Text = "OK";
             // 
-            // ctthietbisTableAdapter
+            // btnHuy
             // 
-            this.ctthietbisTableAdapter.ClearBeforeFill = true;
-            // 
-            // lOGTINHTRANGSTableAdapter
-            // 
-            this.lOGTINHTRANGSTableAdapter.ClearBeforeFill = true;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Location = new System.Drawing.Point(174, 182);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(103, 30);
-            this.panelControl1.TabIndex = 18;
+            this.btnHuy.Location = new System.Drawing.Point(148, 335);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 21;
+            this.btnHuy.Text = "Hủy";
             // 
             // ucChiTietThietBi
             // 
@@ -354,9 +323,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOAITHIETBISBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
@@ -367,9 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOGTINHTRANGSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,20 +357,14 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.MemoEdit textEdit4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.BindingSource pHONGSBindingSource;
-        private MyDataSet.DataSet1 dataSet1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource lOAITHIETBISBindingSource;
-        private MyDataSet.DataSet1TableAdapters.LOAITHIETBISTableAdapter lOAITHIETBISTableAdapter;
-        private MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter pHONGSTableAdapter;
-        private MyDataSet.DataSet1TableAdapters.CTTHIETBISTableAdapter ctthietbisTableAdapter;
-        private System.Windows.Forms.BindingSource lOGTINHTRANGSBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colngay;
         private DevExpress.XtraGrid.Columns.GridColumn colsoluong;
         private DevExpress.XtraGrid.Columns.GridColumn coltinhtrang_id;
-        private MyDataSet.DataSet1TableAdapters.LOGTINHTRANGSTableAdapter lOGTINHTRANGSTableAdapter;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnImage;
     }
 }

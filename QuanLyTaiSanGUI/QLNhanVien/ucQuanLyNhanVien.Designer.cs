@@ -32,9 +32,6 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
             this.gridViewNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
-            this.nHANVIENPTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nHANVIENPTSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.NHANVIENPTSTableAdapter();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsubId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhoten = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,40 +39,35 @@
             this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhinh_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.txtSodt = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.checkedListBoxControl1 = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.btnHuy_Phong = new DevExpress.XtraEditors.SimpleButton();
+            this.checkedListBoxControl1 = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.btnOK_Phong = new DevExpress.XtraEditors.SimpleButton();
-            this.pHONGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pHONGSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSodt = new DevExpress.XtraEditors.TextEdit();
+            this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.txtMa = new DevExpress.XtraEditors.TextEdit();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHANVIENPTSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSodt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSodt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -95,7 +87,6 @@
             // 
             // gridControlNhanVien
             // 
-            this.gridControlNhanVien.DataSource = this.nHANVIENPTSBindingSource;
             this.gridControlNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlNhanVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlNhanVien.MainView = this.gridViewNhanVien;
@@ -122,20 +113,6 @@
             this.gridViewNhanVien.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewNhanVien.OptionsFind.AlwaysVisible = true;
             this.gridViewNhanVien.OptionsView.ShowGroupPanel = false;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nHANVIENPTSBindingSource
-            // 
-            this.nHANVIENPTSBindingSource.DataMember = "NHANVIENPTS";
-            this.nHANVIENPTSBindingSource.DataSource = this.dataSet1;
-            // 
-            // nHANVIENPTSTableAdapter
-            // 
-            this.nHANVIENPTSTableAdapter.ClearBeforeFill = true;
             // 
             // colid
             // 
@@ -182,6 +159,43 @@
             this.colhinh_id.FieldName = "hinh_id";
             this.colhinh_id.Name = "colhinh_id";
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.btnHuy_Phong);
+            this.groupControl2.Controls.Add(this.checkedListBoxControl1);
+            this.groupControl2.Controls.Add(this.btnOK_Phong);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(0, 284);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(271, 216);
+            this.groupControl2.TabIndex = 1;
+            this.groupControl2.Text = "Danh sách phòng";
+            // 
+            // btnHuy_Phong
+            // 
+            this.btnHuy_Phong.Location = new System.Drawing.Point(145, 170);
+            this.btnHuy_Phong.Name = "btnHuy_Phong";
+            this.btnHuy_Phong.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy_Phong.TabIndex = 12;
+            this.btnHuy_Phong.Text = "Hủy";
+            // 
+            // checkedListBoxControl1
+            // 
+            this.checkedListBoxControl1.DisplayMember = "ten";
+            this.checkedListBoxControl1.Location = new System.Drawing.Point(5, 24);
+            this.checkedListBoxControl1.Name = "checkedListBoxControl1";
+            this.checkedListBoxControl1.Size = new System.Drawing.Size(260, 140);
+            this.checkedListBoxControl1.TabIndex = 0;
+            this.checkedListBoxControl1.ValueMember = "id";
+            // 
+            // btnOK_Phong
+            // 
+            this.btnOK_Phong.Location = new System.Drawing.Point(64, 170);
+            this.btnOK_Phong.Name = "btnOK_Phong";
+            this.btnOK_Phong.Size = new System.Drawing.Size(75, 23);
+            this.btnOK_Phong.TabIndex = 11;
+            this.btnOK_Phong.Text = "OK";
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.btnHuy);
@@ -202,75 +216,13 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
-            // imageSlider1
+            // btnHuy
             // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(89, 25);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(113, 133);
-            this.imageSlider1.TabIndex = 0;
-            this.imageSlider1.Text = "imageSlider1";
-            // 
-            // txtMa
-            // 
-            this.txtMa.Location = new System.Drawing.Point(89, 165);
-            this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(156, 20);
-            this.txtMa.TabIndex = 1;
-            // 
-            // txtTen
-            // 
-            this.txtTen.Location = new System.Drawing.Point(89, 192);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(156, 20);
-            this.txtTen.TabIndex = 2;
-            // 
-            // txtSodt
-            // 
-            this.txtSodt.Location = new System.Drawing.Point(89, 219);
-            this.txtSodt.Name = "txtSodt";
-            this.txtSodt.Size = new System.Drawing.Size(156, 20);
-            this.txtSodt.TabIndex = 3;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 25);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(46, 13);
-            this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Hình ảnh:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(6, 168);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(68, 13);
-            this.labelControl2.TabIndex = 5;
-            this.labelControl2.Text = "Mã nhân viên:";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(6, 195);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(72, 13);
-            this.labelControl3.TabIndex = 6;
-            this.labelControl3.Text = "Tên nhân viên:";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 222);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(66, 13);
-            this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "Số điện thoại:";
-            // 
-            // btnImage
-            // 
-            this.btnImage.Location = new System.Drawing.Point(209, 25);
-            this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(57, 23);
-            this.btnImage.TabIndex = 8;
-            this.btnImage.Text = "Chọn";
+            this.btnHuy.Location = new System.Drawing.Point(145, 242);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 10;
+            this.btnHuy.Text = "Hủy";
             // 
             // btnOK
             // 
@@ -280,60 +232,75 @@
             this.btnOK.TabIndex = 9;
             this.btnOK.Text = "OK";
             // 
-            // btnHuy
+            // btnImage
             // 
-            this.btnHuy.Location = new System.Drawing.Point(145, 242);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 10;
-            this.btnHuy.Text = "Hủy";
+            this.btnImage.Location = new System.Drawing.Point(209, 25);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(57, 23);
+            this.btnImage.TabIndex = 8;
+            this.btnImage.Text = "Chọn";
             // 
-            // groupControl2
+            // labelControl4
             // 
-            this.groupControl2.Controls.Add(this.btnHuy_Phong);
-            this.groupControl2.Controls.Add(this.checkedListBoxControl1);
-            this.groupControl2.Controls.Add(this.btnOK_Phong);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 284);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(271, 216);
-            this.groupControl2.TabIndex = 1;
-            this.groupControl2.Text = "Danh sách phòng";
+            this.labelControl4.Location = new System.Drawing.Point(6, 222);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(66, 13);
+            this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "Số điện thoại:";
             // 
-            // checkedListBoxControl1
+            // labelControl3
             // 
-            this.checkedListBoxControl1.DataSource = this.pHONGSBindingSource;
-            this.checkedListBoxControl1.DisplayMember = "ten";
-            this.checkedListBoxControl1.Location = new System.Drawing.Point(5, 24);
-            this.checkedListBoxControl1.Name = "checkedListBoxControl1";
-            this.checkedListBoxControl1.Size = new System.Drawing.Size(260, 140);
-            this.checkedListBoxControl1.TabIndex = 0;
-            this.checkedListBoxControl1.ValueMember = "id";
+            this.labelControl3.Location = new System.Drawing.Point(6, 195);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(72, 13);
+            this.labelControl3.TabIndex = 6;
+            this.labelControl3.Text = "Tên nhân viên:";
             // 
-            // btnHuy_Phong
+            // labelControl2
             // 
-            this.btnHuy_Phong.Location = new System.Drawing.Point(145, 170);
-            this.btnHuy_Phong.Name = "btnHuy_Phong";
-            this.btnHuy_Phong.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy_Phong.TabIndex = 12;
-            this.btnHuy_Phong.Text = "Hủy";
+            this.labelControl2.Location = new System.Drawing.Point(6, 168);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(68, 13);
+            this.labelControl2.TabIndex = 5;
+            this.labelControl2.Text = "Mã nhân viên:";
             // 
-            // btnOK_Phong
+            // labelControl1
             // 
-            this.btnOK_Phong.Location = new System.Drawing.Point(64, 170);
-            this.btnOK_Phong.Name = "btnOK_Phong";
-            this.btnOK_Phong.Size = new System.Drawing.Size(75, 23);
-            this.btnOK_Phong.TabIndex = 11;
-            this.btnOK_Phong.Text = "OK";
+            this.labelControl1.Location = new System.Drawing.Point(5, 25);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(46, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Hình ảnh:";
             // 
-            // pHONGSBindingSource
+            // txtSodt
             // 
-            this.pHONGSBindingSource.DataMember = "PHONGS";
-            this.pHONGSBindingSource.DataSource = this.dataSet1;
+            this.txtSodt.Location = new System.Drawing.Point(89, 219);
+            this.txtSodt.Name = "txtSodt";
+            this.txtSodt.Size = new System.Drawing.Size(156, 20);
+            this.txtSodt.TabIndex = 3;
             // 
-            // pHONGSTableAdapter
+            // txtTen
             // 
-            this.pHONGSTableAdapter.ClearBeforeFill = true;
+            this.txtTen.Location = new System.Drawing.Point(89, 192);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(156, 20);
+            this.txtTen.TabIndex = 2;
+            // 
+            // txtMa
+            // 
+            this.txtMa.Location = new System.Drawing.Point(89, 165);
+            this.txtMa.Name = "txtMa";
+            this.txtMa.Size = new System.Drawing.Size(156, 20);
+            this.txtMa.TabIndex = 1;
+            // 
+            // imageSlider1
+            // 
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imageSlider1.Location = new System.Drawing.Point(89, 25);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(113, 133);
+            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.Text = "imageSlider1";
             // 
             // ucQuanLyNhanVien
             // 
@@ -346,19 +313,16 @@
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHANVIENPTSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSodt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSodt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,8 +332,6 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gridControlNhanVien;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewNhanVien;
-        private System.Windows.Forms.BindingSource nHANVIENPTSBindingSource;
-        private MyDataSet.DataSet1 dataSet1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colsubId;
         private DevExpress.XtraGrid.Columns.GridColumn colhoten;
@@ -378,7 +340,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn coldate_modified;
         private DevExpress.XtraGrid.Columns.GridColumn colhinh_id;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private MyDataSet.DataSet1TableAdapters.NHANVIENPTSTableAdapter nHANVIENPTSTableAdapter;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -393,8 +354,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton btnHuy_Phong;
         private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
-        private System.Windows.Forms.BindingSource pHONGSBindingSource;
         private DevExpress.XtraEditors.SimpleButton btnOK_Phong;
-        private MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter pHONGSTableAdapter;
     }
 }

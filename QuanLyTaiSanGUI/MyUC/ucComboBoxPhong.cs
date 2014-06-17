@@ -15,7 +15,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucComboBoxPhong()
         {
             InitializeComponent();
-            this.pHONGSTableAdapter.FillBy(this.dataSet1.PHONGS);
+            //this.pHONGSTableAdapter.FillBy(this.dataSet1.PHONGS);
         }
     }
 }
