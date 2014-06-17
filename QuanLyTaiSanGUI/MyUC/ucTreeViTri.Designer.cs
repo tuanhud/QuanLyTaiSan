@@ -54,6 +54,7 @@
             this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.Size = new System.Drawing.Size(205, 308);
             this.treeListViTri.TabIndex = 1;
+            this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             // 
             // colid
             // 
@@ -83,7 +84,8 @@
             this.popupContainerEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.popupContainerEdit1.Properties.PopupControl = this.popupContainerControl1;
-            this.popupContainerEdit1.Size = new System.Drawing.Size(150, 20);
+            this.popupContainerEdit1.Properties.ReadOnly = true;
+            this.popupContainerEdit1.Size = new System.Drawing.Size(200, 20);
             this.popupContainerEdit1.TabIndex = 2;
             // 
             // popupContainerControl1
@@ -101,7 +103,7 @@
             this.Controls.Add(this.popupContainerControl1);
             this.Controls.Add(this.popupContainerEdit1);
             this.Name = "ucTreeViTri";
-            this.Size = new System.Drawing.Size(150, 20);
+            this.Size = new System.Drawing.Size(200, 20);
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerControl1)).EndInit();

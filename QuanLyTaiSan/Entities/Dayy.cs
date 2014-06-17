@@ -24,35 +24,6 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        
-        //Lấy list dãy theo cơ sở id
-        /// <summary>
-        /// Sử dụng CoSo.dayys thay vì viết hàm riêng giống như vậy
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public List<Dayy> GetByCoSoId(int id)
-        {
-            try
-            {
-                initDb();
-                List<Dayy> objs = db.Set<Dayy>().Where(c => c.coso.id == id).ToList();
-                foreach (Dayy item in objs)
-                {
-                    item.DB = db;//importance
-                }
-                return objs;
-            }
-            catch (Exception ex)
-            {
-                return new List<Dayy>();
-            }
-            finally
-            {
-
-            }
-        }
         protected override void init()
         {
             base.init();
