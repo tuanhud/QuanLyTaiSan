@@ -44,33 +44,36 @@ namespace QuanLyTaiSanGUI.MyUC
                         listTangs = _day.tangs.ToList();
                         foreach (Tang _tang in listTangs)
                         {
-                            //TreeListNode rootNode3 = tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
-                            //ViTri obj2 = new ViTri();
-                            //obj2.coso = _coso;
-                            //obj2.day = _day;
-                            //obj2.tang = _tang;
-                            //listPhongs = obj2.phongs.ToList();
-                            //foreach (Phong _phong in listPhongs)
-                            //{
-                            //    tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode3);
-                            //}
+                            TreeListNode rootNode3 = tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                            ViTri obj2 = new ViTri().getBy3Id(_coso.id, _day.id, _tang.id);
+                            if (obj2 != null)
+                            {
+                                listPhongs = obj2.phongs.ToList();
+                                foreach (Phong _phong in listPhongs)
+                                {
+                                    tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode3);
+                                }
+                            }
                         }
-                        //ViTri obj3 = new ViTri();
-                        //obj3.coso = _coso;
-                        //obj3.day = _day;
-                        //listPhongs = obj3.phongs.ToList();
-                        //foreach (Phong _phong in listPhongs)
-                        //{
-                        //    tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode2);
-                        //}
+                        ViTri obj3 = new ViTri().getBy3Id(_coso.id, _day.id, -1);
+                        if (obj3 != null)
+                        {
+                            listPhongs = obj3.phongs.ToList();
+                            foreach (Phong _phong in listPhongs)
+                            {
+                                tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode2);
+                            }
+                        }
                     }
-                    //ViTri obj = new ViTri();
-                    //obj.coso=_coso;
-                    //listPhongs = obj.phongs.ToList();
-                    //foreach (Phong _phong in listPhongs)
-                    //{
-                    //    tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode);
-                    //}
+                    ViTri obj = new ViTri().getBy3Id(_coso.id, -1, -1);
+                    if (obj != null)
+                    {
+                        listPhongs = obj.phongs.ToList();
+                        foreach (Phong _phong in listPhongs)
+                        {
+                            tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode);
+                        }
+                    }
 
                 }
                 tl.EndUnboundLoad();

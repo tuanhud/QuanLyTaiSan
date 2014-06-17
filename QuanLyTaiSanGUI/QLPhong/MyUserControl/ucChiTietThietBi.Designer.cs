@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -50,12 +52,9 @@
             this.colngay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
@@ -67,6 +66,7 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -95,12 +95,29 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết thiết bị";
             // 
-            // panelControl1
+            // btnHuy
             // 
-            this.panelControl1.Location = new System.Drawing.Point(67, 181);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 20);
-            this.panelControl1.TabIndex = 18;
+            this.btnHuy.Location = new System.Drawing.Point(148, 335);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 21;
+            this.btnHuy.Text = "Hủy";
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(67, 335);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 20;
+            this.btnOK.Text = "OK";
+            // 
+            // btnImage
+            // 
+            this.btnImage.Location = new System.Drawing.Point(188, 25);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(75, 23);
+            this.btnImage.TabIndex = 19;
+            this.btnImage.Text = "Chọn";
             // 
             // comboBox1
             // 
@@ -288,29 +305,12 @@
             this.coltinhtrang_id.Visible = true;
             this.coltinhtrang_id.VisibleIndex = 1;
             // 
-            // btnImage
+            // panelControl1
             // 
-            this.btnImage.Location = new System.Drawing.Point(188, 25);
-            this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 19;
-            this.btnImage.Text = "Chọn";
-            // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(67, 335);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 20;
-            this.btnOK.Text = "OK";
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Location = new System.Drawing.Point(148, 335);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 21;
-            this.btnHuy.Text = "Hủy";
+            this.panelControl1.Location = new System.Drawing.Point(67, 181);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(200, 20);
+            this.panelControl1.TabIndex = 18;
             // 
             // ucChiTietThietBi
             // 
@@ -323,7 +323,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
@@ -335,6 +334,7 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,9 +362,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colngay;
         private DevExpress.XtraGrid.Columns.GridColumn colsoluong;
         private DevExpress.XtraGrid.Columns.GridColumn coltinhtrang_id;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnImage;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }

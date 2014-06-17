@@ -16,6 +16,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucChiTietThietBi()
         {
             InitializeComponent();
+            uc.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(uc);
         }
         public void LoadData(int _id)

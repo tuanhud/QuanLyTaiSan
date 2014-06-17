@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -14,9 +15,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
     {
         ucChiTietPhong uc = new ucChiTietPhong();
         ucChiTietThietBi uc2 = new ucChiTietThietBi();
+        List<ThietBi> listThietBis = new List<ThietBi>();
         public ucQuanLyPhong()
         {
             InitializeComponent();
+            uc.Dock = DockStyle.Fill;
+            AddControl(uc);
+            listThietBis = new ThietBi().getAll().ToList();
+            gridControlThietBi.DataSource = listThietBis;
+
         }
         public void LoadDataSet(int _coso, int _day, int _tang, int _phong)
         {

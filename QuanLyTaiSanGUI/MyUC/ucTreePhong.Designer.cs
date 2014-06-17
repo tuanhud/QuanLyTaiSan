@@ -37,6 +37,8 @@
             // 
             // treeListPhong
             // 
+            this.treeListPhong.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.treeListPhong.Appearance.FocusedCell.Options.UseBackColor = true;
             this.treeListPhong.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
@@ -44,6 +46,7 @@
             this.treeListPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListPhong.Location = new System.Drawing.Point(0, 0);
             this.treeListPhong.Name = "treeListPhong";
+            this.treeListPhong.OptionsBehavior.Editable = false;
             this.treeListPhong.Size = new System.Drawing.Size(276, 373);
             this.treeListPhong.TabIndex = 0;
             // 
@@ -81,9 +84,9 @@
 
         #endregion
 
-        private DevExpress.XtraTreeList.TreeList treeListPhong;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn coltype;
+        public DevExpress.XtraTreeList.TreeList treeListPhong;
     }
 }

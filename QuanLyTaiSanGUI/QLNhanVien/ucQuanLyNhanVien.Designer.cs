@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
             this.gridViewNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -73,6 +72,7 @@
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlNhanVien);
@@ -81,7 +81,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(759, 500);
-            this.splitContainerControl1.SplitterPosition = 483;
+            this.splitContainerControl1.SplitterPosition = 309;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -91,7 +91,7 @@
             this.gridControlNhanVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlNhanVien.MainView = this.gridViewNhanVien;
             this.gridControlNhanVien.Name = "gridControlNhanVien";
-            this.gridControlNhanVien.Size = new System.Drawing.Size(483, 500);
+            this.gridControlNhanVien.Size = new System.Drawing.Size(445, 500);
             this.gridControlNhanVien.TabIndex = 0;
             this.gridControlNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhanVien});
@@ -113,6 +113,7 @@
             this.gridViewNhanVien.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewNhanVien.OptionsFind.AlwaysVisible = true;
             this.gridViewNhanVien.OptionsView.ShowGroupPanel = false;
+            this.gridViewNhanVien.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewNhanVien_FocusedRowChanged);
             // 
             // colid
             // 
@@ -165,9 +166,9 @@
             this.groupControl2.Controls.Add(this.checkedListBoxControl1);
             this.groupControl2.Controls.Add(this.btnOK_Phong);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 284);
+            this.groupControl2.Location = new System.Drawing.Point(0, 259);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(271, 216);
+            this.groupControl2.Size = new System.Drawing.Size(309, 241);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Danh sách phòng";
             // 
@@ -178,13 +179,14 @@
             this.btnHuy_Phong.Size = new System.Drawing.Size(75, 23);
             this.btnHuy_Phong.TabIndex = 12;
             this.btnHuy_Phong.Text = "Hủy";
+            this.btnHuy_Phong.Visible = false;
             // 
             // checkedListBoxControl1
             // 
             this.checkedListBoxControl1.DisplayMember = "ten";
             this.checkedListBoxControl1.Location = new System.Drawing.Point(5, 24);
             this.checkedListBoxControl1.Name = "checkedListBoxControl1";
-            this.checkedListBoxControl1.Size = new System.Drawing.Size(260, 140);
+            this.checkedListBoxControl1.Size = new System.Drawing.Size(299, 140);
             this.checkedListBoxControl1.TabIndex = 0;
             this.checkedListBoxControl1.ValueMember = "id";
             // 
@@ -195,6 +197,7 @@
             this.btnOK_Phong.Size = new System.Drawing.Size(75, 23);
             this.btnOK_Phong.TabIndex = 11;
             this.btnOK_Phong.Text = "OK";
+            this.btnOK_Phong.Visible = false;
             // 
             // groupControl1
             // 
@@ -212,37 +215,40 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(271, 284);
+            this.groupControl1.Size = new System.Drawing.Size(309, 259);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(145, 242);
+            this.btnHuy.Location = new System.Drawing.Point(145, 229);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Visible = false;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(64, 242);
+            this.btnOK.Location = new System.Drawing.Point(64, 229);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 9;
             this.btnOK.Text = "OK";
+            this.btnOK.Visible = false;
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(209, 25);
+            this.btnImage.Location = new System.Drawing.Point(210, 25);
             this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(57, 23);
+            this.btnImage.Size = new System.Drawing.Size(67, 23);
             this.btnImage.TabIndex = 8;
             this.btnImage.Text = "Chọn";
+            this.btnImage.Visible = false;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 222);
+            this.labelControl4.Location = new System.Drawing.Point(6, 206);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(66, 13);
             this.labelControl4.TabIndex = 7;
@@ -250,7 +256,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(6, 195);
+            this.labelControl3.Location = new System.Drawing.Point(6, 180);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(72, 13);
             this.labelControl3.TabIndex = 6;
@@ -258,7 +264,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(6, 168);
+            this.labelControl2.Location = new System.Drawing.Point(6, 154);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(68, 13);
             this.labelControl2.TabIndex = 5;
@@ -266,7 +272,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 25);
+            this.labelControl1.Location = new System.Drawing.Point(6, 25);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 4;
@@ -274,31 +280,40 @@
             // 
             // txtSodt
             // 
-            this.txtSodt.Location = new System.Drawing.Point(89, 219);
+            this.txtSodt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSodt.Location = new System.Drawing.Point(84, 203);
             this.txtSodt.Name = "txtSodt";
-            this.txtSodt.Size = new System.Drawing.Size(156, 20);
+            this.txtSodt.Properties.ReadOnly = true;
+            this.txtSodt.Size = new System.Drawing.Size(220, 20);
             this.txtSodt.TabIndex = 3;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(89, 192);
+            this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTen.Location = new System.Drawing.Point(84, 177);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(156, 20);
+            this.txtTen.Properties.ReadOnly = true;
+            this.txtTen.Size = new System.Drawing.Size(220, 20);
             this.txtTen.TabIndex = 2;
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(89, 165);
+            this.txtMa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMa.Location = new System.Drawing.Point(84, 151);
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(156, 20);
+            this.txtMa.Properties.ReadOnly = true;
+            this.txtMa.Size = new System.Drawing.Size(220, 20);
             this.txtMa.TabIndex = 1;
             // 
             // imageSlider1
             // 
             this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(89, 25);
+            this.imageSlider1.Location = new System.Drawing.Point(84, 25);
             this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(113, 133);
+            this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
             // 

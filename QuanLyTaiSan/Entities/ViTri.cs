@@ -21,6 +21,42 @@ namespace QuanLyTaiSan.Entities
 
         }
         public String mota { get; set; }
+        
+        //Hàm dùng tạm để test dũu liệu
+        public ViTri getBy3Id(int id1, int id2, int id3)
+        {
+            try
+            {
+                initDb();
+                ViTri obj = null;
+                if (id3 != -1)
+                {
+                    obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == id3).FirstOrDefault();
+                }
+                else if (id2 != -1)
+                {
+                    obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == null).FirstOrDefault();
+                }
+                else
+                {
+                    obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == null && c.tang.id == null).FirstOrDefault();
+                }
+                if (obj != null)
+                {
+                    obj.DB = db;
+                }
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
+
         /*
          * FK
          */

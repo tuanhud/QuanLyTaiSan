@@ -11,6 +11,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSanGUI.QLLoaiThietBi;
 
 namespace QuanLyTaiSanGUI
 {
@@ -19,7 +20,7 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
-            ucTreePhong uc = new ucTreePhong();
+            ucQuanLyLoaiTB uc = new ucQuanLyLoaiTB();
             panelControl1.Controls.Add(uc);
         }
     }

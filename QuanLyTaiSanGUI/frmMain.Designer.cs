@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -68,26 +67,21 @@
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupPhong = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
-            this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
-            this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcoso = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroupLoaiThietBi = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupLoaiTB = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupNhanVien = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
-            this.navBarGroupControlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,14 +110,18 @@
             this.barBtnThemNhanVien,
             this.barBtnSuaNhanVien,
             this.barBtnXoaNhanVien,
-            this.barBtnPhanCong});
+            this.barBtnPhanCong,
+            this.barBtnThemLoaiTB,
+            this.barBtnSuaLoaiTB,
+            this.barBtnXoaLoaiTB});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 22;
+            this.ribbon.MaxItemId = 25;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home,
             this.rbnPageViTri_Home,
             this.rbnPageNhanVien_Home,
+            this.rbnPageLoaiTB_Home,
             this.ribbonPage2});
             this.ribbon.Size = new System.Drawing.Size(900, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
@@ -322,7 +320,6 @@
             // 
             // rbnGroupViTri_Day
             // 
-            this.rbnGroupViTri_Day.Enabled = false;
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnThemDay);
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnSuaDay);
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnXoaDay);
@@ -382,7 +379,7 @@
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri,
             this.navBarGroupPhong,
-            this.navBarGroupLoaiThietBi,
+            this.navBarGroupLoaiTB,
             this.navBarGroupNhanVien,
             this.navBarGroupPhanQuyen,
             this.navBarGroupThongKe});
@@ -406,82 +403,9 @@
             // 
             // navBarGroupControlContainer1
             // 
-            this.navBarGroupControlContainer1.Controls.Add(this.gridControlPhong);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
             this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 281);
             this.navBarGroupControlContainer1.TabIndex = 0;
-            // 
-            // gridControlPhong
-            // 
-            this.gridControlPhong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
-            this.gridControlPhong.MainView = this.gridViewPhong;
-            this.gridControlPhong.MenuManager = this.ribbon;
-            this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(259, 281);
-            this.gridControlPhong.TabIndex = 0;
-            this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewPhong});
-            // 
-            // gridViewPhong
-            // 
-            this.gridViewPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
-            this.colten,
-            this.colcoso,
-            this.colday,
-            this.coltang});
-            this.gridViewPhong.GridControl = this.gridControlPhong;
-            this.gridViewPhong.GroupCount = 3;
-            this.gridViewPhong.Name = "gridViewPhong";
-            this.gridViewPhong.OptionsBehavior.ReadOnly = true;
-            this.gridViewPhong.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewPhong.OptionsFind.AlwaysVisible = true;
-            this.gridViewPhong.OptionsView.ShowGroupPanel = false;
-            this.gridViewPhong.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colcoso, DevExpress.Data.ColumnSortOrder.Ascending),
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colday, DevExpress.Data.ColumnSortOrder.Ascending),
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.coltang, DevExpress.Data.ColumnSortOrder.Ascending)});
-            this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.OptionsColumn.ReadOnly = true;
-            // 
-            // colten
-            // 
-            this.colten.Caption = "Phòng";
-            this.colten.FieldName = "ten";
-            this.colten.Name = "colten";
-            this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
-            this.colten.Width = 83;
-            // 
-            // colcoso
-            // 
-            this.colcoso.Caption = "Cơ sở";
-            this.colcoso.FieldName = "tencoso";
-            this.colcoso.Name = "colcoso";
-            this.colcoso.Visible = true;
-            this.colcoso.VisibleIndex = 1;
-            // 
-            // colday
-            // 
-            this.colday.Caption = "Dãy";
-            this.colday.FieldName = "tenday";
-            this.colday.Name = "colday";
-            this.colday.Visible = true;
-            this.colday.VisibleIndex = 1;
-            // 
-            // coltang
-            // 
-            this.coltang.Caption = "Tầng";
-            this.coltang.FieldName = "tentang";
-            this.coltang.Name = "coltang";
-            this.coltang.Visible = true;
-            this.coltang.VisibleIndex = 1;
             // 
             // navBarGroupControlContainer2
             // 
@@ -494,10 +418,10 @@
             this.navBarGroupViTri.Caption = "Quản lý cơ sở, dãy, tầng";
             this.navBarGroupViTri.Name = "navBarGroupViTri";
             // 
-            // navBarGroupLoaiThietBi
+            // navBarGroupLoaiTB
             // 
-            this.navBarGroupLoaiThietBi.Caption = "Quản lý loại thiết bị";
-            this.navBarGroupLoaiThietBi.Name = "navBarGroupLoaiThietBi";
+            this.navBarGroupLoaiTB.Caption = "Quản lý loại thiết bị";
+            this.navBarGroupLoaiTB.Name = "navBarGroupLoaiTB";
             // 
             // navBarGroupNhanVien
             // 
@@ -525,6 +449,40 @@
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
             // 
+            // rbnPageLoaiTB_Home
+            // 
+            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbnGroupLoaiTB});
+            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
+            this.rbnPageLoaiTB_Home.Text = "Trang chính";
+            this.rbnPageLoaiTB_Home.Visible = false;
+            // 
+            // rbnGroupLoaiTB
+            // 
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnThemLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnSuaLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnXoaLoaiTB);
+            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
+            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
+            // 
+            // barBtnThemLoaiTB
+            // 
+            this.barBtnThemLoaiTB.Caption = "Thêm loại thiết bị";
+            this.barBtnThemLoaiTB.Id = 22;
+            this.barBtnThemLoaiTB.Name = "barBtnThemLoaiTB";
+            // 
+            // barBtnSuaLoaiTB
+            // 
+            this.barBtnSuaLoaiTB.Caption = "Sửa loại thiết bị";
+            this.barBtnSuaLoaiTB.Id = 23;
+            this.barBtnSuaLoaiTB.Name = "barBtnSuaLoaiTB";
+            // 
+            // barBtnXoaLoaiTB
+            // 
+            this.barBtnXoaLoaiTB.Caption = "Xóa loại thiết bị";
+            this.barBtnXoaLoaiTB.Id = 24;
+            this.barBtnXoaLoaiTB.Name = "barBtnXoaLoaiTB";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -543,9 +501,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.navBarControl1.ResumeLayout(false);
-            this.navBarGroupControlContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -561,15 +516,8 @@
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupPhong;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
-        private DevExpress.XtraGrid.GridControl gridControlPhong;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPhong;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupViTri;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colten;
-        private DevExpress.XtraGrid.Columns.GridColumn colcoso;
-        private DevExpress.XtraGrid.Columns.GridColumn colday;
-        private DevExpress.XtraGrid.Columns.GridColumn coltang;
         private DevExpress.XtraBars.BarButtonItem barBtnThemPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaPhong;
@@ -584,7 +532,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageViTri_Home;
         private DevExpress.XtraBars.BarButtonItem barBtnThemCoSo;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupViTri_CoSo;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroupLoaiThietBi;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroupLoaiTB;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupNhanVien;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupPhanQuyen;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupThongKe;
@@ -606,5 +554,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupNhanVien;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupNhanVienPhong;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer2;
+        private DevExpress.XtraBars.BarButtonItem barBtnThemLoaiTB;
+        private DevExpress.XtraBars.BarButtonItem barBtnSuaLoaiTB;
+        private DevExpress.XtraBars.BarButtonItem barBtnXoaLoaiTB;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageLoaiTB_Home;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLoaiTB;
     }
 }
