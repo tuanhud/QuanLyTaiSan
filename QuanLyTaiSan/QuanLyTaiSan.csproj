@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataFilter\PhongFilter.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />
     <Compile Include="Entities\NhanVienPT.cs" />
