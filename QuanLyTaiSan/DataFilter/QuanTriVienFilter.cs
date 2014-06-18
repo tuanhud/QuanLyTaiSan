@@ -7,8 +7,18 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class QuanTriVienFilter
+    public class QuanTriVienFilter:FilterAbstract
     {
+        public QuanTriVienFilter():base()
+        {
+
+        }
+        public QuanTriVienFilter(MyDB db)
+            : base(db)
+        {
+
+        }
+
         public int id { get; set; }
         public String username { get; set; }
         public String hoten { get; set; }
@@ -17,7 +27,7 @@ namespace QuanLyTaiSan.DataFilter
         #region Nghiệp vụ
         public List<QuanTriVienFilter> getAll()
         {
-            MyDB db=new MyDB();
+            InitDb();
             List<QuanTriVienFilter> re =
                 (from e in db.QUANTRIVIENS
                 join t in db.GROUPS on e.id equals t.id
