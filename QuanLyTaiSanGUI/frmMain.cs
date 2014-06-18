@@ -123,17 +123,17 @@ namespace QuanLyTaiSanGUI
 
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "coso");
+            _ucQuanLyCoSo.enableEdit(true, "coso", "edit");
         }
 
         private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "day");
+            _ucQuanLyCoSo.enableEdit(true, "day", "edit");
         }
 
         private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "tang");
+            _ucQuanLyCoSo.enableEdit(true, "tang", "edit");
         }
 
         public void enableGroupViTri(String _type)
@@ -166,6 +166,21 @@ namespace QuanLyTaiSanGUI
                 barBtnSuaCoSo.Enabled = false;
                 barBtnXoaCoSo.Enabled = false;
             }
+        }
+
+        private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.deleteObj("coso");
+        }
+
+        private void barBtnXoaDay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.deleteObj("day");
+        }
+
+        private void barBtnXoaTang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.deleteObj("tang");
         }
     }
 }

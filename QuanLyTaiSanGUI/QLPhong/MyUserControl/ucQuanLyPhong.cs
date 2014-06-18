@@ -13,14 +13,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucQuanLyPhong : UserControl
     {
-        ucChiTietPhong uc = new ucChiTietPhong();
+        ucChiTietPhong _ucChiTietPhong;
         ucChiTietThietBi uc2 = new ucChiTietThietBi();
         List<ThietBi> listThietBis = new List<ThietBi>();
+        List<CoSo> listCoSos = new List<CoSo>();
         public ucQuanLyPhong()
         {
             InitializeComponent();
-            uc.Dock = DockStyle.Fill;
-            AddControl(uc);
+            listCoSos = new CoSo().getAll().ToList();
+            _ucChiTietPhong = new ucChiTietPhong(listCoSos);
+            _ucChiTietPhong.Dock = DockStyle.Fill;
+            AddControl(_ucChiTietPhong);
             listThietBis = new ThietBi().getAll().ToList();
             gridControlThietBi.DataSource = listThietBis;
 
@@ -43,9 +46,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (row < 0 && row > -9999)
             {
                 object obj = gridViewThietBi.GetGroupRowValue(row);
-                uc.Dock = DockStyle.Fill;
-                AddControl(uc);
-                uc.LoadData(obj.ToString());
+                _ucChiTietPhong.Dock = DockStyle.Fill;
+                AddControl(_ucChiTietPhong);
+                _ucChiTietPhong.LoadData(obj.ToString());
             }
             else if (row >= 0)
             {
