@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public abstract class FilterAbstract
+    public abstract class FilterAbstract<T>
     {
         public FilterAbstract()
         {
@@ -37,6 +37,14 @@ namespace QuanLyTaiSan.DataFilter
             {
                 db = new MyDB();
             }
+        }
+        /// <summary>
+        /// Bắt buộc lớp con phải Override mới có dữ liệu
+        /// </summary>
+        /// <returns></returns>
+        public virtual List<T> getAll()
+        {
+            return new List<T>();
         }
     }
 }

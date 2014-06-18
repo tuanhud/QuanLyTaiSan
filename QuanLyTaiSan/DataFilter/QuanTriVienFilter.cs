@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class QuanTriVienFilter:FilterAbstract
+    public class QuanTriVienFilter:FilterAbstract<QuanTriVienFilter>
     {
         public QuanTriVienFilter():base()
         {
@@ -23,6 +23,11 @@ namespace QuanLyTaiSan.DataFilter
         public String username { get; set; }
         public String hoten { get; set; }
         public String ten_group { get; set; }
+        /*
+         * FK Object
+         */
+        public QuanTriVien quantrivien { get; set; }
+        public Group group { get; set; }
 
         #region Nghiệp vụ
         public List<QuanTriVienFilter> getAll()
@@ -30,13 +35,15 @@ namespace QuanLyTaiSan.DataFilter
             InitDb();
             List<QuanTriVienFilter> re =
                 (from e in db.QUANTRIVIENS
-                join t in db.GROUPS on e.id equals t.id
+                join t in db.GROUPS on e.@group equals t
                 select new QuanTriVienFilter
                 {
                     id = e.id,
                     hoten = e.hoten,
                     username = e.username,
-                    ten_group = t.ten
+                    ten_group = t==null?"":t.ten,
+                    @group = t,
+                    quantrivien = e
                 }).ToList();
             return re;
         }

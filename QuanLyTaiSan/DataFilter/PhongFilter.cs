@@ -8,7 +8,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class PhongFilter:FilterAbstract
+    public class PhongFilter:FilterAbstract<PhongFilter>
     {
         public PhongFilter():base()
         {
@@ -22,8 +22,17 @@ namespace QuanLyTaiSan.DataFilter
 
         public int id { get; set; }
         public String ten { get; set; }
+        /// <summary>
+        /// Rỗng nếu không có Cơ sở
+        /// </summary>
         public String ten_coso { get; set; }
+        /// <summary>
+        /// Rỗng nếu không có Dãy
+        /// </summary>
         public String ten_day { get; set; }
+        /// <summary>
+        /// Rỗng nếu không có Tầng
+        /// </summary>
         public String ten_tang { get; set; }
         /*
          * FK Object
@@ -31,25 +40,25 @@ namespace QuanLyTaiSan.DataFilter
         public Phong phong { get; set; }
         public CoSo coso { get; set; }
         public Tang tang { get; set; }
+        public Dayy day { get; set; }
         #region Nghiệp vụ
-        public List<PhongFilter> search()
+        public override List<PhongFilter> getAll()
         {
             InitDb();
             List<PhongFilter> re =
                 (from p in db.PHONGS
-                 join vt in db.VITRIS on p.vitri equals vt
-                 join cs in db.COSOS on vt.coso equals cs
-                 join da in db.DAYYS on vt.day equals da
-                 join ta in db.TANGS on vt.tang equals ta
+                 join vt in db.VITRIS on p.vitri equals vt into p_vt_
+                 from p_vt in p_vt_
                  select new PhongFilter
                  {
+                     id=p.id,
                      ten = p.ten,
-                     ten_coso = cs.ten,
-                     ten_day = da.ten,
-                     ten_tang = ta.ten,
-                     tang = ta,
-                     phong = p,
-                     coso = cs,
+                     ten_coso = p_vt.coso==null?"":p_vt.coso.ten,
+                     ten_day = p_vt.day==null?"":p_vt.day.ten,
+                     ten_tang = p_vt.tang == null ? "" : p_vt.tang.ten,
+                     tang = p_vt.tang,
+                     day = p_vt.day,
+                     coso = p_vt.coso
                  }).ToList();
             return re;
         }
