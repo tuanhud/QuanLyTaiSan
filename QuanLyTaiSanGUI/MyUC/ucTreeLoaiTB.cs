@@ -18,12 +18,15 @@ namespace QuanLyTaiSanGUI.MyUC
         public ucTreeLoaiTB(List<LoaiThietBi> _list)
         {
             InitializeComponent();
+            treeListLoaiTB.BeginUnboundLoad();
             treeListLoaiTB.DataSource = _list;
+            treeListLoaiTB.EndUnboundLoad();
         }
         public void setLoai(LoaiThietBi _loai)
         {
             obj = _loai;
             TreeListNode _node=null;
+            treeListLoaiTB.CollapseAll();
             if (obj.parent_id != null)
             {
                 foreach (TreeListNode node in treeListLoaiTB.Nodes)
@@ -56,6 +59,11 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
             popupContainerEdit1.Text = obj.ten;
+        }
+
+        public void setReadOnly(bool b)
+        {
+            popupContainerEdit1.Properties.ReadOnly = b;
         }
     }
 }

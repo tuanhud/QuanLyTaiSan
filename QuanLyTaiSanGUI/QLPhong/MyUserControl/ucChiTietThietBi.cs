@@ -23,6 +23,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             list = new LoaiThietBi().getAll();
             _ucTreeLoaiTB = new ucTreeLoaiTB(list);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
+            _ucTreeLoaiTB.setReadOnly(true);
             panelControl1.Controls.Add(_ucTreeLoaiTB);
         }
         public void LoadData(CTThietBi _obj)

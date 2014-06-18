@@ -30,30 +30,30 @@
         {
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
+            this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.txtten = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.txtten = new DevExpress.XtraEditors.TextEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtten.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtten.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -85,6 +85,14 @@
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
             // 
+            // colten
+            // 
+            this.colten.Caption = "Loại thiết bị";
+            this.colten.FieldName = "ten";
+            this.colten.Name = "colten";
+            this.colten.Visible = true;
+            this.colten.VisibleIndex = 0;
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.simpleButton3);
@@ -103,6 +111,76 @@
             this.groupControl1.Size = new System.Drawing.Size(282, 500);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(183, 24);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton3.TabIndex = 10;
+            this.simpleButton3.Text = "Chọn";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(127, 227);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton2.TabIndex = 9;
+            this.simpleButton2.Text = "Hủy";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(45, 228);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "OK";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.lookUpEdit1);
+            this.panelControl1.Location = new System.Drawing.Point(57, 176);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(220, 20);
+            this.panelControl1.TabIndex = 7;
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lookUpEdit1.Location = new System.Drawing.Point(0, 0);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ten", "Loại")});
+            this.lookUpEdit1.Properties.DisplayMember = "ten";
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Properties.ReadOnly = true;
+            this.lookUpEdit1.Properties.ValueMember = "id";
+            this.lookUpEdit1.Size = new System.Drawing.Size(220, 20);
+            this.lookUpEdit1.TabIndex = 0;
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(55, 202);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "Thiết bị được quản lý với số lượng lớn";
+            this.checkEdit1.Properties.ReadOnly = true;
+            this.checkEdit1.Size = new System.Drawing.Size(222, 19);
+            this.checkEdit1.TabIndex = 6;
+            // 
+            // txtten
+            // 
+            this.txtten.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtten.Location = new System.Drawing.Point(57, 150);
+            this.txtten.Name = "txtten";
+            this.txtten.Properties.ReadOnly = true;
+            this.txtten.Size = new System.Drawing.Size(220, 20);
+            this.txtten.TabIndex = 4;
             // 
             // imageSlider1
             // 
@@ -137,82 +215,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Hình ảnh:";
             // 
-            // colten
-            // 
-            this.colten.Caption = "Loại thiết bị";
-            this.colten.FieldName = "ten";
-            this.colten.Name = "colten";
-            this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
-            // 
-            // txtten
-            // 
-            this.txtten.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtten.Location = new System.Drawing.Point(57, 150);
-            this.txtten.Name = "txtten";
-            this.txtten.Properties.ReadOnly = true;
-            this.txtten.Size = new System.Drawing.Size(220, 20);
-            this.txtten.TabIndex = 4;
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(55, 202);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "checkEdit1";
-            this.checkEdit1.Size = new System.Drawing.Size(75, 19);
-            this.checkEdit1.TabIndex = 6;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.lookUpEdit1);
-            this.panelControl1.Location = new System.Drawing.Point(57, 176);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(220, 20);
-            this.panelControl1.TabIndex = 7;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(45, 228);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "OK";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(127, 227);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 9;
-            this.simpleButton2.Text = "Hủy";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(183, 24);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton3.TabIndex = 10;
-            this.simpleButton3.Text = "Chọn";
-            // 
-            // lookUpEdit1
-            // 
-            this.lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit1.Location = new System.Drawing.Point(0, 0);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ten", "Loại")});
-            this.lookUpEdit1.Properties.DisplayMember = "ten";
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Properties.ValueMember = "id";
-            this.lookUpEdit1.Size = new System.Drawing.Size(220, 20);
-            this.lookUpEdit1.TabIndex = 0;
-            // 
             // ucQuanLyLoaiTB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,12 +228,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtten.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtten.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
         }
