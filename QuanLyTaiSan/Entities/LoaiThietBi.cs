@@ -42,6 +42,29 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+
+        public List<LoaiThietBi> getAllParent()
+        {
+            try
+            {
+                initDb();
+                List<LoaiThietBi> objs = db.Set<LoaiThietBi>().Where(c => c.parent_id == null).ToList();
+                foreach (LoaiThietBi item in objs)
+                {
+                    item.DB = db;//importance
+                }
+                return objs;
+            }
+            catch (Exception ex)
+            {
+                return new List<LoaiThietBi>();
+            }
+            finally
+            {
+
+            }
+        }
+
         public virtual ICollection<ThietBi> thietbis { get; set; }
 
         public int? parent_id { get; set; }

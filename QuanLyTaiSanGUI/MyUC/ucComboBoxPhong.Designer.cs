@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dataSet1 = new QuanLyTaiSanGUI.MyDataSet.DataSet1();
-            this.pHONGSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pHONGSTableAdapter = new QuanLyTaiSanGUI.MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter();
             this.searchLookUpEdit1 = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,37 +35,23 @@
             this.colcoso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltang = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pHONGSBindingSource
-            // 
-            this.pHONGSBindingSource.DataMember = "PHONGS";
-            this.pHONGSBindingSource.DataSource = this.dataSet1;
-            // 
-            // pHONGSTableAdapter
-            // 
-            this.pHONGSTableAdapter.ClearBeforeFill = true;
-            // 
             // searchLookUpEdit1
             // 
-            this.searchLookUpEdit1.Location = new System.Drawing.Point(3, 3);
+            this.searchLookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchLookUpEdit1.EditValue = "";
+            this.searchLookUpEdit1.Location = new System.Drawing.Point(0, 0);
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
+            this.searchLookUpEdit1.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchLookUpEdit1.Properties.DataSource = this.pHONGSBindingSource;
             this.searchLookUpEdit1.Properties.DisplayMember = "ten";
             this.searchLookUpEdit1.Properties.ValueMember = "id";
             this.searchLookUpEdit1.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEdit1.Size = new System.Drawing.Size(100, 20);
+            this.searchLookUpEdit1.Size = new System.Drawing.Size(200, 20);
             this.searchLookUpEdit1.TabIndex = 0;
             // 
             // searchLookUpEdit1View
@@ -83,6 +65,8 @@
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchLookUpEdit1View.GroupCount = 3;
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsBehavior.Editable = false;
+            this.searchLookUpEdit1View.OptionsBehavior.ReadOnly = true;
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             this.searchLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -94,20 +78,20 @@
             // 
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
             this.colid.Width = 83;
             // 
             // colten
             // 
+            this.colten.Caption = "Phòng";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 1;
+            this.colten.VisibleIndex = 0;
+            this.colten.Width = 83;
             // 
             // colcoso
             // 
-            this.colcoso.Caption = "tencoso";
+            this.colcoso.Caption = "Cơ sở";
             this.colcoso.FieldName = "tencoso";
             this.colcoso.Name = "colcoso";
             this.colcoso.Visible = true;
@@ -115,7 +99,7 @@
             // 
             // colday
             // 
-            this.colday.Caption = "tenday";
+            this.colday.Caption = "Dãy";
             this.colday.FieldName = "tenday";
             this.colday.Name = "colday";
             this.colday.Visible = true;
@@ -123,7 +107,7 @@
             // 
             // coltang
             // 
-            this.coltang.Caption = "tentang";
+            this.coltang.Caption = "Tầng";
             this.coltang.FieldName = "tentang";
             this.coltang.Name = "coltang";
             this.coltang.Visible = true;
@@ -135,9 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.searchLookUpEdit1);
             this.Name = "ucComboBoxPhong";
-            this.Size = new System.Drawing.Size(106, 26);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGSBindingSource)).EndInit();
+            this.Size = new System.Drawing.Size(200, 20);
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
@@ -146,9 +128,6 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource pHONGSBindingSource;
-        private MyDataSet.DataSet1 dataSet1;
-        private MyDataSet.DataSet1TableAdapters.PHONGSTableAdapter pHONGSTableAdapter;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colid;

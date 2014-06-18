@@ -7,31 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        public ucChiTietPhong()
+        ucTreeViTri _ucTreeViTri;
+        Phong objPhong;
+        public ucChiTietPhong(List<CoSo> _list)
         {
             InitializeComponent();
+            _ucTreeViTri = new ucTreeViTri(_list, true, true);
+            _ucTreeViTri.Dock = DockStyle.Fill;
+            panelControl1.Controls.Add(_ucTreeViTri);
         }
-        public void LoadData(String _ten)
+        public void LoadData(Phong _phong)
         {
-            int _id = Convert.ToInt32(this.phongsTableAdapter.ScalarQuery(_ten));
-            DataTable dt = this.phongsTableAdapter.GetDataBy1(_id);
-            if (dt.Rows.Count > 0)
+            try
             {
-                DataRow r = dt.Rows[0];
-                textEdit1.Text = r["ten"].ToString();
-                textEdit2.Text = r["tencoso"].ToString();
-                textEdit3.Text = r["tenday"].ToString();
-                textEdit4.Text = r["tentang"].ToString();
-                textEdit5.Text = r["mota"].ToString();
-                lblMaNhanVien.Text = r["manhanvien"].ToString();
-                lblTenNhanVien.Text = r["hoten"].ToString();
-                lblSoDienThoai.Text = r["sodienthoai"].ToString();
+                objPhong = _phong;
+                txtTen.Text = objPhong.ten;
+                txtMoTa.Text = objPhong.mota;
+                _ucTreeViTri.setViTri(objPhong.vitri);
+                NhanVienPT objNV = new NhanVienPT();
+                if (objPhong.nhanvienpt != null)
+                {
+                    objNV = objPhong.nhanvienpt;
+                }
+                lblMaNhanVien.Text = objNV.subId;
+                lblTenNhanVien.Text = objNV.hoten;
+                lblSoDienThoai.Text = objNV.sodienthoai;
             }
+            catch (Exception ex)
+            { }
+            finally
+            {}
         }
-    }
+     }
 }

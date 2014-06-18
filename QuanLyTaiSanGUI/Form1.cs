@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSanGUI.QLLoaiThietBi;
 
 namespace QuanLyTaiSanGUI
 {
@@ -18,6 +20,8 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
+            ucQuanLyLoaiTB uc = new ucQuanLyLoaiTB();
+            panelControl1.Controls.Add(uc);
         }
     }
 }

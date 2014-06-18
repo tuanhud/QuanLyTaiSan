@@ -13,6 +13,8 @@ using DevExpress.XtraGrid.Columns;
 using QuanLyTaiSanGUI.MyForm;
 using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
+using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSanGUI.QLLoaiThietBi;
 
 namespace QuanLyTaiSanGUI
 {
@@ -21,6 +23,8 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
+        ucTreePhong _ucTreePhong = new ucTreePhong();
+        ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         ucKhac uck = new ucKhac();
         public frmMain()
         {
@@ -29,86 +33,35 @@ namespace QuanLyTaiSanGUI
 
         private void RibbonForm1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet1.PHONGS' table. You can move, or remove it, as needed.
-            this.pHONGSTableAdapter.FillBy(this.dataSet1.PHONGS);
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucQuanLyPhong);
-            _ucQuanLyPhong.LoadDataSet(-1, -1, -1, -1);
-            //uc2.Dock = DockStyle.Fill;
-            //uc.AddControl(uc2);
+            _ucTreePhong.Dock = DockStyle.Fill;
+            _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+            //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             
         }
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            int _objid = -1;
-            int _obj2id = -1;
-            int _obj3id = -1;
-            int row = gridViewPhong.FocusedRowHandle;
-            if (row < 0 && row > -9999)
-            {
-                object obj = gridViewPhong.GetGroupRowValue(row);
 
-                int row2 = gridViewPhong.GetParentRowHandle(row);
-                if (row2 < 0 && row2 > -9999)
-                {
-                    object obj2 = gridViewPhong.GetGroupRowValue(row2);
-                    int row3 = gridViewPhong.GetParentRowHandle(row2);
-                    if (row3 < 0 && row3 > -9999)
-                    {
-                        object obj3 = gridViewPhong.GetGroupRowValue(row3);
-                        _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj3.ToString()));
-                        _obj2id = Convert.ToInt32(this.daysTableAdapter1.ScalarQuery(obj2.ToString(), _objid));
-                        _obj3id = Convert.ToInt32(this.tangsTableAdapter1.ScalarQuery(obj.ToString(), _obj2id));
-                        _ucQuanLyPhong.LoadDataSet(_objid, _obj2id, _obj3id, -1);
-                    }
-                    else
-                    {
-                        _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj2.ToString()));
-                        _obj2id = Convert.ToInt32(this.daysTableAdapter1.ScalarQuery(obj.ToString(), _objid));
-                        _ucQuanLyPhong.LoadDataSet(_objid, _obj2id, -1, -1);
-                    }
-                }
-                else
-                {
-                    _objid = Convert.ToInt32(this.cososTableAdapter1.ScalarQuery(obj.ToString()));
-                    _ucQuanLyPhong.LoadDataSet(_objid, -1, -1, -1);
-                }
-            }
-            else
-            {
-                int _id = Convert.ToInt32(gridViewPhong.GetFocusedRowCellValue(colid));
-                _ucQuanLyPhong.LoadDataSet(-1, -1, -1, _id);
-            }
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNewPhong frm = new frmNewPhong();
-            frm.ShowDialog();
         }
 
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmNewThietBi frm = new frmNewThietBi();
             frm.ShowDialog();
-            frmNewThongTinThietBi frm2 = new frmNewThongTinThietBi();
-            frm2.ShowDialog();
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNewPhong frm = new frmNewPhong();
-            frm.Text = "Sửa phòng";
-            frm.ShowDialog();
         }
 
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNewThongTinThietBi frm = new frmNewThongTinThietBi();
-            frm.Text = "Sửa thiết bị";
-            frm.comboBox1.Enabled = true;
-            frm.ShowDialog();
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -125,11 +78,22 @@ namespace QuanLyTaiSanGUI
             else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupNhanVien"))
             {
                 rbnPageNhanVien_Home.Visible = true;
-                ribbon.SelectedPage = rbnPagePhong_Home;
+                ribbon.SelectedPage = rbnPageNhanVien_Home;
                 _ucQuanLyNhanVien.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyNhanVien);
-                gridControlPhong.Parent = navBarGroupNhanVien.ControlContainer;
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+            }
+            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupLoaiTB"))
+            {
+                rbnPageLoaiTB_Home.Visible = true;
+                ribbon.SelectedPage = rbnPageLoaiTB_Home;
+                _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                panelControl1.Controls.Add(_ucQuanLyLoaiTB);
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
             else
             {
@@ -138,6 +102,8 @@ namespace QuanLyTaiSanGUI
                 _ucQuanLyPhong.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyPhong);
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
             }
         }
 
@@ -146,6 +112,7 @@ namespace QuanLyTaiSanGUI
             rbnPagePhong_Home.Visible = false;
             rbnPageViTri_Home.Visible = false;
             rbnPageNhanVien_Home.Visible = false;
+            rbnPageLoaiTB_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
@@ -156,17 +123,82 @@ namespace QuanLyTaiSanGUI
 
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true);
+            _ucQuanLyCoSo.enableEdit(true, "coso", "edit");
         }
 
         private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true);
+            _ucQuanLyCoSo.enableEdit(true, "day", "edit");
         }
 
         private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true);
+            _ucQuanLyCoSo.enableEdit(true, "tang", "edit");
+        }
+
+        public void enableGroupViTri(String _type)
+        {
+            if (_type.Equals("coso"))
+            {
+                rbnGroupViTri_Tang.Enabled = false;
+                barBtnSuaDay.Enabled = false;
+                barBtnXoaDay.Enabled = false;
+                barBtnSuaCoSo.Enabled = true;
+                barBtnXoaCoSo.Enabled = true;
+            }
+            else if (_type.Equals("day"))
+            {
+                rbnGroupViTri_Tang.Enabled = true;
+                barBtnSuaDay.Enabled = true;
+                barBtnXoaDay.Enabled = true;
+                barBtnSuaTang.Enabled = false;
+                barBtnXoaTang.Enabled = false;
+                barBtnSuaCoSo.Enabled = false;
+                barBtnXoaCoSo.Enabled = false;
+            }
+            else
+            {
+                rbnGroupViTri_Tang.Enabled = true;
+                barBtnSuaDay.Enabled = false;
+                barBtnXoaDay.Enabled = false;
+                barBtnSuaTang.Enabled = true;
+                barBtnXoaTang.Enabled = true;
+                barBtnSuaCoSo.Enabled = false;
+                barBtnXoaCoSo.Enabled = false;
+            }
+        }
+
+        private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.deleteObj("coso");
+        }
+
+        private void barBtnXoaDay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.deleteObj("day");
+        }
+
+        private void barBtnXoaTang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.deleteObj("tang");
+        }
+
+        private void barBtnThemCoSo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true, "coso", "add");
+            _ucQuanLyCoSo.beforeAdd("coso");
+        }
+
+        private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true, "day", "add");
+            _ucQuanLyCoSo.beforeAdd("day");
+        }
+
+        private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true, "tang", "add");
+            _ucQuanLyCoSo.beforeAdd("tang");
         }
     }
 }

@@ -50,6 +50,7 @@
             this.treeListViTri.KeyFieldName = "id";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
+            this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.PopulateServiceColumns = true;
             this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.Size = new System.Drawing.Size(205, 308);
@@ -85,6 +86,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.popupContainerEdit1.Properties.PopupControl = this.popupContainerControl1;
             this.popupContainerEdit1.Properties.ReadOnly = true;
+            this.popupContainerEdit1.Properties.ShowPopupCloseButton = false;
             this.popupContainerEdit1.Size = new System.Drawing.Size(200, 20);
             this.popupContainerEdit1.TabIndex = 2;
             // 

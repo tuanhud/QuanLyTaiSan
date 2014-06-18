@@ -7,33 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyTaiSan.Entities;
+using QuanLyTaiSanGUI.MyUC;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietThietBi : UserControl
     {
-        ucComboBoxPhong uc = new ucComboBoxPhong();
+        CTThietBi obj = new CTThietBi();
+        List<LoaiThietBi> list;
+        ucTreeLoaiTB _ucTreeLoaiTB;
         public ucChiTietThietBi()
         {
             InitializeComponent();
-            this.lOAITHIETBISTableAdapter.Fill(this.dataSet1.LOAITHIETBIS);
-            this.pHONGSTableAdapter.Fill(this.dataSet1.PHONGS);
-            panelControl1.Controls.Add(uc);
+            list = new LoaiThietBi().getAll();
+            _ucTreeLoaiTB = new ucTreeLoaiTB(list);
+            _ucTreeLoaiTB.Dock = DockStyle.Fill;
+            _ucTreeLoaiTB.setReadOnly(true);
+            panelControl1.Controls.Add(_ucTreeLoaiTB);
         }
-        public void LoadData(int _id)
+        public void LoadData(CTThietBi _obj)
         {
-            DataTable dt = this.ctthietbisTableAdapter.GetDataBy1(_id);
-            if (dt.Rows.Count > 0)
-            {
-                DataRow r = dt.Rows[0];
-                textEdit1.Text = r["ten"].ToString();
-                comboBox1.SelectedValue = Convert.ToInt32(r["loaithietbi_id"].ToString());
-                comboBox2.SelectedValue = Convert.ToInt32(r["phong_id"].ToString());
-                textEdit4.Text = r["mota"].ToString();
-                dateEdit1.DateTime = DateTime.Parse(r["ngaymua"].ToString());
-                dateEdit2.DateTime = DateTime.Parse(r["ngaylap"].ToString());
-                this.lOGTINHTRANGSTableAdapter.FillBy(this.dataSet1.LOGTINHTRANGS, Convert.ToInt32(r["thietbi_id"].ToString()), Convert.ToInt32(r["phong_id"].ToString()));
-            }
+            obj = _obj;
+            txtMa.Text = _obj.thietbi.subId;
+            txtTen.Text = _obj.thietbi.ten;
+            txtMoTa.Text = _obj.thietbi.mota;
+            lblTenPhong.Text = _obj.phong.ten;
+            dateMua.DateTime = _obj.thietbi.ngaymua.Value;
+            dateLap.DateTime = _obj.thietbi.ngaylap.Value;
+            _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
         }
     }
 }
