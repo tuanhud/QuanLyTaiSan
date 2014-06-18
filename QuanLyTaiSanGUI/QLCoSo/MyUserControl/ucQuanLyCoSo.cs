@@ -145,8 +145,9 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             { }
         }
 
-        public void enableEdit(bool _enable, String _type)
+        public void enableEdit(bool _enable, String _type, String _function)
         {
+            function = _function;
             if (_enable)
             {
                 btnImage.Visible = true;
@@ -172,7 +173,139 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            switch (function)
+            {
+                case "edit":
+                    editObj(type);
+                    break;
+                case "add":
+                    addObj(type);
+                    break;
+            }
+            enableEdit(false, "", "");
+        }
 
+        private void editObj(String _type)
+        {
+            switch (_type)
+            {
+                case "coso":
+                    objCoSo.ten = txtTen.Text;
+                    objCoSo.mota = txtMoTa.Text;
+                    if (objCoSo.update() == 1)
+                    {
+                        XtraMessageBox.Show("Sửa cơ sở thành công!");
+                        reLoad();
+                    }
+                    break;
+                case "day":
+                    //objDay.ten = txtTen.Text;
+                    //objDay.mota = txtMoTa.Text;
+                    //ViTri _vitri = _ucTreeViTri.getViTri();
+                    //objDay.coso = _vitri.coso;
+                    //if (objDay.update() == 1)
+                    //{
+                    //    XtraMessageBox.Show("Sửa dãy thành công!");
+                    //    reLoad();
+                    //}
+                    break;
+                case "tang":
+                    //objTang.ten = txtTen.Text;
+                    //objTang.mota = txtMoTa.Text;
+                    //ViTri _vitri2 = _ucTreeViTri2.getViTri();
+                    //objTang.day = _vitri2.day;
+                    //if (objTang.update() == 1)
+                    //{
+                    //    XtraMessageBox.Show("Sửa tầng thành công!");
+                    //    reLoad();
+                    //}
+                    break;
+            }
+        }
+
+        private void addObj(String _type)
+        {
+            switch (_type)
+            {
+                case "coso":
+                    objCoSo = new CoSo();
+                    objCoSo.ten = txtTen.Text;
+                    objCoSo.mota = txtMoTa.Text;
+                    if (objCoSo.add() == 1)
+                    {
+                        XtraMessageBox.Show("Thêm cơ sở thành công!");
+                        reLoad();
+                    }
+                    break;
+                case "day":
+                    //objDay = new Dayy();
+                    //objDay.ten = txtTen.Text;
+                    //objDay.mota = txtMoTa.Text;
+                    //ViTri _vitri = _ucTreeViTri.getViTri();
+                    //objDay.coso = _vitri.coso;
+                    //if (objDay.add() == 1)
+                    //{
+                    //    XtraMessageBox.Show("Thêm dãy thành công!");
+                    //    reLoad();
+                    //}
+                    break;
+                case "tang":
+                    //objTang = new Tang();
+                    //objTang.ten = txtTen.Text;
+                    //objTang.mota = txtMoTa.Text;
+                    //ViTri _vitri2 = _ucTreeViTri2.getViTri();
+                    //objTang.day = _vitri2.day;
+                    //if (objTang.add() == 1)
+                    //{
+                    //    XtraMessageBox.Show("Thêm tầng thành công!");
+                    //    reLoad();
+                    //}
+                    break;
+            }
+        }
+
+        public void deleteObj(String _type)
+        {
+            switch (_type)
+            {
+                case "coso":
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (objCoSo.delete() == 1)
+                        {
+                            XtraMessageBox.Show("Xóa cơ sở thành công!");
+                            reLoad();
+                        }
+                    }
+                    break;
+                case "day":
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (objDay.delete() == 1)
+                        {
+                            XtraMessageBox.Show("Xóa dãy thành công!");
+                            reLoad();
+                        }
+                    }
+                    break;
+                case "tang":
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (objTang.delete() == 1)
+                        {
+                            XtraMessageBox.Show("Xóa tầng thành công!");
+                            reLoad();
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void reLoad()
+        {
+            listCoSos = new CoSo().getAll();
+            treeListViTri.ClearNodes();
+            CreateNodes(treeListViTri);
         }
     }
 }

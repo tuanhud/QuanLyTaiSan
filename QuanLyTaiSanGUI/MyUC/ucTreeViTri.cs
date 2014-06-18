@@ -81,12 +81,15 @@ namespace QuanLyTaiSanGUI.MyUC
                 {
                     popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
                     idCoSo = Convert.ToInt32(e.Node.GetValue(0));
+                    idTang = -1;
+                    idDay = -1;
                 }
                 else if (e.Node.GetValue(2).ToString().Equals("day"))
                 {
                     popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
                     idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                     idDay = Convert.ToInt32(e.Node.GetValue(0));
+                    idTang = -1;
                 }
                 else if (e.Node.GetValue(2).ToString().Equals("tang"))
                 {
@@ -116,12 +119,10 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                idCoSo = -1;
-                idDay = -1;
-                idTang = -1;
-                TreeListNode _node = null;
+                  TreeListNode _node = null;
                 if (_vitri.tang != null)
                 {
+                    idTang = _vitri.tang.id;
                     foreach (TreeListNode node in treeListViTri.Nodes)
                     {
                         foreach (TreeListNode node2 in node.Nodes)
@@ -139,6 +140,7 @@ namespace QuanLyTaiSanGUI.MyUC
                 }
                 else if (_vitri.day != null)
                 {
+                    idDay = _vitri.day.id;
                     foreach (TreeListNode node in treeListViTri.Nodes)
                     {
                         foreach (TreeListNode node2 in node.Nodes)
@@ -153,6 +155,7 @@ namespace QuanLyTaiSanGUI.MyUC
                 }
                 else if (_vitri.coso != null)
                 {
+                    idCoSo = _vitri.coso.id;
                     foreach (TreeListNode node in treeListViTri.Nodes)
                     {
                         if ((int)node.GetValue(0) == _vitri.coso.id && node.GetValue(2).ToString().Equals("coso"))
