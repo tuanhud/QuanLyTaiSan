@@ -192,6 +192,7 @@
             this.barBtnThemCoSo.Caption = "Thêm cơ sở";
             this.barBtnThemCoSo.Id = 9;
             this.barBtnThemCoSo.Name = "barBtnThemCoSo";
+            this.barBtnThemCoSo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemCoSo_ItemClick);
             // 
             // barBtnSuaCoSo
             // 
@@ -212,6 +213,7 @@
             this.barBtnThemDay.Caption = "Thêm Dãy";
             this.barBtnThemDay.Id = 12;
             this.barBtnThemDay.Name = "barBtnThemDay";
+            this.barBtnThemDay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemDay_ItemClick);
             // 
             // barBtnSuaDay
             // 
@@ -232,6 +234,7 @@
             this.barBtnThemTang.Caption = "Thêm tầng";
             this.barBtnThemTang.Id = 15;
             this.barBtnThemTang.Name = "barBtnThemTang";
+            this.barBtnThemTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemTang_ItemClick);
             // 
             // barBtnSuaTang
             // 

@@ -182,5 +182,23 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyCoSo.deleteObj("tang");
         }
+
+        private void barBtnThemCoSo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true, "coso", "add");
+            _ucQuanLyCoSo.beforeAdd("coso");
+        }
+
+        private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true, "day", "add");
+            _ucQuanLyCoSo.beforeAdd("day");
+        }
+
+        private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyCoSo.enableEdit(true, "tang", "add");
+            _ucQuanLyCoSo.beforeAdd("tang");
+        }
     }
 }

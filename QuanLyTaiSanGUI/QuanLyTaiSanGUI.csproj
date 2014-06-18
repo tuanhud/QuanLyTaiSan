@@ -73,6 +73,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MyUC\ucTreeLoaiTB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucTreeLoaiTB.Designer.cs">
+      <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\ucTreePhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
+      <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhong.resx">
       <DependentUpon>ucTreePhong.cs</DependentUpon>

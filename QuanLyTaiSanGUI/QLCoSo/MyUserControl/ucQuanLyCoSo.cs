@@ -25,6 +25,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         Tang objTang = new Tang();
         String type = "";
         String function = "";
+        String node = "";
         public ucQuanLyCoSo()
         {
             InitializeComponent();
@@ -82,6 +83,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             {
                 if (e.Node != null)
                 {
+                    if (function.Equals("edit") || function.Equals("add"))
+                        enableEdit(false, "", "");
                     if (e.Node.GetValue(2).ToString().Equals("coso"))
                     {
                         objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
@@ -99,6 +102,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frmMain frm = (frmMain)this.ParentForm;
                             frm.enableGroupViTri("coso");
                         }
+                        node = "coso";
                     }
                     else if (e.Node.GetValue(2).ToString().Equals("day"))
                     {
@@ -117,6 +121,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frmMain frm = (frmMain)this.ParentForm;
                             frm.enableGroupViTri("day");
                         }
+                        node = "day";
                     }
                     else if (e.Node.GetValue(2).ToString().Equals("tang"))
                     {
@@ -136,6 +141,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frmMain frm = (frmMain)this.ParentForm;
                             frm.enableGroupViTri("tang");
                         }
+                        node = "tang";
                     }
                 }
             }
@@ -223,6 +229,54 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             }
         }
 
+        public void beforeAdd(String _type)
+        {
+            txtTen.Text = "";
+            txtMoTa.Text = "";
+            ViTri _vitri;
+            switch (_type)
+            {
+                case "coso":
+                    panelControl1.Controls.Clear();
+                    TextEdit txt = new TextEdit();
+                    txt.Properties.ReadOnly = true;
+                    txt.Text = "Đại học Sài Gòn";
+                    txt.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(txt);
+                    break;
+                case "day":
+                    panelControl1.Controls.Clear();
+                    _ucTreeViTri.Dock = DockStyle.Fill;
+                    _vitri = new ViTri();
+                    if (node.Equals("coso"))
+                        _vitri.coso = objCoSo;
+                    else if (node.Equals("day"))
+                        _vitri.coso = objDay.coso;
+                    else
+                        _vitri.coso = objTang.day.coso;
+                    _ucTreeViTri.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTri);
+                    break;
+                case "tang":
+                    panelControl1.Controls.Clear();
+                    _ucTreeViTri2.Dock = DockStyle.Fill;
+                    _vitri = new ViTri();
+                    if (node.Equals("day"))
+                    {
+                        _vitri.coso = objDay.coso;
+                        _vitri.day = objDay;
+                    }
+                    else
+                    {
+                        _vitri.coso = objTang.day.coso;
+                        _vitri.day = objTang.day;
+                    }
+                    _ucTreeViTri2.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTri2);
+                    break;
+            }
+        }
+
         private void addObj(String _type)
         {
             switch (_type)
@@ -306,6 +360,16 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             listCoSos = new CoSo().getAll();
             treeListViTri.ClearNodes();
             CreateNodes(treeListViTri);
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            enableEdit(false, "", "");
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_ucTreeViTri.getViTri().coso.ten);
         }
     }
 }

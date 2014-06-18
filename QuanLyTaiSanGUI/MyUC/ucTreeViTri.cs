@@ -79,10 +79,13 @@ namespace QuanLyTaiSanGUI.MyUC
             {
                 if (e.Node.GetValue(2).ToString().Equals("coso"))
                 {
-                    popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                    idCoSo = Convert.ToInt32(e.Node.GetValue(0));
-                    idTang = -1;
-                    idDay = -1;
+                    if (!haveDay || haveTang)
+                    {
+                        popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
+                        idCoSo = Convert.ToInt32(e.Node.GetValue(0));
+                        idTang = -1;
+                        idDay = -1;
+                    }
                 }
                 else if (e.Node.GetValue(2).ToString().Equals("day"))
                 {

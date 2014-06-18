@@ -42,8 +42,10 @@
             // searchLookUpEdit1
             // 
             this.searchLookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchLookUpEdit1.EditValue = "";
             this.searchLookUpEdit1.Location = new System.Drawing.Point(0, 0);
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
+            this.searchLookUpEdit1.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookUpEdit1.Properties.DisplayMember = "ten";
@@ -63,6 +65,8 @@
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchLookUpEdit1View.GroupCount = 3;
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsBehavior.Editable = false;
+            this.searchLookUpEdit1View.OptionsBehavior.ReadOnly = true;
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             this.searchLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -74,20 +78,20 @@
             // 
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
             this.colid.Width = 83;
             // 
             // colten
             // 
+            this.colten.Caption = "Phòng";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 1;
+            this.colten.VisibleIndex = 0;
+            this.colten.Width = 83;
             // 
             // colcoso
             // 
-            this.colcoso.Caption = "tencoso";
+            this.colcoso.Caption = "Cơ sở";
             this.colcoso.FieldName = "tencoso";
             this.colcoso.Name = "colcoso";
             this.colcoso.Visible = true;
@@ -95,7 +99,7 @@
             // 
             // colday
             // 
-            this.colday.Caption = "tenday";
+            this.colday.Caption = "Dãy";
             this.colday.FieldName = "tenday";
             this.colday.Name = "colday";
             this.colday.Visible = true;
@@ -103,7 +107,7 @@
             // 
             // coltang
             // 
-            this.coltang.Caption = "tentang";
+            this.coltang.Caption = "Tầng";
             this.coltang.FieldName = "tentang";
             this.coltang.Name = "coltang";
             this.coltang.Visible = true;

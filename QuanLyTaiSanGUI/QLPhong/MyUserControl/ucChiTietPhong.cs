@@ -15,15 +15,35 @@ namespace QuanLyTaiSanGUI.MyUserControl
     public partial class ucChiTietPhong : UserControl
     {
         ucTreeViTri _ucTreeViTri;
+        Phong objPhong;
         public ucChiTietPhong(List<CoSo> _list)
         {
             InitializeComponent();
             _ucTreeViTri = new ucTreeViTri(_list, true, true);
+            _ucTreeViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeViTri);
         }
-        public void LoadData(String _ten)
+        public void LoadData(Phong _phong)
         {
-
+            try
+            {
+                objPhong = _phong;
+                txtTen.Text = objPhong.ten;
+                txtMoTa.Text = objPhong.mota;
+                _ucTreeViTri.setViTri(objPhong.vitri);
+                NhanVienPT objNV = new NhanVienPT();
+                if (objPhong.nhanvienpt != null)
+                {
+                    objNV = objPhong.nhanvienpt;
+                }
+                lblMaNhanVien.Text = objNV.subId;
+                lblTenNhanVien.Text = objNV.hoten;
+                lblSoDienThoai.Text = objNV.sodienthoai;
+            }
+            catch (Exception ex)
+            { }
+            finally
+            {}
         }
-    }
+     }
 }

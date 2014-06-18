@@ -14,12 +14,14 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
     public partial class ucQuanLyLoaiTB : UserControl
     {
         List<LoaiThietBi> listLoaiTBs = new List<LoaiThietBi>();
+        List<LoaiThietBi> listLoaiTBs2 = new List<LoaiThietBi>();
         public ucQuanLyLoaiTB()
         {
             InitializeComponent();
-            listLoaiTBs = new LoaiThietBi().getAll().ToList();
+            listLoaiTBs = new LoaiThietBi().getAll();
             treeListLoaiTB.DataSource = listLoaiTBs;
-            lookUpEdit1.Properties.DataSource = listLoaiTBs;
+            listLoaiTBs2 = new LoaiThietBi().getAllParent();
+            lookUpEdit1.Properties.DataSource = listLoaiTBs2;
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
