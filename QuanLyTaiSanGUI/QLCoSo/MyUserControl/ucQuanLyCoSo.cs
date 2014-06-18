@@ -198,33 +198,33 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "coso":
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
-                    if (objCoSo.update() == 1)
+                    if (objCoSo.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa cơ sở thành công!");
                         reLoad();
                     }
                     break;
                 case "day":
-                    //objDay.ten = txtTen.Text;
-                    //objDay.mota = txtMoTa.Text;
-                    //ViTri _vitri = _ucTreeViTri.getViTri();
-                    //objDay.coso = _vitri.coso;
-                    //if (objDay.update() == 1)
-                    //{
-                    //    XtraMessageBox.Show("Sửa dãy thành công!");
-                    //    reLoad();
-                    //}
+                    objDay.ten = txtTen.Text;
+                    objDay.mota = txtMoTa.Text;
+                    ViTri _vitri = _ucTreeViTri.getViTri(objDay.DB);
+                    objDay.coso = _vitri.coso;
+                    if (objDay.update() != -1)
+                    {
+                    XtraMessageBox.Show("Sửa dãy thành công!");
+                        reLoad();
+                    }
                     break;
                 case "tang":
-                    //objTang.ten = txtTen.Text;
-                    //objTang.mota = txtMoTa.Text;
-                    //ViTri _vitri2 = _ucTreeViTri2.getViTri();
-                    //objTang.day = _vitri2.day;
-                    //if (objTang.update() == 1)
-                    //{
-                    //    XtraMessageBox.Show("Sửa tầng thành công!");
-                    //    reLoad();
-                    //}
+                    objTang.ten = txtTen.Text;
+                    objTang.mota = txtMoTa.Text;
+                    ViTri _vitri2 = _ucTreeViTri2.getViTri(objTang.DB);
+                    objTang.day = _vitri2.day;
+                    if (objTang.update() != -1)
+                    {
+                        XtraMessageBox.Show("Sửa tầng thành công!");
+                        reLoad();
+                    }
                     break;
             }
         }
@@ -285,35 +285,35 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objCoSo = new CoSo();
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
-                    if (objCoSo.add() == 1)
+                    if (objCoSo.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm cơ sở thành công!");
                         reLoad();
                     }
                     break;
                 case "day":
-                    //objDay = new Dayy();
-                    //objDay.ten = txtTen.Text;
-                    //objDay.mota = txtMoTa.Text;
-                    //ViTri _vitri = _ucTreeViTri.getViTri();
-                    //objDay.coso = _vitri.coso;
-                    //if (objDay.add() == 1)
-                    //{
-                    //    XtraMessageBox.Show("Thêm dãy thành công!");
-                    //    reLoad();
-                    //}
+                    objDay = new Dayy();
+                    objDay.ten = txtTen.Text;
+                    objDay.mota = txtMoTa.Text;
+                    ViTri _vitri = _ucTreeViTri.getViTri(objDay.DB);
+                    objDay.coso = _vitri.coso;
+                    if (objDay.add() != -1)
+                    {
+                        XtraMessageBox.Show("Thêm dãy thành công!");
+                        reLoad();
+                    }
                     break;
                 case "tang":
-                    //objTang = new Tang();
-                    //objTang.ten = txtTen.Text;
-                    //objTang.mota = txtMoTa.Text;
-                    //ViTri _vitri2 = _ucTreeViTri2.getViTri();
-                    //objTang.day = _vitri2.day;
-                    //if (objTang.add() == 1)
-                    //{
-                    //    XtraMessageBox.Show("Thêm tầng thành công!");
-                    //    reLoad();
-                    //}
+                    objTang = new Tang();
+                    objTang.ten = txtTen.Text;
+                    objTang.mota = txtMoTa.Text;
+                    ViTri _vitri2 = _ucTreeViTri2.getViTri(objTang.DB);
+                    objTang.day = _vitri2.day;
+                    if (objTang.add() != -1)
+                    {
+                        XtraMessageBox.Show("Thêm tầng thành công!");
+                        reLoad();
+                    }
                     break;
             }
         }
@@ -325,7 +325,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "coso":
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        if (objCoSo.delete() == 1)
+                        if (objCoSo.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa cơ sở thành công!");
                             reLoad();
@@ -335,7 +335,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "day":
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        if (objDay.delete() == 1)
+                        if (objDay.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa dãy thành công!");
                             reLoad();
@@ -345,7 +345,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "tang":
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        if (objTang.delete() == 1)
+                        if (objTang.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa tầng thành công!");
                             reLoad();
@@ -367,9 +367,5 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             enableEdit(false, "", "");
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(_ucTreeViTri.getViTri().coso.ten);
-        }
     }
 }

@@ -107,6 +107,17 @@ namespace QuanLyTaiSanGUI.MyUC
             finally
             { }
         }
+        public ViTri getViTri(MyDB db)
+        {
+            ViTri objViTri = new ViTri(db);
+            CoSo objCoSo = new CoSo(db).getById(idCoSo);
+            Dayy objDay = new Dayy(db).getById(idDay);
+            Tang objTang = new Tang(db).getById(idTang);
+            objViTri.coso = objCoSo;
+            objViTri.day = objDay;
+            objViTri.tang = objTang;
+            return objViTri;
+        }
         public ViTri getViTri()
         {
             ViTri objViTri = new ViTri();
