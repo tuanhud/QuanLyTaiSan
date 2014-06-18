@@ -124,16 +124,22 @@ namespace QuanLyTaiSanGUI
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, "coso", "edit");
+            _ucQuanLyCoSo.beforeEdit("coso");
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở");
         }
 
         private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, "day", "edit");
+            _ucQuanLyCoSo.beforeEdit("day");
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy");
         }
 
         private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, "tang", "edit");
+            _ucQuanLyCoSo.beforeEdit("tang");
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng");
         }
 
         public void enableGroupViTri(String _type)
@@ -187,18 +193,21 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyCoSo.enableEdit(true, "coso", "add");
             _ucQuanLyCoSo.beforeAdd("coso");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở");
         }
 
         private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, "day", "add");
             _ucQuanLyCoSo.beforeAdd("day");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy");
         }
 
         private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, "tang", "add");
             _ucQuanLyCoSo.beforeAdd("tang");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng");
         }
     }
 }

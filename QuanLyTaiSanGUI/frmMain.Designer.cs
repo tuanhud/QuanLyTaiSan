@@ -87,6 +87,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
