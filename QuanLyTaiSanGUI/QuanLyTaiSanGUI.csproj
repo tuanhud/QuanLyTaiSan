@@ -68,6 +68,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHinhAnh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHinhAnh.Designer.cs">
+      <DependentUpon>frmHinhAnh.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyDataSet\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHinhAnh.resx">
+      <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
