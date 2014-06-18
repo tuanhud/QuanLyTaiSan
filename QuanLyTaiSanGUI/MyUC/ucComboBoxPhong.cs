@@ -17,9 +17,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucComboBoxPhong()
         {
             InitializeComponent();
-            PhongFilter obj = new PhongFilter();
-            List<PhongFilter> list = obj.getAll();
-            searchLookUpEdit1.Properties.DataSource = list; 
+            //PhongFilter obj = new PhongFilter();
+            //List<PhongFilter> list = obj.getAll();
+            //searchLookUpEdit1.Properties.DataSource = list; 
         }
     }
 }

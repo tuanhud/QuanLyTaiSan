@@ -83,6 +83,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             {
                 if (e.Node != null)
                 {
+                    groupControl1.Text = "Chi tiết";
                     if (function.Equals("edit") || function.Equals("add"))
                         enableEdit(false, "", "");
                     if (e.Node.GetValue(2).ToString().Equals("coso"))
@@ -277,6 +278,58 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             }
         }
 
+        public void beforeEdit(String _type)
+        {
+            ViTri _vitri;
+            switch (_type)
+            {
+                case "coso":
+                    txtTen.Text = objCoSo.ten;
+                    txtMoTa.Text = objCoSo.mota;
+                    panelControl1.Controls.Clear();
+                    TextEdit txt = new TextEdit();
+                    txt.Properties.ReadOnly = true;
+                    txt.Text = "Đại học Sài Gòn";
+                    txt.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(txt);
+                    break;
+                case "day":
+                    txtTen.Text = objDay.ten;
+                    txtMoTa.Text = objDay.mota;
+                    panelControl1.Controls.Clear();
+                    _ucTreeViTri.Dock = DockStyle.Fill;
+                    _vitri = new ViTri();
+                    if (node.Equals("coso"))
+                        _vitri.coso = objCoSo;
+                    else if (node.Equals("day"))
+                        _vitri.coso = objDay.coso;
+                    else
+                        _vitri.coso = objTang.day.coso;
+                    _ucTreeViTri.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTri);
+                    break;
+                case "tang":
+                    txtTen.Text = objTang.ten;
+                    txtMoTa.Text = objTang.mota;
+                    panelControl1.Controls.Clear();
+                    _ucTreeViTri2.Dock = DockStyle.Fill;
+                    _vitri = new ViTri();
+                    if (node.Equals("day"))
+                    {
+                        _vitri.coso = objDay.coso;
+                        _vitri.day = objDay;
+                    }
+                    else
+                    {
+                        _vitri.coso = objTang.day.coso;
+                        _vitri.day = objTang.day;
+                    }
+                    _ucTreeViTri2.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTri2);
+                    break;
+            }
+        }
+
         private void addObj(String _type)
         {
             switch (_type)
@@ -367,5 +420,9 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             enableEdit(false, "", "");
         }
 
+        public void SetTextGroupControl(String text)
+        {
+            groupControl1.Text = text;
+        }
     }
 }
