@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(true, true);
-        public ucChiTietPhong()
+        ucTreeViTri _ucTreeViTri;
+        public ucChiTietPhong(List<CoSo> _list)
         {
             InitializeComponent();
+            _ucTreeViTri = new ucTreeViTri(_list, true, true);
             panelControl1.Controls.Add(_ucTreeViTri);
         }
         public void LoadData(String _ten)

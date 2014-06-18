@@ -17,15 +17,20 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
     public partial class ucQuanLyCoSo : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false,false);
-        ucTreeViTri _ucTreeViTri2 = new ucTreeViTri(true, false);
         List<CoSo> listCoSos = new List<CoSo>();
-        List<Dayy> listDays = new List<Dayy>();
-        List<Tang> listTangs = new List<Tang>();
+        ucTreeViTri _ucTreeViTri;
+        ucTreeViTri _ucTreeViTri2;
+        CoSo objCoSo = new CoSo();
+        Dayy objDay = new Dayy();
+        Tang objTang = new Tang();
         String type = "";
+        String function = "";
         public ucQuanLyCoSo()
         {
             InitializeComponent();
+            listCoSos = new CoSo().getAll().ToList();
+            _ucTreeViTri = new ucTreeViTri(listCoSos,false, false);
+            _ucTreeViTri2 = new ucTreeViTri(listCoSos,true, false);
         }
 
         private void ucQuanLyCoSo_Load(object sender, EventArgs e)
@@ -39,6 +44,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         {
             try
             {
+                List<Dayy> listDays = new List<Dayy>();
+                List<Tang> listTangs = new List<Tang>();
                 tl.BeginUnboundLoad();
                 // Create a root node .
                 TreeListNode parentForRootNodes = null;
@@ -77,7 +84,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 {
                     if (e.Node.GetValue(2).ToString().Equals("coso"))
                     {
-                        CoSo objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
                         txtTen.Text = objCoSo.ten;
                         txtMoTa.Text = objCoSo.mota;
                         panelControl1.Controls.Clear();
@@ -98,7 +105,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         panelControl1.Controls.Clear();
                         _ucTreeViTri.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(_ucTreeViTri);
-                        Dayy objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
                         txtTen.Text = objDay.ten;
                         txtMoTa.Text = objDay.mota;
                         ViTri objViTri = new ViTri();
@@ -116,7 +123,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         panelControl1.Controls.Clear();
                         _ucTreeViTri2.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(_ucTreeViTri2);
-                        Tang objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
                         txtTen.Text = objTang.ten;
                         txtMoTa.Text = objTang.mota;
                         ViTri objViTri = new ViTri();

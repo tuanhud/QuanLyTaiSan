@@ -16,16 +16,15 @@ namespace QuanLyTaiSanGUI.MyUC
     public partial class ucTreeViTri : UserControl
     {
         List<CoSo> listCoSos = new List<CoSo>();
-        List<Dayy> listDays = new List<Dayy>();
-        List<Tang> listTangs = new List<Tang>();
         int idTang = -1;
         int idCoSo = -1;
         int idDay = -1;
         bool haveTang = true;
         bool haveDay = true;
-        public ucTreeViTri(bool _haveDay, bool _haveTang)
+        public ucTreeViTri(List<CoSo> _lists, bool _haveDay, bool _haveTang)
         {
             InitializeComponent();
+            listCoSos = _lists;
             haveTang = _haveTang;
             haveDay = _haveDay;
             CreateNodes(treeListViTri);
@@ -34,29 +33,33 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
+                List<Dayy> listDays = new List<Dayy>();
+                List<Tang> listTangs = new List<Tang>();
                 tl.BeginUnboundLoad();
                 // Create a root node .
                 TreeListNode parentForRootNodes = null;
-                listCoSos = new CoSo().getAll();
-                foreach (CoSo _coso in listCoSos)
+                if (listCoSos != null)
                 {
-                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
-                    if (haveDay)
+                    foreach (CoSo _coso in listCoSos)
                     {
-                        // Create a child of the rootNode
-                        listDays = _coso.days.ToList();
-                        foreach (Dayy _day in listDays)
+                        TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
+                        if (haveDay)
                         {
-                            TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
-                            if (haveTang)
+                            // Create a child of the rootNode
+                            listDays = _coso.days.ToList();
+                            foreach (Dayy _day in listDays)
                             {
-                                // Create a child of the rootNode
-                                listTangs = _day.tangs.ToList();
-                                foreach (Tang _tang in listTangs)
+                                TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                                if (haveTang)
                                 {
-                                    tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
-                                    // Creating more nodes
-                                    // ...
+                                    // Create a child of the rootNode
+                                    listTangs = _day.tangs.ToList();
+                                    foreach (Tang _tang in listTangs)
+                                    {
+                                        tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                                        // Creating more nodes
+                                        // ...
+                                    }
                                 }
                             }
                         }
@@ -81,13 +84,13 @@ namespace QuanLyTaiSanGUI.MyUC
                 }
                 else if (e.Node.GetValue(2).ToString().Equals("day"))
                 {
-                    popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + ">" + e.Node.GetValue(1).ToString();
+                    popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
                     idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                     idDay = Convert.ToInt32(e.Node.GetValue(0));
                 }
                 else if (e.Node.GetValue(2).ToString().Equals("tang"))
                 {
-                    popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + ">" + e.Node.ParentNode.GetValue(1).ToString() + ">" + e.Node.GetValue(1).ToString();
+                    popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
                     idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
                     idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                     idTang = Convert.ToInt32(e.Node.GetValue(0));
