@@ -35,7 +35,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            host_name = "ftp://ftpts.hoangthanhit.com";
+                            host_name = "ftp://hoangthanhit.com";
                         }
                         return host_name;
                     }
@@ -49,7 +49,7 @@ namespace QuanLyTaiSan.Entities
                         if (user_name == null)
                         {
                             //load from DB
-                            user_name = "hthanh-001";
+                            user_name = "qlts@hoangthanhit.com";
                         }
                         return user_name;
                     }
@@ -81,7 +81,7 @@ namespace QuanLyTaiSan.Entities
                         if (pre_path == null)
                         {
                             //load from DB
-                            pre_path = "/site1/_hinhanh/";
+                            pre_path = "/";
                         }
                         return pre_path;
                     }
@@ -108,7 +108,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            host_name = "http://ts.hoangthanhit.com";
+                            host_name = "http://hoangthanhit.com";
                         }
                         return host_name;
                     }
@@ -126,7 +126,7 @@ namespace QuanLyTaiSan.Entities
                         if (pre_path == null)
                         {
                             //load from DB
-                            pre_path = "/_hinhanh/";
+                            pre_path = "/qlts/";
                         }
                         return pre_path;
                     }
