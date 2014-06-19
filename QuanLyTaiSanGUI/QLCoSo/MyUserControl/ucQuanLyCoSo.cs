@@ -17,6 +17,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
     public partial class ucQuanLyCoSo : UserControl
     {
+        TreeListViewState treeListViewState;
         List<CoSo> listCoSos = new List<CoSo>();
         ucTreeViTri _ucTreeViTri;
         ucTreeViTri _ucTreeViTri2;
@@ -410,12 +411,15 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void reLoad()
         {
+            treeListViewState = new TreeListViewState(treeListViTri);
+            treeListViewState.SaveState();
             listCoSos = new CoSo().getAll();
             treeListViTri.ClearNodes();
             CreateNodes(treeListViTri);
             //kiem tra truoc khi reload
             _ucTreeViTri.reLoad(listCoSos);
             _ucTreeViTri2.reLoad(listCoSos);
+            treeListViewState.LoadState();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -426,6 +430,11 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         public void SetTextGroupControl(String text)
         {
             groupControl1.Text = text;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            //_ucTreeViTri.setvt("9)
         }
     }
 }

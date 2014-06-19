@@ -26,7 +26,6 @@ namespace QuanLyTaiSanGUI
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucTreePhong _ucTreePhong;
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
-        ucKhac uck = new ucKhac();
         public frmMain()
         {
             InitializeComponent();
@@ -42,29 +41,6 @@ namespace QuanLyTaiSanGUI
             _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
             //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             
-        }
-
-        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
-
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmNewThietBi frm = new frmNewThietBi();
-            frm.ShowDialog();
-        }
-
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
-
-        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
-        {
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -233,21 +209,23 @@ namespace QuanLyTaiSanGUI
                     case "phong":
                         rbnGroupPhong_Phong.Enabled = true;
                         rbnGroupPhong_Chuyen.Enabled = false;
-                        rbnGroupPhong_ThietBi.Enabled = false;
-                        barBtnThemPhong.Enabled = true;
+                        rbnGroupPhong_ThietBi.Enabled = true;
                         barBtnSuaPhong.Enabled = true;
                         barBtnXoaPhong.Enabled = true;
+                        barBtnSuaThietBi.Enabled = false;
+                        barBtnXoaThietBi.Enabled = false;
                         break;
                     case "thietbi":
                         rbnGroupPhong_Phong.Enabled = false;
                         rbnGroupPhong_Chuyen.Enabled = true;
                         rbnGroupPhong_ThietBi.Enabled = true;
+                        barBtnSuaThietBi.Enabled = true;
+                        barBtnXoaThietBi.Enabled = true;
                         break;
                     default:
                         rbnGroupPhong_Phong.Enabled = true;
                         rbnGroupPhong_Chuyen.Enabled = false;
                         rbnGroupPhong_ThietBi.Enabled = false;
-                        barBtnThemPhong.Enabled = true;
                         barBtnSuaPhong.Enabled = false;
                         barBtnXoaPhong.Enabled = false;
                         break;
@@ -258,6 +236,54 @@ namespace QuanLyTaiSanGUI
             finally
             {}
         }
+
+        private void barBtnThemPhong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ViTri obj = new ViTri();
+            obj = _ucTreePhong.getVitri(obj.DB);
+            MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
+        }
+
+        private void barBtnSuaPhong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Phong obj2 = new Phong();
+            obj2 = _ucQuanLyPhong.getPhong();
+            ViTri obj = obj2.vitri;
+            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+        }
+
+        private void barBtnXoaPhong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Phong obj2 = new Phong();
+            obj2 = _ucQuanLyPhong.getPhong();
+            ViTri obj = obj2.vitri;
+            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+        }
+
+        private void barBtnThemThietBi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Phong obj2 = new Phong();
+            obj2 = _ucQuanLyPhong.getPhong();
+            ViTri obj = obj2.vitri;
+            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+            frmNewThietBi frm = new frmNewThietBi();
+            frm.ShowDialog();
+        }
+
+        private void barBtnSuaThietBi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CTThietBi obj = new CTThietBi();
+            obj = _ucQuanLyPhong.getCTThietBi();
+            MessageBox.Show(obj.thietbi.ten);
+        }
+
+        private void barBtnXoaThietBi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CTThietBi obj = new CTThietBi();
+            obj = _ucQuanLyPhong.getCTThietBi();
+            MessageBox.Show(obj.thietbi.ten);
+        }
+
         #endregion
     }
 }

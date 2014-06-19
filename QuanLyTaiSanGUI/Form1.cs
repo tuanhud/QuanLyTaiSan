@@ -20,8 +20,11 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
-            ucQuanLyLoaiTB uc = new ucQuanLyLoaiTB();
-            panelControl1.Controls.Add(uc);
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -133,7 +133,7 @@
             this.barBtnThemPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThemPhong.Glyph")));
             this.barBtnThemPhong.Id = 1;
             this.barBtnThemPhong.Name = "barBtnThemPhong";
-            this.barBtnThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.barBtnThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemPhong_ItemClick);
             // 
             // barBtnSuaPhong
             // 
@@ -141,7 +141,7 @@
             this.barBtnSuaPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnSuaPhong.Glyph")));
             this.barBtnSuaPhong.Id = 2;
             this.barBtnSuaPhong.Name = "barBtnSuaPhong";
-            this.barBtnSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.barBtnSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaPhong_ItemClick);
             // 
             // barBtnXoaPhong
             // 
@@ -149,6 +149,7 @@
             this.barBtnXoaPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXoaPhong.Glyph")));
             this.barBtnXoaPhong.Id = 3;
             this.barBtnXoaPhong.Name = "barBtnXoaPhong";
+            this.barBtnXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaPhong_ItemClick);
             // 
             // barBtnThemThietBi
             // 
@@ -156,7 +157,7 @@
             this.barBtnThemThietBi.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThemThietBi.Glyph")));
             this.barBtnThemThietBi.Id = 4;
             this.barBtnThemThietBi.Name = "barBtnThemThietBi";
-            this.barBtnThemThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            this.barBtnThemThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemThietBi_ItemClick);
             // 
             // barBtnSuaThietBi
             // 
@@ -164,7 +165,7 @@
             this.barBtnSuaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSuaThietBi.Id = 5;
             this.barBtnSuaThietBi.Name = "barBtnSuaThietBi";
-            this.barBtnSuaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            this.barBtnSuaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaThietBi_ItemClick);
             // 
             // barBtnXoaThietBi
             // 
@@ -172,6 +173,7 @@
             this.barBtnXoaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoaThietBi.Id = 6;
             this.barBtnXoaThietBi.Name = "barBtnXoaThietBi";
+            this.barBtnXoaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaThietBi_ItemClick);
             // 
             // barBtnCHuyenTinhTrang
             // 
@@ -304,6 +306,7 @@
             // 
             // rbnGroupPhong_Phong
             // 
+            this.rbnGroupPhong_Phong.Enabled = false;
             this.rbnGroupPhong_Phong.ItemLinks.Add(this.barBtnThemPhong);
             this.rbnGroupPhong_Phong.ItemLinks.Add(this.barBtnSuaPhong);
             this.rbnGroupPhong_Phong.ItemLinks.Add(this.barBtnXoaPhong);
@@ -312,6 +315,7 @@
             // 
             // rbnGroupPhong_ThietBi
             // 
+            this.rbnGroupPhong_ThietBi.Enabled = false;
             this.rbnGroupPhong_ThietBi.ItemLinks.Add(this.barBtnThemThietBi);
             this.rbnGroupPhong_ThietBi.ItemLinks.Add(this.barBtnSuaThietBi);
             this.rbnGroupPhong_ThietBi.ItemLinks.Add(this.barBtnXoaThietBi);
@@ -320,6 +324,7 @@
             // 
             // rbnGroupPhong_Chuyen
             // 
+            this.rbnGroupPhong_Chuyen.Enabled = false;
             this.rbnGroupPhong_Chuyen.ItemLinks.Add(this.barBtnCHuyenTinhTrang);
             this.rbnGroupPhong_Chuyen.ItemLinks.Add(this.barBtnChuyenPhong);
             this.rbnGroupPhong_Chuyen.Name = "rbnGroupPhong_Chuyen";

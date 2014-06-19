@@ -74,11 +74,7 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyDataSet\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="MyUC\TreeListViewState.cs" />
     <Compile Include="MyUC\ucTreeLoaiTB.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,12 +135,6 @@
     <Compile Include="MyUC\ucComboBoxPhong.Designer.cs">
       <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucKhac.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucKhac.Designer.cs">
-      <DependentUpon>ucKhac.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,9 +191,6 @@
     <EmbeddedResource Include="MyUC\ucComboBoxPhong.resx">
       <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\MyUserControl\ucKhac.resx">
-      <DependentUpon>ucKhac.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,17 +211,6 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="MyDataSet\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="MyDataSet\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="MyDataSet\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

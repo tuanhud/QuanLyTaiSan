@@ -16,6 +16,10 @@ namespace QuanLyTaiSanGUI.MyUC
     public partial class ucTreePhong : UserControl
     {
         List<CoSo> listCoSos = new List<CoSo>();
+        int phongid = -1;
+        int cosoid = -1;
+        int dayid = -1;
+        int tangid = -1;
         public ucTreePhong(List<CoSo> _list)
         {
             InitializeComponent();
@@ -89,10 +93,10 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                int phongid = -1;
-                int cosoid = -1;
-                int dayid = -1;
-                int tangid = -1;
+                phongid = -1;
+                cosoid = -1;
+                dayid = -1;
+                tangid = -1;
                 if(e.Node.GetValue(2)!= null)
                 {
                     switch (e.Node.GetValue(2).ToString())
@@ -111,6 +115,9 @@ namespace QuanLyTaiSanGUI.MyUC
                             break;
                         case "phong":
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
+                            tangid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            dayid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.ParentNode.GetValue(0));
                             break;
                     }
                     if (this.ParentForm != null)
@@ -124,6 +131,15 @@ namespace QuanLyTaiSanGUI.MyUC
             { }
             finally
             { }
+        }
+
+        public ViTri getVitri(MyDB db)
+        {
+            ViTri obj = new ViTri(db);
+            obj.coso = new CoSo(db).getById(cosoid);
+            obj.day = new Dayy(db).getById(dayid);
+            obj.tang = new Tang(db).getById(tangid);
+            return obj;
         }
     }
 }
