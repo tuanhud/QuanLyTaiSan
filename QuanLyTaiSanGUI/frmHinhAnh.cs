@@ -83,12 +83,12 @@ namespace QuanLyTaiSanGUI
         {
             switch (loaiobject)
             {
-                case "COSOS":
+                case "CoSo":
                     CoSo _coso = new CoSo();
                     _coso = _coso.getById(idobject);
                     this.Text += " " + _coso.ten;
                     break;
-                case "DAYS":
+                case "Dayy":
                     Dayy _day = new Dayy();
                     _day = _day.getById(idobject);
                     this.Text += " " + _day.ten;
@@ -108,7 +108,7 @@ namespace QuanLyTaiSanGUI
                     _phong = _phong.getById(idobject);
                     this.Text += " " + _phong.ten;
                     break;
-                case "TANGS":
+                case "Tang":
                     Tang _tang = new Tang();
                     _tang = _tang.getById(idobject);
                     this.Text += " " + _tang.ten;
@@ -140,13 +140,13 @@ namespace QuanLyTaiSanGUI
                     _hinhanh.upload();
                     switch (loaiobject)
                     {
-                        case "COSOS":
+                        case "CoSo":
                             CoSo _coso = new CoSo();
                             _coso = _coso.getById(idobject);
                             _coso.hinhanhs.Add(_hinhanh);
                             _coso.update();
                             break;
-                        case "DAYS":
+                        case "Dayy":
                             Dayy _day = new Dayy();
                             _day = _day.getById(idobject);
                             _day.hinhanhs.Add(_hinhanh);
@@ -170,7 +170,7 @@ namespace QuanLyTaiSanGUI
                             _phong.hinhanhs.Add(_hinhanh);
                             _phong.update();
                             break;
-                        case "TANGS":
+                        case "Tang":
                             Tang _tang = new Tang();
                             _tang = _tang.getById(idobject);
                             _tang.hinhanhs.Add(_hinhanh);
