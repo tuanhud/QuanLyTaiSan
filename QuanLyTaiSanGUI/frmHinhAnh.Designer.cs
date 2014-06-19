@@ -30,41 +30,55 @@
         {
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhAnh));
-            this.galleryControl1 = new DevExpress.XtraBars.Ribbon.GalleryControl();
+            this.galleryControlImage = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
             this.btnImageCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnImageSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImageSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnImageUpload = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.galleryControl1)).BeginInit();
-            this.galleryControl1.SuspendLayout();
+            this.btnImageDelete = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryControlImage)).BeginInit();
+            this.galleryControlImage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // galleryControl1
+            // galleryControlImage
             // 
-            this.galleryControl1.Controls.Add(this.galleryControlClient1);
-            this.galleryControl1.DesignGalleryGroupIndex = 0;
-            this.galleryControl1.DesignGalleryItemIndex = 0;
+            this.galleryControlImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.galleryControlImage.Controls.Add(this.galleryControlClient1);
+            this.galleryControlImage.DesignGalleryGroupIndex = 0;
+            this.galleryControlImage.DesignGalleryItemIndex = 0;
             // 
             // galleryControlGallery1
             // 
+            this.galleryControlImage.Gallery.AllowHoverImages = true;
+            this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
+            this.galleryControlImage.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
             galleryItemGroup1.Caption = "Danh sách hình ảnh";
-            this.galleryControl1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup1});
-            this.galleryControl1.Gallery.ImageSize = new System.Drawing.Size(100, 100);
-            this.galleryControl1.Location = new System.Drawing.Point(0, 0);
-            this.galleryControl1.Name = "galleryControl1";
-            this.galleryControl1.Size = new System.Drawing.Size(585, 228);
-            this.galleryControl1.TabIndex = 0;
-            this.galleryControl1.Text = "galleryControl1";
+            this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
+            this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
+            this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadioInGroup;
+            this.galleryControlImage.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.galleryControlImage.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
+            this.galleryControlImage.Gallery.ShowGroupCaption = false;
+            this.galleryControlImage.Gallery.CustomDrawItemImage += new DevExpress.XtraBars.Ribbon.GalleryItemCustomDrawEventHandler(this.galleryControlGallery_CustomDrawItemImage);
+            this.galleryControlImage.Location = new System.Drawing.Point(0, 0);
+            this.galleryControlImage.Name = "galleryControlImage";
+            this.galleryControlImage.Size = new System.Drawing.Size(585, 228);
+            this.galleryControlImage.TabIndex = 0;
+            this.galleryControlImage.Text = "Gallery Control Image";
             // 
             // galleryControlClient1
             // 
-            this.galleryControlClient1.GalleryControl = this.galleryControl1;
+            this.galleryControlClient1.GalleryControl = this.galleryControlImage;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
             this.galleryControlClient1.Size = new System.Drawing.Size(564, 224);
             // 
             // btnImageCancel
             // 
+            this.btnImageCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImageCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnImageCancel.Image")));
             this.btnImageCancel.Location = new System.Drawing.Point(497, 234);
             this.btnImageCancel.Name = "btnImageCancel";
@@ -72,48 +86,62 @@
             this.btnImageCancel.TabIndex = 1;
             this.btnImageCancel.Text = "Hủy bỏ";
             // 
-            // btnImageSave
+            // btnImageSelectAll
             // 
-            this.btnImageSave.Image = ((System.Drawing.Image)(resources.GetObject("btnImageSave.Image")));
-            this.btnImageSave.Location = new System.Drawing.Point(416, 234);
-            this.btnImageSave.Name = "btnImageSave";
-            this.btnImageSave.Size = new System.Drawing.Size(75, 23);
-            this.btnImageSave.TabIndex = 2;
-            this.btnImageSave.Text = "Lưu lại";
+            this.btnImageSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImageSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("btnImageSelectAll.Image")));
+            this.btnImageSelectAll.Location = new System.Drawing.Point(335, 234);
+            this.btnImageSelectAll.Name = "btnImageSelectAll";
+            this.btnImageSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnImageSelectAll.TabIndex = 2;
+            this.btnImageSelectAll.Text = "Chọn hết";
             // 
             // btnImageUpload
             // 
+            this.btnImageUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImageUpload.Image = ((System.Drawing.Image)(resources.GetObject("btnImageUpload.Image")));
-            this.btnImageUpload.Location = new System.Drawing.Point(335, 234);
+            this.btnImageUpload.Location = new System.Drawing.Point(254, 234);
             this.btnImageUpload.Name = "btnImageUpload";
             this.btnImageUpload.Size = new System.Drawing.Size(75, 23);
             this.btnImageUpload.TabIndex = 3;
             this.btnImageUpload.Text = "Tải lên";
+            this.btnImageUpload.Click += new System.EventHandler(this.btnImageUpload_Click);
+            // 
+            // btnImageDelete
+            // 
+            this.btnImageDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnImageDelete.Image")));
+            this.btnImageDelete.Location = new System.Drawing.Point(416, 234);
+            this.btnImageDelete.Name = "btnImageDelete";
+            this.btnImageDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnImageDelete.TabIndex = 4;
+            this.btnImageDelete.Text = "Xóa";
             // 
             // frmHinhAnh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 262);
+            this.Controls.Add(this.btnImageDelete);
             this.Controls.Add(this.btnImageUpload);
-            this.Controls.Add(this.btnImageSave);
+            this.Controls.Add(this.btnImageSelectAll);
             this.Controls.Add(this.btnImageCancel);
-            this.Controls.Add(this.galleryControl1);
+            this.Controls.Add(this.galleryControlImage);
             this.Name = "frmHinhAnh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý hình ảnh";
-            ((System.ComponentModel.ISupportInitialize)(this.galleryControl1)).EndInit();
-            this.galleryControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.galleryControlImage)).EndInit();
+            this.galleryControlImage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.GalleryControl galleryControl1;
         private DevExpress.XtraBars.Ribbon.GalleryControlClient galleryControlClient1;
         private DevExpress.XtraEditors.SimpleButton btnImageCancel;
-        private DevExpress.XtraEditors.SimpleButton btnImageSave;
+        private DevExpress.XtraEditors.SimpleButton btnImageSelectAll;
         private DevExpress.XtraEditors.SimpleButton btnImageUpload;
+        private DevExpress.XtraBars.Ribbon.GalleryControl galleryControlImage;
+        private DevExpress.XtraEditors.SimpleButton btnImageDelete;
     }
 }

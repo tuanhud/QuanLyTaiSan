@@ -86,6 +86,21 @@ namespace QuanLyTaiSan.Entities
             //finish
             return re;
         }
+
+        public List<HinhAnh> getAllBy6Id(int id1, int id2, int id3, int id4, int id5, int id6)
+        {
+            MyDB db = new MyDB();
+            List<HinhAnh> re =
+                (from c in db.HINHANHS
+                 where ((id1 == -1 || c.coso.id == id1) && (id2 == -1 || c.day.id == id2) && (id3 == -1 || c.tang.id == id3) 
+                 && (id4 == -1 || c.phong.id == id4) && (id5 == -1 || c.thietbi.id == id5) && (id6 == -1 || c.nhanvienpt.id == id6))
+                 select new HinhAnh
+                 {
+                    id = c.id,
+                    path = c.path
+                 }).ToList();
+            return re;
+        }
         #endregion
 
         #region Override method
