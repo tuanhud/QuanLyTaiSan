@@ -15,6 +15,7 @@ using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI
 {
@@ -23,12 +24,14 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
-        ucTreePhong _ucTreePhong = new ucTreePhong();
+        ucTreePhong _ucTreePhong;
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         ucKhac uck = new ucKhac();
         public frmMain()
         {
             InitializeComponent();
+            List<CoSo> list = new CoSo().getAll();
+            _ucTreePhong = new ucTreePhong(list);
         }
 
         private void RibbonForm1_Load(object sender, EventArgs e)
@@ -121,6 +124,39 @@ namespace QuanLyTaiSanGUI
             frm.ShowDialog();
         }
 
+        #region QuanLyViTri
+        public void enableGroupViTri(String _type)
+        {
+            switch (_type)
+            {
+                case "coso":
+                    rbnGroupViTri_Tang.Enabled = false;
+                    barBtnSuaDay.Enabled = false;
+                    barBtnXoaDay.Enabled = false;
+                    barBtnSuaCoSo.Enabled = true;
+                    barBtnXoaCoSo.Enabled = true;
+                    break;
+                case "day":
+                    rbnGroupViTri_Tang.Enabled = true;
+                    barBtnSuaDay.Enabled = true;
+                    barBtnXoaDay.Enabled = true;
+                    barBtnSuaTang.Enabled = false;
+                    barBtnXoaTang.Enabled = false;
+                    barBtnSuaCoSo.Enabled = false;
+                    barBtnXoaCoSo.Enabled = false;
+                    break;
+                case "tang":
+                    rbnGroupViTri_Tang.Enabled = true;
+                    barBtnSuaDay.Enabled = false;
+                    barBtnXoaDay.Enabled = false;
+                    barBtnSuaTang.Enabled = true;
+                    barBtnXoaTang.Enabled = true;
+                    barBtnSuaCoSo.Enabled = false;
+                    barBtnXoaCoSo.Enabled = false;
+                    break;
+            }
+        }
+
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, "coso", "edit");
@@ -140,38 +176,6 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyCoSo.enableEdit(true, "tang", "edit");
             _ucQuanLyCoSo.beforeEdit("tang");
             _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng");
-        }
-
-        public void enableGroupViTri(String _type)
-        {
-            if (_type.Equals("coso"))
-            {
-                rbnGroupViTri_Tang.Enabled = false;
-                barBtnSuaDay.Enabled = false;
-                barBtnXoaDay.Enabled = false;
-                barBtnSuaCoSo.Enabled = true;
-                barBtnXoaCoSo.Enabled = true;
-            }
-            else if (_type.Equals("day"))
-            {
-                rbnGroupViTri_Tang.Enabled = true;
-                barBtnSuaDay.Enabled = true;
-                barBtnXoaDay.Enabled = true;
-                barBtnSuaTang.Enabled = false;
-                barBtnXoaTang.Enabled = false;
-                barBtnSuaCoSo.Enabled = false;
-                barBtnXoaCoSo.Enabled = false;
-            }
-            else
-            {
-                rbnGroupViTri_Tang.Enabled = true;
-                barBtnSuaDay.Enabled = false;
-                barBtnXoaDay.Enabled = false;
-                barBtnSuaTang.Enabled = true;
-                barBtnXoaTang.Enabled = true;
-                barBtnSuaCoSo.Enabled = false;
-                barBtnXoaCoSo.Enabled = false;
-            }
         }
 
         private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
@@ -209,5 +213,51 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyCoSo.beforeAdd("tang");
             _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng");
         }
+        #endregion
+
+        #region QuanLyPhong
+        public void treePhongFocusedNodeChanged(int phongid, int cosoid, int dayid, int tangid)
+        {
+            if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupPhong"))
+            {
+                _ucQuanLyPhong.loadData(phongid, cosoid, dayid, tangid);
+            }
+        }
+
+        public void enableGroupPhong(String _type)
+        {
+            try
+            {
+                switch (_type)
+                {
+                    case "phong":
+                        rbnGroupPhong_Phong.Enabled = true;
+                        rbnGroupPhong_Chuyen.Enabled = false;
+                        rbnGroupPhong_ThietBi.Enabled = false;
+                        barBtnThemPhong.Enabled = true;
+                        barBtnSuaPhong.Enabled = true;
+                        barBtnXoaPhong.Enabled = true;
+                        break;
+                    case "thietbi":
+                        rbnGroupPhong_Phong.Enabled = false;
+                        rbnGroupPhong_Chuyen.Enabled = true;
+                        rbnGroupPhong_ThietBi.Enabled = true;
+                        break;
+                    default:
+                        rbnGroupPhong_Phong.Enabled = true;
+                        rbnGroupPhong_Chuyen.Enabled = false;
+                        rbnGroupPhong_ThietBi.Enabled = false;
+                        barBtnThemPhong.Enabled = true;
+                        barBtnSuaPhong.Enabled = false;
+                        barBtnXoaPhong.Enabled = false;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            { }
+            finally
+            {}
+        }
+        #endregion
     }
 }
