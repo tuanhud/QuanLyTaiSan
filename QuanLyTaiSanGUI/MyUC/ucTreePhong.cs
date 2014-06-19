@@ -16,18 +16,19 @@ namespace QuanLyTaiSanGUI.MyUC
     public partial class ucTreePhong : UserControl
     {
         List<CoSo> listCoSos = new List<CoSo>();
-        List<Dayy> listDays = new List<Dayy>();
-        List<Tang> listTangs = new List<Tang>();
-        List<Phong> listPhongs = new List<Phong>();
-        public ucTreePhong()
+        public ucTreePhong(List<CoSo> _list)
         {
             InitializeComponent();
+            listCoSos = _list;
             CreateNodes(treeListPhong);
         }
         private void CreateNodes(TreeList tl)
         {
             try
             {
+                List<Dayy> listDays = new List<Dayy>();
+                List<Tang> listTangs = new List<Tang>();
+                List<Phong> listPhongs = new List<Phong>();
                 tl.BeginUnboundLoad();
                 // Create a root node .
                 TreeListNode parentForRootNodes = null;
@@ -77,6 +78,47 @@ namespace QuanLyTaiSanGUI.MyUC
 
                 }
                 tl.EndUnboundLoad();
+            }
+            catch (Exception ex)
+            { }
+            finally
+            { }
+        }
+
+        private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
+        {
+            try
+            {
+                int phongid = -1;
+                int cosoid = -1;
+                int dayid = -1;
+                int tangid = -1;
+                if(e.Node.GetValue(2)!= null)
+                {
+                    switch (e.Node.GetValue(2).ToString())
+                    {
+                        case "coso":
+                            cosoid = Convert.ToInt32(e.Node.GetValue(0));
+                            break;
+                        case "day":
+                            dayid = Convert.ToInt32(e.Node.GetValue(0));
+                            cosoid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            break;
+                        case "tang":
+                            tangid = Convert.ToInt32(e.Node.GetValue(0));
+                            dayid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                            break;
+                        case "phong":
+                            phongid = Convert.ToInt32(e.Node.GetValue(0));
+                            break;
+                    }
+                    if (this.ParentForm != null)
+                    {
+                        frmMain frm = this.ParentForm as frmMain;
+                        frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
+                    }
+                }
             }
             catch (Exception ex)
             { }

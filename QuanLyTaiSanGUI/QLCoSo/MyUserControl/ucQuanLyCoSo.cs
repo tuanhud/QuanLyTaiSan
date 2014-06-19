@@ -417,6 +417,9 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             listCoSos = new CoSo().getAll();
             treeListViTri.ClearNodes();
             CreateNodes(treeListViTri);
+            //kiem tra truoc khi reload
+            _ucTreeViTri.reLoad(listCoSos);
+            _ucTreeViTri2.reLoad(listCoSos);
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

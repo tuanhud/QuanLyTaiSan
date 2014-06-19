@@ -133,65 +133,78 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                  TreeListNode _node = null;
-                if (_vitri.tang != null)
+                TreeListNode _node = null;
+                if (_vitri != null)
                 {
-                    idTang = _vitri.tang.id;
-                    foreach (TreeListNode node in treeListViTri.Nodes)
+                    if (_vitri.tang != null)
                     {
-                        foreach (TreeListNode node2 in node.Nodes)
+                        idTang = _vitri.tang.id;
+                        foreach (TreeListNode node in treeListViTri.Nodes)
                         {
-                            foreach (TreeListNode node3 in node2.Nodes)
+                            foreach (TreeListNode node2 in node.Nodes)
                             {
-                                if ((int)node3.GetValue(0) == _vitri.tang.id && node3.GetValue(2).ToString().Equals("tang"))
+                                foreach (TreeListNode node3 in node2.Nodes)
                                 {
-                                    _node = node3;
+                                    if ((int)node3.GetValue(0) == _vitri.tang.id && node3.GetValue(2).ToString().Equals("tang"))
+                                    {
+                                        _node = node3;
+                                        break;
+                                    }
+                                }
+                                if (_node != null) break;
+                            }
+                            if (_node != null) break;
+                        }
+                    }
+                    else if (_vitri.day != null)
+                    {
+                        idDay = _vitri.day.id;
+                        foreach (TreeListNode node in treeListViTri.Nodes)
+                        {
+                            foreach (TreeListNode node2 in node.Nodes)
+                            {
+                                if ((int)node2.GetValue(0) == _vitri.day.id && node2.GetValue(2).ToString().Equals("day"))
+                                {
+                                    _node = node2;
                                     break;
                                 }
                             }
+                            if (_node != null) break;
                         }
                     }
-                }
-                else if (_vitri.day != null)
-                {
-                    idDay = _vitri.day.id;
-                    foreach (TreeListNode node in treeListViTri.Nodes)
+                    else if (_vitri.coso != null)
                     {
-                        foreach (TreeListNode node2 in node.Nodes)
+                        idCoSo = _vitri.coso.id;
+                        foreach (TreeListNode node in treeListViTri.Nodes)
                         {
-                            if ((int)node2.GetValue(0) == _vitri.day.id && node2.GetValue(2).ToString().Equals("day"))
+                            if ((int)node.GetValue(0) == _vitri.coso.id && node.GetValue(2).ToString().Equals("coso"))
                             {
-                                _node = node2;
+                                _node = node;
                                 break;
                             }
                         }
                     }
+
                 }
-                else if (_vitri.coso != null)
-                {
-                    idCoSo = _vitri.coso.id;
-                    foreach (TreeListNode node in treeListViTri.Nodes)
-                    {
-                        if ((int)node.GetValue(0) == _vitri.coso.id && node.GetValue(2).ToString().Equals("coso"))
-                        {
-                            _node = node;
-                            break;
-                        }
-                    }
-                }
+                else
+                    popupContainerEdit1.Text = null;
                 treeListViTri.SetFocusedNode(_node);
             }
             catch (Exception ex)
-            { }
+            {
+            }
             finally
             { }
         }
         public void setReadOnly(bool b)
         {
-            if (b)
-                popupContainerEdit1.Properties.ReadOnly = true;
-            else
-                popupContainerEdit1.Properties.ReadOnly = false;
+            popupContainerEdit1.Properties.ReadOnly = b;
+        }
+        public void reLoad(List<CoSo> _list)
+        {
+            listCoSos = _list;
+            treeListViTri.ClearNodes();
+            CreateNodes(treeListViTri);
         }
     }
 }

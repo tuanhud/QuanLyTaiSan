@@ -27,7 +27,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                objPhong = _phong;
+                if (_phong != null)
+                {
+                    objPhong = _phong;
+                }
+                else
+                    objPhong = new Phong();
                 txtTen.Text = objPhong.ten;
                 txtMoTa.Text = objPhong.mota;
                 _ucTreeViTri.setViTri(objPhong.vitri);
