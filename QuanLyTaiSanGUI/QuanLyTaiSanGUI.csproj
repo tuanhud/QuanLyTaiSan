@@ -74,10 +74,18 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyDataSet\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <Compile Include="HeThong\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUC\TreeListViewState.cs" />
+    <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucFreeHaveCheckBox.Designer.cs">
+      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\ucTreeLoaiTB.cs">
       <SubType>UserControl</SubType>
@@ -139,12 +147,6 @@
     <Compile Include="MyUC\ucComboBoxPhong.Designer.cs">
       <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucKhac.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucKhac.Designer.cs">
-      <DependentUpon>ucKhac.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
+      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
@@ -201,9 +209,6 @@
     <EmbeddedResource Include="MyUC\ucComboBoxPhong.resx">
       <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\MyUserControl\ucKhac.resx">
-      <DependentUpon>ucKhac.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,17 +229,6 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="MyDataSet\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="MyDataSet\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="MyDataSet\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -271,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System-Login-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

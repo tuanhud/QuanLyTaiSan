@@ -16,6 +16,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
     {
         ucTreeViTri _ucTreeViTri;
         Phong objPhong;
+        String type = "";
         public ucChiTietPhong(List<CoSo> _list)
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeViTri);
         }
+
         public void LoadData(Phong _phong)
         {
             try
@@ -49,6 +51,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             { }
             finally
             {}
+        }
+
+        public void enableEdit(bool b, String _type)
+        {
+            btnOK.Visible = b;
+            btnHuy.Visible = b;
+            btnImage.Visible = b;
+            type = _type;
         }
      }
 }

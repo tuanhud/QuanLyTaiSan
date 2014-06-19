@@ -8,24 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList;
-using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.Entities;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
-    public partial class ucTreePhong : UserControl
+    public partial class ucFreeHaveCheckBox : UserControl
     {
         List<CoSo> listCoSos = new List<CoSo>();
-        int phongid = -1;
-        int cosoid = -1;
-        int dayid = -1;
-        int tangid = -1;
-        public ucTreePhong(List<CoSo> _list)
+        public ucFreeHaveCheckBox()
         {
             InitializeComponent();
-            listCoSos = _list;
-            CreateNodes(treeListPhong);
+            listCoSos = new CoSo().getAll();
+            CreateNodes(treeList1);
         }
+
         private void CreateNodes(TreeList tl)
         {
             try
@@ -87,59 +84,6 @@ namespace QuanLyTaiSanGUI.MyUC
             { }
             finally
             { }
-        }
-
-        private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
-        {
-            try
-            {
-                phongid = -1;
-                cosoid = -1;
-                dayid = -1;
-                tangid = -1;
-                if(e.Node.GetValue(2)!= null)
-                {
-                    switch (e.Node.GetValue(2).ToString())
-                    {
-                        case "coso":
-                            cosoid = Convert.ToInt32(e.Node.GetValue(0));
-                            break;
-                        case "day":
-                            dayid = Convert.ToInt32(e.Node.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            break;
-                        case "tang":
-                            tangid = Convert.ToInt32(e.Node.GetValue(0));
-                            dayid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                            break;
-                        case "phong":
-                            phongid = Convert.ToInt32(e.Node.GetValue(0));
-                            tangid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            dayid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.ParentNode.GetValue(0));
-                            break;
-                    }
-                    if (this.ParentForm != null)
-                    {
-                        frmMain frm = this.ParentForm as frmMain;
-                        frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
-                    }
-                }
-            }
-            catch (Exception ex)
-            { }
-            finally
-            { }
-        }
-
-        public ViTri getVitri(MyDB db)
-        {
-            ViTri obj = new ViTri(db);
-            obj.coso = new CoSo(db).getById(cosoid);
-            obj.day = new Dayy(db).getById(dayid);
-            obj.tang = new Tang(db).getById(tangid);
-            return obj;
         }
     }
 }

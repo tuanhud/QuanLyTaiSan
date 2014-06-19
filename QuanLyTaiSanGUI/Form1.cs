@@ -17,13 +17,13 @@ namespace QuanLyTaiSanGUI
 {
     public partial class Form1 : Form
     {
+        ucFreeHaveCheckBox _ucFreeHaveCheckBox = new ucFreeHaveCheckBox();
         public Form1()
         {
             InitializeComponent();
-            ucQuanLyLoaiTB uc = new ucQuanLyLoaiTB();
-            panelControl1.Controls.Add(uc);
+            _ucFreeHaveCheckBox.Dock = DockStyle.Fill;
+            panelControl1.Controls.Add(_ucFreeHaveCheckBox);
         }
-
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             int _idobject = 1;

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
+using DevExpress.XtraTreeList.Nodes.Operations;
+using DevExpress.XtraTreeList.Data;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -129,73 +131,7 @@ namespace QuanLyTaiSanGUI.MyUC
             objViTri.tang = objTang;
             return objViTri;
         }
-        public void setViTri(ViTri _vitri)
-        {
-            try
-            {
-                TreeListNode _node = null;
-                if (_vitri != null)
-                {
-                    if (_vitri.tang != null)
-                    {
-                        idTang = _vitri.tang.id;
-                        foreach (TreeListNode node in treeListViTri.Nodes)
-                        {
-                            foreach (TreeListNode node2 in node.Nodes)
-                            {
-                                foreach (TreeListNode node3 in node2.Nodes)
-                                {
-                                    if ((int)node3.GetValue(0) == _vitri.tang.id && node3.GetValue(2).ToString().Equals("tang"))
-                                    {
-                                        _node = node3;
-                                        break;
-                                    }
-                                }
-                                if (_node != null) break;
-                            }
-                            if (_node != null) break;
-                        }
-                    }
-                    else if (_vitri.day != null)
-                    {
-                        idDay = _vitri.day.id;
-                        foreach (TreeListNode node in treeListViTri.Nodes)
-                        {
-                            foreach (TreeListNode node2 in node.Nodes)
-                            {
-                                if ((int)node2.GetValue(0) == _vitri.day.id && node2.GetValue(2).ToString().Equals("day"))
-                                {
-                                    _node = node2;
-                                    break;
-                                }
-                            }
-                            if (_node != null) break;
-                        }
-                    }
-                    else if (_vitri.coso != null)
-                    {
-                        idCoSo = _vitri.coso.id;
-                        foreach (TreeListNode node in treeListViTri.Nodes)
-                        {
-                            if ((int)node.GetValue(0) == _vitri.coso.id && node.GetValue(2).ToString().Equals("coso"))
-                            {
-                                _node = node;
-                                break;
-                            }
-                        }
-                    }
-
-                }
-                else
-                    popupContainerEdit1.Text = null;
-                treeListViTri.SetFocusedNode(_node);
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            { }
-        }
+        
         public void setReadOnly(bool b)
         {
             popupContainerEdit1.Properties.ReadOnly = b;
@@ -205,6 +141,55 @@ namespace QuanLyTaiSanGUI.MyUC
             listCoSos = _list;
             treeListViTri.ClearNodes();
             CreateNodes(treeListViTri);
+        }
+
+        public class TreeListOperationFindNodeByProductAndCountryValues : TreeListOperation
+        {
+            public const string idColumnName = "id";
+            public const string loaiColumnName = "loai";
+            private TreeListNode nodeCore;
+            private object id;
+            private object loai;
+            private bool isNullCore;
+            public TreeListOperationFindNodeByProductAndCountryValues(object _id, object _loai)
+            {
+                this.id = _id;
+                this.loai = _loai;
+                this.nodeCore = null;
+                this.isNullCore = TreeListData.IsNull(id) || TreeListData.IsNull(loai);
+            }
+            public override void Execute(TreeListNode node)
+            {
+                if (IsLookedFor(node.GetValue(idColumnName), node.GetValue(loaiColumnName)))
+                    this.nodeCore = node;
+            }
+            bool IsLookedFor(object _id, object _loai)
+            {
+                if (IsNull) return (id == _id && loai == _loai);
+                return id.Equals(_id) && loai.Equals(_loai);
+            }
+            protected bool IsNull { get { return isNullCore; } }
+            public override bool CanContinueIteration(TreeListNode node) { return Node == null; }
+            public TreeListNode Node { get { return nodeCore; } }
+        }
+
+        public void setViTri(ViTri obj)
+        {
+            TreeListOperationFindNodeByProductAndCountryValues findNode = null;
+            if (obj.tang != null)
+            {
+                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.tang.id, "tang");
+            }
+            else if (obj.day != null)
+            {
+                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.day.id, "day");
+            } 
+            else if (obj.coso != null)
+            {
+                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.coso.id, "coso");
+            }
+            treeListViTri.NodesIterator.DoOperation(findNode);
+            treeListViTri.FocusedNode = findNode.Node;
         }
     }
 }

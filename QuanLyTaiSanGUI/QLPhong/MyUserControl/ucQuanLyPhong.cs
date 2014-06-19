@@ -18,6 +18,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
         List<CoSo> listCoSos = new List<CoSo>();
+        Phong objPhong;
+        CTThietBi objChiTietTB;
         public ucQuanLyPhong()
         {
             InitializeComponent();
@@ -61,6 +63,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     AddControl(_ucChiTietPhong);
                     _ucChiTietPhong.LoadData(obj);
                     enableGroupPhong("phong");
+                    objPhong = obj;
                 }
                 else if (row >= 0)
                 {
@@ -70,6 +73,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
                     _ucChiTietThietBi.LoadData(objct);
                     enableGroupPhong("thietbi");
+                    objChiTietTB = objct;
                 }
             }
             catch (Exception ex)
@@ -83,10 +87,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
             _ucChiTietPhong.LoadData(obj);
-            if(_id == -1)
+            if (_id == -1)
                 enableGroupPhong("other");
             else
+            {
                 enableGroupPhong("phong");
+                objPhong = obj;
+            }
 
         }
 
@@ -101,6 +108,16 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 frmMain frm = this.ParentForm as frmMain;
                 frm.enableGroupPhong(_type);
             }
+        }
+
+        public Phong getPhong()
+        {
+            return objPhong;
+        }
+
+        public CTThietBi getCTThietBi()
+        {
+            return objChiTietTB;
         }
     }
 }
