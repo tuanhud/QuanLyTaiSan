@@ -209,5 +209,24 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyCoSo.beforeAdd("tang");
             _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng");
         }
+
+        private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.enableEdit(true, "them");
+            _ucQuanLyNhanVien.SetTextGroupControl("Thêm nhân viên");
+            _ucQuanLyNhanVien.beforeAdd();
+        }
+
+        private void barBtnSuaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.enableEdit(true, "sua");
+            _ucQuanLyNhanVien.SetTextGroupControl("Sửa nhân viên");
+            _ucQuanLyNhanVien.beforeEdit();
+        }
+
+        private void barBtnXoaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.deleteObj();
+        }
     }
 }

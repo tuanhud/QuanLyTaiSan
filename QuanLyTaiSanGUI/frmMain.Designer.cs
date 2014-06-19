@@ -256,18 +256,21 @@
             this.barBtnThemNhanVien.Caption = "Thêm nhân viên";
             this.barBtnThemNhanVien.Id = 18;
             this.barBtnThemNhanVien.Name = "barBtnThemNhanVien";
+            this.barBtnThemNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemNhanVien_ItemClick);
             // 
             // barBtnSuaNhanVien
             // 
             this.barBtnSuaNhanVien.Caption = "Sửa nhân viên";
             this.barBtnSuaNhanVien.Id = 19;
             this.barBtnSuaNhanVien.Name = "barBtnSuaNhanVien";
+            this.barBtnSuaNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaNhanVien_ItemClick);
             // 
             // barBtnXoaNhanVien
             // 
             this.barBtnXoaNhanVien.Caption = "Xóa nhân viên";
             this.barBtnXoaNhanVien.Id = 20;
             this.barBtnXoaNhanVien.Name = "barBtnXoaNhanVien";
+            this.barBtnXoaNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaNhanVien_ItemClick);
             // 
             // barBtnPhanCong
             // 
