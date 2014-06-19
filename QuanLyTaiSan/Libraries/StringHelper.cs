@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Libraries
@@ -55,5 +56,20 @@ namespace QuanLyTaiSan.Libraries
 
            return sqlBuilder.ToString();
         }
+        /// <summary>
+        /// Chuyển chuổi có dấu thành không dấu </summary>
+        public static string CoDauThanhKhongDau(string s)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = s.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+        /// <summary>
+        /// Lọc ký tự đặc biệt. Chỉ còn Chữ, Số _ - </summary>
+        public static string LocKyTuDacBiet(string s)
+        {
+            s = s.Replace(" ","_");
+            return Regex.Replace(s, "[^.a-zA-Z0-9_-]", "");
+        }  
     }
 }

@@ -181,16 +181,19 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            switch (function)
+            if (CheckInput())
             {
-                case "edit":
-                    editObj(type);
-                    break;
-                case "add":
-                    addObj(type);
-                    break;
+                switch (function)
+                {
+                    case "edit":
+                        editObj(type);
+                        break;
+                    case "add":
+                        addObj(type);
+                        break;
+                }
+                enableEdit(false, "", "");
             }
-            enableEdit(false, "", "");
         }
 
         private void editObj(String _type)
@@ -413,6 +416,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         {
             treeListViewState = new TreeListViewState(treeListViTri);
             treeListViewState.SaveState();
+            errorProvider1.Clear();
             listCoSos = new CoSo().getAll();
             treeListViTri.ClearNodes();
             CreateNodes(treeListViTri);
@@ -425,6 +429,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         private void btnHuy_Click(object sender, EventArgs e)
         {
             enableEdit(false, "", "");
+            groupControl1.Text = "Chi tiết";
+            beforeEdit(node);
         }
 
         public void SetTextGroupControl(String text)
@@ -432,9 +438,16 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             groupControl1.Text = text;
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private Boolean CheckInput()
         {
-            //_ucTreeViTri.setvt("9)
+            errorProvider1.Clear();
+            Boolean check = true;
+            if (txtTen.Text.Length == 0)
+            {
+                check = false;
+                errorProvider1.SetError(txtTen, "Chưa điền tên");
+            }
+            return check;
         }
     }
 }
