@@ -11,6 +11,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
@@ -203,6 +204,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "coso":
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
+                    objCoSo.date_modified = ServerTimeHelper.getNow();
                     if (objCoSo.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa cơ sở thành công!");
@@ -212,6 +214,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "day":
                     objDay.ten = txtTen.Text;
                     objDay.mota = txtMoTa.Text;
+                    objDay.date_modified = ServerTimeHelper.getNow();
                     ViTri _vitri = _ucTreeViTri.getViTri(objDay.DB);
                     objDay.coso = _vitri.coso;
                     if (objDay.update() != -1)
@@ -223,6 +226,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "tang":
                     objTang.ten = txtTen.Text;
                     objTang.mota = txtMoTa.Text;
+                    objTang.date_modified = ServerTimeHelper.getNow();
                     ViTri _vitri2 = _ucTreeViTri2.getViTri(objTang.DB);
                     objTang.day = _vitri2.day;
                     if (objTang.update() != -1)
@@ -342,6 +346,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objCoSo = new CoSo();
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
+                    objCoSo.date_create = ServerTimeHelper.getNow();
+                    objCoSo.date_modified = ServerTimeHelper.getNow();
                     if (objCoSo.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm cơ sở thành công!");
@@ -352,6 +358,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objDay = new Dayy();
                     objDay.ten = txtTen.Text;
                     objDay.mota = txtMoTa.Text;
+                    objDay.date_create = ServerTimeHelper.getNow();
+                    objDay.date_modified = ServerTimeHelper.getNow();
                     ViTri _vitri = _ucTreeViTri.getViTri(objDay.DB);
                     objDay.coso = _vitri.coso;
                     if (objDay.add() != -1)
@@ -364,6 +372,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTang = new Tang();
                     objTang.ten = txtTen.Text;
                     objTang.mota = txtMoTa.Text;
+                    objTang.date_create = ServerTimeHelper.getNow();
+                    objTang.date_modified = ServerTimeHelper.getNow();
                     ViTri _vitri2 = _ucTreeViTri2.getViTri(objTang.DB);
                     objTang.day = _vitri2.day;
                     if (objTang.add() != -1)
@@ -431,6 +441,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             enableEdit(false, "", "");
             errorProvider1.Clear();
             groupControl1.Text = "Chi tiết";
+            errorProvider1.Clear();
             beforeEdit(node);
         }
 

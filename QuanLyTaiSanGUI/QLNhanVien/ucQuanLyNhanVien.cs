@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.QLNhanVien
 {
@@ -44,8 +45,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 btnImage.Visible = true;
                 btnOK.Visible = true;
                 btnHuy.Visible = true;
-                //btnOK_Phong.Visible = true;
-                //btnHuy_Phong.Visible = true;
                 txtMa.Properties.ReadOnly = false;
                 txtTen.Properties.ReadOnly = false;
                 txtSodt.Properties.ReadOnly = false;
@@ -55,8 +54,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 btnImage.Visible = false;
                 btnOK.Visible = false;
                 btnHuy.Visible = false;
-                //btnOK_Phong.Visible = false;
-                //btnHuy_Phong.Visible = false;
                 txtMa.Properties.ReadOnly = true;
                 txtTen.Properties.ReadOnly = true;
                 txtSodt.Properties.ReadOnly = true;
@@ -94,6 +91,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNhanVienPT.subId = txtMa.Text;
                     objNhanVienPT.hoten = txtTen.Text;
                     objNhanVienPT.sodienthoai = txtSodt.Text;
+                    objNhanVienPT.date_create = ServerTimeHelper.getNow();
+                    objNhanVienPT.date_modified = ServerTimeHelper.getNow();
                     if (objNhanVienPT.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm nhân viên thành công!");
@@ -104,6 +103,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNhanVienPT.subId = txtMa.Text;
                     objNhanVienPT.hoten = txtTen.Text;
                     objNhanVienPT.sodienthoai = txtSodt.Text;
+                    objNhanVienPT.date_modified = ServerTimeHelper.getNow();
                     if (objNhanVienPT.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa nhân viên thành công!");
