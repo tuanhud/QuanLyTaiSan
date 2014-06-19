@@ -153,7 +153,8 @@ namespace QuanLyTaiSan.Entities
                 tmp = ImageHelper.ScaleBySize(image,max_size);
             }
             //tao duong dan upload len FTP
-            String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+ file_name +".JPEG";
+            String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+
+			StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";
             String abs_path
                 =
                 Global.remote_setting.ftp_host.HOST_NAME +
