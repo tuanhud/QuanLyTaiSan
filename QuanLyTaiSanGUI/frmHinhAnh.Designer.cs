@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhAnh));
             this.galleryControlImage = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
@@ -36,6 +36,7 @@
             this.btnImageSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnImageUpload = new DevExpress.XtraEditors.SimpleButton();
             this.btnImageDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.galleryControlImage)).BeginInit();
             this.galleryControlImage.SuspendLayout();
             this.SuspendLayout();
@@ -54,9 +55,9 @@
             this.galleryControlImage.Gallery.AllowHoverImages = true;
             this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
             this.galleryControlImage.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
-            galleryItemGroup1.Caption = "Danh sách hình ảnh";
+            galleryItemGroup2.Caption = "Danh sách hình ảnh";
             this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
             this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.Multiple;
@@ -147,5 +148,6 @@
         private DevExpress.XtraEditors.SimpleButton btnImageUpload;
         private DevExpress.XtraBars.Ribbon.GalleryControl galleryControlImage;
         private DevExpress.XtraEditors.SimpleButton btnImageDelete;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }

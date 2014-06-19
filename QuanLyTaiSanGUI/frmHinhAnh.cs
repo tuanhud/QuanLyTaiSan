@@ -125,6 +125,7 @@ namespace QuanLyTaiSanGUI
 
             if (open.ShowDialog() == DialogResult.OK)
             {
+                splashScreenManager.ShowWaitForm();
                 foreach (string file in open.FileNames)
                 {
                     FileInfo fInfo = new FileInfo(file);
@@ -182,6 +183,7 @@ namespace QuanLyTaiSanGUI
                     it.Tag = _hinhanh.id;
                     galleryControlImage.Gallery.Groups[0].Items.Add(it);
                 }
+                splashScreenManager.CloseWaitForm();
             }
         }
 
