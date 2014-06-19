@@ -193,6 +193,7 @@
             // barBtnThemCoSo
             // 
             this.barBtnThemCoSo.Caption = "Thêm cơ sở";
+            this.barBtnThemCoSo.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barBtnThemCoSo.Id = 9;
             this.barBtnThemCoSo.Name = "barBtnThemCoSo";
             this.barBtnThemCoSo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemCoSo_ItemClick);
@@ -200,6 +201,7 @@
             // barBtnSuaCoSo
             // 
             this.barBtnSuaCoSo.Caption = "Sửa cơ sở";
+            this.barBtnSuaCoSo.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSuaCoSo.Id = 10;
             this.barBtnSuaCoSo.Name = "barBtnSuaCoSo";
             this.barBtnSuaCoSo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaCoSo_ItemClick);
@@ -207,6 +209,7 @@
             // barBtnXoaCoSo
             // 
             this.barBtnXoaCoSo.Caption = "Xóa cơ sở";
+            this.barBtnXoaCoSo.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoaCoSo.Id = 11;
             this.barBtnXoaCoSo.Name = "barBtnXoaCoSo";
             this.barBtnXoaCoSo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaCoSo_ItemClick);
@@ -214,6 +217,7 @@
             // barBtnThemDay
             // 
             this.barBtnThemDay.Caption = "Thêm Dãy";
+            this.barBtnThemDay.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barBtnThemDay.Id = 12;
             this.barBtnThemDay.Name = "barBtnThemDay";
             this.barBtnThemDay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemDay_ItemClick);
@@ -221,6 +225,7 @@
             // barBtnSuaDay
             // 
             this.barBtnSuaDay.Caption = "Sửa dãy";
+            this.barBtnSuaDay.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSuaDay.Id = 13;
             this.barBtnSuaDay.Name = "barBtnSuaDay";
             this.barBtnSuaDay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaDay_ItemClick);
@@ -228,6 +233,7 @@
             // barBtnXoaDay
             // 
             this.barBtnXoaDay.Caption = "Xóa dãy";
+            this.barBtnXoaDay.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoaDay.Id = 14;
             this.barBtnXoaDay.Name = "barBtnXoaDay";
             this.barBtnXoaDay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaDay_ItemClick);
@@ -235,6 +241,7 @@
             // barBtnThemTang
             // 
             this.barBtnThemTang.Caption = "Thêm tầng";
+            this.barBtnThemTang.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barBtnThemTang.Id = 15;
             this.barBtnThemTang.Name = "barBtnThemTang";
             this.barBtnThemTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemTang_ItemClick);
@@ -242,6 +249,7 @@
             // barBtnSuaTang
             // 
             this.barBtnSuaTang.Caption = "Sửa tầng";
+            this.barBtnSuaTang.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSuaTang.Id = 16;
             this.barBtnSuaTang.Name = "barBtnSuaTang";
             this.barBtnSuaTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaTang_ItemClick);
@@ -249,6 +257,7 @@
             // barBtnXoaTang
             // 
             this.barBtnXoaTang.Caption = "Xóa tầng";
+            this.barBtnXoaTang.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoaTang.Id = 17;
             this.barBtnXoaTang.Name = "barBtnXoaTang";
             this.barBtnXoaTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTang_ItemClick);

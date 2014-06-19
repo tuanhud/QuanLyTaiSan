@@ -429,6 +429,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         private void btnHuy_Click(object sender, EventArgs e)
         {
             enableEdit(false, "", "");
+            errorProvider1.Clear();
             groupControl1.Text = "Chi tiết";
             beforeEdit(node);
         }

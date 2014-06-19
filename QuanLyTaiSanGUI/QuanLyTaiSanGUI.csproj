@@ -75,6 +75,12 @@
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\TreeListViewState.cs" />
+    <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucFreeHaveCheckBox.Designer.cs">
+      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\ucTreeLoaiTB.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
+      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
