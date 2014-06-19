@@ -74,6 +74,12 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\TreeListViewState.cs" />
     <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
       <SubType>UserControl</SubType>
@@ -167,6 +173,9 @@
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
       <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System-Login-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
