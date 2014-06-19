@@ -59,10 +59,10 @@
             galleryItemGroup1});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
-            this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadioInGroup;
+            this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.Multiple;
             this.galleryControlImage.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
             this.galleryControlImage.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
-            this.galleryControlImage.Gallery.ShowGroupCaption = false;
+            this.galleryControlImage.Gallery.ItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.galleryControlImage_Gallery_ItemClick);
             this.galleryControlImage.Gallery.CustomDrawItemImage += new DevExpress.XtraBars.Ribbon.GalleryItemCustomDrawEventHandler(this.galleryControlGallery_CustomDrawItemImage);
             this.galleryControlImage.Location = new System.Drawing.Point(0, 0);
             this.galleryControlImage.Name = "galleryControlImage";
@@ -85,6 +85,7 @@
             this.btnImageCancel.Size = new System.Drawing.Size(75, 23);
             this.btnImageCancel.TabIndex = 1;
             this.btnImageCancel.Text = "Hủy bỏ";
+            this.btnImageCancel.Click += new System.EventHandler(this.btnImageCancel_Click);
             // 
             // btnImageSelectAll
             // 
@@ -95,6 +96,7 @@
             this.btnImageSelectAll.Size = new System.Drawing.Size(75, 23);
             this.btnImageSelectAll.TabIndex = 2;
             this.btnImageSelectAll.Text = "Chọn hết";
+            this.btnImageSelectAll.Click += new System.EventHandler(this.btnImageSelectAll_Click);
             // 
             // btnImageUpload
             // 
@@ -109,12 +111,14 @@
             // 
             // btnImageDelete
             // 
+            this.btnImageDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImageDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnImageDelete.Image")));
             this.btnImageDelete.Location = new System.Drawing.Point(416, 234);
             this.btnImageDelete.Name = "btnImageDelete";
             this.btnImageDelete.Size = new System.Drawing.Size(75, 23);
             this.btnImageDelete.TabIndex = 4;
             this.btnImageDelete.Text = "Xóa";
+            this.btnImageDelete.Click += new System.EventHandler(this.btnImageDelete_Click);
             // 
             // frmHinhAnh
             // 

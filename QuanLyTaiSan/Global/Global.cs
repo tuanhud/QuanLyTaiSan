@@ -108,7 +108,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            host_name = "ftp://ts.hoangthanhit.com";
+                            host_name = "http://ts.hoangthanhit.com";
                         }
                         return host_name;
                     }
