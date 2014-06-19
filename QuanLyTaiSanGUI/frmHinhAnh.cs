@@ -131,8 +131,8 @@ namespace QuanLyTaiSanGUI
                     FileInfo fInfo = new FileInfo(file);
                     string filePath = fInfo.ToString();
                     DateTime _datetime = ServerTimeHelper.getNow();
-                    String _dt = _datetime.ToString("yyyy-MM-dd-hh-mm-ss");
-                    string file_name = _dt;// +fInfo.Name.ToString();
+                    String _dt = _datetime.ToString("yyyy-MM-dd-hh-mm-ss-");
+                    string file_name = _dt + fInfo.Name.ToString();
                     HinhAnh _hinhanh = new HinhAnh();
                     _hinhanh.FILE_NAME = file_name;
                     _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
@@ -194,13 +194,12 @@ namespace QuanLyTaiSanGUI
             btnImageDelete.Enabled = true;
         }
 
-        private void btnImageDelete_Click(object sender, EventArgs e)
+        private void DeleteImage()
         {
             if (MessageBox.Show("Bạn có muốn xóa không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (currItem != null)
                 {
-
                     try
                     {
                         HinhAnh _hinhanh = new HinhAnh();
@@ -216,6 +215,11 @@ namespace QuanLyTaiSanGUI
             }
         }
 
+        private void btnImageDelete_Click(object sender, EventArgs e)
+        {
+            DeleteImage();
+        }
+
         private void btnImageCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -225,6 +229,11 @@ namespace QuanLyTaiSanGUI
         {
             foreach (GalleryItem item in galleryControlImage.Gallery.Groups[0].Items)
                 galleryControlImage.Gallery.SetItemCheck(item, true, false);
+        }
+
+        private void galleryControlImage_KeyDown(object sender, KeyEventArgs e)
+        {
+            DeleteImage();
         }
     }
 }
