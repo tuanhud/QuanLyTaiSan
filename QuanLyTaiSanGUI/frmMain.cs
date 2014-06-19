@@ -16,11 +16,13 @@ using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSanGUI.HeThong;
 
 namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
@@ -73,6 +75,16 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyLoaiTB);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+            }
+            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupPhanQuyen"))
+            {
+                //rbnPageLoaiTB_Home.Visible = true;
+                //ribbon.SelectedPage = rbnPageLoaiTB_Home;
+                _ucPhanQuyen.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                panelControl1.Controls.Add(_ucPhanQuyen);
+                //_ucTreePhong.treeListPhong.CollapseAll();
+                //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
             else
             {
