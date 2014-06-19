@@ -49,6 +49,7 @@
             this.treeListPhong.OptionsBehavior.Editable = false;
             this.treeListPhong.Size = new System.Drawing.Size(276, 373);
             this.treeListPhong.TabIndex = 0;
+            this.treeListPhong.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
             // 
             // colid
             // 

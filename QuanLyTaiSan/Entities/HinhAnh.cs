@@ -43,7 +43,47 @@ namespace QuanLyTaiSan.Entities
 
         #region Nghiệp vụ
         [NotMapped]
-        protected Bitmap cached_image=null;
+        protected Bitmap image=null;
+        [NotMapped]
+        public Bitmap IMAGE
+        {
+            get
+            {
+                return image;
+            }
+            set
+            {
+                image = value;
+            }
+        }
+        [NotMapped]
+        protected String file_name = null;
+        [NotMapped]
+        public String FILE_NAME {
+            get
+            {
+                return file_name;
+            }
+            set
+            {
+                file_name = value;
+            }
+            
+        }
+
+        [NotMapped]
+        protected int max_size = -1;
+        [NotMapped]
+        public int MAX_SIZE {
+            get
+            {
+                return this.max_size;
+            }
+            set
+            {
+                this.max_size = value;
+            }
+        }
         [NotMapped]
         protected static String cache_path;
         [NotMapped]
@@ -53,7 +93,6 @@ namespace QuanLyTaiSan.Entities
             {
                 return cache_path;
             }
-        
         }
         /// <summary>
         /// Hàm đồng bộ (phải chờ để load hình),
@@ -61,12 +100,12 @@ namespace QuanLyTaiSan.Entities
         /// Global.remote_setting.ftp_host
         /// </summary>
         /// <returns>null: Chưa load được tài khoản FTP, hình không tồn tại</returns>
-        public Bitmap getImage() 
+        public Bitmap getImage()
         {
             //check cached first
-            if (cached_image != null)
+            if (image != null)
             {
-                return cached_image;
+                return image;
             }
 
             //get http info from Global
@@ -82,7 +121,7 @@ namespace QuanLyTaiSan.Entities
 
             //stream image from host via FTPHelper
             Bitmap re = HTTPHelper.getImage(abs_path);
-            this.cached_image = re;
+            this.image = re;
             //finish
             return re;
         }
@@ -100,6 +139,37 @@ namespace QuanLyTaiSan.Entities
                     path = c.path
                  }).ToList();
             return re;
+		}
+        /// <summary>
+        /// Set IMAGE (Bitmap), MAX_SIZE (pixel), FILE_NAME (Tên File nguyên thủy), FK Object(COSO hay PHONG hay ...) truoc
+        /// </summary>
+        /// <returns></returns>
+        public int upload()
+        {
+            Bitmap tmp = image;
+            //resize hinh neu co
+            if (max_size > 0)
+            {
+                tmp = ImageHelper.ScaleBySize(image,max_size);
+            }
+            //tao duong dan upload len FTP
+            String relative_path = /*ServerTimeHelper.getNow()+*/ file_name;
+            String abs_path
+                =
+                Global.remote_setting.ftp_host.HOST_NAME +
+                Global.remote_setting.ftp_host.PRE_PATH +
+                relative_path+".JPEG";
+            //upload hinh va insert vao CSDL
+            FTPHelper.uploadImage(
+                tmp,
+                abs_path,
+                Global.remote_setting.ftp_host.USER_NAME,
+                Global.remote_setting.ftp_host.PASS_WORD
+                );
+            this.path = relative_path;
+            //return this.add();
+            //finish
+            return 1;
         }
         #endregion
 
