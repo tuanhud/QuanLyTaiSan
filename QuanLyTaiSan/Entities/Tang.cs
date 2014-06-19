@@ -26,11 +26,27 @@ namespace QuanLyTaiSan.Entities
             base.init();
             this.vitris = new List<ViTri>();
         }
+		#region Dinh nghia
         /*
          * FK
          */
         [Required]
         public virtual Dayy day { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
+		#endregion
+		#region Override method
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (day != null)
+            {
+                day.trigger();
+            }
+            
+            //...
+            return base.update();
+        }
+
+        #endregion
     }
 }
