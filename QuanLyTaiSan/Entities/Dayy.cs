@@ -33,9 +33,26 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+		#region Dinh nghia
         [Required]
         public virtual CoSo coso { get; set; }
         public virtual ICollection<Tang> tangs { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
+		#endregion
+		
+		#region Override method
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (coso != null)
+            {
+                coso.trigger();
+            }
+            
+            //...
+            return base.update();
+        }
+
+        #endregion
     }
 }
