@@ -153,12 +153,12 @@ namespace QuanLyTaiSan.Entities
                 tmp = ImageHelper.ScaleBySize(image,max_size);
             }
             //tao duong dan upload len FTP
-            String relative_path = /*ServerTimeHelper.getNow()+*/ file_name;
+            String relative_path = /*ServerTimeHelper.getNow()+*/ file_name +".JPEG";
             String abs_path
                 =
                 Global.remote_setting.ftp_host.HOST_NAME +
                 Global.remote_setting.ftp_host.PRE_PATH +
-                relative_path+".JPEG";
+                relative_path;
             //upload hinh va insert vao CSDL
             FTPHelper.uploadImage(
                 tmp,
