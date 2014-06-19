@@ -39,24 +39,24 @@ namespace QuanLyTaiSanGUI.MyUC
                 listCoSos = new CoSo().getAll();
                 foreach (CoSo _coso in listCoSos)
                 {
-                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
+                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, typeof(CoSo).Name }, parentForRootNodes);
                     // Create a child of the rootNode
                     listDays = _coso.days.ToList();
                     foreach (Dayy _day in listDays)
                     {
-                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, typeof(Dayy).Name }, rootNode);
                         // Create a child of the rootNode
                         listTangs = _day.tangs.ToList();
                         foreach (Tang _tang in listTangs)
                         {
-                            TreeListNode rootNode3 = tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                            TreeListNode rootNode3 = tl.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, rootNode2);
                             ViTri obj2 = new ViTri().getBy3Id(_coso.id, _day.id, _tang.id);
                             if (obj2 != null)
                             {
                                 listPhongs = obj2.phongs.ToList();
                                 foreach (Phong _phong in listPhongs)
                                 {
-                                    tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode3);
+                                    tl.AppendNode(new object[] { _phong.id, _phong.ten, typeof(Phong).Name }, rootNode3);
                                 }
                             }
                         }
@@ -66,7 +66,7 @@ namespace QuanLyTaiSanGUI.MyUC
                             listPhongs = obj3.phongs.ToList();
                             foreach (Phong _phong in listPhongs)
                             {
-                                tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode2);
+                                tl.AppendNode(new object[] { _phong.id, _phong.ten, typeof(Phong).Name }, rootNode2);
                             }
                         }
                     }
@@ -76,7 +76,7 @@ namespace QuanLyTaiSanGUI.MyUC
                         listPhongs = obj.phongs.ToList();
                         foreach (Phong _phong in listPhongs)
                         {
-                            tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode);
+                            tl.AppendNode(new object[] { _phong.id, _phong.ten, typeof(Phong).Name }, rootNode);
                         }
                     }
 
@@ -101,19 +101,19 @@ namespace QuanLyTaiSanGUI.MyUC
                 {
                     switch (e.Node.GetValue(2).ToString())
                     {
-                        case "coso":
+                        case "CoSo":
                             cosoid = Convert.ToInt32(e.Node.GetValue(0));
                             break;
-                        case "day":
+                        case "Dayy":
                             dayid = Convert.ToInt32(e.Node.GetValue(0));
                             cosoid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                             break;
-                        case "tang":
+                        case "Tang":
                             tangid = Convert.ToInt32(e.Node.GetValue(0));
                             dayid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                             cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
                             break;
-                        case "phong":
+                        case "Phong":
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
                             tangid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                             dayid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));

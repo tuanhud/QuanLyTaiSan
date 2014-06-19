@@ -48,7 +48,7 @@ namespace QuanLyTaiSanGUI
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
         {
             visibleAllRibbbonPage();
-            if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupViTri"))
+            if (navBarControl1.ActiveGroup.Equals(navBarGroupViTri))
             {
                 rbnPageViTri_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageViTri_Home;
@@ -56,7 +56,7 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyCoSo);
             }
-            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupNhanVien"))
+            else if (navBarControl1.ActiveGroup.Equals(navBarGroupNhanVien))
             {
                 rbnPageNhanVien_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageNhanVien_Home;
@@ -66,7 +66,7 @@ namespace QuanLyTaiSanGUI
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
-            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupLoaiTB"))
+            else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
                 rbnPageLoaiTB_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageLoaiTB_Home;
@@ -76,7 +76,7 @@ namespace QuanLyTaiSanGUI
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
-            else if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupPhanQuyen"))
+            else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
                 //rbnPageLoaiTB_Home.Visible = true;
                 //ribbon.SelectedPage = rbnPageLoaiTB_Home;
@@ -117,14 +117,14 @@ namespace QuanLyTaiSanGUI
         {
             switch (_type)
             {
-                case "coso":
+                case "CoSo":
                     rbnGroupViTri_Tang.Enabled = false;
                     barBtnSuaDay.Enabled = false;
                     barBtnXoaDay.Enabled = false;
                     barBtnSuaCoSo.Enabled = true;
                     barBtnXoaCoSo.Enabled = true;
                     break;
-                case "day":
+                case "Dayy":
                     rbnGroupViTri_Tang.Enabled = true;
                     barBtnSuaDay.Enabled = true;
                     barBtnXoaDay.Enabled = true;
@@ -133,7 +133,7 @@ namespace QuanLyTaiSanGUI
                     barBtnSuaCoSo.Enabled = false;
                     barBtnXoaCoSo.Enabled = false;
                     break;
-                case "tang":
+                case "Tang":
                     rbnGroupViTri_Tang.Enabled = true;
                     barBtnSuaDay.Enabled = false;
                     barBtnXoaDay.Enabled = false;
@@ -147,58 +147,58 @@ namespace QuanLyTaiSanGUI
 
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "coso", "edit");
-            _ucQuanLyCoSo.beforeEdit("coso");
+            _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "edit");
+            _ucQuanLyCoSo.beforeEdit(typeof(CoSo).Name);
             _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở");
         }
 
         private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "day", "edit");
-            _ucQuanLyCoSo.beforeEdit("day");
+            _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "edit");
+            _ucQuanLyCoSo.beforeEdit(typeof(Dayy).Name);
             _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy");
         }
 
         private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "tang", "edit");
-            _ucQuanLyCoSo.beforeEdit("tang");
+            _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "edit");
+            _ucQuanLyCoSo.beforeEdit(typeof(Tang).Name);
             _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng");
         }
 
         private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.deleteObj("coso");
+            _ucQuanLyCoSo.deleteObj(typeof(CoSo).Name);
         }
 
         private void barBtnXoaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.deleteObj("day");
+            _ucQuanLyCoSo.deleteObj(typeof(Dayy).Name);
         }
 
         private void barBtnXoaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.deleteObj("tang");
+            _ucQuanLyCoSo.deleteObj(typeof(Tang).Name);
         }
 
         private void barBtnThemCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "coso", "add");
-            _ucQuanLyCoSo.beforeAdd("coso");
+            _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "add");
+            _ucQuanLyCoSo.beforeAdd(typeof(CoSo).Name);
             _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở");
         }
 
         private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "day", "add");
-            _ucQuanLyCoSo.beforeAdd("day");
+            _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "add");
+            _ucQuanLyCoSo.beforeAdd(typeof(Dayy).Name);
             _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy");
         }
 
         private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _ucQuanLyCoSo.enableEdit(true, "tang", "add");
-            _ucQuanLyCoSo.beforeAdd("tang");
+            _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "add");
+            _ucQuanLyCoSo.beforeAdd(typeof(Tang).Name);
             _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng");
 
         }
@@ -239,7 +239,7 @@ namespace QuanLyTaiSanGUI
             {
                 switch (_type)
                 {
-                    case "phong":
+                    case "Phong":
                         rbnGroupPhong_Phong.Enabled = true;
                         rbnGroupPhong_Chuyen.Enabled = false;
                         rbnGroupPhong_ThietBi.Enabled = true;
@@ -248,7 +248,7 @@ namespace QuanLyTaiSanGUI
                         barBtnSuaThietBi.Enabled = false;
                         barBtnXoaThietBi.Enabled = false;
                         break;
-                    case "thietbi":
+                    case "ThietBi":
                         rbnGroupPhong_Phong.Enabled = false;
                         rbnGroupPhong_Chuyen.Enabled = true;
                         rbnGroupPhong_ThietBi.Enabled = true;
