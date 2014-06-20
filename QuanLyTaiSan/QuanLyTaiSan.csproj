@@ -124,6 +124,10 @@
     <Compile Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.Designer.cs">
       <DependentUpon>201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs" />
+    <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.Designer.cs">
+      <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.resx">
       <DependentUpon>201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.resx">
+      <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
