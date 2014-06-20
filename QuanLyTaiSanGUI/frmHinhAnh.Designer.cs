@@ -87,7 +87,7 @@
             this.btnImageCancel.Name = "btnImageCancel";
             this.btnImageCancel.Size = new System.Drawing.Size(75, 23);
             this.btnImageCancel.TabIndex = 1;
-            this.btnImageCancel.Text = "Hủy bỏ";
+            this.btnImageCancel.Text = "Đóng";
             this.btnImageCancel.Click += new System.EventHandler(this.btnImageCancel_Click);
             // 
             // btnImageSelectAll

@@ -75,5 +75,9 @@ namespace QuanLyTaiSan.Libraries
 
             return bmPhoto;
         }
+        public static Bitmap fromFile(String abs_path)
+        {
+            return new Bitmap(abs_path);
+        }
     }
 }

@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\TreeDataFilter.cs" />
+    <Compile Include="DataFilter\test.cs" />
     <Compile Include="DataFilter\ThietBiFilter.cs" />
     <Compile Include="DataFilter\PhongFilter.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="DbContext\MyDB.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Global\Global.cs" />
+    <Compile Include="Libraries\FileHelper.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
     <Compile Include="Libraries\HTTPHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
@@ -119,6 +122,14 @@
     <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.cs" />
     <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.Designer.cs">
       <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs" />
+    <Compile Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.Designer.cs">
+      <DependentUpon>201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs" />
+    <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.Designer.cs">
+      <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
     </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
@@ -158,6 +169,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.resx">
       <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.resx">
+      <DependentUpon>201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.resx">
+      <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
