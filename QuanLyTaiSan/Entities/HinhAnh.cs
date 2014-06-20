@@ -97,6 +97,10 @@ namespace QuanLyTaiSan.Entities
                 //stream image from host via FTPHelper
                 Bitmap re = HTTPHelper.getImage(abs_path);
                 this.image = re;
+                //Write cached
+                this.image.Save(
+                    Path.Combine(FileHelper.localPath(),CACHE_PATH,this.path)
+                    );
                 //finish
                 return re;
             }
