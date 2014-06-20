@@ -240,13 +240,14 @@ namespace QuanLyTaiSanGUI
             {
                 if (currItem != null)
                 {
+                    HinhAnh _hinhanh = new HinhAnh();
+                    _hinhanh = _hinhanh.getById(currId);
+                    hinhs.Remove(_hinhanh);
+                    _hinhanh.delete();
+                    galleryControlImage.Gallery.Groups[0].Items.Remove(currItem);
                     try
                     {
-                        HinhAnh _hinhanh = new HinhAnh();
-                        _hinhanh = _hinhanh.getById(currId);
-                        hinhs.Remove(_hinhanh);
-                        _hinhanh.delete();
-                        galleryControlImage.Gallery.Groups[0].Items.Remove(currItem);
+                        
                     }
                     catch (Exception)
                     {
