@@ -13,15 +13,17 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
     public partial class ucQuanLyLoaiTB : UserControl
     {
-        List<LoaiThietBi> listLoaiTBs = new List<LoaiThietBi>();
-        List<LoaiThietBi> listLoaiTBs2 = new List<LoaiThietBi>();
+        List<LoaiThietBi> listLoaiThietBis = new List<LoaiThietBi>();
+        List<LoaiThietBi> lueLoaiThietBis = new List<LoaiThietBi>();
+        string function = "";
+        LoaiThietBi objLoaiThietBi = new LoaiThietBi();
+
         public ucQuanLyLoaiTB()
         {
             InitializeComponent();
-            listLoaiTBs = new LoaiThietBi().getAll();
-            treeListLoaiTB.DataSource = listLoaiTBs;
-            listLoaiTBs2 = new LoaiThietBi().getAllParent();
-            lookUpEdit1.Properties.DataSource = listLoaiTBs2;
+            lueThuoc.Properties.ReadOnly = false;
+            reLoad();
+
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -29,9 +31,58 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             if (treeListLoaiTB.GetDataRecordByNode(e.Node) != null)
             {
                 LoaiThietBi obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-                txtten.Text = obj.ten;
-                lookUpEdit1.EditValue = obj.parent_id;
+                txtTen.Text = obj.ten;
+                lueThuoc.EditValue = obj.parent_id;
             }
+        }
+
+        public void enableEdit(bool _enable, String _function)
+        {
+            function = _function;
+            if (_enable)
+            {
+                btnImage.Visible = true;
+                btnOk.Visible = true;
+                btnHuy.Visible = true;
+                txtTen.Properties.ReadOnly = false;
+                lueThuoc.Properties.ReadOnly = false;
+                ceTBsoluonglon.Properties.ReadOnly = false;
+            }
+            else
+            {
+                btnImage.Visible = false;
+                btnOk.Visible = false;
+                btnHuy.Visible = false;
+                txtTen.Properties.ReadOnly = true;
+                lueThuoc.Properties.ReadOnly = true;
+                ceTBsoluonglon.Properties.ReadOnly = true;
+            }
+        }
+
+        private void reLoad()
+        {
+            listLoaiThietBis = new LoaiThietBi().getAll();
+            treeListLoaiTB.DataSource = listLoaiThietBis;
+            lueLoaiThietBis = new LoaiThietBi().getAllParent();
+            lueThuoc.Properties.DataSource = lueLoaiThietBis;
+        }
+
+        public void beforeAdd()
+        {
+            txtTen.Text = "";
+            //if (lueLoaiThietBis != null && lueLoaiThietBis.Count > 0)
+            //{
+            //    lueThuoc.Properties.DataSource = lueLoaiThietBis;
+            //}
+            imageSlider1.Images.Clear();
+        }
+
+        public void beforeEdit()
+        {
+            //txtMa.Text = objNhanVienPT.subId;
+            //txtTen.Text = objNhanVienPT.hoten;
+            //txtSodt.Text = objNhanVienPT.sodienthoai;
+            //imageSlider1.Images.Clear();
         }
     }
 }
