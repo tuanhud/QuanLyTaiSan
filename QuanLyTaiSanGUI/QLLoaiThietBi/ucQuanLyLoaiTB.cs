@@ -23,6 +23,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             InitializeComponent();
             lueThuoc.Properties.ReadOnly = false;
             reLoad();
+
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -69,10 +70,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         public void beforeAdd()
         {
             txtTen.Text = "";
-            if (lueLoaiThietBis != null && lueLoaiThietBis.Count > 0)
-            {
-                lueThuoc.Properties.DataSource = lueLoaiThietBis;
-            }
+            //if (lueLoaiThietBis != null && lueLoaiThietBis.Count > 0)
+            //{
+            //    lueThuoc.Properties.DataSource = lueLoaiThietBis;
+            //}
             imageSlider1.Images.Clear();
         }
 
