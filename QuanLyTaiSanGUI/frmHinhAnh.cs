@@ -25,9 +25,8 @@ namespace QuanLyTaiSanGUI
         public static Size SkinImageSize = new Size(58, 43);
         int idobject;
         String loaiobject;
+        //String _name = "";
         int GIUNGUYEN = 0, LON = 800, VUA = 400, NHO = 100;
-        //int currId = 0;
-        //int _index = -1;
         //GalleryItem currItem = new GalleryItem();
         List<HinhAnh> listhinhanhs = new List<HinhAnh>();
         List<HinhAnh> hinhs = null;
@@ -75,12 +74,10 @@ namespace QuanLyTaiSanGUI
             {
                 foreach (HinhAnh _hinhanh in _hinhanhs)
                 {
-                    HinhAnh _img = new HinhAnh();
-                    _img.path = _hinhanh.path;
-                    Image img = _img.getImage();
+                    Image img = _hinhanh.getImage();
                     GalleryItem it = new GalleryItem();
                     it.Image = img;
-                    it.Tag = _hinhanh.id;
+                    it.Tag = _hinhanh.path;
                     galleryControlImage.Gallery.Groups[0].Items.Add(it);
                 }
             }
@@ -96,43 +93,6 @@ namespace QuanLyTaiSanGUI
             //e.Cache.Graphics.DrawImage(e.Item.Image, ((GalleryItemViewInfo)e.ItemInfo).ImageContentBounds);
             ////DrawMarkedIcon(e.Cache, ((GalleryItemViewInfo)e.ItemInfo).ImageContentBounds);
             //e.Handled = true;
-        }
-
-        private void ShowTitle()
-        {
-            switch (loaiobject)
-            {
-                case "CoSo":
-                    CoSo _coso = new CoSo();
-                    _coso = _coso.getById(idobject);
-                    this.Text += " " + _coso.ten;
-                    break;
-                case "Dayy":
-                    Dayy _day = new Dayy();
-                    _day = _day.getById(idobject);
-                    this.Text += " " + _day.ten;
-                    break;
-                case "NHANVIENPT":
-                    NhanVienPT _nhanvienpt = new NhanVienPT();
-                    _nhanvienpt = _nhanvienpt.getById(idobject);
-                    this.Text += " " + _nhanvienpt.hoten;
-                    break;
-                case "THIETBIS":
-                    ThietBi _thietbi = new ThietBi();
-                    _thietbi = _thietbi.getById(idobject);
-                    this.Text += " " + _thietbi.ten;
-                    break;
-                case "PHONGS":
-                    Phong _phong = new Phong();
-                    _phong = _phong.getById(idobject);
-                    this.Text += " " + _phong.ten;
-                    break;
-                case "Tang":
-                    Tang _tang = new Tang();
-                    _tang = _tang.getById(idobject);
-                    this.Text += " " + _tang.ten;
-                    break;
-            }
         }
 
         private void btnImageUpload_Click(object sender, EventArgs e)
@@ -174,12 +134,12 @@ namespace QuanLyTaiSanGUI
                             break;
                     }
                     _hinhanh.upload();
-                    _hinhanh.add();
+                    //_hinhanh.add();
                     hinhs.Add(_hinhanh);
 
                     GalleryItem it = new GalleryItem();
                     it.Image = (Image)_hinhanh.IMAGE;
-                    it.Tag = _hinhanh.id;
+                    it.Tag = _hinhanh.path;
                     galleryControlImage.Gallery.Groups[0].Items.Add(it);
                 }
                 splashScreenManager.CloseWaitForm();
@@ -188,7 +148,9 @@ namespace QuanLyTaiSanGUI
 
         private void galleryControlImage_Gallery_ItemClick(object sender, GalleryItemClickEventArgs e)
         {
-            btnImageDelete.Enabled = true;
+            //currItem = e.Item;
+            // _name = e.Item.Tag.ToString();
+            //btnImageDelete.Enabled = true;
         }
 
         private void DeleteImage()
@@ -211,13 +173,14 @@ namespace QuanLyTaiSanGUI
             {
                 try
                 {
-                    foreach (GalleryItem gallery in listItemDelete)
                     {
-                        HinhAnh hinhanhDelete = new HinhAnh(db);
-                        hinhanhDelete = hinhanhDelete.getById(Int32.Parse(gallery.Tag.ToString()));
-                        hinhs.Remove(hinhanhDelete);
-                        hinhanhDelete.delete();
-                        galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
+		                foreach (GalleryItem gallery in listItemDelete)
+                        {
+		                    HinhAnh h = hinhs.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
+                            hinhs.Remove(h);
+                            //h.delete();
+                            galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
+                        }
                     }
                 }
                 catch (Exception)
@@ -239,6 +202,7 @@ namespace QuanLyTaiSanGUI
 
         private void btnImageSelectAll_Click(object sender, EventArgs e)
         {
+            btnImageDelete.Enabled = true;
             foreach (GalleryItem item in galleryControlImage.Gallery.Groups[0].Items)
                 galleryControlImage.Gallery.SetItemCheck(item, true, false);
         }

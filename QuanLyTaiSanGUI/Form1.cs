@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
+using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
@@ -17,22 +18,19 @@ namespace QuanLyTaiSanGUI
 {
     public partial class Form1 : Form
     {
-        ucFreeHaveCheckBox _ucFreeHaveCheckBox = new ucFreeHaveCheckBox();
         public Form1()
         {
             InitializeComponent();
-            _ucFreeHaveCheckBox.Dock = DockStyle.Fill;
-            panelControl1.Controls.Add(_ucFreeHaveCheckBox);
+            TreeDataFilter t = new TreeDataFilter();
+            List<TreeDataFilter> l = t.getAllHavePhong();
+            treeList1.DataSource = l;
         }
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            int _idobject = 1;
-            string _loaiobject = "COSOS";
-            List<CoSo> listcoso = new List<CoSo>();
-            CoSo _coso = new CoSo().getById(_idobject);
-            List<HinhAnh> hinhanh = _coso.hinhanhs.ToList();
-            frmHinhAnh frm = new frmHinhAnh(_idobject, hinhanh, _loaiobject);
-            frm.Show();
+            TreeDataFilter t = new TreeDataFilter();
+            List<TreeDataFilter> l = t.getAllHavePhong();
+            treeList1.DataSource = l;
         }
     }
 }
