@@ -11,6 +11,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
 using DevExpress.XtraEditors;
 
@@ -18,10 +19,9 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
     public partial class ucQuanLyCoSo : UserControl
     {
-        TreeListViewState treeListViewState;
-        List<CoSo> listCoSos = new List<CoSo>();
+        List<TreeDataFilter> listTree = new List<TreeDataFilter>();
         ucTreeViTri _ucTreeViTri;
-        ucTreeViTri _ucTreeViTri2;
+        ucTreeViTri _ucTreeViTriHaveDay;
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
         Tang objTang = new Tang();
@@ -34,52 +34,16 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         public ucQuanLyCoSo()
         {
             InitializeComponent();
-            listCoSos = new CoSo().getAll().ToList();
-            _ucTreeViTri = new ucTreeViTri(listCoSos,false, false);
-            _ucTreeViTri2 = new ucTreeViTri(listCoSos,true, false);
+            listTree = new TreeDataFilter().getAll();
+            treeListViTri.DataSource = listTree;
+            listTree = new TreeDataFilter().getAllCoSo();
+            _ucTreeViTri = new ucTreeViTri(listTree, false, false);
+            listTree = new TreeDataFilter().getAllHaveDay();
+            _ucTreeViTriHaveDay = new ucTreeViTri(listTree, true, false);
         }
 
         private void ucQuanLyCoSo_Load(object sender, EventArgs e)
         {
-            CreateNodes(treeListViTri);
-            //_ucTreeViTri.Dock = DockStyle.Left;
-            //panelControl1.Controls.Add(_ucTreeViTri);
-        }
-
-        private void CreateNodes(TreeList tl)
-        {
-            try
-            {
-                List<Dayy> listDays = new List<Dayy>();
-                List<Tang> listTangs = new List<Tang>();
-                tl.BeginUnboundLoad();
-                // Create a root node .
-                TreeListNode parentForRootNodes = null;
-                listCoSos = new CoSo().getAll();
-                foreach (CoSo _coso in listCoSos)
-                {
-                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, typeof(CoSo).Name }, parentForRootNodes);
-                    // Create a child of the rootNode
-                    listDays = _coso.days.ToList();
-                    foreach (Dayy _day in listDays)
-                    {
-                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, typeof(Dayy).Name }, rootNode);
-                        // Create a child of the rootNode
-                        listTangs = _day.tangs.ToList();
-                        foreach (Tang _tang in listTangs)
-                        {
-                            tl.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, rootNode2);
-                            // Creating more nodes
-                            // ...
-                        }
-                    }
-                }
-                tl.EndUnboundLoad();
-            }
-            catch (Exception ex)
-            { }
-            finally
-            { }
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
@@ -134,15 +98,15 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
                     {
                         panelControl1.Controls.Clear();
-                        _ucTreeViTri2.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(_ucTreeViTri2);
+                        _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(_ucTreeViTriHaveDay);
                         objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
                         txtTen.Text = objTang.ten;
                         txtMoTa.Text = objTang.mota;
                         ViTri objViTri = new ViTri();
                         objViTri.day = objTang.day;
                         objViTri.coso = objTang.day.coso;
-                        _ucTreeViTri2.setViTri(objViTri);
+                        _ucTreeViTriHaveDay.setViTri(objViTri);
                         //type = "tang";
                         if (this.ParentForm != null)
                         {
@@ -171,7 +135,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtTen.Properties.ReadOnly = false;
                 txtMoTa.Properties.ReadOnly = false;
                 _ucTreeViTri.setReadOnly(false);
-                _ucTreeViTri2.setReadOnly(false);
+                _ucTreeViTriHaveDay.setReadOnly(false);
                 type = _type;
             }
             else
@@ -182,7 +146,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtTen.Properties.ReadOnly = true;
                 txtMoTa.Properties.ReadOnly = true;
                 _ucTreeViTri.setReadOnly(true);
-                _ucTreeViTri2.setReadOnly(true);
+                _ucTreeViTriHaveDay.setReadOnly(true);
             }
         }
 
@@ -205,17 +169,10 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void editObj(String _type)
         {
-            FindNode findNode3 = null;
-            FindNode findNode2 = null;
             FindNode findNode = null;
-            TreeListNode _node = null;
-            TreeListNode _node2 = null;
             switch (_type)
             {
                 case "CoSo":
-                    findNode2 = new FindNode(objCoSo.id, typeof(CoSo).Name);
-                    treeListViTri.NodesIterator.DoOperation(findNode2);
-                    _node = findNode2.Node;
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
                     objCoSo.date_modified = ServerTimeHelper.getNow();
@@ -229,10 +186,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     }
                     break;
                 case "Dayy":
-                    findNode2 = new FindNode(objDay.coso.id, typeof(CoSo).Name);
-                    treeListViTri.NodesIterator.DoOperation(findNode2);
-                    _node = findNode2.Node;
-                    CoSo _coso = objDay.coso;
                     objDay.ten = txtTen.Text;
                     objDay.mota = txtMoTa.Text;
                     objDay.date_modified = ServerTimeHelper.getNow();
@@ -240,42 +193,23 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objDay.coso = _vitri.coso;
                     if (objDay.update() != -1)
                     {
-                    XtraMessageBox.Show("Sửa dãy thành công!");
-                        //reLoad();
-                        reLoadByNode(_node, _coso, typeof(CoSo).Name);
-                        if (!_coso.id.Equals(objDay.coso.id))
-                        {
-                            findNode3 = new FindNode(objDay.coso.id, typeof(CoSo).Name);
-                            treeListViTri.NodesIterator.DoOperation(findNode3);
-                            _node2 = findNode3.Node;
-                            reLoadByNode(_node2, objDay.coso, typeof(CoSo).Name);
-                        }
+                        XtraMessageBox.Show("Sửa dãy thành công!");
+                        reLoad();
                         findNode = new FindNode(objDay.id, typeof(Dayy).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
                     }
                     break;
                 case "Tang":
-                    findNode2 = new FindNode(objTang.day.id, typeof(Dayy).Name);
-                    treeListViTri.NodesIterator.DoOperation(findNode2);
-                    _node = findNode2.Node;
-                    Dayy _day = objTang.day;
                     objTang.ten = txtTen.Text;
                     objTang.mota = txtMoTa.Text;
                     objTang.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri2 = _ucTreeViTri2.getViTri(objTang.DB);
+                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri(objTang.DB);
                     objTang.day = _vitri2.day;
                     if (objTang.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa tầng thành công!");
-                        reLoadByNode(_node, _day, typeof(Dayy).Name);
-                        if (!_day.id.Equals(objTang.day.id))
-                        {
-                            findNode3 = new FindNode(objTang.day.id, typeof(Dayy).Name);
-                            treeListViTri.NodesIterator.DoOperation(findNode3);
-                            _node2 = findNode3.Node;
-                            reLoadByNode(_node2, objTang.day, typeof(Dayy).Name);
-                        }
+                        reLoad();
                         findNode = new FindNode(objTang.id, typeof(Tang).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
@@ -319,7 +253,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "Tang":
                     objTangNew = new Tang();
                     panelControl1.Controls.Clear();
-                    _ucTreeViTri2.Dock = DockStyle.Fill;
+                    _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
                     _vitri = new ViTri();
                     if (node.Equals(typeof(Dayy).Name))
                     {
@@ -331,8 +265,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         _vitri.coso = objTang.day.coso;
                         _vitri.day = objTang.day;
                     }
-                    _ucTreeViTri2.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTri2);
+                    _ucTreeViTriHaveDay.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTriHaveDay);
                     break;
             }
         }
@@ -371,7 +305,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     txtTen.Text = objTang.ten;
                     txtMoTa.Text = objTang.mota;
                     panelControl1.Controls.Clear();
-                    _ucTreeViTri2.Dock = DockStyle.Fill;
+                    _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
                     _vitri = new ViTri();
                     if (node.Equals(typeof(Dayy).Name))
                     {
@@ -383,18 +317,15 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         _vitri.coso = objTang.day.coso;
                         _vitri.day = objTang.day;
                     }
-                    _ucTreeViTri2.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTri2);
+                    _ucTreeViTriHaveDay.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTriHaveDay);
                     break;
             }
         }
 
         private void addObj(String _type)
         {
-            FindNode findNode2 = null;
             FindNode findNode = null;
-            TreeListNode _node = null;
-            TreeListNode _node2 = null;
             switch (_type)
             {
                 case "CoSo":
@@ -413,7 +344,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     }
                     break;
                 case "Dayy":
-                    //objDay = new Dayy();
                     objDayNew.ten = txtTen.Text;
                     objDayNew.mota = txtMoTa.Text;
                     objDayNew.date_create = ServerTimeHelper.getNow();
@@ -423,31 +353,23 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     if (objDayNew.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm dãy thành công!");
-                        //reLoad();
-                        findNode2 = new FindNode(objDayNew.coso.id, typeof(CoSo).Name);
-                        treeListViTri.NodesIterator.DoOperation(findNode2);
-                        _node2 = findNode2.Node;
-                        reLoadByNode(_node2, objDayNew.coso, typeof(CoSo).Name);
+                        reLoad();
                         findNode = new FindNode(objDayNew.id, typeof(Dayy).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
                     }
                     break;
                 case "Tang":
-                    //objTang = new Tang();
                     objTangNew.ten = txtTen.Text;
                     objTangNew.mota = txtMoTa.Text;
                     objTangNew.date_create = ServerTimeHelper.getNow();
                     objTangNew.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri2 = _ucTreeViTri2.getViTri(objTangNew.DB);
+                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri(objTangNew.DB);
                     objTangNew.day = _vitri2.day;
                     if (objTangNew.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm tầng thành công!");
-                        findNode2 = new FindNode(objTangNew.day.id, typeof(Dayy).Name);
-                        treeListViTri.NodesIterator.DoOperation(findNode2);
-                        _node2 = findNode2.Node;
-                        reLoadByNode(_node2, objTangNew.day, typeof(Dayy).Name);
+                        reLoad();
                         findNode = new FindNode(objTangNew.id, typeof(Tang).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
@@ -458,8 +380,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         public void deleteObj(String _type)
         {
-            FindNode findNode = null;
-            TreeListNode _node = null;
             switch (_type)
             {
                 case "CoSo":
@@ -479,10 +399,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         if (objDay.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa dãy thành công!");
-                            findNode = new FindNode(obj.id, typeof(CoSo).Name);
-                            treeListViTri.NodesIterator.DoOperation(findNode);
-                            _node = findNode.Node;
-                            reLoadByNode(_node, obj, typeof(CoSo).Name);
+                            reLoad();
                         }
                     }
                     break;
@@ -493,10 +410,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         if (objTang.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa tầng thành công!");
-                            findNode = new FindNode(obj.id, typeof(Dayy).Name);
-                            treeListViTri.NodesIterator.DoOperation(findNode);
-                            _node = findNode.Node;
-                            reLoadByNode(_node, obj, typeof(Dayy).Name);
+                            reLoad();
                         }
                     }
                     break;
@@ -505,16 +419,15 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void reLoad()
         {
-            //treeListViewState = new TreeListViewState(treeListViTri);
-            //treeListViewState.SaveState();
             errorProvider1.Clear();
-            listCoSos = new CoSo().getAll();
             treeListViTri.ClearNodes();
-            CreateNodes(treeListViTri);
+            listTree = new TreeDataFilter().getAll();
+            treeListViTri.DataSource = listTree;
             //kiem tra truoc khi reload
-            _ucTreeViTri.reLoad(listCoSos);
-            _ucTreeViTri2.reLoad(listCoSos);
-            //treeListViewState.LoadState();
+            listTree = new TreeDataFilter().getAllCoSo();
+            _ucTreeViTri.reLoad(listTree);
+            listTree = new TreeDataFilter().getAllHaveDay();
+            _ucTreeViTriHaveDay.reLoad(listTree);
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -545,42 +458,42 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void reloadImage()
         {
-            List<HinhAnh> hinhs = null;
-            if (!function.Equals("add"))
-            {
-                switch (node)
-                {
-                    case "CoSo":
-                        hinhs = objCoSo.hinhanhs.ToList();
-                        break;
-                    case "Dayy":
-                        hinhs = objDay.hinhanhs.ToList();
-                        break;
-                    case "Tang":
-                        hinhs = objTang.hinhanhs.ToList();
-                        break;
-                }
-            }
-            else
-            {
-                switch (type)
-                {
-                    case "CoSo":
-                        hinhs = objCoSoNew.hinhanhs.ToList();
-                        break;
-                    case "Dayy":
-                        hinhs = objDayNew.hinhanhs.ToList();
-                        break;
-                    case "Tang":
-                        hinhs = objTangNew.hinhanhs.ToList();
-                        break;
-                }
-            }
-            imageSlider1.Images.Clear();
-            foreach (HinhAnh h in hinhs)
-            {
-                imageSlider1.Images.Add(h.getImage());
-            }
+            //List<HinhAnh> hinhs = null;
+            //if (!function.Equals("add"))
+            //{
+            //    switch (node)
+            //    {
+            //        case "CoSo":
+            //            hinhs = objCoSo.hinhanhs.ToList();
+            //            break;
+            //        case "Dayy":
+            //            hinhs = objDay.hinhanhs.ToList();
+            //            break;
+            //        case "Tang":
+            //            hinhs = objTang.hinhanhs.ToList();
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    switch (type)
+            //    {
+            //        case "CoSo":
+            //            hinhs = objCoSoNew.hinhanhs.ToList();
+            //            break;
+            //        case "Dayy":
+            //            hinhs = objDayNew.hinhanhs.ToList();
+            //            break;
+            //        case "Tang":
+            //            hinhs = objTangNew.hinhanhs.ToList();
+            //            break;
+            //    }
+            //}
+            //imageSlider1.Images.Clear();
+            //foreach (HinhAnh h in hinhs)
+            //{
+            //    imageSlider1.Images.Add(h.getImage());
+            //}
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -660,49 +573,5 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             { }
         }
 
-        private void reLoadByNode(TreeListNode node, Object obj, String type)
-        {
-            node.Nodes.Clear();
-            List<Dayy> listDays = null;
-            List<Tang> listTangs = null;
-            //MessageBox.Show(obj.GetType().Name);
-            if (type.Equals(typeof(CoSo).Name))
-            {
-                CoSo _coso = new CoSo().getById((obj as CoSo).id);
-                listDays = _coso.days.ToList();
-                foreach (Dayy _day in listDays)
-                {
-                    TreeListNode rootNode2 = treeListViTri.AppendNode(new object[] { _day.id, _day.ten, typeof(Dayy).Name }, node);
-                    // Create a child of the rootNode
-                    listTangs = _day.tangs.ToList();
-                    foreach (Tang _tang in listTangs)
-                    {
-                        treeListViTri.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, rootNode2);
-                        // Creating more nodes
-                        // ...
-                    }
-                }
-
-                listCoSos = new CoSo().getAll();
-                //kiem tra truoc khi reload
-                _ucTreeViTri.reLoad(listCoSos);
-                _ucTreeViTri2.reLoad(listCoSos);
-
-            }
-            else
-            {
-                Dayy _day = new Dayy().getById((obj as Dayy).id);
-                listTangs = _day.tangs.ToList();
-                foreach (Tang _tang in listTangs)
-                {
-                    treeListViTri.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, node);
-                    // Creating more nodes
-                    // ...
-                }
-            }
-
-
-
-        }
     }
 }
