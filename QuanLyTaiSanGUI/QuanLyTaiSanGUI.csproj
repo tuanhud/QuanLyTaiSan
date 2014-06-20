@@ -86,6 +86,7 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\TreeListViewState.cs" />
     <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
       <SubType>UserControl</SubType>
