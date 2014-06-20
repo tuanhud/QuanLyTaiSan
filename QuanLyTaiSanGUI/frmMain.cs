@@ -16,6 +16,7 @@ using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
 
 namespace QuanLyTaiSanGUI
@@ -31,7 +32,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            List<CoSo> list = new CoSo().getAll();
+            List<TreeDataFilter> list = new TreeDataFilter().getAllHavePhong();
             _ucTreePhong = new ucTreePhong(list);
         }
 
@@ -78,7 +79,7 @@ namespace QuanLyTaiSanGUI
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
-                //rbnPageLoaiTB_Home.Visible = true;
+                rbnPagePhanQuyen_Home.Visible = true;
                 //ribbon.SelectedPage = rbnPageLoaiTB_Home;
                 _ucPhanQuyen.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
@@ -227,7 +228,7 @@ namespace QuanLyTaiSanGUI
         #region QuanLyPhong
         public void treePhongFocusedNodeChanged(int phongid, int cosoid, int dayid, int tangid)
         {
-            if (navBarControl1.ActiveGroup.Name.Equals("navBarGroupPhong"))
+            if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
             {
                 _ucQuanLyPhong.loadData(phongid, cosoid, dayid, tangid);
             }

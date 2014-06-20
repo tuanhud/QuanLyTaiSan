@@ -86,6 +86,12 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucThongTinQuanTriVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucThongTinQuanTriVien.Designer.cs">
+      <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\TreeListViewState.cs" />
     <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
+      <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
       <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>

@@ -31,7 +31,7 @@
             this.treeListPhong = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.coltype = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListPhong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,11 +42,13 @@
             this.treeListPhong.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.coltype});
+            this.colloai});
             this.treeListPhong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeListPhong.KeyFieldName = "id_c";
             this.treeListPhong.Location = new System.Drawing.Point(0, 0);
             this.treeListPhong.Name = "treeListPhong";
             this.treeListPhong.OptionsBehavior.Editable = false;
+            this.treeListPhong.ParentFieldName = "id_p";
             this.treeListPhong.Size = new System.Drawing.Size(276, 373);
             this.treeListPhong.TabIndex = 0;
             this.treeListPhong.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
@@ -65,11 +67,11 @@
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
-            // coltype
+            // colloai
             // 
-            this.coltype.Caption = "type";
-            this.coltype.FieldName = "type";
-            this.coltype.Name = "coltype";
+            this.colloai.Caption = "loai";
+            this.colloai.FieldName = "loai";
+            this.colloai.Name = "colloai";
             // 
             // ucTreePhong
             // 
@@ -87,7 +89,7 @@
 
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn coltype;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         public DevExpress.XtraTreeList.TreeList treeListPhong;
     }
 }
