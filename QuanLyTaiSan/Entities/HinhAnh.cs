@@ -24,6 +24,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
+        #region Dinh nghia
         /*
          * Relative path
          */
@@ -40,8 +41,28 @@ namespace QuanLyTaiSan.Entities
         public virtual NhanVienPT nhanvienpt { get; set; }
         public virtual Phong phong { get; set; }
         public virtual ThietBi thietbi { get; set; }
-
+        #endregion
         #region Nghiệp vụ
+        /// <summary>
+        /// Kiem tra hinh da co tren may Local hay chua
+        /// </summary>
+        /// <returns></returns>
+        private Boolean isCacheExist()
+        {
+            //TU dong tao Folder cached neu chua co
+            FileHelper.createFolderIfNotExist(
+                Path.Combine(FileHelper.localPath(),CACHE_PATH)
+                );
+            return FileHelper.isExist(getCachedPath());
+        }
+        /// <summary>
+        /// Lay Local Path cached cua mot hinh neu co
+        /// </summary>
+        /// <returns></returns>
+        private String getCachedPath()
+        {
+            return Path.Combine(FileHelper.localPath(), HinhAnh.CACHE_PATH, path);
+        }
         [NotMapped]
         protected Bitmap image=null;
         [NotMapped]
@@ -49,12 +70,19 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                //check cached first
+                //CACHE
+                //check RAM cached first
                 if (image != null)
                 {
                     return image;
                 }
-
+                //check folder cache
+                if (isCacheExist())
+                {
+                    //load to RAM
+                    image = ImageHelper.fromFile(getCachedPath());
+                    return image;
+                }
                 //get http info from Global
                 if (!Global.remote_setting.http_host.IS_READY)
                 {
@@ -106,7 +134,7 @@ namespace QuanLyTaiSan.Entities
             }
         }
         [NotMapped]
-        protected static String cache_path;
+        protected static String cache_path = "cached_image";
         [NotMapped]
         public static String CACHE_PATH
         {

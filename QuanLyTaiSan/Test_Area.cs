@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -29,15 +30,24 @@ namespace QuanLyTaiSan
             InitializeComponent();
 
 
-            QuanTriVienFilter obj = new QuanTriVienFilter();
-            List<QuanTriVienFilter> list = obj.getAll();
+            //QuanTriVienFilter obj = new QuanTriVienFilter();
+            //List<QuanTriVienFilter> list = obj.getAll();
+            Console.WriteLine(
+                Path.Combine("C:\\Users\\quocdunginfo","Folder","hinh1.JPEG")
+                );
 
+            //dataGridView1.DataSource = list;
 
-            dataGridView1.DataSource = list;
-            
-
-
-
+            //CoSo obj = new CoSo().getById(1);
+            //List<HinhAnh> list = obj.hinhanhs.ToList();
+            //HinhAnh hinh = new HinhAnh(obj.DB);
+            //hinh.path = "aloha";
+            //list.Add(hinh);
+            //list.Remove(hinh);
+            //list.Add(hinh);
+            //list.Remove(list.Where(c => c.id == 5).FirstOrDefault());
+            //obj.hinhanhs = list;
+            //obj.update();
 
 
 
