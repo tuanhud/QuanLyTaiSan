@@ -23,6 +23,8 @@ namespace QuanLyTaiSan.DataFilter
         public String username { get; set; }
         public String hoten { get; set; }
         public String ten_group { get; set; }
+        public DateTime date_create { get; set; }
+        public DateTime date_modified { get; set; }
         /*
          * FK Object
          */
@@ -41,6 +43,8 @@ namespace QuanLyTaiSan.DataFilter
                     id = e.id,
                     hoten = e.hoten,
                     username = e.username,
+                    date_create = (DateTime)e.date_create == null ? DateTime.Now : (DateTime)e.date_create,
+                    date_modified = (DateTime)e.date_modified == null ? DateTime.Now : (DateTime)e.date_modified,
                     ten_group = t==null?"":t.ten,
                     @group = t,
                     quantrivien = e

@@ -78,7 +78,7 @@ namespace QuanLyTaiSanGUI
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
-                //rbnPageLoaiTB_Home.Visible = true;
+                rbnPagePhanQuyen_Home.Visible = true;
                 //ribbon.SelectedPage = rbnPageLoaiTB_Home;
                 _ucPhanQuyen.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
