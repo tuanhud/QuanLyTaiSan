@@ -28,6 +28,7 @@ namespace QuanLyTaiSanGUI
         int currId = 0;
         GalleryItem currItem = new GalleryItem();
         List<HinhAnh> listhinhanhs = new List<HinhAnh>();
+        List<HinhAnh> hinhs = null;
 
         public frmHinhAnh(int _idobject, List<HinhAnh> _listhinhanh, string _loaiobject)
         {
@@ -41,6 +42,20 @@ namespace QuanLyTaiSanGUI
             if (listhinhanhs != null)
             {
                 LoadHinhAnh(listhinhanhs);
+            }
+            else XtraMessageBox.Show("Không có ảnh để load");
+        }
+
+        public frmHinhAnh(List<HinhAnh> _listhinhanh)
+        {
+            //ShowTitle();
+            InitializeComponent();
+            InitSkins();
+            btnImageDelete.Enabled = false;
+            hinhs = _listhinhanh;
+            if (hinhs != null)
+            {
+                LoadHinhAnh(hinhs);
             }
             else XtraMessageBox.Show("Không có ảnh để load");
         }
@@ -123,6 +138,68 @@ namespace QuanLyTaiSanGUI
             open.Title = "My Image Browser";
             open.Multiselect = true;
 
+            //if (open.ShowDialog() == DialogResult.OK)
+            //{
+            //    splashScreenManager.ShowWaitForm();
+            //    foreach (string file in open.FileNames)
+            //    {
+            //        FileInfo fInfo = new FileInfo(file);
+            //        string filePath = fInfo.ToString();
+            //        DateTime _datetime = ServerTimeHelper.getNow();
+            //        String _dt = _datetime.ToString("yyyy-MM-dd-hh-mm-ss-");
+            //        string file_name = _dt + fInfo.Name.ToString();
+            //        HinhAnh _hinhanh = new HinhAnh();
+            //        _hinhanh.FILE_NAME = file_name;
+            //        _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
+            //        _hinhanh.MAX_SIZE = 0;
+            //        _hinhanh.upload();
+            //        switch (loaiobject)
+            //        {
+            //            case "CoSo":
+            //                CoSo _coso = new CoSo();
+            //                _coso = _coso.getById(idobject);
+            //                _coso.hinhanhs.Add(_hinhanh);
+            //                _coso.update();
+            //                break;
+            //            case "Dayy":
+            //                Dayy _day = new Dayy();
+            //                _day = _day.getById(idobject);
+            //                _day.hinhanhs.Add(_hinhanh);
+            //                _day.update();
+            //                break;
+            //            case "NHANVIENPT":
+            //                NhanVienPT _nhanvienpt = new NhanVienPT();
+            //                _nhanvienpt = _nhanvienpt.getById(idobject);
+            //                _nhanvienpt.hinhanhs.Add(_hinhanh);
+            //                _nhanvienpt.update();
+            //                break;
+            //            case "THIETBIS":
+            //                ThietBi _thietbi = new ThietBi();
+            //                _thietbi = _thietbi.getById(idobject);
+            //                _thietbi.hinhanhs.Add(_hinhanh);
+            //                _thietbi.update();
+            //                break;
+            //            case "PHONGS":
+            //                Phong _phong = new Phong();
+            //                _phong = _phong.getById(idobject);
+            //                _phong.hinhanhs.Add(_hinhanh);
+            //                _phong.update();
+            //                break;
+            //            case "Tang":
+            //                Tang _tang = new Tang();
+            //                _tang = _tang.getById(idobject);
+            //                _tang.hinhanhs.Add(_hinhanh);
+            //                _tang.update();
+            //                break;
+            //        }
+
+            //        GalleryItem it = new GalleryItem();
+            //        it.Image = (Image)_hinhanh.IMAGE;
+            //        it.Tag = _hinhanh.id;
+            //        galleryControlImage.Gallery.Groups[0].Items.Add(it);
+            //    }
+            //    splashScreenManager.CloseWaitForm();
+            //}
             if (open.ShowDialog() == DialogResult.OK)
             {
                 splashScreenManager.ShowWaitForm();
@@ -138,45 +215,8 @@ namespace QuanLyTaiSanGUI
                     _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
                     _hinhanh.MAX_SIZE = 0;
                     _hinhanh.upload();
-                    switch (loaiobject)
-                    {
-                        case "CoSo":
-                            CoSo _coso = new CoSo();
-                            _coso = _coso.getById(idobject);
-                            _coso.hinhanhs.Add(_hinhanh);
-                            _coso.update();
-                            break;
-                        case "Dayy":
-                            Dayy _day = new Dayy();
-                            _day = _day.getById(idobject);
-                            _day.hinhanhs.Add(_hinhanh);
-                            _day.update();
-                            break;
-                        case "NHANVIENPT":
-                            NhanVienPT _nhanvienpt = new NhanVienPT();
-                            _nhanvienpt = _nhanvienpt.getById(idobject);
-                            _nhanvienpt.hinhanhs.Add(_hinhanh);
-                            _nhanvienpt.update();
-                            break;
-                        case "THIETBIS":
-                            ThietBi _thietbi = new ThietBi();
-                            _thietbi = _thietbi.getById(idobject);
-                            _thietbi.hinhanhs.Add(_hinhanh);
-                            _thietbi.update();
-                            break;
-                        case "PHONGS":
-                            Phong _phong = new Phong();
-                            _phong = _phong.getById(idobject);
-                            _phong.hinhanhs.Add(_hinhanh);
-                            _phong.update();
-                            break;
-                        case "Tang":
-                            Tang _tang = new Tang();
-                            _tang = _tang.getById(idobject);
-                            _tang.hinhanhs.Add(_hinhanh);
-                            _tang.update();
-                            break;
-                    }
+
+                    hinhs.Add(_hinhanh);
 
                     GalleryItem it = new GalleryItem();
                     it.Image = (Image)_hinhanh.IMAGE;
@@ -204,6 +244,7 @@ namespace QuanLyTaiSanGUI
                     {
                         HinhAnh _hinhanh = new HinhAnh();
                         _hinhanh = _hinhanh.getById(currId);
+                        hinhs.Remove(_hinhanh);
                         _hinhanh.delete();
                         galleryControlImage.Gallery.Groups[0].Items.Remove(currItem);
                     }
@@ -234,6 +275,11 @@ namespace QuanLyTaiSanGUI
         private void galleryControlImage_KeyDown(object sender, KeyEventArgs e)
         {
             DeleteImage();
+        }
+
+        public List<HinhAnh> getHinhAnhs()
+        {
+            return hinhs;
         }
     }
 }
