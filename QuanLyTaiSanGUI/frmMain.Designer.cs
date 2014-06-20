@@ -123,7 +123,7 @@
             this.barButtonItem2,
             this.barButtonItem3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 28;
+            this.ribbon.MaxItemId = 29;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home,
@@ -447,6 +447,7 @@
             this.ribbonPageGroup1});
             this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
             this.rbnPagePhanQuyen_Home.Text = "Trang chính";
+            this.rbnPagePhanQuyen_Home.Visible = false;
             // 
             // ribbonPageGroup1
             // 
@@ -557,11 +558,12 @@
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "RibbonForm";
+            this.Text = "Quản lý phòng học v1.0";
             this.Load += new System.EventHandler(this.RibbonForm1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();

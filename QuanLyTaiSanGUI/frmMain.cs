@@ -18,10 +18,12 @@ using QuanLyTaiSanGUI.QLLoaiThietBi;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
+using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : RibbonForm
     {
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
@@ -32,6 +34,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
+
             List<TreeDataFilter> list = new TreeDataFilter().getAllHavePhong();
             _ucTreePhong = new ucTreePhong(list);
         }
@@ -80,7 +83,7 @@ namespace QuanLyTaiSanGUI
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
                 rbnPagePhanQuyen_Home.Visible = true;
-                //ribbon.SelectedPage = rbnPageLoaiTB_Home;
+                ribbon.SelectedPage = rbnPagePhanQuyen_Home;
                 _ucPhanQuyen.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucPhanQuyen);
@@ -105,6 +108,7 @@ namespace QuanLyTaiSanGUI
             rbnPageViTri_Home.Visible = false;
             rbnPageNhanVien_Home.Visible = false;
             rbnPageLoaiTB_Home.Visible = false;
+            rbnPagePhanQuyen_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
