@@ -28,6 +28,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         String type = "";
         String function = "";
         String node = "";
+        List<HinhAnh> listHinhAnh = new List<HinhAnh>();
 
         public ucQuanLyCoSo()
         {
@@ -87,6 +88,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 if (e.Node != null)
                 {
                     groupControl1.Text = "Chi tiết";
+                    function = "";
                     if (function.Equals("edit") || function.Equals("add"))
                         enableEdit(false, "", "");
                     if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
@@ -216,7 +218,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     _node = findNode2.Node;
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
-                    objCoSo.date_modified = ServerTimeHelper.getNow();
+                    objCoSo.hinhanhs = new List<HinhAnh>(listHinhAnh);
+                    //objCoSo.date_modified = ServerTimeHelper.getNow();
                     if (objCoSo.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa cơ sở thành công!");
@@ -224,6 +227,10 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         findNode = new FindNode(objCoSo.id, typeof(CoSo).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Lỗi rồi!");
                     }
                     break;
                 case "Dayy":
@@ -396,12 +403,12 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objCoSo = new CoSo();
                     objCoSo.ten = txtTen.Text;
                     objCoSo.mota = txtMoTa.Text;
-                    objCoSo.date_create = ServerTimeHelper.getNow();
-                    objCoSo.date_modified = ServerTimeHelper.getNow();
+                    objCoSo.hinhanhs = new List<HinhAnh>(listHinhAnh);
                     if (objCoSo.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm cơ sở thành công!");
                         reLoad();
+                        listHinhAnh = new List<HinhAnh>();
                         findNode = new FindNode(objCoSo.id, typeof(CoSo).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
@@ -541,7 +548,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         private void reloadImage()
         {
             List<HinhAnh> hinhs = null;
-            if (!function.Equals("add"))
+            if (function.Equals(""))
             {
                 switch (node)
                 {
@@ -558,19 +565,56 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             }
             else
             {
-                switch (type)
+                if (listHinhAnh.Count > 0)
                 {
-                    case "CoSo":
-                        hinhs = objCoSo.hinhanhs.ToList();
-                        break;
-                    case "Dayy":
-                        hinhs = objDay.hinhanhs.ToList();
-                        break;
-                    case "Tang":
-                        hinhs = objTang.hinhanhs.ToList();
-                        break;
+                    hinhs = listHinhAnh;
+                }
+                else
+                {
+                    switch (node)
+                    {
+                        case "CoSo":
+                            hinhs = objCoSo.hinhanhs.ToList();
+                            break;
+                        case "Dayy":
+                            hinhs = objDay.hinhanhs.ToList();
+                            break;
+                        case "Tang":
+                            hinhs = objTang.hinhanhs.ToList();
+                            break;
+                    }   
                 }
             }
+            //if (!function.Equals("add"))
+            //{
+            //    switch (node)
+            //    {
+            //        case "CoSo":
+            //            hinhs = objCoSo.hinhanhs.ToList();
+            //            break;
+            //        case "Dayy":
+            //            hinhs = objDay.hinhanhs.ToList();
+            //            break;
+            //        case "Tang":
+            //            hinhs = objTang.hinhanhs.ToList();
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    switch (type)
+            //    {
+            //        case "CoSo":
+            //            hinhs = objCoSo.hinhanhs.ToList();
+            //            break;
+            //        case "Dayy":
+            //            hinhs = objDay.hinhanhs.ToList();
+            //            break;
+            //        case "Tang":
+            //            hinhs = objTang.hinhanhs.ToList();
+            //            break;
+            //    }
+            //}
             imageSlider1.Images.Clear();
             foreach (HinhAnh h in hinhs)
             {
@@ -589,18 +633,22 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         //frm = new frmHinhAnh(objCoSo.id, objCoSo.hinhanhs.ToList(), typeof(CoSo).Name);
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(objCoSo.hinhanhs.ToList(), objCoSo.DB);
+                            if (!(listHinhAnh.Count > 0))
+                            {
+                                listHinhAnh = objCoSo.hinhanhs.ToList();
+                            }
+                            frm = new frmHinhAnh(listHinhAnh, objCoSo.DB);
                             frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
                             frm.ShowDialog();
-                            objCoSo.hinhanhs = frm.getHinhAnhs();
+                            //objCoSo.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
-                            objCoSo.hinhanhs = new List<HinhAnh>();
-                            frm = new frmHinhAnh(objCoSo.hinhanhs.ToList(), objCoSo.DB);
+                            //objCoSo.hinhanhs = new List<HinhAnh>();
+                            frm = new frmHinhAnh(listHinhAnh, objCoSo.DB);
                             frm.Text = "Quản lý hình ảnh cơ sở mới";
                             frm.ShowDialog();
-                            objCoSo.hinhanhs = frm.getHinhAnhs();
+                            //objCoSo.hinhanhs = frm.getHinhAnhs();
                         }
                         break;
                     case "Dayy":

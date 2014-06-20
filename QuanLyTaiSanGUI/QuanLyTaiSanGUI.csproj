@@ -162,10 +162,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLCoSo\MyUserControl\ucQuanLyCoSo.cs">
+    <Compile Include="QLLoaiThietBi\ucQuanLyCoSo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QLCoSo\MyUserControl\ucQuanLyCoSo.Designer.cs">
+    <Compile Include="QLLoaiThietBi\ucQuanLyCoSo.Designer.cs">
       <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -239,7 +239,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="QLCoSo\MyUserControl\ucQuanLyCoSo.resx">
+    <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyCoSo.resx">
       <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
@@ -287,6 +287,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\System-Login-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="QLCoSo\MyUserControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
