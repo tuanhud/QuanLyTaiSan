@@ -173,6 +173,7 @@ namespace QuanLyTaiSan.Entities
             this.path = relative_path;
             //return this.add();
             //finish
+            image = tmp;
             return 1;
         }
         #endregion

@@ -32,13 +32,13 @@
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.txtten = new DevExpress.XtraEditors.TextEdit();
+            this.lueThuoc = new DevExpress.XtraEditors.LookUpEdit();
+            this.ceTBsoluonglon = new DevExpress.XtraEditors.CheckEdit();
+            this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -50,9 +50,9 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtten.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueThuoc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceTBsoluonglon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,12 +95,12 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.simpleButton3);
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.btnImage);
+            this.groupControl1.Controls.Add(this.btnHuy);
+            this.groupControl1.Controls.Add(this.btnOk);
             this.groupControl1.Controls.Add(this.panelControl1);
-            this.groupControl1.Controls.Add(this.checkEdit1);
-            this.groupControl1.Controls.Add(this.txtten);
+            this.groupControl1.Controls.Add(this.ceTBsoluonglon);
+            this.groupControl1.Controls.Add(this.txtTen);
             this.groupControl1.Controls.Add(this.imageSlider1);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
@@ -112,75 +112,75 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
-            // simpleButton3
+            // btnImage
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(183, 24);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton3.TabIndex = 10;
-            this.simpleButton3.Text = "Chọn";
+            this.btnImage.Location = new System.Drawing.Point(183, 24);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(75, 23);
+            this.btnImage.TabIndex = 10;
+            this.btnImage.Text = "Chọn";
             // 
-            // simpleButton2
+            // btnHuy
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(127, 227);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 9;
-            this.simpleButton2.Text = "Hủy";
+            this.btnHuy.Location = new System.Drawing.Point(127, 227);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 9;
+            this.btnHuy.Text = "Hủy";
             // 
-            // simpleButton1
+            // btnOk
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(45, 228);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "OK";
+            this.btnOk.Location = new System.Drawing.Point(45, 228);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 8;
+            this.btnOk.Text = "OK";
             // 
             // panelControl1
             // 
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.lookUpEdit1);
+            this.panelControl1.Controls.Add(this.lueThuoc);
             this.panelControl1.Location = new System.Drawing.Point(57, 176);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(220, 20);
             this.panelControl1.TabIndex = 7;
             // 
-            // lookUpEdit1
+            // lueThuoc
             // 
-            this.lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit1.Location = new System.Drawing.Point(0, 0);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lueThuoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lueThuoc.Location = new System.Drawing.Point(0, 0);
+            this.lueThuoc.Name = "lueThuoc";
+            this.lueThuoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lueThuoc.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ten", "Loại")});
-            this.lookUpEdit1.Properties.DisplayMember = "ten";
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Properties.ReadOnly = true;
-            this.lookUpEdit1.Properties.ValueMember = "id";
-            this.lookUpEdit1.Size = new System.Drawing.Size(220, 20);
-            this.lookUpEdit1.TabIndex = 0;
+            this.lueThuoc.Properties.DisplayMember = "ten";
+            this.lueThuoc.Properties.NullText = "";
+            this.lueThuoc.Properties.ReadOnly = true;
+            this.lueThuoc.Properties.ValueMember = "id";
+            this.lueThuoc.Size = new System.Drawing.Size(220, 20);
+            this.lueThuoc.TabIndex = 0;
             // 
-            // checkEdit1
+            // ceTBsoluonglon
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(55, 202);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Thiết bị được quản lý với số lượng lớn";
-            this.checkEdit1.Properties.ReadOnly = true;
-            this.checkEdit1.Size = new System.Drawing.Size(222, 19);
-            this.checkEdit1.TabIndex = 6;
+            this.ceTBsoluonglon.Location = new System.Drawing.Point(55, 202);
+            this.ceTBsoluonglon.Name = "ceTBsoluonglon";
+            this.ceTBsoluonglon.Properties.Caption = "Thiết bị được quản lý với số lượng lớn";
+            this.ceTBsoluonglon.Properties.ReadOnly = true;
+            this.ceTBsoluonglon.Size = new System.Drawing.Size(222, 19);
+            this.ceTBsoluonglon.TabIndex = 6;
             // 
-            // txtten
+            // txtTen
             // 
-            this.txtten.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtten.Location = new System.Drawing.Point(57, 150);
-            this.txtten.Name = "txtten";
-            this.txtten.Properties.ReadOnly = true;
-            this.txtten.Size = new System.Drawing.Size(220, 20);
-            this.txtten.TabIndex = 4;
+            this.txtTen.Location = new System.Drawing.Point(57, 150);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Properties.ReadOnly = true;
+            this.txtTen.Size = new System.Drawing.Size(220, 20);
+            this.txtTen.TabIndex = 4;
             // 
             // imageSlider1
             // 
@@ -230,9 +230,9 @@
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtten.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueThuoc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceTBsoluonglon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -248,12 +248,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.TextEdit txtten;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.CheckEdit ceTBsoluonglon;
+        private DevExpress.XtraEditors.TextEdit txtTen;
+        private DevExpress.XtraEditors.SimpleButton btnImage;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraEditors.SimpleButton btnOk;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lueThuoc;
     }
 }
