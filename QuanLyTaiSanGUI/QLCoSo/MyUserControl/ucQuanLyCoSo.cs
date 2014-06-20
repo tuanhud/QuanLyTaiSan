@@ -458,42 +458,42 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void reloadImage()
         {
-            //List<HinhAnh> hinhs = null;
-            //if (!function.Equals("add"))
-            //{
-            //    switch (node)
-            //    {
-            //        case "CoSo":
-            //            hinhs = objCoSo.hinhanhs.ToList();
-            //            break;
-            //        case "Dayy":
-            //            hinhs = objDay.hinhanhs.ToList();
-            //            break;
-            //        case "Tang":
-            //            hinhs = objTang.hinhanhs.ToList();
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    switch (type)
-            //    {
-            //        case "CoSo":
-            //            hinhs = objCoSoNew.hinhanhs.ToList();
-            //            break;
-            //        case "Dayy":
-            //            hinhs = objDayNew.hinhanhs.ToList();
-            //            break;
-            //        case "Tang":
-            //            hinhs = objTangNew.hinhanhs.ToList();
-            //            break;
-            //    }
-            //}
-            //imageSlider1.Images.Clear();
-            //foreach (HinhAnh h in hinhs)
-            //{
-            //    imageSlider1.Images.Add(h.getImage());
-            //}
+            List<HinhAnh> hinhs = null;
+            if (!function.Equals("add"))
+            {
+                switch (node)
+                {
+                    case "CoSo":
+                        hinhs = objCoSo.hinhanhs.ToList();
+                        break;
+                    case "Dayy":
+                        hinhs = objDay.hinhanhs.ToList();
+                        break;
+                    case "Tang":
+                        hinhs = objTang.hinhanhs.ToList();
+                        break;
+                }
+            }
+            else
+            {
+                switch (type)
+                {
+                    case "CoSo":
+                        hinhs = objCoSoNew.hinhanhs.ToList();
+                        break;
+                    case "Dayy":
+                        hinhs = objDayNew.hinhanhs.ToList();
+                        break;
+                    case "Tang":
+                        hinhs = objTangNew.hinhanhs.ToList();
+                        break;
+                }
+            }
+            imageSlider1.Images.Clear();
+            foreach (HinhAnh h in hinhs)
+            {
+                imageSlider1.Images.Add(h.getImage());
+            }
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -514,6 +514,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         }
                         else
                         {
+                            if (objCoSoNew.hinhanhs == null)
                             objCoSoNew.hinhanhs = new List<HinhAnh>();
                             frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList(), objCoSoNew.DB);
                             frm.Text = "Quản lý hình ảnh cơ sở mới";
@@ -531,6 +532,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         }
                         else
                         {
+                            if (objDayNew.hinhanhs == null)
                             objDayNew.hinhanhs = new List<HinhAnh>();
                             frm = new frmHinhAnh(objDayNew.hinhanhs.ToList(), objDayNew.DB);
                             frm.Text = "Quản lý hình ảnh dãy mới";
@@ -552,6 +554,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         }
                         else
                         {
+                            if (objTangNew.hinhanhs == null)
                             objTangNew.hinhanhs = new List<HinhAnh>();
                             frm = new frmHinhAnh(objTangNew.hinhanhs.ToList(), objTangNew.DB);
                             frm.Text = "Quản lý hình ảnh tầng mới";
