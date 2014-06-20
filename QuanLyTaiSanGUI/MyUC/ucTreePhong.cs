@@ -10,83 +10,22 @@ using System.Windows.Forms;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreePhong : UserControl
     {
-        List<CoSo> listCoSos = new List<CoSo>();
         int phongid = -1;
         int cosoid = -1;
         int dayid = -1;
         int tangid = -1;
-        public ucTreePhong(List<CoSo> _list)
+        public ucTreePhong(List<TreeDataFilter> _list)
         {
             InitializeComponent();
-            listCoSos = _list;
-            CreateNodes(treeListPhong);
-        }
-        private void CreateNodes(TreeList tl)
-        {
-            try
-            {
-                List<Dayy> listDays = new List<Dayy>();
-                List<Tang> listTangs = new List<Tang>();
-                List<Phong> listPhongs = new List<Phong>();
-                tl.BeginUnboundLoad();
-                // Create a root node .
-                TreeListNode parentForRootNodes = null;
-                listCoSos = new CoSo().getAll();
-                foreach (CoSo _coso in listCoSos)
-                {
-                    TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, typeof(CoSo).Name }, parentForRootNodes);
-                    // Create a child of the rootNode
-                    listDays = _coso.days.ToList();
-                    foreach (Dayy _day in listDays)
-                    {
-                        TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, typeof(Dayy).Name }, rootNode);
-                        // Create a child of the rootNode
-                        listTangs = _day.tangs.ToList();
-                        foreach (Tang _tang in listTangs)
-                        {
-                            TreeListNode rootNode3 = tl.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, rootNode2);
-                            ViTri obj2 = new ViTri().getBy3Id(_coso.id, _day.id, _tang.id);
-                            if (obj2 != null)
-                            {
-                                listPhongs = obj2.phongs.ToList();
-                                foreach (Phong _phong in listPhongs)
-                                {
-                                    tl.AppendNode(new object[] { _phong.id, _phong.ten, typeof(Phong).Name }, rootNode3);
-                                }
-                            }
-                        }
-                        ViTri obj3 = new ViTri().getBy3Id(_coso.id, _day.id, -1);
-                        if (obj3 != null)
-                        {
-                            listPhongs = obj3.phongs.ToList();
-                            foreach (Phong _phong in listPhongs)
-                            {
-                                tl.AppendNode(new object[] { _phong.id, _phong.ten, typeof(Phong).Name }, rootNode2);
-                            }
-                        }
-                    }
-                    ViTri obj = new ViTri().getBy3Id(_coso.id, -1, -1);
-                    if (obj != null)
-                    {
-                        listPhongs = obj.phongs.ToList();
-                        foreach (Phong _phong in listPhongs)
-                        {
-                            tl.AppendNode(new object[] { _phong.id, _phong.ten, typeof(Phong).Name }, rootNode);
-                        }
-                    }
-
-                }
-                tl.EndUnboundLoad();
-            }
-            catch (Exception ex)
-            { }
-            finally
-            { }
+            treeListPhong.BeginUnboundLoad();
+            treeListPhong.DataSource = _list;
+            treeListPhong.EndUnboundLoad();
         }
 
         private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
