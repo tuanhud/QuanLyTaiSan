@@ -32,9 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -86,6 +88,12 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucThongTinQuanTriVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucThongTinQuanTriVien.Designer.cs">
+      <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\TreeListViewState.cs" />
     <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
@@ -111,6 +119,11 @@
     </Compile>
     <Compile Include="MyUC\ucTreeViTri.Designer.cs">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="QLLoaiThietBi\ucQuanLyLoaiTB.cs">
       <SubType>UserControl</SubType>
@@ -192,6 +205,9 @@
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
+      <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
       <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,14 +247,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="QLCoSo\MyUserControl\ucQuanLyCoSo.resx">
       <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +298,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\System-Login-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vitri.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chair-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vitri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhanvien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phanquyen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thongke.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
