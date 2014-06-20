@@ -143,50 +143,50 @@ namespace QuanLyTaiSanGUI.MyUC
             CreateNodes(treeListViTri);
         }
 
-        public class TreeListOperationFindNodeByProductAndCountryValues : TreeListOperation
-        {
-            public const string idColumnName = "id";
-            public const string loaiColumnName = "loai";
-            private TreeListNode nodeCore;
-            private object id;
-            private object loai;
-            private bool isNullCore;
-            public TreeListOperationFindNodeByProductAndCountryValues(object _id, object _loai)
-            {
-                this.id = _id;
-                this.loai = _loai;
-                this.nodeCore = null;
-                this.isNullCore = TreeListData.IsNull(id) || TreeListData.IsNull(loai);
-            }
-            public override void Execute(TreeListNode node)
-            {
-                if (IsLookedFor(node.GetValue(idColumnName), node.GetValue(loaiColumnName)))
-                    this.nodeCore = node;
-            }
-            bool IsLookedFor(object _id, object _loai)
-            {
-                if (IsNull) return (id == _id && loai == _loai);
-                return id.Equals(_id) && loai.Equals(_loai);
-            }
-            protected bool IsNull { get { return isNullCore; } }
-            public override bool CanContinueIteration(TreeListNode node) { return Node == null; }
-            public TreeListNode Node { get { return nodeCore; } }
-        }
+        //public class TreeListOperationFindNodeByProductAndCountryValues : TreeListOperation
+        //{
+        //    public const string idColumnName = "id";
+        //    public const string loaiColumnName = "loai";
+        //    private TreeListNode nodeCore;
+        //    private object id;
+        //    private object loai;
+        //    private bool isNullCore;
+        //    public TreeListOperationFindNodeByProductAndCountryValues(object _id, object _loai)
+        //    {
+        //        this.id = _id;
+        //        this.loai = _loai;
+        //        this.nodeCore = null;
+        //        this.isNullCore = TreeListData.IsNull(id) || TreeListData.IsNull(loai);
+        //    }
+        //    public override void Execute(TreeListNode node)
+        //    {
+        //        if (IsLookedFor(node.GetValue(idColumnName), node.GetValue(loaiColumnName)))
+        //            this.nodeCore = node;
+        //    }
+        //    bool IsLookedFor(object _id, object _loai)
+        //    {
+        //        if (IsNull) return (id == _id && loai == _loai);
+        //        return id.Equals(_id) && loai.Equals(_loai);
+        //    }
+        //    protected bool IsNull { get { return isNullCore; } }
+        //    public override bool CanContinueIteration(TreeListNode node) { return Node == null; }
+        //    public TreeListNode Node { get { return nodeCore; } }
+        //}
 
         public void setViTri(ViTri obj)
         {
-            TreeListOperationFindNodeByProductAndCountryValues findNode = null;
+            FindNode findNode = null;
             if (obj.tang != null)
             {
-                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.tang.id, typeof(Tang).Name);
+                findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
             }
             else if (obj.day != null)
             {
-                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.day.id, typeof(Dayy).Name);
+                findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
             } 
             else if (obj.coso != null)
             {
-                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.coso.id, typeof(CoSo).Name);
+                findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
             }
             treeListViTri.NodesIterator.DoOperation(findNode);
             treeListViTri.FocusedNode = findNode.Node;
