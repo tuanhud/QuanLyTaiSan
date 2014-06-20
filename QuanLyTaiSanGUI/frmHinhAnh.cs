@@ -26,9 +26,11 @@ namespace QuanLyTaiSanGUI
         int idobject;
         String loaiobject;
         int currId = 0;
+        int _index = -1;
         GalleryItem currItem = new GalleryItem();
         List<HinhAnh> listhinhanhs = new List<HinhAnh>();
         List<HinhAnh> hinhs = null;
+        MyDB db = null;
 
         public frmHinhAnh(int _idobject, List<HinhAnh> _listhinhanh, string _loaiobject)
         {
@@ -46,13 +48,14 @@ namespace QuanLyTaiSanGUI
             else XtraMessageBox.Show("Không có ảnh để load");
         }
 
-        public frmHinhAnh(List<HinhAnh> _listhinhanh)
+        public frmHinhAnh(List<HinhAnh> _listhinhanh, MyDB _db)
         {
             //ShowTitle();
             InitializeComponent();
             InitSkins();
             btnImageDelete.Enabled = false;
             hinhs = _listhinhanh;
+            db = _db;
             if (hinhs != null)
             {
                 LoadHinhAnh(hinhs);
@@ -210,12 +213,12 @@ namespace QuanLyTaiSanGUI
                     DateTime _datetime = ServerTimeHelper.getNow();
                     String _dt = _datetime.ToString("yyyy-MM-dd-hh-mm-ss-");
                     string file_name = _dt + fInfo.Name.ToString();
-                    HinhAnh _hinhanh = new HinhAnh();
+                    HinhAnh _hinhanh = new HinhAnh(db);
                     _hinhanh.FILE_NAME = file_name;
                     _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
                     _hinhanh.MAX_SIZE = 0;
                     _hinhanh.upload();
-
+                    _hinhanh.add();
                     hinhs.Add(_hinhanh);
 
                     GalleryItem it = new GalleryItem();
@@ -232,6 +235,7 @@ namespace QuanLyTaiSanGUI
             currItem = e.Item;
             currId = Int32.Parse(e.Item.Tag.ToString());
             btnImageDelete.Enabled = true;
+            //_index = e.Item.;
         }
 
         private void DeleteImage()
@@ -242,7 +246,7 @@ namespace QuanLyTaiSanGUI
                 {
                     try
                     {
-                        HinhAnh _hinhanh = new HinhAnh();
+                        HinhAnh _hinhanh = new HinhAnh(db);
                         _hinhanh = _hinhanh.getById(currId);
                         hinhs.Remove(_hinhanh);
                         _hinhanh.delete();
