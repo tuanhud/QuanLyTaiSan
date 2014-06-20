@@ -63,6 +63,16 @@ namespace QuanLyTaiSanGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chair_icon {
+            get {
+                object obj = ResourceManager.GetObject("chair-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward {
             get {
                 object obj = ResourceManager.GetObject("forward", resourceCulture);
@@ -93,9 +103,39 @@ namespace QuanLyTaiSanGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nhanvien {
+            get {
+                object obj = ResourceManager.GetObject("nhanvien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pencil_edit {
             get {
                 object obj = ResourceManager.GetObject("pencil_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap phanquyen {
+            get {
+                object obj = ResourceManager.GetObject("phanquyen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap phong1 {
+            get {
+                object obj = ResourceManager.GetObject("phong1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +156,36 @@ namespace QuanLyTaiSanGUI.Properties {
         internal static System.Drawing.Bitmap System_Login_icon {
             get {
                 object obj = ResourceManager.GetObject("System-Login-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thongke {
+            get {
+                object obj = ResourceManager.GetObject("thongke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vitri {
+            get {
+                object obj = ResourceManager.GetObject("vitri", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vitri1 {
+            get {
+                object obj = ResourceManager.GetObject("vitri1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

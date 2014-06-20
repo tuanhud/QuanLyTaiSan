@@ -118,6 +118,11 @@
     <Compile Include="MyUC\ucTreeViTri.Designer.cs">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QLLoaiThietBi\ucQuanLyLoaiTB.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,14 +245,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="QLCoSo\MyUserControl\ucQuanLyCoSo.resx">
       <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +296,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\System-Login-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vitri.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chair-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vitri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhanvien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phanquyen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thongke.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

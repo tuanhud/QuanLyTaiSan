@@ -54,6 +54,9 @@
             this.barBtnThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhong_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupPhong_ThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,6 +71,7 @@
             this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupPhong = new DevExpress.XtraNavBar.NavBarGroup();
@@ -79,10 +83,6 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -314,6 +314,24 @@
             this.barBtnXoaLoaiTB.Id = 24;
             this.barBtnXoaLoaiTB.Name = "barBtnXoaLoaiTB";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Thêm quản trị";
+            this.barButtonItem1.Id = 25;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Sửa quản trị";
+            this.barButtonItem2.Id = 26;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Xóa quản trị";
+            this.barButtonItem3.Id = 27;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
             // rbnPagePhong_Home
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -430,6 +448,14 @@
             this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
             this.rbnPagePhanQuyen_Home.Text = "Trang chính";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Phân quyền";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 668);
@@ -467,11 +493,12 @@
             this.navBarGroupPhong.GroupClientHeight = 80;
             this.navBarGroupPhong.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroupPhong.Name = "navBarGroupPhong";
+            this.navBarGroupPhong.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             // 
             // navBarGroupControlContainer1
             // 
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 281);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 269);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // navBarGroupControlContainer2
@@ -482,13 +509,15 @@
             // 
             // navBarGroupViTri
             // 
-            this.navBarGroupViTri.Caption = "Quản lý cơ sở, dãy, tầng";
+            this.navBarGroupViTri.Caption = "Quản lý vị trí";
             this.navBarGroupViTri.Name = "navBarGroupViTri";
+            this.navBarGroupViTri.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             // 
             // navBarGroupLoaiTB
             // 
             this.navBarGroupLoaiTB.Caption = "Quản lý loại thiết bị";
             this.navBarGroupLoaiTB.Name = "navBarGroupLoaiTB";
+            this.navBarGroupLoaiTB.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.chair_icon;
             // 
             // navBarGroupNhanVien
             // 
@@ -497,16 +526,19 @@
             this.navBarGroupNhanVien.GroupClientHeight = 80;
             this.navBarGroupNhanVien.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroupNhanVien.Name = "navBarGroupNhanVien";
+            this.navBarGroupNhanVien.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.nhanvien;
             // 
             // navBarGroupPhanQuyen
             // 
             this.navBarGroupPhanQuyen.Caption = "Phân quyền";
             this.navBarGroupPhanQuyen.Name = "navBarGroupPhanQuyen";
+            this.navBarGroupPhanQuyen.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
             // 
             // navBarGroupThongKe
             // 
             this.navBarGroupThongKe.Caption = "Thống kê";
             this.navBarGroupThongKe.Name = "navBarGroupThongKe";
+            this.navBarGroupThongKe.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
             // 
             // panelControl1
             // 
@@ -515,32 +547,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Phân quyền";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Thêm quản trị";
-            this.barButtonItem1.Id = 25;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Sửa quản trị";
-            this.barButtonItem2.Id = 26;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Xóa quản trị";
-            this.barButtonItem3.Id = 27;
-            this.barButtonItem3.Name = "barButtonItem3";
             // 
             // frmMain
             // 
