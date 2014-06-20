@@ -20,9 +20,32 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
+        #region Dinh nghia
         public String mota { get; set; }
         
-        //Hàm dùng tạm để test dũu liệu
+        /*
+         * FK
+         */
+        [Index("nothing", 1, IsUnique = true)]
+        public virtual CoSo coso { get; set; }
+
+        [Index("nothing", 2, IsUnique = true)]
+        public virtual Dayy day { get; set; }
+
+        [Index("nothing", 3, IsUnique = true)]
+        public virtual Tang tang { get; set; }
+
+        public virtual ICollection<Phong> phongs { get; set; }
+        #endregion
+        #region Nghiệp vụ
+        /// <summary>
+        /// Hàm dùng tạm để test dũu liệu
+        /// </summary>
+        /// <param name="id1"></param>
+        /// <param name="id2"></param>
+        /// <param name="id3"></param>
+        /// <returns></returns>
+
         public ViTri getBy3Id(int id1, int id2, int id3)
         {
             try
@@ -56,21 +79,6 @@ namespace QuanLyTaiSan.Entities
 
             }
         }
-
-        /*
-         * FK
-         */
-        [Index("nothing", 1, IsUnique = true)]
-        public virtual CoSo coso { get; set; }
-
-        [Index("nothing", 2, IsUnique = true)]
-        public virtual Dayy day { get; set; }
-
-        [Index("nothing", 3, IsUnique = true)]
-        public virtual Tang tang { get; set; }
-
-        public virtual ICollection<Phong> phongs { get; set; }
-        #region Nghiệp vụ
         public List<ViTri> search(CoSo coso, Dayy day, Tang tang)
         {
             initDb();

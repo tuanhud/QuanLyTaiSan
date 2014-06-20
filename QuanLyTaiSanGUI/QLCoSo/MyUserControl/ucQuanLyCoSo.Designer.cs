@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -46,7 +45,9 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -81,14 +82,16 @@
             this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.colloai});
+            this.colloai,
+            this.colid_c,
+            this.colid_p});
             this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListViTri.KeyFieldName = "id";
+            this.treeListViTri.KeyFieldName = "id_c";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.PopulateServiceColumns = true;
-            this.treeListViTri.ParentFieldName = "parent_id";
+            this.treeListViTri.ParentFieldName = "id_p";
             this.treeListViTri.Size = new System.Drawing.Size(384, 471);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
@@ -241,6 +244,18 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
+            // colid_c
+            // 
+            this.colid_c.Caption = "id_c";
+            this.colid_c.FieldName = "id_c";
+            this.colid_c.Name = "colid_c";
+            // 
+            // colid_p
+            // 
+            this.colid_p.Caption = "id_p";
+            this.colid_p.FieldName = "id_p";
+            this.colid_p.Name = "colid_p";
+            // 
             // ucQuanLyCoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,5 +299,7 @@
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid_c;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid_p;
     }
 }

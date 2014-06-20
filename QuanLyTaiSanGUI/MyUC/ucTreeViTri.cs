@@ -12,67 +12,25 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Nodes.Operations;
 using DevExpress.XtraTreeList.Data;
+using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {
-        List<CoSo> listCoSos = new List<CoSo>();
         int idTang = -1;
         int idCoSo = -1;
         int idDay = -1;
         bool haveTang = true;
         bool haveDay = true;
-        public ucTreeViTri(List<CoSo> _lists, bool _haveDay, bool _haveTang)
+        public ucTreeViTri(List<TreeDataFilter> _list, bool _haveDay, bool _haveTang)
         {
             InitializeComponent();
-            listCoSos = _lists;
             haveTang = _haveTang;
             haveDay = _haveDay;
-            CreateNodes(treeListViTri);
-        }
-        private void CreateNodes(TreeList tl)
-        {
-            try
-            {
-                List<Dayy> listDays = new List<Dayy>();
-                List<Tang> listTangs = new List<Tang>();
-                tl.BeginUnboundLoad();
-                // Create a root node .
-                TreeListNode parentForRootNodes = null;
-                if (listCoSos != null)
-                {
-                    foreach (CoSo _coso in listCoSos)
-                    {
-                        TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, typeof(CoSo).Name }, parentForRootNodes);
-                        if (haveDay)
-                        {
-                            // Create a child of the rootNode
-                            listDays = _coso.days.ToList();
-                            foreach (Dayy _day in listDays)
-                            {
-                                TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, typeof(Dayy).Name }, rootNode);
-                                if (haveTang)
-                                {
-                                    // Create a child of the rootNode
-                                    listTangs = _day.tangs.ToList();
-                                    foreach (Tang _tang in listTangs)
-                                    {
-                                        tl.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, rootNode2);
-                                        // Creating more nodes
-                                        // ...
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                tl.EndUnboundLoad();
-            }
-            catch (Exception ex)
-            { }
-            finally
-            { }
+            treeListViTri.BeginUnboundLoad();
+            treeListViTri.DataSource = _list;
+            treeListViTri.EndUnboundLoad();
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
@@ -136,42 +94,13 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
-        public void reLoad(List<CoSo> _list)
+        public void reLoad(List<TreeDataFilter> _list)
         {
-            listCoSos = _list;
-            treeListViTri.ClearNodes();
-            CreateNodes(treeListViTri);
+            treeListViTri.BeginUnboundLoad();
+            treeListViTri.DataSource = null;
+            treeListViTri.DataSource = _list;
+            treeListViTri.EndUnboundLoad();
         }
-
-        //public class TreeListOperationFindNodeByProductAndCountryValues : TreeListOperation
-        //{
-        //    public const string idColumnName = "id";
-        //    public const string loaiColumnName = "loai";
-        //    private TreeListNode nodeCore;
-        //    private object id;
-        //    private object loai;
-        //    private bool isNullCore;
-        //    public TreeListOperationFindNodeByProductAndCountryValues(object _id, object _loai)
-        //    {
-        //        this.id = _id;
-        //        this.loai = _loai;
-        //        this.nodeCore = null;
-        //        this.isNullCore = TreeListData.IsNull(id) || TreeListData.IsNull(loai);
-        //    }
-        //    public override void Execute(TreeListNode node)
-        //    {
-        //        if (IsLookedFor(node.GetValue(idColumnName), node.GetValue(loaiColumnName)))
-        //            this.nodeCore = node;
-        //    }
-        //    bool IsLookedFor(object _id, object _loai)
-        //    {
-        //        if (IsNull) return (id == _id && loai == _loai);
-        //        return id.Equals(_id) && loai.Equals(_loai);
-        //    }
-        //    protected bool IsNull { get { return isNullCore; } }
-        //    public override bool CanContinueIteration(TreeListNode node) { return Node == null; }
-        //    public TreeListNode Node { get { return nodeCore; } }
-        //}
 
         public void setViTri(ViTri obj)
         {

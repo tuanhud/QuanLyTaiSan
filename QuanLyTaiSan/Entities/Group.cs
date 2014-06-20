@@ -21,12 +21,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        protected override void init()
-        {
-            base.init();
-            this.permissions = new List<Permission>();
-            this.nhanviens = new List<QuanTriVien>();
-        }
+        #region Dinh nghia
 
         [StringLength(100)]
         public String key { get; set; } //vd: quantri1
@@ -41,11 +36,19 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual ICollection<Permission> permissions { get; set; }
         public virtual ICollection<QuanTriVien> nhanviens { get; set; }
-
+        #endregion
         #region Nghiệp vụ
         public Boolean isHasPermission(Permission obj)
         {
             return obj.isInGroup(this);
+        }
+        #endregion
+        #region Override method
+        protected override void init()
+        {
+            base.init();
+            this.permissions = new List<Permission>();
+            this.nhanviens = new List<QuanTriVien>();
         }
         #endregion
     }

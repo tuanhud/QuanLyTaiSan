@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -17,7 +18,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucTreeViTri _ucTreeViTri;
         Phong objPhong;
         String type = "";
-        public ucChiTietPhong(List<CoSo> _list)
+        public ucChiTietPhong(List<TreeDataFilter> _list)
         {
             InitializeComponent();
             _ucTreeViTri = new ucTreeViTri(_list, true, true);

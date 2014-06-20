@@ -50,7 +50,7 @@ namespace QuanLyTaiSan.Entities
         {
             base.init();
             //sql server time
-            this.date_create = this.date_modified = ServerTimeHelper.getNow();
+            //this.date_create = this.date_modified = ServerTimeHelper.getNow();//Khong can thiet, giam tai
         }
         /*
          * override Method of interface
