@@ -21,13 +21,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        protected override void init()
-        {
-            base.init();
-            this.childs = new List<LoaiThietBi>();
-            this.thietbis = new List<ThietBi>();
-        }
-        
+        #region Dinh nghia
         public String ten { get; set; }
         public String mota { get; set; }
         public Boolean loaichung { get; set; }
@@ -43,6 +37,15 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
 
+        
+
+        public virtual ICollection<ThietBi> thietbis { get; set; }
+
+        public int? parent_id { get; set; }
+        public virtual LoaiThietBi parent { get; set; }
+        public virtual ICollection<LoaiThietBi> childs { get; set; }
+        #endregion
+        #region Nghiep vu
         public List<LoaiThietBi> getAllParent()
         {
             try
@@ -64,11 +67,23 @@ namespace QuanLyTaiSan.Entities
 
             }
         }
-
-        public virtual ICollection<ThietBi> thietbis { get; set; }
-
-        public int? parent_id { get; set; }
-        public virtual LoaiThietBi parent { get; set; }
-        public virtual ICollection<LoaiThietBi> childs { get; set; }
+        #endregion
+        #region Override method
+        protected override void init()
+        {
+            base.init();
+            this.childs = new List<LoaiThietBi>();
+            this.thietbis = new List<ThietBi>();
+        }
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (parent != null)
+            {
+                parent.trigger();
+            }
+            return base.update();
+        }
+        #endregion
     }
 }

@@ -23,6 +23,7 @@ namespace QuanLyTaiSan.Entities
             
         }
 
+        #region Dinh nghia
         [Required]
         public int soluong { get; set; }
         /*
@@ -36,6 +37,7 @@ namespace QuanLyTaiSan.Entities
 
         [Index("nothing", 3, IsUnique = true)]
         public virtual TinhTrang tinhtrang { get; set; }
+        #endregion
         #region Ngiep vu
         /// <summary>
         /// Ham update se duoc tu dong goi trong day (co su dung Transaction Commit),

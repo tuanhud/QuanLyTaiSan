@@ -74,6 +74,35 @@ namespace QuanLyTaiSan.Libraries
                 return -1;
             }
         }
+        /// <summary>
+        /// Xoa hinh tren FTP host
+        /// </summary>
+        /// <param name="remote_path">dạng full, vd: ftp://host.com/folder/file.JPEG</param>
+        /// <param name="user_name"></param>
+        /// <param name="pass_word"></param>
+        /// <returns></returns>
+        public static int deleteFile(String remote_path, String user_name, String pass_word)
+        {
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(remote_path));
+
+                //If you need to use network credentials
+                request.Credentials = new NetworkCredential(user_name, pass_word);
+                //additionally, if you want to use the current user's network credentials, just use:
+                //System.Net.CredentialCache.DefaultNetworkCredentials
+
+                request.Method = WebRequestMethods.Ftp.DeleteFile;
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                Console.WriteLine("Delete status: {0}", response.StatusDescription);
+                response.Close();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
 
         #region Image Utilities
 
