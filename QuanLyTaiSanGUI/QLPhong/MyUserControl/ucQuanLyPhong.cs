@@ -62,7 +62,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     _ucChiTietPhong.Dock = DockStyle.Fill;
                     AddControl(_ucChiTietPhong);
                     _ucChiTietPhong.LoadData(obj);
-                    enableGroupPhong("phong");
+                    enableGroupPhong(typeof(Phong).Name);
                     objPhong = obj;
                 }
                 else if (row >= 0)
@@ -72,7 +72,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     CTThietBi objct = new CTThietBi();
                     objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
                     _ucChiTietThietBi.LoadData(objct);
-                    enableGroupPhong("thietbi");
+                    enableGroupPhong(typeof(ThietBi).Name);
                     objChiTietTB = objct;
                 }
             }
@@ -91,7 +91,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 enableGroupPhong("other");
             else
             {
-                enableGroupPhong("phong");
+                enableGroupPhong(typeof(Phong).Name);
                 objPhong = obj;
             }
 

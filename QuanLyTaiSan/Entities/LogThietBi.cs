@@ -24,7 +24,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        
+        #region Dinh nghia
         [Index("nothing", 1, IsUnique = true)]
         public DateTime ngay { get; set; }
         [Required]
@@ -39,5 +39,29 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
         [Index("nothing", 4, IsUnique = true)]
         public virtual Phong phong { get; set; }
+		#endregion
+		
+		#region Override method
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+			if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+			if (phong != null)
+            {
+                phong.trigger();
+            }
+            
+            //...
+            return base.update();
+        }
+
+        #endregion
     }
 }

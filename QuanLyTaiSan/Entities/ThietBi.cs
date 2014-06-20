@@ -26,6 +26,7 @@ namespace QuanLyTaiSan.Entities
             base.init();
             this.ctthietbis = new List<CTThietBi>();
         }
+		#region Dinh nghia
         /*
          * Ngày mua
          */
@@ -39,5 +40,20 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual LoaiThietBi loaithietbi { get; set; }
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
+		#endregion
+		#region Override method
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (loaithietbi != null)
+            {
+                loaithietbi.trigger();
+            }
+            
+            //...
+            return base.update();
+        }
+
+        #endregion
     }
 }

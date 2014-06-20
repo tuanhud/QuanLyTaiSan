@@ -141,6 +141,7 @@
             this.btnImage.TabIndex = 10;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnHuy
             // 

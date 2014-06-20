@@ -35,5 +35,28 @@ namespace QuanLyTaiSan.Entities
 
         [Index("nothing", 3, IsUnique = true)]
         public virtual TinhTrang tinhtrang { get; set; }
+		
+		#region Override method
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (phong != null)
+            {
+                phong.trigger();
+            }
+			if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+			if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+            
+            //...
+            return base.update();
+        }
+
+        #endregion
     }
 }

@@ -80,6 +80,12 @@
     <Compile Include="HeThong\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucPhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
+      <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\TreeListViewState.cs" />
     <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
       <SubType>UserControl</SubType>
@@ -167,6 +173,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
+      <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
       <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
@@ -228,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

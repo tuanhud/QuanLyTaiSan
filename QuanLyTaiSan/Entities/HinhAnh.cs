@@ -49,7 +49,28 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                return image;
+                //check cached first
+                if (image != null)
+                {
+                    return image;
+                }
+
+                //get http info from Global
+                if (!Global.remote_setting.http_host.IS_READY)
+                {
+                    return null;
+                }
+                //build abs path
+                String abs_path =
+                    Global.remote_setting.http_host.HOST_NAME +
+                    Global.remote_setting.http_host.PRE_PATH +
+                    this.path;
+
+                //stream image from host via FTPHelper
+                Bitmap re = HTTPHelper.getImage(abs_path);
+                this.image = re;
+                //finish
+                return re;
             }
             set
             {
@@ -102,28 +123,7 @@ namespace QuanLyTaiSan.Entities
         /// <returns>null: Chưa load được tài khoản FTP, hình không tồn tại</returns>
         public Bitmap getImage()
         {
-            //check cached first
-            if (image != null)
-            {
-                return image;
-            }
-
-            //get http info from Global
-            if (!Global.remote_setting.http_host.IS_READY)
-            {
-                return null;
-            }
-            //build abs path
-            String abs_path =
-                Global.remote_setting.http_host.HOST_NAME +
-                Global.remote_setting.http_host.PRE_PATH +
-                this.path;
-
-            //stream image from host via FTPHelper
-            Bitmap re = HTTPHelper.getImage(abs_path);
-            this.image = re;
-            //finish
-            return re;
+            return IMAGE;
         }
 
         public List<HinhAnh> getAllBy6Id(int id1, int id2, int id3, int id4, int id5, int id6)
@@ -153,12 +153,13 @@ namespace QuanLyTaiSan.Entities
                 tmp = ImageHelper.ScaleBySize(image,max_size);
             }
             //tao duong dan upload len FTP
-            String relative_path = /*ServerTimeHelper.getNow()+*/ file_name;
+            String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+
+			StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";
             String abs_path
                 =
                 Global.remote_setting.ftp_host.HOST_NAME +
                 Global.remote_setting.ftp_host.PRE_PATH +
-                relative_path+".JPEG";
+                relative_path;
             //upload hinh va insert vao CSDL
             FTPHelper.uploadImage(
                 tmp,
@@ -179,6 +180,39 @@ namespace QuanLyTaiSan.Entities
             base.init();
             cache_path = "ImageCache";
         }
+		
+        public override int update()
+        {
+            //have to load all [Required] FK object first
+            if (tang != null)
+            {
+                tang.trigger();
+            }
+			if (coso != null)
+            {
+                coso.trigger();
+            }
+			if (day != null)
+            {
+                day.trigger();
+            }
+			if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+			if (nhanvienpt != null)
+            {
+                nhanvienpt.trigger();
+            }
+			if (phong != null)
+            {
+                phong.trigger();
+            }
+            
+            //...
+            return base.update();
+        }
+
         #endregion
     }
 }

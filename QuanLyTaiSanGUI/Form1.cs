@@ -24,6 +24,15 @@ namespace QuanLyTaiSanGUI
             _ucFreeHaveCheckBox.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucFreeHaveCheckBox);
         }
-
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            int _idobject = 1;
+            string _loaiobject = "COSOS";
+            List<CoSo> listcoso = new List<CoSo>();
+            CoSo _coso = new CoSo().getById(_idobject);
+            List<HinhAnh> hinhanh = _coso.hinhanhs.ToList();
+            frmHinhAnh frm = new frmHinhAnh(_idobject, hinhanh, _loaiobject);
+            frm.Show();
+        }
     }
 }
