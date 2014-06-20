@@ -44,21 +44,21 @@ namespace QuanLyTaiSanGUI.MyUC
                 {
                     foreach (CoSo _coso in listCoSos)
                     {
-                        TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, "coso" }, parentForRootNodes);
+                        TreeListNode rootNode = tl.AppendNode(new object[] { _coso.id, _coso.ten, typeof(CoSo).Name }, parentForRootNodes);
                         if (haveDay)
                         {
                             // Create a child of the rootNode
                             listDays = _coso.days.ToList();
                             foreach (Dayy _day in listDays)
                             {
-                                TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, "day" }, rootNode);
+                                TreeListNode rootNode2 = tl.AppendNode(new object[] { _day.id, _day.ten, typeof(Dayy).Name }, rootNode);
                                 if (haveTang)
                                 {
                                     // Create a child of the rootNode
                                     listTangs = _day.tangs.ToList();
                                     foreach (Tang _tang in listTangs)
                                     {
-                                        tl.AppendNode(new object[] { _tang.id, _tang.ten, "tang" }, rootNode2);
+                                        tl.AppendNode(new object[] { _tang.id, _tang.ten, typeof(Tang).Name }, rootNode2);
                                         // Creating more nodes
                                         // ...
                                     }
@@ -79,7 +79,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (e.Node.GetValue(2).ToString().Equals("coso"))
+                if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                 {
                     if (!haveDay || haveTang)
                     {
@@ -89,14 +89,14 @@ namespace QuanLyTaiSanGUI.MyUC
                         idDay = -1;
                     }
                 }
-                else if (e.Node.GetValue(2).ToString().Equals("day"))
+                else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
                 {
                     popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
                     idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                     idDay = Convert.ToInt32(e.Node.GetValue(0));
                     idTang = -1;
                 }
-                else if (e.Node.GetValue(2).ToString().Equals("tang"))
+                else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
                 {
                     popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
                     idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
@@ -143,50 +143,50 @@ namespace QuanLyTaiSanGUI.MyUC
             CreateNodes(treeListViTri);
         }
 
-        public class TreeListOperationFindNodeByProductAndCountryValues : TreeListOperation
-        {
-            public const string idColumnName = "id";
-            public const string loaiColumnName = "loai";
-            private TreeListNode nodeCore;
-            private object id;
-            private object loai;
-            private bool isNullCore;
-            public TreeListOperationFindNodeByProductAndCountryValues(object _id, object _loai)
-            {
-                this.id = _id;
-                this.loai = _loai;
-                this.nodeCore = null;
-                this.isNullCore = TreeListData.IsNull(id) || TreeListData.IsNull(loai);
-            }
-            public override void Execute(TreeListNode node)
-            {
-                if (IsLookedFor(node.GetValue(idColumnName), node.GetValue(loaiColumnName)))
-                    this.nodeCore = node;
-            }
-            bool IsLookedFor(object _id, object _loai)
-            {
-                if (IsNull) return (id == _id && loai == _loai);
-                return id.Equals(_id) && loai.Equals(_loai);
-            }
-            protected bool IsNull { get { return isNullCore; } }
-            public override bool CanContinueIteration(TreeListNode node) { return Node == null; }
-            public TreeListNode Node { get { return nodeCore; } }
-        }
+        //public class TreeListOperationFindNodeByProductAndCountryValues : TreeListOperation
+        //{
+        //    public const string idColumnName = "id";
+        //    public const string loaiColumnName = "loai";
+        //    private TreeListNode nodeCore;
+        //    private object id;
+        //    private object loai;
+        //    private bool isNullCore;
+        //    public TreeListOperationFindNodeByProductAndCountryValues(object _id, object _loai)
+        //    {
+        //        this.id = _id;
+        //        this.loai = _loai;
+        //        this.nodeCore = null;
+        //        this.isNullCore = TreeListData.IsNull(id) || TreeListData.IsNull(loai);
+        //    }
+        //    public override void Execute(TreeListNode node)
+        //    {
+        //        if (IsLookedFor(node.GetValue(idColumnName), node.GetValue(loaiColumnName)))
+        //            this.nodeCore = node;
+        //    }
+        //    bool IsLookedFor(object _id, object _loai)
+        //    {
+        //        if (IsNull) return (id == _id && loai == _loai);
+        //        return id.Equals(_id) && loai.Equals(_loai);
+        //    }
+        //    protected bool IsNull { get { return isNullCore; } }
+        //    public override bool CanContinueIteration(TreeListNode node) { return Node == null; }
+        //    public TreeListNode Node { get { return nodeCore; } }
+        //}
 
         public void setViTri(ViTri obj)
         {
-            TreeListOperationFindNodeByProductAndCountryValues findNode = null;
+            FindNode findNode = null;
             if (obj.tang != null)
             {
-                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.tang.id, "tang");
+                findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
             }
             else if (obj.day != null)
             {
-                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.day.id, "day");
+                findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
             } 
             else if (obj.coso != null)
             {
-                findNode = new TreeListOperationFindNodeByProductAndCountryValues(obj.coso.id, "coso");
+                findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
             }
             treeListViTri.NodesIterator.DoOperation(findNode);
             treeListViTri.FocusedNode = findNode.Node;
