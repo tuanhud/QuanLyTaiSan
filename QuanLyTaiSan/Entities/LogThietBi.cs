@@ -28,6 +28,7 @@ namespace QuanLyTaiSan.Entities
         [Index("nothing", 1, IsUnique = true)]
         public DateTime ngay { get; set; }
         [Required]
+        [Index("nothing", 5, IsUnique = true)]
         public int soluong { get; set; }
         public String mota { get; set; }
         /*

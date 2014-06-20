@@ -93,7 +93,7 @@ namespace QuanLyTaiSan.Entities
             modelBuilder.Entity<LogThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("LOGTINHTRANGS");
+                x.ToTable("LOGTHIETBIS");
             });
 
             modelBuilder.Entity<CTThietBi>().Map(x =>

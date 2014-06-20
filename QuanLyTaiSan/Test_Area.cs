@@ -29,11 +29,16 @@ namespace QuanLyTaiSan
             InitializeComponent();
 
 
-            QuanTriVienFilter obj = new QuanTriVienFilter();
-            List<QuanTriVienFilter> list = obj.getAll();
+
+            CTThietBi obj = new CTThietBi().getById(18);
+            Phong dich = new Phong(obj.DB).getById(4);
+            int re = obj.dichuyen(dich,2,"Chua co mota nao");
+            Console.WriteLine(re);
+            //QuanTriVienFilter obj = new QuanTriVienFilter();
+            //List<QuanTriVienFilter> list = obj.getAll();
 
 
-            dataGridView1.DataSource = list;
+            //dataGridView1.DataSource = list;
             
 
 
