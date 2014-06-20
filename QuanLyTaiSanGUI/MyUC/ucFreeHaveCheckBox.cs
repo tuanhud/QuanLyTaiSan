@@ -76,7 +76,6 @@ namespace QuanLyTaiSanGUI.MyUC
                             tl.AppendNode(new object[] { _phong.id, _phong.ten, "phong" }, rootNode);
                         }
                     }
-
                 }
                 tl.EndUnboundLoad();
             }

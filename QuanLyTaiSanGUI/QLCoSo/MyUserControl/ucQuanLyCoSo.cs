@@ -28,6 +28,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         String type = "";
         String function = "";
         String node = "";
+
         public ucQuanLyCoSo()
         {
             InitializeComponent();
