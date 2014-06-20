@@ -25,9 +25,8 @@ namespace QuanLyTaiSanGUI
         public static Size SkinImageSize = new Size(58, 43);
         int idobject;
         String loaiobject;
-        int currId = 0;
-        int _index = -1;
         String _name = "";
+        int GIUNGUYEN = 0, LON = 800, VUA = 400, NHO = 100;
         GalleryItem currItem = new GalleryItem();
         List<HinhAnh> listhinhanhs = new List<HinhAnh>();
         List<HinhAnh> hinhs = null;
@@ -140,68 +139,6 @@ namespace QuanLyTaiSanGUI
             open.Title = "My Image Browser";
             open.Multiselect = true;
 
-            //if (open.ShowDialog() == DialogResult.OK)
-            //{
-            //    splashScreenManager.ShowWaitForm();
-            //    foreach (string file in open.FileNames)
-            //    {
-            //        FileInfo fInfo = new FileInfo(file);
-            //        string filePath = fInfo.ToString();
-            //        DateTime _datetime = ServerTimeHelper.getNow();
-            //        String _dt = _datetime.ToString("yyyy-MM-dd-hh-mm-ss-");
-            //        string file_name = _dt + fInfo.Name.ToString();
-            //        HinhAnh _hinhanh = new HinhAnh();
-            //        _hinhanh.FILE_NAME = file_name;
-            //        _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
-            //        _hinhanh.MAX_SIZE = 0;
-            //        _hinhanh.upload();
-            //        switch (loaiobject)
-            //        {
-            //            case "CoSo":
-            //                CoSo _coso = new CoSo();
-            //                _coso = _coso.getById(idobject);
-            //                _coso.hinhanhs.Add(_hinhanh);
-            //                _coso.update();
-            //                break;
-            //            case "Dayy":
-            //                Dayy _day = new Dayy();
-            //                _day = _day.getById(idobject);
-            //                _day.hinhanhs.Add(_hinhanh);
-            //                _day.update();
-            //                break;
-            //            case "NHANVIENPT":
-            //                NhanVienPT _nhanvienpt = new NhanVienPT();
-            //                _nhanvienpt = _nhanvienpt.getById(idobject);
-            //                _nhanvienpt.hinhanhs.Add(_hinhanh);
-            //                _nhanvienpt.update();
-            //                break;
-            //            case "THIETBIS":
-            //                ThietBi _thietbi = new ThietBi();
-            //                _thietbi = _thietbi.getById(idobject);
-            //                _thietbi.hinhanhs.Add(_hinhanh);
-            //                _thietbi.update();
-            //                break;
-            //            case "PHONGS":
-            //                Phong _phong = new Phong();
-            //                _phong = _phong.getById(idobject);
-            //                _phong.hinhanhs.Add(_hinhanh);
-            //                _phong.update();
-            //                break;
-            //            case "Tang":
-            //                Tang _tang = new Tang();
-            //                _tang = _tang.getById(idobject);
-            //                _tang.hinhanhs.Add(_hinhanh);
-            //                _tang.update();
-            //                break;
-            //        }
-
-            //        GalleryItem it = new GalleryItem();
-            //        it.Image = (Image)_hinhanh.IMAGE;
-            //        it.Tag = _hinhanh.id;
-            //        galleryControlImage.Gallery.Groups[0].Items.Add(it);
-            //    }
-            //    splashScreenManager.CloseWaitForm();
-            //}
             if (open.ShowDialog() == DialogResult.OK)
             {
                 splashScreenManager.ShowWaitForm();
@@ -215,7 +152,24 @@ namespace QuanLyTaiSanGUI
                     HinhAnh _hinhanh = new HinhAnh(db);
                     _hinhanh.FILE_NAME = file_name;
                     _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
-                    _hinhanh.MAX_SIZE = 0;
+                    switch (comboBoxEdit1.SelectedIndex)
+                    {
+                        case 0:
+                            _hinhanh.MAX_SIZE = GIUNGUYEN;
+                            break;
+                        case 1:
+                            _hinhanh.MAX_SIZE = LON;
+                            break;
+                        case 2:
+                            _hinhanh.MAX_SIZE = VUA;
+                            break;
+                        case 3:
+                            _hinhanh.MAX_SIZE = NHO;
+                            break;
+                        default:
+                            _hinhanh.MAX_SIZE = GIUNGUYEN;
+                            break;
+                    }
                     _hinhanh.upload();
                     //_hinhanh.add();
                     hinhs.Add(_hinhanh);
@@ -232,29 +186,56 @@ namespace QuanLyTaiSanGUI
         private void galleryControlImage_Gallery_ItemClick(object sender, GalleryItemClickEventArgs e)
         {
             currItem = e.Item;
-            //currId = Int32.Parse(e.Item.Tag.ToString());
-            _name = e.Item.Tag.ToString();
+             _name = e.Item.Tag.ToString();
             btnImageDelete.Enabled = true;
-            //_index = e.Item.;
         }
 
         private void DeleteImage()
         {
-            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            List<GalleryItem> listItemDelete = galleryControlImage.Gallery.GetCheckedItems();
+            String message = "";
+            if (listItemDelete.Count > 1)
+                message = "Bạn có chắc là xóa hết ảnh không?";
+            else
             {
-                if (currItem != null)
+                if (listItemDelete.Count == 1)
+                    message = "Bạn có chắc muốn xóa ảnh này?";
+                else
                 {
-                    try
+                    XtraMessageBox.Show("Chưa chọn ảnh!");
+                    return;
+                }
+            }
+            if (MessageBox.Show(message, "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
                     {
-                        HinhAnh h = hinhs.Where(c => c.path == _name).FirstOrDefault();
+		foreach (GalleryItem gallery in listItemDelete)
+
+                     {
+
+                       // HinhAnh hinhanhDelete = new HinhAnh(db);
+
+                        //hinhanhDelete = hinhanhDelete.getById(Int32.Parse(gallery.Tag.ToString()));
+
+                        //hinhs.Remove(hinhanhDelete);
+
+                        //hinhanhDelete.delete();
+
+                        //galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
+
+		HinhAnh h = hinhs.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
                         hinhs.Remove(h);
                         //h.delete();
-                        galleryControlImage.Gallery.Groups[0].Items.Remove(currItem);
+                        galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
+                     }
+
                     }
-                    catch (Exception)
-                    {
-                        XtraMessageBox.Show("Có lỗi trong khi xóa!");
-                    }
+                }
+                catch (Exception)
+                {
+                    XtraMessageBox.Show("Có lỗi trong khi xóa!");
                 }
             }
         }
@@ -273,11 +254,6 @@ namespace QuanLyTaiSanGUI
         {
             foreach (GalleryItem item in galleryControlImage.Gallery.Groups[0].Items)
                 galleryControlImage.Gallery.SetItemCheck(item, true, false);
-        }
-
-        private void galleryControlImage_KeyDown(object sender, KeyEventArgs e)
-        {
-            DeleteImage();
         }
 
         public List<HinhAnh> getHinhAnhs()

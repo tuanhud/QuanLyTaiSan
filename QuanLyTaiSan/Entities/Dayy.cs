@@ -24,16 +24,12 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        protected override void init()
-        {
-            base.init();
-            vitris = new List<ViTri>();
-            tangs = new List<Tang>();
-        }
+        
+        
+		#region Dinh nghia
         /*
          * FK
          */
-		#region Dinh nghia
         [Required]
         public virtual CoSo coso { get; set; }
         public virtual ICollection<Tang> tangs { get; set; }
@@ -41,6 +37,12 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 		
 		#region Override method
+        protected override void init()
+        {
+            base.init();
+            vitris = new List<ViTri>();
+            tangs = new List<Tang>();
+        }
         public override int update()
         {
             //have to load all [Required] FK object first

@@ -24,6 +24,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
+        #region Dinh nghia
         /*
          * Relative path
          */
@@ -40,6 +41,7 @@ namespace QuanLyTaiSan.Entities
         public virtual NhanVienPT nhanvienpt { get; set; }
         public virtual Phong phong { get; set; }
         public virtual ThietBi thietbi { get; set; }
+        #endregion
 
         #region Nghiệp vụ
         [NotMapped]
@@ -151,10 +153,11 @@ namespace QuanLyTaiSan.Entities
             if (max_size > 0)
             {
                 tmp = ImageHelper.ScaleBySize(image,max_size);
+                image = tmp;//for sure
             }
             //tao duong dan upload len FTP
-            String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+
-			StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";
+            String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+"_"+
+			StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";//Always JPEG
             String abs_path
                 =
                 Global.remote_setting.ftp_host.HOST_NAME +
@@ -170,6 +173,7 @@ namespace QuanLyTaiSan.Entities
             this.path = relative_path;
             //return this.add();
             //finish
+            image = tmp;
             return 1;
         }
         #endregion
@@ -180,7 +184,16 @@ namespace QuanLyTaiSan.Entities
             base.init();
             cache_path = "ImageCache";
         }
-		
+        public override int delete()
+        {
+            //Xoa hinh tren FTP Server neu ton tai
+            String abs_path =
+                Global.remote_setting.ftp_host.HOST_NAME +
+                Global.remote_setting.ftp_host.PRE_PATH +
+                this.path;
+            FTPHelper.deleteFile(abs_path, Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD);
+            return base.delete();
+        }
         public override int update()
         {
             //have to load all [Required] FK object first

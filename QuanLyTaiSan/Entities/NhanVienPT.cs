@@ -21,11 +21,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        protected override void init()
-        {
-            base.init();
-            phongs = new List<Phong>();
-        }
+        #region Dinh nghia
         public String subId { get; set; }
         [Required]
         public String hoten { get; set; }
@@ -43,5 +39,14 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual ICollection<Phong> phongs { get; set; }
         public virtual ICollection<HinhAnh> hinhanhs { get; set; }
+        #endregion
+        #region Override method
+        protected override void init()
+        {
+            base.init();
+            phongs = new List<Phong>();
+            hinhanhs = new List<HinhAnh>();
+        }
+        #endregion
     }
 }

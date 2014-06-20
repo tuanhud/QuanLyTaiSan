@@ -72,7 +72,6 @@
             this.galleryControlImage.Size = new System.Drawing.Size(585, 228);
             this.galleryControlImage.TabIndex = 0;
             this.galleryControlImage.Text = "Gallery Control Image";
-            this.galleryControlImage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.galleryControlImage_KeyDown);
             // 
             // galleryControlClient1
             // 
@@ -126,10 +125,16 @@
             // 
             // comboBoxEdit1
             // 
+            this.comboBoxEdit1.EditValue = "Giữ nguyên";
             this.comboBoxEdit1.Location = new System.Drawing.Point(2, 234);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "Giữ nguyên",
+            "Lớn (800px)",
+            "Vừa (400px)",
+            "Nhỏ(100px)"});
             this.comboBoxEdit1.Size = new System.Drawing.Size(100, 20);
             this.comboBoxEdit1.TabIndex = 5;
             // 

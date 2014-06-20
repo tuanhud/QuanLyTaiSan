@@ -21,10 +21,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        
+        #region Dinh nghia
         [Required]
         public DateTime ngay { get; set; }
         [Required]
         public String mota { get; set; } //vd: { "USER":quocdunginfo, "ACTION":DELETE_USER, "PARAM": nguoibixoa }
+        #endregion
     }
 }
