@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhAnh));
             this.galleryControlImage = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
@@ -57,9 +57,9 @@
             this.galleryControlImage.Gallery.AllowHoverImages = true;
             this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
             this.galleryControlImage.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
-            galleryItemGroup3.Caption = "Danh sách hình ảnh";
+            galleryItemGroup1.Caption = "Danh sách hình ảnh";
             this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup3});
+            galleryItemGroup1});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
             this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.Multiple;
@@ -88,7 +88,7 @@
             this.btnImageCancel.Name = "btnImageCancel";
             this.btnImageCancel.Size = new System.Drawing.Size(75, 23);
             this.btnImageCancel.TabIndex = 1;
-            this.btnImageCancel.Text = "Hủy bỏ";
+            this.btnImageCancel.Text = "Đóng";
             this.btnImageCancel.Click += new System.EventHandler(this.btnImageCancel_Click);
             // 
             // btnImageSelectAll
@@ -162,7 +162,7 @@
         private DevExpress.XtraEditors.SimpleButton btnImageUpload;
         private DevExpress.XtraBars.Ribbon.GalleryControl galleryControlImage;
         private DevExpress.XtraEditors.SimpleButton btnImageDelete;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }

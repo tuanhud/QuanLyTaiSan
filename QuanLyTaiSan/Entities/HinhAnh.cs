@@ -213,6 +213,28 @@ namespace QuanLyTaiSan.Entities
             return base.update();
         }
 
+        public HinhAnh getByName(String _name)
+        {
+            try
+            {
+                initDb();
+                HinhAnh obj = db.Set<HinhAnh>().Where(c => c.file_name == _name).FirstOrDefault();
+                if (obj != null)
+                {
+                    obj.DB = db;
+                }
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
+
         #endregion
     }
 }

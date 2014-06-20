@@ -27,6 +27,7 @@ namespace QuanLyTaiSanGUI
         String loaiobject;
         int currId = 0;
         int _index = -1;
+        String _name = "";
         GalleryItem currItem = new GalleryItem();
         List<HinhAnh> listhinhanhs = new List<HinhAnh>();
         List<HinhAnh> hinhs = null;
@@ -74,12 +75,10 @@ namespace QuanLyTaiSanGUI
             {
                 foreach (HinhAnh _hinhanh in _hinhanhs)
                 {
-                    HinhAnh _img = new HinhAnh();
-                    _img.path = _hinhanh.path;
-                    Image img = _img.getImage();
+                    Image img = _hinhanh.getImage();
                     GalleryItem it = new GalleryItem();
                     it.Image = img;
-                    it.Tag = _hinhanh.id;
+                    it.Tag = _hinhanh.path;
                     galleryControlImage.Gallery.Groups[0].Items.Add(it);
                 }
             }
@@ -218,12 +217,12 @@ namespace QuanLyTaiSanGUI
                     _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(filePath);
                     _hinhanh.MAX_SIZE = 0;
                     _hinhanh.upload();
-                    _hinhanh.add();
+                    //_hinhanh.add();
                     hinhs.Add(_hinhanh);
 
                     GalleryItem it = new GalleryItem();
                     it.Image = (Image)_hinhanh.IMAGE;
-                    it.Tag = _hinhanh.id;
+                    it.Tag = _hinhanh.path;
                     galleryControlImage.Gallery.Groups[0].Items.Add(it);
                 }
                 splashScreenManager.CloseWaitForm();
@@ -233,7 +232,8 @@ namespace QuanLyTaiSanGUI
         private void galleryControlImage_Gallery_ItemClick(object sender, GalleryItemClickEventArgs e)
         {
             currItem = e.Item;
-            currId = Int32.Parse(e.Item.Tag.ToString());
+            //currId = Int32.Parse(e.Item.Tag.ToString());
+            _name = e.Item.Tag.ToString();
             btnImageDelete.Enabled = true;
             //_index = e.Item.;
         }
@@ -246,10 +246,9 @@ namespace QuanLyTaiSanGUI
                 {
                     try
                     {
-                        HinhAnh _hinhanh = new HinhAnh(db);
-                        _hinhanh = _hinhanh.getById(currId);
-                        hinhs.Remove(_hinhanh);
-                        _hinhanh.delete();
+                        HinhAnh h = hinhs.Where(c => c.path == _name).FirstOrDefault();
+                        hinhs.Remove(h);
+                        //h.delete();
                         galleryControlImage.Gallery.Groups[0].Items.Remove(currItem);
                     }
                     catch (Exception)
