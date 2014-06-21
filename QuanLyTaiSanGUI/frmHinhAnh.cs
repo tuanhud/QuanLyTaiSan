@@ -134,10 +134,6 @@ namespace QuanLyTaiSanGUI
                             break;
                     }
                     _hinhanh.upload();
-<<<<<<< HEAD
-                    
-=======
->>>>>>> origin/master
                     //_hinhanh.add();
                     hinhs.Add(_hinhanh);
 
@@ -178,16 +174,6 @@ namespace QuanLyTaiSanGUI
                 try
                 {
                     {
-<<<<<<< HEAD
-                        //HinhAnh hinhanhDelete = new HinhAnh(db);
-                        //hinhanhDelete = hinhanhDelete.getById(Int32.Parse(gallery.Tag.ToString()));
-                        //hinhs.Remove(hinhanhDelete);
-                        //hinhanhDelete.delete();
-                        //galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
-                        int index = galleryControlImage.Gallery.Groups[0].Items.IndexOf(gallery);
-                        hinhs.RemoveAt(index);
-                        galleryControlImage.Gallery.Groups[0].Items.RemoveAt(index);
-=======
 		                foreach (GalleryItem gallery in listItemDelete)
                         {
 		                    HinhAnh h = hinhs.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
@@ -195,7 +181,6 @@ namespace QuanLyTaiSanGUI
                             //h.delete();
                             galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
                         }
->>>>>>> origin/master
                     }
                 }
                 catch (Exception)
