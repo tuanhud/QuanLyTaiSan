@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -45,9 +48,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
-            this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -116,8 +117,22 @@
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
             // 
+            // colid_c
+            // 
+            this.colid_c.Caption = "id_c";
+            this.colid_c.FieldName = "id_c";
+            this.colid_c.Name = "colid_c";
+            // 
+            // colid_p
+            // 
+            this.colid_p.Caption = "id_p";
+            this.colid_p.FieldName = "id_p";
+            this.colid_p.Name = "colid_p";
+            // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.btnImage);
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOK);
@@ -138,7 +153,7 @@
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(184, 24);
+            this.btnImage.Location = new System.Drawing.Point(185, 26);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 10;
@@ -148,7 +163,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(140, 315);
+            this.btnHuy.Location = new System.Drawing.Point(141, 317);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 9;
@@ -158,7 +173,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(58, 316);
+            this.btnOK.Location = new System.Drawing.Point(59, 318);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -171,14 +186,14 @@
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Location = new System.Drawing.Point(58, 177);
+            this.panelControl1.Location = new System.Drawing.Point(59, 182);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(259, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 206);
+            this.labelControl4.Location = new System.Drawing.Point(7, 211);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(31, 13);
             this.labelControl4.TabIndex = 6;
@@ -186,7 +201,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(4, 180);
+            this.labelControl3.Location = new System.Drawing.Point(5, 185);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(33, 13);
             this.labelControl3.TabIndex = 5;
@@ -194,7 +209,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(6, 154);
+            this.labelControl2.Location = new System.Drawing.Point(7, 159);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(22, 13);
             this.labelControl2.TabIndex = 4;
@@ -202,7 +217,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 25);
+            this.labelControl1.Location = new System.Drawing.Point(7, 30);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 3;
@@ -211,7 +226,7 @@
             // imageSlider1
             // 
             this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(58, 25);
+            this.imageSlider1.Location = new System.Drawing.Point(59, 27);
             this.imageSlider1.Name = "imageSlider1";
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 2;
@@ -221,7 +236,7 @@
             // 
             this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(58, 151);
+            this.txtTen.Location = new System.Drawing.Point(59, 156);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(259, 20);
@@ -231,7 +246,7 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(58, 203);
+            this.txtMoTa.Location = new System.Drawing.Point(59, 208);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(259, 106);
@@ -244,18 +259,6 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // colid_c
-            // 
-            this.colid_c.Caption = "id_c";
-            this.colid_c.FieldName = "id_c";
-            this.colid_c.Name = "colid_c";
-            // 
-            // colid_p
-            // 
-            this.colid_p.Caption = "id_p";
-            this.colid_p.FieldName = "id_p";
-            this.colid_p.Name = "colid_p";
-            // 
             // ucQuanLyCoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,7 +266,6 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "ucQuanLyCoSo";
             this.Size = new System.Drawing.Size(715, 471);
-            this.Load += new System.EventHandler(this.ucQuanLyCoSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).EndInit();

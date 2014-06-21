@@ -23,7 +23,7 @@ namespace QuanLyTaiSanGUI.MyUC
         int idDay = -1;
         bool haveTang = true;
         bool haveDay = true;
-        public ucTreeViTri(List<TreeDataFilter> _list, bool _haveDay, bool _haveTang)
+        public ucTreeViTri(List<ViTriFilter> _list, bool _haveDay, bool _haveTang)
         {
             InitializeComponent();
             haveTang = _haveTang;
@@ -94,7 +94,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
-        public void reLoad(List<TreeDataFilter> _list)
+        public void reLoad(List<ViTriFilter> _list)
         {
             treeListViTri.BeginUnboundLoad();
             treeListViTri.DataSource = null;

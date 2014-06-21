@@ -34,7 +34,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            List<TreeDataFilter> list = new TreeDataFilter().getAllHavePhong();
+            List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
             _ucTreePhong = new ucTreePhong(list);
         }
 
@@ -152,22 +152,22 @@ namespace QuanLyTaiSanGUI
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "edit");
-            _ucQuanLyCoSo.beforeEdit(typeof(CoSo).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở");
+            _ucQuanLyCoSo.setData(typeof(CoSo).Name);
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở", true);
         }
 
         private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "edit");
-            _ucQuanLyCoSo.beforeEdit(typeof(Dayy).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy");
+            _ucQuanLyCoSo.setData(typeof(Dayy).Name);
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy", true);
         }
 
         private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "edit");
-            _ucQuanLyCoSo.beforeEdit(typeof(Tang).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng");
+            _ucQuanLyCoSo.setData(typeof(Tang).Name);
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng", true);
         }
 
         private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
@@ -189,21 +189,21 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "add");
             _ucQuanLyCoSo.beforeAdd(typeof(CoSo).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở", true);
         }
 
         private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "add");
             _ucQuanLyCoSo.beforeAdd(typeof(Dayy).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy", true);
         }
 
         private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "add");
             _ucQuanLyCoSo.beforeAdd(typeof(Tang).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng", true);
 
         }
 

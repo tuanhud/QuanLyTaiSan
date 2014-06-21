@@ -18,7 +18,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucTreeViTri _ucTreeViTri;
         Phong objPhong;
         String type = "";
-        public ucChiTietPhong(List<TreeDataFilter> _list)
+        public ucChiTietPhong(List<ViTriFilter> _list)
         {
             InitializeComponent();
             _ucTreeViTri = new ucTreeViTri(_list, true, true);

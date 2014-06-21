@@ -17,13 +17,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucChiTietPhong _ucChiTietPhong;
         ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
-        List<TreeDataFilter> listCoSos = new List<TreeDataFilter>();
+        List<ViTriFilter> listCoSos = new List<ViTriFilter>();
         Phong objPhong;
         CTThietBi objChiTietTB;
         public ucQuanLyPhong()
         {
             InitializeComponent();
-            listCoSos = new TreeDataFilter().getAll().ToList();
+            listCoSos = new ViTriFilter().getAll().ToList();
             _ucChiTietPhong = new ucChiTietPhong(listCoSos);
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
