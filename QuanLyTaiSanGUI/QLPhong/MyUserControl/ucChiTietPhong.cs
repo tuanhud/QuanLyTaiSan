@@ -18,15 +18,20 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucTreeViTri _ucTreeViTri;
         Phong objPhong;
         String type = "";
-        public ucChiTietPhong(List<TreeDataFilter> _list)
+        public ucChiTietPhong(List<ViTriFilter> _list)
         {
             InitializeComponent();
+            loadData(_list);
+        }
+
+        private void loadData(List<ViTriFilter> _list)
+        {
             _ucTreeViTri = new ucTreeViTri(_list, true, true);
             _ucTreeViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeViTri);
         }
 
-        public void LoadData(Phong _phong)
+        public void setData(Phong _phong)
         {
             try
             {

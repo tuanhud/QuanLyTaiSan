@@ -20,9 +20,14 @@ namespace QuanLyTaiSanGUI.MyUC
         int cosoid = -1;
         int dayid = -1;
         int tangid = -1;
-        public ucTreePhong(List<TreeDataFilter> _list)
+        public ucTreePhong(List<ViTriFilter> _list)
         {
             InitializeComponent();
+            loadData(_list);
+        }
+
+        private void loadData(List<ViTriFilter> _list)
+        {
             treeListPhong.BeginUnboundLoad();
             treeListPhong.DataSource = _list;
             treeListPhong.EndUnboundLoad();

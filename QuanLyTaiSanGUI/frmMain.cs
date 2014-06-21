@@ -18,10 +18,12 @@ using QuanLyTaiSanGUI.QLLoaiThietBi;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
+using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : RibbonForm
     {
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
@@ -32,18 +34,22 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            List<TreeDataFilter> list = new TreeDataFilter().getAllHavePhong();
-            _ucTreePhong = new ucTreePhong(list);
+            loadData();
         }
 
-        private void RibbonForm1_Load(object sender, EventArgs e)
+        private void loadData()
         {
+            List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
+            _ucTreePhong = new ucTreePhong(list);
+
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucQuanLyPhong);
             _ucTreePhong.Dock = DockStyle.Fill;
             _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
-            //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
-            
+        }
+
+        private void RibbonForm1_Load(object sender, EventArgs e)
+        {
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -80,7 +86,7 @@ namespace QuanLyTaiSanGUI
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
                 rbnPagePhanQuyen_Home.Visible = true;
-                //ribbon.SelectedPage = rbnPageLoaiTB_Home;
+                ribbon.SelectedPage = rbnPagePhanQuyen_Home;
                 _ucPhanQuyen.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucPhanQuyen);
@@ -105,6 +111,7 @@ namespace QuanLyTaiSanGUI
             rbnPageViTri_Home.Visible = false;
             rbnPageNhanVien_Home.Visible = false;
             rbnPageLoaiTB_Home.Visible = false;
+            rbnPagePhanQuyen_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
@@ -149,22 +156,22 @@ namespace QuanLyTaiSanGUI
         private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "edit");
-            _ucQuanLyCoSo.beforeEdit(typeof(CoSo).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở");
+            _ucQuanLyCoSo.setData(typeof(CoSo).Name);
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở", true);
         }
 
         private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "edit");
-            _ucQuanLyCoSo.beforeEdit(typeof(Dayy).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy");
+            _ucQuanLyCoSo.setData(typeof(Dayy).Name);
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy", true);
         }
 
         private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "edit");
-            _ucQuanLyCoSo.beforeEdit(typeof(Tang).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng");
+            _ucQuanLyCoSo.setData(typeof(Tang).Name);
+            _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng", true);
         }
 
         private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
@@ -186,21 +193,21 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "add");
             _ucQuanLyCoSo.beforeAdd(typeof(CoSo).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở", true);
         }
 
         private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "add");
             _ucQuanLyCoSo.beforeAdd(typeof(Dayy).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy", true);
         }
 
         private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "add");
             _ucQuanLyCoSo.beforeAdd(typeof(Tang).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng");
+            _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng", true);
 
         }
 
@@ -230,7 +237,7 @@ namespace QuanLyTaiSanGUI
         {
             if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
             {
-                _ucQuanLyPhong.loadData(phongid, cosoid, dayid, tangid);
+                _ucQuanLyPhong.setData(phongid, cosoid, dayid, tangid);
             }
         }
 

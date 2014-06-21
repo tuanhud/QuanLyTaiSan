@@ -21,15 +21,15 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
-            TreeDataFilter t = new TreeDataFilter();
-            List<TreeDataFilter> l = t.getAllHavePhong();
+            ViTriFilter t = new ViTriFilter();
+            List<ViTriFilter> l = t.getAllHavePhong();
             treeList1.DataSource = l;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            TreeDataFilter t = new TreeDataFilter();
-            List<TreeDataFilter> l = t.getAllHavePhong();
+            ViTriFilter t = new ViTriFilter();
+            List<ViTriFilter> l = t.getAllHavePhong();
             treeList1.DataSource = l;
         }
     }
