@@ -77,6 +77,24 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
+
+        public List<ViTriFilter> getAllPhongNotNhanVien(int _idnhanvien)
+        {
+            //OurDBContext db = new OurDBContext();
+            List<ViTriFilter> re =
+                (from c in db.PHONGS
+                 where (c.nhanvienpt == null || c.nhanvienpt.id == _idnhanvien)
+                 select new ViTriFilter
+                 {
+                     id = c.id,
+                     ten = c.ten,
+                     loai = typeof(Phong).Name,
+                     id_c = typeof(Phong).Name + c.id,
+                     id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.day != null ? typeof(CoSo).Name + c.vitri.coso.id : "")))
+                 }).ToList();
+            return re;
+        }
+
         public override List<ViTriFilter> getAll()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).ToList();
@@ -90,6 +108,11 @@ namespace QuanLyTaiSan.DataFilter
         public List<ViTriFilter> getAllHaveDay()
         {
             return getAllCoSo().Concat(getAllDay()).ToList();
+        }
+
+        public List<ViTriFilter> getAllHavePhongNotNhanVien(int _idnhanvien)
+        {
+            return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhongNotNhanVien(_idnhanvien)).ToList();
         }
         #endregion
     }

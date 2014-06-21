@@ -31,10 +31,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void loadData()
         {
-            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhong();
+            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(1);
             _ucTreePhongHaveCheck.loadData(listVT);
-            splitContainerControl1.Panel1.Controls.Clear();
-            splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+            NhanVienPTs = new NhanVienPT().getAll();
+            gridControlNhanVien.DataSource = NhanVienPTs;
+            //splitContainerControl1.Panel1.Controls.Clear();
+            //splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
         }
 
         private void gridViewNhanVien_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -168,7 +170,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 txtMa.Text = objNhanVienPT.subId;
                 txtTen.Text = objNhanVienPT.hoten;
                 txtSodt.Text = objNhanVienPT.sodienthoai;
-                checkedListBoxControl1.DataSource = objNhanVienPT.phongs;
+                listBoxNhanVien.DataSource = objNhanVienPT.phongs;
             }
         }
 
