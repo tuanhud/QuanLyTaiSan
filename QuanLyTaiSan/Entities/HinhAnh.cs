@@ -180,6 +180,18 @@ namespace QuanLyTaiSan.Entities
                  }).ToList();
             return re;
 		}
+
+        /// <summary>
+        /// Lay tat ca nhung hinh dang su dung, dung getall binh thuong thi se co anh ma tat ca khoa ngoai NULL
+        /// </summary>
+        public List<HinhAnh> getAllHinhAnhDangDung()
+        {
+            //MyDB db = new MyDB();
+            List<HinhAnh> re = db.HINHANHS.Where(c => (c.coso.id != null) || (c.day.id != null) || (c.tang.id != null)
+                 || (c.phong.id != null) || (c.thietbi.id != null) || (c.nhanvienpt.id != null)).ToList().GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
+            return re;
+        }
+
         /// <summary>
         /// Set IMAGE (Bitmap), MAX_SIZE (pixel), FILE_NAME (Tên File nguyên thủy), FK Object(COSO hay PHONG hay ...) truoc
         /// </summary>
@@ -194,8 +206,9 @@ namespace QuanLyTaiSan.Entities
                 image = tmp;//for sure
             }
             //tao duong dan upload len FTP
-            String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+"_"+
-			StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";//Always JPEG
+            //String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+"_"+
+            //StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";//Always JPEG
+            String relative_path = StringHelper.CoDauThanhKhongDau(file_name) + ".JPEG";
             String abs_path
                 =
                 Global.remote_setting.ftp_host.HOST_NAME +

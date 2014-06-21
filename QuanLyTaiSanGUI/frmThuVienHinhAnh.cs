@@ -21,32 +21,55 @@ namespace QuanLyTaiSanGUI
 {
     public partial class frmThuVienHinhAnh : Form
     {
+        List<HinhAnh> HinhAnhs = null;
+        List<HinhAnh> HinhAnhChons = null;
         
-        List<HinhAnh> listhinhanhs = new List<HinhAnh>();
         public frmThuVienHinhAnh()
         {
             InitializeComponent();
+            HinhAnhs = new HinhAnh().getAllHinhAnhDangDung();
             LoadHinhAnh();
         }
+
         private void LoadHinhAnh()
         {
-            HinhAnh _hinhanhs = new HinhAnh();
-            listhinhanhs = _hinhanhs.getAll();
             try
             {
-                foreach (HinhAnh _hinhanh in listhinhanhs)
+                galleryControlImage.Gallery.Groups[0].Items.Clear();
+                foreach (HinhAnh hinhanh in HinhAnhs)
                 {
-                    Image img =  _hinhanh.IMAGE;
-                    GalleryItem it = new GalleryItem();
-                    it.Image = img;
-                    it.Tag = _hinhanh.path;
-                    galleryControlImage.Gallery.Groups[0].Items.Add(it);
+                    GalleryItem item = new GalleryItem();
+                    item.Image = (Image)hinhanh.IMAGE;
+                    item.Tag = hinhanh.path;
+                    galleryControlImage.Gallery.Groups[0].Items.Add(item);
                 }
             }
             catch (Exception)
             {
                 XtraMessageBox.Show("Có lỗi trong khi load ảnh!");
             }
+        }
+
+        private void btnImageCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            List<GalleryItem> listitemselected = galleryControlImage.Gallery.GetCheckedItems();
+            HinhAnhChons = new List<HinhAnh>();
+            foreach (GalleryItem gallery in listitemselected)
+            {
+                HinhAnh hinhanh = new HinhAnh();
+                hinhanh.path = gallery.Tag.ToString();
+                HinhAnhChons.Add(hinhanh);
+            }
+        }
+
+        public List<HinhAnh> getHinhAnhChons()
+        {
+            return HinhAnhChons;
         }
     }
 }

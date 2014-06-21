@@ -212,11 +212,17 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKe\ucThongKe.cs">
+    <Compile Include="ThongKe\ChiTiet\ucThongKeChiTiet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ThongKe\ucThongKe.Designer.cs">
-      <DependentUpon>ucThongKe.cs</DependentUpon>
+    <Compile Include="ThongKe\ChiTiet\ucThongKeChiTiet.Designer.cs">
+      <DependentUpon>ucThongKeChiTiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ucThongKeTongQuat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucThongKeTongQuat.Designer.cs">
+      <DependentUpon>ucThongKeTongQuat.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
@@ -305,8 +311,11 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKe\ucThongKe.resx">
-      <DependentUpon>ucThongKe.cs</DependentUpon>
+    <EmbeddedResource Include="ThongKe\ChiTiet\ucThongKeChiTiet.resx">
+      <DependentUpon>ucThongKeChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucThongKeTongQuat.resx">
+      <DependentUpon>ucThongKeTongQuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>

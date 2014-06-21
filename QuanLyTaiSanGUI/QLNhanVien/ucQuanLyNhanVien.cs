@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
-            loadData();
+            //loadData();
         }
 
         private void loadData()

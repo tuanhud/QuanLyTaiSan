@@ -104,12 +104,12 @@ namespace QuanLyTaiSanGUI
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupThongKe))
             {
-                rbnPageThongKe_Home.Visible = true;
-                ribbon.SelectedPage = rbnPageThongKe_Home;
-                _ucThongKe.Dock = DockStyle.Fill;
-                panelControl1.Controls.Clear();
-                panelControl1.Controls.Add(_ucThongKe);
-                _ucTreeThongKe.Parent = navBarGroupThongKe.ControlContainer;
+                //rbnPageThongKe_Home.Visible = true;
+                //ribbon.SelectedPage = rbnPageThongKe_Home;
+                //_ucThongKe.Dock = DockStyle.Fill;
+                //panelControl1.Controls.Clear();
+                //panelControl1.Controls.Add(_ucThongKe);
+                //_ucTreeThongKe.Parent = navBarGroupThongKe.ControlContainer;
                 //_ucTreePhong.treeListPhong.CollapseAll();
                 //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
