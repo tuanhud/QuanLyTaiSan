@@ -13,11 +13,11 @@ namespace QuanLyTaiSan.DataFilter
         {
 
         }
-        public QuanTriVienFilter(MyDB db)
-            : base(db)
-        {
+        //public QuanTriVienFilter(OurDBContext db)
+        //    : base(db)
+        //{
 
-        }
+        //}
 
         public int id { get; set; }
         public String username { get; set; }
@@ -32,9 +32,9 @@ namespace QuanLyTaiSan.DataFilter
         public Group group { get; set; }
 
         #region Nghiệp vụ
-        public List<QuanTriVienFilter> getAll()
+        public override List<QuanTriVienFilter> getAll()
         {
-            InitDb();
+            //InitDb();
             List<QuanTriVienFilter> re =
                 (from e in db.QUANTRIVIENS
                 join t in db.GROUPS on e.@group equals t

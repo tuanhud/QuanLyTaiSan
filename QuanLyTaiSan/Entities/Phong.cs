@@ -16,16 +16,13 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public Phong(MyDB db)
-            : base(db)
-        {
+        //public Phong(MyDB db)
+        //    : base(db)
+        //{
             
-        }
-        protected override void init()
-        {
-            base.init();
-            this.ctthietbis = new List<CTThietBi>();
-        }
+        //}
+        
+        #region Dinh nghia
         /*
          * FK
          */
@@ -33,5 +30,25 @@ namespace QuanLyTaiSan.Entities
         public virtual ViTri vitri { get; set; }
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual NhanVienPT nhanvienpt { get; set; }
+        #endregion
+        #region Override
+        protected override void init()
+        {
+            base.init();
+            this.ctthietbis = new List<CTThietBi>();
+        }
+        public override int update()
+        {
+            if (vitri != null)
+            {
+                vitri.trigger();
+            }
+            if (nhanvienpt != null)
+            {
+                nhanvienpt.trigger();
+            }
+            return base.update();
+        }
+        #endregion
     }
 }

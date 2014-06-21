@@ -20,12 +20,12 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        public TinhTrang(MyDB db)
-            : base(db)
-        {
-            
-        }
-        
+        //public TinhTrang(MyDB db)
+        //    : base(db)
+        //{
+
+        //}
+        #region Dinh nghia
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String key { get; set; } //vd:huhong
@@ -34,5 +34,6 @@ namespace QuanLyTaiSan.Entities
         [StringLength(255)]
         public String value { get; set; } //vd: Hư hỏng
         public String mota { get; set; }
+        #endregion
     }
 }

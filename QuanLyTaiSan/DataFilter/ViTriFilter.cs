@@ -7,7 +7,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class ViTriFilter
+    public class ViTriFilter : FilterAbstract<ViTriFilter>
     {
         public int id { get; set; }
         public String ten { get; set; }
@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.DataFilter
         #region Nghiệp vụ
         public List<ViTriFilter> getAllCoSo()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<ViTriFilter> re =
                 (from c in db.COSOS
                  select new ViTriFilter
@@ -33,7 +33,7 @@ namespace QuanLyTaiSan.DataFilter
         }
         public List<ViTriFilter> getAllDay()
         {
-            MyDB db = new MyDB();
+			//OurDBContext db = new OurDBContext();
             List<ViTriFilter> re =
                 (from c in db.DAYYS
                  select new ViTriFilter
@@ -48,7 +48,7 @@ namespace QuanLyTaiSan.DataFilter
         }
         public List<ViTriFilter> getAllTang()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<ViTriFilter> re =
                 (from c in db.TANGS
                  select new ViTriFilter
@@ -64,7 +64,7 @@ namespace QuanLyTaiSan.DataFilter
 
         public List<ViTriFilter> getAllPhong()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<ViTriFilter> re =
                 (from c in db.PHONGS
                  select new ViTriFilter
@@ -77,8 +77,7 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-
-        public List<ViTriFilter> getAll()
+        public override List<ViTriFilter> getAll()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).ToList();
         }

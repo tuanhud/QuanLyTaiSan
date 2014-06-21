@@ -19,11 +19,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        public LogThietBi(MyDB db)
-            : base(db)
-        {
+        //public LogThietBi(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
         #region Dinh nghia
         [Index("nothing", 1, IsUnique = true)]
         public DateTime ngay { get; set; }

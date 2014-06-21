@@ -16,11 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public Group(MyDB db)
-            : base(db)
-        {
+        //public Group(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
         #region Dinh nghia
 
         [StringLength(100)]

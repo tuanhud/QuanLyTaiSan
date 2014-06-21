@@ -13,7 +13,7 @@ namespace QuanLyTaiSan.Libraries
         /// Lấy ngày hiện tại từ SQL Server bằng hàm GETDATE() </summary>
         public static DateTime getNow()
         {
-            MyDB db=new MyDB();
+            OurDBContext db=new OurDBContext();
             try
             {
                 //sql server time

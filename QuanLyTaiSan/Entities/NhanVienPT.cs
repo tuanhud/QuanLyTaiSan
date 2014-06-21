@@ -16,11 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public NhanVienPT(MyDB db)
-            : base(db)
-        {
+        //public NhanVienPT(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
         #region Dinh nghia
         public String subId { get; set; }
         [Required]

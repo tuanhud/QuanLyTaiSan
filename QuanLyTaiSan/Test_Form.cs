@@ -27,7 +27,7 @@ namespace QuanLyTaiSan
              **/
             
         }
-        private MyDB db;
+        private OurDBContext db;
         private void button_refresh_Click(object sender, EventArgs e)
         {
             int prev_index = listBox1.SelectedIndex;
@@ -40,7 +40,7 @@ namespace QuanLyTaiSan
             try
             {
 
-                db = new MyDB();
+                db = new OurDBContext();
                 listBox1.DisplayMember = "key";
                 List<Permission> objs = db.PERMISSIONS.ToList();
                 listBox1.DataSource = objs;
@@ -71,7 +71,7 @@ namespace QuanLyTaiSan
         {
             try
             {
-                db = new MyDB();
+                db = new OurDBContext();
                 Permission obj = new Permission { key = textBox_permissionName.Text, mota = textBox_permissionName.Text + "_mota" };
                 db.PERMISSIONS.Add(obj);
                 db.SaveChanges();
@@ -99,7 +99,7 @@ namespace QuanLyTaiSan
         {
             try{
 
-                db = new MyDB();
+                db = new OurDBContext();
                 editting_obj.key = textBox_permissionNameEdit.Text;
 
                 db.PERMISSIONS.Attach(editting_obj);
@@ -123,7 +123,7 @@ namespace QuanLyTaiSan
             //editting obj may be removed somewhere else
             try
             {
-                db = new MyDB();
+                db = new OurDBContext();
                 db.PERMISSIONS.Attach(editting_obj);//must be done before remove
                 db.PERMISSIONS.Remove(editting_obj);
                 db.SaveChanges();
@@ -148,7 +148,7 @@ namespace QuanLyTaiSan
 
         private void button_generateSample_Click(object sender, EventArgs e)
         {
-            db = new MyDB();
+            db = new OurDBContext();
             for (int i = 0; i < 10; i++)
             {
                 Permission obj = new Permission { key = "ex_" + i, mota = "nothing_" + i };

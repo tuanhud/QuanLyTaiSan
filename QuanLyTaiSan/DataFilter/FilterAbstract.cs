@@ -13,31 +13,29 @@ namespace QuanLyTaiSan.DataFilter
         {
 
         }
-        public FilterAbstract(MyDB db)
-        {
-            this.db = db;
-        }
-        protected MyDB db = null;
-        public MyDB DB
+        //public FilterAbstract(OurDBContext db)
+        //{
+        //    this.db = db;
+        //}
+        protected OurDBContext db
         {
             get
             {
-                InitDb();
-                return db;
-            }
-            set
-            {
-                db = value;
+                return DBInstance.DB;
             }
         }
+        //public OurDBContext DB
+        //{
+            
+        //}
 
-        protected void InitDb()
-        {
-            if (db == null)
-            {
-                db = new MyDB();
-            }
-        }
+        //protected void InitDb()
+        //{
+        //    if (db == null)
+        //    {
+        //        db = new OurDBContext();
+        //    }
+        //}
         /// <summary>
         /// Bắt buộc lớp con phải Override mới có dữ liệu
         /// </summary>

@@ -18,8 +18,9 @@ namespace QuanLyTaiSanGUI
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
-            //Application.Run(new frmMain());
+            //Application.Run(new frmThuVienHinhAnh());
             Application.Run(new frmMain());
+            //Application.Run(new frmMain());
         }
     }
 }
