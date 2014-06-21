@@ -144,7 +144,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objDay.ten = txtTen.Text;
                     objDay.mota = txtMoTa.Text;
                     objDay.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri = _ucTreeViTri.getViTri(objDay.DB);
+                    ViTri _vitri = _ucTreeViTri.getViTri();
                     objDay.coso = _vitri.coso;
                     if (objDay.update() != -1)
                     {
@@ -159,7 +159,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTang.ten = txtTen.Text;
                     objTang.mota = txtMoTa.Text;
                     objTang.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri(objTang.DB);
+                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri();
                     objTang.day = _vitri2.day;
                     if (objTang.update() != -1)
                     {
@@ -251,7 +251,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objDayNew.mota = txtMoTa.Text;
                     objDayNew.date_create = ServerTimeHelper.getNow();
                     objDayNew.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri = _ucTreeViTri.getViTri(objDayNew.DB);
+                    ViTri _vitri = _ucTreeViTri.getViTri();
                     objDayNew.coso = _vitri.coso;
                     if (objDayNew.add() != -1)
                     {
@@ -267,7 +267,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTangNew.mota = txtMoTa.Text;
                     objTangNew.date_create = ServerTimeHelper.getNow();
                     objTangNew.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri(objTangNew.DB);
+                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri();
                     objTangNew.day = _vitri2.day;
                     if (objTangNew.add() != -1)
                     {
@@ -414,7 +414,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         //frm = new frmHinhAnh(objCoSo.id, objCoSo.hinhanhs.ToList(), typeof(CoSo).Name);
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(objCoSo.hinhanhs.ToList(), objCoSo.DB);
+                            frm = new frmHinhAnh(objCoSo.hinhanhs.ToList());
                             frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
                             frm.ShowDialog();
                             if (frm.DialogResult == DialogResult.OK)
@@ -424,7 +424,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         {
                             if (objCoSoNew.hinhanhs == null)
                             objCoSoNew.hinhanhs = new List<HinhAnh>();
-                            frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList(), objCoSoNew.DB);
+                            frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList());
                             frm.Text = "Quản lý hình ảnh cơ sở mới";
                             frm.ShowDialog();
                             if(frm.DialogResult == DialogResult.OK)
@@ -434,7 +434,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     case "Dayy":
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(objDay.hinhanhs.ToList(), objDay.DB);
+                            frm = new frmHinhAnh(objDay.hinhanhs.ToList());
                             frm.Text = "Quản lý hình ảnh " + objDay.ten;
                             frm.ShowDialog();
                             if (frm.DialogResult == DialogResult.OK)
@@ -444,7 +444,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         {
                             if (objDayNew.hinhanhs == null)
                             objDayNew.hinhanhs = new List<HinhAnh>();
-                            frm = new frmHinhAnh(objDayNew.hinhanhs.ToList(), objDayNew.DB);
+                            frm = new frmHinhAnh(objDayNew.hinhanhs.ToList());
                             frm.Text = "Quản lý hình ảnh dãy mới";
                             frm.ShowDialog();
                             if (frm.DialogResult == DialogResult.OK)
@@ -458,7 +458,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     case "Tang":
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(objTang.hinhanhs.ToList(), objTang.DB);
+                            frm = new frmHinhAnh(objTang.hinhanhs.ToList());
                             frm.Text = "Quản lý hình ảnh " + objTang.ten;
                             frm.ShowDialog();
                             if (frm.DialogResult == DialogResult.OK)
@@ -468,7 +468,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         {
                             if (objTangNew.hinhanhs == null)
                             objTangNew.hinhanhs = new List<HinhAnh>();
-                            frm = new frmHinhAnh(objTangNew.hinhanhs.ToList(), objTangNew.DB);
+                            frm = new frmHinhAnh(objTangNew.hinhanhs.ToList());
                             frm.Text = "Quản lý hình ảnh tầng mới";
                             frm.ShowDialog();
                             if (frm.DialogResult == DialogResult.OK)
