@@ -14,8 +14,6 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeThongKe : UserControl
     {
-        ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
-        ucThongKeChiTiet _ucThongKeChiTiet = new ucThongKeChiTiet();
         String type = "";
         public ucTreeThongKe()
         {
