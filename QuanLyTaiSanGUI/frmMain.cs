@@ -34,18 +34,22 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
-            _ucTreePhong = new ucTreePhong(list);
+            loadData();
         }
 
-        private void RibbonForm1_Load(object sender, EventArgs e)
+        private void loadData()
         {
+            List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
+            _ucTreePhong = new ucTreePhong(list);
+
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucQuanLyPhong);
             _ucTreePhong.Dock = DockStyle.Fill;
             _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
-            //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
-            
+        }
+
+        private void RibbonForm1_Load(object sender, EventArgs e)
+        {
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -233,7 +237,7 @@ namespace QuanLyTaiSanGUI
         {
             if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
             {
-                _ucQuanLyPhong.loadData(phongid, cosoid, dayid, tangid);
+                _ucQuanLyPhong.setData(phongid, cosoid, dayid, tangid);
             }
         }
 

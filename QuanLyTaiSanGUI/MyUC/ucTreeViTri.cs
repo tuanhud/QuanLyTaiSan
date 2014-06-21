@@ -26,6 +26,11 @@ namespace QuanLyTaiSanGUI.MyUC
         public ucTreeViTri(List<ViTriFilter> _list, bool _haveDay, bool _haveTang)
         {
             InitializeComponent();
+            loadData(_list, _haveDay, _haveTang);
+        }
+
+        private void loadData(List<ViTriFilter> _list, bool _haveDay, bool _haveTang)
+        {
             haveTang = _haveTang;
             haveDay = _haveDay;
             treeListViTri.BeginUnboundLoad();

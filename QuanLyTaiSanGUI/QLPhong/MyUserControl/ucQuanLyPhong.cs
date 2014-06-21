@@ -23,6 +23,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucQuanLyPhong()
         {
             InitializeComponent();
+            loadData();
+        }
+
+        private void loadData()
+        {
             listCoSos = new ViTriFilter().getAll().ToList();
             _ucChiTietPhong = new ucChiTietPhong(listCoSos);
             _ucChiTietPhong.Dock = DockStyle.Fill;
@@ -31,9 +36,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
             ThietBiFilter obj = new ThietBiFilter();
             listThietBis = obj.getAllBy4Id(-1, -1, -1, -1);
             gridControlThietBi.DataSource = listThietBis;
-
         }
-        public void loadData(int _phongid, int _cosoid, int _dayid, int _tangid)
+
+        public void setData(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
             listThietBis = new ThietBiFilter().getAllBy4Id(_phongid, _cosoid, _dayid, _tangid);
             gridControlThietBi.DataSource = null;
@@ -61,7 +66,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     obj = obj.getById(Convert.ToInt32(gridViewThietBi.GetRowCellValue(gridViewThietBi.GetDataRowHandleByGroupRowHandle(row), colphong_id)));
                     _ucChiTietPhong.Dock = DockStyle.Fill;
                     AddControl(_ucChiTietPhong);
-                    _ucChiTietPhong.LoadData(obj);
+                    _ucChiTietPhong.setData(obj);
                     enableGroupPhong(typeof(Phong).Name);
                     objPhong = obj;
                 }
@@ -71,7 +76,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     AddControl(_ucChiTietThietBi);
                     CTThietBi objct = new CTThietBi();
                     objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
-                    _ucChiTietThietBi.LoadData(objct);
+                    _ucChiTietThietBi.setData(objct);
                     enableGroupPhong(typeof(ThietBi).Name);
                     objChiTietTB = objct;
                 }
@@ -86,7 +91,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             Phong obj = new Phong().getById(_id);
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
-            _ucChiTietPhong.LoadData(obj);
+            _ucChiTietPhong.setData(obj);
             if (_id == -1)
                 enableGroupPhong("other");
             else
