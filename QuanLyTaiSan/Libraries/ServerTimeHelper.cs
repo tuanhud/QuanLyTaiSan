@@ -10,24 +10,18 @@ namespace QuanLyTaiSan.Libraries
     public class ServerTimeHelper
     {
         /// <summary>
-        /// Lấy ngày hiện tại từ SQL Server bằng hàm GETDATE() </summary>
+        /// Lấy ngày hiện tại từ SQL Server bằng hàm GETDATE(), nếu lỗi thì return DateTime.Now </summary>
         public static DateTime getNow()
         {
-            OurDBContext db=new OurDBContext();
             try
             {
                 //sql server time
-                DateTime current = db.Database.SqlQuery<DateTime>("select GETDATE()").FirstOrDefault();
-                db.Dispose();
+                DateTime current = DBInstance.DB.Database.SqlQuery<DateTime>("select GETDATE()").FirstOrDefault();
                 return current;
             }
             catch (Exception ex)
             {
                 return DateTime.Now;
-            }
-            finally
-            {
-                db.Dispose();
             }
         }
     }

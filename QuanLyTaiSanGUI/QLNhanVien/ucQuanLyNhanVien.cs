@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors;
+using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
+using QuanLyTaiSanGUI.MyUC;
 
 namespace QuanLyTaiSanGUI.QLNhanVien
 {
     public partial class ucQuanLyNhanVien : UserControl
     {
+        ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
         List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
         NhanVienPT objNhanVienPT = new NhanVienPT();
         String function = "";
@@ -23,7 +26,17 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
-            reLoad();
+            loadData();
+        }
+
+        private void loadData()
+        {
+            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(1);
+            _ucTreePhongHaveCheck.loadData(listVT);
+            NhanVienPTs = new NhanVienPT().getAll();
+            gridControlNhanVien.DataSource = NhanVienPTs;
+            //splitContainerControl1.Panel1.Controls.Clear();
+            //splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
         }
 
         private void gridViewNhanVien_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -157,7 +170,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 txtMa.Text = objNhanVienPT.subId;
                 txtTen.Text = objNhanVienPT.hoten;
                 txtSodt.Text = objNhanVienPT.sodienthoai;
-                checkedListBoxControl1.DataSource = objNhanVienPT.phongs;
+                listBoxNhanVien.DataSource = objNhanVienPT.phongs;
             }
         }
 

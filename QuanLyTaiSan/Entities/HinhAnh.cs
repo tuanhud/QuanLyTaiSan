@@ -28,8 +28,6 @@ namespace QuanLyTaiSan.Entities
         /*
          * Relative path
          */
-        [Required]
-        [Index(IsUnique = true)]
         [StringLength(255)]
         public String path { get; set; }
         /*
@@ -44,6 +42,15 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
+        /// <summary>
+        /// Lay tat ca cac hinh cua tat ca CoSo
+        /// </summary>
+        /// <returns></returns>
+        public List<HinhAnh> getAllCoSo()
+        {
+            List<HinhAnh> list = db.HINHANHS.Where(c => c.coso != null).ToList();
+            return list;
+        }
         /// <summary>
         /// Kiem tra hinh da co tren may Local hay chua
         /// </summary>

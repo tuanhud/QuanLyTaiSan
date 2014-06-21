@@ -17,7 +17,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucChiTietPhong _ucChiTietPhong;
         ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
-        List<ViTriFilter> listCoSos = new List<ViTriFilter>();
+        List<ViTriFilter> listVitris = new List<ViTriFilter>();
         Phong objPhong;
         CTThietBi objChiTietTB;
         public ucQuanLyPhong()
@@ -28,8 +28,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void loadData()
         {
-            listCoSos = new ViTriFilter().getAll().ToList();
-            _ucChiTietPhong = new ucChiTietPhong(listCoSos);
+            listVitris = new ViTriFilter().getAll().ToList();
+            _ucChiTietPhong = new ucChiTietPhong(listVitris);
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
             //listThietBis = new ThietBi().getAll().ToList();
@@ -57,33 +57,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            try
-            {
-                int row = gridViewThietBi.FocusedRowHandle;
-                if (row < 0 && row > -9999)
-                {
-                    Phong obj = new Phong();
-                    obj = obj.getById(Convert.ToInt32(gridViewThietBi.GetRowCellValue(gridViewThietBi.GetDataRowHandleByGroupRowHandle(row), colphong_id)));
-                    _ucChiTietPhong.Dock = DockStyle.Fill;
-                    AddControl(_ucChiTietPhong);
-                    _ucChiTietPhong.setData(obj);
-                    enableGroupPhong(typeof(Phong).Name);
-                    objPhong = obj;
-                }
-                else if (row >= 0)
-                {
-                    _ucChiTietThietBi.Dock = DockStyle.Fill;
-                    AddControl(_ucChiTietThietBi);
-                    CTThietBi objct = new CTThietBi();
-                    objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
-                    _ucChiTietThietBi.setData(objct);
-                    enableGroupPhong(typeof(ThietBi).Name);
-                    objChiTietTB = objct;
-                }
-            }
-            catch (Exception ex)
-            { }
-            finally { }
+
         }
 
         private void showDetailPhong(int _id)
@@ -100,10 +74,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objPhong = obj;
             }
 
-        }
-
-        private void gridView1_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
-        {
         }
 
         private void enableGroupPhong(String _type)
@@ -123,6 +93,37 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public CTThietBi getCTThietBi()
         {
             return objChiTietTB;
+        }
+
+        private void gridViewThietBi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                int row = gridViewThietBi.FocusedRowHandle;
+                if (row < 0 && row > -9999)
+                {
+                    //Phong obj = new Phong();
+                    //obj = obj.getById(Convert.ToInt32(gridViewThietBi.GetRowCellValue(gridViewThietBi.GetDataRowHandleByGroupRowHandle(row), colphong_id)));
+                    //_ucChiTietPhong.Dock = DockStyle.Fill;
+                    //AddControl(_ucChiTietPhong);
+                    //_ucChiTietPhong.setData(obj);
+                    //enableGroupPhong(typeof(Phong).Name);
+                    //objPhong = obj;
+                }
+                else if (row >= 0)
+                {
+                    _ucChiTietThietBi.Dock = DockStyle.Fill;
+                    AddControl(_ucChiTietThietBi);
+                    CTThietBi objct = new CTThietBi();
+                    objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
+                    _ucChiTietThietBi.setData(objct);
+                    enableGroupPhong(typeof(ThietBi).Name);
+                    objChiTietTB = objct;
+                }
+            }
+            catch (Exception ex)
+            { }
+            finally { }
         }
     }
 }

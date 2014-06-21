@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -42,6 +43,7 @@
     <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -82,11 +84,29 @@
     <Compile Include="frmThuVienHinhAnh.Designer.cs">
       <DependentUpon>frmThuVienHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\frmGeneralSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frmGeneralSetting.Designer.cs">
+      <DependentUpon>frmGeneralSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HeThong\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\ucFTPSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucFTPSetting.Designer.cs">
+      <DependentUpon>ucFTPSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\ucHTTPSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucHTTPSetting.Designer.cs">
+      <DependentUpon>ucHTTPSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="HeThong\ucPhanQuyen.cs">
       <SubType>UserControl</SubType>
@@ -101,11 +121,11 @@
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\FindNode.cs" />
-    <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
+    <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUC\ucFreeHaveCheckBox.Designer.cs">
-      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
+    <Compile Include="MyUC\ucTreePhongHaveCheck.Designer.cs">
+      <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\ucTreeLoaiTB.cs">
       <SubType>UserControl</SubType>
@@ -118,6 +138,12 @@
     </Compile>
     <Compile Include="MyUC\ucTreePhong.Designer.cs">
       <DependentUpon>ucTreePhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUC\ucTreeThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucTreeThongKe.Designer.cs">
+      <DependentUpon>ucTreeThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\ucTreeViTri.cs">
       <SubType>UserControl</SubType>
@@ -166,12 +192,6 @@
     <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.Designer.cs">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUC\ucComboBoxPhong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MyUC\ucComboBoxPhong.Designer.cs">
-      <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +211,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ucThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucThongKe.Designer.cs">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
@@ -213,8 +239,17 @@
     <EmbeddedResource Include="frmThuVienHinhAnh.resx">
       <DependentUpon>frmThuVienHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\frmGeneralSetting.resx">
+      <DependentUpon>frmGeneralSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucFTPSetting.resx">
+      <DependentUpon>ucFTPSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucHTTPSetting.resx">
+      <DependentUpon>ucHTTPSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
@@ -222,14 +257,17 @@
     <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
-      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
+    <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
+      <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhong.resx">
       <DependentUpon>ucTreePhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUC\ucTreeThongKe.resx">
+      <DependentUpon>ucTreeThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeViTri.resx">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
@@ -252,9 +290,6 @@
     <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietThietBi.resx">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucComboBoxPhong.resx">
-      <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucThongKe.resx">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>

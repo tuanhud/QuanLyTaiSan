@@ -15,28 +15,33 @@ using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
+using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.LookAndFeel;
+using QuanLyTaiSanGUI.ThongKe;
+using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 
 namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : RibbonForm
     {
+        ucThongKeChiTiet _ucThongKeChiTiet = new ucThongKeChiTiet();
+        ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucTreePhong _ucTreePhong;
+        ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         public frmMain()
         {
             InitializeComponent();
-            BarAndDockingController defCont = BarAndDockingController.Default;
-            defCont.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin;
-            defCont.LookAndFeel.SkinName = "Money Twins";
+            UserLookAndFeel.Default.SetSkinStyle("Visual Studio 2013 Light");
             loadData();
         }
 
@@ -49,6 +54,7 @@ namespace QuanLyTaiSanGUI
             panelControl1.Controls.Add(_ucQuanLyPhong);
             _ucTreePhong.Dock = DockStyle.Fill;
             _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+            _ucTreePhong.type = "QLPhong";
         }
 
         private void RibbonForm1_Load(object sender, EventArgs e)
@@ -96,6 +102,17 @@ namespace QuanLyTaiSanGUI
                 //_ucTreePhong.treeListPhong.CollapseAll();
                 //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
+            else if (navBarControl1.ActiveGroup.Equals(navBarGroupThongKe))
+            {
+                rbnPageThongKe_Home.Visible = true;
+                ribbon.SelectedPage = rbnPageThongKe_Home;
+                _ucThongKe.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                panelControl1.Controls.Add(_ucThongKe);
+                _ucTreeThongKe.Parent = navBarGroupThongKe.ControlContainer;
+                //_ucTreePhong.treeListPhong.CollapseAll();
+                //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+            }
             else
             {
                 rbnPagePhong_Home.Visible = true;
@@ -105,6 +122,7 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyPhong);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+                _ucTreePhong.type = "QLPhong";
             }
         }
 
@@ -115,6 +133,7 @@ namespace QuanLyTaiSanGUI
             rbnPageNhanVien_Home.Visible = false;
             rbnPageLoaiTB_Home.Visible = false;
             rbnPagePhanQuyen_Home.Visible = false;
+            rbnPageThongKe_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
@@ -241,6 +260,25 @@ namespace QuanLyTaiSanGUI
             if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
             {
                 _ucQuanLyPhong.setData(phongid, cosoid, dayid, tangid);
+            }
+        }
+
+        public void treeThongKeFocusedNodeChanged(string type)
+        {
+            switch (type)
+            {
+                case "Thống kê tổng quát":
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucThongKeTongQuat);
+                    break;
+                case "Thống kê chi tiết":
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucThongKeChiTiet);
+                    break;
+                case "Thống kê động":
+                    panelControl1.Controls.Clear();
+                    //panelControl1.Controls.Add(_ucThongKeTongQuat);
+                    break;
             }
         }
 

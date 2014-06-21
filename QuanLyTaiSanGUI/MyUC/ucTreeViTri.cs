@@ -21,18 +21,19 @@ namespace QuanLyTaiSanGUI.MyUC
         int idTang = -1;
         int idCoSo = -1;
         int idDay = -1;
-        bool haveTang = true;
-        bool haveDay = true;
-        public ucTreeViTri(List<ViTriFilter> _list, bool _haveDay, bool _haveTang)
+        int idPhong = -1;
+        bool chonDay = false;
+        bool chonPhong = false;
+        public ucTreeViTri(List<ViTriFilter> _list, bool _chonDay, bool _chonPhong)
         {
             InitializeComponent();
-            loadData(_list, _haveDay, _haveTang);
+            loadData(_list, _chonDay, _chonPhong);
         }
 
-        private void loadData(List<ViTriFilter> _list, bool _haveDay, bool _haveTang)
+        private void loadData(List<ViTriFilter> _list, bool _chonDay, bool _chonPhong)
         {
-            haveTang = _haveTang;
-            haveDay = _haveDay;
+            chonDay = _chonDay;
+            chonPhong = _chonPhong;
             treeListViTri.BeginUnboundLoad();
             treeListViTri.DataSource = _list;
             treeListViTri.EndUnboundLoad();
@@ -44,27 +45,42 @@ namespace QuanLyTaiSanGUI.MyUC
             {
                 if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                 {
-                    if (!haveDay || haveTang)
+                    if (!chonDay && !chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
                         idCoSo = Convert.ToInt32(e.Node.GetValue(0));
                         idTang = -1;
                         idDay = -1;
+                        popupContainerEdit1.ClosePopup();
                     }
                 }
                 else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
                 {
-                    popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                    idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                    idDay = Convert.ToInt32(e.Node.GetValue(0));
-                    idTang = -1;
+                    if (!chonPhong)
+                    {
+                        popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
+                        idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                        idDay = Convert.ToInt32(e.Node.GetValue(0));
+                        idTang = -1;
+                        popupContainerEdit1.ClosePopup();
+                    }
                 }
                 else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
                 {
-                    popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                    idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                    idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                    idTang = Convert.ToInt32(e.Node.GetValue(0));
+                    if (!chonPhong)
+                    {
+                        popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
+                        idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                        idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                        idTang = Convert.ToInt32(e.Node.GetValue(0));
+                        popupContainerEdit1.ClosePopup();
+                    }
+                }
+                else if (e.Node.GetValue(2).ToString().Equals(typeof(Phong).Name))
+                {
+                    popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
+                    idPhong = Convert.ToInt32(e.Node.GetValue(0));
+                    popupContainerEdit1.ClosePopup();
                 }
             }
             catch (Exception ex)
@@ -72,17 +88,7 @@ namespace QuanLyTaiSanGUI.MyUC
             finally
             { }
         }
-        public ViTri getViTri(OurDBContext db)
-        {
-            ViTri objViTri = new ViTri();
-            CoSo objCoSo = new CoSo().getById(idCoSo);
-            Dayy objDay = new Dayy().getById(idDay);
-            Tang objTang = new Tang().getById(idTang);
-            objViTri.coso = objCoSo;
-            objViTri.day = objDay;
-            objViTri.tang = objTang;
-            return objViTri;
-        }
+
         public ViTri getViTri()
         {
             ViTri objViTri = new ViTri();
@@ -93,6 +99,20 @@ namespace QuanLyTaiSanGUI.MyUC
             objViTri.day = objDay;
             objViTri.tang = objTang;
             return objViTri;
+        }
+
+        public Phong getPhong()
+        {
+            Phong obj = new Phong().getById(idPhong);
+            return obj;
+        }
+
+        public void setPhong(Phong obj)
+        {
+            FindNode findNode = null;
+            findNode = new FindNode(obj.id, typeof(Phong).Name);
+            treeListViTri.NodesIterator.DoOperation(findNode);
+            treeListViTri.FocusedNode = findNode.Node;
         }
         
         public void setReadOnly(bool b)
