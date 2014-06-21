@@ -405,75 +405,73 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-            frmHinhAnh frm = null;
-            switch (type)
-            {
-                case "CoSo":
-                    if (function.Equals("edit"))
-                    {
-                        frm = new frmHinhAnh(objCoSo.hinhanhs.ToList());
-                        frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                            objCoSo.hinhanhs = frm.getHinhAnhs();
-                    }
-                    else
-                    {
-                        if (objCoSoNew.hinhanhs == null)
-                            objCoSoNew.hinhanhs = new List<HinhAnh>();
-                        frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList());
-                        frm.Text = "Quản lý hình ảnh cơ sở mới";
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                            objCoSoNew.hinhanhs = frm.getHinhAnhs();
-                    }
-                    break;
-                case "Dayy":
-                    if (function.Equals("edit"))
-                    {
-                        frm = new frmHinhAnh(objDay.hinhanhs.ToList());
-                        frm.Text = "Quản lý hình ảnh " + objDay.ten;
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                            objDay.hinhanhs = frm.getHinhAnhs();
-                    }
-                    else
-                    {
-                        if (objDayNew.hinhanhs == null)
-                            objDayNew.hinhanhs = new List<HinhAnh>();
-                        frm = new frmHinhAnh(objDayNew.hinhanhs.ToList());
-                        frm.Text = "Quản lý hình ảnh dãy mới";
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                            objDayNew.hinhanhs = frm.getHinhAnhs();
-                    }
-                    break;
-                case "Tang":
-                    if (function.Equals("edit"))
-                    {
-                        frm = new frmHinhAnh(objTang.hinhanhs.ToList());
-                        frm.Text = "Quản lý hình ảnh " + objTang.ten;
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                            objTang.hinhanhs = frm.getHinhAnhs();
-                    }
-                    else
-                    {
-                        if (objTangNew.hinhanhs == null)
-                            objTangNew.hinhanhs = new List<HinhAnh>();
-                        frm = new frmHinhAnh(objTangNew.hinhanhs.ToList());
-                        frm.Text = "Quản lý hình ảnh tầng mới";
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                            objTangNew.hinhanhs = frm.getHinhAnhs();
-                    }
-                    break;
-            }
-
-            reloadImage();
             try
             {
-                
+                frmHinhAnh frm = null;
+                switch (type)
+                {
+                    case "CoSo":
+                        if (function.Equals("edit"))
+                        {
+                            frm = new frmHinhAnh(objCoSo.hinhanhs.ToList());
+                            frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
+                            frm.ShowDialog();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objCoSo.hinhanhs = frm.getHinhAnhs();
+                        }
+                        else
+                        {
+                            if (objCoSoNew.hinhanhs == null)
+                                objCoSoNew.hinhanhs = new List<HinhAnh>();
+                            frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList());
+                            frm.Text = "Quản lý hình ảnh cơ sở mới";
+                            frm.ShowDialog();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objCoSoNew.hinhanhs = frm.getHinhAnhs();
+                        }
+                        break;
+                    case "Dayy":
+                        if (function.Equals("edit"))
+                        {
+                            frm = new frmHinhAnh(objDay.hinhanhs.ToList());
+                            frm.Text = "Quản lý hình ảnh " + objDay.ten;
+                            frm.ShowDialog();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objDay.hinhanhs = frm.getHinhAnhs();
+                        }
+                        else
+                        {
+                            if (objDayNew.hinhanhs == null)
+                                objDayNew.hinhanhs = new List<HinhAnh>();
+                            frm = new frmHinhAnh(objDayNew.hinhanhs.ToList());
+                            frm.Text = "Quản lý hình ảnh dãy mới";
+                            frm.ShowDialog();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objDayNew.hinhanhs = frm.getHinhAnhs();
+                        }
+                        break;
+                    case "Tang":
+                        if (function.Equals("edit"))
+                        {
+                            frm = new frmHinhAnh(objTang.hinhanhs.ToList());
+                            frm.Text = "Quản lý hình ảnh " + objTang.ten;
+                            frm.ShowDialog();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objTang.hinhanhs = frm.getHinhAnhs();
+                        }
+                        else
+                        {
+                            if (objTangNew.hinhanhs == null)
+                                objTangNew.hinhanhs = new List<HinhAnh>();
+                            frm = new frmHinhAnh(objTangNew.hinhanhs.ToList());
+                            frm.Text = "Quản lý hình ảnh tầng mới";
+                            frm.ShowDialog();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objTangNew.hinhanhs = frm.getHinhAnhs();
+                        }
+                        break;
+                }
+                reloadImage();
             }
             catch (Exception ex)
             { }
