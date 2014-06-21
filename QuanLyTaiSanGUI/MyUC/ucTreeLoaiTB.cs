@@ -65,11 +65,13 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
             popupContainerEdit1.Text = obj.ten;
+            popupContainerEdit1.ClosePopup();
         }
 
         public void setReadOnly(bool b)
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
+
     }
 }

@@ -66,6 +66,7 @@ namespace QuanLyTaiSanGUI.MyUC
                     idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
                     idTang = Convert.ToInt32(e.Node.GetValue(0));
                 }
+                popupContainerEdit1.ClosePopup();
             }
             catch (Exception ex)
             { }
