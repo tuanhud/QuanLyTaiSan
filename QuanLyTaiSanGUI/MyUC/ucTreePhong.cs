@@ -60,9 +60,9 @@ namespace QuanLyTaiSanGUI.MyUC
                             break;
                         case "Phong":
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
-                            tangid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            dayid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.ParentNode.GetValue(0));
+                            //tangid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            //dayid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                            //cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.ParentNode.GetValue(0));
                             break;
                     }
                     if (this.ParentForm != null)

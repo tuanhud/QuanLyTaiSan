@@ -14,6 +14,9 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeThongKe : UserControl
     {
+        ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
+        ucThongKeChiTiet _ucThongKeChiTiet = new ucThongKeChiTiet();
+        String type = "";
         public ucTreeThongKe()
         {
             InitializeComponent();
@@ -26,8 +29,11 @@ namespace QuanLyTaiSanGUI.MyUC
             // Create three columns.
             tl.BeginUpdate();
             tl.Columns.Add();
-            tl.Columns[0].Caption = "";
+            tl.Columns[0].Caption = "id";
             tl.Columns[0].VisibleIndex = 0;
+            tl.Columns.Add();
+            tl.Columns[1].Caption = "Thống kê";
+            tl.Columns[1].VisibleIndex = 1;
             tl.Columns.Add();
             tl.EndUpdate();
         }
@@ -53,7 +59,20 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void treeListThongKe_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
-            //MessageBox.Show(e.Node.GetValue(0).ToString());
+            try
+            {
+                type = e.Node.GetValue(0).ToString();
+                if (this.ParentForm != null)
+                {
+                    frmMain frm = this.ParentForm as frmMain;
+                    frm.treeThongKeFocusedNodeChanged(type);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
 

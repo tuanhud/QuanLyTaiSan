@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSanGUI.ThongKe
+namespace QuanLyTaiSanGUI.ThongKe.ChiTiet
 {
-    public partial class ucThongKe : UserControl
+    public partial class ucThongKeChiTiet : UserControl
     {
-        public ucThongKe()
+        public ucThongKeChiTiet()
         {
             InitializeComponent();
         }

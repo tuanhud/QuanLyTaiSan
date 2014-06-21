@@ -22,12 +22,15 @@ using QuanLyTaiSanGUI.HeThong;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.LookAndFeel;
+using QuanLyTaiSanGUI.ThongKe;
+using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 
 namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : RibbonForm
     {
-        ucThongKe _ucThongKe = new ucThongKe();
+        ucThongKeChiTiet _ucThongKeChiTiet = new ucThongKeChiTiet();
+        ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
@@ -257,6 +260,25 @@ namespace QuanLyTaiSanGUI
             if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
             {
                 _ucQuanLyPhong.setData(phongid, cosoid, dayid, tangid);
+            }
+        }
+
+        public void treeThongKeFocusedNodeChanged(string type)
+        {
+            switch (type)
+            {
+                case "Thống kê tổng quát":
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucThongKeTongQuat);
+                    break;
+                case "Thống kê chi tiết":
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucThongKeChiTiet);
+                    break;
+                case "Thống kê động":
+                    panelControl1.Controls.Clear();
+                    //panelControl1.Controls.Add(_ucThongKeTongQuat);
+                    break;
             }
         }
 
