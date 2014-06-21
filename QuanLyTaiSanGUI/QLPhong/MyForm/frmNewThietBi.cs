@@ -17,7 +17,7 @@ namespace QuanLyTaiSanGUI.MyForm
     public partial class frmNewThietBi : Form
     {
         ucTreeLoaiTB _ucTreeLoaiTB = null;
-        ucComboBoxPhong _ucComboBoxPhong = null;
+        ucTreeViTri _ucTreeViTri = null;
         public frmNewThietBi()
         {
             InitializeComponent();
@@ -28,12 +28,19 @@ namespace QuanLyTaiSanGUI.MyForm
         {
             List<LoaiThietBi> listTB = new LoaiThietBi().getAll();
             _ucTreeLoaiTB = new ucTreeLoaiTB(listTB);
+            _ucTreeLoaiTB.type = "add";
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelLoaiTB.Controls.Add(_ucTreeLoaiTB);
             List<PhongFilter> listPhong = new PhongFilter().getAll();
-            _ucComboBoxPhong = new ucComboBoxPhong(listPhong);
-            _ucComboBoxPhong.Dock = DockStyle.Fill;
-            panelPhong.Controls.Add(_ucComboBoxPhong);
+            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhong();
+            _ucTreeViTri = new ucTreeViTri(listVT, false, true);
+            _ucTreeViTri.Dock = DockStyle.Fill;
+            _ucTreeViTri.setReadOnly(false);
+            panelPhong.Controls.Add(_ucTreeViTri);
+            List<TinhTrang> listTR = new TinhTrang().getAll();
+            lookUpTinhTrang.Properties.DataSource = listTR;
+            if (listTR.Count > 0)
+                lookUpTinhTrang.EditValue = listTR.First().id;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -44,6 +51,11 @@ namespace QuanLyTaiSanGUI.MyForm
         private void btnHuy_Click(object sender, EventArgs e)
         {
             groupControl1.Visible = true;
+        }
+
+        public void LoaiTB_FocusedChanged(bool _loaiChung)
+        {
+            groupControl1.Visible = !_loaiChung;
         }
     }
 }

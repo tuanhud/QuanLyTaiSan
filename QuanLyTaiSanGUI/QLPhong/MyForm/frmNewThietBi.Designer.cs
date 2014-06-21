@@ -30,7 +30,6 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panelLoaiTB = new DevExpress.XtraEditors.PanelControl();
             this.panelPhong = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -54,10 +53,10 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
@@ -73,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -92,7 +92,7 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.comboBoxEdit1);
+            this.panelControl1.Controls.Add(this.lookUpTinhTrang);
             this.panelControl1.Controls.Add(this.panelLoaiTB);
             this.panelControl1.Controls.Add(this.panelPhong);
             this.panelControl1.Controls.Add(this.labelControl4);
@@ -105,15 +105,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(289, 118);
             this.panelControl1.TabIndex = 0;
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(78, 65);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(200, 20);
-            this.comboBoxEdit1.TabIndex = 6;
             // 
             // panelLoaiTB
             // 
@@ -199,6 +190,7 @@
             this.groupControl1.Size = new System.Drawing.Size(289, 292);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Thông tin chi tiết";
+            this.groupControl1.Visible = false;
             // 
             // dateEditLap
             // 
@@ -332,6 +324,19 @@
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // lookUpTinhTrang
+            // 
+            this.lookUpTinhTrang.Location = new System.Drawing.Point(78, 65);
+            this.lookUpTinhTrang.Name = "lookUpTinhTrang";
+            this.lookUpTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpTinhTrang.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("value", "Tình trạng")});
+            this.lookUpTinhTrang.Properties.DisplayMember = "value";
+            this.lookUpTinhTrang.Properties.ValueMember = "id";
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(200, 20);
+            this.lookUpTinhTrang.TabIndex = 8;
+            // 
             // frmNewThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,7 +353,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
@@ -365,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,7 +380,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.PanelControl panelLoaiTB;
         private DevExpress.XtraEditors.PanelControl panelPhong;
         private DevExpress.XtraEditors.LabelControl labelControl4;
@@ -398,6 +402,7 @@
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtMa;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
+        private DevExpress.XtraEditors.LookUpEdit lookUpTinhTrang;
 
 
 
