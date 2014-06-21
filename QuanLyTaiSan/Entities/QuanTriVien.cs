@@ -192,7 +192,14 @@ namespace QuanLyTaiSan.Entities
             //...
             return base.update();
         }
-
+        /// <summary>
+        /// Trước khi add phải gọi hashPassword trước
+        /// </summary>
+        /// <returns></returns>
+        public override int add()
+        {
+            return base.add();
+        }
         #endregion
     }
 }
