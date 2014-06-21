@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
@@ -60,6 +61,26 @@ namespace QuanLyTaiSanGUI.HeThong
                 ucFTPSetting_.Dock = DockStyle.Fill;
                 xtraScrollableControl_view.Controls.Add(ucHTTPSetting_);
             }
+        }
+
+        private void simpleButton_save_Click(object sender, EventArgs e)
+        {
+            Boolean re = true;
+            re=re&& ucFTPSetting_.save()>0;
+
+            if (re)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi!");
+            }
+        }
+
+        private void simpleButton_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
