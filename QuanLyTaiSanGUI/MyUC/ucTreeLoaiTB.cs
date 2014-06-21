@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList.Nodes;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeLoaiTB : UserControl
     {
         LoaiThietBi obj = new LoaiThietBi();
+        public String type = "";
         public ucTreeLoaiTB(List<LoaiThietBi> _list)
         {
             InitializeComponent();
@@ -65,11 +67,21 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
             popupContainerEdit1.Text = obj.ten;
+            popupContainerEdit1.ClosePopup();
+            if (type.Equals("add"))
+            {
+                if (this.ParentForm != null)
+                {
+                    frmNewThietBi frm = this.ParentForm as frmNewThietBi;
+                    frm.LoaiTB_FocusedChanged(obj.loaichung);
+                }
+            }
         }
 
         public void setReadOnly(bool b)
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
+
     }
 }

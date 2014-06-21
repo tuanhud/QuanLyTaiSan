@@ -21,7 +21,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
     {
         List<ViTriFilter> listTree = new List<ViTriFilter>();
         ucTreeViTri _ucTreeViTri;
-        ucTreeViTri _ucTreeViTriHaveDay;
+        ucTreeViTri _ucTreeViTriChonDay;
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
         Tang objTang = new Tang();
@@ -44,7 +44,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             listTree = new ViTriFilter().getAllCoSo();
             _ucTreeViTri = new ucTreeViTri(listTree, false, false);
             listTree = new ViTriFilter().getAllHaveDay();
-            _ucTreeViTriHaveDay = new ucTreeViTri(listTree, true, false);
+            _ucTreeViTriChonDay = new ucTreeViTri(listTree, true, false);
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
@@ -90,7 +90,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtTen.Properties.ReadOnly = false;
                 txtMoTa.Properties.ReadOnly = false;
                 _ucTreeViTri.setReadOnly(false);
-                _ucTreeViTriHaveDay.setReadOnly(false);
+                _ucTreeViTriChonDay.setReadOnly(false);
                 type = _type;
             }
             else
@@ -101,7 +101,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtTen.Properties.ReadOnly = true;
                 txtMoTa.Properties.ReadOnly = true;
                 _ucTreeViTri.setReadOnly(true);
-                _ucTreeViTriHaveDay.setReadOnly(true);
+                _ucTreeViTriChonDay.setReadOnly(true);
             }
         }
 
@@ -159,7 +159,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTang.ten = txtTen.Text;
                     objTang.mota = txtMoTa.Text;
                     objTang.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri();
+                    ViTri _vitri2 = _ucTreeViTriChonDay.getViTri();
                     objTang.day = _vitri2.day;
                     if (objTang.update() != -1)
                     {
@@ -208,7 +208,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 case "Tang":
                     objTangNew = new Tang();
                     panelControl1.Controls.Clear();
-                    _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
+                    _ucTreeViTriChonDay.Dock = DockStyle.Fill;
                     _vitri = new ViTri();
                     if (node.Equals(typeof(Dayy).Name))
                     {
@@ -220,8 +220,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         _vitri.coso = objTang.day.coso;
                         _vitri.day = objTang.day;
                     }
-                    _ucTreeViTriHaveDay.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTriHaveDay);
+                    _ucTreeViTriChonDay.setViTri(_vitri);
+                    panelControl1.Controls.Add(_ucTreeViTriChonDay);
                     break;
             }
         }
@@ -267,7 +267,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTangNew.mota = txtMoTa.Text;
                     objTangNew.date_create = ServerTimeHelper.getNow();
                     objTangNew.date_modified = ServerTimeHelper.getNow();
-                    ViTri _vitri2 = _ucTreeViTriHaveDay.getViTri();
+                    ViTri _vitri2 = _ucTreeViTriChonDay.getViTri();
                     objTangNew.day = _vitri2.day;
                     if (objTangNew.add() != -1)
                     {
@@ -330,7 +330,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             listTree = new ViTriFilter().getAllCoSo();
             _ucTreeViTri.reLoad(listTree);
             listTree = new ViTriFilter().getAllHaveDay();
-            _ucTreeViTriHaveDay.reLoad(listTree);
+            _ucTreeViTriChonDay.reLoad(listTree);
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -411,7 +411,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 switch (type)
                 {
                     case "CoSo":
-                        //frm = new frmHinhAnh(objCoSo.id, objCoSo.hinhanhs.ToList(), typeof(CoSo).Name);
                         if (function.Equals("edit"))
                         {
                             frm = new frmHinhAnh(objCoSo.hinhanhs.ToList());
@@ -450,10 +449,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             if (frm.DialogResult == DialogResult.OK)
                                 objDayNew.hinhanhs = frm.getHinhAnhs();
                         }
-                        //frm = new frmHinhAnh(objDay.id, objDay.hinhanhs.ToList(), typeof(Dayy).Name);
-                        //frm.Text = "Quản lý hình ảnh của dãy";
-                        //frm.ShowDialog();
-                        //objDay = new Dayy().getById(objDay.id);
                         break;
                     case "Tang":
                         if (function.Equals("edit"))
@@ -474,10 +469,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             if (frm.DialogResult == DialogResult.OK)
                                 objTangNew.hinhanhs = frm.getHinhAnhs();
                         }
-                        //frm = new frmHinhAnh(objTang.id, objTang.hinhanhs.ToList(), typeof(Tang).Name);
-                        //frm.Text = "Quản lý hình ảnh của tầng";
-                        //frm.ShowDialog();
-                        //objTang = new Tang().getById(objTang.id);
                         break;
                 }
 
@@ -530,14 +521,14 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     break;
                 case "Tang":
                     panelControl1.Controls.Clear();
-                    _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
-                    panelControl1.Controls.Add(_ucTreeViTriHaveDay);
+                    _ucTreeViTriChonDay.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(_ucTreeViTriChonDay);
                     txtTen.Text = objTang.ten;
                     txtMoTa.Text = objTang.mota;
                     objViTri = new ViTri();
                     objViTri.day = objTang.day;
                     objViTri.coso = objTang.day.coso;
-                    _ucTreeViTriHaveDay.setViTri(objViTri);
+                    _ucTreeViTriChonDay.setViTri(objViTri);
                     node = typeof(Tang).Name;
                     reloadImage();
                     if (this.ParentForm != null)

@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void loadData(List<ViTriFilter> _list)
         {
-            _ucTreeViTri = new ucTreeViTri(_list, true, true);
+            _ucTreeViTri = new ucTreeViTri(_list, false, false);
             _ucTreeViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeViTri);
         }

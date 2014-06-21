@@ -103,11 +103,11 @@
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\FindNode.cs" />
-    <Compile Include="MyUC\ucFreeHaveCheckBox.cs">
+    <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUC\ucFreeHaveCheckBox.Designer.cs">
-      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
+    <Compile Include="MyUC\ucTreePhongHaveCheck.Designer.cs">
+      <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\ucTreeLoaiTB.cs">
       <SubType>UserControl</SubType>
@@ -174,12 +174,6 @@
     <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.Designer.cs">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUC\ucComboBoxPhong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MyUC\ucComboBoxPhong.Designer.cs">
-      <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,8 +230,8 @@
     <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucFreeHaveCheckBox.resx">
-      <DependentUpon>ucFreeHaveCheckBox.cs</DependentUpon>
+    <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
+      <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
@@ -268,9 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietThietBi.resx">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucComboBoxPhong.resx">
-      <DependentUpon>ucComboBoxPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>

@@ -51,6 +51,7 @@ namespace QuanLyTaiSanGUI
             panelControl1.Controls.Add(_ucQuanLyPhong);
             _ucTreePhong.Dock = DockStyle.Fill;
             _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+            _ucTreePhong.type = "QLPhong";
         }
 
         private void RibbonForm1_Load(object sender, EventArgs e)
@@ -118,6 +119,7 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyPhong);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+                _ucTreePhong.type = "QLPhong";
             }
         }
 

@@ -17,7 +17,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucChiTietPhong _ucChiTietPhong;
         ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
-        List<ViTriFilter> listCoSos = new List<ViTriFilter>();
+        List<ViTriFilter> listVitris = new List<ViTriFilter>();
         Phong objPhong;
         CTThietBi objChiTietTB;
         public ucQuanLyPhong()
@@ -28,8 +28,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void loadData()
         {
-            listCoSos = new ViTriFilter().getAll().ToList();
-            _ucChiTietPhong = new ucChiTietPhong(listCoSos);
+            listVitris = new ViTriFilter().getAll().ToList();
+            _ucChiTietPhong = new ucChiTietPhong(listVitris);
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
             //listThietBis = new ThietBi().getAll().ToList();
@@ -56,6 +56,46 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+
+        }
+
+        private void showDetailPhong(int _id)
+        {
+            Phong obj = new Phong().getById(_id);
+            _ucChiTietPhong.Dock = DockStyle.Fill;
+            AddControl(_ucChiTietPhong);
+            _ucChiTietPhong.setData(obj);
+            if (_id == -1)
+                enableGroupPhong("other");
+            else
+            {
+                enableGroupPhong(typeof(Phong).Name);
+                objPhong = obj;
+            }
+
+        }
+
+        private void enableGroupPhong(String _type)
+        {
+            if (this.ParentForm != null)
+            {
+                frmMain frm = this.ParentForm as frmMain;
+                frm.enableGroupPhong(_type);
+            }
+        }
+
+        public Phong getPhong()
+        {
+            return objPhong;
+        }
+
+        public CTThietBi getCTThietBi()
+        {
+            return objChiTietTB;
+        }
+
+        private void gridViewThietBi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
             {
@@ -84,45 +124,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             catch (Exception ex)
             { }
             finally { }
-        }
-
-        private void showDetailPhong(int _id)
-        {
-            Phong obj = new Phong().getById(_id);
-            _ucChiTietPhong.Dock = DockStyle.Fill;
-            AddControl(_ucChiTietPhong);
-            _ucChiTietPhong.setData(obj);
-            if (_id == -1)
-                enableGroupPhong("other");
-            else
-            {
-                enableGroupPhong(typeof(Phong).Name);
-                objPhong = obj;
-            }
-
-        }
-
-        private void gridView1_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
-        {
-        }
-
-        private void enableGroupPhong(String _type)
-        {
-            if (this.ParentForm != null)
-            {
-                frmMain frm = this.ParentForm as frmMain;
-                frm.enableGroupPhong(_type);
-            }
-        }
-
-        public Phong getPhong()
-        {
-            return objPhong;
-        }
-
-        public CTThietBi getCTThietBi()
-        {
-            return objChiTietTB;
         }
     }
 }
