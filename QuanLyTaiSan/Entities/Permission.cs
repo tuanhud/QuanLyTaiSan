@@ -16,16 +16,17 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public Permission(MyDB db)
-            : base(db)
-        {
+        //public Permission(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
         protected override void init()
         {
             base.init();
             this.groups = new List<Group>();
         }
+        #region Dinh nghia
         [Required]
         [Index(IsUnique = true)]
         [StringLength(100)]
@@ -35,6 +36,8 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         public virtual ICollection<Group> groups { get; set; }
+        #endregion
+        #region Nghiep vu
         /*
          * Manual method
          */
@@ -53,5 +56,6 @@ namespace QuanLyTaiSan.Entities
             }
             return false;
         }
+        #endregion
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="DataFilter\ThietBiFilter.cs" />
     <Compile Include="DataFilter\PhongFilter.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
+    <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />
     <Compile Include="Entities\NhanVienPT.cs" />
     <Compile Include="Entities\Tang.cs" />
@@ -90,7 +91,7 @@
     <Compile Include="Entities\_CRUDInterface.cs" />
     <Compile Include="Entities\_EntityAbstract2.cs" />
     <Compile Include="Entities\CoSo.cs" />
-    <Compile Include="DbContext\MyDB.cs" />
+    <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Global\Global.cs" />
     <Compile Include="Libraries\FileHelper.cs" />

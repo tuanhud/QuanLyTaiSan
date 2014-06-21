@@ -20,9 +20,9 @@ namespace QuanLyTaiSan.Entities
         {
             init();//it will call TOP level first
         }
-        public _EntityAbstract1(MyDB db)
+        public _EntityAbstract1(OurDBContext db)
         {
-            this.db = db;
+            //this.db = db;
             init();//it will call TOP level first
         }
         #region Định nghĩa
@@ -40,39 +40,45 @@ namespace QuanLyTaiSan.Entities
          * Method of interface
          */
         [NotMapped]
-        protected MyDB db = null;
-        [NotMapped]
-        public MyDB DB
+        protected OurDBContext db
         {
             get
             {
-                initDb();
-                return db;
-            }
-            set
-            {
-                db = value;
+                return DBInstance.DB;
             }
         }
+        //[NotMapped]
+        //public MyDB DB
+        //{
+        //    get
+        //    {
+        //        //initDb();
+        //        return db;
+        //    }
+        //    //set
+        //    //{
+        //    //    db = value;
+        //    //}
+        //}
+
         /// <summary>
         /// Trước khi gọi trực tiếp xuống this.db thì phải gọi
         /// hàm này
         /// </summary>
-        protected void initDb()
-        {
-            if (db == null)
-            {
-                db = new MyDB();
-            }
-        }
+        //protected void initDb()
+        //{
+        //    //if (db == null)
+        //    //{
+        //    //    db = new MyDB();
+        //    //}
+        //}
 
         public virtual int add()
         {
-            
             //add
             try
             {
-                initDb();
+                //initDb();
                 db.Set<T>().Add((T)this);
                 db.SaveChanges();
                 return id;
@@ -92,7 +98,7 @@ namespace QuanLyTaiSan.Entities
             //update
             try
             {
-                initDb();
+                //initDb();
                 db.Set<T>().Attach((T)this);
                 //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
                 db.Entry(this).State = EntityState.Modified;//importance
@@ -113,7 +119,7 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 db.Set<T>().Attach((T)this);
                 db.Set<T>().Remove((T)this);
                 db.SaveChanges();
@@ -132,12 +138,12 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 T obj = db.Set<T>().Where(c => c.id == id).FirstOrDefault();
-                if (obj != null)
-                {
-                    obj.DB = db;
-                }
+                //if (obj != null)
+                //{
+                //    obj.DB = db;
+                //}
                 return obj;
             }
             catch (Exception ex)
@@ -154,12 +160,12 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 List<T> objs = db.Set<T>().ToList();
-                foreach (T item in objs)
-                {
-                    item.DB = db;//importance
-                }
+                //foreach (T item in objs)
+                //{
+                //    item.DB = db;//importance
+                //}
                 return objs;
             }
             catch (Exception ex)
@@ -177,27 +183,34 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public virtual void dispose()
         {
-            if (db != null)
-            {
-                db.Dispose();
-                db = null;
-            }
+            //if (db != null)
+            //{
+            //    db.Dispose();
+            //    db = null;
+            //}
+        }
+        public virtual void reload2()
+        {
+            db.Entry(this).State = EntityState.Unchanged;//importance
+            db.Set<T>().Attach((T)this);
+            db.Entry(this).Reload();
         }
         /// <summary>
-        /// Trả về object tương đương object hiện tại (giá trị thuộc tính bị đè bởi CSDL)
-        /// cần phải có id trước
+        /// Load lại Object theo DBContext mới trong DBInstance (Vì có thể đã bị new mới bởi ai đó)
+        /// Cần có id trước
         /// </summary>
         /// <returns></returns>
         public virtual T reload()
         {
+            
             try
             {
-                initDb();
+                //initDb();
                 T obj = db.Set<T>().Where(c => c.id == id).FirstOrDefault();
-                if (obj != null)
-                {
-                    obj.DB = db;
-                }
+                //if (obj != null)
+                //{
+                //    obj.DB = db;
+                //}
                 return obj;
             }
             catch (Exception ex)

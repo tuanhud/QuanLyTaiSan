@@ -7,7 +7,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class TreeDataFilter
+    public class TreeDataFilter:FilterAbstract<TreeDataFilter>
     {
         public int id { get; set; }
         public String ten { get; set; }
@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.DataFilter
         #region Nghiệp vụ
         public List<TreeDataFilter> getAllCoSo()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.COSOS
                  select new TreeDataFilter
@@ -33,7 +33,7 @@ namespace QuanLyTaiSan.DataFilter
         }
         public List<TreeDataFilter> getAllDay()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.DAYYS
                  select new TreeDataFilter
@@ -48,7 +48,7 @@ namespace QuanLyTaiSan.DataFilter
         }
         public List<TreeDataFilter> getAllTang()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.TANGS
                  select new TreeDataFilter
@@ -64,7 +64,7 @@ namespace QuanLyTaiSan.DataFilter
 
         public List<TreeDataFilter> getAllPhong()
         {
-            MyDB db = new MyDB();
+            //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.PHONGS
                  select new TreeDataFilter
@@ -78,7 +78,7 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public List<TreeDataFilter> getAll()
+        public override List<TreeDataFilter> getAll()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).ToList();
         }

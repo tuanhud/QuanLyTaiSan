@@ -16,11 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public LoaiThietBi(MyDB db)
-            : base(db)
-        {
+        //public LoaiThietBi(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
         #region Dinh nghia
         public String ten { get; set; }
         public String mota { get; set; }
@@ -50,12 +50,12 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 List<LoaiThietBi> objs = db.Set<LoaiThietBi>().Where(c => c.parent_id == null).ToList();
-                foreach (LoaiThietBi item in objs)
-                {
-                    item.DB = db;//importance
-                }
+                //foreach (LoaiThietBi item in objs)
+                //{
+                //    item.DB = db;//importance
+                //}
                 return objs;
             }
             catch (Exception ex)

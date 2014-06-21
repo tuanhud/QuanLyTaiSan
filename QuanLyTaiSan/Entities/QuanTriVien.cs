@@ -18,11 +18,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        public QuanTriVien(MyDB db)
-            : base(db)
-        {
+        //public QuanTriVien(MyDB db)
+        //    : base(db)
+        //{
 
-        }
+        //}
         
         #region Định nghĩa thuộc tính
         public String subId { get; set; }
@@ -119,15 +119,15 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 //select doi tuong len
                 QuanTriVien obj = db.QUANTRIVIENS.Where(
                     c => c.username.ToUpper().Equals(username.ToUpper())
                     ).FirstOrDefault();
-                if (obj != null)
-                {
-                    obj.DB = db;//PASSING DB Context
-                }
+                //if (obj != null)
+                //{
+                //    obj.DB = db;//PASSING DB Context
+                //}
                 return obj;
             }
             catch (Exception ex)

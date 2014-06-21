@@ -19,11 +19,11 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        public HinhAnh(MyDB db)
-            : base(db)
-        {
+        //public HinhAnh(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
         #region Dinh nghia
         /*
          * Relative path
@@ -161,7 +161,7 @@ namespace QuanLyTaiSan.Entities
 
         public List<HinhAnh> getAllBy6Id(int id1, int id2, int id3, int id4, int id5, int id6)
         {
-            MyDB db = new MyDB();
+            //MyDB db = new MyDB();
             List<HinhAnh> re =
                 (from c in db.HINHANHS
                  where ((id1 == -1 || c.coso.id == id1) && (id2 == -1 || c.day.id == id2) && (id3 == -1 || c.tang.id == id3) 
@@ -261,12 +261,12 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 HinhAnh obj = db.Set<HinhAnh>().Where(c => c.file_name == _name).FirstOrDefault();
-                if (obj != null)
-                {
-                    obj.DB = db;
-                }
+                //if (obj != null)
+                //{
+                //    obj.DB = db;
+                //}
                 return obj;
             }
             catch (Exception ex)

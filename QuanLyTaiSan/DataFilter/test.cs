@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.DataFilter
         #region Nghiệp vụ
         public List<test> getAllCoSo()
         {
-            MyDB db = new MyDB();
+            OurDBContext db = new OurDBContext();
             List<test> re =
                 (from c in db.COSOS
                  select new test
@@ -33,7 +33,7 @@ namespace QuanLyTaiSan.DataFilter
         }
         public List<test> getAllDay()
         {
-            MyDB db = new MyDB();
+            OurDBContext db = new OurDBContext();
             List<test> re =
                 (from c in db.DAYYS
                  select new test
@@ -48,7 +48,7 @@ namespace QuanLyTaiSan.DataFilter
         }
         public List<test> getAllTang()
         {
-            MyDB db = new MyDB();
+            OurDBContext db = new OurDBContext();
             List<test> re =
                 (from c in db.TANGS
                  select new test
