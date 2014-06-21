@@ -28,7 +28,9 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
-            DBInstance.TaoDuLieuMau();
+            //DBInstance.TaoDuLieuMau();
+            List<HinhAnh> hinh = new HinhAnh().getAllCoSo();
+            Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()
         {

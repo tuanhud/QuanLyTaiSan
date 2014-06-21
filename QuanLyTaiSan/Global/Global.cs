@@ -27,6 +27,10 @@ namespace QuanLyTaiSan.Entities
         {
             public static class ftp_host
             {
+                public static int update()
+                {
+                    return 1;
+                }
                 private static String host_name=null;
                 public static String HOST_NAME
                 {
