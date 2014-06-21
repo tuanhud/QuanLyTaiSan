@@ -132,6 +132,10 @@
     <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.Designer.cs">
       <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406210635305_them_entity_setting.cs" />
+    <Compile Include="Migrations\201406210635305_them_entity_setting.Designer.cs">
+      <DependentUpon>201406210635305_them_entity_setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.resx">
       <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406210635305_them_entity_setting.resx">
+      <DependentUpon>201406210635305_them_entity_setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
