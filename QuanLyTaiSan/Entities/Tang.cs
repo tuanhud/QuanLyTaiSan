@@ -16,16 +16,12 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public Tang(MyDB db)
-            : base(db)
-        {
+        //public Tang(MyDB db)
+        //    : base(db)
+        //{
 
-        }
-        protected override void init()
-        {
-            base.init();
-            this.vitris = new List<ViTri>();
-        }
+        //}
+        
 		#region Dinh nghia
         /*
          * FK
@@ -35,6 +31,11 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<ViTri> vitris { get; set; }
 		#endregion
 		#region Override method
+        protected override void init()
+        {
+            base.init();
+            this.vitris = new List<ViTri>();
+        }
         public override int update()
         {
             //have to load all [Required] FK object first

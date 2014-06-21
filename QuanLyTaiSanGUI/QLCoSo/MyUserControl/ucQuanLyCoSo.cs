@@ -417,7 +417,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objCoSo.hinhanhs.ToList(), objCoSo.DB);
                             frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
                             frm.ShowDialog();
-                            objCoSo.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objCoSo.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
@@ -426,7 +427,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList(), objCoSoNew.DB);
                             frm.Text = "Quản lý hình ảnh cơ sở mới";
                             frm.ShowDialog();
-                            objCoSoNew.hinhanhs = frm.getHinhAnhs();
+                            if(frm.DialogResult == DialogResult.OK)
+                                objCoSoNew.hinhanhs = frm.getHinhAnhs();
                         }
                         break;
                     case "Dayy":
@@ -435,7 +437,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objDay.hinhanhs.ToList(), objDay.DB);
                             frm.Text = "Quản lý hình ảnh " + objDay.ten;
                             frm.ShowDialog();
-                            objDay.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objDay.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
@@ -444,7 +447,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objDayNew.hinhanhs.ToList(), objDayNew.DB);
                             frm.Text = "Quản lý hình ảnh dãy mới";
                             frm.ShowDialog();
-                            objDayNew.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objDayNew.hinhanhs = frm.getHinhAnhs();
                         }
                         //frm = new frmHinhAnh(objDay.id, objDay.hinhanhs.ToList(), typeof(Dayy).Name);
                         //frm.Text = "Quản lý hình ảnh của dãy";
@@ -457,7 +461,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objTang.hinhanhs.ToList(), objTang.DB);
                             frm.Text = "Quản lý hình ảnh " + objTang.ten;
                             frm.ShowDialog();
-                            objTang.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objTang.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
@@ -466,7 +471,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objTangNew.hinhanhs.ToList(), objTangNew.DB);
                             frm.Text = "Quản lý hình ảnh tầng mới";
                             frm.ShowDialog();
-                            objTangNew.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objTangNew.hinhanhs = frm.getHinhAnhs();
                         }
                         //frm = new frmHinhAnh(objTang.id, objTang.hinhanhs.ToList(), typeof(Tang).Name);
                         //frm.Text = "Quản lý hình ảnh của tầng";
