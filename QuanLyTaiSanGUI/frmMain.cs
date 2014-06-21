@@ -34,6 +34,9 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
+            BarAndDockingController defCont = BarAndDockingController.Default;
+            defCont.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin;
+            defCont.LookAndFeel.SkinName = "Money Twins";
             loadData();
         }
 
