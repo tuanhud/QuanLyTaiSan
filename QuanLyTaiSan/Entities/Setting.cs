@@ -32,11 +32,10 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public int addOrUpdate()
         {
-            Setting tmp = getByKey(this.key);
+            Setting tmp = db.SETTINGS.FirstOrDefault(c => c.key.ToUpper().Equals(this.key.ToUpper()));
             if (tmp != null)
             {
-                tmp.value = this.value;
-                return tmp.update();
+                return update();
             }
             else
             {
@@ -57,15 +56,31 @@ namespace QuanLyTaiSan.Entities
             }
             return "";
         }
+        /// <summary>
+        /// Sau khi getByKey, goi addOrUpdate sẽ an toàn hơn,
+        /// do có thể key chưa có trong DB (update sẽ lỗi),
+        /// Không bao giờ return null
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns>Never null</returns>
         public Setting getByKey(String key)
         {
+            Setting tmp;
             try
             {
-                return db.SETTINGS.FirstOrDefault(c => c.key.ToUpper().Equals(key.ToUpper()));
+                tmp= db.SETTINGS.FirstOrDefault(c => c.key.ToUpper().Equals(key.ToUpper()));
+                if (tmp == null)
+                {
+                    tmp = new Setting();
+                    tmp.key = key;
+                }
+                return tmp;
             }
             catch (Exception ex)
             {
-                return null;
+                tmp = new Setting();
+                tmp.key = key;
+                return tmp;
             }
         }
         #endregion
