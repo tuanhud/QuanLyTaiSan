@@ -77,12 +77,12 @@ namespace QuanLyTaiSanGUI.MyUC
             { }
         }
 
-        public ViTri getVitri(MyDB db)
+        public ViTri getVitri()
         {
-            ViTri obj = new ViTri(db);
-            obj.coso = new CoSo(db).getById(cosoid);
-            obj.day = new Dayy(db).getById(dayid);
-            obj.tang = new Tang(db).getById(tangid);
+            ViTri obj = new ViTri();
+            obj.coso = new CoSo().getById(cosoid);
+            obj.day = new Dayy().getById(dayid);
+            obj.tang = new Tang().getById(tangid);
             return obj;
         }
     }
