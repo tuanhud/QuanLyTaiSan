@@ -83,6 +83,10 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -121,16 +125,18 @@
             this.barBtnXoaLoaiTB,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barButtonItem4});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 29;
+            this.ribbon.MaxItemId = 30;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home,
             this.rbnPageViTri_Home,
             this.rbnPageNhanVien_Home,
             this.rbnPageLoaiTB_Home,
-            this.rbnPagePhanQuyen_Home});
+            this.rbnPagePhanQuyen_Home,
+            this.rbnPageThongKe_Home});
             this.ribbon.Size = new System.Drawing.Size(900, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -469,6 +475,7 @@
             this.navBarControl1.ActiveGroup = this.navBarGroupPhong;
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer1);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer2);
+            this.navBarControl1.Controls.Add(this.navBarGroupControlContainer3);
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri,
@@ -538,6 +545,9 @@
             // navBarGroupThongKe
             // 
             this.navBarGroupThongKe.Caption = "Thống kê";
+            this.navBarGroupThongKe.ControlContainer = this.navBarGroupControlContainer3;
+            this.navBarGroupThongKe.GroupClientHeight = 80;
+            this.navBarGroupThongKe.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroupThongKe.Name = "navBarGroupThongKe";
             this.navBarGroupThongKe.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
             // 
@@ -548,6 +558,31 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
+            // 
+            // rbnPageThongKe_Home
+            // 
+            this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
+            this.rbnPageThongKe_Home.Text = "Trang chính";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Thống kê";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 29;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // navBarGroupControlContainer3
+            // 
+            this.navBarGroupControlContainer3.Name = "navBarGroupControlContainer3";
+            this.navBarGroupControlContainer3.Size = new System.Drawing.Size(259, 269);
+            this.navBarGroupControlContainer3.TabIndex = 2;
             // 
             // frmMain
             // 
@@ -630,5 +665,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThongKe_Home;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer3;
     }
 }

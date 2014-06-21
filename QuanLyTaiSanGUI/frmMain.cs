@@ -15,28 +15,30 @@ using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
+using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.LookAndFeel;
 
 namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : RibbonForm
     {
+        ucThongKe _ucThongKe = new ucThongKe();
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucTreePhong _ucTreePhong;
+        ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         public frmMain()
         {
             InitializeComponent();
-            BarAndDockingController defCont = BarAndDockingController.Default;
-            defCont.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin;
-            defCont.LookAndFeel.SkinName = "Money Twins";
+            UserLookAndFeel.Default.SetSkinStyle("Visual Studio 2013 Light");
             loadData();
         }
 
@@ -96,6 +98,17 @@ namespace QuanLyTaiSanGUI
                 //_ucTreePhong.treeListPhong.CollapseAll();
                 //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
+            else if (navBarControl1.ActiveGroup.Equals(navBarGroupThongKe))
+            {
+                rbnPageThongKe_Home.Visible = true;
+                ribbon.SelectedPage = rbnPageThongKe_Home;
+                _ucThongKe.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                panelControl1.Controls.Add(_ucThongKe);
+                _ucTreeThongKe.Parent = navBarGroupThongKe.ControlContainer;
+                //_ucTreePhong.treeListPhong.CollapseAll();
+                //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+            }
             else
             {
                 rbnPagePhong_Home.Visible = true;
@@ -115,6 +128,7 @@ namespace QuanLyTaiSanGUI
             rbnPageNhanVien_Home.Visible = false;
             rbnPageLoaiTB_Home.Visible = false;
             rbnPagePhanQuyen_Home.Visible = false;
+            rbnPageThongKe_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
