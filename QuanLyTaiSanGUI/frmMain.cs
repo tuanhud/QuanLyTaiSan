@@ -284,7 +284,7 @@ namespace QuanLyTaiSanGUI
         private void barBtnThemPhong_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViTri obj = new ViTri();
-            obj = _ucTreePhong.getVitri(obj.DB);
+            obj = _ucTreePhong.getVitri();
             MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
         }
 

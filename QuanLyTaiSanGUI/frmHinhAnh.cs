@@ -30,7 +30,7 @@ namespace QuanLyTaiSanGUI
         //GalleryItem currItem = new GalleryItem();
         List<HinhAnh> listhinhanhs = new List<HinhAnh>();
         List<HinhAnh> hinhs = null;
-        MyDB db = null;
+        OurDBContext db = null;
 
         public frmHinhAnh(int _idobject, List<HinhAnh> _listhinhanh, string _loaiobject)
         {
@@ -48,14 +48,13 @@ namespace QuanLyTaiSanGUI
             else XtraMessageBox.Show("Không có ảnh để load");
         }
 
-        public frmHinhAnh(List<HinhAnh> _listhinhanh, MyDB _db)
+        public frmHinhAnh(List<HinhAnh> _listhinhanh)
         {
             //ShowTitle();
             InitializeComponent();
             InitSkins();
             btnImageDelete.Enabled = false;
             hinhs = _listhinhanh;
-            db = _db;
             if (hinhs != null)
             {
                 LoadHinhAnh(hinhs);
@@ -112,7 +111,7 @@ namespace QuanLyTaiSanGUI
                     //DateTime _datetime = ServerTimeHelper.getNow();
                     //String _dt = _datetime.ToString("yyyy-MM-dd-hh-mm-ss-");
                     string file_name = fInfo.Name.ToString();
-                    HinhAnh _hinhanh = new HinhAnh(db);
+                    HinhAnh _hinhanh = new HinhAnh();
                     _hinhanh.FILE_NAME = file_name;
                     _hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(fPath);
                     switch (comboBoxEdit1.SelectedIndex)
@@ -216,6 +215,11 @@ namespace QuanLyTaiSanGUI
         }
 
         private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThuVienAnh_Click(object sender, EventArgs e)
         {
 
         }
