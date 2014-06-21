@@ -219,5 +219,10 @@ namespace QuanLyTaiSanGUI
         {
 
         }
+
+        private void btnThuVienAnh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

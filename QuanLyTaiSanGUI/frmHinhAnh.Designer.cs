@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhAnh));
             this.galleryControlImage = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
@@ -39,6 +39,8 @@
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true);
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThuVienAnh = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.galleryControlImage)).BeginInit();
             this.galleryControlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
@@ -58,9 +60,9 @@
             this.galleryControlImage.Gallery.AllowHoverImages = true;
             this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
             this.galleryControlImage.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
-            galleryItemGroup1.Caption = "Danh sách hình ảnh";
+            galleryItemGroup2.Caption = "Danh sách hình ảnh";
             this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
             this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.Multiple;
@@ -126,7 +128,7 @@
             // 
             this.comboBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBoxEdit1.EditValue = "Giữ nguyên";
-            this.comboBoxEdit1.Location = new System.Drawing.Point(2, 255);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(93, 256);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -150,11 +152,32 @@
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // btnThuVienAnh
+            // 
+            this.btnThuVienAnh.Image = ((System.Drawing.Image)(resources.GetObject("btnThuVienAnh.Image")));
+            this.btnThuVienAnh.Location = new System.Drawing.Point(245, 4);
+            this.btnThuVienAnh.Name = "btnThuVienAnh";
+            this.btnThuVienAnh.Size = new System.Drawing.Size(174, 23);
+            this.btnThuVienAnh.TabIndex = 7;
+            this.btnThuVienAnh.Text = "Duyệt ảnh trong thư viện ảnh";
+            this.btnThuVienAnh.Click += new System.EventHandler(this.btnThuVienAnh_Click);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl1.Location = new System.Drawing.Point(1, 259);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(86, 13);
+            this.labelControl1.TabIndex = 8;
+            this.labelControl1.Text = "Kích thước tải ảnh";
+            // 
             // frmHinhAnh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 282);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.btnThuVienAnh);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.btnImageDelete);
@@ -169,6 +192,7 @@
             this.galleryControlImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -182,6 +206,8 @@
         private DevExpress.XtraEditors.SimpleButton btnImageDelete;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnThuVienAnh;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }
