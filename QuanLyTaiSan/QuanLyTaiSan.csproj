@@ -74,6 +74,7 @@
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />
     <Compile Include="Entities\NhanVienPT.cs" />
+    <Compile Include="Entities\Setting.cs" />
     <Compile Include="Entities\Tang.cs" />
     <Compile Include="Entities\Dayy.cs" />
     <Compile Include="Entities\LogThietBi.cs" />

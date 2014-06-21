@@ -36,6 +36,7 @@ namespace QuanLyTaiSan.Entities
         public DbSet<Dayy> DAYYS { get; set; }
         public DbSet<ViTri> VITRIS { get; set; }
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
+        public DbSet<Setting> SETTINGS { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -137,6 +138,11 @@ namespace QuanLyTaiSan.Entities
                 x.ToTable("LOAITHIETBIS");
             });
 
+            modelBuilder.Entity<Setting>().Map(x =>
+            {
+                x.MapInheritedProperties();
+                x.ToTable("SETTINGS");
+            });
             /*
              * n-n relationship
              */
