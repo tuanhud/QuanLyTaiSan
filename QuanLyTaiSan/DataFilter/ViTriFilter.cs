@@ -16,12 +16,12 @@ namespace QuanLyTaiSan.DataFilter
         public String id_p { get; set; }
 
         #region Nghiệp vụ
-        public List<TreeDataFilter> getAllCoSo()
+        public List<ViTriFilter> getAllCoSo()
         {
             //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.COSOS
-                 select new TreeDataFilter
+                 select new ViTriFilter
                  {
                      id = c.id,
                      ten = c.ten,
@@ -31,12 +31,12 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-        public List<TreeDataFilter> getAllDay()
+        public List<ViTriFilter> getAllDay()
         {
-            //OurDBContext db = new OurDBContext();
+			//OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.DAYYS
-                 select new TreeDataFilter
+                 select new ViTriFilter
                  {
                      id = c.id,
                      ten = c.ten,
@@ -46,12 +46,12 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-        public List<TreeDataFilter> getAllTang()
+        public List<ViTriFilter> getAllTang()
         {
             //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.TANGS
-                 select new TreeDataFilter
+                 select new ViTriFilter
                  {
                      id = c.id,
                      ten = c.ten,
@@ -62,12 +62,12 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public List<TreeDataFilter> getAllPhong()
+        public List<ViTriFilter> getAllPhong()
         {
             //OurDBContext db = new OurDBContext();
             List<TreeDataFilter> re =
                 (from c in db.PHONGS
-                 select new TreeDataFilter
+                 select new ViTriFilter
                  {
                      id = c.id,
                      ten = c.ten,
@@ -77,18 +77,17 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-
         public override List<TreeDataFilter> getAll()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).ToList();
         }
 
-        public List<TreeDataFilter> getAllHavePhong()
+        public List<ViTriFilter> getAllHavePhong()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhong()).ToList();
         }
 
-        public List<TreeDataFilter> getAllHaveDay()
+        public List<ViTriFilter> getAllHaveDay()
         {
             return getAllCoSo().Concat(getAllDay()).ToList();
         }

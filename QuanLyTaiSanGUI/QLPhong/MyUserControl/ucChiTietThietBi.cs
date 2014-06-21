@@ -20,13 +20,19 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucChiTietThietBi()
         {
             InitializeComponent();
+            loadData();
+        }
+
+        private void loadData()
+        {
             list = new LoaiThietBi().getAll();
             _ucTreeLoaiTB = new ucTreeLoaiTB(list);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             _ucTreeLoaiTB.setReadOnly(true);
             panelControl1.Controls.Add(_ucTreeLoaiTB);
         }
-        public void LoadData(CTThietBi _obj)
+
+        public void setData(CTThietBi _obj)
         {
             obj = _obj;
             txtMa.Text = _obj.thietbi.subId;

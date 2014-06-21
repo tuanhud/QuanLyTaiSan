@@ -19,7 +19,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
     public partial class ucQuanLyCoSo : UserControl
     {
-        List<TreeDataFilter> listTree = new List<TreeDataFilter>();
+        List<ViTriFilter> listTree = new List<ViTriFilter>();
         ucTreeViTri _ucTreeViTri;
         ucTreeViTri _ucTreeViTriHaveDay;
         CoSo objCoSo = new CoSo();
@@ -34,16 +34,17 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         public ucQuanLyCoSo()
         {
             InitializeComponent();
-            listTree = new TreeDataFilter().getAll();
-            treeListViTri.DataSource = listTree;
-            listTree = new TreeDataFilter().getAllCoSo();
-            _ucTreeViTri = new ucTreeViTri(listTree, false, false);
-            listTree = new TreeDataFilter().getAllHaveDay();
-            _ucTreeViTriHaveDay = new ucTreeViTri(listTree, true, false);
+            loadData();
         }
 
-        private void ucQuanLyCoSo_Load(object sender, EventArgs e)
+        private void loadData()
         {
+            listTree = new ViTriFilter().getAll();
+            treeListViTri.DataSource = listTree;
+            listTree = new ViTriFilter().getAllCoSo();
+            _ucTreeViTri = new ucTreeViTri(listTree, false, false);
+            listTree = new ViTriFilter().getAllHaveDay();
+            _ucTreeViTriHaveDay = new ucTreeViTri(listTree, true, false);
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
@@ -52,69 +53,23 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             {
                 if (e.Node != null)
                 {
-                    groupControl1.Text = "Chi tiết";
+                    SetTextGroupControl("Chi tiết", false);
                     if (function.Equals("edit") || function.Equals("add"))
                         enableEdit(false, "", "");
                     if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                     {
                         objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
-                        txtTen.Text = objCoSo.ten;
-                        txtMoTa.Text = objCoSo.mota;
-                        panelControl1.Controls.Clear();
-                        TextEdit txt = new TextEdit();
-                        txt.Properties.ReadOnly = true;
-                        txt.Text = "Đại học Sài Gòn";
-                        txt.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(txt);
-                        //type = "coso";
-                        if (this.ParentForm != null)
-                        {
-                            frmMain frm = (frmMain)this.ParentForm;
-                            frm.enableGroupViTri(typeof(CoSo).Name);
-                        }
-                        node = typeof(CoSo).Name;
-                        reloadImage();
+                        setData(typeof(CoSo).Name);
                     }
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
                     {
-                        panelControl1.Controls.Clear();
-                        _ucTreeViTri.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(_ucTreeViTri);
                         objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
-                        txtTen.Text = objDay.ten;
-                        txtMoTa.Text = objDay.mota;
-                        ViTri objViTri = new ViTri();
-                        objViTri.coso = objDay.coso;
-                        _ucTreeViTri.setViTri(objViTri);
-                        //type = "day";
-                        if (this.ParentForm != null)
-                        {
-                            frmMain frm = (frmMain)this.ParentForm;
-                            frm.enableGroupViTri(typeof(Dayy).Name);
-                        }
-                        node = typeof(Dayy).Name;
-                        reloadImage();
+                        setData(typeof(Dayy).Name);
                     }
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
                     {
-                        panelControl1.Controls.Clear();
-                        _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(_ucTreeViTriHaveDay);
                         objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
-                        txtTen.Text = objTang.ten;
-                        txtMoTa.Text = objTang.mota;
-                        ViTri objViTri = new ViTri();
-                        objViTri.day = objTang.day;
-                        objViTri.coso = objTang.day.coso;
-                        _ucTreeViTriHaveDay.setViTri(objViTri);
-                        //type = "tang";
-                        if (this.ParentForm != null)
-                        {
-                            frmMain frm = (frmMain)this.ParentForm;
-                            frm.enableGroupViTri(typeof(Tang).Name);
-                        }
-                        node = typeof(Tang).Name;
-                        reloadImage();
+                        setData(typeof(Tang).Name);
                     }
                 }
             }
@@ -271,58 +226,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             }
         }
 
-        public void beforeEdit(String _type)
-        {
-            ViTri _vitri;
-            switch (_type)
-            {
-                case "CoSo":
-                    txtTen.Text = objCoSo.ten;
-                    txtMoTa.Text = objCoSo.mota;
-                    panelControl1.Controls.Clear();
-                    TextEdit txt = new TextEdit();
-                    txt.Properties.ReadOnly = true;
-                    txt.Text = "Đại học Sài Gòn";
-                    txt.Dock = DockStyle.Fill;
-                    panelControl1.Controls.Add(txt);
-                    break;
-                case "Dayy":
-                    txtTen.Text = objDay.ten;
-                    txtMoTa.Text = objDay.mota;
-                    panelControl1.Controls.Clear();
-                    _ucTreeViTri.Dock = DockStyle.Fill;
-                    _vitri = new ViTri();
-                    if (node.Equals(typeof(CoSo).Name))
-                        _vitri.coso = objCoSo;
-                    else if (node.Equals(typeof(Dayy).Name))
-                        _vitri.coso = objDay.coso;
-                    else
-                        _vitri.coso = objTang.day.coso;
-                    _ucTreeViTri.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTri);
-                    break;
-                case "Tang":
-                    txtTen.Text = objTang.ten;
-                    txtMoTa.Text = objTang.mota;
-                    panelControl1.Controls.Clear();
-                    _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
-                    _vitri = new ViTri();
-                    if (node.Equals(typeof(Dayy).Name))
-                    {
-                        _vitri.coso = objDay.coso;
-                        _vitri.day = objDay;
-                    }
-                    else
-                    {
-                        _vitri.coso = objTang.day.coso;
-                        _vitri.day = objTang.day;
-                    }
-                    _ucTreeViTriHaveDay.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTriHaveDay);
-                    break;
-            }
-        }
-
         private void addObj(String _type)
         {
             FindNode findNode = null;
@@ -421,12 +324,12 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         {
             errorProvider1.Clear();
             treeListViTri.ClearNodes();
-            listTree = new TreeDataFilter().getAll();
+            listTree = new ViTriFilter().getAll();
             treeListViTri.DataSource = listTree;
             //kiem tra truoc khi reload
-            listTree = new TreeDataFilter().getAllCoSo();
+            listTree = new ViTriFilter().getAllCoSo();
             _ucTreeViTri.reLoad(listTree);
-            listTree = new TreeDataFilter().getAllHaveDay();
+            listTree = new ViTriFilter().getAllHaveDay();
             _ucTreeViTriHaveDay.reLoad(listTree);
         }
 
@@ -434,14 +337,18 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         {
             enableEdit(false, "", "");
             errorProvider1.Clear();
-            groupControl1.Text = "Chi tiết";
+            SetTextGroupControl("Chi tiết", false);
             errorProvider1.Clear();
-            beforeEdit(node);
+            setData(node);
         }
 
-        public void SetTextGroupControl(String text)
+        public void SetTextGroupControl(String _text, bool _color)
         {
-            groupControl1.Text = text;
+            groupControl1.Text = _text;
+            if(_color)
+                groupControl1.AppearanceCaption.ForeColor = Color.Red;
+            else
+                groupControl1.AppearanceCaption.ForeColor = Color.Black;   
         }
 
         private Boolean CheckInput()
@@ -510,7 +417,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objCoSo.hinhanhs.ToList(), objCoSo.DB);
                             frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
                             frm.ShowDialog();
-                            objCoSo.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objCoSo.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
@@ -519,7 +427,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objCoSoNew.hinhanhs.ToList(), objCoSoNew.DB);
                             frm.Text = "Quản lý hình ảnh cơ sở mới";
                             frm.ShowDialog();
-                            objCoSoNew.hinhanhs = frm.getHinhAnhs();
+                            if(frm.DialogResult == DialogResult.OK)
+                                objCoSoNew.hinhanhs = frm.getHinhAnhs();
                         }
                         break;
                     case "Dayy":
@@ -528,7 +437,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objDay.hinhanhs.ToList(), objDay.DB);
                             frm.Text = "Quản lý hình ảnh " + objDay.ten;
                             frm.ShowDialog();
-                            objDay.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objDay.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
@@ -537,7 +447,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objDayNew.hinhanhs.ToList(), objDayNew.DB);
                             frm.Text = "Quản lý hình ảnh dãy mới";
                             frm.ShowDialog();
-                            objDayNew.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objDayNew.hinhanhs = frm.getHinhAnhs();
                         }
                         //frm = new frmHinhAnh(objDay.id, objDay.hinhanhs.ToList(), typeof(Dayy).Name);
                         //frm.Text = "Quản lý hình ảnh của dãy";
@@ -550,7 +461,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objTang.hinhanhs.ToList(), objTang.DB);
                             frm.Text = "Quản lý hình ảnh " + objTang.ten;
                             frm.ShowDialog();
-                            objTang.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objTang.hinhanhs = frm.getHinhAnhs();
                         }
                         else
                         {
@@ -559,7 +471,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             frm = new frmHinhAnh(objTangNew.hinhanhs.ToList(), objTangNew.DB);
                             frm.Text = "Quản lý hình ảnh tầng mới";
                             frm.ShowDialog();
-                            objTangNew.hinhanhs = frm.getHinhAnhs();
+                            if (frm.DialogResult == DialogResult.OK)
+                                objTangNew.hinhanhs = frm.getHinhAnhs();
                         }
                         //frm = new frmHinhAnh(objTang.id, objTang.hinhanhs.ToList(), typeof(Tang).Name);
                         //frm.Text = "Quản lý hình ảnh của tầng";
@@ -574,6 +487,66 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             { }
             finally
             { }
+        }
+
+        public void setData(String _type)
+        {
+            ViTri objViTri = null;
+            switch (_type)
+            {
+                case "CoSo":
+                    txtTen.Text = objCoSo.ten;
+                    txtMoTa.Text = objCoSo.mota;
+                    panelControl1.Controls.Clear();
+                    TextEdit txt = new TextEdit();
+                    txt.Properties.ReadOnly = true;
+                    txt.Text = "Đại học Sài Gòn";
+                    txt.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(txt);
+                    node = typeof(CoSo).Name;
+                    reloadImage();
+                    if (this.ParentForm != null)
+                    {
+                        frmMain frm = (frmMain)this.ParentForm;
+                        frm.enableGroupViTri(typeof(CoSo).Name);
+                    }
+                    break;
+                case "Dayy":
+                    panelControl1.Controls.Clear();
+                    _ucTreeViTri.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(_ucTreeViTri);
+                    txtTen.Text = objDay.ten;
+                    txtMoTa.Text = objDay.mota;
+                    objViTri = new ViTri();
+                    objViTri.coso = objDay.coso;
+                    _ucTreeViTri.setViTri(objViTri);
+                    node = typeof(Dayy).Name;
+                    reloadImage();
+                    if (this.ParentForm != null)
+                    {
+                        frmMain frm = (frmMain)this.ParentForm;
+                        frm.enableGroupViTri(typeof(Dayy).Name);
+                    }
+                    break;
+                case "Tang":
+                    panelControl1.Controls.Clear();
+                    _ucTreeViTriHaveDay.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(_ucTreeViTriHaveDay);
+                    txtTen.Text = objTang.ten;
+                    txtMoTa.Text = objTang.mota;
+                    objViTri = new ViTri();
+                    objViTri.day = objTang.day;
+                    objViTri.coso = objTang.day.coso;
+                    _ucTreeViTriHaveDay.setViTri(objViTri);
+                    node = typeof(Tang).Name;
+                    reloadImage();
+                    if (this.ParentForm != null)
+                    {
+                        frmMain frm = (frmMain)this.ParentForm;
+                        frm.enableGroupViTri(typeof(Tang).Name);
+                    }
+                    break;
+            }
         }
 
     }
