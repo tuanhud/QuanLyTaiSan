@@ -189,12 +189,6 @@ namespace QuanLyTaiSan.Entities
             //    db = null;
             //}
         }
-        public virtual void reload2()
-        {
-            db.Entry(this).State = EntityState.Unchanged;//importance
-            db.Set<T>().Attach((T)this);
-            db.Entry(this).Reload();
-        }
         /// <summary>
         /// Load lại Object theo DBContext mới trong DBInstance (Vì có thể đã bị new mới bởi ai đó)
         /// Cần có id trước
