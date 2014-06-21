@@ -45,6 +45,7 @@
             this.treeListPhong.KeyFieldName = "id_c";
             this.treeListPhong.Location = new System.Drawing.Point(0, 0);
             this.treeListPhong.Name = "treeListPhong";
+            this.treeListPhong.OptionsBehavior.AllowRecursiveNodeChecking = true;
             this.treeListPhong.OptionsView.ShowCheckBoxes = true;
             this.treeListPhong.ParentFieldName = "id_p";
             this.treeListPhong.Size = new System.Drawing.Size(407, 375);
