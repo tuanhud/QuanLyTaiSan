@@ -16,16 +16,12 @@ namespace QuanLyTaiSan.Entities
         {
            
         }
-        public ThietBi(MyDB db)
-            : base(db)
-        {
+        //public ThietBi(MyDB db)
+        //    : base(db)
+        //{
             
-        }
-        protected override void init()
-        {
-            base.init();
-            this.ctthietbis = new List<CTThietBi>();
-        }
+        //}
+        
 		#region Dinh nghia
         /*
          * Ngày mua
@@ -53,7 +49,11 @@ namespace QuanLyTaiSan.Entities
             //...
             return base.update();
         }
-
+        protected override void init()
+        {
+            base.init();
+            this.ctthietbis = new List<CTThietBi>();
+        }
         #endregion
     }
 }

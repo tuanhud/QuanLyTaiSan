@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
@@ -14,11 +13,11 @@ namespace QuanLyTaiSan.DataFilter
         {
 
         }
-        public PhongFilter(MyDB db)
-            : base(db)
-        {
+        //public PhongFilter(OurDBContext db)
+        //    : base(db)
+        //{
 
-        }
+        //}
 
         public int id { get; set; }
         public String ten { get; set; }
@@ -44,7 +43,7 @@ namespace QuanLyTaiSan.DataFilter
         #region Nghiệp vụ
         public override List<PhongFilter> getAll()
         {
-            InitDb();
+            //InitDb();
             List<PhongFilter> re =
                 (from p in db.PHONGS
                  join vt in db.VITRIS on p.vitri equals vt into p_vt_

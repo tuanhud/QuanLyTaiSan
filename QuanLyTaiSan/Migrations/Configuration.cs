@@ -7,14 +7,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QuanLyTaiSan.Entities.MyDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<QuanLyTaiSan.Entities.OurDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(MyDB context)
+        protected override void Seed(OurDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

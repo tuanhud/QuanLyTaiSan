@@ -21,7 +21,7 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public _EntityAbstract2(MyDB db)
+        public _EntityAbstract2(OurDBContext db)
             : base(db)
         {
             

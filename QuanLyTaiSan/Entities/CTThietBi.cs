@@ -17,11 +17,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public CTThietBi(MyDB db)
-            : base(db)
-        {
+        //public CTThietBi(MyDB db)
+        //    : base(db)
+        //{
             
-        }
+        //}
 
         #region Dinh nghia
         [Required]
@@ -54,7 +54,7 @@ namespace QuanLyTaiSan.Entities
             {
                 return -2;
             }
-            initDb();
+            //initDb();
             //BEGIN===================================
             using (var dbContextTransaction = db.Database.BeginTransaction()) 
             {
@@ -77,7 +77,8 @@ namespace QuanLyTaiSan.Entities
                     //TAO MOI CTTB => add
                 else
                 {
-                    cttb = new CTThietBi(db);
+                    //cttb = new CTThietBi(db);
+                    cttb = new CTThietBi();
                     cttb.phong = dich;
                     cttb.soluong = soluong;
                     cttb.thietbi = thietbi;
@@ -112,7 +113,8 @@ namespace QuanLyTaiSan.Entities
         protected int writelog(DateTime ngay, String mota="")
         {
             //ghi log thiet bi
-            LogThietBi logtb = new LogThietBi(db);
+            //LogThietBi logtb = new LogThietBi(db);
+            LogThietBi logtb = new LogThietBi();
             logtb.mota = mota;
             logtb.ngay = ngay;
             logtb.phong = phong;
@@ -131,10 +133,10 @@ namespace QuanLyTaiSan.Entities
         public CTThietBi search(Phong ph, ThietBi tb, TinhTrang tr)
         {
             CTThietBi tmp = db.CTTHIETBIS.Where(c => c.phong.id == ph.id && c.thietbi.id == tb.id && c.tinhtrang.id == tr.id).FirstOrDefault();
-            if (tmp != null)
-            {
-                tmp.DB = db;
-            }
+            //if (tmp != null)
+            //{
+            //    tmp.DB = db;
+            //}
             return tmp;
         }
         #endregion

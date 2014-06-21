@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    public class MyDB:DbContext
+    public class OurDBContext:DbContext
     {
-        public MyDB()
+        public OurDBContext()
             //: base(Global.local_setting.cached_connection_string)
             : base("Default")
         {
             //Use config file OR use Global setting
         }
-        public MyDB(String connection_string):base(connection_string)
+        public OurDBContext(String connection_string):base(connection_string)
         {
             //Dynamic connection String
         }

@@ -15,11 +15,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        public ViTri(MyDB db)
-            : base(db)
-        {
+        //public ViTri(MyDB db)
+        //    : base(db)
+        //{
 
-        }
+        //}
         #region Dinh nghia
         public String mota { get; set; }
         
@@ -50,7 +50,7 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                initDb();
+                //initDb();
                 ViTri obj = null;
                 if (id3 != -1)
                 {
@@ -64,10 +64,10 @@ namespace QuanLyTaiSan.Entities
                 {
                     obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == null && c.tang.id == null).FirstOrDefault();
                 }
-                if (obj != null)
-                {
-                    obj.DB = db;
-                }
+                //if (obj != null)
+                //{
+                //    obj.DB = db;
+                //}
                 return obj;
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace QuanLyTaiSan.Entities
         }
         public List<ViTri> search(CoSo coso, Dayy day, Tang tang)
         {
-            initDb();
+            //initDb();
             List<ViTri> tmp = new List<ViTri>(); ;
             if(coso==null && day==null && tang==null)
             {
@@ -99,18 +99,18 @@ namespace QuanLyTaiSan.Entities
             {
                 tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id == day.id && c.tang.id == tang.id).ToList();
             }
-            if (tmp != null)
-            {
-                foreach (ViTri item in tmp)
-                {
-                    item.DB = db;
-                }
-            }
+            //if (tmp != null)
+            //{
+            //    foreach (ViTri item in tmp)
+            //    {
+            //        item.DB = db;
+            //    }
+            //}
             return tmp;
         }
         public List<ViTri> search(int coso_id, int day_id, int tang_id)
         {
-            initDb();
+            //initDb();
             List<ViTri> tmp = new List<ViTri>(); ;
             CoSo coso = new CoSo();
             coso = coso.getById(coso_id);

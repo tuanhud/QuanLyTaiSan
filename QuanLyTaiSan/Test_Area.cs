@@ -28,23 +28,32 @@ namespace QuanLyTaiSan
         {
             InitializeComponent();
 
+            QuanTriVien obj = new QuanTriVien().getById(1);
+            DBInstance.reNew();
+            Group g = new Group().getById(2);
+            //g = g.reload();
+            obj = obj.reload();
+            //obj.reload2();
+            obj.group = g;
+            int re = obj.update();
+            
 
+            //CTThietBi obj = new CTThietBi().getById(18);
+            //Phong dich = new Phong(obj.DB).getById(4);
+            //int re = obj.dichuyen(dich,2,"Chua co mota nao");
+            //Console.WriteLine(re);
 
-            CTThietBi obj = new CTThietBi().getById(18);
-            Phong dich = new Phong(obj.DB).getById(4);
-            int re = obj.dichuyen(dich,2,"Chua co mota nao");
-            Console.WriteLine(re);
             //QuanTriVienFilter obj = new QuanTriVienFilter();
             //List<QuanTriVienFilter> list = obj.getAll();
 
 
             //dataGridView1.DataSource = list;
+
+
+           
+
+
             
-
-
-
-
-
 
             //Permission obj = new Permission();
 
