@@ -18,7 +18,28 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             InitializeComponent();
         }
+        public int save()
+        {
+            Boolean re = true;
+            //FTP
+            Global.remote_setting.ftp_host.HOST_NAME =
+                textEdit_ftpHost.Text;
+            Global.remote_setting.ftp_host.USER_NAME =
+                textEdit_ftpUserName.Text;
+            Global.remote_setting.ftp_host.PASS_WORD =
+                textEdit_ftpPass.Text;
+            Global.remote_setting.ftp_host.PRE_PATH =
+                textEdit_ftpPrePath.Text;
+            re = re&&Global.remote_setting.ftp_host.save()>0;
+            //HTTP
+            Global.remote_setting.http_host.HOST_NAME =
+                textEdit_httpHost.Text;
+            Global.remote_setting.http_host.PRE_PATH =
+                textEdit_httpPrePath.Text;
+            re = re && Global.remote_setting.http_host.save()>0;
 
+            return re?1:0;
+        }
         private void ucFTPSetting_Load(object sender, EventArgs e)
         {
             //Load FTP
