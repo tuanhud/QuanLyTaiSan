@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
@@ -31,8 +32,23 @@ namespace QuanLyTaiSanGUI.HeThong
                 //enableEdit(false, "");
                 groupControl1.Text = "Thông tin";
                 objQuanTriVienFilter = (QuanTriVienFilter)gridViewPhanQuyen.GetFocusedRow();
-                //SetData();
+                //Truyen qua cho View Thong Tin
+                setThongTinChiTiet(objQuanTriVienFilter.quantrivien);
             }
+        }
+        /// <summary>
+        /// Goi hien thi len Panel Thong tin chi tiet
+        /// </summary>
+        /// <param name="objQuanTriVienFilter"></param>
+        private void setThongTinChiTiet(QuanTriVien obj)
+        {
+            txtMaQuanTriVien.Text = obj.subId;
+            txtTaiKhoanQuanTriVien.Text = obj.username;
+            txtTenQuanTriVien.Text = obj.hoten;
+            txtMatKhauQuanTriVien.Text = obj.password;
+            txtXacNhanMK.Text = obj.password;
+            dateCreated.DateTime = (DateTime)(obj.date_create==null?ServerTimeHelper.getNow():obj.date_create);
+            
         }
 
         public void enableEdit(bool _enable, String _function)
@@ -46,7 +62,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 txtTenQuanTriVien.Properties.ReadOnly = false;
                 txtTaiKhoanQuanTriVien.Properties.ReadOnly = false;
                 txtMatKhauQuanTriVien.Properties.ReadOnly = false;
-                timeNgayTaoQuanTriVien.Properties.ReadOnly = false;
+                dateCreated.Properties.ReadOnly = false;
             }
             else
             {
@@ -56,7 +72,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 txtTenQuanTriVien.Properties.ReadOnly = true;
                 txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
                 txtMatKhauQuanTriVien.Properties.ReadOnly = true;
-                timeNgayTaoQuanTriVien.Properties.ReadOnly = true;
+                dateCreated.Properties.ReadOnly = true;
             }
         }
 
@@ -64,6 +80,21 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             listobjQuanTriVienFilter = objQuanTriVienFilter.getAll();
             gridControlPhanQuyen.DataSource = listobjQuanTriVienFilter;
+            loadGroup();
+        }
+
+        private void dateCreated_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+        /// <summary>
+        /// Load DS group cho combobox group
+        /// </summary>
+        private void loadGroup()
+        {
+            List<Group> list = new Group().getAll();
+            lookUpEdit_group.Properties.DataSource = list;
+            //lookUpEdit_group.EditValue = list.First().id;
         }
     }
 }
