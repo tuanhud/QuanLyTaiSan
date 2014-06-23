@@ -34,15 +34,22 @@ namespace QuanLyTaiSan.Entities
         #region Nghiep vu
         public int countThietBi()
         {
-            List<ThietBi> list = new List<ThietBi>();
-            foreach (CTThietBi item in ctthietbis)
-            {
-                if (!list.Contains(item.thietbi))
-                {
-                    list.Add(item.thietbi);
-                }
-            }
-            return list.Count;
+            IQueryable<CTThietBi> v = (from cttb in db.CTTHIETBIS
+                                       join ph in db.PHONGS on cttb.phong equals ph
+                                       where ph.id == this.id
+                                       select cttb);
+            int count = v.Select(x => x.thietbi).Distinct().Count();
+            return count;
+            //OLD
+            //List<ThietBi> list = new List<ThietBi>();
+            //foreach (CTThietBi item in ctthietbis)
+            //{
+            //    if (!list.Contains(item.thietbi))
+            //    {
+            //        list.Add(item.thietbi);
+            //    }
+            //}
+            //return list.Count;
         }
         #endregion
         #region Override
