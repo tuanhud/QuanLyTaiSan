@@ -83,7 +83,7 @@ namespace QuanLyTaiSanGUI
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
                 _ucTreePhong.type = "QLNhanVienPT";
                 //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
-                _ucQuanLyNhanVien.loadData(-1, -1, -1, -1);
+                _ucQuanLyNhanVien.loadData();
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
@@ -357,23 +357,18 @@ namespace QuanLyTaiSanGUI
         #endregion
 
         #region QuanLyNhanVienPT
-        public void loadDataNhanVienByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
-        {
-            _ucQuanLyNhanVien.loadData(_phongid, _cosoid, _dayid, _tangid);
-        }
-
         private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyNhanVien.enableEdit(true, "add");
-            _ucQuanLyNhanVien.SetTextGroupControl("Thêm nhân viên");
+            _ucQuanLyNhanVien.SetTextGroupControl("Thêm nhân viên", true);
             _ucQuanLyNhanVien.beforeAdd();
         }
 
         private void barBtnSuaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyNhanVien.enableEdit(true, "edit");
-            _ucQuanLyNhanVien.SetTextGroupControl("Sửa nhân viên");
-            _ucQuanLyNhanVien.beforeEdit();
+            _ucQuanLyNhanVien.SetData();
+            _ucQuanLyNhanVien.SetTextGroupControl("Sửa nhân viên",true);
         }
 
         private void barBtnXoaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
@@ -381,6 +376,14 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyNhanVien.deleteObj();
 
         }
+
+        private void barBtnPhanCong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.PhanCong();
+        }
+
         #endregion
+
+
     }
 }

@@ -21,18 +21,34 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
         List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
         NhanVienPT objNhanVienPT = new NhanVienPT();
-        NhanVienPT objNhanVienPTNew = null;
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
+        //int phongid = -1;
+        //int cosoid = -1;
+        //int dayid = -1;
+        //int tangid = -1;
 
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
-            //loadData();
+            loadData();
         }
 
-        public void loadData(int _phongid, int _cosoid, int _dayid, int _tangid)
+        //public void loadData(int _phongid, int _cosoid, int _dayid, int _tangid)
+        //{
+        //    NhanVienPTs = new NhanVienPT().getAllByViTri(_phongid, _cosoid, _dayid, _tangid);
+        //    gridControlNhanVien.DataSource = null;
+        //    gridControlNhanVien.DataSource = NhanVienPTs;
+        //    phongid = _phongid;
+        //    cosoid = _cosoid;
+        //    dayid = _dayid;
+        //    tangid = _tangid;
+        //}
+
+        public void loadData()
         {
-            NhanVienPTs = new NhanVienPT().getAllByViTri(_phongid, _cosoid, _dayid, _tangid);
+            _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
+            NhanVienPTs = new NhanVienPT().getAll();
             gridControlNhanVien.DataSource = null;
             gridControlNhanVien.DataSource = NhanVienPTs;
         }
@@ -42,7 +58,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             if (gridViewNhanVien.GetFocusedRow() != null)
             {
                 enableEdit(false, "");
-                groupControl1.Text = "Chi tiết";
+                SetTextGroupControl("Chi tiết", false);
                 objNhanVienPT = (NhanVienPT)gridViewNhanVien.GetFocusedRow();
                 SetData();
             }
@@ -73,8 +89,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void reLoad()
         {
-            //NhanVienPTs = new NhanVienPT().getAll();
-            //gridControlNhanVien.DataSource = NhanVienPTs;
+            NhanVienPTs = new NhanVienPT().getAll();
+            gridControlNhanVien.DataSource = null;
+            gridControlNhanVien.DataSource = NhanVienPTs;
         }
 
         public void beforeAdd()
@@ -83,66 +100,61 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtTen.Text = "";
             txtSodt.Text = "";
             imageSlider1.Images.Clear();
-            objNhanVienPTNew = new NhanVienPT();
-        }
-
-        public void beforeEdit()
-        {
-            txtMa.Text = objNhanVienPT.subId;
-            txtTen.Text = objNhanVienPT.hoten;
-            txtSodt.Text = objNhanVienPT.sodienthoai;
-            imageSlider1.Images.Clear();
+            listHinhs = null;
+            listBoxNhanVien.DataSource = null;
         }
 
         private void Function(String _function)
         {
-            switch (_function)
+            if(_function.Equals("edit"))
             {
-                case "them":
-                    objNhanVienPT = new NhanVienPT();
-                    objNhanVienPT.subId = txtMa.Text;
-                    objNhanVienPT.hoten = txtTen.Text;
-                    objNhanVienPT.sodienthoai = txtSodt.Text;
-                    objNhanVienPT.date_create = ServerTimeHelper.getNow();
-                    objNhanVienPT.date_modified = ServerTimeHelper.getNow();
-                    if (objNhanVienPT.add() != -1)
-                    {
-                        XtraMessageBox.Show("Thêm nhân viên thành công!");
-                        reLoad();
-                    }
-                    break;
-                case "sua":
-                    objNhanVienPT.subId = txtMa.Text;
-                    objNhanVienPT.hoten = txtTen.Text;
-                    objNhanVienPT.sodienthoai = txtSodt.Text;
-                    objNhanVienPT.date_modified = ServerTimeHelper.getNow();
-                    if (objNhanVienPT.update() != -1)
-                    {
-                        XtraMessageBox.Show("Sửa nhân viên thành công!");
-                        reLoad();
-                    }
-                    break;
-                case "xoa":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        if (objNhanVienPT.delete() != -1)
-                        {
-                            XtraMessageBox.Show("Xóa nhân viên thành công!");
-                            reLoad();
-                        }
-                    }
-                    break;
+                objNhanVienPT.subId = txtMa.Text;
+                objNhanVienPT.hoten = txtTen.Text;
+                objNhanVienPT.sodienthoai = txtSodt.Text;
+                objNhanVienPT.date_modified = ServerTimeHelper.getNow();
+                objNhanVienPT.hinhanhs = listHinhs;
+                if (objNhanVienPT.update() != -1)
+                {
+                    XtraMessageBox.Show("Sửa nhân viên thành công!");
+                    reLoad();
+                }
+            }
+            else
+            {
+                NhanVienPT objNew = new NhanVienPT();
+                objNew.subId = txtMa.Text;
+                objNew.hoten = txtTen.Text;
+                objNew.sodienthoai = txtSodt.Text;
+                objNew.date_create = ServerTimeHelper.getNow();
+                objNew.date_modified = ServerTimeHelper.getNow();
+                objNew.hinhanhs = listHinhs;
+                if (objNew.add() != -1)
+                {
+                    XtraMessageBox.Show("Thêm nhân viên thành công!");
+                    reLoad();
+                }
             }
         }
 
         public void deleteObj()
         {
-            Function("xoa");
+            if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (objNhanVienPT.delete() != -1)
+                {
+                    XtraMessageBox.Show("Xóa nhân viên thành công!");
+                    reLoad();
+                }
+            }
         }
 
-        public void SetTextGroupControl(String text)
+        public void SetTextGroupControl(String text, bool _color)
         {
             groupControl1.Text = text;
+            if (_color)
+                groupControl1.AppearanceCaption.ForeColor = Color.Red;
+            else
+                groupControl1.AppearanceCaption.ForeColor = Color.Black; 
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -158,19 +170,21 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             enableEdit(false, "");
             errorProvider1.Clear();
+            listHinhs = null;
             SetData();
         }
 
-        private void SetData()
+        public void SetData()
         {
-            if (objNhanVienPT.id >= 1)
-            {
-                groupControl1.Text = "Chi tiết";
-                txtMa.Text = objNhanVienPT.subId;
-                txtTen.Text = objNhanVienPT.hoten;
-                txtSodt.Text = objNhanVienPT.sodienthoai;
-                listBoxNhanVien.DataSource = objNhanVienPT.phongs;
-            }
+            listHinhs = null;
+            SetTextGroupControl("Chi tiết", false);
+            txtMa.Text = objNhanVienPT.subId;
+            txtTen.Text = objNhanVienPT.hoten;
+            txtSodt.Text = objNhanVienPT.sodienthoai;
+            listBoxNhanVien.DataSource = objNhanVienPT.phongs;
+            if(objNhanVienPT.hinhanhs != null)
+            listHinhs = objNhanVienPT.hinhanhs.ToList();
+            reloadImage();
         }
 
         private Boolean CheckInput()
@@ -220,20 +234,20 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 frmHinhAnh frm = null;
                 if (function.Equals("edit"))
                 {
-                    frm = new frmHinhAnh(objNhanVienPT.hinhanhs.ToList());
+                    frm = new frmHinhAnh(listHinhs);
                     frm.Text = "Quản lý hình ảnh " + objNhanVienPT.hoten;
                     frm.ShowDialog();
+                    listHinhs = frm.getlistHinhs();
                 }
                 else
                 {
-                    if (objNhanVienPTNew.hinhanhs == null)
-                        objNhanVienPTNew.hinhanhs = new List<HinhAnh>();
-                    frm = new frmHinhAnh(objNhanVienPTNew.hinhanhs.ToList());
+                    frm = new frmHinhAnh(listHinhs);
                     frm.Text = "Quản lý hình ảnh nhân viên mới";
                     frm.ShowDialog();
+                    listHinhs = frm.getlistHinhs();
                 }
     
-                //reloadImage();
+                reloadImage();
             }
             catch (Exception ex)
             { }
@@ -243,20 +257,21 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void reloadImage()
         {
-            List<HinhAnh> hinhs = null;
-            if (!function.Equals("add"))
-            {
-                hinhs = objNhanVienPTNew.hinhanhs.ToList();
-            }
-            else
-            {
-                hinhs = objNhanVienPT.hinhanhs.ToList();
-            }
             imageSlider1.Images.Clear();
-            foreach (HinhAnh h in hinhs)
+            foreach (HinhAnh h in listHinhs)
             {
                 imageSlider1.Images.Add(h.getImage());
             }
+        }
+
+        public void PhanCong()
+        {
+            btnOK_PhanCong.Visible = true;
+            btnHuy_PhanCong.Visible = true;
+            splitContainerControl1.Panel1.Controls.Clear();
+            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
+            _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
+            splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
         }
 
     }

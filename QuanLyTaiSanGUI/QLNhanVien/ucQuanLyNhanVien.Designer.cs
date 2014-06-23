@@ -41,8 +41,8 @@
             this.colhinh_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.listBoxNhanVien = new DevExpress.XtraEditors.ListBoxControl();
-            this.btnHuy_Phong = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK_Phong = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy_PhanCong = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK_PhanCong = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
@@ -166,8 +166,8 @@
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.listBoxNhanVien);
-            this.groupControl2.Controls.Add(this.btnHuy_Phong);
-            this.groupControl2.Controls.Add(this.btnOK_Phong);
+            this.groupControl2.Controls.Add(this.btnHuy_PhanCong);
+            this.groupControl2.Controls.Add(this.btnOK_PhanCong);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 259);
             this.groupControl2.Name = "groupControl2";
@@ -187,26 +187,28 @@
             this.listBoxNhanVien.TabIndex = 13;
             this.listBoxNhanVien.ValueMember = "id";
             // 
-            // btnHuy_Phong
+            // btnHuy_PhanCong
             // 
-            this.btnHuy_Phong.Location = new System.Drawing.Point(145, 170);
-            this.btnHuy_Phong.Name = "btnHuy_Phong";
-            this.btnHuy_Phong.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy_Phong.TabIndex = 12;
-            this.btnHuy_Phong.Text = "Hủy";
-            this.btnHuy_Phong.Visible = false;
+            this.btnHuy_PhanCong.Location = new System.Drawing.Point(145, 170);
+            this.btnHuy_PhanCong.Name = "btnHuy_PhanCong";
+            this.btnHuy_PhanCong.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy_PhanCong.TabIndex = 12;
+            this.btnHuy_PhanCong.Text = "Hủy";
+            this.btnHuy_PhanCong.Visible = false;
             // 
-            // btnOK_Phong
+            // btnOK_PhanCong
             // 
-            this.btnOK_Phong.Location = new System.Drawing.Point(64, 170);
-            this.btnOK_Phong.Name = "btnOK_Phong";
-            this.btnOK_Phong.Size = new System.Drawing.Size(75, 23);
-            this.btnOK_Phong.TabIndex = 11;
-            this.btnOK_Phong.Text = "OK";
-            this.btnOK_Phong.Visible = false;
+            this.btnOK_PhanCong.Location = new System.Drawing.Point(64, 170);
+            this.btnOK_PhanCong.Name = "btnOK_PhanCong";
+            this.btnOK_PhanCong.Size = new System.Drawing.Size(75, 23);
+            this.btnOK_PhanCong.TabIndex = 11;
+            this.btnOK_PhanCong.Text = "OK";
+            this.btnOK_PhanCong.Visible = false;
             // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOK);
             this.groupControl1.Controls.Add(this.btnImage);
@@ -257,7 +259,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 206);
+            this.labelControl4.Location = new System.Drawing.Point(6, 209);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(66, 13);
             this.labelControl4.TabIndex = 7;
@@ -265,7 +267,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(6, 180);
+            this.labelControl3.Location = new System.Drawing.Point(6, 183);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(72, 13);
             this.labelControl3.TabIndex = 6;
@@ -273,7 +275,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(6, 154);
+            this.labelControl2.Location = new System.Drawing.Point(6, 157);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(68, 13);
             this.labelControl2.TabIndex = 5;
@@ -281,7 +283,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 25);
+            this.labelControl1.Location = new System.Drawing.Point(6, 28);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 4;
@@ -291,7 +293,7 @@
             // 
             this.txtSodt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSodt.Location = new System.Drawing.Point(84, 203);
+            this.txtSodt.Location = new System.Drawing.Point(84, 206);
             this.txtSodt.Name = "txtSodt";
             this.txtSodt.Properties.ReadOnly = true;
             this.txtSodt.Size = new System.Drawing.Size(220, 20);
@@ -301,7 +303,7 @@
             // 
             this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(84, 177);
+            this.txtTen.Location = new System.Drawing.Point(84, 180);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(220, 20);
@@ -311,7 +313,7 @@
             // 
             this.txtMa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMa.Location = new System.Drawing.Point(84, 151);
+            this.txtMa.Location = new System.Drawing.Point(84, 154);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(220, 20);
@@ -383,8 +385,8 @@
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnImage;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.SimpleButton btnHuy_Phong;
-        private DevExpress.XtraEditors.SimpleButton btnOK_Phong;
+        private DevExpress.XtraEditors.SimpleButton btnHuy_PhanCong;
+        private DevExpress.XtraEditors.SimpleButton btnOK_PhanCong;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.ListBoxControl listBoxNhanVien;
     }

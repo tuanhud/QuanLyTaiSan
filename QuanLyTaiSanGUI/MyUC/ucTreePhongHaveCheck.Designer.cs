@@ -50,6 +50,7 @@
             this.treeListPhong.ParentFieldName = "id_p";
             this.treeListPhong.Size = new System.Drawing.Size(407, 375);
             this.treeListPhong.TabIndex = 0;
+            this.treeListPhong.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListPhong_AfterCheckNode);
             // 
             // colid
             // 
@@ -57,24 +58,21 @@
             this.colid.FieldName = "id";
             this.colid.MinWidth = 32;
             this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
             // 
             // colten
             // 
-            this.colten.Caption = "ten";
+            this.colten.Caption = "Phòng";
             this.colten.FieldName = "ten";
+            this.colten.MinWidth = 32;
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 1;
+            this.colten.VisibleIndex = 0;
             // 
             // colloai
             // 
             this.colloai.Caption = "loai";
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
-            this.colloai.Visible = true;
-            this.colloai.VisibleIndex = 2;
             // 
             // ucTreePhongHaveCheck
             // 
