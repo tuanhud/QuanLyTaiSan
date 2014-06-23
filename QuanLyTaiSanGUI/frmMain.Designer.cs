@@ -306,20 +306,26 @@
             // barBtnThemLoaiTB
             // 
             this.barBtnThemLoaiTB.Caption = "Thêm loại thiết bị";
+            this.barBtnThemLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barBtnThemLoaiTB.Id = 22;
             this.barBtnThemLoaiTB.Name = "barBtnThemLoaiTB";
+            this.barBtnThemLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemLoaiTB_ItemClick);
             // 
             // barBtnSuaLoaiTB
             // 
             this.barBtnSuaLoaiTB.Caption = "Sửa loại thiết bị";
+            this.barBtnSuaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSuaLoaiTB.Id = 23;
             this.barBtnSuaLoaiTB.Name = "barBtnSuaLoaiTB";
+            this.barBtnSuaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaLoaiTB_ItemClick);
             // 
             // barBtnXoaLoaiTB
             // 
             this.barBtnXoaLoaiTB.Caption = "Xóa loại thiết bị";
+            this.barBtnXoaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoaLoaiTB.Id = 24;
             this.barBtnXoaLoaiTB.Name = "barBtnXoaLoaiTB";
+            this.barBtnXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaLoaiTB_ItemClick);
             // 
             // barButtonItem1
             // 

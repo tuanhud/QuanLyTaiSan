@@ -31,6 +31,20 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual NhanVienPT nhanvienpt { get; set; }
         #endregion
+        #region Nghiep vu
+        public int countThietBi()
+        {
+            List<ThietBi> list = new List<ThietBi>();
+            foreach (CTThietBi item in ctthietbis)
+            {
+                if (!list.Contains(item.thietbi))
+                {
+                    list.Add(item.thietbi);
+                }
+            }
+            return list.Count;
+        }
+        #endregion
         #region Override
         protected override void init()
         {

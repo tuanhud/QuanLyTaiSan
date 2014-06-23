@@ -10,16 +10,7 @@ namespace QuanLyTaiSan.Entities
     public static class Global
     {
         public static QuanTriVien current_login { get; set; }
-        /// <summary>
-        /// Những cài đặt được lưu ở phía ứng dụng
-        /// </summary>
-        internal static Properties.Settings local_setting
-        {
-            get
-            {
-                return Properties.Settings.Default;
-            }
-        }
+        
         /// <summary>
         /// Những cài đặt được lưu ở phía DB
         /// </summary>

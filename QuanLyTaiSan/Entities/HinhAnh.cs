@@ -180,6 +180,36 @@ namespace QuanLyTaiSan.Entities
                  }).ToList();
             return re;
 		}
+        /// <summary>
+        /// Tự động tìm trên Table HinhAnh và xóa những hình không hợp lệ,
+        /// Tự động xóa các hình không cần thiết trên Server FTP,
+        /// vd: (tất cả mọi trường khóa ngoại đều null, hoặc tên hình bị rỗng,...)
+        /// </summary>
+        public void validate()
+        {
+            //Xoa hinh tren FTP Server neu ton tai
+            //String abs_path =
+            //    Global.remote_setting.ftp_host.HOST_NAME +
+            //    Global.remote_setting.ftp_host.PRE_PATH +
+            //    this.path;
+            //FTPHelper.deleteFile(abs_path, Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD);
+            
+            List<HinhAnh> re = db.HINHANHS.Where(
+                c =>
+                    (c.phong.id == null
+                    && c.tang.id == null
+                    && c.nhanvienpt.id == null
+                    && c.thietbi.id == null
+                    && c.coso.id == null
+                    && c.day.id == null
+                    )
+                    || c.path==""
+                    ).ToList();
+            foreach (HinhAnh item in re)
+            {
+                item.delete();
+            }
+        }
 
         /// <summary>
         /// Lay tat ca nhung hinh dang su dung, dung getall binh thuong thi se co anh ma tat ca khoa ngoai NULL
@@ -191,12 +221,34 @@ namespace QuanLyTaiSan.Entities
                  || (c.phong.id != null) || (c.thietbi.id != null) || (c.nhanvienpt.id != null)).ToList().GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
             return re;
         }
+        /// <summary>
+        /// Kiểm tra this.path (sau khi chạy qua hàm lọc tên) đã có trong CSDL hay chưa
+        /// </summary>
+        /// <param name="ghide"></param>
+        /// <returns></returns>
+        private Boolean canBeSaved(Boolean ghide=false)
+        {
+            //Kiem tra trong CSDL co hinh trung ten
+            HinhAnh tmp2 = db.HINHANHS.FirstOrDefault(c => c.path == path);
+            if (tmp2 == null)
+            {
 
+            }
+            else if (ghide)
+            {
+
+            }
+            else
+            {
+                return false;
+            }
+            return true;
+        }
         /// <summary>
         /// Set IMAGE (Bitmap), MAX_SIZE (pixel), FILE_NAME (Tên File nguyên thủy), FK Object(COSO hay PHONG hay ...) truoc
         /// </summary>
         /// <returns></returns>
-        public int upload()
+        public int upload(Boolean ghide=false)
         {
             Bitmap tmp = image;
             //resize hinh neu co
@@ -209,6 +261,14 @@ namespace QuanLyTaiSan.Entities
             //String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+"_"+
             //StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";//Always JPEG
             String relative_path = StringHelper.CoDauThanhKhongDau(file_name) + ".JPEG";
+            this.path = relative_path;
+            //Kiểm tra trùng tên hình, không cho upload
+            if (!canBeSaved())
+            {
+                return -5;
+            }
+            
+            //prepare upload
             String abs_path
                 =
                 Global.remote_setting.ftp_host.HOST_NAME +
@@ -221,7 +281,7 @@ namespace QuanLyTaiSan.Entities
                 Global.remote_setting.ftp_host.USER_NAME,
                 Global.remote_setting.ftp_host.PASS_WORD
                 );
-            this.path = relative_path;
+            
             //return this.add();
             //finish
             image = tmp;
@@ -235,16 +295,7 @@ namespace QuanLyTaiSan.Entities
             base.init();
             cache_path = "ImageCache";
         }
-        public override int delete()
-        {
-            //Xoa hinh tren FTP Server neu ton tai
-            String abs_path =
-                Global.remote_setting.ftp_host.HOST_NAME +
-                Global.remote_setting.ftp_host.PRE_PATH +
-                this.path;
-            FTPHelper.deleteFile(abs_path, Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD);
-            return base.delete();
-        }
+        
         public override int update()
         {
             //have to load all [Required] FK object first

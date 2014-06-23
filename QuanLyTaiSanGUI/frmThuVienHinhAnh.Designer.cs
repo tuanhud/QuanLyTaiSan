@@ -86,7 +86,7 @@
             // 
             this.galleryControlImage.Gallery.AllowHoverImages = true;
             this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
-            galleryItemGroup1.Caption = "Danh sách hình ảnh trong thư viện";
+            galleryItemGroup1.Caption = "Danh sách hình ảnh đang dùng";
             this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
             galleryItemGroup1});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);

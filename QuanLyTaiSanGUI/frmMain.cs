@@ -24,6 +24,7 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
+using DevExpress.Skins;
 
 namespace QuanLyTaiSanGUI
 {
@@ -41,7 +42,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SetSkinStyle("Visual Studio 2013 Light");
+            UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
             loadData();
         }
 
@@ -65,6 +66,7 @@ namespace QuanLyTaiSanGUI
             visibleAllRibbbonPage();
             if (navBarControl1.ActiveGroup.Equals(navBarGroupViTri))
             {
+                _ucQuanLyCoSo.loadData();
                 rbnPageViTri_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageViTri_Home;
                 _ucQuanLyCoSo.Dock = DockStyle.Fill;
@@ -87,6 +89,7 @@ namespace QuanLyTaiSanGUI
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
+                _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
                 rbnPageLoaiTB_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageLoaiTB_Home;
                 _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
@@ -94,6 +97,7 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyLoaiTB);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                _ucQuanLyLoaiTB.reLoad();
                 //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
                 //_ucTreePhong.loadData(list);
             }
@@ -327,7 +331,8 @@ namespace QuanLyTaiSanGUI
             Phong obj2 = new Phong();
             obj2 = _ucQuanLyPhong.getPhong();
             ViTri obj = obj2.vitri;
-            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+            _ucQuanLyPhong.deleteObj(typeof(Phong).Name);
+            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
         }
 
         private void barBtnThemThietBi_ItemClick(object sender, ItemClickEventArgs e)
@@ -351,11 +356,47 @@ namespace QuanLyTaiSanGUI
         {
             CTThietBi obj = new CTThietBi();
             obj = _ucQuanLyPhong.getCTThietBi();
-            MessageBox.Show(obj.thietbi.ten);
+            _ucQuanLyPhong.deleteObj(typeof(ThietBi).Name);
+            //MessageBox.Show(obj.thietbi.ten);
         }
 
         #endregion
 
+        #region QuanLyLoaiThietBi
+        public void enableSuaXoa(Boolean enable)
+        {
+            if (enable)
+            {
+                barBtnSuaLoaiTB.Enabled = true;
+                barBtnXoaLoaiTB.Enabled = true;
+            }
+            else
+            {
+                barBtnSuaLoaiTB.Enabled = false;
+                barBtnXoaLoaiTB.Enabled = false;
+            }
+        }
+
+        private void barBtnThemLoaiTB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyLoaiTB.enableEdit(true, "add");
+            _ucQuanLyLoaiTB.SetTextGroupControl("Thêm loại thiết bị", Color.Red);
+            _ucQuanLyLoaiTB.beforeAdd();
+        }
+
+        private void barBtnSuaLoaiTB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyLoaiTB.enableEdit(true, "edit");
+            _ucQuanLyLoaiTB.SetTextGroupControl("Sửa loại thiết bị", Color.Red);
+            _ucQuanLyLoaiTB.addThietBiChaKhiEdit();
+            _ucQuanLyLoaiTB.setData();
+        }
+
+        private void barBtnXoaLoaiTB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyLoaiTB.deleteObj();
+		}
+        #endregion
         #region QuanLyNhanVienPT
         private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -374,7 +415,6 @@ namespace QuanLyTaiSanGUI
         private void barBtnXoaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyNhanVien.deleteObj();
-
         }
 
         private void barBtnPhanCong_ItemClick(object sender, ItemClickEventArgs e)
