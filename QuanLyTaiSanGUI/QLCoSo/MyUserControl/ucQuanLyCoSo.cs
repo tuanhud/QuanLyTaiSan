@@ -228,7 +228,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 
         private void addObj(String _type)
         {
-            listHinh = new List<HinhAnh>();
             FindNode findNode = null;
             switch (_type)
             {
