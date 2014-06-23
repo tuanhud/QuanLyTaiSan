@@ -8,31 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
     public partial class ucQuanLyLoaiTB : UserControl
     {
-        List<LoaiThietBi> listLoaiThietBis = new List<LoaiThietBi>();
-        List<LoaiThietBi> lueLoaiThietBis = new List<LoaiThietBi>();
+        List<LoaiThietBi> loaiThietBis = new List<LoaiThietBi>();
+        List<LoaiThietBi> listLoaiThietBiCha = new List<LoaiThietBi>();
+        List<LoaiThietBi> loaiThietBiParents = new List<LoaiThietBi>();
         string function = "";
-        LoaiThietBi objLoaiThietBi = new LoaiThietBi();
+        LoaiThietBi objLoaiThietBi = null;
+        LoaiThietBi loaiThietBiNULL = new LoaiThietBi();
 
         public ucQuanLyLoaiTB()
         {
             InitializeComponent();
-            lueThuoc.Properties.ReadOnly = false;
-            reLoad();
-
+            loaiThietBiNULL.ten = "[Không thuộc loại nào]";
+            loaiThietBiNULL.id = -1;
+            loaiThietBiNULL.parent = null;
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
             if (treeListLoaiTB.GetDataRecordByNode(e.Node) != null)
             {
-                LoaiThietBi obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-                txtTen.Text = obj.ten;
-                lueThuoc.EditValue = obj.parent_id;
+                enableEdit(false, "");
+                SetTextGroupControl("Chi tiết", Color.Black);
+                objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                setData();
             }
         }
 
@@ -41,48 +45,267 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             function = _function;
             if (_enable)
             {
-                btnImage.Visible = true;
                 btnOk.Visible = true;
                 btnHuy.Visible = true;
                 txtTen.Properties.ReadOnly = false;
+                txtMoTa.Properties.ReadOnly = false;
                 lueThuoc.Properties.ReadOnly = false;
                 ceTBsoluonglon.Properties.ReadOnly = false;
             }
             else
             {
-                btnImage.Visible = false;
                 btnOk.Visible = false;
                 btnHuy.Visible = false;
                 txtTen.Properties.ReadOnly = true;
+                txtMoTa.Properties.ReadOnly = true;
                 lueThuoc.Properties.ReadOnly = true;
                 ceTBsoluonglon.Properties.ReadOnly = true;
             }
         }
 
-        private void reLoad()
+        public void reLoad()
         {
-            listLoaiThietBis = new LoaiThietBi().getAll();
-            treeListLoaiTB.DataSource = listLoaiThietBis;
-            lueLoaiThietBis = new LoaiThietBi().getAllParent();
-            lueThuoc.Properties.DataSource = lueLoaiThietBis;
+            loaiThietBis = new LoaiThietBi().getAll();
+            treeListLoaiTB.DataSource = loaiThietBis;
+            listLoaiThietBiCha = new LoaiThietBi().getAllParent();
+            listLoaiThietBiCha.Add(loaiThietBiNULL);
+            lueThuoc.Properties.DataSource = listLoaiThietBiCha;
+            checkSuaXoa();
         }
 
         public void beforeAdd()
         {
             txtTen.Text = "";
-            //if (lueLoaiThietBis != null && lueLoaiThietBis.Count > 0)
-            //{
-            //    lueThuoc.Properties.DataSource = lueLoaiThietBis;
-            //}
-            imageSlider1.Images.Clear();
+            txtMoTa.Text = "";
+            lueThuoc.EditValue = loaiThietBiNULL.id;
+            ceTBsoluonglon.Checked = false;
         }
 
-        public void beforeEdit()
+        public void setData()
         {
-            //txtMa.Text = objNhanVienPT.subId;
-            //txtTen.Text = objNhanVienPT.hoten;
-            //txtSodt.Text = objNhanVienPT.sodienthoai;
-            //imageSlider1.Images.Clear();
+            if (loaiThietBis.Count > 0)
+            {
+                txtTen.Text = objLoaiThietBi.ten;
+                txtMoTa.Text = objLoaiThietBi.mota;
+                if (objLoaiThietBi.parent_id == null)
+                    lueThuoc.EditValue = loaiThietBiNULL.id;
+                else
+                    lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                if (objLoaiThietBi.loaichung)
+                    ceTBsoluonglon.Checked = true;
+                else
+                    ceTBsoluonglon.Checked = false;
+            }
+            else
+                beforeAdd();
+        }
+
+        private void CRUP()
+        {
+            switch (function)
+            { 
+                case "add":
+                    objLoaiThietBi = new LoaiThietBi();
+                    setDataObj();
+                    if (objLoaiThietBi.add() != -1)
+                    {
+                        XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reLoad();
+                    }
+                    break;
+                case "edit":
+                    setDataObj();
+                    if (objLoaiThietBi.update() != -1)
+                    {
+                        XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reLoad();
+                    }
+                    break;
+            }
+        }
+
+        public void deleteObj()
+        {
+            if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
+            {
+                XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (objLoaiThietBi.childs.Count > 0)
+                    {
+                        if (XtraMessageBox.Show("Loại thiết bị này là gốc, bạn có muốn xóa luôn những loại thiết bị con?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            for (int i = 0; i < objLoaiThietBi.childs.Count; i++)
+                            {
+                                objLoaiThietBi.childs.ElementAt(i).delete();
+                            }
+                        }
+                    }
+                    if (objLoaiThietBi.delete() != -1)
+                    {
+                        XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reLoad();
+                    }
+                }
+            }
+        }
+
+        private Boolean checkLoaiThietBiConCoThietBiKhong(LoaiThietBi parent)
+        {
+            foreach (LoaiThietBi loaiThietBiCon in parent.childs)
+            {
+                if (loaiThietBiCon.thietbis.Count > 0)
+                    return true;
+            }
+            return false;
+        }
+
+        private void setDataObj()
+        {
+            objLoaiThietBi.ten = txtTen.Text;
+            objLoaiThietBi.mota = txtMoTa.Text;
+            objLoaiThietBi.date_create = DateTime.Today;
+            objLoaiThietBi.date_modified = DateTime.Today;
+            LoaiThietBi parentLoaiThietBi = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
+            if (parentLoaiThietBi.id != -1)
+                objLoaiThietBi.parent = new LoaiThietBi().getById(parentLoaiThietBi.id);
+            else
+            { 
+                if(function.Equals("edit"))
+                {
+                    objLoaiThietBi.parent_id = null;
+                }
+            }
+            if (ceTBsoluonglon.Checked)
+                objLoaiThietBi.loaichung = true;
+            else
+                objLoaiThietBi.loaichung = false;
+        }
+
+        public void SetTextGroupControl(String text, Color color)
+        {
+            groupControl1.Text = text;
+            groupControl1.AppearanceCaption.ForeColor = color;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            SetTextGroupControl("Chi tiết", Color.Black);
+            lueThuoc.Properties.DataSource = listLoaiThietBiCha;
+            setData();
+            enableEdit(false, "");
+            errorProvider1.Clear();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (checkInput())
+            {
+                CRUP();
+                reLoad();
+                setData();
+                enableEdit(false, "");
+            }
+        }
+
+        public void addThietBiChaKhiEdit()
+        {
+            if (objLoaiThietBi.id >= 1)
+            {
+                if (objLoaiThietBi.childs.Count > 0)
+                {
+                    lueThuoc.EditValue = loaiThietBiNULL.id;
+                    lueThuoc.Properties.ReadOnly = true;
+                }
+                else
+                {
+                    loaiThietBiParents = new List<LoaiThietBi>(listLoaiThietBiCha);
+                    loaiThietBiParents.Remove(objLoaiThietBi);
+                    lueThuoc.Properties.DataSource = loaiThietBiParents;
+                }
+            }
+        }
+
+        private Boolean checkInput()
+        {
+            Boolean check = true;
+            errorProvider1.Clear();
+            if (txtTen.Text.Length == 0)
+            {
+                check = false;
+                errorProvider1.SetError(txtTen, "Chưa điền tên thiết bị");
+            }
+            LoaiThietBi cha = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
+            if (cha.id != -1)
+            {
+                if (cha.loaichung)
+                {
+                    if (!ceTBsoluonglon.Checked)
+                    {
+                        check = false;
+                        errorProvider1.SetError(ceTBsoluonglon, "Thiết bị cha được quản lí theo số lượng lớn, thiết bị con cũng phải thế");
+                    }
+                }
+                else
+                {
+                    if (ceTBsoluonglon.Checked)
+                    {
+                        check = false;
+                        errorProvider1.SetError(ceTBsoluonglon, "Thiết bị cha được quản lí theo đơn lẻ, thiết bị con cũng phải thế");
+                    }
+                }
+            }
+            else
+            {
+                if (function.Equals("edit"))
+                {
+                    if (objLoaiThietBi.childs.Count > 0)
+                    {
+                        LoaiThietBi con = objLoaiThietBi.childs.ElementAt(0);
+                        if (con.loaichung)
+                        {
+                            if (!ceTBsoluonglon.Checked)
+                            {
+                                check = false;
+                                errorProvider1.SetError(ceTBsoluonglon, "Các thiết bị con được quản lí theo số lượng lớn, thiết bị cha cũng phải thế");
+                            }
+                        }
+                        else
+                        {
+                            if (ceTBsoluonglon.Checked)
+                            {
+                                check = false;
+                                errorProvider1.SetError(ceTBsoluonglon, "Các thiết bị con được quản lí theo đơn lẻ, thiết bị cha cũng phải thế");
+                            }
+                        }
+                    }
+                }
+            }
+            return check;
+        }
+
+        private void checkSuaXoa()
+        {
+            if (loaiThietBis.Count == 0)
+            {
+                beforeAdd();
+                if (this.ParentForm != null)
+                {
+                    frmMain frm = (frmMain)this.ParentForm;
+                    frm.enableSuaXoa(false);
+                }
+            }
+            else
+            {
+                if (this.ParentForm != null)
+                {
+                    frmMain frm = (frmMain)this.ParentForm;
+                    frm.enableSuaXoa(true);
+                }
+            }
         }
     }
 }

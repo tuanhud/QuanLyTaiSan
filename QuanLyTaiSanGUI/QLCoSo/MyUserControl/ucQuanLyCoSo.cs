@@ -31,13 +31,13 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         String type = "";
         String function = "";
         String node = "";
+
         public ucQuanLyCoSo()
         {
             InitializeComponent();
-            loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             listTree = new ViTriFilter().getAll();
             treeListViTri.DataSource = listTree;
@@ -133,7 +133,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objCoSo.date_modified = ServerTimeHelper.getNow();
                     if (objCoSo.update() != -1)
                     {
-                        XtraMessageBox.Show("Sửa cơ sở thành công!");
+                        XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
                         findNode = new FindNode(objCoSo.id, typeof(CoSo).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
@@ -148,7 +148,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objDay.coso = _vitri.coso;
                     if (objDay.update() != -1)
                     {
-                        XtraMessageBox.Show("Sửa dãy thành công!");
+                        XtraMessageBox.Show("Sửa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
                         findNode = new FindNode(objDay.id, typeof(Dayy).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
@@ -163,7 +163,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTang.day = _vitri2.day;
                     if (objTang.update() != -1)
                     {
-                        XtraMessageBox.Show("Sửa tầng thành công!");
+                        XtraMessageBox.Show("Sửa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
                         findNode = new FindNode(objTang.id, typeof(Tang).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
@@ -239,7 +239,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objCoSoNew.date_modified = ServerTimeHelper.getNow();
                     if (objCoSoNew.add() != -1)
                     {
-                        XtraMessageBox.Show("Thêm cơ sở thành công!");
+                        XtraMessageBox.Show("Thêm cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
                         findNode = new FindNode(objCoSoNew.id, typeof(CoSo).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
@@ -255,7 +255,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objDayNew.coso = _vitri.coso;
                     if (objDayNew.add() != -1)
                     {
-                        XtraMessageBox.Show("Thêm dãy thành công!");
+                        XtraMessageBox.Show("Thêm dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
                         findNode = new FindNode(objDayNew.id, typeof(Dayy).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
@@ -271,7 +271,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     objTangNew.day = _vitri2.day;
                     if (objTangNew.add() != -1)
                     {
-                        XtraMessageBox.Show("Thêm tầng thành công!");
+                        XtraMessageBox.Show("Thêm tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
                         findNode = new FindNode(objTangNew.id, typeof(Tang).Name);
                         treeListViTri.NodesIterator.DoOperation(findNode);
@@ -286,33 +286,33 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             switch (_type)
             {
                 case "CoSo":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         if (objCoSo.delete() != -1)
                         {
-                            XtraMessageBox.Show("Xóa cơ sở thành công!");
+                            XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoad();
                         }
                     }
                     break;
                 case "Dayy":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         CoSo obj = objDay.coso;
                         if (objDay.delete() != -1)
                         {
-                            XtraMessageBox.Show("Xóa dãy thành công!");
+                            XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoad();
                         }
                     }
                     break;
                 case "Tang":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         Dayy obj = objTang.day;
                         if (objTang.delete() != -1)
                         {
-                            XtraMessageBox.Show("Xóa tầng thành công!");
+                            XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoad();
                         }
                     }
@@ -338,7 +338,6 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             enableEdit(false, "", "");
             errorProvider1.Clear();
             SetTextGroupControl("Chi tiết", false);
-            errorProvider1.Clear();
             setData(node);
         }
 
@@ -355,6 +354,11 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         {
             errorProvider1.Clear();
             Boolean check = true;
+            if (imageSlider1.Images.Count == 0)
+            {
+                check = false;
+                errorProvider1.SetError(imageSlider1, "Cần ít nhất 1 hình ảnh");
+            }
             if (txtTen.Text.Length == 0)
             {
                 check = false;
@@ -538,6 +542,5 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     break;
             }
         }
-
     }
 }

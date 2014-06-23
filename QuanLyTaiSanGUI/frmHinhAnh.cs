@@ -27,6 +27,7 @@ namespace QuanLyTaiSanGUI
         int GIUNGUYEN = 0, LON = 800, VUA = 400, NHO = 100;
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         List<HinhAnh> HinhAnhs = null;
+        Boolean coThayDoi = false;
 
         public frmHinhAnh(List<HinhAnh> list)
         {
@@ -34,6 +35,7 @@ namespace QuanLyTaiSanGUI
             InitSkins();
             btnImageDelete.Enabled = false;
             HinhAnhs = list;
+            listHinhAnh = new HinhAnh().getAllHinhAnhDangDung();
             if (HinhAnhs != null)
             {
                 LoadHinhAnh(HinhAnhs);
@@ -87,7 +89,6 @@ namespace QuanLyTaiSanGUI
                 List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
                 List<FileInfo> listHinhAnhSeUpload = new List<FileInfo>();
                 Boolean coUploadHinhAnhDaCo = false;
-                listHinhAnh = new HinhAnh().getAll();
 
                 foreach (string file in open.FileNames)
                 {
@@ -114,6 +115,7 @@ namespace QuanLyTaiSanGUI
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
                             HinhAnhs.Add(hinhanhADD);
+                            coThayDoi = true;
 
                             GalleryItem it = new GalleryItem();
                             it.Image = (Image)hinhanh.IMAGE;
@@ -166,7 +168,7 @@ namespace QuanLyTaiSanGUI
                     return;
                 }
             }
-            if (MessageBox.Show(message, "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (XtraMessageBox.Show(message, "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
@@ -174,6 +176,7 @@ namespace QuanLyTaiSanGUI
                     {
                         HinhAnh h = HinhAnhs.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
                         HinhAnhs.Remove(h);
+                        coThayDoi = true;
                         galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
                     }
                 }
@@ -189,9 +192,14 @@ namespace QuanLyTaiSanGUI
         private void UploadHinhAnh(FileInfo fileinfo, Boolean coDoiTenHinhAnh)
         {
             string fPath = fileinfo.ToString();
-            string file_name = fileinfo.Name.ToString();
+            string file_name = "";
             if (coDoiTenHinhAnh)
                 file_name = StringHelper.RandomName(15);
+            else
+            {
+                file_name = fileinfo.Name;
+                file_name = file_name.Substring(0, file_name.IndexOf(fileinfo.Extension));
+            }
             HinhAnh hinhanh = new HinhAnh();
             hinhanh.FILE_NAME = file_name;
             hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(fPath);
@@ -215,6 +223,7 @@ namespace QuanLyTaiSanGUI
             }
             hinhanh.upload();
             HinhAnhs.Add(hinhanh);
+            coThayDoi = true;
 
             GalleryItem it = new GalleryItem();
             it.Image = (Image)hinhanh.IMAGE;
@@ -229,10 +238,15 @@ namespace QuanLyTaiSanGUI
 
         private void btnImageCancel_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn có muốn thoát. Ảnh tải lên sẽ không được lưu lại.", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (coThayDoi)
             {
-                this.Close();
+                if (XtraMessageBox.Show("Bạn có muốn thoát, những thay đổi sẽ không được lưu lại.", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    this.Close();
+                }
             }
+            else
+                this.Close();
         }
 
         private void btnImageSelectAll_Click(object sender, EventArgs e)
@@ -268,6 +282,7 @@ namespace QuanLyTaiSanGUI
                         HinhAnh hinhanhADD = new HinhAnh();
                         hinhanhADD.path = hinhanh.path;
                         HinhAnhs.Add(hinhanhADD);
+                        coThayDoi = true;
                         count++;
                     }
                     else
@@ -282,6 +297,7 @@ namespace QuanLyTaiSanGUI
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
                             HinhAnhs.Add(hinhanhADD);
+                            coThayDoi = true;
                             count++;
                         }
                     }

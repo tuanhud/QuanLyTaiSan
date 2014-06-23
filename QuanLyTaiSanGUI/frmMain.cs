@@ -66,6 +66,7 @@ namespace QuanLyTaiSanGUI
             visibleAllRibbbonPage();
             if (navBarControl1.ActiveGroup.Equals(navBarGroupViTri))
             {
+                _ucQuanLyCoSo.loadData();
                 rbnPageViTri_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageViTri_Home;
                 _ucQuanLyCoSo.Dock = DockStyle.Fill;
@@ -84,6 +85,7 @@ namespace QuanLyTaiSanGUI
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
+                _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
                 rbnPageLoaiTB_Home.Visible = true;
                 ribbon.SelectedPage = rbnPageLoaiTB_Home;
                 _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
@@ -91,6 +93,7 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyLoaiTB);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                _ucQuanLyLoaiTB.reLoad();
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
@@ -366,6 +369,42 @@ namespace QuanLyTaiSanGUI
             MessageBox.Show(obj.thietbi.ten);
         }
 
+        #endregion
+
+        #region QuanLyLoaiThietBi
+        public void enableSuaXoa(Boolean enable)
+        {
+            if (enable)
+            {
+                barBtnSuaLoaiTB.Enabled = true;
+                barBtnXoaLoaiTB.Enabled = true;
+            }
+            else
+            {
+                barBtnSuaLoaiTB.Enabled = false;
+                barBtnXoaLoaiTB.Enabled = false;
+            }
+        }
+
+        private void barBtnThemLoaiTB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyLoaiTB.enableEdit(true, "add");
+            _ucQuanLyLoaiTB.SetTextGroupControl("Thêm loại thiết bị", Color.Red);
+            _ucQuanLyLoaiTB.beforeAdd();
+        }
+
+        private void barBtnSuaLoaiTB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyLoaiTB.enableEdit(true, "edit");
+            _ucQuanLyLoaiTB.SetTextGroupControl("Sửa loại thiết bị", Color.Red);
+            _ucQuanLyLoaiTB.addThietBiChaKhiEdit();
+            _ucQuanLyLoaiTB.setData();
+        }
+
+        private void barBtnXoaLoaiTB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyLoaiTB.deleteObj();
+        }
         #endregion
     }
 }
