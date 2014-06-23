@@ -157,7 +157,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         }
                         else
                         {
-                            if (-1 == -1)
+                            if (objPhong.countThietBi() > 0)
                             {
                                 XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
                             }

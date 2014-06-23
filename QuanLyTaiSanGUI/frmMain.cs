@@ -396,7 +396,7 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyLoaiTB.deleteObj();
 		}
-		
+        #endregion
         #region QuanLyNhanVienPT
         public void loadDataNhanVienByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
