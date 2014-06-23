@@ -20,8 +20,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
     public partial class ucQuanLyCoSo : UserControl
     {
         List<ViTriFilter> listTree = new List<ViTriFilter>();
-        ucTreeViTri _ucTreeViTri;
-        ucTreeViTri _ucTreeViTriChonDay;
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
+        ucTreeViTri _ucTreeViTriChonDay = new ucTreeViTri(true, false);
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
         Tang objTang = new Tang();
@@ -34,17 +34,16 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         public ucQuanLyCoSo()
         {
             InitializeComponent();
-            loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             listTree = new ViTriFilter().getAll();
             treeListViTri.DataSource = listTree;
             listTree = new ViTriFilter().getAllCoSo();
-            _ucTreeViTri = new ucTreeViTri(listTree, false, false);
+            _ucTreeViTri.loadData(listTree);
             listTree = new ViTriFilter().getAllHaveDay();
-            _ucTreeViTriChonDay = new ucTreeViTri(listTree, true, false);
+            _ucTreeViTriChonDay.loadData(listTree);
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)

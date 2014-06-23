@@ -15,18 +15,18 @@ namespace QuanLyTaiSanGUI.MyUserControl
     public partial class ucChiTietThietBi : UserControl
     {
         CTThietBi obj = new CTThietBi();
-        List<LoaiThietBi> list;
-        ucTreeLoaiTB _ucTreeLoaiTB;
+        List<LoaiThietBi> list = null;
+        ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
         public ucChiTietThietBi()
         {
             InitializeComponent();
             loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             list = new LoaiThietBi().getAll();
-            _ucTreeLoaiTB = new ucTreeLoaiTB(list);
+            _ucTreeLoaiTB.loadData(list);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             _ucTreeLoaiTB.setReadOnly(true);
             panelControl1.Controls.Add(_ucTreeLoaiTB);

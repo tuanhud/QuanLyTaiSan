@@ -24,16 +24,15 @@ namespace QuanLyTaiSanGUI.MyUC
         int idPhong = -1;
         bool chonDay = false;
         bool chonPhong = false;
-        public ucTreeViTri(List<ViTriFilter> _list, bool _chonDay, bool _chonPhong)
+        public ucTreeViTri(bool _chonDay, bool _chonPhong)
         {
             InitializeComponent();
-            loadData(_list, _chonDay, _chonPhong);
-        }
-
-        private void loadData(List<ViTriFilter> _list, bool _chonDay, bool _chonPhong)
-        {
             chonDay = _chonDay;
             chonPhong = _chonPhong;
+        }
+
+        public void loadData(List<ViTriFilter> _list)
+        {
             treeListViTri.BeginUnboundLoad();
             treeListViTri.DataSource = _list;
             treeListViTri.EndUnboundLoad();

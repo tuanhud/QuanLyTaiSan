@@ -21,13 +21,12 @@ namespace QuanLyTaiSanGUI.MyUC
         int dayid = -1;
         int tangid = -1;
         public String type = "";
-        public ucTreePhong(List<ViTriFilter> _list)
+        public ucTreePhong()
         {
             InitializeComponent();
-            loadData(_list);
         }
 
-        private void loadData(List<ViTriFilter> _list)
+        public void loadData(List<ViTriFilter> _list)
         {
             treeListPhong.BeginUnboundLoad();
             treeListPhong.DataSource = _list;
@@ -67,10 +66,10 @@ namespace QuanLyTaiSanGUI.MyUC
                     }
                     if (this.ParentForm != null)
                     {
+                        frmMain frm = this.ParentForm as frmMain;
                         switch (type)
                         {
                             case "QLPhong":
-                                frmMain frm = this.ParentForm as frmMain;
                                 frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
                                 break;
                         }

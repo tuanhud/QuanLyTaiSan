@@ -16,24 +16,24 @@ namespace QuanLyTaiSanGUI.MyForm
 {
     public partial class frmNewThietBi : Form
     {
-        ucTreeLoaiTB _ucTreeLoaiTB = null;
-        ucTreeViTri _ucTreeViTri = null;
+        ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, true);
         public frmNewThietBi()
         {
             InitializeComponent();
             loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             List<LoaiThietBi> listTB = new LoaiThietBi().getAll();
-            _ucTreeLoaiTB = new ucTreeLoaiTB(listTB);
+            _ucTreeLoaiTB.loadData(listTB);
             _ucTreeLoaiTB.type = "add";
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelLoaiTB.Controls.Add(_ucTreeLoaiTB);
             List<PhongFilter> listPhong = new PhongFilter().getAll();
             List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhong();
-            _ucTreeViTri = new ucTreeViTri(listVT, false, true);
+            _ucTreeViTri.loadData(listVT);
             _ucTreeViTri.Dock = DockStyle.Fill;
             _ucTreeViTri.setReadOnly(false);
             panelPhong.Controls.Add(_ucTreeViTri);

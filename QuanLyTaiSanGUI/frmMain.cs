@@ -35,7 +35,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
-        ucTreePhong _ucTreePhong;
+        ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         public frmMain()
@@ -48,8 +48,7 @@ namespace QuanLyTaiSanGUI
         private void loadData()
         {
             List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
-            _ucTreePhong = new ucTreePhong(list);
-
+            _ucTreePhong.loadData(list);
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucQuanLyPhong);
             _ucTreePhong.Dock = DockStyle.Fill;
@@ -71,6 +70,7 @@ namespace QuanLyTaiSanGUI
                 _ucQuanLyCoSo.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyCoSo);
+                _ucQuanLyCoSo.loadData();
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupNhanVien))
             {
@@ -81,6 +81,8 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyNhanVien);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
+                //_ucTreePhong.loadData(list);
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
@@ -91,6 +93,8 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyLoaiTB);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
+                //_ucTreePhong.loadData(list);
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
@@ -123,6 +127,8 @@ namespace QuanLyTaiSanGUI
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
                 _ucTreePhong.type = "QLPhong";
+                //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
+                //_ucTreePhong.loadData(list);
             }
         }
 
