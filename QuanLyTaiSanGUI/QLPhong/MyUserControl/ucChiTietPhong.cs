@@ -10,14 +10,19 @@ using System.Windows.Forms;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
-        Phong objPhong;
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);        
+        List<HinhAnh> listHinh = new List<HinhAnh>();
+        Phong objPhong = new Phong();
+        NhanVienPT objNhanVienPT = new NhanVienPT();
         String type = "";
+        String function = "";   
+
         public ucChiTietPhong()
         {
             InitializeComponent();
@@ -40,8 +45,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 }
                 else
                     objPhong = new Phong();
-                txtTen.Text = objPhong.ten;
-                txtMoTa.Text = objPhong.mota;
+                txtTenPhong.Text = objPhong.ten;
+                txtMoTaPhong.Text = objPhong.mota;
                 _ucTreeViTri.setViTri(objPhong.vitri);
                 NhanVienPT objNV = new NhanVienPT();
                 if (objPhong.nhanvienpt != null)
@@ -64,6 +69,156 @@ namespace QuanLyTaiSanGUI.MyUserControl
             btnHuy.Visible = b;
             btnImage.Visible = b;
             type = _type;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+            if (CheckInput())
+            {
+                switch (function)
+                {
+                    case "edit":
+                        editObjPhong();
+                        break;
+                    case "add":
+                        addObjPhong();
+                        break;
+                }
+                enableEdit(false, "", "");
+            }
+        }
+
+        private void editObjPhong()
+        {
+            objPhong.ten = txtTenPhong.Text;
+            objPhong.mota = txtMoTaPhong.Text;
+            objPhong.hinhanhs = listHinh;
+            if (objPhong.update() != -1)
+            {
+                XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ucQuanLyPhong uc = this.Parent as ucQuanLyPhong;
+                uc.reLoad();
+                /*
+                findNode = new FindNode(objCoSo.id, typeof(CoSo).Name);
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
+                 */
+            }
+        }
+
+        public void enableEdit(bool _enable, String _type, String _function)
+        {
+            function = _function;
+            if (_enable)
+            {
+                btnImage.Visible = true;
+                btnOK.Visible = true;
+                btnHuy.Visible = true;
+                txtTenPhong.Properties.ReadOnly = false;
+                txtMoTaPhong.Properties.ReadOnly = false;
+                _ucTreeViTri.setReadOnly(false);
+                type = _type;
+            }
+            else
+            {
+                btnImage.Visible = false;
+                btnOK.Visible = false;
+                btnHuy.Visible = false;
+                txtTenPhong.Properties.ReadOnly = true;
+                txtMoTaPhong.Properties.ReadOnly = true;
+                _ucTreeViTri.setReadOnly(true);
+            }
+        }
+
+        private void addObjPhong()
+        {
+            Phong objPhongNew = new Phong();
+            objPhongNew.ten = txtTenPhong.Text;
+            objPhongNew.mota = txtMoTaPhong.Text;
+            objPhongNew.hinhanhs = listHinh;
+            objPhongNew.vitri = _ucTreeViTri.getViTri();
+            if (objPhongNew.add() != -1)
+            {
+                XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ucQuanLyPhong uc = this.Parent as ucQuanLyPhong;
+                uc.reLoad();
+                /*findNode = new FindNode(objCoSoNew.id, typeof(CoSo).Name);
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;*/
+            }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            enableEdit(false, "", "");
+            SetTextGroupControl("Chi tiết", false);
+            dxErrorProvider.ClearErrors();
+            listHinh = null;
+            setData(objPhong);
+        }
+
+        public void SetTextGroupControl(String _text, bool _color)
+        {
+            groupControl1.Text = _text;
+            if (_color)
+                groupControl1.AppearanceCaption.ForeColor = Color.Red;
+            else
+                groupControl1.AppearanceCaption.ForeColor = Color.Black;
+        }
+
+        private Boolean CheckInput()
+        {
+            dxErrorProvider.ClearErrors();
+            Boolean check = true;
+            if (imgPhong.Images.Count == 0)
+            {
+                check = false;
+                dxErrorProvider.SetError(imgPhong, "Cần ít nhất 1 hình ảnh");
+            }
+            if (txtTenPhong.Text.Length == 0)
+            {
+                check = false;
+                dxErrorProvider.SetError(txtTenPhong, "Chưa điền tên");
+            }
+            return check;
+        }
+
+        private void reloadImage()
+        {
+            imgPhong.Images.Clear();
+            foreach (HinhAnh h in listHinh)
+            {
+                imgPhong.Images.Add(h.getImage());
+            }
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmHinhAnh frm = null;
+
+                if (function.Equals("edit"))
+                {
+                    frm = new frmHinhAnh(listHinh);
+                    frm.Text = "Quản lý hình ảnh " + objPhong.ten;
+                    frm.ShowDialog();
+                    listHinh = frm.getlistHinhs();
+                }
+                else
+                {
+                    frm = new frmHinhAnh(listHinh);
+                    frm.Text = "Quản lý hình ảnh phòng mới";
+                    frm.ShowDialog();
+                    listHinh = frm.getlistHinhs();
+                }
+                reloadImage();
+            }
+            catch (Exception ex)
+            { }
+            finally
+            { }
         }
      }
 }

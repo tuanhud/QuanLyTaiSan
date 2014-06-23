@@ -154,6 +154,7 @@ namespace QuanLyTaiSanGUI
         }
 
         #region QuanLyViTri
+
         public void enableGroupViTri(String _type)
         {
             switch (_type)
@@ -246,7 +247,8 @@ namespace QuanLyTaiSanGUI
 
         #endregion
 
-        #region QuanLyPhong
+        #region Thongke
+
         public void treePhongFocusedNodeChanged(int phongid, int cosoid, int dayid, int tangid)
         {
             if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
@@ -311,6 +313,10 @@ namespace QuanLyTaiSanGUI
             {}
         }
 
+        #endregion
+
+        #region QuanLyPhong
+
         private void barBtnThemPhong_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViTri obj = new ViTri();
@@ -363,6 +369,7 @@ namespace QuanLyTaiSanGUI
         #endregion
 
         #region QuanLyLoaiThietBi
+
         public void enableSuaXoa(Boolean enable)
         {
             if (enable)
@@ -396,8 +403,11 @@ namespace QuanLyTaiSanGUI
         {
             _ucQuanLyLoaiTB.deleteObj();
 		}
+
         #endregion
+
         #region QuanLyNhanVienPT
+
         private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
             _ucQuanLyNhanVien.enableEdit(true, "add");
@@ -423,7 +433,5 @@ namespace QuanLyTaiSanGUI
         }
 
         #endregion
-
-
     }
 }

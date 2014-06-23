@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblTenPhong = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
@@ -54,9 +55,10 @@
             this.colngay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLap.Properties)).BeginInit();
@@ -69,7 +71,7 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -99,6 +101,16 @@
             this.groupControl1.Size = new System.Drawing.Size(316, 395);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết thiết bị";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Location = new System.Drawing.Point(72, 182);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(233, 20);
+            this.panelControl1.TabIndex = 26;
             // 
             // lblTenPhong
             // 
@@ -148,6 +160,7 @@
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 19;
             this.btnImage.Text = "Chọn";
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // labelControl7
             // 
@@ -324,15 +337,9 @@
             this.coltinhtrang_id.Visible = true;
             this.coltinhtrang_id.VisibleIndex = 1;
             // 
-            // panelControl1
+            // dxErrorProvider
             // 
-            this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Location = new System.Drawing.Point(72, 182);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(233, 20);
-            this.panelControl1.TabIndex = 26;
+            this.dxErrorProvider.ContainerControl = this;
             // 
             // ucChiTietThietBi
             // 
@@ -345,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateLap.Properties)).EndInit();
@@ -357,7 +365,7 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -391,5 +399,6 @@
         private DevExpress.XtraEditors.TextEdit txtMa;
         private DevExpress.XtraEditors.LabelControl lblTenPhong;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
     }
 }

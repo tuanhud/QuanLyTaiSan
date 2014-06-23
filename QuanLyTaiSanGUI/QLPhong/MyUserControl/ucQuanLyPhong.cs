@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -21,6 +22,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         List<ViTriFilter> listVitris = new List<ViTriFilter>();
         Phong objPhong;
         CTThietBi objChiTietTB;
+
         public ucQuanLyPhong()
         {
             InitializeComponent();
@@ -40,7 +42,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         }
 
-        private void reLoad()
+        public void reLoad()
         {
             //listVitris = new ViTriFilter().getAll().ToList();
             //_ucChiTietPhong.loadData(listVitris);
@@ -72,7 +74,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            
         }
 
         private void showDetailPhong(int _id)
@@ -184,6 +186,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     }
                     break;
             }
+        }
+
+        private void gridViewThietBi_MasterRowExpanded(object sender, DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventArgs e)
+        {
+            gridViewThietBi.GetDetailView(e.RowHandle, e.RelationIndex).Focus();
         }
     }
 }

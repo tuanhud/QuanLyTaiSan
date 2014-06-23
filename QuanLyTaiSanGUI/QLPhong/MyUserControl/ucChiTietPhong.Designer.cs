@@ -30,16 +30,16 @@
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.lblHinhPhong = new DevExpress.XtraEditors.LabelControl();
             this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.lblViTri = new DevExpress.XtraEditors.LabelControl();
+            this.lblTenPhong = new DevExpress.XtraEditors.LabelControl();
+            this.txtTenPhong = new DevExpress.XtraEditors.TextEdit();
+            this.imgPhong = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.txtMoTaPhong = new DevExpress.XtraEditors.MemoEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.lblSoDienThoai = new DevExpress.XtraEditors.LabelControl();
             this.lblTenNhanVien = new DevExpress.XtraEditors.LabelControl();
@@ -48,31 +48,39 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.imageSlider2 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.imgNhanVien = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.panelControl1);
-            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.lblHinhPhong);
             this.groupControl1.Controls.Add(this.btnImage);
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOK);
             this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.txtTen);
-            this.groupControl1.Controls.Add(this.imageSlider1);
-            this.groupControl1.Controls.Add(this.txtMoTa);
+            this.groupControl1.Controls.Add(this.lblViTri);
+            this.groupControl1.Controls.Add(this.lblTenPhong);
+            this.groupControl1.Controls.Add(this.txtTenPhong);
+            this.groupControl1.Controls.Add(this.imgPhong);
+            this.groupControl1.Controls.Add(this.txtMoTaPhong);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
@@ -90,13 +98,13 @@
             this.panelControl1.Size = new System.Drawing.Size(209, 20);
             this.panelControl1.TabIndex = 15;
             // 
-            // labelControl3
+            // lblHinhPhong
             // 
-            this.labelControl3.Location = new System.Drawing.Point(7, 24);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(46, 13);
-            this.labelControl3.TabIndex = 14;
-            this.labelControl3.Text = "Hình ảnh:";
+            this.lblHinhPhong.Location = new System.Drawing.Point(7, 24);
+            this.lblHinhPhong.Name = "lblHinhPhong";
+            this.lblHinhPhong.Size = new System.Drawing.Size(46, 13);
+            this.lblHinhPhong.TabIndex = 14;
+            this.lblHinhPhong.Text = "Hình ảnh:";
             // 
             // btnImage
             // 
@@ -106,6 +114,7 @@
             this.btnImage.TabIndex = 13;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnHuy
             // 
@@ -115,6 +124,7 @@
             this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
@@ -124,6 +134,7 @@
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // labelControl5
             // 
@@ -133,52 +144,52 @@
             this.labelControl5.TabIndex = 10;
             this.labelControl5.Text = "Mô tả:";
             // 
-            // labelControl2
+            // lblViTri
             // 
-            this.labelControl2.Location = new System.Drawing.Point(7, 176);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(25, 13);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Vị trí:";
+            this.lblViTri.Location = new System.Drawing.Point(7, 176);
+            this.lblViTri.Name = "lblViTri";
+            this.lblViTri.Size = new System.Drawing.Size(25, 13);
+            this.lblViTri.TabIndex = 7;
+            this.lblViTri.Text = "Vị trí:";
             // 
-            // labelControl1
+            // lblTenPhong
             // 
-            this.labelControl1.Location = new System.Drawing.Point(7, 152);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 13);
-            this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Tên phòng:";
+            this.lblTenPhong.Location = new System.Drawing.Point(7, 152);
+            this.lblTenPhong.Name = "lblTenPhong";
+            this.lblTenPhong.Size = new System.Drawing.Size(55, 13);
+            this.lblTenPhong.TabIndex = 6;
+            this.lblTenPhong.Text = "Tên phòng:";
             // 
-            // txtTen
+            // txtTenPhong
             // 
-            this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtTenPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(68, 150);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(209, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTenPhong.Location = new System.Drawing.Point(68, 150);
+            this.txtTenPhong.Name = "txtTenPhong";
+            this.txtTenPhong.Properties.ReadOnly = true;
+            this.txtTenPhong.Size = new System.Drawing.Size(209, 20);
+            this.txtTenPhong.TabIndex = 1;
             // 
-            // imageSlider1
+            // imgPhong
             // 
-            this.imageSlider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(68, 24);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(120, 120);
-            this.imageSlider1.TabIndex = 0;
-            this.imageSlider1.Text = "imageSlider1";
+            this.imgPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imgPhong.Location = new System.Drawing.Point(68, 24);
+            this.imgPhong.Name = "imgPhong";
+            this.imgPhong.Size = new System.Drawing.Size(120, 120);
+            this.imgPhong.TabIndex = 0;
+            this.imgPhong.Text = "imageSlider1";
             // 
-            // txtMoTa
+            // txtMoTaPhong
             // 
-            this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtMoTaPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(68, 202);
-            this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(209, 49);
-            this.txtMoTa.TabIndex = 5;
-            this.txtMoTa.UseOptimizedRendering = true;
+            this.txtMoTaPhong.Location = new System.Drawing.Point(68, 202);
+            this.txtMoTaPhong.Name = "txtMoTaPhong";
+            this.txtMoTaPhong.Properties.ReadOnly = true;
+            this.txtMoTaPhong.Size = new System.Drawing.Size(209, 49);
+            this.txtMoTaPhong.TabIndex = 5;
+            this.txtMoTaPhong.UseOptimizedRendering = true;
             // 
             // groupControl2
             // 
@@ -189,7 +200,10 @@
             this.groupControl2.Controls.Add(this.labelControl8);
             this.groupControl2.Controls.Add(this.labelControl7);
             this.groupControl2.Controls.Add(this.labelControl6);
-            this.groupControl2.Controls.Add(this.imageSlider2);
+            this.groupControl2.Controls.Add(this.imgNhanVien);
+            this.groupControl2.Controls.Add(this.txtSoDienThoai);
+            this.groupControl2.Controls.Add(this.txtTenNhanVien);
+            this.groupControl2.Controls.Add(this.txtMaNhanVien);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 287);
             this.groupControl2.Name = "groupControl2";
@@ -236,7 +250,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(7, 180);
+            this.labelControl7.Location = new System.Drawing.Point(6, 180);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(72, 13);
             this.labelControl7.TabIndex = 5;
@@ -250,14 +264,51 @@
             this.labelControl6.TabIndex = 4;
             this.labelControl6.Text = "Mã nhân viên:";
             // 
-            // imageSlider2
+            // imgNhanVien
             // 
-            this.imageSlider2.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider2.Location = new System.Drawing.Point(79, 25);
-            this.imageSlider2.Name = "imageSlider2";
-            this.imageSlider2.Size = new System.Drawing.Size(120, 120);
-            this.imageSlider2.TabIndex = 0;
-            this.imageSlider2.Text = "imageSlider2";
+            this.imgNhanVien.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imgNhanVien.Location = new System.Drawing.Point(79, 25);
+            this.imgNhanVien.Name = "imgNhanVien";
+            this.imgNhanVien.Size = new System.Drawing.Size(120, 120);
+            this.imgNhanVien.TabIndex = 0;
+            this.imgNhanVien.Text = "imageSlider2";
+            // 
+            // txtMaNhanVien
+            // 
+            this.txtMaNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaNhanVien.Enabled = false;
+            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 151);
+            this.txtMaNhanVien.Name = "txtMaNhanVien";
+            this.txtMaNhanVien.Properties.ReadOnly = true;
+            this.txtMaNhanVien.Size = new System.Drawing.Size(198, 20);
+            this.txtMaNhanVien.TabIndex = 1;
+            // 
+            // txtTenNhanVien
+            // 
+            this.txtTenNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenNhanVien.Enabled = false;
+            this.txtTenNhanVien.Location = new System.Drawing.Point(79, 177);
+            this.txtTenNhanVien.Name = "txtTenNhanVien";
+            this.txtTenNhanVien.Properties.ReadOnly = true;
+            this.txtTenNhanVien.Size = new System.Drawing.Size(198, 20);
+            this.txtTenNhanVien.TabIndex = 1;
+            // 
+            // txtSoDienThoai
+            // 
+            this.txtSoDienThoai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSoDienThoai.Enabled = false;
+            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 203);
+            this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.Properties.ReadOnly = true;
+            this.txtSoDienThoai.Size = new System.Drawing.Size(198, 20);
+            this.txtSoDienThoai.TabIndex = 1;
+            // 
+            // dxErrorProvider
+            // 
+            this.dxErrorProvider.ContainerControl = this;
             // 
             // ucChiTietPhong
             // 
@@ -271,13 +322,17 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,17 +341,17 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtTen;
-        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
-        private DevExpress.XtraEditors.MemoEdit txtMoTa;
+        private DevExpress.XtraEditors.LabelControl lblViTri;
+        private DevExpress.XtraEditors.LabelControl lblTenPhong;
+        private DevExpress.XtraEditors.TextEdit txtTenPhong;
+        private DevExpress.XtraEditors.Controls.ImageSlider imgPhong;
+        private DevExpress.XtraEditors.MemoEdit txtMoTaPhong;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider2;
+        private DevExpress.XtraEditors.Controls.ImageSlider imgNhanVien;
         private DevExpress.XtraEditors.LabelControl lblSoDienThoai;
         private DevExpress.XtraEditors.LabelControl lblTenNhanVien;
         private DevExpress.XtraEditors.LabelControl lblMaNhanVien;
@@ -304,7 +359,11 @@
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl lblHinhPhong;
+        private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
+        private DevExpress.XtraEditors.TextEdit txtTenNhanVien;
+        private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
 
     }
 }
