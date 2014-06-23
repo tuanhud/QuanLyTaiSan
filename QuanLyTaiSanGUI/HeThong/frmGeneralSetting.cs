@@ -15,7 +15,7 @@ namespace QuanLyTaiSanGUI.HeThong
     public partial class frmGeneralSetting : DevExpress.XtraEditors.XtraForm
     {
         private ucFTPSetting ucFTPSetting_ = null;
-        private ucHTTPSetting ucHTTPSetting_ = null;
+        private ucDisplaySetting ucHTTPSetting_ = null;
         public frmGeneralSetting()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.HeThong
         private void initUc()
         {
             ucFTPSetting_ = new ucFTPSetting();
-            ucHTTPSetting_ = new ucHTTPSetting();
+            ucHTTPSetting_ = new ucDisplaySetting();
         }
         private void tao_left_panel()
         {

@@ -15,18 +15,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        ucTreeViTri _ucTreeViTri;
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
         Phong objPhong;
         String type = "";
-        public ucChiTietPhong(List<ViTriFilter> _list)
+        public ucChiTietPhong()
         {
             InitializeComponent();
-            loadData(_list);
         }
 
-        private void loadData(List<ViTriFilter> _list)
+        public void loadData(List<ViTriFilter> _list)
         {
-            _ucTreeViTri = new ucTreeViTri(_list, false, false);
+            _ucTreeViTri.loadData(_list);
             _ucTreeViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeViTri);
         }

@@ -102,11 +102,11 @@
     <Compile Include="HeThong\ucFTPSetting.Designer.cs">
       <DependentUpon>ucFTPSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\ucHTTPSetting.cs">
+    <Compile Include="HeThong\ucDisplaySetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HeThong\ucHTTPSetting.Designer.cs">
-      <DependentUpon>ucHTTPSetting.cs</DependentUpon>
+    <Compile Include="HeThong\ucDisplaySetting.Designer.cs">
+      <DependentUpon>ucDisplaySetting.cs</DependentUpon>
     </Compile>
     <Compile Include="HeThong\ucPhanQuyen.cs">
       <SubType>UserControl</SubType>
@@ -114,6 +114,7 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucSettingInterface.cs" />
     <Compile Include="HeThong\ucThongTinQuanTriVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,8 +255,8 @@
     <EmbeddedResource Include="HeThong\ucFTPSetting.resx">
       <DependentUpon>ucFTPSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HeThong\ucHTTPSetting.resx">
-      <DependentUpon>ucHTTPSetting.cs</DependentUpon>
+    <EmbeddedResource Include="HeThong\ucDisplaySetting.resx">
+      <DependentUpon>ucDisplaySetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>

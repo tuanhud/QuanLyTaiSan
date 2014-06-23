@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -77,12 +78,18 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
+            date_modified = ServerTimeHelper.getNow();
             //have to load all [Required] FK object first
             if (parent != null)
             {
                 parent.trigger();
             }
             return base.update();
+        }
+        public override int add()
+        {
+            date_create = ServerTimeHelper.getNow();
+            return base.add();
         }
         #endregion
     }

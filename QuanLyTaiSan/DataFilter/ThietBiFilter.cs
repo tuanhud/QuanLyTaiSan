@@ -20,12 +20,12 @@ namespace QuanLyTaiSan.DataFilter
         public int phong_id { get; set; }
 
         #region Nghiệp vụ
-        public List<ThietBiFilter> getAllBy4Id(int _id1, int _id2, int _id3, int _id4)
+        public List<ThietBiFilter> getAllBy4Id(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
             //OurDBContext db = new OurDBContext();
             List<ThietBiFilter> re =
                 (from c in db.CTTHIETBIS
-                 where ((_id1 == -1 || c.phong.id == _id1)&&(_id2==-1||c.phong.vitri.coso.id==_id2)&&(_id3==-1||c.phong.vitri.day.id ==_id3)&&(_id4==-1||c.phong.vitri.tang.id==_id4))
+                 where ((_phongid == -1 || c.phong.id == _phongid)&&(_cosoid==-1||c.phong.vitri.coso.id==_cosoid)&&(_dayid==-1||c.phong.vitri.day.id ==_dayid)&&(_tangid==-1||c.phong.vitri.tang.id==_tangid))
                  select new ThietBiFilter
                  {
                      id = c.id,

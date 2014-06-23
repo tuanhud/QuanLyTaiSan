@@ -17,13 +17,12 @@ namespace QuanLyTaiSanGUI.MyUC
     {
         LoaiThietBi obj = new LoaiThietBi();
         public String type = "";
-        public ucTreeLoaiTB(List<LoaiThietBi> _list)
+        public ucTreeLoaiTB()
         {
             InitializeComponent();
-            loadData(_list);
         }
 
-        private void loadData(List<LoaiThietBi> _list)
+        public void loadData(List<LoaiThietBi> _list)
         {
             treeListLoaiTB.BeginUnboundLoad();
             treeListLoaiTB.DataSource = _list;

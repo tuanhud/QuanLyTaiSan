@@ -14,7 +14,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucQuanLyPhong : UserControl
     {
-        ucChiTietPhong _ucChiTietPhong;
+        ucChiTietPhong _ucChiTietPhong = new ucChiTietPhong();
         ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
         List<ViTriFilter> listVitris = new List<ViTriFilter>();
@@ -26,10 +26,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
             loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             listVitris = new ViTriFilter().getAll().ToList();
-            _ucChiTietPhong = new ucChiTietPhong(listVitris);
+            _ucChiTietPhong.loadData(listVitris);
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
             //listThietBis = new ThietBi().getAll().ToList();
@@ -102,13 +102,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 int row = gridViewThietBi.FocusedRowHandle;
                 if (row < 0 && row > -9999)
                 {
-                    //Phong obj = new Phong();
-                    //obj = obj.getById(Convert.ToInt32(gridViewThietBi.GetRowCellValue(gridViewThietBi.GetDataRowHandleByGroupRowHandle(row), colphong_id)));
-                    //_ucChiTietPhong.Dock = DockStyle.Fill;
-                    //AddControl(_ucChiTietPhong);
-                    //_ucChiTietPhong.setData(obj);
-                    //enableGroupPhong(typeof(Phong).Name);
-                    //objPhong = obj;
+                    Phong obj = new Phong();
+                    obj = obj.getById(Convert.ToInt32(gridViewThietBi.GetRowCellValue(gridViewThietBi.GetDataRowHandleByGroupRowHandle(row), colphong_id)));
+                    _ucChiTietPhong.Dock = DockStyle.Fill;
+                    AddControl(_ucChiTietPhong);
+                    _ucChiTietPhong.setData(obj);
+                    enableGroupPhong(typeof(Phong).Name);
+                    objPhong = obj;
                 }
                 else if (row >= 0)
                 {
