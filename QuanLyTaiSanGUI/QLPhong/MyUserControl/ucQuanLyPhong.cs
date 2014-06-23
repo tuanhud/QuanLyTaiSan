@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -33,6 +34,20 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucChiTietPhong.Dock = DockStyle.Fill;
             AddControl(_ucChiTietPhong);
             //listThietBis = new ThietBi().getAll().ToList();
+            ThietBiFilter obj = new ThietBiFilter();
+            listThietBis = obj.getAllBy4Id(-1, -1, -1, -1);
+            gridControlThietBi.DataSource = listThietBis;
+
+        }
+
+        private void reLoad()
+        {
+            //listVitris = new ViTriFilter().getAll().ToList();
+            //_ucChiTietPhong.loadData(listVitris);
+            //_ucChiTietPhong.Dock = DockStyle.Fill;
+            //AddControl(_ucChiTietPhong);
+            //listThietBis = new ThietBi().getAll().ToList();
+            gridControlThietBi.DataSource = null;
             ThietBiFilter obj = new ThietBiFilter();
             listThietBis = obj.getAllBy4Id(-1, -1, -1, -1);
             gridControlThietBi.DataSource = listThietBis;
@@ -115,6 +130,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     _ucChiTietThietBi.Dock = DockStyle.Fill;
                     AddControl(_ucChiTietThietBi);
                     CTThietBi objct = new CTThietBi();
+                    int temp = Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid));
                     objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
                     _ucChiTietThietBi.setData(objct);
                     enableGroupPhong(typeof(ThietBi).Name);
@@ -124,6 +140,50 @@ namespace QuanLyTaiSanGUI.MyUserControl
             catch (Exception ex)
             { }
             finally { }
+        }
+
+        public void deleteObj(String _type)
+        {
+            switch (_type)
+            {
+                case "Phong":
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        XtraMessageBox.Show(objPhong.id.ToString());
+                        if (objPhong.delete() != -1)
+                        {
+                            XtraMessageBox.Show("Xóa phòng thành công!");
+                            reLoad();
+                        }
+                        else
+                        {
+                            if (-1 == -1)
+                            {
+                                XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Phòng có chứa Log tình trạng. Không thể xóa!");
+                            }
+                        }
+                    }
+                    break;
+                case "ThietBi":
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa thiết bị?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        //Phong obj = objChiTietTB.phong;
+                        if (objChiTietTB.delete() != -1)
+                        {
+                            XtraMessageBox.Show("Xóa thiết bị thành công!");
+                            reLoad();
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Có lỗi trong khi xóa thiết bị!");
+                        }
+                    }
+                    break;
+            }
         }
     }
 }

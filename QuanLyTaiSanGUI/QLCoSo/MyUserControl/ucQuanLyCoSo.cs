@@ -299,6 +299,10 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoad();
                         }
+                        else
+                        {
+                            XtraMessageBox.Show("Có dãy trong cơ sở. Vui lòng xóa dãy trước!");
+                        }
                     }
                     break;
                 case "Dayy":
@@ -310,6 +314,11 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                             XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoad();
                         }
+
+                        else
+                        {
+                            XtraMessageBox.Show("Có tầng/phòng trong dãy. Vui lòng xóa tầng/phòng trước!");
+                        }
                     }
                     break;
                 case "Tang":
@@ -320,6 +329,10 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         {
                             XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoad();
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Có phòng trong tầng. Vui lòng xóa phòng trước!");
                         }
                     }
                     break;

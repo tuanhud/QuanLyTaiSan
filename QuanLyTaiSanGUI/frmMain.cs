@@ -24,6 +24,7 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
+using DevExpress.Skins;
 
 namespace QuanLyTaiSanGUI
 {
@@ -41,7 +42,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SetSkinStyle("Visual Studio 2013 Light");
+            UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
             loadData();
         }
 
@@ -330,7 +331,8 @@ namespace QuanLyTaiSanGUI
             Phong obj2 = new Phong();
             obj2 = _ucQuanLyPhong.getPhong();
             ViTri obj = obj2.vitri;
-            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+            _ucQuanLyPhong.deleteObj(typeof(Phong).Name);
+            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
         }
 
         private void barBtnThemThietBi_ItemClick(object sender, ItemClickEventArgs e)
@@ -354,7 +356,8 @@ namespace QuanLyTaiSanGUI
         {
             CTThietBi obj = new CTThietBi();
             obj = _ucQuanLyPhong.getCTThietBi();
-            MessageBox.Show(obj.thietbi.ten);
+            _ucQuanLyPhong.deleteObj(typeof(ThietBi).Name);
+            //MessageBox.Show(obj.thietbi.ten);
         }
 
         #endregion

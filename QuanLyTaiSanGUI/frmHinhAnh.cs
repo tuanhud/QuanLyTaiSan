@@ -33,7 +33,7 @@ namespace QuanLyTaiSanGUI
         public frmHinhAnh(List<HinhAnh> list)
         {
             InitializeComponent();
-            InitSkins();
+            UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
             btnImageDelete.Enabled = false;
 
             HinhAnhs = list;
@@ -49,11 +49,6 @@ namespace QuanLyTaiSanGUI
             }
             else
                 XtraMessageBox.Show("Không có ảnh để load!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void InitSkins()
-        {
-            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
         }
 
         private void LoadHinhAnh(List<HinhAnh> list)
