@@ -65,16 +65,17 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         public void reLoad()
         {
-            loaiThietBis = new LoaiThietBi().getAll();
+            loaiThietBis = new LoaiThietBi().getAll().OrderBy(l => l.ten).ToList();
             treeListLoaiTB.DataSource = loaiThietBis;
-            listLoaiThietBiCha = new LoaiThietBi().getAllParent();
-            listLoaiThietBiCha.Add(loaiThietBiNULL);
+            listLoaiThietBiCha = new LoaiThietBi().getAllParent().OrderBy(l => l.ten).ToList();
+            listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
             lueThuoc.Properties.DataSource = listLoaiThietBiCha;
             checkSuaXoa();
         }
 
         public void beforeAdd()
         {
+            errorProvider1.Clear();
             txtTen.Text = "";
             txtMoTa.Text = "";
             lueThuoc.EditValue = loaiThietBiNULL.id;
@@ -85,6 +86,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             if (loaiThietBis.Count > 0)
             {
+                errorProvider1.Clear();
                 txtTen.Text = objLoaiThietBi.ten;
                 txtMoTa.Text = objLoaiThietBi.mota;
                 if (objLoaiThietBi.parent_id == null)
@@ -95,6 +97,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     ceTBsoluonglon.Checked = true;
                 else
                     ceTBsoluonglon.Checked = false;
+                if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
+                    ceTBsoluonglon.Properties.ReadOnly = true;
             }
             else
                 beforeAdd();
