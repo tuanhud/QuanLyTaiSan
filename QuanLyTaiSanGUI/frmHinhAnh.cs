@@ -25,18 +25,22 @@ namespace QuanLyTaiSanGUI
         public static Size SkinImageSize = new Size(58, 43);
         
         int GIUNGUYEN = 0, LON = 800, VUA = 400, NHO = 100;
-        List<HinhAnh> listHinhAnh = new List<HinhAnh>();
-        List<HinhAnh> HinhAnhs = null;
+        List<HinhAnh> listTemp = new List<HinhAnh>();
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
 
         public frmHinhAnh(List<HinhAnh> list)
         {
             InitializeComponent();
             InitSkins();
             btnImageDelete.Enabled = false;
-            HinhAnhs = list;
-            if (HinhAnhs != null)
+            if (list != null)
             {
-                LoadHinhAnh(HinhAnhs);
+                listHinhs = list;
+                foreach(HinhAnh hinh in list)
+                {
+                    listTemp.Add(hinh);
+                }
+                LoadHinhAnh(list);
             }
             else
                 XtraMessageBox.Show("Không có ảnh để load!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,6 +80,7 @@ namespace QuanLyTaiSanGUI
 
         private void btnImageUpload_Click(object sender, EventArgs e)
         {
+            List<HinhAnh> listHinhAnh = new List<HinhAnh>();
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Hình ảnh(*.png,*.bmp,*.jpg,*.jpeg)|*.png;*.bmp;*.jpg;*.jpeg";
             open.Title = "My Image Browser";
@@ -113,7 +118,7 @@ namespace QuanLyTaiSanGUI
                         {
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
-                            HinhAnhs.Add(hinhanhADD);
+                            listTemp.Add(hinhanhADD);
 
                             GalleryItem it = new GalleryItem();
                             it.Image = (Image)hinhanh.IMAGE;
@@ -144,9 +149,6 @@ namespace QuanLyTaiSanGUI
 
         private void galleryControlImage_Gallery_ItemClick(object sender, GalleryItemClickEventArgs e)
         {
-            //currItem = e.Item;
-            // _name = e.Item.Tag.ToString();
-            //btnImageDelete.Enabled = true;
             btnImageDelete.Enabled = true;
         }
 
@@ -172,8 +174,8 @@ namespace QuanLyTaiSanGUI
                 {
                     foreach (GalleryItem gallery in listItemDelete)
                     {
-                        HinhAnh h = HinhAnhs.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
-                        HinhAnhs.Remove(h);
+                        HinhAnh h = listTemp.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
+                        listTemp.Remove(h);
                         galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
                     }
                 }
@@ -214,7 +216,7 @@ namespace QuanLyTaiSanGUI
                     break;
             }
             hinhanh.upload();
-            HinhAnhs.Add(hinhanh);
+            listTemp.Add(hinhanh);
 
             GalleryItem it = new GalleryItem();
             it.Image = (Image)hinhanh.IMAGE;
@@ -243,13 +245,14 @@ namespace QuanLyTaiSanGUI
                 btnImageDelete.Enabled = true;
         }
 
-        public List<HinhAnh> getHinhAnhs()
+        public List<HinhAnh> getlistHinhs()
         {
-            return HinhAnhs;
+            return listHinhs;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            listHinhs = listTemp;
             this.Close();
         }
 
@@ -263,11 +266,11 @@ namespace QuanLyTaiSanGUI
                 List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
                 foreach (HinhAnh hinhanh in frm.getHinhAnhChons())
                 {
-                    if (HinhAnhs.Where(h => h.path == hinhanh.path).FirstOrDefault() == null)
+                    if (listTemp.Where(h => h.path == hinhanh.path).FirstOrDefault() == null)
                     {
                         HinhAnh hinhanhADD = new HinhAnh();
                         hinhanhADD.path = hinhanh.path;
-                        HinhAnhs.Add(hinhanhADD);
+                        listTemp.Add(hinhanhADD);
                         count++;
                     }
                     else
@@ -281,12 +284,12 @@ namespace QuanLyTaiSanGUI
                         {
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
-                            HinhAnhs.Add(hinhanhADD);
+                            listTemp.Add(hinhanhADD);
                             count++;
                         }
                     }
                 }
-                LoadHinhAnh(HinhAnhs);
+                LoadHinhAnh(listTemp);
                 if (count > 0)
                     XtraMessageBox.Show(String.Format("Đã thêm {0} ảnh", count), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -20,7 +20,6 @@ namespace QuanLyTaiSanGUI
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
             Application.Run(new frmMain());
-            //Application.Run(new frmMain());
         }
     }
 }

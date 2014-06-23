@@ -72,6 +72,9 @@ namespace QuanLyTaiSanGUI.MyUC
                             case "QLPhong":
                                 frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
                                 break;
+                            case "QLNhanVienPT":
+                                frm.loadDataNhanVienByViTri(phongid, cosoid, dayid, tangid);
+                                break;
                         }
                     }
                 }

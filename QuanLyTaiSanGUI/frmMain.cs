@@ -81,8 +81,9 @@ namespace QuanLyTaiSanGUI
                 panelControl1.Controls.Add(_ucQuanLyNhanVien);
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                _ucTreePhong.type = "QLNhanVienPT";
                 //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
-                //_ucTreePhong.loadData(list);
+                _ucQuanLyNhanVien.loadData(-1, -1, -1, -1);
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
@@ -239,25 +240,6 @@ namespace QuanLyTaiSanGUI
 
         }
 
-        private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyNhanVien.enableEdit(true, "them");
-            _ucQuanLyNhanVien.SetTextGroupControl("Thêm nhân viên");
-            _ucQuanLyNhanVien.beforeAdd();
-        }
-
-        private void barBtnSuaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyNhanVien.enableEdit(true, "sua");
-            _ucQuanLyNhanVien.SetTextGroupControl("Sửa nhân viên");
-            _ucQuanLyNhanVien.beforeEdit();
-        }
-
-        private void barBtnXoaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyNhanVien.deleteObj();
-
-        }
         #endregion
 
         #region QuanLyPhong
@@ -372,6 +354,33 @@ namespace QuanLyTaiSanGUI
             MessageBox.Show(obj.thietbi.ten);
         }
 
+        #endregion
+
+        #region QuanLyNhanVienPT
+        public void loadDataNhanVienByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
+        {
+            _ucQuanLyNhanVien.loadData(_phongid, _cosoid, _dayid, _tangid);
+        }
+
+        private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.enableEdit(true, "add");
+            _ucQuanLyNhanVien.SetTextGroupControl("Thêm nhân viên");
+            _ucQuanLyNhanVien.beforeAdd();
+        }
+
+        private void barBtnSuaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.enableEdit(true, "edit");
+            _ucQuanLyNhanVien.SetTextGroupControl("Sửa nhân viên");
+            _ucQuanLyNhanVien.beforeEdit();
+        }
+
+        private void barBtnXoaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyNhanVien.deleteObj();
+
+        }
         #endregion
     }
 }
