@@ -25,20 +25,15 @@ namespace QuanLyTaiSanGUI
         public static Size SkinImageSize = new Size(58, 43);
         
         int GIUNGUYEN = 0, LON = 800, VUA = 400, NHO = 100;
-
-        List<HinhAnh> listHinhAnh = new List<HinhAnh>();
-        List<HinhAnh> HinhAnhs = null;
-        Boolean coThayDoi = false;
+        List<HinhAnh> listTemp = new List<HinhAnh>();
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
 
         public frmHinhAnh(List<HinhAnh> list)
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
+            InitSkins();
             btnImageDelete.Enabled = false;
-
-            HinhAnhs = list;
-            listHinhAnh = new HinhAnh().getAllHinhAnhDangDung();
-            if (HinhAnhs != null)
+            if (list != null)
             {
                 listHinhs = list;
                 foreach(HinhAnh hinh in list)
@@ -49,6 +44,11 @@ namespace QuanLyTaiSanGUI
             }
             else
                 XtraMessageBox.Show("Không có ảnh để load!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void InitSkins()
+        {
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
         }
 
         private void LoadHinhAnh(List<HinhAnh> list)
@@ -92,6 +92,7 @@ namespace QuanLyTaiSanGUI
                 List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
                 List<FileInfo> listHinhAnhSeUpload = new List<FileInfo>();
                 Boolean coUploadHinhAnhDaCo = false;
+                listHinhAnh = new HinhAnh().getAll();
 
                 foreach (string file in open.FileNames)
                 {
@@ -117,9 +118,7 @@ namespace QuanLyTaiSanGUI
                         {
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
-
-                            HinhAnhs.Add(hinhanhADD);
-                            coThayDoi = true;
+                            listTemp.Add(hinhanhADD);
 
                             GalleryItem it = new GalleryItem();
                             it.Image = (Image)hinhanh.IMAGE;
@@ -169,16 +168,14 @@ namespace QuanLyTaiSanGUI
                     return;
                 }
             }
-            if (XtraMessageBox.Show(message, "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(message, "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     foreach (GalleryItem gallery in listItemDelete)
                     {
-                        HinhAnh h = HinhAnhs.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
-                        HinhAnhs.Remove(h);
-                        coThayDoi = true;
-						
+                        HinhAnh h = listTemp.Where(c => c.path == gallery.Tag.ToString()).FirstOrDefault();
+                        listTemp.Remove(h);
                         galleryControlImage.Gallery.Groups[0].Items.Remove(gallery);
                     }
                 }
@@ -194,14 +191,9 @@ namespace QuanLyTaiSanGUI
         private void UploadHinhAnh(FileInfo fileinfo, Boolean coDoiTenHinhAnh)
         {
             string fPath = fileinfo.ToString();
-            string file_name = "";
+            string file_name = fileinfo.Name.ToString();
             if (coDoiTenHinhAnh)
                 file_name = StringHelper.RandomName(15);
-            else
-            {
-                file_name = fileinfo.Name;
-                file_name = file_name.Substring(0, file_name.IndexOf(fileinfo.Extension));
-            }
             HinhAnh hinhanh = new HinhAnh();
             hinhanh.FILE_NAME = file_name;
             hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(fPath);
@@ -224,8 +216,7 @@ namespace QuanLyTaiSanGUI
                     break;
             }
             hinhanh.upload();
-            HinhAnhs.Add(hinhanh);
-            coThayDoi = true;
+            listTemp.Add(hinhanh);
 
             GalleryItem it = new GalleryItem();
             it.Image = (Image)hinhanh.IMAGE;
@@ -240,15 +231,10 @@ namespace QuanLyTaiSanGUI
 
         private void btnImageCancel_Click(object sender, EventArgs e)
         {
-            if (coThayDoi)
+            if (XtraMessageBox.Show("Bạn có muốn thoát. Ảnh tải lên sẽ không được lưu lại.", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (XtraMessageBox.Show("Bạn có muốn thoát, những thay đổi sẽ không được lưu lại.", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    this.Close();
-                }
-            }
-            else
                 this.Close();
+            }
         }
 
         private void btnImageSelectAll_Click(object sender, EventArgs e)
@@ -284,9 +270,7 @@ namespace QuanLyTaiSanGUI
                     {
                         HinhAnh hinhanhADD = new HinhAnh();
                         hinhanhADD.path = hinhanh.path;
-                        HinhAnhs.Add(hinhanhADD);
-                        coThayDoi = true;
-						
+                        listTemp.Add(hinhanhADD);
                         count++;
                     }
                     else
@@ -300,9 +284,7 @@ namespace QuanLyTaiSanGUI
                         {
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
-                            HinhAnhs.Add(hinhanhADD);
-                            coThayDoi = true;
-
+                            listTemp.Add(hinhanhADD);
                             count++;
                         }
                     }
