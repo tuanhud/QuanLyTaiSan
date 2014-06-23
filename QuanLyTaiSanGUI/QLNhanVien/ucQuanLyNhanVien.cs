@@ -21,6 +21,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
         List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
         NhanVienPT objNhanVienPT = new NhanVienPT();
+        NhanVienPT objNhanVienPTNew = null;
         String function = "";
 
         public ucQuanLyNhanVien()
@@ -29,14 +30,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             //loadData();
         }
 
-        private void loadData()
+        public void loadData(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
-            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(1);
-            _ucTreePhongHaveCheck.loadData(listVT);
-            NhanVienPTs = new NhanVienPT().getAll();
+            NhanVienPTs = new NhanVienPT().getAllByViTri(_phongid, _cosoid, _dayid, _tangid);
+            gridControlNhanVien.DataSource = null;
             gridControlNhanVien.DataSource = NhanVienPTs;
-            //splitContainerControl1.Panel1.Controls.Clear();
-            //splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
         }
 
         private void gridViewNhanVien_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -75,8 +73,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void reLoad()
         {
-            NhanVienPTs = new NhanVienPT().getAll();
-            gridControlNhanVien.DataSource = NhanVienPTs;
+            //NhanVienPTs = new NhanVienPT().getAll();
+            //gridControlNhanVien.DataSource = NhanVienPTs;
         }
 
         public void beforeAdd()
@@ -85,6 +83,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtTen.Text = "";
             txtSodt.Text = "";
             imageSlider1.Images.Clear();
+            objNhanVienPTNew = new NhanVienPT();
         }
 
         public void beforeEdit()
@@ -213,5 +212,52 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 return true;
             return false;
         }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmHinhAnh frm = null;
+                if (function.Equals("edit"))
+                {
+                    frm = new frmHinhAnh(objNhanVienPT.hinhanhs.ToList());
+                    frm.Text = "Quản lý hình ảnh " + objNhanVienPT.hoten;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    if (objNhanVienPTNew.hinhanhs == null)
+                        objNhanVienPTNew.hinhanhs = new List<HinhAnh>();
+                    frm = new frmHinhAnh(objNhanVienPTNew.hinhanhs.ToList());
+                    frm.Text = "Quản lý hình ảnh nhân viên mới";
+                    frm.ShowDialog();
+                }
+    
+                //reloadImage();
+            }
+            catch (Exception ex)
+            { }
+            finally
+            { }
+        }
+
+        private void reloadImage()
+        {
+            List<HinhAnh> hinhs = null;
+            if (!function.Equals("add"))
+            {
+                hinhs = objNhanVienPTNew.hinhanhs.ToList();
+            }
+            else
+            {
+                hinhs = objNhanVienPT.hinhanhs.ToList();
+            }
+            imageSlider1.Images.Clear();
+            foreach (HinhAnh h in hinhs)
+            {
+                imageSlider1.Images.Add(h.getImage());
+            }
+        }
+
     }
 }

@@ -21,16 +21,9 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
-            ViTriFilter t = new ViTriFilter();
-            List<ViTriFilter> l = t.getAllHavePhong();
-            treeList1.DataSource = l;
-        }
+            List<NhanVienPT> list = new NhanVienPT().getAllByViTri(-1,1,1,7);
+            gridControl1.DataSource = list;
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            ViTriFilter t = new ViTriFilter();
-            List<ViTriFilter> l = t.getAllHavePhong();
-            treeList1.DataSource = l;
         }
     }
 }

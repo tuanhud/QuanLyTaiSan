@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
             this.gridViewNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -39,6 +40,7 @@
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhinh_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.listBoxNhanVien = new DevExpress.XtraEditors.ListBoxControl();
             this.btnHuy_Phong = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK_Phong = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -53,14 +55,14 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
-            this.listBoxNhanVien = new DevExpress.XtraEditors.ListBoxControl();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSodt.Properties)).BeginInit();
@@ -68,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -174,6 +175,18 @@
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Danh sách phòng";
             // 
+            // listBoxNhanVien
+            // 
+            this.listBoxNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxNhanVien.DisplayMember = "ten";
+            this.listBoxNhanVien.Location = new System.Drawing.Point(6, 25);
+            this.listBoxNhanVien.Name = "listBoxNhanVien";
+            this.listBoxNhanVien.Size = new System.Drawing.Size(298, 139);
+            this.listBoxNhanVien.TabIndex = 13;
+            this.listBoxNhanVien.ValueMember = "id";
+            // 
             // btnHuy_Phong
             // 
             this.btnHuy_Phong.Location = new System.Drawing.Point(145, 170);
@@ -240,6 +253,7 @@
             this.btnImage.TabIndex = 8;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // labelControl4
             // 
@@ -318,18 +332,6 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // listBoxNhanVien
-            // 
-            this.listBoxNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxNhanVien.DisplayMember = "ten";
-            this.listBoxNhanVien.Location = new System.Drawing.Point(6, 25);
-            this.listBoxNhanVien.Name = "listBoxNhanVien";
-            this.listBoxNhanVien.Size = new System.Drawing.Size(298, 139);
-            this.listBoxNhanVien.TabIndex = 13;
-            this.listBoxNhanVien.ValueMember = "id";
-            // 
             // ucQuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,6 +345,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -351,7 +354,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxNhanVien)).EndInit();
             this.ResumeLayout(false);
 
         }
