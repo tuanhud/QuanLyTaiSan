@@ -14,6 +14,7 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
 using DevExpress.XtraEditors;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
 {
@@ -33,10 +34,13 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         public ucQuanLyCoSo()
         {
             InitializeComponent();
+            loadData();
         }
 
         public void loadData()
         {
+            //Ẩn ribbon
+            ribbonViTri.Parent = null;
             listTree = new ViTriFilter().getAll();
             treeListViTri.DataSource = listTree;
             listTree = new ViTriFilter().getAllCoSo();
@@ -478,11 +482,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     node = typeof(CoSo).Name;
                     listHinh = objCoSo.hinhanhs.ToList();
                     reloadImage();
-                    if (this.ParentForm != null)
-                    {
-                        frmMain frm = (frmMain)this.ParentForm;
-                        frm.enableGroupViTri(typeof(CoSo).Name);
-                    }
+                    enableGroupViTri(typeof(CoSo).Name);
                     break;
                 case "Dayy":
                     panelControl1.Controls.Clear();
@@ -496,11 +496,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     node = typeof(Dayy).Name;
                     listHinh = objDay.hinhanhs.ToList();
                     reloadImage();
-                    if (this.ParentForm != null)
-                    {
-                        frmMain frm = (frmMain)this.ParentForm;
-                        frm.enableGroupViTri(typeof(Dayy).Name);
-                    }
+                    enableGroupViTri(typeof(Dayy).Name);
                     break;
                 case "Tang":
                     panelControl1.Controls.Clear();
@@ -515,11 +511,101 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                     node = typeof(Tang).Name;
                     listHinh = objTang.hinhanhs.ToList();
                     reloadImage();
-                    if (this.ParentForm != null)
-                    {
-                        frmMain frm = (frmMain)this.ParentForm;
-                        frm.enableGroupViTri(typeof(Tang).Name);
-                    }
+                    enableGroupViTri(typeof(Tang).Name);
+                    break;
+            }
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonViTri;
+        }
+
+        private void barBtnThemCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, typeof(CoSo).Name, "add");
+            beforeAdd(typeof(CoSo).Name);
+            SetTextGroupControl("Thêm cơ sở", true);
+        }
+
+        private void barBtnSuaCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, typeof(CoSo).Name, "edit");
+            setData(typeof(CoSo).Name);
+            SetTextGroupControl("Sửa cơ sở", true);
+        }
+
+        private void barBtnXoaCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj(typeof(CoSo).Name);
+        }
+
+        private void barBtnThemDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, typeof(Dayy).Name, "add");
+            beforeAdd(typeof(Dayy).Name);
+            SetTextGroupControl("Thêm dãy", true);
+        }
+
+        private void barBtnSuaDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, typeof(Dayy).Name, "edit");
+            setData(typeof(Dayy).Name);
+            SetTextGroupControl("Sửa dãy", true);
+        }
+
+        private void barBtnXoaDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj(typeof(Dayy).Name);
+        }
+
+        private void barBtnThemTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, typeof(Tang).Name, "add");
+            beforeAdd(typeof(Tang).Name);
+            SetTextGroupControl("Thêm tầng", true);
+        }
+
+        private void barBtnSuaTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, typeof(Tang).Name, "edit");
+            setData(typeof(Tang).Name);
+            SetTextGroupControl("Sửa tầng", true);
+        }
+
+        private void barBtnXoaTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj(typeof(Tang).Name);
+        }
+
+        public void enableGroupViTri(String _type)
+        {
+            switch (_type)
+            {
+                case "CoSo":
+                    rbnGroupViTri_Tang.Enabled = false;
+                    barBtnSuaDay.Enabled = false;
+                    barBtnXoaDay.Enabled = false;
+                    barBtnSuaCoSo.Enabled = true;
+                    barBtnXoaCoSo.Enabled = true;
+                    break;
+                case "Dayy":
+                    rbnGroupViTri_Tang.Enabled = true;
+                    barBtnSuaDay.Enabled = true;
+                    barBtnXoaDay.Enabled = true;
+                    barBtnSuaTang.Enabled = false;
+                    barBtnXoaTang.Enabled = false;
+                    barBtnSuaCoSo.Enabled = false;
+                    barBtnXoaCoSo.Enabled = false;
+                    break;
+                case "Tang":
+                    rbnGroupViTri_Tang.Enabled = true;
+                    barBtnSuaDay.Enabled = false;
+                    barBtnXoaDay.Enabled = false;
+                    barBtnSuaTang.Enabled = true;
+                    barBtnXoaTang.Enabled = true;
+                    barBtnSuaCoSo.Enabled = false;
+                    barBtnXoaCoSo.Enabled = false;
                     break;
             }
         }
