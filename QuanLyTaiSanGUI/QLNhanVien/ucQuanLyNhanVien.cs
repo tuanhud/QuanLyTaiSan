@@ -13,6 +13,7 @@ using DevExpress.XtraEditors;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.MyUC;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI.QLNhanVien
 {
@@ -23,27 +24,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         NhanVienPT objNhanVienPT = new NhanVienPT();
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
-        //int phongid = -1;
-        //int cosoid = -1;
-        //int dayid = -1;
-        //int tangid = -1;
 
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
             loadData();
         }
-
-        //public void loadData(int _phongid, int _cosoid, int _dayid, int _tangid)
-        //{
-        //    NhanVienPTs = new NhanVienPT().getAllByViTri(_phongid, _cosoid, _dayid, _tangid);
-        //    gridControlNhanVien.DataSource = null;
-        //    gridControlNhanVien.DataSource = NhanVienPTs;
-        //    phongid = _phongid;
-        //    cosoid = _cosoid;
-        //    dayid = _dayid;
-        //    tangid = _tangid;
-        //}
 
         public void loadData()
         {
@@ -255,6 +241,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             { }
         }
 
+        private void btnHuy_PhanCong_Click(object sender, EventArgs e)
+        {
+            splitContainerControl1.Panel1.Controls.Clear();
+            gridControlNhanVien.Parent = splitContainerControl1.Panel1;
+        }
+
         private void reloadImage()
         {
             imageSlider1.Images.Clear();
@@ -272,6 +264,35 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
             _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
             splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonNhanVienPT;
+        }
+
+        private void barBtnThemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, "add");
+            SetTextGroupControl("Thêm nhân viên", true);
+            beforeAdd();
+        }
+
+        private void barBtnSuaNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, "edit");
+            SetData();
+            SetTextGroupControl("Sửa nhân viên", true);
+        }
+
+        private void barBtnXoaNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
+
+        private void barBtnPhanCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PhanCong();
         }
 
     }

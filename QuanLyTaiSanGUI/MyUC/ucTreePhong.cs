@@ -11,6 +11,8 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSanGUI.MyUserControl;
+using QuanLyTaiSanGUI.QLThietBi;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -21,13 +23,15 @@ namespace QuanLyTaiSanGUI.MyUC
         int dayid = -1;
         int tangid = -1;
         public String type = "";
-        public ucTreePhong()
+        public ucTreePhong(List<ViTriFilter> _list, String _type)
         {
             InitializeComponent();
+            loadData(_list, _type);
         }
 
-        public void loadData(List<ViTriFilter> _list)
+        private void loadData(List<ViTriFilter> _list, String _type)
         {
+            type = _type;
             treeListPhong.BeginUnboundLoad();
             treeListPhong.DataSource = _list;
             treeListPhong.EndUnboundLoad();
@@ -59,9 +63,6 @@ namespace QuanLyTaiSanGUI.MyUC
                             break;
                         case "Phong":
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
-                            //tangid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            //dayid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                            //cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.ParentNode.GetValue(0));
                             break;
                     }
                     if (this.ParentForm != null)
@@ -70,7 +71,22 @@ namespace QuanLyTaiSanGUI.MyUC
                         switch (type)
                         {
                             case "QLPhong":
-                                frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        ucQuanLyPhong _ucQuanLyPhong = this.Parent as ucQuanLyPhong;
+                                        _ucQuanLyPhong.setData(cosoid, dayid, tangid);
+                                    }
+                                }
+                                break;
+                            case "QLThietBi":
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
+                                        _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
+                                    }
+                                }
                                 break;
                         }
                     }
@@ -89,6 +105,11 @@ namespace QuanLyTaiSanGUI.MyUC
             obj.day = new Dayy().getById(dayid);
             obj.tang = new Tang().getById(tangid);
             return obj;
+        }
+
+        public TreeList getTreeList()
+        {
+            return treeListPhong;
         }
     }
 }

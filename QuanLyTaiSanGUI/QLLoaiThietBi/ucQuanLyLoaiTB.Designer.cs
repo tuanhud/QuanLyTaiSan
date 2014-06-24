@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -43,7 +42,13 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.ribbonLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -56,20 +61,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceTBsoluonglon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonLoaiTB)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.treeListLoaiTB);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(710, 500);
-            this.splitContainerControl1.SplitterPosition = 282;
+            this.splitContainerControl1.Size = new System.Drawing.Size(866, 480);
+            this.splitContainerControl1.SplitterPosition = 485;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -83,7 +89,7 @@
             this.treeListLoaiTB.Name = "treeListLoaiTB";
             this.treeListLoaiTB.OptionsBehavior.Editable = false;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
-            this.treeListLoaiTB.Size = new System.Drawing.Size(423, 500);
+            this.treeListLoaiTB.Size = new System.Drawing.Size(485, 480);
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
             // 
@@ -111,7 +117,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(282, 500);
+            this.groupControl1.Size = new System.Drawing.Size(376, 480);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -130,7 +136,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(57, 53);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(220, 120);
+            this.txtMoTa.Size = new System.Drawing.Size(314, 120);
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
@@ -162,7 +168,7 @@
             this.panelControl1.Controls.Add(this.lueThuoc);
             this.panelControl1.Location = new System.Drawing.Point(57, 179);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(220, 20);
+            this.panelControl1.Size = new System.Drawing.Size(314, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // lueThuoc
@@ -178,7 +184,7 @@
             this.lueThuoc.Properties.NullText = "";
             this.lueThuoc.Properties.ReadOnly = true;
             this.lueThuoc.Properties.ValueMember = "id";
-            this.lueThuoc.Size = new System.Drawing.Size(220, 20);
+            this.lueThuoc.Size = new System.Drawing.Size(314, 20);
             this.lueThuoc.TabIndex = 3;
             // 
             // ceTBsoluonglon
@@ -197,7 +203,7 @@
             this.txtTen.Location = new System.Drawing.Point(57, 27);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(220, 20);
+            this.txtTen.Size = new System.Drawing.Size(314, 20);
             this.txtTen.TabIndex = 1;
             // 
             // labelControl3
@@ -222,13 +228,70 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
+            // ribbonLoaiTB
+            // 
+            this.ribbonLoaiTB.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonLoaiTB.ExpandCollapseItem.Id = 0;
+            this.ribbonLoaiTB.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonLoaiTB.ExpandCollapseItem,
+            this.barButtonThemLoaiTB,
+            this.barButtonSuaLoaiTB,
+            this.barButtonXoaLoaiTB});
+            this.ribbonLoaiTB.Location = new System.Drawing.Point(0, 0);
+            this.ribbonLoaiTB.MaxItemId = 42;
+            this.ribbonLoaiTB.Name = "ribbonLoaiTB";
+            this.ribbonLoaiTB.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rbnPageLoaiTB_Home});
+            this.ribbonLoaiTB.Size = new System.Drawing.Size(866, 142);
+            // 
+            // rbnPageLoaiTB_Home
+            // 
+            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbnGroupLoaiTB});
+            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
+            this.rbnPageLoaiTB_Home.Text = "Trang chính";
+            this.rbnPageLoaiTB_Home.Visible = false;
+            // 
+            // rbnGroupLoaiTB
+            // 
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonThemLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonSuaLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonXoaLoaiTB);
+            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
+            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
+            // 
+            // barButtonThemLoaiTB
+            // 
+            this.barButtonThemLoaiTB.Caption = "Thêm loại thiết bị";
+            this.barButtonThemLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemLoaiTB.Id = 39;
+            this.barButtonThemLoaiTB.Name = "barButtonThemLoaiTB";
+            this.barButtonThemLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemLoaiTB_ItemClick);
+            // 
+            // barButtonSuaLoaiTB
+            // 
+            this.barButtonSuaLoaiTB.Caption = "Sửa loại thiết bị";
+            this.barButtonSuaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaLoaiTB.Id = 40;
+            this.barButtonSuaLoaiTB.Name = "barButtonSuaLoaiTB";
+            this.barButtonSuaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaLoaiTB_ItemClick);
+            // 
+            // barButtonXoaLoaiTB
+            // 
+            this.barButtonXoaLoaiTB.Caption = "Xóa loại thiết bị";
+            this.barButtonXoaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoaLoaiTB.Id = 41;
+            this.barButtonXoaLoaiTB.Name = "barButtonXoaLoaiTB";
+            this.barButtonXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaLoaiTB_ItemClick);
+            // 
             // ucQuanLyLoaiTB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
+            this.Controls.Add(this.ribbonLoaiTB);
             this.Name = "ucQuanLyLoaiTB";
-            this.Size = new System.Drawing.Size(710, 500);
+            this.Size = new System.Drawing.Size(866, 622);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).EndInit();
@@ -242,7 +305,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceTBsoluonglon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonLoaiTB)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -263,5 +328,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonLoaiTB;
+        private DevExpress.XtraBars.BarButtonItem barButtonThemLoaiTB;
+        private DevExpress.XtraBars.BarButtonItem barButtonSuaLoaiTB;
+        private DevExpress.XtraBars.BarButtonItem barButtonXoaLoaiTB;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageLoaiTB_Home;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLoaiTB;
     }
 }

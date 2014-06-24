@@ -11,17 +11,21 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using DevExpress.XtraBars.Ribbon;
+using QuanLyTaiSanGUI.MyUC;
+using DevExpress.XtraTreeList;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucQuanLyPhong : UserControl
     {
-        ucChiTietPhong _ucChiTietPhong = new ucChiTietPhong();
-        ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
         List<ViTriFilter> listVitris = new List<ViTriFilter>();
+        List<Phong> listPhong = new List<Phong>();
         Phong objPhong;
         CTThietBi objChiTietTB;
+
+        ucTreePhong _ucTreePhong = null;
 
         public ucQuanLyPhong()
         {
@@ -32,36 +36,26 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public void loadData()
         {
             listVitris = new ViTriFilter().getAll().ToList();
-            _ucChiTietPhong.loadData(listVitris);
-            _ucChiTietPhong.Dock = DockStyle.Fill;
-            AddControl(_ucChiTietPhong);
-            //listThietBis = new ThietBi().getAll().ToList();
-            ThietBiFilter obj = new ThietBiFilter();
-            listThietBis = obj.getAllBy4Id(-1, -1, -1, -1);
-            gridControlThietBi.DataSource = listThietBis;
-
+            _ucTreePhong = new ucTreePhong(listVitris, "QLPhong");
+            _ucTreePhong.Parent = this;
+            ribbonPhong.Parent = null;
+            listPhong = new Phong().getPhongByViTri(-1, -1, -1);
+            gridControlPhong.DataSource = listPhong;
         }
 
         public void reLoad()
         {
-            //listVitris = new ViTriFilter().getAll().ToList();
-            //_ucChiTietPhong.loadData(listVitris);
-            //_ucChiTietPhong.Dock = DockStyle.Fill;
-            //AddControl(_ucChiTietPhong);
-            //listThietBis = new ThietBi().getAll().ToList();
-            gridControlThietBi.DataSource = null;
-            ThietBiFilter obj = new ThietBiFilter();
-            listThietBis = obj.getAllBy4Id(-1, -1, -1, -1);
-            gridControlThietBi.DataSource = listThietBis;
+            gridControlPhong.DataSource = null;
+            listPhong = new Phong().getPhongByViTri(-1, -1, -1);
+            gridControlPhong.DataSource = listPhong;
         }
 
-        public void setData(int _phongid, int _cosoid, int _dayid, int _tangid)
+        //FocusedRowChanged in TreePhong
+        public void setData(int _cosoid, int _dayid, int _tangid)
         {
-            listThietBis = new ThietBiFilter().getAllBy4Id(_phongid, _cosoid, _dayid, _tangid);
-            gridControlThietBi.DataSource = null;
-            gridControlThietBi.DataSource = listThietBis;
-            if(listThietBis.Count == 0)
-                showDetailPhong(_phongid);
+            listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
+            gridControlPhong.DataSource = null;
+            gridControlPhong.DataSource = listPhong;
         }
         public void AddControl(Control _ctr)
         {
@@ -72,34 +66,29 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
         }
 
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            
-        }
-
         private void showDetailPhong(int _id)
         {
-            Phong obj = new Phong().getById(_id);
-            _ucChiTietPhong.Dock = DockStyle.Fill;
-            AddControl(_ucChiTietPhong);
-            _ucChiTietPhong.setData(obj);
-            if (_id == -1)
-                enableGroupPhong("other");
-            else
-            {
-                enableGroupPhong(typeof(Phong).Name);
-                objPhong = obj;
-            }
+            //Phong obj = new Phong().getById(_id);
+            //_ucChiTietPhong.Dock = DockStyle.Fill;
+            //AddControl(_ucChiTietPhong);
+            //_ucChiTietPhong.setData(obj);
+            //if (_id == -1)
+            //    enableGroupPhong("other");
+            //else
+            //{
+            //    enableGroupPhong(typeof(Phong).Name);
+            //    objPhong = obj;
+            //}
 
         }
 
         private void enableGroupPhong(String _type)
         {
-            if (this.ParentForm != null)
-            {
-                frmMain frm = this.ParentForm as frmMain;
-                frm.enableGroupPhong(_type);
-            }
+            //if (this.ParentForm != null)
+            //{
+            //    frmMain frm = this.ParentForm as frmMain;
+            //    frm.enableGroupPhong(_type);
+            //}
         }
 
         public Phong getPhong()
@@ -107,42 +96,30 @@ namespace QuanLyTaiSanGUI.MyUserControl
             return objPhong;
         }
 
-        public CTThietBi getCTThietBi()
-        {
-            return objChiTietTB;
-        }
-
         private void gridViewThietBi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
             {
-                int row = gridViewThietBi.FocusedRowHandle;
-                if (row < 0 && row > -9999)
-                {
-                    Phong obj = new Phong();
-                    obj = obj.getById(Convert.ToInt32(gridViewThietBi.GetRowCellValue(gridViewThietBi.GetDataRowHandleByGroupRowHandle(row), colphong_id)));
-                    _ucChiTietPhong.Dock = DockStyle.Fill;
-                    AddControl(_ucChiTietPhong);
-                    _ucChiTietPhong.setData(obj);
-                    enableGroupPhong(typeof(Phong).Name);
-                    objPhong = obj;
-                }
-                else if (row >= 0)
-                {
-                    _ucChiTietThietBi.Dock = DockStyle.Fill;
-                    AddControl(_ucChiTietThietBi);
-                    CTThietBi objct = new CTThietBi();
-                    int temp = Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid));
-                    objct = objct.getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colid)));
-                    _ucChiTietThietBi.setData(objct);
-                    enableGroupPhong(typeof(ThietBi).Name);
-                    objChiTietTB = objct;
-                }
+                //int row = gridViewPhong.FocusedRowHandle;
+                //Phong obj = new Phong();
+                //obj = obj.getById(Convert.ToInt32(gridViewPhong.GetRowCellValue(gridViewPhong.GetDataRowHandleByGroupRowHandle(row), id)));
+                //_ucChiTietPhong.Dock = DockStyle.Fill;
+                //AddControl(_ucChiTietPhong);
+                //_ucChiTietPhong.setData(obj);
+                //enableGroupPhong(typeof(Phong).Name);
+                //objPhong = obj;
             }
             catch (Exception ex)
             { }
             finally { }
         }
+        public void addObj()
+        {
+            //_ucChiTietPhong.enableEdit(true, typeof(Phong).Name, "add");
+            //_ucChiTietPhong.beforeAdd();
+            //_ucChiTietPhong.SetTextGroupControl("Thêm phòng", true);
+        }
+
 
         public void deleteObj(String _type)
         {
@@ -190,7 +167,41 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewThietBi_MasterRowExpanded(object sender, DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventArgs e)
         {
-            gridViewThietBi.GetDetailView(e.RowHandle, e.RelationIndex).Focus();
+            gridViewPhong.GetDetailView(e.RowHandle, e.RelationIndex).Focus();
+        }
+
+        private void barButtonThemPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        //    ViTri obj = new ViTri();
+        //    obj = _ucTreePhong.getVitri();
+        //    MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
+        }
+
+        private void barButtonSuaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Phong obj2 = new Phong();
+            //obj2 = _ucQuanLyPhong.getPhong();
+            //ViTri obj = obj2.vitri;
+            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+        }
+
+        private void barButtonXoaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Phong obj2 = new Phong();
+            //obj2 = _ucQuanLyPhong.getPhong();
+            //ViTri obj = obj2.vitri;
+            //_ucQuanLyPhong.deleteObj(typeof(Phong).Name);
+            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonPhong;
+        }
+
+        public TreeList getTreeList()
+        {
+            return _ucTreePhong.getTreeList();
         }
     }
 }

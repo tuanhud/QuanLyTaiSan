@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxThemes.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -296,6 +297,7 @@
     <Content Include="TapTin.aspx" />
     <Content Include="TinNhan.aspx" />
     <Content Include="Web.config" />
+    <Content Include="XemNhanVien.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoSuuTap.aspx.cs">
@@ -362,8 +364,17 @@
     <Compile Include="TinNhan.aspx.designer.cs">
       <DependentUpon>TinNhan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="XemNhanVien.aspx.cs">
+      <DependentUpon>XemNhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XemNhanVien.aspx.designer.cs">
+      <DependentUpon>XemNhanVien.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -189,6 +189,12 @@
     <Compile Include="QLPhong\MyUserControl\ucChiTietPhong.Designer.cs">
       <DependentUpon>ucChiTietPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLPhong\MyUserControl\ucChiTietPhongs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLPhong\MyUserControl\ucChiTietPhongs.Designer.cs">
+      <DependentUpon>ucChiTietPhongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +220,18 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThietBi\ucQuanLyThietBi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLThietBi\ucQuanLyThietBi.Designer.cs">
+      <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.Designer.cs">
+      <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>
     </Compile>
     <Compile Include="ThongKe\ChiTiet\ucThongKeChiTiet.cs">
       <SubType>UserControl</SubType>
@@ -302,6 +320,9 @@
     <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhong.resx">
       <DependentUpon>ucChiTietPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhongs.resx">
+      <DependentUpon>ucChiTietPhongs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietThietBi.resx">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi.resx">
+      <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTinhTrang\ucQuanLyTinhTrang.resx">
+      <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\ChiTiet\ucThongKeChiTiet.resx">
       <DependentUpon>ucThongKeChiTiet.cs</DependentUpon>
@@ -399,6 +426,7 @@
   <ItemGroup>
     <None Include="Resources\thongke.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

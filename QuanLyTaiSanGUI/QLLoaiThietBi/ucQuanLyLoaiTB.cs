@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraEditors;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
@@ -24,6 +25,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         public ucQuanLyLoaiTB()
         {
             InitializeComponent();
+            ribbonLoaiTB.Parent = null;
             loaiThietBiNULL.ten = "[Không thuộc loại nào]";
             loaiThietBiNULL.id = -1;
             loaiThietBiNULL.parent = null;
@@ -104,7 +106,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 beforeAdd();
         }
 
-        private void CRUP()
+        private void CRU()
         {
             switch (function)
             { 
@@ -114,7 +116,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     if (objLoaiThietBi.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
                     }
                     break;
                 case "edit":
@@ -122,7 +123,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     if (objLoaiThietBi.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
                     }
                     break;
             }
@@ -208,7 +208,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             if (checkInput())
             {
-                CRUP();
+                CRU();
                 reLoad();
                 setData();
                 enableEdit(false, "");
@@ -296,20 +296,51 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             if (loaiThietBis.Count == 0)
             {
                 beforeAdd();
-                if (this.ParentForm != null)
-                {
-                    frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoa(false);
-                }
+                enableSuaXoa(false);
             }
             else
             {
-                if (this.ParentForm != null)
-                {
-                    frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoa(true);
-                }
+                enableSuaXoa(true);
             }
+        }
+
+        private void barButtonThemLoaiTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, "add");
+            SetTextGroupControl("Thêm loại thiết bị", Color.Red);
+            beforeAdd();
+        }
+
+        private void barButtonSuaLoaiTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            enableEdit(true, "edit");
+            SetTextGroupControl("Sửa loại thiết bị", Color.Red);
+            addThietBiChaKhiEdit();
+            setData();
+        }
+
+        private void barButtonXoaLoaiTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
+
+        public void enableSuaXoa(Boolean enable)
+        {
+            if (enable)
+            {
+                barButtonSuaLoaiTB.Enabled = true;
+                barButtonXoaLoaiTB.Enabled = true;
+            }
+            else
+            {
+                barButtonSuaLoaiTB.Enabled = false;
+                barButtonXoaLoaiTB.Enabled = false;
+            }
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonLoaiTB;
         }
     }
 }
