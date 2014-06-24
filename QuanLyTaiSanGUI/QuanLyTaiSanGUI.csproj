@@ -187,6 +187,12 @@
     <Compile Include="QLPhong\MyUserControl\ucChiTietPhong.Designer.cs">
       <DependentUpon>ucChiTietPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLPhong\MyUserControl\ucChiTietPhongs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLPhong\MyUserControl\ucChiTietPhongs.Designer.cs">
+      <DependentUpon>ucChiTietPhongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhong.resx">
       <DependentUpon>ucChiTietPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhongs.resx">
+      <DependentUpon>ucChiTietPhongs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietThietBi.resx">
       <DependentUpon>ucChiTietThietBi.cs</DependentUpon>

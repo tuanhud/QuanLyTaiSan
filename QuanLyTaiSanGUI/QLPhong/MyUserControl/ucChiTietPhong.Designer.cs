@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblHinhPhong = new DevExpress.XtraEditors.LabelControl();
@@ -49,10 +50,10 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.imgNhanVien = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
-            this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -62,9 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +114,6 @@
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 13;
             this.btnImage.Text = "Chọn";
-            this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnHuy
@@ -123,7 +123,6 @@
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
-            this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
@@ -133,7 +132,6 @@
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
-            this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // labelControl5
@@ -166,7 +164,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenPhong.Location = new System.Drawing.Point(68, 150);
             this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Properties.ReadOnly = true;
             this.txtTenPhong.Size = new System.Drawing.Size(209, 20);
             this.txtTenPhong.TabIndex = 1;
             // 
@@ -186,7 +183,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoTaPhong.Location = new System.Drawing.Point(68, 202);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
-            this.txtMoTaPhong.Properties.ReadOnly = true;
             this.txtMoTaPhong.Size = new System.Drawing.Size(209, 49);
             this.txtMoTaPhong.TabIndex = 5;
             this.txtMoTaPhong.UseOptimizedRendering = true;
@@ -273,16 +269,16 @@
             this.imgNhanVien.TabIndex = 0;
             this.imgNhanVien.Text = "imageSlider2";
             // 
-            // txtMaNhanVien
+            // txtSoDienThoai
             // 
-            this.txtMaNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSoDienThoai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNhanVien.Enabled = false;
-            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 151);
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Properties.ReadOnly = true;
-            this.txtMaNhanVien.Size = new System.Drawing.Size(198, 20);
-            this.txtMaNhanVien.TabIndex = 1;
+            this.txtSoDienThoai.Enabled = false;
+            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 203);
+            this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.Properties.ReadOnly = true;
+            this.txtSoDienThoai.Size = new System.Drawing.Size(198, 20);
+            this.txtSoDienThoai.TabIndex = 1;
             // 
             // txtTenNhanVien
             // 
@@ -295,16 +291,16 @@
             this.txtTenNhanVien.Size = new System.Drawing.Size(198, 20);
             this.txtTenNhanVien.TabIndex = 1;
             // 
-            // txtSoDienThoai
+            // txtMaNhanVien
             // 
-            this.txtSoDienThoai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtMaNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoDienThoai.Enabled = false;
-            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 203);
-            this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Properties.ReadOnly = true;
-            this.txtSoDienThoai.Size = new System.Drawing.Size(198, 20);
-            this.txtSoDienThoai.TabIndex = 1;
+            this.txtMaNhanVien.Enabled = false;
+            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 151);
+            this.txtMaNhanVien.Name = "txtMaNhanVien";
+            this.txtMaNhanVien.Properties.ReadOnly = true;
+            this.txtMaNhanVien.Size = new System.Drawing.Size(198, 20);
+            this.txtMaNhanVien.TabIndex = 1;
             // 
             // dxErrorProvider
             // 
@@ -329,9 +325,9 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
 

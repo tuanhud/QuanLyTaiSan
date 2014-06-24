@@ -25,6 +25,7 @@ using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using DevExpress.Skins;
+using QuanLyTaiSanGUI.QLPhong.MyUserControl;
 
 namespace QuanLyTaiSanGUI
 {
@@ -34,6 +35,8 @@ namespace QuanLyTaiSanGUI
         ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
+        ucChiTietPhong _ucChiTietPhong = new ucChiTietPhong();
+        ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucTreePhong _ucTreePhong = new ucTreePhong();
@@ -319,9 +322,10 @@ namespace QuanLyTaiSanGUI
 
         private void barBtnThemPhong_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ViTri obj = new ViTri();
-            obj = _ucTreePhong.getVitri();
-            MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
+            ///*ViTri obj = new ViTri();
+            //obj = _ucTreePhong.getVitri();*/
+            //MessageBox.Show("thêm phòng");
+            _ucQuanLyPhong.addObj();            
         }
 
         private void barBtnSuaPhong_ItemClick(object sender, ItemClickEventArgs e)
@@ -354,14 +358,14 @@ namespace QuanLyTaiSanGUI
         private void barBtnSuaThietBi_ItemClick(object sender, ItemClickEventArgs e)
         {
             CTThietBi obj = new CTThietBi();
-            obj = _ucQuanLyPhong.getCTThietBi();
+            //obj = _ucQuanLyPhong.getCTThietBi();
             MessageBox.Show(obj.thietbi.ten);
         }
 
         private void barBtnXoaThietBi_ItemClick(object sender, ItemClickEventArgs e)
         {
             CTThietBi obj = new CTThietBi();
-            obj = _ucQuanLyPhong.getCTThietBi();
+            //obj = _ucQuanLyPhong.getCTThietBi();
             _ucQuanLyPhong.deleteObj(typeof(ThietBi).Name);
             //MessageBox.Show(obj.thietbi.ten);
         }
