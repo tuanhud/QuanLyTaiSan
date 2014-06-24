@@ -45,7 +45,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
+            UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             loadData();
         }
 
@@ -58,6 +58,8 @@ namespace QuanLyTaiSanGUI
             //_ucTreePhong.Dock = DockStyle.Fill;
             //_ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
             //_ucTreePhong.type = "QLPhong";
+            navBarGroupLoaiTB.Expanded = true;
+            navBarGroupPhong.Expanded = true;
         }
 
         private void RibbonForm1_Load(object sender, EventArgs e)

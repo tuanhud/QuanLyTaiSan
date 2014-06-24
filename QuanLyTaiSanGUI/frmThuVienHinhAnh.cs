@@ -27,7 +27,7 @@ namespace QuanLyTaiSanGUI
         public frmThuVienHinhAnh()
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
+            UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             HinhAnhs = new HinhAnh().getAllHinhAnhDangDung();
             LoadHinhAnh();
         }

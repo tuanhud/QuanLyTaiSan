@@ -32,6 +32,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             InitializeComponent();
             enableEdit(false, "", "");
+
         }
 
         public void loadData(List<ViTriFilter> _list)

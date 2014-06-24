@@ -13,7 +13,7 @@ namespace QuanLyTaiSanGUI.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -23,14 +23,15 @@ namespace QuanLyTaiSanGUI.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FELDT-PC\\SQLEXPRESS;Initial Catalog=QuanLyTaiSanDB;Integrated Securit" +
-            "y=True")]
-        public string QuanLyTaiSanDBConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Office 2010 Blue")]
+        public string skin {
             get {
-                return ((string)(this["QuanLyTaiSanDBConnectionString"]));
+                return ((string)(this["skin"]));
+            }
+            set {
+                this["skin"] = value;
             }
         }
     }
