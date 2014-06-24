@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -71,51 +66,10 @@
             this.ribbonMain.MaxItemId = 39;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.rbnPageLoaiTB_Home,
             this.rbnPagePhanQuyen_Home,
             this.rbnPageThongKe_Home});
             this.ribbonMain.Size = new System.Drawing.Size(900, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
-            // 
-            // rbnPageLoaiTB_Home
-            // 
-            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupLoaiTB});
-            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
-            this.rbnPageLoaiTB_Home.Text = "Trang chính";
-            this.rbnPageLoaiTB_Home.Visible = false;
-            // 
-            // rbnGroupLoaiTB
-            // 
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnThemLoaiTB);
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnSuaLoaiTB);
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnXoaLoaiTB);
-            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
-            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
-            // 
-            // barBtnThemLoaiTB
-            // 
-            this.barBtnThemLoaiTB.Caption = "Thêm loại thiết bị";
-            this.barBtnThemLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
-            this.barBtnThemLoaiTB.Id = 22;
-            this.barBtnThemLoaiTB.Name = "barBtnThemLoaiTB";
-            this.barBtnThemLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemLoaiTB_ItemClick);
-            // 
-            // barBtnSuaLoaiTB
-            // 
-            this.barBtnSuaLoaiTB.Caption = "Sửa loại thiết bị";
-            this.barBtnSuaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
-            this.barBtnSuaLoaiTB.Id = 23;
-            this.barBtnSuaLoaiTB.Name = "barBtnSuaLoaiTB";
-            this.barBtnSuaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaLoaiTB_ItemClick);
-            // 
-            // barBtnXoaLoaiTB
-            // 
-            this.barBtnXoaLoaiTB.Caption = "Xóa loại thiết bị";
-            this.barBtnXoaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
-            this.barBtnXoaLoaiTB.Id = 24;
-            this.barBtnXoaLoaiTB.Name = "barBtnXoaLoaiTB";
-            this.barBtnXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaLoaiTB_ItemClick);
             // 
             // rbnPagePhanQuyen_Home
             // 
@@ -322,11 +276,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnSuaTang;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaTang;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer2;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemLoaiTB;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaLoaiTB;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaLoaiTB;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageLoaiTB_Home;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLoaiTB;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
