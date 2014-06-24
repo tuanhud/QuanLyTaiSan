@@ -15,7 +15,6 @@ using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
-using QuanLyTaiSanGUI.QLTinhTrang;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
@@ -26,7 +25,6 @@ using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using DevExpress.Skins;
-using QuanLyTaiSanGUI.QLPhong.MyUserControl;
 
 namespace QuanLyTaiSanGUI
 {
@@ -41,7 +39,6 @@ namespace QuanLyTaiSanGUI
         ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
-        ucQuanLyTinhTrang _ucQuanLyTinhTrang = null;
         public frmMain()
         {
             InitializeComponent();
@@ -111,7 +108,6 @@ namespace QuanLyTaiSanGUI
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
                 _ucQuanLyLoaiTB.reLoad();
-
                 //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
                 //_ucTreePhong.loadData(list);
             }
@@ -139,24 +135,6 @@ namespace QuanLyTaiSanGUI
                 //_ucTreeThongKe.Parent = navBarGroupThongKe.ControlContainer;
                 //_ucTreePhong.treeListPhong.CollapseAll();
                 //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
-            }
-            else if (navBarControl1.ActiveGroup.Equals(navBarGroupTinhTrang))
-            {
-                rbnPageLoaiTB_Home.Visible = true;
-                ribbon.SelectedPage = rbnPageLoaiTinhTrang_Home;
-                _ucQuanLyTinhTrang.Dock = DockStyle.Fill;
-                panelControl1.Controls.Clear();
-                _ucTreePhong.treeListPhong.CollapseAll();
-                _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
-
-                if (_ucQuanLyTinhTrang == null)
-                {
-                    _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
-                    _ucQuanLyTinhTrang.reLoad();
-                }
-                else
-                    _ucQuanLyTinhTrang.reLoad();
-                panelControl1.Controls.Add(_ucQuanLyTinhTrang);
             }
             else
             {
@@ -263,10 +241,9 @@ namespace QuanLyTaiSanGUI
 
         private void barBtnThemPhong_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ///*ViTri obj = new ViTri();
-            //obj = _ucTreePhong.getVitri();*/
-            //MessageBox.Show("thêm phòng");
-            _ucQuanLyPhong.addObj();            
+            ViTri obj = new ViTri();
+            obj = _ucTreePhong.getVitri();
+            MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
         }
 
         private void barBtnSuaPhong_ItemClick(object sender, ItemClickEventArgs e)
@@ -299,14 +276,14 @@ namespace QuanLyTaiSanGUI
         private void barBtnSuaThietBi_ItemClick(object sender, ItemClickEventArgs e)
         {
             CTThietBi obj = new CTThietBi();
-            //obj = _ucQuanLyPhong.getCTThietBi();
+            obj = _ucQuanLyPhong.getCTThietBi();
             MessageBox.Show(obj.thietbi.ten);
         }
 
         private void barBtnXoaThietBi_ItemClick(object sender, ItemClickEventArgs e)
         {
             CTThietBi obj = new CTThietBi();
-            //obj = _ucQuanLyPhong.getCTThietBi();
+            obj = _ucQuanLyPhong.getCTThietBi();
             _ucQuanLyPhong.deleteObj(typeof(ThietBi).Name);
             //MessageBox.Show(obj.thietbi.ten);
         }
@@ -315,7 +292,7 @@ namespace QuanLyTaiSanGUI
 
         #region QuanLyLoaiThietBi
 
-        public void enableSuaXoaRibbonLoaiThietBi(Boolean enable)
+        public void enableSuaXoa(Boolean enable)
         {
             if (enable)
             {
@@ -358,42 +335,5 @@ namespace QuanLyTaiSanGUI
                 ribbonMain.Pages.Add(ribbon.Pages[i]);
             }
         }
-
-        #endregion
-
-        #region QuanLyTinhTrang
-        public void enableSuaXoaRibbonTinhTrang(Boolean enable)
-        {
-            if (enable)
-            {
-                barBtnSuaTinhTrang.Enabled = true;
-                barBtnXoaTinhTrang.Enabled = true;
-            }
-            else
-            {
-                barBtnSuaTinhTrang.Enabled = false;
-                barBtnXoaTinhTrang.Enabled = false;
-            }
-        }
-
-        private void barBtnThemTinhTrang_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyTinhTrang.enableEdit(true, "add");
-            _ucQuanLyTinhTrang.SetTextGroupControl("Thêm tình trạng", Color.Red);
-            _ucQuanLyTinhTrang.beforeAdd();
-        }
-
-        private void barBtnSuaTinhTrang_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyTinhTrang.enableEdit(true, "edit");
-            _ucQuanLyTinhTrang.SetTextGroupControl("Sửa tình trạng", Color.Red);
-            _ucQuanLyTinhTrang.setData();
-        }
-
-        private void barBtnXoaTinhTrang_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyTinhTrang.deleteObj();
-        }
-        #endregion
     }
 }
