@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblHinhPhong = new DevExpress.XtraEditors.LabelControl();
@@ -53,7 +52,7 @@
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
             this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -169,7 +168,7 @@
             // 
             // imgPhong
             // 
-            this.imgPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
             this.imgPhong.Location = new System.Drawing.Point(68, 24);
             this.imgPhong.Name = "imgPhong";

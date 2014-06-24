@@ -37,7 +37,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             listVitris = new ViTriFilter().getAll().ToList();
             _ucChiTietPhong.loadData(listVitris);
             _ucChiTietPhong.Dock = DockStyle.Fill;
-            AddControl(_ucChiTietPhong);
+            //AddControl(_ucChiTietPhong);
             listPhong = new Phong().getPhongByViTri(-1, -1, -1);
             gridControlPhong.DataSource = listPhong;
         }
@@ -64,11 +64,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 splitContainerControl1.Panel2.Controls.Clear();
                 splitContainerControl1.Panel2.Controls.Add(_ctr);
             }
-        }
-
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            
         }
 
         private void showDetailPhong(int _id)
