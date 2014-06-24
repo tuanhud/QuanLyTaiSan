@@ -73,7 +73,7 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.ten,
                      loai = typeof(Phong).Name,
                      id_c = typeof(Phong).Name + c.id,
-                     id_p = (c.vitri.tang != null ? typeof(Tang).Name+c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name+c.vitri.day.id :(c.vitri.day != null ? typeof(CoSo).Name+c.vitri.coso.id : ""))) 
+                     id_p = (c.vitri.tang != null ? typeof(Tang).Name+c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name+c.vitri.day.id :(c.vitri.coso != null ? typeof(CoSo).Name+c.vitri.coso.id : ""))) 
                  }).ToList();
             return re;
         }

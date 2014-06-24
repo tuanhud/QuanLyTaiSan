@@ -156,6 +156,7 @@
             this.navBarControl1.Size = new System.Drawing.Size(259, 524);
             this.navBarControl1.TabIndex = 2;
             this.navBarControl1.Text = "navBarControl1";
+            this.navBarControl1.GroupCollapsing += new DevExpress.XtraNavBar.NavBarGroupCancelEventHandler(this.navBarControl1_GroupCollapsing);
             this.navBarControl1.ActiveGroupChanged += new DevExpress.XtraNavBar.NavBarGroupEventHandler(this.navBarControl1_ActiveGroupChanged);
             // 
             // navBarGroupPhong

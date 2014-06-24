@@ -30,6 +30,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
         String type = "";
         String function = "";
         String node = "";
+        public Boolean working = false;
 
         public ucQuanLyCoSo()
         {
@@ -94,6 +95,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 _ucTreeViTri.setReadOnly(false);
                 _ucTreeViTriChonDay.setReadOnly(false);
                 type = _type;
+                //đang làm việc
+                working = true;
             }
             else
             {
@@ -104,6 +107,8 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                 txtMoTa.Properties.ReadOnly = true;
                 _ucTreeViTri.setReadOnly(true);
                 _ucTreeViTriChonDay.setReadOnly(true);
+                //hết làm việc
+                working = false;
             }
         }
 
@@ -343,7 +348,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             }
         }
 
-        private void reLoad()
+        public void reLoad()
         {
             errorProvider1.Clear();
             treeListViTri.ClearNodes();
@@ -354,6 +359,13 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
             _ucTreeViTri.reLoad(listTree);
             listTree = new ViTriFilter().getAllHaveDay();
             _ucTreeViTriChonDay.reLoad(listTree);
+            if (!function.Equals(""))
+            {
+                enableEdit(false, "", "");
+                SetTextGroupControl("Chi tiết", false);
+                listHinh = null;
+                setData(node);
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

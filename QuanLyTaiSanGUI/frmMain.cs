@@ -26,6 +26,7 @@ using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using DevExpress.Skins;
 using QuanLyTaiSanGUI.QLThietBi;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI
 {
@@ -76,6 +77,10 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyCoSo.Dock = DockStyle.Fill;
                         addRibbonPage(_ucQuanLyCoSo.getRibbon());
                     }
+                    else
+                    {
+                        _ucQuanLyCoSo.reLoad();
+                    }
                     ribbonMain.Pages.GetPageByName("rbnPageViTri_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
                     panelControl1.Controls.Clear();
@@ -88,6 +93,10 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyNhanVien = new ucQuanLyNhanVien();
                         _ucQuanLyNhanVien.Dock = DockStyle.Fill;
                         addRibbonPage(_ucQuanLyNhanVien.getRibbon());
+                    }
+                    else
+                    {
+                        _ucQuanLyNhanVien.reLoad();
                     }
                     ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home");
@@ -227,6 +236,30 @@ namespace QuanLyTaiSanGUI
             for (int i = 0; i < ribbon.Pages.Count; i++)
             {
                 ribbonMain.Pages.Add(ribbon.Pages[i]);
+            }
+        }
+
+        private void navBarControl1_GroupCollapsing(object sender, DevExpress.XtraNavBar.NavBarGroupCancelEventArgs e)
+        {
+            if (e.Group.Equals(navBarGroupViTri))
+            {
+                if (_ucQuanLyCoSo.working)
+                {
+                    if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn chuyển sang chức năng khác?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+            else if (e.Group.Equals(navBarGroupNhanVien))
+            {
+                if (_ucQuanLyNhanVien.working)
+                {
+                    if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn chuyển sang chức năng khác?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                }
             }
         }
     }

@@ -24,6 +24,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         NhanVienPT objNhanVienPT = new NhanVienPT();
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
+        public Boolean working = false;
 
         public ucQuanLyNhanVien()
         {
@@ -61,6 +62,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 txtMa.Properties.ReadOnly = false;
                 txtTen.Properties.ReadOnly = false;
                 txtSodt.Properties.ReadOnly = false;
+                working = true;
             }
             else
             {
@@ -70,14 +72,22 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 txtMa.Properties.ReadOnly = true;
                 txtTen.Properties.ReadOnly = true;
                 txtSodt.Properties.ReadOnly = true;
+                working = false;
             }
         }
 
-        private void reLoad()
+        public void reLoad()
         {
             NhanVienPTs = new NhanVienPT().getAll();
             gridControlNhanVien.DataSource = null;
             gridControlNhanVien.DataSource = NhanVienPTs;
+            if (!function.Equals(""))
+            {
+                enableEdit(false, "");
+                errorProvider1.Clear();
+                listHinhs = null;
+                SetData();
+            }
         }
 
         public void beforeAdd()
@@ -245,6 +255,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             splitContainerControl1.Panel1.Controls.Clear();
             gridControlNhanVien.Parent = splitContainerControl1.Panel1;
+            btnOK_PhanCong.Visible = false;
+            btnHuy_PhanCong.Visible = false;
+            rbnGroupNhanVien.Enabled = true;
         }
 
         private void reloadImage()
@@ -264,6 +277,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
             _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
             splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+
+            rbnGroupNhanVien.Enabled = false;
         }
 
         public RibbonControl getRibbon()
