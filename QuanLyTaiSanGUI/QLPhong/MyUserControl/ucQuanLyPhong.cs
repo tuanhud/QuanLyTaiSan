@@ -259,6 +259,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             enableEdit(true, "edit");
             SetTextGroupControl("Chỉnh sửa phòng", true);
+            lookUpEditNhanVien.EditValue = objPhong.nhanvienpt.hoten.ToString();
         }
 
         private void barButtonXoaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
