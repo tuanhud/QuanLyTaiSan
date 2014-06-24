@@ -51,6 +51,14 @@ namespace QuanLyTaiSan.Entities
             //}
             //return list.Count;
         }
+        public List<Phong> getPhongByViTri(int _cosoid, int _dayid, int _tangid)
+        {
+            List<Phong> re =
+                (from c in db.PHONGS
+                 where ((_cosoid == -1 || c.vitri.coso.id == _cosoid) && (_dayid == -1 || c.vitri.day.id == _dayid) && (_tangid == -1 || c.vitri.tang.id == _tangid))
+                 select c).ToList();
+            return re;
+        }
         #endregion
         #region Override
         protected override void init()

@@ -16,16 +16,22 @@ namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);        
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
+        ucTreeViTri _ucTreeViTriChonDay = new ucTreeViTri(true, false);
         List<HinhAnh> listHinh = new List<HinhAnh>();
         Phong objPhong = new Phong();
         NhanVienPT objNhanVienPT = new NhanVienPT();
+        CoSo objCoSo = new CoSo();
+        Dayy objDay = new Dayy();
+        Tang objTang = new Tang();
         String type = "";
-        String function = "";   
+        String function = "";
+        String node = "";
 
         public ucChiTietPhong()
         {
             InitializeComponent();
+            enableEdit(false, "", "");
         }
 
         public void loadData(List<ViTriFilter> _list)
@@ -56,20 +62,22 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 lblMaNhanVien.Text = objNV.subId;
                 lblTenNhanVien.Text = objNV.hoten;
                 lblSoDienThoai.Text = objNV.sodienthoai;
+                listHinh = objPhong.hinhanhs.ToList();
+                reloadImage();
             }
             catch (Exception ex)
             { }
             finally
-            {}
+            { }
         }
 
-        public void enableEdit(bool b, String _type)
-        {
-            btnOK.Visible = b;
-            btnHuy.Visible = b;
-            btnImage.Visible = b;
-            type = _type;
-        }
+        //public void enableEdit(bool b, String _type)
+        //{
+        //    btnOK.Visible = b;
+        //    btnHuy.Visible = b;
+        //    btnImage.Visible = b;
+        //    type = _type;
+        //}
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -141,7 +149,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (objPhongNew.add() != -1)
             {
                 XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ucQuanLyPhong uc = this.Parent as ucQuanLyPhong;
+                ucQuanLyPhong uc = this.Parent.Parent.Parent as ucQuanLyPhong;
                 uc.reLoad();
                 /*findNode = new FindNode(objCoSoNew.id, typeof(CoSo).Name);
                 treeListViTri.NodesIterator.DoOperation(findNode);
@@ -151,7 +159,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            enableEdit(false, "", "");
+            //enableEdit(false, "", "");
             SetTextGroupControl("Chi tiết", false);
             dxErrorProvider.ClearErrors();
             listHinh = null;
@@ -220,5 +228,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             finally
             { }
         }
-     }
+
+        public void beforeAdd()
+        {
+            txtTenPhong.Text = "";
+            txtMoTaPhong.Text = "";
+            imgPhong.Images.Clear();
+            //_ucTreeViTriChonDay.setViTri(_vitri);
+            //panelControl1.Controls.Add(_ucTreeViTriChonDay);
+        }
+    }
 }
