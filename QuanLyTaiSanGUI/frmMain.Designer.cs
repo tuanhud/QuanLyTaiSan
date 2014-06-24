@@ -50,6 +50,8 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.navBarGroupThietBi = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -137,11 +139,13 @@
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer1);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer2);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer3);
+            this.navBarControl1.Controls.Add(this.navBarGroupControlContainer4);
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri,
             this.navBarGroupPhong,
             this.navBarGroupLoaiTB,
+            this.navBarGroupThietBi,
             this.navBarGroupNhanVien,
             this.navBarGroupPhanQuyen,
             this.navBarGroupThongKe});
@@ -167,7 +171,7 @@
             // navBarGroupControlContainer1
             // 
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 269);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 241);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // navBarGroupControlContainer2
@@ -227,6 +231,20 @@
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
             // 
+            // navBarGroupThietBi
+            // 
+            this.navBarGroupThietBi.Caption = "Quản lý thiết bị";
+            this.navBarGroupThietBi.ControlContainer = this.navBarGroupControlContainer4;
+            this.navBarGroupThietBi.GroupClientHeight = 80;
+            this.navBarGroupThietBi.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
+            this.navBarGroupThietBi.Name = "navBarGroupThietBi";
+            // 
+            // navBarGroupControlContainer4
+            // 
+            this.navBarGroupControlContainer4.Name = "navBarGroupControlContainer4";
+            this.navBarGroupControlContainer4.Size = new System.Drawing.Size(259, 241);
+            this.navBarGroupControlContainer4.TabIndex = 3;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,5 +302,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThongKe_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer3;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroupThietBi;
+        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer4;
     }
 }

@@ -25,6 +25,7 @@ using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using DevExpress.Skins;
+using QuanLyTaiSanGUI.QLThietBi;
 
 namespace QuanLyTaiSanGUI
 {
@@ -36,6 +37,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = null;
         ucQuanLyCoSo _ucQuanLyCoSo = null;
         ucQuanLyNhanVien _ucQuanLyNhanVien = null;
+        ucQuanLyThietBi _ucQuanLyThietBi = null;
         //ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
@@ -112,6 +114,24 @@ namespace QuanLyTaiSanGUI
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyLoaiTB);
+                }
+                else if (navBarControl1.ActiveGroup.Equals(navBarGroupThietBi))
+                {
+                    if (_ucQuanLyThietBi == null)
+                    {
+                        _ucQuanLyThietBi = new ucQuanLyThietBi();
+                        _ucQuanLyThietBi.Dock = DockStyle.Fill;
+                        addRibbonPage(_ucQuanLyThietBi.getRibbon());
+                        _ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;
+                    }
+                    else
+                    {
+                        //_ucQuanLyLoaiTB.reLoad();
+                    }
+                    ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home").Visible = true;
+                    ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home");
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucQuanLyThietBi);
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
                 {

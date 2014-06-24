@@ -12,6 +12,7 @@ using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.MyUserControl;
+using QuanLyTaiSanGUI.QLThietBi;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -75,6 +76,15 @@ namespace QuanLyTaiSanGUI.MyUC
                                     {
                                         ucQuanLyPhong _ucQuanLyPhong = this.Parent as ucQuanLyPhong;
                                         _ucQuanLyPhong.setData(cosoid, dayid, tangid);
+                                    }
+                                }
+                                break;
+                            case "QLThietBi":
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
+                                        _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
                                     }
                                 }
                                 break;
