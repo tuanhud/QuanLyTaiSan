@@ -42,6 +42,7 @@ namespace QuanLyTaiSanGUI
         //ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
+        ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
         public frmMain()
         {
             InitializeComponent();
@@ -161,14 +162,14 @@ namespace QuanLyTaiSanGUI
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupThongKe))
                 {
-                    //rbnPageThongKe_Home.Visible = true;
-                    //ribbon.SelectedPage = rbnPageThongKe_Home;
-                    //_ucThongKe.Dock = DockStyle.Fill;
-                    //panelControl1.Controls.Clear();
-                    //panelControl1.Controls.Add(_ucThongKe);
-                    //_ucTreeThongKe.Parent = navBarGroupThongKe.ControlContainer;
-                    //_ucTreePhong.treeListPhong.CollapseAll();
-                    //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                    if (_ucTK_SLTB_TheoTinhTrang == null)
+                    {
+                        _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
+                        _ucTK_SLTB_TheoTinhTrang.Dock = DockStyle.Fill;
+                    }
+                    rbnPageThongKe_Home.Visible = true;
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucTK_SLTB_TheoTinhTrang);
                 }
                 else
                 {
