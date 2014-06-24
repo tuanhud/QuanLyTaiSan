@@ -104,10 +104,11 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
                         addRibbonPage(_ucQuanLyLoaiTB.getRibbon());
                     }
-                    else
-                    {
-                        _ucQuanLyLoaiTB.reLoad();
-                    }
+                    //else
+                    //{
+                    //    _ucQuanLyLoaiTB.reLoad();
+                    //}
+                    _ucQuanLyLoaiTB.reLoad();
                     ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home");
                     panelControl1.Controls.Clear();
