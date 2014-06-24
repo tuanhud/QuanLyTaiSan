@@ -90,6 +90,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        public DevExpress.XtraTreeList.TreeList treeListPhong;
+        private DevExpress.XtraTreeList.TreeList treeListPhong;
     }
 }

@@ -12,18 +12,20 @@ using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraBars.Ribbon;
+using QuanLyTaiSanGUI.MyUC;
+using DevExpress.XtraTreeList;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucQuanLyPhong : UserControl
     {
-        ucChiTietPhong _ucChiTietPhong = new ucChiTietPhong();
-        ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
         List<ViTriFilter> listVitris = new List<ViTriFilter>();
         List<Phong> listPhong = new List<Phong>();
         Phong objPhong;
         CTThietBi objChiTietTB;
+
+        ucTreePhong _ucTreePhong = null;
 
         public ucQuanLyPhong()
         {
@@ -33,11 +35,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         public void loadData()
         {
-            ribbonPhong.Parent = null;
             listVitris = new ViTriFilter().getAll().ToList();
-            _ucChiTietPhong.loadData(listVitris);
-            _ucChiTietPhong.Dock = DockStyle.Fill;
-            //AddControl(_ucChiTietPhong);
+            _ucTreePhong = new ucTreePhong(listVitris, "QLPhong");
+            _ucTreePhong.Parent = this;
+            ribbonPhong.Parent = null;
             listPhong = new Phong().getPhongByViTri(-1, -1, -1);
             gridControlPhong.DataSource = listPhong;
         }
@@ -49,13 +50,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridControlPhong.DataSource = listPhong;
         }
 
-        public void setData(int _phongid, int _cosoid, int _dayid, int _tangid)
+        //FocusedRowChanged in TreePhong
+        public void setData(int _cosoid, int _dayid, int _tangid)
         {
             listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
             gridControlPhong.DataSource = null;
             gridControlPhong.DataSource = listPhong;
-            if (listPhong.Count == 0)
-                showDetailPhong(_phongid);
         }
         public void AddControl(Control _ctr)
         {
@@ -68,17 +68,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void showDetailPhong(int _id)
         {
-            Phong obj = new Phong().getById(_id);
-            _ucChiTietPhong.Dock = DockStyle.Fill;
-            AddControl(_ucChiTietPhong);
-            _ucChiTietPhong.setData(obj);
-            if (_id == -1)
-                enableGroupPhong("other");
-            else
-            {
-                enableGroupPhong(typeof(Phong).Name);
-                objPhong = obj;
-            }
+            //Phong obj = new Phong().getById(_id);
+            //_ucChiTietPhong.Dock = DockStyle.Fill;
+            //AddControl(_ucChiTietPhong);
+            //_ucChiTietPhong.setData(obj);
+            //if (_id == -1)
+            //    enableGroupPhong("other");
+            //else
+            //{
+            //    enableGroupPhong(typeof(Phong).Name);
+            //    objPhong = obj;
+            //}
 
         }
 
@@ -100,14 +100,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                int row = gridViewPhong.FocusedRowHandle;
-                Phong obj = new Phong();
-                obj = obj.getById(Convert.ToInt32(gridViewPhong.GetRowCellValue(gridViewPhong.GetDataRowHandleByGroupRowHandle(row), id)));
-                _ucChiTietPhong.Dock = DockStyle.Fill;
-                AddControl(_ucChiTietPhong);
-                _ucChiTietPhong.setData(obj);
-                enableGroupPhong(typeof(Phong).Name);
-                objPhong = obj;
+                //int row = gridViewPhong.FocusedRowHandle;
+                //Phong obj = new Phong();
+                //obj = obj.getById(Convert.ToInt32(gridViewPhong.GetRowCellValue(gridViewPhong.GetDataRowHandleByGroupRowHandle(row), id)));
+                //_ucChiTietPhong.Dock = DockStyle.Fill;
+                //AddControl(_ucChiTietPhong);
+                //_ucChiTietPhong.setData(obj);
+                //enableGroupPhong(typeof(Phong).Name);
+                //objPhong = obj;
             }
             catch (Exception ex)
             { }
@@ -115,9 +115,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
         public void addObj()
         {
-            _ucChiTietPhong.enableEdit(true, typeof(Phong).Name, "add");
-            _ucChiTietPhong.beforeAdd();
-            _ucChiTietPhong.SetTextGroupControl("Thêm phòng", true);
+            //_ucChiTietPhong.enableEdit(true, typeof(Phong).Name, "add");
+            //_ucChiTietPhong.beforeAdd();
+            //_ucChiTietPhong.SetTextGroupControl("Thêm phòng", true);
         }
 
 
@@ -197,6 +197,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public RibbonControl getRibbon()
         {
             return ribbonPhong;
+        }
+
+        public TreeList getTreeList()
+        {
+            return _ucTreePhong.getTreeList();
         }
     }
 }
