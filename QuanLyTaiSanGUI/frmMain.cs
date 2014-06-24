@@ -15,6 +15,7 @@ using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
+using QuanLyTaiSanGUI.QLTinhTrang;
 using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
@@ -39,6 +40,7 @@ namespace QuanLyTaiSanGUI
         ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
+        ucQuanLyTinhTrang _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
         public frmMain()
         {
             InitializeComponent();
@@ -98,6 +100,7 @@ namespace QuanLyTaiSanGUI
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
                 _ucQuanLyLoaiTB.reLoad();
+
                 //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
                 //_ucTreePhong.loadData(list);
             }
@@ -122,6 +125,24 @@ namespace QuanLyTaiSanGUI
                 //_ucTreePhong.treeListPhong.CollapseAll();
                 //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
             }
+            else if (navBarControl1.ActiveGroup.Equals(navBarGroupTinhTrang))
+            {
+                rbnPageLoaiTB_Home.Visible = true;
+                ribbon.SelectedPage = rbnPageLoaiTinhTrang_Home;
+                _ucQuanLyTinhTrang.Dock = DockStyle.Fill;
+                panelControl1.Controls.Clear();
+                _ucTreePhong.treeListPhong.CollapseAll();
+                _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+
+                if (_ucQuanLyTinhTrang == null)
+                {
+                    _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
+                    _ucQuanLyTinhTrang.reLoad();
+                }
+                else
+                    _ucQuanLyTinhTrang.reLoad();
+                panelControl1.Controls.Add(_ucQuanLyTinhTrang);
+            }
             else
             {
                 rbnPagePhong_Home.Visible = true;
@@ -144,7 +165,7 @@ namespace QuanLyTaiSanGUI
             rbnPageNhanVien_Home.Visible = false;
             rbnPageLoaiTB_Home.Visible = false;
             rbnPagePhanQuyen_Home.Visible = false;
-            rbnPageThongKe_Home.Visible = false;
+            rbnPageLoaiTinhTrang_Home.Visible = false;
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
@@ -370,7 +391,7 @@ namespace QuanLyTaiSanGUI
 
         #region QuanLyLoaiThietBi
 
-        public void enableSuaXoa(Boolean enable)
+        public void enableSuaXoaRibbonLoaiThietBi(Boolean enable)
         {
             if (enable)
             {
@@ -432,6 +453,41 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyNhanVien.PhanCong();
         }
 
+        #endregion
+
+        #region QuanLyTinhTrang
+        public void enableSuaXoaRibbonTinhTrang(Boolean enable)
+        {
+            if (enable)
+            {
+                barBtnSuaTinhTrang.Enabled = true;
+                barBtnXoaTinhTrang.Enabled = true;
+            }
+            else
+            {
+                barBtnSuaTinhTrang.Enabled = false;
+                barBtnXoaTinhTrang.Enabled = false;
+            }
+        }
+
+        private void barBtnThemTinhTrang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyTinhTrang.enableEdit(true, "add");
+            _ucQuanLyTinhTrang.SetTextGroupControl("Thêm tình trạng", Color.Red);
+            _ucQuanLyTinhTrang.beforeAdd();
+        }
+
+        private void barBtnSuaTinhTrang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyTinhTrang.enableEdit(true, "edit");
+            _ucQuanLyTinhTrang.SetTextGroupControl("Sửa tình trạng", Color.Red);
+            _ucQuanLyTinhTrang.setData();
+        }
+
+        private void barBtnXoaTinhTrang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _ucQuanLyTinhTrang.deleteObj();
+        }
         #endregion
     }
 }

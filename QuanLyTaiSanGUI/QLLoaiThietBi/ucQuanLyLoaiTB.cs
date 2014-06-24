@@ -104,7 +104,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 beforeAdd();
         }
 
-        private void CRUP()
+        private void CRU()
         {
             switch (function)
             { 
@@ -114,7 +114,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     if (objLoaiThietBi.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
                     }
                     break;
                 case "edit":
@@ -122,7 +121,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     if (objLoaiThietBi.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
                     }
                     break;
             }
@@ -208,7 +206,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             if (checkInput())
             {
-                CRUP();
+                CRU();
                 reLoad();
                 setData();
                 enableEdit(false, "");
@@ -299,7 +297,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (this.ParentForm != null)
                 {
                     frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoa(false);
+                    frm.enableSuaXoaRibbonLoaiThietBi(false);
                 }
             }
             else
@@ -307,7 +305,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (this.ParentForm != null)
                 {
                     frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoa(true);
+                    frm.enableSuaXoaRibbonLoaiThietBi(true);
                 }
             }
         }

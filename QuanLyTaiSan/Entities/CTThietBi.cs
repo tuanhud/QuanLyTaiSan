@@ -38,7 +38,7 @@ namespace QuanLyTaiSan.Entities
         [Index("nothing", 3, IsUnique = true)]
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
-        #region Ngiep vu
+        #region Nghiep vu
         /// <summary>
         /// Ham update se duoc tu dong goi trong day (co su dung Transaction Commit),
         /// Khi co bat ky 1 loi nao trong qua trinh thuc hien (Rollback se duoc goi),
@@ -138,6 +138,11 @@ namespace QuanLyTaiSan.Entities
             //    tmp.DB = db;
             //}
             return tmp;
+        }
+
+        public List<ThietBi> listThietBiTheoTinhTrang(int idTinhTrang)
+        {
+            return db.CTTHIETBIS.Where(ct => ct.tinhtrang.id == idTinhTrang).Select(select => select.thietbi).ToList();
         }
         #endregion
 
