@@ -19,10 +19,10 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 {
     public partial class ucQuanLyNhanVien : UserControl
     {
-        ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
-        List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
-        NhanVienPT objNhanVienPT = new NhanVienPT();
-        List<HinhAnh> listHinhs = new List<HinhAnh>();
+        ucTreePhongHaveCheck _ucTreePhongHaveCheck = null;
+        List<NhanVienPT> NhanVienPTs = null;
+        NhanVienPT objNhanVienPT = null;
+        List<HinhAnh> listHinhs = null;
         String function = "";
         public Boolean working = false;
 
@@ -34,6 +34,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         public void loadData()
         {
+            _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
+            NhanVienPTs = new List<NhanVienPT>();
+            objNhanVienPT = new NhanVienPT();
+            listHinhs = new List<HinhAnh>();
+            ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             NhanVienPTs = new NhanVienPT().getAll();
             gridControlNhanVien.DataSource = null;
@@ -172,13 +177,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         public void SetData()
         {
-            listHinhs = null;
             SetTextGroupControl("Chi tiết", false);
             txtMa.Text = objNhanVienPT.subId;
             txtTen.Text = objNhanVienPT.hoten;
             txtSodt.Text = objNhanVienPT.sodienthoai;
             listBoxNhanVien.DataSource = objNhanVienPT.phongs;
-            if(objNhanVienPT.hinhanhs != null)
             listHinhs = objNhanVienPT.hinhanhs.ToList();
             reloadImage();
         }
@@ -263,9 +266,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         private void reloadImage()
         {
             imageSlider1.Images.Clear();
-            foreach (HinhAnh h in listHinhs)
+            if (listHinhs != null)
             {
-                imageSlider1.Images.Add(h.getImage());
+                foreach (HinhAnh h in listHinhs)
+                {
+                    imageSlider1.Images.Add(h.getImage());
+                }
             }
         }
 
