@@ -29,7 +29,10 @@ namespace QuanLyTaiSan
         {
             InitializeComponent();
             //DBInstance.TaoDuLieuMau();
-            List<HinhAnh> hinh = new HinhAnh().getAllCoSo();
+            //List<HinhAnh> hinh = new HinhAnh().getAllCoSo();
+            List<TKSLThietBiFilter> list = new TKSLThietBiFilter().getAll();
+            //List<PhongFilter> list = new PhongFilter().getAll();
+            
             Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()
@@ -95,6 +98,16 @@ namespace QuanLyTaiSan
             obj.update();//use existing context created before to avoid Exception because of multiple Context tracking
             obj.delete();//use existing context created before to avoid Exception because of multiple Context tracking
             Console.WriteLine("Finish");
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
