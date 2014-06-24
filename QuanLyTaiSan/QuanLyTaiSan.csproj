@@ -47,6 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -67,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\TKSLThietBiFilter.cs" />
     <Compile Include="DataFilter\ViTriFilter.cs" />
     <Compile Include="DataFilter\ThietBiFilter.cs" />
     <Compile Include="DataFilter\PhongFilter.cs" />
@@ -191,6 +193,7 @@
     <EmbeddedResource Include="Migrations\201406211025184_bo_rang_buoc_path_hinhanh.resx">
       <DependentUpon>201406211025184_bo_rang_buoc_path_hinhanh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
