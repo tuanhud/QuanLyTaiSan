@@ -36,7 +36,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = null;
         ucQuanLyCoSo _ucQuanLyCoSo = null;
         ucQuanLyNhanVien _ucQuanLyNhanVien = null;
-        ucTreePhong _ucTreePhong = new ucTreePhong();
+        //ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
         public frmMain()
@@ -48,13 +48,13 @@ namespace QuanLyTaiSanGUI
 
         private void loadData()
         {
-            List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
-            _ucTreePhong.loadData(list);
+            //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
+            //_ucTreePhong.loadData(list);
             //_ucQuanLyPhong.Dock = DockStyle.Fill;
             //panelControl1.Controls.Add(_ucQuanLyPhong);
-            _ucTreePhong.Dock = DockStyle.Fill;
-            _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
-            _ucTreePhong.type = "QLPhong";
+            //_ucTreePhong.Dock = DockStyle.Fill;
+            //_ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+            //_ucTreePhong.type = "QLPhong";
         }
 
         private void RibbonForm1_Load(object sender, EventArgs e)
@@ -92,9 +92,9 @@ namespace QuanLyTaiSanGUI
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyNhanVien);
                     //cần xem lại
-                    _ucTreePhong.treeListPhong.CollapseAll();
-                    _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
-                    _ucTreePhong.type = "QLNhanVienPT";
+                    //_ucTreePhong.treeListPhong.CollapseAll();
+                    //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
+                    //_ucTreePhong.type = "QLNhanVienPT";
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
                 {
@@ -144,12 +144,14 @@ namespace QuanLyTaiSanGUI
                     {
                         _ucQuanLyPhong = new ucQuanLyPhong();
                         _ucQuanLyPhong.Dock = DockStyle.Fill;
+                        _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
                         addRibbonPage(_ucQuanLyPhong.getRibbon());
                     }
                     ribbonMain.Pages.GetPageByName("rbnPagePhong_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhong_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyPhong);
+
                     //_ucTreePhong.treeListPhong.CollapseAll();
                     //_ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
                     //_ucTreePhong.type = "QLPhong";
