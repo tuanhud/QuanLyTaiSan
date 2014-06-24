@@ -141,15 +141,16 @@ namespace QuanLyTaiSanGUI
                 if (_ucQuanLyPhong == null)
                 {
                     _ucQuanLyPhong = new ucQuanLyPhong();
+                    _ucQuanLyPhong.Dock = DockStyle.Fill;
+                    addRibbonPage(_ucQuanLyPhong.getRibbon());
                 }
-                rbnPagePhong_Home.Visible = true;
-                ribbonMain.SelectedPage = rbnPagePhong_Home;
-                _ucQuanLyPhong.Dock = DockStyle.Fill;
+                ribbonMain.Pages.GetPageByName("rbnPagePhong_Home").Visible = true;
+                ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhong_Home");
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyPhong);
-                _ucTreePhong.treeListPhong.CollapseAll();
-                _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
-                _ucTreePhong.type = "QLPhong";
+                //_ucTreePhong.treeListPhong.CollapseAll();
+                //_ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
+                //_ucTreePhong.type = "QLPhong";
                 //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
                 //_ucTreePhong.loadData(list);
             }
@@ -171,14 +172,6 @@ namespace QuanLyTaiSanGUI
 
         #region Thongke
 
-        public void treePhongFocusedNodeChanged(int phongid, int cosoid, int dayid, int tangid)
-        {
-            if (navBarControl1.ActiveGroup.Equals(navBarGroupPhong))
-            {
-                _ucQuanLyPhong.setData(phongid, cosoid, dayid, tangid);
-            }
-        }
-
         public void treeThongKeFocusedNodeChanged(string type)
         {
             switch (type)
@@ -196,96 +189,6 @@ namespace QuanLyTaiSanGUI
                     //panelControl1.Controls.Add(_ucThongKeTongQuat);
                     break;
             }
-        }
-
-        public void enableGroupPhong(String _type)
-        {
-            try
-            {
-                switch (_type)
-                {
-                    case "Phong":
-                        rbnGroupPhong_Phong.Enabled = true;
-                        rbnGroupPhong_Chuyen.Enabled = false;
-                        rbnGroupPhong_ThietBi.Enabled = true;
-                        barBtnSuaPhong.Enabled = true;
-                        barBtnXoaPhong.Enabled = true;
-                        barBtnSuaThietBi.Enabled = false;
-                        barBtnXoaThietBi.Enabled = false;
-                        break;
-                    case "ThietBi":
-                        rbnGroupPhong_Phong.Enabled = false;
-                        rbnGroupPhong_Chuyen.Enabled = true;
-                        rbnGroupPhong_ThietBi.Enabled = true;
-                        barBtnSuaThietBi.Enabled = true;
-                        barBtnXoaThietBi.Enabled = true;
-                        break;
-                    default:
-                        rbnGroupPhong_Phong.Enabled = true;
-                        rbnGroupPhong_Chuyen.Enabled = false;
-                        rbnGroupPhong_ThietBi.Enabled = false;
-                        barBtnSuaPhong.Enabled = false;
-                        barBtnXoaPhong.Enabled = false;
-                        break;
-                }
-            }
-            catch (Exception ex)
-            { }
-            finally
-            {}
-        }
-
-        #endregion
-
-        #region QuanLyPhong
-
-        private void barBtnThemPhong_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ViTri obj = new ViTri();
-            obj = _ucTreePhong.getVitri();
-            MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
-        }
-
-        private void barBtnSuaPhong_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Phong obj2 = new Phong();
-            obj2 = _ucQuanLyPhong.getPhong();
-            ViTri obj = obj2.vitri;
-            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
-        }
-
-        private void barBtnXoaPhong_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Phong obj2 = new Phong();
-            obj2 = _ucQuanLyPhong.getPhong();
-            ViTri obj = obj2.vitri;
-            _ucQuanLyPhong.deleteObj(typeof(Phong).Name);
-            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
-        }
-
-        private void barBtnThemThietBi_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Phong obj2 = new Phong();
-            obj2 = _ucQuanLyPhong.getPhong();
-            ViTri obj = obj2.vitri;
-            MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
-            frmNewThietBi frm = new frmNewThietBi();
-            frm.ShowDialog();
-        }
-
-        private void barBtnSuaThietBi_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CTThietBi obj = new CTThietBi();
-            obj = _ucQuanLyPhong.getCTThietBi();
-            MessageBox.Show(obj.thietbi.ten);
-        }
-
-        private void barBtnXoaThietBi_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CTThietBi obj = new CTThietBi();
-            obj = _ucQuanLyPhong.getCTThietBi();
-            _ucQuanLyPhong.deleteObj(typeof(ThietBi).Name);
-            //MessageBox.Show(obj.thietbi.ten);
         }
 
         #endregion

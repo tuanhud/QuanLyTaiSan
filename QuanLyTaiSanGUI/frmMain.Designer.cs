@@ -30,31 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThemThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnCHuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnChuyenPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.rbnPagePhong_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupPhong_ThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupPhong_Chuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupPhong = new DevExpress.XtraNavBar.NavBarGroup();
@@ -77,81 +65,33 @@
             // 
             this.ribbonMain.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            
+            this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonMain.ExpandCollapseItem});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonMain.MaxItemId = 39;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.rbnPagePhong_Home,
             this.rbnPageLoaiTB_Home,
             this.rbnPagePhanQuyen_Home,
             this.rbnPageThongKe_Home});
             this.ribbonMain.Size = new System.Drawing.Size(900, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
             // 
-            // barBtnThemPhong
+            // rbnPageLoaiTB_Home
             // 
-            this.barBtnThemPhong.Caption = "Thêm phòng";
-            this.barBtnThemPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThemPhong.Glyph")));
-            this.barBtnThemPhong.Id = 1;
-            this.barBtnThemPhong.Name = "barBtnThemPhong";
-            this.barBtnThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemPhong_ItemClick);
+            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbnGroupLoaiTB});
+            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
+            this.rbnPageLoaiTB_Home.Text = "Trang chính";
+            this.rbnPageLoaiTB_Home.Visible = false;
             // 
-            // barBtnSuaPhong
+            // rbnGroupLoaiTB
             // 
-            this.barBtnSuaPhong.Caption = "Sửa phòng";
-            this.barBtnSuaPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnSuaPhong.Glyph")));
-            this.barBtnSuaPhong.Id = 2;
-            this.barBtnSuaPhong.Name = "barBtnSuaPhong";
-            this.barBtnSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaPhong_ItemClick);
-            // 
-            // barBtnXoaPhong
-            // 
-            this.barBtnXoaPhong.Caption = "Xóa phòng";
-            this.barBtnXoaPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXoaPhong.Glyph")));
-            this.barBtnXoaPhong.Id = 3;
-            this.barBtnXoaPhong.Name = "barBtnXoaPhong";
-            this.barBtnXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaPhong_ItemClick);
-            // 
-            // barBtnThemThietBi
-            // 
-            this.barBtnThemThietBi.Caption = "Thêm thiết bị";
-            this.barBtnThemThietBi.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThemThietBi.Glyph")));
-            this.barBtnThemThietBi.Id = 4;
-            this.barBtnThemThietBi.Name = "barBtnThemThietBi";
-            this.barBtnThemThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemThietBi_ItemClick);
-            // 
-            // barBtnSuaThietBi
-            // 
-            this.barBtnSuaThietBi.Caption = "Sửa thiết bị";
-            this.barBtnSuaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
-            this.barBtnSuaThietBi.Id = 5;
-            this.barBtnSuaThietBi.Name = "barBtnSuaThietBi";
-            this.barBtnSuaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaThietBi_ItemClick);
-            // 
-            // barBtnXoaThietBi
-            // 
-            this.barBtnXoaThietBi.Caption = "Xóa thiết bị";
-            this.barBtnXoaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
-            this.barBtnXoaThietBi.Id = 6;
-            this.barBtnXoaThietBi.Name = "barBtnXoaThietBi";
-            this.barBtnXoaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaThietBi_ItemClick);
-            // 
-            // barBtnCHuyenTinhTrang
-            // 
-            this.barBtnCHuyenTinhTrang.Caption = "Chuyển tình trạng";
-            this.barBtnCHuyenTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCHuyenTinhTrang.Glyph")));
-            this.barBtnCHuyenTinhTrang.Id = 7;
-            this.barBtnCHuyenTinhTrang.Name = "barBtnCHuyenTinhTrang";
-            this.barBtnCHuyenTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
-            // 
-            // barBtnChuyenPhong
-            // 
-            this.barBtnChuyenPhong.Caption = "Chuyển phòng";
-            this.barBtnChuyenPhong.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.forward;
-            this.barBtnChuyenPhong.Id = 8;
-            this.barBtnChuyenPhong.Name = "barBtnChuyenPhong";
-            
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnThemLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnSuaLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnXoaLoaiTB);
+            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
+            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
             // 
             // barBtnThemLoaiTB
             // 
@@ -177,6 +117,22 @@
             this.barBtnXoaLoaiTB.Name = "barBtnXoaLoaiTB";
             this.barBtnXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaLoaiTB_ItemClick);
             // 
+            // rbnPagePhanQuyen_Home
+            // 
+            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
+            this.rbnPagePhanQuyen_Home.Text = "Trang chính";
+            this.rbnPagePhanQuyen_Home.Visible = false;
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Phân quyền";
+            // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Thêm quản trị";
@@ -195,79 +151,6 @@
             this.barButtonItem3.Id = 27;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 29;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // rbnPagePhong_Home
-            // 
-            this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupPhong_Phong,
-            this.rbnGroupPhong_ThietBi,
-            this.rbnGroupPhong_Chuyen});
-            this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
-            this.rbnPagePhong_Home.Text = "Trang chính";
-            // 
-            // rbnGroupPhong_Phong
-            // 
-            this.rbnGroupPhong_Phong.Enabled = false;
-            this.rbnGroupPhong_Phong.ItemLinks.Add(this.barBtnThemPhong);
-            this.rbnGroupPhong_Phong.ItemLinks.Add(this.barBtnSuaPhong);
-            this.rbnGroupPhong_Phong.ItemLinks.Add(this.barBtnXoaPhong);
-            this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
-            this.rbnGroupPhong_Phong.Text = "Phòng";
-            // 
-            // rbnGroupPhong_ThietBi
-            // 
-            this.rbnGroupPhong_ThietBi.Enabled = false;
-            this.rbnGroupPhong_ThietBi.ItemLinks.Add(this.barBtnThemThietBi);
-            this.rbnGroupPhong_ThietBi.ItemLinks.Add(this.barBtnSuaThietBi);
-            this.rbnGroupPhong_ThietBi.ItemLinks.Add(this.barBtnXoaThietBi);
-            this.rbnGroupPhong_ThietBi.Name = "rbnGroupPhong_ThietBi";
-            this.rbnGroupPhong_ThietBi.Text = "Thiết bị";
-            // 
-            // rbnGroupPhong_Chuyen
-            // 
-            this.rbnGroupPhong_Chuyen.Enabled = false;
-            this.rbnGroupPhong_Chuyen.ItemLinks.Add(this.barBtnCHuyenTinhTrang);
-            this.rbnGroupPhong_Chuyen.ItemLinks.Add(this.barBtnChuyenPhong);
-            this.rbnGroupPhong_Chuyen.Name = "rbnGroupPhong_Chuyen";
-            this.rbnGroupPhong_Chuyen.Text = "Chuyển";
-            // 
-            // rbnPageLoaiTB_Home
-            // 
-            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupLoaiTB});
-            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
-            this.rbnPageLoaiTB_Home.Text = "Trang chính";
-            this.rbnPageLoaiTB_Home.Visible = false;
-            // 
-            // rbnGroupLoaiTB
-            // 
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnThemLoaiTB);
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnSuaLoaiTB);
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barBtnXoaLoaiTB);
-            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
-            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
-            // 
-            // rbnPagePhanQuyen_Home
-            // 
-            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
-            this.rbnPagePhanQuyen_Home.Text = "Trang chính";
-            this.rbnPagePhanQuyen_Home.Visible = false;
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Phân quyền";
-            // 
             // rbnPageThongKe_Home
             // 
             this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -280,6 +163,12 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Thống kê";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 29;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // ribbonStatusBar
             // 
@@ -412,25 +301,13 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonMain;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhong_Home;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupPhong;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupViTri;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemPhong;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaPhong;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaPhong;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemThietBi;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaThietBi;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaThietBi;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_ThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhanQuyen_Home;
-        private DevExpress.XtraBars.BarButtonItem barBtnCHuyenTinhTrang;
-        private DevExpress.XtraBars.BarButtonItem barBtnChuyenPhong;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Chuyen;
         private DevExpress.XtraBars.BarButtonItem barBtnThemCoSo;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupLoaiTB;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupNhanVien;

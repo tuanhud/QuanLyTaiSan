@@ -11,6 +11,7 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -32,6 +33,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         public void loadData()
         {
+            ribbonPhong.Parent = null;
             listVitris = new ViTriFilter().getAll().ToList();
             _ucChiTietPhong.loadData(listVitris);
             _ucChiTietPhong.Dock = DockStyle.Fill;
@@ -87,11 +89,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void enableGroupPhong(String _type)
         {
-            if (this.ParentForm != null)
-            {
-                frmMain frm = this.ParentForm as frmMain;
-                frm.enableGroupPhong(_type);
-            }
+            //if (this.ParentForm != null)
+            //{
+            //    frmMain frm = this.ParentForm as frmMain;
+            //    frm.enableGroupPhong(_type);
+            //}
         }
 
         public Phong getPhong()
@@ -171,6 +173,35 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void gridViewThietBi_MasterRowExpanded(object sender, DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventArgs e)
         {
             gridViewPhong.GetDetailView(e.RowHandle, e.RelationIndex).Focus();
+        }
+
+        private void barButtonThemPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        //    ViTri obj = new ViTri();
+        //    obj = _ucTreePhong.getVitri();
+        //    MessageBox.Show(obj.coso.ten + (obj.tang != null ? obj.tang.ten : "") + (obj.day != null ? obj.day.ten : ""));
+        }
+
+        private void barButtonSuaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Phong obj2 = new Phong();
+            //obj2 = _ucQuanLyPhong.getPhong();
+            //ViTri obj = obj2.vitri;
+            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+        }
+
+        private void barButtonXoaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Phong obj2 = new Phong();
+            //obj2 = _ucQuanLyPhong.getPhong();
+            //ViTri obj = obj2.vitri;
+            //_ucQuanLyPhong.deleteObj(typeof(Phong).Name);
+            //MessageBox.Show(obj2.ten + " " + obj.coso.ten + (obj.day != null ? obj.day.ten : "") + (obj.tang != null ? obj.tang.ten : ""));
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonPhong;
         }
     }
 }

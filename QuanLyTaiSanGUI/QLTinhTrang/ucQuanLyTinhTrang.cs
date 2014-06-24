@@ -39,7 +39,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 if (this.ParentForm != null)
                 {
                     frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoaRibbonTinhTrang(false);
+                    //frm.enableSuaXoaRibbonTinhTrang(false);
                 }
             }
             else
@@ -47,7 +47,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 if (this.ParentForm != null)
                 {
                     frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoaRibbonTinhTrang(true);
+                    //frm.enableSuaXoaRibbonTinhTrang(true);
                 }
             }
         }

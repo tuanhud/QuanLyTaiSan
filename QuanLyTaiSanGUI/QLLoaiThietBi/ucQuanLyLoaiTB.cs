@@ -297,7 +297,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (this.ParentForm != null)
                 {
                     frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoaRibbonLoaiThietBi(false);
+                    //frm.enableSuaXoaRibbonLoaiThietBi(false);
                 }
             }
             else
@@ -305,7 +305,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (this.ParentForm != null)
                 {
                     frmMain frm = (frmMain)this.ParentForm;
-                    frm.enableSuaXoaRibbonLoaiThietBi(true);
+                    //frm.enableSuaXoaRibbonLoaiThietBi(true);
                 }
             }
         }

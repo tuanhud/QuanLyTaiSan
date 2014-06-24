@@ -31,10 +31,6 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.subId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mota = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,23 +38,35 @@
             this.date_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.nhanvienpt_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.rbnPagePhong_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonThemPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonSuaPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonXoaPhong = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhong)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlPhong);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(675, 469);
-            this.splitContainerControl1.SplitterPosition = 283;
+            this.splitContainerControl1.Size = new System.Drawing.Size(837, 496);
+            this.splitContainerControl1.SplitterPosition = 427;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -68,7 +76,7 @@
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(387, 469);
+            this.gridControlPhong.Size = new System.Drawing.Size(427, 496);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -92,33 +100,6 @@
             this.gridViewPhong.OptionsView.ShowGroupPanel = false;
             this.gridViewPhong.MasterRowExpanded += new DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventHandler(this.gridViewThietBi_MasterRowExpanded);
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewThietBi_FocusedRowChanged);
-            // 
-            // colsoluong
-            // 
-            this.colsoluong.Caption = "Số lượng";
-            this.colsoluong.FieldName = "soluong";
-            this.colsoluong.Name = "colsoluong";
-            this.colsoluong.Width = 202;
-            // 
-            // coltinhtrang
-            // 
-            this.coltinhtrang.Caption = "Tình trạng";
-            this.coltinhtrang.FieldName = "tinhtrang";
-            this.coltinhtrang.Name = "coltinhtrang";
-            this.coltinhtrang.Width = 293;
-            // 
-            // coltenthietbi
-            // 
-            this.coltenthietbi.Caption = "Tên thiết bị";
-            this.coltenthietbi.FieldName = "ten";
-            this.coltenthietbi.Name = "coltenthietbi";
-            this.coltenthietbi.Width = 432;
-            // 
-            // colid
-            // 
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.OptionsColumn.ReadOnly = true;
             // 
             // subId
             // 
@@ -174,18 +155,109 @@
             this.id.FieldName = "id";
             this.id.Name = "id";
             // 
+            // colsoluong
+            // 
+            this.colsoluong.Caption = "Số lượng";
+            this.colsoluong.FieldName = "soluong";
+            this.colsoluong.Name = "colsoluong";
+            this.colsoluong.Width = 202;
+            // 
+            // coltinhtrang
+            // 
+            this.coltinhtrang.Caption = "Tình trạng";
+            this.coltinhtrang.FieldName = "tinhtrang";
+            this.coltinhtrang.Name = "coltinhtrang";
+            this.coltinhtrang.Width = 293;
+            // 
+            // coltenthietbi
+            // 
+            this.coltenthietbi.Caption = "Tên thiết bị";
+            this.coltenthietbi.FieldName = "ten";
+            this.coltenthietbi.Name = "coltenthietbi";
+            this.coltenthietbi.Width = 432;
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.OptionsColumn.ReadOnly = true;
+            // 
+            // rbnGroupPhong_Phong
+            // 
+            this.rbnGroupPhong_Phong.Enabled = false;
+            this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
+            this.rbnGroupPhong_Phong.Text = "Phòng";
+            // 
+            // ribbonPhong
+            // 
+            this.ribbonPhong.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonPhong.ExpandCollapseItem.Id = 0;
+            this.ribbonPhong.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonPhong.ExpandCollapseItem,
+            this.barButtonThemPhong,
+            this.barButtonSuaPhong,
+            this.barButtonXoaPhong});
+            this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
+            this.ribbonPhong.MaxItemId = 42;
+            this.ribbonPhong.Name = "ribbonPhong";
+            this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rbnPagePhong_Home});
+            this.ribbonPhong.Size = new System.Drawing.Size(837, 142);
+            // 
+            // rbnPagePhong_Home
+            // 
+            this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
+            this.rbnPagePhong_Home.Text = "Trang chính";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemPhong);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaPhong);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaPhong);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Phòng";
+            // 
+            // barButtonThemPhong
+            // 
+            this.barButtonThemPhong.Caption = "Thêm phòng";
+            this.barButtonThemPhong.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemPhong.Id = 39;
+            this.barButtonThemPhong.Name = "barButtonThemPhong";
+            this.barButtonThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemPhong_ItemClick);
+            // 
+            // barButtonSuaPhong
+            // 
+            this.barButtonSuaPhong.Caption = "Sửa phòng";
+            this.barButtonSuaPhong.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaPhong.Id = 40;
+            this.barButtonSuaPhong.Name = "barButtonSuaPhong";
+            this.barButtonSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaPhong_ItemClick);
+            // 
+            // barButtonXoaPhong
+            // 
+            this.barButtonXoaPhong.Caption = "Xóa phòng";
+            this.barButtonXoaPhong.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoaPhong.Id = 41;
+            this.barButtonXoaPhong.Name = "barButtonXoaPhong";
+            this.barButtonXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaPhong_ItemClick);
+            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
+            this.Controls.Add(this.ribbonPhong);
             this.Name = "ucQuanLyPhong";
-            this.Size = new System.Drawing.Size(675, 469);
+            this.Size = new System.Drawing.Size(837, 638);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhong)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,5 +277,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn date_modified;
         private DevExpress.XtraGrid.Columns.GridColumn nhanvienpt_id;
         private DevExpress.XtraGrid.Columns.GridColumn id;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhong;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhong_Home;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem barButtonThemPhong;
+        private DevExpress.XtraBars.BarButtonItem barButtonSuaPhong;
+        private DevExpress.XtraBars.BarButtonItem barButtonXoaPhong;
     }
 }

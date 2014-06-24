@@ -70,7 +70,7 @@ namespace QuanLyTaiSanGUI.MyUC
                         switch (type)
                         {
                             case "QLPhong":
-                                frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
+                                //frm.treePhongFocusedNodeChanged(phongid, cosoid, dayid, tangid);
                                 break;
                         }
                     }
