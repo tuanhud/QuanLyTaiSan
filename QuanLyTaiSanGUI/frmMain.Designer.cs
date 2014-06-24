@@ -90,6 +90,15 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnThemTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSuaTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXoaTB = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnChuyenTTTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnChuyenPhongTB = new DevExpress.XtraBars.BarButtonItem();
+            this.navBarGroupThietBi = new DevExpress.XtraNavBar.NavBarGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -131,9 +140,14 @@
             this.barButtonItem3,
             this.barBtnThemTinhTrang,
             this.barBtnSuaTinhTrang,
-            this.barBtnXoaTinhTrang});
+            this.barBtnXoaTinhTrang,
+            this.barBtnThemTB,
+            this.barBtnSuaTB,
+            this.barBtnXoaTB,
+            this.barBtnChuyenTTTB,
+            this.barBtnChuyenPhongTB});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 32;
+            this.ribbon.MaxItemId = 37;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home,
@@ -141,7 +155,8 @@
             this.rbnPageNhanVien_Home,
             this.rbnPageLoaiTB_Home,
             this.rbnPagePhanQuyen_Home,
-            this.rbnPageLoaiTinhTrang_Home});
+            this.rbnPageLoaiTinhTrang_Home,
+            this.ribbonPage1});
             this.ribbon.Size = new System.Drawing.Size(900, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -532,6 +547,7 @@
             this.navBarGroupViTri,
             this.navBarGroupPhong,
             this.navBarGroupLoaiTB,
+            this.navBarGroupThietBi,
             this.navBarGroupTinhTrang,
             this.navBarGroupNhanVien,
             this.navBarGroupPhanQuyen,
@@ -558,7 +574,7 @@
             // navBarGroupControlContainer1
             // 
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 231);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 201);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // navBarGroupControlContainer2
@@ -623,6 +639,70 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Trang chính";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barBtnThemTB);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barBtnSuaTB);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barBtnXoaTB);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Thiết bị";
+            // 
+            // barBtnThemTB
+            // 
+            this.barBtnThemTB.Caption = "Thêm thiết bị";
+            this.barBtnThemTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barBtnThemTB.Id = 32;
+            this.barBtnThemTB.Name = "barBtnThemTB";
+            // 
+            // barBtnSuaTB
+            // 
+            this.barBtnSuaTB.Caption = "Sửa thiết bị";
+            this.barBtnSuaTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaTB.Id = 33;
+            this.barBtnSuaTB.Name = "barBtnSuaTB";
+            // 
+            // barBtnXoaTB
+            // 
+            this.barBtnXoaTB.Caption = "Xóa thiết bị";
+            this.barBtnXoaTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barBtnXoaTB.Id = 34;
+            this.barBtnXoaTB.Name = "barBtnXoaTB";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barBtnChuyenTTTB);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barBtnChuyenPhongTB);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Chuyển";
+            // 
+            // barBtnChuyenTTTB
+            // 
+            this.barBtnChuyenTTTB.Caption = "Chuyển trạng thái";
+            this.barBtnChuyenTTTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.forward;
+            this.barBtnChuyenTTTB.Id = 35;
+            this.barBtnChuyenTTTB.Name = "barBtnChuyenTTTB";
+            // 
+            // barBtnChuyenPhongTB
+            // 
+            this.barBtnChuyenPhongTB.Caption = "Chuyển phòng";
+            this.barBtnChuyenPhongTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.forward;
+            this.barBtnChuyenPhongTB.Id = 36;
+            this.barBtnChuyenPhongTB.Name = "barBtnChuyenPhongTB";
+            // 
+            // navBarGroupThietBi
+            // 
+            this.navBarGroupThietBi.Caption = "Quản lí thiết bị";
+            this.navBarGroupThietBi.Name = "navBarGroupThietBi";
+            this.navBarGroupThietBi.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
             // 
             // frmMain
             // 
@@ -712,5 +792,14 @@
         private DevExpress.XtraBars.BarButtonItem barBtnSuaTinhTrang;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaTinhTrang;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupTinhTrang;
+        private DevExpress.XtraBars.BarButtonItem barBtnThemTB;
+        private DevExpress.XtraBars.BarButtonItem barBtnSuaTB;
+        private DevExpress.XtraBars.BarButtonItem barBtnXoaTB;
+        private DevExpress.XtraBars.BarButtonItem barBtnChuyenTTTB;
+        private DevExpress.XtraBars.BarButtonItem barBtnChuyenPhongTB;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroupThietBi;
     }
 }
