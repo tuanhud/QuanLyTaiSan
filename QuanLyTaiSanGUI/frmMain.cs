@@ -32,18 +32,16 @@ namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : RibbonForm
     {
-        ucThongKeChiTiet _ucThongKeChiTiet = new ucThongKeChiTiet();
-        ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
-        ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
-        ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
-        ucChiTietPhong _ucChiTietPhong = new ucChiTietPhong();
-        ucChiTietThietBi _ucChiTietThietBi = new ucChiTietThietBi();
-        ucQuanLyCoSo _ucQuanLyCoSo = new ucQuanLyCoSo();
-        ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
+        ucThongKeChiTiet _ucThongKeChiTiet = null;
+        ucThongKeTongQuat _ucThongKeTongQuat = null;
+        ucPhanQuyen _ucPhanQuyen = null;
+        ucQuanLyPhong _ucQuanLyPhong = null;
+        ucQuanLyCoSo _ucQuanLyCoSo = null;
+        ucQuanLyNhanVien _ucQuanLyNhanVien = null;
         ucTreePhong _ucTreePhong = new ucTreePhong();
         ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
-        ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
-        ucQuanLyTinhTrang _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
+        ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
+        ucQuanLyTinhTrang _ucQuanLyTinhTrang = null;
         public frmMain()
         {
             InitializeComponent();
@@ -55,8 +53,8 @@ namespace QuanLyTaiSanGUI
         {
             List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
             _ucTreePhong.loadData(list);
-            _ucQuanLyPhong.Dock = DockStyle.Fill;
-            panelControl1.Controls.Add(_ucQuanLyPhong);
+            //_ucQuanLyPhong.Dock = DockStyle.Fill;
+            //panelControl1.Controls.Add(_ucQuanLyPhong);
             _ucTreePhong.Dock = DockStyle.Fill;
             _ucTreePhong.Parent = navBarGroupPhong.ControlContainer;
             _ucTreePhong.type = "QLPhong";
@@ -68,35 +66,45 @@ namespace QuanLyTaiSanGUI
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
         {
-            visibleAllRibbbonPage();
+            hideAllRibbbonPage();
             if (navBarControl1.ActiveGroup.Equals(navBarGroupViTri))
             {
-                _ucQuanLyCoSo.loadData();
-                rbnPageViTri_Home.Visible = true;
-                ribbon.SelectedPage = rbnPageViTri_Home;
-                _ucQuanLyCoSo.Dock = DockStyle.Fill;
+                if (_ucQuanLyCoSo == null)
+                {
+                    _ucQuanLyCoSo = new ucQuanLyCoSo();
+                    _ucQuanLyCoSo.Dock = DockStyle.Fill;
+                    addRibbonPage(_ucQuanLyCoSo.getRibbon());
+                }
+                ribbonMain.Pages.GetPageByName("rbnPageViTri_Home").Visible = true;
+                ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyCoSo);
-                _ucQuanLyCoSo.loadData();
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupNhanVien))
             {
-                rbnPageNhanVien_Home.Visible = true;
-                ribbon.SelectedPage = rbnPageNhanVien_Home;
-                _ucQuanLyNhanVien.Dock = DockStyle.Fill;
+                if (_ucQuanLyNhanVien == null)
+                {
+                    _ucQuanLyNhanVien = new ucQuanLyNhanVien();
+                    _ucQuanLyNhanVien.Dock = DockStyle.Fill;
+                    addRibbonPage(_ucQuanLyNhanVien.getRibbon());
+                }
+                ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home").Visible = true;
+                ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home");
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyNhanVien);
+                //cần xem lại
                 _ucTreePhong.treeListPhong.CollapseAll();
                 _ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
                 _ucTreePhong.type = "QLNhanVienPT";
-                //List<ViTriFilter> list = new ViTriFilter().getAllHavePhong();
-                _ucQuanLyNhanVien.loadData();
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
             {
-                _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
+                if (_ucQuanLyLoaiTB == null)
+                {
+                    _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
+                }
                 rbnPageLoaiTB_Home.Visible = true;
-                ribbon.SelectedPage = rbnPageLoaiTB_Home;
+                ribbonMain.SelectedPage = rbnPageLoaiTB_Home;
                 _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyLoaiTB);
@@ -109,8 +117,12 @@ namespace QuanLyTaiSanGUI
             }
             else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
             {
+                if (_ucPhanQuyen == null)
+                {
+                    _ucPhanQuyen = new ucPhanQuyen();
+                }
                 rbnPagePhanQuyen_Home.Visible = true;
-                ribbon.SelectedPage = rbnPagePhanQuyen_Home;
+                ribbonMain.SelectedPage = rbnPagePhanQuyen_Home;
                 _ucPhanQuyen.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucPhanQuyen);
@@ -148,8 +160,12 @@ namespace QuanLyTaiSanGUI
             }
             else
             {
+                if (_ucQuanLyPhong == null)
+                {
+                    _ucQuanLyPhong = new ucQuanLyPhong();
+                }
                 rbnPagePhong_Home.Visible = true;
-                ribbon.SelectedPage = rbnPagePhong_Home;
+                ribbonMain.SelectedPage = rbnPagePhong_Home;
                 _ucQuanLyPhong.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucQuanLyPhong);
@@ -161,14 +177,12 @@ namespace QuanLyTaiSanGUI
             }
         }
 
-        private void visibleAllRibbbonPage()
+        private void hideAllRibbbonPage()
         {
-            rbnPagePhong_Home.Visible = false;
-            rbnPageViTri_Home.Visible = false;
-            rbnPageNhanVien_Home.Visible = false;
-            rbnPageLoaiTB_Home.Visible = false;
-            rbnPagePhanQuyen_Home.Visible = false;
-            rbnPageLoaiTinhTrang_Home.Visible = false;
+            foreach (RibbonPage page in ribbonMain.Pages)
+            {
+                page.Visible = false;
+            }
         }
 
         private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
@@ -176,100 +190,6 @@ namespace QuanLyTaiSanGUI
             frmChuyen frm = new frmChuyen();
             frm.ShowDialog();
         }
-
-        #region QuanLyViTri
-
-        public void enableGroupViTri(String _type)
-        {
-            switch (_type)
-            {
-                case "CoSo":
-                    rbnGroupViTri_Tang.Enabled = false;
-                    barBtnSuaDay.Enabled = false;
-                    barBtnXoaDay.Enabled = false;
-                    barBtnSuaCoSo.Enabled = true;
-                    barBtnXoaCoSo.Enabled = true;
-                    break;
-                case "Dayy":
-                    rbnGroupViTri_Tang.Enabled = true;
-                    barBtnSuaDay.Enabled = true;
-                    barBtnXoaDay.Enabled = true;
-                    barBtnSuaTang.Enabled = false;
-                    barBtnXoaTang.Enabled = false;
-                    barBtnSuaCoSo.Enabled = false;
-                    barBtnXoaCoSo.Enabled = false;
-                    break;
-                case "Tang":
-                    rbnGroupViTri_Tang.Enabled = true;
-                    barBtnSuaDay.Enabled = false;
-                    barBtnXoaDay.Enabled = false;
-                    barBtnSuaTang.Enabled = true;
-                    barBtnXoaTang.Enabled = true;
-                    barBtnSuaCoSo.Enabled = false;
-                    barBtnXoaCoSo.Enabled = false;
-                    break;
-            }
-        }
-
-        private void barBtnSuaCoSo_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "edit");
-            _ucQuanLyCoSo.setData(typeof(CoSo).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa cơ sở", true);
-        }
-
-        private void barBtnSuaDay_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "edit");
-            _ucQuanLyCoSo.setData(typeof(Dayy).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa dãy", true);
-        }
-
-        private void barBtnSuaTang_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "edit");
-            _ucQuanLyCoSo.setData(typeof(Tang).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Sửa tầng", true);
-        }
-
-        private void barBtnXoaCoSo_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.deleteObj(typeof(CoSo).Name);
-        }
-
-        private void barBtnXoaDay_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.deleteObj(typeof(Dayy).Name);
-        }
-
-        private void barBtnXoaTang_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.deleteObj(typeof(Tang).Name);
-        }
-
-        private void barBtnThemCoSo_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.enableEdit(true, typeof(CoSo).Name, "add");
-            _ucQuanLyCoSo.beforeAdd(typeof(CoSo).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm cơ sở", true);
-        }
-
-        private void barBtnThemDay_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.enableEdit(true, typeof(Dayy).Name, "add");
-            _ucQuanLyCoSo.beforeAdd(typeof(Dayy).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm dãy", true);
-        }
-
-        private void barBtnThemTang_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyCoSo.enableEdit(true, typeof(Tang).Name, "add");
-            _ucQuanLyCoSo.beforeAdd(typeof(Tang).Name);
-            _ucQuanLyCoSo.SetTextGroupControl("Thêm tầng", true);
-
-        }
-
-        #endregion
 
         #region Thongke
 
@@ -431,30 +351,12 @@ namespace QuanLyTaiSanGUI
 
         #endregion
 
-        #region QuanLyNhanVienPT
-
-        private void barBtnThemNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        private void addRibbonPage(RibbonControl ribbon)
         {
-            _ucQuanLyNhanVien.enableEdit(true, "add");
-            _ucQuanLyNhanVien.SetTextGroupControl("Thêm nhân viên", true);
-            _ucQuanLyNhanVien.beforeAdd();
-        }
-
-        private void barBtnSuaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyNhanVien.enableEdit(true, "edit");
-            _ucQuanLyNhanVien.SetData();
-            _ucQuanLyNhanVien.SetTextGroupControl("Sửa nhân viên",true);
-        }
-
-        private void barBtnXoaNhanVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyNhanVien.deleteObj();
-        }
-
-        private void barBtnPhanCong_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _ucQuanLyNhanVien.PhanCong();
+            for (int i = 0; i < ribbon.Pages.Count; i++)
+            {
+                ribbonMain.Pages.Add(ribbon.Pages[i]);
+            }
         }
 
         #endregion
