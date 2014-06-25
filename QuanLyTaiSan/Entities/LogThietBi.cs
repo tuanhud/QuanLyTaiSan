@@ -41,8 +41,8 @@ namespace QuanLyTaiSan.Entities
         [Index("nothing", 4, IsUnique = true)]
         public virtual Phong phong { get; set; }
 		#endregion
-		
-		#region Override method
+
+        #region Override method
         public override int update()
         {
             //have to load all [Required] FK object first

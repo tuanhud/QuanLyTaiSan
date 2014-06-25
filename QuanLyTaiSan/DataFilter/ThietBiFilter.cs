@@ -10,6 +10,7 @@ namespace QuanLyTaiSan.DataFilter
     public class ThietBiFilter:FilterAbstract<ThietBiFilter>
     {
         public int id { get; set; }
+        public int idTB { get; set; }
         public String ten { get; set; }
         public String tinhtrang { get; set; }
         public int soluong { get; set; }
@@ -29,6 +30,7 @@ namespace QuanLyTaiSan.DataFilter
                  select new ThietBiFilter
                  {
                      id = c.id,
+                     idTB = c.thietbi.id,
                      ten = c.thietbi.ten,
                      tinhtrang = c.tinhtrang.value,
                      soluong = c.soluong,

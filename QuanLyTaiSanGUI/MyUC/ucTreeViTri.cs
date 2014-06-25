@@ -118,6 +118,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
+
         public void reLoad(List<ViTriFilter> _list)
         {
             treeListViTri.BeginUnboundLoad();
@@ -143,6 +144,17 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             treeListViTri.NodesIterator.DoOperation(findNode);
             treeListViTri.FocusedNode = findNode.Node;
+        }
+
+        public void setTextPopupContainerEdit(String text)
+        {
+            popupContainerEdit1.Text = text;
+            popupContainerEdit1.ClosePopup();
+        }
+
+        public String getTextPopupContainerEdit()
+        {
+            return popupContainerEdit1.Text;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -75,7 +76,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();

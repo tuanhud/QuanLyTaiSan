@@ -29,6 +29,7 @@ namespace QuanLyTaiSan.Entities
         [Required]
         public virtual ViTri vitri { get; set; }
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
+        public virtual ICollection<LogThietBi> logthietbis { get; set; }
         public virtual NhanVienPT nhanvienpt { get; set; }
         #endregion
         #region Nghiep vu
@@ -65,6 +66,7 @@ namespace QuanLyTaiSan.Entities
         {
             base.init();
             this.ctthietbis = new List<CTThietBi>();
+            this.logthietbis = new List<LogThietBi>();
         }
         public override int update()
         {
