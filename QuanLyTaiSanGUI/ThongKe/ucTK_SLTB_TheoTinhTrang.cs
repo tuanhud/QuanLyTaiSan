@@ -51,7 +51,8 @@ namespace QuanLyTaiSanGUI.ThongKe
             List<int> list_tinhtrang = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_tinhTrang);
             List<int> list_ltb = ucTreeLoaiTB2.getListLoaiTB().Select(x => x.id).ToList();
 
-            gridControl1.DataSource = new TKSLThietBiFilter().getAll(list_coso,list_ltb,list_tinhtrang,null,null);
+            List<TKSLThietBiFilter> list_tk = new TKSLThietBiFilter().getAll(list_coso, list_ltb, list_tinhtrang, null, null);
+            gridControl1.DataSource = list_tk;
         }
     }
 }

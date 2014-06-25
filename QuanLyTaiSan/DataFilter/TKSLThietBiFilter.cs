@@ -35,8 +35,8 @@ namespace QuanLyTaiSan.DataFilter
                 from cttb in db.CTTHIETBIS
                 join phong in db.PHONGS on cttb.phong.id equals phong.id
                 //WHERE CoSo
-                join vitri in db.VITRIS.DefaultIfEmpty().Where(x=>x==null || !xetCoSo || list_coso.Contains(x.coso.id)) on phong.vitri.id equals vitri.id into view_1
-                
+                join vitri in db.VITRIS.DefaultIfEmpty().Where(x => x == null || !xetCoSo || list_coso.Contains(x.coso.id)) on phong.vitri.id equals vitri.id into view_1
+
                 from coso_ in view_1.DefaultIfEmpty()
                 join coso in db.COSOS on coso_.id equals coso.id into view_2
                 from day_ in view_2.DefaultIfEmpty()
@@ -45,9 +45,10 @@ namespace QuanLyTaiSan.DataFilter
                 join tang in db.TANGS on tang_.id equals tang.id
                 join tb in db.THIETBIS on cttb.thietbi.id equals tb.id
                 //WHERE LTB
-                join ltb in db.LOAITHIETBIS.DefaultIfEmpty().Where(x => x==null || !xetLTB || list_ltb.Contains(x.id)) on tb.loaithietbi.id equals ltb.id
-                join tinhtrang in db.TINHTRANGS.DefaultIfEmpty().Where(x =>x==null || !xetTinhTrang || list_tinhtrang.Contains(x.id)) on cttb.tinhtrang.id equals tinhtrang.id
-
+                join ltb in db.LOAITHIETBIS.DefaultIfEmpty().Where(x => x == null || !xetLTB || list_ltb.Contains(x.id)) on tb.loaithietbi.id equals ltb.id
+                join tinhtrang in db.TINHTRANGS.DefaultIfEmpty().Where(x => x == null || !xetTinhTrang || list_tinhtrang.Contains(x.id)) on cttb.tinhtrang.id equals tinhtrang.id
+                select cttb
+                /*
                 select new TKSLThietBiFilter
                 {
                     idcttb = cttb.id,
@@ -59,10 +60,45 @@ namespace QuanLyTaiSan.DataFilter
                     tenday = phong.vitri.day.ten,
                     tencoso = phong.vitri.coso.ten
                 }
+                 * */
 
-            ).ToList();
+            ).Select(cttb => new TKSLThietBiFilter
+            {
+                idcttb = cttb.id,
+                tenltb = cttb.thietbi.loaithietbi.ten,
+                soluong = cttb.soluong,
+                tentinhtrang = cttb.tinhtrang.value,
+                tenphong = cttb.phong.ten,
+                tentang = cttb.phong.vitri.tang.ten,
+                tenday = cttb.phong.vitri.day.ten,
+                tencoso = cttb.phong.vitri.coso.ten
+
+            }).ToList();
 
             return result;
+        }
+        public List<CTThietBi> getAll2()
+        {
+            List<CTThietBi> ree = db.CTTHIETBIS
+                .Join(
+                    db.PHONGS,
+                    cttb => cttb.phong.id,
+                    phong => phong.id, (cttb, phong) => new { cttb, phong }
+                )
+                .Join(
+                    db.VITRIS,
+                    phong2 => phong2.phong.id,
+                    vitri => vitri.id,
+                    (phong2, vitri) => new { phong2, vitri }
+                )
+                .OrderBy(x => x.phong2.cttb.id).Skip(1500).Take(10)
+                .Select(x => x.phong2.cttb).ToList();
+                
+
+            return ree;
+            //return db.CTTHIETBIS.OrderByDescending(x=>x.id).Where(x => x.id > 0).Skip(9000).Take(10).ToList();
+            
+
         }
     }
 }

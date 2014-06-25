@@ -30,11 +30,11 @@ namespace QuanLyTaiSan
             InitializeComponent();
 
 
-            DBInstance.autoRandom();
+            //DBInstance.autoRandom();
 
+            List<CTThietBi> list = new TKSLThietBiFilter().getAll2();
 
-
-
+            Console.WriteLine("");
 
 
             //DBInstance.TaoDuLieuMau();
