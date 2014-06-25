@@ -19,27 +19,29 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 {
     public partial class ucQuanLyNhanVien : UserControl
     {
-        ucTreePhongHaveCheck _ucTreePhongHaveCheck = null;
-        List<NhanVienPT> NhanVienPTs = null;
-        NhanVienPT objNhanVienPT = null;
-        List<HinhAnh> listHinhs = null;
+        ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
+        List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
+        List<Phong> listPhong = new List<Phong>();
+        NhanVienPT objNhanVienPT = new NhanVienPT();
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
         public Boolean working = false;
 
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+             ribbonNhanVienPT.Parent = null;
+            _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             loadData();
         }
 
-        public void loadData()
+        private void loadData()
         {
-            _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
-            NhanVienPTs = new List<NhanVienPT>();
-            objNhanVienPT = new NhanVienPT();
-            listHinhs = new List<HinhAnh>();
-            ribbonNhanVienPT.Parent = null;
-            _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             NhanVienPTs = new NhanVienPT().getAll();
             gridControlNhanVien.DataSource = null;
             gridControlNhanVien.DataSource = NhanVienPTs;
@@ -83,9 +85,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         public void reLoad()
         {
-            NhanVienPTs = new NhanVienPT().getAll();
-            gridControlNhanVien.DataSource = null;
-            gridControlNhanVien.DataSource = NhanVienPTs;
+            loadData();
             if (!function.Equals(""))
             {
                 enableEdit(false, "");
@@ -102,7 +102,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtSodt.Text = "";
             imageSlider1.Images.Clear();
             listHinhs = null;
-            listBoxNhanVien.DataSource = null;
+            listBoxPhong.DataSource = null;
         }
 
         private void Function(String _function)
@@ -112,7 +112,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 objNhanVienPT.subId = txtMa.Text;
                 objNhanVienPT.hoten = txtTen.Text;
                 objNhanVienPT.sodienthoai = txtSodt.Text;
-                objNhanVienPT.date_modified = ServerTimeHelper.getNow();
                 objNhanVienPT.hinhanhs = listHinhs;
                 if (objNhanVienPT.update() != -1)
                 {
@@ -126,8 +125,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 objNew.subId = txtMa.Text;
                 objNew.hoten = txtTen.Text;
                 objNew.sodienthoai = txtSodt.Text;
-                objNew.date_create = ServerTimeHelper.getNow();
-                objNew.date_modified = ServerTimeHelper.getNow();
                 objNew.hinhanhs = listHinhs;
                 if (objNew.add() != -1)
                 {
@@ -181,7 +178,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtMa.Text = objNhanVienPT.subId;
             txtTen.Text = objNhanVienPT.hoten;
             txtSodt.Text = objNhanVienPT.sodienthoai;
-            listBoxNhanVien.DataSource = objNhanVienPT.phongs;
+            listBoxPhong.DataSource = objNhanVienPT.phongs;
             listHinhs = objNhanVienPT.hinhanhs.ToList();
             reloadImage();
         }
@@ -256,11 +253,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void btnHuy_PhanCong_Click(object sender, EventArgs e)
         {
-            splitContainerControl1.Panel1.Controls.Clear();
-            gridControlNhanVien.Parent = splitContainerControl1.Panel1;
-            btnOK_PhanCong.Visible = false;
-            btnHuy_PhanCong.Visible = false;
-            rbnGroupNhanVien.Enabled = true;
+            PhanCong(false);
+            SetData();
         }
 
         private void reloadImage()
@@ -275,16 +269,23 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             }
         }
 
-        public void PhanCong()
+        public void PhanCong(bool _bool)
         {
-            btnOK_PhanCong.Visible = true;
-            btnHuy_PhanCong.Visible = true;
+            btnOK_PhanCong.Visible = _bool;
+            btnHuy_PhanCong.Visible = _bool;
+            rbnGroupNhanVien.Enabled = !_bool;
             splitContainerControl1.Panel1.Controls.Clear();
-            List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
-            _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
-            splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+            if (_bool)
+            {
+                List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
+                _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
+                splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+            }
+            else
+            {
+                splitContainerControl1.Panel1.Controls.Add(gridControlNhanVien);
+            }
 
-            rbnGroupNhanVien.Enabled = false;
         }
 
         public RibbonControl getRibbon()
@@ -313,8 +314,24 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void barBtnPhanCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            PhanCong();
+            PhanCong(true);
         }
 
+        public void LoadListPhong(List<Phong> list)
+        {
+            listBoxPhong.DataSource = list;
+            listPhong = list;
+        }
+
+        private void btnOK_PhanCong_Click(object sender, EventArgs e)
+        {
+            objNhanVienPT.phongs = listPhong;
+            if (objNhanVienPT.update() != -1)
+            {
+                XtraMessageBox.Show("Phân công nhân viên thành công!");
+                reLoad();
+                PhanCong(false);
+            }
+        }
     }
 }

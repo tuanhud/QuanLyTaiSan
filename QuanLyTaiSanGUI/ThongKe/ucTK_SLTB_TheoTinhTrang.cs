@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSanGUI.Libraries;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {
     public partial class ucTK_SLTB_TheoTinhTrang : DevExpress.XtraEditors.XtraUserControl
     {
+        QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
         public ucTK_SLTB_TheoTinhTrang()
         {
             InitializeComponent();
@@ -25,14 +27,19 @@ namespace QuanLyTaiSanGUI.ThongKe
             checkedComboBoxEdit_tinhTrang.Properties.DataSource =
                 new TinhTrang().getAll();
 
-            ucTreeLoaiTB.loadData(new LoaiThietBi().getAll());
-            checkedComboBoxEdit1.Properties.DataSource = new LoaiThietBi().getAll();
+            //ucTreeLoaiTB2
+            ucTreeLoaiTB2.loadData(new LoaiThietBi().getAll());
+            ucTreeLoaiTB2.Dock = DockStyle.Fill;
+            panelLoaiTB.Controls.Clear();
+            panelLoaiTB.Controls.Add(ucTreeLoaiTB2);
+
+            checkedComboBoxEdit_coso.Properties.DataSource = new CoSo().getAll();
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
             gridControl1.ShowPrintPreview();
         }
-
+        
         private void btnOK_Click(object sender, EventArgs e)
         {
             //get condition
@@ -40,9 +47,11 @@ namespace QuanLyTaiSanGUI.ThongKe
             DateTime to = dateEdit_from.DateTime;
             //get result
             //String jk = checkedComboBoxEdit_tinhTrang.;
-            
+            List<int> list_coso =CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_coso);
+            List<int> list_tinhtrang = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_tinhTrang);
+            List<int> list_ltb = ucTreeLoaiTB2.getListLoaiTB().Select(x => x.id).ToList();
 
-            gridControl1.DataSource = new TKSLThietBiFilter().getAll();
+            gridControl1.DataSource = new TKSLThietBiFilter().getAll(list_coso,list_ltb,list_tinhtrang,null,null);
         }
     }
 }

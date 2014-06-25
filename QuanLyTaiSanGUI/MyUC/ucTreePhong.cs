@@ -75,7 +75,7 @@ namespace QuanLyTaiSanGUI.MyUC
                                     if (this.Parent != null)
                                     {
                                         ucQuanLyPhong _ucQuanLyPhong = this.Parent as ucQuanLyPhong;
-                                        _ucQuanLyPhong.setData(cosoid, dayid, tangid);
+                                        _ucQuanLyPhong.setData(cosoid, dayid, tangid);                                        
                                     }
                                 }
                                 break;

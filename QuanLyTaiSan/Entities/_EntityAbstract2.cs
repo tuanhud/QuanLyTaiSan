@@ -51,6 +51,7 @@ namespace QuanLyTaiSan.Entities
             base.init();
             //sql server time
             //this.date_create = this.date_modified = ServerTimeHelper.getNow();//Khong can thiet, giam tai
+            this.hinhanhs = new List<HinhAnh>();
         }
         /*
          * override Method of interface
