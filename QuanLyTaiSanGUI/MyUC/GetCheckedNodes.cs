@@ -12,15 +12,28 @@ namespace QuanLyTaiSanGUI.MyUC
     class GetCheckedNodes : TreeListOperation
     {
         String type = "";
+        String coltype = "";
+        bool haveCol = false;
         public List<TreeListNode> CheckedNodes = new List<TreeListNode>();
-        public GetCheckedNodes(String _type) : base() 
+        public GetCheckedNodes(String _coltype, String _type) : base() 
         {
+            coltype = _coltype;
             type = _type;
+            haveCol = true;
         }
+        public GetCheckedNodes(): base() { }
         public override void Execute(TreeListNode node)
         {
-            if (node.CheckState != CheckState.Unchecked && node.GetValue(2).Equals(type))
-                CheckedNodes.Add(node);
+            if (haveCol)
+            {
+                if (node.CheckState != CheckState.Unchecked && node.GetValue(coltype).Equals(type))
+                    CheckedNodes.Add(node);
+            }
+            else
+            {
+                if (node.CheckState != CheckState.Unchecked)
+                    CheckedNodes.Add(node);
+            }
         }
     }
 }

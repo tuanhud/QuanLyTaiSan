@@ -22,6 +22,26 @@ namespace QuanLyTaiSanGUI.MyUC
             InitializeComponent();
         }
 
+        public ucTreeLoaiTB(bool haveCheck)
+        {
+            InitializeComponent();
+            treeListLoaiTB.OptionsBehavior.AllowRecursiveNodeChecking = true;
+            treeListLoaiTB.OptionsView.ShowCheckBoxes = true;
+        }
+
+        public List<LoaiThietBi> getListLoaiTB()
+        {
+            List<LoaiThietBi> list = new List<LoaiThietBi>();
+            GetCheckedNodes op = new GetCheckedNodes();
+            treeListLoaiTB.NodesIterator.DoOperation(op);
+            foreach (TreeListNode node in op.CheckedNodes)
+            {
+                LoaiThietBi obj = new LoaiThietBi().getById(Convert.ToInt32(node.GetValue(0)));
+                list.Add(obj);
+            }
+            return list;
+        }
+
         public void loadData(List<LoaiThietBi> _list)
         {
             treeListLoaiTB.BeginUnboundLoad();

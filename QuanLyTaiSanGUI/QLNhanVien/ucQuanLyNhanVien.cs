@@ -254,6 +254,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         private void btnHuy_PhanCong_Click(object sender, EventArgs e)
         {
             PhanCong(false);
+            SetData();
         }
 
         private void reloadImage()
@@ -282,7 +283,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             }
             else
             {
-                gridControlNhanVien.Parent = splitContainerControl1.Panel1;
+                splitContainerControl1.Panel1.Controls.Add(gridControlNhanVien);
             }
 
         }

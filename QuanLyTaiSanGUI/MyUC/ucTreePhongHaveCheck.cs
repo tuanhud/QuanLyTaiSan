@@ -48,7 +48,7 @@ namespace QuanLyTaiSanGUI.MyUC
         public List<Phong> getListPhong()
         {
             List<Phong> listPhong = new List<Phong>();
-            GetCheckedNodes op = new GetCheckedNodes(typeof(Phong).Name);
+            GetCheckedNodes op = new GetCheckedNodes("loai",typeof(Phong).Name);
             treeListPhong.NodesIterator.DoOperation(op);
             foreach (TreeListNode node in op.CheckedNodes)
             {
