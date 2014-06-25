@@ -146,6 +146,10 @@ namespace QuanLyTaiSanGUI.MyUC
                 treeListViTri.NodesIterator.DoOperation(findNode);
                 treeListViTri.FocusedNode = findNode.Node;
             }
+            else
+            {
+                popupContainerControl1.Text = "";
+            }
         }
     }
 }
