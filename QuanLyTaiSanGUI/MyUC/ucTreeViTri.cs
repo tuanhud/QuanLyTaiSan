@@ -128,6 +128,8 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public void setViTri(ViTri obj)
         {
+            if (obj != null)
+            {
                 FindNode findNode = null;
                 if (obj.tang != null)
                 {
@@ -141,7 +143,7 @@ namespace QuanLyTaiSanGUI.MyUC
                 {
                     findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
                 }
-                if(findNode != null)
+                if (findNode != null)
                 {
                     treeListViTri.NodesIterator.DoOperation(findNode);
                     treeListViTri.FocusedNode = findNode.Node;
@@ -150,6 +152,11 @@ namespace QuanLyTaiSanGUI.MyUC
                 {
                     popupContainerEdit1.Text = "";
                 }
+            }
+            else
+            {
+                popupContainerEdit1.Text = "";
+            }
         }
     }
 }
