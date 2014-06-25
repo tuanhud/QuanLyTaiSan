@@ -28,12 +28,21 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
+
+
+            DBInstance.autoRandom();
+
+
+
+
+
+
             //DBInstance.TaoDuLieuMau();
             //List<HinhAnh> hinh = new HinhAnh().getAllCoSo();
-            List<TKSLThietBiFilter> list = new TKSLThietBiFilter().getAll();
+            //List<TKSLThietBiFilter> list = new TKSLThietBiFilter().getAll();
             //List<PhongFilter> list = new PhongFilter().getAll();
             
-            Console.WriteLine("");
+            //Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()
         {
