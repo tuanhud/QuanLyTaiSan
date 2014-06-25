@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsubId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnhanvienpt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.lblSoDienThoai = new DevExpress.XtraEditors.LabelControl();
             this.lblTenNhanVien = new DevExpress.XtraEditors.LabelControl();
@@ -51,13 +52,16 @@
             this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lookUpEditNhanVien = new DevExpress.XtraEditors.LookUpEdit();
+            this.searchLookUpEditNhanVienPT = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.ribbonPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhong_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.collid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.collten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblNhanVienPT = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblHinhPhong = new DevExpress.XtraEditors.LabelControl();
@@ -75,7 +79,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -88,8 +92,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditNhanVienPT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).BeginInit();
@@ -127,13 +132,13 @@
             // gridViewPhong
             // 
             this.gridViewPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.id,
             this.colsubId,
             this.colten,
             this.colmota,
             this.coldate_create,
             this.coldate_modified,
-            this.colnhanvienpt,
-            this.id});
+            this.colnhanvienpt});
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
@@ -143,13 +148,23 @@
             this.gridViewPhong.OptionsView.ShowGroupPanel = false;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             // 
+            // id
+            // 
+            this.id.Caption = "STT";
+            this.id.FieldName = "id";
+            this.id.Name = "id";
+            this.id.Visible = true;
+            this.id.VisibleIndex = 0;
+            this.id.Width = 40;
+            // 
             // colsubId
             // 
             this.colsubId.Caption = "Mã phòng";
             this.colsubId.FieldName = "subId";
             this.colsubId.Name = "colsubId";
             this.colsubId.Visible = true;
-            this.colsubId.VisibleIndex = 0;
+            this.colsubId.VisibleIndex = 1;
+            this.colsubId.Width = 78;
             // 
             // colten
             // 
@@ -157,7 +172,8 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 1;
+            this.colten.VisibleIndex = 2;
+            this.colten.Width = 78;
             // 
             // colmota
             // 
@@ -165,7 +181,8 @@
             this.colmota.FieldName = "mota";
             this.colmota.Name = "colmota";
             this.colmota.Visible = true;
-            this.colmota.VisibleIndex = 2;
+            this.colmota.VisibleIndex = 3;
+            this.colmota.Width = 78;
             // 
             // coldate_create
             // 
@@ -173,7 +190,8 @@
             this.coldate_create.FieldName = "date_create";
             this.coldate_create.Name = "coldate_create";
             this.coldate_create.Visible = true;
-            this.coldate_create.VisibleIndex = 3;
+            this.coldate_create.VisibleIndex = 4;
+            this.coldate_create.Width = 78;
             // 
             // coldate_modified
             // 
@@ -181,7 +199,8 @@
             this.coldate_modified.FieldName = "date_modified";
             this.coldate_modified.Name = "coldate_modified";
             this.coldate_modified.Visible = true;
-            this.coldate_modified.VisibleIndex = 4;
+            this.coldate_modified.VisibleIndex = 5;
+            this.coldate_modified.Width = 78;
             // 
             // colnhanvienpt
             // 
@@ -189,13 +208,8 @@
             this.colnhanvienpt.FieldName = "nhanvienpt.hoten";
             this.colnhanvienpt.Name = "colnhanvienpt";
             this.colnhanvienpt.Visible = true;
-            this.colnhanvienpt.VisibleIndex = 5;
-            // 
-            // id
-            // 
-            this.id.Caption = "id";
-            this.id.FieldName = "id";
-            this.id.Name = "id";
+            this.colnhanvienpt.VisibleIndex = 6;
+            this.colnhanvienpt.Width = 87;
             // 
             // groupControl2
             // 
@@ -211,9 +225,9 @@
             this.groupControl2.Controls.Add(this.txtTenNhanVien);
             this.groupControl2.Controls.Add(this.txtMaNhanVien);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 325);
+            this.groupControl2.Location = new System.Drawing.Point(0, 321);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(297, 233);
+            this.groupControl2.Size = new System.Drawing.Size(297, 237);
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Thông tin nhân viên phụ trách";
             // 
@@ -314,7 +328,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.lookUpEditNhanVien);
+            this.groupControl1.Controls.Add(this.searchLookUpEditNhanVienPT);
             this.groupControl1.Controls.Add(this.lblNhanVienPT);
             this.groupControl1.Controls.Add(this.panelControl1);
             this.groupControl1.Controls.Add(this.lblHinhPhong);
@@ -330,26 +344,24 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(297, 325);
+            this.groupControl1.Size = new System.Drawing.Size(297, 321);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Thông tin phòng";
             // 
-            // lookUpEditNhanVien
+            // searchLookUpEditNhanVienPT
             // 
-            this.lookUpEditNhanVien.Location = new System.Drawing.Point(68, 257);
-            this.lookUpEditNhanVien.MenuManager = this.ribbonPhong;
-            this.lookUpEditNhanVien.Name = "lookUpEditNhanVien";
-            this.lookUpEditNhanVien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.searchLookUpEditNhanVienPT.Location = new System.Drawing.Point(68, 258);
+            this.searchLookUpEditNhanVienPT.MenuManager = this.ribbonPhong;
+            this.searchLookUpEditNhanVienPT.Name = "searchLookUpEditNhanVienPT";
+            this.searchLookUpEditNhanVienPT.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.searchLookUpEditNhanVienPT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditNhanVien.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("hoten", "Tên nhân viên")});
-            this.lookUpEditNhanVien.Properties.DisplayMember = "hoten";
-            this.lookUpEditNhanVien.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lookUpEditNhanVien.Properties.ValueMember = "id";
-            this.lookUpEditNhanVien.Size = new System.Drawing.Size(224, 20);
-            this.lookUpEditNhanVien.TabIndex = 17;
-            this.lookUpEditNhanVien.EditValueChanged += new System.EventHandler(this.lookUpEditNhanVien_EditValueChanged);
+            this.searchLookUpEditNhanVienPT.Properties.DisplayMember = "hoten";
+            this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
+            this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
+            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(224, 20);
+            this.searchLookUpEditNhanVienPT.TabIndex = 18;
+            this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
             // ribbonPhong
             // 
@@ -405,6 +417,32 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaPhong);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Phòng";
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.collid,
+            this.collten});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsBehavior.Editable = false;
+            this.searchLookUpEdit1View.OptionsBehavior.ReadOnly = true;
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // collid
+            // 
+            this.collid.Caption = "id";
+            this.collid.FieldName = "id";
+            this.collid.Name = "collid";
+            // 
+            // collten
+            // 
+            this.collten.Caption = "Nhân viên phụ trách";
+            this.collten.FieldName = "hoten";
+            this.collten.Name = "collten";
+            this.collten.Visible = true;
+            this.collten.VisibleIndex = 0;
             // 
             // lblNhanVienPT
             // 
@@ -496,7 +534,7 @@
             // 
             this.imgPhong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imgPhong.Location = new System.Drawing.Point(68, 23);
+            this.imgPhong.Location = new System.Drawing.Point(68, 21);
             this.imgPhong.Name = "imgPhong";
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
             this.imgPhong.TabIndex = 0;
@@ -571,8 +609,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditNhanVienPT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).EndInit();
@@ -632,6 +671,9 @@
         private DevExpress.XtraEditors.MemoEdit txtMoTaPhong;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
         private DevExpress.XtraEditors.LabelControl lblNhanVienPT;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEditNhanVien;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEditNhanVienPT;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn collid;
+        private DevExpress.XtraGrid.Columns.GridColumn collten;
     }
 }
