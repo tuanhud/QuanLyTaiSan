@@ -170,6 +170,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             switch (_type)
             {
                 case "CoSo":
+
+                    ThemMoiNode(-1, "");
+
                     listHinh = null;
                     panelControl1.Controls.Clear();
                     TextEdit txt = new TextEdit();
@@ -189,6 +192,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         _vitri.coso = objDay.coso;
                     else
                         _vitri.coso = objTang.day.coso;
+
+                    ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name);
+
                     _ucTreeViTri.setViTri(_vitri);
                     panelControl1.Controls.Add(_ucTreeViTri);
                     break;
@@ -207,6 +213,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         _vitri.coso = objTang.day.coso;
                         _vitri.day = objTang.day;
                     }
+
+                    ThemMoiNode(_vitri.day.id, typeof(Day).Name);
+
                     _ucTreeViTriChonDay.setViTri(_vitri);
                     panelControl1.Controls.Add(_ucTreeViTriChonDay);
                     break;
@@ -333,11 +342,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            enableEdit(false, "", "");
-            SetTextGroupControl("Chi tiết", false);
-            errorProvider1.Clear();
-            listHinh = null;
-            setData(node);
+            reLoad();
+            //enableEdit(false, "", "");
+            //SetTextGroupControl("Chi tiết", false);
+            //errorProvider1.Clear();
+            //listHinh = null;
+            //setData(node);
         }
 
         public void SetTextGroupControl(String _text, bool _color)
@@ -498,8 +508,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void barBtnThemCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, typeof(CoSo).Name, "add");
             beforeAdd(typeof(CoSo).Name);
+            enableEdit(true, typeof(CoSo).Name, "add");
+            
             SetTextGroupControl("Thêm cơ sở", true);
         }
 
@@ -517,8 +528,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void barBtnThemDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, typeof(Dayy).Name, "add");
             beforeAdd(typeof(Dayy).Name);
+            enableEdit(true, typeof(Dayy).Name, "add");
+            
             SetTextGroupControl("Thêm dãy", true);
         }
 
@@ -536,8 +548,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void barBtnThemTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, typeof(Tang).Name, "add");
             beforeAdd(typeof(Tang).Name);
+            enableEdit(true, typeof(Tang).Name, "add");
+            
             SetTextGroupControl("Thêm tầng", true);
         }
 
@@ -582,6 +595,28 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     barBtnSuaCoSo.Enabled = false;
                     barBtnXoaCoSo.Enabled = false;
                     break;
+            }
+        }
+
+        private void ThemMoiNode(int _id, String _type)
+        {
+            FindNode findNode = null;
+            if (_type.Equals(""))
+            {
+                treeListViTri.AppendNode(new object[] { -1, "new", "new" }, null);
+                findNode = new FindNode(-1, "new");
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
+            }
+            else
+            {
+                findNode = new FindNode(_id, _type);
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
+                treeListViTri.AppendNode(new object[] { -1, "new", "new" }, findNode.Node);
+                findNode = new FindNode(-1, "new");
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
             }
         }
     }

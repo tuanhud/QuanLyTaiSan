@@ -128,21 +128,24 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public void setViTri(ViTri obj)
         {
-            FindNode findNode = null;
-            if (obj.tang != null)
+            if (obj != null)
             {
-                findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                FindNode findNode = null;
+                if (obj.tang != null)
+                {
+                    findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                }
+                else if (obj.day != null)
+                {
+                    findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                }
+                else if (obj.coso != null)
+                {
+                    findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                }
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
             }
-            else if (obj.day != null)
-            {
-                findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
-            } 
-            else if (obj.coso != null)
-            {
-                findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
-            }
-            treeListViTri.NodesIterator.DoOperation(findNode);
-            treeListViTri.FocusedNode = findNode.Node;
         }
     }
 }
