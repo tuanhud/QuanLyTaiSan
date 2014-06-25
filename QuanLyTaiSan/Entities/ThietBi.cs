@@ -36,6 +36,7 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual LoaiThietBi loaithietbi { get; set; }
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
+        public virtual ICollection<LogThietBi> logthietbis { get; set; }
 		#endregion
 		#region Override method
         public override int update()
@@ -53,6 +54,7 @@ namespace QuanLyTaiSan.Entities
         {
             base.init();
             this.ctthietbis = new List<CTThietBi>();
+            this.logthietbis = new List<LogThietBi>();
         }
         #endregion
     }

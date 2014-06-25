@@ -44,14 +44,14 @@
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupLoaiTB = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupThietBi = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupNhanVien = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.navBarGroupThietBi = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -172,7 +172,7 @@
             // navBarGroupControlContainer1
             // 
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 241);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 239);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // navBarGroupControlContainer2
@@ -187,6 +187,12 @@
             this.navBarGroupControlContainer3.Size = new System.Drawing.Size(259, 269);
             this.navBarGroupControlContainer3.TabIndex = 2;
             // 
+            // navBarGroupControlContainer4
+            // 
+            this.navBarGroupControlContainer4.Name = "navBarGroupControlContainer4";
+            this.navBarGroupControlContainer4.Size = new System.Drawing.Size(259, 241);
+            this.navBarGroupControlContainer4.TabIndex = 3;
+            // 
             // navBarGroupViTri
             // 
             this.navBarGroupViTri.Caption = "Quản lý vị trí";
@@ -198,6 +204,15 @@
             this.navBarGroupLoaiTB.Caption = "Quản lý loại thiết bị";
             this.navBarGroupLoaiTB.Name = "navBarGroupLoaiTB";
             this.navBarGroupLoaiTB.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.chair_icon;
+            // 
+            // navBarGroupThietBi
+            // 
+            this.navBarGroupThietBi.Caption = "Quản lý thiết bị";
+            this.navBarGroupThietBi.ControlContainer = this.navBarGroupControlContainer4;
+            this.navBarGroupThietBi.GroupClientHeight = 80;
+            this.navBarGroupThietBi.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
+            this.navBarGroupThietBi.Name = "navBarGroupThietBi";
+            this.navBarGroupThietBi.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.thietbi;
             // 
             // navBarGroupNhanVien
             // 
@@ -231,20 +246,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
-            // 
-            // navBarGroupThietBi
-            // 
-            this.navBarGroupThietBi.Caption = "Quản lý thiết bị";
-            this.navBarGroupThietBi.ControlContainer = this.navBarGroupControlContainer4;
-            this.navBarGroupThietBi.GroupClientHeight = 80;
-            this.navBarGroupThietBi.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
-            this.navBarGroupThietBi.Name = "navBarGroupThietBi";
-            // 
-            // navBarGroupControlContainer4
-            // 
-            this.navBarGroupControlContainer4.Name = "navBarGroupControlContainer4";
-            this.navBarGroupControlContainer4.Size = new System.Drawing.Size(259, 241);
-            this.navBarGroupControlContainer4.TabIndex = 3;
             // 
             // frmMain
             // 

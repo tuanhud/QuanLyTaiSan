@@ -118,6 +118,16 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
+
+
+        public void reLoad(List<ViTriFilter> _list)
+        {
+            treeListViTri.BeginUnboundLoad();
+            treeListViTri.DataSource = null;
+            treeListViTri.DataSource = _list;
+            treeListViTri.EndUnboundLoad();
+        }
+
         //public void reLoad(List<ViTriFilter> _list)
         //{
         //    treeListViTri.BeginUnboundLoad();
@@ -126,23 +136,52 @@ namespace QuanLyTaiSanGUI.MyUC
         //    treeListViTri.EndUnboundLoad();
         //}
 
+
         public void setViTri(ViTri obj)
         {
-            FindNode findNode = null;
-            if (obj.tang != null)
+            if (obj != null)
             {
-                findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                FindNode findNode = null;
+                if (obj.tang != null)
+                {
+                    findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                }
+                else if (obj.day != null)
+                {
+                    findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                }
+                else if (obj.coso != null)
+                {
+                    findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                }
+                if (findNode != null)
+                {
+                    treeListViTri.NodesIterator.DoOperation(findNode);
+                    //treeListViTri.FocusedNode = null;
+                    treeListViTri.FocusedNode = findNode.Node;
+                }
+                else
+                {
+                    //treeListViTri.FocusedNode = null;
+                    //popupContainerEdit1.Text = "";
+                }
             }
-            else if (obj.day != null)
+            else
             {
-                findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
-            } 
-            else if (obj.coso != null)
-            {
-                findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                //treeListViTri.FocusedNode = null;
+                //popupContainerEdit1.Text = "";
             }
-            treeListViTri.NodesIterator.DoOperation(findNode);
-            treeListViTri.FocusedNode = findNode.Node;
+        }
+
+        public void setTextPopupContainerEdit(String text)
+        {
+            popupContainerEdit1.Text = text;
+            popupContainerEdit1.ClosePopup();
+        }
+
+        public String getTextPopupContainerEdit()
+        {
+            return popupContainerEdit1.Text;
         }
     }
 }

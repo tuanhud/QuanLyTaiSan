@@ -107,6 +107,25 @@ namespace QuanLyTaiSanGUI.MyUC
             popupContainerEdit1.Properties.ReadOnly = b;
         }
 
+
+        public void setTextPopupContainerEdit(String text)
+        {
+            popupContainerEdit1.Text = text;
+            popupContainerEdit1.ClosePopup();
+        }
+
+        public String setTextPopupContainerEdit()
+        {
+            return popupContainerEdit1.Text;
+        }
+
+        public LoaiThietBi getLoaiThietBi()
+        {
+            if (obj.id > 0)
+                return new LoaiThietBi().getById(obj.id);
+            return null;
+        }
+
         private void treeListLoaiTB_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
             if (haveCheck)
@@ -124,6 +143,5 @@ namespace QuanLyTaiSanGUI.MyUC
                 popupContainerEdit1.Text = str;
             }
         }
-
     }
 }
