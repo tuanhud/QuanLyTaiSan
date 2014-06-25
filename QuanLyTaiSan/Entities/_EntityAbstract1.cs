@@ -226,6 +226,19 @@ namespace QuanLyTaiSan.Entities
         {
             //DO NOT THING, JUST ACTIVATE ENTITY FRAMEWORK TO LOAD
         }
+        public List<T> parse(List<int> id_array)
+        {
+            List<T> re = new List<T>();
+            foreach (int item in id_array)
+            {
+                T tmp = getById(item);
+                if (tmp != null)
+                {
+                    re.Add(tmp);
+                }
+            }
+            return re;
+        }
         #endregion
     }
 }

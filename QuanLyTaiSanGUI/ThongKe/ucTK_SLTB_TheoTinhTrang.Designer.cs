@@ -41,7 +41,8 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl_condition = new DevExpress.XtraEditors.GroupControl();
-            this.checkedComboBoxEdit1 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.checkedComboBoxEdit_coso = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.ucTreeLoaiTB = new QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB();
@@ -60,7 +61,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_condition)).BeginInit();
             this.groupControl_condition.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_coso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_tinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).BeginInit();
@@ -195,7 +196,8 @@
             // 
             // groupControl_condition
             // 
-            this.groupControl_condition.Controls.Add(this.checkedComboBoxEdit1);
+            this.groupControl_condition.Controls.Add(this.checkedComboBoxEdit_coso);
+            this.groupControl_condition.Controls.Add(this.labelControl6);
             this.groupControl_condition.Controls.Add(this.btnOK);
             this.groupControl_condition.Controls.Add(this.labelControl5);
             this.groupControl_condition.Controls.Add(this.ucTreeLoaiTB);
@@ -208,25 +210,37 @@
             this.groupControl_condition.Controls.Add(this.labelControl1);
             this.groupControl_condition.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl_condition.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_condition.MinimumSize = new System.Drawing.Size(215, 397);
             this.groupControl_condition.Name = "groupControl_condition";
             this.groupControl_condition.Size = new System.Drawing.Size(215, 397);
             this.groupControl_condition.TabIndex = 0;
             this.groupControl_condition.Text = "Điều kiện thống kê";
             // 
-            // checkedComboBoxEdit1
+            // checkedComboBoxEdit_coso
             // 
-            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(45, 247);
-            this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
-            this.checkedComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.checkedComboBoxEdit_coso.EditValue = "";
+            this.checkedComboBoxEdit_coso.Location = new System.Drawing.Point(45, 214);
+            this.checkedComboBoxEdit_coso.Name = "checkedComboBoxEdit_coso";
+            this.checkedComboBoxEdit_coso.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedComboBoxEdit1.Size = new System.Drawing.Size(100, 20);
-            this.checkedComboBoxEdit1.TabIndex = 11;
+            this.checkedComboBoxEdit_coso.Properties.DisplayMember = "ten";
+            this.checkedComboBoxEdit_coso.Properties.ValueMember = "id";
+            this.checkedComboBoxEdit_coso.Size = new System.Drawing.Size(147, 20);
+            this.checkedComboBoxEdit_coso.TabIndex = 13;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(10, 198);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(31, 13);
+            this.labelControl6.TabIndex = 12;
+            this.labelControl6.Text = "Cơ sở:";
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(135, 203);
+            this.btnOK.Location = new System.Drawing.Point(135, 247);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(57, 28);
+            this.btnOK.Size = new System.Drawing.Size(57, 25);
             this.btnOK.TabIndex = 10;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -262,6 +276,7 @@
             this.checkedComboBoxEdit_tinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.checkedComboBoxEdit_tinhTrang.Properties.DisplayMember = "value";
+            this.checkedComboBoxEdit_tinhTrang.Properties.ValueMember = "id";
             this.checkedComboBoxEdit_tinhTrang.Size = new System.Drawing.Size(147, 20);
             this.checkedComboBoxEdit_tinhTrang.TabIndex = 6;
             // 
@@ -329,7 +344,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_condition)).EndInit();
             this.groupControl_condition.ResumeLayout(false);
             this.groupControl_condition.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_coso.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_tinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).EndInit();
@@ -364,6 +379,7 @@
         private MyUC.ucTreeLoaiTB ucTreeLoaiTB;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton btnOK;
-        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_coso;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }

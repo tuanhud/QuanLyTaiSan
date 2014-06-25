@@ -123,6 +123,7 @@
     <Compile Include="HeThong\ucThongTinQuanTriVien.Designer.cs">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\CheckedComboBoxEditHelper.cs" />
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
