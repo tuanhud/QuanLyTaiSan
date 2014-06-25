@@ -214,7 +214,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         _vitri.day = objTang.day;
                     }
 
-                    ThemMoiNode(_vitri.day.id, typeof(Day).Name);
+                    ThemMoiNode(_vitri.day.id, typeof(Dayy).Name);
 
                     _ucTreeViTriChonDay.setViTri(_vitri);
                     panelControl1.Controls.Add(_ucTreeViTriChonDay);
@@ -612,7 +612,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 findNode = new FindNode(_id, _type);
                 treeListViTri.NodesIterator.DoOperation(findNode);
-                MessageBox.Show(findNode.Node.GetValue(1).ToString());
                 treeListViTri.AppendNode(new object[] { -1, "new", "new" }, findNode.Node);
                 findNode = new FindNode(-1, "new");
                 treeListViTri.NodesIterator.DoOperation(findNode);
