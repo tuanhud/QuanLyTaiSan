@@ -43,15 +43,15 @@ namespace QuanLyTaiSanGUI.ThongKe
         private void btnOK_Click(object sender, EventArgs e)
         {
             //get condition
-            DateTime from = dateEdit_from.DateTime;
-            DateTime to = dateEdit_from.DateTime;
+            DateTime? from = (DateTime?)dateEdit_from.EditValue;
+            DateTime? to = (DateTime?)dateEdit_to.EditValue;
             //get result
             //String jk = checkedComboBoxEdit_tinhTrang.;
             List<int> list_coso =CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_coso);
             List<int> list_tinhtrang = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_tinhTrang);
             List<int> list_ltb = ucTreeLoaiTB2.getListLoaiTB().Select(x => x.id).ToList();
 
-            List<TKSLThietBiFilter> list_tk = new TKSLThietBiFilter().getAll(list_coso, list_ltb, list_tinhtrang, null, null);
+            List<TKSLThietBiFilter> list_tk = new TKSLThietBiFilter().getAll(list_coso, list_ltb, list_tinhtrang,from,to,-1,1);
             gridControl1.DataSource = list_tk;
         }
     }

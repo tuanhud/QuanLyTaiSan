@@ -32,9 +32,9 @@ namespace QuanLyTaiSan
 
             //DBInstance.autoRandom();
 
-            List<CTThietBi> list = new TKSLThietBiFilter().getAll2();
+            //List<TKSLThietBiFilter> list = new TKSLThietBiFilter().getAll();
 
-            Console.WriteLine("");
+            //Console.WriteLine("");
 
 
             //DBInstance.TaoDuLieuMau();

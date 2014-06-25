@@ -11,6 +11,10 @@ namespace QuanLyTaiSan.DataFilter
     public class TKSLThietBiFilter: FilterAbstract<TKSLThietBiFilter>
     {
         public int idcttb { get; set; }
+        /// <summary>
+        /// For back reference
+        /// </summary>
+        public CTThietBi cttb { get; set; }
         public String tenltb { get; set; }
         public String tentinhtrang { get; set; }
         public String tenphong { get; set; }
@@ -18,7 +22,85 @@ namespace QuanLyTaiSan.DataFilter
         public String tencoso { get; set; }
         public int soluong { get; set; }
         public String tentang { get; set; }
-        public List<TKSLThietBiFilter> getAll(List<int> list_coso = null, List<int> list_ltb= null, List<int> list_tinhtrang=null, DateTime? date_from=null, DateTime? date_to=null)
+
+        #region Ngiep vu
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="list_coso"></param>
+        /// <param name="list_ltb"></param>
+        /// <param name="list_tinhtrang"></param>
+        /// <param name="date_from"></param>
+        /// <param name="date_to"></param>
+        /// <param name="row_per_page">Default: -1 (get ALL)</param>
+        /// <param name="page_index">Default: 1 (valid from 1->n)</param>
+        /// <returns></returns>
+        public List<TKSLThietBiFilter> getAll(List<int> list_coso = null, List<int> list_ltb = null, List<int> list_tinhtrang = null, DateTime? date_from = null, DateTime? date_to = null, int row_per_page = -1, int page_index = 1, Boolean orderby_id_desc=true)
+        {
+            IQueryable<CTThietBi> query = db.CTTHIETBIS.AsQueryable();
+
+            //DATETIME
+            if (date_from != null)
+            {
+                query = query.Where(x => x.thietbi.date_modified >= date_from);
+            }
+            if (date_to != null)
+            {
+                query = query.Where(x => x.thietbi.date_modified <= date_to);
+            }
+            //LTB
+            if (list_ltb != null && list_ltb.Count > 0)
+            {
+                query = query.Where(x => x.thietbi.loaithietbi == null || list_ltb.Contains(x.thietbi.loaithietbi.id));
+            }
+            //TINHTRANG
+            if (list_tinhtrang != null && list_tinhtrang.Count > 0)
+            {
+                query = query.Where(x => list_tinhtrang.Contains(x.tinhtrang.id));
+            }
+            //COSO
+            if (list_coso != null && list_coso.Count > 0)
+            {
+                query = query.Where(x => x.phong.vitri.coso == null || list_coso.Contains(x.phong.vitri.coso.id));
+            }
+            //ORDER BY ID
+            if (orderby_id_desc)
+            {
+                query = query.OrderByDescending(x => x.id);
+            }
+            else
+            {
+                query = query.OrderBy(x => x.id);
+            }
+
+            //PAGINATION
+            if (row_per_page > -1)
+            {
+                page_index = page_index-- >= 0 ? page_index : 0;
+                query = query.Skip(row_per_page * page_index).Take(row_per_page);
+            }
+
+            //FINAL SELECT
+            List<TKSLThietBiFilter> re = query.Select(x => new TKSLThietBiFilter
+            {
+                cttb = x,
+                idcttb = x.id,
+                soluong = x.soluong,
+                tencoso = x.phong.vitri.coso == null ? "" : x.phong.vitri.coso.ten,
+                tenday = x.phong.vitri.day == null ? "" : x.phong.vitri.day.ten,
+                tentang = x.phong.vitri.tang == null ? "" : x.phong.vitri.tang.ten,
+                tenltb = x.thietbi.loaithietbi.ten,
+                tentinhtrang = x.tinhtrang.value,
+                tenphong = x.phong.ten
+            }
+            ).ToList();
+
+            return re;
+        }
+        #endregion
+        #region Trash
+        /*
+        public List<TKSLThietBiFilter> getAll_notuse(List<int> list_coso = null, List<int> list_ltb= null, List<int> list_tinhtrang=null, DateTime? date_from=null, DateTime? date_to=null)
         {
             list_coso = list_coso == null ? new List<int>() : list_coso;
             list_tinhtrang = list_tinhtrang == null ? new List<int>() : list_tinhtrang;
@@ -48,19 +130,19 @@ namespace QuanLyTaiSan.DataFilter
                 join ltb in db.LOAITHIETBIS.DefaultIfEmpty().Where(x => x == null || !xetLTB || list_ltb.Contains(x.id)) on tb.loaithietbi.id equals ltb.id
                 join tinhtrang in db.TINHTRANGS.DefaultIfEmpty().Where(x => x == null || !xetTinhTrang || list_tinhtrang.Contains(x.id)) on cttb.tinhtrang.id equals tinhtrang.id
                 select cttb
-                /*
-                select new TKSLThietBiFilter
-                {
-                    idcttb = cttb.id,
-                    tenltb = ltb.ten,
-                    soluong = cttb.soluong,
-                    tentinhtrang = tinhtrang.value,
-                    tenphong = phong.ten,
-                    tentang = phong.vitri.tang.ten,
-                    tenday = phong.vitri.day.ten,
-                    tencoso = phong.vitri.coso.ten
-                }
-                 * */
+                
+                //select new TKSLThietBiFilter
+                //{
+                //    idcttb = cttb.id,
+                //    tenltb = ltb.ten,
+                //    soluong = cttb.soluong,
+                //    tentinhtrang = tinhtrang.value,
+                //    tenphong = phong.ten,
+                //    tentang = phong.vitri.tang.ten,
+                //    tenday = phong.vitri.day.ten,
+                //    tencoso = phong.vitri.coso.ten
+                //}
+                
 
             ).Select(cttb => new TKSLThietBiFilter
             {
@@ -72,33 +154,32 @@ namespace QuanLyTaiSan.DataFilter
                 tentang = cttb.phong.vitri.tang.ten,
                 tenday = cttb.phong.vitri.day.ten,
                 tencoso = cttb.phong.vitri.coso.ten
-
             }).ToList();
 
             return result;
         }
-        public List<CTThietBi> getAll2()
-        {
-            List<CTThietBi> ree = db.CTTHIETBIS
-                .Join(
-                    db.PHONGS,
-                    cttb => cttb.phong.id,
-                    phong => phong.id, (cttb, phong) => new { cttb, phong }
-                )
-                .Join(
-                    db.VITRIS,
-                    phong2 => phong2.phong.id,
-                    vitri => vitri.id,
-                    (phong2, vitri) => new { phong2, vitri }
-                )
-                .OrderBy(x => x.phong2.cttb.id).Skip(1500).Take(10)
-                .Select(x => x.phong2.cttb).ToList();
+        */
+        //public List<CTThietBi> getAll2()
+        //{
+        //    List<CTThietBi> ree = db.CTTHIETBIS
+        //        .Join(
+        //            db.PHONGS,
+        //            cttb => cttb.phong.id,
+        //            phong => phong.id, (cttb, phong) => new { cttb, phong }
+        //        )
+        //        .Join(
+        //            db.VITRIS,
+        //            phong2 => phong2.phong.id,
+        //            vitri => vitri.id,
+        //            (phong2, vitri) => new { phong2, vitri }
+        //        )
+        //        .OrderBy(x => x.phong2.cttb.id).Skip(1500).Take(10)
+        //        .Select(x => x.phong2.cttb).ToList();
                 
 
-            return ree;
-            //return db.CTTHIETBIS.OrderByDescending(x=>x.id).Where(x => x.id > 0).Skip(9000).Take(10).ToList();
-            
-
-        }
+        //    return ree;
+        //    //return db.CTTHIETBIS.OrderByDescending(x=>x.id).Where(x => x.id > 0).Skip(9000).Take(10).ToList();
+        //}
+        #endregion
     }
 }
