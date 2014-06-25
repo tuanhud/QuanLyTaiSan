@@ -164,7 +164,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtTenNhanVien.Text = objNV.hoten;
                 txtSoDienThoai.Text = objNV.sodienthoai;
                 listHinh = objPhong.hinhanhs.ToList();
-                listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                if (listHinhNV != null)
+                    listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
                 reloadImagePhong();
                 reloadImageNhanVienPT();
             }
