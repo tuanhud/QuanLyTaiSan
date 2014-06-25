@@ -129,7 +129,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count == 0)
             {
-                _ucTreeViTri.setViTri(new ViTri());
                 enableEdit(false, "");
                 enableBar(false);
             }
@@ -163,14 +162,24 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtMaNhanVien.Text = objNV.subId;
                 txtTenNhanVien.Text = objNV.hoten;
                 txtSoDienThoai.Text = objNV.sodienthoai;
-                listHinh = objPhong.hinhanhs.ToList();
-                if (listHinhNV != null)
-                    listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                if (objPhong.hinhanhs == null)
+                    listHinh = new List<HinhAnh>();
+                else
+                    listHinh = objPhong.hinhanhs.ToList();
+                if (objPhong.nhanvienpt != null)
+                {
+                    if (objPhong.nhanvienpt.hinhanhs == null)
+                        listHinhNV = new List<HinhAnh>();
+                    else
+                        listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                }
                 reloadImagePhong();
                 reloadImageNhanVienPT();
             }
             catch (Exception ex)
-            { }
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             { }
         }

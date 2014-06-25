@@ -146,16 +146,19 @@ namespace QuanLyTaiSanGUI.MyUC
                 if (findNode != null)
                 {
                     treeListViTri.NodesIterator.DoOperation(findNode);
+                    //treeListViTri.FocusedNode = null;
                     treeListViTri.FocusedNode = findNode.Node;
                 }
                 else
                 {
-                    popupContainerEdit1.Text = "";
+                    //treeListViTri.FocusedNode = null;
+                    //popupContainerEdit1.Text = "";
                 }
             }
             else
             {
-                popupContainerEdit1.Text = "";
+                //treeListViTri.FocusedNode = null;
+                //popupContainerEdit1.Text = "";
             }
         }
     }
