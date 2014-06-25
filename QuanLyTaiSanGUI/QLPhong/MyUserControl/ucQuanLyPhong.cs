@@ -117,6 +117,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
             listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
             gridControlPhong.DataSource = null;
             gridControlPhong.DataSource = listPhong;
+            if (listPhong.Count == 0)
+            {
+                enableEdit(false, "");
+                enableBar(false);
+            }
         }
 
         public Phong getPhong()
@@ -133,7 +138,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     objPhong = _phong;
                 }
                 else
+                {
                     objPhong = new Phong();
+                }
                 txtTenPhong.Text = objPhong.ten;
                 txtMoTaPhong.Text = objPhong.mota;
                 _ucTreeViTri.setViTri(objPhong.vitri);
@@ -259,6 +266,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             enableEdit(true, "edit");
             SetTextGroupControl("Chỉnh sửa phòng", true);
+            lookUpEditNhanVien.EditValue = objPhong.nhanvienpt.hoten.ToString();
         }
 
         private void barButtonXoaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
