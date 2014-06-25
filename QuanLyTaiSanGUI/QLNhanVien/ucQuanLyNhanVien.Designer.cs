@@ -41,7 +41,7 @@
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhinh_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.listBoxNhanVien = new DevExpress.XtraEditors.ListBoxControl();
+            this.listBoxPhong = new DevExpress.XtraEditors.ListBoxControl();
             this.btnHuy_PhanCong = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK_PhanCong = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -95,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSodt.Properties)).BeginInit();
@@ -199,7 +199,7 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.listBoxNhanVien);
+            this.groupControl2.Controls.Add(this.listBoxPhong);
             this.groupControl2.Controls.Add(this.btnHuy_PhanCong);
             this.groupControl2.Controls.Add(this.btnOK_PhanCong);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -209,17 +209,17 @@
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Danh sách phòng";
             // 
-            // listBoxNhanVien
+            // listBoxPhong
             // 
-            this.listBoxNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxNhanVien.DisplayMember = "ten";
-            this.listBoxNhanVien.Location = new System.Drawing.Point(6, 25);
-            this.listBoxNhanVien.Name = "listBoxNhanVien";
-            this.listBoxNhanVien.Size = new System.Drawing.Size(389, 149);
-            this.listBoxNhanVien.TabIndex = 13;
-            this.listBoxNhanVien.ValueMember = "id";
+            this.listBoxPhong.DisplayMember = "ten";
+            this.listBoxPhong.Location = new System.Drawing.Point(6, 25);
+            this.listBoxPhong.Name = "listBoxPhong";
+            this.listBoxPhong.Size = new System.Drawing.Size(389, 149);
+            this.listBoxPhong.TabIndex = 13;
+            this.listBoxPhong.ValueMember = "id";
             // 
             // btnHuy_PhanCong
             // 
@@ -626,7 +626,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -669,7 +669,7 @@
         private DevExpress.XtraEditors.SimpleButton btnHuy_PhanCong;
         private DevExpress.XtraEditors.SimpleButton btnOK_PhanCong;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private DevExpress.XtraEditors.ListBoxControl listBoxNhanVien;
+        private DevExpress.XtraEditors.ListBoxControl listBoxPhong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonNhanVienPT;
         private DevExpress.XtraBars.BarButtonItem barBtnThemPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaPhong;

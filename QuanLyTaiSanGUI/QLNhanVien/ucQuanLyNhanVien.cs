@@ -101,7 +101,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtSodt.Text = "";
             imageSlider1.Images.Clear();
             listHinhs = null;
-            listBoxNhanVien.DataSource = null;
+            listBoxPhong.DataSource = null;
         }
 
         private void Function(String _function)
@@ -177,7 +177,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtMa.Text = objNhanVienPT.subId;
             txtTen.Text = objNhanVienPT.hoten;
             txtSodt.Text = objNhanVienPT.sodienthoai;
-            listBoxNhanVien.DataSource = objNhanVienPT.phongs;
+            listBoxPhong.DataSource = objNhanVienPT.phongs;
             listHinhs = objNhanVienPT.hinhanhs.ToList();
             reloadImage();
         }
@@ -310,6 +310,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         private void barBtnPhanCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PhanCong();
+        }
+
+        public void LoadListPhong(List<Phong> list)
+        {
+            listBoxPhong.DataSource = list;
         }
 
     }
