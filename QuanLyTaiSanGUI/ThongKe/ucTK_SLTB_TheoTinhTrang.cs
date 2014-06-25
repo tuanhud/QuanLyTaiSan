@@ -16,6 +16,7 @@ namespace QuanLyTaiSanGUI.ThongKe
 {
     public partial class ucTK_SLTB_TheoTinhTrang : DevExpress.XtraEditors.XtraUserControl
     {
+        QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
         public ucTK_SLTB_TheoTinhTrang()
         {
             InitializeComponent();
@@ -26,7 +27,12 @@ namespace QuanLyTaiSanGUI.ThongKe
             checkedComboBoxEdit_tinhTrang.Properties.DataSource =
                 new TinhTrang().getAll();
 
-            ucTreeLoaiTB.loadData(new LoaiThietBi().getAll());
+            //ucTreeLoaiTB2
+            ucTreeLoaiTB2.loadData(new LoaiThietBi().getAll());
+            ucTreeLoaiTB2.Dock = DockStyle.Fill;
+            panelLoaiTB.Controls.Clear();
+            panelLoaiTB.Controls.Add(ucTreeLoaiTB2);
+
             checkedComboBoxEdit_coso.Properties.DataSource = new CoSo().getAll();
         }
         private void btnPrint_Click(object sender, EventArgs e)
@@ -43,7 +49,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             //String jk = checkedComboBoxEdit_tinhTrang.;
             List<int> list_coso =CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_coso);
             List<int> list_tinhtrang = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_tinhTrang);
-            List<int> list_ltb = null;
+            List<int> list_ltb = ucTreeLoaiTB2.getListLoaiTB().Select(x => x.id).ToList();
 
             gridControl1.DataSource = new TKSLThietBiFilter().getAll(list_coso,list_ltb,list_tinhtrang,null,null);
         }
