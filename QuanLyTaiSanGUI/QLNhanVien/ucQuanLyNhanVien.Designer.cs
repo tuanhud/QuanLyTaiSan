@@ -241,6 +241,7 @@
             this.btnOK_PhanCong.TabIndex = 11;
             this.btnOK_PhanCong.Text = "OK";
             this.btnOK_PhanCong.Visible = false;
+            this.btnOK_PhanCong.Click += new System.EventHandler(this.btnOK_PhanCong_Click);
             // 
             // groupControl1
             // 
