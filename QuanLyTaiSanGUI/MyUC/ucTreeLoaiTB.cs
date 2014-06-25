@@ -17,9 +17,31 @@ namespace QuanLyTaiSanGUI.MyUC
     {
         LoaiThietBi obj = new LoaiThietBi();
         public String type = "";
+        bool haveCheck = false;
         public ucTreeLoaiTB()
         {
             InitializeComponent();
+        }
+
+        public ucTreeLoaiTB(bool _haveCheck)
+        {
+            InitializeComponent();
+            treeListLoaiTB.OptionsBehavior.AllowRecursiveNodeChecking = true;
+            treeListLoaiTB.OptionsView.ShowCheckBoxes = true;
+            haveCheck = _haveCheck;
+        }
+
+        public List<LoaiThietBi> getListLoaiTB()
+        {
+            List<LoaiThietBi> list = new List<LoaiThietBi>();
+            GetCheckedNodes op = new GetCheckedNodes();
+            treeListLoaiTB.NodesIterator.DoOperation(op);
+            foreach (TreeListNode node in op.CheckedNodes)
+            {
+                LoaiThietBi obj = new LoaiThietBi().getById(Convert.ToInt32(node.GetValue(0)));
+                list.Add(obj);
+            }
+            return list;
         }
 
         public void loadData(List<LoaiThietBi> _list)
@@ -64,15 +86,18 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-            popupContainerEdit1.Text = obj.ten;
-            popupContainerEdit1.ClosePopup();
-            if (type.Equals("add"))
+            if (!haveCheck)
             {
-                if (this.ParentForm != null)
+                obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                popupContainerEdit1.Text = obj.ten;
+                popupContainerEdit1.ClosePopup();
+                if (type.Equals("add"))
                 {
-                    frmNewThietBi frm = this.ParentForm as frmNewThietBi;
-                    frm.LoaiTB_FocusedChanged(obj.loaichung);
+                    if (this.ParentForm != null)
+                    {
+                        frmNewThietBi frm = this.ParentForm as frmNewThietBi;
+                        frm.LoaiTB_FocusedChanged(obj.loaichung);
+                    }
                 }
             }
         }
@@ -80,6 +105,24 @@ namespace QuanLyTaiSanGUI.MyUC
         public void setReadOnly(bool b)
         {
             popupContainerEdit1.Properties.ReadOnly = b;
+        }
+
+        private void treeListLoaiTB_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            if (haveCheck)
+            {
+                String str = "";
+                List<LoaiThietBi> list = getListLoaiTB();
+                foreach(LoaiThietBi loaiTB in list)
+                {
+                    str += loaiTB.ten +", ";
+                }
+                if (str.Length > 2)
+                {
+                    str = str.Substring(0, str.Length - 2);
+                }
+                popupContainerEdit1.Text = str;
+            }
         }
 
     }

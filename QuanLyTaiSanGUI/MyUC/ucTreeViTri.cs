@@ -118,31 +118,38 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
-        public void reLoad(List<ViTriFilter> _list)
-        {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = null;
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
-        }
+        //public void reLoad(List<ViTriFilter> _list)
+        //{
+        //    treeListViTri.BeginUnboundLoad();
+        //    treeListViTri.DataSource = null;
+        //    treeListViTri.DataSource = _list;
+        //    treeListViTri.EndUnboundLoad();
+        //}
 
         public void setViTri(ViTri obj)
         {
-            FindNode findNode = null;
-            if (obj.tang != null)
+            if (obj != null)
             {
-                findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                FindNode findNode = null;
+                if (obj.tang != null)
+                {
+                    findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                }
+                else if (obj.day != null)
+                {
+                    findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                }
+                else if (obj.coso != null)
+                {
+                    findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                }
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
             }
-            else if (obj.day != null)
+            else
             {
-                findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
-            } 
-            else if (obj.coso != null)
-            {
-                findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                popupContainerControl1.Text = "";
             }
-            treeListViTri.NodesIterator.DoOperation(findNode);
-            treeListViTri.FocusedNode = findNode.Node;
         }
     }
 }

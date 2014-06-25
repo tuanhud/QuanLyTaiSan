@@ -73,6 +73,7 @@
             this.treeListLoaiTB.ParentFieldName = "parent_id";
             this.treeListLoaiTB.Size = new System.Drawing.Size(200, 300);
             this.treeListLoaiTB.TabIndex = 0;
+            this.treeListLoaiTB.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListLoaiTB_AfterCheckNode);
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
             // 
             // colid
