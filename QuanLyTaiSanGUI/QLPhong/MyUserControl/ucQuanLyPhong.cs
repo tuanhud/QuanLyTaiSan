@@ -129,6 +129,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count == 0)
             {
+                _ucTreeViTri.setViTri(new ViTri());
                 enableEdit(false, "");
                 enableBar(false);
             }

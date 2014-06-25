@@ -148,7 +148,7 @@ namespace QuanLyTaiSanGUI.MyUC
                 }
                 else
                 {
-                    popupContainerControl1.Text = "";
+                    popupContainerEdit1.Text = "";
                 }
         }
     }
