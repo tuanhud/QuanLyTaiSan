@@ -129,8 +129,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count == 0)
             {
+                _ucTreeViTri.Visible = false;
                 enableEdit(false, "");
                 enableBar(false);
+            }
+            else
+            {
+                _ucTreeViTri.Visible = true;
             }
         }
 
