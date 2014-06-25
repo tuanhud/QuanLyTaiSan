@@ -1,6 +1,6 @@
-﻿namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
+﻿namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 {
-    partial class ucQuanLyCoSo
+    partial class ucQuanLyViTri
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyCoSo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyViTri));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();

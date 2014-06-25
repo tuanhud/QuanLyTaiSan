@@ -11,16 +11,12 @@ using DevExpress.XtraTreeList;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSanGUI.QLNhanVien;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreePhongHaveCheck : UserControl
     {
-        List<ViTriFilter> listVT = null;
-        int idTang = -1;
-        int idCoSo = -1;
-        int idDay = -1;
-        int idPhong = -1;
         public ucTreePhongHaveCheck()
         {
             InitializeComponent();
@@ -42,35 +38,24 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void treeListPhong_AfterCheckNode(object sender, NodeEventArgs e)
         {
-            try
+            if (this.Parent.Parent.Parent != null)
             {
-                if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
-                {
-                    idCoSo = Convert.ToInt32(e.Node.GetValue(0));
-                    idTang = -1;
-                    idDay = -1;
-                }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
-                {
-                    idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                    idDay = Convert.ToInt32(e.Node.GetValue(0));
-                    idTang = -1;
-                }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
-                {
-                    idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                    idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                    idTang = Convert.ToInt32(e.Node.GetValue(0));
-                }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Phong).Name))
-                {
-                    idPhong = Convert.ToInt32(e.Node.GetValue(0));
-                }
+                ucQuanLyNhanVien _ucQuanLyNhanVien = this.Parent.Parent.Parent as ucQuanLyNhanVien;
+                _ucQuanLyNhanVien.LoadListPhong(getListPhong());
             }
-            catch (Exception ex)
-            { }
-            finally
-            { }
+        }
+
+        public List<Phong> getListPhong()
+        {
+            List<Phong> listPhong = new List<Phong>();
+            GetCheckedNodes op = new GetCheckedNodes(typeof(Phong).Name);
+            treeListPhong.NodesIterator.DoOperation(op);
+            foreach (TreeListNode node in op.CheckedNodes)
+            {
+                Phong obj = new Phong().getById(Convert.ToInt32(node.GetValue(0)));
+                listPhong.Add(obj);
+            }
+            return listPhong;
         }
     }
 }
