@@ -118,13 +118,13 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             popupContainerEdit1.Properties.ReadOnly = b;
         }
-        public void reLoad(List<ViTriFilter> _list)
-        {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = null;
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
-        }
+        //public void reLoad(List<ViTriFilter> _list)
+        //{
+        //    treeListViTri.BeginUnboundLoad();
+        //    treeListViTri.DataSource = null;
+        //    treeListViTri.DataSource = _list;
+        //    treeListViTri.EndUnboundLoad();
+        //}
 
         public void setViTri(ViTri obj)
         {

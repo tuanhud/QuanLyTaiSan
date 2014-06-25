@@ -19,27 +19,28 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 {
     public partial class ucQuanLyNhanVien : UserControl
     {
-        ucTreePhongHaveCheck _ucTreePhongHaveCheck = null;
-        List<NhanVienPT> NhanVienPTs = null;
-        NhanVienPT objNhanVienPT = null;
-        List<HinhAnh> listHinhs = null;
+        ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
+        List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
+        NhanVienPT objNhanVienPT = new NhanVienPT();
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
         public Boolean working = false;
 
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+             ribbonNhanVienPT.Parent = null;
+            _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             loadData();
         }
 
-        public void loadData()
+        private void loadData()
         {
-            _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
-            NhanVienPTs = new List<NhanVienPT>();
-            objNhanVienPT = new NhanVienPT();
-            listHinhs = new List<HinhAnh>();
-            ribbonNhanVienPT.Parent = null;
-            _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             NhanVienPTs = new NhanVienPT().getAll();
             gridControlNhanVien.DataSource = null;
             gridControlNhanVien.DataSource = NhanVienPTs;
@@ -83,9 +84,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         public void reLoad()
         {
-            NhanVienPTs = new NhanVienPT().getAll();
-            gridControlNhanVien.DataSource = null;
-            gridControlNhanVien.DataSource = NhanVienPTs;
+            loadData();
             if (!function.Equals(""))
             {
                 enableEdit(false, "");
@@ -112,7 +111,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 objNhanVienPT.subId = txtMa.Text;
                 objNhanVienPT.hoten = txtTen.Text;
                 objNhanVienPT.sodienthoai = txtSodt.Text;
-                objNhanVienPT.date_modified = ServerTimeHelper.getNow();
                 objNhanVienPT.hinhanhs = listHinhs;
                 if (objNhanVienPT.update() != -1)
                 {
@@ -126,8 +124,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 objNew.subId = txtMa.Text;
                 objNew.hoten = txtTen.Text;
                 objNew.sodienthoai = txtSodt.Text;
-                objNew.date_create = ServerTimeHelper.getNow();
-                objNew.date_modified = ServerTimeHelper.getNow();
                 objNew.hinhanhs = listHinhs;
                 if (objNew.add() != -1)
                 {

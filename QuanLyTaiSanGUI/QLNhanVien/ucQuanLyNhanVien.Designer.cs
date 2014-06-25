@@ -516,6 +516,7 @@
             // barBtnThemNhanVien
             // 
             this.barBtnThemNhanVien.Caption = "Thêm nhân viên";
+            this.barBtnThemNhanVien.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barBtnThemNhanVien.Id = 18;
             this.barBtnThemNhanVien.Name = "barBtnThemNhanVien";
             this.barBtnThemNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemNhanVien_ItemClick);
@@ -523,6 +524,7 @@
             // barBtnSuaNhanVien
             // 
             this.barBtnSuaNhanVien.Caption = "Sửa nhân viên";
+            this.barBtnSuaNhanVien.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSuaNhanVien.Id = 19;
             this.barBtnSuaNhanVien.Name = "barBtnSuaNhanVien";
             this.barBtnSuaNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaNhanVien_ItemClick);
@@ -530,6 +532,7 @@
             // barBtnXoaNhanVien
             // 
             this.barBtnXoaNhanVien.Caption = "Xóa nhân viên";
+            this.barBtnXoaNhanVien.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoaNhanVien.Id = 20;
             this.barBtnXoaNhanVien.Name = "barBtnXoaNhanVien";
             this.barBtnXoaNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaNhanVien_ItemClick);

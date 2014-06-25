@@ -11,7 +11,7 @@ using DevExpress.XtraBars;
 using QuanLyTaiSanGUI.MyUserControl;
 using DevExpress.XtraGrid.Columns;
 using QuanLyTaiSanGUI.MyForm;
-using QuanLyTaiSanGUI.QLCoSo.MyUserControl;
+using QuanLyTaiSanGUI.QLViTri.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSanGUI.QLLoaiThietBi;
@@ -36,7 +36,7 @@ namespace QuanLyTaiSanGUI
         ucThongKeTongQuat _ucThongKeTongQuat = null;
         ucPhanQuyen _ucPhanQuyen = null;
         ucQuanLyPhong _ucQuanLyPhong = null;
-        ucQuanLyCoSo _ucQuanLyCoSo = null;
+        ucQuanLyViTri _ucQuanLyCoSo = null;
         ucQuanLyNhanVien _ucQuanLyNhanVien = null;
         ucQuanLyThietBi _ucQuanLyThietBi = null;
         //ucTreePhong _ucTreePhong = new ucTreePhong();
@@ -76,7 +76,7 @@ namespace QuanLyTaiSanGUI
                 {
                     if (_ucQuanLyCoSo == null)
                     {
-                        _ucQuanLyCoSo = new ucQuanLyCoSo();
+                        _ucQuanLyCoSo = new ucQuanLyViTri();
                         _ucQuanLyCoSo.Dock = DockStyle.Fill;
                         addRibbonPage(_ucQuanLyCoSo.getRibbon());
                     }

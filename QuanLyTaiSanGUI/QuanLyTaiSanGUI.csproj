@@ -209,11 +209,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLCoSo\MyUserControl\ucQuanLyCoSo.cs">
+    <Compile Include="QLViTri\ucQuanLyViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QLCoSo\MyUserControl\ucQuanLyCoSo.Designer.cs">
-      <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
+    <Compile Include="QLViTri\ucQuanLyViTri.Designer.cs">
+      <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -335,8 +335,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLCoSo\MyUserControl\ucQuanLyCoSo.resx">
-      <DependentUpon>ucQuanLyCoSo.cs</DependentUpon>
+    <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
+      <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
