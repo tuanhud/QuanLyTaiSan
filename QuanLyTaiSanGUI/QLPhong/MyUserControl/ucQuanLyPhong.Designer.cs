@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -70,7 +69,9 @@
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lblViTri = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblTenPhong = new DevExpress.XtraEditors.LabelControl();
+            this.txtMaPhong = new DevExpress.XtraEditors.TextEdit();
             this.txtTenPhong = new DevExpress.XtraEditors.TextEdit();
             this.imgPhong = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTaPhong = new DevExpress.XtraEditors.MemoEdit();
@@ -79,9 +80,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMaPhong = new DevExpress.XtraEditors.TextEdit();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -98,11 +97,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditNhanVienPT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaPhong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -150,14 +149,13 @@
             this.gridViewPhong.OptionsFind.AlwaysVisible = true;
             this.gridViewPhong.OptionsView.ShowGroupPanel = false;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
+            this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
             // 
             // id
             // 
             this.id.Caption = "STT";
             this.id.FieldName = "id";
             this.id.Name = "id";
-            this.id.Visible = true;
-            this.id.VisibleIndex = 0;
             this.id.Width = 40;
             // 
             // colsubId
@@ -236,7 +234,7 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 200);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 197);
             this.txtSoDienThoai.MenuManager = this.ribbonPhong;
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.ReadOnly = true;
@@ -300,7 +298,7 @@
             // 
             // txtTenNhanVien
             // 
-            this.txtTenNhanVien.Location = new System.Drawing.Point(79, 176);
+            this.txtTenNhanVien.Location = new System.Drawing.Point(79, 173);
             this.txtTenNhanVien.MenuManager = this.ribbonPhong;
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Properties.ReadOnly = true;
@@ -309,7 +307,7 @@
             // 
             // txtMaNhanVien
             // 
-            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 151);
+            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 148);
             this.txtMaNhanVien.MenuManager = this.ribbonPhong;
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Properties.ReadOnly = true;
@@ -339,7 +337,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(6, 26);
+            this.labelControl9.Location = new System.Drawing.Point(6, 25);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(42, 13);
             this.labelControl9.TabIndex = 7;
@@ -347,7 +345,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(7, 202);
+            this.labelControl8.Location = new System.Drawing.Point(7, 199);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(66, 13);
             this.labelControl8.TabIndex = 6;
@@ -355,7 +353,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(6, 178);
+            this.labelControl7.Location = new System.Drawing.Point(6, 175);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(72, 13);
             this.labelControl7.TabIndex = 5;
@@ -363,7 +361,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(7, 151);
+            this.labelControl6.Location = new System.Drawing.Point(7, 148);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(68, 13);
             this.labelControl6.TabIndex = 4;
@@ -372,7 +370,7 @@
             // imgNhanVien
             // 
             this.imgNhanVien.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imgNhanVien.Location = new System.Drawing.Point(79, 26);
+            this.imgNhanVien.Location = new System.Drawing.Point(79, 24);
             this.imgNhanVien.Name = "imgNhanVien";
             this.imgNhanVien.Size = new System.Drawing.Size(120, 120);
             this.imgNhanVien.TabIndex = 0;
@@ -405,7 +403,7 @@
             // searchLookUpEditNhanVienPT
             // 
             this.searchLookUpEditNhanVienPT.EditValue = "";
-            this.searchLookUpEditNhanVienPT.Location = new System.Drawing.Point(68, 281);
+            this.searchLookUpEditNhanVienPT.Location = new System.Drawing.Point(79, 281);
             this.searchLookUpEditNhanVienPT.MenuManager = this.ribbonPhong;
             this.searchLookUpEditNhanVienPT.Name = "searchLookUpEditNhanVienPT";
             this.searchLookUpEditNhanVienPT.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
@@ -415,7 +413,7 @@
             this.searchLookUpEditNhanVienPT.Properties.NullText = "";
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(224, 20);
+            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(213, 20);
             this.searchLookUpEditNhanVienPT.TabIndex = 18;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
@@ -447,7 +445,7 @@
             // 
             // lblNhanVienPT
             // 
-            this.lblNhanVienPT.Location = new System.Drawing.Point(1, 282);
+            this.lblNhanVienPT.Location = new System.Drawing.Point(12, 283);
             this.lblNhanVienPT.Name = "lblNhanVienPT";
             this.lblNhanVienPT.Size = new System.Drawing.Size(63, 13);
             this.lblNhanVienPT.TabIndex = 16;
@@ -458,14 +456,14 @@
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Location = new System.Drawing.Point(68, 201);
+            this.panelControl1.Location = new System.Drawing.Point(79, 201);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(224, 20);
+            this.panelControl1.Size = new System.Drawing.Size(213, 20);
             this.panelControl1.TabIndex = 15;
             // 
             // lblHinhPhong
             // 
-            this.lblHinhPhong.Location = new System.Drawing.Point(7, 24);
+            this.lblHinhPhong.Location = new System.Drawing.Point(12, 24);
             this.lblHinhPhong.Name = "lblHinhPhong";
             this.lblHinhPhong.Size = new System.Drawing.Size(46, 13);
             this.lblHinhPhong.TabIndex = 14;
@@ -473,7 +471,7 @@
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(194, 24);
+            this.btnImage.Location = new System.Drawing.Point(206, 24);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 13;
@@ -482,7 +480,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(145, 304);
+            this.btnHuy.Location = new System.Drawing.Point(145, 305);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
@@ -491,7 +489,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(64, 304);
+            this.btnOK.Location = new System.Drawing.Point(64, 305);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 11;
@@ -500,7 +498,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(7, 229);
+            this.labelControl5.Location = new System.Drawing.Point(12, 229);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(31, 13);
             this.labelControl5.TabIndex = 10;
@@ -508,34 +506,50 @@
             // 
             // lblViTri
             // 
-            this.lblViTri.Location = new System.Drawing.Point(7, 201);
+            this.lblViTri.Location = new System.Drawing.Point(12, 201);
             this.lblViTri.Name = "lblViTri";
             this.lblViTri.Size = new System.Drawing.Size(25, 13);
             this.lblViTri.TabIndex = 7;
             this.lblViTri.Text = "Vị trí:";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(12, 153);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(51, 13);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = "Mã phòng:";
+            // 
             // lblTenPhong
             // 
-            this.lblTenPhong.Location = new System.Drawing.Point(7, 176);
+            this.lblTenPhong.Location = new System.Drawing.Point(12, 177);
             this.lblTenPhong.Name = "lblTenPhong";
             this.lblTenPhong.Size = new System.Drawing.Size(55, 13);
             this.lblTenPhong.TabIndex = 6;
             this.lblTenPhong.Text = "Tên phòng:";
             // 
+            // txtMaPhong
+            // 
+            this.txtMaPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaPhong.Location = new System.Drawing.Point(79, 150);
+            this.txtMaPhong.Name = "txtMaPhong";
+            this.txtMaPhong.Size = new System.Drawing.Size(213, 20);
+            this.txtMaPhong.TabIndex = 1;
+            // 
             // txtTenPhong
             // 
             this.txtTenPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenPhong.Location = new System.Drawing.Point(68, 174);
+            this.txtTenPhong.Location = new System.Drawing.Point(79, 174);
             this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Size = new System.Drawing.Size(224, 20);
+            this.txtTenPhong.Size = new System.Drawing.Size(213, 20);
             this.txtTenPhong.TabIndex = 1;
             // 
             // imgPhong
             // 
-            this.imgPhong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imgPhong.Location = new System.Drawing.Point(68, 27);
+            this.imgPhong.Location = new System.Drawing.Point(79, 24);
             this.imgPhong.Name = "imgPhong";
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
             this.imgPhong.TabIndex = 0;
@@ -545,9 +559,9 @@
             // 
             this.txtMoTaPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTaPhong.Location = new System.Drawing.Point(68, 227);
+            this.txtMoTaPhong.Location = new System.Drawing.Point(79, 227);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
-            this.txtMoTaPhong.Size = new System.Drawing.Size(224, 49);
+            this.txtMoTaPhong.Size = new System.Drawing.Size(213, 49);
             this.txtMoTaPhong.TabIndex = 5;
             this.txtMoTaPhong.UseOptimizedRendering = true;
             // 
@@ -588,23 +602,6 @@
             // 
             this.dxErrorProvider.ContainerControl = this;
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(7, 153);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(51, 13);
-            this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Mã phòng:";
-            // 
-            // txtMaPhong
-            // 
-            this.txtMaPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaPhong.Location = new System.Drawing.Point(68, 150);
-            this.txtMaPhong.Name = "txtMaPhong";
-            this.txtMaPhong.Size = new System.Drawing.Size(224, 20);
-            this.txtMaPhong.TabIndex = 1;
-            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,11 +628,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditNhanVienPT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaPhong.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
