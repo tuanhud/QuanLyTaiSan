@@ -80,11 +80,11 @@ namespace QuanLyTaiSan.Entities
         public override int update()
         {
             date_modified = ServerTimeHelper.getNow();
-            //have to load all [Required] FK object first
-            if (parent != null)
-            {
-                parent.trigger();
-            }
+            ////have to load all [Required] FK object first
+            //if (parent != null)
+            //{
+            //    parent.trigger();
+            //}
             return base.update();
         }
         public override int add()

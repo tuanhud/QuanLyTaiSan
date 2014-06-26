@@ -119,7 +119,7 @@
             this.imageSlider1.Location = new System.Drawing.Point(77, 12);
             this.imageSlider1.Name = "imageSlider1";
             this.imageSlider1.Size = new System.Drawing.Size(100, 100);
-            this.imageSlider1.TabIndex = 10;
+            this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
             // 
             // labelControl7
@@ -141,14 +141,14 @@
             this.lookUpTinhTrang.Properties.DisplayMember = "value";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
             this.lookUpTinhTrang.Size = new System.Drawing.Size(200, 20);
-            this.lookUpTinhTrang.TabIndex = 8;
+            this.lookUpTinhTrang.TabIndex = 4;
             // 
             // btnChonHinh
             // 
             this.btnChonHinh.Location = new System.Drawing.Point(203, 12);
             this.btnChonHinh.Name = "btnChonHinh";
             this.btnChonHinh.Size = new System.Drawing.Size(75, 23);
-            this.btnChonHinh.TabIndex = 2;
+            this.btnChonHinh.TabIndex = 1;
             this.btnChonHinh.Text = "Chọn";
             this.btnChonHinh.Click += new System.EventHandler(this.btnChonHinh_Click);
             // 
@@ -158,7 +158,7 @@
             this.panelLoaiTB.Location = new System.Drawing.Point(78, 140);
             this.panelLoaiTB.Name = "panelLoaiTB";
             this.panelLoaiTB.Size = new System.Drawing.Size(200, 20);
-            this.panelLoaiTB.TabIndex = 5;
+            this.panelLoaiTB.TabIndex = 3;
             // 
             // panelPhong
             // 
@@ -166,7 +166,7 @@
             this.panelPhong.Location = new System.Drawing.Point(77, 114);
             this.panelPhong.Name = "panelPhong";
             this.panelPhong.Size = new System.Drawing.Size(201, 20);
-            this.panelPhong.TabIndex = 4;
+            this.panelPhong.TabIndex = 2;
             // 
             // labelControl4
             // 
@@ -211,10 +211,23 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSoLuong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtSoLuong.Properties.IsFloatValue = false;
+            this.txtSoLuong.Properties.Mask.EditMask = "N00";
+            this.txtSoLuong.Properties.MaxLength = 3;
+            this.txtSoLuong.Properties.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtSoLuong.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtSoLuong.Size = new System.Drawing.Size(200, 20);
-            this.txtSoLuong.TabIndex = 7;
+            this.txtSoLuong.TabIndex = 5;
             // 
             // groupControl1
             // 
@@ -246,7 +259,7 @@
             this.dateEditLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditLap.Size = new System.Drawing.Size(200, 20);
-            this.dateEditLap.TabIndex = 11;
+            this.dateEditLap.TabIndex = 9;
             // 
             // labelControl5
             // 
@@ -266,7 +279,7 @@
             this.dateEditMua.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditMua.Size = new System.Drawing.Size(200, 20);
-            this.dateEditMua.TabIndex = 10;
+            this.dateEditMua.TabIndex = 8;
             // 
             // labelControl6
             // 
@@ -319,7 +332,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(77, 132);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(201, 52);
-            this.txtMoTa.TabIndex = 8;
+            this.txtMoTa.TabIndex = 10;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // panelControl3
@@ -338,7 +351,7 @@
             this.btnHuy.Location = new System.Drawing.Point(146, 6);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 1;
+            this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -347,7 +360,7 @@
             this.btnOK.Location = new System.Drawing.Point(65, 6);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -369,6 +382,7 @@
             this.Name = "frmNewThietBi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm thiết bị";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmNewThietBi_FormClosed);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
