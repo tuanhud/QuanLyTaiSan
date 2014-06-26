@@ -37,6 +37,11 @@ namespace QuanLyTaiSanGUI.MyUC
             treeListPhong.EndUnboundLoad();
         }
 
+        public void reLoad(List<ViTriFilter> _list)
+        {
+            loadData(_list, type);
+        }
+
         private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
             try

@@ -180,6 +180,10 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
                         addRibbonPage(_ucQuanLyPhong.getRibbon());
                     }
+                    else
+                    {
+                        _ucQuanLyPhong.reLoadAll();
+                    }
                     ribbonMain.Pages.GetPageByName("rbnPagePhong_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhong_Home");
                     panelControl1.Controls.Clear();
