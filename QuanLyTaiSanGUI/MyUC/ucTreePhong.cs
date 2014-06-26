@@ -145,6 +145,7 @@ namespace QuanLyTaiSanGUI.MyUC
                     }
                     if (findNode != null)
                     {
+                        treeListPhong.CollapseAll();
                         treeListPhong.NodesIterator.DoOperation(findNode);
                         treeListPhong.FocusedNode = findNode.Node;
                     }

@@ -116,6 +116,18 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Control.Designer.cs">
+      <DependentUpon>ucPhanQuyen_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Group.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Group.Designer.cs">
+      <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\ucSettingInterface.cs" />
     <Compile Include="HeThong\ucThongTinQuanTriVien.cs">
       <SubType>UserControl</SubType>
@@ -288,6 +300,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucPhanQuyen_Control.resx">
+      <DependentUpon>ucPhanQuyen_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucPhanQuyen_Group.resx">
+      <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>

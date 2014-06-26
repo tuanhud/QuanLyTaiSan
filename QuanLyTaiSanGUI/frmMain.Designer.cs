@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
@@ -52,6 +47,7 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.navBarGroupControlContainer5 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -68,44 +64,9 @@
             this.ribbonMain.MaxItemId = 39;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.rbnPagePhanQuyen_Home,
             this.rbnPageThongKe_Home});
             this.ribbonMain.Size = new System.Drawing.Size(900, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
-            // 
-            // rbnPagePhanQuyen_Home
-            // 
-            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
-            this.rbnPagePhanQuyen_Home.Text = "Trang chính";
-            this.rbnPagePhanQuyen_Home.Visible = false;
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Phân quyền";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Thêm quản trị";
-            this.barButtonItem1.Id = 25;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Sửa quản trị";
-            this.barButtonItem2.Id = 26;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Xóa quản trị";
-            this.barButtonItem3.Id = 27;
-            this.barButtonItem3.Name = "barButtonItem3";
             // 
             // rbnPageThongKe_Home
             // 
@@ -140,6 +101,7 @@
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer2);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer3);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer4);
+            this.navBarControl1.Controls.Add(this.navBarGroupControlContainer5);
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri,
@@ -226,6 +188,9 @@
             // navBarGroupPhanQuyen
             // 
             this.navBarGroupPhanQuyen.Caption = "Phân quyền";
+            this.navBarGroupPhanQuyen.ControlContainer = this.navBarGroupControlContainer5;
+            this.navBarGroupPhanQuyen.GroupClientHeight = 80;
+            this.navBarGroupPhanQuyen.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroupPhanQuyen.Name = "navBarGroupPhanQuyen";
             this.navBarGroupPhanQuyen.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
             // 
@@ -246,6 +211,12 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
+            // 
+            // navBarGroupControlContainer5
+            // 
+            this.navBarGroupControlContainer5.Name = "navBarGroupControlContainer5";
+            this.navBarGroupControlContainer5.Size = new System.Drawing.Size(259, 239);
+            this.navBarGroupControlContainer5.TabIndex = 4;
             // 
             // frmMain
             // 
@@ -282,7 +253,6 @@
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupViTri;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhanQuyen_Home;
         private DevExpress.XtraBars.BarButtonItem barBtnThemCoSo;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupLoaiTB;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupNhanVien;
@@ -297,15 +267,12 @@
         private DevExpress.XtraBars.BarButtonItem barBtnSuaTang;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaTang;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThongKe_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer3;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupThietBi;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer4;
+        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer5;
     }
 }
