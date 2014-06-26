@@ -42,45 +42,50 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void loadData()
         {
-            NhanVienPTs = new NhanVienPT().getAll();
-            gridControlNhanVien.DataSource = null;
-            gridControlNhanVien.DataSource = NhanVienPTs;
+            try
+            {
+                NhanVienPTs = new NhanVienPT().getAll();
+                gridControlNhanVien.DataSource = null;
+                gridControlNhanVien.DataSource = NhanVienPTs;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : loadData : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private void gridViewNhanVien_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (gridViewNhanVien.GetFocusedRow() != null)
+            try
             {
-                enableEdit(false, "");
-                SetTextGroupControl("Chi tiết", false);
-                objNhanVienPT = (NhanVienPT)gridViewNhanVien.GetFocusedRow();
-                SetData();
+                if (gridViewNhanVien.GetFocusedRow() != null)
+                {
+                    enableEdit(false, "");
+                    SetTextGroupControl("Chi tiết", false);
+                    objNhanVienPT = (NhanVienPT)gridViewNhanVien.GetFocusedRow();
+                    SetData();
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : gridViewNhanVien_FocusedRowChanged : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void enableEdit(bool _enable, String _function)
         {
             function = _function;
-            if (_enable)
-            {
-                btnImage.Visible = true;
-                btnOK.Visible = true;
-                btnHuy.Visible = true;
-                txtMa.Properties.ReadOnly = false;
-                txtTen.Properties.ReadOnly = false;
-                txtSodt.Properties.ReadOnly = false;
-                working = true;
-            }
-            else
-            {
-                btnImage.Visible = false;
-                btnOK.Visible = false;
-                btnHuy.Visible = false;
-                txtMa.Properties.ReadOnly = true;
-                txtTen.Properties.ReadOnly = true;
-                txtSodt.Properties.ReadOnly = true;
-                working = false;
-            }
+            btnImage.Visible = _enable;
+            btnOK.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtMa.Properties.ReadOnly = !_enable;
+            txtTen.Properties.ReadOnly = !_enable;
+            txtSodt.Properties.ReadOnly = !_enable;
+            working = _enable;
         }
 
         public void reLoad()
@@ -107,43 +112,61 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void Function(String _function)
         {
-            if(_function.Equals("edit"))
+            try
             {
-                objNhanVienPT.subId = txtMa.Text;
-                objNhanVienPT.hoten = txtTen.Text;
-                objNhanVienPT.sodienthoai = txtSodt.Text;
-                objNhanVienPT.hinhanhs = listHinhs;
-                if (objNhanVienPT.update() != -1)
+                if (_function.Equals("edit"))
                 {
-                    XtraMessageBox.Show("Sửa nhân viên thành công!");
-                    reLoad();
+                    objNhanVienPT.subId = txtMa.Text;
+                    objNhanVienPT.hoten = txtTen.Text;
+                    objNhanVienPT.sodienthoai = txtSodt.Text;
+                    objNhanVienPT.hinhanhs = listHinhs;
+                    if (objNhanVienPT.update() != -1)
+                    {
+                        XtraMessageBox.Show("Sửa nhân viên thành công!");
+                        reLoad();
+                    }
+                }
+                else
+                {
+                    NhanVienPT objNew = new NhanVienPT();
+                    objNew.subId = txtMa.Text;
+                    objNew.hoten = txtTen.Text;
+                    objNew.sodienthoai = txtSodt.Text;
+                    objNew.hinhanhs = listHinhs;
+                    if (objNew.add() != -1)
+                    {
+                        XtraMessageBox.Show("Thêm nhân viên thành công!");
+                        reLoad();
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                NhanVienPT objNew = new NhanVienPT();
-                objNew.subId = txtMa.Text;
-                objNew.hoten = txtTen.Text;
-                objNew.sodienthoai = txtSodt.Text;
-                objNew.hinhanhs = listHinhs;
-                if (objNew.add() != -1)
-                {
-                    XtraMessageBox.Show("Thêm nhân viên thành công!");
-                    reLoad();
-                }
+                System.Console.WriteLine(this.Name + " : Function : " + ex.Message);
             }
+            finally
+            { }
         }
 
         public void deleteObj()
         {
-            if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                if (objNhanVienPT.delete() != -1)
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    XtraMessageBox.Show("Xóa nhân viên thành công!");
-                    reLoad();
+                    if (objNhanVienPT.delete() != -1)
+                    {
+                        XtraMessageBox.Show("Xóa nhân viên thành công!");
+                        reLoad();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : deleteObj : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void SetTextGroupControl(String text, bool _color)
@@ -174,13 +197,22 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         public void SetData()
         {
-            SetTextGroupControl("Chi tiết", false);
-            txtMa.Text = objNhanVienPT.subId;
-            txtTen.Text = objNhanVienPT.hoten;
-            txtSodt.Text = objNhanVienPT.sodienthoai;
-            listBoxPhong.DataSource = objNhanVienPT.phongs;
-            listHinhs = objNhanVienPT.hinhanhs.ToList();
-            reloadImage();
+            try
+            {
+                SetTextGroupControl("Chi tiết", false);
+                txtMa.Text = objNhanVienPT.subId;
+                txtTen.Text = objNhanVienPT.hoten;
+                txtSodt.Text = objNhanVienPT.sodienthoai;
+                listBoxPhong.DataSource = objNhanVienPT.phongs;
+                listHinhs = objNhanVienPT.hinhanhs.ToList();
+                reloadImage();
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : SetData : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private Boolean CheckInput()
@@ -246,7 +278,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 reloadImage();
             }
             catch (Exception ex)
-            { }
+            {
+                System.Console.WriteLine(this.Name + " : btnImage_Click : " + ex.Message);
+            }
             finally
             { }
         }
@@ -271,21 +305,29 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         public void PhanCong(bool _bool)
         {
-            btnOK_PhanCong.Visible = _bool;
-            btnHuy_PhanCong.Visible = _bool;
-            rbnGroupNhanVien.Enabled = !_bool;
-            splitContainerControl1.Panel1.Controls.Clear();
-            if (_bool)
+            try
             {
-                List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
-                _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
-                splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+                btnOK_PhanCong.Visible = _bool;
+                btnHuy_PhanCong.Visible = _bool;
+                rbnGroupNhanVien.Enabled = !_bool;
+                splitContainerControl1.Panel1.Controls.Clear();
+                if (_bool)
+                {
+                    List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
+                    _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
+                    splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
+                }
+                else
+                {
+                    splitContainerControl1.Panel1.Controls.Add(gridControlNhanVien);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                splitContainerControl1.Panel1.Controls.Add(gridControlNhanVien);
+                System.Console.WriteLine(this.Name + " : PhanCong : " + ex.Message);
             }
-
+            finally
+            { }
         }
 
         public RibbonControl getRibbon()
@@ -325,13 +367,22 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void btnOK_PhanCong_Click(object sender, EventArgs e)
         {
-            objNhanVienPT.phongs = listPhong;
-            if (objNhanVienPT.update() != -1)
+            try
             {
-                XtraMessageBox.Show("Phân công nhân viên thành công!");
-                reLoad();
-                PhanCong(false);
+                objNhanVienPT.phongs = listPhong;
+                if (objNhanVienPT.update() != -1)
+                {
+                    XtraMessageBox.Show("Phân công nhân viên thành công!");
+                    reLoad();
+                    PhanCong(false);
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : btnOK_PhanCong_Click : " + ex.Message);
+            }
+            finally
+            { }
         }
     }
 }
