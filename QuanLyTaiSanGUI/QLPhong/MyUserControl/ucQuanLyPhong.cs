@@ -115,10 +115,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // Reload dữ liệu
         public void reLoad()
         {
-            gridControlPhong.DataSource = null;
-            listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
-            gridControlPhong.DataSource = listPhong;
-            _ucTreeViTri.setVitri(objPhong.vitri);
+            try
+            {
+                _ucTreeViTri.setVitri(objPhong.vitri);
+                gridControlPhong.DataSource = null;
+                listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
+                gridControlPhong.DataSource = listPhong;
+            }
+            catch
+            { }
+            finally
+            { }
         }
 
         //Khi thêm mới cơ sở -> phòng thì load treelist bên trái + reload dữ liệu ucQuanLyPhong
@@ -261,11 +268,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             dxErrorProvider.ClearErrors();
             Boolean check = true;
-            if (imgPhong.Images.Count == 0)
-            {
-                check = false;
-                dxErrorProvider.SetError(imgPhong, "Cần ít nhất 1 hình ảnh");
-            }
+            //if (imgPhong.Images.Count == 0)
+            //{
+            //    check = false;
+            //    dxErrorProvider.SetError(imgPhong, "Cần ít nhất 1 hình ảnh");
+            //}
             if (txtTenPhong.Text.Length == 0)
             {
                 check = false;
