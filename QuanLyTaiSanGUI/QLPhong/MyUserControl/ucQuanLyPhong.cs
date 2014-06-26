@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         Phong objPhong = new Phong();
         NhanVienPT objNhanVienPT = new NhanVienPT();
 
-        int _index, cosoid, dayid, tangid = 0;
+        int row, cosoid, dayid, tangid = 0;
 
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
         List<ViTriHienThi> listVitris = new List<ViTriHienThi>();
@@ -223,16 +223,25 @@ namespace QuanLyTaiSanGUI.MyUserControl
             objPhong.subId = txtMaPhong.Text;
             objPhong.ten = txtTenPhong.Text;
             objPhong.vitri = _ucComboBoxViTri.getViTri();
-            objPhong.mota = txtMoTaPhong.Text;            
+            objPhong.mota = txtMoTaPhong.Text;
+            //objPhong.nhanvienpt.id = _idnhanvien;// == -1 ? null : _idnhanvien;
             if (_idnhanvien > -1)
                 objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
             else objPhong.nhanvienpt = null;
             if (objPhong.update() != -1)
             {
-                XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reLoad();
+                XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reLoadAndFocused(objPhong.id);
             }
             else XtraMessageBox.Show("Có lỗi trong khi chỉnh sửa");
+        }
+
+        private void reLoadAndFocused(int _id)
+        {
+            reLoad();
+            int rowHandle = gridViewPhong.LocateByValue(colid.FieldName, _id);
+            if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                gridViewPhong.FocusedRowHandle = rowHandle;
         }
 
         //thêm phòng
@@ -310,6 +319,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 {
                     XtraMessageBox.Show("Xóa phòng thành công!");
                     reLoad();
+                    reLoadAndFocused(objPhong.id);
                 }
                 else
                 {
@@ -327,9 +337,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonThemPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gridViewPhong.AddNewRow();
-            int rowHandler = gridViewPhong.RowCount - 1;
-            gridViewPhong.FocusedRowHandle = rowHandler;
+            //gridViewPhong.AddNewRow();
+            //int rowHandler = gridViewPhong.RowCount - 1;
+            //gridViewPhong.FocusedRowHandle = rowHandler;
             searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
             enableEdit(true, "add");
             beforeAdd();
@@ -338,7 +348,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucComboBoxViTri.Visible = true;
             ViTri _ViTri = _ucTreeViTri.getVitri();
             _ucComboBoxViTri.setViTri(_ViTri);
-            string abc;
         }
 
         private void barButtonSuaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -376,10 +385,16 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewPhong_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            getInfoPhongNhanVien();
+        }
+
+        //Truyền thông tin phòng + nhân viên khi thay đổi dòng gridview
+        private void getInfoPhongNhanVien()
+        {
             try
             {
                 enableBar(true);
-                int row = gridViewPhong.FocusedRowHandle;
+                row = gridViewPhong.FocusedRowHandle;
                 Phong obj = new Phong();
                 obj = obj.getById(Convert.ToInt32(gridViewPhong.GetRowCellValue(gridViewPhong.GetDataRowHandleByGroupRowHandle(row), id)));
                 setData(obj);
@@ -398,11 +413,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            SetTextGroupControl("Chi tiết", false);
             dxErrorProvider.ClearErrors();
             listHinh = null;
             setData(objPhong);
             enableEdit(false, "");
+            //reloadImageNhanVienPT();
+            //reLoad();
+            //gridViewPhong.FocusedRowHandle = row;
+            //reLoadAndFocused(objPhong.id);
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -463,25 +481,20 @@ namespace QuanLyTaiSanGUI.MyUserControl
             txtSoDienThoai.Text = "";
             imgNhanVien.Images.Clear();
         }
-
+        
         private void searchLookUpEditNhanVienPT_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
                 if (searchLookUpEditNhanVienPT.EditValue != null)
                 {
+                    // set hình ảnh và thông tin nhân viên phụ trách khi được chọn
                     _idnhanvien = Int32.Parse(searchLookUpEditNhanVienPT.EditValue.ToString());
                     objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
-                    NhanVienPT objNV = new NhanVienPT();
-                    if (objPhong.nhanvienpt != null)
-                    {
-                        objNV = objPhong.nhanvienpt;
-                    }
-                    txtMaNhanVien.Text = objNV.subId;
-                    txtTenNhanVien.Text = objNV.hoten;
-                    txtSoDienThoai.Text = objNV.sodienthoai;
-                    if (listNhanVienPT != null)
-                        listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                    txtMaNhanVien.Text = objPhong.nhanvienpt.subId;
+                    txtTenNhanVien.Text = objPhong.nhanvienpt.hoten;
+                    txtSoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
+                    listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
                     reloadImageNhanVienPT();
                 }
                 else
@@ -492,6 +505,23 @@ namespace QuanLyTaiSanGUI.MyUserControl
             catch(Exception ex)
             {
 
+            }
+        }
+
+        //Thêm xóa sửa bằng phím tắt
+        private void gridViewPhong_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.T:
+                    this.barButtonThemPhong.PerformClick();
+                    break;
+                case Keys.S:
+                    this.barButtonSuaPhong.PerformClick();
+                    break;
+                case Keys.X : case Keys.Delete:
+                    this.barButtonXoaPhong.PerformClick();
+                    break;
             }
         }
     }

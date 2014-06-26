@@ -59,7 +59,7 @@ namespace QuanLyTaiSan.Entities
                         {
                             //load from DB
                             //host_name = new Setting().getValue("ftp_image_host");
-                            host_name = "ftp://192.168.0.9";
+                            host_name = "ftp://172.16.0.158";
                         }
                         return host_name;
                     }
@@ -174,7 +174,7 @@ namespace QuanLyTaiSan.Entities
                         {
                             //load from DB
                             //host_name = new Setting().getValue("http_image_host");
-                            host_name = "http://192.168.0.9";
+                            host_name = "http://172.16.0.158";
                         }
                         return host_name;
                     }
