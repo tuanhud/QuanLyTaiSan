@@ -33,15 +33,25 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public List<LoaiThietBi> getListLoaiTB()
         {
-            List<LoaiThietBi> list = new List<LoaiThietBi>();
-            GetCheckedNodes op = new GetCheckedNodes();
-            treeListLoaiTB.NodesIterator.DoOperation(op);
-            foreach (TreeListNode node in op.CheckedNodes)
+            try
             {
-                LoaiThietBi obj = new LoaiThietBi().getById(Convert.ToInt32(node.GetValue(0)));
-                list.Add(obj);
+                List<LoaiThietBi> list = new List<LoaiThietBi>();
+                GetCheckedNodes op = new GetCheckedNodes();
+                treeListLoaiTB.NodesIterator.DoOperation(op);
+                foreach (TreeListNode node in op.CheckedNodes)
+                {
+                    LoaiThietBi obj = new LoaiThietBi().getById(Convert.ToInt32(node.GetValue(0)));
+                    list.Add(obj);
+                }
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : getListLoaiTB : " + ex.Message);
+                return null;
+            }
+            finally
+            { }
         }
 
         public void loadData(List<LoaiThietBi> _list)
@@ -53,53 +63,71 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public void setLoai(LoaiThietBi _loai)
         {
-            obj = _loai;
-            TreeListNode _node=null;
-            treeListLoaiTB.CollapseAll();
-            if (obj.parent_id != null)
+            try
             {
-                foreach (TreeListNode node in treeListLoaiTB.Nodes)
+                obj = _loai;
+                TreeListNode _node = null;
+                treeListLoaiTB.CollapseAll();
+                if (obj.parent_id != null)
                 {
-                    foreach (TreeListNode node2 in node.Nodes)
+                    foreach (TreeListNode node in treeListLoaiTB.Nodes)
                     {
-                        if ((int)node2.GetValue(0) == obj.id)
+                        foreach (TreeListNode node2 in node.Nodes)
                         {
-                            _node = node2;
+                            if ((int)node2.GetValue(0) == obj.id)
+                            {
+                                _node = node2;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (TreeListNode node in treeListLoaiTB.Nodes)
+                    {
+                        if ((int)node.GetValue(0) == obj.id)
+                        {
+                            _node = node;
                             break;
                         }
                     }
                 }
+                treeListLoaiTB.SetFocusedNode(_node);
             }
-            else
+            catch (Exception ex)
             {
-                foreach (TreeListNode node in treeListLoaiTB.Nodes)
-                {
-                    if ((int)node.GetValue(0) == obj.id)
-                    {
-                        _node = node;
-                        break;
-                    }
-                }
+                System.Console.WriteLine(this.Name + " : setLoai : " + ex.Message);
             }
-            treeListLoaiTB.SetFocusedNode(_node);
+            finally
+            { }
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            if (!haveCheck)
+            try
             {
-                obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-                popupContainerEdit1.Text = obj.ten;
-                popupContainerEdit1.ClosePopup();
-                if (type.Equals("add"))
+                if (!haveCheck)
                 {
-                    if (this.ParentForm != null)
+                    obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                    popupContainerEdit1.Text = obj.ten;
+                    popupContainerEdit1.ClosePopup();
+                    if (type.Equals("add"))
                     {
-                        frmNewThietBi frm = this.ParentForm as frmNewThietBi;
-                        frm.LoaiTB_FocusedChanged(obj.loaichung);
+                        if (this.ParentForm != null)
+                        {
+                            frmNewThietBi frm = this.ParentForm as frmNewThietBi;
+                            frm.LoaiTB_FocusedChanged(obj.loaichung);
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : treeListLoaiTB_FocusedNodeChanged : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void setReadOnly(bool b)
@@ -128,20 +156,29 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void treeListLoaiTB_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
-            if (haveCheck)
+            try
             {
-                String str = "";
-                List<LoaiThietBi> list = getListLoaiTB();
-                foreach(LoaiThietBi loaiTB in list)
+                if (haveCheck)
                 {
-                    str += loaiTB.ten +", ";
+                    String str = "";
+                    List<LoaiThietBi> list = getListLoaiTB();
+                    foreach (LoaiThietBi loaiTB in list)
+                    {
+                        str += loaiTB.ten + ", ";
+                    }
+                    if (str.Length > 2)
+                    {
+                        str = str.Substring(0, str.Length - 2);
+                    }
+                    popupContainerEdit1.Text = str;
                 }
-                if (str.Length > 2)
-                {
-                    str = str.Substring(0, str.Length - 2);
-                }
-                popupContainerEdit1.Text = str;
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : treeListLoaiTB_AfterCheckNode : " + ex.Message);
+            }
+            finally
+            { }
         }
     }
 }

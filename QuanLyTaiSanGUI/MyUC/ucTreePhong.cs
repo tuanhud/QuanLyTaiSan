@@ -93,18 +93,30 @@ namespace QuanLyTaiSanGUI.MyUC
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                System.Console.WriteLine(this.Name + " : treeListPhong_FocusedNodeChanged : " + ex.Message);
+            }
             finally
             { }
         }
 
         public ViTri getVitri()
         {
-            ViTri obj = new ViTri();
-            obj.coso = new CoSo().getById(cosoid);
-            obj.day = new Dayy().getById(dayid);
-            obj.tang = new Tang().getById(tangid);
-            return obj;
+            try
+            {
+                ViTri obj = new ViTri();
+                obj.coso = new CoSo().getById(cosoid);
+                obj.day = new Dayy().getById(dayid);
+                obj.tang = new Tang().getById(tangid);
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : getVitri : " + ex.Message);
+                return null;
+            }
+            finally
+            { }
         }
 
         public TreeList getTreeList()
