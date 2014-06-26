@@ -31,7 +31,8 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             bool IsLookedFor(object _id, object _loai)
             {
-                if (IsNull) return (id == _id && loai == _loai);
+                if (IsNull) 
+                    return (id == _id && loai == _loai);
                 return id.Equals(_id) && loai.Equals(_loai);
             }
             protected bool IsNull { get { return isNullCore; } }

@@ -176,7 +176,6 @@ namespace QuanLyTaiSanGUI.MyUC
         public void setTextPopupContainerEdit(String text)
         {
             popupContainerEdit1.Text = text;
-            popupContainerEdit1.ClosePopup();
         }
 
         public String getTextPopupContainerEdit()

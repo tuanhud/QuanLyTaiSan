@@ -24,7 +24,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();//Chọn loại thiết bị
 
         List<ViTriFilter> listViTri = null;
-        List<ThietBiFilter> listThietBi = null;
+        List<ThietBiFilter> listThietBiFilter = null;
         List<LoaiThietBi> listLoaiThietBi = null;
 
         ThietBi objThietBi = new ThietBi();
@@ -78,24 +78,24 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucTreeViTri.setTextPopupContainerEdit(null);
 
             
-            listThietBi = new ThietBiFilter().getAllBy4Id(-1,-1,-1,-1);
-            gridControlThietBi.DataSource = listThietBi;
+            listThietBiFilter = new ThietBiFilter().getAllBy4Id(-1,-1,-1,-1);
+            gridControlThietBi.DataSource = listThietBiFilter;
             
-            //objThietBiFilter = listThietBi.ElementAt(2);
+            //objThietBiFilter = listThietBiFilter.ElementAt(2);
             //objThietBi = new ThietBi().getById(objThietBiFilter.idTB);
             //_ucTreeViTri.setPhong(new Phong().getById(1));
             //setData();
         }
 
-        private void reLoad()
+        protected void reLoad()
         {
-            listThietBi = new ThietBiFilter().getAllBy4Id(-1, -1, -1, -1);
-            gridControlThietBi.DataSource = listThietBi;
+            listThietBiFilter = new ThietBiFilter().getAllBy4Id(-1, -1, -1, -1);
+            gridControlThietBi.DataSource = listThietBiFilter;
         }
 
         private void checkSuaXoaThietBi()
         {
-            if (listThietBi.Count == 0)
+            if (listThietBiFilter.Count == 0)
             {
                 barButtonSuaThietBi.Enabled = false;
                 barButtonXoaThietBi.Enabled = false;
@@ -112,8 +112,10 @@ namespace QuanLyTaiSanGUI.QLThietBi
             imageSlider1.Images.Clear();
             txtMa.Text = "";
             txtTen.Text = "";
-            _ucTreeLoaiTB.setTextPopupContainerEdit(null);
-            _ucTreeViTri.setTextPopupContainerEdit(null);
+            //_ucTreeLoaiTB.setTextPopupContainerEdit("");
+            //_ucTreeViTri.setTextPopupContainerEdit("");
+            panelControlLoaiThietBi.Controls.Clear();
+            panelControlPhong.Controls.Clear();
             dateMua.EditValue = null;
             dateLap.EditValue = null;
             txtMoTa.Text = "";
@@ -190,15 +192,15 @@ namespace QuanLyTaiSanGUI.QLThietBi
         //set data cho gridControlThietBi
         public void setData(int phongid, int cosoid, int dayid, int tangid)
         {
-            listThietBi = new ThietBiFilter().getAllBy4Id(phongid, cosoid, dayid, tangid);
+            listThietBiFilter = new ThietBiFilter().getAllBy4Id(phongid, cosoid, dayid, tangid);
             gridControlThietBi.DataSource = null;
-            gridControlThietBi.DataSource = listThietBi;
+            gridControlThietBi.DataSource = listThietBiFilter;
         }
 
         //set thong tin 1 thiet bi
         private void setData()
         {
-            if (listThietBi.Count > 0)
+            if (listThietBiFilter.Count > 0)
             {
                 imageSlider1.Images.Clear();
                 if (objThietBi.hinhanhs.Count > 0)
@@ -213,7 +215,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 txtTen.Text = objThietBi.ten;
                 _ucTreeLoaiTB.setLoai(objThietBi.loaithietbi);
                 _ucTreeViTri.setPhong(new Phong().getById(objThietBiFilter.phong_id));
-                
+                panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
+                panelControlPhong.Controls.Add(_ucTreeViTri);
                 //if (objThietBi.loaithietbi.loaichung)
                 //{
                 //    txtMa.Visible = false;
@@ -274,6 +277,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         private void barButtonThemThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmNewThietBi frm = new frmNewThietBi();
+            frm.sendMessage = new frmNewThietBi.SendMessage(reLoad);
             frm.ShowDialog();
         }
 
