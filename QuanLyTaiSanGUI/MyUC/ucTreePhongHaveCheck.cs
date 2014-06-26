@@ -22,7 +22,7 @@ namespace QuanLyTaiSanGUI.MyUC
             InitializeComponent();
         }
 
-        public void loadData(List<ViTriFilter> list, NhanVienPT nhanvien)
+        public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
         {
             treeListPhong.BeginUnboundLoad();
             treeListPhong.DataSource = list;

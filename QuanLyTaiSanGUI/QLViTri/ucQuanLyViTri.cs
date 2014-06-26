@@ -20,9 +20,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 {
     public partial class ucQuanLyViTri : UserControl
     {
-        List<ViTriFilter> listViTriHienThi = new List<ViTriFilter>();
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
-        ucTreeViTri _ucTreeViTriChonDay = new ucTreeViTri(true, false);
+        List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
+        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
+        ucComboBoxViTri _ucComboBoxViTriChonDay = new ucComboBoxViTri(true, false);
         List<HinhAnh> listHinh = new List<HinhAnh>();
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
@@ -47,12 +47,25 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void loadData()
         {
-            listViTriHienThi = new ViTriFilter().getAll();
-            treeListViTri.DataSource = listViTriHienThi;
-            listViTriHienThi = new ViTriFilter().getAllCoSo();
-            _ucTreeViTri.loadData(listViTriHienThi);
-            listViTriHienThi = new ViTriFilter().getAllHaveDay();
-            _ucTreeViTriChonDay.loadData(listViTriHienThi);
+            try
+            {
+                listViTriHienThi = new ViTriHienThi().getAll();
+                if (listViTriHienThi.Count == 0)
+                {
+                    enableGroupViTri("");
+                }
+                treeListViTri.DataSource = listViTriHienThi;
+                listViTriHienThi = new ViTriHienThi().getAllCoSo();
+                _ucComboBoxViTri.loadData(listViTriHienThi);
+                listViTriHienThi = new ViTriHienThi().getAllHaveDay();
+                _ucComboBoxViTriChonDay.loadData(listViTriHienThi);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + ": loadData :" + ex.Message);
+            }
+            finally
+            { }
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
@@ -63,7 +76,10 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     SetTextGroupControl("Chi tiết", false);
                     if (function.Equals("edit") || function.Equals("add"))
+                    {
                         enableEdit(false, "", "");
+                        loadData();
+                    }
                     if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                     {
                         objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
@@ -82,7 +98,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                System.Console.WriteLine(this.Name + " : treeListViTri_FocusedNodeChanged : " + ex.Message);
+            }
             finally
             { }
         }
@@ -95,8 +113,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            _ucTreeViTri.setReadOnly(!_enable);
-            _ucTreeViTriChonDay.setReadOnly(!_enable);
+            _ucComboBoxViTri.setReadOnly(!_enable);
+            _ucComboBoxViTriChonDay.setReadOnly(!_enable);
             type = _type;
             //làm việc
             working = _enable;
@@ -121,201 +139,237 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void editObj(String _type)
         {
-            switch (_type)
+            try
             {
-                case "CoSo":
-                    objCoSo.ten = txtTen.Text;
-                    objCoSo.mota = txtMoTa.Text;
-                    objCoSo.hinhanhs = listHinh;
-                    if (objCoSo.update() != -1)
-                    {
-                        XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
-                    }
-                    break;
-                case "Dayy":
-                    objDay.ten = txtTen.Text;
-                    objDay.mota = txtMoTa.Text;
-                    ViTri _vitri = _ucTreeViTri.getViTri();
-                    objDay.coso = _vitri.coso;
-                    objDay.hinhanhs = listHinh;
-                    if (objDay.update() != -1)
-                    {
-                        XtraMessageBox.Show("Sửa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
-                    }
-                    break;
-                case "Tang":
-                    objTang.ten = txtTen.Text;
-                    objTang.mota = txtMoTa.Text;
-                    ViTri _vitri2 = _ucTreeViTriChonDay.getViTri();
-                    objTang.day = _vitri2.day;
-                    objTang.hinhanhs = listHinh;
-                    if (objTang.update() != -1)
-                    {
-                        XtraMessageBox.Show("Sửa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
-                    }
-                    break;
+                switch (_type)
+                {
+                    case "CoSo":
+                        objCoSo.ten = txtTen.Text;
+                        objCoSo.mota = txtMoTa.Text;
+                        objCoSo.hinhanhs = listHinh;
+                        if (objCoSo.update() != -1)
+                        {
+                            XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
+                        }
+                        break;
+                    case "Dayy":
+                        objDay.ten = txtTen.Text;
+                        objDay.mota = txtMoTa.Text;
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        objDay.coso = _vitri.coso;
+                        objDay.hinhanhs = listHinh;
+                        if (objDay.update() != -1)
+                        {
+                            XtraMessageBox.Show("Sửa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
+                        }
+                        break;
+                    case "Tang":
+                        objTang.ten = txtTen.Text;
+                        objTang.mota = txtMoTa.Text;
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
+                        objTang.day = _vitri2.day;
+                        objTang.hinhanhs = listHinh;
+                        if (objTang.update() != -1)
+                        {
+                            XtraMessageBox.Show("Sửa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
+                        }
+                        break;
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : editObj : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void beforeAdd(String _type)
         {
-            txtTen.Text = "";
-            txtMoTa.Text = "";
-            imageSlider1.Images.Clear();
-            ViTri _vitri;
-            type = _type;
-            switch (_type)
+            try
             {
-                case "CoSo":
+                txtTen.Text = "";
+                txtMoTa.Text = "";
+                imageSlider1.Images.Clear();
+                ViTri _vitri;
+                type = _type;
+                switch (_type)
+                {
+                    case "CoSo":
 
-                    ThemMoiNode(-1, "");
+                        ThemMoiNode(-1, "");
 
-                    listHinh = null;
-                    panelControl1.Controls.Clear();
-                    TextEdit txt = new TextEdit();
-                    txt.Properties.ReadOnly = true;
-                    txt.Text = "Đại học Sài Gòn";
-                    txt.Dock = DockStyle.Fill;
-                    panelControl1.Controls.Add(txt);
-                    break;
-                case "Dayy":
-                    listHinh = null;
-                    panelControl1.Controls.Clear();
-                    _ucTreeViTri.Dock = DockStyle.Fill;
-                    _vitri = new ViTri();
-                    if (node.Equals(typeof(CoSo).Name))
-                        _vitri.coso = objCoSo;
-                    else if (node.Equals(typeof(Dayy).Name))
-                        _vitri.coso = objDay.coso;
-                    else
-                        _vitri.coso = objTang.day.coso;
+                        listHinh = null;
+                        panelControl1.Controls.Clear();
+                        TextEdit txt = new TextEdit();
+                        txt.Properties.ReadOnly = true;
+                        txt.Text = "Đại học Sài Gòn";
+                        txt.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(txt);
+                        break;
+                    case "Dayy":
+                        listHinh = null;
+                        panelControl1.Controls.Clear();
+                        _ucComboBoxViTri.Dock = DockStyle.Fill;
+                        _vitri = new ViTri();
+                        if (node.Equals(typeof(CoSo).Name))
+                            _vitri.coso = objCoSo;
+                        else if (node.Equals(typeof(Dayy).Name))
+                            _vitri.coso = objDay.coso;
+                        else
+                            _vitri.coso = objTang.day.coso;
 
-                    ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name);
+                        ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name);
 
-                    _ucTreeViTri.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTri);
-                    break;
-                case "Tang":
-                    listHinh = null;
-                    panelControl1.Controls.Clear();
-                    _ucTreeViTriChonDay.Dock = DockStyle.Fill;
-                    _vitri = new ViTri();
-                    if (node.Equals(typeof(Dayy).Name))
-                    {
-                        _vitri.coso = objDay.coso;
-                        _vitri.day = objDay;
-                    }
-                    else
-                    {
-                        _vitri.coso = objTang.day.coso;
-                        _vitri.day = objTang.day;
-                    }
+                        _ucComboBoxViTri.setViTri(_vitri);
+                        panelControl1.Controls.Add(_ucComboBoxViTri);
+                        break;
+                    case "Tang":
+                        listHinh = null;
+                        panelControl1.Controls.Clear();
+                        _ucComboBoxViTriChonDay.Dock = DockStyle.Fill;
+                        _vitri = new ViTri();
+                        if (node.Equals(typeof(Dayy).Name))
+                        {
+                            _vitri.coso = objDay.coso;
+                            _vitri.day = objDay;
+                        }
+                        else
+                        {
+                            _vitri.coso = objTang.day.coso;
+                            _vitri.day = objTang.day;
+                        }
 
-                    ThemMoiNode(_vitri.day.id, typeof(Dayy).Name);
+                        ThemMoiNode(_vitri.day.id, typeof(Dayy).Name);
 
-                    _ucTreeViTriChonDay.setViTri(_vitri);
-                    panelControl1.Controls.Add(_ucTreeViTriChonDay);
-                    break;
+                        _ucComboBoxViTriChonDay.setViTri(_vitri);
+                        panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
+                        break;
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : beforeAdd : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private void addObj(String _type)
         {
-            switch (_type)
+            try
             {
-                case "CoSo":
-                    CoSo objCoSoNew = new CoSo();
-                    objCoSoNew.ten = txtTen.Text;
-                    objCoSoNew.mota = txtMoTa.Text;
-                    objCoSoNew.hinhanhs = listHinh;
-                    if (objCoSoNew.add() != -1)
-                    {
-                        XtraMessageBox.Show("Thêm cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndSelectNode(objCoSoNew.id, typeof(CoSo).Name);
-                    }
-                    break;
-                case "Dayy":
-                    Dayy objDayNew = new Dayy();
-                    objDayNew.ten = txtTen.Text;
-                    objDayNew.mota = txtMoTa.Text;
-                    objDayNew.hinhanhs = listHinh;
-                    ViTri _vitri = _ucTreeViTri.getViTri();
-                    objDayNew.coso = _vitri.coso;
-                    if (objDayNew.add() != -1)
-                    {
-                        XtraMessageBox.Show("Thêm dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndSelectNode(objDayNew.id, typeof(Dayy).Name);
-                    }
-                    break;
-                case "Tang":
-                    Tang objTangNew = new Tang();
-                    objTangNew.ten = txtTen.Text;
-                    objTangNew.mota = txtMoTa.Text;
-                    objTangNew.hinhanhs = listHinh;
-                    ViTri _vitri2 = _ucTreeViTriChonDay.getViTri();
-                    objTangNew.day = _vitri2.day;
-                    if (objTangNew.add() != -1)
-                    {
-                        XtraMessageBox.Show("Thêm tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndSelectNode(objTangNew.id, typeof(Tang).Name);
-                    }
-                    break;
+                switch (_type)
+                {
+                    case "CoSo":
+                        CoSo objCoSoNew = new CoSo();
+                        objCoSoNew.ten = txtTen.Text;
+                        objCoSoNew.mota = txtMoTa.Text;
+                        objCoSoNew.hinhanhs = listHinh;
+                        if (objCoSoNew.add() != -1)
+                        {
+                            XtraMessageBox.Show("Thêm cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoadAndSelectNode(objCoSoNew.id, typeof(CoSo).Name);
+                        }
+                        break;
+                    case "Dayy":
+                        Dayy objDayNew = new Dayy();
+                        objDayNew.ten = txtTen.Text;
+                        objDayNew.mota = txtMoTa.Text;
+                        objDayNew.hinhanhs = listHinh;
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        objDayNew.coso = _vitri.coso;
+                        if (objDayNew.add() != -1)
+                        {
+                            XtraMessageBox.Show("Thêm dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoadAndSelectNode(objDayNew.id, typeof(Dayy).Name);
+                        }
+                        break;
+                    case "Tang":
+                        Tang objTangNew = new Tang();
+                        objTangNew.ten = txtTen.Text;
+                        objTangNew.mota = txtMoTa.Text;
+                        objTangNew.hinhanhs = listHinh;
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
+                        objTangNew.day = _vitri2.day;
+                        if (objTangNew.add() != -1)
+                        {
+                            XtraMessageBox.Show("Thêm tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoadAndSelectNode(objTangNew.id, typeof(Tang).Name);
+                        }
+                        break;
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : addObj : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void deleteObj(String _type)
         {
-            switch (_type)
+            try
             {
-                case "CoSo":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        if (objCoSo.delete() != -1)
+                switch (_type)
+                {
+                    case "CoSo":
+                        if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
+                            if (objCoSo.delete() != -1)
+                            {
+                                XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reLoad();
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Có dãy trong cơ sở. Vui lòng xóa dãy trước!");
+                            }
                         }
-                        else
+                        break;
+                    case "Dayy":
+                        if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            XtraMessageBox.Show("Có dãy trong cơ sở. Vui lòng xóa dãy trước!");
-                        }
-                    }
-                    break;
-                case "Dayy":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        CoSo obj = objDay.coso;
-                        if (objDay.delete() != -1)
-                        {
-                            XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
-                        }
+                            CoSo obj = objDay.coso;
+                            if (objDay.delete() != -1)
+                            {
+                                XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reLoad();
+                            }
 
-                        else
-                        {
-                            XtraMessageBox.Show("Có tầng/phòng trong dãy. Vui lòng xóa tầng/phòng trước!");
+                            else
+                            {
+                                XtraMessageBox.Show("Có tầng/phòng trong dãy. Vui lòng xóa tầng/phòng trước!");
+                            }
                         }
-                    }
-                    break;
-                case "Tang":
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        Dayy obj = objTang.day;
-                        if (objTang.delete() != -1)
+                        break;
+                    case "Tang":
+                        if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
+                            Dayy obj = objTang.day;
+                            if (objTang.delete() != -1)
+                            {
+                                XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reLoad();
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Có phòng trong tầng. Vui lòng xóa phòng trước!");
+                            }
                         }
-                        else
-                        {
-                            XtraMessageBox.Show("Có phòng trong tầng. Vui lòng xóa phòng trước!");
-                        }
-                    }
-                    break;
+                        break;
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : deleteObj : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void reLoad()
@@ -334,10 +388,19 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void reLoadAndSelectNode(int _id, String _type)
         {
-            reLoad();
-            FindNode findNode = new FindNode(_id, _type);
-            treeListViTri.NodesIterator.DoOperation(findNode);
-            treeListViTri.FocusedNode = findNode.Node;
+            try
+            {
+                reLoad();
+                FindNode findNode = new FindNode(_id, _type);
+                treeListViTri.NodesIterator.DoOperation(findNode);
+                treeListViTri.FocusedNode = findNode.Node;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : reLoadAndSelectNode : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -356,7 +419,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             if(_color)
                 groupControl1.AppearanceCaption.ForeColor = Color.Red;
             else
-                groupControl1.AppearanceCaption.ForeColor = Color.Black;   
+                groupControl1.AppearanceCaption.ForeColor = Color.Empty;   
         }
 
         private Boolean CheckInput()
@@ -445,60 +508,71 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 reloadImage();
             }
             catch (Exception ex)
-            { }
+            {
+                System.Console.WriteLine(this.Name + " : btnImage_Click : " + ex.Message);
+            }
             finally
             { }
         }
 
         public void setData(String _type)
         {
-            ViTri objViTri = null;
-            switch (_type)
+            try
             {
-                case "CoSo":
-                    txtTen.Text = objCoSo.ten;
-                    txtMoTa.Text = objCoSo.mota;
-                    panelControl1.Controls.Clear();
-                    TextEdit txt = new TextEdit();
-                    txt.Properties.ReadOnly = true;
-                    txt.Text = "Đại học Sài Gòn";
-                    txt.Dock = DockStyle.Fill;
-                    panelControl1.Controls.Add(txt);
-                    node = typeof(CoSo).Name;
-                    listHinh = objCoSo.hinhanhs.ToList();
-                    reloadImage();
-                    enableGroupViTri(typeof(CoSo).Name);
-                    break;
-                case "Dayy":
-                    panelControl1.Controls.Clear();
-                    _ucTreeViTri.Dock = DockStyle.Fill;
-                    panelControl1.Controls.Add(_ucTreeViTri);
-                    txtTen.Text = objDay.ten;
-                    txtMoTa.Text = objDay.mota;
-                    objViTri = new ViTri();
-                    objViTri.coso = objDay.coso;
-                    _ucTreeViTri.setViTri(objViTri);
-                    node = typeof(Dayy).Name;
-                    listHinh = objDay.hinhanhs.ToList();
-                    reloadImage();
-                    enableGroupViTri(typeof(Dayy).Name);
-                    break;
-                case "Tang":
-                    panelControl1.Controls.Clear();
-                    _ucTreeViTriChonDay.Dock = DockStyle.Fill;
-                    panelControl1.Controls.Add(_ucTreeViTriChonDay);
-                    txtTen.Text = objTang.ten;
-                    txtMoTa.Text = objTang.mota;
-                    objViTri = new ViTri();
-                    objViTri.day = objTang.day;
-                    objViTri.coso = objTang.day.coso;
-                    _ucTreeViTriChonDay.setViTri(objViTri);
-                    node = typeof(Tang).Name;
-                    listHinh = objTang.hinhanhs.ToList();
-                    reloadImage();
-                    enableGroupViTri(typeof(Tang).Name);
-                    break;
+                ViTri objViTri = null;
+                switch (_type)
+                {
+                    case "CoSo":
+                        txtTen.Text = objCoSo.ten;
+                        txtMoTa.Text = objCoSo.mota;
+                        panelControl1.Controls.Clear();
+                        TextEdit txt = new TextEdit();
+                        txt.Properties.ReadOnly = true;
+                        txt.Text = "[Đại học Sài Gòn]";
+                        txt.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(txt);
+                        node = typeof(CoSo).Name;
+                        listHinh = objCoSo.hinhanhs.ToList();
+                        reloadImage();
+                        enableGroupViTri(typeof(CoSo).Name);
+                        break;
+                    case "Dayy":
+                        panelControl1.Controls.Clear();
+                        _ucComboBoxViTri.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(_ucComboBoxViTri);
+                        txtTen.Text = objDay.ten;
+                        txtMoTa.Text = objDay.mota;
+                        objViTri = new ViTri();
+                        objViTri.coso = objDay.coso;
+                        _ucComboBoxViTri.setViTri(objViTri);
+                        node = typeof(Dayy).Name;
+                        listHinh = objDay.hinhanhs.ToList();
+                        reloadImage();
+                        enableGroupViTri(typeof(Dayy).Name);
+                        break;
+                    case "Tang":
+                        panelControl1.Controls.Clear();
+                        _ucComboBoxViTriChonDay.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
+                        txtTen.Text = objTang.ten;
+                        txtMoTa.Text = objTang.mota;
+                        objViTri = new ViTri();
+                        objViTri.day = objTang.day;
+                        objViTri.coso = objTang.day.coso;
+                        _ucComboBoxViTriChonDay.setViTri(objViTri);
+                        node = typeof(Tang).Name;
+                        listHinh = objTang.hinhanhs.ToList();
+                        reloadImage();
+                        enableGroupViTri(typeof(Tang).Name);
+                        break;
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : setData : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public RibbonControl getRibbon()
@@ -510,7 +584,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             beforeAdd(typeof(CoSo).Name);
             enableEdit(true, typeof(CoSo).Name, "add");
-            
             SetTextGroupControl("Thêm cơ sở", true);
         }
 
@@ -530,7 +603,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             beforeAdd(typeof(Dayy).Name);
             enableEdit(true, typeof(Dayy).Name, "add");
-            
             SetTextGroupControl("Thêm dãy", true);
         }
 
@@ -571,6 +643,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             switch (_type)
             {
                 case "CoSo":
+                    rbnGroupViTri_Day.Enabled = true;
                     rbnGroupViTri_Tang.Enabled = false;
                     barBtnSuaDay.Enabled = false;
                     barBtnXoaDay.Enabled = false;
@@ -578,6 +651,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     barBtnXoaCoSo.Enabled = true;
                     break;
                 case "Dayy":
+                    rbnGroupViTri_Day.Enabled = true;
                     rbnGroupViTri_Tang.Enabled = true;
                     barBtnSuaDay.Enabled = true;
                     barBtnXoaDay.Enabled = true;
@@ -595,28 +669,43 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     barBtnSuaCoSo.Enabled = false;
                     barBtnXoaCoSo.Enabled = false;
                     break;
+                default:
+                    rbnGroupViTri_Day.Enabled = false;
+                    rbnGroupViTri_Tang.Enabled = false;
+                    barBtnSuaCoSo.Enabled = false;
+                    barBtnXoaCoSo.Enabled = false;
+                    break;
             }
         }
 
         private void ThemMoiNode(int _id, String _type)
         {
-            FindNode findNode = null;
-            if (_type.Equals(""))
+            try
             {
-                treeListViTri.AppendNode(new object[] { -1, "new", "new" }, null);
-                findNode = new FindNode(-1, "new");
-                treeListViTri.NodesIterator.DoOperation(findNode);
-                treeListViTri.FocusedNode = findNode.Node;
+                FindNode findNode = null;
+                if (_type.Equals(""))
+                {
+                    treeListViTri.AppendNode(new object[] { -1, "new", "new" }, null);
+                    findNode = new FindNode(-1, "new");
+                    treeListViTri.NodesIterator.DoOperation(findNode);
+                    treeListViTri.FocusedNode = findNode.Node;
+                }
+                else
+                {
+                    findNode = new FindNode(_id, _type);
+                    treeListViTri.NodesIterator.DoOperation(findNode);
+                    treeListViTri.AppendNode(new object[] { -1, "new", "new" }, findNode.Node);
+                    findNode = new FindNode(-1, "new");
+                    treeListViTri.NodesIterator.DoOperation(findNode);
+                    treeListViTri.FocusedNode = findNode.Node;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                findNode = new FindNode(_id, _type);
-                treeListViTri.NodesIterator.DoOperation(findNode);
-                treeListViTri.AppendNode(new object[] { -1, "new", "new" }, findNode.Node);
-                findNode = new FindNode(-1, "new");
-                treeListViTri.NodesIterator.DoOperation(findNode);
-                treeListViTri.FocusedNode = findNode.Node;
+                System.Console.WriteLine(this.Name + " : ThemMoiNode : " + ex.Message);
             }
+            finally
+            { }
         }
     }
 }

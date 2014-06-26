@@ -116,6 +116,18 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Control.Designer.cs">
+      <DependentUpon>ucPhanQuyen_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Group.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen_Group.Designer.cs">
+      <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\ucSettingInterface.cs" />
     <Compile Include="HeThong\ucThongTinQuanTriVien.cs">
       <SubType>UserControl</SubType>
@@ -138,11 +150,11 @@
     <Compile Include="MyUC\ucTreeLoaiTB.Designer.cs">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUC\ucTreePhong.cs">
+    <Compile Include="MyUC\ucTreeViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUC\ucTreePhong.Designer.cs">
-      <DependentUpon>ucTreePhong.cs</DependentUpon>
+    <Compile Include="MyUC\ucTreeViTri.Designer.cs">
+      <DependentUpon>ucTreeViTri.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUC\ucTreeThongKe.cs">
       <SubType>UserControl</SubType>
@@ -150,11 +162,11 @@
     <Compile Include="MyUC\ucTreeThongKe.Designer.cs">
       <DependentUpon>ucTreeThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUC\ucTreeViTri.cs">
+    <Compile Include="MyUC\ucComboBoxViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyUC\ucTreeViTri.Designer.cs">
-      <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    <Compile Include="MyUC\ucComboBoxViTri.Designer.cs">
+      <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -289,6 +301,12 @@
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucPhanQuyen_Control.resx">
+      <DependentUpon>ucPhanQuyen_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucPhanQuyen_Group.resx">
+      <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,14 +316,14 @@
     <EmbeddedResource Include="MyUC\ucTreeLoaiTB.resx">
       <DependentUpon>ucTreeLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucTreePhong.resx">
-      <DependentUpon>ucTreePhong.cs</DependentUpon>
+    <EmbeddedResource Include="MyUC\ucTreeViTri.resx">
+      <DependentUpon>ucTreeViTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreeThongKe.resx">
       <DependentUpon>ucTreeThongKe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucTreeViTri.resx">
-      <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    <EmbeddedResource Include="MyUC\ucComboBoxViTri.resx">
+      <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
       <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>

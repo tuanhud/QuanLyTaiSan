@@ -28,38 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
+            this.treeListPhong = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
-            this.popupContainerControl1 = new DevExpress.XtraEditors.PopupContainerControl();
-            this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerControl1)).BeginInit();
-            this.popupContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListPhong)).BeginInit();
             this.SuspendLayout();
             // 
-            // treeListViTri
+            // treeListPhong
             // 
-            this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListPhong.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.treeListPhong.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.treeListPhong.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.colloai,
-            this.colid_c,
-            this.colid_p});
-            this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListViTri.KeyFieldName = "id_c";
-            this.treeListViTri.Location = new System.Drawing.Point(0, 0);
-            this.treeListViTri.Name = "treeListViTri";
-            this.treeListViTri.OptionsBehavior.Editable = false;
-            this.treeListViTri.OptionsBehavior.PopulateServiceColumns = true;
-            this.treeListViTri.ParentFieldName = "id_p";
-            this.treeListViTri.Size = new System.Drawing.Size(205, 308);
-            this.treeListViTri.TabIndex = 1;
-            this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
+            this.colloai});
+            this.treeListPhong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeListPhong.KeyFieldName = "id_c";
+            this.treeListPhong.Location = new System.Drawing.Point(0, 0);
+            this.treeListPhong.Name = "treeListPhong";
+            this.treeListPhong.OptionsBehavior.Editable = false;
+            this.treeListPhong.ParentFieldName = "id_p";
+            this.treeListPhong.Size = new System.Drawing.Size(276, 373);
+            this.treeListPhong.TabIndex = 0;
+            this.treeListPhong.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
             // 
             // colid
             // 
@@ -81,64 +73,23 @@
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
             // 
-            // popupContainerEdit1
-            // 
-            this.popupContainerEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.popupContainerEdit1.Location = new System.Drawing.Point(0, 0);
-            this.popupContainerEdit1.Name = "popupContainerEdit1";
-            this.popupContainerEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.popupContainerEdit1.Properties.PopupControl = this.popupContainerControl1;
-            this.popupContainerEdit1.Properties.ReadOnly = true;
-            this.popupContainerEdit1.Properties.ShowPopupCloseButton = false;
-            this.popupContainerEdit1.Size = new System.Drawing.Size(200, 20);
-            this.popupContainerEdit1.TabIndex = 2;
-            // 
-            // popupContainerControl1
-            // 
-            this.popupContainerControl1.Controls.Add(this.treeListViTri);
-            this.popupContainerControl1.Location = new System.Drawing.Point(162, 49);
-            this.popupContainerControl1.Name = "popupContainerControl1";
-            this.popupContainerControl1.Size = new System.Drawing.Size(205, 308);
-            this.popupContainerControl1.TabIndex = 3;
-            // 
-            // colid_c
-            // 
-            this.colid_c.Caption = "id_c";
-            this.colid_c.FieldName = "id_c";
-            this.colid_c.Name = "colid_c";
-            // 
-            // colid_p
-            // 
-            this.colid_p.Caption = "id_p";
-            this.colid_p.FieldName = "id_p";
-            this.colid_p.Name = "colid_p";
-            // 
-            // ucTreeViTri
+            // ucTreePhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.popupContainerControl1);
-            this.Controls.Add(this.popupContainerEdit1);
-            this.Name = "ucTreeViTri";
-            this.Size = new System.Drawing.Size(200, 20);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerControl1)).EndInit();
-            this.popupContainerControl1.ResumeLayout(false);
+            this.Controls.Add(this.treeListPhong);
+            this.Name = "ucTreePhong";
+            this.Size = new System.Drawing.Size(276, 373);
+            ((System.ComponentModel.ISupportInitialize)(this.treeListPhong)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraTreeList.TreeList treeListViTri;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        private DevExpress.XtraEditors.PopupContainerEdit popupContainerEdit1;
-        private DevExpress.XtraEditors.PopupContainerControl popupContainerControl1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid_c;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid_p;
+        private DevExpress.XtraTreeList.TreeList treeListPhong;
     }
 }

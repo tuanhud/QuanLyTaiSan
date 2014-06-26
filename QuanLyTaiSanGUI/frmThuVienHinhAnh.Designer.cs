@@ -55,7 +55,7 @@
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(426, 293);
+            this.btnOK.Location = new System.Drawing.Point(407, 252);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -66,7 +66,7 @@
             // 
             this.btnImageCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImageCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnImageCancel.Image")));
-            this.btnImageCancel.Location = new System.Drawing.Point(507, 293);
+            this.btnImageCancel.Location = new System.Drawing.Point(488, 252);
             this.btnImageCancel.Name = "btnImageCancel";
             this.btnImageCancel.Size = new System.Drawing.Size(75, 23);
             this.btnImageCancel.TabIndex = 7;
@@ -95,9 +95,9 @@
             this.galleryControlImage.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
             this.galleryControlImage.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
             this.galleryControlImage.Gallery.ShowItemText = true;
-            this.galleryControlImage.Location = new System.Drawing.Point(2, 28);
+            this.galleryControlImage.Location = new System.Drawing.Point(0, 28);
             this.galleryControlImage.Name = "galleryControlImage";
-            this.galleryControlImage.Size = new System.Drawing.Size(580, 259);
+            this.galleryControlImage.Size = new System.Drawing.Size(584, 218);
             this.galleryControlImage.TabIndex = 9;
             this.galleryControlImage.Text = "galleryControlImage";
             // 
@@ -105,18 +105,20 @@
             // 
             this.galleryControlClient1.GalleryControl = this.galleryControlImage;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
-            this.galleryControlClient1.Size = new System.Drawing.Size(559, 255);
+            this.galleryControlClient1.Size = new System.Drawing.Size(563, 214);
             // 
             // frmThuVienHinhAnh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 323);
+            this.ClientSize = new System.Drawing.Size(584, 282);
             this.Controls.Add(this.galleryControlImage);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnImageCancel);
             this.Controls.Add(this.labelControl1);
+            this.MinimumSize = new System.Drawing.Size(450, 200);
             this.Name = "frmThuVienHinhAnh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thư viện hình ảnh";
             ((System.ComponentModel.ISupportInitialize)(this.galleryControlImage)).EndInit();
             this.galleryControlImage.ResumeLayout(false);

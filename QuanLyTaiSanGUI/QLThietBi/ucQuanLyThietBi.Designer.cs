@@ -48,6 +48,7 @@
             this.colltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colltenphong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colidTB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlLog = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -78,7 +79,6 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.ribbonThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.colidTB = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -132,7 +132,7 @@
             // 
             // barButtonThemThietBi
             // 
-            this.barButtonThemThietBi.Caption = "Thêm phòng";
+            this.barButtonThemThietBi.Caption = "Thêm thiết bị";
             this.barButtonThemThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barButtonThemThietBi.Id = 39;
             this.barButtonThemThietBi.Name = "barButtonThemThietBi";
@@ -140,7 +140,7 @@
             // 
             // barButtonSuaThietBi
             // 
-            this.barButtonSuaThietBi.Caption = "Sửa phòng";
+            this.barButtonSuaThietBi.Caption = "Sửa thiết bị";
             this.barButtonSuaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSuaThietBi.Id = 40;
             this.barButtonSuaThietBi.Name = "barButtonSuaThietBi";
@@ -148,7 +148,7 @@
             // 
             // barButtonXoaThietBi
             // 
-            this.barButtonXoaThietBi.Caption = "Xóa phòng";
+            this.barButtonXoaThietBi.Caption = "Xóa thiết bị";
             this.barButtonXoaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoaThietBi.Id = 41;
             this.barButtonXoaThietBi.Name = "barButtonXoaThietBi";
@@ -266,6 +266,12 @@
             this.colltenphong.Name = "colltenphong";
             this.colltenphong.Visible = true;
             this.colltenphong.VisibleIndex = 4;
+            // 
+            // colidTB
+            // 
+            this.colidTB.Caption = "gridColumn1";
+            this.colidTB.FieldName = "idTB";
+            this.colidTB.Name = "colidTB";
             // 
             // groupControl2
             // 
@@ -565,12 +571,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // colidTB
-            // 
-            this.colidTB.Caption = "gridColumn1";
-            this.colidTB.FieldName = "idTB";
-            this.colidTB.Name = "colidTB";
             // 
             // ucQuanLyThietBi
             // 

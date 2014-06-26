@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
@@ -17,11 +19,15 @@ namespace QuanLyTaiSanGUI.HeThong
     {
         List<QuanTriVienFilter> listobjQuanTriVienFilter = new List<QuanTriVienFilter>();
         QuanTriVienFilter objQuanTriVienFilter = new QuanTriVienFilter();
+        ucPhanQuyen_Control _ucPhanQuyen_Control = new ucPhanQuyen_Control();
+        ucPhanQuyen_Group _ucPhanQuyen_Group = new ucPhanQuyen_Group();
         String function = "";
 
         public ucPhanQuyen()
         {
             InitializeComponent();
+            ribbonPhanQuyen.Parent = null;
+            _ucPhanQuyen_Control.Parent = this;
             reLoad();
         }
 
@@ -95,6 +101,32 @@ namespace QuanLyTaiSanGUI.HeThong
             List<Group> list = new Group().getAll();
             lookUpEdit_group.Properties.DataSource = list;
             //lookUpEdit_group.EditValue = list.First().id;
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonPhanQuyen;
+        }
+
+        public PanelControl getControl()
+        {
+            return _ucPhanQuyen_Control.getControl();
+        }
+
+        public void showGroup(bool b)
+        {
+            splitContainerControl1.Panel1.Controls.Clear();
+            splitContainerControl1.Panel2.Controls.Clear();
+            if (b)
+            {
+                splitContainerControl1.Panel1.Controls.Add(_ucPhanQuyen_Group.getLeftControl());
+                splitContainerControl1.Panel2.Controls.Add(_ucPhanQuyen_Group.getRightControl());
+            }
+            else
+            {
+                splitContainerControl1.Panel1.Controls.Add(gridControlPhanQuyen);
+                splitContainerControl1.Panel2.Controls.Add(groupControl1);
+            }
         }
     }
 }

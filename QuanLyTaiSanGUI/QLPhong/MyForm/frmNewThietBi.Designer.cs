@@ -31,7 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
+            this.btnChonHinh = new DevExpress.XtraEditors.SimpleButton();
             this.panelLoaiTB = new DevExpress.XtraEditors.PanelControl();
             this.panelPhong = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -53,13 +56,11 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.btnChonHinh = new DevExpress.XtraEditors.SimpleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhong)).BeginInit();
@@ -75,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,6 +113,23 @@
             this.panelControl1.Size = new System.Drawing.Size(289, 224);
             this.panelControl1.TabIndex = 0;
             // 
+            // imageSlider1
+            // 
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imageSlider1.Location = new System.Drawing.Point(77, 12);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(100, 100);
+            this.imageSlider1.TabIndex = 10;
+            this.imageSlider1.Text = "imageSlider1";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(11, 12);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(25, 13);
+            this.labelControl7.TabIndex = 9;
+            this.labelControl7.Text = "Hình:";
+            // 
             // lookUpTinhTrang
             // 
             this.lookUpTinhTrang.Location = new System.Drawing.Point(78, 167);
@@ -125,6 +142,15 @@
             this.lookUpTinhTrang.Properties.ValueMember = "id";
             this.lookUpTinhTrang.Size = new System.Drawing.Size(200, 20);
             this.lookUpTinhTrang.TabIndex = 8;
+            // 
+            // btnChonHinh
+            // 
+            this.btnChonHinh.Location = new System.Drawing.Point(203, 12);
+            this.btnChonHinh.Name = "btnChonHinh";
+            this.btnChonHinh.Size = new System.Drawing.Size(75, 23);
+            this.btnChonHinh.TabIndex = 2;
+            this.btnChonHinh.Text = "Chọn";
+            this.btnChonHinh.Click += new System.EventHandler(this.btnChonHinh_Click);
             // 
             // panelLoaiTB
             // 
@@ -325,32 +351,6 @@
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(11, 12);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(25, 13);
-            this.labelControl7.TabIndex = 9;
-            this.labelControl7.Text = "Hình:";
-            // 
-            // imageSlider1
-            // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(77, 12);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(100, 100);
-            this.imageSlider1.TabIndex = 10;
-            this.imageSlider1.Text = "imageSlider1";
-            // 
-            // btnChonHinh
-            // 
-            this.btnChonHinh.Location = new System.Drawing.Point(203, 12);
-            this.btnChonHinh.Name = "btnChonHinh";
-            this.btnChonHinh.Size = new System.Drawing.Size(75, 23);
-            this.btnChonHinh.TabIndex = 2;
-            this.btnChonHinh.Text = "Chọn";
-            this.btnChonHinh.Click += new System.EventHandler(this.btnChonHinh_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
@@ -373,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhong)).EndInit();
@@ -389,7 +390,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

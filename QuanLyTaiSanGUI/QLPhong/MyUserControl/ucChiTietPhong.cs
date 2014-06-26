@@ -16,8 +16,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
-        ucTreeViTri _ucTreeViTriChonDay = new ucTreeViTri(true, false);
+        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
+        ucComboBoxViTri _ucComboBoxViTriChonDay = new ucComboBoxViTri(true, false);
         List<HinhAnh> listHinh = new List<HinhAnh>();
         Phong objPhong = new Phong();
         NhanVienPT objNhanVienPT = new NhanVienPT();
@@ -35,11 +35,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         }
 
-        public void loadData(List<ViTriFilter> _list)
+        public void loadData(List<ViTriHienThi> _list)
         {
-            _ucTreeViTri.loadData(_list);
-            _ucTreeViTri.Dock = DockStyle.Fill;
-            panelControl1.Controls.Add(_ucTreeViTri);
+            _ucComboBoxViTri.loadData(_list);
+            _ucComboBoxViTri.Dock = DockStyle.Fill;
+            panelControl1.Controls.Add(_ucComboBoxViTri);
         }
 
         public void setData(Phong _phong)
@@ -54,7 +54,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     objPhong = new Phong();
                 txtTenPhong.Text = objPhong.ten;
                 txtMoTaPhong.Text = objPhong.mota;
-                _ucTreeViTri.setViTri(objPhong.vitri);
+                _ucComboBoxViTri.setViTri(objPhong.vitri);
                 NhanVienPT objNV = new NhanVienPT();
                 if (objPhong.nhanvienpt != null)
                 {
@@ -126,7 +126,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 btnHuy.Visible = true;
                 txtTenPhong.Properties.ReadOnly = false;
                 txtMoTaPhong.Properties.ReadOnly = false;
-                _ucTreeViTri.setReadOnly(false);
+                _ucComboBoxViTri.setReadOnly(false);
                 type = _type;
             }
             else
@@ -136,7 +136,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 btnHuy.Visible = false;
                 txtTenPhong.Properties.ReadOnly = true;
                 txtMoTaPhong.Properties.ReadOnly = true;
-                _ucTreeViTri.setReadOnly(true);
+                _ucComboBoxViTri.setReadOnly(true);
             }
         }
 
@@ -146,7 +146,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             objPhongNew.ten = txtTenPhong.Text;
             objPhongNew.mota = txtMoTaPhong.Text;
             objPhongNew.hinhanhs = listHinh;
-            objPhongNew.vitri = _ucTreeViTri.getViTri();
+            objPhongNew.vitri = _ucComboBoxViTri.getViTri();
             if (objPhongNew.add() != -1)
             {
                 XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -235,8 +235,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             txtTenPhong.Text = "";
             txtMoTaPhong.Text = "";
             imgPhong.Images.Clear();
-            //_ucTreeViTriChonDay.setViTri(_vitri);
-            //panelControl1.Controls.Add(_ucTreeViTriChonDay);
+            //_ucComboBoxViTriChonDay.setViTri(_vitri);
+            //panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
         }
     }
 }
