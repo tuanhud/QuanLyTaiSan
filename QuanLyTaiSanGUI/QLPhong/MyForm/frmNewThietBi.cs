@@ -19,7 +19,7 @@ namespace QuanLyTaiSanGUI.MyForm
     public partial class frmNewThietBi : Form
     {
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
-        ucComboBoxViTri _ucTreeViTri = new ucComboBoxViTri(false, true);
+        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
         ThietBi objThietBi = new ThietBi();
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         Boolean checkadd = true;
@@ -28,6 +28,7 @@ namespace QuanLyTaiSanGUI.MyForm
         List<PhongFilter> listPhongFilter = null;
         List<ViTriHienThi> listViTriFilter = null;
         List<TinhTrang> listTinhTrang = null;
+        Boolean coThayDoi = false;
 
         public delegate void SendMessage();
         public SendMessage sendMessage;
@@ -40,8 +41,8 @@ namespace QuanLyTaiSanGUI.MyForm
         public frmNewThietBi()
         {
             InitializeComponent();
-            
             loadData();
+            
         }
 
         public void loadData()
@@ -51,17 +52,13 @@ namespace QuanLyTaiSanGUI.MyForm
             _ucTreeLoaiTB.type = "add";
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelLoaiTB.Controls.Add(_ucTreeLoaiTB);
-            
-
 
             listPhongFilter = new PhongFilter().getAll();
             listViTriFilter = new ViTriHienThi().getAllHavePhong();
-            _ucTreeViTri.loadData(listViTriFilter);
-            _ucTreeViTri.Dock = DockStyle.Fill;
-            _ucTreeViTri.setReadOnly(false);
-            panelPhong.Controls.Add(_ucTreeViTri);
-
-
+            _ucComboBoxViTri.loadData(listViTriFilter);
+            _ucComboBoxViTri.Dock = DockStyle.Fill;
+            _ucComboBoxViTri.setReadOnly(false);
+            panelPhong.Controls.Add(_ucComboBoxViTri);
 
             listTinhTrang = new TinhTrang().getAll().OrderBy(i => i.value).ToList();
             lookUpTinhTrang.Properties.DataSource = listTinhTrang;
@@ -71,56 +68,42 @@ namespace QuanLyTaiSanGUI.MyForm
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (true)
+            if (checkInput())
             {
                 objThietBi = new ThietBi();
                 setDataObj();
                 Boolean thanhcong = false;
-                if(checkadd)
+                if (checkadd)
                 {
-                    if(objThietBi.add() != -1)
+                    if (objThietBi.add() != -1)
                     {
-                        XtraMessageBox.Show("Thêm thiết bị thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         thanhcong = true;
                     }
                 }
                 else
                 {
-                    if(objThietBi.update() != -1)
+                    if (objThietBi.update() != -1)
                     {
-                        XtraMessageBox.Show("Thêm thiết bị thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         thanhcong = true;
                     }
                 }
                 if (thanhcong)
                 {
                     resetData();
-                    
+                    coThayDoi = true;
                 }
-                
             }
-            
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
-            RunDelegate();
         }
 
         public void LoaiTB_FocusedChanged(bool _loaiChung)
         {
-            //if (groupControl1.Visible)
-            //{
-            //    if (_loaiChung)
-            //    {
-            //        txtMa.Text = "";
-            //        txtTen.Text = "";
-            //        dateEditLap.DateTime = DateTime.Today;
-            //        dateEditMua.DateTime = DateTime.Today;
-            //        txtMoTa.Text = "";
-            //    }
-            //}
             groupControl1.Visible = !_loaiChung;
             if (!_loaiChung)
             {
@@ -137,17 +120,12 @@ namespace QuanLyTaiSanGUI.MyForm
         {
             Boolean check = true;
             errorProvider1.Clear();
-            if (listHinhAnh.Count == 0)
-            {
-                check = false;
-                errorProvider1.SetError(imageSlider1, "Cần ít nhất 1 hình");
-            }
-            if (_ucTreeViTri.getTextPopupContainerEdit().Equals("[Chưa có phòng]"))
+            if (_ucComboBoxViTri.getTextPopupContainerEdit().Equals("[Chưa có phòng]"))
             {
                 check = false;
                 errorProvider1.SetError(panelPhong, "Chưa chọn phòng");
             }
-            if (_ucTreeViTri.getTextPopupContainerEdit().Equals("[Chưa có loại thiết bị]"))
+            if (_ucComboBoxViTri.getTextPopupContainerEdit().Equals("[Chưa có loại thiết bị]"))
             {
                 check = false;
                 errorProvider1.SetError(panelLoaiTB, "Chưa chọn loại thiết bị");
@@ -157,18 +135,14 @@ namespace QuanLyTaiSanGUI.MyForm
                 check = false;
                 errorProvider1.SetError(lookUpTinhTrang, "Chưa chọn tình trạng");
             }
-            if (Int32.Parse(txtSoLuong.Text) > 0)
+            int soluong = Int32.Parse(txtSoLuong.Text);
+            if (soluong < 1 || soluong > 1000)
             {
                 check = false;
-                errorProvider1.SetError(txtSoLuong, "Số lượng > 0");
+                errorProvider1.SetError(txtSoLuong, "Số lượng từ 1-1000");
             }
             if (groupControl1.Visible)
             {
-                if (txtMa.Text.Length == 0)
-                {
-                    check = false;
-                    errorProvider1.SetError(txtMa, "Chưa điền mã thiết bị");
-                }
                 if (txtTen.Text.Length == 0)
                 {
                     check = false;
@@ -191,21 +165,26 @@ namespace QuanLyTaiSanGUI.MyForm
                 dateEditLap.DateTime = DateTime.Today;
                 dateEditMua.DateTime = DateTime.Today;
                 txtMoTa.Text = "";
-                groupControl1.Visible = false;
             }
         }
 
         private void setGiaTriDauCho_Phong_LoaiThietBi_TinhTrang()
         {
             if (listPhongFilter.Count > 0)
-                _ucTreeViTri.setPhong(new Phong().getById(listPhongFilter.ElementAt(0).id));
+                _ucComboBoxViTri.setPhong(new Phong().getById(listPhongFilter.ElementAt(0).id));
             else
-                _ucTreeViTri.setTextPopupContainerEdit("[Chưa có phòng]");
+                _ucComboBoxViTri.setTextPopupContainerEdit("[Chưa có phòng]");
 
             if (listLoaiThietBi.Count > 0)
+            {
                 _ucTreeLoaiTB.setLoai(listLoaiThietBi.ElementAt(0));
+                LoaiTB_FocusedChanged(listLoaiThietBi.ElementAt(0).loaichung);
+            }
             else
+            {
                 _ucTreeLoaiTB.setTextPopupContainerEdit("[Chưa có loại thiết bị]");
+                groupControl1.Visible = false;
+            }
 
             if (listTinhTrang.Count > 0)
                 lookUpTinhTrang.EditValue = listTinhTrang.First().id;
@@ -215,33 +194,22 @@ namespace QuanLyTaiSanGUI.MyForm
 
         private void setDataObj()
         {
-            //add chi tiet thiet bi cho thiet bi nay
             CTThietBi ctThietBi = new CTThietBi();
-            Phong phong = _ucTreeViTri.getPhong();
+            Phong phong = _ucComboBoxViTri.getPhong();
             TinhTrang tinhtrang = (TinhTrang)lookUpTinhTrang.GetSelectedDataRow();
 
             ctThietBi.phong = phong;
             ctThietBi.tinhtrang = new TinhTrang().getById(tinhtrang.id);
             ctThietBi.soluong = Int32.Parse(txtSoLuong.Text);
 
-
             LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
-            //add
 
             if (groupControl1.Visible)
             {
                 objThietBi.hinhanhs = listHinhAnh;
 
-                //loai thiet bi
-                //objThietBi.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 objThietBi.loaithietbi = loaithietbi;
                 objThietBi.ctthietbis.Add(ctThietBi);
-                ////phong, tinh trang, soluong
-                //CTThietBi ctThietBi = new CTThietBi();
-                //ctThietBi.phong = _ucTreeViTri.getPhong();
-                //TinhTrang tinhtrang = (TinhTrang)lookUpTinhTrang.GetSelectedDataRow();
-                //ctThietBi.tinhtrang = new TinhTrang().getById(tinhtrang.id);
-                //ctThietBi.soluong = Int32.Parse(txtSoLuong.Text);
 
                 objThietBi.subId = txtMa.Text;
                 objThietBi.ten = txtTen.Text;
@@ -252,15 +220,12 @@ namespace QuanLyTaiSanGUI.MyForm
             }
             else
             {
-                //thiet bi o day duoc quan li theo so luong
-                //LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
-                //co thiet bi do chua
+                //thiet bi duoc quan li theo so luong
                 if (loaithietbi.thietbis.Count > 0)
                 {
                     //co
-                    //tim thiet bi do
                     objThietBi = new ThietBi().getById(loaithietbi.thietbis.ElementAt(0).id);
-                    //add them hinh anh moi vao list anh cua thiet bi
+
                     if (listHinhAnh.Count > 0)
                     {
                         foreach (HinhAnh hinhanh in listHinhAnh)
@@ -273,27 +238,18 @@ namespace QuanLyTaiSanGUI.MyForm
                         objThietBi.ctthietbis.Add(ctThietBi);
                     else
                         ctThietBiOld.soluong += Int32.Parse(txtSoLuong.Text);
-                    ////add chi tiet thiet bi cho thiet bi nay
-                    //CTThietBi ctThietBi = new CTThietBi();
-                    //ctThietBi.phong = _ucTreeViTri.getPhong();
-                    //TinhTrang tinhtrang = (TinhTrang)lookUpTinhTrang.GetSelectedDataRow();
-                    //ctThietBi.tinhtrang = new TinhTrang().getById(tinhtrang.id);
-                    //ctThietBi.soluong = Int32.Parse(txtSoLuong.Text);
 
-                    //check xem la add hay update
                     checkadd = false;
                 }
                 else
                 {
-                    //chua
-                    //them hinh
+                    //chua co
                     objThietBi.ten = loaithietbi.ten;
                     objThietBi.hinhanhs = listHinhAnh;
-                    //objThietBi.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
+
                     objThietBi.loaithietbi = loaithietbi;
                     objThietBi.ctthietbis.Add(ctThietBi);
                     checkadd = true;
-                    
                 }
             }
         }
@@ -312,6 +268,12 @@ namespace QuanLyTaiSanGUI.MyForm
                     imageSlider1.Images.Add(hinhanh.IMAGE);
                 }
             }
+        }
+
+        private void frmNewThietBi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (coThayDoi)
+                RunDelegate();
         }
     }
 }

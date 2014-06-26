@@ -79,6 +79,7 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.ribbonThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -102,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // colsoluong
@@ -372,7 +374,7 @@
             this.panelControlPhong.Location = new System.Drawing.Point(72, 208);
             this.panelControlPhong.Name = "panelControlPhong";
             this.panelControlPhong.Size = new System.Drawing.Size(229, 20);
-            this.panelControlPhong.TabIndex = 27;
+            this.panelControlPhong.TabIndex = 21;
             // 
             // panelControlLoaiThietBi
             // 
@@ -382,7 +384,7 @@
             this.panelControlLoaiThietBi.Location = new System.Drawing.Point(72, 182);
             this.panelControlLoaiThietBi.Name = "panelControlLoaiThietBi";
             this.panelControlLoaiThietBi.Size = new System.Drawing.Size(229, 20);
-            this.panelControlLoaiThietBi.TabIndex = 26;
+            this.panelControlLoaiThietBi.TabIndex = 20;
             // 
             // lblTenPhong
             // 
@@ -407,14 +409,14 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(230, 20);
-            this.txtMa.TabIndex = 23;
+            this.txtMa.TabIndex = 2;
             // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(148, 363);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 21;
+            this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -423,7 +425,7 @@
             this.btnOk.Location = new System.Drawing.Point(67, 363);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 20;
+            this.btnOk.TabIndex = 7;
             this.btnOk.Text = "Ok";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -432,7 +434,7 @@
             this.btnImage.Location = new System.Drawing.Point(177, 24);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 19;
+            this.btnImage.TabIndex = 1;
             this.btnImage.Text = "Chọn";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -505,7 +507,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateLap.Properties.ReadOnly = true;
             this.dateLap.Size = new System.Drawing.Size(230, 20);
-            this.dateLap.TabIndex = 6;
+            this.dateLap.TabIndex = 5;
             // 
             // dateMua
             // 
@@ -520,7 +522,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateMua.Properties.ReadOnly = true;
             this.dateMua.Size = new System.Drawing.Size(230, 20);
-            this.dateMua.TabIndex = 5;
+            this.dateMua.TabIndex = 4;
             // 
             // txtTen
             // 
@@ -530,7 +532,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(230, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 3;
             // 
             // imageSlider1
             // 
@@ -549,7 +551,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(230, 68);
-            this.txtMoTa.TabIndex = 4;
+            this.txtMoTa.TabIndex = 6;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // ribbonThietBi
@@ -571,6 +573,10 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ucQuanLyThietBi
             // 
@@ -604,6 +610,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -661,5 +668,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colltenphong;
         private DevExpress.XtraEditors.PanelControl panelControlPhong;
         private DevExpress.XtraGrid.Columns.GridColumn colidTB;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
