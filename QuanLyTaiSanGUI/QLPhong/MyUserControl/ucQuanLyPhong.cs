@@ -118,6 +118,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridControlPhong.DataSource = null;
             listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
             gridControlPhong.DataSource = listPhong;
+            _ucTreePhong.setVitri(objPhong.vitri);
         }
 
         //Khi thêm mới cơ sở -> phòng thì load treelist bên trái + reload dữ liệu ucQuanLyPhong
@@ -208,10 +209,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //chỉnh sửa phòng
         private void ChinhSuaPhong()
         {
+            if (listHinh != null)
+            {
+                objPhong.hinhanhs = listHinh;
+            }
             objPhong.subId = txtMaPhong.Text;
             objPhong.ten = txtTenPhong.Text;
-            objPhong.mota = txtMoTaPhong.Text;
-            objPhong.hinhanhs = listHinh;
+            objPhong.vitri = _ucTreeViTri.getViTri();
+            objPhong.mota = txtMoTaPhong.Text;            
             if (_idnhanvien > -1)
                 objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
             else objPhong.nhanvienpt = null;
@@ -219,7 +224,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reLoad();
-                gridViewPhong.FocusedRowHandle = _index;
             }
             else XtraMessageBox.Show("Có lỗi trong khi chỉnh sửa");
         }
