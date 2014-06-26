@@ -74,12 +74,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 if (e.Node != null)
                 {
-                    SetTextGroupControl("Chi tiết", false);
-                    if (function.Equals("edit") || function.Equals("add"))
-                    {
-                        enableEdit(false, "", "");
-                        loadData();
-                    }
+                    //SetTextGroupControl("Chi tiết", false);
+                    //if (function.Equals("edit") || function.Equals("add"))
+                    //{
+                    //    enableEdit(false, "", "");
+                    //    loadData();
+                    //}
                     if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                     {
                         objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
@@ -394,6 +394,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 FindNode findNode = new FindNode(_id, _type);
                 treeListViTri.NodesIterator.DoOperation(findNode);
                 treeListViTri.FocusedNode = findNode.Node;
+                enableGroupViTri(_type);
             }
             catch (Exception ex)
             {
@@ -685,7 +686,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 FindNode findNode = null;
                 if (_type.Equals(""))
                 {
-                    treeListViTri.AppendNode(new object[] { -1, "new", "new" }, null);
+                    treeListViTri.AppendNode(new object[] { -1, "new", _type }, null);
                     findNode = new FindNode(-1, "new");
                     treeListViTri.NodesIterator.DoOperation(findNode);
                     treeListViTri.FocusedNode = findNode.Node;
@@ -694,7 +695,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     findNode = new FindNode(_id, _type);
                     treeListViTri.NodesIterator.DoOperation(findNode);
-                    treeListViTri.AppendNode(new object[] { -1, "new", "new" }, findNode.Node);
+                    treeListViTri.AppendNode(new object[] { -1, "new", _type }, findNode.Node);
                     findNode = new FindNode(-1, "new");
                     treeListViTri.NodesIterator.DoOperation(findNode);
                     treeListViTri.FocusedNode = findNode.Node;
