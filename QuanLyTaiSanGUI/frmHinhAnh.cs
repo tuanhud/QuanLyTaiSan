@@ -43,7 +43,7 @@ namespace QuanLyTaiSanGUI
                 LoadHinhAnh(list);
             }
             else
-                XtraMessageBox.Show("Không có ảnh để load!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không có ảnh để load!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void LoadHinhAnh(List<HinhAnh> list)

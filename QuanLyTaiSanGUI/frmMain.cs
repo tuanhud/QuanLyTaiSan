@@ -151,14 +151,14 @@ namespace QuanLyTaiSanGUI
                     if (_ucPhanQuyen == null)
                     {
                         _ucPhanQuyen = new ucPhanQuyen();
+                        _ucPhanQuyen.Dock = DockStyle.Fill;
+                        addRibbonPage(_ucPhanQuyen.getRibbon());
+                        _ucPhanQuyen.getControl().Parent = navBarGroupPhanQuyen.ControlContainer;
                     }
-                    rbnPagePhanQuyen_Home.Visible = true;
-                    ribbonMain.SelectedPage = rbnPagePhanQuyen_Home;
-                    _ucPhanQuyen.Dock = DockStyle.Fill;
+                    ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home").Visible = true;
+                    ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucPhanQuyen);
-                    //_ucTreePhong.treeListPhong.CollapseAll();
-                    //_ucTreePhong.Parent = navBarGroupNhanVien.ControlContainer;
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupThongKe))
                 {
@@ -179,6 +179,10 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyPhong.Dock = DockStyle.Fill;
                         _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
                         addRibbonPage(_ucQuanLyPhong.getRibbon());
+                    }
+                    else
+                    {
+                        _ucQuanLyPhong.reLoadAll();
                     }
                     ribbonMain.Pages.GetPageByName("rbnPagePhong_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhong_Home");

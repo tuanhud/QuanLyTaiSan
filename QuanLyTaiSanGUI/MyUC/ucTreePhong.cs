@@ -37,6 +37,11 @@ namespace QuanLyTaiSanGUI.MyUC
             treeListPhong.EndUnboundLoad();
         }
 
+        public void reLoad(List<ViTriFilter> _list)
+        {
+            loadData(_list, type);
+        }
+
         private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
             try
@@ -93,23 +98,70 @@ namespace QuanLyTaiSanGUI.MyUC
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                System.Console.WriteLine(this.Name + " : treeListPhong_FocusedNodeChanged : " + ex.Message);
+            }
             finally
             { }
         }
 
         public ViTri getVitri()
         {
-            ViTri obj = new ViTri();
-            obj.coso = new CoSo().getById(cosoid);
-            obj.day = new Dayy().getById(dayid);
-            obj.tang = new Tang().getById(tangid);
-            return obj;
+            try
+            {
+                ViTri obj = new ViTri();
+                obj.coso = new CoSo().getById(cosoid);
+                obj.day = new Dayy().getById(dayid);
+                obj.tang = new Tang().getById(tangid);
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : getVitri : " + ex.Message);
+                return null;
+            }
+            finally
+            { }
         }
 
         public TreeList getTreeList()
         {
             return treeListPhong;
+        }
+
+        public void setVitri(ViTri obj)
+        {
+            try
+            {
+                if (obj != null)
+                {
+                    FindNode findNode = null;
+                    if (obj.tang != null)
+                    {
+                        findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                    }
+                    else if (obj.day != null)
+                    {
+                        findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                    }
+                    else if (obj.coso != null)
+                    {
+                        findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                    }
+                    if (findNode != null)
+                    {
+                        treeListPhong.CollapseAll();
+                        treeListPhong.NodesIterator.DoOperation(findNode);
+                        treeListPhong.FocusedNode = findNode.Node;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : setVitri : " + ex.Message);
+            }
+            finally
+            { }
         }
     }
 }
