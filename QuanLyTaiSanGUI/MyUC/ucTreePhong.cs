@@ -128,5 +128,39 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             return treeListPhong;
         }
+
+        public void setVitri(ViTri obj)
+        {
+            try
+            {
+                if (obj != null)
+                {
+                    FindNode findNode = null;
+                    if (obj.tang != null)
+                    {
+                        findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                    }
+                    else if (obj.day != null)
+                    {
+                        findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                    }
+                    else if (obj.coso != null)
+                    {
+                        findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                    }
+                    if (findNode != null)
+                    {
+                        treeListPhong.NodesIterator.DoOperation(findNode);
+                        treeListPhong.FocusedNode = findNode.Node;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : setVitri : " + ex.Message);
+            }
+            finally
+            { }
+        }
     }
 }

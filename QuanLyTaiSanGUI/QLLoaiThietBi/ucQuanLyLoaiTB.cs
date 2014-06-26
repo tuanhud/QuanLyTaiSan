@@ -33,46 +33,52 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            if (treeListLoaiTB.GetDataRecordByNode(e.Node) != null)
+            try
             {
-                enableEdit(false, "");
-                SetTextGroupControl("Chi tiết", Color.Black);
-                objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-                setData();
+                if (treeListLoaiTB.GetDataRecordByNode(e.Node) != null)
+                {
+                    enableEdit(false, "");
+                    SetTextGroupControl("Chi tiết", Color.Black);
+                    objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                    setData();
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : treeListLoaiTB_FocusedNodeChanged : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void enableEdit(bool _enable, String _function)
         {
             function = _function;
-            if (_enable)
-            {
-                btnOk.Visible = true;
-                btnHuy.Visible = true;
-                txtTen.Properties.ReadOnly = false;
-                txtMoTa.Properties.ReadOnly = false;
-                lueThuoc.Properties.ReadOnly = false;
-                ceTBsoluonglon.Properties.ReadOnly = false;
-            }
-            else
-            {
-                btnOk.Visible = false;
-                btnHuy.Visible = false;
-                txtTen.Properties.ReadOnly = true;
-                txtMoTa.Properties.ReadOnly = true;
-                lueThuoc.Properties.ReadOnly = true;
-                ceTBsoluonglon.Properties.ReadOnly = true;
-            }
+            btnOk.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtTen.Properties.ReadOnly = !_enable;
+            txtMoTa.Properties.ReadOnly = !_enable;
+            lueThuoc.Properties.ReadOnly = !_enable;
+            ceTBsoluonglon.Properties.ReadOnly = !_enable;
         }
 
         public void reLoad()
         {
-            loaiThietBis = new LoaiThietBi().getAll().OrderBy(l => l.ten).ToList();
-            treeListLoaiTB.DataSource = loaiThietBis;
-            listLoaiThietBiCha = new LoaiThietBi().getAllParent().OrderBy(l => l.ten).ToList();
-            listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
-            lueThuoc.Properties.DataSource = listLoaiThietBiCha;
-            checkSuaXoa();
+            try
+            {
+                loaiThietBis = new LoaiThietBi().getAll().OrderBy(l => l.ten).ToList();
+                treeListLoaiTB.DataSource = loaiThietBis;
+                listLoaiThietBiCha = new LoaiThietBi().getAllParent().OrderBy(l => l.ten).ToList();
+                listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
+                lueThuoc.Properties.DataSource = listLoaiThietBiCha;
+                checkSuaXoa();
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : reLoad : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void beforeAdd()
@@ -86,75 +92,102 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         public void setData()
         {
-            if (loaiThietBis.Count > 0)
+            try
             {
-                errorProvider1.Clear();
-                txtTen.Text = objLoaiThietBi.ten;
-                txtMoTa.Text = objLoaiThietBi.mota;
-                if (objLoaiThietBi.parent_id == null)
-                    lueThuoc.EditValue = loaiThietBiNULL.id;
+                if (loaiThietBis.Count > 0)
+                {
+                    errorProvider1.Clear();
+                    txtTen.Text = objLoaiThietBi.ten;
+                    txtMoTa.Text = objLoaiThietBi.mota;
+                    if (objLoaiThietBi.parent_id == null)
+                        lueThuoc.EditValue = loaiThietBiNULL.id;
+                    else
+                        lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                    if (objLoaiThietBi.loaichung)
+                        ceTBsoluonglon.Checked = true;
+                    else
+                        ceTBsoluonglon.Checked = false;
+                    if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
+                        ceTBsoluonglon.Properties.ReadOnly = true;
+                }
                 else
-                    lueThuoc.EditValue = objLoaiThietBi.parent_id;
-                if (objLoaiThietBi.loaichung)
-                    ceTBsoluonglon.Checked = true;
-                else
-                    ceTBsoluonglon.Checked = false;
-                if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
-                    ceTBsoluonglon.Properties.ReadOnly = true;
+                    beforeAdd();
             }
-            else
-                beforeAdd();
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : setData : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private void CRU()
         {
-            switch (function)
-            { 
-                case "add":
-                    objLoaiThietBi = new LoaiThietBi();
-                    setDataObj();
-                    if (objLoaiThietBi.add() != -1)
-                    {
-                        XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    break;
-                case "edit":
-                    setDataObj();
-                    if (objLoaiThietBi.update() != -1)
-                    {
-                        XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    break;
+            try
+            {
+                switch (function)
+                {
+                    case "add":
+                        objLoaiThietBi = new LoaiThietBi();
+                        setDataObj();
+                        if (objLoaiThietBi.add() != -1)
+                        {
+                            XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        break;
+                    case "edit":
+                        setDataObj();
+                        if (objLoaiThietBi.update() != -1)
+                        {
+                            XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        break;
+                }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : CRU : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void deleteObj()
         {
-            if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
+            try
             {
-                XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
                 {
-                    if (objLoaiThietBi.childs.Count > 0)
+                    XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        if (XtraMessageBox.Show("Loại thiết bị này là gốc, bạn có muốn xóa luôn những loại thiết bị con?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (objLoaiThietBi.childs.Count > 0)
                         {
-                            for (int i = 0; i < objLoaiThietBi.childs.Count; i++)
+                            if (XtraMessageBox.Show("Loại thiết bị này là gốc, bạn có muốn xóa luôn những loại thiết bị con?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                             {
-                                objLoaiThietBi.childs.ElementAt(i).delete();
+                                for (int i = 0; i < objLoaiThietBi.childs.Count; i++)
+                                {
+                                    objLoaiThietBi.childs.ElementAt(i).delete();
+                                }
                             }
                         }
-                    }
-                    if (objLoaiThietBi.delete() != -1)
-                    {
-                        XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
+                        if (objLoaiThietBi.delete() != -1)
+                        {
+                            XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            reLoad();
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : deleteObj : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private Boolean checkLoaiThietBiConCoThietBiKhong(LoaiThietBi parent)
@@ -169,24 +202,33 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         private void setDataObj()
         {
-            objLoaiThietBi.ten = txtTen.Text;
-            objLoaiThietBi.mota = txtMoTa.Text;
-            objLoaiThietBi.date_create = DateTime.Today;
-            objLoaiThietBi.date_modified = DateTime.Today;
-            LoaiThietBi parentLoaiThietBi = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
-            if (parentLoaiThietBi.id != -1)
-                objLoaiThietBi.parent = new LoaiThietBi().getById(parentLoaiThietBi.id);
-            else
-            { 
-                if(function.Equals("edit"))
+            try
+            {
+                objLoaiThietBi.ten = txtTen.Text;
+                objLoaiThietBi.mota = txtMoTa.Text;
+                objLoaiThietBi.date_create = DateTime.Today;
+                objLoaiThietBi.date_modified = DateTime.Today;
+                LoaiThietBi parentLoaiThietBi = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
+                if (parentLoaiThietBi.id != -1)
+                    objLoaiThietBi.parent = new LoaiThietBi().getById(parentLoaiThietBi.id);
+                else
                 {
-                    objLoaiThietBi.parent_id = null;
+                    if (function.Equals("edit"))
+                    {
+                        objLoaiThietBi.parent_id = null;
+                    }
                 }
+                if (ceTBsoluonglon.Checked)
+                    objLoaiThietBi.loaichung = true;
+                else
+                    objLoaiThietBi.loaichung = false;
             }
-            if (ceTBsoluonglon.Checked)
-                objLoaiThietBi.loaichung = true;
-            else
-                objLoaiThietBi.loaichung = false;
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : setDataObj : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         public void SetTextGroupControl(String text, Color color)
@@ -326,16 +368,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         public void enableSuaXoa(Boolean enable)
         {
-            if (enable)
-            {
-                barButtonSuaLoaiTB.Enabled = true;
-                barButtonXoaLoaiTB.Enabled = true;
-            }
-            else
-            {
-                barButtonSuaLoaiTB.Enabled = false;
-                barButtonXoaLoaiTB.Enabled = false;
-            }
+            barButtonSuaLoaiTB.Enabled = enable;
+            barButtonXoaLoaiTB.Enabled = enable;
         }
 
         public RibbonControl getRibbon()
