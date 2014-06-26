@@ -7,168 +7,129 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
-using DevExpress.XtraTreeList.Nodes.Operations;
-using DevExpress.XtraTreeList.Data;
+using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSanGUI.MyUserControl;
+using QuanLyTaiSanGUI.QLThietBi;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {
-        int idTang = -1;
-        int idCoSo = -1;
-        int idDay = -1;
-        int idPhong = -1;
-        bool chonDay = false;
-        bool chonPhong = false;
-        public ucTreeViTri(bool _chonDay, bool _chonPhong)
+        int phongid = -1;
+        int cosoid = -1;
+        int dayid = -1;
+        int tangid = -1;
+        public String type = "";
+        public ucTreeViTri(List<ViTriHienThi> _list, String _type)
         {
             InitializeComponent();
-            chonDay = _chonDay;
-            chonPhong = _chonPhong;
+            loadData(_list, _type);
         }
 
-        public void loadData(List<ViTriFilter> _list)
+        private void loadData(List<ViTriHienThi> _list, String _type)
         {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
+            type = _type;
+            treeListPhong.BeginUnboundLoad();
+            treeListPhong.DataSource = _list;
+            treeListPhong.EndUnboundLoad();
         }
 
-        private void treeListViTri_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
+        public void reLoad(List<ViTriHienThi> _list)
+        {
+            loadData(_list, type);
+        }
+
+        private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
             try
             {
-                if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
+                phongid = -1;
+                cosoid = -1;
+                dayid = -1;
+                tangid = -1;
+                if(e.Node.GetValue(2)!= null)
                 {
-                    if (!chonDay && !chonPhong)
+                    switch (e.Node.GetValue(2).ToString())
                     {
-                        popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                        idCoSo = Convert.ToInt32(e.Node.GetValue(0));
-                        idTang = -1;
-                        idDay = -1;
-                        popupContainerEdit1.ClosePopup();
+                        case "CoSo":
+                            cosoid = Convert.ToInt32(e.Node.GetValue(0));
+                            break;
+                        case "Dayy":
+                            dayid = Convert.ToInt32(e.Node.GetValue(0));
+                            cosoid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            break;
+                        case "Tang":
+                            tangid = Convert.ToInt32(e.Node.GetValue(0));
+                            dayid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                            break;
+                        case "Phong":
+                            phongid = Convert.ToInt32(e.Node.GetValue(0));
+                            break;
                     }
-                }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
-                {
-                    if (!chonPhong)
+                    if (this.ParentForm != null)
                     {
-                        popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                        idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                        idDay = Convert.ToInt32(e.Node.GetValue(0));
-                        idTang = -1;
-                        popupContainerEdit1.ClosePopup();
+                        frmMain frm = this.ParentForm as frmMain;
+                        switch (type)
+                        {
+                            case "QLPhong":
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        ucQuanLyPhong _ucQuanLyPhong = this.Parent as ucQuanLyPhong;
+                                        _ucQuanLyPhong.setData(cosoid, dayid, tangid);                                        
+                                    }
+                                }
+                                break;
+                            case "QLThietBi":
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
+                                        _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
+                                    }
+                                }
+                                break;
+                        }
                     }
-                }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
-                {
-                    if (!chonPhong)
-                    {
-                        popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                        idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                        idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                        idTang = Convert.ToInt32(e.Node.GetValue(0));
-                        popupContainerEdit1.ClosePopup();
-                    }
-                }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Phong).Name))
-                {
-                    popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                    idPhong = Convert.ToInt32(e.Node.GetValue(0));
-                    popupContainerEdit1.ClosePopup();
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : treeListViTri_FocusedNodeChanged : " + ex.Message);
+                System.Console.WriteLine(this.Name + " : treeListPhong_FocusedNodeChanged : " + ex.Message);
             }
             finally
             { }
         }
 
-        public ViTri getViTri()
+        public ViTri getVitri()
         {
             try
             {
-                ViTri objViTri = new ViTri();
-                CoSo objCoSo = new CoSo().getById(idCoSo);
-                Dayy objDay = new Dayy().getById(idDay);
-                Tang objTang = new Tang().getById(idTang);
-                objViTri.coso = objCoSo;
-                objViTri.day = objDay;
-                objViTri.tang = objTang;
-                return objViTri;
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(this.Name + " : getViTri : " + ex.Message);
-                return null;
-            }
-            finally
-            { }
-        }
-
-        public Phong getPhong()
-        {
-            try
-            {
-                Phong obj = new Phong().getById(idPhong);
+                ViTri obj = new ViTri();
+                obj.coso = new CoSo().getById(cosoid);
+                obj.day = new Dayy().getById(dayid);
+                obj.tang = new Tang().getById(tangid);
                 return obj;
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : getPhong : " + ex.Message);
+                System.Console.WriteLine(this.Name + " : getVitri : " + ex.Message);
                 return null;
             }
             finally
             { }
         }
 
-        public void setPhong(Phong obj)
+        public TreeList getTreeList()
         {
-            try
-            {
-                FindNode findNode = null;
-                findNode = new FindNode(obj.id, typeof(Phong).Name);
-                treeListViTri.NodesIterator.DoOperation(findNode);
-                treeListViTri.FocusedNode = findNode.Node;
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(this.Name + " : setPhong : " + ex.Message);
-            }
-            finally
-            { }
-        }
-        
-        public void setReadOnly(bool b)
-        {
-            popupContainerEdit1.Properties.ReadOnly = b;
+            return treeListPhong;
         }
 
-
-        public void reLoad(List<ViTriFilter> _list)
-        {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = null;
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
-        }
-
-        //public void reLoad(List<ViTriFilter> _list)
-        //{
-        //    treeListViTri.BeginUnboundLoad();
-        //    treeListViTri.DataSource = null;
-        //    treeListViTri.DataSource = _list;
-        //    treeListViTri.EndUnboundLoad();
-        //}
-
-
-        public void setViTri(ViTri obj)
+        public void setVitri(ViTri obj)
         {
             try
             {
@@ -189,27 +150,18 @@ namespace QuanLyTaiSanGUI.MyUC
                     }
                     if (findNode != null)
                     {
-                        treeListViTri.NodesIterator.DoOperation(findNode);
-                        treeListViTri.FocusedNode = findNode.Node;
+                        treeListPhong.CollapseAll();
+                        treeListPhong.NodesIterator.DoOperation(findNode);
+                        treeListPhong.FocusedNode = findNode.Node;
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setViTri : " + ex.Message);
+                System.Console.WriteLine(this.Name + " : setVitri : " + ex.Message);
             }
             finally
             { }
-        }
-
-        public void setTextPopupContainerEdit(String text)
-        {
-            popupContainerEdit1.Text = text;
-        }
-
-        public String getTextPopupContainerEdit()
-        {
-            return popupContainerEdit1.Text;
         }
     }
 }

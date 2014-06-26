@@ -7,7 +7,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class ViTriFilter : FilterAbstract<ViTriFilter>
+    public class ViTriHienThi : FilterAbstract<ViTriHienThi>
     {
         public int id { get; set; }
         public String ten { get; set; }
@@ -16,12 +16,12 @@ namespace QuanLyTaiSan.DataFilter
         public String id_p { get; set; }
 
         #region Nghiệp vụ
-        public List<ViTriFilter> getAllCoSo()
+        public List<ViTriHienThi> getAllCoSo()
         {
             //OurDBContext db = new OurDBContext();
-            List<ViTriFilter> re =
+            List<ViTriHienThi> re =
                 (from c in db.COSOS
-                 select new ViTriFilter
+                 select new ViTriHienThi
                  {
                      id = c.id,
                      ten = c.ten,
@@ -31,12 +31,12 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-        public List<ViTriFilter> getAllDay()
+        public List<ViTriHienThi> getAllDay()
         {
 			//OurDBContext db = new OurDBContext();
-            List<ViTriFilter> re =
+            List<ViTriHienThi> re =
                 (from c in db.DAYYS
-                 select new ViTriFilter
+                 select new ViTriHienThi
                  {
                      id = c.id,
                      ten = c.ten,
@@ -46,12 +46,12 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-        public List<ViTriFilter> getAllTang()
+        public List<ViTriHienThi> getAllTang()
         {
             //OurDBContext db = new OurDBContext();
-            List<ViTriFilter> re =
+            List<ViTriHienThi> re =
                 (from c in db.TANGS
-                 select new ViTriFilter
+                 select new ViTriHienThi
                  {
                      id = c.id,
                      ten = c.ten,
@@ -62,12 +62,12 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public List<ViTriFilter> getAllPhong()
+        public List<ViTriHienThi> getAllPhong()
         {
             //OurDBContext db = new OurDBContext();
-            List<ViTriFilter> re =
+            List<ViTriHienThi> re =
                 (from c in db.PHONGS
-                 select new ViTriFilter
+                 select new ViTriHienThi
                  {
                      id = c.id,
                      ten = c.ten,
@@ -78,13 +78,13 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public List<ViTriFilter> getAllPhongNotNhanVien(int _idnhanvien)
+        public List<ViTriHienThi> getAllPhongNotNhanVien(int _idnhanvien)
         {
             //OurDBContext db = new OurDBContext();
-            List<ViTriFilter> re =
+            List<ViTriHienThi> re =
                 (from c in db.PHONGS
                  where (c.nhanvienpt == null || c.nhanvienpt.id == _idnhanvien)
-                 select new ViTriFilter
+                 select new ViTriHienThi
                  {
                      id = c.id,
                      ten = c.ten,
@@ -95,22 +95,22 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public override List<ViTriFilter> getAll()
+        public override List<ViTriHienThi> getAll()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).ToList();
         }
 
-        public List<ViTriFilter> getAllHavePhong()
+        public List<ViTriHienThi> getAllHavePhong()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhong()).ToList();
         }
 
-        public List<ViTriFilter> getAllHaveDay()
+        public List<ViTriHienThi> getAllHaveDay()
         {
             return getAllCoSo().Concat(getAllDay()).ToList();
         }
 
-        public List<ViTriFilter> getAllHavePhongNotNhanVien(int _idnhanvien)
+        public List<ViTriHienThi> getAllHavePhongNotNhanVien(int _idnhanvien)
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhongNotNhanVien(_idnhanvien)).ToList();
         }

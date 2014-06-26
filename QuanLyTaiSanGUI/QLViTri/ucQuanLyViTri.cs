@@ -20,9 +20,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 {
     public partial class ucQuanLyViTri : UserControl
     {
-        List<ViTriFilter> listViTriHienThi = new List<ViTriFilter>();
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
-        ucTreeViTri _ucTreeViTriChonDay = new ucTreeViTri(true, false);
+        List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
+        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
+        ucComboBoxViTri _ucComboBoxViTriChonDay = new ucComboBoxViTri(true, false);
         List<HinhAnh> listHinh = new List<HinhAnh>();
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
@@ -49,12 +49,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             try
             {
-                listViTriHienThi = new ViTriFilter().getAll();
+                listViTriHienThi = new ViTriHienThi().getAll();
                 treeListViTri.DataSource = listViTriHienThi;
-                listViTriHienThi = new ViTriFilter().getAllCoSo();
-                _ucTreeViTri.loadData(listViTriHienThi);
-                listViTriHienThi = new ViTriFilter().getAllHaveDay();
-                _ucTreeViTriChonDay.loadData(listViTriHienThi);
+                listViTriHienThi = new ViTriHienThi().getAllCoSo();
+                _ucComboBoxViTri.loadData(listViTriHienThi);
+                listViTriHienThi = new ViTriHienThi().getAllHaveDay();
+                _ucComboBoxViTriChonDay.loadData(listViTriHienThi);
             }
             catch (Exception ex)
             {
@@ -109,8 +109,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            _ucTreeViTri.setReadOnly(!_enable);
-            _ucTreeViTriChonDay.setReadOnly(!_enable);
+            _ucComboBoxViTri.setReadOnly(!_enable);
+            _ucComboBoxViTriChonDay.setReadOnly(!_enable);
             type = _type;
             //làm việc
             working = _enable;
@@ -152,7 +152,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "Dayy":
                         objDay.ten = txtTen.Text;
                         objDay.mota = txtMoTa.Text;
-                        ViTri _vitri = _ucTreeViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
                         objDay.coso = _vitri.coso;
                         objDay.hinhanhs = listHinh;
                         if (objDay.update() != -1)
@@ -164,7 +164,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "Tang":
                         objTang.ten = txtTen.Text;
                         objTang.mota = txtMoTa.Text;
-                        ViTri _vitri2 = _ucTreeViTriChonDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
                         objTang.day = _vitri2.day;
                         objTang.hinhanhs = listHinh;
                         if (objTang.update() != -1)
@@ -209,7 +209,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "Dayy":
                         listHinh = null;
                         panelControl1.Controls.Clear();
-                        _ucTreeViTri.Dock = DockStyle.Fill;
+                        _ucComboBoxViTri.Dock = DockStyle.Fill;
                         _vitri = new ViTri();
                         if (node.Equals(typeof(CoSo).Name))
                             _vitri.coso = objCoSo;
@@ -220,13 +220,13 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
                         ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name);
 
-                        _ucTreeViTri.setViTri(_vitri);
-                        panelControl1.Controls.Add(_ucTreeViTri);
+                        _ucComboBoxViTri.setViTri(_vitri);
+                        panelControl1.Controls.Add(_ucComboBoxViTri);
                         break;
                     case "Tang":
                         listHinh = null;
                         panelControl1.Controls.Clear();
-                        _ucTreeViTriChonDay.Dock = DockStyle.Fill;
+                        _ucComboBoxViTriChonDay.Dock = DockStyle.Fill;
                         _vitri = new ViTri();
                         if (node.Equals(typeof(Dayy).Name))
                         {
@@ -241,8 +241,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
                         ThemMoiNode(_vitri.day.id, typeof(Dayy).Name);
 
-                        _ucTreeViTriChonDay.setViTri(_vitri);
-                        panelControl1.Controls.Add(_ucTreeViTriChonDay);
+                        _ucComboBoxViTriChonDay.setViTri(_vitri);
+                        panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
                         break;
                 }
             }
@@ -276,7 +276,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objDayNew.ten = txtTen.Text;
                         objDayNew.mota = txtMoTa.Text;
                         objDayNew.hinhanhs = listHinh;
-                        ViTri _vitri = _ucTreeViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
                         objDayNew.coso = _vitri.coso;
                         if (objDayNew.add() != -1)
                         {
@@ -289,7 +289,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objTangNew.ten = txtTen.Text;
                         objTangNew.mota = txtMoTa.Text;
                         objTangNew.hinhanhs = listHinh;
-                        ViTri _vitri2 = _ucTreeViTriChonDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
                         objTangNew.day = _vitri2.day;
                         if (objTangNew.add() != -1)
                         {
@@ -534,13 +534,13 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         break;
                     case "Dayy":
                         panelControl1.Controls.Clear();
-                        _ucTreeViTri.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(_ucTreeViTri);
+                        _ucComboBoxViTri.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(_ucComboBoxViTri);
                         txtTen.Text = objDay.ten;
                         txtMoTa.Text = objDay.mota;
                         objViTri = new ViTri();
                         objViTri.coso = objDay.coso;
-                        _ucTreeViTri.setViTri(objViTri);
+                        _ucComboBoxViTri.setViTri(objViTri);
                         node = typeof(Dayy).Name;
                         listHinh = objDay.hinhanhs.ToList();
                         reloadImage();
@@ -548,14 +548,14 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         break;
                     case "Tang":
                         panelControl1.Controls.Clear();
-                        _ucTreeViTriChonDay.Dock = DockStyle.Fill;
-                        panelControl1.Controls.Add(_ucTreeViTriChonDay);
+                        _ucComboBoxViTriChonDay.Dock = DockStyle.Fill;
+                        panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
                         txtTen.Text = objTang.ten;
                         txtMoTa.Text = objTang.mota;
                         objViTri = new ViTri();
                         objViTri.day = objTang.day;
                         objViTri.coso = objTang.day.coso;
-                        _ucTreeViTriChonDay.setViTri(objViTri);
+                        _ucComboBoxViTriChonDay.setViTri(objViTri);
                         node = typeof(Tang).Name;
                         listHinh = objTang.hinhanhs.ToList();
                         reloadImage();

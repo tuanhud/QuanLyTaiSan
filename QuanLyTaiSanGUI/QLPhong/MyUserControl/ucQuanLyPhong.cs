@@ -29,15 +29,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
         int _index, cosoid, dayid, tangid = 0;
 
         List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
-        List<ViTriFilter> listVitris = new List<ViTriFilter>();
+        List<ViTriHienThi> listVitris = new List<ViTriHienThi>();
         
         List<Phong> listPhong = new List<Phong>();
         List<HinhAnh> listHinh = new List<HinhAnh>();
         List<HinhAnh> listHinhNV = new List<HinhAnh>();
         List<NhanVienPT> listNhanVienPT = new List<NhanVienPT>();
 
-        ucTreePhong _ucTreePhong = null;
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);     
+        ucTreeViTri _ucTreePhong = null;
+        ucComboBoxViTri _ucTreeViTri = new ucComboBoxViTri(false, false);     
 
         String function = "";
         int _idnhanvien = 0;
@@ -53,9 +53,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // Load dữ liệu
         public void loadData()
         {
-            listVitris = new ViTriFilter().getAll().ToList();
+            listVitris = new ViTriHienThi().getAll().ToList();
 
-            _ucTreePhong = new ucTreePhong(listVitris, "QLPhong");
+            _ucTreePhong = new ucTreeViTri(listVitris, "QLPhong");
             _ucTreePhong.Parent = this;
             _ucTreeViTri.loadData(listVitris);
             _ucTreeViTri.Dock = DockStyle.Fill;
@@ -124,7 +124,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //Khi thêm mới cơ sở -> phòng thì load treelist bên trái + reload dữ liệu ucQuanLyPhong
         public void reLoadAll()
         {
-            listVitris = new ViTriFilter().getAll().ToList();
+            listVitris = new ViTriHienThi().getAll().ToList();
             _ucTreePhong.reLoad(listVitris);
             reLoad();
         }

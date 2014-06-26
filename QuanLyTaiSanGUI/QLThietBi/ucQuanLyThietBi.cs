@@ -19,11 +19,11 @@ namespace QuanLyTaiSanGUI.QLThietBi
 {
     public partial class ucQuanLyThietBi : UserControl
     {
-        ucTreePhong _ucTreePhong = null;//Chọn phòng bên trái
-        ucTreeViTri _ucTreeViTri = null;//Chọn phòng cho thiết bị (bên phải)
+        ucTreeViTri _ucTreePhong = null;//Chọn phòng bên trái
+        ucComboBoxViTri _ucTreeViTri = null;//Chọn phòng cho thiết bị (bên phải)
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();//Chọn loại thiết bị
 
-        List<ViTriFilter> listViTri = null;
+        List<ViTriHienThi> listViTri = null;
         List<ThietBiFilter> listThietBiFilter = null;
         List<LoaiThietBi> listLoaiThietBi = null;
 
@@ -44,11 +44,11 @@ namespace QuanLyTaiSanGUI.QLThietBi
             
             ribbonThietBi.Parent = null;
             //Lấy danh sách phòng
-            listViTri = new ViTriFilter().getAllHavePhong();
+            listViTri = new ViTriHienThi().getAllHavePhong();
             //Xủ lí nếu chưa có cơ sở, dãy, tầng và phòng !!!!!!!!!!!!!!
 
             //Set danh sách phòng vào _ucTreePhong
-            _ucTreePhong = new ucTreePhong(listViTri, "QLThietBi");
+            _ucTreePhong = new ucTreeViTri(listViTri, "QLThietBi");
             _ucTreePhong.Parent = this;
 
             //set loai thiet bi
@@ -69,7 +69,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucTreeLoaiTB.setTextPopupContainerEdit(null);
 
             //Set danh sách phòng _ucTreeViTri
-            _ucTreeViTri = new ucTreeViTri(false, true);
+            _ucTreeViTri = new ucComboBoxViTri(false, true);
             _ucTreeViTri.loadData(listViTri);
             _ucTreeViTri.Dock = DockStyle.Fill;
             _ucTreeViTri.setReadOnly(true);

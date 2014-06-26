@@ -19,14 +19,14 @@ namespace QuanLyTaiSanGUI.MyForm
     public partial class frmNewThietBi : Form
     {
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, true);
+        ucComboBoxViTri _ucTreeViTri = new ucComboBoxViTri(false, true);
         ThietBi objThietBi = new ThietBi();
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         Boolean checkadd = true;
 
         List<LoaiThietBi> listLoaiThietBi = null;
         List<PhongFilter> listPhongFilter = null;
-        List<ViTriFilter> listViTriFilter = null;
+        List<ViTriHienThi> listViTriFilter = null;
         List<TinhTrang> listTinhTrang = null;
 
         public delegate void SendMessage();
@@ -55,7 +55,7 @@ namespace QuanLyTaiSanGUI.MyForm
 
 
             listPhongFilter = new PhongFilter().getAll();
-            listViTriFilter = new ViTriFilter().getAllHavePhong();
+            listViTriFilter = new ViTriHienThi().getAllHavePhong();
             _ucTreeViTri.loadData(listViTriFilter);
             _ucTreeViTri.Dock = DockStyle.Fill;
             _ucTreeViTri.setReadOnly(false);

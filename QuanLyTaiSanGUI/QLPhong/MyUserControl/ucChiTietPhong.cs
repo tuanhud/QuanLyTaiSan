@@ -16,8 +16,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucChiTietPhong : UserControl
     {
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri(false, false);
-        ucTreeViTri _ucTreeViTriChonDay = new ucTreeViTri(true, false);
+        ucComboBoxViTri _ucTreeViTri = new ucComboBoxViTri(false, false);
+        ucComboBoxViTri _ucTreeViTriChonDay = new ucComboBoxViTri(true, false);
         List<HinhAnh> listHinh = new List<HinhAnh>();
         Phong objPhong = new Phong();
         NhanVienPT objNhanVienPT = new NhanVienPT();
@@ -35,7 +35,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         }
 
-        public void loadData(List<ViTriFilter> _list)
+        public void loadData(List<ViTriHienThi> _list)
         {
             _ucTreeViTri.loadData(_list);
             _ucTreeViTri.Dock = DockStyle.Fill;

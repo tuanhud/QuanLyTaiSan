@@ -313,7 +313,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 splitContainerControl1.Panel1.Controls.Clear();
                 if (_bool)
                 {
-                    List<ViTriFilter> listVT = new ViTriFilter().getAllHavePhongNotNhanVien(objNhanVienPT.id);
+                    List<ViTriHienThi> listVT = new ViTriHienThi().getAllHavePhongNotNhanVien(objNhanVienPT.id);
                     _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
                     splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
                 }
