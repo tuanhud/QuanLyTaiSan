@@ -65,7 +65,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridControlPhong.DataSource = listPhong;
             
             listNhanVienPT = objNhanVienPT.getAll();
-            searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
         }
 
         //Mở tắt bar
@@ -117,6 +116,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
             listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
             gridControlPhong.DataSource = listPhong;
         }
+
+        public void reLoadAll()
+        {
+            reLoad();
+        }
+
 
         //FocusedRowChanged in TreePhong
         public void setData(int _cosoid, int _dayid, int _tangid)
@@ -296,18 +301,20 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonThemPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
             enableEdit(true, "add");
             beforeAdd();
             SetTextGroupControl("Thêm phòng mới", true);
-            searchLookUpEditNhanVienPT.EditValue = 0;
+            searchLookUpEditNhanVienPT.EditValue = null;
             ViTri _ViTri = new ViTri();
             _ucTreeViTri.setViTri(_ViTri);
         }
 
         private void barButtonSuaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
             enableEdit(true, "edit");
-            _index = gridViewPhong.FocusedRowHandle;
+            //_index = gridViewPhong.FocusedRowHandle;
             SetTextGroupControl("Chỉnh sửa phòng", true);
             if (objPhong.nhanvienpt != null)
                 searchLookUpEditNhanVienPT.EditValue = objPhong.nhanvienpt.id;
@@ -413,28 +420,37 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         public void beforeAdd()
         {
+            //clear textbox-img phòng
             txtTenPhong.Text = "";
             txtMoTaPhong.Text = "";
             imgPhong.Images.Clear();
+            //clear textbox-img nhân viên
+            txtMaNhanVien.Text = "";
+            txtTenNhanVien.Text = "";
+            txtSoDienThoai.Text = "";
+            imgNhanVien.Images.Clear();
         }
 
         private void searchLookUpEditNhanVienPT_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
-                _idnhanvien = Int32.Parse(searchLookUpEditNhanVienPT.EditValue.ToString());
-                objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
-                NhanVienPT objNV = new NhanVienPT();
-                if (objPhong.nhanvienpt != null)
+                if (searchLookUpEditNhanVienPT.EditValue != null)
                 {
-                    objNV = objPhong.nhanvienpt;
+                    _idnhanvien = Int32.Parse(searchLookUpEditNhanVienPT.EditValue.ToString());
+                    objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
+                    NhanVienPT objNV = new NhanVienPT();
+                    if (objPhong.nhanvienpt != null)
+                    {
+                        objNV = objPhong.nhanvienpt;
+                    }
+                    txtMaNhanVien.Text = objNV.subId;
+                    txtTenNhanVien.Text = objNV.hoten;
+                    txtSoDienThoai.Text = objNV.sodienthoai;
+                    if (listNhanVienPT != null)
+                        listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                    reloadImageNhanVienPT();
                 }
-                txtMaNhanVien.Text = objNV.subId;
-                txtTenNhanVien.Text = objNV.hoten;
-                txtSoDienThoai.Text = objNV.sodienthoai;
-                if (listNhanVienPT != null)
-                    listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
-                reloadImageNhanVienPT();
             }
             catch(Exception ex)
             {
