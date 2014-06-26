@@ -58,21 +58,21 @@ namespace QuanLyTaiSan.Entities
         #region Override method
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (thietbi != null)
-            {
-                thietbi.trigger();
-            }
-			if (tinhtrang != null)
-            {
-                tinhtrang.trigger();
-            }
-			if (phong != null)
-            {
-                phong.trigger();
-            }
+            ////have to load all [Required] FK object first
+            //if (thietbi != null)
+            //{
+            //    thietbi.trigger();
+            //}
+            //if (tinhtrang != null)
+            //{
+            //    tinhtrang.trigger();
+            //}
+            //if (phong != null)
+            //{
+            //    phong.trigger();
+            //}
             
-            //...
+            ////...
             return base.update();
         }
 
