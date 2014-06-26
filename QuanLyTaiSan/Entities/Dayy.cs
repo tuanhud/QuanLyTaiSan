@@ -12,7 +12,7 @@ namespace QuanLyTaiSan.Entities
     /*
      * Không thể đặt tên là Day vì trùng class Day của Winform
      */
-    [Table("DAYYS")]
+    [Table("DAYS")]
     public class Dayy:_EntityAbstract2<Dayy>
     {
         public Dayy():base()
@@ -30,7 +30,9 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int coso_id { get; set; }
         [Required]
+        [ForeignKey("coso_id")]
         public virtual CoSo coso { get; set; }
         public virtual ICollection<Tang> tangs { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }

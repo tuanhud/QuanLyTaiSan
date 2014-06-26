@@ -34,11 +34,24 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int loaithietbi_id { get; set; }
+        [Required]
+        [ForeignKey("loaithietbi_id")]
         public virtual LoaiThietBi loaithietbi { get; set; }
+
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
 		#endregion
 		#region Override method
+        public override int delete(Boolean auto_remove_fk=false)
+        {
+            if (!auto_remove_fk)
+            {
+                //Kiểm tra khi xóa thì có dính CASCADE hay không, nếu có thì báo lỗi, không thì gọi base.delete
+                
+            }
+            return base.delete();
+        }
         public override int update()
         {
             //have to load all [Required] FK object first

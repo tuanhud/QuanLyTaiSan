@@ -26,10 +26,15 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int vitri_id { get; set; }
         [Required]
+        [ForeignKey("vitri_id")]
         public virtual ViTri vitri { get; set; }
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
+
+        public int? nhanvienpt_id { get; set; }
+        [ForeignKey("nhanvienpt_id")]
         public virtual NhanVienPT nhanvienpt { get; set; }
         #endregion
         #region Nghiep vu

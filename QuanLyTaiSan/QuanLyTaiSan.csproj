@@ -141,6 +141,14 @@
     <Compile Include="Migrations\201406211025184_bo_rang_buoc_path_hinhanh.Designer.cs">
       <DependentUpon>201406211025184_bo_rang_buoc_path_hinhanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.cs" />
+    <Compile Include="Migrations\201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.Designer.cs">
+      <DependentUpon>201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.cs" />
+    <Compile Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.Designer.cs">
+      <DependentUpon>201406260748543_TURN_OFF_CASCADE_DELETE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406211025184_bo_rang_buoc_path_hinhanh.resx">
       <DependentUpon>201406211025184_bo_rang_buoc_path_hinhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.resx">
+      <DependentUpon>201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.resx">
+      <DependentUpon>201406260748543_TURN_OFF_CASCADE_DELETE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -199,6 +199,8 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.listBoxPhong);
             this.groupControl2.Controls.Add(this.btnHuy_PhanCong);
             this.groupControl2.Controls.Add(this.btnOK_PhanCong);
@@ -215,9 +217,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPhong.DisplayMember = "ten";
-            this.listBoxPhong.Location = new System.Drawing.Point(6, 25);
+            this.listBoxPhong.Location = new System.Drawing.Point(6, 28);
             this.listBoxPhong.Name = "listBoxPhong";
-            this.listBoxPhong.Size = new System.Drawing.Size(389, 149);
+            this.listBoxPhong.Size = new System.Drawing.Size(389, 146);
             this.listBoxPhong.TabIndex = 13;
             this.listBoxPhong.ValueMember = "id";
             // 

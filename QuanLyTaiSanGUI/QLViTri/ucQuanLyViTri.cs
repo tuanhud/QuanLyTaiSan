@@ -50,6 +50,10 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             try
             {
                 listViTriHienThi = new ViTriHienThi().getAll();
+                if (listViTriHienThi.Count == 0)
+                {
+                    enableGroupViTri("");
+                }
                 treeListViTri.DataSource = listViTriHienThi;
                 listViTriHienThi = new ViTriHienThi().getAllCoSo();
                 _ucComboBoxViTri.loadData(listViTriHienThi);
@@ -415,7 +419,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             if(_color)
                 groupControl1.AppearanceCaption.ForeColor = Color.Red;
             else
-                groupControl1.AppearanceCaption.ForeColor = Color.Black;   
+                groupControl1.AppearanceCaption.ForeColor = Color.Empty;   
         }
 
         private Boolean CheckInput()
@@ -524,7 +528,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         panelControl1.Controls.Clear();
                         TextEdit txt = new TextEdit();
                         txt.Properties.ReadOnly = true;
-                        txt.Text = "Đại học Sài Gòn";
+                        txt.Text = "[Đại học Sài Gòn]";
                         txt.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(txt);
                         node = typeof(CoSo).Name;
@@ -639,6 +643,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             switch (_type)
             {
                 case "CoSo":
+                    rbnGroupViTri_Day.Enabled = true;
                     rbnGroupViTri_Tang.Enabled = false;
                     barBtnSuaDay.Enabled = false;
                     barBtnXoaDay.Enabled = false;
@@ -646,6 +651,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     barBtnXoaCoSo.Enabled = true;
                     break;
                 case "Dayy":
+                    rbnGroupViTri_Day.Enabled = true;
                     rbnGroupViTri_Tang.Enabled = true;
                     barBtnSuaDay.Enabled = true;
                     barBtnXoaDay.Enabled = true;
@@ -660,6 +666,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     barBtnXoaDay.Enabled = false;
                     barBtnSuaTang.Enabled = true;
                     barBtnXoaTang.Enabled = true;
+                    barBtnSuaCoSo.Enabled = false;
+                    barBtnXoaCoSo.Enabled = false;
+                    break;
+                default:
+                    rbnGroupViTri_Day.Enabled = false;
+                    rbnGroupViTri_Tang.Enabled = false;
                     barBtnSuaCoSo.Enabled = false;
                     barBtnXoaCoSo.Enabled = false;
                     break;
