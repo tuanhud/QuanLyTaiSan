@@ -43,6 +43,7 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<ThietBi> thietbis { get; set; }
 
         public int? parent_id { get; set; }
+        [ForeignKey("parent_id")]
         public virtual LoaiThietBi parent { get; set; }
         public virtual ICollection<LoaiThietBi> childs { get; set; }
         #endregion

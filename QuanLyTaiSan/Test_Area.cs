@@ -28,21 +28,23 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
+            /*
+            Boolean auto_remove = false;
+            ThietBi obj = new ThietBi().getById(2);
+            //test fk dependency
+            int re = obj.delete(auto_remove);
+            //Switch to auto remove fk
+            auto_remove = true;
+            re = obj.delete(auto_remove);
+            Console.WriteLine(re);
+             */
 
+            //CoSo obj = DBInstance.DB.THIETBIS.Find();
+            ////DBInstance.DB.COSOS.Attach(obj);
+            //DBInstance.DB.COSOS.Remove(obj);
+            //DBInstance.DB.SaveChanges();
 
-            //DBInstance.autoRandom();
-
-            //List<TKSLThietBiFilter> list = new TKSLThietBiFilter().getAll();
-
-            //Console.WriteLine("");
-
-
-            //DBInstance.TaoDuLieuMau();
-            //List<HinhAnh> hinh = new HinhAnh().getAllCoSo();
-            //List<TKSLThietBiFilter> list = new TKSLThietBiFilter().getAll();
-            //List<PhongFilter> list = new PhongFilter().getAll();
-            
-            //Console.WriteLine("");
+            Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()
         {

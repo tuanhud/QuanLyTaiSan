@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,111 +41,114 @@ namespace QuanLyTaiSan.Entities
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //CONFIG
+            //AUTO DELETE ON CASCADE
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             //this.Configuration.LazyLoadingEnabled = false; 
             /*
-             * TPC Mapping
+             * TPC Mapping, Inheritance
              */
             modelBuilder.Entity<CoSo>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("COSOS");
+                //x.ToTable("COSOS");
             });
 
             modelBuilder.Entity<Phong>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("PHONGS");
+                //x.ToTable("PHONGS");
             });
 
             modelBuilder.Entity<ThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("THIETBIS");
+                //x.ToTable("THIETBIS");
             });
 
             modelBuilder.Entity<HinhAnh>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("HINHANHS");
+                //x.ToTable("HINHANHS");
             });
 
             modelBuilder.Entity<QuanTriVien>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("QUANTRIVIENS");
+                //x.ToTable("QUANTRIVIENS");
             });
 
             modelBuilder.Entity<Group>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("GROUPS");
+                //x.ToTable("GROUPS");
             });
 
             modelBuilder.Entity<Permission>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("PERMISSIONS");
+                //x.ToTable("PERMISSIONS");
             });
             modelBuilder.Entity<LogHeThong>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("LOGHETHONGS");
+                //x.ToTable("LOGHETHONGS");
             });
 
             modelBuilder.Entity<LogThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("LOGTHIETBIS");
+                //x.ToTable("LOGTHIETBIS");
             });
 
             modelBuilder.Entity<CTThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("CTTHIETBIS");
+                //x.ToTable("CTTHIETBIS");
             });
 
             modelBuilder.Entity<TinhTrang>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("TINHTRANGS");
+                //x.ToTable("TINHTRANGS");
             });
 
             modelBuilder.Entity<NhanVienPT>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("NHANVIENPTS");
+                //x.ToTable("NHANVIENPTS");
             });
             modelBuilder.Entity<Tang>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("TANGS");
+                //x.ToTable("TANGS");
             });
 
             modelBuilder.Entity<Dayy>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("DAYS");
+                //x.ToTable("DAYS");
             });
 
             modelBuilder.Entity<ViTri>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("VITRIS");
+                //x.ToTable("VITRIS");
             });
 
             modelBuilder.Entity<LoaiThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("LOAITHIETBIS");
+                //x.ToTable("LOAITHIETBIS");
             });
 
             modelBuilder.Entity<Setting>().Map(x =>
             {
                 x.MapInheritedProperties();
-                x.ToTable("SETTINGS");
+                //x.ToTable("SETTINGS");
             });
             /*
-             * n-n relationship
+             * n-n relationship GROUP~PERMISSION
              */
             modelBuilder.Entity<Group>().
             HasMany(c => c.permissions).
@@ -156,13 +160,6 @@ namespace QuanLyTaiSan.Entities
                     m.MapRightKey("permission_id");
                     m.ToTable("GROUP_PERMISSION");
                 });
-            /*
-             * Self-reference relationship
-             */
-            modelBuilder.Entity<LoaiThietBi>().
-            HasOptional(c => c.parent).
-            WithMany(c => c.childs).
-            HasForeignKey(c => c.parent_id);
         }
     }
 }

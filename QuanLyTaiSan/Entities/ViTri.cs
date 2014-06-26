@@ -26,13 +26,20 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int coso_id { get; set; }
         [Index("nothing", 1, IsUnique = true)]
+        [ForeignKey("coso_id")]
+        [Required]
         public virtual CoSo coso { get; set; }
 
+        public int? day_id { get; set; }
         [Index("nothing", 2, IsUnique = true)]
+        [ForeignKey("day_id")]
         public virtual Dayy day { get; set; }
 
+        public int? tang_id { get; set; }
         [Index("nothing", 3, IsUnique = true)]
+        [ForeignKey("tang_id")]
         public virtual Tang tang { get; set; }
 
         public virtual ICollection<Phong> phongs { get; set; }

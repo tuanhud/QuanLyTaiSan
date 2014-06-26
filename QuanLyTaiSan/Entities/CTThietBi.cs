@@ -29,13 +29,22 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int phong_id { get; set; }
         [Index("nothing", 1, IsUnique = true)]
+        [Required]
+        [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
 
+        public int thietbi_id { get; set; }
         [Index("nothing", 2,IsUnique=true)]
+        [Required]
+        [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
 
+        public int tinhtrang_id { get; set; }
         [Index("nothing", 3, IsUnique = true)]
+        [Required]
+        [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
         #region Nghiep vu

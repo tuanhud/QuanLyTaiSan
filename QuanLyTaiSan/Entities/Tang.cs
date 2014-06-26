@@ -26,7 +26,9 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int day_id { get; set; }
         [Required]
+        [ForeignKey("day_id")]
         public virtual Dayy day { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
 		#endregion

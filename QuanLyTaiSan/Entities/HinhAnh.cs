@@ -33,11 +33,28 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
+        public int? tang_id { get; set; }
+        [ForeignKey("tang_id")]
         public virtual Tang tang { get; set; }
+
+        public int? coso_id { get; set; }
+        [ForeignKey("coso_id")]
         public virtual CoSo coso { get; set; }
+
+        public int? day_id { get; set; }
+        [ForeignKey("day_id")]
         public virtual Dayy day { get; set; }
+
+        public int? nhanvienpt_id { get; set; }
+        [ForeignKey("nhanvienpt_id")]
         public virtual NhanVienPT nhanvienpt { get; set; }
+
+        public int? phong_id { get; set; }
+        [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
+
+        public int? thietbi_id { get; set; }
+        [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
         #endregion
 

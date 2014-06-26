@@ -115,11 +115,10 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public virtual int delete()
+        public virtual int delete(Boolean auto_remove_fk=false)
         {
             try
             {
-                //initDb();
                 db.Set<T>().Attach((T)this);
                 db.Set<T>().Remove((T)this);
                 db.SaveChanges();
