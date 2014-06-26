@@ -19,8 +19,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
 {
     public partial class ucQuanLyThietBi : UserControl
     {
-        ucTreeViTri _ucTreePhong = null;//Chọn phòng bên trái
-        ucComboBoxViTri _ucTreeViTri = null;//Chọn phòng cho thiết bị (bên phải)
+        ucTreeViTri _ucTreeViTri = null;//Chọn phòng bên trái
+        ucComboBoxViTri _ucComboBoxViTri = null;//Chọn phòng cho thiết bị (bên phải)
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();//Chọn loại thiết bị
 
         List<ViTriHienThi> listViTri = null;
@@ -47,9 +47,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
             listViTri = new ViTriHienThi().getAllHavePhong();
             //Xủ lí nếu chưa có cơ sở, dãy, tầng và phòng !!!!!!!!!!!!!!
 
-            //Set danh sách phòng vào _ucTreePhong
-            _ucTreePhong = new ucTreeViTri(listViTri, "QLThietBi");
-            _ucTreePhong.Parent = this;
+            //Set danh sách phòng vào _ucTreeViTri
+            _ucTreeViTri = new ucTreeViTri(listViTri, "QLThietBi");
+            _ucTreeViTri.Parent = this;
 
             //set loai thiet bi
             listLoaiThietBi = new LoaiThietBi().getAll().OrderBy(i => i.ten).ToList();
@@ -68,14 +68,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setTextPopupContainerEdit(null);
 
-            //Set danh sách phòng _ucTreeViTri
-            _ucTreeViTri = new ucComboBoxViTri(false, true);
-            _ucTreeViTri.loadData(listViTri);
-            _ucTreeViTri.Dock = DockStyle.Fill;
-            _ucTreeViTri.setReadOnly(true);
+            //Set danh sách phòng _ucComboBoxViTri
+            _ucComboBoxViTri = new ucComboBoxViTri(false, true);
+            _ucComboBoxViTri.loadData(listViTri);
+            _ucComboBoxViTri.Dock = DockStyle.Fill;
+            _ucComboBoxViTri.setReadOnly(true);
             panelControlPhong.Controls.Clear();
-            panelControlPhong.Controls.Add(_ucTreeViTri);
-            _ucTreeViTri.setTextPopupContainerEdit(null);
+            panelControlPhong.Controls.Add(_ucComboBoxViTri);
+            _ucComboBoxViTri.setTextPopupContainerEdit(null);
 
             
             listThietBiFilter = new ThietBiFilter().getAllBy4Id(-1,-1,-1,-1);
@@ -83,7 +83,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             
             //objThietBiFilter = listThietBiFilter.ElementAt(2);
             //objThietBi = new ThietBi().getById(objThietBiFilter.idTB);
-            //_ucTreeViTri.setPhong(new Phong().getById(1));
+            //_ucComboBoxViTri.setPhong(new Phong().getById(1));
             //setData();
         }
 
@@ -113,7 +113,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             txtMa.Text = "";
             txtTen.Text = "";
             //_ucTreeLoaiTB.setTextPopupContainerEdit("");
-            //_ucTreeViTri.setTextPopupContainerEdit("");
+            //_ucComboBoxViTri.setTextPopupContainerEdit("");
             panelControlLoaiThietBi.Controls.Clear();
             panelControlPhong.Controls.Clear();
             dateMua.EditValue = null;
@@ -123,7 +123,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             //if (listLoaiThietBi.Count > 0)
             //    _ucTreeLoaiTB.setLoai(listLoaiThietBi.FirstOrDefault());
             //if(listViTri.Count>0)
-            //    _ucTreeViTri.setViTri(
+            //    _ucComboBoxViTri.setViTri(
             
         }
 
@@ -153,7 +153,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     dateLap.Properties.ReadOnly = false;
                 }
                 _ucTreeLoaiTB.setReadOnly(true);
-                _ucTreeViTri.setReadOnly(true);
+                _ucComboBoxViTri.setReadOnly(true);
             }
             else
             {
@@ -165,7 +165,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 txtMa.Properties.ReadOnly = true;
                 txtMoTa.Properties.ReadOnly = true;
                 _ucTreeLoaiTB.setReadOnly(true);
-                _ucTreeViTri.setReadOnly(true);
+                _ucComboBoxViTri.setReadOnly(true);
                 dateMua.Properties.ReadOnly = true;
                 dateLap.Properties.ReadOnly = true;
             }
@@ -181,7 +181,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         public TreeList getTreeList()
         {
-            return _ucTreePhong.getTreeList();
+            return _ucTreeViTri.getTreeList();
         }
 
         public RibbonControl getRibbon()
@@ -214,9 +214,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
                 txtTen.Text = objThietBi.ten;
                 _ucTreeLoaiTB.setLoai(objThietBi.loaithietbi);
-                _ucTreeViTri.setPhong(new Phong().getById(objThietBiFilter.phong_id));
+                _ucComboBoxViTri.setPhong(new Phong().getById(objThietBiFilter.phong_id));
                 panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
-                panelControlPhong.Controls.Add(_ucTreeViTri);
+                panelControlPhong.Controls.Add(_ucComboBoxViTri);
                 //if (objThietBi.loaithietbi.loaichung)
                 //{
                 //    txtMa.Visible = false;
@@ -256,7 +256,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             //if(function.Equals("add"))
             //{
             //    CTThietBi ctthietbi = new CTThietBi();
-            //    ctthietbi.phong = _ucTreeViTri.getPhong();
+            //    ctthietbi.phong = _ucComboBoxViTri.getPhong();
             //    ctthietbi.tinhtrang = new TinhTrang().getById(4);//tinh trang moi phai co san
 
             //}
