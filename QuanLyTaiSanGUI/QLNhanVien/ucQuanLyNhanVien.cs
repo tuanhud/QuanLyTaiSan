@@ -14,6 +14,7 @@ using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraGrid;
 
 namespace QuanLyTaiSanGUI.QLNhanVien
 {
@@ -47,6 +48,18 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 NhanVienPTs = new NhanVienPT().getAll();
                 gridControlNhanVien.DataSource = null;
                 gridControlNhanVien.DataSource = NhanVienPTs;
+                if (NhanVienPTs.Count > 0)
+                {
+                    barBtnSuaNhanVien.Enabled = true;
+                    barBtnXoaNhanVien.Enabled = true;
+                    barBtnPhanCong.Enabled = true;
+                }
+                else
+                {
+                    barBtnSuaNhanVien.Enabled = false;
+                    barBtnXoaNhanVien.Enabled = false;
+                    barBtnPhanCong.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -100,6 +113,23 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             }
         }
 
+        private void reLoadAndFocused(int _id)
+        {
+            try
+            {
+                reLoad();
+                int rowHandle = gridViewNhanVien.LocateByValue(colid.FieldName, _id);
+                if (rowHandle != GridControl.InvalidRowHandle)
+                    gridViewNhanVien.FocusedRowHandle = rowHandle;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
+            }
+            finally
+            { }
+        }
+
         public void beforeAdd()
         {
             txtMa.Text = "";
@@ -123,7 +153,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     if (objNhanVienPT.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa nhân viên thành công!");
-                        reLoad();
+                        //reLoad();
+                        reLoadAndFocused(objNhanVienPT.id);
                     }
                 }
                 else
@@ -136,7 +167,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     if (objNew.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm nhân viên thành công!");
-                        reLoad();
+                        //reLoad();
+                        reLoadAndFocused(objNhanVienPT.id);
                     }
                 }
             }
