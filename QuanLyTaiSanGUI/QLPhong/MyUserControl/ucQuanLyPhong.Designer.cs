@@ -48,9 +48,6 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.imgNhanVien = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
-            this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.searchLookUpEditNhanVienPT = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.ribbonPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -80,6 +77,9 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -87,9 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditNhanVienPT.Properties)).BeginInit();
@@ -100,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -213,6 +213,9 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.txtSoDienThoai);
+            this.groupControl2.Controls.Add(this.txtTenNhanVien);
+            this.groupControl2.Controls.Add(this.txtMaNhanVien);
             this.groupControl2.Controls.Add(this.lblSoDienThoai);
             this.groupControl2.Controls.Add(this.lblTenNhanVien);
             this.groupControl2.Controls.Add(this.lblMaNhanVien);
@@ -221,9 +224,6 @@
             this.groupControl2.Controls.Add(this.labelControl7);
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.imgNhanVien);
-            this.groupControl2.Controls.Add(this.txtSoDienThoai);
-            this.groupControl2.Controls.Add(this.txtTenNhanVien);
-            this.groupControl2.Controls.Add(this.txtMaNhanVien);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 321);
             this.groupControl2.Name = "groupControl2";
@@ -292,39 +292,6 @@
             this.imgNhanVien.Size = new System.Drawing.Size(120, 120);
             this.imgNhanVien.TabIndex = 0;
             this.imgNhanVien.Text = "imageSlider2";
-            // 
-            // txtSoDienThoai
-            // 
-            this.txtSoDienThoai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoDienThoai.Enabled = false;
-            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 203);
-            this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Properties.ReadOnly = true;
-            this.txtSoDienThoai.Size = new System.Drawing.Size(213, 20);
-            this.txtSoDienThoai.TabIndex = 1;
-            // 
-            // txtTenNhanVien
-            // 
-            this.txtTenNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenNhanVien.Enabled = false;
-            this.txtTenNhanVien.Location = new System.Drawing.Point(79, 177);
-            this.txtTenNhanVien.Name = "txtTenNhanVien";
-            this.txtTenNhanVien.Properties.ReadOnly = true;
-            this.txtTenNhanVien.Size = new System.Drawing.Size(213, 20);
-            this.txtTenNhanVien.TabIndex = 1;
-            // 
-            // txtMaNhanVien
-            // 
-            this.txtMaNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNhanVien.Enabled = false;
-            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 151);
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Properties.ReadOnly = true;
-            this.txtMaNhanVien.Size = new System.Drawing.Size(213, 20);
-            this.txtMaNhanVien.TabIndex = 1;
             // 
             // groupControl1
             // 
@@ -587,6 +554,33 @@
             // 
             this.dxErrorProvider.ContainerControl = this;
             // 
+            // txtMaNhanVien
+            // 
+            this.txtMaNhanVien.Location = new System.Drawing.Point(79, 152);
+            this.txtMaNhanVien.MenuManager = this.ribbonPhong;
+            this.txtMaNhanVien.Name = "txtMaNhanVien";
+            this.txtMaNhanVien.Properties.ReadOnly = true;
+            this.txtMaNhanVien.Size = new System.Drawing.Size(213, 20);
+            this.txtMaNhanVien.TabIndex = 11;
+            // 
+            // txtTenNhanVien
+            // 
+            this.txtTenNhanVien.Location = new System.Drawing.Point(79, 178);
+            this.txtTenNhanVien.MenuManager = this.ribbonPhong;
+            this.txtTenNhanVien.Name = "txtTenNhanVien";
+            this.txtTenNhanVien.Properties.ReadOnly = true;
+            this.txtTenNhanVien.Size = new System.Drawing.Size(213, 20);
+            this.txtTenNhanVien.TabIndex = 12;
+            // 
+            // txtSoDienThoai
+            // 
+            this.txtSoDienThoai.Location = new System.Drawing.Point(79, 204);
+            this.txtSoDienThoai.MenuManager = this.ribbonPhong;
+            this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.Properties.ReadOnly = true;
+            this.txtSoDienThoai.Size = new System.Drawing.Size(213, 20);
+            this.txtSoDienThoai.TabIndex = 13;
+            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,9 +597,6 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -617,6 +608,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,9 +648,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.Controls.ImageSlider imgNhanVien;
-        private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
-        private DevExpress.XtraEditors.TextEdit txtTenNhanVien;
-        private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl lblHinhPhong;
@@ -675,5 +666,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn collid;
         private DevExpress.XtraGrid.Columns.GridColumn collten;
+        private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
+        private DevExpress.XtraEditors.TextEdit txtTenNhanVien;
+        private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
     }
 }
