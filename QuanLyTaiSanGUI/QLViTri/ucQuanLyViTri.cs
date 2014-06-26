@@ -415,7 +415,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             if(_color)
                 groupControl1.AppearanceCaption.ForeColor = Color.Red;
             else
-                groupControl1.AppearanceCaption.ForeColor = Color.Black;   
+                groupControl1.AppearanceCaption.ForeColor = Color.Empty;   
         }
 
         private Boolean CheckInput()

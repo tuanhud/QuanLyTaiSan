@@ -175,7 +175,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             if (_color)
                 groupControl1.AppearanceCaption.ForeColor = Color.Red;
             else
-                groupControl1.AppearanceCaption.ForeColor = Color.Black; 
+                groupControl1.AppearanceCaption.ForeColor = Color.Empty; 
         }
 
         private void btnOK_Click(object sender, EventArgs e)
