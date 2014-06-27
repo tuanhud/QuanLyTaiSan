@@ -32,14 +32,15 @@ namespace QuanLyTaiSanGUI.MyUC
         private void init(String _type)
         {
             type = _type;
+            treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> _list)
         {
             
-            treeListPhong.BeginUnboundLoad();
-            treeListPhong.DataSource = _list;
-            treeListPhong.EndUnboundLoad();
+            treeListViTri.BeginUnboundLoad();
+            treeListViTri.DataSource = _list;
+            treeListViTri.EndUnboundLoad();
         }
 
         //public void reLoad(List<ViTriHienThi> _list)
@@ -131,7 +132,7 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public TreeList getTreeList()
         {
-            return treeListPhong;
+            return treeListViTri;
         }
 
         public void setVitri(ViTri obj)
@@ -155,9 +156,9 @@ namespace QuanLyTaiSanGUI.MyUC
                     }
                     if (findNode != null)
                     {
-                        treeListPhong.CollapseAll();
-                        treeListPhong.NodesIterator.DoOperation(findNode);
-                        treeListPhong.FocusedNode = findNode.Node;
+                        treeListViTri.CollapseAll();
+                        treeListViTri.NodesIterator.DoOperation(findNode);
+                        treeListViTri.FocusedNode = findNode.Node;
                     }
                 }
             }

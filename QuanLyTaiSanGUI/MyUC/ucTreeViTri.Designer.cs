@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeListPhong = new DevExpress.XtraTreeList.TreeList();
+            this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             this.SuspendLayout();
             // 
             // treeListPhong
             // 
-            this.treeListPhong.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.treeListPhong.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.treeListPhong.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListViTri.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.treeListViTri.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
             this.colloai});
-            this.treeListPhong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListPhong.KeyFieldName = "id_c";
-            this.treeListPhong.Location = new System.Drawing.Point(0, 0);
-            this.treeListPhong.Name = "treeListPhong";
-            this.treeListPhong.OptionsBehavior.Editable = false;
-            this.treeListPhong.ParentFieldName = "id_p";
-            this.treeListPhong.Size = new System.Drawing.Size(276, 373);
-            this.treeListPhong.TabIndex = 0;
-            this.treeListPhong.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
+            this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeListViTri.KeyFieldName = "id_c";
+            this.treeListViTri.Location = new System.Drawing.Point(0, 0);
+            this.treeListViTri.Name = "treeListPhong";
+            this.treeListViTri.OptionsBehavior.Editable = false;
+            this.treeListViTri.ParentFieldName = "id_p";
+            this.treeListViTri.Size = new System.Drawing.Size(276, 373);
+            this.treeListViTri.TabIndex = 0;
+            this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
             // 
             // colid
             // 
@@ -77,10 +77,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.treeListPhong);
+            this.Controls.Add(this.treeListViTri);
             this.Name = "ucTreePhong";
             this.Size = new System.Drawing.Size(276, 373);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,6 +90,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        private DevExpress.XtraTreeList.TreeList treeListPhong;
+        private DevExpress.XtraTreeList.TreeList treeListViTri;
     }
 }

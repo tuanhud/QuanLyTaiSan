@@ -21,6 +21,7 @@ namespace QuanLyTaiSanGUI.MyUC
         public ucTreeLoaiTB()
         {
             InitializeComponent();
+            init();
         }
 
         public ucTreeLoaiTB(bool _haveCheck)
@@ -29,6 +30,12 @@ namespace QuanLyTaiSanGUI.MyUC
             treeListLoaiTB.OptionsBehavior.AllowRecursiveNodeChecking = true;
             treeListLoaiTB.OptionsView.ShowCheckBoxes = true;
             haveCheck = _haveCheck;
+            init();
+        }
+
+        public void init()
+        {
+            treeListLoaiTB.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public List<LoaiThietBi> getListLoaiTB()
