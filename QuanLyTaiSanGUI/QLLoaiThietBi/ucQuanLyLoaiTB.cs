@@ -66,7 +66,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                loaiThietBis = new LoaiThietBi().getAll().OrderBy(l => l.ten).ToList();
+                loaiThietBis = new LoaiThietBi().getAll().ToList();
                 treeListLoaiTB.DataSource = loaiThietBis;
                 listLoaiThietBiCha = new LoaiThietBi().getAllParent().OrderBy(l => l.ten).ToList();
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);

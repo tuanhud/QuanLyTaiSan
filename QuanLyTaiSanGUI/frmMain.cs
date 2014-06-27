@@ -51,8 +51,6 @@ namespace QuanLyTaiSanGUI
         private void init()
         {
             UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
-            navBarGroupLoaiTB.Expanded = true;
-            navBarGroupPhong.Expanded = true;
             //DockStyle
             _ucThongKeChiTiet.Dock = DockStyle.Fill;
             _ucThongKeTongQuat.Dock = DockStyle.Fill;
@@ -77,8 +75,10 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;
             _ucPhanQuyen.getControl().Parent = navBarGroupPhanQuyen.ControlContainer;
             _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
-
-
+            //
+            navBarGroupViTri.Expanded = true;
+            //navBarGroupLoaiTB.Expanded = true;
+            //navBarGroupPhong.Expanded = true;
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -104,7 +104,7 @@ namespace QuanLyTaiSanGUI
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupLoaiTB))
                 {
-                    //_ucQuanLyLoaiTB.loadData();
+                    _ucQuanLyLoaiTB.reLoad();
                     ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home");
                     panelControl1.Controls.Clear();
