@@ -19,7 +19,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 {
     public partial class ucQuanLyThietBi : UserControl
     {
-        ucTreeViTri _ucTreeViTri = null;
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLThietBi");
         ucComboBoxViTri _ucComboBoxViTri = null;
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
 
@@ -45,10 +45,11 @@ namespace QuanLyTaiSanGUI.QLThietBi
             //Xủ lí nếu chưa có cơ sở, dãy, tầng và phòng !!!!!!!!!!!!!!
             //Chưa làm
 
-            _ucTreeViTri = new ucTreeViTri(listViTriHienThi, "QLThietBi");
+            _ucTreeViTri.loadData(listViTriHienThi);
             _ucTreeViTri.Parent = this;
 
-            listLoaiThietBi = new LoaiThietBi().getAll().OrderBy(i => i.ten).ToList();
+            //OrderBy chạy rất chậm
+            listLoaiThietBi = new LoaiThietBi().getAll().ToList();
             _ucTreeLoaiTB.loadData(listLoaiThietBi);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             _ucTreeLoaiTB.setReadOnly(true);

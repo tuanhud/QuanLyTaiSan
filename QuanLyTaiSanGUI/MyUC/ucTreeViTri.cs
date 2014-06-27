@@ -23,24 +23,29 @@ namespace QuanLyTaiSanGUI.MyUC
         int dayid = -1;
         int tangid = -1;
         public String type = "";
-        public ucTreeViTri(List<ViTriHienThi> _list, String _type)
+        public ucTreeViTri(String _type)
         {
             InitializeComponent();
-            loadData(_list, _type);
+            init(_type);
         }
 
-        private void loadData(List<ViTriHienThi> _list, String _type)
+        private void init(String _type)
         {
             type = _type;
+        }
+
+        public void loadData(List<ViTriHienThi> _list)
+        {
+            
             treeListPhong.BeginUnboundLoad();
             treeListPhong.DataSource = _list;
             treeListPhong.EndUnboundLoad();
         }
 
-        public void reLoad(List<ViTriHienThi> _list)
-        {
-            loadData(_list, type);
-        }
+        //public void reLoad(List<ViTriHienThi> _list)
+        //{
+        //    loadData(_list, type);
+        //}
 
         private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {

@@ -40,6 +40,7 @@
             this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.navBarGroupControlContainer5 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupLoaiTB = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThietBi = new DevExpress.XtraNavBar.NavBarGroup();
@@ -47,7 +48,6 @@
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.navBarGroupControlContainer5 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -155,6 +155,12 @@
             this.navBarGroupControlContainer4.Size = new System.Drawing.Size(259, 241);
             this.navBarGroupControlContainer4.TabIndex = 3;
             // 
+            // navBarGroupControlContainer5
+            // 
+            this.navBarGroupControlContainer5.Name = "navBarGroupControlContainer5";
+            this.navBarGroupControlContainer5.Size = new System.Drawing.Size(259, 239);
+            this.navBarGroupControlContainer5.TabIndex = 4;
+            // 
             // navBarGroupViTri
             // 
             this.navBarGroupViTri.Caption = "Quản lý vị trí";
@@ -212,12 +218,6 @@
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
             // 
-            // navBarGroupControlContainer5
-            // 
-            this.navBarGroupControlContainer5.Name = "navBarGroupControlContainer5";
-            this.navBarGroupControlContainer5.Size = new System.Drawing.Size(259, 239);
-            this.navBarGroupControlContainer5.TabIndex = 4;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +234,6 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý phòng học v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.RibbonForm1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.navBarControl1.ResumeLayout(false);

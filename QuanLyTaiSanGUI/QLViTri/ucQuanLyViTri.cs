@@ -42,10 +42,10 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             //Ẩn ribbon
             ribbonViTri.Parent = null;
-            loadData();
+            //loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             try
             {
@@ -59,6 +59,16 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 _ucComboBoxViTri.loadData(listViTriHienThi);
                 listViTriHienThi = new ViTriHienThi().getAllHaveDay();
                 _ucComboBoxViTriChonDay.loadData(listViTriHienThi);
+
+                if (!function.Equals(""))
+                {
+                    errorProvider1.Clear();
+                    enableEdit(false, "", "");
+                    SetTextGroupControl("Chi tiết", false);
+                    //listHinh = null;
+                    //setData(node);
+                }
+
             }
             catch (Exception ex)
             {
@@ -200,7 +210,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     case "CoSo":
 
-                        ThemMoiNode(-1, "");
+                        ThemMoiNode(-1, "", typeof(CoSo).Name);
 
                         listHinh = null;
                         panelControl1.Controls.Clear();
@@ -222,7 +232,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         else
                             _vitri.coso = objTang.day.coso;
 
-                        ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name);
+                        ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name, typeof(Dayy).Name);
 
                         _ucComboBoxViTri.setViTri(_vitri);
                         panelControl1.Controls.Add(_ucComboBoxViTri);
@@ -243,7 +253,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             _vitri.day = objTang.day;
                         }
 
-                        ThemMoiNode(_vitri.day.id, typeof(Dayy).Name);
+                        ThemMoiNode(_vitri.day.id, typeof(Dayy).Name, typeof(Tang).Name);
 
                         _ucComboBoxViTriChonDay.setViTri(_vitri);
                         panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
@@ -407,11 +417,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         private void btnHuy_Click(object sender, EventArgs e)
         {
             reLoad();
-            //enableEdit(false, "", "");
-            //SetTextGroupControl("Chi tiết", false);
-            //errorProvider1.Clear();
-            //listHinh = null;
-            //setData(node);
         }
 
         public void SetTextGroupControl(String _text, bool _color)
@@ -427,11 +432,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             errorProvider1.Clear();
             Boolean check = true;
-            //if (imageSlider1.Images.Count == 0)
-            //{
-            //    check = false;
-            //    errorProvider1.SetError(imageSlider1, "Cần ít nhất 1 hình ảnh");
-            //}
             if (txtTen.Text.Length == 0)
             {
                 check = false;
@@ -679,14 +679,14 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             }
         }
 
-        private void ThemMoiNode(int _id, String _type)
+        private void ThemMoiNode(int _id, String _type, String _typenode)
         {
             try
             {
                 FindNode findNode = null;
                 if (_type.Equals(""))
                 {
-                    treeListViTri.AppendNode(new object[] { -1, "new", _type }, null);
+                    treeListViTri.AppendNode(new object[] { -1, "new", "new" }, null);
                     findNode = new FindNode(-1, "new");
                     treeListViTri.NodesIterator.DoOperation(findNode);
                     treeListViTri.FocusedNode = findNode.Node;
@@ -695,11 +695,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     findNode = new FindNode(_id, _type);
                     treeListViTri.NodesIterator.DoOperation(findNode);
-                    treeListViTri.AppendNode(new object[] { -1, "new", _type }, findNode.Node);
+                    treeListViTri.AppendNode(new object[] { -1, "new", "new" }, findNode.Node);
                     findNode = new FindNode(-1, "new");
                     treeListViTri.NodesIterator.DoOperation(findNode);
                     treeListViTri.FocusedNode = findNode.Node;
                 }
+                enableGroupViTri(_typenode);
             }
             catch (Exception ex)
             {

@@ -38,10 +38,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
              ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
-            loadData();
         }
 
-        private void loadData()
+        public void loadData()
         {
             try
             {

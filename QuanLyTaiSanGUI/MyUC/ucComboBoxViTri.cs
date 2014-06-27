@@ -27,6 +27,11 @@ namespace QuanLyTaiSanGUI.MyUC
         public ucComboBoxViTri(bool _chonDay, bool _chonPhong)
         {
             InitializeComponent();
+            init(_chonDay, _chonPhong);
+        }
+
+        private void init(bool _chonDay, bool _chonPhong)
+        {
             chonDay = _chonDay;
             chonPhong = _chonPhong;
         }

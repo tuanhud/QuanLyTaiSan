@@ -36,7 +36,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         List<HinhAnh> listHinhNV = new List<HinhAnh>();
         List<NhanVienPT> listNhanVienPT = new List<NhanVienPT>();
 
-        ucTreeViTri _ucTreeViTri = null;
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhong");
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);     
 
         String function = "";
@@ -55,14 +55,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             listVitris = new ViTriHienThi().getAll().ToList();
 
-            _ucTreeViTri = new ucTreeViTri(listVitris, "QLPhong");
+            _ucTreeViTri.loadData(listVitris);
             _ucTreeViTri.Parent = this;
             _ucComboBoxViTri.loadData(listVitris);
             _ucComboBoxViTri.Dock = DockStyle.Fill;
 
             panelControl1.Controls.Add(_ucComboBoxViTri);
             ribbonPhong.Parent = null;
-            listPhong = new Phong().getPhongByViTri(-1, -1, -1);
+            ViTri obj = _ucTreeViTri.getVitri();
+            listPhong = new Phong().getPhongByViTri(obj.coso != null ? obj.coso.id : -1, obj.day != null ? obj.day.id : -1, obj.tang != null ? obj.tang.id : -1);
             gridControlPhong.DataSource = listPhong;
             
             listNhanVienPT = objNhanVienPT.getAll();
@@ -132,7 +133,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public void reLoadAll()
         {
             listVitris = new ViTriHienThi().getAll().ToList();
-            _ucTreeViTri.reLoad(listVitris);
+            _ucTreeViTri.loadData(listVitris);
             reLoad();
         }
 
