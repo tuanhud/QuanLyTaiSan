@@ -14,6 +14,7 @@ namespace QuanLyTaiSan.Entities
         public OurDBContext()
             //: base(Global.local_setting.cached_connection_string)
             : base("Default")
+            //: base(@"Data Source=C:\Users\quocdunginfo\Documents\GitHub\QuanLyTaiSan\ProvisionClient\local_db.sdf")
         {
             //Use config file OR use Global setting
         }

@@ -44,6 +44,11 @@ namespace QuanLyTaiSan
             //DBInstance.DB.COSOS.Remove(obj);
             //DBInstance.DB.SaveChanges();
 
+            Phong obj = new Phong().getById(1);
+            obj.nhanvienpt = new NhanVienPT().getById(2);
+            //obj.nhanvienpt_id = null;//new NhanVienPT().getById(1).id;
+            //obj.update();
+
             Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()
