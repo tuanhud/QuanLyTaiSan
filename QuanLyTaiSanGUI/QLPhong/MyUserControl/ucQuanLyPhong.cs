@@ -119,9 +119,19 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 _ucTreeViTri.setVitri(objPhong.vitri);
-                gridControlPhong.DataSource = null;
-                listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
-                gridControlPhong.DataSource = listPhong;
+                //gridControlPhong.DataSource = null;
+                //listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
+
+                ViTri obj = new ViTri().getBy3Id(cosoid, dayid, tangid);
+                if (obj != null)
+                {
+                    listPhong = obj.phongs.ToList();
+                    gridControlPhong.DataSource = listPhong;
+                }
+                else
+                    gridControlPhong.DataSource = null;
+
+                //gridControlPhong.DataSource = listPhong;
             }
             catch
             { }
@@ -223,24 +233,30 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //chỉnh sửa phòng
         private void ChinhSuaPhong()
         {
-            if (listHinh != null)
+            try
             {
-                objPhong.hinhanhs = listHinh;
+                if (listHinh != null)
+                {
+                    objPhong.hinhanhs = listHinh;
+                }
+                objPhong.subId = txtMaPhong.Text;
+                objPhong.ten = txtTenPhong.Text;
+                objPhong.vitri = _ucComboBoxViTri.getViTri();
+                objPhong.mota = txtMoTaPhong.Text;
+                if (_idnhanvien > -1)
+                    objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
+                else objPhong.nhanvienpt = null;
+                if (objPhong.update() != -1)
+                {
+                    XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reLoadAndFocused(objPhong.id);
+                }
+                else XtraMessageBox.Show("Có lỗi trong khi chỉnh sửa");
             }
-            objPhong.subId = txtMaPhong.Text;
-            objPhong.ten = txtTenPhong.Text;
-            objPhong.vitri = _ucComboBoxViTri.getViTri();
-            objPhong.mota = txtMoTaPhong.Text;
-            //objPhong.nhanvienpt.id = _idnhanvien;// == -1 ? null : _idnhanvien;
-            if (_idnhanvien > -1)
-                objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
-            else objPhong.nhanvienpt = null;
-            if (objPhong.update() != -1)
+            catch (Exception ex)
             {
-                XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reLoadAndFocused(objPhong.id);
+                XtraMessageBox.Show(ex.ToString());
             }
-            else XtraMessageBox.Show("Có lỗi trong khi chỉnh sửa");
         }
 
         private void reLoadAndFocused(int _id)
