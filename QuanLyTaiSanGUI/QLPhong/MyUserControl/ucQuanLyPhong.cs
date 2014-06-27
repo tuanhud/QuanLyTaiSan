@@ -48,7 +48,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             loadData();
             enableEdit(false, "");
             enableBar(false);
-            _ucTreeViTri.expandAll = true;
         }
 
         // Load dữ liệu

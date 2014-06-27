@@ -59,7 +59,8 @@ namespace QuanLyTaiSan.Entities
                         {
                             //load from DB
                             //host_name = new Setting().getValue("ftp_image_host");
-                            host_name = "ftp://172.16.0.158";
+                            //host_name = "ftp://172.16.0.158";
+                            host_name = "ftp.hoangthanhit.com";
                         }
                         return host_name;
                     }
@@ -78,7 +79,8 @@ namespace QuanLyTaiSan.Entities
                         {
                             //load from DB
                             //user_name = new Setting().getValue("ftp_image_username");
-                            user_name = "quanlytaisan";
+                            //user_name = "quanlytaisan";
+                            user_name = "qlts@hoangthanhit.com";
                         }
                         return user_name;
                     }
@@ -174,7 +176,8 @@ namespace QuanLyTaiSan.Entities
                         {
                             //load from DB
                             //host_name = new Setting().getValue("http_image_host");
-                            host_name = "http://172.16.0.158";
+                            //host_name = "http://172.16.0.158";
+                            host_name = "http://hoangthanhit.com";
                         }
                         return host_name;
                     }
@@ -197,7 +200,8 @@ namespace QuanLyTaiSan.Entities
                         {
                             //load from DB
                             //pre_path = new Setting().getValue("http_image_prepath");
-                            pre_path = "/";
+                            //pre_path = "/";
+                            pre_path = "qlts/";
                         }
                         return pre_path;
                     }

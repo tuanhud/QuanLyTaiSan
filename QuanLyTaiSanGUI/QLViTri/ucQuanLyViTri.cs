@@ -447,58 +447,42 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             try
             {
-                frmHinhAnh frm = null;
+                frmHinhAnh frm = new frmHinhAnh(listHinh);
                 switch (type)
                 {
                     case "CoSo":
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(listHinh);
                             frm.Text = "Quản lý hình ảnh " + objCoSo.ten;
-                            frm.ShowDialog();
-                            listHinh = frm.getlistHinhs();
                         }
                         else
                         {
-                            frm = new frmHinhAnh(listHinh);
                             frm.Text = "Quản lý hình ảnh cơ sở mới";
-                            frm.ShowDialog();
-                            listHinh = frm.getlistHinhs();
                         }
                         break;
                     case "Dayy":
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(listHinh);
                             frm.Text = "Quản lý hình ảnh " + objDay.ten;
-                            frm.ShowDialog();
-                            listHinh = frm.getlistHinhs();
                         }
                         else
                         {
-                            frm = new frmHinhAnh(listHinh);
                             frm.Text = "Quản lý hình ảnh dãy mới";
-                            frm.ShowDialog();
-                            listHinh = frm.getlistHinhs();
                         }
                         break;
                     case "Tang":
                         if (function.Equals("edit"))
                         {
-                            frm = new frmHinhAnh(listHinh);
                             frm.Text = "Quản lý hình ảnh " + objTang.ten;
-                            frm.ShowDialog();
-                            listHinh = frm.getlistHinhs();
                         }
                         else
                         {
-                            frm = new frmHinhAnh(listHinh);
                             frm.Text = "Quản lý hình ảnh tầng mới";
-                            frm.ShowDialog();
-                            listHinh = frm.getlistHinhs();
                         }
                         break;
                 }
+                frm.ShowDialog();
+                listHinh = frm.getlistHinhs();
                 reloadImage();
             }
             catch (Exception ex)
@@ -526,7 +510,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         txt.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(txt);
                         node = typeof(CoSo).Name;
-                        listHinh = objCoSo.hinhanhs.ToList();
+                        if (objCoSo.hinhanhs != null)
+                            listHinh = objCoSo.hinhanhs.ToList();
                         reloadImage();
                         enableGroupViTri(typeof(CoSo).Name);
                         break;
@@ -540,7 +525,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objViTri.coso = objDay.coso;
                         _ucComboBoxViTri.setViTri(objViTri);
                         node = typeof(Dayy).Name;
-                        listHinh = objDay.hinhanhs.ToList();
+                        if (objDay.hinhanhs != null)
+                            listHinh = objDay.hinhanhs.ToList();
                         reloadImage();
                         enableGroupViTri(typeof(Dayy).Name);
                         break;
@@ -555,7 +541,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objViTri.coso = objTang.day.coso;
                         _ucComboBoxViTriChonDay.setViTri(objViTri);
                         node = typeof(Tang).Name;
-                        listHinh = objTang.hinhanhs.ToList();
+                        if (objTang.hinhanhs!= null)
+                            listHinh = objTang.hinhanhs.ToList();
                         reloadImage();
                         enableGroupViTri(typeof(Tang).Name);
                         break;

@@ -299,22 +299,18 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                frmHinhAnh frm = null;
+                frmHinhAnh frm = new frmHinhAnh(listHinhs);
                 if (function.Equals("edit"))
                 {
-                    frm = new frmHinhAnh(listHinhs);
                     frm.Text = "Quản lý hình ảnh " + objNhanVienPT.hoten;
-                    frm.ShowDialog();
-                    listHinhs = frm.getlistHinhs();
+
                 }
                 else
                 {
-                    frm = new frmHinhAnh(listHinhs);
                     frm.Text = "Quản lý hình ảnh nhân viên mới";
-                    frm.ShowDialog();
-                    listHinhs = frm.getlistHinhs();
                 }
-    
+                frm.ShowDialog();
+                listHinhs = frm.getlistHinhs();
                 reloadImage();
             }
             catch (Exception ex)
