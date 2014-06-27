@@ -18,6 +18,7 @@ namespace QuanLyTaiSan.DataFilter
         public String tencoso { get; set; }
         public String tenday { get; set; }
         public String tentang { get; set; }
+        public String tenloaithietbi { get; set; }
         public int phong_id { get; set; }
 
         #region Nghiệp vụ
@@ -39,6 +40,7 @@ namespace QuanLyTaiSan.DataFilter
                      tencoso = c.phong.vitri.coso.ten,
                      tenday = c.phong.vitri.day.ten,
                      tentang = c.phong.vitri.tang.ten,
+                     tenloaithietbi = c.thietbi.loaithietbi.ten
                  }).ToList();
             return re;
         }
