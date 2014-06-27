@@ -39,7 +39,6 @@ namespace QuanLyTaiSanGUI
         ucQuanLyViTri _ucQuanLyViTri = new ucQuanLyViTri();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi();
-        ucTreeThongKe _ucTreeThongKe = new ucTreeThongKe();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
         public frmMain()
@@ -59,8 +58,8 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyViTri.Dock = DockStyle.Fill;
             _ucQuanLyNhanVien.Dock = DockStyle.Fill;
             _ucQuanLyThietBi.Dock = DockStyle.Fill;
-            _ucTreeThongKe.Dock = DockStyle.Fill;
             _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
+            _ucTK_SLTB_TheoTinhTrang.Dock = DockStyle.Fill;
             //Add RibbonPage
             //addRibbonPage(_ucThongKeChiTiet.getRibbon());
             //addRibbonPage(_ucThongKeTongQuat.getRibbon());
@@ -69,7 +68,7 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucQuanLyViTri.getRibbon());
             addRibbonPage(_ucQuanLyNhanVien.getRibbon());
             addRibbonPage(_ucQuanLyThietBi.getRibbon());
-            //addRibbonPage(_ucTreeThongKe.getRibbon());
+            //addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
             addRibbonPage(_ucQuanLyLoaiTB.getRibbon());
             //Add Control to NavBar
             _ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;

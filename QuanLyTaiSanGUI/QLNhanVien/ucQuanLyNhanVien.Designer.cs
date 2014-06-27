@@ -619,6 +619,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(400, 400);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonNhanVienPT);
             this.Name = "ucQuanLyNhanVien";

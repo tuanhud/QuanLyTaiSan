@@ -37,7 +37,6 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public void loadData(List<ViTriHienThi> _list)
         {
-            
             treeListViTri.BeginUnboundLoad();
             treeListViTri.DataSource = _list;
             treeListViTri.EndUnboundLoad();

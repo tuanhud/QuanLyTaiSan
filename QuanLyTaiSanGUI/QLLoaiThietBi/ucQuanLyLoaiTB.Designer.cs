@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -42,13 +43,13 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ribbonLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -244,22 +245,6 @@
             this.rbnPageLoaiTB_Home});
             this.ribbonLoaiTB.Size = new System.Drawing.Size(866, 142);
             // 
-            // rbnPageLoaiTB_Home
-            // 
-            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupLoaiTB});
-            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
-            this.rbnPageLoaiTB_Home.Text = "Trang chính";
-            this.rbnPageLoaiTB_Home.Visible = false;
-            // 
-            // rbnGroupLoaiTB
-            // 
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonThemLoaiTB);
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonSuaLoaiTB);
-            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonXoaLoaiTB);
-            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
-            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
-            // 
             // barButtonThemLoaiTB
             // 
             this.barButtonThemLoaiTB.Caption = "Thêm loại thiết bị";
@@ -284,10 +269,28 @@
             this.barButtonXoaLoaiTB.Name = "barButtonXoaLoaiTB";
             this.barButtonXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaLoaiTB_ItemClick);
             // 
+            // rbnPageLoaiTB_Home
+            // 
+            this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbnGroupLoaiTB});
+            this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
+            this.rbnPageLoaiTB_Home.Text = "Trang chính";
+            this.rbnPageLoaiTB_Home.Visible = false;
+            // 
+            // rbnGroupLoaiTB
+            // 
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonThemLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonSuaLoaiTB);
+            this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonXoaLoaiTB);
+            this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
+            this.rbnGroupLoaiTB.Text = "Loại thiết bị";
+            // 
             // ucQuanLyLoaiTB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(400, 400);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonLoaiTB);
             this.Name = "ucQuanLyLoaiTB";

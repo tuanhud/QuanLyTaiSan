@@ -76,8 +76,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 if (gridViewNhanVien.GetFocusedRow() != null)
                 {
-                    enableEdit(false, "");
-                    SetTextGroupControl("Chi tiết", false);
+                    if (function.Equals("edit") || function.Equals("add"))
+                    {
+                        enableEdit(false, "");
+                        SetTextGroupControl("Chi tiết", false);
+                    }
                     objNhanVienPT = (NhanVienPT)gridViewNhanVien.GetFocusedRow();
                     SetData();
                 }
@@ -187,10 +190,14 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (objNhanVienPT.delete() != -1)
+                    if (objNhanVienPT.delete() > 0)
                     {
                         XtraMessageBox.Show("Xóa nhân viên thành công!");
                         reLoad();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Nhân viên này đã được phân công, không thể xóa!");
                     }
                 }
             }
