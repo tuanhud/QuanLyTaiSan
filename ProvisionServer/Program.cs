@@ -11,12 +11,12 @@ namespace ProvisionServer
 {
     public class Program
     {
-        public static Boolean old_scope = true;
+        public static Boolean old_scope = false;
         public static String scope_name = "QLTSScope";
         static void Main(string[] args)
         {
             SqlConnection serverConn = new SqlConnection("Data Source=172.16.0.158;Initial Catalog=QuanLyTaiSanDB;User Id=sa;Password=123456;");
-            if (old_scope)
+            if (false || old_scope)
             {
                 try
                 {
