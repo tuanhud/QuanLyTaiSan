@@ -18,10 +18,10 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {
-        int phongid = -1;
-        int cosoid = -1;
-        int dayid = -1;
-        int tangid = -1;
+        public int phongid = -1;
+        public int cosoid = -1;
+        public int dayid = -1;
+        public int tangid = -1;
         public String type = "";
         public ucTreeViTri(String _type)
         {

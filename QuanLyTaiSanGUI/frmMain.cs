@@ -112,7 +112,7 @@ namespace QuanLyTaiSanGUI
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupThietBi))
                 {
-                    //_ucQuanLyThietBi.loadData();
+                    _ucQuanLyThietBi.loadData();
                     ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home");
                     panelControl1.Controls.Clear();
