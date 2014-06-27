@@ -16,11 +16,6 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public Tang(MyDB db)
-        //    : base(db)
-        //{
-
-        //}
         
 		#region Dinh nghia
         /*
@@ -30,6 +25,7 @@ namespace QuanLyTaiSan.Entities
         [Required]
         [ForeignKey("day_id")]
         public virtual Dayy day { get; set; }
+
         public virtual ICollection<ViTri> vitris { get; set; }
 		#endregion
 		#region Override method

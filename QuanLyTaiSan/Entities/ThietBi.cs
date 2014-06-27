@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,11 +17,6 @@ namespace QuanLyTaiSan.Entities
         {
            
         }
-        //public ThietBi(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         
 		#region Dinh nghia
         /*
@@ -47,7 +43,6 @@ namespace QuanLyTaiSan.Entities
         {
             if (!auto_remove_fk)
             {
-                //Kiểm tra khi xóa thì có dính CASCADE hay không, nếu có thì báo lỗi, không thì gọi base.delete
                 
             }
             return base.delete();
@@ -68,6 +63,14 @@ namespace QuanLyTaiSan.Entities
             base.init();
             this.ctthietbis = new List<CTThietBi>();
             this.logthietbis = new List<LogThietBi>();
+        }
+        public override int add()
+        {
+            //time
+            ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
+            ngaylap = ngaylap == null ? ServerTimeHelper.getNow() : ngaylap;
+
+            return base.add();
         }
         #endregion
     }

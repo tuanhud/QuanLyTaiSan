@@ -16,11 +16,6 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public Group(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         #region Dinh nghia
 
         [StringLength(100)]
@@ -30,7 +25,6 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String ten { get; set; } //vd: Quản trị 1
-        public String mota { get; set; }
         /*
          * FK
          */

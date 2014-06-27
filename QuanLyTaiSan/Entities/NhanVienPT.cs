@@ -16,24 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public NhanVienPT(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         #region Dinh nghia
-        public String subId { get; set; }
         [Required]
         public String hoten { get; set; }
         public String sodienthoai { get; set; }
-        /*
-         * Ngay record insert vao he thong 
-         */
-        public DateTime? date_create { get; set; }
-        /*
-         * Ngay update gan day nhat
-         */
-        public DateTime? date_modified { get; set; }
+        
         /*
          * FK 
          */
@@ -43,7 +30,6 @@ namespace QuanLyTaiSan.Entities
         #region Nghiệp vụ
         public List<NhanVienPT> getAllByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
-            //InitDb();
             List<NhanVienPT> re =
                 (from nv in db.NHANVIENPTS
                  join p in db.PHONGS on nv equals p.nhanvienpt

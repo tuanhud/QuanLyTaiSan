@@ -19,11 +19,6 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public Dayy(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         
         
 		#region Dinh nghia

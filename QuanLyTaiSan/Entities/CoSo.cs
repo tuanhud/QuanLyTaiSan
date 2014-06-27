@@ -16,11 +16,7 @@ namespace QuanLyTaiSan.Entities
         {
             this.days = new List<Dayy>();
         }
-        //public CoSo(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
+       
         #region Định nghĩa
         public virtual ICollection<Dayy> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
@@ -39,6 +35,7 @@ namespace QuanLyTaiSan.Entities
             days = new List<Dayy>();
             vitris = new List<ViTri>();
         }
+        
         #endregion
 
     }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +22,28 @@ namespace QuanLyTaiSan.Entities
         {
             init();//it will call TOP level first
         }
-        public _EntityAbstract1(OurDBContext db)
-        {
-            //this.db = db;
-            init();//it will call TOP level first
-        }
         #region Định nghĩa
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        /// <summary>
+        /// Optional
+        /// </summary>
+        public String subId { get; set; }
+        /// <summary>
+        /// Optional
+        /// </summary>
+        public String mota { get; set; }
+        /// <summary>
+        /// Ngay record insert vao he thong
+        /// Optional
+        /// </summary>
+        public DateTime? date_create { get; set; }
+        /// <summary>
+        /// Ngay record updated gan day nhat
+        /// Optional
+        /// </summary>
+        public DateTime? date_modified { get; set; }
         #endregion
         
         #region Nghiệp vụ
@@ -47,44 +62,23 @@ namespace QuanLyTaiSan.Entities
                 return DBInstance.DB;
             }
         }
-        //[NotMapped]
-        //public MyDB DB
-        //{
-        //    get
-        //    {
-        //        //initDb();
-        //        return db;
-        //    }
-        //    //set
-        //    //{
-        //    //    db = value;
-        //    //}
-        //}
-
-        /// <summary>
-        /// Trước khi gọi trực tiếp xuống this.db thì phải gọi
-        /// hàm này
-        /// </summary>
-        //protected void initDb()
-        //{
-        //    //if (db == null)
-        //    //{
-        //    //    db = new MyDB();
-        //    //}
-        //}
-
+        
         public virtual int add()
         {
-            //add
             try
             {
-                //initDb();
+                //time
+                date_create = date_modified = date_create == null ? ServerTimeHelper.getNow() : date_create;
+
+                //script
                 db.Set<T>().Add((T)this);
                 db.SaveChanges();
                 return id;
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
+                db.Set<T>().Remove((T)this);//remove if fail
                 return -1;
             }
             finally
@@ -95,10 +89,12 @@ namespace QuanLyTaiSan.Entities
 
         public virtual int update()
         {
-            //update
             try
             {
-                //initDb();
+                //time
+                date_modified = ServerTimeHelper.getNow();
+                
+                //script
                 db.Set<T>().Attach((T)this);
                 //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
                 db.Entry(this).State = EntityState.Modified;//importance
@@ -107,6 +103,7 @@ namespace QuanLyTaiSan.Entities
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 return -1;
             }
             finally
@@ -126,6 +123,8 @@ namespace QuanLyTaiSan.Entities
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
+                db.Set<T>().Attach((T)this);//nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
                 return -1;
             }
             finally
@@ -137,16 +136,11 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                //initDb();
-                T obj = db.Set<T>().Where(c => c.id == id).FirstOrDefault();
-                //if (obj != null)
-                //{
-                //    obj.DB = db;
-                //}
-                return obj;
+                return db.Set<T>().Find(id);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 return null;
             }
             finally
@@ -159,16 +153,12 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                //initDb();
                 List<T> objs = db.Set<T>().ToList();
-                //foreach (T item in objs)
-                //{
-                //    item.DB = db;//importance
-                //}
                 return objs;
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 return new List<T>();
             }
             finally
@@ -176,10 +166,6 @@ namespace QuanLyTaiSan.Entities
                 
             }
         }
-        /// <summary>
-        /// Object and all references will no longer be supported by DbContext,
-        /// Cached value will be used, but not connect to DB again
-        /// </summary>
         public virtual void dispose()
         {
             //if (db != null)
@@ -195,19 +181,13 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual T reload()
         {
-            
             try
             {
-                //initDb();
-                T obj = db.Set<T>().Where(c => c.id == id).FirstOrDefault();
-                //if (obj != null)
-                //{
-                //    obj.DB = db;
-                //}
-                return obj;
+                return db.Set<T>().Find(id);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 return null;
             }
             finally

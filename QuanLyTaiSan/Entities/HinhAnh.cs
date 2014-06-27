@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,16 +20,12 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        //public HinhAnh(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         #region Dinh nghia
         /*
          * Relative path
          */
         [StringLength(255)]
+        [Required]
         public String path { get; set; }
         /*
          * FK
@@ -167,7 +164,7 @@ namespace QuanLyTaiSan.Entities
             }
         }
         [NotMapped]
-        protected static String cache_path = "cached_image";
+        protected static String cache_path = "ImageCache";
         [NotMapped]
         public static String CACHE_PATH
         {
@@ -314,7 +311,6 @@ namespace QuanLyTaiSan.Entities
         protected override void init()
         {
             base.init();
-            cache_path = "ImageCache";
         }
         
         public override int update()
@@ -353,16 +349,11 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                //initDb();
-                HinhAnh obj = db.Set<HinhAnh>().Where(c => c.file_name == _name).FirstOrDefault();
-                //if (obj != null)
-                //{
-                //    obj.DB = db;
-                //}
-                return obj;
+                return db.Set<HinhAnh>().Where(c => c.file_name == _name).FirstOrDefault();
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 return null;
             }
             finally

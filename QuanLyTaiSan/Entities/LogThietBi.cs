@@ -19,11 +19,6 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        //public LogThietBi(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         #region Dinh nghia
         [Index("nothing", 1, IsUnique = true)]
         [Required]
@@ -32,7 +27,7 @@ namespace QuanLyTaiSan.Entities
         [Required]
         [Index("nothing", 5, IsUnique = true)]
         public int soluong { get; set; }
-        public String mota { get; set; }
+
         /*
          * FK
          */
@@ -72,7 +67,7 @@ namespace QuanLyTaiSan.Entities
                 phong.trigger();
             }
             
-            ////...
+            //...
             return base.update();
         }
 

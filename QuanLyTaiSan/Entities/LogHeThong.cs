@@ -16,16 +16,13 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        //public LogHeThong(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         #region Dinh nghia
         [Required]
         public DateTime ngay { get; set; }
-        [Required]
-        public String mota { get; set; } //vd: { "USER":quocdunginfo, "ACTION":DELETE_USER, "PARAM": nguoibixoa }
+
+        //PARENT DIFINITION
+        //vd: { "USER":quocdunginfo, "ACTION":DELETE_USER, "PARAM": nguoibixoa }
+        //public String mota { get; set; }
         #endregion
     }
 }

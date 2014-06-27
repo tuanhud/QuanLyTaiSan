@@ -16,22 +16,11 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public Permission(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
-        protected override void init()
-        {
-            base.init();
-            this.groups = new List<Group>();
-        }
         #region Dinh nghia
         [Required]
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String key { get; set; }
-        public String mota { get; set; }
         /*
          * FK
          */
@@ -55,6 +44,14 @@ namespace QuanLyTaiSan.Entities
                 }
             }
             return false;
+        }
+        #endregion
+
+        #region Override
+        protected override void init()
+        {
+            base.init();
+            this.groups = new List<Group>();
         }
         #endregion
     }

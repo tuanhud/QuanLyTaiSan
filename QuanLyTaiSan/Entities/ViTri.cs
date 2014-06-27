@@ -15,17 +15,8 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public ViTri(MyDB db)
-        //    : base(db)
-        //{
-
-        //}
-        #region Dinh nghia
-        public String mota { get; set; }
+        #region Dinh nghia        
         
-        /*
-         * FK
-         */
         public int coso_id { get; set; }
         [Index("nothing", 1, IsUnique = true)]
         [ForeignKey("coso_id")]
@@ -41,7 +32,9 @@ namespace QuanLyTaiSan.Entities
         [Index("nothing", 3, IsUnique = true)]
         [ForeignKey("tang_id")]
         public virtual Tang tang { get; set; }
-
+        /*
+         * FK 
+         */
         public virtual ICollection<Phong> phongs { get; set; }
         #endregion
         #region Nghiệp vụ
@@ -146,9 +139,8 @@ namespace QuanLyTaiSan.Entities
             {
                 tang.trigger();
             }
-			
-            
             //...
+
             return base.update();
         }
 

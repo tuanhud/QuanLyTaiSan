@@ -18,37 +18,26 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        //public QuanTriVien(MyDB db)
-        //    : base(db)
-        //{
-
-        //}
         
         #region Định nghĩa thuộc tính
-        public String subId { get; set; }
+
         [Required]
         public String hoten { get; set; }
+
         [Index(IsUnique = true)]
         [StringLength(100)]
         [Required]
         public String username { get; set; }
+
         /// <summary>
-        /// 
         /// Luôn luôn ở dạng Hashed
         /// </summary>
         [Required]
         public String password { get; set; }
         /*
-         * Ngay record insert vao he thong 
-         */
-        public DateTime? date_create { get; set; }
-        /*
-         * Ngay update gan day nhat
-         */
-        public DateTime? date_modified { get; set; }
-        /*
          * FK
          */
+
         public int group_id { get; set; }
         [Required]
         [ForeignKey("group_id")]
@@ -121,15 +110,10 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                //initDb();
-                //select doi tuong len
                 QuanTriVien obj = db.QUANTRIVIENS.Where(
                     c => c.username.ToUpper().Equals(username.ToUpper())
                     ).FirstOrDefault();
-                //if (obj != null)
-                //{
-                //    obj.DB = db;//PASSING DB Context
-                //}
+
                 return obj;
             }
             catch (Exception ex)

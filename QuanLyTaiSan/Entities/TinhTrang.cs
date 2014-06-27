@@ -20,11 +20,7 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        //public TinhTrang(MyDB db)
-        //    : base(db)
-        //{
-
-        //}
+        
         #region Dinh nghia
         /// <summary>
         /// Tên dành riêng (không dấu, không khoảng cách)
@@ -39,7 +35,6 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(255)]
         public String value { get; set; } //vd: Hư hỏng
-        public String mota { get; set; }
         #endregion
     }
 }

@@ -17,11 +17,6 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public CTThietBi(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
 
         #region Dinh nghia
         [Required]

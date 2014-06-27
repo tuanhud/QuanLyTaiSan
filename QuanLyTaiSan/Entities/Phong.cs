@@ -16,11 +16,6 @@ namespace QuanLyTaiSan.Entities
         {
             
         }
-        //public Phong(MyDB db)
-        //    : base(db)
-        //{
-            
-        //}
         
         #region Dinh nghia
         /*
@@ -30,6 +25,7 @@ namespace QuanLyTaiSan.Entities
         [Required]
         [ForeignKey("vitri_id")]
         public virtual ViTri vitri { get; set; }
+
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
 
@@ -93,6 +89,7 @@ namespace QuanLyTaiSan.Entities
             {
                 nhanvienpt.trigger();
             }
+
             return base.update();
         }
         #endregion

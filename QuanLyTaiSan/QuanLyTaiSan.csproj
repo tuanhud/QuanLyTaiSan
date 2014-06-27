@@ -11,6 +11,7 @@
     <AssemblyName>QuanLyTaiSan</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -151,6 +151,10 @@
     <Compile Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.Designer.cs">
       <DependentUpon>201406260748543_TURN_OFF_CASCADE_DELETE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs" />
+    <Compile Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.Designer.cs">
+      <DependentUpon>201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.resx">
       <DependentUpon>201406260748543_TURN_OFF_CASCADE_DELETE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.resx">
+      <DependentUpon>201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
