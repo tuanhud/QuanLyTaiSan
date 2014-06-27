@@ -116,7 +116,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(837, 558);
-            this.splitContainerControl1.SplitterPosition = 297;
+            this.splitContainerControl1.SplitterPosition = 335;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -126,7 +126,7 @@
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(535, 558);
+            this.gridControlPhong.Size = new System.Drawing.Size(497, 558);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -164,7 +164,7 @@
             this.colsubId.FieldName = "subId";
             this.colsubId.Name = "colsubId";
             this.colsubId.Visible = true;
-            this.colsubId.VisibleIndex = 1;
+            this.colsubId.VisibleIndex = 0;
             this.colsubId.Width = 78;
             // 
             // colten
@@ -173,7 +173,7 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 2;
+            this.colten.VisibleIndex = 1;
             this.colten.Width = 78;
             // 
             // colmota
@@ -182,7 +182,7 @@
             this.colmota.FieldName = "mota";
             this.colmota.Name = "colmota";
             this.colmota.Visible = true;
-            this.colmota.VisibleIndex = 3;
+            this.colmota.VisibleIndex = 2;
             this.colmota.Width = 78;
             // 
             // coldate_create
@@ -191,8 +191,8 @@
             this.coldate_create.FieldName = "date_create";
             this.coldate_create.Name = "coldate_create";
             this.coldate_create.Visible = true;
-            this.coldate_create.VisibleIndex = 4;
-            this.coldate_create.Width = 78;
+            this.coldate_create.VisibleIndex = 3;
+            this.coldate_create.Width = 65;
             // 
             // coldate_modified
             // 
@@ -200,8 +200,8 @@
             this.coldate_modified.FieldName = "date_modified";
             this.coldate_modified.Name = "coldate_modified";
             this.coldate_modified.Visible = true;
-            this.coldate_modified.VisibleIndex = 5;
-            this.coldate_modified.Width = 78;
+            this.coldate_modified.VisibleIndex = 4;
+            this.coldate_modified.Width = 76;
             // 
             // colnhanvienpt
             // 
@@ -209,8 +209,8 @@
             this.colnhanvienpt.FieldName = "nhanvienpt.hoten";
             this.colnhanvienpt.Name = "colnhanvienpt";
             this.colnhanvienpt.Visible = true;
-            this.colnhanvienpt.VisibleIndex = 6;
-            this.colnhanvienpt.Width = 87;
+            this.colnhanvienpt.VisibleIndex = 5;
+            this.colnhanvienpt.Width = 104;
             // 
             // groupControl2
             // 
@@ -228,7 +228,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 333);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(297, 225);
+            this.groupControl2.Size = new System.Drawing.Size(335, 225);
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Thông tin nhân viên phụ trách";
             // 
@@ -396,7 +396,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(297, 333);
+            this.groupControl1.Size = new System.Drawing.Size(335, 333);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Thông tin phòng";
             // 
@@ -458,7 +458,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(79, 201);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(213, 20);
+            this.panelControl1.Size = new System.Drawing.Size(251, 20);
             this.panelControl1.TabIndex = 15;
             // 
             // lblHinhPhong
@@ -534,7 +534,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaPhong.Location = new System.Drawing.Point(79, 150);
             this.txtMaPhong.Name = "txtMaPhong";
-            this.txtMaPhong.Size = new System.Drawing.Size(213, 20);
+            this.txtMaPhong.Size = new System.Drawing.Size(251, 20);
             this.txtMaPhong.TabIndex = 1;
             // 
             // txtTenPhong
@@ -543,7 +543,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenPhong.Location = new System.Drawing.Point(79, 174);
             this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Size = new System.Drawing.Size(213, 20);
+            this.txtTenPhong.Size = new System.Drawing.Size(251, 20);
             this.txtTenPhong.TabIndex = 1;
             // 
             // imgPhong
@@ -561,7 +561,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoTaPhong.Location = new System.Drawing.Point(79, 227);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
-            this.txtMoTaPhong.Size = new System.Drawing.Size(213, 49);
+            this.txtMoTaPhong.Size = new System.Drawing.Size(251, 49);
             this.txtMoTaPhong.TabIndex = 5;
             this.txtMoTaPhong.UseOptimizedRendering = true;
             // 

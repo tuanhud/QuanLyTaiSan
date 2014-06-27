@@ -65,6 +65,16 @@ namespace QuanLyTaiSan.Entities
                  select c).ToList();
             return re;
         }
+
+        public List<Phong> getPhongByViTri(ViTri obj)
+        {
+            List<Phong> re =
+                (from c in db.PHONGS
+                 where (c.vitri == obj)
+                 select c).ToList();
+            return re;
+        }
+
         #endregion
         #region Override
         protected override void init()

@@ -30,7 +30,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         ThietBi objThietBi = new ThietBi();
         ThietBiFilter objThietBiFilter = new ThietBiFilter();
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
-        String function = "";
+        Boolean chonnhieu = false;
 
         public ucQuanLyThietBi()
         {
@@ -96,13 +96,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void deleteData()
         {
+            SetTextGroupControl("Chi tiết thiết bị", Color.Black);
             imageSlider1.Images.Clear();
             txtMa.Text = "";
             txtTen.Text = "";
             _ucComboBoxViTri.Visible = false;
             _ucTreeLoaiTB.Visible = false;
-            dateMua.EditValue = null;
-            dateLap.EditValue = null;
+            dateEditMua.EditValue = null;
+            dateEditLap.EditValue = null;
             txtMoTa.Text = "";
             gridControlLog.DataSource = null;
         }
@@ -119,8 +120,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     txtMa.Properties.ReadOnly = true;
                     txtTen.Properties.ReadOnly = true;
                     txtMoTa.Properties.ReadOnly = true;
-                    dateMua.Properties.ReadOnly = true;
-                    dateLap.Properties.ReadOnly = true;
+                    dateEditMua.Properties.ReadOnly = true;
+                    dateEditLap.Properties.ReadOnly = true;
 
                 }
                 else
@@ -128,8 +129,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     txtMa.Properties.ReadOnly = false;
                     txtTen.Properties.ReadOnly = false;
                     txtMoTa.Properties.ReadOnly = false;
-                    dateMua.Properties.ReadOnly = false;
-                    dateLap.Properties.ReadOnly = false;
+                    dateEditMua.Properties.ReadOnly = false;
+                    dateEditLap.Properties.ReadOnly = false;
                 }
                 _ucTreeLoaiTB.setReadOnly(true);
                 _ucComboBoxViTri.setReadOnly(true);
@@ -145,8 +146,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 txtMoTa.Properties.ReadOnly = true;
                 _ucTreeLoaiTB.setReadOnly(true);
                 _ucComboBoxViTri.setReadOnly(true);
-                dateMua.Properties.ReadOnly = true;
-                dateLap.Properties.ReadOnly = true;
+                dateEditMua.Properties.ReadOnly = true;
+                dateEditLap.Properties.ReadOnly = true;
             }
         }
 
@@ -177,6 +178,21 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     check = false;
                     errorProvider1.SetError(txtTen, "Chưa điền tên thiết bị");
                 }
+                if (dateEditMua.DateTime > dateEditLap.DateTime)
+                {   
+                    check = false;
+                    errorProvider1.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                }
+                if (dateEditMua.DateTime > DateTime.Today)
+                {
+                    check = false;
+                    errorProvider1.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
+                }
+                if (dateEditLap.DateTime > DateTime.Today)
+                {
+                    check = false;
+                    errorProvider1.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
+                }
             }
             return check;
         }
@@ -189,8 +205,10 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void setData()
         {
+            errorProvider1.Clear();
             if (listThietBiFilter.Count > 0)
             {
+                SetTextGroupControl("Chi tiết thiết bị", Color.Black);
                 imageSlider1.Images.Clear();
                 if (objThietBi.hinhanhs.Count > 0)
                 {
@@ -208,8 +226,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 _ucComboBoxViTri.Visible = true;
 
                 txtMa.Text = objThietBi.subId;
-                dateMua.EditValue = objThietBi.ngaymua;
-                dateLap.EditValue = objThietBi.ngaylap;
+                dateEditMua.EditValue = objThietBi.ngaymua;
+                dateEditLap.EditValue = objThietBi.ngaylap;
                 txtMoTa.Text = objThietBi.mota;
 
                 //log chua lam
@@ -232,8 +250,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             else
             {
-                objThietBi.ngaymua = dateMua.DateTime;
-                objThietBi.ngaylap = dateLap.DateTime;
+                objThietBi.ngaymua = dateEditMua.DateTime;
+                objThietBi.ngaylap = dateEditLap.DateTime;
             }
             objThietBi.mota = txtMoTa.Text;
         }
@@ -245,30 +263,10 @@ namespace QuanLyTaiSanGUI.QLThietBi
             frm.ShowDialog();
         }
 
-        private void gridViewThietBi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            int row = gridViewThietBi.FocusedRowHandle;
-            if (row >= 0)
-            {
-                //objThietBi = new ThietBi().getById(Convert.ToInt32(gridViewThietBi.GetFocusedRowCellValue(colidTB)));
-                objThietBiFilter = gridViewThietBi.GetFocusedRow() as ThietBiFilter;
-                objThietBi = new ThietBi().getById(objThietBiFilter.idTB);
-                enableEdit(false);
-                setData();
-                barButtonSuaThietBi.Enabled = true;
-                barButtonXoaThietBi.Enabled = true;
-            }
-            else
-            {
-                deleteData();
-                barButtonSuaThietBi.Enabled = false;
-                barButtonXoaThietBi.Enabled = false;
-            }
-        }
-
         private void barButtonSuaThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             enableEdit(true);
+            SetTextGroupControl("Sửa thông tin thiết bị", Color.Red);
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -277,6 +275,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
             frm.Text = "Quản lý hình ảnh " + objThietBi.ten;
             frm.ShowDialog();
             listHinhAnh = frm.getlistHinhs();
+            if (listHinhAnh.Count > 0)
+            {
+                imageSlider1.Images.Clear();
+                foreach (HinhAnh hinhanh in listHinhAnh)
+                {
+                    imageSlider1.Images.Add(hinhanh.IMAGE);
+                }
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -296,25 +302,128 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     XtraMessageBox.Show("Sửa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     enableEdit(false);
                     reLoadListThietBi();
-                    setData();
+                    
                 }
             }
         }
 
         private void barButtonXoaThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn có chắc là muốn xóa thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            int[] indexCacRow = gridViewThietBi.GetSelectedRows();
+            int soluongthietbi = 0;
+            String message = "";
+            Boolean thanhcong = true;
+            for (int i = 0; i < indexCacRow.Count(); i++)
             {
-                for (int i = 0; i < objThietBi.ctthietbis.Count; i++)
+                if (indexCacRow[i] >= 0)
+                    soluongthietbi++;
+            }
+            if (soluongthietbi == 1)
+                message = "Bạn có chắc là muốn xóa thiết bị này?";
+            else
+                message = "Bạn có chắc là xóa những thiết bị đã chọn?";
+            if (soluongthietbi > 0)
+            {
+                if (XtraMessageBox.Show(message, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    objThietBi.ctthietbis.ElementAt(i).delete();
+                    try
+                    {
+                        for (int i = 0; i < indexCacRow.Count(); i++)
+                        {
+                            if (indexCacRow[i] >= 0)
+                            {
+                                objThietBi = new ThietBi().getById((gridViewThietBi.GetRow(indexCacRow[i]) as ThietBiFilter).idTB);
+                                for (int j = 0; j < objThietBi.ctthietbis.Count; j++)
+                                {
+                                    objThietBi.ctthietbis.ElementAt(j).delete();
+                                }
+                                objThietBi.delete();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        thanhcong = false;
+                    }
+                    finally
+                    {}
+                    if (thanhcong)
+                    {
+                        XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        enableEdit(false);
+                        reLoadListThietBi();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Đã xảy ra lỗi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        enableEdit(false);
+                        reLoadListThietBi();
+                    }
                 }
-                if (objThietBi.delete() != -1)
+            }
+        }
+
+        private void barButtonChonNhieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (chonnhieu)
+            {
+                gridViewThietBi.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.RowSelect;
+                gridViewThietBi.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.Default;
+            }
+            else
+            {
+                gridViewThietBi.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+                gridViewThietBi.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
+            }
+            chonnhieu = !chonnhieu;
+        }
+
+        private void gridViewThietBi_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            int[] indexCacRow = gridViewThietBi.GetSelectedRows();
+            int row = 0;
+            if (indexCacRow.Count() > 0)
+            {
+                int rowGroups = 0, rowThietBis = 0;
+                for (int i = 0; i < indexCacRow.Count(); i++)
                 {
-                    XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (indexCacRow[i] >= 0)
+                    {
+                        rowThietBis++;
+                        row = indexCacRow[i];
+                    }
+                    else
+                        rowGroups++;
+                    if (rowGroups >= 2 && rowThietBis >= 2)
+                        break;
+                }
+                if (rowThietBis == 1)
+                {
+                    objThietBiFilter = gridViewThietBi.GetRow(row) as ThietBiFilter;
+                    objThietBi = new ThietBi().getById(objThietBiFilter.idTB);
                     enableEdit(false);
-                    reLoadListThietBi();
+                    setData();
+                    barButtonSuaThietBi.Enabled = true;
+                    barButtonXoaThietBi.Enabled = true;
                 }
+                else if (rowThietBis == 0)
+                {
+                    deleteData();
+                    barButtonSuaThietBi.Enabled = false;
+                    barButtonXoaThietBi.Enabled = false;
+                }
+                else
+                {
+                    deleteData();
+                    barButtonSuaThietBi.Enabled = false;
+                    barButtonXoaThietBi.Enabled = true;
+                }
+            }
+            else
+            {
+                barButtonSuaThietBi.Enabled = false;
+                barButtonXoaThietBi.Enabled = false;
+                deleteData();
             }
         }
     }

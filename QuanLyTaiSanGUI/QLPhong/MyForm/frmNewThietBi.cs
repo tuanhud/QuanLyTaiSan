@@ -148,6 +148,21 @@ namespace QuanLyTaiSanGUI.MyForm
                     check = false;
                     errorProvider1.SetError(txtTen, "Chưa điền tên thiết bị");
                 }
+                if (dateEditMua.DateTime > dateEditLap.DateTime)
+                {
+                    check = false;
+                    errorProvider1.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                }
+                if (dateEditMua.DateTime > DateTime.Today)
+                {
+                    check = false;
+                    errorProvider1.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
+                }
+                if (dateEditLap.DateTime > DateTime.Today)
+                {
+                    check = false;
+                    errorProvider1.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
+                }
             }
             return check;
         }

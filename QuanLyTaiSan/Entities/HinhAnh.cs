@@ -185,7 +185,7 @@ namespace QuanLyTaiSan.Entities
         public Bitmap getImage()
         {
             return IMAGE;
-        }
+       }
 
         public List<HinhAnh> getAllBy6Id(int id1, int id2, int id3, int id4, int id5, int id6)
         {

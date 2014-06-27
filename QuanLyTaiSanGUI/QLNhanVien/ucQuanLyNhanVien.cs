@@ -299,22 +299,18 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                frmHinhAnh frm = null;
+                frmHinhAnh frm = new frmHinhAnh(listHinhs);
                 if (function.Equals("edit"))
                 {
-                    frm = new frmHinhAnh(listHinhs);
                     frm.Text = "Quản lý hình ảnh " + objNhanVienPT.hoten;
-                    frm.ShowDialog();
-                    listHinhs = frm.getlistHinhs();
+
                 }
                 else
                 {
-                    frm = new frmHinhAnh(listHinhs);
                     frm.Text = "Quản lý hình ảnh nhân viên mới";
-                    frm.ShowDialog();
-                    listHinhs = frm.getlistHinhs();
                 }
-    
+                frm.ShowDialog();
+                listHinhs = frm.getlistHinhs();
                 reloadImage();
             }
             catch (Exception ex)
@@ -410,7 +406,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             try
             {
                 //Quan hệ 0 - n nên không thể gán list
-                foreach (Phong objToRemove in objNhanVienPT.phongs)
+                List<Phong> listToRemove = objNhanVienPT.phongs.ToList();
+                foreach (Phong objToRemove in listToRemove)
                 {
                     objToRemove.nhanvienpt = null;
                     objToRemove.update();
