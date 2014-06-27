@@ -23,6 +23,7 @@ namespace QuanLyTaiSanGUI.MyUC
         public int dayid = -1;
         public int tangid = -1;
         public String type = "";
+        public bool expandAll = false;
         public ucTreeViTri(String _type)
         {
             InitializeComponent();
@@ -51,6 +52,10 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
+                if (expandAll)
+                {
+                    treeListViTri.ExpandAll();
+                }
                 phongid = -1;
                 cosoid = -1;
                 dayid = -1;
@@ -155,7 +160,7 @@ namespace QuanLyTaiSanGUI.MyUC
                     }
                     if (findNode != null)
                     {
-                        treeListViTri.CollapseAll();
+                        //treeListViTri.CollapseAll();
                         treeListViTri.NodesIterator.DoOperation(findNode);
                         treeListViTri.FocusedNode = findNode.Node;
                     }

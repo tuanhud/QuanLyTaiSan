@@ -702,18 +702,5 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             finally
             { }
         }
-
-        private void splitContainerControl1_Panel2_Leave(object sender, EventArgs e)
-        {
-            if (function.Equals("edit") || function.Equals("add"))
-                if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có muốn tiếp tục?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    splitContainerControl1.Panel2.Focus();
-                }
-                else
-                {
-                    reLoad();
-                }
-        }
     }
 }

@@ -86,7 +86,6 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Panel2.Leave += new System.EventHandler(this.splitContainerControl1_Panel2_Leave);
             this.splitContainerControl1.Size = new System.Drawing.Size(855, 473);
             this.splitContainerControl1.SplitterPosition = 454;
             this.splitContainerControl1.TabIndex = 0;
