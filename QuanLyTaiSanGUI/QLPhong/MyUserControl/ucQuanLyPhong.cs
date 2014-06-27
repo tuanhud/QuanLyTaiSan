@@ -119,19 +119,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 _ucTreeViTri.setVitri(objPhong.vitri);
-                //gridControlPhong.DataSource = null;
-                //listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
-
-                ViTri obj = new ViTri().getBy3Id(cosoid, dayid, tangid);
-                if (obj != null)
-                {
-                    listPhong = obj.phongs.ToList();
-                    gridControlPhong.DataSource = listPhong;
-                }
-                else
-                    gridControlPhong.DataSource = null;
-
-                //gridControlPhong.DataSource = listPhong;
+                gridControlPhong.DataSource = null;
+                listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
+                gridControlPhong.DataSource = listPhong;
             }
             catch
             { }
@@ -154,15 +144,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             cosoid = _cosoid;
             dayid = _dayid;
             tangid = _tangid;
-            //listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
-            ViTri obj = new ViTri().getBy3Id(_cosoid, _dayid, _tangid);
-            if (obj != null)
-            {
-                listPhong = obj.phongs.ToList();
-                gridControlPhong.DataSource = listPhong;
-            }
-            else
-                gridControlPhong.DataSource = null;
+            listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
+            gridControlPhong.DataSource = listPhong;
             if (listPhong.Count == 0)
             {
                 _ucComboBoxViTri.Visible = false;

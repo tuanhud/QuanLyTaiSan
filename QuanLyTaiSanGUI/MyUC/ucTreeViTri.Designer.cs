@@ -35,7 +35,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             this.SuspendLayout();
             // 
-            // treeListPhong
+            // treeListViTri
             // 
             this.treeListViTri.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.treeListViTri.Appearance.FocusedCell.Options.UseBackColor = true;
@@ -46,8 +46,13 @@
             this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListViTri.KeyFieldName = "id_c";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
-            this.treeListViTri.Name = "treeListPhong";
+            this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
+            this.treeListViTri.OptionsBehavior.EnableFiltering = true;
+            this.treeListViTri.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Smart;
+            this.treeListViTri.OptionsFind.AllowFindPanel = true;
+            this.treeListViTri.OptionsFind.AlwaysVisible = true;
+            this.treeListViTri.OptionsFind.ShowFindButton = false;
             this.treeListViTri.ParentFieldName = "id_p";
             this.treeListViTri.Size = new System.Drawing.Size(276, 373);
             this.treeListViTri.TabIndex = 0;
@@ -73,12 +78,12 @@
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
             // 
-            // ucTreePhong
+            // ucTreeViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeListViTri);
-            this.Name = "ucTreePhong";
+            this.Name = "ucTreeViTri";
             this.Size = new System.Drawing.Size(276, 373);
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).EndInit();
             this.ResumeLayout(false);
