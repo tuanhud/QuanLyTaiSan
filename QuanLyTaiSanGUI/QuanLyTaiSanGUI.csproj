@@ -236,11 +236,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLThietBi\ucQuanLyThietBi.cs">
+    <Compile Include="QLThietBi\ucQuanLyThietBi_Old.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QLThietBi\ucQuanLyThietBi.Designer.cs">
-      <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>
+    <Compile Include="QLThietBi\ucQuanLyThietBi_Old.Designer.cs">
+      <DependentUpon>ucQuanLyThietBi_Old.cs</DependentUpon>
     </Compile>
     <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.cs">
       <SubType>UserControl</SubType>
@@ -362,8 +362,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi.resx">
-      <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>
+    <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi_Old.resx">
+      <DependentUpon>ucQuanLyThietBi_Old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLTinhTrang\ucQuanLyTinhTrang.resx">
       <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>

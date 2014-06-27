@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -48,7 +47,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.rbnPageViTri_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupViTri_CoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -107,14 +106,13 @@
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
-            this.treeListViTri.OptionsBehavior.PopulateServiceColumns = true;
-            this.treeListViTri.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Smart;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.ParentFieldName = "id_p";
             this.treeListViTri.Size = new System.Drawing.Size(454, 473);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
+            this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colid
             // 

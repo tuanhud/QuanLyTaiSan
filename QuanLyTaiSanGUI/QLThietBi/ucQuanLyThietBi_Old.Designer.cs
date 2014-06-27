@@ -1,6 +1,6 @@
 ﻿namespace QuanLyTaiSanGUI.QLThietBi
 {
-    partial class ucQuanLyThietBi
+    partial class ucQuanLyThietBi_Old
     {
         /// <summary> 
         /// Required designer variable.

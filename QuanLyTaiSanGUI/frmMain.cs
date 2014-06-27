@@ -38,7 +38,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
         ucQuanLyViTri _ucQuanLyViTri = new ucQuanLyViTri();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
-        ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi();
+        ucQuanLyThietBi_Old _ucQuanLyThietBi = new ucQuanLyThietBi_Old();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
         public frmMain()

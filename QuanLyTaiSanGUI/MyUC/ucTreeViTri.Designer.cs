@@ -49,7 +49,6 @@
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
-            this.treeListViTri.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Smart;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsFind.ShowFindButton = false;
@@ -57,6 +56,7 @@
             this.treeListViTri.Size = new System.Drawing.Size(276, 373);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
+            this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colid
             // 

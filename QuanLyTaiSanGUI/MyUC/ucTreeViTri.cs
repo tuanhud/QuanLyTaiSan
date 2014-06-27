@@ -13,6 +13,7 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.MyUserControl;
 using QuanLyTaiSanGUI.QLThietBi;
+using DevExpress.XtraTreeList.Columns;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -93,7 +94,7 @@ namespace QuanLyTaiSanGUI.MyUC
                                 {
                                     if (this.Parent != null)
                                     {
-                                        ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
+                                        ucQuanLyThietBi_Old _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi_Old;
                                         _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
                                     }
                                 }
@@ -168,5 +169,26 @@ namespace QuanLyTaiSanGUI.MyUC
             finally
             { }
         }
+
+        private void OnFilterNode(object sender, FilterNodeEventArgs e)
+        {
+            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListViTri.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = treeListViTri.FindFilterText;
+            if (node.GetDisplayText(column).StartsWith(filterValue)) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
+        }
+
     }
 }

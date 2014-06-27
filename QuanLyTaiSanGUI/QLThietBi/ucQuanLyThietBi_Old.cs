@@ -17,7 +17,7 @@ using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.QLThietBi
 {
-    public partial class ucQuanLyThietBi : UserControl
+    public partial class ucQuanLyThietBi_Old : UserControl
     {
         ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLThietBi");
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
@@ -32,7 +32,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         Boolean chonnhieu = false;
 
-        public ucQuanLyThietBi()
+        public ucQuanLyThietBi_Old()
         {
             InitializeComponent();
             init();
