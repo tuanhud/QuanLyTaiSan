@@ -145,9 +145,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
             cosoid = _cosoid;
             dayid = _dayid;
             tangid = _tangid;
-            listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
-            gridControlPhong.DataSource = null;
-            gridControlPhong.DataSource = listPhong;
+            //listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
+            ViTri obj = new ViTri().getBy3Id(_cosoid, _dayid, _tangid);
+            if (obj != null)
+            {
+                listPhong = obj.phongs.ToList();
+                gridControlPhong.DataSource = listPhong;
+            }
+            else
+                gridControlPhong.DataSource = null;
             if (listPhong.Count == 0)
             {
                 _ucComboBoxViTri.Visible = false;
