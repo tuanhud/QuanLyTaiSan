@@ -38,6 +38,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
              ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
+            gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            listBoxPhong.SortOrder = SortOrder.Ascending;
         }
 
         public void loadData()
@@ -74,8 +76,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 if (gridViewNhanVien.GetFocusedRow() != null)
                 {
-                    enableEdit(false, "");
-                    SetTextGroupControl("Chi tiết", false);
+                    if (function.Equals("edit") || function.Equals("add"))
+                    {
+                        enableEdit(false, "");
+                        SetTextGroupControl("Chi tiết", false);
+                    }
                     objNhanVienPT = (NhanVienPT)gridViewNhanVien.GetFocusedRow();
                     SetData();
                 }
@@ -185,10 +190,14 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (objNhanVienPT.delete() != -1)
+                    if (objNhanVienPT.delete() > 0)
                     {
                         XtraMessageBox.Show("Xóa nhân viên thành công!");
                         reLoad();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Nhân viên này đã được phân công, không thể xóa!");
                     }
                 }
             }
@@ -400,20 +409,35 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                objNhanVienPT.phongs = listPhong;
-                if (objNhanVienPT.update() != -1)
+                //Quan hệ 0 - n nên không thể gán list
+                foreach (Phong objToRemove in objNhanVienPT.phongs)
                 {
-                    XtraMessageBox.Show("Phân công nhân viên thành công!");
-                    reLoad();
-                    PhanCong(false);
+                    objToRemove.nhanvienpt = null;
+                    objToRemove.update();
                 }
+                foreach (Phong objToAdd in listPhong)
+                {
+                    objToAdd.nhanvienpt = objNhanVienPT;
+                    objToAdd.update();
+                }
+                //objNhanVienPT.phongs = listPhong;
+                //if (objNhanVienPT.update() != -1)
+                //{
+                //    XtraMessageBox.Show("Phân công nhân viên thành công!");
+                //    reLoad();
+                //    PhanCong(false);
+                //}
             }
             catch (Exception ex)
             {
                 System.Console.WriteLine(this.Name + " : btnOK_PhanCong_Click : " + ex.Message);
             }
             finally
-            { }
+            {
+                XtraMessageBox.Show("Phân công nhân viên thành công!");
+                reLoad();
+                PhanCong(false);
+            }
         }
     }
 }

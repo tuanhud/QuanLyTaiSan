@@ -28,7 +28,7 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(CoSo).Name,
                      id_c = typeof(CoSo).Name + c.id,
                      id_p = ""
-                 }).ToList();
+                 }).OrderBy(c => c.ten).ToList();
             return re;
         }
         public List<ViTriHienThi> getAllDay()

@@ -51,37 +51,18 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rbnPageViTri_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupViTri_Tang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupViTri_Day = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupViTri_CoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThemThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnCHuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnChuyenPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaCoSo = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaCoSo = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnGroupViTri_Day = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemDay = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaDay = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaDay = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnGroupViTri_Tang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTang = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThemNhanVien = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaNhanVien = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaNhanVien = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnPhanCong = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -308,23 +289,6 @@
             this.rbnPageViTri_Home.Text = "Trang chính";
             this.rbnPageViTri_Home.Visible = false;
             // 
-            // rbnGroupViTri_Tang
-            // 
-            this.rbnGroupViTri_Tang.Enabled = false;
-            this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnThemTang);
-            this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnSuaTang);
-            this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnXoaTang);
-            this.rbnGroupViTri_Tang.Name = "rbnGroupViTri_Tang";
-            this.rbnGroupViTri_Tang.Text = "Tầng";
-            // 
-            // rbnGroupViTri_Day
-            // 
-            this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnThemDay);
-            this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnSuaDay);
-            this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnXoaDay);
-            this.rbnGroupViTri_Day.Name = "rbnGroupViTri_Day";
-            this.rbnGroupViTri_Day.Text = "Dãy";
-            // 
             // rbnGroupViTri_CoSo
             // 
             this.rbnGroupViTri_CoSo.ItemLinks.Add(this.barBtnThemCoSo);
@@ -332,62 +296,6 @@
             this.rbnGroupViTri_CoSo.ItemLinks.Add(this.barBtnXoaCoSo);
             this.rbnGroupViTri_CoSo.Name = "rbnGroupViTri_CoSo";
             this.rbnGroupViTri_CoSo.Text = "Cơ sở";
-            // 
-            // barBtnThemPhong
-            // 
-            this.barBtnThemPhong.Caption = "Thêm phòng";
-            this.barBtnThemPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThemPhong.Glyph")));
-            this.barBtnThemPhong.Id = 1;
-            this.barBtnThemPhong.Name = "barBtnThemPhong";
-            // 
-            // barBtnSuaPhong
-            // 
-            this.barBtnSuaPhong.Caption = "Sửa phòng";
-            this.barBtnSuaPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnSuaPhong.Glyph")));
-            this.barBtnSuaPhong.Id = 2;
-            this.barBtnSuaPhong.Name = "barBtnSuaPhong";
-            // 
-            // barBtnXoaPhong
-            // 
-            this.barBtnXoaPhong.Caption = "Xóa phòng";
-            this.barBtnXoaPhong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXoaPhong.Glyph")));
-            this.barBtnXoaPhong.Id = 3;
-            this.barBtnXoaPhong.Name = "barBtnXoaPhong";
-            // 
-            // barBtnThemThietBi
-            // 
-            this.barBtnThemThietBi.Caption = "Thêm thiết bị";
-            this.barBtnThemThietBi.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThemThietBi.Glyph")));
-            this.barBtnThemThietBi.Id = 4;
-            this.barBtnThemThietBi.Name = "barBtnThemThietBi";
-            // 
-            // barBtnSuaThietBi
-            // 
-            this.barBtnSuaThietBi.Caption = "Sửa thiết bị";
-            this.barBtnSuaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
-            this.barBtnSuaThietBi.Id = 5;
-            this.barBtnSuaThietBi.Name = "barBtnSuaThietBi";
-            // 
-            // barBtnXoaThietBi
-            // 
-            this.barBtnXoaThietBi.Caption = "Xóa thiết bị";
-            this.barBtnXoaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
-            this.barBtnXoaThietBi.Id = 6;
-            this.barBtnXoaThietBi.Name = "barBtnXoaThietBi";
-            // 
-            // barBtnCHuyenTinhTrang
-            // 
-            this.barBtnCHuyenTinhTrang.Caption = "Chuyển tình trạng";
-            this.barBtnCHuyenTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCHuyenTinhTrang.Glyph")));
-            this.barBtnCHuyenTinhTrang.Id = 7;
-            this.barBtnCHuyenTinhTrang.Name = "barBtnCHuyenTinhTrang";
-            // 
-            // barBtnChuyenPhong
-            // 
-            this.barBtnChuyenPhong.Caption = "Chuyển phòng";
-            this.barBtnChuyenPhong.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.forward;
-            this.barBtnChuyenPhong.Id = 8;
-            this.barBtnChuyenPhong.Name = "barBtnChuyenPhong";
             // 
             // barBtnThemCoSo
             // 
@@ -413,6 +321,14 @@
             this.barBtnXoaCoSo.Name = "barBtnXoaCoSo";
             this.barBtnXoaCoSo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaCoSo_ItemClick);
             // 
+            // rbnGroupViTri_Day
+            // 
+            this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnThemDay);
+            this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnSuaDay);
+            this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnXoaDay);
+            this.rbnGroupViTri_Day.Name = "rbnGroupViTri_Day";
+            this.rbnGroupViTri_Day.Text = "Dãy";
+            // 
             // barBtnThemDay
             // 
             this.barBtnThemDay.Caption = "Thêm Dãy";
@@ -436,6 +352,15 @@
             this.barBtnXoaDay.Id = 14;
             this.barBtnXoaDay.Name = "barBtnXoaDay";
             this.barBtnXoaDay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaDay_ItemClick);
+            // 
+            // rbnGroupViTri_Tang
+            // 
+            this.rbnGroupViTri_Tang.Enabled = false;
+            this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnThemTang);
+            this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnSuaTang);
+            this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnXoaTang);
+            this.rbnGroupViTri_Tang.Name = "rbnGroupViTri_Tang";
+            this.rbnGroupViTri_Tang.Text = "Tầng";
             // 
             // barBtnThemTang
             // 
@@ -461,89 +386,12 @@
             this.barBtnXoaTang.Name = "barBtnXoaTang";
             this.barBtnXoaTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTang_ItemClick);
             // 
-            // barBtnThemNhanVien
-            // 
-            this.barBtnThemNhanVien.Caption = "Thêm nhân viên";
-            this.barBtnThemNhanVien.Id = 18;
-            this.barBtnThemNhanVien.Name = "barBtnThemNhanVien";
-            // 
-            // barBtnSuaNhanVien
-            // 
-            this.barBtnSuaNhanVien.Caption = "Sửa nhân viên";
-            this.barBtnSuaNhanVien.Id = 19;
-            this.barBtnSuaNhanVien.Name = "barBtnSuaNhanVien";
-            // 
-            // barBtnXoaNhanVien
-            // 
-            this.barBtnXoaNhanVien.Caption = "Xóa nhân viên";
-            this.barBtnXoaNhanVien.Id = 20;
-            this.barBtnXoaNhanVien.Name = "barBtnXoaNhanVien";
-            // 
-            // barBtnPhanCong
-            // 
-            this.barBtnPhanCong.Caption = "Phân công";
-            this.barBtnPhanCong.Id = 21;
-            this.barBtnPhanCong.Name = "barBtnPhanCong";
-            // 
-            // barBtnThemLoaiTB
-            // 
-            this.barBtnThemLoaiTB.Caption = "Thêm loại thiết bị";
-            this.barBtnThemLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
-            this.barBtnThemLoaiTB.Id = 22;
-            this.barBtnThemLoaiTB.Name = "barBtnThemLoaiTB";
-            // 
-            // barBtnSuaLoaiTB
-            // 
-            this.barBtnSuaLoaiTB.Caption = "Sửa loại thiết bị";
-            this.barBtnSuaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
-            this.barBtnSuaLoaiTB.Id = 23;
-            this.barBtnSuaLoaiTB.Name = "barBtnSuaLoaiTB";
-            // 
-            // barBtnXoaLoaiTB
-            // 
-            this.barBtnXoaLoaiTB.Caption = "Xóa loại thiết bị";
-            this.barBtnXoaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
-            this.barBtnXoaLoaiTB.Id = 24;
-            this.barBtnXoaLoaiTB.Name = "barBtnXoaLoaiTB";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Thêm quản trị";
-            this.barButtonItem1.Id = 25;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Sửa quản trị";
-            this.barButtonItem2.Id = 26;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Xóa quản trị";
-            this.barButtonItem3.Id = 27;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 29;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
             // ribbonViTri
             // 
             this.ribbonViTri.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
             this.ribbonViTri.ExpandCollapseItem.Id = 0;
             this.ribbonViTri.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonViTri.ExpandCollapseItem,
-            this.barBtnThemPhong,
-            this.barBtnSuaPhong,
-            this.barBtnXoaPhong,
-            this.barBtnThemThietBi,
-            this.barBtnSuaThietBi,
-            this.barBtnXoaThietBi,
-            this.barBtnCHuyenTinhTrang,
-            this.barBtnChuyenPhong,
             this.barBtnThemCoSo,
             this.barBtnSuaCoSo,
             this.barBtnXoaCoSo,
@@ -552,18 +400,7 @@
             this.barBtnXoaDay,
             this.barBtnThemTang,
             this.barBtnSuaTang,
-            this.barBtnXoaTang,
-            this.barBtnThemNhanVien,
-            this.barBtnSuaNhanVien,
-            this.barBtnXoaNhanVien,
-            this.barBtnPhanCong,
-            this.barBtnThemLoaiTB,
-            this.barBtnSuaLoaiTB,
-            this.barBtnXoaLoaiTB,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4});
+            this.barBtnXoaTang});
             this.ribbonViTri.Location = new System.Drawing.Point(0, 0);
             this.ribbonViTri.MaxItemId = 30;
             this.ribbonViTri.Name = "ribbonViTri";
@@ -571,13 +408,15 @@
             this.rbnPageViTri_Home});
             this.ribbonViTri.Size = new System.Drawing.Size(855, 142);
             // 
-            // ucQuanLyCoSo
+            // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(400, 400);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonViTri);
-            this.Name = "ucQuanLyCoSo";
+            this.Name = "ucQuanLyViTri";
             this.Size = new System.Drawing.Size(855, 615);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
