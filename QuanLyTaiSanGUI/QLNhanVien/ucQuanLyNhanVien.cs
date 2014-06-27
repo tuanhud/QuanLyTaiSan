@@ -410,7 +410,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             try
             {
                 //Quan hệ 0 - n nên không thể gán list
-                foreach (Phong objToRemove in objNhanVienPT.phongs)
+                List<Phong> listToRemove = objNhanVienPT.phongs.ToList();
+                foreach (Phong objToRemove in listToRemove)
                 {
                     objToRemove.nhanvienpt = null;
                     objToRemove.update();
