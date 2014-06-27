@@ -185,7 +185,7 @@ namespace QuanLyTaiSan.Entities
         public Bitmap getImage()
         {
             return IMAGE;
-        }
+       }
 
         public List<HinhAnh> getAllBy6Id(int id1, int id2, int id3, int id4, int id5, int id6)
         {
@@ -319,31 +319,31 @@ namespace QuanLyTaiSan.Entities
         
         public override int update()
         {
-            ////have to load all [Required] FK object first
-            //if (tang != null)
-            //{
-            //    tang.trigger();
-            //}
-            //if (coso != null)
-            //{
-            //    coso.trigger();
-            //}
-            //if (day != null)
-            //{
-            //    day.trigger();
-            //}
-            //if (thietbi != null)
-            //{
-            //    thietbi.trigger();
-            //}
-            //if (nhanvienpt != null)
-            //{
-            //    nhanvienpt.trigger();
-            //}
-            //if (phong != null)
-            //{
-            //    phong.trigger();
-            //}
+            //have to load all [Required] FK object first
+            if (tang != null)
+            {
+                tang.trigger();
+            }
+            if (coso != null)
+            {
+                coso.trigger();
+            }
+            if (day != null)
+            {
+                day.trigger();
+            }
+            if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+            if (nhanvienpt != null)
+            {
+                nhanvienpt.trigger();
+            }
+            if (phong != null)
+            {
+                phong.trigger();
+            }
             
             //...
             return base.update();

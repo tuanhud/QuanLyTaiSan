@@ -20,7 +20,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
     public partial class ucQuanLyThietBi : UserControl
     {
         ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLThietBi");
-        ucComboBoxViTri _ucComboBoxViTri = null;
+        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
 
         List<ViTriHienThi> listViTriHienThi = null;
@@ -35,36 +35,37 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public ucQuanLyThietBi()
         {
             InitializeComponent();
-            loadData();
+            init();
+            //loadData();
         }
 
-        private void loadData()
+        private void init()
         {
             ribbonThietBi.Parent = null;
-            listViTriHienThi = new ViTriHienThi().getAllHavePhong();
-            //Xủ lí nếu chưa có cơ sở, dãy, tầng và phòng !!!!!!!!!!!!!!
-            //Chưa làm
-
-            _ucTreeViTri.loadData(listViTriHienThi);
             _ucTreeViTri.Parent = this;
-
-            //OrderBy chạy rất chậm
-            listLoaiThietBi = new LoaiThietBi().getAll().ToList();
-            _ucTreeLoaiTB.loadData(listLoaiThietBi);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             _ucTreeLoaiTB.setReadOnly(true);
+            _ucTreeLoaiTB.Visible = false;
             panelControlLoaiThietBi.Controls.Clear();
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
-            _ucTreeLoaiTB.Visible = false;
-
-            _ucComboBoxViTri = new ucComboBoxViTri(false, true);
-            _ucComboBoxViTri.loadData(listViTriHienThi);
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             _ucComboBoxViTri.setReadOnly(true);
             panelControlPhong.Controls.Clear();
             panelControlPhong.Controls.Add(_ucComboBoxViTri);
             _ucComboBoxViTri.Visible = false;
+        }
 
+        public void loadData()
+        {
+            listViTriHienThi = new ViTriHienThi().getAllHavePhong();
+            //Xủ lí nếu chưa có cơ sở, dãy, tầng và phòng !!!!!!!!!!!!!!
+            //Chưa làm
+            _ucTreeViTri.loadData(listViTriHienThi);
+            //OrderBy chạy rất chậm
+            setData(_ucTreeViTri.phongid, _ucTreeViTri.cosoid, _ucTreeViTri.dayid, _ucTreeViTri.tangid);
+            //listLoaiThietBi = new LoaiThietBi().getAll().ToList();
+            _ucTreeLoaiTB.loadData(listLoaiThietBi);
+            _ucComboBoxViTri.loadData(listViTriHienThi);
             reLoadListThietBi();
         }
 

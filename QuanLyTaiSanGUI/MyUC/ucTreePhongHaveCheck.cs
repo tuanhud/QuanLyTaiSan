@@ -20,6 +20,12 @@ namespace QuanLyTaiSanGUI.MyUC
         public ucTreePhongHaveCheck()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
@@ -56,6 +62,18 @@ namespace QuanLyTaiSanGUI.MyUC
                 listPhong.Add(obj);
             }
             return listPhong;
+        }
+
+        public List<int> getListPhongId()
+        {
+            List<int> list = new List<int>();
+            GetCheckedNodes op = new GetCheckedNodes("loai", typeof(Phong).Name);
+            treeListPhong.NodesIterator.DoOperation(op);
+            foreach (TreeListNode node in op.CheckedNodes)
+            {
+                list.Add(Convert.ToInt32(node.GetValue(0)));
+            }
+            return list;
         }
     }
 }

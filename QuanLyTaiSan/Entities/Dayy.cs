@@ -47,11 +47,11 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            ////have to load all [Required] FK object first
-            //if (coso != null)
-            //{
-            //    coso.trigger();
-            //}
+            //have to load all [Required] FK object first
+            if (coso != null)
+            {
+                coso.trigger();
+            }
             
             //...
             return base.update();

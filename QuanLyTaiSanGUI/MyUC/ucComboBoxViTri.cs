@@ -34,6 +34,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             chonDay = _chonDay;
             chonPhong = _chonPhong;
+            treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> _list)
