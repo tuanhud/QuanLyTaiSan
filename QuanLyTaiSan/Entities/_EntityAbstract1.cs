@@ -16,7 +16,7 @@ namespace QuanLyTaiSan.Entities
     /// Chỉ bao gồm định nghĩa về id
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class _EntityAbstract1<T> : _CRUDInterface<T> where T : _EntityAbstract1<T>
+    public abstract class _EntityAbstract1<T> : _EFEventRegisterInterface, _CRUDInterface<T> where T : _EntityAbstract1<T>
     {
         public _EntityAbstract1()
         {
@@ -62,14 +62,20 @@ namespace QuanLyTaiSan.Entities
                 return DBInstance.DB;
             }
         }
-        
+        /// <summary>
+        /// Tự động add nếu chưa có trong CSDL
+        /// </summary>
+        /// <returns></returns>
         public virtual int add()
         {
+            //Nếu đã có trong CSDL rồi
+            if (id > 0)
+            {
+                return id;
+            }
+
             try
             {
-                //time
-                date_create = date_modified = date_create == null ? ServerTimeHelper.getNow() : date_create;
-
                 //script
                 db.Set<T>().Add((T)this);
                 db.SaveChanges();
@@ -78,7 +84,7 @@ namespace QuanLyTaiSan.Entities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
-                db.Set<T>().Remove((T)this);//remove if fail
+                //db.Set<T>().Remove((T)this);//remove if fail
                 return -1;
             }
             finally
@@ -89,11 +95,14 @@ namespace QuanLyTaiSan.Entities
 
         public virtual int update()
         {
+            //Nếu chưa có trong CSDL
+            if (id <= 0)
+            {
+                return -1;
+            }
+
             try
             {
-                //time
-                date_modified = ServerTimeHelper.getNow();
-                
                 //script
                 db.Set<T>().Attach((T)this);
                 //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
@@ -114,6 +123,12 @@ namespace QuanLyTaiSan.Entities
 
         public virtual int delete()
         {
+            //Nếu chưa có trong CSDL
+            if (id <= 0)
+            {
+                return -1;
+            }
+
             try
             {
                 db.Set<T>().Attach((T)this);//Có thể gây lỗi bị clear list khóa ngoại,...
@@ -168,11 +183,7 @@ namespace QuanLyTaiSan.Entities
         }
         public virtual void dispose()
         {
-            //if (db != null)
-            //{
-            //    db.Dispose();
-            //    db = null;
-            //}
+            
         }
         /// <summary>
         /// Load lại Object theo DBContext mới trong DBInstance (Vì có thể đã bị new mới bởi ai đó)
@@ -181,6 +192,11 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual T reload()
         {
+            if (id <= 0)
+            {
+                return null;
+            }
+
             try
             {
                 return db.Set<T>().Find(id);
@@ -219,5 +235,22 @@ namespace QuanLyTaiSan.Entities
             return re;
         }
         #endregion
+
+        /// <summary>
+        /// Chạy nghiệp vụ trước khi được cập nhật vào CSDL
+        /// </summary>
+        public virtual void onBeforeUpdated()
+        {
+            date_modified = ServerTimeHelper.getNow();
+        }
+        /// <summary>
+        /// Chạy nghiệp vụ trước khi được thêm vào CSDL
+        /// </summary>
+        public virtual void onBeforeAdded()
+        {
+            //time
+            date_create = date_modified = date_create == null ? ServerTimeHelper.getNow() : date_create;
+        }
+
     }
 }

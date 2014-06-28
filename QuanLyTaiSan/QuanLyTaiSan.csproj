@@ -94,6 +94,7 @@
     <Compile Include="Entities\Phong.cs" />
     <Compile Include="Entities\ViTri.cs" />
     <Compile Include="Entities\_CRUDInterface.cs" />
+    <Compile Include="Entities\_EFEventRegisterInterface.cs" />
     <Compile Include="Entities\_EntityAbstract2.cs" />
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />

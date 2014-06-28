@@ -47,5 +47,8 @@ namespace QuanLyTaiSan.Entities
         /// Sử dụng để FORCE LOAD FK OBJECT khi UPDATE
         /// </summary>
             void trigger();
+        /// <summary>
+        /// event register
+        /// </summary>
     }
 }

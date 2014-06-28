@@ -73,6 +73,7 @@ namespace QuanLyTaiSan.Entities
 
         #endregion
         #region Override
+        
         protected override void init()
         {
             base.init();

@@ -29,9 +29,17 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         public virtual ICollection<Permission> permissions { get; set; }
-        public virtual ICollection<QuanTriVien> nhanviens { get; set; }
+        public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
+        public override int delete()
+        {
+            if (quantriviens.Count > 0)
+            {
+                return -1;
+            }
+            return base.delete();
+        }
         public Boolean isHasPermission(Permission obj)
         {
             return obj.isInGroup(this);
@@ -42,7 +50,7 @@ namespace QuanLyTaiSan.Entities
         {
             base.init();
             this.permissions = new List<Permission>();
-            this.nhanviens = new List<QuanTriVien>();
+            this.quantriviens = new List<QuanTriVien>();
         }
         #endregion
     }

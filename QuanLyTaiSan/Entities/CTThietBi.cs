@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,23 +44,13 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
         #region Nghiep vu
-        public CTThietBi request(ThietBi tb, Phong ph, TinhTrang ttr)
+        public CTThietBi search(ThietBi tb, Phong ph, TinhTrang ttr)
         {
-            if (ph == null || ttr == null)
+            if (ph == null || ttr == null || tb==null)
             {
-               return new CTThietBi();
+                return null;
             }
             CTThietBi tmp = db.CTTHIETBIS.Where(c=>c.phong_id==ph.id && c.tinhtrang_id==ttr.id && c.thietbi_id == tb.id).FirstOrDefault();
-            if (tmp == null)
-            {
-                tmp = new CTThietBi();
-                tmp.thietbi = tb;
-                tmp.phong = ph;
-                tmp.tinhtrang = ttr;
-
-                return tmp;
-            }
-
             return tmp;
         }
         /// <summary>
@@ -91,7 +82,7 @@ namespace QuanLyTaiSan.Entities
                 if (cttb != null)
                 {
                     cttb.soluong += soluong;
-                    transac=transac && cttb.update(ngay)>0;//UPDATE
+                    transac=transac && cttb.update(ngay,true)>0;//UPDATE
                 }
                     //NO
                     //TAO MOI CTTB => add
@@ -109,17 +100,17 @@ namespace QuanLyTaiSan.Entities
                 this.soluong -= soluong;
                 //update
                 //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                transac=transac && update()>0 && writelog(ngay, mota) > 0;//cung 1 ngay se group de
+                transac = transac && update(ngay,true) > 0;// && writelog(ngay, mota) > 0;//cung 1 ngay se group de
                 if (transac)
                 {
                     dbContextTransaction.Commit();
-                    return 1;
                 }
                 else
                 {
                     dbContextTransaction.Rollback();
-                    return -1;
                 }
+
+                return transac ? 1 : -1;
             }
             //END===================================
         }
@@ -148,10 +139,6 @@ namespace QuanLyTaiSan.Entities
         public CTThietBi search(Phong ph, ThietBi tb, TinhTrang tr)
         {
             CTThietBi tmp = db.CTTHIETBIS.Where(c => c.phong.id == ph.id && c.thietbi.id == tb.id && c.tinhtrang.id == tr.id).FirstOrDefault();
-            //if (tmp != null)
-            //{
-            //    tmp.DB = db;
-            //}
             return tmp;
         }
 
@@ -159,32 +146,126 @@ namespace QuanLyTaiSan.Entities
         {
             return db.CTTHIETBIS.Where(ct => ct.tinhtrang.id == idTinhTrang).Select(select => select.thietbi).ToList();
         }
+        /// <summary>
+        /// Có hỗ trợ ghi log, phát sinh tự động thietbi hay không ? dựa trên loaichung hay riêng của loaithietbi,
+        /// Tự động có transaction
+        /// 
+        /// CTThietBi obj = new CTThietBi();
+        /// obj.thietbi = new ThietBi().request(loaithietbi);
+        /// obj.phong = phong;
+        /// obj.tinhtrang = tinhtrang;
+        /// obj.soluong=soluong;
+        /// obj.mota=mota;
+        /// obj.add_auto();
+        /// 
+        /// obj = obj.reload();
+        /// </summary>
+        /// <returns></returns>
+        public int add_auto()
+        {
+            DateTime ngay = ServerTimeHelper.getNow();
+            Boolean trans = true;
+            using (var dbTransac = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    CTThietBi tmp = search(thietbi, phong, tinhtrang);
+                    //Nếu có CTTB sẵn trùng Phòng, Thiết bị, Tình trạng thì cộng dồn SL vào và update
+                    if (tmp != null)
+                    {
+                        tmp.soluong += soluong;
+                        //call update on tmp
+                        trans = trans && tmp.update(ngay, true) > 0;
+                        id = tmp.id;
+                    }
+                    //Còn không thì gọi this.add()
+                    else
+                    {
+                        trans = trans && add(ngay, true) > 0;
+                    }
+
+                    if (trans)
+                    {
+                        dbTransac.Commit();
+                    }
+                    else
+                    {
+                        dbTransac.Rollback();
+                    }
+                    return trans ? 1 : -1;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.ToString());
+                    dbTransac.Rollback();
+                    return -1;
+                }
+            }
+        }
         #endregion
 
         #region Override method
-        public int add(DateTime? ngay=null)
+        /// <summary>
+        /// Nghiệp vụ add không hỗ trợ transaction,
+        /// inner use only
+        /// </summary>
+        /// <param name="ngay"></param>
+        /// <param name="in_transaction"></param>
+        /// <returns></returns>
+        private int add____(DateTime? ngay = null, Boolean in_transaction=false)
         {
-            Boolean transac = true;
-            using (var dbTransac = db.Database.BeginTransaction())
+            Boolean ok = true;            
+            ok = ok && base.add()>0;
+            ok = ok && writelog(ngay, mota)>0;
+            return ok ? 1 : -1;
+            
+        }
+        /// <summary>
+        /// Hàm add có hỗ trợ transaction
+        /// </summary>
+        /// <param name="ngay"></param>
+        /// <param name="in_transaction">Có đang bị chạy trong 1 transaction khác</param>
+        /// <returns></returns>
+        public int add(DateTime? ngay=null, Boolean in_transaction=false)
+        {
+            if (in_transaction)
             {
-                transac=transac && base.add()>0;
-                if (transac)
+                return add____(ngay, in_transaction);
+            }
+            else
+            {
+                //add kết hợp write log tự động
+                Boolean transac = true;
+                using (var dbTransac = db.Database.BeginTransaction())
                 {
-                    transac = transac && writelog(ngay, mota)>0;
+                    transac = transac && add____(ngay, in_transaction)>0;
                     if (transac)
                     {
                         dbTransac.Commit();
                     }
+                    else
+                    {
+                        dbTransac.Rollback();
+                    }
+                    return transac ? 1 : -1;
                 }
-                else
-                {
-                    dbTransac.Rollback();
-                }
-
-                return transac ? 1 : -1;
             }
+            
         }
-        public int update(DateTime? ngay=null)
+        /// <summary>
+        /// Không hỗ trợ Transac
+        /// </summary>
+        /// <param name="ngay"></param>
+        /// <returns></returns>
+        private int update___(DateTime? ngay = null)
+        {
+            //add combine with write log
+            Boolean ok = true;
+            ok = ok && base.update()>0;
+            ok = ok && writelog(ngay, mota)>0;
+            return ok ? 1 : -1;
+        }
+        public int update(DateTime? ngay=null, Boolean in_transaction=false)
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -200,24 +281,28 @@ namespace QuanLyTaiSan.Entities
                 thietbi.trigger();
             }
 
-            Boolean transac = true;
-            using (var dbTransac = db.Database.BeginTransaction())
+            
+            if (in_transaction)
             {
-                transac = transac&& base.update()>0;
-                if (transac)
+                return update___(ngay);
+            }
+            else
+            {
+                Boolean transac = true;
+                using (var dbTransac = db.Database.BeginTransaction())
                 {
-                    transac=transac&& writelog(ngay, mota)>0;
+                    transac = transac && update___(ngay) > 0;
                     if (transac)
                     {
                         dbTransac.Commit();
                     }
-                }
-                else
-                {
-                    dbTransac.Rollback();
-                }
+                    else
+                    {
+                        dbTransac.Rollback();
+                    }
 
-                return transac ? 1 : -1;
+                    return transac ? 1 : -1;
+                }
             }
         }
 

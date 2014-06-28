@@ -191,7 +191,14 @@ namespace QuanLyTaiSan.Entities
 
             return base.update();
         }
-
+        public override int delete()
+        {
+            if (phongs.Count > 0)
+            {
+                return -1;
+            }
+            return base.delete();
+        }
         #endregion
     }
 }

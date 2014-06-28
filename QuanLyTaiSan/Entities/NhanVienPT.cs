@@ -45,6 +45,14 @@ namespace QuanLyTaiSan.Entities
             phongs = new List<Phong>();
             hinhanhs = new List<HinhAnh>();
         }
+        public override int delete()
+        {
+            if (phongs.Count > 0 || hinhanhs.Count > 0)
+            {
+                return -1;
+            }
+            return base.delete();
+        }
         #endregion
     }
 }

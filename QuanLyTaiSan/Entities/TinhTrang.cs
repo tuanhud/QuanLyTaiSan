@@ -35,6 +35,27 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(255)]
         public String value { get; set; } //vd: Hư hỏng
+
+        /*
+         * FK
+         */
+        public virtual ICollection<CTThietBi> ctthietbis { get; set; }
+        #endregion
+
+        #region Override
+        protected override void init()
+        {
+            base.init();
+            ctthietbis = new List<CTThietBi>();
+        }
+        public override int delete()
+        {
+            if (ctthietbis.Count > 0)
+            {
+                return -1;
+            }
+            return base.delete();
+        }
         #endregion
     }
 }
