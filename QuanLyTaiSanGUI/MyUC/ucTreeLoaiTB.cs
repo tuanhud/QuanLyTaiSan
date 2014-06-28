@@ -73,34 +73,8 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 obj = _loai;
-                TreeListNode _node = null;
                 treeListLoaiTB.CollapseAll();
-                if (obj.parent_id != null)
-                {
-                    foreach (TreeListNode node in treeListLoaiTB.Nodes)
-                    {
-                        foreach (TreeListNode node2 in node.Nodes)
-                        {
-                            if ((int)node2.GetValue(0) == obj.id)
-                            {
-                                _node = node2;
-                                break;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (TreeListNode node in treeListLoaiTB.Nodes)
-                    {
-                        if ((int)node.GetValue(0) == obj.id)
-                        {
-                            _node = node;
-                            break;
-                        }
-                    }
-                }
-                treeListLoaiTB.SetFocusedNode(_node);
+                treeListLoaiTB.SetFocusedNode(treeListLoaiTB.FindNodeByKeyID(_loai));
             }
             catch (Exception ex)
             {

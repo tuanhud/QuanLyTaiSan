@@ -73,7 +73,7 @@
     <Compile Include="DataFilter\TKSLThietBiFilter.cs" />
     <Compile Include="DataFilter\ViTriHienThi.cs" />
     <Compile Include="DataFilter\ThietBiFilter.cs" />
-    <Compile Include="DataFilter\PhongFilter.cs" />
+    <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />

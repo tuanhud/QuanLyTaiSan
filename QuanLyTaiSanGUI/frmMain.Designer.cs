@@ -41,13 +41,14 @@
             this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer5 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupPhongThietBi = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupLoaiTB = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThietBi = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupNhanVien = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroupPhongThietBi = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
@@ -101,6 +102,7 @@
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer3);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer4);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer5);
+            this.navBarControl1.Controls.Add(this.navBarGroupControlContainer1);
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri,
@@ -124,6 +126,7 @@
             // navBarGroupPhong
             // 
             this.navBarGroupPhong.Caption = "Quản lý phòng";
+            this.navBarGroupPhong.ControlContainer = this.navBarGroupControlContainer1;
             this.navBarGroupPhong.Expanded = true;
             this.navBarGroupPhong.GroupClientHeight = 80;
             this.navBarGroupPhong.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
@@ -159,6 +162,12 @@
             this.navBarGroupViTri.Caption = "Quản lý vị trí";
             this.navBarGroupViTri.Name = "navBarGroupViTri";
             this.navBarGroupViTri.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
+            // 
+            // navBarGroupPhongThietBi
+            // 
+            this.navBarGroupPhongThietBi.Caption = "Quản lý phòng - thiết bị";
+            this.navBarGroupPhongThietBi.Name = "navBarGroupPhongThietBi";
+            this.navBarGroupPhongThietBi.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
             // 
             // navBarGroupLoaiTB
             // 
@@ -202,12 +211,6 @@
             this.navBarGroupThongKe.Name = "navBarGroupThongKe";
             this.navBarGroupThongKe.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
             // 
-            // navBarGroupPhongThietBi
-            // 
-            this.navBarGroupPhongThietBi.Caption = "Quản lý phòng - thiết bị";
-            this.navBarGroupPhongThietBi.Name = "navBarGroupPhongThietBi";
-            this.navBarGroupPhongThietBi.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
-            // 
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -216,6 +219,12 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
+            // 
+            // navBarGroupControlContainer1
+            // 
+            this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 209);
+            this.navBarGroupControlContainer1.TabIndex = 5;
             // 
             // frmMain
             // 
@@ -272,5 +281,6 @@
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer4;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer5;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupPhongThietBi;
+        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
     }
 }
