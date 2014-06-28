@@ -31,7 +31,7 @@ namespace QuanLyTaiSanGUI
         public frmHinhAnh(List<HinhAnh> list)
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
+            //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             btnImageDelete.Enabled = false;
             if (list != null)
             {

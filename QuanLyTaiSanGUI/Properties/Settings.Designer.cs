@@ -22,17 +22,5 @@ namespace QuanLyTaiSanGUI.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Office 2010 Blue")]
-        public string skin {
-            get {
-                return ((string)(this["skin"]));
-            }
-            set {
-                this["skin"] = value;
-            }
-        }
     }
 }
