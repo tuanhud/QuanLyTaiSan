@@ -705,7 +705,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
         {
             string filterValue = treeListViTri.FindFilterText;
-            if (node.GetDisplayText(column).StartsWith(filterValue)) return true;
+            if (node.GetDisplayText(column).ToUpper().StartsWith(filterValue.ToUpper())) return true;
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
