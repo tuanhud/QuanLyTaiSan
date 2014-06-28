@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\ThietBiHienThi.cs" />
     <Compile Include="DataFilter\TKSLThietBiFilter.cs" />
     <Compile Include="DataFilter\ViTriHienThi.cs" />
     <Compile Include="DataFilter\ThietBiFilter.cs" />

@@ -224,6 +224,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLThietBi\RinbbonControl.cs" />
+    <Compile Include="QLThietBi\ucQuanLyThietBi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLThietBi\ucQuanLyThietBi.Designer.cs">
+      <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLThietBi\ucQuanLyThietBi_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLThietBi\ucQuanLyThietBi_Control.Designer.cs">
+      <DependentUpon>ucQuanLyThietBi_Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLViTri\ucQuanLyViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -355,6 +368,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi.resx">
+      <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi_Control.resx">
+      <DependentUpon>ucQuanLyThietBi_Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
