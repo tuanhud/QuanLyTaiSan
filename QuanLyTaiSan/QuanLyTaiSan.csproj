@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataFilter\ChiTietTBHienThi.cs" />
     <Compile Include="DataFilter\FilterAbstract.cs" />
     <Compile Include="DataFilter\ThietBiHienThi.cs" />
     <Compile Include="DataFilter\TKSLThietBiFilter.cs" />

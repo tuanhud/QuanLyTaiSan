@@ -254,11 +254,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             dxErrorProvider.ClearErrors();
             //errorProvider1.Clear();
             Boolean check = true;
-            if (imageSlider1.Images.Count == 0)
-            {
-                check = false;
-                dxErrorProvider.SetError(imageSlider1, "Cần ít nhất 1 hình ảnh");
-            }
             if (txtTen.Text.Length == 0)
             {
                 check = false;
@@ -287,6 +282,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             dateMua.DateTime = _obj.thietbi.ngaymua.Value;
             dateLap.DateTime = _obj.thietbi.ngaylap.Value;
             _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
+            listHinh = _obj.thietbi.hinhanhs.ToList();
+            reloadImage();
         }
 
         private void btnImage_Click(object sender, EventArgs e)

@@ -7,59 +7,41 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class PhongFilter:FilterAbstract<PhongFilter>
+    public class PhongHienThi:FilterAbstract<PhongHienThi>
     {
-        public PhongFilter():base()
+        public PhongHienThi():base()
         {
 
         }
-        //public PhongFilter(OurDBContext db)
-        //    : base(db)
-        //{
-
-        //}
-
         public int id { get; set; }
         public String ten { get; set; }
-        /// <summary>
-        /// Rỗng nếu không có Cơ sở
-        /// </summary>
-        public String ten_coso { get; set; }
-        /// <summary>
-        /// Rỗng nếu không có Dãy
-        /// </summary>
-        public String ten_day { get; set; }
-        /// <summary>
-        /// Rỗng nếu không có Tầng
-        /// </summary>
-        public String ten_tang { get; set; }
+        public String mota { get; set; }
+        public String tennvpt { get; set; }
+        public int soluongtb { get; set; }
         /*
          * FK Object
          */
-        public Phong phong { get; set; }
-        public CoSo coso { get; set; }
-        public Tang tang { get; set; }
-        public Dayy day { get; set; }
         #region Nghiệp vụ
-        public override List<PhongFilter> getAll()
+        public List<PhongHienThi> getAllByViTri(int _cosoid, int _dayid, int _tangid)
         {
             //InitDb();
-            List<PhongFilter> re =
+            List<PhongHienThi> re =
                 (from p in db.PHONGS
-                 join vt in db.VITRIS on p.vitri equals vt into p_vt_
-                 from p_vt in p_vt_
-                 select new PhongFilter
+                 where(_cosoid==-1||p.vitri.coso.id==_cosoid)&&(_dayid==-1||p.vitri.day.id ==_dayid)&&(_tangid==-1||p.vitri.tang.id==_tangid)
+                 select new PhongHienThi
                  {
                      id=p.id,
                      ten = p.ten,
-                     ten_coso = p_vt.coso==null?"":p_vt.coso.ten,
-                     ten_day = p_vt.day==null?"":p_vt.day.ten,
-                     ten_tang = p_vt.tang == null ? "" : p_vt.tang.ten,
-                     tang = p_vt.tang,
-                     day = p_vt.day,
-                     coso = p_vt.coso
+                     mota = p.mota,
+                     tennvpt = p.nhanvienpt.hoten,
+                     soluongtb = p.ctthietbis.Count
                  }).ToList();
             return re;
+        }
+
+        public List<ChiTietTBHienThi> ChiTietTBs()
+        {
+            return new ChiTietTBHienThi().getAllByPhongId(this.id);
         }
         #endregion
     }
