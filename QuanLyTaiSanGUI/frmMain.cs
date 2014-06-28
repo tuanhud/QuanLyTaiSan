@@ -36,6 +36,7 @@ namespace QuanLyTaiSanGUI
         ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
+        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = new ucQuanLyPhongThietBi();
         ucQuanLyViTri _ucQuanLyViTri = new ucQuanLyViTri();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi();
@@ -55,6 +56,7 @@ namespace QuanLyTaiSanGUI
             _ucThongKeTongQuat.Dock = DockStyle.Fill;
             _ucPhanQuyen.Dock = DockStyle.Fill;
             _ucQuanLyPhong.Dock = DockStyle.Fill;
+            _ucQuanLyPhongThietBi.Dock = DockStyle.Fill;
             _ucQuanLyViTri.Dock = DockStyle.Fill;
             _ucQuanLyNhanVien.Dock = DockStyle.Fill;
             _ucQuanLyThietBi.Dock = DockStyle.Fill;
@@ -117,6 +119,14 @@ namespace QuanLyTaiSanGUI
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyThietBi);
+                }
+                else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhongThietBi))
+                {
+                    _ucQuanLyPhongThietBi.loadData();
+                    //ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home").Visible = true;
+                    //ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
                 {
