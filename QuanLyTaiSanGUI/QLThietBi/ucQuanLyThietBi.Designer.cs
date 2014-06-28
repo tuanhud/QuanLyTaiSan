@@ -44,15 +44,14 @@
             this.dateEditLap = new DevExpress.XtraEditors.DateEdit();
             this.dateEditMua = new DevExpress.XtraEditors.DateEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.imageSliderThietBi = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControlThietBi = new DevExpress.XtraEditors.GroupControl();
             this.ribbonThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaThietBi = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonChonNhieu = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThietBi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,11 +71,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditMua.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlThietBi)).BeginInit();
+            this.groupControlThietBi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewThietBi)).BeginInit();
@@ -92,7 +91,7 @@
             this.panelControlLoaiThietBi.Location = new System.Drawing.Point(72, 185);
             this.panelControlLoaiThietBi.Name = "panelControlLoaiThietBi";
             this.panelControlLoaiThietBi.Size = new System.Drawing.Size(229, 20);
-            this.panelControlLoaiThietBi.TabIndex = 20;
+            this.panelControlLoaiThietBi.TabIndex = 5;
             // 
             // labelControl8
             // 
@@ -117,16 +116,18 @@
             this.btnHuy.Location = new System.Drawing.Point(152, 365);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 8;
+            this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(71, 365);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 7;
+            this.btnOk.TabIndex = 8;
             this.btnOk.Text = "Ok";
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnImage
             // 
@@ -135,6 +136,7 @@
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 1;
             this.btnImage.Text = "Chọn";
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // labelControl7
             // 
@@ -197,7 +199,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditLap.Properties.ReadOnly = true;
             this.dateEditLap.Size = new System.Drawing.Size(230, 20);
-            this.dateEditLap.TabIndex = 5;
+            this.dateEditLap.TabIndex = 6;
             // 
             // dateEditMua
             // 
@@ -212,7 +214,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditMua.Properties.ReadOnly = true;
             this.dateEditMua.Size = new System.Drawing.Size(230, 20);
-            this.dateEditMua.TabIndex = 4;
+            this.dateEditMua.TabIndex = 5;
             // 
             // txtTen
             // 
@@ -224,14 +226,14 @@
             this.txtTen.Size = new System.Drawing.Size(230, 20);
             this.txtTen.TabIndex = 3;
             // 
-            // imageSlider1
+            // imageSliderThietBi
             // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(71, 24);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(100, 100);
-            this.imageSlider1.TabIndex = 0;
-            this.imageSlider1.Text = "imageSlider1";
+            this.imageSliderThietBi.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imageSliderThietBi.Location = new System.Drawing.Point(71, 24);
+            this.imageSliderThietBi.Name = "imageSliderThietBi";
+            this.imageSliderThietBi.Size = new System.Drawing.Size(100, 100);
+            this.imageSliderThietBi.TabIndex = 0;
+            this.imageSliderThietBi.Text = "imageSlider1";
             // 
             // txtMoTa
             // 
@@ -241,7 +243,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(230, 92);
-            this.txtMoTa.TabIndex = 6;
+            this.txtMoTa.TabIndex = 7;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // errorProvider1
@@ -250,33 +252,33 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // groupControl1
+            // groupControlThietBi
             // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.panelControlLoaiThietBi);
-            this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Controls.Add(this.txtMa);
-            this.groupControl1.Controls.Add(this.btnHuy);
-            this.groupControl1.Controls.Add(this.btnOk);
-            this.groupControl1.Controls.Add(this.btnImage);
-            this.groupControl1.Controls.Add(this.labelControl7);
-            this.groupControl1.Controls.Add(this.labelControl6);
-            this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.dateEditLap);
-            this.groupControl1.Controls.Add(this.dateEditMua);
-            this.groupControl1.Controls.Add(this.txtTen);
-            this.groupControl1.Controls.Add(this.imageSlider1);
-            this.groupControl1.Controls.Add(this.txtMoTa);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(312, 498);
-            this.groupControl1.TabIndex = 2;
-            this.groupControl1.Text = "Chi tiết thiết bị";
+            this.groupControlThietBi.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupControlThietBi.AppearanceCaption.Options.UseFont = true;
+            this.groupControlThietBi.Controls.Add(this.panelControlLoaiThietBi);
+            this.groupControlThietBi.Controls.Add(this.labelControl8);
+            this.groupControlThietBi.Controls.Add(this.txtMa);
+            this.groupControlThietBi.Controls.Add(this.btnHuy);
+            this.groupControlThietBi.Controls.Add(this.btnOk);
+            this.groupControlThietBi.Controls.Add(this.btnImage);
+            this.groupControlThietBi.Controls.Add(this.labelControl7);
+            this.groupControlThietBi.Controls.Add(this.labelControl6);
+            this.groupControlThietBi.Controls.Add(this.labelControl5);
+            this.groupControlThietBi.Controls.Add(this.labelControl3);
+            this.groupControlThietBi.Controls.Add(this.labelControl2);
+            this.groupControlThietBi.Controls.Add(this.labelControl1);
+            this.groupControlThietBi.Controls.Add(this.dateEditLap);
+            this.groupControlThietBi.Controls.Add(this.dateEditMua);
+            this.groupControlThietBi.Controls.Add(this.txtTen);
+            this.groupControlThietBi.Controls.Add(this.imageSliderThietBi);
+            this.groupControlThietBi.Controls.Add(this.txtMoTa);
+            this.groupControlThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControlThietBi.Location = new System.Drawing.Point(0, 0);
+            this.groupControlThietBi.Name = "groupControlThietBi";
+            this.groupControlThietBi.Size = new System.Drawing.Size(312, 498);
+            this.groupControlThietBi.TabIndex = 2;
+            this.groupControlThietBi.Text = "Chi tiết thiết bị";
             // 
             // ribbonThietBi
             // 
@@ -286,8 +288,7 @@
             this.ribbonThietBi.ExpandCollapseItem,
             this.barButtonThemThietBi,
             this.barButtonSuaThietBi,
-            this.barButtonXoaThietBi,
-            this.barButtonChonNhieu});
+            this.barButtonXoaThietBi});
             this.ribbonThietBi.Location = new System.Drawing.Point(0, 0);
             this.ribbonThietBi.MaxItemId = 43;
             this.ribbonThietBi.Name = "ribbonThietBi";
@@ -301,6 +302,7 @@
             this.barButtonThemThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barButtonThemThietBi.Id = 39;
             this.barButtonThemThietBi.Name = "barButtonThemThietBi";
+            this.barButtonThemThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemThietBi_ItemClick);
             // 
             // barButtonSuaThietBi
             // 
@@ -308,6 +310,7 @@
             this.barButtonSuaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSuaThietBi.Id = 40;
             this.barButtonSuaThietBi.Name = "barButtonSuaThietBi";
+            this.barButtonSuaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaThietBi_ItemClick);
             // 
             // barButtonXoaThietBi
             // 
@@ -315,13 +318,7 @@
             this.barButtonXoaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoaThietBi.Id = 41;
             this.barButtonXoaThietBi.Name = "barButtonXoaThietBi";
-            // 
-            // barButtonChonNhieu
-            // 
-            this.barButtonChonNhieu.Caption = "Hiện checkbox";
-            this.barButtonChonNhieu.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
-            this.barButtonChonNhieu.Id = 42;
-            this.barButtonChonNhieu.Name = "barButtonChonNhieu";
+            this.barButtonXoaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaThietBi_ItemClick);
             // 
             // rbnPageThietBi_Home
             // 
@@ -335,7 +332,6 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemThietBi);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaThietBi);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaThietBi);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonChonNhieu);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Phòng";
             // 
@@ -362,6 +358,7 @@
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});
+            this.gridControlThietBi.DataSourceChanged += new System.EventHandler(this.gridControlThietBi_DataSourceChanged);
             // 
             // gridViewThietBi
             // 
@@ -378,6 +375,7 @@
             this.gridViewThietBi.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewThietBi.OptionsFind.AlwaysVisible = true;
             this.gridViewThietBi.OptionsSelection.MultiSelect = true;
+            this.gridViewThietBi.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewThietBi_SelectionChanged);
             // 
             // colid
             // 
@@ -425,7 +423,7 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlThietBi);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControlThietBi);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(840, 498);
             this.splitContainerControl1.SplitterPosition = 312;
@@ -447,12 +445,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditMua.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditMua.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlThietBi)).EndInit();
+            this.groupControlThietBi.ResumeLayout(false);
+            this.groupControlThietBi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewThietBi)).EndInit();
@@ -480,18 +478,17 @@
         private DevExpress.XtraEditors.DateEdit dateEditLap;
         private DevExpress.XtraEditors.DateEdit dateEditMua;
         private DevExpress.XtraEditors.TextEdit txtTen;
-        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSliderThietBi;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gridControlThietBi;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewThietBi;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.GroupControl groupControlThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonThietBi;
         private DevExpress.XtraBars.BarButtonItem barButtonThemThietBi;
         private DevExpress.XtraBars.BarButtonItem barButtonSuaThietBi;
         private DevExpress.XtraBars.BarButtonItem barButtonXoaThietBi;
-        private DevExpress.XtraBars.BarButtonItem barButtonChonNhieu;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThietBi_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraGrid.Columns.GridColumn colsoluong;
