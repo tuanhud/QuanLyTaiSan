@@ -125,7 +125,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //}
 
 
-
+        public void reLoadThietBiTrongPhong()
+        {
+            gridViewPhong.SetMasterRowExpanded(gridViewPhong.FocusedRowHandle, false);
+            gridViewPhong.SetMasterRowExpanded(gridViewPhong.FocusedRowHandle, true);
+        }
 
         //FocusedRowChanged in TreePhong
         public void setData(int _cosoid, int _dayid, int _tangid)
@@ -146,61 +150,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 _ucComboBoxViTri.Visible = true;
             }
         }
-
-        //public Phong getPhong()
-        //{
-        //    return objPhong;
-        //}
-
-        //public void setData(Phong _phong)
-        //{
-        //    try
-        //    {
-        //        if (_phong != null)
-        //        {
-        //            objPhong = _phong;
-        //        }
-        //        else
-        //        {
-        //            objPhong = new Phong();
-        //        }
-        //        txtMaPhong.Text = objPhong.subId;
-        //        txtTenPhong.Text = objPhong.ten;
-        //        txtMoTaPhong.Text = objPhong.mota;
-        //        _ucComboBoxViTri.setViTri(objPhong.vitri);
-        //        NhanVienPT objNV = new NhanVienPT();
-        //        if (objPhong.nhanvienpt != null)
-        //        {
-        //            objNV = objPhong.nhanvienpt;
-        //        }
-        //        txtMaNhanVien.Text = objNV.subId;
-        //        txtTenNhanVien.Text = objNV.hoten;
-        //        txtSoDienThoai.Text = objNV.sodienthoai;
-        //        if (objPhong.hinhanhs == null)
-        //            listHinh = new List<HinhAnh>();
-        //        else
-        //            listHinh = objPhong.hinhanhs.ToList();
-        //        if (objPhong.nhanvienpt != null)
-        //        {
-        //            if (objPhong.nhanvienpt.hinhanhs == null)
-        //                listHinhNV = new List<HinhAnh>();
-        //            else
-        //                listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
-        //        }
-        //        else
-        //        {
-        //            listHinhNV = new List<HinhAnh>();
-        //        }
-        //        reloadImagePhong();
-        //        reloadImageNhanVienPT();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    { }
-        //}
 
         //chỉnh sửa phòng
         private void ChinhSuaPhong()

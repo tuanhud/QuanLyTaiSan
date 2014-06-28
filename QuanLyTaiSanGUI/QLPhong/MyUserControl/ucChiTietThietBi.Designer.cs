@@ -158,6 +158,7 @@
             this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnImage
             // 

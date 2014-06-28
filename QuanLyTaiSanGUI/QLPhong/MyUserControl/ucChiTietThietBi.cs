@@ -92,7 +92,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 if (obj.update() > 0)
                 {
                     XtraMessageBox.Show("Sửa thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //reLoad();
+                    if (this.Parent.Parent.Parent != null)
+                    {
+                        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent.Parent.Parent as ucQuanLyPhongThietBi;
+                        _ucQuanLyPhongThietBi.reLoadThietBiTrongPhong();
+                    }
                 }
                 else
                 {
