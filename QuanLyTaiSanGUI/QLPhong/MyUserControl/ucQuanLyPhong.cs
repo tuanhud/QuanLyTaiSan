@@ -398,7 +398,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         }
                         else
                         {
-                            XtraMessageBox.Show("Phòng có chứa Log tình trạng. Không thể xóa!");
+                            XtraMessageBox.Show("Lỗi trong khi xóa phòng!");
                         }
                     }
                 }
