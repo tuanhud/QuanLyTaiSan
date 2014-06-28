@@ -104,9 +104,9 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 //script
-                db.Set<T>().Attach((T)this);
+                //db.Set<T>().Attach((T)this);
                 //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
-                db.Entry(this).State = EntityState.Modified;//importance
+                //db.Entry(this).State = EntityState.Modified;//importance
                 db.SaveChanges();
                 return 1;
             }
@@ -131,7 +131,7 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                db.Set<T>().Attach((T)this);//Có thể gây lỗi bị clear list khóa ngoại,...
+                //db.Set<T>().Attach((T)this);//Có thể gây lỗi bị clear list khóa ngoại,...
                 db.Set<T>().Remove((T)this);
                 db.SaveChanges();
                 return 1;
@@ -139,7 +139,7 @@ namespace QuanLyTaiSan.Entities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
-                db.Set<T>().Attach((T)this);//nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
+                //db.Set<T>().Attach((T)this);//nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
                 return -1;
             }
             finally
