@@ -28,8 +28,8 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
-            CoSo obj = new CoSo().getById(3);
-            //int re = obj.delete();
+            Phong obj = new Phong().getById(1);
+            int re = obj.delete();
             Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()

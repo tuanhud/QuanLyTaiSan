@@ -43,6 +43,25 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
         #region Nghiep vu
+        public CTThietBi request(ThietBi tb, Phong ph, TinhTrang ttr)
+        {
+            if (ph == null || ttr == null)
+            {
+               return new CTThietBi();
+            }
+            CTThietBi tmp = db.CTTHIETBIS.Where(c=>c.phong_id==ph.id && c.tinhtrang_id==ttr.id && c.thietbi_id == tb.id).FirstOrDefault();
+            if (tmp == null)
+            {
+                tmp = new CTThietBi();
+                tmp.thietbi = tb;
+                tmp.phong = ph;
+                tmp.tinhtrang = ttr;
+
+                return tmp;
+            }
+
+            return tmp;
+        }
         /// <summary>
         /// Ham update se duoc tu dong goi trong day (co su dung Transaction Commit),
         /// Khi co bat ky 1 loi nao trong qua trinh thuc hien (Rollback se duoc goi),
@@ -58,7 +77,6 @@ namespace QuanLyTaiSan.Entities
             {
                 return -2;
             }
-            //initDb();
             //BEGIN===================================
             using (var dbContextTransaction = db.Database.BeginTransaction()) 
             {
@@ -73,31 +91,25 @@ namespace QuanLyTaiSan.Entities
                 if (cttb != null)
                 {
                     cttb.soluong += soluong;
-                    transac=transac && cttb.update()>0;//UPDATE
-                    //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                    transac = transac && cttb.writelog(ngay, mota) > 0;//cung 1 ngay se group de
+                    transac=transac && cttb.update(ngay)>0;//UPDATE
                 }
                     //NO
                     //TAO MOI CTTB => add
                 else
                 {
-                    //cttb = new CTThietBi(db);
                     cttb = new CTThietBi();
                     cttb.phong = dich;
                     cttb.soluong = soluong;
                     cttb.thietbi = thietbi;
                     cttb.tinhtrang = tinhtrang;
                     transac=transac && cttb.add()>0;//ADD
-                    //ghi log thietbi cho CTTB moi them
-                    transac=transac&& cttb.writelog(ngay, mota)>0;//cung 1 ngay se group de
                 }
                     
                 //cap nhat lai so luong
                 this.soluong -= soluong;
                 //update
-                transac=transac && update()>0;
                 //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                transac = transac && writelog(ngay, mota) > 0;//cung 1 ngay se group de
+                transac=transac && update()>0 && writelog(ngay, mota) > 0;//cung 1 ngay se group de
                 if (transac)
                 {
                     dbContextTransaction.Commit();
@@ -114,13 +126,12 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Kich hoat ham ghi log vao LogThietBi
         /// </summary>
-        protected int writelog(DateTime ngay, String mota="")
+        private int writelog(DateTime? ngay, String mota="")
         {
             //ghi log thiet bi
-            //LogThietBi logtb = new LogThietBi(db);
             LogThietBi logtb = new LogThietBi();
             logtb.mota = mota;
-            logtb.ngay = ngay;
+            logtb.ngay = ngay==null?ServerTimeHelper.getNow():(DateTime)ngay;
             logtb.phong = phong;
             logtb.soluong = soluong;
             logtb.thietbi = thietbi;
@@ -151,7 +162,29 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
-        public override int update()
+        public int add(DateTime? ngay=null)
+        {
+            Boolean transac = true;
+            using (var dbTransac = db.Database.BeginTransaction())
+            {
+                transac=transac && base.add()>0;
+                if (transac)
+                {
+                    transac = transac && writelog(ngay, mota)>0;
+                    if (transac)
+                    {
+                        dbTransac.Commit();
+                    }
+                }
+                else
+                {
+                    dbTransac.Rollback();
+                }
+
+                return transac ? 1 : -1;
+            }
+        }
+        public int update(DateTime? ngay=null)
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -166,9 +199,26 @@ namespace QuanLyTaiSan.Entities
             {
                 thietbi.trigger();
             }
-            
-            //...
-            return base.update();
+
+            Boolean transac = true;
+            using (var dbTransac = db.Database.BeginTransaction())
+            {
+                transac = transac&& base.update()>0;
+                if (transac)
+                {
+                    transac=transac&& writelog(ngay, mota)>0;
+                    if (transac)
+                    {
+                        dbTransac.Commit();
+                    }
+                }
+                else
+                {
+                    dbTransac.Rollback();
+                }
+
+                return transac ? 1 : -1;
+            }
         }
 
         #endregion

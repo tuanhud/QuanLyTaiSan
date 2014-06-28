@@ -120,7 +120,55 @@ namespace QuanLyTaiSan.Entities
             tang = tang.getById(tang_id);
             return search(coso, day, tang);
         }
-
+        /// <summary>
+        /// Trả về 
+        /// </summary>
+        /// <param name="coso"></param>
+        /// <param name="day"></param>
+        /// <param name="tang"></param>
+        /// <returns></returns>
+        public ViTri request(CoSo coso, Dayy day, Tang tang)
+        {
+            if (coso == null && day == null && tang == null)
+            {
+                return null;
+            }
+            ViTri final = new ViTri();
+            if (tang != null)
+            {
+                ViTri tmp = db.VITRIS.Where(c => c.tang.id == tang.id).FirstOrDefault();
+                if (tmp == null)
+                {
+                    final.tang = tmp.tang;
+                    final.day = tmp.day;
+                    final.coso = tmp.coso;
+                }
+                return final;
+            }
+            else if(day!=null)
+            {
+                ViTri tmp = db.VITRIS.Where(c => c.day.id == day.id && c.tang.id==null).FirstOrDefault();
+                if (tmp == null)
+                {
+                    final.tang = null;
+                    final.day = tmp.day;
+                    final.coso = tmp.coso;
+                }
+                return final;
+            }
+            else if (coso != null)
+            {
+                ViTri tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id==null && c.tang.id == null).FirstOrDefault();
+                if (tmp == null)
+                {
+                    final.tang = null;
+                    final.day = null;
+                    final.coso = tmp.coso;
+                }
+                return final;
+            }
+            return null;
+        }
 
         #endregion
 		#region Override method

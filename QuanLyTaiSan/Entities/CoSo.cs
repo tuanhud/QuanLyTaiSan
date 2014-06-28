@@ -35,7 +35,6 @@ namespace QuanLyTaiSan.Entities
             days = new List<Dayy>();
             vitris = new List<ViTri>();
         }
-        
         #endregion
 
     }

@@ -112,11 +112,11 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public virtual int delete(Boolean auto_remove_fk=false)
+        public virtual int delete()
         {
             try
             {
-                db.Set<T>().Attach((T)this);
+                db.Set<T>().Attach((T)this);//Có thể gây lỗi bị clear list khóa ngoại,...
                 db.Set<T>().Remove((T)this);
                 db.SaveChanges();
                 return 1;

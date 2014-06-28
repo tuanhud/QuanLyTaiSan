@@ -38,13 +38,42 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
 		#endregion
-		#region Override method
-        public override int delete(Boolean auto_remove_fk=false)
+
+        #region Nghiep vu
+        public int add_auto(LoaiThietBi ltb, Phong ph, TinhTrang ttr, int sl=1, String mota="")
         {
-            if (!auto_remove_fk)
+            Boolean trans = true;
+            using (var dbTransac = db.Database.BeginTransaction())
             {
-                
+                if (ltb.loaichung)
+                {
+                    loaithietbi = ltb;
+
+                    //new
+                    CTThietBi cttb = new CTThietBi().request(this, ph, ttr);
+                    cttb.soluong = sl;
+                    //call add
+                    trans = trans && cttb.add() > 0;
+
+                    //assign
+                    ctthietbis.Add(cttb);
+
+                    //save
+                    trans = trans && this.add() > 0;
+                }
+                else
+                {
+                    
+                }
             }
+
+            return -1;
+        }
+        #endregion
+
+        #region Override method
+        public override int delete()
+        {
             return base.delete();
         }
         public override int update()

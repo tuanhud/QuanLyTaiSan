@@ -33,9 +33,9 @@ namespace QuanLyTaiSan.Entities
         /// Xóa
         /// </summary>
         /// <returns></returns>
-            int delete(Boolean auto_remove_fk=false);
+            int delete();
         /// <summary>
-        /// Ngắt kết nối CSDL, sử dụng Cached
+        /// NOTUSE any more
         /// </summary>
             void dispose();
         /// <summary>

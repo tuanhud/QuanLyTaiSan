@@ -92,6 +92,16 @@ namespace QuanLyTaiSan.Entities
 
             return base.update();
         }
+        public override int delete()
+        {
+            //check constrain
+            if (ctthietbis.Count > 0 || logthietbis.Count>0)
+            {
+                return -1;
+            }
+
+            return base.delete();
+        }
         #endregion
     }
 }
