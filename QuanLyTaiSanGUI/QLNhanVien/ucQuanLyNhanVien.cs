@@ -172,7 +172,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     {
                         XtraMessageBox.Show("Thêm nhân viên thành công!");
                         //reLoad();
-                        reLoadAndFocused(objNhanVienPT.id);
+                        reLoadAndFocused(objNew.id);
                     }
                 }
             }

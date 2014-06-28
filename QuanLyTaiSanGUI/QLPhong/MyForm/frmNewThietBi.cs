@@ -25,7 +25,7 @@ namespace QuanLyTaiSanGUI.MyForm
         Boolean checkadd = true;
 
         List<LoaiThietBi> listLoaiThietBi = null;
-        List<PhongFilter> listPhongFilter = null;
+        List<PhongHienThi> listPhongFilter = null;
         List<ViTriHienThi> listViTriFilter = null;
         List<TinhTrang> listTinhTrang = null;
         Boolean coThayDoi = false;
@@ -53,7 +53,7 @@ namespace QuanLyTaiSanGUI.MyForm
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelLoaiTB.Controls.Add(_ucTreeLoaiTB);
 
-            listPhongFilter = new PhongFilter().getAll();
+            listPhongFilter = new PhongHienThi().getAll();
             listViTriFilter = new ViTriHienThi().getAllHavePhong();
             _ucComboBoxViTri.loadData(listViTriFilter);
             _ucComboBoxViTri.Dock = DockStyle.Fill;

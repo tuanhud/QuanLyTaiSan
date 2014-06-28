@@ -52,6 +52,24 @@ namespace QuanLyTaiSan.Entities
 
             }
         }
+
+        public List<LoaiThietBi> getTheoLoai(Boolean loai)
+        {
+            try
+            {
+                List<LoaiThietBi> objs = db.Set<LoaiThietBi>().Where(c => c.loaichung == loai).ToList();
+                return objs;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return new List<LoaiThietBi>();
+            }
+            finally
+            {
+
+            }
+        }
         #endregion
         #region Override method
         public override int delete()

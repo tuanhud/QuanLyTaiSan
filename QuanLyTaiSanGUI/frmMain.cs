@@ -32,16 +32,16 @@ namespace QuanLyTaiSanGUI
 {
     public partial class frmMain : RibbonForm
     {
-        ucThongKeChiTiet _ucThongKeChiTiet = new ucThongKeChiTiet();
-        ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
-        ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
-        ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
-        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = new ucQuanLyPhongThietBi();
-        ucQuanLyViTri _ucQuanLyViTri = new ucQuanLyViTri();
-        ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
-        ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi();
-        ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
-        ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
+        ucThongKeChiTiet _ucThongKeChiTiet = null;
+        ucThongKeTongQuat _ucThongKeTongQuat = null;
+        ucPhanQuyen _ucPhanQuyen = null;
+        ucQuanLyPhong _ucQuanLyPhong = null;
+        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = null;
+        ucQuanLyViTri _ucQuanLyViTri = null;
+        ucQuanLyNhanVien _ucQuanLyNhanVien = null;
+        ucQuanLyThietBi _ucQuanLyThietBi = null;
+        ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
+        ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
         public frmMain()
         {
             InitializeComponent();
@@ -50,7 +50,19 @@ namespace QuanLyTaiSanGUI
 
         private void init()
         {
-            UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
+
+            _ucThongKeChiTiet = new ucThongKeChiTiet();
+            _ucThongKeTongQuat = new ucThongKeTongQuat();
+            _ucPhanQuyen = new ucPhanQuyen();
+            _ucQuanLyPhong = new ucQuanLyPhong();
+            _ucQuanLyPhongThietBi = new ucQuanLyPhongThietBi();
+            _ucQuanLyViTri = new ucQuanLyViTri();
+            _ucQuanLyNhanVien = new ucQuanLyNhanVien();
+            _ucQuanLyThietBi = new ucQuanLyThietBi();
+            _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
+            _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
+
+            //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             //DockStyle
             _ucThongKeChiTiet.Dock = DockStyle.Fill;
             _ucThongKeTongQuat.Dock = DockStyle.Fill;
@@ -70,12 +82,14 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucQuanLyViTri.getRibbon());
             addRibbonPage(_ucQuanLyNhanVien.getRibbon());
             addRibbonPage(_ucQuanLyThietBi.getRibbon());
+            addRibbonPage(_ucQuanLyPhongThietBi.getRibbon());
             //addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
             addRibbonPage(_ucQuanLyLoaiTB.getRibbon());
             //Add Control to NavBar
             //_ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;
             _ucPhanQuyen.getControl().Parent = navBarGroupPhanQuyen.ControlContainer;
             _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
+            _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupPhongThietBi.ControlContainer;
             _ucQuanLyThietBi.getControl().Parent = navBarGroupThietBi.ControlContainer;
             //
             navBarGroupViTri.Expanded = true;
@@ -123,8 +137,8 @@ namespace QuanLyTaiSanGUI
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhongThietBi))
                 {
                     _ucQuanLyPhongThietBi.loadData();
-                    //ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home").Visible = true;
-                    //ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+                    ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home").Visible = true;
+                    ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
                 }
@@ -145,7 +159,7 @@ namespace QuanLyTaiSanGUI
                 }
                 else
                 {
-                    //_ucQuanLyPhong.loadData();
+                    _ucQuanLyPhong.loadData();
                     ribbonMain.Pages.GetPageByName("rbnPagePhong_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhong_Home");
                     panelControl1.Controls.Clear();

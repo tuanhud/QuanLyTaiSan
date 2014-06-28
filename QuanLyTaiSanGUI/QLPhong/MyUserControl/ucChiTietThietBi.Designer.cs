@@ -49,12 +49,13 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlLog = new DevExpress.XtraGrid.GridControl();
+            this.gridViewlog = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -69,13 +70,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlLog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewlog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.panelControl1);
             this.groupControl1.Controls.Add(this.lblTenPhong);
             this.groupControl1.Controls.Add(this.labelControl8);
@@ -98,7 +101,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(316, 395);
+            this.groupControl1.Size = new System.Drawing.Size(316, 415);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết thiết bị";
             // 
@@ -107,21 +110,21 @@
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Location = new System.Drawing.Point(72, 182);
+            this.panelControl1.Location = new System.Drawing.Point(72, 207);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(233, 20);
             this.panelControl1.TabIndex = 26;
             // 
             // lblTenPhong
             // 
-            this.lblTenPhong.Location = new System.Drawing.Point(71, 213);
+            this.lblTenPhong.Location = new System.Drawing.Point(71, 238);
             this.lblTenPhong.Name = "lblTenPhong";
             this.lblTenPhong.Size = new System.Drawing.Size(0, 13);
             this.lblTenPhong.TabIndex = 25;
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(6, 133);
+            this.labelControl8.Location = new System.Drawing.Point(6, 158);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(54, 13);
             this.labelControl8.TabIndex = 24;
@@ -131,7 +134,7 @@
             // 
             this.txtMa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMa.Location = new System.Drawing.Point(71, 129);
+            this.txtMa.Location = new System.Drawing.Point(71, 154);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(234, 20);
@@ -139,32 +142,36 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(148, 363);
+            this.btnHuy.Location = new System.Drawing.Point(148, 385);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 21;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Visible = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(67, 363);
+            this.btnOK.Location = new System.Drawing.Point(67, 385);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
+            this.btnOK.Visible = false;
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(177, 24);
+            this.btnImage.Location = new System.Drawing.Point(197, 28);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 19;
             this.btnImage.Text = "Chọn";
+            this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(6, 290);
+            this.labelControl7.Location = new System.Drawing.Point(6, 315);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(31, 13);
             this.labelControl7.TabIndex = 13;
@@ -172,7 +179,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(6, 265);
+            this.labelControl6.Location = new System.Drawing.Point(6, 290);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(46, 13);
             this.labelControl6.TabIndex = 12;
@@ -180,7 +187,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(6, 239);
+            this.labelControl5.Location = new System.Drawing.Point(6, 264);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(52, 13);
             this.labelControl5.TabIndex = 11;
@@ -188,7 +195,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 213);
+            this.labelControl4.Location = new System.Drawing.Point(6, 238);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(34, 13);
             this.labelControl4.TabIndex = 10;
@@ -196,7 +203,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(6, 186);
+            this.labelControl3.Location = new System.Drawing.Point(6, 211);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(59, 13);
             this.labelControl3.TabIndex = 9;
@@ -204,7 +211,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(6, 159);
+            this.labelControl2.Location = new System.Drawing.Point(6, 184);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(58, 13);
             this.labelControl2.TabIndex = 8;
@@ -212,7 +219,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 24);
+            this.labelControl1.Location = new System.Drawing.Point(6, 31);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 7;
@@ -223,7 +230,7 @@
             this.dateLap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateLap.EditValue = null;
-            this.dateLap.Location = new System.Drawing.Point(71, 262);
+            this.dateLap.Location = new System.Drawing.Point(71, 287);
             this.dateLap.Name = "dateLap";
             this.dateLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -238,7 +245,7 @@
             this.dateMua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateMua.EditValue = null;
-            this.dateMua.Location = new System.Drawing.Point(71, 236);
+            this.dateMua.Location = new System.Drawing.Point(71, 261);
             this.dateMua.Name = "dateMua";
             this.dateMua.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -252,7 +259,7 @@
             // 
             this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(71, 155);
+            this.txtTen.Location = new System.Drawing.Point(71, 180);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(234, 20);
@@ -261,9 +268,9 @@
             // imageSlider1
             // 
             this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(71, 24);
+            this.imageSlider1.Location = new System.Drawing.Point(71, 28);
             this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(100, 100);
+            this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
             // 
@@ -271,7 +278,7 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(71, 288);
+            this.txtMoTa.Location = new System.Drawing.Point(71, 313);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(234, 68);
@@ -280,35 +287,38 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.gridControl1);
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl2.AppearanceCaption.Options.UseFont = true;
+            this.groupControl2.Controls.Add(this.gridControlLog);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(0, 395);
+            this.groupControl2.Location = new System.Drawing.Point(0, 415);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(316, 225);
+            this.groupControl2.Size = new System.Drawing.Size(316, 205);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Log";
             // 
-            // gridControl1
+            // gridControlLog
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 21);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(312, 202);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridControlLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlLog.Location = new System.Drawing.Point(2, 24);
+            this.gridControlLog.MainView = this.gridViewlog;
+            this.gridControlLog.Name = "gridControlLog";
+            this.gridControlLog.Size = new System.Drawing.Size(312, 179);
+            this.gridControlLog.TabIndex = 0;
+            this.gridControlLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewlog});
             // 
-            // gridView1
+            // gridViewlog
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewlog.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
             this.colngay,
             this.colsoluong,
-            this.coltinhtrang_id});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.coltinhtrang_id,
+            this.colmota});
+            this.gridViewlog.GridControl = this.gridControlLog;
+            this.gridViewlog.Name = "gridViewlog";
+            this.gridViewlog.OptionsView.ShowGroupPanel = false;
             // 
             // colid
             // 
@@ -318,6 +328,7 @@
             // 
             // colngay
             // 
+            this.colngay.Caption = "Ngày";
             this.colngay.FieldName = "ngay";
             this.colngay.Name = "colngay";
             this.colngay.Visible = true;
@@ -325,6 +336,7 @@
             // 
             // colsoluong
             // 
+            this.colsoluong.Caption = "Số lượng";
             this.colsoluong.FieldName = "soluong";
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.Visible = true;
@@ -332,10 +344,19 @@
             // 
             // coltinhtrang_id
             // 
-            this.coltinhtrang_id.FieldName = "tinhtrang_id";
+            this.coltinhtrang_id.Caption = "Tình trạng";
+            this.coltinhtrang_id.FieldName = "tinhtrang.value";
             this.coltinhtrang_id.Name = "coltinhtrang_id";
             this.coltinhtrang_id.Visible = true;
             this.coltinhtrang_id.VisibleIndex = 1;
+            // 
+            // colmota
+            // 
+            this.colmota.Caption = "Ghi chú";
+            this.colmota.FieldName = "mota";
+            this.colmota.Name = "colmota";
+            this.colmota.Visible = true;
+            this.colmota.VisibleIndex = 3;
             // 
             // dxErrorProvider
             // 
@@ -363,8 +384,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlLog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewlog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -378,8 +399,8 @@
         private DevExpress.XtraEditors.DateEdit dateMua;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl gridControlLog;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewlog;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -400,5 +421,6 @@
         private DevExpress.XtraEditors.LabelControl lblTenPhong;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
+        private DevExpress.XtraGrid.Columns.GridColumn colmota;
     }
 }
