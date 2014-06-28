@@ -74,7 +74,8 @@ namespace QuanLyTaiSanGUI.MyUC
             {
                 obj = _loai;
                 treeListLoaiTB.CollapseAll();
-                treeListLoaiTB.SetFocusedNode(treeListLoaiTB.FindNodeByKeyID(_loai));
+                TreeListNode node = treeListLoaiTB.FindNodeByFieldValue("id",_loai.id);
+                treeListLoaiTB.FocusedNode = node;
             }
             catch (Exception ex)
             {
