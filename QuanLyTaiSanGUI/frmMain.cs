@@ -36,9 +36,10 @@ namespace QuanLyTaiSanGUI
         ucThongKeTongQuat _ucThongKeTongQuat = new ucThongKeTongQuat();
         ucPhanQuyen _ucPhanQuyen = new ucPhanQuyen();
         ucQuanLyPhong _ucQuanLyPhong = new ucQuanLyPhong();
+        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = new ucQuanLyPhongThietBi();
         ucQuanLyViTri _ucQuanLyViTri = new ucQuanLyViTri();
         ucQuanLyNhanVien _ucQuanLyNhanVien = new ucQuanLyNhanVien();
-        ucQuanLyThietBi_Old _ucQuanLyThietBi = new ucQuanLyThietBi_Old();
+        ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi();
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
         public frmMain()
@@ -55,6 +56,7 @@ namespace QuanLyTaiSanGUI
             _ucThongKeTongQuat.Dock = DockStyle.Fill;
             _ucPhanQuyen.Dock = DockStyle.Fill;
             _ucQuanLyPhong.Dock = DockStyle.Fill;
+            _ucQuanLyPhongThietBi.Dock = DockStyle.Fill;
             _ucQuanLyViTri.Dock = DockStyle.Fill;
             _ucQuanLyNhanVien.Dock = DockStyle.Fill;
             _ucQuanLyThietBi.Dock = DockStyle.Fill;
@@ -71,9 +73,10 @@ namespace QuanLyTaiSanGUI
             //addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
             addRibbonPage(_ucQuanLyLoaiTB.getRibbon());
             //Add Control to NavBar
-            _ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;
+            //_ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;
             _ucPhanQuyen.getControl().Parent = navBarGroupPhanQuyen.ControlContainer;
             _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
+            _ucQuanLyThietBi.getControl().Parent = navBarGroupThietBi.ControlContainer;
             //
             navBarGroupViTri.Expanded = true;
             //navBarGroupLoaiTB.Expanded = true;
@@ -111,11 +114,19 @@ namespace QuanLyTaiSanGUI
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupThietBi))
                 {
-                    _ucQuanLyThietBi.loadData();
+                    _ucQuanLyThietBi.loadData(true);
                     ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home").Visible = true;
                     ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyThietBi);
+                }
+                else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhongThietBi))
+                {
+                    _ucQuanLyPhongThietBi.loadData();
+                    //ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home").Visible = true;
+                    //ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+                    panelControl1.Controls.Clear();
+                    panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
                 }
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhanQuyen))
                 {

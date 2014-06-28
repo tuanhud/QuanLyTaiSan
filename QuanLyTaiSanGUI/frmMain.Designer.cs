@@ -36,7 +36,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupPhong = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupControlContainer4 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
@@ -47,6 +46,7 @@
             this.navBarGroupNhanVien = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupPhanQuyen = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupThongKe = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupPhongThietBi = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -97,7 +97,6 @@
             // navBarControl1
             // 
             this.navBarControl1.ActiveGroup = this.navBarGroupPhong;
-            this.navBarControl1.Controls.Add(this.navBarGroupControlContainer1);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer2);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer3);
             this.navBarControl1.Controls.Add(this.navBarGroupControlContainer4);
@@ -106,6 +105,7 @@
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri,
             this.navBarGroupPhong,
+            this.navBarGroupPhongThietBi,
             this.navBarGroupLoaiTB,
             this.navBarGroupThietBi,
             this.navBarGroupNhanVien,
@@ -124,18 +124,11 @@
             // navBarGroupPhong
             // 
             this.navBarGroupPhong.Caption = "Quản lý phòng";
-            this.navBarGroupPhong.ControlContainer = this.navBarGroupControlContainer1;
             this.navBarGroupPhong.Expanded = true;
             this.navBarGroupPhong.GroupClientHeight = 80;
             this.navBarGroupPhong.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroupPhong.Name = "navBarGroupPhong";
             this.navBarGroupPhong.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
-            // 
-            // navBarGroupControlContainer1
-            // 
-            this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 239);
-            this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // navBarGroupControlContainer2
             // 
@@ -209,6 +202,12 @@
             this.navBarGroupThongKe.Name = "navBarGroupThongKe";
             this.navBarGroupThongKe.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
             // 
+            // navBarGroupPhongThietBi
+            // 
+            this.navBarGroupPhongThietBi.Caption = "Quản lý phòng - thiết bị";
+            this.navBarGroupPhongThietBi.Name = "navBarGroupPhongThietBi";
+            this.navBarGroupPhongThietBi.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
+            // 
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -249,7 +248,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupPhong;
-        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupViTri;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraBars.BarButtonItem barBtnThemCoSo;
@@ -273,5 +271,6 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupThietBi;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer4;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer5;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroupPhongThietBi;
     }
 }
