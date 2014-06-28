@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SSCE;
+//using SSCE;
 using System.Data.SqlClient;
 using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;

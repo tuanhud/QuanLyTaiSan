@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\ProvisionClient\ProvisionClient.csproj">
+			<Name>ProvisionClient</Name>
+			<Project>{03A08C6D-1C1A-4257-A50C-2175E28B813D}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ProvisionController\ProvisionController.csproj">
+			<Name>ProvisionController</Name>
+			<Project>{A8D2FF8C-3291-4E7E-BAB4-9008C0CB2D99}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ProvisionServer\ProvisionServer.csproj">
+			<Name>ProvisionServer</Name>
+			<Project>{47559428-CCE9-45F9-8653-7EC14A6EBC63}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\QuanLyTaiSan\QuanLyTaiSan.csproj">
+			<Name>QuanLyTaiSan</Name>
+			<Project>{3A9615F6-7F5B-4E10-BA63-B46B4CC00DE1}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\QuanLyTaiSanGUI\QuanLyTaiSanGUI.csproj">
+			<Name>QuanLyTaiSanGUI</Name>
+			<Project>{3270269A-0084-40B9-807D-91D29C3F5444}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

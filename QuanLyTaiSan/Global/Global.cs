@@ -201,7 +201,7 @@ namespace QuanLyTaiSan.Entities
                             //load from DB
                             //pre_path = new Setting().getValue("http_image_prepath");
                             //pre_path = "/";
-                            pre_path = "qlts/";
+                            pre_path = "/qlts/";
                         }
                         return pre_path;
                     }
