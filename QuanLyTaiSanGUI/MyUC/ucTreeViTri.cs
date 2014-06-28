@@ -90,6 +90,15 @@ namespace QuanLyTaiSanGUI.MyUC
                                     }
                                 }
                                 break;
+                            case "QLPhongThietBi":
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
+                                        _ucQuanLyPhongThietBi.setData(cosoid, dayid, tangid);
+                                    }
+                                }
+                                break;
                             case "QLThietBi":
                                 {
                                     if (this.Parent != null)
