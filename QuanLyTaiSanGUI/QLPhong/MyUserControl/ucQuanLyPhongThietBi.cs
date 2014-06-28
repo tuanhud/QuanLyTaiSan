@@ -60,7 +60,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // Load dữ liệu
         public void loadData()
         {
-            List<ViTriHienThi> listVitris = new ViTriHienThi().getAll().ToList();
+            List<LoaiThietBi> listLoai = new LoaiThietBi().getAll();
+            _ucChiTietThietBi.loadData(listLoai);
+            List<ViTriHienThi> listVitris = new ViTriHienThi().getAll();
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.loadData(listVitris);
             ViTri obj = _ucTreeViTri.getVitri();
@@ -262,7 +264,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (_color)
                 groupControl1.AppearanceCaption.ForeColor = Color.Red;
             else
-                groupControl1.AppearanceCaption.ForeColor = Color.Black;
+                groupControl1.AppearanceCaption.ForeColor = Color.Empty;
         }
 
         // kiểm tra dữ liệu trước khi lưu
@@ -585,6 +587,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 splitContainerControl1.Panel2.Controls.Clear();
                 splitContainerControl1.Panel2.Controls.Add(panelPhong);
             }
+            barButtonSuaTB.Enabled = _show;
+            barButtonXoaTB.Enabled = _show;
+            barButtonSuaPhong.Enabled = !_show;
+            barButtonXoaPhong.Enabled = !_show;
+            barButtonChuyen.Enabled = _show;
         }
 
         private void gridViewChiTietTBs_FocusedRowLoaded(object sender, DevExpress.XtraGrid.Views.Base.RowEventArgs e)
@@ -609,6 +616,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 _ucChiTietThietBi.setData(new CTThietBi().getById(Convert.ToInt32(view.GetRowCellValue(e.RowHandle, coltbid))));
                 showChiTietTB(true);
             }
+        }
+
+        private void barButtonSuaTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _ucChiTietThietBi.enableEdit(true);
         }
     }
 }

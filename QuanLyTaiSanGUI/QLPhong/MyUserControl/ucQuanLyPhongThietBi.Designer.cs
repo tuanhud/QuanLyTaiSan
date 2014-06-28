@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewChiTietTBs = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coltbid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltbtbid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -187,10 +187,10 @@
             // gridControlPhong
             // 
             this.gridControlPhong.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.LevelTemplate = this.gridViewChiTietTBs;
-            gridLevelNode2.RelationName = "ChiTietTBs";
+            gridLevelNode1.LevelTemplate = this.gridViewChiTietTBs;
+            gridLevelNode1.RelationName = "ChiTietTBs";
             this.gridControlPhong.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.Name = "gridControlPhong";
@@ -369,6 +369,7 @@
             this.barButtonSuaTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSuaTB.Id = 43;
             this.barButtonSuaTB.Name = "barButtonSuaTB";
+            this.barButtonSuaTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaTB_ItemClick);
             // 
             // barButtonXoaTB
             // 
