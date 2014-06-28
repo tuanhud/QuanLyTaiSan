@@ -34,6 +34,14 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 		
 		#region Override method
+        public override int delete()
+        {
+            if (tangs.Count > 0 || vitris.Count > 0)
+            {
+                return -1;
+            }
+            return base.delete();
+        }
         protected override void init()
         {
             base.init();

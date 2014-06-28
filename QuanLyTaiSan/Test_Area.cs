@@ -28,8 +28,15 @@ namespace QuanLyTaiSan
         public Test_Area()
         {
             InitializeComponent();
-            Phong obj = new Phong().getById(1);
-            int re = obj.delete();
+
+            CTThietBi obj = new CTThietBi();
+            obj.thietbi = new ThietBi().request(new LoaiThietBi().getById(1));
+            obj.phong = new Phong().getById(1);
+            obj.tinhtrang = new TinhTrang().getById(1);
+            obj.soluong = 7;
+            obj.mota = "Thêm tiếp vô phòng";
+            obj.add_auto();
+
             Console.WriteLine("");
         }
         private void reload_obj_theo_dbcontext_hien_tai()

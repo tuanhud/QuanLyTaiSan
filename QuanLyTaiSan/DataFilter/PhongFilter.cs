@@ -36,10 +36,6 @@ namespace QuanLyTaiSan.DataFilter
         /*
          * FK Object
          */
-        public Phong phong { get; set; }
-        public CoSo coso { get; set; }
-        public Tang tang { get; set; }
-        public Dayy day { get; set; }
         #region Nghiệp vụ
         public override List<PhongFilter> getAll()
         {
@@ -55,9 +51,6 @@ namespace QuanLyTaiSan.DataFilter
                      ten_coso = p_vt.coso==null?"":p_vt.coso.ten,
                      ten_day = p_vt.day==null?"":p_vt.day.ten,
                      ten_tang = p_vt.tang == null ? "" : p_vt.tang.ten,
-                     tang = p_vt.tang,
-                     day = p_vt.day,
-                     coso = p_vt.coso
                  }).ToList();
             return re;
         }

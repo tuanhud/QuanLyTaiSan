@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
@@ -161,6 +162,32 @@ namespace QuanLyTaiSan.Entities
                     m.MapRightKey("permission_id");
                     m.ToTable("GROUP_PERMISSION");
                 });
+        }
+        public int SaveChanges()
+        {
+            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries();
+
+            foreach (DbEntityEntry changedEntity in changedEntities)
+            {
+                if (changedEntity.Entity is _EFEventRegisterInterface)
+                {
+                    _EFEventRegisterInterface entity = (_EFEventRegisterInterface)changedEntity.Entity;
+
+                    switch (changedEntity.State)
+                    {
+                        case EntityState.Added:
+                            entity.onBeforeAdded();
+                            break;
+
+                        case EntityState.Modified:
+                            entity.onBeforeUpdated();
+                            break;
+
+                    }
+                }
+            }
+
+            return base.SaveChanges();
         }
     }
 }

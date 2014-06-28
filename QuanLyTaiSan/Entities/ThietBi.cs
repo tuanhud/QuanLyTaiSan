@@ -40,41 +40,52 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 
         #region Nghiep vu
-        public int add_auto(LoaiThietBi ltb, Phong ph, TinhTrang ttr, int sl=1, String mota="")
+        /// <summary>
+        /// dựa trên loaichung hay riêng của loại tb mà trả về object ThietBi phù hợp để CTTB gán khi add
+        /// </summary>
+        /// <param name="loai"></param>
+        /// <returns></returns>
+        public ThietBi request(LoaiThietBi loai)
         {
-            Boolean trans = true;
-            using (var dbTransac = db.Database.BeginTransaction())
+            if (loai == null)
             {
-                if (ltb.loaichung)
+                return new ThietBi();
+            }
+
+            ThietBi tmp = null;
+            if (loai.loaichung)
+            {
+                //select thietbi
+                tmp = db.THIETBIS.Where(c=>c.loaithietbi_id==loai.id).FirstOrDefault();
+                if (tmp != null)
                 {
-                    loaithietbi = ltb;
-
-                    //new
-                    CTThietBi cttb = new CTThietBi().request(this, ph, ttr);
-                    cttb.soluong = sl;
-                    //call add
-                    trans = trans && cttb.add() > 0;
-
-                    //assign
-                    ctthietbis.Add(cttb);
-
-                    //save
-                    trans = trans && this.add() > 0;
-                }
-                else
-                {
-                    
+                    return tmp;
                 }
             }
 
-            return -1;
+            tmp=new ThietBi();
+            tmp.loaithietbi = loai;
+            
+            return tmp;
         }
+        
         #endregion
 
         #region Override method
         public override int delete()
         {
+            if (ctthietbis.Count > 0 || logthietbis.Count > 0)
+            {
+                return -1;
+            }
             return base.delete();
+        }
+        public override void onBeforeAdded()
+        {
+            ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
+            ngaylap = ngaylap == null ? ServerTimeHelper.getNow() : ngaylap;
+
+            base.onBeforeAdded();
         }
         public override int update()
         {
@@ -93,6 +104,10 @@ namespace QuanLyTaiSan.Entities
             this.ctthietbis = new List<CTThietBi>();
             this.logthietbis = new List<LogThietBi>();
         }
+        /// <summary>
+        /// Tự động add nếu chưa có trong CSDL
+        /// </summary>
+        /// <returns></returns>
         public override int add()
         {
             //time

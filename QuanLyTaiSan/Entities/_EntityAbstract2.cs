@@ -15,7 +15,7 @@ namespace QuanLyTaiSan.Entities
     /// Có thêm những thuộc tính nâng cao
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class _EntityAbstract2<T> : _EntityAbstract1<T>, _CRUDInterface<T> where T : _EntityAbstract1<T>
+    public abstract class _EntityAbstract2<T> : _EntityAbstract1<T> /* ,_CRUDInterface<T>*/ where T : _EntityAbstract1<T>
     {
         public _EntityAbstract2():base()
         {
@@ -36,13 +36,6 @@ namespace QuanLyTaiSan.Entities
         {
             base.init();
             this.hinhanhs = new List<HinhAnh>();
-        }
-
-        public override int update()
-        {
-            //trigger FK Object
-            //...
-            return base.update();
         }
         public override int delete()
         {
