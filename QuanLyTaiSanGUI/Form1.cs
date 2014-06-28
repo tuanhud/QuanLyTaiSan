@@ -25,5 +25,11 @@ namespace QuanLyTaiSanGUI
             gridControl1.DataSource = list;
 
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            frmMain frm = new frmMain();
+            frm.Show();
+        }
     }
 }

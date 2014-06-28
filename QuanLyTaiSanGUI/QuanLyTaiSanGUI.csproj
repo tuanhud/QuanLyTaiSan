@@ -267,6 +267,12 @@
     <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.Designer.cs">
       <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongKe\ChiTiet\ucThongKeChiTiet.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     <EmbeddedResource Include="QLTinhTrang\ucQuanLyTinhTrang.resx">
       <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\ChiTiet\ucThongKeChiTiet.resx">
       <DependentUpon>ucThongKeChiTiet.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +486,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\phong-thietbi.png" />
+    <None Include="Resources\logophanmem.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>
