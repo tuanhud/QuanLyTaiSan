@@ -61,7 +61,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucComboBoxViTri.Dock = DockStyle.Fill;
 
             panelControl1.Controls.Add(_ucComboBoxViTri);
-            ribbonPhong.Parent = null;
+            ribbonPhongThietBi.Parent = null;
             ViTri obj = _ucTreeViTri.getVitri();
             listPhong = new Phong().getPhongByViTri(obj.coso != null ? obj.coso.id : -1, obj.day != null ? obj.day.id : -1, obj.tang != null ? obj.tang.id : -1);
             gridControlPhong.DataSource = listPhong;
@@ -381,7 +381,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         public RibbonControl getRibbon()
         {
-            return ribbonPhong;
+            return ribbonPhongThietBi;
         }
 
         public TreeList getTreeList()

@@ -70,12 +70,14 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucQuanLyViTri.getRibbon());
             addRibbonPage(_ucQuanLyNhanVien.getRibbon());
             addRibbonPage(_ucQuanLyThietBi.getRibbon());
+            addRibbonPage(_ucQuanLyPhongThietBi.getRibbon());
             //addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
             addRibbonPage(_ucQuanLyLoaiTB.getRibbon());
             //Add Control to NavBar
             //_ucQuanLyThietBi.getTreeList().Parent = navBarGroupThietBi.ControlContainer;
             _ucPhanQuyen.getControl().Parent = navBarGroupPhanQuyen.ControlContainer;
             _ucQuanLyPhong.getTreeList().Parent = navBarGroupPhong.ControlContainer;
+            _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupPhongThietBi.ControlContainer;
             _ucQuanLyThietBi.getControl().Parent = navBarGroupThietBi.ControlContainer;
             //
             navBarGroupViTri.Expanded = true;
@@ -123,8 +125,8 @@ namespace QuanLyTaiSanGUI
                 else if (navBarControl1.ActiveGroup.Equals(navBarGroupPhongThietBi))
                 {
                     _ucQuanLyPhongThietBi.loadData();
-                    //ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home").Visible = true;
-                    //ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+                    ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home").Visible = true;
+                    ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
                 }

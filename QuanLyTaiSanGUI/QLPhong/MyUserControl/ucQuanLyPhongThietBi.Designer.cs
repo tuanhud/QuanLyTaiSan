@@ -28,20 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsubId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnhanvienpt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
-            this.ribbonPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -81,7 +77,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -89,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).BeginInit();
@@ -136,11 +132,8 @@
             // 
             this.gridViewPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.id,
-            this.colsubId,
             this.colten,
             this.colmota,
-            this.coldate_create,
-            this.coldate_modified,
             this.colnhanvienpt});
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.Name = "gridViewPhong";
@@ -159,15 +152,6 @@
             this.id.Name = "id";
             this.id.Width = 40;
             // 
-            // colsubId
-            // 
-            this.colsubId.Caption = "Mã phòng";
-            this.colsubId.FieldName = "subId";
-            this.colsubId.Name = "colsubId";
-            this.colsubId.Visible = true;
-            this.colsubId.VisibleIndex = 0;
-            this.colsubId.Width = 78;
-            // 
             // colten
             // 
             this.colten.Caption = "Tên phòng";
@@ -185,24 +169,6 @@
             this.colmota.Visible = true;
             this.colmota.VisibleIndex = 2;
             this.colmota.Width = 78;
-            // 
-            // coldate_create
-            // 
-            this.coldate_create.Caption = "Ngày tạo";
-            this.coldate_create.FieldName = "date_create";
-            this.coldate_create.Name = "coldate_create";
-            this.coldate_create.Visible = true;
-            this.coldate_create.VisibleIndex = 3;
-            this.coldate_create.Width = 65;
-            // 
-            // coldate_modified
-            // 
-            this.coldate_modified.Caption = "Ngày cập nhật";
-            this.coldate_modified.FieldName = "date_modified";
-            this.coldate_modified.Name = "coldate_modified";
-            this.coldate_modified.Visible = true;
-            this.coldate_modified.VisibleIndex = 4;
-            this.coldate_modified.Width = 76;
             // 
             // colnhanvienpt
             // 
@@ -236,27 +202,27 @@
             // txtSoDienThoai
             // 
             this.txtSoDienThoai.Location = new System.Drawing.Point(79, 197);
-            this.txtSoDienThoai.MenuManager = this.ribbonPhong;
+            this.txtSoDienThoai.MenuManager = this.ribbonPhongThietBi;
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.ReadOnly = true;
             this.txtSoDienThoai.Size = new System.Drawing.Size(213, 20);
             this.txtSoDienThoai.TabIndex = 13;
             // 
-            // ribbonPhong
+            // ribbonPhongThietBi
             // 
-            this.ribbonPhong.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
-            this.ribbonPhong.ExpandCollapseItem.Id = 0;
-            this.ribbonPhong.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonPhong.ExpandCollapseItem,
+            this.ribbonPhongThietBi.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonPhongThietBi.ExpandCollapseItem.Id = 0;
+            this.ribbonPhongThietBi.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonPhongThietBi.ExpandCollapseItem,
             this.barButtonThemPhong,
             this.barButtonSuaPhong,
             this.barButtonXoaPhong});
-            this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhong.MaxItemId = 42;
-            this.ribbonPhong.Name = "ribbonPhong";
-            this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPhongThietBi.Location = new System.Drawing.Point(0, 0);
+            this.ribbonPhongThietBi.MaxItemId = 42;
+            this.ribbonPhongThietBi.Name = "ribbonPhongThietBi";
+            this.ribbonPhongThietBi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhongThietbi_Home});
-            this.ribbonPhong.Size = new System.Drawing.Size(837, 142);
+            this.ribbonPhongThietBi.Size = new System.Drawing.Size(837, 142);
             // 
             // barButtonThemPhong
             // 
@@ -300,7 +266,7 @@
             // txtTenNhanVien
             // 
             this.txtTenNhanVien.Location = new System.Drawing.Point(79, 173);
-            this.txtTenNhanVien.MenuManager = this.ribbonPhong;
+            this.txtTenNhanVien.MenuManager = this.ribbonPhongThietBi;
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Properties.ReadOnly = true;
             this.txtTenNhanVien.Size = new System.Drawing.Size(213, 20);
@@ -309,7 +275,7 @@
             // txtMaNhanVien
             // 
             this.txtMaNhanVien.Location = new System.Drawing.Point(79, 148);
-            this.txtMaNhanVien.MenuManager = this.ribbonPhong;
+            this.txtMaNhanVien.MenuManager = this.ribbonPhongThietBi;
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Properties.ReadOnly = true;
             this.txtMaNhanVien.Size = new System.Drawing.Size(213, 20);
@@ -405,7 +371,7 @@
             // 
             this.searchLookUpEditNhanVienPT.EditValue = "";
             this.searchLookUpEditNhanVienPT.Location = new System.Drawing.Point(79, 281);
-            this.searchLookUpEditNhanVienPT.MenuManager = this.ribbonPhong;
+            this.searchLookUpEditNhanVienPT.MenuManager = this.ribbonPhongThietBi;
             this.searchLookUpEditNhanVienPT.Name = "searchLookUpEditNhanVienPT";
             this.searchLookUpEditNhanVienPT.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.searchLookUpEditNhanVienPT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -608,7 +574,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
-            this.Controls.Add(this.ribbonPhong);
+            this.Controls.Add(this.ribbonPhongThietBi);
             this.Name = "ucQuanLyPhongThietBi";
             this.Size = new System.Drawing.Size(837, 700);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -619,7 +585,7 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgNhanVien)).EndInit();
@@ -648,15 +614,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn coltinhtrang;
         private DevExpress.XtraGrid.Columns.GridColumn coltenthietbi;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colsubId;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colmota;
-        private DevExpress.XtraGrid.Columns.GridColumn coldate_create;
-        private DevExpress.XtraGrid.Columns.GridColumn coldate_modified;
         private DevExpress.XtraGrid.Columns.GridColumn colnhanvienpt;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhong;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhongThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhongThietbi_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonThemPhong;
