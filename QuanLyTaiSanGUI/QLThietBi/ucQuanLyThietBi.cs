@@ -20,7 +20,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
         ucQuanLyThietBi_Control _ucQuanLyThietBi_Control = new ucQuanLyThietBi_Control();
         List<ThietBiHienThi> listThietBiHienThi = new List<ThietBiHienThi>();
         List<LoaiThietBi> listLoaiThietBi = new List<LoaiThietBi>();
-        List<LoaiThietBi> listLoaiThietBiChungKhongCoCTTB = new List<LoaiThietBi>();
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
 
         ThietBi objThietBi = null;
@@ -41,6 +40,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucQuanLyThietBi_Control.Parent = this;
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
+            loaiThietBiNULL.ten = "[Chọn loại thiết bị]";
+            loaiThietBiNULL.loaichung = false;
+            loaiThietBiNULL.id = -1;
         }
 
         public PanelControl getControl()
@@ -56,20 +58,20 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public void loadData(bool _loaichung)
         {
             loaiChung = _loaichung;
-            //Cái quỉ này phải có trước
-            listLoaiThietBi = LoaiThietBi.getTheoLoai(_loaichung);
-            loaiThietBiNULL.ten = "[Không thuộc loại nào]";
-            loaiThietBiNULL.loaichung = false;
-            loaiThietBiNULL.id = -1;
+            listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
             listLoaiThietBi.Insert(0, loaiThietBiNULL);
-            _ucTreeLoaiTB.loadData(listLoaiThietBi);
 
-            listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(_loaichung);
-            gridControlThietBi.DataSource = listThietBiHienThi;
+            reLoad();
         }
 
         private void reLoad()
         {
+            _ucTreeLoaiTB = new ucTreeLoaiTB();
+            _ucTreeLoaiTB.loadData(listLoaiThietBi);
+            _ucTreeLoaiTB.Dock = DockStyle.Fill;
+            panelControlLoaiThietBi.Controls.Clear();
+            panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
+
             listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(loaiChung);
             gridControlThietBi.DataSource = listThietBiHienThi;
         }
@@ -102,57 +104,32 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void enableEdit(Boolean _enable)
         {
+            btnImage.Visible = _enable;
+            btnOk.Visible = _enable;
+            btnHuy.Visible = _enable;
+
+            txtMa.Properties.ReadOnly = !_enable;
+            txtTen.Properties.ReadOnly = !_enable;
+            txtMoTa.Properties.ReadOnly = !_enable;
             if (_enable)
             {
-                btnImage.Visible = true;
-                btnOk.Visible = true;
-                btnHuy.Visible = true;
-
-                txtMa.Properties.ReadOnly = false;
-                txtTen.Properties.ReadOnly = false;
-                txtMoTa.Properties.ReadOnly = false;
                 if (loaiChung)
                 {
-                    dateEditMua.Properties.ReadOnly = true;
-                    dateEditLap.Properties.ReadOnly = true;
+                    dateEditMua.Properties.ReadOnly = loaiChung;
+                    dateEditLap.Properties.ReadOnly = loaiChung;
                 }
                 else
                 {
-                    dateEditMua.Properties.ReadOnly = false;
-                    dateEditLap.Properties.ReadOnly = false;
+                    dateEditMua.Properties.ReadOnly = loaiChung;
+                    dateEditLap.Properties.ReadOnly = loaiChung;
                 }
-                _ucTreeLoaiTB.setReadOnly(false);
-                //if (objThietBi.loaithietbi.loaichung)
-                //{
-                //    dateEditMua.Properties.ReadOnly = true;
-                //    dateEditLap.Properties.ReadOnly = true;
-                //}
-                //else
-                //{
-                //    dateEditMua.Properties.ReadOnly = false;
-                //    dateEditLap.Properties.ReadOnly = false;
-                //}
-                //if (objThietBi.ctthietbis != null)
-                //{
-                //    if (objThietBi.ctthietbis.Count > 0)
-                //        _ucTreeLoaiTB.setReadOnly(false);
-                //}
-                //else
-                //    _ucTreeLoaiTB.setReadOnly(true);
             }
             else
             {
-                btnImage.Visible = false;
-                btnOk.Visible = false;
-                btnHuy.Visible = false;
-
-                txtTen.Properties.ReadOnly = true;
-                txtMa.Properties.ReadOnly = true;
-                txtMoTa.Properties.ReadOnly = true;
-                _ucTreeLoaiTB.setReadOnly(true);
-                dateEditMua.Properties.ReadOnly = true;
-                dateEditLap.Properties.ReadOnly = true;
+                dateEditMua.Properties.ReadOnly = !_enable;
+                dateEditLap.Properties.ReadOnly = !_enable;
             }
+            _ucTreeLoaiTB.setReadOnly(!_enable);
         }
 
         private void setData()
@@ -179,7 +156,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 _ucTreeLoaiTB.setLoai(objThietBi.loaithietbi);
 
 
-                if (objThietBi.loaithietbi.loaichung)
+                if (loaiChung)
                 {
                     dateEditMua.EditValue = null;
                     dateEditLap.EditValue = null;
@@ -189,7 +166,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     dateEditMua.EditValue = objThietBi.ngaymua;
                     dateEditLap.EditValue = objThietBi.ngaylap;
                 }
-                
+
                 txtMoTa.Text = objThietBi.mota;
             }
             else
@@ -202,9 +179,10 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
             objThietBi.subId = txtMa.Text;
             objThietBi.ten = txtTen.Text;
+
             objThietBi.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
 
-            if (objThietBi.loaithietbi.loaichung)
+            if (loaiChung)
             {
                 objThietBi.ngaymua = null;
                 objThietBi.ngaylap = null;
@@ -228,7 +206,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     {
                         XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoad();
-                        
+
                     }
                     break;
                 case "edit":
@@ -241,26 +219,48 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     break;
                 case "delete":
                     //Xóa sạch, ko luyến tiếc
-                    if (XtraMessageBox.Show("Bạn có chắc là xóa thiết bị này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    int[] indexCacRow = gridViewThietBi.GetSelectedRows();
+                    String message = "";
+                    Boolean thanhcong = true;
+                    if (indexCacRow.Count() == 1)
+                        message = "Bạn có chắc là xóa thiết bị này?";
+                    if (indexCacRow.Count() > 1)
+                        message = "Bạn có chắc là xóa những thiết bị đã chọn?";
+                    if (indexCacRow.Count() > 0)
                     {
-                        if (objThietBi.ctthietbis != null)
+                        if (XtraMessageBox.Show(message, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            for (int i = 0; i < objThietBi.ctthietbis.Count; i++)
+                            for (int i = 0; i < indexCacRow.Count(); i++)
                             {
-                                objThietBi.ctthietbis.ElementAt(i).delete();
+                                try
+                                {
+                                    objThietBi = ThietBi.getById(((ThietBiHienThi)gridViewThietBi.GetRow(indexCacRow[i])).id);
+                                    if (objThietBi.ctthietbis != null)
+                                    {
+                                        for (int j = 0; j < objThietBi.ctthietbis.Count; j++)
+                                        {
+                                            objThietBi.ctthietbis.ElementAt(j).delete();
+                                        }
+                                    }
+                                    if (objThietBi.logthietbis != null)
+                                    {
+                                        for (int j = 0; j < objThietBi.logthietbis.Count; j++)
+                                        {
+                                            objThietBi.logthietbis.ElementAt(j).delete();
+                                        }
+                                    }
+                                    objThietBi.delete();
+                                }
+                                catch
+                                {
+                                    thanhcong = false;
+                                }
                             }
-                        }
-                        if (objThietBi.logthietbis != null)
-                        {
-                            for (int i = 0; i < objThietBi.logthietbis.Count; i++)
+                            if (thanhcong)
                             {
-                                objThietBi.logthietbis.ElementAt(i).delete();
+                                XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reLoad();
                             }
-                        }
-                        if (objThietBi.delete() != -1)
-                        {
-                            XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
                         }
                     }
                     break;
@@ -271,12 +271,18 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             Boolean check = true;
             errorProvider1.Clear();
+            LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
             if (txtTen.Text.Length == 0)
             {
                 check = false;
                 errorProvider1.SetError(txtTen, "Chưa điền tên thiết bị");
             }
-            if (!objThietBi.loaithietbi.loaichung)
+            if (loaithietbi == null)
+            {
+                check = false;
+                errorProvider1.SetError(panelControlLoaiThietBi, "Chưa chọn loại thiết bị");
+            }
+            if (!loaiChung)
             {
                 if (dateEditMua.DateTime > dateEditLap.DateTime)
                 {
@@ -296,7 +302,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             else
             {
-                LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 if (loaithietbi != null)
                 {
                     if (function.Equals("edit"))
@@ -400,7 +405,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             enableEdit(true);
             function = "add";
-            
+
             deleteData();
             txtMa.Focus();
             setTextGroupControl("Thêm thiết bị", Color.Red);
@@ -420,7 +425,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             enableEdit(true);
             function = "edit";
-            
+
             setData();
             setTextGroupControl("Sửa thiết bị", Color.Red);
             if (loaiChung)
@@ -439,19 +444,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             function = "delete";
             CRUD();
-        }
-
-        private void gridControlThietBi_DataSourceChanged(object sender, EventArgs e)
-        {
-            //if (gridControlThietBi.DataSource != null)
-            //{
-            //    if ((gridControlThietBi.DataSource as List<ThietBiHienThi>).Count == 0)
-            //    {
-            //        deleteData();
-            //        barButtonSuaThietBi.Enabled = false;
-            //        barButtonXoaThietBi.Enabled = false;
-            //    }
-            //}
         }
     }
 }

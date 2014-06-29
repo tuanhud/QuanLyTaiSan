@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panelControlLoaiThietBi = new DevExpress.XtraEditors.PanelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -48,6 +47,8 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupControlThietBi = new DevExpress.XtraEditors.GroupControl();
+            this.panelControlLoaiThietBi = new DevExpress.XtraEditors.PanelControl();
+            this.lueLoaiThietBi = new DevExpress.XtraEditors.LookUpEdit();
             this.ribbonThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaThietBi = new DevExpress.XtraBars.BarButtonItem();
@@ -64,7 +65,6 @@
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaylap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlLoaiThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditLap.Properties)).BeginInit();
@@ -76,22 +76,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlThietBi)).BeginInit();
             this.groupControlThietBi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlLoaiThietBi)).BeginInit();
+            this.panelControlLoaiThietBi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueLoaiThietBi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelControlLoaiThietBi
-            // 
-            this.panelControlLoaiThietBi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControlLoaiThietBi.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlLoaiThietBi.Location = new System.Drawing.Point(72, 185);
-            this.panelControlLoaiThietBi.Name = "panelControlLoaiThietBi";
-            this.panelControlLoaiThietBi.Size = new System.Drawing.Size(229, 20);
-            this.panelControlLoaiThietBi.TabIndex = 5;
             // 
             // labelControl8
             // 
@@ -280,6 +273,33 @@
             this.groupControlThietBi.TabIndex = 2;
             this.groupControlThietBi.Text = "Chi tiết thiết bị";
             // 
+            // panelControlLoaiThietBi
+            // 
+            this.panelControlLoaiThietBi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControlLoaiThietBi.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlLoaiThietBi.Controls.Add(this.lueLoaiThietBi);
+            this.panelControlLoaiThietBi.Location = new System.Drawing.Point(72, 185);
+            this.panelControlLoaiThietBi.Name = "panelControlLoaiThietBi";
+            this.panelControlLoaiThietBi.Size = new System.Drawing.Size(229, 20);
+            this.panelControlLoaiThietBi.TabIndex = 5;
+            // 
+            // lueLoaiThietBi
+            // 
+            this.lueLoaiThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lueLoaiThietBi.Location = new System.Drawing.Point(0, 0);
+            this.lueLoaiThietBi.Name = "lueLoaiThietBi";
+            this.lueLoaiThietBi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueLoaiThietBi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ten", "Loại")});
+            this.lueLoaiThietBi.Properties.DisplayMember = "ten";
+            this.lueLoaiThietBi.Properties.NullText = "";
+            this.lueLoaiThietBi.Properties.ReadOnly = true;
+            this.lueLoaiThietBi.Properties.ValueMember = "id";
+            this.lueLoaiThietBi.Size = new System.Drawing.Size(229, 20);
+            this.lueLoaiThietBi.TabIndex = 4;
+            // 
             // ribbonThietBi
             // 
             this.ribbonThietBi.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -358,7 +378,6 @@
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});
-            this.gridControlThietBi.DataSourceChanged += new System.EventHandler(this.gridControlThietBi_DataSourceChanged);
             // 
             // gridViewThietBi
             // 
@@ -438,7 +457,6 @@
             this.Controls.Add(this.ribbonThietBi);
             this.Name = "ucQuanLyThietBi";
             this.Size = new System.Drawing.Size(840, 640);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlLoaiThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditLap.Properties)).EndInit();
@@ -451,6 +469,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlThietBi)).EndInit();
             this.groupControlThietBi.ResumeLayout(false);
             this.groupControlThietBi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlLoaiThietBi)).EndInit();
+            this.panelControlLoaiThietBi.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lueLoaiThietBi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewThietBi)).EndInit();
@@ -463,7 +484,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControlLoaiThietBi;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.TextEdit txtMa;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
@@ -498,6 +518,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colloai;
         private DevExpress.XtraGrid.Columns.GridColumn colngaymua;
         private DevExpress.XtraGrid.Columns.GridColumn colngaylap;
+        private DevExpress.XtraEditors.PanelControl panelControlLoaiThietBi;
+        private DevExpress.XtraEditors.LookUpEdit lueLoaiThietBi;
 
     }
 }
