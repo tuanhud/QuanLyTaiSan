@@ -75,7 +75,7 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 obj = _loai;
-                Console.WriteLine(listLoaiThietBi.Count.ToString());
+                //Console.WriteLine(listLoaiThietBi.Count.ToString());
                 treeListLoaiTB.CollapseAll();
                 TreeListNode node = treeListLoaiTB.FindNodeByFieldValue("id", _loai.id);
                 treeListLoaiTB.FocusedNode = node;
