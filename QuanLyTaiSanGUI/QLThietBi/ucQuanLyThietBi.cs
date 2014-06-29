@@ -57,20 +57,20 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             loaiChung = _loaichung;
             //Cái quỉ này phải có trước
-            listLoaiThietBi = new LoaiThietBi().getTheoLoai(_loaichung);
+            listLoaiThietBi = LoaiThietBi.getTheoLoai(_loaichung);
             loaiThietBiNULL.ten = "[Không thuộc loại nào]";
             loaiThietBiNULL.loaichung = false;
             loaiThietBiNULL.id = -1;
             listLoaiThietBi.Insert(0, loaiThietBiNULL);
             _ucTreeLoaiTB.loadData(listLoaiThietBi);
 
-            listThietBiHienThi = new ThietBiHienThi().getAllByTypeLoai(_loaichung);
+            listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(_loaichung);
             gridControlThietBi.DataSource = listThietBiHienThi;
         }
 
         private void reLoad()
         {
-            listThietBiHienThi = new ThietBiHienThi().getAllByTypeLoai(loaiChung);
+            listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(loaiChung);
             gridControlThietBi.DataSource = listThietBiHienThi;
         }
 
@@ -336,7 +336,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 }
                 if (rowThietBis == 1)
                 {
-                    objThietBi = new ThietBi().getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
+                    objThietBi = ThietBi.getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
                     enableEdit(false);
                     function = "";
                     setData();

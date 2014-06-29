@@ -30,9 +30,9 @@ namespace QuanLyTaiSan
             InitializeComponent();
 
             CTThietBi obj = new CTThietBi();
-            obj.thietbi = new ThietBi().request(new LoaiThietBi().getById(1));
-            obj.phong = new Phong().getById(1);
-            obj.tinhtrang = new TinhTrang().getById(1);
+            obj.thietbi = ThietBi.request(LoaiThietBi.getById(1));
+            obj.phong = Phong.getById(1);
+            obj.tinhtrang = TinhTrang.getById(1);
             obj.soluong = 7;
             obj.mota = "Thêm tiếp vô phòng";
             obj.add_auto();
@@ -42,11 +42,11 @@ namespace QuanLyTaiSan
         private void reload_obj_theo_dbcontext_hien_tai()
         {
             //Object lấy bởi Context cũ
-            QuanTriVien obj = new QuanTriVien().getById(1);
+            QuanTriVien obj = QuanTriVien.getById(1);
             //Nơi nào đó gọi reNew
             DBInstance.reNew();
             //Group được load ra bởi Context mới
-            Group g = new Group().getById(2);
+            Group g = Group.getById(2);
             //Phải reload Object quantrivien theo Context mới do Context đã bị new mới
             //nếu không thì sau khi gán => update sẽ gây lỗi do 2 Object trên khác Context
             obj = obj.reload();
@@ -57,27 +57,27 @@ namespace QuanLyTaiSan
         }
         private void setting()
         {
-            Setting setting = new Setting().getByKey("my_key");
+            Setting setting = Setting.getByKey("my_key");
             setting.value = "my_value";
             setting.addOrUpdate();
             Console.WriteLine("Finish");
         }
         private void dichuyen_tb()
         {
-            CTThietBi obj = new CTThietBi().getById(18);
-            Phong dich = new Phong().getById(4);
+            CTThietBi obj = CTThietBi.getById(18);
+            Phong dich =Phong.getById(4);
             int re = obj.dichuyen(dich, 2, "Chua co mota nao");
             Console.WriteLine(re);
         }
         private void login()
         {
-            QuanTriVien obj = new QuanTriVien().getByUserName("admin");
+            QuanTriVien obj = QuanTriVien.getByUserName("admin");
             obj.hashPassword("password");
             Boolean re= obj.checkLoginByUserName();
         }
         private void doi_mat_khau()
         {
-            QuanTriVien obj = new QuanTriVien().getByUserName("admin");
+            QuanTriVien obj = QuanTriVien.getByUserName("admin");
             int re = obj.changePassword("123123", "123123");
             Console.WriteLine(re);
         }

@@ -46,7 +46,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                NhanVienPTs = new NhanVienPT().getAll();
+                NhanVienPTs = NhanVienPT.getAll();
                 gridControlNhanVien.DataSource = null;
                 gridControlNhanVien.DataSource = NhanVienPTs;
                 if (NhanVienPTs.Count > 0)
@@ -349,7 +349,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 splitContainerControl1.Panel1.Controls.Clear();
                 if (_bool)
                 {
-                    List<ViTriHienThi> listVT = new ViTriHienThi().getAllHavePhongNotNhanVien(objNhanVienPT.id);
+                    List<ViTriHienThi> listVT = ViTriHienThi.getAllHavePhongNotNhanVien(objNhanVienPT.id);
                     _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
                     splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
                 }

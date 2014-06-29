@@ -63,7 +63,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="key"></param>
         /// <returns>Never null</returns>
-        public Setting getByKey(String key)
+        public static Setting getByKey(String key)
         {
             Setting tmp;
             try

@@ -35,7 +35,7 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<LoaiThietBi> childs { get; set; }
         #endregion
         #region Nghiep vu
-        public List<LoaiThietBi> getAllParent()
+        public static List<LoaiThietBi> getAllParent()
         {
             try
             {
@@ -53,7 +53,7 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public List<LoaiThietBi> getTheoLoai(Boolean loai)
+        public static List<LoaiThietBi> getTheoLoai(Boolean loai)
         {
             try
             {

@@ -84,7 +84,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void reLoad()
         {
-            listobjQuanTriVienFilter = objQuanTriVienFilter.getAll();
+            listobjQuanTriVienFilter = QuanTriVienFilter.getAll();
             gridControlPhanQuyen.DataSource = listobjQuanTriVienFilter;
             loadGroup();
         }
@@ -98,7 +98,7 @@ namespace QuanLyTaiSanGUI.HeThong
         /// </summary>
         private void loadGroup()
         {
-            List<Group> list = new Group().getAll();
+            List<Group> list = Group.getAll();
             lookUpEdit_group.Properties.DataSource = list;
             //lookUpEdit_group.EditValue = list.First().id;
         }

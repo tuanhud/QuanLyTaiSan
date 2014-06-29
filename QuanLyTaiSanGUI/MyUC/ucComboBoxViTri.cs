@@ -101,9 +101,9 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 ViTri objViTri = new ViTri();
-                CoSo objCoSo = new CoSo().getById(idCoSo);
-                Dayy objDay = new Dayy().getById(idDay);
-                Tang objTang = new Tang().getById(idTang);
+                CoSo objCoSo = CoSo.getById(idCoSo);
+                Dayy objDay = Dayy.getById(idDay);
+                Tang objTang = Tang.getById(idTang);
                 objViTri.coso = objCoSo;
                 objViTri.day = objDay;
                 objViTri.tang = objTang;
@@ -122,7 +122,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                Phong obj = new Phong().getById(idPhong);
+                Phong obj = Phong.getById(idPhong);
                 return obj;
             }
             catch (Exception ex)

@@ -30,6 +30,11 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static void reNew()
         {
+            if (db != null)
+            {
+                db.Dispose();
+                db = null;
+            }
             db = new OurDBContext();
         }
         public static void autoRandom()

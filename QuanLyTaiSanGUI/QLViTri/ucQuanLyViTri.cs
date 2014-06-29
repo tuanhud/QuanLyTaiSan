@@ -51,15 +51,15 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             try
             {
-                listViTriHienThi = new ViTriHienThi().getAll();
+                listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
                     enableGroupViTri("");
                 }
                 treeListViTri.DataSource = listViTriHienThi;
-                listViTriHienThi = new ViTriHienThi().getAllCoSo();
+                listViTriHienThi = ViTriHienThi.getAllCoSo();
                 _ucComboBoxViTri.loadData(listViTriHienThi);
-                listViTriHienThi = new ViTriHienThi().getAllHaveDay();
+                listViTriHienThi = ViTriHienThi.getAllHaveDay();
                 _ucComboBoxViTriChonDay.loadData(listViTriHienThi);
             }
             catch (Exception ex)
@@ -84,17 +84,17 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     }
                     if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                     {
-                        objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objCoSo = CoSo.getById(Convert.ToInt32(e.Node.GetValue(0)));
                         setData(typeof(CoSo).Name);
                     }
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
                     {
-                        objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objDay = Dayy.getById(Convert.ToInt32(e.Node.GetValue(0)));
                         setData(typeof(Dayy).Name);
                     }
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
                     {
-                        objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objTang = Tang.getById(Convert.ToInt32(e.Node.GetValue(0)));
                         setData(typeof(Tang).Name);
                     }
                 }

@@ -21,7 +21,7 @@ namespace QuanLyTaiSanGUI
         public Form1()
         {
             InitializeComponent();
-            List<NhanVienPT> list = new NhanVienPT().getAllByViTri(-1,1,1,7);
+            List<NhanVienPT> list = NhanVienPT.getAllByViTri(-1,1,1,7);
             gridControl1.DataSource = list;
 
         }

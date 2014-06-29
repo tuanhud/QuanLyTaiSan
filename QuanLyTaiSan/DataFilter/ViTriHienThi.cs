@@ -16,7 +16,7 @@ namespace QuanLyTaiSan.DataFilter
         public String id_p { get; set; }
 
         #region Nghiệp vụ
-        public List<ViTriHienThi> getAllCoSo()
+        public static List<ViTriHienThi> getAllCoSo()
         {
             //OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -31,7 +31,7 @@ namespace QuanLyTaiSan.DataFilter
                  }).OrderBy(c => c.ten).ToList();
             return re;
         }
-        public List<ViTriHienThi> getAllDay()
+        public static List<ViTriHienThi> getAllDay()
         {
 			//OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -46,7 +46,7 @@ namespace QuanLyTaiSan.DataFilter
                  }).ToList();
             return re;
         }
-        public List<ViTriHienThi> getAllTang()
+        public static List<ViTriHienThi> getAllTang()
         {
             //OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -62,7 +62,7 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public List<ViTriHienThi> getAllPhong()
+        public static List<ViTriHienThi> getAllPhong()
         {
             //OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -78,7 +78,7 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public List<ViTriHienThi> getAllPhongNotNhanVien(int _idnhanvien)
+        public static List<ViTriHienThi> getAllPhongNotNhanVien(int _idnhanvien)
         {
             //OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -95,22 +95,22 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public override List<ViTriHienThi> getAll()
+        public static List<ViTriHienThi> getAll()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).ToList();
         }
 
-        public List<ViTriHienThi> getAllHavePhong()
+        public static List<ViTriHienThi> getAllHavePhong()
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhong()).ToList();
         }
 
-        public List<ViTriHienThi> getAllHaveDay()
+        public static List<ViTriHienThi> getAllHaveDay()
         {
             return getAllCoSo().Concat(getAllDay()).ToList();
         }
 
-        public List<ViTriHienThi> getAllHavePhongNotNhanVien(int _idnhanvien)
+        public static List<ViTriHienThi> getAllHavePhongNotNhanVien(int _idnhanvien)
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhongNotNhanVien(_idnhanvien)).ToList();
         }

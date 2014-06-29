@@ -87,7 +87,7 @@ namespace QuanLyTaiSanGUI
                 List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
                 List<FileInfo> listHinhAnhSeUpload = new List<FileInfo>();
                 Boolean coUploadHinhAnhDaCo = false;
-                listHinhAnh = new HinhAnh().getAll();
+                listHinhAnh = HinhAnh.getAll();
 
                 foreach (string file in open.FileNames)
                 {

@@ -59,17 +59,17 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         enableEdit(false, "", "");
                     if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
                     {
-                        objCoSo = new CoSo().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objCoSo = CoSo.getById(Convert.ToInt32(e.Node.GetValue(0)));
                         setData(typeof(CoSo).Name);
                     }
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
                     {
-                        objDay = new Dayy().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objDay = Dayy.getById(Convert.ToInt32(e.Node.GetValue(0)));
                         setData(typeof(Dayy).Name);
                     }
                     else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
                     {
-                        objTang = new Tang().getById(Convert.ToInt32(e.Node.GetValue(0)));
+                        objTang = Tang.getById(Convert.ToInt32(e.Node.GetValue(0)));
                         setData(typeof(Tang).Name);
                     }
                 }
@@ -489,7 +489,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         //frm = new frmHinhAnh(objDay.id, objDay.hinhanhs.ToList(), typeof(Dayy).Name);
                         //frm.Text = "Quản lý hình ảnh của dãy";
                         //frm.ShowDialog();
-                        //objDay = new Dayy().getById(objDay.id);
+                        //objDay = Dayy.getById(objDay.id);
                         break;
                     case "Tang":
                         if (function.Equals("edit"))
@@ -511,7 +511,7 @@ namespace QuanLyTaiSanGUI.QLCoSo.MyUserControl
                         //frm = new frmHinhAnh(objTang.id, objTang.hinhanhs.ToList(), typeof(Tang).Name);
                         //frm.Text = "Quản lý hình ảnh của tầng";
                         //frm.ShowDialog();
-                        //objTang = new Tang().getById(objTang.id);
+                        //objTang = Tang.getById(objTang.id);
                         break;
                 }
 

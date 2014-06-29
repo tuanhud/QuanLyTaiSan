@@ -47,20 +47,20 @@ namespace QuanLyTaiSanGUI.MyForm
 
         public void loadData()
         {
-            listLoaiThietBi = new LoaiThietBi().getAll();
+            listLoaiThietBi = LoaiThietBi.getAll();
             _ucTreeLoaiTB.loadData(listLoaiThietBi);
             _ucTreeLoaiTB.type = "add";
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelLoaiTB.Controls.Add(_ucTreeLoaiTB);
 
-            listPhongFilter = new PhongHienThi().getAll();
-            listViTriFilter = new ViTriHienThi().getAllHavePhong();
+            //listPhongFilter = PhongHienThi.getAll();//qd
+            listViTriFilter = ViTriHienThi.getAllHavePhong();
             _ucComboBoxViTri.loadData(listViTriFilter);
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             _ucComboBoxViTri.setReadOnly(false);
             panelPhong.Controls.Add(_ucComboBoxViTri);
 
-            listTinhTrang = new TinhTrang().getAll().OrderBy(i => i.value).ToList();
+            listTinhTrang = TinhTrang.getAll().OrderBy(i => i.value).ToList();
             lookUpTinhTrang.Properties.DataSource = listTinhTrang;
 
             setGiaTriDauCho_Phong_LoaiThietBi_TinhTrang();
@@ -186,7 +186,7 @@ namespace QuanLyTaiSanGUI.MyForm
         private void setGiaTriDauCho_Phong_LoaiThietBi_TinhTrang()
         {
             if (listPhongFilter.Count > 0)
-                _ucComboBoxViTri.setPhong(new Phong().getById(listPhongFilter.ElementAt(0).id));
+                _ucComboBoxViTri.setPhong(Phong.getById(listPhongFilter.ElementAt(0).id));
             else
                 _ucComboBoxViTri.setTextPopupContainerEdit("[Chưa có phòng]");
 
@@ -214,7 +214,7 @@ namespace QuanLyTaiSanGUI.MyForm
             TinhTrang tinhtrang = (TinhTrang)lookUpTinhTrang.GetSelectedDataRow();
 
             ctThietBi.phong = phong;
-            ctThietBi.tinhtrang = new TinhTrang().getById(tinhtrang.id);
+            ctThietBi.tinhtrang = TinhTrang.getById(tinhtrang.id);
             ctThietBi.soluong = Int32.Parse(txtSoLuong.Text);
 
             LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
@@ -239,7 +239,7 @@ namespace QuanLyTaiSanGUI.MyForm
                 if (loaithietbi.thietbis.Count > 0)
                 {
                     //co
-                    objThietBi = new ThietBi().getById(loaithietbi.thietbis.ElementAt(0).id);
+                    objThietBi = ThietBi.getById(loaithietbi.thietbis.ElementAt(0).id);
 
                     if (listHinhAnh.Count > 0)
                     {
@@ -248,7 +248,7 @@ namespace QuanLyTaiSanGUI.MyForm
                             objThietBi.hinhanhs.Add(hinhanh);
                         }
                     }
-                    CTThietBi ctThietBiOld = new CTThietBi().search(phong, objThietBi, tinhtrang);
+                    CTThietBi ctThietBiOld = CTThietBi.search(phong, objThietBi, tinhtrang);
                     if (ctThietBiOld == null)
                         objThietBi.ctthietbis.Add(ctThietBi);
                     else

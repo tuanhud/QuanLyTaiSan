@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
 
         public void reLoad()
         {
-            listTinhTrang = new TinhTrang().getAll().OrderBy(i => i.value).ToList();
+            listTinhTrang = TinhTrang.getAll().OrderBy(i => i.value).ToList();
             treeListTinhTrang.DataSource = listTinhTrang;
             checkSuaXoa();
         }
@@ -132,7 +132,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
 
         public void deleteObj()
         {
-            if (new CTThietBi().listThietBiTheoTinhTrang(objTinhTrang.id).Count > 0)
+            if (CTThietBi.listThietBiTheoTinhTrang(objTinhTrang.id).Count > 0)
             {
                 XtraMessageBox.Show("Không thể xóa tình trạng này!\r\nNguyên do: Có các thiết bị thuộc tình trạng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

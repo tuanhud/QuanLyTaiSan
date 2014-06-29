@@ -112,12 +112,12 @@ namespace QuanLyTaiSan.Entities
         {
             //initDb();
             List<ViTri> tmp = new List<ViTri>(); ;
-            CoSo coso = new CoSo();
-            coso = coso.getById(coso_id);
-            Dayy day = new Dayy();
-            day = day.getById(day_id);
-            Tang tang = new Tang();
-            tang = tang.getById(tang_id);
+            //CoSo coso = new CoSo();
+            coso = CoSo.getById(coso_id);
+            //Dayy day = new Dayy();
+            day = Dayy.getById(day_id);
+            //Tang tang = new Tang();
+            tang = Tang.getById(tang_id);
             return search(coso, day, tang);
         }
         /// <summary>

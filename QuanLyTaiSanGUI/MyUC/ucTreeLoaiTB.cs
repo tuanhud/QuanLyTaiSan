@@ -48,7 +48,7 @@ namespace QuanLyTaiSanGUI.MyUC
                 treeListLoaiTB.NodesIterator.DoOperation(op);
                 foreach (TreeListNode node in op.CheckedNodes)
                 {
-                    LoaiThietBi obj = new LoaiThietBi().getById(Convert.ToInt32(node.GetValue(0)));
+                    LoaiThietBi obj = LoaiThietBi.getById(Convert.ToInt32(node.GetValue(0)));
                     list.Add(obj);
                 }
                 return list;
@@ -135,7 +135,7 @@ namespace QuanLyTaiSanGUI.MyUC
         public LoaiThietBi getLoaiThietBi()
         {
             if (obj.id > 0)
-                return new LoaiThietBi().getById(obj.id);
+                return LoaiThietBi.getById(obj.id);
             return null;
         }
 

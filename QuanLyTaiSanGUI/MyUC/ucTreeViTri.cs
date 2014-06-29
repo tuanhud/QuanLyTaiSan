@@ -125,9 +125,9 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 ViTri obj = new ViTri();
-                obj.coso = new CoSo().getById(cosoid);
-                obj.day = new Dayy().getById(dayid);
-                obj.tang = new Tang().getById(tangid);
+                obj.coso = CoSo.getById(cosoid);
+                obj.day = Dayy.getById(dayid);
+                obj.tang = Tang.getById(tangid);
                 return obj;
             }
             catch (Exception ex)

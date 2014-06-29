@@ -28,19 +28,19 @@ namespace QuanLyTaiSan.Entities
                 public static int save()
                 {
                     Boolean re = true;
-                    Setting obj = new Setting().getByKey("ftp_image_host");
+                    Setting obj = Setting.getByKey("ftp_image_host");
                     obj.value = host_name;
                     re = re && obj.addOrUpdate()>0;
 
-                    obj = new Setting().getByKey("ftp_image_username");
+                    obj = Setting.getByKey("ftp_image_username");
                     obj.value = user_name;
                     re = re && obj.addOrUpdate()>0;
 
-                    obj = new Setting().getByKey("ftp_image_password");
+                    obj = Setting.getByKey("ftp_image_password");
                     obj.value = pass_word;
                     re = re && obj.addOrUpdate()>0;
 
-                    obj = new Setting().getByKey("ftp_image_prepath");
+                    obj = Setting.getByKey("ftp_image_prepath");
                     obj.value = pre_path;
                     re = re && obj.addOrUpdate()>0;
 
@@ -58,7 +58,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            //host_name = new Setting().getValue("ftp_image_host");
+                            //host_name = Setting.getValue("ftp_image_host");
                             //host_name = "ftp://172.16.0.158";
                             host_name = "ftp.hoangthanhit.com";
                         }
@@ -78,7 +78,7 @@ namespace QuanLyTaiSan.Entities
                         if (user_name == null)
                         {
                             //load from DB
-                            //user_name = new Setting().getValue("ftp_image_username");
+                            //user_name = Setting.getValue("ftp_image_username");
                             //user_name = "quanlytaisan";
                             user_name = "qlts@hoangthanhit.com";
                         }
@@ -98,7 +98,7 @@ namespace QuanLyTaiSan.Entities
                         if (pass_word == null)
                         {
                             //load from DB
-                            //pass_word = new Setting().getValue("ftp_image_password");
+                            //pass_word = Setting.getValue("ftp_image_password");
                             pass_word = "quanlytaisan";
                         }
                         return pass_word;
@@ -121,7 +121,7 @@ namespace QuanLyTaiSan.Entities
                         if (pre_path == null)
                         {
                             //load from DB
-                            //pre_path = new Setting().getValue("ftp_image_prepath");
+                            //pre_path = Setting.getValue("ftp_image_prepath");
                             pre_path = "/";
                         }
                         return pre_path;
@@ -153,11 +153,11 @@ namespace QuanLyTaiSan.Entities
                 public static int save()
                 {
                     Boolean re = true;
-                    Setting obj = new Setting().getByKey("http_image_host");
+                    Setting obj = Setting.getByKey("http_image_host");
                     obj.value = host_name;
                     re = re && obj.addOrUpdate() > 0;
 
-                    obj = new Setting().getByKey("http_image_prepath");
+                    obj = Setting.getByKey("http_image_prepath");
                     obj.value = pre_path;
                     re = re && obj.addOrUpdate() > 0;
 
@@ -175,7 +175,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            //host_name = new Setting().getValue("http_image_host");
+                            //host_name = Setting.getValue("http_image_host");
                             //host_name = "http://172.16.0.158";
                             host_name = "http://hoangthanhit.com";
                         }
@@ -199,7 +199,7 @@ namespace QuanLyTaiSan.Entities
                         if (pre_path == null)
                         {
                             //load from DB
-                            //pre_path = new Setting().getValue("http_image_prepath");
+                            //pre_path = Setting.getValue("http_image_prepath");
                             //pre_path = "/";
                             pre_path = "/qlts/";
                         }

@@ -35,7 +35,7 @@ namespace QuanLyTaiSan.DataFilter
         /// <param name="row_per_page">Default: -1 (get ALL)</param>
         /// <param name="page_index">Default: 1 (valid from 1->n)</param>
         /// <returns></returns>
-        public List<TKSLThietBiFilter> getAll(List<int> list_coso = null, List<int> list_ltb = null, List<int> list_tinhtrang = null, DateTime? date_from = null, DateTime? date_to = null, int row_per_page = -1, int page_index = 1, Boolean orderby_id_desc=true)
+        public static List<TKSLThietBiFilter> getAll(List<int> list_coso = null, List<int> list_ltb = null, List<int> list_tinhtrang = null, DateTime? date_from = null, DateTime? date_to = null, int row_per_page = -1, int page_index = 1, Boolean orderby_id_desc=true)
         {
             IQueryable<CTThietBi> query = db.CTTHIETBIS.AsQueryable();
 

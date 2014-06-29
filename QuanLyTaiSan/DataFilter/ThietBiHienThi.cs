@@ -15,7 +15,7 @@ namespace QuanLyTaiSan.DataFilter
         public DateTime? ngaylap { get; set; }
 
         #region Nghiệp vụ
-        public List<ThietBiHienThi> getAllByTypeLoai(bool loaichung)
+        public static List<ThietBiHienThi> getAllByTypeLoai(bool loaichung)
         {
             //OurDBContext db = new OurDBContext();
             List<ThietBiHienThi> re =

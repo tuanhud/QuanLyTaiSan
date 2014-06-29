@@ -103,6 +103,7 @@
     <Compile Include="Libraries\FileHelper.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
     <Compile Include="Libraries\HTTPHelper.cs" />
+    <Compile Include="Libraries\ImageCache.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />

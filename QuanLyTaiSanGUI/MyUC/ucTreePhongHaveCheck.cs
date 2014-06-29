@@ -58,7 +58,7 @@ namespace QuanLyTaiSanGUI.MyUC
             treeListPhong.NodesIterator.DoOperation(op);
             foreach (TreeListNode node in op.CheckedNodes)
             {
-                Phong obj = new Phong().getById(Convert.ToInt32(node.GetValue(0)));
+                Phong obj = Phong.getById(Convert.ToInt32(node.GetValue(0)));
                 listPhong.Add(obj);
             }
             return listPhong;

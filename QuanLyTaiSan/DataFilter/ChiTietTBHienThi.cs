@@ -16,7 +16,7 @@ namespace QuanLyTaiSan.DataFilter
         public String tenloai { get; set; }
 
         #region Nghiệp vụ
-        public List<ChiTietTBHienThi> getAllByPhongId(int _phongid)
+        public static List<ChiTietTBHienThi> getAllByPhongId(int _phongid)
         {
             //OurDBContext db = new OurDBContext();
             List<ChiTietTBHienThi> re =

@@ -53,7 +53,7 @@ namespace QuanLyTaiSan.Entities
             //}
             //return list.Count;
         }
-        public List<Phong> getPhongByViTri(int _cosoid, int _dayid, int _tangid)
+        public static List<Phong> getPhongByViTri(int _cosoid, int _dayid, int _tangid)
         {
             List<Phong> re =
                 (from c in db.PHONGS

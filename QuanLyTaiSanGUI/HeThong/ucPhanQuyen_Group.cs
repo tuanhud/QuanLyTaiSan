@@ -25,7 +25,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void loadData()
         {
-            listGroup = new Group().getAll();
+            listGroup = Group.getAll();
             gridControlGroup.DataSource = listGroup;
         }
 

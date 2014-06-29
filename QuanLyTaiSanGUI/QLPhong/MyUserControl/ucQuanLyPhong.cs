@@ -56,7 +56,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             enableEdit(false, "");
             enableBar(false);
-            listVitris = new ViTriHienThi().getAll().ToList();
+            listVitris = ViTriHienThi.getAll().ToList();
 
             _ucTreeViTri.loadData(listVitris);
             _ucTreeViTri.Parent = this;
@@ -66,11 +66,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
             panelControl1.Controls.Add(_ucComboBoxViTri);
             ribbonPhong.Parent = null;
             ViTri obj = _ucTreeViTri.getVitri();
-            listPhong = new Phong().getPhongByViTri(obj.coso != null ? obj.coso.id : -1, obj.day != null ? obj.day.id : -1, obj.tang != null ? obj.tang.id : -1);
+            listPhong = Phong.getPhongByViTri(obj.coso != null ? obj.coso.id : -1, obj.day != null ? obj.day.id : -1, obj.tang != null ? obj.tang.id : -1);
             gridControlPhong.DataSource = listPhong;
             getInfoPhongNhanVien(true);
 
-            listNhanVienPT = objNhanVienPT.getAll();
+            listNhanVienPT = NhanVienPT.getAll();
         }
 
         //Mở tắt bar
@@ -138,7 +138,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 _ucTreeViTri.setVitri(objPhong.vitri);
                 gridControlPhong.DataSource = null;
-                listPhong = new Phong().getPhongByViTri(cosoid, dayid, tangid);
+                listPhong = Phong.getPhongByViTri(cosoid, dayid, tangid);
                 gridControlPhong.DataSource = listPhong;
             }
             catch (Exception ex)
@@ -152,7 +152,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                listVitris = new ViTriHienThi().getAll().ToList();
+                listVitris = ViTriHienThi.getAll().ToList();
                 _ucTreeViTri.loadData(listVitris);
                 reLoad();
             }
@@ -171,7 +171,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 cosoid = _cosoid;
                 dayid = _dayid;
                 tangid = _tangid;
-                listPhong = new Phong().getPhongByViTri(_cosoid, _dayid, _tangid);
+                listPhong = Phong.getPhongByViTri(_cosoid, _dayid, _tangid);
                 gridControlPhong.DataSource = listPhong;
                 switch (listPhong.Count)
                 {
@@ -260,7 +260,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objPhong.vitri = _ucComboBoxViTri.getViTri();
                 objPhong.mota = txtMoTaPhong.Text;
                 if (_idnhanvien > -1)
-                    objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
+                    objPhong.nhanvienpt = NhanVienPT.getById(_idnhanvien);
                 else objPhong.nhanvienpt = null;
                 if (objPhong.update() != -1)
                 {
@@ -301,7 +301,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objPhongNew.mota = txtMoTaPhong.Text;
                 objPhongNew.hinhanhs = listHinh;
                 objPhongNew.vitri = _ucComboBoxViTri.getViTri();
-                objPhongNew.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
+                objPhongNew.nhanvienpt = NhanVienPT.getById(_idnhanvien);
                 if (objPhongNew.add() != -1)
                 {
                     XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -485,7 +485,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 if (getfirst) row = 0;
                 else row = gridViewPhong.FocusedRowHandle;
                 Phong obj = new Phong();
-                obj = obj.getById(Convert.ToInt32(gridViewPhong.GetRowCellValue(gridViewPhong.GetDataRowHandleByGroupRowHandle(row), id)));
+                obj = Phong.getById(Convert.ToInt32(gridViewPhong.GetRowCellValue(gridViewPhong.GetDataRowHandleByGroupRowHandle(row), id)));
                 setData(obj);
                 objPhong = obj;
 
@@ -580,7 +580,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 {
                     // set hình ảnh và thông tin nhân viên phụ trách khi được chọn
                     _idnhanvien = Int32.Parse(searchLookUpEditNhanVienPT.EditValue.ToString());
-                    objPhong.nhanvienpt = new NhanVienPT().getById(_idnhanvien);
+                    objPhong.nhanvienpt = NhanVienPT.getById(_idnhanvien);
                     txtMaNhanVien.Text = objPhong.nhanvienpt.subId;
                     txtTenNhanVien.Text = objPhong.nhanvienpt.hoten;
                     txtSoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;

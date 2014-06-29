@@ -22,7 +22,7 @@ namespace QuanLyTaiSan.DataFilter
         public int phong_id { get; set; }
 
         #region Nghiệp vụ
-        public List<ThietBiFilter> getAllBy4Id(int _phongid, int _cosoid, int _dayid, int _tangid)
+        public static List<ThietBiFilter> getAllBy4Id(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
             //OurDBContext db = new OurDBContext();
             List<ThietBiFilter> re =

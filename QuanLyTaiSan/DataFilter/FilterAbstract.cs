@@ -13,36 +13,12 @@ namespace QuanLyTaiSan.DataFilter
         {
 
         }
-        //public FilterAbstract(OurDBContext db)
-        //{
-        //    this.db = db;
-        //}
-        protected OurDBContext db
+        protected static OurDBContext db
         {
             get
             {
                 return DBInstance.DB;
             }
-        }
-        //public OurDBContext DB
-        //{
-            
-        //}
-
-        //protected void InitDb()
-        //{
-        //    if (db == null)
-        //    {
-        //        db = new OurDBContext();
-        //    }
-        //}
-        /// <summary>
-        /// Bắt buộc lớp con phải Override mới có dữ liệu
-        /// </summary>
-        /// <returns></returns>
-        public virtual List<T> getAll()
-        {
-            return new List<T>();
         }
     }
 }

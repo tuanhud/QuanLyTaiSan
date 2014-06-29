@@ -13,11 +13,6 @@ namespace QuanLyTaiSan.DataFilter
         {
 
         }
-        //public QuanTriVienFilter(OurDBContext db)
-        //    : base(db)
-        //{
-
-        //}
 
         public int id { get; set; }
         public String username { get; set; }
@@ -32,7 +27,7 @@ namespace QuanLyTaiSan.DataFilter
         public Group group { get; set; }
 
         #region Nghiệp vụ
-        public override List<QuanTriVienFilter> getAll()
+        public static List<QuanTriVienFilter> getAll()
         {
             //InitDb();
             List<QuanTriVienFilter> re =

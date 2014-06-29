@@ -66,9 +66,9 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                loaiThietBis = new LoaiThietBi().getAll().ToList();
+                loaiThietBis = LoaiThietBi.getAll().ToList();
                 treeListLoaiTB.DataSource = loaiThietBis;
-                listLoaiThietBiCha = new LoaiThietBi().getAllParent().OrderBy(l => l.ten).ToList();
+                listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.ten).ToList();
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
                 lueThuoc.Properties.DataSource = listLoaiThietBiCha;
                 checkSuaXoa();
@@ -210,7 +210,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 objLoaiThietBi.date_modified = DateTime.Today;
                 LoaiThietBi parentLoaiThietBi = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
                 if (parentLoaiThietBi.id != -1)
-                    objLoaiThietBi.parent = new LoaiThietBi().getById(parentLoaiThietBi.id);
+                    objLoaiThietBi.parent = LoaiThietBi.getById(parentLoaiThietBi.id);
                 else
                 {
                     if (function.Equals("edit"))

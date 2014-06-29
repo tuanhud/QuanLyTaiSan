@@ -21,8 +21,7 @@ namespace QuanLyTaiSan
         private void button_refresh_Click(object sender, EventArgs e)
         {
             DBInstance.reNew();
-            Permission obj = new Permission();
-            List<Permission> objs = obj.getAll();
+            List<Permission> objs = Permission.getAll();
             listBox1.DisplayMember = "key";
             listBox1.DataSource = objs;
         }

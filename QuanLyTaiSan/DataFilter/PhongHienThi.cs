@@ -22,7 +22,7 @@ namespace QuanLyTaiSan.DataFilter
          * FK Object
          */
         #region Nghiệp vụ
-        public List<PhongHienThi> getAllByViTri(int _cosoid, int _dayid, int _tangid)
+        public static List<PhongHienThi> getAllByViTri(int _cosoid, int _dayid, int _tangid)
         {
             //InitDb();
             List<PhongHienThi> re =
@@ -41,7 +41,7 @@ namespace QuanLyTaiSan.DataFilter
 
         public List<ChiTietTBHienThi> ChiTietTBs()
         {
-            return new ChiTietTBHienThi().getAllByPhongId(this.id);
+            return ChiTietTBHienThi.getAllByPhongId(this.id);
         }
         #endregion
     }

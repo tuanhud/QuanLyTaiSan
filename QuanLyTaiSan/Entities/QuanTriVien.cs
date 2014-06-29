@@ -106,7 +106,7 @@ namespace QuanLyTaiSan.Entities
             }
             return false;
         }
-        public QuanTriVien getByUserName(String username)
+        public static QuanTriVien getByUserName(String username)
         {
             try
             {

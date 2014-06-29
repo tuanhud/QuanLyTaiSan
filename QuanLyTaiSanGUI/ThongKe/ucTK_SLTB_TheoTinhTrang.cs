@@ -25,15 +25,16 @@ namespace QuanLyTaiSanGUI.ThongKe
         private void loadData()
         {
             checkedComboBoxEdit_tinhTrang.Properties.DataSource =
-                new TinhTrang().getAll();
+                TinhTrang.getAll();
 
             //ucTreeLoaiTB2
-            ucTreeLoaiTB2.loadData(new LoaiThietBi().getAll());
+            ucTreeLoaiTB2.loadData(LoaiThietBi.getAll());
             ucTreeLoaiTB2.Dock = DockStyle.Fill;
             panelLoaiTB.Controls.Clear();
             panelLoaiTB.Controls.Add(ucTreeLoaiTB2);
 
-            checkedComboBoxEdit_coso.Properties.DataSource = new CoSo().getAll();
+            checkedComboBoxEdit_coso.Properties.DataSource = null;
+            checkedComboBoxEdit_coso.Properties.DataSource = CoSo.getAll();
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -51,8 +52,12 @@ namespace QuanLyTaiSanGUI.ThongKe
             List<int> list_tinhtrang = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_tinhTrang);
             List<int> list_ltb = ucTreeLoaiTB2.getListLoaiTB().Select(x => x.id).ToList();
 
-            List<TKSLThietBiFilter> list_tk = new TKSLThietBiFilter().getAll(list_coso, list_ltb, list_tinhtrang,from,to,-1,1);
+            List<TKSLThietBiFilter> list_tk = TKSLThietBiFilter.getAll(list_coso, list_ltb, list_tinhtrang,from,to,-1,1);
+
+            //gridControl1.DataSource = null;
             gridControl1.DataSource = list_tk;
+            //list_tk = null;
+            DBInstance.reNew();
         }
     }
 }

@@ -57,13 +57,13 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         public void loadData()
         {
-            listViTriHienThi = new ViTriHienThi().getAllHavePhong();
+            listViTriHienThi = ViTriHienThi.getAllHavePhong();
             //Xủ lí nếu chưa có cơ sở, dãy, tầng và phòng !!!!!!!!!!!!!!
             //Chưa làm
             _ucTreeViTri.loadData(listViTriHienThi);
             //OrderBy chạy rất chậm
             setData(_ucTreeViTri.phongid, _ucTreeViTri.cosoid, _ucTreeViTri.dayid, _ucTreeViTri.tangid);
-            //listLoaiThietBi = new LoaiThietBi().getAll().ToList();
+            //listLoaiThietBi = LoaiThietBi.getAll().ToList();
             _ucTreeLoaiTB.loadData(listLoaiThietBi);
             _ucComboBoxViTri.loadData(listViTriHienThi);
             reLoadListThietBi();
@@ -87,7 +87,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     idTang = currViTri.tang.id;
                 else
                     idTang = -1;
-                listThietBiFilter = new ThietBiFilter().getAllBy4Id(-1, idCoSo, idDay, idTang);
+                listThietBiFilter = ThietBiFilter.getAllBy4Id(-1, idCoSo, idDay, idTang);
             }
             else
                 listThietBiFilter = new List<ThietBiFilter>();
@@ -199,7 +199,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         public void setData(int phongid, int cosoid, int dayid, int tangid)
         {
-            listThietBiFilter = new ThietBiFilter().getAllBy4Id(phongid, cosoid, dayid, tangid);
+            listThietBiFilter = ThietBiFilter.getAllBy4Id(phongid, cosoid, dayid, tangid);
             gridControlThietBi.DataSource = listThietBiFilter;
         }
 
@@ -221,7 +221,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
                 txtTen.Text = objThietBi.ten;
                 _ucTreeLoaiTB.setLoai(objThietBi.loaithietbi);
-                _ucComboBoxViTri.setPhong(new Phong().getById(objThietBiFilter.phong_id));
+                _ucComboBoxViTri.setPhong(Phong.getById(objThietBiFilter.phong_id));
                 _ucTreeLoaiTB.Visible = true;
                 _ucComboBoxViTri.Visible = true;
 
@@ -332,7 +332,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                         {
                             if (indexCacRow[i] >= 0)
                             {
-                                objThietBi = new ThietBi().getById((gridViewThietBi.GetRow(indexCacRow[i]) as ThietBiFilter).idTB);
+                                objThietBi = ThietBi.getById((gridViewThietBi.GetRow(indexCacRow[i]) as ThietBiFilter).idTB);
                                 for (int j = 0; j < objThietBi.ctthietbis.Count; j++)
                                 {
                                     objThietBi.ctthietbis.ElementAt(j).delete();
@@ -400,7 +400,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 if (rowThietBis == 1)
                 {
                     objThietBiFilter = gridViewThietBi.GetRow(row) as ThietBiFilter;
-                    objThietBi = new ThietBi().getById(objThietBiFilter.idTB);
+                    objThietBi = ThietBi.getById(objThietBiFilter.idTB);
                     enableEdit(false);
                     setData();
                     barButtonSuaThietBi.Enabled = true;

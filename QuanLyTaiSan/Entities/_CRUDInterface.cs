@@ -8,17 +8,17 @@ namespace QuanLyTaiSan.Entities
 {
     public interface _CRUDInterface<T>
     {
-        /// <summary>
-        /// Lấy tất cả Object có trong bảng dữ liệu
-        /// </summary>
-        /// <returns></returns>
-            List<T> getAll();
-        /// <summary>
-        /// Lấy Object theo id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-            T getById(int id);
+        ///// <summary>
+        ///// Lấy tất cả Object có trong bảng dữ liệu
+        ///// </summary>
+        ///// <returns></returns>
+        //    List<T> getAll();
+        ///// <summary>
+        ///// Lấy Object theo id
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //    T getById(int id);
         /// <summary>
         /// Thêm
         /// </summary>
@@ -34,10 +34,6 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <returns></returns>
             int delete();
-        /// <summary>
-        /// NOTUSE any more
-        /// </summary>
-            void dispose();
         /// <summary>
         /// Trả về Object tương đương nhưng thuộc tính bị đè từ CSDL
         /// </summary>

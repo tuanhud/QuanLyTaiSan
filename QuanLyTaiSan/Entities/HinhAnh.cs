@@ -93,8 +93,14 @@ namespace QuanLyTaiSan.Entities
             get
             {
                 //CACHE
-                //check RAM cached first
+                //check inner cached first
                 if (image != null)
+                {
+                    return image;
+                }
+                //check global RAM repository
+                image = ImageCache.get(path);
+                if(image!=null)
                 {
                     return image;
                 }
@@ -103,6 +109,9 @@ namespace QuanLyTaiSan.Entities
                 {
                     //load to RAM
                     image = ImageHelper.fromFile(getCachedPath());
+                    //register to Global repository
+                    ImageCache.register(path,image);
+
                     return image;
                 }
                 //get http info from Global
@@ -232,7 +241,7 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Lay tat ca nhung hinh dang su dung, dung getall binh thuong thi se co anh ma tat ca khoa ngoai NULL
         /// </summary>
-        public List<HinhAnh> getAllHinhAnhDangDung()
+        public static List<HinhAnh> getAllHinhAnhDangDung()
         {
             //MyDB db = new MyDB();
             List<HinhAnh> re = db.HINHANHS.Where(c => (c.coso.id != null) || (c.day.id != null) || (c.tang.id != null)

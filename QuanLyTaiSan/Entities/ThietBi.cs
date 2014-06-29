@@ -45,7 +45,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="loai"></param>
         /// <returns></returns>
-        public ThietBi request(LoaiThietBi loai)
+        public static ThietBi request(LoaiThietBi loai)
         {
             if (loai == null)
             {

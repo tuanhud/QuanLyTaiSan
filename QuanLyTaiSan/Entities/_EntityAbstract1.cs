@@ -55,7 +55,7 @@ namespace QuanLyTaiSan.Entities
          * Method of interface
          */
         [NotMapped]
-        protected OurDBContext db
+        protected static OurDBContext db
         {
             get
             {
@@ -147,7 +147,7 @@ namespace QuanLyTaiSan.Entities
                 
             }
         }
-        public virtual T getById(int id)
+        public static T getById(int id)
         {
             try
             {
@@ -164,12 +164,11 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public virtual List<T> getAll()
+        public static List<T> getAll()
         {
             try
             {
-                List<T> objs = db.Set<T>().ToList();
-                return objs;
+                return db.Set<T>().ToList();
             }
             catch (Exception ex)
             {
@@ -180,10 +179,6 @@ namespace QuanLyTaiSan.Entities
             {
                 
             }
-        }
-        public virtual void dispose()
-        {
-            
         }
         /// <summary>
         /// Load lại Object theo DBContext mới trong DBInstance (Vì có thể đã bị new mới bởi ai đó)
@@ -221,7 +216,7 @@ namespace QuanLyTaiSan.Entities
         {
             //DO NOT THING, JUST ACTIVATE ENTITY FRAMEWORK TO LOAD
         }
-        public List<T> parse(List<int> id_array)
+        public static List<T> convert(List<int> id_array)
         {
             List<T> re = new List<T>();
             foreach (int item in id_array)
@@ -251,6 +246,5 @@ namespace QuanLyTaiSan.Entities
             //time
             date_create = date_modified = date_create == null ? ServerTimeHelper.getNow() : date_create;
         }
-
     }
 }

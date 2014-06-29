@@ -136,13 +136,13 @@ namespace QuanLyTaiSan.Entities
         /// <param name="tb"></param>
         /// <param name="tr"></param>
         /// <returns></returns>
-        public CTThietBi search(Phong ph, ThietBi tb, TinhTrang tr)
+        public static CTThietBi search(Phong ph, ThietBi tb, TinhTrang tr)
         {
             CTThietBi tmp = db.CTTHIETBIS.Where(c => c.phong.id == ph.id && c.thietbi.id == tb.id && c.tinhtrang.id == tr.id).FirstOrDefault();
             return tmp;
         }
 
-        public List<ThietBi> listThietBiTheoTinhTrang(int idTinhTrang)
+        public static List<ThietBi> listThietBiTheoTinhTrang(int idTinhTrang)
         {
             return db.CTTHIETBIS.Where(ct => ct.tinhtrang.id == idTinhTrang).Select(select => select.thietbi).ToList();
         }

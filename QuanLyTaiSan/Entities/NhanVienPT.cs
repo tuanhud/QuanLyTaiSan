@@ -28,7 +28,7 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<HinhAnh> hinhanhs { get; set; }
         #endregion
         #region Nghiệp vụ
-        public List<NhanVienPT> getAllByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
+        public static List<NhanVienPT> getAllByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
             List<NhanVienPT> re =
                 (from nv in db.NHANVIENPTS
