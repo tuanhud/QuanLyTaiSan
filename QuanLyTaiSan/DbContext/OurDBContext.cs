@@ -163,13 +163,13 @@ namespace QuanLyTaiSan.Entities
                     m.ToTable("GROUP_PERMISSION");
                 });
         }
-        public int SaveChanges()
+        public override int SaveChanges()
         {
             IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified);
-            int r = 0;
+            //int r = 0;
             foreach (DbEntityEntry changedEntity in changedEntities)
             {
-                Console.WriteLine(r++);
+                //Console.WriteLine(r++);
                 if (changedEntity.Entity is _EFEventRegisterInterface)
                 {
                     _EFEventRegisterInterface entity = (_EFEventRegisterInterface)changedEntity.Entity;
