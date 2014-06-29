@@ -244,9 +244,10 @@ namespace QuanLyTaiSan.Entities
         public static List<HinhAnh> getAllHinhAnhDangDung()
         {
             //MyDB db = new MyDB();
-            List<HinhAnh> re = db.HINHANHS.Where(c => (c.coso.id != null) || (c.day.id != null) || (c.tang.id != null)
-                 || (c.phong.id != null) || (c.thietbi.id != null) || (c.nhanvienpt.id != null)).ToList().GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
-            return re;
+            //List<HinhAnh> re = db.HINHANHS.Where(c => (c.coso.id != null) || (c.day.id != null) || (c.tang.id != null)
+            //     || (c.phong.id != null) || (c.thietbi.id != null) || (c.nhanvienpt.id != null)).ToList().GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
+            return db.HINHANHS.Where(c=>c.path!=null).GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
+            //return re;
         }
         /// <summary>
         /// Kiểm tra this.path (sau khi chạy qua hàm lọc tên) đã có trong CSDL hay chưa
