@@ -147,7 +147,7 @@
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewPhong.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
+            this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
             this.gridViewPhong.Click += new System.EventHandler(this.gridViewPhong_Click);
