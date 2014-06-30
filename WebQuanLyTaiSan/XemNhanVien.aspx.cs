@@ -16,7 +16,7 @@ namespace WebQuanLyTaiSan
         {
             NhanVienPT _NhanVienPT = new NhanVienPT();
             HinhAnh _HinhAnh = new HinhAnh();
-            listNhanVienPT = _NhanVienPT.getAll();
+            listNhanVienPT = NhanVienPT.getAll();
             ASPxGridView.DataSource = listNhanVienPT;
             ASPxGridView.DataBind();
         }
