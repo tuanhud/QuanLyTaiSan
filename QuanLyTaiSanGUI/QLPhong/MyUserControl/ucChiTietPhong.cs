@@ -105,9 +105,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
             objPhong.hinhanhs = listHinh;
             if (objPhong.update() != -1)
             {
-                XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ucQuanLyPhong uc = this.Parent as ucQuanLyPhong;
-                uc.reLoad();
+                //XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ucQuanLyPhong uc = this.Parent as ucQuanLyPhong;
+                //uc.reLoad();
                 /*
                 findNode = new FindNode(objCoSo.id, typeof(CoSo).Name);
                 treeListViTri.NodesIterator.DoOperation(findNode);
@@ -151,7 +151,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ucQuanLyPhong uc = this.Parent.Parent.Parent as ucQuanLyPhong;
-                uc.reLoad();
+                //uc.reLoad();
                 /*findNode = new FindNode(objCoSoNew.id, typeof(CoSo).Name);
                 treeListViTri.NodesIterator.DoOperation(findNode);
                 treeListViTri.FocusedNode = findNode.Node;*/

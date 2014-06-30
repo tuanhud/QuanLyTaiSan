@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
             this.gridViewNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -124,7 +123,7 @@
             this.gridViewNhanVien.OptionsBehavior.Editable = false;
             this.gridViewNhanVien.OptionsBehavior.ReadOnly = true;
             this.gridViewNhanVien.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewNhanVien.OptionsFind.AlwaysVisible = true;
+            this.gridViewNhanVien.OptionsView.ShowAutoFilterRow = true;
             this.gridViewNhanVien.OptionsView.ShowGroupPanel = false;
             this.gridViewNhanVien.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewNhanVien_FocusedRowChanged);
             // 
