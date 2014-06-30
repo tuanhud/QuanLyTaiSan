@@ -15,7 +15,7 @@ using DevExpress.XtraBars.Ribbon;
 using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
-using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSanGUI.QLPhong;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -316,6 +316,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
             int rowHandle = gridViewCTThietBi.LocateByValue(colid.FieldName, _id);
             if (rowHandle != GridControl.InvalidRowHandle)
                 gridViewCTThietBi.FocusedRowHandle = rowHandle;
+        }
+
+        private void barButtonChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmChuyen frm = new frmChuyen(objCTThietBi);
+            frm.ShowDialog();
         }
     }
 }
