@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QuanLyTaiSanGUI.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="sd" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sd</Value>
+    <Setting Name="vdthoi" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

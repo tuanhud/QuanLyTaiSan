@@ -25,13 +25,13 @@ namespace QuanLyTaiSanGUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sd")]
-        public string sd {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string vdthoi {
             get {
-                return ((string)(this["sd"]));
+                return ((string)(this["vdthoi"]));
             }
             set {
-                this["sd"] = value;
+                this["vdthoi"] = value;
             }
         }
     }
