@@ -159,9 +159,6 @@
     <Compile Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.Designer.cs">
       <DependentUpon>201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201406300525316_update-database.cs" />
-    <Compile Include="Migrations\201406300525316_update-database.Designer.cs">
-      <DependentUpon>201406300525316_update-database.cs</DependentUpon>
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs" />
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.Designer.cs">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
@@ -226,8 +223,6 @@
     <EmbeddedResource Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.resx">
       <DependentUpon>201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406300525316_update-database.resx">
-      <DependentUpon>201406300525316_update-database.cs</DependentUpon>
     <EmbeddedResource Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.resx">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
     </EmbeddedResource>
