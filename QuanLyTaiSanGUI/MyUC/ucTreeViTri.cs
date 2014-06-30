@@ -14,6 +14,7 @@ using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.MyUserControl;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -34,6 +35,8 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             type = _type;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> _list)
@@ -193,7 +196,7 @@ namespace QuanLyTaiSanGUI.MyUC
         bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
         {
             string filterValue = treeListViTri.FindFilterText;
-            if (node.GetDisplayText(column).ToUpper().StartsWith(filterValue.ToUpper())) return true;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
             this.gridViewNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -42,8 +41,6 @@
             this.colhinh_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.listBoxPhong = new DevExpress.XtraEditors.ListBoxControl();
-            this.btnHuy_PhanCong = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK_PhanCong = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
@@ -124,7 +121,7 @@
             this.gridViewNhanVien.OptionsBehavior.Editable = false;
             this.gridViewNhanVien.OptionsBehavior.ReadOnly = true;
             this.gridViewNhanVien.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewNhanVien.OptionsFind.AlwaysVisible = true;
+            this.gridViewNhanVien.OptionsView.ShowAutoFilterRow = true;
             this.gridViewNhanVien.OptionsView.ShowGroupPanel = false;
             this.gridViewNhanVien.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewNhanVien_FocusedRowChanged);
             // 
@@ -178,8 +175,6 @@
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.listBoxPhong);
-            this.groupControl2.Controls.Add(this.btnHuy_PhanCong);
-            this.groupControl2.Controls.Add(this.btnOK_PhanCong);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 259);
             this.groupControl2.Name = "groupControl2";
@@ -189,37 +184,13 @@
             // 
             // listBoxPhong
             // 
-            this.listBoxPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPhong.DisplayMember = "ten";
-            this.listBoxPhong.Location = new System.Drawing.Point(6, 28);
+            this.listBoxPhong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxPhong.Location = new System.Drawing.Point(2, 24);
             this.listBoxPhong.Name = "listBoxPhong";
-            this.listBoxPhong.Size = new System.Drawing.Size(389, 146);
+            this.listBoxPhong.Size = new System.Drawing.Size(396, 182);
             this.listBoxPhong.TabIndex = 13;
             this.listBoxPhong.ValueMember = "id";
-            // 
-            // btnHuy_PhanCong
-            // 
-            this.btnHuy_PhanCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnHuy_PhanCong.Location = new System.Drawing.Point(165, 180);
-            this.btnHuy_PhanCong.Name = "btnHuy_PhanCong";
-            this.btnHuy_PhanCong.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy_PhanCong.TabIndex = 12;
-            this.btnHuy_PhanCong.Text = "Hủy";
-            this.btnHuy_PhanCong.Visible = false;
-            this.btnHuy_PhanCong.Click += new System.EventHandler(this.btnHuy_PhanCong_Click);
-            // 
-            // btnOK_PhanCong
-            // 
-            this.btnOK_PhanCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOK_PhanCong.Location = new System.Drawing.Point(84, 180);
-            this.btnOK_PhanCong.Name = "btnOK_PhanCong";
-            this.btnOK_PhanCong.Size = new System.Drawing.Size(75, 23);
-            this.btnOK_PhanCong.TabIndex = 11;
-            this.btnOK_PhanCong.Text = "OK";
-            this.btnOK_PhanCong.Visible = false;
-            this.btnOK_PhanCong.Click += new System.EventHandler(this.btnOK_PhanCong_Click);
             // 
             // groupControl1
             // 
@@ -395,6 +366,7 @@
             // 
             this.barBtnPhanCong.Caption = "Phân công";
             this.barBtnPhanCong.Id = 21;
+            this.barBtnPhanCong.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Actions_view_pim_tasks_icon;
             this.barBtnPhanCong.Name = "barBtnPhanCong";
             this.barBtnPhanCong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPhanCong_ItemClick);
             // 
@@ -413,12 +385,14 @@
             this.rbnGroupNhanVien.ItemLinks.Add(this.barBtnSuaNhanVien);
             this.rbnGroupNhanVien.ItemLinks.Add(this.barBtnXoaNhanVien);
             this.rbnGroupNhanVien.Name = "rbnGroupNhanVien";
+            this.rbnGroupNhanVien.ShowCaptionButton = false;
             this.rbnGroupNhanVien.Text = "Nhân viên";
             // 
             // rbnGroupNhanVienPhong
             // 
             this.rbnGroupNhanVienPhong.ItemLinks.Add(this.barBtnPhanCong);
             this.rbnGroupNhanVienPhong.Name = "rbnGroupNhanVienPhong";
+            this.rbnGroupNhanVienPhong.ShowCaptionButton = false;
             this.rbnGroupNhanVienPhong.Text = "Phân công";
             // 
             // ucQuanLyNhanVien
@@ -477,8 +451,6 @@
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnImage;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.SimpleButton btnHuy_PhanCong;
-        private DevExpress.XtraEditors.SimpleButton btnOK_PhanCong;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.ListBoxControl listBoxPhong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonNhanVienPT;

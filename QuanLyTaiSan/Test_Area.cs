@@ -29,13 +29,15 @@ namespace QuanLyTaiSan
         {
             InitializeComponent();
 
-            CTThietBi obj = new CTThietBi();
-            obj.thietbi = ThietBi.request(LoaiThietBi.getById(1));
-            obj.phong = Phong.getById(1);
-            obj.tinhtrang = TinhTrang.getById(1);
-            obj.soluong = 7;
-            obj.mota = "Thêm tiếp vô phòng";
-            obj.add_auto();
+            CoSo obj = CoSo.getById(15);
+
+            //CTThietBi obj = new CTThietBi();
+            //obj.thietbi = ThietBi.getById(24553);
+            //obj.phong = Phong.getById(1);
+            //obj.tinhtrang = TinhTrang.getById(1);
+            //obj.soluong = 12;
+            //obj.mota = "Thêm tiếp vô phòng";
+            //obj.add_auto();
 
             Console.WriteLine("");
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -47,7 +48,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rbnPageViTri_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupViTri_CoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -292,6 +293,7 @@
             this.rbnGroupViTri_CoSo.ItemLinks.Add(this.barBtnSuaCoSo);
             this.rbnGroupViTri_CoSo.ItemLinks.Add(this.barBtnXoaCoSo);
             this.rbnGroupViTri_CoSo.Name = "rbnGroupViTri_CoSo";
+            this.rbnGroupViTri_CoSo.ShowCaptionButton = false;
             this.rbnGroupViTri_CoSo.Text = "Cơ sở";
             // 
             // barBtnThemCoSo
@@ -324,6 +326,7 @@
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnSuaDay);
             this.rbnGroupViTri_Day.ItemLinks.Add(this.barBtnXoaDay);
             this.rbnGroupViTri_Day.Name = "rbnGroupViTri_Day";
+            this.rbnGroupViTri_Day.ShowCaptionButton = false;
             this.rbnGroupViTri_Day.Text = "Dãy";
             // 
             // barBtnThemDay
@@ -357,6 +360,7 @@
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnSuaTang);
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnXoaTang);
             this.rbnGroupViTri_Tang.Name = "rbnGroupViTri_Tang";
+            this.rbnGroupViTri_Tang.ShowCaptionButton = false;
             this.rbnGroupViTri_Tang.Text = "Tầng";
             // 
             // barBtnThemTang

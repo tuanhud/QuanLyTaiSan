@@ -161,7 +161,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         reLoadAndFocused(objNhanVienPT.id);
                     }
                 }
-                else
+                else if (_function.Equals("add"))
                 {
                     NhanVienPT objNew = new NhanVienPT();
                     objNew.subId = txtMa.Text;
@@ -173,6 +173,41 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         XtraMessageBox.Show("Thêm nhân viên thành công!");
                         //reLoad();
                         reLoadAndFocused(objNew.id);
+                    }
+                }
+                else if (_function.Equals("phancong"))
+                {
+                    try
+                    {
+                        //Quan hệ 0 - n nên không thể gán list
+                        List<Phong> listToRemove = objNhanVienPT.phongs.ToList();
+                        foreach (Phong objToRemove in listToRemove)
+                        {
+                            objToRemove.nhanvienpt = null;
+                            objToRemove.update();
+                        }
+                        foreach (Phong objToAdd in listPhong)
+                        {
+                            objToAdd.nhanvienpt = objNhanVienPT;
+                            objToAdd.update();
+                        }
+                        //objNhanVienPT.phongs = listPhong;
+                        //if (objNhanVienPT.update() != -1)
+                        //{
+                        //    XtraMessageBox.Show("Phân công nhân viên thành công!");
+                        //    reLoad();
+                        //    PhanCong(false);
+                        //}
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Console.WriteLine(this.Name + " : btnOK_PhanCong_Click : " + ex.Message);
+                    }
+                    finally
+                    {
+                        XtraMessageBox.Show("Phân công nhân viên thành công!");
+                        reLoad();
+                        PhanCong(false);
                     }
                 }
             }
@@ -229,9 +264,16 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            enableEdit(false, "");
-            errorProvider1.Clear();
-            listHinhs = null;
+            if (function.Equals("phancong"))
+            {
+                PhanCong(false);
+            }
+            else
+            {
+                enableEdit(false, "");
+                errorProvider1.Clear();
+                listHinhs = null;
+            }
             SetData();
         }
 
@@ -321,12 +363,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             { }
         }
 
-        private void btnHuy_PhanCong_Click(object sender, EventArgs e)
-        {
-            PhanCong(false);
-            SetData();
-        }
-
         private void reloadImage()
         {
             imageSlider1.Images.Clear();
@@ -343,18 +379,20 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                btnOK_PhanCong.Visible = _bool;
-                btnHuy_PhanCong.Visible = _bool;
+                btnOK.Visible = _bool;
+                btnHuy.Visible = _bool;
                 rbnGroupNhanVien.Enabled = !_bool;
                 splitContainerControl1.Panel1.Controls.Clear();
                 if (_bool)
                 {
+                    function = "phancong";
                     List<ViTriHienThi> listVT = ViTriHienThi.getAllHavePhongNotNhanVien(objNhanVienPT.id);
                     _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
                     splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
                 }
                 else
                 {
+                    function = "";
                     splitContainerControl1.Panel1.Controls.Add(gridControlNhanVien);
                 }
             }
@@ -399,42 +437,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             listBoxPhong.DataSource = list;
             listPhong = list;
-        }
-
-        private void btnOK_PhanCong_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Quan hệ 0 - n nên không thể gán list
-                List<Phong> listToRemove = objNhanVienPT.phongs.ToList();
-                foreach (Phong objToRemove in listToRemove)
-                {
-                    objToRemove.nhanvienpt = null;
-                    objToRemove.update();
-                }
-                foreach (Phong objToAdd in listPhong)
-                {
-                    objToAdd.nhanvienpt = objNhanVienPT;
-                    objToAdd.update();
-                }
-                //objNhanVienPT.phongs = listPhong;
-                //if (objNhanVienPT.update() != -1)
-                //{
-                //    XtraMessageBox.Show("Phân công nhân viên thành công!");
-                //    reLoad();
-                //    PhanCong(false);
-                //}
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(this.Name + " : btnOK_PhanCong_Click : " + ex.Message);
-            }
-            finally
-            {
-                XtraMessageBox.Show("Phân công nhân viên thành công!");
-                reLoad();
-                PhanCong(false);
-            }
         }
     }
 }

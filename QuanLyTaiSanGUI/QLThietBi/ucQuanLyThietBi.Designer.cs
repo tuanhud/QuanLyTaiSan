@@ -353,7 +353,8 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaThietBi);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaThietBi);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Phòng";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Thiết bị";
             // 
             // colsoluong
             // 
@@ -392,8 +393,8 @@
             this.gridViewThietBi.OptionsBehavior.Editable = false;
             this.gridViewThietBi.OptionsBehavior.ReadOnly = true;
             this.gridViewThietBi.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewThietBi.OptionsFind.AlwaysVisible = true;
             this.gridViewThietBi.OptionsSelection.MultiSelect = true;
+            this.gridViewThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewThietBi.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewThietBi_SelectionChanged);
             // 
             // colid

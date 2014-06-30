@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Nodes;
+using DevExpress.XtraTreeList.Localization;
+using QuanLyTaiSanGUI.MyUC;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
@@ -29,6 +34,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             loaiThietBiNULL.ten = "[Không thuộc loại nào]";
             loaiThietBiNULL.id = -1;
             loaiThietBiNULL.parent = null;
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -351,6 +358,13 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             enableEdit(true, "add");
             SetTextGroupControl("Thêm loại thiết bị", Color.Red);
             beforeAdd();
+            if (objLoaiThietBi != null)
+            {
+                if (objLoaiThietBi.parent != null)
+                {
+                    lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                }
+            }
         }
 
         private void barButtonSuaLoaiTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -376,5 +390,26 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             return ribbonLoaiTB;
         }
+
+        private void OnFilterNode(object sender, FilterNodeEventArgs e)
+        {
+            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListLoaiTB.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = treeListLoaiTB.FindFilterText;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
+        }
+
     }
 }
