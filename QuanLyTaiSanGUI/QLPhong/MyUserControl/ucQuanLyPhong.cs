@@ -202,43 +202,56 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                if (_phong != null)
-                {
-                    objPhong = _phong;
-                }
-                else
-                {
-                    objPhong = new Phong();
-                }
+                //if (_phong != null)
+                //{
+                //    objPhong = _phong;
+                //}
+                //else
+                //{
+                //    objPhong = new Phong();
+                //}
+
+                resetAll();
+
+                objPhong = _phong;
+                listHinh = objPhong.hinhanhs.ToList();
+                HienThiHinhPhongTuListHinhPhong();
                 txtMaPhong.Text = objPhong.subId;
                 txtTenPhong.Text = objPhong.ten;
-                txtMoTaPhong.Text = objPhong.mota;
                 _ucComboBoxViTri.setViTri(objPhong.vitri);
-                NhanVienPT objNV = new NhanVienPT();
-                if (objPhong.nhanvienpt != null)
-                {
-                    objNV = objPhong.nhanvienpt;
-                }
-                txtMaNhanVien.Text = objNV.subId;
-                txtTenNhanVien.Text = objNV.hoten;
-                txtSoDienThoai.Text = objNV.sodienthoai;
-                if (objPhong.hinhanhs == null)
-                    listHinh = new List<HinhAnh>();
-                else
-                    listHinh = objPhong.hinhanhs.ToList();
-                if (objPhong.nhanvienpt != null)
-                {
-                    if (objPhong.nhanvienpt.hinhanhs == null)
-                        listHinhNV = new List<HinhAnh>();
-                    else
-                        listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
-                }
-                else
-                {
-                    listHinhNV = new List<HinhAnh>();
-                }
-                reloadImagePhong();
-                reloadImageNhanVienPT();
+                txtMoTaPhong.Text = objPhong.mota;
+                               
+
+                listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                HienThiHinhNhanVienTuListHinhNhanVien();
+                txtMaNhanVien.Text = objPhong.nhanvienpt.subId;
+                txtTenNhanVien.Text = objPhong.nhanvienpt.hoten;
+                txtSoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
+
+                //NhanVienPT objNV = new NhanVienPT();
+                //if (objPhong.nhanvienpt != null)
+                //{
+                //    objNV = objPhong.nhanvienpt;
+                //}
+                //txtMaNhanVien.Text = objNV.subId;
+                //txtTenNhanVien.Text = objNV.hoten;
+                //txtSoDienThoai.Text = objNV.sodienthoai;
+                //if (objPhong.hinhanhs == null)
+                //    listHinh = new List<HinhAnh>();
+                //else
+                //    listHinh = objPhong.hinhanhs.ToList();
+                //if (objPhong.nhanvienpt != null)
+                //{
+                //    if (objPhong.nhanvienpt.hinhanhs == null)
+                //        listHinhNV = new List<HinhAnh>();
+                //    else
+                //        listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                //}
+                //else
+                //{
+                //    listHinhNV = new List<HinhAnh>();
+                //}
+                
             }
             catch (Exception ex)
             {
@@ -344,7 +357,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         //load lại ảnh phòng
-        private void reloadImagePhong()
+        private void HienThiHinhPhongTuListHinhPhong()
         {
             try
             {
@@ -361,7 +374,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         //load lại ảnh nhân viên
-        private void reloadImageNhanVienPT()
+        private void HienThiHinhNhanVienTuListHinhNhanVien()
         {
             try
             {
@@ -416,9 +429,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 //gridViewPhong.AddNewRow();
                 //int rowHandler = gridViewPhong.RowCount - 1;
                 //gridViewPhong.FocusedRowHandle = rowHandler;
+
+                resetAll();
                 searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
                 enableEdit(true, "add");
-                beforeAdd();
                 SetTextGroupControl("Thêm phòng mới", true);
                 searchLookUpEditNhanVienPT.EditValue = null;
                 _ucComboBoxViTri.Visible = true;
@@ -435,6 +449,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
+                resetAll();
                 searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
                 enableEdit(true, "edit");
                 //_index = gridViewPhong.FocusedRowHandle;
@@ -491,8 +506,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
                 SetTextGroupControl("Chi tiết", false);
                 dxErrorProvider.ClearErrors();
-                listHinh = null;
-                listHinhNV = null;
+                //listHinh = null;
+                //listHinhNV = null;
                 enableEdit(false, "");
             }
             catch (Exception ex)
@@ -504,7 +519,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void btnHuy_Click(object sender, EventArgs e)
         {
             dxErrorProvider.ClearErrors();
-            listHinh = null;
+            //listHinh = null;
             setData(objPhong);
             enableEdit(false, "");
             //reloadImageNhanVienPT();
@@ -550,7 +565,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     frm.ShowDialog();
                     listHinh = frm.getlistHinhs();
                 }
-                reloadImagePhong();
+                HienThiHinhPhongTuListHinhPhong();
             }
             catch (Exception ex)
             {
@@ -585,7 +600,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     txtTenNhanVien.Text = objPhong.nhanvienpt.hoten;
                     txtSoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
                     listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
-                    reloadImageNhanVienPT();
+                    HienThiHinhNhanVienTuListHinhNhanVien();
                 }
                 else
                 {
