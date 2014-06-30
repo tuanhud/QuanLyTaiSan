@@ -15,12 +15,14 @@ using DevExpress.XtraBars.Ribbon;
 using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
     public partial class ucQuanLyPhongThietBi : UserControl
     {
         Phong objPhong = new Phong();
+        CTThietBi objCTThietBi = new CTThietBi();
         NhanVienPT objNhanVienPT = new NhanVienPT();
 
         int row, cosoid, dayid, tangid = -1;
@@ -545,7 +547,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewChiTietTBs_FocusedRowLoaded(object sender, DevExpress.XtraGrid.Views.Base.RowEventArgs e)
         {
-            MessageBox.Show("abc");
         }
 
         private void gridViewPhong_RowClick(object sender, RowClickEventArgs e)
@@ -562,7 +563,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (e.RowHandle > -1)
             {
                 GridView view = sender as GridView;
-                _ucChiTietThietBi.setData(CTThietBi.getById(Convert.ToInt32(view.GetRowCellValue(e.RowHandle, coltbid))));
+                objCTThietBi = CTThietBi.getById(Convert.ToInt32(view.GetRowCellValue(e.RowHandle, coltbid)));
+                _ucChiTietThietBi.setData(objCTThietBi);
                 showChiTietTB(true);
             }
         }
@@ -570,6 +572,33 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void barButtonSuaTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _ucChiTietThietBi.enableEdit(true);
+        }
+
+        private void barButtonXoaTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
+
+        private void deleteObj()
+        {
+            if (XtraMessageBox.Show("Bạn có chắc là muốn loại thiết bị ra khỏi phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (objCTThietBi.delete() > 0)
+                {
+                    XtraMessageBox.Show("Loại thiết bị ra khỏi phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reLoadThietBiTrongPhong();
+                }
+                else
+                {
+                    XtraMessageBox.Show("Không thể loại thiết bị ra khỏi phòng!");
+                }
+            }
+        }
+
+        private void barButtonThemTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmNewThietBi frm = new frmNewThietBi();
+            frm.ShowDialog();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewChiTietTBs = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coltbid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,7 +92,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewChiTietTBs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPhong)).BeginInit();
@@ -362,6 +363,7 @@
             this.barButtonThemTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barButtonThemTB.Id = 42;
             this.barButtonThemTB.Name = "barButtonThemTB";
+            this.barButtonThemTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTB_ItemClick);
             // 
             // barButtonSuaTB
             // 
@@ -377,6 +379,7 @@
             this.barButtonXoaTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoaTB.Id = 44;
             this.barButtonXoaTB.Name = "barButtonXoaTB";
+            this.barButtonXoaTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaTB_ItemClick);
             // 
             // barButtonChuyen
             // 

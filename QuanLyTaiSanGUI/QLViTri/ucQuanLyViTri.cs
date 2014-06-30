@@ -206,7 +206,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
                         ThemMoiNode(-1, "", typeof(CoSo).Name);
 
-                        listHinh = null;
+                        listHinh = new List<HinhAnh>();
                         panelControl1.Controls.Clear();
                         TextEdit txt = new TextEdit();
                         txt.Properties.ReadOnly = true;
@@ -215,7 +215,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         panelControl1.Controls.Add(txt);
                         break;
                     case "Dayy":
-                        listHinh = null;
+                        listHinh = new List<HinhAnh>();
                         panelControl1.Controls.Clear();
                         _ucComboBoxViTri.Dock = DockStyle.Fill;
                         _vitri = new ViTri();
@@ -232,7 +232,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         panelControl1.Controls.Add(_ucComboBoxViTri);
                         break;
                     case "Tang":
-                        listHinh = null;
+                        listHinh = new List<HinhAnh>();
                         panelControl1.Controls.Clear();
                         _ucComboBoxViTriChonDay.Dock = DockStyle.Fill;
                         _vitri = new ViTri();
@@ -511,7 +511,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         txt.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(txt);
                         node = typeof(CoSo).Name;
-                        if (objCoSo.hinhanhs != null)
                             listHinh = objCoSo.hinhanhs.ToList();
                         reloadImage();
                         enableGroupViTri(typeof(CoSo).Name);
@@ -526,7 +525,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objViTri.coso = objDay.coso;
                         _ucComboBoxViTri.setViTri(objViTri);
                         node = typeof(Dayy).Name;
-                        if (objDay.hinhanhs != null)
                             listHinh = objDay.hinhanhs.ToList();
                         reloadImage();
                         enableGroupViTri(typeof(Dayy).Name);
@@ -542,7 +540,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objViTri.coso = objTang.day.coso;
                         _ucComboBoxViTriChonDay.setViTri(objViTri);
                         node = typeof(Tang).Name;
-                        if (objTang.hinhanhs!= null)
                             listHinh = objTang.hinhanhs.ToList();
                         reloadImage();
                         enableGroupViTri(typeof(Tang).Name);
@@ -705,7 +702,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
         {
             string filterValue = treeListViTri.FindFilterText;
-            if (node.GetDisplayText(column).ToUpper().StartsWith(filterValue.ToUpper())) return true;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
