@@ -12,7 +12,7 @@ using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraBars.Ribbon;
 using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSanGUI.QLPhong;
 using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.QLThietBi

@@ -13,6 +13,8 @@ using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Nodes.Operations;
 using DevExpress.XtraTreeList.Data;
 using QuanLyTaiSan.DataFilter;
+using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -35,6 +37,8 @@ namespace QuanLyTaiSanGUI.MyUC
             chonDay = _chonDay;
             chonPhong = _chonPhong;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> _list)
@@ -216,6 +220,26 @@ namespace QuanLyTaiSanGUI.MyUC
         public String getTextPopupContainerEdit()
         {
             return popupContainerEdit1.Text;
+        }
+
+        private void OnFilterNode(object sender, FilterNodeEventArgs e)
+        {
+            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListViTri.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = treeListViTri.FindFilterText;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
         }
     }
 }

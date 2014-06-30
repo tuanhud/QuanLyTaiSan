@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -43,18 +44,33 @@ namespace QuanLyTaiSan.Libraries
             obj = salt1 + obj + salt2;
             return StringHelper.SHA1(obj);
         }
-        public static String generateConnectionString(String db_host, String db_name, String db_username, String db_password)
+        public static String generateConnectionString(String db_host, String db_name, Boolean useWA=true, String db_username="", String db_password="", String port="")
         {
             SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
-            // Set the properties for the data source.
             sqlBuilder.DataSource = db_host;
-            sqlBuilder.InitialCatalog = db_name;
-            sqlBuilder.UserID = db_username;
-            sqlBuilder.Password = db_password;
-            sqlBuilder.IntegratedSecurity = false;
 
-           return sqlBuilder.ToString();
+            if (!port.Equals(""))
+            {
+                sqlBuilder.DataSource += "," + port;
+            }
+            if (!db_name.Equals(""))
+            {
+                sqlBuilder.InitialCatalog = db_name;
+            }
+            if (!useWA)
+            {
+                sqlBuilder.UserID = db_username;
+                sqlBuilder.Password = db_password;
+                sqlBuilder.IntegratedSecurity = false;
+            }
+            else
+            {
+                sqlBuilder.IntegratedSecurity = true;
+            }
+
+            Debug.WriteLine("StringHelper: "+sqlBuilder.ToString());
+            return sqlBuilder.ToString();
         }
         /// <summary>
         /// Chuyển chuổi có dấu thành không dấu </summary>

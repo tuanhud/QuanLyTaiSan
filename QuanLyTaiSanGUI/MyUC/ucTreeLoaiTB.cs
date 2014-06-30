@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList.Nodes;
-using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSanGUI.QLPhong;
 
 namespace QuanLyTaiSanGUI.MyUC
 {

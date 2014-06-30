@@ -7,7 +7,7 @@ using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
-    class MyTreeListLocalizer : TreeListLocalizer
+    public class MyTreeListLocalizer : TreeListLocalizer
     {
         public override string GetLocalizedString(TreeListStringId id)
         {

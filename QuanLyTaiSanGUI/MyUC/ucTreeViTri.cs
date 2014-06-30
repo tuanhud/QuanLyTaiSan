@@ -98,7 +98,7 @@ namespace QuanLyTaiSanGUI.MyUC
                                     if (this.Parent != null)
                                     {
                                         ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
-                                        _ucQuanLyPhongThietBi.setData(cosoid, dayid, tangid);
+                                        _ucQuanLyPhongThietBi.setData(phongid);
                                     }
                                 }
                                 break;
@@ -140,6 +140,14 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             finally
             { }
+        }
+
+        public Phong getPhong()
+        {
+            if (phongid != -1)
+                return Phong.getById(phongid);
+            else
+                return new Phong();
         }
 
         public TreeList getTreeList()

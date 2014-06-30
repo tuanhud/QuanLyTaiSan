@@ -14,11 +14,11 @@ namespace WebQuanLyTaiSan
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            NhanVienPT _NhanVienPT = new NhanVienPT();
-            HinhAnh _HinhAnh = new HinhAnh();
-            listNhanVienPT = NhanVienPT.getAll();
-            ASPxGridView.DataSource = listNhanVienPT;
-            ASPxGridView.DataBind();
+            //NhanVienPT _NhanVienPT = new NhanVienPT();
+            //HinhAnh _HinhAnh = new HinhAnh();
+            //listNhanVienPT = _NhanVienPT.getAll();
+            //ASPxGridView.DataSource = listNhanVienPT;
+            //ASPxGridView.DataBind();
         }
     }
 }

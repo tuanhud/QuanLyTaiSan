@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using QuanLyTaiSanGUI.MyUserControl;
 using DevExpress.XtraGrid.Columns;
-using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSanGUI.QLPhong;
 using QuanLyTaiSanGUI.QLViTri.MyUserControl;
 using QuanLyTaiSanGUI.QLNhanVien;
 using QuanLyTaiSanGUI.MyUC;

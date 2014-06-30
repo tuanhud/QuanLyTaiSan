@@ -46,11 +46,15 @@
             this.treeListPhong.Location = new System.Drawing.Point(0, 0);
             this.treeListPhong.Name = "treeListPhong";
             this.treeListPhong.OptionsBehavior.AllowRecursiveNodeChecking = true;
+            this.treeListPhong.OptionsBehavior.EnableFiltering = true;
+            this.treeListPhong.OptionsFind.AllowFindPanel = true;
+            this.treeListPhong.OptionsFind.AlwaysVisible = true;
             this.treeListPhong.OptionsView.ShowCheckBoxes = true;
             this.treeListPhong.ParentFieldName = "id_p";
             this.treeListPhong.Size = new System.Drawing.Size(407, 375);
             this.treeListPhong.TabIndex = 0;
             this.treeListPhong.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListPhong_AfterCheckNode);
+            this.treeListPhong.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colid
             // 

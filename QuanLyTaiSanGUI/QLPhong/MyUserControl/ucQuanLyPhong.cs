@@ -205,18 +205,24 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                if (_phong != null)
-                {
-                    objPhong = _phong;
-                }
-                else
-                {
-                    objPhong = new Phong();
-                }
+                //if (_phong != null)
+                //{
+                //    objPhong = _phong;
+                //}
+                //else
+                //{
+                //    objPhong = new Phong();
+                //}
+
+                resetAll();
+
+                objPhong = _phong;
+                listHinh = objPhong.hinhanhs.ToList();
+                HienThiHinhPhongTuListHinhPhong();
                 txtMaPhong.Text = objPhong.subId;
                 txtTenPhong.Text = objPhong.ten;
-                txtMoTaPhong.Text = objPhong.mota;
                 _ucComboBoxViTri.setViTri(objPhong.vitri);
+
                 NhanVienPT objNV = new NhanVienPT();
                 if (objPhong.nhanvienpt != null)
                 {
@@ -241,8 +247,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     listHinhAnhNhanVien = new List<HinhAnh>();
                 }
                 reloadImagePhong();
-
-
                 reloadImageNhanVienPT();
             }
             catch (Exception ex)
@@ -349,7 +353,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         //load lại ảnh phòng
-        private void reloadImagePhong()
+        private void HienThiHinhPhongTuListHinhPhong()
         {
             try
             {
@@ -366,7 +370,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         //load lại ảnh nhân viên
-        private void reloadImageNhanVienPT()
+        private void HienThiHinhNhanVienTuListHinhNhanVien()
         {
             try
             {
@@ -421,9 +425,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 //gridViewPhong.AddNewRow();
                 //int rowHandler = gridViewPhong.RowCount - 1;
                 //gridViewPhong.FocusedRowHandle = rowHandler;
+
+                resetAll();
                 searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
                 enableEdit(true, "add");
-                beforeAdd();
                 SetTextGroupControl("Thêm phòng mới", true);
                 searchLookUpEditNhanVienPT.EditValue = null;
                 _ucComboBoxViTri.Visible = true;
@@ -440,6 +445,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
+                resetAll();
                 searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
 
                 //_index = gridViewPhong.FocusedRowHandle;
@@ -499,8 +505,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
                 SetTextGroupControl("Chi tiết", false);
                 dxErrorProvider.ClearErrors();
+
                 listHinhAnhPhong = null;
                 listHinhAnhNhanVien = null;
+
                 enableEdit(false, "");
             }
             catch (Exception ex)
@@ -558,7 +566,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     frm.ShowDialog();
                     listHinhAnhPhong = frm.getlistHinhs();
                 }
-                reloadImagePhong();
+                HienThiHinhPhongTuListHinhPhong();
             }
             catch (Exception ex)
             {
@@ -592,6 +600,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     txtMaNhanVien.Text = objPhong.nhanvienpt.subId;
                     txtTenNhanVien.Text = objPhong.nhanvienpt.hoten;
                     txtSoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
+
                     listHinhAnhNhanVien = objPhong.nhanvienpt.hinhanhs.ToList();
                     reloadImageNhanVienPT();
                 }

@@ -1,4 +1,5 @@
 ﻿using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,93 @@ namespace QuanLyTaiSan.Entities
 {
     public static class Global
     {
-        public static QuanTriVien current_login { get; set; }
+        /// <summary>
+        /// Thông tin về CSDL mà ứng dụng sẽ truy xuất tới,
+        /// Không quan tâm nó là Cached hay Main Server,
+        /// Việc kiểm tra sẽ tự động dựa vào setting của ứng dụng,
+        /// READ ONLY
+        /// </summary>
+        public static class target_database
+        {
+            public static String get_connection_string()
+            {
+                return StringHelper.generateConnectionString(
+                        Global.target_database.db_host,
+                        Global.target_database.db_name,
+                        Global.target_database.db_WA,
+                        Global.target_database.db_username,
+                        Global.target_database.db_password,
+                        Global.target_database.db_port
+                );
+
+            }
+            /// <summary>
+            /// Kiểm tra kết nối tới Database
+            /// </summary>
+            /// <returns></returns>
+            public static Boolean isReady(int TimeOut=-1)
+            {
+                //Check if target database is ready
+                return DatabaseHelper.isReady(
+                    Global.target_database.get_connection_string()
+                );
+            }
+            public static String db_host
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_host : Global.local_setting.db_server_host;
+                }
+            }
+            public static String db_port
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_port : Global.local_setting.db_server_port;
+                }
+            }
+            public static String db_name
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_dbname : Global.local_setting.db_server_dbname;
+                }
+            }
+            public static String db_username
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_username : Global.local_setting.db_server_username;
+                }
+            }
+            public static String db_password
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_password : Global.local_setting.db_server_password;
+                }
+            }
+            /// <summary>
+            /// Windows Authentication
+            /// </summary>
+            public static Boolean db_WA
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_WA : Global.local_setting.db_server_WA;
+                }
+            }
+
+        }
         
+        public static QuanTriVien current_login { get; set; }
+        public static Properties.Settings local_setting
+        {
+            get
+            {
+                return Properties.Settings.Default;
+            }
+        }
         /// <summary>
         /// Những cài đặt được lưu ở phía DB
         /// </summary>
@@ -24,6 +110,7 @@ namespace QuanLyTaiSan.Entities
                     user_name = null;
                     pass_word = null;
                     pre_path = null;
+                    port = null;
                 }
                 public static int save()
                 {
@@ -44,12 +131,34 @@ namespace QuanLyTaiSan.Entities
                     obj.value = pre_path;
                     re = re && obj.addOrUpdate()>0;
 
+                    obj = Setting.getByKey("ftp_image_port");
+                    obj.value = port;
+                    re = re && obj.addOrUpdate() > 0;
+
                     if (re)
                     {
                         reload();
                     }
                     return re?1:0;
                 }
+                private static String port = null;
+                public static String PORT
+                {
+                    get
+                    {
+                        if (port == null)
+                        {
+                            //load from DB
+                            port = Setting.getValue("ftp_image_port");
+                        }
+                        return port;
+                    }
+                    set
+                    {
+                        port = value;
+                    }
+                }
+
                 private static String host_name=null;
                 public static String HOST_NAME
                 {
@@ -58,9 +167,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            //host_name = Setting.getValue("ftp_image_host");
-                            //host_name = "ftp://172.16.0.158";
-                            host_name = "ftp.hoangthanhit.com";
+                            host_name = Setting.getValue("ftp_image_host");
                         }
                         return host_name;
                     }
@@ -78,9 +185,7 @@ namespace QuanLyTaiSan.Entities
                         if (user_name == null)
                         {
                             //load from DB
-                            //user_name = Setting.getValue("ftp_image_username");
-                            //user_name = "quanlytaisan";
-                            user_name = "qlts@hoangthanhit.com";
+                            user_name = Setting.getValue("ftp_image_username");
                         }
                         return user_name;
                     }
@@ -98,8 +203,7 @@ namespace QuanLyTaiSan.Entities
                         if (pass_word == null)
                         {
                             //load from DB
-                            //pass_word = Setting.getValue("ftp_image_password");
-                            pass_word = "quanlytaisan";
+                            pass_word = Setting.getValue("ftp_image_password");
                         }
                         return pass_word;
                     }
@@ -121,8 +225,7 @@ namespace QuanLyTaiSan.Entities
                         if (pre_path == null)
                         {
                             //load from DB
-                            //pre_path = Setting.getValue("ftp_image_prepath");
-                            pre_path = "/";
+                            pre_path = Setting.getValue("ftp_image_prepath");
                         }
                         return pre_path;
                     }
@@ -148,6 +251,7 @@ namespace QuanLyTaiSan.Entities
                 public static void reload()
                 {
                     host_name = null;
+                    port = null;
                     pre_path = null;
                 }
                 public static int save()
@@ -161,12 +265,35 @@ namespace QuanLyTaiSan.Entities
                     obj.value = pre_path;
                     re = re && obj.addOrUpdate() > 0;
 
+                    obj = Setting.getByKey("http_image_port");
+                    obj.value = port;
+                    re = re && obj.addOrUpdate() > 0;
+
                     if (re)
                     {
                         reload();
                     }
                     return re ? 1 : 0;
                 }
+
+                private static String port = null;
+                public static String PORT
+                {
+                    get
+                    {
+                        if (port == null)
+                        {
+                            //load from DB
+                            port = Setting.getValue("http_image_port");
+                        }
+                        return port;
+                    }
+                    set
+                    {
+                        port = value;
+                    }
+                }
+
                 private static String host_name = null;
                 public static String HOST_NAME
                 {
@@ -175,9 +302,7 @@ namespace QuanLyTaiSan.Entities
                         if (host_name == null)
                         {
                             //load from DB
-                            //host_name = Setting.getValue("http_image_host");
-                            //host_name = "http://172.16.0.158";
-                            host_name = "http://hoangthanhit.com";
+                            host_name = Setting.getValue("http_image_host");
                         }
                         return host_name;
                     }
@@ -199,9 +324,7 @@ namespace QuanLyTaiSan.Entities
                         if (pre_path == null)
                         {
                             //load from DB
-                            //pre_path = Setting.getValue("http_image_prepath");
-                            //pre_path = "/";
-                            pre_path = "/qlts/";
+                            pre_path = Setting.getValue("http_image_prepath");
                         }
                         return pre_path;
                     }

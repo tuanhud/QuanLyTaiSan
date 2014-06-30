@@ -63,6 +63,16 @@ namespace QuanLyTaiSanGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_view_pim_tasks_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-view-pim-tasks-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chair_icon {
             get {
                 object obj = ResourceManager.GetObject("chair-icon", resourceCulture);

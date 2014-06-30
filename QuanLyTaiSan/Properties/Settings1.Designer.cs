@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTaiSan.Properties {
+namespace QuanLyTaiSanGUI._ExternalSetting {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -61,7 +61,7 @@ namespace QuanLyTaiSan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1433")]
         public string db_server_port {
             get {
                 return ((string)(this["db_server_port"]));
@@ -109,7 +109,7 @@ namespace QuanLyTaiSan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1433")]
         public string db_cache_port {
             get {
                 return ((string)(this["db_cache_port"]));
@@ -176,6 +176,15 @@ namespace QuanLyTaiSan.Properties {
             }
             set {
                 this["db_cache_WA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("dfhgfg")]
+        public string asdasd {
+            get {
+                return ((string)(this["asdasd"]));
             }
         }
     }
