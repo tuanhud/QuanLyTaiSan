@@ -32,7 +32,7 @@ namespace QuanLyTaiSan
             CTThietBi obj = new CTThietBi();
             obj.thietbi = ThietBi.request(LoaiThietBi.getById(1));
             obj.phong = Phong.getById(1);
-            obj.tinhtrang = TinhTrang.getById(1);
+            //obj.tinhtrang = TinhTrang.getById(1);
             obj.soluong = 7;
             obj.mota = "Thêm tiếp vô phòng";
             obj.add_auto();
