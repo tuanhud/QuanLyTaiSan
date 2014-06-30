@@ -13,6 +13,7 @@ using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.QLNhanVien;
 using DevExpress.XtraTreeList.Localization;
+using DevExpress.XtraTreeList.Columns;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -77,6 +78,26 @@ namespace QuanLyTaiSanGUI.MyUC
                 list.Add(Convert.ToInt32(node.GetValue(0)));
             }
             return list;
+        }
+
+        private void OnFilterNode(object sender, FilterNodeEventArgs e)
+        {
+            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListPhong.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = treeListPhong.FindFilterText;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
         }
     }
 }

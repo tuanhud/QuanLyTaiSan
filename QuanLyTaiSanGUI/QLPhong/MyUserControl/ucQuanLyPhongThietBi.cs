@@ -64,7 +64,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
             _ucChiTietThietBi.loadData(listLoai);
-            List<ViTriHienThi> listVitris = ViTriHienThi.getAll();
+            List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.loadData(listVitris);
             ViTri obj = _ucTreeViTri.getVitri();
