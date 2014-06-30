@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhAnh));
             this.galleryControlImage = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
@@ -60,9 +60,9 @@
             this.galleryControlImage.Gallery.AllowHoverImages = true;
             this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
             this.galleryControlImage.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
-            galleryItemGroup1.Caption = "Danh sách hình ảnh";
+            galleryItemGroup2.Caption = "Danh sách hình ảnh";
             this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
             this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.Multiple;
@@ -111,7 +111,7 @@
             this.btnImageUpload.Name = "btnImageUpload";
             this.btnImageUpload.Size = new System.Drawing.Size(75, 23);
             this.btnImageUpload.TabIndex = 3;
-            this.btnImageUpload.Text = "Tải lên";
+            this.btnImageUpload.Text = "Thêm mới";
             this.btnImageUpload.Click += new System.EventHandler(this.btnImageUpload_Click);
             // 
             // btnImageDelete
@@ -156,9 +156,9 @@
             this.btnThuVienAnh.Image = ((System.Drawing.Image)(resources.GetObject("btnThuVienAnh.Image")));
             this.btnThuVienAnh.Location = new System.Drawing.Point(245, 4);
             this.btnThuVienAnh.Name = "btnThuVienAnh";
-            this.btnThuVienAnh.Size = new System.Drawing.Size(174, 23);
+            this.btnThuVienAnh.Size = new System.Drawing.Size(125, 23);
             this.btnThuVienAnh.TabIndex = 7;
-            this.btnThuVienAnh.Text = "Duyệt ảnh trong thư viện ảnh";
+            this.btnThuVienAnh.Text = "Duyệt ảnh đã có";
             this.btnThuVienAnh.Click += new System.EventHandler(this.btnThuVienAnh_Click);
             // 
             // labelControl1
