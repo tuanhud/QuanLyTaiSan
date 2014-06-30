@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
@@ -376,5 +379,26 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             return ribbonLoaiTB;
         }
+
+        private void OnFilterNode(object sender, FilterNodeEventArgs e)
+        {
+            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListLoaiTB.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = treeListLoaiTB.FindFilterText;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
+        }
+
     }
 }
