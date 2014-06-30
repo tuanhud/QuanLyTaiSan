@@ -178,5 +178,53 @@ namespace QuanLyTaiSan.Properties {
                 this["db_cache_WA"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DB_9B1246_ts")]
+        public string db_name {
+            get {
+                return ((string)(this["db_name"]));
+            }
+            set {
+                this["db_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DB_9B1246_ts_admin")]
+        public string db_username {
+            get {
+                return ((string)(this["db_username"]));
+            }
+            set {
+                this["db_username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("quanlytaisan")]
+        public string db_password {
+            get {
+                return ((string)(this["db_password"]));
+            }
+            set {
+                this["db_password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sqlts.hoangthanhit.com")]
+        public string db_host {
+            get {
+                return ((string)(this["db_host"]));
+            }
+            set {
+                this["db_host"] = value;
+            }
+        }
     }
 }

@@ -55,6 +55,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Synchronization, Version=2.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data.Server, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data.SqlServer, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -168,10 +172,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-	</Compile>
-    <Compile Include="Migrations\201406300747246_update-database.cs" />
-    <Compile Include="Migrations\201406300747246_update-database.Designer.cs">
-      <DependentUpon>201406300747246_update-database.cs</DependentUpon>
     </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
@@ -235,9 +235,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.resx">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406300747246_update-database.resx">
-      <DependentUpon>201406300747246_update-database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

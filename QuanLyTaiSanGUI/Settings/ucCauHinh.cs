@@ -44,7 +44,7 @@ namespace QuanLyTaiSanGUI.Settings
              * REMOTE SETTING
              */
             //Phai co ket noi toi Database moi lay duoc remote 
-            if (Global.target_database.isReady())
+            if (Global.working_database.isReady())
             {
                 //FTP
                 txtAddressFTP.Text = Global.remote_setting.ftp_host.HOST_NAME;
@@ -94,7 +94,7 @@ namespace QuanLyTaiSanGUI.Settings
              * REMOTE SETTING
              */
             //Cần phải có kết nối tới Database mới lưu được
-            if (Global.target_database.isReady())
+            if (Global.working_database.isReady())
             {
                 //FTP
                 Global.remote_setting.ftp_host.HOST_NAME = txtAddressFTP.Text;
