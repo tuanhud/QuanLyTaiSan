@@ -55,6 +55,36 @@ namespace QuanLyTaiSan.Entities
             return tmp;
         }
         /// <summary>
+        /// Chuyển tình trạng hiện tại của 1 CTTB sang tình trạng khác, có hỗ trợ ghi log,
+        /// tự động transaction
+        /// </summary>
+        /// <returns></returns>
+        public int chuyentinhtrang(TinhTrang moi, String mota="")
+        {
+            //BEGIN===================================
+            Boolean transac = true;
+            DateTime ngay = ServerTimeHelper.getNow();
+            using (var dbContextTransaction = db.Database.BeginTransaction())
+            {
+                this.tinhtrang = moi;
+                this.mota = mota;
+                //update
+                transac = transac && update(ngay,true)>0;
+
+                //finish
+                if (transac)
+                {
+                    dbContextTransaction.Commit();
+                }
+                else
+                {
+                    dbContextTransaction.Rollback();
+                }
+
+                return transac ? 1 : -1;
+            }
+        }
+        /// <summary>
         /// Ham update se duoc tu dong goi trong day (co su dung Transaction Commit),
         /// Khi co bat ky 1 loi nao trong qua trinh thuc hien (Rollback se duoc goi),
         /// Co ho tro ghi LOG tu dong
@@ -70,11 +100,11 @@ namespace QuanLyTaiSan.Entities
                 return -2;
             }
             //BEGIN===================================
+            Boolean transac = true;
             using (var dbContextTransaction = db.Database.BeginTransaction()) 
             {
                 CTThietBi cttb;
                 DateTime ngay = ServerTimeHelper.getNow();
-                Boolean transac = true;
                 //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
                     //kiem tra co record nao trung (dich, tinhtrang, thietbi) ?
                 cttb = search(dich, thietbi, tinhtrang);
@@ -99,9 +129,10 @@ namespace QuanLyTaiSan.Entities
                     
                 //cap nhat lai so luong
                 this.soluong -= soluong;
+                this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
                 //update
                 //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                transac = transac && update(ngay,true) > 0;// && writelog(ngay, mota) > 0;//cung 1 ngay se group de
+                transac = transac && update(ngay,true) > 0;
                 if (transac)
                 {
                     dbContextTransaction.Commit();
@@ -142,7 +173,11 @@ namespace QuanLyTaiSan.Entities
             CTThietBi tmp = db.CTTHIETBIS.Where(c => c.phong.id == ph.id && c.thietbi.id == tb.id && c.tinhtrang.id == tr.id).FirstOrDefault();
             return tmp;
         }
-
+        /// <summary>
+        /// deprecated
+        /// </summary>
+        /// <param name="idTinhTrang"></param>
+        /// <returns></returns>
         public static List<ThietBi> listThietBiTheoTinhTrang(int idTinhTrang)
         {
             return db.CTTHIETBIS.Where(ct => ct.tinhtrang.id == idTinhTrang).Select(select => select.thietbi).ToList();
@@ -158,8 +193,6 @@ namespace QuanLyTaiSan.Entities
         /// obj.soluong=soluong;
         /// obj.mota=mota;
         /// obj.add_auto();
-        /// 
-        /// obj = obj.reload();
         /// </summary>
         /// <returns></returns>
         public int add_auto()
@@ -207,12 +240,12 @@ namespace QuanLyTaiSan.Entities
 
         #region Override method
         /// <summary>
-        /// Hàm add có hỗ trợ transaction, chỉ hõ trợ add raw và ghi log chứ không tự động nghiệp vụ cộng dồn số lượng
+        /// Hàm add có hỗ trợ transaction, chỉ hỗ trợ add raw và ghi log chứ không tự động nghiệp vụ cộng dồn số lượng
         /// </summary>
         /// <param name="ngay"></param>
         /// <param name="in_transaction">Có đang bị chạy trong 1 transaction khác</param>
         /// <returns></returns>
-        public int add(DateTime? ngay=null, Boolean in_transaction=false)
+        private int add(DateTime? ngay=null, Boolean in_transaction=false)
         {
             DbContextTransaction dbTransac=null;
             Boolean transac = true;
@@ -240,7 +273,13 @@ namespace QuanLyTaiSan.Entities
             }
             return transac ? 1 : -1;            
         }
-        public int update(DateTime? ngay=null, Boolean in_transaction=false)
+        /// <summary>
+        /// Có hỗ trợ ghi log, có hỗ trợ transaction
+        /// </summary>
+        /// <param name="ngay"></param>
+        /// <param name="in_transaction"></param>
+        /// <returns></returns>
+        private int update(DateTime? ngay=null, Boolean in_transaction=false)
         {
             //have to load all [Required] FK object first
             if (phong != null)
