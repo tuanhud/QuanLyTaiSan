@@ -89,10 +89,14 @@
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
             this.treeListLoaiTB.Name = "treeListLoaiTB";
             this.treeListLoaiTB.OptionsBehavior.Editable = false;
+            this.treeListLoaiTB.OptionsBehavior.EnableFiltering = true;
+            this.treeListLoaiTB.OptionsFind.AllowFindPanel = true;
+            this.treeListLoaiTB.OptionsFind.AlwaysVisible = true;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
             this.treeListLoaiTB.Size = new System.Drawing.Size(485, 480);
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
+            this.treeListLoaiTB.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colten
             // 
