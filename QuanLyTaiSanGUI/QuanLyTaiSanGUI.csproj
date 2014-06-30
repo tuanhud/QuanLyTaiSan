@@ -72,12 +72,6 @@
     <Compile Include="..\QuanLyTaiSan\Properties\Settings.Designer.cs">
       <Link>_ExternalSetting\Settings.Designer.cs</Link>
     </Compile>
-    <Compile Include="..\QuanLyTaiSan\Properties\Settings1.Designer.cs">
-      <Link>_ExternalSetting\Settings1.Designer.cs</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
