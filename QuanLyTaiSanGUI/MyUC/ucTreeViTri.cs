@@ -14,6 +14,7 @@ using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.MyUserControl;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -34,6 +35,8 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             type = _type;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> _list)
@@ -95,7 +98,7 @@ namespace QuanLyTaiSanGUI.MyUC
                                     if (this.Parent != null)
                                     {
                                         ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
-                                        _ucQuanLyPhongThietBi.setData(cosoid, dayid, tangid);
+                                        _ucQuanLyPhongThietBi.setData(phongid);
                                     }
                                 }
                                 break;
@@ -137,6 +140,14 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             finally
             { }
+        }
+
+        public Phong getPhong()
+        {
+            if (phongid != -1)
+                return Phong.getById(phongid);
+            else
+                return new Phong();
         }
 
         public TreeList getTreeList()

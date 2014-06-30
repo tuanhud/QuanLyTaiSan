@@ -147,7 +147,8 @@
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewPhong.OptionsFind.AlwaysVisible = true;
+            this.gridViewPhong.OptionsView.ShowGroupPanel = false;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
             this.gridViewPhong.Click += new System.EventHandler(this.gridViewPhong_Click);
@@ -164,8 +165,6 @@
             this.colsubId.Caption = "Mã phòng";
             this.colsubId.FieldName = "subId";
             this.colsubId.Name = "colsubId";
-            this.colsubId.Visible = true;
-            this.colsubId.VisibleIndex = 0;
             this.colsubId.Width = 78;
             // 
             // colten
@@ -174,7 +173,7 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 1;
+            this.colten.VisibleIndex = 0;
             this.colten.Width = 78;
             // 
             // colmota
@@ -183,7 +182,7 @@
             this.colmota.FieldName = "mota";
             this.colmota.Name = "colmota";
             this.colmota.Visible = true;
-            this.colmota.VisibleIndex = 2;
+            this.colmota.VisibleIndex = 1;
             this.colmota.Width = 78;
             // 
             // coldate_create
@@ -191,8 +190,6 @@
             this.coldate_create.Caption = "Ngày tạo";
             this.coldate_create.FieldName = "date_create";
             this.coldate_create.Name = "coldate_create";
-            this.coldate_create.Visible = true;
-            this.coldate_create.VisibleIndex = 3;
             this.coldate_create.Width = 65;
             // 
             // coldate_modified
@@ -200,8 +197,6 @@
             this.coldate_modified.Caption = "Ngày cập nhật";
             this.coldate_modified.FieldName = "date_modified";
             this.coldate_modified.Name = "coldate_modified";
-            this.coldate_modified.Visible = true;
-            this.coldate_modified.VisibleIndex = 4;
             this.coldate_modified.Width = 76;
             // 
             // colnhanvienpt
@@ -210,7 +205,7 @@
             this.colnhanvienpt.FieldName = "nhanvienpt.hoten";
             this.colnhanvienpt.Name = "colnhanvienpt";
             this.colnhanvienpt.Visible = true;
-            this.colnhanvienpt.VisibleIndex = 5;
+            this.colnhanvienpt.VisibleIndex = 2;
             this.colnhanvienpt.Width = 104;
             // 
             // groupControl2

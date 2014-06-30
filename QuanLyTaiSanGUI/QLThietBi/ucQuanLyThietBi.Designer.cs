@@ -353,7 +353,8 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaThietBi);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaThietBi);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Phòng";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Thiết bị";
             // 
             // colsoluong
             // 

@@ -13,7 +13,7 @@ namespace WebQuanLyTaiSan
         {
             if (Convert.ToString(Page.Session["Username"]) != "admin")
             {
-                Response.Redirect("DangNhap.aspx");
+                //Response.Redirect("DangNhap.aspx");
             }
         }
     }
