@@ -502,6 +502,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             try
             {
                 ViTri objViTri = null;
+                errorProvider1.Clear();
                 switch (_type)
                 {
                     case "CoSo":

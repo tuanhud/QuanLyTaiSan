@@ -358,6 +358,13 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             enableEdit(true, "add");
             SetTextGroupControl("Thêm loại thiết bị", Color.Red);
             beforeAdd();
+            if (objLoaiThietBi != null)
+            {
+                if (objLoaiThietBi.parent != null)
+                {
+                    lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                }
+            }
         }
 
         private void barButtonSuaLoaiTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
