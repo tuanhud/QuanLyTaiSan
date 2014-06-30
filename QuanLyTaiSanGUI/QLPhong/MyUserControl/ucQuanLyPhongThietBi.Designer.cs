@@ -43,6 +43,7 @@
             this.gridControlCTThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewCTThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colidTB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colloaiTB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -76,7 +77,6 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.colidTB = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
@@ -133,6 +133,7 @@
             this.barButtonSuaTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSuaTB.Id = 43;
             this.barButtonSuaTB.Name = "barButtonSuaTB";
+            this.barButtonSuaTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaTB_ItemClick);
             // 
             // barButtonXoaTB
             // 
@@ -140,6 +141,7 @@
             this.barButtonXoaTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoaTB.Id = 44;
             this.barButtonXoaTB.Name = "barButtonXoaTB";
+            this.barButtonXoaTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaTB_ItemClick);
             // 
             // barButtonChuyen
             // 
@@ -240,6 +242,12 @@
             this.colid.Caption = "id";
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
+            // 
+            // colidTB
+            // 
+            this.colidTB.Caption = "idTB";
+            this.colidTB.FieldName = "idTB";
+            this.colidTB.Name = "colidTB";
             // 
             // colten
             // 
@@ -419,6 +427,7 @@
             this.btnHuy.TabIndex = 21;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
@@ -428,6 +437,7 @@
             this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnImage
             // 
@@ -437,6 +447,7 @@
             this.btnImage.TabIndex = 19;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // labelControl7
             // 
@@ -557,12 +568,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // colidTB
-            // 
-            this.colidTB.Caption = "idTB";
-            this.colidTB.FieldName = "idTB";
-            this.colidTB.Name = "colidTB";
             // 
             // ucQuanLyPhongThietBi
             // 

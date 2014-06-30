@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI.MyUC
                                 break;
                             case "QLPhongThietBi":
                                 {
-                                    if (phongid != -1 && this.Parent != null)
+                                    if (this.Parent != null)
                                     {
                                         ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
                                         _ucQuanLyPhongThietBi.setData(phongid);
