@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     if (this.Parent.Parent.Parent != null)
                     {
                         ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent.Parent.Parent as ucQuanLyPhongThietBi;
-                        _ucQuanLyPhongThietBi.reLoadThietBiTrongPhong();
+                        //_ucQuanLyPhongThietBi.reLoadThietBiTrongPhong();
                     }
                 }
                 else
