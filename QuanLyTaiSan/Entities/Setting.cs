@@ -47,7 +47,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="key"></param>
         /// <returns>"" or value</returns>
-        public String getValue(String key)
+        public static String getValue(String key)
         {
             Setting tmp = getByKey(key);
             if (tmp != null)

@@ -2,20 +2,44 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QuanLyTaiSan.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="db_name" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DB_9B1246_ts</Value>
+    <Setting Name="db_server_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\SQLEXPRESS</Value>
     </Setting>
-    <Setting Name="db_username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DB_9B1246_ts_admin</Value>
+    <Setting Name="db_server_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
     </Setting>
-    <Setting Name="db_password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">quanlytaisan</Value>
+    <Setting Name="db_server_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
     </Setting>
-    <Setting Name="db_host" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sqlts.hoangthanhit.com</Value>
+    <Setting Name="db_server_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="cached_connection_string" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Default</Value>
+    <Setting Name="db_cache_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\SQLEXPRESS</Value>
+    </Setting>
+    <Setting Name="db_cache_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="db_cache_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="db_cache_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="use_db_cache" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="db_server_dbname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">QuanLyTaiSanDB</Value>
+    </Setting>
+    <Setting Name="db_cache_dbname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">QuanLyTaiSanDB_cache</Value>
+    </Setting>
+    <Setting Name="db_server_WA" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="db_cache_WA" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
