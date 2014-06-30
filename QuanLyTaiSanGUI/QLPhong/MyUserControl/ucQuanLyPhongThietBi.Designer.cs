@@ -48,6 +48,7 @@
             this.colloaiTB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colnone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlLog = new DevExpress.XtraGrid.GridControl();
             this.gridViewlog = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -149,6 +150,7 @@
             this.barButtonChuyen.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.forward;
             this.barButtonChuyen.Id = 45;
             this.barButtonChuyen.Name = "barButtonChuyen";
+            this.barButtonChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonChuyen_ItemClick);
             // 
             // rbnPagePhongThietbi_Home
             // 
@@ -226,7 +228,8 @@
             this.colten,
             this.colloaiTB,
             this.coltinhtrang,
-            this.colsoluong});
+            this.colsoluong,
+            this.colnone});
             this.gridViewCTThietBi.GridControl = this.gridControlCTThietBi;
             this.gridViewCTThietBi.Name = "gridViewCTThietBi";
             this.gridViewCTThietBi.OptionsBehavior.Editable = false;
@@ -256,6 +259,7 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
+            this.colten.Width = 189;
             // 
             // colloaiTB
             // 
@@ -264,6 +268,7 @@
             this.colloaiTB.Name = "colloaiTB";
             this.colloaiTB.Visible = true;
             this.colloaiTB.VisibleIndex = 1;
+            this.colloaiTB.Width = 174;
             // 
             // coltinhtrang
             // 
@@ -272,6 +277,7 @@
             this.coltinhtrang.Name = "coltinhtrang";
             this.coltinhtrang.Visible = true;
             this.coltinhtrang.VisibleIndex = 2;
+            this.coltinhtrang.Width = 144;
             // 
             // colsoluong
             // 
@@ -280,6 +286,14 @@
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.Visible = true;
             this.colsoluong.VisibleIndex = 3;
+            this.colsoluong.Width = 89;
+            // 
+            // colnone
+            // 
+            this.colnone.Name = "colnone";
+            this.colnone.Visible = true;
+            this.colnone.VisibleIndex = 4;
+            this.colnone.Width = 72;
             // 
             // groupControl2
             // 
@@ -657,5 +671,6 @@
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colidTB;
+        private DevExpress.XtraGrid.Columns.GridColumn colnone;
     }
 }

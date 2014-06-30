@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.MyForm
+﻿namespace QuanLyTaiSanGUI.QLPhong
 {
     partial class frmNewThietBi
     {

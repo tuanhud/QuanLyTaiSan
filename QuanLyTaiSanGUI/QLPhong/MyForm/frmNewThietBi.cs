@@ -14,7 +14,7 @@ using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraEditors;
 using QuanLyTaiSanGUI.QLThietBi;
 
-namespace QuanLyTaiSanGUI.MyForm
+namespace QuanLyTaiSanGUI.QLPhong
 {
     public partial class frmNewThietBi : Form
     {
