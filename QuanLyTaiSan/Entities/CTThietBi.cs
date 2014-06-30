@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -151,7 +152,7 @@ namespace QuanLyTaiSan.Entities
         /// Tự động có transaction
         /// 
         /// CTThietBi obj = new CTThietBi();
-        /// obj.thietbi = new ThietBi().request(loaithietbi);
+        /// obj.thietbi = ThietBi.request(loaithietbi);
         /// obj.phong = phong;
         /// obj.tinhtrang = tinhtrang;
         /// obj.soluong=soluong;
@@ -206,64 +207,38 @@ namespace QuanLyTaiSan.Entities
 
         #region Override method
         /// <summary>
-        /// Nghiệp vụ add không hỗ trợ transaction,
-        /// inner use only
-        /// </summary>
-        /// <param name="ngay"></param>
-        /// <param name="in_transaction"></param>
-        /// <returns></returns>
-        private int add____(DateTime? ngay = null, Boolean in_transaction=false)
-        {
-            Boolean ok = true;            
-            ok = ok && base.add()>0;
-            ok = ok && writelog(ngay, mota)>0;
-            return ok ? 1 : -1;
-            
-        }
-        /// <summary>
-        /// Hàm add có hỗ trợ transaction
+        /// Hàm add có hỗ trợ transaction, chỉ hõ trợ add raw và ghi log chứ không tự động nghiệp vụ cộng dồn số lượng
         /// </summary>
         /// <param name="ngay"></param>
         /// <param name="in_transaction">Có đang bị chạy trong 1 transaction khác</param>
         /// <returns></returns>
         public int add(DateTime? ngay=null, Boolean in_transaction=false)
         {
-            if (in_transaction)
+            DbContextTransaction dbTransac=null;
+            Boolean transac = true;
+            if (!in_transaction)
             {
-                return add____(ngay, in_transaction);
+                dbTransac = db.Database.BeginTransaction();
             }
-            else
+            //SCRIPT
+
+            transac = transac && base.add() > 0;
+            transac = transac && writelog(ngay, mota) > 0;
+
+            //END SCRIPT
+            if (!in_transaction)
             {
-                //add kết hợp write log tự động
-                Boolean transac = true;
-                using (var dbTransac = db.Database.BeginTransaction())
+                if (transac)
                 {
-                    transac = transac && add____(ngay, in_transaction)>0;
-                    if (transac)
-                    {
-                        dbTransac.Commit();
-                    }
-                    else
-                    {
-                        dbTransac.Rollback();
-                    }
-                    return transac ? 1 : -1;
+                    dbTransac.Commit();
                 }
+                else
+                {
+                    dbTransac.Rollback();
+                }
+                dbTransac.Dispose();
             }
-            
-        }
-        /// <summary>
-        /// Không hỗ trợ Transac
-        /// </summary>
-        /// <param name="ngay"></param>
-        /// <returns></returns>
-        private int update___(DateTime? ngay = null)
-        {
-            //add combine with write log
-            Boolean ok = true;
-            ok = ok && base.update()>0;
-            ok = ok && writelog(ngay, mota)>0;
-            return ok ? 1 : -1;
+            return transac ? 1 : -1;            
         }
         public int update(DateTime? ngay=null, Boolean in_transaction=false)
         {
@@ -281,29 +256,32 @@ namespace QuanLyTaiSan.Entities
                 thietbi.trigger();
             }
 
-            
-            if (in_transaction)
+            //UPDATE
+            DbContextTransaction dbTransac = null;
+            Boolean transac = true;
+            if (!in_transaction)
             {
-                return update___(ngay);
+                dbTransac = db.Database.BeginTransaction();
             }
-            else
-            {
-                Boolean transac = true;
-                using (var dbTransac = db.Database.BeginTransaction())
-                {
-                    transac = transac && update___(ngay) > 0;
-                    if (transac)
-                    {
-                        dbTransac.Commit();
-                    }
-                    else
-                    {
-                        dbTransac.Rollback();
-                    }
+            //SCRIPT
 
-                    return transac ? 1 : -1;
+            transac = transac && base.update() > 0;
+            transac = transac && writelog(ngay, mota) > 0;
+
+            //END SCRIPT
+            if (!in_transaction)
+            {
+                if (transac)
+                {
+                    dbTransac.Commit();
                 }
+                else
+                {
+                    dbTransac.Rollback();
+                }
+                dbTransac.Dispose();
             }
+            return transac ? 1 : -1; 
         }
 
         #endregion
