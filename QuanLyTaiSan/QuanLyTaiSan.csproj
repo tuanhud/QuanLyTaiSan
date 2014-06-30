@@ -100,6 +100,7 @@
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Global\Global.cs" />
+    <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
     <Compile Include="Libraries\HTTPHelper.cs" />
@@ -162,6 +163,14 @@
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs" />
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.Designer.cs">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    <Compile Include="Migrations\201406300747246_update-database.cs" />
+    <Compile Include="Migrations\201406300747246_update-database.Designer.cs">
+      <DependentUpon>201406300747246_update-database.cs</DependentUpon>
     </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
@@ -226,6 +235,9 @@
     <EmbeddedResource Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.resx">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406300747246_update-database.resx">
+      <DependentUpon>201406300747246_update-database.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -247,14 +259,9 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
