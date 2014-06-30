@@ -16,7 +16,6 @@ namespace QuanLyTaiSanGUI.MyUC
     public partial class ucTreeLoaiTB : UserControl
     {
         LoaiThietBi obj = new LoaiThietBi();
-        List<LoaiThietBi> listLoaiThietBi = new List<LoaiThietBi>();
         public String type = "";
         bool haveCheck = false;
         public ucTreeLoaiTB()
@@ -64,7 +63,6 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public void loadData(List<LoaiThietBi> _list)
         {
-            listLoaiThietBi = new List<LoaiThietBi>(_list);
             treeListLoaiTB.BeginUnboundLoad();
             treeListLoaiTB.DataSource = _list;
             treeListLoaiTB.EndUnboundLoad();
@@ -75,7 +73,6 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 obj = _loai;
-                //Console.WriteLine(listLoaiThietBi.Count.ToString());
                 treeListLoaiTB.CollapseAll();
                 TreeListNode node = treeListLoaiTB.FindNodeByFieldValue("id", _loai.id);
                 treeListLoaiTB.FocusedNode = node;
@@ -124,7 +121,6 @@ namespace QuanLyTaiSanGUI.MyUC
         public void setTextPopupContainerEdit(String text)
         {
             popupContainerEdit1.Text = text;
-            popupContainerEdit1.ClosePopup();
         }
 
         public String setTextPopupContainerEdit()
