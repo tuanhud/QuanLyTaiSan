@@ -40,7 +40,8 @@ namespace QuanLyTaiSan.Entities
         public override int delete()
         {
             //Tự động xóa hình thuộc object này
-            db.HINHANHS.RemoveRange(hinhanhs);//Việc xóa sẽ được thực thi thực sự ngay khi gọi save change
+            if (hinhanhs != null)//1 số trường hợp gán listHinhAnh vào obj là null, nó bắt lỗi null
+                db.HINHANHS.RemoveRange(hinhanhs);//Việc xóa sẽ được thực thi thực sự ngay khi gọi save change
 
             return base.delete();
         }

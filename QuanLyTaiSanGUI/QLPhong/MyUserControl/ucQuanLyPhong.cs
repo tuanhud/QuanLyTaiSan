@@ -29,13 +29,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         int row, cosoid, dayid, tangid = 0;
 
-        List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
+        //List<ThietBiFilter> listThietBis = new List<ThietBiFilter>();
         List<ViTriHienThi> listVitris = new List<ViTriHienThi>();
 
         List<Phong> listPhong = new List<Phong>();
-        List<HinhAnh> listHinh = new List<HinhAnh>();
-        List<HinhAnh> listHinhNV = new List<HinhAnh>();
+
         List<NhanVienPT> listNhanVienPT = new List<NhanVienPT>();
+        List<HinhAnh> listHinhAnhPhong = new List<HinhAnh>();
+        List<HinhAnh> listHinhAnhNhanVien = new List<HinhAnh>();
 
         ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhong");
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
@@ -76,16 +77,18 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //Mở tắt bar
         public void enableBar(bool _enable)
         {
-            if (_enable)
-            {
-                barButtonSuaPhong.Enabled = true;
-                barButtonXoaPhong.Enabled = true;
-            }
-            else
-            {
-                barButtonSuaPhong.Enabled = false;
-                barButtonXoaPhong.Enabled = false;
-            }
+            //if (_enable)
+            //{
+            //    barButtonSuaPhong.Enabled = true;
+            //    barButtonXoaPhong.Enabled = true;
+            //}
+            //else
+            //{
+            //    barButtonSuaPhong.Enabled = false;
+            //    barButtonXoaPhong.Enabled = false;
+            //}
+            barButtonSuaPhong.Enabled = _enable;
+            barButtonXoaPhong.Enabled = _enable;
         }
 
         //Xóa hết dữ liệu form thông tin phòng + nhân viên
@@ -223,21 +226,23 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtTenNhanVien.Text = objNV.hoten;
                 txtSoDienThoai.Text = objNV.sodienthoai;
                 if (objPhong.hinhanhs == null)
-                    listHinh = new List<HinhAnh>();
+                    listHinhAnhPhong = new List<HinhAnh>();
                 else
-                    listHinh = objPhong.hinhanhs.ToList();
+                    listHinhAnhPhong = objPhong.hinhanhs.ToList();
                 if (objPhong.nhanvienpt != null)
                 {
                     if (objPhong.nhanvienpt.hinhanhs == null)
-                        listHinhNV = new List<HinhAnh>();
+                        listHinhAnhNhanVien = new List<HinhAnh>();
                     else
-                        listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                        listHinhAnhNhanVien = objPhong.nhanvienpt.hinhanhs.ToList();
                 }
                 else
                 {
-                    listHinhNV = new List<HinhAnh>();
+                    listHinhAnhNhanVien = new List<HinhAnh>();
                 }
                 reloadImagePhong();
+
+
                 reloadImageNhanVienPT();
             }
             catch (Exception ex)
@@ -251,9 +256,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                if (listHinh != null)
+                if (listHinhAnhPhong != null)
                 {
-                    objPhong.hinhanhs = listHinh;
+                    objPhong.hinhanhs = listHinhAnhPhong;
                 }
                 objPhong.subId = txtMaPhong.Text;
                 objPhong.ten = txtTenPhong.Text;
@@ -299,7 +304,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objPhongNew.subId = txtMaPhong.Text;
                 objPhongNew.ten = txtTenPhong.Text;
                 objPhongNew.mota = txtMoTaPhong.Text;
-                objPhongNew.hinhanhs = listHinh;
+                objPhongNew.hinhanhs = listHinhAnhPhong;
                 objPhongNew.vitri = _ucComboBoxViTri.getViTri();
                 objPhongNew.nhanvienpt = NhanVienPT.getById(_idnhanvien);
                 if (objPhongNew.add() != -1)
@@ -349,7 +354,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 imgPhong.Images.Clear();
-                foreach (HinhAnh h in listHinh)
+                foreach (HinhAnh h in listHinhAnhPhong)
                 {
                     imgPhong.Images.Add(h.getImage());
                 }
@@ -366,7 +371,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 imgNhanVien.Images.Clear();
-                foreach (HinhAnh h in listHinhNV)
+                foreach (HinhAnh h in listHinhAnhNhanVien)
                 {
                     imgNhanVien.Images.Add(h.getImage());
                 }
@@ -436,11 +441,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
-                enableEdit(true, "edit");
+
                 //_index = gridViewPhong.FocusedRowHandle;
                 SetTextGroupControl("Chỉnh sửa phòng", true);
+
                 if (objPhong.nhanvienpt != null)
                     searchLookUpEditNhanVienPT.EditValue = objPhong.nhanvienpt.id;
+                getInfoPhongNhanVien(false);
+                enableEdit(true, "edit");
             }
             catch (Exception ex)
             {
@@ -491,8 +499,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
                 SetTextGroupControl("Chi tiết", false);
                 dxErrorProvider.ClearErrors();
-                listHinh = null;
-                listHinhNV = null;
+                listHinhAnhPhong = null;
+                listHinhAnhNhanVien = null;
                 enableEdit(false, "");
             }
             catch (Exception ex)
@@ -504,7 +512,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void btnHuy_Click(object sender, EventArgs e)
         {
             dxErrorProvider.ClearErrors();
-            listHinh = null;
+            listHinhAnhPhong = null;
             setData(objPhong);
             enableEdit(false, "");
             //reloadImageNhanVienPT();
@@ -538,17 +546,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
                 if (function.Equals("edit"))
                 {
-                    frm = new frmHinhAnh(listHinh);
+                    frm = new frmHinhAnh(listHinhAnhPhong);
                     frm.Text = "Quản lý hình ảnh " + objPhong.ten;
                     frm.ShowDialog();
-                    listHinh = frm.getlistHinhs();
+                    listHinhAnhPhong = frm.getlistHinhs();
                 }
                 else
                 {
-                    frm = new frmHinhAnh(listHinh);
+                    frm = new frmHinhAnh(listHinhAnhPhong);
                     frm.Text = "Quản lý hình ảnh phòng mới";
                     frm.ShowDialog();
-                    listHinh = frm.getlistHinhs();
+                    listHinhAnhPhong = frm.getlistHinhs();
                 }
                 reloadImagePhong();
             }
@@ -584,7 +592,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     txtMaNhanVien.Text = objPhong.nhanvienpt.subId;
                     txtTenNhanVien.Text = objPhong.nhanvienpt.hoten;
                     txtSoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
-                    listHinhNV = objPhong.nhanvienpt.hinhanhs.ToList();
+                    listHinhAnhNhanVien = objPhong.nhanvienpt.hinhanhs.ToList();
                     reloadImageNhanVienPT();
                 }
                 else

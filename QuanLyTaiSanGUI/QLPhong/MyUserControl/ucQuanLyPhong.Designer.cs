@@ -150,7 +150,6 @@
             this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
-            this.gridViewPhong.Click += new System.EventHandler(this.gridViewPhong_Click);
             // 
             // id
             // 
@@ -379,6 +378,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.searchLookUpEditNhanVienPT);
             this.groupControl1.Controls.Add(this.lblNhanVienPT);
             this.groupControl1.Controls.Add(this.panelControl1);
@@ -446,7 +447,7 @@
             // 
             // lblNhanVienPT
             // 
-            this.lblNhanVienPT.Location = new System.Drawing.Point(12, 283);
+            this.lblNhanVienPT.Location = new System.Drawing.Point(12, 286);
             this.lblNhanVienPT.Name = "lblNhanVienPT";
             this.lblNhanVienPT.Size = new System.Drawing.Size(63, 13);
             this.lblNhanVienPT.TabIndex = 16;
@@ -457,14 +458,14 @@
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Location = new System.Drawing.Point(79, 201);
+            this.panelControl1.Location = new System.Drawing.Point(79, 204);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(251, 20);
             this.panelControl1.TabIndex = 15;
             // 
             // lblHinhPhong
             // 
-            this.lblHinhPhong.Location = new System.Drawing.Point(12, 24);
+            this.lblHinhPhong.Location = new System.Drawing.Point(12, 27);
             this.lblHinhPhong.Name = "lblHinhPhong";
             this.lblHinhPhong.Size = new System.Drawing.Size(46, 13);
             this.lblHinhPhong.TabIndex = 14;
@@ -499,7 +500,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(12, 229);
+            this.labelControl5.Location = new System.Drawing.Point(12, 232);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(31, 13);
             this.labelControl5.TabIndex = 10;
@@ -507,7 +508,7 @@
             // 
             // lblViTri
             // 
-            this.lblViTri.Location = new System.Drawing.Point(12, 201);
+            this.lblViTri.Location = new System.Drawing.Point(12, 204);
             this.lblViTri.Name = "lblViTri";
             this.lblViTri.Size = new System.Drawing.Size(25, 13);
             this.lblViTri.TabIndex = 7;
@@ -515,7 +516,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 153);
+            this.labelControl1.Location = new System.Drawing.Point(12, 156);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(51, 13);
             this.labelControl1.TabIndex = 6;
@@ -523,7 +524,7 @@
             // 
             // lblTenPhong
             // 
-            this.lblTenPhong.Location = new System.Drawing.Point(12, 177);
+            this.lblTenPhong.Location = new System.Drawing.Point(12, 180);
             this.lblTenPhong.Name = "lblTenPhong";
             this.lblTenPhong.Size = new System.Drawing.Size(55, 13);
             this.lblTenPhong.TabIndex = 6;
@@ -533,7 +534,7 @@
             // 
             this.txtMaPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaPhong.Location = new System.Drawing.Point(79, 150);
+            this.txtMaPhong.Location = new System.Drawing.Point(79, 153);
             this.txtMaPhong.Name = "txtMaPhong";
             this.txtMaPhong.Size = new System.Drawing.Size(251, 20);
             this.txtMaPhong.TabIndex = 1;
@@ -542,7 +543,7 @@
             // 
             this.txtTenPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenPhong.Location = new System.Drawing.Point(79, 174);
+            this.txtTenPhong.Location = new System.Drawing.Point(79, 177);
             this.txtTenPhong.Name = "txtTenPhong";
             this.txtTenPhong.Size = new System.Drawing.Size(251, 20);
             this.txtTenPhong.TabIndex = 1;
@@ -560,7 +561,7 @@
             // 
             this.txtMoTaPhong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTaPhong.Location = new System.Drawing.Point(79, 227);
+            this.txtMoTaPhong.Location = new System.Drawing.Point(79, 230);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
             this.txtMoTaPhong.Size = new System.Drawing.Size(251, 49);
             this.txtMoTaPhong.TabIndex = 5;
