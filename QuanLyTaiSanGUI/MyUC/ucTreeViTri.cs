@@ -14,6 +14,7 @@ using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.MyUserControl;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -34,6 +35,8 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             type = _type;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> _list)

@@ -12,6 +12,7 @@ using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.QLNhanVien;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -26,6 +27,8 @@ namespace QuanLyTaiSanGUI.MyUC
         private void init()
         {
             treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
