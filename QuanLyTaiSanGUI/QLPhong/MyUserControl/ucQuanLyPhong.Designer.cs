@@ -33,8 +33,11 @@
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsubId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnhanvienpt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
@@ -133,17 +136,22 @@
             // 
             this.gridViewPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.id,
+            this.colsubId,
             this.colten,
             this.colmota,
+            this.coldate_create,
+            this.coldate_modified,
             this.colnhanvienpt});
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewPhong.OptionsFind.AlwaysVisible = true;
+            this.gridViewPhong.OptionsView.ShowGroupPanel = false;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
+            this.gridViewPhong.Click += new System.EventHandler(this.gridViewPhong_Click);
             // 
             // id
             // 
@@ -151,6 +159,13 @@
             this.id.FieldName = "id";
             this.id.Name = "id";
             this.id.Width = 40;
+            // 
+            // colsubId
+            // 
+            this.colsubId.Caption = "Mã phòng";
+            this.colsubId.FieldName = "subId";
+            this.colsubId.Name = "colsubId";
+            this.colsubId.Width = 78;
             // 
             // colten
             // 
@@ -170,10 +185,24 @@
             this.colmota.VisibleIndex = 1;
             this.colmota.Width = 78;
             // 
+            // coldate_create
+            // 
+            this.coldate_create.Caption = "Ngày tạo";
+            this.coldate_create.FieldName = "date_create";
+            this.coldate_create.Name = "coldate_create";
+            this.coldate_create.Width = 65;
+            // 
+            // coldate_modified
+            // 
+            this.coldate_modified.Caption = "Ngày cập nhật";
+            this.coldate_modified.FieldName = "date_modified";
+            this.coldate_modified.Name = "coldate_modified";
+            this.coldate_modified.Width = 76;
+            // 
             // colnhanvienpt
             // 
             this.colnhanvienpt.Caption = "Nhân viên phụ trách";
-            this.colnhanvienpt.FieldName = "tennvpt";
+            this.colnhanvienpt.FieldName = "nhanvienpt.hoten";
             this.colnhanvienpt.Name = "colnhanvienpt";
             this.colnhanvienpt.Visible = true;
             this.colnhanvienpt.VisibleIndex = 2;
@@ -369,8 +398,6 @@
             // 
             // searchLookUpEditNhanVienPT
             // 
-            this.searchLookUpEditNhanVienPT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchLookUpEditNhanVienPT.EditValue = "";
             this.searchLookUpEditNhanVienPT.Location = new System.Drawing.Point(79, 281);
             this.searchLookUpEditNhanVienPT.MenuManager = this.ribbonPhong;
@@ -382,9 +409,8 @@
             this.searchLookUpEditNhanVienPT.Properties.NullText = "";
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(251, 20);
+            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(213, 20);
             this.searchLookUpEditNhanVienPT.TabIndex = 18;
-            this.searchLookUpEditNhanVienPT.Visible = false;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
             // searchLookUpEdit1View
@@ -446,7 +472,6 @@
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 13;
             this.btnImage.Text = "Chọn";
-            this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnHuy
@@ -456,7 +481,6 @@
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
-            this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
@@ -466,7 +490,6 @@
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
-            this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // labelControl5
@@ -507,7 +530,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaPhong.Location = new System.Drawing.Point(79, 150);
             this.txtMaPhong.Name = "txtMaPhong";
-            this.txtMaPhong.Properties.ReadOnly = true;
             this.txtMaPhong.Size = new System.Drawing.Size(251, 20);
             this.txtMaPhong.TabIndex = 1;
             // 
@@ -517,7 +539,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenPhong.Location = new System.Drawing.Point(79, 174);
             this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Properties.ReadOnly = true;
             this.txtTenPhong.Size = new System.Drawing.Size(251, 20);
             this.txtTenPhong.TabIndex = 1;
             // 
@@ -536,7 +557,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoTaPhong.Location = new System.Drawing.Point(79, 227);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
-            this.txtMoTaPhong.Properties.ReadOnly = true;
             this.txtMoTaPhong.Size = new System.Drawing.Size(251, 49);
             this.txtMoTaPhong.TabIndex = 5;
             this.txtMoTaPhong.UseOptimizedRendering = true;
@@ -623,8 +643,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn coltinhtrang;
         private DevExpress.XtraGrid.Columns.GridColumn coltenthietbi;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colsubId;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colmota;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_create;
+        private DevExpress.XtraGrid.Columns.GridColumn coldate_modified;
         private DevExpress.XtraGrid.Columns.GridColumn colnhanvienpt;
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
