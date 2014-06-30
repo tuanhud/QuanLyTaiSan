@@ -55,7 +55,7 @@ namespace QuanLyTaiSan.Entities
             ThietBi tmp = null;
             if (loai.loaichung)
             {
-                //select thietbi
+                //select thietbi đã có sẵn để tái sử dụng
                 tmp = db.THIETBIS.Where(c=>c.loaithietbi_id==loai.id).FirstOrDefault();
                 if (tmp != null)
                 {
@@ -110,6 +110,14 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int add()
         {
+            //check ràng buộc nghiệp vụ, hạn chế thêm mới nếu là loại chung
+            ThietBi tmp = db.THIETBIS.Where(c => c.loaithietbi_id == loaithietbi.id && c.loaithietbi.loaichung == true).FirstOrDefault();
+            if (tmp != null)
+            {
+                this.id = tmp.id;
+                return 1;
+            }
+
             //time
             ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
             ngaylap = ngaylap == null ? ServerTimeHelper.getNow() : ngaylap;

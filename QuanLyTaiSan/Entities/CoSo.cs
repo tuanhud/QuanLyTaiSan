@@ -18,6 +18,11 @@ namespace QuanLyTaiSan.Entities
         }
        
         #region Định nghĩa
+        /// <summary>
+        /// Dùng để sắp xếp CoSo, mặc định khi thêm mới thì sẽ bật trigger để tự lấy id qua
+        /// </summary>
+        public int? order { get; set; }
+
         public virtual ICollection<Dayy> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
         #endregion
@@ -34,6 +39,17 @@ namespace QuanLyTaiSan.Entities
             base.init();
             days = new List<Dayy>();
             vitris = new List<ViTri>();
+        }
+        public override int add()
+        {
+            int re = base.add();
+            if (re > 0)
+            {
+                //tự động chỉnh trường order theo id
+                order = this.id;
+                return update();
+            }
+            return re;
         }
         #endregion
 
