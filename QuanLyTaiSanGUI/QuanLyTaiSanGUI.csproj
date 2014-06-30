@@ -139,6 +139,8 @@
     <Compile Include="Libraries\CheckedComboBoxEditHelper.cs" />
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\GetCheckedNodes.cs" />
+    <Compile Include="MyUC\MyGridLocalizer.cs" />
+    <Compile Include="MyUC\MyTreeListLocalizer.cs" />
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -16,6 +16,7 @@ using QuanLyTaiSan.Libraries;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 {
@@ -45,6 +46,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             ribbonViTri.Parent = null;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
             //loadData();
+            //Việt hóa
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData()
