@@ -64,6 +64,8 @@ namespace QuanLyTaiSanGUI.Settings
         /// <returns></returns>
         public int save()
         {
+            //test ftp;
+            //return FTPHelper.checkconnect(txtAddressFTP.Text, txtUsernameFTP.Text, txtPasswordFTP.Text);
             /*
              * LOCAL SETTING
              */

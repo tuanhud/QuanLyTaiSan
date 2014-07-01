@@ -104,6 +104,31 @@ namespace QuanLyTaiSan.Libraries
             }
         }
 
+        /// <summary>
+        /// Kiểm tra kết nối FTP
+        /// </summary>
+        /// <param name="host_name">dạng ftp url, vd: ftp://host.com</param>
+        /// <param name="user_name"></param>
+        /// <param name="pass_word"></param>
+        /// <returns></returns>
+
+        public static int checkconnect(String host_name, String user_name, String pass_word)
+        {
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(host_name);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                request.Credentials = new NetworkCredential(user_name, pass_word);
+                request.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+            return 1;
+        }
+
         #region Image Utilities
 
         /// <summary>

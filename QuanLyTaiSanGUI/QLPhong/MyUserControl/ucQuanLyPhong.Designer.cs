@@ -147,8 +147,7 @@
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewPhong.OptionsFind.AlwaysVisible = true;
-            this.gridViewPhong.OptionsView.ShowGroupPanel = false;
+            this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
             // 
@@ -244,9 +243,10 @@
             this.ribbonPhong.ExpandCollapseItem,
             this.barButtonThemPhong,
             this.barButtonSuaPhong,
-            this.barButtonXoaPhong});
+            this.barButtonXoaPhong,
+            this.barButtonXemListTB});
             this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhong.MaxItemId = 42;
+            this.ribbonPhong.MaxItemId = 43;
             this.ribbonPhong.Name = "ribbonPhong";
             this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home});
@@ -279,7 +279,8 @@
             // rbnPagePhong_Home
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.rbnPagePhong_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
             this.rbnPagePhong_Home.Text = "Phòng";
@@ -290,6 +291,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaPhong);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaPhong);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Phòng";
             // 
             // txtTenNhanVien
@@ -601,6 +603,21 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonXemListTB);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.ShowCaptionButton = false;
+            this.ribbonPageGroup2.Text = "Thiết bị";
+            // 
+            // barButtonXemListTB
+            // 
+            this.barButtonXemListTB.Caption = "Xem thiết bị";
+            this.barButtonXemListTB.Id = 42;
+            this.barButtonXemListTB.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.fs_view_icon;
+            this.barButtonXemListTB.Name = "barButtonXemListTB";
+            this.barButtonXemListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
             // 
             // ucQuanLyPhong
             // 

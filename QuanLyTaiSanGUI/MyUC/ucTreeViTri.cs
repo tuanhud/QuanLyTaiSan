@@ -35,8 +35,6 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             type = _type;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            //Việt hóa
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> _list)
@@ -185,6 +183,26 @@ namespace QuanLyTaiSanGUI.MyUC
             catch (Exception ex)
             {
                 System.Console.WriteLine(this.Name + " : setVitri : " + ex.Message);
+            }
+            finally
+            { }
+        }
+
+        public void setPhong(Phong obj)
+        {
+            try
+            {
+                if (obj != null)
+                {
+                    FindNode findNode = new FindNode(obj.id, typeof(Phong).Name);
+                    treeListViTri.CollapseAll();
+                    treeListViTri.NodesIterator.DoOperation(findNode);
+                    treeListViTri.FocusedNode = findNode.Node;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : setPhong : " + ex.Message);
             }
             finally
             { }

@@ -16,6 +16,7 @@ using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using QuanLyTaiSanGUI.QLPhong;
+using DevExpress.XtraGrid.Localization;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -54,11 +55,23 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listVitris);
-            objPhong = _ucTreeViTri.getPhong();
+            if (objPhong.id > 0)
+            {
+                _ucTreeViTri.setPhong(objPhong);
+            }
+            else
+            {
+                objPhong = _ucTreeViTri.getPhong();
+            }
             gridControlCTThietBi.DataSource = null;
             listCTThietBis = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
             gridControlCTThietBi.DataSource = listCTThietBis;
             editGUI();
+        }
+
+        public void setPhong(Phong obj)
+        {
+            objPhong = obj;
         }
 
         public void setData(int _phongid)
@@ -84,6 +97,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             if (listCTThietBis.Count > 0)
             {
+                panelControl1.Visible = true;
                 barButtonSuaTB.Enabled = true;
                 barButtonXoaTB.Enabled = true;
                 barButtonChuyen.Enabled = true;
@@ -93,7 +107,22 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 barButtonSuaTB.Enabled = false;
                 barButtonXoaTB.Enabled = false;
                 barButtonChuyen.Enabled = false;
+                panelControl1.Visible = false;
+                clearGroupChiTiet();
             }
+        }
+
+        private void clearGroupChiTiet()
+        {
+            txtMa.Text = "";
+            txtTen.Text = "";
+            txtMoTa.Text = "";
+            lblTenPhong.Text = "";
+            dateLap.EditValue = "";
+            dateMua.EditValue = "";
+            imageSlider1.Images.Clear();
+            gridControlLog.DataSource = null;
+
         }
 
         public RibbonControl getRibbon()
@@ -326,6 +355,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
             frmChuyen frm = new frmChuyen(objCTThietBi);
             frm.ShowDialog();
             reLoadCTThietBisOnlyAndFocused(id);
+        }
+
+        private void barButtonThemTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmNewThietBi frm = new frmNewThietBi(objCTThietBi.phong);
+            frm.ShowDialog();
         }
     }
 }

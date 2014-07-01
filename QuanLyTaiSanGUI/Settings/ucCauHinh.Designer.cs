@@ -154,9 +154,9 @@
             // 
             this.labelControl18.Location = new System.Drawing.Point(5, 105);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(43, 13);
+            this.labelControl18.Size = new System.Drawing.Size(46, 13);
             this.labelControl18.TabIndex = 24;
-            this.labelControl18.Text = "DB Name";
+            this.labelControl18.Text = "Tên CSDL";
             // 
             // txtPortDatabase
             // 
@@ -170,6 +170,7 @@
             // 
             this.txtPasswordDatabase.Location = new System.Drawing.Point(74, 76);
             this.txtPasswordDatabase.Name = "txtPasswordDatabase";
+            this.txtPasswordDatabase.Properties.UseSystemPasswordChar = true;
             this.txtPasswordDatabase.Size = new System.Drawing.Size(160, 20);
             this.txtPasswordDatabase.TabIndex = 21;
             // 
@@ -304,14 +305,15 @@
             // 
             this.labelControl9.Location = new System.Drawing.Point(5, 108);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(43, 13);
+            this.labelControl9.Size = new System.Drawing.Size(46, 13);
             this.labelControl9.TabIndex = 11;
-            this.labelControl9.Text = "DB Name";
+            this.labelControl9.Text = "Tên CSDL";
             // 
             // textEdit_CachePass
             // 
             this.textEdit_CachePass.Location = new System.Drawing.Point(74, 78);
             this.textEdit_CachePass.Name = "textEdit_CachePass";
+            this.textEdit_CachePass.Properties.UseSystemPasswordChar = true;
             this.textEdit_CachePass.Size = new System.Drawing.Size(160, 20);
             this.textEdit_CachePass.TabIndex = 8;
             // 
@@ -352,6 +354,7 @@
             // 
             // txtPrepathFTP
             // 
+            this.txtPrepathFTP.EditValue = "/";
             this.txtPrepathFTP.Location = new System.Drawing.Point(85, 56);
             this.txtPrepathFTP.Name = "txtPrepathFTP";
             this.txtPrepathFTP.Size = new System.Drawing.Size(166, 20);
@@ -361,9 +364,9 @@
             // 
             this.labelControl17.Location = new System.Drawing.Point(16, 59);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(38, 13);
+            this.labelControl17.Size = new System.Drawing.Size(54, 13);
             this.labelControl17.TabIndex = 2;
-            this.labelControl17.Text = "Prepath";
+            this.labelControl17.Text = "Đường dẫn";
             // 
             // txtPortFTP
             // 
@@ -375,13 +378,16 @@
             // 
             // txtPasswordFTP
             // 
+            this.txtPasswordFTP.EditValue = "quanlytaisan";
             this.txtPasswordFTP.Location = new System.Drawing.Point(85, 107);
             this.txtPasswordFTP.Name = "txtPasswordFTP";
+            this.txtPasswordFTP.Properties.UseSystemPasswordChar = true;
             this.txtPasswordFTP.Size = new System.Drawing.Size(166, 20);
             this.txtPasswordFTP.TabIndex = 1;
             // 
             // txtUsernameFTP
             // 
+            this.txtUsernameFTP.EditValue = "qlts@hoangthanhit.com";
             this.txtUsernameFTP.Location = new System.Drawing.Point(85, 81);
             this.txtUsernameFTP.Name = "txtUsernameFTP";
             this.txtUsernameFTP.Size = new System.Drawing.Size(166, 20);
@@ -397,6 +403,7 @@
             // 
             // txtAddressFTP
             // 
+            this.txtAddressFTP.EditValue = "ftp://hoangthanhit.com";
             this.txtAddressFTP.Location = new System.Drawing.Point(85, 32);
             this.txtAddressFTP.Name = "txtAddressFTP";
             this.txtAddressFTP.Size = new System.Drawing.Size(166, 20);
@@ -450,6 +457,7 @@
             // 
             // txtPrepathHTTP
             // 
+            this.txtPrepathHTTP.EditValue = "/qlts/";
             this.txtPrepathHTTP.Location = new System.Drawing.Point(86, 59);
             this.txtPrepathHTTP.Name = "txtPrepathHTTP";
             this.txtPrepathHTTP.Size = new System.Drawing.Size(166, 20);
@@ -457,6 +465,7 @@
             // 
             // txtAddressHTTP
             // 
+            this.txtAddressHTTP.EditValue = "http://hoangthanhit.com";
             this.txtAddressHTTP.Location = new System.Drawing.Point(86, 33);
             this.txtAddressHTTP.Name = "txtAddressHTTP";
             this.txtAddressHTTP.Size = new System.Drawing.Size(166, 20);

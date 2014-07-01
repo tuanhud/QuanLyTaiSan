@@ -53,7 +53,7 @@
             this.btnLoaiRieng.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLoaiRieng.Location = new System.Drawing.Point(0, 23);
             this.btnLoaiRieng.Name = "btnLoaiRieng";
-            this.btnLoaiRieng.Size = new System.Drawing.Size(251, 23);
+            this.btnLoaiRieng.Size = new System.Drawing.Size(245, 23);
             this.btnLoaiRieng.TabIndex = 1;
             this.btnLoaiRieng.Text = "Thiết bị quản lý riêng lẻ";
             this.btnLoaiRieng.Click += new System.EventHandler(this.btnLoaiRieng_Click);
