@@ -31,11 +31,6 @@ namespace QuanLyTaiSanGUI
             this.cau_hinh_ban_dau = cauHinhBanDau;
         }
 
-        private void Setting_Load(object sender, EventArgs e)
-        {
-            btnCauHinh.PerformClick();
-        }
-
         private void btnCauHinh_Click(object sender, EventArgs e)
         {
             if (_ucCauHinh == null)
