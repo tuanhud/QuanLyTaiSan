@@ -44,6 +44,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyThietBi _ucQuanLyThietBi = null;
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
+        bool drawEnd = false;
         public frmMain()
         {
             InitializeComponent();
@@ -90,6 +91,7 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucQuanLyNhanVien.getRibbon());
             addRibbonPage(_ucPhanQuyen.getRibbon());
             addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
+            drawEnd = true;
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -112,65 +114,68 @@ namespace QuanLyTaiSanGUI
         {
             try
             {
-                if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
+                if (drawEnd)
                 {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucQuanLyViTri.loadData();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucQuanLyViTri);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucQuanLyNhanVien.loadData();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucQuanLyNhanVien);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucQuanLyLoaiTB.reLoad();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucQuanLyLoaiTB);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucQuanLyThietBi.getControl().Parent = navBarGroupQLPhong.ControlContainer;
-                    _ucQuanLyThietBi.loadData(true);
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucQuanLyThietBi);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
-                    _ucQuanLyPhongThietBi.loadData();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucPhanQuyen.getControl().Parent = navBarGroupQLPhong.ControlContainer;
-                    //_ucPhanQuyen.loadData();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucPhanQuyen);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    _ucQuanLyPhong.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
-                    _ucQuanLyPhong.loadData();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucQuanLyPhong);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home")))
-                {
-                    navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                    //_ucTK_SLTB_TheoTinhTrang.loadData();
-                    panelControl1.Controls.Clear();
-                    panelControl1.Controls.Add(_ucTK_SLTB_TheoTinhTrang);
+                    if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyViTri.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyViTri);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyNhanVien.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyNhanVien);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyLoaiTB.reLoad();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyLoaiTB);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyThietBi.getControl().Parent = navBarGroupQLPhong.ControlContainer;
+                        _ucQuanLyThietBi.loadData(true);
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyThietBi);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
+                        _ucQuanLyPhongThietBi.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucPhanQuyen.getControl().Parent = navBarGroupQLPhong.ControlContainer;
+                        //_ucPhanQuyen.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucPhanQuyen);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyPhong.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
+                        _ucQuanLyPhong.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyPhong);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        //_ucTK_SLTB_TheoTinhTrang.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucTK_SLTB_TheoTinhTrang);
+                    }
                 }
             }
             catch (Exception ex)
