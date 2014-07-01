@@ -258,9 +258,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void barButtonThemThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmNewThietBi frm = new frmNewThietBi();
-            frm.sendMessage = new frmNewThietBi.SendMessage(reLoadListThietBi);
-            frm.ShowDialog();
+            //frmNewThietBi frm = new frmNewThietBi();
+            //frm.sendMessage = new frmNewThietBi.SendMessage(reLoadListThietBi);
+            //frm.ShowDialog();
         }
 
         private void barButtonSuaThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

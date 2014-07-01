@@ -126,6 +126,7 @@
             this.barButtonThemTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barButtonThemTB.Id = 42;
             this.barButtonThemTB.Name = "barButtonThemTB";
+            this.barButtonThemTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTB_ItemClick);
             // 
             // barButtonSuaTB
             // 

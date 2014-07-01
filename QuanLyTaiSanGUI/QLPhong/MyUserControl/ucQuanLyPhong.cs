@@ -594,5 +594,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     break;
             }
         }
+
+        private void barButtonXemListTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
