@@ -115,6 +115,7 @@
             this.Controls.Add(this.textEdit_password);
             this.Controls.Add(this.textEdit_username);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_username.Properties)).EndInit();

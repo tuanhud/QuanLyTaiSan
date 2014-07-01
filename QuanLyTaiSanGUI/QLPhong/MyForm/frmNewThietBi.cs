@@ -93,7 +93,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                         if (objCTThietBi.add() > 0)
                         {
                             XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            thanhcong = true;
+                            this.Close();
                         }
                         else
                         {
@@ -413,7 +413,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     searchLookUpEditListThietBi.Enabled = false;
                     searchLookUpEditListThietBi.EditValue = null;
                     imgHinhThietBi.Images.Clear();
-                    listHinhAnh = null;
+                    listHinhAnh = new List<HinhAnh>();
                 }
             }
             catch (Exception ex)

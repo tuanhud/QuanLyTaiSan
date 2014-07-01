@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -97,8 +98,9 @@ namespace QuanLyTaiSanGUI
         }
         private void show_frm_login()
         {
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
-            t.Start();
+            Thread thread = new Thread(new ThreadStart(ThreadProc));
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
 
             Application.Exit();
         }
