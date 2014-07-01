@@ -413,7 +413,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     searchLookUpEditListThietBi.Enabled = false;
                     searchLookUpEditListThietBi.EditValue = null;
                     imgHinhThietBi.Images.Clear();
-                    listHinhAnh = null;
+                    listHinhAnh = new List<HinhAnh>();
                 }
             }
             catch (Exception ex)
