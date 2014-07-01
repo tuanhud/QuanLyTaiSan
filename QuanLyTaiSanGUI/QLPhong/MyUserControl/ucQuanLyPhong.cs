@@ -94,7 +94,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             setTextGroupControl("Chi thiết phòng", Color.Black);
             function = "";
-            dxErrorProvider.ClearErrors();
+            errorProvider1.Clear();
             imgPhong.Images.Clear();
             listHinhAnhPhong = null;
             txtMaPhong.Text = "";
@@ -316,7 +316,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     if (objPhong.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
+                        reLoadAndFocused(objPhong.id);
                     }
                     else XtraMessageBox.Show("Có lỗi trong khi thêm");
                     break;
@@ -327,7 +327,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         if (objPhong.update() != -1)
                         {
                             XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
+                            reLoadAndFocused(objPhong.id);
                         }
                         else XtraMessageBox.Show("Có lỗi trong khi sửa");
                     }
@@ -384,18 +384,18 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // kiểm tra dữ liệu trước khi lưu
         private Boolean CheckInput()
         {
-            dxErrorProvider.ClearErrors();
+            errorProvider1.Clear();
             Boolean check = true;
             if (txtTenPhong.Text.Length == 0)
             {
                 check = false;
-                dxErrorProvider.SetError(txtTenPhong, "Chưa điền tên");
+                errorProvider1.SetError(txtTenPhong, "Chưa điền tên");
             }
             //Trường hợp chưa có vị trí
             if (listVitris.Count() == 0)
             {
                 check = false;
-                dxErrorProvider.SetError(panelControl1, "Chưa có vị trí");
+                errorProvider1.SetError(panelControl1, "Chưa có vị trí");
             }
             return check;
         }

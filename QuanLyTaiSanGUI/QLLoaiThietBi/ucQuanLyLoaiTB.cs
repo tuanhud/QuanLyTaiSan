@@ -88,6 +88,22 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             { }
         }
 
+        private void reLoadAndFocused(int _id)
+        {
+            try
+            {
+                reLoad();
+                //TreeNode node = 
+                //int rowHandle = gridViewPhong.LocateByValue(colid.FieldName, _id);
+                //if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                //    gridViewPhong.FocusedRowHandle = rowHandle;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + ": " + ex.Message);
+            }
+        }
+
         public void beforeAdd()
         {
             errorProvider1.Clear();

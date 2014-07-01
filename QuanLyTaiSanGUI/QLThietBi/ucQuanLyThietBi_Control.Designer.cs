@@ -48,9 +48,10 @@
             // 
             // btnLoaiRieng
             // 
-            this.btnLoaiRieng.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiRieng.Location = new System.Drawing.Point(3, 28);
+            this.btnLoaiRieng.Appearance.Options.UseTextOptions = true;
+            this.btnLoaiRieng.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnLoaiRieng.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLoaiRieng.Location = new System.Drawing.Point(0, 23);
             this.btnLoaiRieng.Name = "btnLoaiRieng";
             this.btnLoaiRieng.Size = new System.Drawing.Size(245, 23);
             this.btnLoaiRieng.TabIndex = 1;
@@ -59,11 +60,12 @@
             // 
             // btnLoaiChung
             // 
-            this.btnLoaiChung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiChung.Location = new System.Drawing.Point(3, 3);
+            this.btnLoaiChung.Appearance.Options.UseTextOptions = true;
+            this.btnLoaiChung.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnLoaiChung.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLoaiChung.Location = new System.Drawing.Point(0, 0);
             this.btnLoaiChung.Name = "btnLoaiChung";
-            this.btnLoaiChung.Size = new System.Drawing.Size(245, 23);
+            this.btnLoaiChung.Size = new System.Drawing.Size(251, 23);
             this.btnLoaiChung.TabIndex = 0;
             this.btnLoaiChung.Text = "Thiết bị quản lý theo số lượng";
             this.btnLoaiChung.Click += new System.EventHandler(this.btnLoaiChung_Click);
