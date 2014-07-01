@@ -177,8 +177,10 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 }
                 else if (_function.Equals("phancong"))
                 {
+                    int id = objNhanVienPT.id;
                     try
                     {
+                        
                         //Quan hệ 0 - n nên không thể gán list
                         List<Phong> listToRemove = objNhanVienPT.phongs.ToList();
                         foreach (Phong objToRemove in listToRemove)
@@ -206,8 +208,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     finally
                     {
                         XtraMessageBox.Show("Phân công nhân viên thành công!");
-                        reLoad();
                         PhanCong(false);
+                        reLoadAndFocused(id);
                     }
                 }
             }
