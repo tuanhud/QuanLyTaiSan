@@ -195,6 +195,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
+                setTextGroupControl("Chi thiết phòng", Color.Black);
                 listHinhAnhPhong = new List<HinhAnh>();
                 if (objPhong.hinhanhs != null)
                 {
@@ -285,7 +286,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         {
                             objNhanVienPT = NhanVienPT.getById(objPhong.nhanvienpt.id);
                         }
-                        setTextGroupControl("Chi thiết phòng", Color.Black);
                         setData();
                         enableBar(true);
                     }
