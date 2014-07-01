@@ -78,14 +78,14 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl_condition);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(850, 476);
+            this.splitContainerControl1.Size = new System.Drawing.Size(850, 473);
             this.splitContainerControl1.SplitterPosition = 221;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -96,7 +96,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(624, 476);
+            this.gridControl1.Size = new System.Drawing.Size(624, 473);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -187,7 +187,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 397);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(221, 79);
+            this.groupControl1.Size = new System.Drawing.Size(221, 76);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Tác vụ";
             // 
@@ -360,12 +360,13 @@
             this.ribbonThongKe.Name = "ribbonThongKe";
             this.ribbonThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe_Home});
-            this.ribbonThongKe.Size = new System.Drawing.Size(850, 142);
+            this.ribbonThongKe.Size = new System.Drawing.Size(850, 145);
             // 
             // rbnPageThongKe_Home
             // 
             this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
+            this.rbnPageThongKe_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
             this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
             this.rbnPageThongKe_Home.Text = "Thống kê";
             // 

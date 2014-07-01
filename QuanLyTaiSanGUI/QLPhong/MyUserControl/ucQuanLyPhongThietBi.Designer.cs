@@ -119,7 +119,7 @@
             this.ribbonPhongThietBi.Name = "ribbonPhongThietBi";
             this.ribbonPhongThietBi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhongThietbi_Home});
-            this.ribbonPhongThietBi.Size = new System.Drawing.Size(837, 142);
+            this.ribbonPhongThietBi.Size = new System.Drawing.Size(837, 145);
             // 
             // barButtonThemTB
             // 
@@ -156,6 +156,7 @@
             // 
             this.rbnPagePhongThietbi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnPageThietBi});
+            this.rbnPagePhongThietbi_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
             this.rbnPagePhongThietbi_Home.Name = "rbnPagePhongThietbi_Home";
             this.rbnPagePhongThietbi_Home.Text = "Phòng - Thiết bị";
             // 
@@ -187,9 +188,9 @@
             this.groupPhong.AppearanceCaption.Options.UseForeColor = true;
             this.groupPhong.Controls.Add(this.splitContainerControl1);
             this.groupPhong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupPhong.Location = new System.Drawing.Point(0, 142);
+            this.groupPhong.Location = new System.Drawing.Point(0, 145);
             this.groupPhong.Name = "groupPhong";
-            this.groupPhong.Size = new System.Drawing.Size(837, 558);
+            this.groupPhong.Size = new System.Drawing.Size(837, 555);
             this.groupPhong.TabIndex = 2;
             // 
             // splitContainerControl1
@@ -203,7 +204,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(833, 532);
+            this.splitContainerControl1.Size = new System.Drawing.Size(833, 529);
             this.splitContainerControl1.SplitterPosition = 284;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -215,7 +216,7 @@
             this.gridControlCTThietBi.MainView = this.gridViewCTThietBi;
             this.gridControlCTThietBi.MenuManager = this.ribbonPhongThietBi;
             this.gridControlCTThietBi.Name = "gridControlCTThietBi";
-            this.gridControlCTThietBi.Size = new System.Drawing.Size(544, 532);
+            this.gridControlCTThietBi.Size = new System.Drawing.Size(544, 529);
             this.gridControlCTThietBi.TabIndex = 0;
             this.gridControlCTThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTThietBi});
@@ -303,7 +304,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 415);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(284, 117);
+            this.groupControl2.Size = new System.Drawing.Size(284, 114);
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Log";
             // 
@@ -313,7 +314,7 @@
             this.gridControlLog.Location = new System.Drawing.Point(2, 24);
             this.gridControlLog.MainView = this.gridViewlog;
             this.gridControlLog.Name = "gridControlLog";
-            this.gridControlLog.Size = new System.Drawing.Size(280, 91);
+            this.gridControlLog.Size = new System.Drawing.Size(280, 88);
             this.gridControlLog.TabIndex = 0;
             this.gridControlLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewlog});

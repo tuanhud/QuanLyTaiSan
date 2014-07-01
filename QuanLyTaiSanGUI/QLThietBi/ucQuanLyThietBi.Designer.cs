@@ -269,7 +269,7 @@
             this.groupControlThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.groupControlThietBi.Name = "groupControlThietBi";
-            this.groupControlThietBi.Size = new System.Drawing.Size(312, 498);
+            this.groupControlThietBi.Size = new System.Drawing.Size(312, 495);
             this.groupControlThietBi.TabIndex = 2;
             this.groupControlThietBi.Text = "Chi tiết thiết bị";
             // 
@@ -314,7 +314,7 @@
             this.ribbonThietBi.Name = "ribbonThietBi";
             this.ribbonThietBi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThietBi_Home});
-            this.ribbonThietBi.Size = new System.Drawing.Size(840, 142);
+            this.ribbonThietBi.Size = new System.Drawing.Size(840, 145);
             // 
             // barButtonThemThietBi
             // 
@@ -344,6 +344,7 @@
             // 
             this.rbnPageThietBi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
+            this.rbnPageThietBi_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thietbi;
             this.rbnPageThietBi_Home.Name = "rbnPageThietBi_Home";
             this.rbnPageThietBi_Home.Text = "Thiết bị";
             // 
@@ -375,7 +376,7 @@
             this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlThietBi.MainView = this.gridViewThietBi;
             this.gridControlThietBi.Name = "gridControlThietBi";
-            this.gridControlThietBi.Size = new System.Drawing.Size(523, 498);
+            this.gridControlThietBi.Size = new System.Drawing.Size(523, 495);
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});
@@ -439,13 +440,13 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlThietBi);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControlThietBi);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(840, 498);
+            this.splitContainerControl1.Size = new System.Drawing.Size(840, 495);
             this.splitContainerControl1.SplitterPosition = 312;
             this.splitContainerControl1.TabIndex = 4;
             this.splitContainerControl1.Text = "splitContainerControl1";
