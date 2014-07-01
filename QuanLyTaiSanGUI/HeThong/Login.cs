@@ -21,12 +21,17 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //QuanTriVien obj = new QuanTriVien();
-            //obj.hoten = "Nguyen Dung";
-            //obj.username = "admin2";
-            //obj.hashPassword("admin2");
-            //obj.group = new Group(obj.DB).getById(1);
-            //obj.add();
+            QuanTriVien obj = QuanTriVien.getByUserName("admin");
+            if (obj == null)
+            {
+                obj = new QuanTriVien();
+                obj.username = "admin";
+                obj.hashPassword("admin");
+                obj.hoten = "Quản trị cấp cao";
+                obj.mota = "Hệ thống tự động thêm";
+                obj.group = new Group { ten = "Admin",key="admin" };
+                obj.add();
+            }
         }
 
         private void button_ok_Click(object sender, EventArgs e)
@@ -39,12 +44,11 @@ namespace QuanLyTaiSanGUI.HeThong
             if (re)
             {
                 labelControl_msg.Text = "Đăng nhập thành công!";
-                //...
+                this.show_frm_main();
             }
             else
             {
                 labelControl_msg.Text = "Sai tài khoản hoặc mật khẩu!";
-
             }
         }
 
@@ -78,5 +82,19 @@ namespace QuanLyTaiSanGUI.HeThong
                 button_ok.PerformClick();
             }
         }
+
+        #region SHOW FRM MAIN IN NEW THREAD
+        private void ThreadProc()
+        {
+            Application.Run(new frmMain());
+        }
+        private void show_frm_main()
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+            t.Start();
+
+            Application.Exit();
+        }
+        #endregion
     }
 }
