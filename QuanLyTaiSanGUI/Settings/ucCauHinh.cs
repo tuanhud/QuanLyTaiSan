@@ -141,5 +141,30 @@ namespace QuanLyTaiSanGUI.Settings
             txtUsernameDatabase.Enabled = !checkEdit_ServerWA.Checked;
             txtPasswordDatabase.Enabled = !checkEdit_ServerWA.Checked;
         }
+
+        private void simpleButton_validateServer_Click(object sender, EventArgs e)
+        {
+            Global.server_database.prepare_db_structure();
+        }
+
+        private void simpleButton_validateClient_Click(object sender, EventArgs e)
+        {
+            Global.client_database.prepare_db_structure();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Global.client_database.start_sync();
+        }
+
+        private void simpleButton_cleanUpServerScope_Click(object sender, EventArgs e)
+        {
+            Global.server_database.clean_up_scope();
+        }
+
+        private void simpleButton_cleanUpClientScope_Click(object sender, EventArgs e)
+        {
+            Global.client_database.clean_up_scope();
+        }
     }
 }

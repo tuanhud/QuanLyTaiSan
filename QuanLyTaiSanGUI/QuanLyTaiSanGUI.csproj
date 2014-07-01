@@ -265,7 +265,6 @@
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
     <Compile Include="Settings\ucCauHinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
