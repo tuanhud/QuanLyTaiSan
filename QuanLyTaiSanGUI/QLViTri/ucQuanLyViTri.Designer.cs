@@ -284,8 +284,7 @@
             this.rbnGroupViTri_Day,
             this.rbnGroupViTri_Tang});
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
-            this.rbnPageViTri_Home.Text = "Trang chính";
-            this.rbnPageViTri_Home.Visible = false;
+            this.rbnPageViTri_Home.Text = "Vị trí";
             // 
             // rbnGroupViTri_CoSo
             // 

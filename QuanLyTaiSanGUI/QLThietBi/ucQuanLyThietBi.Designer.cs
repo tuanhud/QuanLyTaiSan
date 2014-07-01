@@ -345,7 +345,7 @@
             this.rbnPageThietBi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
             this.rbnPageThietBi_Home.Name = "rbnPageThietBi_Home";
-            this.rbnPageThietBi_Home.Text = "Trang chính";
+            this.rbnPageThietBi_Home.Text = "Thiết bị";
             // 
             // ribbonPageGroup1
             // 

@@ -60,12 +60,6 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 type = e.Node.GetValue(0).ToString();
-                if (this.ParentForm != null)
-                {
-                    frmMain frm = this.ParentForm as frmMain;
-                    frm.treeThongKeFocusedNodeChanged(type);
-                }
-                
             }
             catch (Exception ex)
             {

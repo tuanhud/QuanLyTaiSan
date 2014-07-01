@@ -281,7 +281,7 @@
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
-            this.rbnPagePhong_Home.Text = "Trang chính";
+            this.rbnPagePhong_Home.Text = "Phòng";
             // 
             // ribbonPageGroup1
             // 

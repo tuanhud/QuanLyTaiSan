@@ -157,7 +157,7 @@
             this.rbnPagePhongThietbi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnPageThietBi});
             this.rbnPagePhongThietbi_Home.Name = "rbnPagePhongThietbi_Home";
-            this.rbnPagePhongThietbi_Home.Text = "Trang chính";
+            this.rbnPagePhongThietbi_Home.Text = "Phòng - Thiết bị";
             // 
             // rbnPageThietBi
             // 

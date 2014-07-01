@@ -53,6 +53,9 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dateEdit_from = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.ribbonThongKe = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -68,20 +71,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl_condition);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(756, 458);
+            this.splitContainerControl1.Size = new System.Drawing.Size(850, 476);
             this.splitContainerControl1.SplitterPosition = 221;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -92,7 +96,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(530, 458);
+            this.gridControl1.Size = new System.Drawing.Size(624, 476);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -183,7 +187,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 397);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(221, 61);
+            this.groupControl1.Size = new System.Drawing.Size(221, 79);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Tác vụ";
             // 
@@ -346,13 +350,38 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Chọn ngày:";
             // 
+            // ribbonThongKe
+            // 
+            this.ribbonThongKe.ExpandCollapseItem.Id = 0;
+            this.ribbonThongKe.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonThongKe.ExpandCollapseItem});
+            this.ribbonThongKe.Location = new System.Drawing.Point(0, 0);
+            this.ribbonThongKe.MaxItemId = 1;
+            this.ribbonThongKe.Name = "ribbonThongKe";
+            this.ribbonThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rbnPageThongKe_Home});
+            this.ribbonThongKe.Size = new System.Drawing.Size(850, 142);
+            // 
+            // rbnPageThongKe_Home
+            // 
+            this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
+            this.rbnPageThongKe_Home.Text = "Thống kê";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
             // ucTK_SLTB_TheoTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
+            this.Controls.Add(this.ribbonThongKe);
             this.Name = "ucTK_SLTB_TheoTinhTrang";
-            this.Size = new System.Drawing.Size(756, 458);
+            this.Size = new System.Drawing.Size(850, 618);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -369,7 +398,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -400,5 +431,8 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_coso;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.PanelControl panelLoaiTB;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonThongKe;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThongKe_Home;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

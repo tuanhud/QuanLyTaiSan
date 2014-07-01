@@ -376,8 +376,7 @@
             this.rbnGroupNhanVien,
             this.rbnGroupNhanVienPhong});
             this.rbnPageNhanVien_Home.Name = "rbnPageNhanVien_Home";
-            this.rbnPageNhanVien_Home.Text = "Trang chính";
-            this.rbnPageNhanVien_Home.Visible = false;
+            this.rbnPageNhanVien_Home.Text = "Nhân viên";
             // 
             // rbnGroupNhanVien
             // 

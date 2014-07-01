@@ -278,8 +278,7 @@
             this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLoaiTB});
             this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
-            this.rbnPageLoaiTB_Home.Text = "Trang chính";
-            this.rbnPageLoaiTB_Home.Visible = false;
+            this.rbnPageLoaiTB_Home.Text = "Loại thiết bị";
             // 
             // rbnGroupLoaiTB
             // 

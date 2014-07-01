@@ -55,11 +55,11 @@
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.ribbonPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonThemQTV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaQTV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaQTV = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -362,21 +362,6 @@
             this.rbnPagePhanQuyen_Home});
             this.ribbonPhanQuyen.Size = new System.Drawing.Size(860, 142);
             // 
-            // rbnPagePhanQuyen_Home
-            // 
-            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
-            this.rbnPagePhanQuyen_Home.Text = "Trang chính";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemQTV);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaQTV);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaQTV);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Quản trị viên";
-            // 
             // barButtonThemQTV
             // 
             this.barButtonThemQTV.Caption = "Thêm quản trị viên";
@@ -394,6 +379,21 @@
             this.barButtonXoaQTV.Caption = "Xóa quản trị viên";
             this.barButtonXoaQTV.Id = 3;
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
+            // 
+            // rbnPagePhanQuyen_Home
+            // 
+            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
+            this.rbnPagePhanQuyen_Home.Text = "Phân quyền";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemQTV);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaQTV);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaQTV);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Quản trị viên";
             // 
             // ucPhanQuyen
             // 
