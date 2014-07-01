@@ -29,9 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewThietBi));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.searchLookUpEditListThietBi = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.comboBoxEditHinhThucThem = new DevExpress.XtraEditors.ComboBoxEdit();
             this.imgHinhThietBi = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.lblChonThietBi = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.btnChonHinh = new DevExpress.XtraEditors.SimpleButton();
@@ -57,16 +65,13 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBoxEditHinhThucThem = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.searchLookUpEditListThietBi = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lblChonThietBi = new DevExpress.XtraEditors.LabelControl();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditListThietBi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditHinhThucThem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHinhThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).BeginInit();
@@ -84,9 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditHinhThucThem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditListThietBi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -127,6 +130,59 @@
             this.panelControl1.Size = new System.Drawing.Size(351, 280);
             this.panelControl1.TabIndex = 0;
             // 
+            // searchLookUpEditListThietBi
+            // 
+            this.searchLookUpEditListThietBi.Enabled = false;
+            this.searchLookUpEditListThietBi.Location = new System.Drawing.Point(107, 57);
+            this.searchLookUpEditListThietBi.Name = "searchLookUpEditListThietBi";
+            this.searchLookUpEditListThietBi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchLookUpEditListThietBi.Properties.DisplayMember = "ten";
+            this.searchLookUpEditListThietBi.Properties.NullText = "";
+            this.searchLookUpEditListThietBi.Properties.ValueMember = "id";
+            this.searchLookUpEditListThietBi.Properties.View = this.searchLookUpEdit1View;
+            this.searchLookUpEditListThietBi.Size = new System.Drawing.Size(233, 20);
+            this.searchLookUpEditListThietBi.TabIndex = 11;
+            this.searchLookUpEditListThietBi.EditValueChanged += new System.EventHandler(this.searchLookUpEditListThietBi_EditValueChanged);
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.colten});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "Mã thiết bị";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // colten
+            // 
+            this.colten.Caption = "Tên thiết bị";
+            this.colten.FieldName = "ten";
+            this.colten.Name = "colten";
+            this.colten.Visible = true;
+            this.colten.VisibleIndex = 0;
+            // 
+            // comboBoxEditHinhThucThem
+            // 
+            this.comboBoxEditHinhThucThem.EditValue = "Thêm mới";
+            this.comboBoxEditHinhThucThem.Location = new System.Drawing.Point(107, 31);
+            this.comboBoxEditHinhThucThem.Name = "comboBoxEditHinhThucThem";
+            this.comboBoxEditHinhThucThem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditHinhThucThem.Properties.Items.AddRange(new object[] {
+            "Thêm mới",
+            "Chọn từ danh sách"});
+            this.comboBoxEditHinhThucThem.Size = new System.Drawing.Size(233, 20);
+            this.comboBoxEditHinhThucThem.TabIndex = 10;
+            this.comboBoxEditHinhThucThem.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditHinhThucThem_SelectedIndexChanged);
+            // 
             // imgHinhThietBi
             // 
             this.imgHinhThietBi.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
@@ -135,6 +191,22 @@
             this.imgHinhThietBi.Size = new System.Drawing.Size(100, 100);
             this.imgHinhThietBi.TabIndex = 0;
             this.imgHinhThietBi.Text = "imageSlider1";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(11, 34);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(73, 13);
+            this.labelControl11.TabIndex = 9;
+            this.labelControl11.Text = "Hình thức thêm";
+            // 
+            // lblChonThietBi
+            // 
+            this.lblChonThietBi.Location = new System.Drawing.Point(11, 60);
+            this.lblChonThietBi.Name = "lblChonThietBi";
+            this.lblChonThietBi.Size = new System.Drawing.Size(61, 13);
+            this.lblChonThietBi.TabIndex = 9;
+            this.lblChonThietBi.Text = "Chọn thiết bị";
             // 
             // labelControl7
             // 
@@ -364,15 +436,17 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(177, 3);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
-            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Text = "Đóng";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(96, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -386,76 +460,9 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // comboBoxEditHinhThucThem
+            // dxErrorProvider
             // 
-            this.comboBoxEditHinhThucThem.EditValue = "Thêm mới";
-            this.comboBoxEditHinhThucThem.Location = new System.Drawing.Point(107, 31);
-            this.comboBoxEditHinhThucThem.Name = "comboBoxEditHinhThucThem";
-            this.comboBoxEditHinhThucThem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditHinhThucThem.Properties.Items.AddRange(new object[] {
-            "Thêm mới",
-            "Chọn từ danh sách"});
-            this.comboBoxEditHinhThucThem.Size = new System.Drawing.Size(233, 20);
-            this.comboBoxEditHinhThucThem.TabIndex = 10;
-            this.comboBoxEditHinhThucThem.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditHinhThucThem_SelectedIndexChanged);
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(11, 34);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(73, 13);
-            this.labelControl11.TabIndex = 9;
-            this.labelControl11.Text = "Hình thức thêm";
-            // 
-            // searchLookUpEditListThietBi
-            // 
-            this.searchLookUpEditListThietBi.EditValue = "";
-            this.searchLookUpEditListThietBi.Location = new System.Drawing.Point(107, 57);
-            this.searchLookUpEditListThietBi.Name = "searchLookUpEditListThietBi";
-            this.searchLookUpEditListThietBi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchLookUpEditListThietBi.Properties.DisplayMember = "ten";
-            this.searchLookUpEditListThietBi.Properties.NullText = "";
-            this.searchLookUpEditListThietBi.Properties.ValueMember = "id";
-            this.searchLookUpEditListThietBi.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEditListThietBi.Size = new System.Drawing.Size(233, 20);
-            this.searchLookUpEditListThietBi.TabIndex = 11;
-            this.searchLookUpEditListThietBi.Visible = false;
-            this.searchLookUpEditListThietBi.EditValueChanged += new System.EventHandler(this.searchLookUpEditListThietBi_EditValueChanged);
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
-            this.colten});
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // lblChonThietBi
-            // 
-            this.lblChonThietBi.Location = new System.Drawing.Point(11, 60);
-            this.lblChonThietBi.Name = "lblChonThietBi";
-            this.lblChonThietBi.Size = new System.Drawing.Size(61, 13);
-            this.lblChonThietBi.TabIndex = 9;
-            this.lblChonThietBi.Text = "Chọn thiết bị";
-            this.lblChonThietBi.Visible = false;
-            // 
-            // colid
-            // 
-            this.colid.Caption = "Mã thiết bị";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // colten
-            // 
-            this.colten.Caption = "Tên thiết bị";
-            this.colten.FieldName = "ten";
-            this.colten.Name = "colten";
-            this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
+            this.dxErrorProvider.ContainerControl = this;
             // 
             // frmNewThietBi
             // 
@@ -474,6 +481,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditListThietBi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditHinhThucThem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHinhThietBi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).EndInit();
@@ -492,9 +502,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditHinhThucThem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditListThietBi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,11 +540,12 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditHinhThucThem;
         private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lblChonThietBi;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEditListThietBi;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private DevExpress.XtraEditors.LabelControl lblChonThietBi;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
 
 
 
