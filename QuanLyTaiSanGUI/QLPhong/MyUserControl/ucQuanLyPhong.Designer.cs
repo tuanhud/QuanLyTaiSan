@@ -81,7 +81,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -102,7 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -411,7 +411,7 @@
             this.searchLookUpEditNhanVienPT.Properties.NullText = "";
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(213, 20);
+            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(251, 20);
             this.searchLookUpEditNhanVienPT.TabIndex = 18;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
@@ -443,7 +443,7 @@
             // 
             // lblNhanVienPT
             // 
-            this.lblNhanVienPT.Location = new System.Drawing.Point(12, 286);
+            this.lblNhanVienPT.Location = new System.Drawing.Point(12, 284);
             this.lblNhanVienPT.Name = "lblNhanVienPT";
             this.lblNhanVienPT.Size = new System.Drawing.Size(63, 13);
             this.lblNhanVienPT.TabIndex = 16;
@@ -478,7 +478,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(145, 305);
+            this.btnHuy.Location = new System.Drawing.Point(160, 304);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
@@ -487,7 +487,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(64, 305);
+            this.btnOK.Location = new System.Drawing.Point(79, 304);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 11;
@@ -496,7 +496,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(12, 232);
+            this.labelControl5.Location = new System.Drawing.Point(12, 233);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(31, 13);
             this.labelControl5.TabIndex = 10;
@@ -596,9 +596,11 @@
             this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
             this.rbnGroupPhong_Phong.Text = "Phòng";
             // 
-            // dxErrorProvider
+            // errorProvider1
             // 
-            this.dxErrorProvider.ContainerControl = this;
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.RightToLeft = true;
             // 
             // ucQuanLyPhong
             // 
@@ -630,7 +632,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTaPhong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -680,7 +682,6 @@
         private DevExpress.XtraEditors.TextEdit txtTenPhong;
         private DevExpress.XtraEditors.Controls.ImageSlider imgPhong;
         private DevExpress.XtraEditors.MemoEdit txtMoTaPhong;
-        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
         private DevExpress.XtraEditors.LabelControl lblNhanVienPT;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEditNhanVienPT;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
@@ -691,5 +692,6 @@
         private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtMaPhong;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

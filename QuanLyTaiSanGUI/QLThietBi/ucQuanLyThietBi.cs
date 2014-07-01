@@ -10,8 +10,11 @@ using System.Windows.Forms;
 using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraGrid.Views.BandedGrid;
+using DevExpress.XtraEditors.Repository;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.Entities;
+using DevExpress.XtraGrid;
 
 namespace QuanLyTaiSanGUI.QLThietBi
 {
@@ -27,10 +30,18 @@ namespace QuanLyTaiSanGUI.QLThietBi
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         String function = "";
         Boolean loaiChung = true;
+        int khoangcach;
+        Point pointLabelMota, pointTxtMota, pointBtnOk, pointBtnHuy;
 
         public ucQuanLyThietBi()
         {
             InitializeComponent();
+            pointLabelMota = labelControlMoTa.Location;
+            pointTxtMota = txtMoTa.Location;
+            pointBtnOk = btnOk.Location;
+            pointBtnHuy = btnHuy.Location;
+            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
+
             init();
         }
 
@@ -58,9 +69,32 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public void loadData(bool _loaichung)
         {
             loaiChung = _loaichung;
+            _ucQuanLyThietBi_Control.enable_disableRiengChung(loaiChung);
+
             listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
             listLoaiThietBi.Insert(0, loaiThietBiNULL);
 
+            int Y = Math.Abs(pointBtnHuy.Y - khoangcach);
+            if (loaiChung)
+            {
+                labelControlNgayMua.Visible = false;
+                dateEditNgayMua.Visible = false;
+                labelControlMoTa.Location = labelControlNgayMua.Location;
+                txtMoTa.Location = dateEditNgayMua.Location;
+                btnOk.Location = new Point(pointBtnOk.X, Y);
+                btnHuy.Location = new Point(pointBtnHuy.X, Y);
+                gridViewThietBi.Columns.ColumnByName("colngaymua").Visible = false;
+            }
+            else
+            {
+                labelControlNgayMua.Visible = true;
+                dateEditNgayMua.Visible = true;
+                labelControlMoTa.Location = pointLabelMota;
+                txtMoTa.Location = pointTxtMota;
+                btnOk.Location = pointBtnOk;
+                btnHuy.Location = pointBtnHuy;
+                gridViewThietBi.Columns.ColumnByName("colngaymua").Visible = true;
+            }
             reLoad();
         }
 
@@ -69,11 +103,40 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucTreeLoaiTB = new ucTreeLoaiTB();
             _ucTreeLoaiTB.loadData(listLoaiThietBi);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
+            _ucTreeLoaiTB.setReadOnly(true);
             panelControlLoaiThietBi.Controls.Clear();
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
 
             listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(loaiChung);
             gridControlThietBi.DataSource = listThietBiHienThi;
+            if (listThietBiHienThi.Count() == 0)
+            {
+                enableEdit(false);
+                function = "";
+                deleteData();
+            }
+        }
+
+        private void reLoadAndFocused(int _id)
+        {
+            try
+            {
+                reLoad();
+                int rowHandle = gridViewThietBi.LocateByValue(colid.FieldName, _id);
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    //Do multiselect true
+                    gridViewThietBi.ClearSelection();
+                    gridViewThietBi.FocusedRowHandle = rowHandle;
+                    gridViewThietBi.SelectRow(rowHandle);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
+            }
+            finally
+            { }
         }
 
         private void setTextGroupControl(String text, Color color)
@@ -91,13 +154,13 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucTreeLoaiTB.setLoai(loaiThietBiNULL);
             if (loaiChung)
             {
-                dateEditMua.EditValue = null;
-                dateEditLap.EditValue = null;
+                dateEditNgayMua.EditValue = null;
+                //dateEditLap.EditValue = null;
             }
             else
             {
-                dateEditLap.DateTime = DateTime.Today;
-                dateEditMua.DateTime = DateTime.Today;
+                //dateEditLap.DateTime = DateTime.Today;
+                dateEditNgayMua.DateTime = DateTime.Today;
             }
             txtMoTa.Text = "";
         }
@@ -115,19 +178,19 @@ namespace QuanLyTaiSanGUI.QLThietBi
             {
                 if (loaiChung)
                 {
-                    dateEditMua.Properties.ReadOnly = loaiChung;
-                    dateEditLap.Properties.ReadOnly = loaiChung;
+                    dateEditNgayMua.Properties.ReadOnly = loaiChung;
+                    //dateEditLap.Properties.ReadOnly = loaiChung;
                 }
                 else
                 {
-                    dateEditMua.Properties.ReadOnly = loaiChung;
-                    dateEditLap.Properties.ReadOnly = loaiChung;
+                    dateEditNgayMua.Properties.ReadOnly = loaiChung;
+                    //dateEditLap.Properties.ReadOnly = loaiChung;
                 }
             }
             else
             {
-                dateEditMua.Properties.ReadOnly = !_enable;
-                dateEditLap.Properties.ReadOnly = !_enable;
+                dateEditNgayMua.Properties.ReadOnly = !_enable;
+                //dateEditLap.Properties.ReadOnly = !_enable;
             }
             _ucTreeLoaiTB.setReadOnly(!_enable);
         }
@@ -155,16 +218,15 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 txtTen.Text = objThietBi.ten;
                 _ucTreeLoaiTB.setLoai(objThietBi.loaithietbi);
 
-
                 if (loaiChung)
                 {
-                    dateEditMua.EditValue = null;
-                    dateEditLap.EditValue = null;
+                    dateEditNgayMua.EditValue = null;
+                    //dateEditLap.EditValue = null;
                 }
                 else
                 {
-                    dateEditMua.EditValue = objThietBi.ngaymua;
-                    dateEditLap.EditValue = objThietBi.ngaylap;
+                    dateEditNgayMua.EditValue = objThietBi.ngaymua;
+                    //dateEditLap.EditValue = objThietBi.ngaylap;
                 }
 
                 txtMoTa.Text = objThietBi.mota;
@@ -189,8 +251,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             else
             {
-                objThietBi.ngaymua = dateEditMua.DateTime;
-                objThietBi.ngaylap = dateEditLap.DateTime;
+                objThietBi.ngaymua = dateEditNgayMua.DateTime;
+                //objThietBi.ngaylap = dateEditLap.DateTime;
             }
             objThietBi.mota = txtMoTa.Text;
         }
@@ -205,8 +267,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     if (objThietBi.add() != -1)
                     {
                         XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
-
+                        reLoadAndFocused(objThietBi.id);
                     }
                     break;
                 case "edit":
@@ -214,7 +275,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     if (objThietBi.update() != -1)
                     {
                         XtraMessageBox.Show("Sửa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
+                        reLoadAndFocused(objThietBi.id);
                     }
                     break;
                 case "delete":
@@ -284,21 +345,29 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             if (!loaiChung)
             {
-                if (dateEditMua.DateTime > dateEditLap.DateTime)
+                //if (dateEditMua.DateTime > dateEditLap.DateTime)
+                //{
+                //    check = false;
+                //    errorProvider1.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                //}
+                if (dateEditNgayMua.EditValue != null)
+                {
+                    if (dateEditNgayMua.DateTime > DateTime.Today)
+                    {
+                        check = false;
+                        errorProvider1.SetError(dateEditNgayMua, "Ngày mua lớn hơn ngày hiện tại");
+                    }
+                }
+                else
                 {
                     check = false;
-                    errorProvider1.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                    errorProvider1.SetError(dateEditNgayMua, "Ngày mua sai");
                 }
-                if (dateEditMua.DateTime > DateTime.Today)
-                {
-                    check = false;
-                    errorProvider1.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
-                }
-                if (dateEditLap.DateTime > DateTime.Today)
-                {
-                    check = false;
-                    errorProvider1.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
-                }
+                //if (dateEditLap.DateTime > DateTime.Today)
+                //{
+                //    check = false;
+                //    errorProvider1.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
+                //}
             }
             else
             {
@@ -411,13 +480,13 @@ namespace QuanLyTaiSanGUI.QLThietBi
             setTextGroupControl("Thêm thiết bị", Color.Red);
             if (loaiChung)
             {
-                dateEditMua.TabIndex = 99;
-                dateEditLap.TabIndex = 100;
+                dateEditNgayMua.TabIndex = 99;
+                //dateEditLap.TabIndex = 100;
             }
             else
             {
-                dateEditMua.TabIndex = 5;
-                dateEditLap.TabIndex = 6;
+                dateEditNgayMua.TabIndex = 5;
+                //dateEditLap.TabIndex = 6;
             }
         }
 
@@ -430,13 +499,13 @@ namespace QuanLyTaiSanGUI.QLThietBi
             setTextGroupControl("Sửa thiết bị", Color.Red);
             if (loaiChung)
             {
-                dateEditMua.TabIndex = 99;
-                dateEditLap.TabIndex = 100;
+                dateEditNgayMua.TabIndex = 99;
+                //dateEditLap.TabIndex = 100;
             }
             else
             {
-                dateEditMua.TabIndex = 5;
-                dateEditLap.TabIndex = 6;
+                dateEditNgayMua.TabIndex = 5;
+                //dateEditLap.TabIndex = 6;
             }
         }
 
@@ -444,6 +513,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             function = "delete";
             CRUD();
+            gridControlThietBi.Focus();
         }
     }
 }

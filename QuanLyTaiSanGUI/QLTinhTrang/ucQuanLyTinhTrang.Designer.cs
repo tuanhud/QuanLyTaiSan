@@ -125,7 +125,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(127, 179);
+            this.btnHuy.Location = new System.Drawing.Point(138, 179);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 6;
@@ -135,7 +135,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(45, 179);
+            this.btnOk.Location = new System.Drawing.Point(57, 179);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 5;

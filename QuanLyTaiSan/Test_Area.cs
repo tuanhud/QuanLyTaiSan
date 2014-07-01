@@ -102,8 +102,8 @@ namespace QuanLyTaiSan
         {
             CTThietBi obj = CTThietBi.getById(18);
             Phong dich =Phong.getById(4);
-            int re = obj.dichuyen(dich, 2, "Chua co mota nao");
-            Console.WriteLine(re);
+            //int re = obj.dichuyen(dich, 2, "Chua co mota nao");
+            //Console.WriteLine(re);
         }
         private void login()
         {

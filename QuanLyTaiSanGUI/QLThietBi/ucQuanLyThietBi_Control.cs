@@ -40,5 +40,11 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             return panelControl1;
         }
+
+        public void enable_disableRiengChung(Boolean enable)
+        {
+            btnLoaiChung.Enabled = !enable;
+            btnLoaiRieng.Enabled = enable;
+        }
     }
 }
