@@ -22,6 +22,7 @@ namespace QuanLyTaiSanGUI
         private Boolean cau_hinh_ban_dau = true;
 
         private ucCauHinh _ucCauHinh = null;
+        private ucThongTinPhanMem _ucThongTinPhanMem = null;
         public Setting()
         {
             InitializeComponent();
@@ -76,6 +77,12 @@ namespace QuanLyTaiSanGUI
             {
                 this.custom_close();
             }
+            else //ngược lại set form defaul click Cấu hình. mấy nút kia disable
+            {
+                btnCauHinh.PerformClick();
+                btnGiaoDienvaNgonNgu.Visible = false;
+                btnCapNhatPhanMem.Visible = false;
+            }
         }
         /// <summary>
         /// Quyết định hành động kế tiếp khi hoàn tất form setting
@@ -105,5 +112,13 @@ namespace QuanLyTaiSanGUI
             Application.Exit();
         }
         #endregion
+
+        private void btnThongTinPhanMem_Click(object sender, EventArgs e)
+        {
+            _ucThongTinPhanMem = new ucThongTinPhanMem();
+            panelControlHienThiCauHinh.Controls.Clear();
+            _ucThongTinPhanMem.Dock = DockStyle.Fill;
+            panelControlHienThiCauHinh.Controls.Add(_ucThongTinPhanMem);
+        }
     }
 }

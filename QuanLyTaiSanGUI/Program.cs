@@ -17,7 +17,7 @@ namespace QuanLyTaiSanGUI
         static void Main()
         {
             Application.EnableVisualStyles();
-            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Office_2007_Pink());
+            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Office_2010_Blue());
             DevExpress.Skins.SkinManager.EnableFormSkins();
             Application.SetCompatibleTextRenderingDefault(false);
             DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly); // dx
@@ -26,8 +26,8 @@ namespace QuanLyTaiSanGUI
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
-            //Application.Run(new frmMain());
-            Application.Run(new Setting());
+            Application.Run(new frmMain());
+            //Application.Run(new Setting());
             //Application.Run(new QuanLyTaiSanGUI.MyForm.frmNewThietBi());
             //Application.Run(new Setting());
             //Application.Run(new SplashScreen1());
