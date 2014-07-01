@@ -119,13 +119,14 @@ namespace QuanLyTaiSan.Entities
                             tmp.mota = mota;//mota.Equals("")?tmp.mota:mota;
                             transac = transac && tmp.update(ngay, true) > 0;//UPDATE
                         }
-                        //cap nhat lai so luong cho cái hiện đã bị chuyển
-                        this.mota = mota;
-                        this.soluong -= soluong;
-                        this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
-                        //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                        transac = transac && update(ngay, true) > 0;
                     }
+
+                    //cap nhat lai so luong cho cái hiện đã bị chuyển
+                    this.mota = mota;
+                    this.soluong -= soluong;
+                    this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
+                    //ghi log thietbi ngay sau khi cap nhat ONLY soluong
+                    transac = transac && update(ngay, true) > 0;
                     
                 }
 

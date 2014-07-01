@@ -1,4 +1,6 @@
-﻿using QuanLyTaiSanGUI.Settings;
+﻿using QuanLyTaiSan.Entities;
+using QuanLyTaiSanGUI.HeThong;
+using QuanLyTaiSanGUI.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +15,20 @@ namespace QuanLyTaiSanGUI
 {
     public partial class Setting : Form
     {
-        ucCauHinh _ucCauHinh = null;
+        /// <summary>
+        /// Sẽ tự động mở Login lên sau khi Close()
+        /// </summary>
+        private Boolean cau_hinh_ban_dau = true;
+
+        private ucCauHinh _ucCauHinh = null;
         public Setting()
         {
             InitializeComponent();
+        }
+        public Setting(Boolean cauHinhBanDau=true)
+        {
+            InitializeComponent();
+            this.cau_hinh_ban_dau = cauHinhBanDau;
         }
 
         private void btnCauHinh_Click(object sender, EventArgs e)
@@ -35,10 +47,13 @@ namespace QuanLyTaiSanGUI
         {
             if (_ucCauHinh != null)
             {
+                //call ucSave
                 int re = _ucCauHinh.save();
+                
+                
                 if (re > 0)
                 {
-                    Close();
+                    this.custom_close();
                 }
                 else
                 {
@@ -50,6 +65,27 @@ namespace QuanLyTaiSanGUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.custom_close();
+        }
+
+        private void Setting_Load(object sender, EventArgs e)
+        {
+            //Check kết nối tới CSDL nếu OK thì gọi Close
+            if (Global.working_database.isReady())
+            {
+                this.custom_close();
+            }
+        }
+        /// <summary>
+        /// Quyết định hành động kế tiếp khi hoàn tất form setting
+        /// </summary>
+        private void custom_close()
+        {
+            if (cau_hinh_ban_dau)
+            {
+                Login loginFrm = new Login();
+                loginFrm.Show();
+            }
             Close();
         }
     }
