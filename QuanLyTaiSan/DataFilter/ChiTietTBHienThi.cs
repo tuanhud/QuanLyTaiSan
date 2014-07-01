@@ -21,7 +21,7 @@ namespace QuanLyTaiSan.DataFilter
             //OurDBContext db = new OurDBContext();
             List<ChiTietTBHienThi> re =
                 (from c in db.CTTHIETBIS
-                 where (c.phong.id == _phongid)
+                 where (c.phong.id == _phongid && c.soluong > 0)
                  select new ChiTietTBHienThi
                  {
                      id = c.id,

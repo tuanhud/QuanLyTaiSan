@@ -37,8 +37,6 @@ namespace QuanLyTaiSanGUI.MyUC
             chonDay = _chonDay;
             chonPhong = _chonPhong;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            //Việt hóa
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> _list)

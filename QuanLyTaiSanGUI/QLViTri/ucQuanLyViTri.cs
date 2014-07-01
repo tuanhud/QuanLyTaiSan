@@ -46,8 +46,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             ribbonViTri.Parent = null;
             treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
             //loadData();
-            //Việt hóa
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData()

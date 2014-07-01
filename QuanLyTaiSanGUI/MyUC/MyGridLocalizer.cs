@@ -15,6 +15,8 @@ namespace QuanLyTaiSanGUI.MyUC
                 return "Tìm kiếm";
             if (id == GridStringId.FindControlClearButton)
                 return "Làm mới";
+            if (id == GridStringId.GridGroupPanelText)
+                return "Kéo thả một cột vào đây để nhóm theo cột đó";
             return base.GetLocalizedString(id);
         }
     }

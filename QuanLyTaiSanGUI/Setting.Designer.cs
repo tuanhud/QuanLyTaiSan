@@ -53,7 +53,9 @@
             this.panelControlbtnCauHinh.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControlbtnCauHinh.Location = new System.Drawing.Point(0, 0);
             this.panelControlbtnCauHinh.Name = "panelControlbtnCauHinh";
-            this.panelControlbtnCauHinh.Size = new System.Drawing.Size(158, 422);
+
+            this.panelControlbtnCauHinh.Size = new System.Drawing.Size(161, 422);
+
             this.panelControlbtnCauHinh.TabIndex = 0;
             // 
             // btnCancel
@@ -62,7 +64,7 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.Location = new System.Drawing.Point(7, 387);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(143, 23);
+			this.btnCancel.Size = new System.Drawing.Size(145, 23);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Hủy bỏ";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -83,6 +85,7 @@
             this.btnSave.Location = new System.Drawing.Point(7, 351);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(143, 23);
+
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -118,16 +121,16 @@
             // panelControlHienThiCauHinh
             // 
             this.panelControlHienThiCauHinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlHienThiCauHinh.Location = new System.Drawing.Point(158, 0);
+            this.panelControlHienThiCauHinh.Location = new System.Drawing.Point(161, 0);
             this.panelControlHienThiCauHinh.Name = "panelControlHienThiCauHinh";
-            this.panelControlHienThiCauHinh.Size = new System.Drawing.Size(552, 422);
+            this.panelControlHienThiCauHinh.Size = new System.Drawing.Size(723, 422);
             this.panelControlHienThiCauHinh.TabIndex = 0;
             // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 422);
+            this.ClientSize = new System.Drawing.Size(884, 422);
             this.Controls.Add(this.panelControlHienThiCauHinh);
             this.Controls.Add(this.panelControlbtnCauHinh);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -16,6 +16,7 @@ using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Localization;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -597,7 +598,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonXemListTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (this.ParentForm != null)
+            {
+                frmMain frm = this.ParentForm as frmMain;
+                frm.loadDataByPhong(objPhong);
+            }
         }
     }
 }

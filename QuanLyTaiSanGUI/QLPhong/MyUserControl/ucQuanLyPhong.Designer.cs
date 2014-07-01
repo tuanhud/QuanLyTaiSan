@@ -613,8 +613,9 @@
             // 
             // barButtonXemListTB
             // 
-            this.barButtonXemListTB.Caption = "Xem thiết bị trong phòng";
+            this.barButtonXemListTB.Caption = "Xem thiết bị";
             this.barButtonXemListTB.Id = 42;
+            this.barButtonXemListTB.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.fs_view_icon;
             this.barButtonXemListTB.Name = "barButtonXemListTB";
             this.barButtonXemListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
             // 
