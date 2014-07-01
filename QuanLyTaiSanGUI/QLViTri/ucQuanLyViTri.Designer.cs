@@ -37,6 +37,9 @@
             this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
@@ -80,13 +83,13 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.treeListViTri);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(855, 473);
+            this.splitContainerControl1.Size = new System.Drawing.Size(855, 470);
             this.splitContainerControl1.SplitterPosition = 454;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -110,7 +113,7 @@
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.ParentFieldName = "id_p";
-            this.treeListViTri.Size = new System.Drawing.Size(454, 473);
+            this.treeListViTri.Size = new System.Drawing.Size(454, 470);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -151,6 +154,9 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.btnR_Sua);
+            this.groupControl1.Controls.Add(this.btnR_Them);
+            this.groupControl1.Controls.Add(this.btnR_Xoa);
             this.groupControl1.Controls.Add(this.btnImage);
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOK);
@@ -165,9 +171,42 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(396, 473);
+            this.groupControl1.Size = new System.Drawing.Size(396, 470);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // btnR_Sua
+            // 
+            this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Sua.Location = new System.Drawing.Point(336, 0);
+            this.btnR_Sua.Name = "btnR_Sua";
+            this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Sua.TabIndex = 14;
+            this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
+            // 
+            // btnR_Them
+            // 
+            this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Them.Location = new System.Drawing.Point(310, 0);
+            this.btnR_Them.Name = "btnR_Them";
+            this.btnR_Them.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Them.TabIndex = 13;
+            this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
+            // 
+            // btnR_Xoa
+            // 
+            this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Xoa.Location = new System.Drawing.Point(362, 0);
+            this.btnR_Xoa.Name = "btnR_Xoa";
+            this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Xoa.TabIndex = 11;
+            this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // btnImage
             // 
@@ -283,9 +322,9 @@
             this.rbnGroupViTri_CoSo,
             this.rbnGroupViTri_Day,
             this.rbnGroupViTri_Tang});
+            this.rbnPageViTri_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
-            this.rbnPageViTri_Home.Text = "Trang chính";
-            this.rbnPageViTri_Home.Visible = false;
+            this.rbnPageViTri_Home.Text = "Vị trí";
             // 
             // rbnGroupViTri_CoSo
             // 
@@ -407,7 +446,7 @@
             this.ribbonViTri.Name = "ribbonViTri";
             this.ribbonViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri_Home});
-            this.ribbonViTri.Size = new System.Drawing.Size(855, 142);
+            this.ribbonViTri.Size = new System.Drawing.Size(855, 145);
             // 
             // ucQuanLyViTri
             // 
@@ -491,5 +530,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupViTri_CoSo;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupViTri_Day;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupViTri_Tang;
+        private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraEditors.SimpleButton btnR_Sua;
+        private DevExpress.XtraEditors.SimpleButton btnR_Them;
     }
 }

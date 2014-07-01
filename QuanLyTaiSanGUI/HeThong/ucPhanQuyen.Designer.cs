@@ -55,11 +55,11 @@
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.ribbonPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonThemQTV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaQTV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaQTV = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -81,13 +81,13 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlPhanQuyen);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(860, 493);
+            this.splitContainerControl1.Size = new System.Drawing.Size(860, 490);
             this.splitContainerControl1.SplitterPosition = 283;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -98,7 +98,7 @@
             this.gridControlPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhanQuyen.MainView = this.gridViewPhanQuyen;
             this.gridControlPhanQuyen.Name = "gridControlPhanQuyen";
-            this.gridControlPhanQuyen.Size = new System.Drawing.Size(572, 493);
+            this.gridControlPhanQuyen.Size = new System.Drawing.Size(572, 490);
             this.gridControlPhanQuyen.TabIndex = 0;
             this.gridControlPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhanQuyen});
@@ -193,7 +193,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(283, 493);
+            this.groupControl1.Size = new System.Drawing.Size(283, 490);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -360,22 +360,7 @@
             this.ribbonPhanQuyen.Name = "ribbonPhanQuyen";
             this.ribbonPhanQuyen.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhanQuyen_Home});
-            this.ribbonPhanQuyen.Size = new System.Drawing.Size(860, 142);
-            // 
-            // rbnPagePhanQuyen_Home
-            // 
-            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
-            this.rbnPagePhanQuyen_Home.Text = "Trang chính";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemQTV);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaQTV);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaQTV);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Quản trị viên";
+            this.ribbonPhanQuyen.Size = new System.Drawing.Size(860, 145);
             // 
             // barButtonThemQTV
             // 
@@ -394,6 +379,22 @@
             this.barButtonXoaQTV.Caption = "Xóa quản trị viên";
             this.barButtonXoaQTV.Id = 3;
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
+            // 
+            // rbnPagePhanQuyen_Home
+            // 
+            this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPagePhanQuyen_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
+            this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
+            this.rbnPagePhanQuyen_Home.Text = "Phân quyền";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemQTV);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaQTV);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaQTV);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Quản trị viên";
             // 
             // ucPhanQuyen
             // 

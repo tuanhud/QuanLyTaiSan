@@ -711,5 +711,46 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
         }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            deleteObj(node);
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            enableEdit(true, node, "edit");
+            setData(node);
+            if (node.Equals(typeof(CoSo).Name))
+            {
+                SetTextGroupControl("Sửa cơ sở", true);
+            }
+            else if (node.Equals(typeof(Dayy).Name))
+            {
+                SetTextGroupControl("Sửa dãy", true);
+            }
+            else
+            {
+                SetTextGroupControl("Sửa tầng", true);
+            }
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            beforeAdd(node);
+            enableEdit(true, node, "add");
+            if (node.Equals(typeof(CoSo).Name))
+            {
+                SetTextGroupControl("Thêm cơ sở", true);
+            }
+            else if (node.Equals(typeof(Dayy).Name))
+            {
+                SetTextGroupControl("Thêm dãy", true);
+            }
+            else
+            {
+                SetTextGroupControl("Thêm tầng", true);
+            }
+        }
     }
 }

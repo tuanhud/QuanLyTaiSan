@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.Libraries;
+using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {
@@ -20,6 +21,7 @@ namespace QuanLyTaiSanGUI.ThongKe
         public ucTK_SLTB_TheoTinhTrang()
         {
             InitializeComponent();
+            ribbonThongKe.Parent = null;
             loadData();
         }
         private void loadData()
@@ -35,6 +37,11 @@ namespace QuanLyTaiSanGUI.ThongKe
 
             checkedComboBoxEdit_coso.Properties.DataSource = null;
             checkedComboBoxEdit_coso.Properties.DataSource = CoSo.getAll();
+        }
+
+        public RibbonControl getRibbon()
+        {
+            return ribbonThongKe;
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {

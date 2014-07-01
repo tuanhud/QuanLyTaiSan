@@ -69,6 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\QuanLyTaiSan\Properties\Settings.Designer.cs">
+      <Link>_ExternalSetting\Settings.Designer.cs</Link>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,29 +90,11 @@
     <Compile Include="frmThuVienHinhAnh.Designer.cs">
       <DependentUpon>frmThuVienHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\frmGeneralSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HeThong\frmGeneralSetting.Designer.cs">
-      <DependentUpon>frmGeneralSetting.cs</DependentUpon>
-    </Compile>
     <Compile Include="HeThong\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HeThong\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HeThong\ucFTPSetting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HeThong\ucFTPSetting.Designer.cs">
-      <DependentUpon>ucFTPSetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HeThong\ucDisplaySetting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HeThong\ucDisplaySetting.Designer.cs">
-      <DependentUpon>ucDisplaySetting.cs</DependentUpon>
     </Compile>
     <Compile Include="HeThong\ucPhanQuyen.cs">
       <SubType>UserControl</SubType>
@@ -175,6 +160,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="QLLoaiThietBi\ucQuanLyLoaiTB.cs">
       <SubType>UserControl</SubType>
@@ -275,6 +265,7 @@
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Settings\ucCauHinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -326,17 +317,8 @@
     <EmbeddedResource Include="frmThuVienHinhAnh.resx">
       <DependentUpon>frmThuVienHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HeThong\frmGeneralSetting.resx">
-      <DependentUpon>frmGeneralSetting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HeThong\ucFTPSetting.resx">
-      <DependentUpon>ucFTPSetting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HeThong\ucDisplaySetting.resx">
-      <DependentUpon>ucDisplaySetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
@@ -440,16 +422,12 @@
     <EmbeddedResource Include="WaitForm2.resx">
       <DependentUpon>WaitForm2.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
+    <None Include="..\QuanLyTaiSan\Properties\Settings.settings">
+      <Link>_ExternalSetting\Settings.settings</Link>
       <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -457,6 +435,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\forward.png" />
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +490,11 @@
     <None Include="Resources\phong-thietbi.png" />
     <None Include="Resources\logophanmem.png" />
     <None Include="Resources\Actions-view-pim-tasks-icon.png" />
+    <None Include="Resources\Button-Next-icon.png" />
+    <None Include="Resources\right-icon.png" />
+    <None Include="Resources\minus_2_24.png" />
+    <None Include="Resources\pencil_edit_24.png" />
+    <None Include="Resources\plus_2_24.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

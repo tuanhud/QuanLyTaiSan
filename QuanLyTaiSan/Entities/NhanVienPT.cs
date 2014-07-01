@@ -47,7 +47,7 @@ namespace QuanLyTaiSan.Entities
         }
         public override int delete()
         {
-            if (phongs.Count > 0 || hinhanhs.Count > 0)
+            if (phongs.Count > 0)
             {
                 return -1;
             }

@@ -29,17 +29,51 @@ namespace QuanLyTaiSan
         {
             InitializeComponent();
 
-            CoSo obj = CoSo.getById(15);
+            
+        }
+        private void sync_procedure()
+        {
+            //TESTED WORK OK
+            OurDBContext tmp = new OurDBContext(@"Data Source=.\SQLEXPRESS;Initial Catalog=vd_server;Integrated Security=True");
+            tmp.COSOS.Find(1);
+            DatabaseHelper.setup_sync_scope(@"Data Source=.\SQLEXPRESS;Initial Catalog=vd_server;Integrated Security=True", "QLTSScope",
+                new String[] {
+                "__MigrationHistory",
+                "COSOS",
+                "DAYS",
+                "HINHANHS",
+                "TANGS",
+                "VITRIS",
+                "PHONGS",
+                "NHANVIENPTS",
+                "THIETBIS",
+                "CTTHIETBIS",
+                "TINHTRANGS",
+                "LOAITHIETBIS",
+                "GROUPS",
+                "QUANTRIVIENS",
+                "PERMISSIONS",
+                "LOGHETHONGS",
+                "LOGTHIETBIS",
+                "GROUP_PERMISSION",
+                "SETTINGS"
+            }
+            );
 
-            //CTThietBi obj = new CTThietBi();
-            //obj.thietbi = ThietBi.getById(24553);
-            //obj.phong = Phong.getById(1);
-            //obj.tinhtrang = TinhTrang.getById(1);
-            //obj.soluong = 12;
-            //obj.mota = "Thêm tiếp vô phòng";
-            //obj.add_auto();
+            tmp = new OurDBContext(@"Data Source=.\SQLEXPRESS;Initial Catalog=vd_client;Integrated Security=True");
+            tmp.COSOS.Find(1);
 
-            Console.WriteLine("");
+            DatabaseHelper.fetch_sync_scope(
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=vd_client;Integrated Security=True",
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=vd_server;Integrated Security=True",
+                "QLTSScope"
+            );
+
+            DatabaseHelper.start_sync_process(
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=vd_client;Integrated Security=True",
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=vd_server;Integrated Security=True",
+                "QLTSScope"
+                );
         }
         private void reload_obj_theo_dbcontext_hien_tai()
         {
@@ -114,6 +148,15 @@ namespace QuanLyTaiSan
         private void btnPrint_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DatabaseHelper.start_sync_process(
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=vd_client;Integrated Security=True",
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=vd_server;Integrated Security=True",
+                "QLTSScope"
+                );
         }
     }
 }

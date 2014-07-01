@@ -55,6 +55,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Synchronization, Version=2.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data.Server, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Synchronization.Data.SqlServer, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -100,6 +104,7 @@
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Global\Global.cs" />
+    <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
     <Compile Include="Libraries\HTTPHelper.cs" />
@@ -162,6 +167,11 @@
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs" />
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.Designer.cs">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Test_Area.cs">
       <SubType>Form</SubType>
@@ -247,14 +257,9 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
