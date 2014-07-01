@@ -27,6 +27,8 @@ using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using DevExpress.Skins;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Localization;
+using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI
 {
@@ -50,6 +52,9 @@ namespace QuanLyTaiSanGUI
 
         private void init()
         {
+            //Việt hóa
+            GridLocalizer.Active = new MyGridLocalizer();
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
 
             _ucThongKeChiTiet = new ucThongKeChiTiet();
             _ucThongKeTongQuat = new ucThongKeTongQuat();
@@ -174,6 +179,12 @@ namespace QuanLyTaiSanGUI
             }
             finally
             { }
+        }
+
+        public void loadDataByPhong(Phong obj)
+        {
+            _ucQuanLyPhongThietBi.setPhong(obj);
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
         }
     }
 }

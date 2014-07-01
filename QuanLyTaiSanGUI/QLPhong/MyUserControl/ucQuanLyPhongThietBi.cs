@@ -16,6 +16,7 @@ using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using QuanLyTaiSanGUI.QLPhong;
+using DevExpress.XtraGrid.Localization;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -54,11 +55,23 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listVitris);
-            objPhong = _ucTreeViTri.getPhong();
+            if (objPhong.id > 0)
+            {
+                _ucTreeViTri.setPhong(objPhong);
+            }
+            else
+            {
+                objPhong = _ucTreeViTri.getPhong();
+            }
             gridControlCTThietBi.DataSource = null;
             listCTThietBis = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
             gridControlCTThietBi.DataSource = listCTThietBis;
             editGUI();
+        }
+
+        public void setPhong(Phong obj)
+        {
+            objPhong = obj;
         }
 
         public void setData(int _phongid)
