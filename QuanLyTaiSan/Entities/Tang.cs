@@ -18,6 +18,7 @@ namespace QuanLyTaiSan.Entities
         }
         
 		#region Dinh nghia
+
         [Required]
         public String ten { get; set; }
         /*

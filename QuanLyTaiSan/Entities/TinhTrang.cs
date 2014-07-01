@@ -20,7 +20,7 @@ namespace QuanLyTaiSan.Entities
         {
 
         }
-        
+
         #region Dinh nghia
         /// <summary>
         /// Tên dành riêng (không dấu, không khoảng cách)

@@ -203,6 +203,18 @@
     <Compile Include="Migrations\201407180818153_them_diachi_cho_cs.Designer.cs">
       <DependentUpon>201407180818153_them_diachi_cho_cs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.cs" />
+    <Compile Include="Migrations\201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.Designer.cs">
+      <DependentUpon>201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407210324038_them_order_cho_tatca.cs" />
+    <Compile Include="Migrations\201407210324038_them_order_cho_tatca.Designer.cs">
+      <DependentUpon>201407210324038_them_order_cho_tatca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.cs" />
+    <Compile Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.Designer.cs">
+      <DependentUpon>201407210442427_go_rangbuoc_trong_Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -273,6 +285,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407180818153_them_diachi_cho_cs.resx">
       <DependentUpon>201407180818153_them_diachi_cho_cs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.resx">
+      <DependentUpon>201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407210324038_them_order_cho_tatca.resx">
+      <DependentUpon>201407210324038_them_order_cho_tatca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.resx">
+      <DependentUpon>201407210442427_go_rangbuoc_trong_Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
