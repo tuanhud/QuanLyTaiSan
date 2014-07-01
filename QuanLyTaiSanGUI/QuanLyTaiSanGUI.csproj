@@ -490,6 +490,8 @@
     <None Include="Resources\phong-thietbi.png" />
     <None Include="Resources\logophanmem.png" />
     <None Include="Resources\Actions-view-pim-tasks-icon.png" />
+    <None Include="Resources\Button-Next-icon.png" />
+    <None Include="Resources\right-icon.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

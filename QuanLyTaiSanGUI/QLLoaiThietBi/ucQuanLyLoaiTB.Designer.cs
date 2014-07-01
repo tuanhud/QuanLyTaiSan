@@ -69,13 +69,13 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.treeListLoaiTB);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(866, 480);
+            this.splitContainerControl1.Size = new System.Drawing.Size(866, 477);
             this.splitContainerControl1.SplitterPosition = 485;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -93,7 +93,7 @@
             this.treeListLoaiTB.OptionsFind.AllowFindPanel = true;
             this.treeListLoaiTB.OptionsFind.AlwaysVisible = true;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
-            this.treeListLoaiTB.Size = new System.Drawing.Size(485, 480);
+            this.treeListLoaiTB.Size = new System.Drawing.Size(485, 477);
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
             this.treeListLoaiTB.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -122,7 +122,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(376, 480);
+            this.groupControl1.Size = new System.Drawing.Size(376, 477);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -247,7 +247,7 @@
             this.ribbonLoaiTB.Name = "ribbonLoaiTB";
             this.ribbonLoaiTB.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageLoaiTB_Home});
-            this.ribbonLoaiTB.Size = new System.Drawing.Size(866, 142);
+            this.ribbonLoaiTB.Size = new System.Drawing.Size(866, 145);
             // 
             // barButtonThemLoaiTB
             // 
@@ -277,9 +277,9 @@
             // 
             this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLoaiTB});
+            this.rbnPageLoaiTB_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.chair_icon;
             this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
-            this.rbnPageLoaiTB_Home.Text = "Trang chính";
-            this.rbnPageLoaiTB_Home.Visible = false;
+            this.rbnPageLoaiTB_Home.Text = "Loại thiết bị";
             // 
             // rbnGroupLoaiTB
             // 

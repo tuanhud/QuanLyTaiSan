@@ -80,13 +80,13 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.treeListViTri);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(855, 473);
+            this.splitContainerControl1.Size = new System.Drawing.Size(855, 470);
             this.splitContainerControl1.SplitterPosition = 454;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -110,7 +110,7 @@
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.ParentFieldName = "id_p";
-            this.treeListViTri.Size = new System.Drawing.Size(454, 473);
+            this.treeListViTri.Size = new System.Drawing.Size(454, 470);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -165,7 +165,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(396, 473);
+            this.groupControl1.Size = new System.Drawing.Size(396, 470);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -283,9 +283,9 @@
             this.rbnGroupViTri_CoSo,
             this.rbnGroupViTri_Day,
             this.rbnGroupViTri_Tang});
+            this.rbnPageViTri_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
-            this.rbnPageViTri_Home.Text = "Trang chính";
-            this.rbnPageViTri_Home.Visible = false;
+            this.rbnPageViTri_Home.Text = "Vị trí";
             // 
             // rbnGroupViTri_CoSo
             // 
@@ -407,7 +407,7 @@
             this.ribbonViTri.Name = "ribbonViTri";
             this.ribbonViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri_Home});
-            this.ribbonViTri.Size = new System.Drawing.Size(855, 142);
+            this.ribbonViTri.Size = new System.Drawing.Size(855, 145);
             // 
             // ucQuanLyViTri
             // 
