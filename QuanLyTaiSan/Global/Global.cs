@@ -11,18 +11,70 @@ namespace QuanLyTaiSan.Entities
 {
     public static class Global
     {
+        public static class sync
+        {
+            public static String scope_name
+            {
+                get
+                {
+                    return "QLTSScope";
+                }
+            }
+            public static String[] tracking_tables
+            {
+                get
+                {
+                    return new String[] {
+                    "__MigrationHistory",
+                    "COSOS",
+                    "DAYS",
+                    "HINHANHS",
+                    "TANGS",
+                    "VITRIS",
+                    "PHONGS",
+                    "NHANVIENPTS",
+                    "THIETBIS",
+                    "CTTHIETBIS",
+                    "TINHTRANGS",
+                    "LOAITHIETBIS",
+                    "GROUPS",
+                    "QUANTRIVIENS",
+                    "PERMISSIONS",
+                    "LOGHETHONGS",
+                    "LOGTHIETBIS",
+                    "GROUP_PERMISSION",
+                    "SETTINGS"
+                };
+                }
+            }
+        }
+        
         /// <summary>
         /// SERVER DB
         /// </summary>
         public static class server_database
         {
+            /// <summary>
+            /// Có hỗ trợ tự động tạo CSDL nếu chưa có,
+            /// Hỗ trợ tự động tạo SYNC SCOPE nếu chưa có
+            /// </summary>
             public static void prepare_db_structure()
             {
                 try
                 {
                     OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string());
-                    tmp.COSOS.Find(1);
-                    tmp.Dispose();
+                    if (tmp != null)
+                    {
+                        tmp.COSOS.Find(1);
+
+                        DatabaseHelper.setup_sync_scope(
+                            Global.server_database.get_connection_string(),
+                            Global.sync.scope_name,
+                            Global.sync.tracking_tables
+                        );
+                    }
+
+
                 }
                 catch (Exception ex)
                 {
@@ -100,15 +152,40 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Client DB or CACHED DB
         /// </summary>
+
+        /// <summary>
+        /// Có hỗ trợ tự động tạo CSDL nếu chưa có,
+        /// Hỗ trợ tự động tạo SYNC SCOPE nếu chưa có
+        /// </summary>
         public static class client_database
         {
+            /// <summary>
+            /// SYNC Client Server to MAIN Server
+            /// </summary>
+            public static int start_sync()
+            {
+                return DatabaseHelper.start_sync_process(
+                    Global.client_database.get_connection_string(),
+                    Global.server_database.get_connection_string(),
+                    Global.sync.scope_name
+                );
+
+            }
             public static void prepare_db_structure()
             {
                 try
                 {
                     OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string());
-                    tmp.COSOS.Find(1);
-                    tmp.Dispose();
+                    if (tmp != null)
+                    {
+                        tmp.COSOS.Find(1);
+
+                        DatabaseHelper.setup_sync_scope(
+                            Global.client_database.get_connection_string(),
+                            Global.sync.scope_name,
+                            Global.sync.tracking_tables
+                        );
+                    }
                 }
                 catch (Exception ex)
                 {
