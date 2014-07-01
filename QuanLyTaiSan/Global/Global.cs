@@ -55,7 +55,27 @@ namespace QuanLyTaiSan.Entities
         public static class server_database
         {
             /// <summary>
-            /// Có hỗ trợ tự động tạo CSDL nếu chưa có,
+            /// Xóa SCOPE hiện có ra khỏi Server (nếu có),
+            /// tự động tạo scope mới
+            /// </summary>
+            public static int clean_up_scope()
+            {
+                //remove if exist
+                DatabaseHelper.drop_sync_scope(
+                    Global.server_database.get_connection_string(),
+                    Global.sync.scope_name
+                );
+                //create new one
+                DatabaseHelper.setup_sync_scope(
+                    Global.server_database.get_connection_string(),
+                    Global.sync.scope_name,
+                    Global.sync.tracking_tables
+                );
+
+                return 1;
+            }
+            /// <summary>
+            /// Có hỗ trợ tự động tạo cấu trúc CSDL nếu chưa có,
             /// Hỗ trợ tự động tạo SYNC SCOPE nếu chưa có
             /// </summary>
             public static void prepare_db_structure()
@@ -148,6 +168,8 @@ namespace QuanLyTaiSan.Entities
                     return Global.local_setting.db_server_WA;
                 }
             }
+
+            
         }
         /// <summary>
         /// Client DB or CACHED DB
@@ -160,10 +182,41 @@ namespace QuanLyTaiSan.Entities
         public static class client_database
         {
             /// <summary>
+            /// Xóa SCOPE hiện có (nếu có),
+            /// đồng thời FETCH SCOPE từ Server về
+            /// </summary>
+            /// <returns></returns>
+            public static int clean_up_scope()
+            {
+                if (!Global.local_setting.use_db_cache)
+                {
+                    return -1;
+                }
+                //REMOVE IF EXIST
+                DatabaseHelper.drop_sync_scope(
+                    Global.client_database.get_connection_string(),
+                    Global.sync.scope_name
+                );
+                //CREATE NEW ONE
+                DatabaseHelper.fetch_sync_scope(
+                    Global.client_database.get_connection_string(),
+                    Global.server_database.get_connection_string(),
+                    Global.sync.scope_name
+                );
+
+                return 1;
+            }
+            /// <summary>
             /// SYNC Client Server to MAIN Server
             /// </summary>
             public static int start_sync()
             {
+                //Kiểm tra có sử dụng DBCache
+                if (!Global.local_setting.use_db_cache)
+                {
+                    return -1;
+                }
+
                 return DatabaseHelper.start_sync_process(
                     Global.client_database.get_connection_string(),
                     Global.server_database.get_connection_string(),
@@ -171,6 +224,10 @@ namespace QuanLyTaiSan.Entities
                 );
 
             }
+            /// <summary>
+            /// Tự động tạo cấu trúc CSDL nếu chưa có,
+            /// Tự động FETCH server SCOPE về nếu chưa có
+            /// </summary>
             public static void prepare_db_structure()
             {
                 try
@@ -180,10 +237,10 @@ namespace QuanLyTaiSan.Entities
                     {
                         tmp.COSOS.Find(1);
 
-                        DatabaseHelper.setup_sync_scope(
+                        DatabaseHelper.fetch_sync_scope(
                             Global.client_database.get_connection_string(),
-                            Global.sync.scope_name,
-                            Global.sync.tracking_tables
+                            Global.server_database.get_connection_string(),
+                            Global.sync.scope_name
                         );
                     }
                 }
@@ -259,6 +316,8 @@ namespace QuanLyTaiSan.Entities
                     return Global.local_setting.db_cache_WA;
                 }
             }
+
+            
         }
         /// <summary>
         /// Thông tin về CSDL mà ứng dụng sẽ truy xuất tới,

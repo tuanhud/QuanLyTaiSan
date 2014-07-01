@@ -74,6 +74,10 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButton_validateServer = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_validateClient = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_cleanUpServerScope = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_cleanUpClientScope = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -501,20 +505,61 @@
             // 
             // groupControl4
             // 
+            this.groupControl4.Controls.Add(this.simpleButton_cleanUpClientScope);
+            this.groupControl4.Controls.Add(this.simpleButton_cleanUpServerScope);
+            this.groupControl4.Controls.Add(this.simpleButton1);
+            this.groupControl4.Controls.Add(this.simpleButton_validateClient);
             this.groupControl4.Controls.Add(this.simpleButton_validateServer);
             this.groupControl4.Location = new System.Drawing.Point(3, 308);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(717, 87);
+            this.groupControl4.Size = new System.Drawing.Size(717, 134);
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "Sync Tools";
             // 
             // simpleButton_validateServer
             // 
-            this.simpleButton_validateServer.Location = new System.Drawing.Point(29, 37);
+            this.simpleButton_validateServer.Location = new System.Drawing.Point(7, 28);
             this.simpleButton_validateServer.Name = "simpleButton_validateServer";
             this.simpleButton_validateServer.Size = new System.Drawing.Size(102, 23);
             this.simpleButton_validateServer.TabIndex = 0;
             this.simpleButton_validateServer.Text = "Validate Server DB";
+            this.simpleButton_validateServer.Click += new System.EventHandler(this.simpleButton_validateServer_Click);
+            // 
+            // simpleButton_validateClient
+            // 
+            this.simpleButton_validateClient.Location = new System.Drawing.Point(135, 28);
+            this.simpleButton_validateClient.Name = "simpleButton_validateClient";
+            this.simpleButton_validateClient.Size = new System.Drawing.Size(102, 23);
+            this.simpleButton_validateClient.TabIndex = 1;
+            this.simpleButton_validateClient.Text = "Validate Client DB";
+            this.simpleButton_validateClient.Click += new System.EventHandler(this.simpleButton_validateClient_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(272, 28);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(72, 23);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "Start Sync";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton_cleanUpServerScope
+            // 
+            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(7, 70);
+            this.simpleButton_cleanUpServerScope.Name = "simpleButton_cleanUpServerScope";
+            this.simpleButton_cleanUpServerScope.Size = new System.Drawing.Size(127, 23);
+            this.simpleButton_cleanUpServerScope.TabIndex = 3;
+            this.simpleButton_cleanUpServerScope.Text = "Clean Up Server Scope";
+            this.simpleButton_cleanUpServerScope.Click += new System.EventHandler(this.simpleButton_cleanUpServerScope_Click);
+            // 
+            // simpleButton_cleanUpClientScope
+            // 
+            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(167, 70);
+            this.simpleButton_cleanUpClientScope.Name = "simpleButton_cleanUpClientScope";
+            this.simpleButton_cleanUpClientScope.Size = new System.Drawing.Size(127, 23);
+            this.simpleButton_cleanUpClientScope.TabIndex = 4;
+            this.simpleButton_cleanUpClientScope.Text = "Clean Up Client Scope";
+            this.simpleButton_cleanUpClientScope.Click += new System.EventHandler(this.simpleButton_cleanUpClientScope_Click);
             // 
             // ucCauHinh
             // 
@@ -525,7 +570,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Name = "ucCauHinh";
-            this.Size = new System.Drawing.Size(723, 398);
+            this.Size = new System.Drawing.Size(723, 446);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).EndInit();
@@ -615,5 +660,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.SimpleButton simpleButton_validateServer;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_validateClient;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_cleanUpClientScope;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_cleanUpServerScope;
     }
 }

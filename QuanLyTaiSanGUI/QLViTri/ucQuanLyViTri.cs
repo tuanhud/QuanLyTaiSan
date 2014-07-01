@@ -387,7 +387,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 enableEdit(false, "", "");
                 SetTextGroupControl("Chi tiết", false);
                 listHinh = null;
-                setData(node);
             }
         }
 
@@ -411,7 +410,17 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            reLoad();
+            if (function.Equals("add"))
+            {
+                reLoad();
+            }
+            else if (function.Equals("edit"))
+            {
+                enableEdit(false, "", "");
+                SetTextGroupControl("Chi tiết", false);
+                listHinh = null;
+                setData(node);
+            }
         }
 
         public void SetTextGroupControl(String _text, bool _color)
