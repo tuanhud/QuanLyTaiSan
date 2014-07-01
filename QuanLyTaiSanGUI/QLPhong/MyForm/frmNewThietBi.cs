@@ -21,7 +21,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
         ThietBi objThietBi = new ThietBi();
-        CTThietBi objCTThietBi = null;
+        CTThietBi objCTThietBi = new CTThietBi();
         LoaiThietBi objLoaiThietBi = null;
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         Boolean checkadd = true;
@@ -34,6 +34,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         Boolean coThayDoi = false;
 
         int HinhThucThem = 0;
+        Boolean loaiChung = false;
 
         public delegate void SendMessage();
         public SendMessage sendMessage;
@@ -81,28 +82,38 @@ namespace QuanLyTaiSanGUI.QLPhong
                 Boolean thanhcong = false;
                 if (HinhThucThem == 0) //0 là thêm mới, 1 là lấy từ danh sách thiết bị
                 {
-                    if (objThietBi.add() != -1)
+                    if (objThietBi.add() < 0)
                     {
-                        XtraMessageBox.Show("Thêm thiết bị mới vào phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        thanhcong = true;
+                        // XtraMessageBox.Show("Thêm thiết bị mới vào phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //thanhcong = true;
+                        XtraMessageBox.Show("Có lỗi trong khi thêm mới thiết bị!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        XtraMessageBox.Show("Có lỗi trong khi thêm !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (objCTThietBi.add() > 0)
+                        {
+                            XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            thanhcong = true;
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Có lỗi trong khi thêm thiết bị vào phòng !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
                 {
-                    if (objThietBi.update() != -1)
+                    if (objCTThietBi.add() > 0)
                     {
-                        XtraMessageBox.Show("Thêm thiết bị đã có vào phòng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         thanhcong = true;
                     }
                     else
                     {
-                        XtraMessageBox.Show("Có lỗi trong khi thêm !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Có lỗi trong khi thêm thiết bị vào phòng !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
                 if (thanhcong)
                 {
                     resetData();
@@ -120,18 +131,10 @@ namespace QuanLyTaiSanGUI.QLPhong
         {
             try
             {
+                loaiChung = _loaiChung;
                 objLoaiThietBi = _ucTreeLoaiTB.getLoaiThietBi();
                 HinhThucThems();
-                groupControl1.Visible = !_loaiChung;
-                if (!_loaiChung)
-                {
-                    txtSoLuong.Value = 1;
-                    txtSoLuong.Properties.ReadOnly = true;
-                    dateEditLap.DateTime = DateTime.Today;
-                    dateEditMua.DateTime = DateTime.Today;
-                }
-                else
-                    txtSoLuong.Properties.ReadOnly = false;
+                ChangeThietBi();
             }
             catch (Exception ex)
             {
@@ -141,58 +144,67 @@ namespace QuanLyTaiSanGUI.QLPhong
 
         private Boolean checkInput()
         {
-            Boolean check = true;
-            errorProvider1.Clear();
-            if (_ucComboBoxViTri.getTextPopupContainerEdit().Equals("[Chưa có phòng]"))
+            try
             {
-                check = false;
-                errorProvider1.SetError(panelPhong, "Chưa chọn phòng");
-            }
-            if (_ucComboBoxViTri.getTextPopupContainerEdit().Equals("[Chưa có loại thiết bị]"))
-            {
-                check = false;
-                errorProvider1.SetError(panelLoaiTB, "Chưa chọn loại thiết bị");
-            }
-            if (lookUpTinhTrang.EditValue.Equals("Chưa có tình trạng"))
-            {
-                check = false;
-                errorProvider1.SetError(lookUpTinhTrang, "Chưa chọn tình trạng");
-            }
-            int soluong = Int32.Parse(txtSoLuong.Text);
-            if (soluong < 1 || soluong > 1000)
-            {
-                check = false;
-                errorProvider1.SetError(txtSoLuong, "Số lượng từ 1-1000");
-            }
-            if (groupControl1.Visible)
-            {
-                if (txtTen.Text.Length == 0)
+                Boolean check = true;
+                dxErrorProvider.ClearErrors();
+                if (_ucComboBoxViTri.getTextPopupContainerEdit().Equals("[Chưa có phòng]"))
                 {
                     check = false;
-                    errorProvider1.SetError(txtTen, "Chưa điền tên thiết bị");
+                    dxErrorProvider.SetError(panelPhong, "Chưa chọn phòng");
                 }
-                if (dateEditMua.DateTime > dateEditLap.DateTime)
+                if (_ucComboBoxViTri.getTextPopupContainerEdit().Equals("[Chưa có loại thiết bị]"))
                 {
                     check = false;
-                    errorProvider1.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                    dxErrorProvider.SetError(panelLoaiTB, "Chưa chọn loại thiết bị");
                 }
-                if (dateEditMua.DateTime > DateTime.Today)
+                if (lookUpTinhTrang.EditValue.Equals(null))
                 {
                     check = false;
-                    errorProvider1.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
+                    dxErrorProvider.SetError(lookUpTinhTrang, "Chưa chọn tình trạng");
                 }
-                if (dateEditLap.DateTime > DateTime.Today)
+                int soluong = Int32.Parse(txtSoLuong.Text);
+                if (soluong < 1 || soluong > 1000)
                 {
                     check = false;
-                    errorProvider1.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
+                    dxErrorProvider.SetError(txtSoLuong, "Số lượng từ 1-1000");
                 }
+                if (groupControl1.Visible)
+                {
+                    if (txtTen.Text.Length == 0)
+                    {
+                        check = false;
+                        dxErrorProvider.SetError(txtTen, "Chưa điền tên thiết bị");
+                    }
+                    if (dateEditMua.DateTime > dateEditLap.DateTime)
+                    {
+                        check = false;
+                        dxErrorProvider.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                    }
+                    if (dateEditMua.DateTime > DateTime.Today)
+                    {
+                        check = false;
+                        dxErrorProvider.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
+                    }
+                    if (dateEditLap.DateTime > DateTime.Today)
+                    {
+                        check = false;
+                        dxErrorProvider.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
+                    }
+                }
+                return check;
             }
-            return check;
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                return false;
+            }
         }
 
         private void resetData()
         {
             imgHinhThietBi.Images.Clear();
+            searchLookUpEditListThietBi.EditValue = null;
             listHinhAnh = new List<HinhAnh>();
             setGiaTriDauCho_Phong_LoaiThietBi_TinhTrang();
             txtSoLuong.Value = 1;
@@ -240,72 +252,118 @@ namespace QuanLyTaiSanGUI.QLPhong
         private void setDataObj()
         {
             TinhTrang tinhtrang = (TinhTrang)lookUpTinhTrang.GetSelectedDataRow();
-            ThietBi thietbi = (ThietBi)searchLookUpEditListThietBi.GetSelectedDataRow();
-            if (HinhThucThem == 0)
+            if (HinhThucThem == 0) //thêm mới thiết bị sau đó thêm thiết bị vào phòng
             {
-                CTThietBi ctThietBi = new CTThietBi();
-                Phong phong = _ucComboBoxViTri.getPhong();
-
-                ctThietBi.phong = phong;
-                ctThietBi.tinhtrang = TinhTrang.getById(tinhtrang.id);
-                ctThietBi.soluong = Int32.Parse(txtSoLuong.Text);
-
-                LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
-
-                if (groupControl1.Visible)
+                try
                 {
-                    objThietBi.hinhanhs = listHinhAnh;
-
-                    objThietBi.loaithietbi = loaithietbi;
-                    objThietBi.ctthietbis.Add(ctThietBi);
-
-                    objThietBi.subId = txtMa.Text;
-                    objThietBi.ten = txtTen.Text;
-                    objThietBi.ngaymua = dateEditMua.DateTime;
-                    objThietBi.ngaylap = dateEditLap.DateTime;
-                    objThietBi.mota = txtMoTa.Text;
-                    checkadd = true;
-                }
-                else
-                {
-                    //thiet bi duoc quan li theo so luong
-                    if (loaithietbi.thietbis.Count > 0)
+                    if (loaiChung) // loại chung
                     {
-                        //co
-                        objThietBi = ThietBi.getById(loaithietbi.thietbis.ElementAt(0).id);
-
-                        if (listHinhAnh.Count > 0)
-                        {
-                            foreach (HinhAnh hinhanh in listHinhAnh)
-                            {
-                                objThietBi.hinhanhs.Add(hinhanh);
-                            }
-                        }
-                        CTThietBi ctThietBiOld = CTThietBi.search(phong, objThietBi, tinhtrang);
-                        if (ctThietBiOld == null)
-                            objThietBi.ctthietbis.Add(ctThietBi);
-                        else
-                            ctThietBiOld.soluong += Int32.Parse(txtSoLuong.Text);
-
-                        checkadd = false;
-                    }
-                    else
-                    {
-                        //chua co
-                        objThietBi.ten = loaithietbi.ten;
+                        //thêm mới thiết bị
+                        objThietBi.loaithietbi = objLoaiThietBi;
                         objThietBi.hinhanhs = listHinhAnh;
+                        objThietBi.ten = objLoaiThietBi.ten;
+                        objThietBi.mota = objLoaiThietBi.mota;
 
-                        objThietBi.loaithietbi = loaithietbi;
-                        objThietBi.ctthietbis.Add(ctThietBi);
-                        checkadd = true;
+                        //sau đó thêm mới thiết bị vào phòng
+                        objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
+                        objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+
+                        objCTThietBi.thietbi = objThietBi;
+                        objCTThietBi.tinhtrang = tinhtrang;
                     }
+                    else //loairieng
+                    {
+                        //thêm mới thiết bị
+                        objThietBi.loaithietbi = objLoaiThietBi;
+                        objThietBi.hinhanhs = listHinhAnh;
+                        objThietBi.subId = txtMa.Text;
+                        objThietBi.ten = txtTen.Text;
+                        objThietBi.ngaymua = dateEditMua.DateTime;
+                        objThietBi.ngaylap = dateEditLap.DateTime;
+                        objThietBi.mota = txtMoTa.Text;
+
+                        //sau đó thêm mới thiết bị vào phòng
+                        objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
+                        objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+
+                        objCTThietBi.thietbi = objThietBi;
+                        objCTThietBi.tinhtrang = tinhtrang;
+                    }                    
+
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                //CTThietBi ctThietBi = new CTThietBi();
+                //Phong phong = _ucComboBoxViTri.getPhong();
+
+                //ctThietBi.phong = phong;
+                //ctThietBi.tinhtrang = TinhTrang.getById(tinhtrang.id);
+                //ctThietBi.soluong = Int32.Parse(txtSoLuong.Text);
+
+                //LoaiThietBi loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
+
+                //if (groupControl1.Visible)
+                //{
+                //    objThietBi.hinhanhs = listHinhAnh;
+
+                //    objThietBi.loaithietbi = loaithietbi;
+                //    objThietBi.ctthietbis.Add(ctThietBi);
+
+                //    objThietBi.subId = txtMa.Text;
+                //    objThietBi.ten = txtTen.Text;
+                //    objThietBi.ngaymua = dateEditMua.DateTime;
+                //    objThietBi.ngaylap = dateEditLap.DateTime;
+                //    objThietBi.mota = txtMoTa.Text;
+                //    checkadd = true;
+                //}
+                //else
+                //{
+                //    //thiet bi duoc quan li theo so luong
+                //    if (loaithietbi.thietbis.Count > 0)
+                //    {
+                //        //co
+                //        objThietBi = ThietBi.getById(loaithietbi.thietbis.ElementAt(0).id);
+
+                //        if (listHinhAnh.Count > 0)
+                //        {
+                //            foreach (HinhAnh hinhanh in listHinhAnh)
+                //            {
+                //                objThietBi.hinhanhs.Add(hinhanh);
+                //            }
+                //        }
+                //        CTThietBi ctThietBiOld = CTThietBi.search(phong, objThietBi, tinhtrang);
+                //        if (ctThietBiOld == null)
+                //            objThietBi.ctthietbis.Add(ctThietBi);
+                //        else
+                //            ctThietBiOld.soluong += Int32.Parse(txtSoLuong.Text);
+
+                //        checkadd = false;
+                //    }
+                //    else
+                //    {
+                //        //chua co
+                //        objThietBi.ten = loaithietbi.ten;
+                //        objThietBi.hinhanhs = listHinhAnh;
+
+                //        objThietBi.loaithietbi = loaithietbi;
+                //        objThietBi.ctthietbis.Add(ctThietBi);
+                //        checkadd = true;
+                //    }
+                //}
             }
-            else
+            else //thêm thiết bị đã có vào phòng
             {
                 objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
                 objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+
+                int rowHandle = searchLookUpEditListThietBi.Properties.GetIndexByKeyValue(searchLookUpEditListThietBi.EditValue);
+                object row = searchLookUpEditListThietBi.Properties.View.GetRow(rowHandle);
+                ThietBi thietbi = (ThietBi)row;
                 objCTThietBi.thietbi = thietbi;
+
                 objCTThietBi.tinhtrang = tinhtrang;
             }
         }
@@ -332,6 +390,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         {
             HinhThucThem = comboBoxEditHinhThucThem.SelectedIndex;
             HinhThucThems();
+            ChangeThietBi();
         }
 
         //xử lý giữa thêm mới và chọn từ danh sách
@@ -345,19 +404,16 @@ namespace QuanLyTaiSanGUI.QLPhong
 
                     listThietBi = objLoaiThietBi.thietbis.ToList();
                     searchLookUpEditListThietBi.Properties.DataSource = listThietBi;
-
-                    lblChonThietBi.Visible = true;
-                    searchLookUpEditListThietBi.Visible = true;
+                    searchLookUpEditListThietBi.Enabled = true;
                     searchLookUpEditListThietBi.EditValue = listThietBi[0].id;
                 }
                 else // thêm mới
                 {
                     btnChonHinh.Visible = true;
-                    lblChonThietBi.Visible = false;
-                    searchLookUpEditListThietBi.Visible = false;
+                    searchLookUpEditListThietBi.Enabled = false;
                     searchLookUpEditListThietBi.EditValue = null;
                     imgHinhThietBi.Images.Clear();
-
+                    listHinhAnh = null;
                 }
             }
             catch (Exception ex)
@@ -368,20 +424,85 @@ namespace QuanLyTaiSanGUI.QLPhong
 
         private void searchLookUpEditListThietBi_EditValueChanged(object sender, EventArgs e)
         {
-            //set thuộc tính read only - chỉ đọc, không cho sửa
-            
-            //panelLoaiTB
+            try
+            {
+                if (searchLookUpEditListThietBi.EditValue != null)
+                {
+                    //lấy id thiết bị
+                    int IdThietBi = Int32.Parse(searchLookUpEditListThietBi.EditValue.ToString());
+                    //trả về object thiết bị
+                    objThietBi = ThietBi.getById(IdThietBi);
+                    // gán object vào form
+                    listHinhAnh = objThietBi.hinhanhs.ToList();
+                    HienThiHinhAnhTuListHinhAnh();
+                    ChangeThietBi();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
-
-            //lấy id thiết bị
-            int IdThietBi = Int32.Parse(searchLookUpEditListThietBi.EditValue.ToString());
-            //trả về object thiết bị
-            objThietBi = ThietBi.getById(IdThietBi);
-            // gán object vào form
-            listHinhAnh = objThietBi.hinhanhs.ToList();
-            HienThiHinhAnhTuListHinhAnh();
-
-
+        private void ChangeThietBi()
+        {
+            try
+            {
+                groupControl1.Visible = !loaiChung;
+                if (!loaiChung)
+                {
+                    txtSoLuong.Value = 1;
+                    txtSoLuong.Properties.ReadOnly = true;
+                    if (HinhThucThem == 1)
+                    {
+                        txtMa.Text = objThietBi.id.ToString();
+                        txtTen.Text = objThietBi.ten;
+                        txtMoTa.Text = objThietBi.mota;
+                        if (objThietBi.ngaylap == null)
+                        {
+                            dateEditLap.EditValue = null;
+                        }
+                        else
+                        {
+                            dateEditLap.DateTime = (DateTime)objThietBi.ngaylap;
+                        }
+                        if (objThietBi.ngaymua == null)
+                        {
+                            dateEditMua.EditValue = null;
+                        }
+                        else
+                        {
+                            dateEditMua.DateTime = (DateTime)objThietBi.ngaymua;
+                        }
+                        txtMa.Properties.ReadOnly = true;
+                        txtTen.Properties.ReadOnly = true;
+                        txtMoTa.Properties.ReadOnly = true;
+                        dateEditLap.Properties.ReadOnly = true;
+                        dateEditMua.Properties.ReadOnly = true;
+                    }
+                    else
+                    {
+                        dateEditLap.DateTime = DateTime.Today;
+                        dateEditMua.DateTime = DateTime.Today;
+                        dateEditLap.Properties.ReadOnly = false;
+                        dateEditMua.Properties.ReadOnly = false;
+                        txtMa.Text = String.Empty;
+                        txtTen.Text = String.Empty;
+                        txtMoTa.Text = String.Empty;
+                        txtMa.Properties.ReadOnly = false;
+                        txtTen.Properties.ReadOnly = false;
+                        txtMoTa.Properties.ReadOnly = false;
+                    }
+                }
+                else
+                {
+                    txtSoLuong.Properties.ReadOnly = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void HienThiHinhAnhTuListHinhAnh()

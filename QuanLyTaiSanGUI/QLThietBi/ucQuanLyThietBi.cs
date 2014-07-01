@@ -84,7 +84,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void deleteData()
         {
-            setTextGroupControl("Chi tiết thiết bị", Color.Black);
+            setTextGroupControl("Thông tin thiết bị", Color.Black);
             imageSliderThietBi.Images.Clear();
             txtMa.Text = "";
             txtTen.Text = "";
@@ -137,7 +137,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             errorProvider1.Clear();
             if (listThietBiHienThi.Count > 0)
             {
-                setTextGroupControl("Chi tiết thiết bị", Color.Black);
+                setTextGroupControl("Thông tin thiết bị", Color.Black);
                 imageSliderThietBi.Images.Clear();
                 if (objThietBi.hinhanhs != null)
                 {
