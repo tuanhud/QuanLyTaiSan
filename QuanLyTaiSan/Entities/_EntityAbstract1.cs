@@ -68,11 +68,11 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual int add()
         {
-            //Nếu đã có trong CSDL rồi
-            if (id > 0)
-            {
-                return id;
-            }
+            ////Nếu đã có trong CSDL rồi
+            //if (id > 0)
+            //{
+            //    return id;
+            //}
 
             try
             {
@@ -194,6 +194,24 @@ namespace QuanLyTaiSan.Entities
             }
         }
         /// <summary>
+        /// Clone nguyên list ra list mới, giữ nguyên khóa ngoại
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static List<T> clone(List<T> list)
+        {
+            if (list == null || list.Count <= 0)
+            {
+                return new List<T>();
+            }
+            List<T> tmp = new List<T>();
+            foreach (T item in list)
+            {
+                tmp.Add(item.clone());
+            }
+            return tmp;
+        }
+        /// <summary>
         /// Load lại Object theo DBContext mới trong DBInstance (Vì có thể đã bị new mới bởi ai đó)
         /// Cần có id trước
         /// </summary>
@@ -266,6 +284,20 @@ namespace QuanLyTaiSan.Entities
         {
             //time
             date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
+        }
+        /// <summary>
+        /// Clone to new Object
+        /// </summary>
+        /// <returns></returns>
+        public virtual T clone()
+        {
+            T tmp = db.Set<T>().AsNoTracking<T>().Where(c => c.id == this.id).FirstOrDefault();
+            if (tmp == null)
+            {
+                return null;
+            }
+            tmp.id = 0;
+            return tmp;
         }
     }
 }

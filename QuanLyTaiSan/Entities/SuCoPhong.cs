@@ -51,12 +51,12 @@ namespace QuanLyTaiSan.Entities
 
         #region Override method
         /// <summary>
-        /// Set tên, tình trạng, phòng, mô tả, ngày trước khi gọi,
+        /// Set tên, tình trạng, phòng, mô tả, ngày, hình ảnh trước khi gọi,
         /// Có hỗ trợ ghi log
         /// </summary>
         /// <param name="hinhs">Hình sự cố</param>
         /// <returns></returns>
-        public int add(List<HinhAnh> hinhs=null)
+        public int add()
         {
             Boolean transac = true;
             DateTime ngay = ServerTimeHelper.getNow();
@@ -65,7 +65,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.add()>0;
                 //write log
-                transac = transac && writelog(this.mota, hinhs)>0;
+                transac = transac && writelog(this.mota)>0;
 
                 //final transac controller
                 if (transac)
@@ -83,7 +83,7 @@ namespace QuanLyTaiSan.Entities
         protected int writelog(String mota="", List<HinhAnh> hinhs=null)
         {
             LogSuCoPhong obj = new LogSuCoPhong();
-            obj.hinhanhs = hinhs==null?new List<HinhAnh>():hinhs;
+            obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():hinhanhs;
             obj.mota = mota;
             obj.sucophong = this;
             obj.quantrivien = Global.current_login;
@@ -95,7 +95,7 @@ namespace QuanLyTaiSan.Entities
         /// Có hỗ trợ ghi log
         /// </summary>
         /// <returns></returns>
-        public int update(List<HinhAnh> hinhs=null)
+        public int update()
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -114,7 +114,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.update() > 0;
                 //write log
-                transac = transac && writelog(this.mota, hinhs) > 0;
+                transac = transac && writelog(this.mota,hinhs) > 0;
 
                 //final transac controller
                 if (transac)

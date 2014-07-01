@@ -32,5 +32,11 @@ namespace QuanLyTaiSan.Entities
         /// Sử dụng để FORCE LOAD FK OBJECT khi UPDATE
         /// </summary>
             void trigger();
+        /// <summary>
+        /// Clone object ra object khác,
+        /// giữ nguyên khóa ngoại
+        /// </summary>
+        /// <returns></returns>
+            T clone();
     }
 }

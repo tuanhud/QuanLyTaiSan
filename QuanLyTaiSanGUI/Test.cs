@@ -17,6 +17,8 @@ namespace QuanLyTaiSanGUI
         public Test()
         {
             InitializeComponent();
+
+            CoSo obj = CoSo.getById(1);
         }
     }
 }

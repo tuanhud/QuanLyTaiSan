@@ -67,6 +67,7 @@ namespace QuanLyTaiSan.Entities
         /// <param name="dich">Phòng cần di chuyển đến (null nếu chỉ muốn đổi tình trạng)</param>
         /// <param name="moi">Tình trạng cần chuyển sang (null nếu chỉ muốn đổi phòng)</param>
         /// <param name="soluong">Sô lượng cần chuyển (mac dinh la -1 (chuyển tất cả))</param>
+        /// <param name="hinhs">Hình mô tả cho quá trình di chuyển, Do khi update thành công thì mới set List hình cho nó</param>
         /// <returns></returns>
         public int dichuyen(Phong dich=null, TinhTrang moi=null, int soluong=-1, String mota="", List<HinhAnh> hinhs=null)
         {
@@ -115,8 +116,8 @@ namespace QuanLyTaiSan.Entities
                         tmp.soluong = soluong;
                         tmp.thietbi = this.thietbi;
                         tmp.tinhtrang = moi;
-                        tmp.mota = mota;//mota.Equals("") ? this.mota : mota;
-
+                        tmp.mota = mota;
+                        tmp.hinhanhs = hinhs;
                         transac = transac && tmp.add(ngay, true) > 0;//ADD
                     }
                     else
@@ -126,7 +127,7 @@ namespace QuanLyTaiSan.Entities
                         if (tmp.id != this.id)
                         {
                             tmp.soluong += soluong;
-                            tmp.mota = mota;//mota.Equals("")?tmp.mota:mota;
+                            tmp.mota = mota;
                             transac = transac && tmp.update(ngay, true, hinhs) > 0;//UPDATE
                         }
                     }
@@ -136,7 +137,7 @@ namespace QuanLyTaiSan.Entities
                     this.soluong -= soluong;
                     this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
                     //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                    transac = transac && update(ngay, true, hinhs) > 0;
+                    transac = transac && update(ngay, true,hinhs) > 0;
                 }
 
 
@@ -227,10 +228,11 @@ namespace QuanLyTaiSan.Entities
         /// obj.tinhtrang = tinhtrang;
         /// obj.soluong=soluong;
         /// obj.mota=mota;
+        /// obj.hinhanh = hinhs;//Do khi add thì set List hình cho nó là hợp lý
         /// obj.add_auto();
         /// </summary>
         /// <returns></returns>
-        public int add(DateTime? ngay=null, Boolean in_transaction=false, List<HinhAnh> hinhs=null)
+        public int add(DateTime? ngay=null, Boolean in_transaction=false)
         {
             ngay = ngay==null?ServerTimeHelper.getNow():ngay;
             
@@ -249,14 +251,15 @@ namespace QuanLyTaiSan.Entities
                 {
                     tmp.soluong += soluong;
                     //call update on tmp
-                    trans = trans && tmp.update(ngay, true, hinhs) > 0;
+                    trans = trans && tmp.update(ngay, true, this.hinhanhs.ToList()) > 0;
                     id = tmp.id;
                 }
                 
                 else
                 {
                     trans = trans && base.add() > 0;
-                    trans = trans && writelog(ngay, mota,hinhs) > 0;
+                    //Cần phải clone hình ra trước khi gọi writelog
+                    trans = trans && writelog(ngay, mota, HinhAnh.clone(this.hinhanhs.ToList())) > 0;
                 }
 
             }

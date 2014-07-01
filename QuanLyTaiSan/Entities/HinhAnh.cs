@@ -72,6 +72,64 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
+        /// <summary>
+        /// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static List<HinhAnh> clone(List<HinhAnh> list)
+        {
+            if (list == null || list.Count <= 0)
+            {
+                return new List<HinhAnh>();
+            }
+            List<HinhAnh> tmp = new List<HinhAnh>();
+            foreach (HinhAnh item in list)
+            {
+                HinhAnh neww = item.clone();
+                //very usefull when HinhAnh should only have 1 FK
+                neww.clearAllFK();
+                tmp.Add(neww);
+            }
+            return tmp;
+        }
+        /// <summary>
+        /// Xóa hết mọi khóa ngoại: COSO, DAY,...
+        /// </summary>
+        private void clearAllFK()
+        {
+            coso = null;
+            coso_id = null;
+
+            day = null;
+            day_id = null;
+
+            tang = null;
+            tang_id = null;
+
+            thietbi = null;
+            thietbi_id = null;
+
+            logthietbi = null;
+            logthietbi_id = null;
+
+            ctthietbi = null;
+            ctthietbi_id = null;
+
+            logsucophong = null;
+            logsucophong_id = null;
+
+            nhanvienpt = null;
+            nhanvienpt_id = null;
+
+            phong = null;
+            phong_id = null;
+
+            sucophong = null;
+            sucophong_id = null;
+        }
+
+        [NotMapped]
         public static String DEFAULT_IMAGE_URL
         {
             get
@@ -286,6 +344,20 @@ namespace QuanLyTaiSan.Entities
         public override int add()
         {
             return base.add();
+        }
+        /// <summary>
+        /// Clone có kèm xóa hết khóa ngoại
+        /// </summary>
+        /// <returns></returns>
+        public override HinhAnh clone()
+        {
+            HinhAnh tmp = base.clone();
+            if (tmp == null)
+            {
+                return null;
+            }
+            tmp.clearAllFK();
+            return tmp;
         }
         #endregion
     }
