@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnLoaiChung = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoaiRieng = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLoaiChung = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -46,25 +46,27 @@
             this.panelControl1.Size = new System.Drawing.Size(251, 347);
             this.panelControl1.TabIndex = 0;
             // 
-            // btnLoaiChung
-            // 
-            this.btnLoaiChung.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLoaiChung.Location = new System.Drawing.Point(0, 0);
-            this.btnLoaiChung.Name = "btnLoaiChung";
-            this.btnLoaiChung.Size = new System.Drawing.Size(251, 23);
-            this.btnLoaiChung.TabIndex = 0;
-            this.btnLoaiChung.Text = "Thiết bị quản lý theo số lượng";
-            this.btnLoaiChung.Click += new System.EventHandler(this.btnLoaiChung_Click);
-            // 
             // btnLoaiRieng
             // 
-            this.btnLoaiRieng.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLoaiRieng.Location = new System.Drawing.Point(0, 23);
+            this.btnLoaiRieng.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoaiRieng.Location = new System.Drawing.Point(3, 28);
             this.btnLoaiRieng.Name = "btnLoaiRieng";
-            this.btnLoaiRieng.Size = new System.Drawing.Size(251, 23);
+            this.btnLoaiRieng.Size = new System.Drawing.Size(245, 23);
             this.btnLoaiRieng.TabIndex = 1;
             this.btnLoaiRieng.Text = "Thiết bị quản lý riêng lẻ";
             this.btnLoaiRieng.Click += new System.EventHandler(this.btnLoaiRieng_Click);
+            // 
+            // btnLoaiChung
+            // 
+            this.btnLoaiChung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoaiChung.Location = new System.Drawing.Point(3, 3);
+            this.btnLoaiChung.Name = "btnLoaiChung";
+            this.btnLoaiChung.Size = new System.Drawing.Size(245, 23);
+            this.btnLoaiChung.TabIndex = 0;
+            this.btnLoaiChung.Text = "Thiết bị quản lý theo số lượng";
+            this.btnLoaiChung.Click += new System.EventHandler(this.btnLoaiChung_Click);
             // 
             // ucQuanLyThietBi_Control
             // 
