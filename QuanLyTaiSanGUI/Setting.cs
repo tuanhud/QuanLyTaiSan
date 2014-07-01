@@ -85,8 +85,6 @@ namespace QuanLyTaiSanGUI
             {
                 this.show_frm_login();
             }
-            //CLOSE và trở về frm Main
-            this.Close();
         }
         #region show from login in new thread
         private void ThreadProc()
