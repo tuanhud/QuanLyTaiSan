@@ -97,6 +97,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             if (listCTThietBis.Count > 0)
             {
+                panelControl1.Visible = true;
                 barButtonSuaTB.Enabled = true;
                 barButtonXoaTB.Enabled = true;
                 barButtonChuyen.Enabled = true;
@@ -106,7 +107,22 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 barButtonSuaTB.Enabled = false;
                 barButtonXoaTB.Enabled = false;
                 barButtonChuyen.Enabled = false;
+                panelControl1.Visible = false;
+                clearGroupChiTiet();
             }
+        }
+
+        private void clearGroupChiTiet()
+        {
+            txtMa.Text = "";
+            txtTen.Text = "";
+            txtMoTa.Text = "";
+            lblTenPhong.Text = "";
+            dateLap.EditValue = "";
+            dateMua.EditValue = "";
+            imageSlider1.Images.Clear();
+            gridControlLog.DataSource = null;
+
         }
 
         public RibbonControl getRibbon()
