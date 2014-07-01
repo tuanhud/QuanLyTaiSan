@@ -83,10 +83,23 @@ namespace QuanLyTaiSanGUI
         {
             if (cau_hinh_ban_dau)
             {
-                Login loginFrm = new Login();
-                loginFrm.Show();
+                this.show_frm_login();
             }
-            Close();
+            //CLOSE và trở về frm Main
+            this.Close();
         }
+        #region show from login in new thread
+        private void ThreadProc()
+        {
+            Application.Run(new Login());
+        }
+        private void show_frm_login()
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+            t.Start();
+
+            Application.Exit();
+        }
+        #endregion
     }
 }
