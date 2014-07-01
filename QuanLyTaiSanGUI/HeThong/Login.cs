@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Entities;
+using System.Threading;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
@@ -90,8 +91,9 @@ namespace QuanLyTaiSanGUI.HeThong
         }
         private void show_frm_main()
         {
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
-            t.Start();
+            Thread thread = new Thread(new ThreadStart(ThreadProc));
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
 
             Application.Exit();
         }
