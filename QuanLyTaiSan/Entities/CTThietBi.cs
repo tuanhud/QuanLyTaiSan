@@ -100,7 +100,7 @@ namespace QuanLyTaiSan.Entities
                     if (tmp != null)
                     {
                         tmp.soluong += soluong;
-                        tmp.mota = mota.Equals("")?tmp.mota:mota;
+                        tmp.mota = mota;//mota.Equals("")?tmp.mota:mota;
                         transac = transac && tmp.update(ngay, true) > 0;//UPDATE
                     }
                     //NO
@@ -112,7 +112,7 @@ namespace QuanLyTaiSan.Entities
                         tmp.soluong = soluong;
                         tmp.thietbi = this.thietbi;
                         tmp.tinhtrang = moi;
-                        tmp.mota = mota.Equals("") ? this.mota : mota;
+                        tmp.mota = mota;//mota.Equals("") ? this.mota : mota;
                         
                         transac = transac && tmp.add(ngay, true) > 0;//ADD
                     }
@@ -128,7 +128,7 @@ namespace QuanLyTaiSan.Entities
                 {
                     this.phong = dich;
                     this.tinhtrang = moi;
-                    this.mota = mota.Equals("")?this.mota:mota;
+                    this.mota = mota;//mota.Equals("")?this.mota:mota;
                     transac = transac && update(ngay, true)>0;
                 }
 
@@ -163,7 +163,7 @@ namespace QuanLyTaiSan.Entities
             return logtb.add();
         }
         /// <summary>
-        /// Nen dam bao tat ca object co lien quan cung 1 Context
+        /// Tìm kiếm thiết bị với 3 yếu tố
         /// </summary>
         /// <param name="ph"></param>
         /// <param name="tb"></param>
