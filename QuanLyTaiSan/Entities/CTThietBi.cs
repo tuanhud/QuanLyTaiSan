@@ -45,94 +45,95 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
         #region Nghiep vu
-        public CTThietBi search(ThietBi tb, Phong ph, TinhTrang ttr)
-        {
-            if (ph == null || ttr == null || tb==null)
-            {
-                return null;
-            }
-            CTThietBi tmp = db.CTTHIETBIS.Where(c=>c.phong_id==ph.id && c.tinhtrang_id==ttr.id && c.thietbi_id == tb.id).FirstOrDefault();
-            return tmp;
-        }
-        /// <summary>
-        /// Chuyển tình trạng hiện tại của 1 CTTB sang tình trạng khác, có hỗ trợ ghi log,
-        /// tự động transaction
-        /// </summary>
-        /// <returns></returns>
-        public int chuyentinhtrang(TinhTrang moi, String mota="")
-        {
-            //BEGIN===================================
-            Boolean transac = true;
-            DateTime ngay = ServerTimeHelper.getNow();
-            using (var dbContextTransaction = db.Database.BeginTransaction())
-            {
-                this.tinhtrang = moi;
-                this.mota = mota;
-                //update
-                transac = transac && update(ngay,true)>0;
 
-                //finish
-                if (transac)
-                {
-                    dbContextTransaction.Commit();
-                }
-                else
-                {
-                    dbContextTransaction.Rollback();
-                }
-
-                return transac ? 1 : -1;
-            }
-        }
         /// <summary>
-        /// Ham update se duoc tu dong goi trong day (co su dung Transaction Commit),
-        /// Khi co bat ky 1 loi nao trong qua trinh thuc hien (Rollback se duoc goi),
-        /// Co ho tro ghi LOG tu dong
+        /// Di chuyển, kết hợp đổi tình trạng,
+        /// có hỗ trợ ghi LOG tự động,vd:
+        /// CTThietBi obj = CTThietBi.getById(24552);
+        /// Phong dich = null;// Phong.getById(1228);
+        /// TinhTrang ttr = null;//TinhTrang.getById(3);
+        /// int re = obj.dichuyen(dich, ttr, -1, "đổi tình trạng toàn bộ luôn");
         /// </summary>
-        /// <param name="dich">Phong can di chuyen den (Can duy tri chung dbContext)</param>
-        /// <param name="soluong">So luong can di chuyen (mac dinh la 1)</param>
+        /// <param name="dich">Phòng cần di chuyển đến (null nếu chỉ muốn đổi tình trạng)</param>
+        /// <param name="moi">Tình trạng cần chuyển sang (null nếu chỉ muốn đổi phòng)</param>
+        /// <param name="soluong">Sô lượng cần chuyển (mac dinh la -1 (chuyển tất cả))</param>
         /// <returns></returns>
-        public int dichuyen(Phong dich, int soluong=1, String mota="")
+        public int dichuyen(Phong dich=null, TinhTrang moi=null, int soluong=-1, String mota="")
         {
-            //kiem tra rang buoc
-            if (this.soluong < soluong)
+            //pre set data
+            dich = dich == null ? this.phong : dich;
+            //=> dich co the van se la null (do this.phong có thể là null)
+            moi = moi == null ? this.tinhtrang : moi;//tinh trang không thể null
+
+            //XÉT ĐIỀU KIỆN
+            if
+                (
+                    //Nếu Không có bất kỳ sự thay đổi nào
+                    ((dich!=null && dich.id == this.phong.id) || (dich==null && this.phong==null))
+                    && moi.id == this.tinhtrang.id
+                )
             {
                 return -2;
             }
+            //kiem tra rang buoc không cho thực thi
+            if
+                (
+                    soluong == 0 || soluong > this.soluong
+                )
+            {
+                return -2;
+            }
+            Boolean chuyen_1_phan = soluong > 0 && soluong < this.soluong;
             //BEGIN===================================
             Boolean transac = true;
             using (var dbContextTransaction = db.Database.BeginTransaction()) 
             {
-                CTThietBi cttb;
+                CTThietBi tmp=null;
                 DateTime ngay = ServerTimeHelper.getNow();
-                //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
-                    //kiem tra co record nao trung (dich, tinhtrang, thietbi) ?
-                cttb = search(dich, thietbi, tinhtrang);
-                    //YES
-                        //SELECT CTTB do len => update
-                if (cttb != null)
+                if (chuyen_1_phan)
                 {
-                    cttb.soluong += soluong;
-                    transac=transac && cttb.update(ngay,true)>0;//UPDATE
-                }
+                    //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
+                    //kiem tra co record nao trung (dich, tinhtrang, thietbi) ?
+                    tmp = search(dich, this.thietbi, moi);
+                    //YES
+                    //SELECT CTTB do len => update
+                    if (tmp != null)
+                    {
+                        tmp.soluong += soluong;
+                        tmp.mota = mota.Equals("")?tmp.mota:mota;
+                        transac = transac && tmp.update(ngay, true) > 0;//UPDATE
+                    }
                     //NO
                     //TAO MOI CTTB => add
+                    else
+                    {
+                        tmp = new CTThietBi();
+                        tmp.phong = dich;
+                        tmp.soluong = soluong;
+                        tmp.thietbi = this.thietbi;
+                        tmp.tinhtrang = moi;
+                        tmp.mota = mota.Equals("") ? this.mota : mota;
+                        
+                        transac = transac && tmp.add(ngay, true) > 0;//ADD
+                    }
+
+                    //cap nhat lai so luong cho cái hiện đã bị chuyển
+                    this.soluong -= soluong;
+                    this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
+                    //ghi log thietbi ngay sau khi cap nhat ONLY soluong
+                    transac = transac && update(ngay, true) > 0;
+                }
+                //Chuyển toàn bộ
                 else
                 {
-                    cttb = new CTThietBi();
-                    cttb.phong = dich;
-                    cttb.soluong = soluong;
-                    cttb.thietbi = thietbi;
-                    cttb.tinhtrang = tinhtrang;
-                    transac=transac && cttb.add()>0;//ADD
+                    this.phong = dich;
+                    this.tinhtrang = moi;
+                    this.mota = mota.Equals("")?this.mota:mota;
+                    transac = transac && update(ngay, true)>0;
                 }
-                    
-                //cap nhat lai so luong
-                this.soluong -= soluong;
-                this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
-                //update
-                //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                transac = transac && update(ngay,true) > 0;
+
+
+                //final transac controller
                 if (transac)
                 {
                     dbContextTransaction.Commit();
@@ -170,8 +171,18 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public static CTThietBi search(Phong ph, ThietBi tb, TinhTrang tr)
         {
-            CTThietBi tmp = db.CTTHIETBIS.Where(c => c.phong.id == ph.id && c.thietbi.id == tb.id && c.tinhtrang.id == tr.id).FirstOrDefault();
-            return tmp;
+            IQueryable<CTThietBi> query = db.CTTHIETBIS.AsQueryable();
+            if (ph == null)
+            {
+                query = query.Where(c => c.phong_id == null);
+            }
+            else
+            {
+                query = query.Where(c => c.phong_id == ph.id);
+            }
+            query = query.Where(c => c.thietbi_id == tb.id && c.tinhtrang_id == tr.id);
+            
+            return query.FirstOrDefault();
         }
         /// <summary>
         /// deprecated
@@ -203,7 +214,7 @@ namespace QuanLyTaiSan.Entities
             {
                 try
                 {
-                    CTThietBi tmp = search(thietbi, phong, tinhtrang);
+                    CTThietBi tmp = search(phong, thietbi, tinhtrang);
                     //Nếu có CTTB sẵn trùng Phòng, Thiết bị, Tình trạng thì cộng dồn SL vào và update
                     if (tmp != null)
                     {
