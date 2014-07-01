@@ -22,7 +22,6 @@ using QuanLyTaiSanGUI.HeThong;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.LookAndFeel;
-using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using DevExpress.Skins;
 using QuanLyTaiSanGUI.QLThietBi;
@@ -92,6 +91,8 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucPhanQuyen.getRibbon());
             addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
             drawEnd = true;
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)

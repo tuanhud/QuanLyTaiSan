@@ -82,6 +82,8 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ribbonPageThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonShowListTB = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -244,9 +246,9 @@
             this.barButtonThemPhong,
             this.barButtonSuaPhong,
             this.barButtonXoaPhong,
-            this.barButtonXemListTB});
+            this.barButtonShowListTB});
             this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhong.MaxItemId = 43;
+            this.ribbonPhong.MaxItemId = 44;
             this.ribbonPhong.Name = "ribbonPhong";
             this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home});
@@ -280,7 +282,7 @@
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageThietBi});
             this.rbnPagePhong_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
             this.rbnPagePhong_Home.Text = "Phòng";
@@ -604,20 +606,20 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // ribbonPageGroup2
+            // ribbonPageThietBi
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonXemListTB);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Thiết bị";
+            this.ribbonPageThietBi.ItemLinks.Add(this.barButtonShowListTB);
+            this.ribbonPageThietBi.Name = "ribbonPageThietBi";
+            this.ribbonPageThietBi.ShowCaptionButton = false;
+            this.ribbonPageThietBi.Text = "Thiết bị";
             // 
-            // barButtonXemListTB
+            // barButtonShowListTB
             // 
-            this.barButtonXemListTB.Caption = "Xem thiết bị";
-            this.barButtonXemListTB.Id = 42;
-            this.barButtonXemListTB.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.fs_view_icon;
-            this.barButtonXemListTB.Name = "barButtonXemListTB";
-            this.barButtonXemListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
+            this.barButtonShowListTB.Caption = "Xem thiết bị";
+            this.barButtonShowListTB.Id = 43;
+            this.barButtonShowListTB.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.fs_view_icon;
+            this.barButtonShowListTB.Name = "barButtonShowListTB";
+            this.barButtonShowListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
             // 
             // ucQuanLyPhong
             // 
@@ -710,5 +712,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtMaPhong;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraBars.BarButtonItem barButtonShowListTB;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageThietBi;
     }
 }
