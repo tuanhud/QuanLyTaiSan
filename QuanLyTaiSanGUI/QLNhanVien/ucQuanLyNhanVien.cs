@@ -140,7 +140,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtTen.Text = "";
             txtSodt.Text = "";
             imageSlider1.Images.Clear();
-            listHinhs = null;
+            listHinhs = new List<HinhAnh>();
             listBoxPhong.DataSource = null;
         }
 

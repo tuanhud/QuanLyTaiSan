@@ -36,6 +36,7 @@
             this.barButtonChuyen = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhongThietbi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnPageThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.groupPhong = new DevExpress.XtraEditors.GroupControl();
@@ -115,7 +116,7 @@
             this.barButtonXoaTB,
             this.barButtonChuyen});
             this.ribbonPhongThietBi.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhongThietBi.MaxItemId = 46;
+            this.ribbonPhongThietBi.MaxItemId = 47;
             this.ribbonPhongThietBi.Name = "ribbonPhongThietBi";
             this.ribbonPhongThietBi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhongThietbi_Home});
@@ -147,15 +148,16 @@
             // barButtonChuyen
             // 
             this.barButtonChuyen.Caption = "Chuyển";
-            this.barButtonChuyen.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.forward;
-            this.barButtonChuyen.Id = 45;
+            this.barButtonChuyen.Id = 46;
+            this.barButtonChuyen.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.right_icon;
             this.barButtonChuyen.Name = "barButtonChuyen";
             this.barButtonChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonChuyen_ItemClick);
             // 
             // rbnPagePhongThietbi_Home
             // 
             this.rbnPagePhongThietbi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnPageThietBi});
+            this.rbnPageThietBi,
+            this.ribbonPageGroupChuyen});
             this.rbnPagePhongThietbi_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
             this.rbnPagePhongThietbi_Home.Name = "rbnPagePhongThietbi_Home";
             this.rbnPagePhongThietbi_Home.Text = "Phòng - Thiết bị";
@@ -165,10 +167,16 @@
             this.rbnPageThietBi.ItemLinks.Add(this.barButtonThemTB);
             this.rbnPageThietBi.ItemLinks.Add(this.barButtonSuaTB);
             this.rbnPageThietBi.ItemLinks.Add(this.barButtonXoaTB);
-            this.rbnPageThietBi.ItemLinks.Add(this.barButtonChuyen);
             this.rbnPageThietBi.Name = "rbnPageThietBi";
             this.rbnPageThietBi.ShowCaptionButton = false;
             this.rbnPageThietBi.Text = "Thiết bị";
+            // 
+            // ribbonPageGroupChuyen
+            // 
+            this.ribbonPageGroupChuyen.ItemLinks.Add(this.barButtonChuyen);
+            this.ribbonPageGroupChuyen.Name = "ribbonPageGroupChuyen";
+            this.ribbonPageGroupChuyen.ShowCaptionButton = false;
+            this.ribbonPageGroupChuyen.Text = "Chuyển";
             // 
             // rbnGroupPhong_Phong
             // 
@@ -205,7 +213,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(833, 529);
-            this.splitContainerControl1.SplitterPosition = 284;
+            this.splitContainerControl1.SplitterPosition = 335;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -216,7 +224,7 @@
             this.gridControlCTThietBi.MainView = this.gridViewCTThietBi;
             this.gridControlCTThietBi.MenuManager = this.ribbonPhongThietBi;
             this.gridControlCTThietBi.Name = "gridControlCTThietBi";
-            this.gridControlCTThietBi.Size = new System.Drawing.Size(544, 529);
+            this.gridControlCTThietBi.Size = new System.Drawing.Size(493, 529);
             this.gridControlCTThietBi.TabIndex = 0;
             this.gridControlCTThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTThietBi});
@@ -304,7 +312,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 415);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(284, 114);
+            this.groupControl2.Size = new System.Drawing.Size(335, 114);
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Log";
             // 
@@ -314,7 +322,7 @@
             this.gridControlLog.Location = new System.Drawing.Point(2, 24);
             this.gridControlLog.MainView = this.gridViewlog;
             this.gridControlLog.Name = "gridControlLog";
-            this.gridControlLog.Size = new System.Drawing.Size(280, 88);
+            this.gridControlLog.Size = new System.Drawing.Size(331, 88);
             this.gridControlLog.TabIndex = 0;
             this.gridControlLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewlog});
@@ -395,7 +403,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(284, 415);
+            this.groupControl1.Size = new System.Drawing.Size(335, 415);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Chi tiết thiết bị";
             // 
@@ -406,7 +414,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(72, 207);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(201, 20);
+            this.panelControl1.Size = new System.Drawing.Size(252, 20);
             this.panelControl1.TabIndex = 26;
             // 
             // lblTenPhong
@@ -431,7 +439,7 @@
             this.txtMa.Location = new System.Drawing.Point(71, 154);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
-            this.txtMa.Size = new System.Drawing.Size(202, 20);
+            this.txtMa.Size = new System.Drawing.Size(253, 20);
             this.txtMa.TabIndex = 23;
             // 
             // btnHuy
@@ -532,7 +540,7 @@
             this.dateLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateLap.Properties.ReadOnly = true;
-            this.dateLap.Size = new System.Drawing.Size(202, 20);
+            this.dateLap.Size = new System.Drawing.Size(253, 20);
             this.dateLap.TabIndex = 6;
             // 
             // dateMua
@@ -547,7 +555,7 @@
             this.dateMua.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateMua.Properties.ReadOnly = true;
-            this.dateMua.Size = new System.Drawing.Size(202, 20);
+            this.dateMua.Size = new System.Drawing.Size(253, 20);
             this.dateMua.TabIndex = 5;
             // 
             // txtTen
@@ -557,7 +565,7 @@
             this.txtTen.Location = new System.Drawing.Point(71, 180);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(202, 20);
+            this.txtTen.Size = new System.Drawing.Size(253, 20);
             this.txtTen.TabIndex = 1;
             // 
             // imageSlider1
@@ -576,7 +584,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(71, 313);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(202, 68);
+            this.txtMoTa.Size = new System.Drawing.Size(253, 68);
             this.txtMoTa.TabIndex = 4;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
@@ -632,7 +640,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonThemTB;
         private DevExpress.XtraBars.BarButtonItem barButtonSuaTB;
         private DevExpress.XtraBars.BarButtonItem barButtonXoaTB;
-        private DevExpress.XtraBars.BarButtonItem barButtonChuyen;
         private DevExpress.XtraEditors.GroupControl groupPhong;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gridControlCTThietBi;
@@ -673,5 +680,7 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colidTB;
         private DevExpress.XtraGrid.Columns.GridColumn colnone;
+        private DevExpress.XtraBars.BarButtonItem barButtonChuyen;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupChuyen;
     }
 }
