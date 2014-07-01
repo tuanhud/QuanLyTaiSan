@@ -163,12 +163,25 @@ namespace QuanLyTaiSan.Entities
                 
             }
         }
-
+        /// <summary>
+        /// Có thể query trên danh sách sau đó mới trả về List,
+        /// Sẽ nhanh hơn nhiều so với getAll
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<T> getQuery()
+        {
+            return db.Set<T>();
+        }
+        /// <summary>
+        /// Sử dụng để đổ DataSource nhanh,
+        /// Muốn query được thì nên sử dụng getQuery sẽ nhanh hơn
+        /// </summary>
+        /// <returns></returns>
         public static List<T> getAll()
         {
             try
             {
-                return db.Set<T>().ToList();
+                return db.Set<T>().ToList();//.ToList();//return toList là dở vì phải load hết dữ liệu trước
             }
             catch (Exception ex)
             {

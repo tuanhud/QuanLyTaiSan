@@ -29,7 +29,9 @@ namespace QuanLyTaiSan
         {
             InitializeComponent();
 
-            
+            //CTThietBi.getAll();//.Where(c=>c.soluong>0);
+            List<CTThietBi> dd = CTThietBi.getAll().ToList();
+            Console.WriteLine();
         }
         private void sync_procedure()
         {
