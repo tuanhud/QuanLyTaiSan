@@ -72,6 +72,8 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton_validateServer = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -103,6 +105,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPortHTTP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrepathHTTP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddressHTTP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -495,15 +499,33 @@
             this.labelControl12.TabIndex = 0;
             this.labelControl12.Text = "Địa chỉ Sever";
             // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.simpleButton_validateServer);
+            this.groupControl4.Location = new System.Drawing.Point(3, 308);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(717, 87);
+            this.groupControl4.TabIndex = 1;
+            this.groupControl4.Text = "Sync Tools";
+            // 
+            // simpleButton_validateServer
+            // 
+            this.simpleButton_validateServer.Location = new System.Drawing.Point(29, 37);
+            this.simpleButton_validateServer.Name = "simpleButton_validateServer";
+            this.simpleButton_validateServer.Size = new System.Drawing.Size(102, 23);
+            this.simpleButton_validateServer.TabIndex = 0;
+            this.simpleButton_validateServer.Text = "Validate Server DB";
+            // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Name = "ucCauHinh";
-            this.Size = new System.Drawing.Size(723, 309);
+            this.Size = new System.Drawing.Size(723, 398);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).EndInit();
@@ -539,6 +561,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPortHTTP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrepathHTTP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddressHTTP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -589,5 +613,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_validateServer;
     }
 }
