@@ -22,6 +22,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
         ThietBi objThietBi = new ThietBi();
         CTThietBi objCTThietBi = new CTThietBi();
+        Phong objPhong = new Phong();
         LoaiThietBi objLoaiThietBi = null;
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         Boolean checkadd = true;
@@ -36,19 +37,17 @@ namespace QuanLyTaiSanGUI.QLPhong
         int HinhThucThem = 0;
         Boolean loaiChung = false;
 
-        public delegate void SendMessage();
-        public SendMessage sendMessage;
-
-        private void RunDelegate()
-        {
-            sendMessage();
-        }
-
         public frmNewThietBi()
         {
             InitializeComponent();
             loadData();
+        }
 
+        public frmNewThietBi(Phong obj)
+        {
+            InitializeComponent();
+            objPhong = obj;
+            loadData();
         }
 
         public void loadData()
@@ -65,6 +64,7 @@ namespace QuanLyTaiSanGUI.QLPhong
             _ucComboBoxViTri.loadData(listViTriFilter);
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             _ucComboBoxViTri.setReadOnly(false);
+            _ucComboBoxViTri.setPhong(objPhong);
             panelPhong.Controls.Add(_ucComboBoxViTri);
 
             listTinhTrang = TinhTrang.getAll();//.OrderBy(i => i.value).ToList();
@@ -382,8 +382,8 @@ namespace QuanLyTaiSanGUI.QLPhong
 
         private void frmNewThietBi_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (coThayDoi)
-                RunDelegate();
+            //if (coThayDoi)
+            //    RunDelegate();
         }
 
         private void comboBoxEditHinhThucThem_SelectedIndexChanged(object sender, EventArgs e)

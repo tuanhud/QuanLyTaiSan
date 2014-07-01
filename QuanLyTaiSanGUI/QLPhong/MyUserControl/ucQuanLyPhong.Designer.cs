@@ -82,6 +82,8 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonXemListTB = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -147,8 +149,7 @@
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewPhong.OptionsFind.AlwaysVisible = true;
-            this.gridViewPhong.OptionsView.ShowGroupPanel = false;
+            this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridViewPhong_KeyDown);
             // 
@@ -244,9 +245,10 @@
             this.ribbonPhong.ExpandCollapseItem,
             this.barButtonThemPhong,
             this.barButtonSuaPhong,
-            this.barButtonXoaPhong});
+            this.barButtonXoaPhong,
+            this.barButtonXemListTB});
             this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhong.MaxItemId = 42;
+            this.ribbonPhong.MaxItemId = 43;
             this.ribbonPhong.Name = "ribbonPhong";
             this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home});
@@ -279,7 +281,8 @@
             // rbnPagePhong_Home
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.rbnPagePhong_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
             this.rbnPagePhong_Home.Text = "Phòng";
@@ -290,6 +293,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaPhong);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaPhong);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Phòng";
             // 
             // txtTenNhanVien
@@ -600,6 +604,20 @@
             // 
             this.dxErrorProvider.ContainerControl = this;
             // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonXemListTB);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.ShowCaptionButton = false;
+            this.ribbonPageGroup2.Text = "Thiết bị";
+            // 
+            // barButtonXemListTB
+            // 
+            this.barButtonXemListTB.Caption = "Xem thiết bị trong phòng";
+            this.barButtonXemListTB.Id = 42;
+            this.barButtonXemListTB.Name = "barButtonXemListTB";
+            this.barButtonXemListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
+            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,5 +709,7 @@
         private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtMaPhong;
+        private DevExpress.XtraBars.BarButtonItem barButtonXemListTB;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

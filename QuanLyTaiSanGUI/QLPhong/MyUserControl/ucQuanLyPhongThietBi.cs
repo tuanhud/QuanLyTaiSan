@@ -327,5 +327,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
             frm.ShowDialog();
             reLoadCTThietBisOnlyAndFocused(id);
         }
+
+        private void barButtonThemTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmNewThietBi frm = new frmNewThietBi(objCTThietBi.phong);
+            frm.ShowDialog();
+        }
     }
 }
