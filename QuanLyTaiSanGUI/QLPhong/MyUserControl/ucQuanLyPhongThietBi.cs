@@ -44,6 +44,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
+            gridViewlog.Columns[colngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         // Load dữ liệu
@@ -135,6 +136,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 dateLap.DateTime = _obj.thietbi.ngaylap.Value;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
+                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id).ToList();
                 reloadImage();
             }
             catch (Exception ex)
@@ -203,8 +205,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (CheckInput())
             {
                 editObj();
+                enableEdit(false);
             }
-            enableEdit(false);
         }
 
         private void editObj()
@@ -240,12 +242,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private Boolean CheckInput()
         {
-            dxErrorProvider.ClearErrors();
+            dxErrorProvider1.ClearErrors();
             Boolean check = true;
             if (txtTen.Text.Length == 0)
             {
                 check = false;
-                dxErrorProvider.SetError(txtTen, "Chưa điền tên");
+                dxErrorProvider1.SetError(txtTen, "Chưa điền tên");
             }
             return check;
         }
@@ -320,8 +322,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            int id = objCTThietBi.id;
             frmChuyen frm = new frmChuyen(objCTThietBi);
             frm.ShowDialog();
+            reLoadCTThietBisOnlyAndFocused(id);
         }
     }
 }

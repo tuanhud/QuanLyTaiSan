@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.MyUC;
@@ -76,10 +77,44 @@ namespace QuanLyTaiSanGUI.QLPhong
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (radioBtnChuyenPhong.Checked)
+            try
             {
-                //objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), 1, txtGhiChu.Text);
+                if (radioBtnChuyenPhong.Checked)
+                {
+                    if (CheckInput())
+                    {
+                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text) > 0)
+                        {
+                            XtraMessageBox.Show("Chuyển phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    if(objCTThietBi.dichuyen(null, (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text)>0)
+                    {
+                        XtraMessageBox.Show("Chuyển tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                }
             }
+            catch (Exception ex)
+            { }
+            finally
+            { }
+        }
+
+        private Boolean CheckInput()
+        {
+            dxErrorProvider1.ClearErrors();
+            Boolean check = true;
+            if (_ucComboBoxViTri.getPhong() == null)
+            {
+                check = false;
+                dxErrorProvider1.SetError(panelControl1, "Bạn chưa chọn phòng");
+            }
+            return check;
         }
     }
 }

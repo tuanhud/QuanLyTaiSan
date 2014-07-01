@@ -38,7 +38,6 @@
             this.rbnPageThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.groupPhong = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlCTThietBi = new DevExpress.XtraGrid.GridControl();
@@ -53,9 +52,9 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gridControlLog = new DevExpress.XtraGrid.GridControl();
             this.gridViewlog = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLogId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngay = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLogSoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -80,7 +79,6 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -183,10 +181,6 @@
             this.rbnGroupPhong_Phong.Enabled = false;
             this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
             this.rbnGroupPhong_Phong.Text = "Phòng";
-            // 
-            // dxErrorProvider
-            // 
-            this.dxErrorProvider.ContainerControl = this;
             // 
             // groupPhong
             // 
@@ -330,20 +324,23 @@
             // gridViewlog
             // 
             this.gridViewlog.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
+            this.colLogId,
             this.colngay,
-            this.gridColumn2,
+            this.colLogSoluong,
             this.coltinhtrang_id,
             this.colmota});
             this.gridViewlog.GridControl = this.gridControlLog;
             this.gridViewlog.Name = "gridViewlog";
+            this.gridViewlog.OptionsBehavior.Editable = false;
+            this.gridViewlog.OptionsBehavior.ReadOnly = true;
+            this.gridViewlog.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewlog.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumn1
+            // colLogId
             // 
-            this.gridColumn1.FieldName = "id";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.colLogId.FieldName = "id";
+            this.colLogId.Name = "colLogId";
+            this.colLogId.OptionsColumn.ReadOnly = true;
             // 
             // colngay
             // 
@@ -353,13 +350,13 @@
             this.colngay.Visible = true;
             this.colngay.VisibleIndex = 0;
             // 
-            // gridColumn2
+            // colLogSoluong
             // 
-            this.gridColumn2.Caption = "Số lượng";
-            this.gridColumn2.FieldName = "soluong";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.colLogSoluong.Caption = "Số lượng";
+            this.colLogSoluong.FieldName = "soluong";
+            this.colLogSoluong.Name = "colLogSoluong";
+            this.colLogSoluong.Visible = true;
+            this.colLogSoluong.VisibleIndex = 2;
             // 
             // coltinhtrang_id
             // 
@@ -601,7 +598,6 @@
             this.Name = "ucQuanLyPhongThietBi";
             this.Size = new System.Drawing.Size(837, 700);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).EndInit();
             this.groupPhong.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -635,7 +631,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhongThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhongThietbi_Home;
-        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnPageThietBi;
         private DevExpress.XtraBars.BarButtonItem barButtonThemTB;
         private DevExpress.XtraBars.BarButtonItem barButtonSuaTB;
@@ -652,9 +647,9 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraGrid.GridControl gridControlLog;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewlog;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLogId;
         private DevExpress.XtraGrid.Columns.GridColumn colngay;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn colLogSoluong;
         private DevExpress.XtraGrid.Columns.GridColumn coltinhtrang_id;
         private DevExpress.XtraGrid.Columns.GridColumn colmota;
         private DevExpress.XtraEditors.GroupControl groupControl1;
