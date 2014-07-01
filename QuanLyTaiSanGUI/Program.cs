@@ -26,8 +26,8 @@ namespace QuanLyTaiSanGUI
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
-            //Application.Run(new frmMain());
-            Application.Run(new Setting());
+            Application.Run(new frmMain());
+            //Application.Run(new Setting());
             //Application.Run(new QuanLyTaiSanGUI.MyForm.frmNewThietBi());
             //Application.Run(new Setting());
             //Application.Run(new SplashScreen1());
