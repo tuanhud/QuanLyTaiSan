@@ -68,7 +68,7 @@ namespace QuanLyTaiSan.Entities
             //XÉT ĐIỀU KIỆN
             if
                 (
-                    //Nếu Không có bất kỳ sự thay đổi nào
+                    //Nếu Không có bất kỳ sự thay đổi nào, phòng và tình trạng giống với this
                     ((dich!=null && dich.id == this.phong.id) || (dich==null && this.phong==null))
                     && moi.id == this.tinhtrang.id
                 )
@@ -83,29 +83,22 @@ namespace QuanLyTaiSan.Entities
             {
                 return -2;
             }
-            Boolean chuyen_1_phan = soluong > 0 && soluong < this.soluong;
+            soluong = soluong < 0 ? this.soluong : soluong;
             //BEGIN===================================
             Boolean transac = true;
             using (var dbContextTransaction = db.Database.BeginTransaction()) 
             {
                 CTThietBi tmp=null;
                 DateTime ngay = ServerTimeHelper.getNow();
-                if (chuyen_1_phan)
+                if (true)
                 {
                     //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
-                    //kiem tra co record nao trung (dich, tinhtrang, thietbi) ?
+                    //kiem tra co record nao trung với record cần tạo mới (dich, tinhtrang, thietbi) ?
                     tmp = search(dich, this.thietbi, moi);
-                    //YES
-                    //SELECT CTTB do len => update
-                    if (tmp != null)
-                    {
-                        tmp.soluong += soluong;
-                        tmp.mota = mota;//mota.Equals("")?tmp.mota:mota;
-                        transac = transac && tmp.update(ngay, true) > 0;//UPDATE
-                    }
+
                     //NO
                     //TAO MOI CTTB => add
-                    else
+                    if (tmp == null)
                     {
                         tmp = new CTThietBi();
                         tmp.phong = dich;
@@ -113,23 +106,27 @@ namespace QuanLyTaiSan.Entities
                         tmp.thietbi = this.thietbi;
                         tmp.tinhtrang = moi;
                         tmp.mota = mota;//mota.Equals("") ? this.mota : mota;
-                        
+
                         transac = transac && tmp.add(ngay, true) > 0;//ADD
                     }
-
-                    //cap nhat lai so luong cho cái hiện đã bị chuyển
-                    this.soluong -= soluong;
-                    this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
-                    //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                    transac = transac && update(ngay, true) > 0;
-                }
-                //Chuyển toàn bộ
-                else
-                {
-                    this.phong = dich;
-                    this.tinhtrang = moi;
-                    this.mota = mota;//mota.Equals("")?this.mota:mota;
-                    transac = transac && update(ngay, true)>0;
+                    else
+                    {
+                        //Đã có CTTB sẵn giống với CTTB cần tạo mới
+                        //SELECT CTTB do len => update
+                        if (tmp.id != this.id)
+                        {
+                            tmp.soluong += soluong;
+                            tmp.mota = mota;//mota.Equals("")?tmp.mota:mota;
+                            transac = transac && tmp.update(ngay, true) > 0;//UPDATE
+                        }
+                        //cap nhat lai so luong cho cái hiện đã bị chuyển
+                        this.mota = mota;
+                        this.soluong -= soluong;
+                        this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
+                        //ghi log thietbi ngay sau khi cap nhat ONLY soluong
+                        transac = transac && update(ngay, true) > 0;
+                    }
+                    
                 }
 
 
