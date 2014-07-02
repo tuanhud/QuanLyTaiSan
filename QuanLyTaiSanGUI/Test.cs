@@ -18,10 +18,13 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
 
-            CoSo obj = CoSo.getById(3);
-            //List<String> re = FTPHelper.GetFilesInDirectory(Global.remote_setting.ftp_host.getCombinedPath(""), Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD).ToList();
+            
+        }
 
-            obj.moveUp();
+        private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("them click");
+            ucThemSuaXoaButton1.btnSua.Hide();
         }
     }
 }

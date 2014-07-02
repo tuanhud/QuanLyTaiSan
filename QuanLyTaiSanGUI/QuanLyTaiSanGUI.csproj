@@ -190,6 +190,12 @@
     <Compile Include="MyUC\MyLayout.cs" />
     <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
+    <Compile Include="MyUC\ucThemSuaXoaButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucThemSuaXoaButton.Designer.cs">
+      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -448,6 +454,9 @@
     <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyUC\ucThemSuaXoaButton.resx">
+      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
       <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </EmbeddedResource>
@@ -543,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\ChiTiet\ucThongKeChiTiet.resx">
       <DependentUpon>ucThongKeChiTiet.cs</DependentUpon>
