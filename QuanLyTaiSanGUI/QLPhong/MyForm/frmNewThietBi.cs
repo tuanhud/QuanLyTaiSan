@@ -103,7 +103,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                 }
                 else
                 {
-                    if (objCTThietBi.add() > 0)
+                    if (objCTThietBi.add() > 0)//add_auto chu khong phai add
                     {
                         XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         thanhcong = true;
@@ -176,21 +176,21 @@ namespace QuanLyTaiSanGUI.QLPhong
                         check = false;
                         dxErrorProvider.SetError(txtTen, "Chưa điền tên thiết bị");
                     }
-                    if (dateEditMua.DateTime > dateEditLap.DateTime)
-                    {
-                        check = false;
-                        dxErrorProvider.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
-                    }
-                    if (dateEditMua.DateTime > DateTime.Today)
-                    {
-                        check = false;
-                        dxErrorProvider.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
-                    }
-                    if (dateEditLap.DateTime > DateTime.Today)
-                    {
-                        check = false;
-                        dxErrorProvider.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
-                    }
+                    //if (dateEditMua.DateTime > dateEditLap.DateTime)
+                    //{
+                    //    check = false;
+                    //    dxErrorProvider.SetError(dateEditLap, "Ngày lắp phải lớn hơn ngày mua");
+                    //}
+                    //if (dateEditMua.DateTime > DateTime.Today)
+                    //{
+                    //    check = false;
+                    //    dxErrorProvider.SetError(dateEditMua, "Ngày mua lớn hơn ngày hiện tại");
+                    //}
+                    //if (dateEditLap.DateTime > DateTime.Today)
+                    //{
+                    //    check = false;
+                    //    dxErrorProvider.SetError(dateEditLap, "Ngày lắp lớn hơn ngày hiện tại");
+                    //}
                 }
                 return check;
             }
@@ -256,39 +256,54 @@ namespace QuanLyTaiSanGUI.QLPhong
             {
                 try
                 {
-                    if (loaiChung) // loại chung
+                    //by quocdunginfo
+                    objCTThietBi.thietbi = ThietBi.request(objLoaiThietBi);
+                    if (objCTThietBi.thietbi.id <= 0)
                     {
-                        //thêm mới thiết bị
-                        objThietBi.loaithietbi = objLoaiThietBi;
-                        objThietBi.hinhanhs = listHinhAnh;
-                        objThietBi.ten = objLoaiThietBi.ten;
+                        objCTThietBi.thietbi.ten = objLoaiThietBi.ten;
                         objThietBi.mota = objLoaiThietBi.mota;
-
-                        //sau đó thêm mới thiết bị vào phòng
-                        objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
-                        objCTThietBi.phong = _ucComboBoxViTri.getPhong();
-
-                        objCTThietBi.thietbi = objThietBi;
-                        objCTThietBi.tinhtrang = tinhtrang;
+                        objCTThietBi.thietbi.hinhanhs = listHinhAnh;
                     }
-                    else //loairieng
-                    {
-                        //thêm mới thiết bị
-                        objThietBi.loaithietbi = objLoaiThietBi;
-                        objThietBi.hinhanhs = listHinhAnh;
-                        objThietBi.subId = txtMa.Text;
-                        objThietBi.ten = txtTen.Text;
-                        objThietBi.ngaymua = dateEditMua.DateTime;
-                        objThietBi.ngaylap = dateEditLap.DateTime;
-                        objThietBi.mota = txtMoTa.Text;
+                    objCTThietBi.tinhtrang = tinhtrang;
+                    objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+                    objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
 
-                        //sau đó thêm mới thiết bị vào phòng
-                        objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
-                        objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+                    int re = objCTThietBi.add();
 
-                        objCTThietBi.thietbi = objThietBi;
-                        objCTThietBi.tinhtrang = tinhtrang;
-                    }                    
+
+                    //if (loaiChung) // loại chung
+                    //{
+                    //    //thêm mới thiết bị
+                    //    objThietBi.loaithietbi = objLoaiThietBi;
+                    //    objThietBi.hinhanhs = listHinhAnh;
+                    //    objThietBi.ten = objLoaiThietBi.ten;
+                    //    objThietBi.mota = objLoaiThietBi.mota;
+
+                    //    //sau đó thêm mới thiết bị vào phòng
+                    //    objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
+                    //    objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+
+                    //    objCTThietBi.thietbi = objThietBi;
+                    //    objCTThietBi.tinhtrang = tinhtrang;
+                    //}
+                    //else //loairieng
+                    //{
+                    //    //thêm mới thiết bị
+                    //    objThietBi.loaithietbi = objLoaiThietBi;
+                    //    objThietBi.hinhanhs = listHinhAnh;
+                    //    objThietBi.subId = txtMa.Text;
+                    //    objThietBi.ten = txtTen.Text;
+                    //    objThietBi.ngaymua = dateEditMua.DateTime;
+                    //    objThietBi.ngaylap = dateEditLap.DateTime;
+                    //    objThietBi.mota = txtMoTa.Text;
+
+                    //    //sau đó thêm mới thiết bị vào phòng
+                    //    objCTThietBi.soluong = Int32.Parse(txtSoLuong.Text);
+                    //    objCTThietBi.phong = _ucComboBoxViTri.getPhong();
+
+                    //    objCTThietBi.thietbi = objThietBi;
+                    //    objCTThietBi.tinhtrang = tinhtrang;
+                    //}                    
 
                 }
                 catch (Exception ex)
