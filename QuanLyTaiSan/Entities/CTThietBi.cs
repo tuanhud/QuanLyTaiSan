@@ -191,9 +191,14 @@ namespace QuanLyTaiSan.Entities
         {
             return db.CTTHIETBIS.Where(ct => ct.tinhtrang.id == idTinhTrang).Select(select => select.thietbi).ToList();
         }
+        
+        #endregion
+
+        #region Override method
         /// <summary>
         /// Có hỗ trợ ghi log, phát sinh tự động thietbi hay không ? dựa trên loaichung hay riêng của loaithietbi,
         /// Tự động có transaction
+        /// A. Trường hợp thêm Thiết bị vào phòng mà chỉ chọn: Loại thiết bị
         /// 
         /// CTThietBi obj = new CTThietBi();
         /// obj.thietbi = ThietBi.request(loaithietbi);
@@ -202,75 +207,58 @@ namespace QuanLyTaiSan.Entities
         /// obj.soluong=soluong;
         /// obj.mota=mota;
         /// obj.add_auto();
+        /// 
+        /// B. Trường hợp thêm Thiết bị vào phòng chọn được: Thiết bị
+        /// 
+        /// CTThietBi obj = new CTThietBi();
+        /// obj.thietbi = thietbi;
+        /// obj.phong = phong;
+        /// obj.tinhtrang = tinhtrang;
+        /// obj.soluong=soluong;
+        /// obj.mota=mota;
+        /// obj.add_auto();
         /// </summary>
         /// <returns></returns>
-        public int add_auto()
+        public int add(DateTime? ngay=null, Boolean in_transaction=false)
         {
-            DateTime ngay = ServerTimeHelper.getNow();
+            ngay = ngay==null?ServerTimeHelper.getNow():ngay;
+            
             Boolean trans = true;
-            using (var dbTransac = db.Database.BeginTransaction())
-            {
-                try
-                {
-                    CTThietBi tmp = search(phong, thietbi, tinhtrang);
-                    //Nếu có CTTB sẵn trùng Phòng, Thiết bị, Tình trạng thì cộng dồn SL vào và update
-                    if (tmp != null)
-                    {
-                        tmp.soluong += soluong;
-                        //call update on tmp
-                        trans = trans && tmp.update(ngay, true) > 0;
-                        id = tmp.id;
-                    }
-                    //Còn không thì gọi this.add()
-                    else
-                    {
-                        trans = trans && add(ngay, true) > 0;
-                    }
-
-                    if (trans)
-                    {
-                        dbTransac.Commit();
-                    }
-                    else
-                    {
-                        dbTransac.Rollback();
-                    }
-                    return trans ? 1 : -1;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.ToString());
-                    dbTransac.Rollback();
-                    return -1;
-                }
-            }
-        }
-        #endregion
-
-        #region Override method
-        /// <summary>
-        /// Hàm add có hỗ trợ transaction, chỉ hỗ trợ add raw và ghi log chứ không tự động nghiệp vụ cộng dồn số lượng
-        /// </summary>
-        /// <param name="ngay"></param>
-        /// <param name="in_transaction">Có đang bị chạy trong 1 transaction khác</param>
-        /// <returns></returns>
-        private int add(DateTime? ngay=null, Boolean in_transaction=false)
-        {
-            DbContextTransaction dbTransac=null;
-            Boolean transac = true;
+            DbContextTransaction dbTransac = null;
             if (!in_transaction)
             {
                 dbTransac = db.Database.BeginTransaction();
             }
             //SCRIPT
+            try
+            {
+                CTThietBi tmp = search(phong, thietbi, tinhtrang);
+                //Nếu có CTTB sẵn trùng Phòng, Thiết bị, Tình trạng thì cộng dồn SL vào và update
+                if (tmp != null)
+                {
+                    tmp.soluong += soluong;
+                    //call update on tmp
+                    trans = trans && tmp.update(ngay, true) > 0;
+                    id = tmp.id;
+                }
+                //Còn không thì gọi this.add()
+                else
+                {
+                    trans = trans && base.add() > 0;
+                    trans = trans && writelog(ngay, mota) > 0;
+                }
 
-            transac = transac && base.add() > 0;
-            transac = transac && writelog(ngay, mota) > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return -1;
+            }
 
             //END SCRIPT
             if (!in_transaction)
             {
-                if (transac)
+                if (trans)
                 {
                     dbTransac.Commit();
                 }
@@ -280,7 +268,7 @@ namespace QuanLyTaiSan.Entities
                 }
                 dbTransac.Dispose();
             }
-            return transac ? 1 : -1;            
+            return trans ? 1 : -1; 
         }
         /// <summary>
         /// Có hỗ trợ ghi log, có hỗ trợ transaction
