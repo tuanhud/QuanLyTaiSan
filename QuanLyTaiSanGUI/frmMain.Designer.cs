@@ -31,34 +31,70 @@
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.SplashScreen1), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+            this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.backstageViewButtonItemCaiDat = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
+            this.backstageViewItemSeparator2 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.rbnPageNothing = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupQLPhong = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.navBarGroupQlTaiSan = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.navBarControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonMain
             // 
+            this.ribbonMain.ApplicationButtonDropDownControl = this.backstageViewControl1;
             this.ribbonMain.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonMain.ExpandCollapseItem});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 39;
+            this.ribbonMain.MaxItemId = 1;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageNothing});
+            this.ribbonMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
             this.ribbonMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonMain.Size = new System.Drawing.Size(900, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
             this.ribbonMain.SelectedPageChanged += new System.EventHandler(this.ribbonMain_SelectedPageChanged);
+            // 
+            // backstageViewControl1
+            // 
+            this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
+            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator1);
+            this.backstageViewControl1.Items.Add(this.backstageViewButtonItemCaiDat);
+            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator2);
+            this.backstageViewControl1.Location = new System.Drawing.Point(68, 84);
+            this.backstageViewControl1.Name = "backstageViewControl1";
+            this.backstageViewControl1.Ribbon = this.ribbonMain;
+            this.backstageViewControl1.SelectedTab = null;
+            this.backstageViewControl1.Size = new System.Drawing.Size(240, 150);
+            this.backstageViewControl1.TabIndex = 0;
+            this.backstageViewControl1.Text = "backstageViewControl1";
+            // 
+            // backstageViewItemSeparator1
+            // 
+            this.backstageViewItemSeparator1.Name = "backstageViewItemSeparator1";
+            // 
+            // backstageViewButtonItemCaiDat
+            // 
+            this.backstageViewButtonItemCaiDat.Caption = "Cài đặt";
+            this.backstageViewButtonItemCaiDat.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewButtonItemCaiDat.Glyph")));
+            this.backstageViewButtonItemCaiDat.Name = "backstageViewButtonItemCaiDat";
+            this.backstageViewButtonItemCaiDat.ItemClick += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewButtonItemCaiDat_ItemClick);
+            // 
+            // backstageViewItemSeparator2
+            // 
+            this.backstageViewItemSeparator2.Name = "backstageViewItemSeparator2";
             // 
             // rbnPageNothing
             // 
@@ -101,6 +137,12 @@
             this.navBarGroupQLPhong.Name = "navBarGroupQLPhong";
             this.navBarGroupQLPhong.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             // 
+            // navBarGroupControlContainer1
+            // 
+            this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 389);
+            this.navBarGroupControlContainer1.TabIndex = 0;
+            // 
             // navBarGroupQlTaiSan
             // 
             this.navBarGroupQlTaiSan.Caption = "Quản lý tài sản cố định";
@@ -110,17 +152,12 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.backstageViewControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(259, 144);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(641, 524);
             this.panelControl1.TabIndex = 3;
-            // 
-            // navBarGroupControlContainer1
-            // 
-            this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(259, 389);
-            this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -142,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.navBarControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +195,9 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroupQlTaiSan;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageNothing;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewButtonItem backstageViewButtonItemCaiDat;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator2;
     }
 }

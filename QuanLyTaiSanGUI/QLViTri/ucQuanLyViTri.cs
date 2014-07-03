@@ -386,7 +386,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 enableEdit(false, "", "");
                 SetTextGroupControl("Chi tiết", false);
-                listHinh = null;
+                listHinh = new List<HinhAnh>();
             }
         }
 
@@ -418,7 +418,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 enableEdit(false, "", "");
                 SetTextGroupControl("Chi tiết", false);
-                listHinh = null;
+                listHinh = new List<HinhAnh>();
                 setData(node);
             }
         }
@@ -435,13 +435,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         private Boolean CheckInput()
         {
             errorProvider1.Clear();
-            Boolean check = true;
             if (txtTen.Text.Length == 0)
             {
-                check = false;
                 errorProvider1.SetError(txtTen, "Chưa điền tên");
+                return false;
             }
-            return check;
+            return true;
         }
 
         private void reloadImage()
@@ -726,37 +725,43 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void btnR_Sua_Click(object sender, EventArgs e)
         {
-            enableEdit(true, node, "edit");
-            setData(node);
-            if (node.Equals(typeof(CoSo).Name))
+            if (!working)
             {
-                SetTextGroupControl("Sửa cơ sở", true);
-            }
-            else if (node.Equals(typeof(Dayy).Name))
-            {
-                SetTextGroupControl("Sửa dãy", true);
-            }
-            else
-            {
-                SetTextGroupControl("Sửa tầng", true);
+                enableEdit(true, node, "edit");
+                setData(node);
+                if (node.Equals(typeof(CoSo).Name))
+                {
+                    SetTextGroupControl("Sửa cơ sở", true);
+                }
+                else if (node.Equals(typeof(Dayy).Name))
+                {
+                    SetTextGroupControl("Sửa dãy", true);
+                }
+                else
+                {
+                    SetTextGroupControl("Sửa tầng", true);
+                }
             }
         }
 
         private void btnR_Them_Click(object sender, EventArgs e)
         {
-            beforeAdd(node);
-            enableEdit(true, node, "add");
-            if (node.Equals(typeof(CoSo).Name))
+            if (!working)
             {
-                SetTextGroupControl("Thêm cơ sở", true);
-            }
-            else if (node.Equals(typeof(Dayy).Name))
-            {
-                SetTextGroupControl("Thêm dãy", true);
-            }
-            else
-            {
-                SetTextGroupControl("Thêm tầng", true);
+                beforeAdd(node);
+                enableEdit(true, node, "add");
+                if (node.Equals(typeof(CoSo).Name))
+                {
+                    SetTextGroupControl("Thêm cơ sở", true);
+                }
+                else if (node.Equals(typeof(Dayy).Name))
+                {
+                    SetTextGroupControl("Thêm dãy", true);
+                }
+                else
+                {
+                    SetTextGroupControl("Thêm tầng", true);
+                }
             }
         }
     }

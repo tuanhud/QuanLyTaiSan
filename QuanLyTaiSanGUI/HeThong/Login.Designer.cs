@@ -33,8 +33,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.checkEdit_remember = new DevExpress.XtraEditors.CheckEdit();
-            this.button_ok = new System.Windows.Forms.Button();
             this.labelControl_msg = new DevExpress.XtraEditors.LabelControl();
+            this.button_ok = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_username.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_password.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_remember.Properties)).BeginInit();
@@ -42,6 +42,7 @@
             // 
             // textEdit_username
             // 
+            this.textEdit_username.EditValue = "admin";
             this.textEdit_username.Location = new System.Drawing.Point(86, 37);
             this.textEdit_username.Name = "textEdit_username";
             this.textEdit_username.Size = new System.Drawing.Size(180, 20);
@@ -51,6 +52,7 @@
             // 
             // textEdit_password
             // 
+            this.textEdit_password.EditValue = "admin";
             this.textEdit_password.Location = new System.Drawing.Point(86, 66);
             this.textEdit_password.Name = "textEdit_password";
             this.textEdit_password.Properties.PasswordChar = '•';
@@ -78,22 +80,12 @@
             // 
             // checkEdit_remember
             // 
+            this.checkEdit_remember.EditValue = true;
             this.checkEdit_remember.Location = new System.Drawing.Point(84, 92);
             this.checkEdit_remember.Name = "checkEdit_remember";
             this.checkEdit_remember.Properties.Caption = "Ghi nhớ phiên";
             this.checkEdit_remember.Size = new System.Drawing.Size(182, 19);
             this.checkEdit_remember.TabIndex = 4;
-            // 
-            // button_ok
-            // 
-            this.button_ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ok.Location = new System.Drawing.Point(176, 116);
-            this.button_ok.Name = "button_ok";
-            this.button_ok.Size = new System.Drawing.Size(90, 23);
-            this.button_ok.TabIndex = 5;
-            this.button_ok.Text = "Đăng nhập";
-            this.button_ok.UseVisualStyleBackColor = true;
-            this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // labelControl_msg
             // 
@@ -102,18 +94,28 @@
             this.labelControl_msg.Size = new System.Drawing.Size(0, 13);
             this.labelControl_msg.TabIndex = 6;
             // 
+            // button_ok
+            // 
+            this.button_ok.Location = new System.Drawing.Point(191, 117);
+            this.button_ok.Name = "button_ok";
+            this.button_ok.Size = new System.Drawing.Size(75, 23);
+            this.button_ok.TabIndex = 7;
+            this.button_ok.Text = "Đăng nhập";
+            this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 169);
-            this.Controls.Add(this.labelControl_msg);
             this.Controls.Add(this.button_ok);
+            this.Controls.Add(this.labelControl_msg);
             this.Controls.Add(this.checkEdit_remember);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.textEdit_password);
             this.Controls.Add(this.textEdit_username);
+            this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
@@ -133,7 +135,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.CheckEdit checkEdit_remember;
-        private System.Windows.Forms.Button button_ok;
         private DevExpress.XtraEditors.LabelControl labelControl_msg;
+        private DevExpress.XtraEditors.SimpleButton button_ok;
     }
 }

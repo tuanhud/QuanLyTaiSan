@@ -192,5 +192,11 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyPhongThietBi.setPhong(obj);
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
         }
+
+        private void backstageViewButtonItemCaiDat_ItemClick(object sender, BackstageViewItemEventArgs e)
+        {
+            Setting frm = new Setting(false);
+            frm.Show();
+        }
     }
 }
