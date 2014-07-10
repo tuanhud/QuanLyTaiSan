@@ -43,7 +43,10 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.listBoxPhong = new DevExpress.XtraEditors.ListBoxControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -197,7 +200,10 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.btnR_Sua);
             this.groupControl1.Controls.Add(this.btnHuy);
+            this.groupControl1.Controls.Add(this.btnR_Them);
+            this.groupControl1.Controls.Add(this.btnR_Xoa);
             this.groupControl1.Controls.Add(this.btnOK);
             this.groupControl1.Controls.Add(this.btnImage);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -215,6 +221,17 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
+            // btnR_Sua
+            // 
+            this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Sua.Location = new System.Drawing.Point(279, 0);
+            this.btnR_Sua.Name = "btnR_Sua";
+            this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Sua.TabIndex = 17;
+            this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
+            // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(165, 229);
@@ -224,6 +241,28 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnR_Them
+            // 
+            this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Them.Location = new System.Drawing.Point(253, 0);
+            this.btnR_Them.Name = "btnR_Them";
+            this.btnR_Them.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Them.TabIndex = 16;
+            this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
+            // 
+            // btnR_Xoa
+            // 
+            this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Xoa.Location = new System.Drawing.Point(305, 0);
+            this.btnR_Xoa.Name = "btnR_Xoa";
+            this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Xoa.TabIndex = 15;
+            this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // btnOK
             // 
@@ -284,7 +323,7 @@
             this.txtSodt.Location = new System.Drawing.Point(84, 206);
             this.txtSodt.Name = "txtSodt";
             this.txtSodt.Properties.ReadOnly = true;
-            this.txtSodt.Size = new System.Drawing.Size(252, 20);
+            this.txtSodt.Size = new System.Drawing.Size(244, 20);
             this.txtSodt.TabIndex = 3;
             // 
             // txtTen
@@ -294,7 +333,7 @@
             this.txtTen.Location = new System.Drawing.Point(84, 180);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(252, 20);
+            this.txtTen.Size = new System.Drawing.Size(244, 20);
             this.txtTen.TabIndex = 2;
             // 
             // txtMa
@@ -304,7 +343,7 @@
             this.txtMa.Location = new System.Drawing.Point(84, 154);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
-            this.txtMa.Size = new System.Drawing.Size(252, 20);
+            this.txtMa.Size = new System.Drawing.Size(244, 20);
             this.txtMa.TabIndex = 1;
             // 
             // imageSlider1
@@ -486,5 +525,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageNhanVien_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupNhanVien;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupNhanVienPhong;
+        private DevExpress.XtraEditors.SimpleButton btnR_Sua;
+        private DevExpress.XtraEditors.SimpleButton btnR_Them;
+        private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
     }
 }

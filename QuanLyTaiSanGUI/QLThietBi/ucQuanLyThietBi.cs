@@ -32,6 +32,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         Boolean loaiChung = true;
         int khoangcach;
         Point pointLabelMota, pointTxtMota, pointBtnOk, pointBtnHuy;
+        public bool working = false;
 
         public ucQuanLyThietBi()
         {
@@ -114,6 +115,17 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 enableEdit(false);
                 function = "";
                 deleteData();
+                btnR_Sua.Enabled = false;
+                btnR_Xoa.Enabled = false;
+                barButtonSuaThietBi.Enabled = false;
+                barButtonXoaThietBi.Enabled = false;
+            }
+            else
+            {
+                btnR_Sua.Enabled = true;
+                btnR_Xoa.Enabled = true;
+                barButtonSuaThietBi.Enabled = true;
+                barButtonXoaThietBi.Enabled = true;
             }
         }
 
@@ -174,6 +186,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
+
+            working = _enable;
+
+            rbnGroupThietBi.Enabled = !_enable;
+            btnR_Them.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
+
             if (_enable)
             {
                 if (loaiChung)
@@ -200,7 +220,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             errorProvider1.Clear();
             if (listThietBiHienThi.Count > 0)
             {
-                setTextGroupControl("Thông tin thiết bị", Color.Black);
+                setTextGroupControl("Thông tin thiết bị", Color.Empty);
                 imageSliderThietBi.Images.Clear();
                 if (objThietBi.hinhanhs != null)
                 {
@@ -514,6 +534,60 @@ namespace QuanLyTaiSanGUI.QLThietBi
             function = "delete";
             CRUD();
             gridControlThietBi.Focus();
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            enableEdit(true);
+            function = "add";
+
+            deleteData();
+            txtMa.Focus();
+            setTextGroupControl("Thêm thiết bị", Color.Red);
+            if (loaiChung)
+            {
+                dateEditNgayMua.TabIndex = 99;
+                //dateEditLap.TabIndex = 100;
+            }
+            else
+            {
+                dateEditNgayMua.TabIndex = 5;
+                //dateEditLap.TabIndex = 6;
+            }
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            enableEdit(true);
+            function = "edit";
+
+            setData();
+            setTextGroupControl("Sửa thiết bị", Color.Red);
+            if (loaiChung)
+            {
+                dateEditNgayMua.TabIndex = 99;
+                //dateEditLap.TabIndex = 100;
+            }
+            else
+            {
+                dateEditNgayMua.TabIndex = 5;
+                //dateEditLap.TabIndex = 6;
+            }
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            function = "delete";
+            CRUD();
+            gridControlThietBi.Focus();
+        }
+
+        public ThietBi getThietBi()
+        {
+            if (!txtTen.Text.Equals(""))
+                return objThietBi;
+            else
+                return null;
         }
     }
 }

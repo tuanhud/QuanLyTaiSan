@@ -245,7 +245,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(59, 182);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(327, 20);
+            this.panelControl1.Size = new System.Drawing.Size(324, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // labelControl4
@@ -296,7 +296,7 @@
             this.txtTen.Location = new System.Drawing.Point(59, 156);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(327, 20);
+            this.txtTen.Size = new System.Drawing.Size(324, 20);
             this.txtTen.TabIndex = 0;
             // 
             // txtMoTa
@@ -306,7 +306,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(59, 208);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(327, 106);
+            this.txtMoTa.Size = new System.Drawing.Size(324, 106);
             this.txtMoTa.TabIndex = 1;
             this.txtMoTa.UseOptimizedRendering = true;
             // 

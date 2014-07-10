@@ -95,7 +95,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 30);
+            this.labelControl1.Location = new System.Drawing.Point(12, 28);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(54, 13);
             this.labelControl1.TabIndex = 7;
@@ -103,7 +103,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 56);
+            this.labelControl2.Location = new System.Drawing.Point(12, 54);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(58, 13);
             this.labelControl2.TabIndex = 8;
@@ -111,7 +111,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 82);
+            this.labelControl3.Location = new System.Drawing.Point(12, 80);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(59, 13);
             this.labelControl3.TabIndex = 9;
@@ -119,7 +119,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(12, 134);
+            this.labelControl4.Location = new System.Drawing.Point(12, 132);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(53, 13);
             this.labelControl4.TabIndex = 10;
@@ -127,7 +127,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(12, 160);
+            this.labelControl5.Location = new System.Drawing.Point(12, 158);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(46, 13);
             this.labelControl5.TabIndex = 11;
@@ -135,7 +135,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(12, 55);
+            this.labelControl6.Location = new System.Drawing.Point(12, 53);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(30, 13);
             this.labelControl6.TabIndex = 12;
@@ -143,7 +143,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(12, 108);
+            this.labelControl7.Location = new System.Drawing.Point(12, 106);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(34, 13);
             this.labelControl7.TabIndex = 13;
@@ -151,7 +151,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(12, 82);
+            this.labelControl9.Location = new System.Drawing.Point(12, 80);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(42, 13);
             this.labelControl9.TabIndex = 18;
@@ -159,7 +159,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(12, 108);
+            this.labelControl8.Location = new System.Drawing.Point(12, 106);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(49, 13);
             this.labelControl8.TabIndex = 17;
@@ -168,9 +168,9 @@
             // radioBtnChuyenPhong
             // 
             this.radioBtnChuyenPhong.AutoSize = true;
-            this.radioBtnChuyenPhong.Location = new System.Drawing.Point(146, 27);
+            this.radioBtnChuyenPhong.Location = new System.Drawing.Point(146, 25);
             this.radioBtnChuyenPhong.Name = "radioBtnChuyenPhong";
-            this.radioBtnChuyenPhong.Size = new System.Drawing.Size(94, 17);
+            this.radioBtnChuyenPhong.Size = new System.Drawing.Size(95, 17);
             this.radioBtnChuyenPhong.TabIndex = 17;
             this.radioBtnChuyenPhong.Text = "Chuyển phòng";
             this.radioBtnChuyenPhong.UseVisualStyleBackColor = true;
@@ -180,9 +180,9 @@
             // 
             this.radioBtnChuyenTinhTrang.AutoSize = true;
             this.radioBtnChuyenTinhTrang.Checked = true;
-            this.radioBtnChuyenTinhTrang.Location = new System.Drawing.Point(12, 27);
+            this.radioBtnChuyenTinhTrang.Location = new System.Drawing.Point(12, 25);
             this.radioBtnChuyenTinhTrang.Name = "radioBtnChuyenTinhTrang";
-            this.radioBtnChuyenTinhTrang.Size = new System.Drawing.Size(108, 17);
+            this.radioBtnChuyenTinhTrang.Size = new System.Drawing.Size(112, 17);
             this.radioBtnChuyenTinhTrang.TabIndex = 18;
             this.radioBtnChuyenTinhTrang.TabStop = true;
             this.radioBtnChuyenTinhTrang.Text = "Chuyển tình trạng";
@@ -209,7 +209,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(12, 134);
+            this.labelControl10.Location = new System.Drawing.Point(12, 132);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(35, 13);
             this.labelControl10.TabIndex = 16;
@@ -225,7 +225,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.lblSoLuong);
             this.groupControl1.Controls.Add(this.lblTinhTrang);
@@ -248,7 +248,7 @@
             // 
             // lblSoLuong
             // 
-            this.lblSoLuong.Location = new System.Drawing.Point(77, 160);
+            this.lblSoLuong.Location = new System.Drawing.Point(77, 158);
             this.lblSoLuong.Name = "lblSoLuong";
             this.lblSoLuong.Size = new System.Drawing.Size(51, 13);
             this.lblSoLuong.TabIndex = 19;
@@ -256,7 +256,7 @@
             // 
             // lblTinhTrang
             // 
-            this.lblTinhTrang.Location = new System.Drawing.Point(77, 134);
+            this.lblTinhTrang.Location = new System.Drawing.Point(77, 132);
             this.lblTinhTrang.Name = "lblTinhTrang";
             this.lblTinhTrang.Size = new System.Drawing.Size(58, 13);
             this.lblTinhTrang.TabIndex = 18;
@@ -264,7 +264,7 @@
             // 
             // lblPhong
             // 
-            this.lblPhong.Location = new System.Drawing.Point(77, 108);
+            this.lblPhong.Location = new System.Drawing.Point(77, 106);
             this.lblPhong.Name = "lblPhong";
             this.lblPhong.Size = new System.Drawing.Size(40, 13);
             this.lblPhong.TabIndex = 17;
@@ -272,7 +272,7 @@
             // 
             // lblMa
             // 
-            this.lblMa.Location = new System.Drawing.Point(77, 30);
+            this.lblMa.Location = new System.Drawing.Point(77, 28);
             this.lblMa.Name = "lblMa";
             this.lblMa.Size = new System.Drawing.Size(24, 13);
             this.lblMa.TabIndex = 16;
@@ -280,7 +280,7 @@
             // 
             // lblTen
             // 
-            this.lblTen.Location = new System.Drawing.Point(77, 56);
+            this.lblTen.Location = new System.Drawing.Point(77, 54);
             this.lblTen.Name = "lblTen";
             this.lblTen.Size = new System.Drawing.Size(28, 13);
             this.lblTen.TabIndex = 15;
@@ -288,7 +288,7 @@
             // 
             // lblLoai
             // 
-            this.lblLoai.Location = new System.Drawing.Point(77, 82);
+            this.lblLoai.Location = new System.Drawing.Point(77, 80);
             this.lblLoai.Name = "lblLoai";
             this.lblLoai.Size = new System.Drawing.Size(29, 13);
             this.lblLoai.TabIndex = 14;
@@ -296,7 +296,7 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.lookUpTinhTrang);
             this.groupControl2.Controls.Add(this.panelControl1);
@@ -350,10 +350,10 @@
             this.ClientSize = new System.Drawing.Size(347, 420);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChuyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chuyển tình trạng";
+            this.Text = "Chuyển thiết bị";
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

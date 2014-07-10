@@ -33,8 +33,11 @@
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -110,8 +113,11 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.btnR_Sua);
             this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.btnR_Them);
             this.groupControl1.Controls.Add(this.txtMoTa);
+            this.groupControl1.Controls.Add(this.btnR_Xoa);
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOk);
             this.groupControl1.Controls.Add(this.panelControl1);
@@ -126,6 +132,17 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
+            // btnR_Sua
+            // 
+            this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Sua.Location = new System.Drawing.Point(312, 0);
+            this.btnR_Sua.Name = "btnR_Sua";
+            this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Sua.TabIndex = 24;
+            this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
+            // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(5, 56);
@@ -134,6 +151,17 @@
             this.labelControl4.TabIndex = 12;
             this.labelControl4.Text = "Mô tả:";
             // 
+            // btnR_Them
+            // 
+            this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Them.Location = new System.Drawing.Point(286, 0);
+            this.btnR_Them.Name = "btnR_Them";
+            this.btnR_Them.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Them.TabIndex = 23;
+            this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
+            // 
             // txtMoTa
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -141,9 +169,20 @@
             this.txtMoTa.Location = new System.Drawing.Point(57, 53);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(314, 120);
+            this.txtMoTa.Size = new System.Drawing.Size(304, 120);
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
+            // 
+            // btnR_Xoa
+            // 
+            this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Xoa.Location = new System.Drawing.Point(338, 0);
+            this.btnR_Xoa.Name = "btnR_Xoa";
+            this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Xoa.TabIndex = 22;
+            this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // btnHuy
             // 
@@ -173,7 +212,7 @@
             this.panelControl1.Controls.Add(this.lueThuoc);
             this.panelControl1.Location = new System.Drawing.Point(57, 179);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(314, 20);
+            this.panelControl1.Size = new System.Drawing.Size(304, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // lueThuoc
@@ -189,7 +228,7 @@
             this.lueThuoc.Properties.NullText = "";
             this.lueThuoc.Properties.ReadOnly = true;
             this.lueThuoc.Properties.ValueMember = "id";
-            this.lueThuoc.Size = new System.Drawing.Size(314, 20);
+            this.lueThuoc.Size = new System.Drawing.Size(304, 20);
             this.lueThuoc.TabIndex = 3;
             // 
             // ceTBsoluonglon
@@ -208,7 +247,7 @@
             this.txtTen.Location = new System.Drawing.Point(57, 27);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(314, 20);
+            this.txtTen.Size = new System.Drawing.Size(304, 20);
             this.txtTen.TabIndex = 1;
             // 
             // labelControl3
@@ -341,5 +380,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonXoaLoaiTB;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageLoaiTB_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLoaiTB;
+        private DevExpress.XtraEditors.SimpleButton btnR_Sua;
+        private DevExpress.XtraEditors.SimpleButton btnR_Them;
+        private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
     }
 }

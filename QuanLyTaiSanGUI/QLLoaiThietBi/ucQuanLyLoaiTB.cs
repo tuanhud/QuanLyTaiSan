@@ -26,6 +26,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         string function = "";
         LoaiThietBi objLoaiThietBi = null;
         LoaiThietBi loaiThietBiNULL = new LoaiThietBi();
+        public bool working = false;
 
         public ucQuanLyLoaiTB()
         {
@@ -34,8 +35,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             loaiThietBiNULL.ten = "[Không thuộc loại nào]";
             loaiThietBiNULL.id = -1;
             loaiThietBiNULL.parent = null;
-            //Việt hóa
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -67,6 +66,12 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             txtMoTa.Properties.ReadOnly = !_enable;
             lueThuoc.Properties.ReadOnly = !_enable;
             ceTBsoluonglon.Properties.ReadOnly = !_enable;
+            working = _enable;
+            //
+            rbnGroupLoaiTB.Enabled = !_enable;
+            btnR_Them.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
         }
 
         public void reLoad()
@@ -400,6 +405,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             barButtonSuaLoaiTB.Enabled = enable;
             barButtonXoaLoaiTB.Enabled = enable;
+            btnR_Sua.Enabled = enable;
+            btnR_Xoa.Enabled = enable;
         }
 
         public RibbonControl getRibbon()
@@ -425,6 +432,33 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            enableEdit(true, "add");
+            SetTextGroupControl("Thêm loại thiết bị", Color.Red);
+            beforeAdd();
+            if (objLoaiThietBi != null)
+            {
+                if (objLoaiThietBi.parent != null)
+                {
+                    lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                }
+            }
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            enableEdit(true, "edit");
+            SetTextGroupControl("Sửa loại thiết bị", Color.Red);
+            addThietBiChaKhiEdit();
+            setData();
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            deleteObj();
         }
 
     }

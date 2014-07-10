@@ -45,8 +45,10 @@
             this.barButtonThemPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonShowListTB = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhong_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.lblSoDienThoai = new DevExpress.XtraEditors.LabelControl();
@@ -58,6 +60,9 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.imgNhanVien = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
             this.searchLookUpEditNhanVienPT = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,8 +87,6 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ribbonPageThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonShowListTB = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -278,23 +281,38 @@
             this.barButtonXoaPhong.Name = "barButtonXoaPhong";
             this.barButtonXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaPhong_ItemClick);
             // 
+            // barButtonShowListTB
+            // 
+            this.barButtonShowListTB.Caption = "Xem thiết bị";
+            this.barButtonShowListTB.Id = 43;
+            this.barButtonShowListTB.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.fs_view_icon;
+            this.barButtonShowListTB.Name = "barButtonShowListTB";
+            this.barButtonShowListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
+            // 
             // rbnPagePhong_Home
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageThietBi});
+            this.rbnGroupPhong,
+            this.rbnGroupThietBi});
             this.rbnPagePhong_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
             this.rbnPagePhong_Home.Text = "Phòng";
             // 
-            // ribbonPageGroup1
+            // rbnGroupPhong
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemPhong);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaPhong);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaPhong);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Phòng";
+            this.rbnGroupPhong.ItemLinks.Add(this.barButtonThemPhong);
+            this.rbnGroupPhong.ItemLinks.Add(this.barButtonSuaPhong);
+            this.rbnGroupPhong.ItemLinks.Add(this.barButtonXoaPhong);
+            this.rbnGroupPhong.Name = "rbnGroupPhong";
+            this.rbnGroupPhong.ShowCaptionButton = false;
+            this.rbnGroupPhong.Text = "Phòng";
+            // 
+            // rbnGroupThietBi
+            // 
+            this.rbnGroupThietBi.ItemLinks.Add(this.barButtonShowListTB);
+            this.rbnGroupThietBi.Name = "rbnGroupThietBi";
+            this.rbnGroupThietBi.ShowCaptionButton = false;
+            this.rbnGroupThietBi.Text = "Thiết bị";
             // 
             // txtTenNhanVien
             // 
@@ -380,6 +398,9 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.btnR_Sua);
+            this.groupControl1.Controls.Add(this.btnR_Them);
+            this.groupControl1.Controls.Add(this.btnR_Xoa);
             this.groupControl1.Controls.Add(this.searchLookUpEditNhanVienPT);
             this.groupControl1.Controls.Add(this.lblNhanVienPT);
             this.groupControl1.Controls.Add(this.panelControl1);
@@ -402,6 +423,39 @@
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Thông tin phòng";
             // 
+            // btnR_Sua
+            // 
+            this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Sua.Location = new System.Drawing.Point(270, 0);
+            this.btnR_Sua.Name = "btnR_Sua";
+            this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Sua.TabIndex = 21;
+            this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
+            // 
+            // btnR_Them
+            // 
+            this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Them.Location = new System.Drawing.Point(244, 0);
+            this.btnR_Them.Name = "btnR_Them";
+            this.btnR_Them.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Them.TabIndex = 20;
+            this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
+            // 
+            // btnR_Xoa
+            // 
+            this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Xoa.Location = new System.Drawing.Point(296, 0);
+            this.btnR_Xoa.Name = "btnR_Xoa";
+            this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Xoa.TabIndex = 19;
+            this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
+            // 
             // searchLookUpEditNhanVienPT
             // 
             this.searchLookUpEditNhanVienPT.EditValue = "";
@@ -415,7 +469,7 @@
             this.searchLookUpEditNhanVienPT.Properties.NullText = "";
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(251, 20);
+            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(240, 20);
             this.searchLookUpEditNhanVienPT.TabIndex = 18;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
@@ -460,7 +514,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(79, 204);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(251, 20);
+            this.panelControl1.Size = new System.Drawing.Size(240, 20);
             this.panelControl1.TabIndex = 15;
             // 
             // lblHinhPhong
@@ -473,7 +527,7 @@
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(206, 24);
+            this.btnImage.Location = new System.Drawing.Point(205, 27);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 13;
@@ -536,7 +590,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaPhong.Location = new System.Drawing.Point(79, 153);
             this.txtMaPhong.Name = "txtMaPhong";
-            this.txtMaPhong.Size = new System.Drawing.Size(251, 20);
+            this.txtMaPhong.Size = new System.Drawing.Size(240, 20);
             this.txtMaPhong.TabIndex = 1;
             // 
             // txtTenPhong
@@ -545,13 +599,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenPhong.Location = new System.Drawing.Point(79, 177);
             this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.Size = new System.Drawing.Size(251, 20);
+            this.txtTenPhong.Size = new System.Drawing.Size(240, 20);
             this.txtTenPhong.TabIndex = 1;
             // 
             // imgPhong
             // 
             this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imgPhong.Location = new System.Drawing.Point(79, 24);
+            this.imgPhong.Location = new System.Drawing.Point(79, 27);
             this.imgPhong.Name = "imgPhong";
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
             this.imgPhong.TabIndex = 0;
@@ -563,7 +617,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoTaPhong.Location = new System.Drawing.Point(79, 230);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
-            this.txtMoTaPhong.Size = new System.Drawing.Size(251, 49);
+            this.txtMoTaPhong.Size = new System.Drawing.Size(240, 49);
             this.txtMoTaPhong.TabIndex = 5;
             this.txtMoTaPhong.UseOptimizedRendering = true;
             // 
@@ -605,21 +659,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
-            // 
-            // ribbonPageThietBi
-            // 
-            this.ribbonPageThietBi.ItemLinks.Add(this.barButtonShowListTB);
-            this.ribbonPageThietBi.Name = "ribbonPageThietBi";
-            this.ribbonPageThietBi.ShowCaptionButton = false;
-            this.ribbonPageThietBi.Text = "Thiết bị";
-            // 
-            // barButtonShowListTB
-            // 
-            this.barButtonShowListTB.Caption = "Xem thiết bị";
-            this.barButtonShowListTB.Id = 43;
-            this.barButtonShowListTB.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.fs_view_icon;
-            this.barButtonShowListTB.Name = "barButtonShowListTB";
-            this.barButtonShowListTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXemListTB_ItemClick);
             // 
             // ucQuanLyPhong
             // 
@@ -676,7 +715,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhong;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhong_Home;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong;
         private DevExpress.XtraBars.BarButtonItem barButtonThemPhong;
         private DevExpress.XtraBars.BarButtonItem barButtonSuaPhong;
         private DevExpress.XtraBars.BarButtonItem barButtonXoaPhong;
@@ -713,6 +752,9 @@
         private DevExpress.XtraEditors.TextEdit txtMaPhong;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraBars.BarButtonItem barButtonShowListTB;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageThietBi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupThietBi;
+        private DevExpress.XtraEditors.SimpleButton btnR_Sua;
+        private DevExpress.XtraEditors.SimpleButton btnR_Them;
+        private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
     }
 }

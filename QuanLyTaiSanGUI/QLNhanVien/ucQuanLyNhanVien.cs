@@ -53,12 +53,16 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 {
                     barBtnSuaNhanVien.Enabled = true;
                     barBtnXoaNhanVien.Enabled = true;
+                    btnR_Sua.Enabled = true;
+                    btnR_Xoa.Enabled = true;
                     barBtnPhanCong.Enabled = true;
                 }
                 else
                 {
                     barBtnSuaNhanVien.Enabled = false;
                     barBtnXoaNhanVien.Enabled = false;
+                    btnR_Sua.Enabled = false;
+                    btnR_Xoa.Enabled = false;
                     barBtnPhanCong.Enabled = false;
                 }
             }
@@ -103,6 +107,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtTen.Properties.ReadOnly = !_enable;
             txtSodt.Properties.ReadOnly = !_enable;
             working = _enable;
+            //
+            rbnGroupNhanVien.Enabled = !_enable;
+            rbnGroupNhanVienPhong.Enabled = !_enable;
+            btnR_Them.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
         }
 
         public void reLoad()
@@ -384,6 +394,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 btnOK.Visible = _bool;
                 btnHuy.Visible = _bool;
                 rbnGroupNhanVien.Enabled = !_bool;
+                btnR_Them.Enabled = !_bool;
+                btnR_Sua.Enabled = !_bool;
+                btnR_Xoa.Enabled = !_bool;
                 splitContainerControl1.Panel1.Controls.Clear();
                 if (_bool)
                 {
@@ -433,12 +446,32 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         private void barBtnPhanCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PhanCong(true);
+            working = true;
         }
 
         public void LoadListPhong(List<Phong> list)
         {
             listBoxPhong.DataSource = list;
             listPhong = list;
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            enableEdit(true, "add");
+            SetTextGroupControl("Thêm nhân viên", true);
+            beforeAdd();
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            enableEdit(true, "edit");
+            SetData();
+            SetTextGroupControl("Sửa nhân viên", true);
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            deleteObj();
         }
     }
 }

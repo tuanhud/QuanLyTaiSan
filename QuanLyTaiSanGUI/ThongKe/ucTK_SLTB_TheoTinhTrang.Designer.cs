@@ -373,7 +373,8 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Thống kê";
             // 
             // ucTK_SLTB_TheoTinhTrang
             // 
