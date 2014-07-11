@@ -98,13 +98,16 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 reLoad();
-                FindNodeByValue findNode = new FindNodeByValue(colid, _id);
-                treeListLoaiTB.NodesIterator.DoOperation(findNode);
-                treeListLoaiTB.FocusedNode = findNode.Node;
+                TreeListNode node = treeListLoaiTB.FindNodeByFieldValue(colid.FieldName, _id);
+                if (node != null)
+                {
+                    node.Selected = true;
+                    node.Expanded = true;
+                }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
             }
         }
 
@@ -195,6 +198,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 {
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
+                        int id = -1;
+                        if (objLoaiThietBi.parent_id != null)
+                        {
+                            id = Convert.ToInt32(objLoaiThietBi.parent_id);
+                        }
                         if (objLoaiThietBi.childs.Count > 0)
                         {
                             if (XtraMessageBox.Show("Loại thiết bị này là gốc, bạn có muốn xóa luôn những loại thiết bị con?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -208,7 +216,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
+                            if (id > -1)
+                                reLoadAndFocused(id);
+                            else
+                                reLoad();
                         }
                     }
                 }
@@ -282,8 +293,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             if (checkInput())
             {
                 CRU();
-                reLoad();
-                setData();
                 enableEdit(false, "");
             }
         }
@@ -388,10 +397,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 {
                     lueThuoc.EditValue = objLoaiThietBi.parent_id;
                 }
-                else
-                {
-                    lueThuoc.EditValue = objLoaiThietBi.id;
-                }
             }
         }
 
@@ -451,10 +456,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (objLoaiThietBi.parent != null)
                 {
                     lueThuoc.EditValue = objLoaiThietBi.parent_id;
-                }
-                else
-                {
-                    lueThuoc.EditValue = objLoaiThietBi.id;
                 }
             }
         }

@@ -1,33 +1,37 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="PhongHoc.aspx.cs" Inherits="Web.PhongHoc" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="PhongThietBi.aspx.cs" Inherits="Web.PhongThietBi" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Phòng :: Quản lý tài sản</title>
+    <title>Thiết bị của Phòng :: Quản lý tài sản</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Danh sách phòng</h3>
+            <h3 class="panel-title">Danh sách thiết bị theo phòng</h3>
         </div>
         <div class="panel-body">
             <dx:ASPxGridView ID="Grid" runat="server" AutoGenerateColumns="False" Theme="Youthful" Width="100%" KeyFieldName="id">
                 <Settings ShowFilterRow="True" />
                 <Columns>
-                    <dx:GridViewDataTextColumn Caption="Cơ sở" FieldName="vitri.coso.ten" GroupIndex="0" SortIndex="0" SortOrder="Ascending" VisibleIndex="0">
+                    <dx:GridViewDataTextColumn Caption="Cơ sở" FieldName="phong.vitri.coso.ten" VisibleIndex="0" GroupIndex="0" SortIndex="0" SortOrder="Ascending">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Dãy" FieldName="vitri.day.ten" VisibleIndex="1" GroupIndex="1" SortIndex="1" SortOrder="Ascending">
+                    <dx:GridViewDataTextColumn Caption="Dãy" FieldName="phong.vitri.day.ten" VisibleIndex="1" GroupIndex="1" SortIndex="1" SortOrder="Ascending">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Tầng" FieldName="ten_tang" VisibleIndex="2" GroupIndex="2" Name="vitri.tang.ten" SortIndex="2" SortOrder="Ascending">
+                    <dx:GridViewDataTextColumn Caption="Tầng" FieldName="phong.vitri.tang.ten" VisibleIndex="2" GroupIndex="2" Name="vitri.tang.ten" SortIndex="2" SortOrder="Ascending">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Tên phòng" FieldName="ten" VisibleIndex="3">
+                    <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong.ten" VisibleIndex="3" GroupIndex="3" Name="vitri.day.ten" SortIndex="3" SortOrder="Ascending">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Mô tả" FieldName="mota" VisibleIndex="4">
+                    <dx:GridViewDataTextColumn Caption="Tên thiết bị" FieldName="thietbi.ten" VisibleIndex="4">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Nhân viên phụ trách" FieldName="nhanvienpt.hoten" VisibleIndex="5">
+                    <dx:GridViewDataTextColumn Caption="Loại thiết bị" FieldName="thietbi.loaithietbi.ten" VisibleIndex="5">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="ID" FieldName="id" Visible="False" VisibleIndex="6">
+                    <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang.value" VisibleIndex="6">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="Số lượng" FieldName="soluong" VisibleIndex="7">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="ID" FieldName="id" VisibleIndex="8" Visible="false">
                     </dx:GridViewDataTextColumn>
                 </Columns>
                 <SettingsBehavior AllowSelectByRowClick="True" />
