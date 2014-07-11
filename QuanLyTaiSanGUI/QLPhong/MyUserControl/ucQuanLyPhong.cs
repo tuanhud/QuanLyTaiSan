@@ -43,22 +43,26 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucQuanLyPhong()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            _ucTreeViTri.Parent = this;
+            ribbonPhong.Parent = null;
+            _ucComboBoxViTri.Dock = DockStyle.Fill;
+            panelControl1.Controls.Add(_ucComboBoxViTri);
+            gridViewPhong.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            gridViewPhong.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            gridViewPhong.Columns[colnhanvienpt.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
         }
 
         // Load dữ liệu
         public void loadData()
         {
             listVitris = ViTriHienThi.getAll().ToList();
-
             _ucTreeViTri.loadData(listVitris);
-            _ucTreeViTri.Parent = this;
-
             _ucComboBoxViTri.loadData(listVitris);
-            _ucComboBoxViTri.Dock = DockStyle.Fill;
-            panelControl1.Controls.Clear();
-            panelControl1.Controls.Add(_ucComboBoxViTri);
-            ribbonPhong.Parent = null;
-
             _ViTriHienTai = _ucTreeViTri.getVitri();
             listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
             gridControlPhong.DataSource = listPhong;

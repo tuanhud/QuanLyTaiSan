@@ -38,12 +38,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public ucQuanLyThietBi()
         {
             InitializeComponent();
-            pointLabelMota = labelControlMoTa.Location;
-            pointTxtMota = txtMoTa.Location;
-            pointBtnOk = btnOk.Location;
-            pointBtnHuy = btnHuy.Location;
-            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
-
             init();
         }
 
@@ -61,6 +55,12 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void init()
         {
+            pointLabelMota = labelControlMoTa.Location;
+            pointTxtMota = txtMoTa.Location;
+            pointBtnOk = btnOk.Location;
+            pointBtnHuy = btnHuy.Location;
+            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
+
             ribbonThietBi.Parent = null;
             _ucQuanLyThietBi_Control.Parent = this;
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
@@ -68,6 +68,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
             loaiThietBiNULL.ten = "[Chọn loại thiết bị]";
             loaiThietBiNULL.loaichung = false;
             loaiThietBiNULL.id = -1;
+
+            gridViewThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            gridViewThietBi.Columns[colloai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
         }
 
         public PanelControl getControl()

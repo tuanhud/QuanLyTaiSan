@@ -15,10 +15,11 @@
             <dx:ASPxGridView ID="Grid" runat="server" AutoGenerateColumns="False" Theme="Youthful" Width="100%" KeyFieldName="id">
                 <Columns>
                     <dx:GridViewDataImageColumn FieldName="imageURL" VisibleIndex="1" Caption="Hình ảnh">
-                        <PropertiesImage ImageUrlFormatString="{0}">
+                        <PropertiesImage ImageUrlFormatString="{0}" LoadingImageUrl="~/Image/loading.gif" ShowLoadingImage="True" ImageWidth="80px">
                         </PropertiesImage>
                     </dx:GridViewDataImageColumn>
                     <dx:GridViewDataTextColumn Caption="Họ tên" FieldName="hoten" VisibleIndex="2">
+                        <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="Số điện thoại" FieldName="sodienthoai" VisibleIndex="3">
                     </dx:GridViewDataTextColumn>

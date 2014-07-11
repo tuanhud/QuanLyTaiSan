@@ -16,9 +16,9 @@
         <div class="panel-body">
             <dx:ASPxTreeList ID="TreeListViTri" runat="server" KeyFieldName="id_c" ParentFieldName="id_p" AutoGenerateColumns="False" Theme="Youthful" Width="100%">
                 <Columns>
-                    <dx:TreeListTextColumn Caption="Vị trí" FieldName="ten" VisibleIndex="0">
+                    <dx:TreeListTextColumn Caption="Vị trí" FieldName="ten" VisibleIndex="0" Width="20%">
                     </dx:TreeListTextColumn>
-                    <dx:TreeListTextColumn Caption="Mô tả" FieldName="mota" VisibleIndex="1">
+                    <dx:TreeListTextColumn Caption="Mô tả" FieldName="mota" VisibleIndex="1" CellStyle-Wrap="True">
                     </dx:TreeListTextColumn>
                 </Columns>
                 <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
