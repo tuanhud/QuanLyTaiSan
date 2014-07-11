@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\loading.gif" />
     <Content Include="LoaiThietBi.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootswatch.min.css" />
@@ -80,9 +81,10 @@
     <Content Include="Js\html5shiv.js" />
     <Content Include="Js\jquery-1.10.2.min.js" />
     <Content Include="Js\respond.min.js" />
+    <Content Include="Phong.aspx" />
     <Content Include="ViTri.aspx" />
-    <Content Include="ThietBi.aspx" />
-    <Content Include="PhongHoc.aspx" />
+    <Content Include="ThietBis.aspx" />
+    <Content Include="PhongThietBi.aspx" />
     <Content Include="QuanTriVien.aspx" />
     <Content Include="Css\metro\bootstrap-responsive.css" />
     <Content Include="Css\metro\bootstrap.blue.css" />
@@ -99,6 +101,13 @@
     <Compile Include="LoaiThietBi.aspx.designer.cs">
       <DependentUpon>LoaiThietBi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Phong.aspx.cs">
+      <DependentUpon>Phong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Phong.aspx.designer.cs">
+      <DependentUpon>Phong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViTri.aspx.cs">
       <DependentUpon>ViTri.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,19 +115,19 @@
     <Compile Include="ViTri.aspx.designer.cs">
       <DependentUpon>ViTri.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ThietBi.aspx.cs">
-      <DependentUpon>ThietBi.aspx</DependentUpon>
+    <Compile Include="ThietBis.aspx.cs">
+      <DependentUpon>ThietBis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ThietBi.aspx.designer.cs">
-      <DependentUpon>ThietBi.aspx</DependentUpon>
+    <Compile Include="ThietBis.aspx.designer.cs">
+      <DependentUpon>ThietBis.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PhongHoc.aspx.cs">
-      <DependentUpon>PhongHoc.aspx</DependentUpon>
+    <Compile Include="PhongThietBi.aspx.cs">
+      <DependentUpon>PhongThietBi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PhongHoc.aspx.designer.cs">
-      <DependentUpon>PhongHoc.aspx</DependentUpon>
+    <Compile Include="PhongThietBi.aspx.designer.cs">
+      <DependentUpon>PhongThietBi.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuanTriVien.aspx.cs">
       <DependentUpon>QuanTriVien.aspx</DependentUpon>
@@ -168,9 +177,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Image\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

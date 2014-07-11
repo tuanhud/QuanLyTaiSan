@@ -9,7 +9,7 @@ using QuanLyTaiSan.DataFilter;
 
 namespace Web
 {
-    public partial class ThietBi : System.Web.UI.Page
+    public partial class ThietBis : System.Web.UI.Page
     {
         List<ThietBiHienThi> ListThietBiHienThi = null;
 

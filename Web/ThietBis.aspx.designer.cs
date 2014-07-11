@@ -10,7 +10,7 @@
 namespace Web {
     
     
-    public partial class ThietBi {
+    public partial class ThietBis {
         
         /// <summary>
         /// lblLoaiChung control.

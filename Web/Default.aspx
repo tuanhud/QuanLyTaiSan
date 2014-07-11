@@ -17,7 +17,7 @@
                     <h5><i class="icon-info-sign"></i>Xem vị trí</h5>
                 </div>
             </a>
-            <a href="PhongHoc.aspx">
+            <a href="Phong.aspx">
                 <div class="span3 box purple">
                     <h5><i class="icon-pencil"></i>Xem phòng</h5>
                 </div>
@@ -27,7 +27,7 @@
                     <h5><i class="icon-pencil"></i>Xem phòng - thiết bị</h5>
                 </div>
             </a>
-            <a href="ThietBi.aspx">
+            <a href="ThietBis.aspx">
                 <div class="span3 box deviant">
                     <h5><i class="icon-pencil"></i>Xem thiết bị</h5>
                 </div>
