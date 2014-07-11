@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTBChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaTB = new DevExpress.XtraBars.BarButtonItem();
@@ -79,7 +78,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -244,6 +243,7 @@
             this.gridViewCTThietBi.Name = "gridViewCTThietBi";
             this.gridViewCTThietBi.OptionsBehavior.Editable = false;
             this.gridViewCTThietBi.OptionsBehavior.ReadOnly = true;
+            this.gridViewCTThietBi.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewCTThietBi.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewCTThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewCTThietBi.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewCTThietBi_RowClick);

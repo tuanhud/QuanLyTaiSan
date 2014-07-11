@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -62,7 +61,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
@@ -381,6 +380,7 @@
             this.gridViewThietBi.Name = "gridViewThietBi";
             this.gridViewThietBi.OptionsBehavior.Editable = false;
             this.gridViewThietBi.OptionsBehavior.ReadOnly = true;
+            this.gridViewThietBi.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewThietBi.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewThietBi.OptionsSelection.MultiSelect = true;
             this.gridViewThietBi.OptionsView.ShowAutoFilterRow = true;

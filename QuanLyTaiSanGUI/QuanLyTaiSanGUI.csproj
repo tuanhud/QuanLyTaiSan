@@ -125,6 +125,7 @@
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\GetCheckedNodes.cs" />
     <Compile Include="MyUC\MyGridLocalizer.cs" />
+    <Compile Include="MyUC\MyLayout.cs" />
     <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
