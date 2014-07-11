@@ -98,14 +98,16 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 reLoad();
-                //TreeNode node = 
-                //int rowHandle = gridViewPhong.LocateByValue(colid.FieldName, _id);
-                //if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                //    gridViewPhong.FocusedRowHandle = rowHandle;
+                TreeListNode node = treeListLoaiTB.FindNodeByFieldValue(colid.FieldName, _id);
+                if (node != null)
+                {
+                    node.Selected = true;
+                    node.Expanded = true;
+                }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
             }
         }
 
@@ -161,6 +163,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.add() != -1)
                         {
                             XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            int id = objLoaiThietBi.id;
+                            reLoadAndFocused(id);
                         }
                         break;
                     case "edit":
@@ -168,6 +172,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.update() != -1)
                         {
                             XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            int id = objLoaiThietBi.id;
+                            reLoadAndFocused(id);
                         }
                         break;
                 }
@@ -192,6 +198,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 {
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
+                        int id = -1;
+                        if (objLoaiThietBi.parent_id != null)
+                        {
+                            id = Convert.ToInt32(objLoaiThietBi.parent_id);
+                        }
                         if (objLoaiThietBi.childs.Count > 0)
                         {
                             if (XtraMessageBox.Show("Loại thiết bị này là gốc, bạn có muốn xóa luôn những loại thiết bị con?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -205,7 +216,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.delete() != -1)
                         {
                             XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            reLoad();
+                            if (id > -1)
+                                reLoadAndFocused(id);
+                            else
+                                reLoad();
                         }
                     }
                 }
@@ -279,8 +293,6 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             if (checkInput())
             {
                 CRU();
-                reLoad();
-                setData();
                 enableEdit(false, "");
             }
         }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -46,7 +46,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.ribbonLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
@@ -86,7 +86,8 @@
             // treeListLoaiTB
             // 
             this.treeListLoaiTB.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colten});
+            this.colten,
+            this.colid});
             this.treeListLoaiTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListLoaiTB.KeyFieldName = "id";
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
@@ -108,6 +109,12 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // groupControl1
             // 
@@ -326,6 +333,7 @@
             this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonSuaLoaiTB);
             this.rbnGroupLoaiTB.ItemLinks.Add(this.barButtonXoaLoaiTB);
             this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
+            this.rbnGroupLoaiTB.ShowCaptionButton = false;
             this.rbnGroupLoaiTB.Text = "Loại thiết bị";
             // 
             // ucQuanLyLoaiTB
@@ -383,5 +391,6 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
     }
 }

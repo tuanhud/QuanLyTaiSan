@@ -330,7 +330,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                             {
                                 try
                                 {
-                                    objThietBi = ThietBi.getById(((ThietBi)(gridViewThietBi.GetRow(indexCacRow[i]))).id);
+                                    objThietBi = gridViewThietBi.GetRow(indexCacRow[i]) as ThietBi;
                                     if (objThietBi.ctthietbis != null)
                                     {
                                         for (int j = 0; j < objThietBi.ctthietbis.Count; j++)
@@ -529,7 +529,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             enableEdit(true);
             function = "add";
-
+            listHinhAnh = new List<HinhAnh>();
             deleteData();
             enableAllBarButton(false);
             txtMa.Focus();
@@ -577,7 +577,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             enableEdit(true);
             function = "add";
-
+            listHinhAnh = new List<HinhAnh>();
             deleteData();
             enableAllBarButton(false);
             txtMa.Focus();

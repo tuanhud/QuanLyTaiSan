@@ -9,7 +9,7 @@ min-height: 1px;
 margin-left: 30px;
 }
 .span3 {
-    width: 270px;
+    min-width: 345px;
 }
 
 .plus-metro-nav {
@@ -29,29 +29,40 @@ margin-left: 30px;
         vertical-align: middle;
     }
 
-    .plus-metro-nav .box.height3 {
-        height: 320px;
+    .plus-metro-nav .box.height2 {
+        height: 210px;
     }
 
-    .plus-metro-nav .box.red {
-        background-color: #D32C2C;
-    }
-
-    .plus-metro-nav .box.lightblue {
-        background-color: #00A8EC;
-    }
-
-    .plus-metro-nav .box.green {
-        background-color: #43B51F;
-    }
-
-    .plus-metro-nav .box.pink {
-        background-color: #D6668F;
-    }
-
-    .plus-metro-nav .box.purple {
-        background-color: #640F6C;
-    }
+    .plus-metro-nav  .box.red{
+      background-color: #D32C2C;  
+}
+.plus-metro-nav  .box.lightblue{
+      background-color: #00A8EC;
+}
+.plus-metro-nav  .box.darkblue{
+  background-color: #0061DC;
+}
+.plus-metro-nav  .box.green{
+  background-color: #43B51F;
+}
+.plus-metro-nav  .box.purple{
+  background-color: #640F6C;
+}
+.plus-metro-nav  .box.orange{
+  background-color: #43B51F;
+}
+.plus-metro-nav  .box.facebook{
+  background-color: #3C5B9B;
+}
+.plus-metro-nav  .box.pink{
+  background-color: #D6668F;
+}
+.plus-metro-nav  .box.deviant{
+  background-color: #455449;
+}
+.plus-metro-nav  .box.brown{
+  background-color: #BF7A30;
+}
 
     .plus-metro-nav .box {
         height: 100px;

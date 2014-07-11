@@ -6,20 +6,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+
 namespace Web
 {
-    public partial class NhanVien : System.Web.UI.Page
+    public partial class LoaiThietBi : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<NhanVienPTFilter> ListNhanVienPT = NhanVienPTFilter.getAll();
-            //List<HinhAnh> ListHinhAnh = ListNhanVienPT[0].hinhanhs.ToList();
-            //string text = ListNhanVienPT[0].hinhanhs.First().path.ToString();
-            Grid.DataSource = ListNhanVienPT;
-            Grid.DataBind();
+ //           List<LoaiThietBi> ListLoaiThietBi = new List<LoaiThietBi>();
+//            ListLoaiThietBi = new Loai
             Grid.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
             Grid.Styles.Header.Font.Bold = true;
         }
+
+
 
         protected void Page_PreInit(object sender, EventArgs e)
         {

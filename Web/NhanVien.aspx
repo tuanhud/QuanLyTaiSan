@@ -14,8 +14,8 @@
         <div class="panel-body">
             <dx:ASPxGridView ID="Grid" runat="server" AutoGenerateColumns="False" Theme="Youthful" Width="100%" KeyFieldName="id">
                 <Columns>
-                    <dx:GridViewDataImageColumn FieldName="hinhanhs.First().path" VisibleIndex="1" Caption="Hình ảnh">
-                        <PropertiesImage ImageUrlFormatString="http://hoangthanhit.com/qlts/{0}">
+                    <dx:GridViewDataImageColumn FieldName="imageURL" VisibleIndex="1" Caption="Hình ảnh">
+                        <PropertiesImage ImageUrlFormatString="{0}">
                         </PropertiesImage>
                     </dx:GridViewDataImageColumn>
                     <dx:GridViewDataTextColumn Caption="Họ tên" FieldName="hoten" VisibleIndex="2">

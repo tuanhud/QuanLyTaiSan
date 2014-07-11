@@ -16,41 +16,46 @@
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Quản lý tài sản</a>
-        </div>
-        <div class="navbar-collapse navbar-responsive-collapse collapse in" style="">
-            <ul class="nav navbar-nav">
-                <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("Test.aspx")) Response.Write("class=\"active\""); %>>
-                    <a href="ViTri.aspx">Vị Trí</a>
-                </li>
-                <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("PhongHoc.aspx")) Response.Write("class=\"active\""); %>>
-                    <a href="PhongHoc.aspx">Phòng Học</a>
-                </li>
-                <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("PhongThietBi.aspx")) Response.Write("class=\"active\""); %>>
-                    <a href="PhongThietBi.aspx">Phòng Thiết Bị</a>
-                </li>
-                <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("ThietBi.aspx")) Response.Write("class=\"active\""); %>>
-                    <a href="ThietBi.aspx">Thiết Bị</a>
-                </li>
-                <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("NhanVien.aspx")) Response.Write("class=\"active\""); %>>
-                    <a href="NhanVien.aspx">Nhân Viên</a>
-                </li>
-                <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("QuanTriVien.aspx")) Response.Write("class=\"active\""); %>>
-                    <a href="QuanTriVien.aspx">Quản Trị Viên</a>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-left" runat="server">
-                <asp:TextBox ID="txtSearch" placeholder="Tìm kiếm" CssClass="form-control col-lg-8" runat="server"></asp:TextBox>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Chào Admin</a></li>
-            </ul>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Quản lý tài sản</a>
+            </div>
+            <div class="navbar-collapse navbar-responsive-collapse collapse in" style="">
+                <ul class="nav navbar-nav">
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("ViTri.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="ViTri.aspx">Vị trí</a>
+                    </li>
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("PhongHoc.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="PhongHoc.aspx">Phòng</a>
+                    </li>
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("PhongThietBi.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="PhongThietBi.aspx">Phòng thiết bị</a>
+                    </li>
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("ThietBi.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="ThietBi.aspx">Thiết bị</a>
+                    </li>
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("LoaiThietBi.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="ThietBi.aspx">Loại thiết bị</a>
+                    </li>
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("NhanVien.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="NhanVien.aspx">Nhân viên</a>
+                    </li>
+                    <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("QuanTriVien.aspx")) Response.Write("class=\"active\""); %>>
+                        <a href="QuanTriVien.aspx">Quản trị viên</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" runat="server">
+                    <asp:TextBox ID="txtSearch" placeholder="Tìm kiếm" CssClass="form-control col-lg-8" runat="server"></asp:TextBox>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Chào Admin</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 

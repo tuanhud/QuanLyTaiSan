@@ -55,9 +55,9 @@ namespace QuanLyTaiSanGUI
         private void init()
         {
             //Việt hóa
-            //GridLocalizer.Active = new MyGridLocalizer();
-            //TreeListLocalizer.Active = new MyTreeListLocalizer();
-            //Localizer.Active = new MyLocalizer();
+            GridLocalizer.Active = new MyGridLocalizer();
+            TreeListLocalizer.Active = new MyTreeListLocalizer();
+            Localizer.Active = new MyLocalizer();
             
 
             _ucThongKeChiTiet = new ucThongKeChiTiet();

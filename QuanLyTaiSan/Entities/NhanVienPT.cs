@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,18 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<HinhAnh> hinhanhs { get; set; }
         #endregion
         #region Nghiệp vụ
+        /// <summary>
+        /// Lấy URL hình ảnh đại diện (hình thứ 0 nếu có)
+        /// </summary>
+        /// <returns>Luôn là một URL có nghĩa</returns>
+        public String getAvatar()
+        {
+            if (hinhanhs == null || hinhanhs.Count == 0)
+            {
+                return HinhAnh.defaultImageURL;
+            }
+            return hinhanhs.FirstOrDefault().getImageURL();
+        }
         public static List<NhanVienPT> getAllByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
             List<NhanVienPT> re =

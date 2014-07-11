@@ -46,6 +46,9 @@ namespace QuanLyTaiSan.DataFilter
             }
             if (date_to != null)
             {
+                //"date_to" have to be the last second of the day, 1 day additional           
+                date_to = date_to.Value.AddDays(1);
+
                 query = query.Where(x => x.thietbi.date_modified <= date_to);
             }
             //LTB
@@ -63,6 +66,9 @@ namespace QuanLyTaiSan.DataFilter
             {
                 query = query.Where(x => x.phong.vitri.coso == null || list_coso.Contains(x.phong.vitri.coso.id));
             }
+            //CTTB phai co SL lon hon 0
+            query = query.Where(x => x.soluong > 0);
+
             //ORDER BY ID
             if (orderby_id_desc)
             {
