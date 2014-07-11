@@ -18,10 +18,16 @@ namespace QuanLyTaiSan.Entities
             //: base(@"Data Source=C:\Users\quocdunginfo\Documents\GitHub\QuanLyTaiSan\ProvisionClient\local_db.sdf")
         {
             //Use config file OR use Global setting
+
+            //Auto create DB if not exist
+            Database.SetInitializer<OurDBContext>(new CreateDatabaseIfNotExists<OurDBContext>());
         }
         public OurDBContext(String connection_string):base(connection_string)
         {
             //Dynamic connection String
+
+            //Auto create DB if not exist
+            Database.SetInitializer<OurDBContext>(new CreateDatabaseIfNotExists<OurDBContext>());
         }
         
         public DbSet<CoSo> COSOS { get; set; }

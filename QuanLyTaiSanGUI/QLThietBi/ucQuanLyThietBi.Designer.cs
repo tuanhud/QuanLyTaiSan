@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -55,8 +54,6 @@
             this.barButtonXoaThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThietBi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.gridControlThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,7 +61,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
@@ -361,19 +358,6 @@
             this.rbnGroupThietBi.ShowCaptionButton = false;
             this.rbnGroupThietBi.Text = "Thiết bị";
             // 
-            // colsoluong
-            // 
-            this.colsoluong.Caption = "Số lượng";
-            this.colsoluong.FieldName = "soluong";
-            this.colsoluong.Name = "colsoluong";
-            this.colsoluong.Width = 202;
-            // 
-            // rbnGroupPhong_Phong
-            // 
-            this.rbnGroupPhong_Phong.Enabled = false;
-            this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
-            this.rbnGroupPhong_Phong.Text = "Phòng";
-            // 
             // gridControlThietBi
             // 
             this.gridControlThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -396,6 +380,7 @@
             this.gridViewThietBi.Name = "gridViewThietBi";
             this.gridViewThietBi.OptionsBehavior.Editable = false;
             this.gridViewThietBi.OptionsBehavior.ReadOnly = true;
+            this.gridViewThietBi.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewThietBi.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewThietBi.OptionsSelection.MultiSelect = true;
             this.gridViewThietBi.OptionsView.ShowAutoFilterRow = true;
@@ -509,8 +494,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonXoaThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThietBi_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupThietBi;
-        private DevExpress.XtraGrid.Columns.GridColumn colsoluong;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colloai;

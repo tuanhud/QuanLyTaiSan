@@ -39,6 +39,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
         String function = "";
         public bool working = false;
+        //String layout = "";
+        MyLayout layout = new MyLayout();
 
         public ucQuanLyPhong()
         {
@@ -55,11 +57,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridViewPhong.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewPhong.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewPhong.Columns[colnhanvienpt.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+
+            //save layout
+            layout.save(gridViewPhong);
         }
 
         // Load dữ liệu
         public void loadData()
         {
+            //load layout
+            layout.load(gridViewPhong);
+
             listVitris = ViTriHienThi.getAll().ToList();
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.loadData(listVitris);

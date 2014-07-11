@@ -22,29 +22,37 @@ namespace QuanLyTaiSan.Entities
             }
             public static String[] tracking_tables
             {
+                //UNDEPENDENT (ON INSERT)
+                //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
                 get
                 {
                     return new String[] {
-                    "__MigrationHistory",
-                    "COSOS",
-                    "DAYS",
-                    "HINHANHS",
-                    "TANGS",
-                    "VITRIS",
-                    "PHONGS",
-                    "NHANVIENPTS",
-                    "THIETBIS",
-                    "CTTHIETBIS",
-                    "TINHTRANGS",
-                    "LOAITHIETBIS",
-                    "GROUPS",
-                    "QUANTRIVIENS",
-                    "PERMISSIONS",
-                    "LOGHETHONGS",
-                    "LOGTHIETBIS",
-                    "GROUP_PERMISSION",
-                    "SETTINGS"
-                };
+                        "__MigrationHistory",//UNDEPENDENT
+
+                        "COSOS",//UNDEPENDENT
+                        "DAYS",
+                        "TANGS",
+                        "VITRIS",
+                        "NHANVIENPTS",//UNDEPENDENT
+                        "PHONGS",
+                    
+                        "LOAITHIETBIS",
+                        "TINHTRANGS",//UNDEPENDENT
+                        "THIETBIS",
+                        "CTTHIETBIS",
+                        "LOGTHIETBIS",
+                    
+                        "GROUPS",//UNDEPENDENT
+                        "PERMISSIONS",//UNDEPENDENT
+                        "GROUP_PERMISSION",
+                        "QUANTRIVIENS",
+                    
+                        "HINHANHS",
+
+                        "LOGHETHONGS",//UNDEPENDENT
+                    
+                        "SETTINGS"//UNDEPENDENT
+                    };
                 }
             }
         }
@@ -60,17 +68,9 @@ namespace QuanLyTaiSan.Entities
             /// </summary>
             public static int clean_up_scope()
             {
-                //remove if exist
-                DatabaseHelper.drop_sync_scope(
-                    Global.server_database.get_connection_string(),
-                    Global.sync.scope_name
-                );
-                //create new one
-                DatabaseHelper.setup_sync_scope(
-                    Global.server_database.get_connection_string(),
-                    Global.sync.scope_name,
-                    Global.sync.tracking_tables
-                );
+                DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
+
+                Global.server_database.prepare_db_structure();
 
                 return 1;
             }
@@ -192,17 +192,11 @@ namespace QuanLyTaiSan.Entities
                 {
                     return -1;
                 }
-                //REMOVE IF EXIST
-                DatabaseHelper.drop_sync_scope(
-                    Global.client_database.get_connection_string(),
-                    Global.sync.scope_name
-                );
-                //CREATE NEW ONE
-                DatabaseHelper.fetch_sync_scope(
-                    Global.client_database.get_connection_string(),
-                    Global.server_database.get_connection_string(),
-                    Global.sync.scope_name
-                );
+                //DROP Database
+                //DatabaseHelper.dropDB(Global.client_database.get_connection_string());
+                DatabaseHelper.drop_sync_scope(Global.client_database.get_connection_string(), Global.sync.scope_name);
+
+                Global.client_database.prepare_db_structure();
 
                 return 1;
             }
@@ -230,6 +224,11 @@ namespace QuanLyTaiSan.Entities
             /// </summary>
             public static void prepare_db_structure()
             {
+                //Kiểm tra có sử dụng DBCache
+                if (!Global.local_setting.use_db_cache)
+                {
+                    return ;
+                }
                 try
                 {
                     OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string());

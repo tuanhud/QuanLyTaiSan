@@ -35,6 +35,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public bool working = false;
         bool add = false;
 
+        MyLayout layout = new MyLayout();
+
         public ucQuanLyThietBi()
         {
             InitializeComponent();
@@ -44,11 +46,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public ucQuanLyThietBi(bool _add)
         {
             InitializeComponent();
-            pointLabelMota = labelControlMoTa.Location;
-            pointTxtMota = txtMoTa.Location;
-            pointBtnOk = btnOk.Location;
-            pointBtnHuy = btnHuy.Location;
-            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
             add = _add;
             init();
         }
@@ -71,6 +68,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
             gridViewThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewThietBi.Columns[colloai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+
+            layout.save(gridViewThietBi);
         }
 
         public PanelControl getControl()
@@ -85,6 +84,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         public void loadData(bool _loaichung)
         {
+            layout.load(gridViewThietBi);
+
             loaiChung = _loaichung;
             _ucQuanLyThietBi_Control.enable_disableRiengChung(loaiChung);
 

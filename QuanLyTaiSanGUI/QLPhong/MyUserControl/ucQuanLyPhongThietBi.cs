@@ -30,6 +30,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhongThietBi");
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
         public bool working = false;
+        MyLayout layout = new MyLayout();
 
         public ucQuanLyPhongThietBi()
         {
@@ -52,11 +53,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
             gridViewCTThietBi.Columns[colloaiTB.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[colnone.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+
+            layout.save(gridViewCTThietBi);
         }
 
         // Load dữ liệu
         public void loadData()
         {
+            layout.load(gridViewCTThietBi);
+
             List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();

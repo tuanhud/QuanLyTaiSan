@@ -168,9 +168,10 @@ namespace QuanLyTaiSan.Entities
         /// Sẽ nhanh hơn nhiều so với getAll
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<T> getQuery()
+        public static IQueryable getQuery()
         {
-            return db.Set<T>();
+            return db.HINHANHS.AsQueryable();
+            //return db.Set<T>();
         }
         /// <summary>
         /// Sử dụng để đổ DataSource nhanh,
@@ -207,6 +208,7 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
+                db.Entry((T)this).State = EntityState.Detached;
                 return db.Set<T>().Find(id);
             }
             catch (Exception ex)

@@ -10,15 +10,15 @@
 namespace Web {
     
     
-    public partial class LoaiThietBi {
+    public partial class LoaiThietBis {
         
         /// <summary>
-        /// Grid control.
+        /// TreeListLoaiThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView Grid;
+        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList TreeListLoaiThietBi;
     }
 }

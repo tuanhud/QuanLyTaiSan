@@ -28,6 +28,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         String function = "";
         public Boolean working = false;
 
+        MyLayout layout = new MyLayout();
+
         public ucQuanLyNhanVien()
         {
             InitializeComponent();
@@ -42,12 +44,14 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             listBoxPhong.SortOrder = SortOrder.Ascending;
             gridViewNhanVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewNhanVien.Columns[colsodienthoai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            layout.save(gridViewNhanVien);
         }
 
         public void loadData()
         {
             try
             {
+                layout.load(gridViewNhanVien);
                 NhanVienPTs = NhanVienPT.getAll();
                 gridControlNhanVien.DataSource = null;
                 gridControlNhanVien.DataSource = NhanVienPTs;

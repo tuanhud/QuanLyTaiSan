@@ -3,6 +3,7 @@ using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -13,6 +14,38 @@ namespace QuanLyTaiSan.Libraries
 {
     public class DatabaseHelper
     {
+        public static Boolean dropDB(String connectionString="")
+        {
+            return System.Data.Entity.Database.Delete(connectionString);
+            
+            //SqlConnection sqlConnection1 = new SqlConnection(connectionString);
+//            try
+//            {
+//                SqlCommand cmd = new SqlCommand(); ;
+
+//                cmd.CommandText = @"
+//                USE master;
+//                ALTER DATABASE " + dbName + @" SET  SINGLE_USER WITH ROLLBACK IMMEDIATE;
+//                DROP DATABASE " + dbName +";";
+//                cmd.CommandType = CommandType.Text;
+//                cmd.Connection = sqlConnection1;
+
+//                sqlConnection1.Open();
+//                cmd.ExecuteNonQuery();
+//                // Data is accessible through the DataReader object here.
+//                sqlConnection1.Close();
+//                return 1;
+//            }
+//            catch (Exception ex)
+//            {
+//                Debug.WriteLine(ex.ToString());
+//                return -1;
+//            }
+//            finally
+//            {
+//                sqlConnection1.Dispose();
+//            }
+        }
         /// <summary>
         /// Kiểm tra kết nối tới Database thông qua Connection String đưa vào
         /// </summary>
@@ -81,7 +114,7 @@ namespace QuanLyTaiSan.Libraries
                 syncOrchestrator.Direction = SyncDirectionOrder.UploadAndDownload;
 
                 // subscribe for errors that occur when applying changes to the client
-                //((SqlCeSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed += new EventHandler<DbApplyChangeFailedEventArgs>(Program_ApplyChangeFailed);
+                
                 ((SqlSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed +=
                     new EventHandler<DbApplyChangeFailedEventArgs>(sync_error_event_handler);
 
@@ -188,29 +221,7 @@ namespace QuanLyTaiSan.Libraries
                 SqlConnection serverConn = new SqlConnection(connectionString);
                 DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription(scope_name);
                 // get the description of the Products table from SyncDB dtabase
-                //List of all Table from Entity Framework
-
-                //String[] table_name = new String[] {
-                //    "__MigrationHistory",
-                //    "COSOS",
-                //    "DAYS",
-                //    "HINHANHS",
-                //    "TANGS",
-                //    "VITRIS",
-                //    "PHONGS",
-                //    "NHANVIENPTS",
-                //    "THIETBIS",
-                //    "CTTHIETBIS",
-                //    "TINHTRANGS",
-                //    "LOAITHIETBIS",
-                //    "GROUPS",
-                //    "QUANTRIVIENS",
-                //    "PERMISSIONS",
-                //    "LOGHETHONGS",
-                //    "LOGTHIETBIS",
-                //    "GROUP_PERMISSION",
-                //    "SETTINGS"
-                //};
+                
                 DbSyncTableDescription tableDesc = null;
                 foreach (String item in tracking_tables)
                 {
