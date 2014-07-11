@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="Web.Default" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="Css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="Css/bootswatch.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="Js/html5shiv.js"></script>
+      <script src="Js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="Default.aspx" class="navbar-brand">Quản lý tài sản</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("ViTri.aspx")) Response.Write("class=\"active\""); %>>
+                            <a href="ViTri.aspx">Vị Trí</a>
+                        </li>
+                        <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("PhongHoc.aspx")) Response.Write("class=\"active\""); %>>
+                            <a href="PhongHoc.aspx">Phòng Học</a>
+                        </li>
+                        <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("ThietBi.aspx")) Response.Write("class=\"active\""); %>>
+                            <a href="ThietBi.aspx">Thiết Bị</a>
+                        </li>
+                        <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("NhanVien.aspx")) Response.Write("class=\"active\""); %>>
+                            <a href="NhanVien.aspx">Nhân Viên</a>
+                        </li>
+                        <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("QuanTriVien.aspx")) Response.Write("class=\"active\""); %>>
+                            <a href="QuanTriVien.aspx">Quản Trị Viên</a>
+                        </li>
+                        <asp:TextBox ID="txtSearch" placeholder="Tìm kiếm" CssClass="navbar-form navbar-left form-control col-lg-8" runat="server"></asp:TextBox>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Chào Admin</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <p class="text-muted">&copy 2014 Quản lý tài sản.</p>
+            </div>
+        </div>
+    </form>
+    <script src="Js/jquery-1.10.2.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
+    <script src="Js/bootswatch.js"></script>
+</body>
+</html>

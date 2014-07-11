@@ -37,6 +37,10 @@ namespace QuanLyTaiSan.Entities
                  select nv).Distinct().ToList();
             return re;
         }
+        /*public static List<NhanVienPT> getAllOneImage()
+        {
+           // xuất ra 1 hình ảnh của list nhân viên
+        }*/
         #endregion
         #region Override method
         protected override void init()
