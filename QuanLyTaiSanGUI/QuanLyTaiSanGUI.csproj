@@ -125,6 +125,7 @@
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\GetCheckedNodes.cs" />
     <Compile Include="MyUC\MyGridLocalizer.cs" />
+    <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
@@ -178,6 +179,12 @@
     <Compile Include="QLNhanVien\ucQuanLyNhanVien.Designer.cs">
       <DependentUpon>ucQuanLyNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLPhong\MyForm\frmAddThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPhong\MyForm\frmAddThietBi.Designer.cs">
+      <DependentUpon>frmAddThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmChuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +196,12 @@
     </Compile>
     <Compile Include="QLPhong\MyForm\frmNewThietBi.Designer.cs">
       <DependentUpon>frmNewThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.Designer.cs">
+      <DependentUpon>frmTinhTrangVaSoLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhongThietBi.cs">
       <SubType>UserControl</SubType>
@@ -358,11 +371,17 @@
     <EmbeddedResource Include="QLNhanVien\ucQuanLyNhanVien.resx">
       <DependentUpon>ucQuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyForm\frmAddThietBi.resx">
+      <DependentUpon>frmAddThietBi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyForm\frmChuyen.resx">
       <DependentUpon>frmChuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyForm\frmNewThietBi.resx">
       <DependentUpon>frmNewThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.resx">
+      <DependentUpon>frmTinhTrangVaSoLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhongThietBi.resx">
       <DependentUpon>ucQuanLyPhongThietBi.cs</DependentUpon>

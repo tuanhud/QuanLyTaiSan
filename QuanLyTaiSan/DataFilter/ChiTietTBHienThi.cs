@@ -14,6 +14,7 @@ namespace QuanLyTaiSan.DataFilter
         public String tinhtrang { get; set; }
         public int soluong { get; set; }
         public String tenloai { get; set; }
+        public String kieuQL { get; set; }
 
         #region Nghiệp vụ
         public static List<ChiTietTBHienThi> getAllByPhongId(int _phongid)
@@ -29,7 +30,8 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.thietbi.ten,
                      tinhtrang = c.tinhtrang.value,
                      soluong = c.soluong,
-                     tenloai = c.thietbi.loaithietbi.ten
+                     tenloai = c.thietbi.loaithietbi.ten,
+                     kieuQL = c.thietbi.loaithietbi.loaichung == true ? "Theo số lượng" : "Theo cá thể"
                  }).ToList();
             return re;
         }

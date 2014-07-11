@@ -38,6 +38,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhong");
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
         String function = "";
+        public bool working = false;
 
         public ucQuanLyPhong()
         {
@@ -64,14 +65,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (listPhong.Count() == 0)
             {
                 deleteData();
-                enableBar(false);
                 enableEdit(false);
+                enableBar(false);
             }
             else
             {
                 getThongTinPhong(true);
-                enableBar(true);
                 enableEdit(false);
+                enableBar(true);
             }
 
             listNhanVienPT = NhanVienPT.getAll();
@@ -87,12 +88,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             barButtonSuaPhong.Enabled = _enable;
             barButtonXoaPhong.Enabled = _enable;
+            btnR_Sua.Enabled = _enable;
+            btnR_Xoa.Enabled = _enable;
+            rbnGroupThietBi.Enabled = _enable;
         }
 
         //Xóa hết dữ liệu form thông tin phòng + nhân viên
         private void deleteData()
         {
-            setTextGroupControl("Chi thiết phòng", Color.Black);
+            setTextGroupControl("Chi thiết phòng", Color.Empty);
             function = "";
             errorProvider1.Clear();
             imgPhong.Images.Clear();
@@ -124,6 +128,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucComboBoxViTri.setReadOnly(!_enable);
             lblNhanVienPT.Visible = _enable;
             searchLookUpEditNhanVienPT.Visible = _enable;
+            working = _enable;
+            //
+            rbnGroupPhong.Enabled = !_enable;
+            rbnGroupThietBi.Enabled = !_enable;
+            btnR_Them.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
         }
 
         // Reload dữ liệu
@@ -196,7 +207,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                setTextGroupControl("Chi thiết phòng", Color.Black);
+                setTextGroupControl("Chi thiết phòng", Color.Empty);
                 listHinhAnhPhong = new List<HinhAnh>();
                 if (objPhong.hinhanhs != null)
                 {
@@ -602,6 +613,54 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 frmMain frm = this.ParentForm as frmMain;
                 frm.loadDataByPhong(objPhong);
+            }
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                deleteData();
+                _ucComboBoxViTri.setViTri(_ViTriHienTai);
+                txtMaPhong.Focus();
+                enableEdit(true);
+                function = "add";
+                setTextGroupControl("Thêm phòng mới", Color.Red);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + ": " + ex.Message);
+            }
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                setData();
+                txtMaPhong.Focus();
+                enableEdit(true);
+                function = "edit";
+                setTextGroupControl("Chỉnh sửa phòng", Color.Red);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + ": " + ex.Message);
+            }
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                function = "delete";
+                CRUD();
+                gridViewPhong.Focus();
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                enableBar(false);
             }
         }
     }

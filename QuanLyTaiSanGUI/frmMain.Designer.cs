@@ -65,6 +65,7 @@
             this.ribbonMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonMain.Size = new System.Drawing.Size(900, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
+            this.ribbonMain.SelectedPageChanging += new DevExpress.XtraBars.Ribbon.RibbonPageChangingEventHandler(this.ribbonMain_SelectedPageChanging);
             this.ribbonMain.SelectedPageChanged += new System.EventHandler(this.ribbonMain_SelectedPageChanged);
             // 
             // backstageViewControl1

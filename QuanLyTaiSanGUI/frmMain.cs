@@ -28,6 +28,7 @@ using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraTreeList.Localization;
+using DevExpress.XtraEditors.Controls;
 
 namespace QuanLyTaiSanGUI
 {
@@ -44,6 +45,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
         bool drawEnd = false;
+        bool open = false;
         public frmMain()
         {
             InitializeComponent();
@@ -53,8 +55,10 @@ namespace QuanLyTaiSanGUI
         private void init()
         {
             //Việt hóa
-            GridLocalizer.Active = new MyGridLocalizer();
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
+            //GridLocalizer.Active = new MyGridLocalizer();
+            //TreeListLocalizer.Active = new MyTreeListLocalizer();
+            //Localizer.Active = new MyLocalizer();
+            
 
             _ucThongKeChiTiet = new ucThongKeChiTiet();
             _ucThongKeTongQuat = new ucThongKeTongQuat();
@@ -150,6 +154,8 @@ namespace QuanLyTaiSanGUI
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
                         _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
+                        if(!open)
+                            _ucQuanLyPhongThietBi.setPhong(new Phong());
                         _ucQuanLyPhongThietBi.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
@@ -189,14 +195,72 @@ namespace QuanLyTaiSanGUI
 
         public void loadDataByPhong(Phong obj)
         {
+            open = true;
             _ucQuanLyPhongThietBi.setPhong(obj);
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+            open = false;
         }
 
         private void backstageViewButtonItemCaiDat_ItemClick(object sender, BackstageViewItemEventArgs e)
         {
             Setting frm = new Setting(false);
             frm.Show();
+        }
+
+        private void ribbonMain_SelectedPageChanging(object sender, RibbonPageChangingEventArgs e)
+        {
+            try
+            {
+                if (drawEnd)
+                {
+                    bool working = false;
+                    if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
+                    {
+                        working = _ucQuanLyViTri.working;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home")))
+                    {
+                        working = _ucQuanLyNhanVien.working;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home")))
+                    {
+                        working = _ucQuanLyLoaiTB.working;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home")))
+                    {
+                        working = _ucQuanLyThietBi.working;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home")))
+                    {
+                        working = _ucQuanLyPhongThietBi.working;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home")))
+                    {
+
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
+                    {
+                        working = _ucQuanLyPhong.working;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home")))
+                    {
+
+                    }
+                    if (working)
+                    {
+                        if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn chuyển sang chức năng khác?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + ": ribbonMain_SelectedPageChanging :" + ex.Message);
+            }
+            finally
+            { }
         }
     }
 }

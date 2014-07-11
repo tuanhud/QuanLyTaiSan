@@ -21,7 +21,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
     public partial class ucQuanLyThietBi : UserControl
     {
         ucQuanLyThietBi_Control _ucQuanLyThietBi_Control = new ucQuanLyThietBi_Control();
-        List<ThietBiHienThi> listThietBiHienThi = new List<ThietBiHienThi>();
+        List<ThietBi> listThietBi = new List<ThietBi>();
         List<LoaiThietBi> listLoaiThietBi = new List<LoaiThietBi>();
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
 
@@ -32,6 +32,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
         Boolean loaiChung = true;
         int khoangcach;
         Point pointLabelMota, pointTxtMota, pointBtnOk, pointBtnHuy;
+        public bool working = false;
+        bool add = false;
 
         public ucQuanLyThietBi()
         {
@@ -42,6 +44,18 @@ namespace QuanLyTaiSanGUI.QLThietBi
             pointBtnHuy = btnHuy.Location;
             khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
 
+            init();
+        }
+
+        public ucQuanLyThietBi(bool _add)
+        {
+            InitializeComponent();
+            pointLabelMota = labelControlMoTa.Location;
+            pointTxtMota = txtMoTa.Location;
+            pointBtnOk = btnOk.Location;
+            pointBtnHuy = btnHuy.Location;
+            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
+            add = _add;
             init();
         }
 
@@ -106,14 +120,27 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucTreeLoaiTB.setReadOnly(true);
             panelControlLoaiThietBi.Controls.Clear();
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
-
-            listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(loaiChung);
-            gridControlThietBi.DataSource = listThietBiHienThi;
-            if (listThietBiHienThi.Count() == 0)
+            if (add && !loaiChung)
+                listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung).ToList();
+            else
+                listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
+            gridControlThietBi.DataSource = listThietBi;
+            if (listThietBi.Count() == 0)
             {
                 enableEdit(false);
                 function = "";
                 deleteData();
+                btnR_Sua.Enabled = false;
+                btnR_Xoa.Enabled = false;
+                barButtonSuaThietBi.Enabled = false;
+                barButtonXoaThietBi.Enabled = false;
+            }
+            else
+            {
+                btnR_Sua.Enabled = true;
+                btnR_Xoa.Enabled = true;
+                barButtonSuaThietBi.Enabled = true;
+                barButtonXoaThietBi.Enabled = true;
             }
         }
 
@@ -174,6 +201,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
+
+            working = _enable;
+
+            rbnGroupThietBi.Enabled = !_enable;
+            btnR_Them.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
+
             if (_enable)
             {
                 if (loaiChung)
@@ -198,9 +233,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
         private void setData()
         {
             errorProvider1.Clear();
-            if (listThietBiHienThi.Count > 0)
+            if (listThietBi.Count > 0)
             {
-                setTextGroupControl("Thông tin thiết bị", Color.Black);
+                setTextGroupControl("Thông tin thiết bị", Color.Empty);
                 imageSliderThietBi.Images.Clear();
                 if (objThietBi.hinhanhs != null)
                 {
@@ -410,7 +445,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 }
                 if (rowThietBis == 1)
                 {
-                    objThietBi = ThietBi.getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
+                    //objThietBi = ThietBi.getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
+                    objThietBi = gridViewThietBi.GetRow(row) as ThietBi;
                     enableEdit(false);
                     function = "";
                     setData();
@@ -514,6 +550,60 @@ namespace QuanLyTaiSanGUI.QLThietBi
             function = "delete";
             CRUD();
             gridControlThietBi.Focus();
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            enableEdit(true);
+            function = "add";
+
+            deleteData();
+            txtMa.Focus();
+            setTextGroupControl("Thêm thiết bị", Color.Red);
+            if (loaiChung)
+            {
+                dateEditNgayMua.TabIndex = 99;
+                //dateEditLap.TabIndex = 100;
+            }
+            else
+            {
+                dateEditNgayMua.TabIndex = 5;
+                //dateEditLap.TabIndex = 6;
+            }
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            enableEdit(true);
+            function = "edit";
+
+            setData();
+            setTextGroupControl("Sửa thiết bị", Color.Red);
+            if (loaiChung)
+            {
+                dateEditNgayMua.TabIndex = 99;
+                //dateEditLap.TabIndex = 100;
+            }
+            else
+            {
+                dateEditNgayMua.TabIndex = 5;
+                //dateEditLap.TabIndex = 6;
+            }
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            function = "delete";
+            CRUD();
+            gridControlThietBi.Focus();
+        }
+
+        public ThietBi getThietBi()
+        {
+            if (!txtTen.Text.Equals(""))
+                return objThietBi;
+            else
+                return null;
         }
     }
 }

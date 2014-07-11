@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -67,6 +68,40 @@ namespace QuanLyTaiSan.Entities
             tmp.loaithietbi = loai;
             
             return tmp;
+        }
+
+        public static List<ThietBi> getAllByTypeLoai(bool _loaichung)
+        {
+            try
+            {
+                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return new List<ThietBi>();
+            }
+            finally
+            {
+
+            }
+        }
+
+        public static List<ThietBi> getAllByTypeLoaiNoPhong(bool _loaichung)
+        {
+            try
+            {
+                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung && c.ctthietbis.Count == 0).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return new List<ThietBi>();
+            }
+            finally
+            {
+
+            }
         }
         
         #endregion

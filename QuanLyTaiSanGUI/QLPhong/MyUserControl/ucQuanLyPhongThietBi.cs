@@ -17,6 +17,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using QuanLyTaiSanGUI.QLPhong;
 using DevExpress.XtraGrid.Localization;
+using QuanLyTaiSanGUI.QLPhong.MyForm;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -28,6 +29,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         List<HinhAnh> listHinh = new List<HinhAnh>();
         ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhongThietBi");
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
+        public bool working = false;
 
         public ucQuanLyPhongThietBi()
         {
@@ -88,12 +90,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (objPhong != null && objPhong.id > 0)
             {
                 groupPhong.Text = "Phòng " + objPhong.ten;
-                barButtonThemTB.Enabled = true;
+                barButtonThemTBChung.Enabled = true;
+                barButtonThemTBRieng.Enabled = true;
             }
             else
             {
                 groupPhong.Text = "";
-                barButtonThemTB.Enabled = false;
+                barButtonThemTBChung.Enabled = false;
+                barButtonThemTBRieng.Enabled = false;
             }
             if (listCTThietBis.Count > 0)
             {
@@ -101,12 +105,16 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 barButtonSuaTB.Enabled = true;
                 barButtonXoaTB.Enabled = true;
                 barButtonChuyen.Enabled = true;
+                btnR_Sua.Enabled = true;
+                btnR_Xoa.Enabled = true;
             }
             else
             {
                 barButtonSuaTB.Enabled = false;
                 barButtonXoaTB.Enabled = false;
                 barButtonChuyen.Enabled = false;
+                btnR_Sua.Enabled = false;
+                btnR_Xoa.Enabled = false;
                 panelControl1.Visible = false;
                 clearGroupChiTiet();
             }
@@ -140,7 +148,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (e.FocusedRowHandle >= 0)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
-                setThongTinThietBi(objCTThietBi);
+                if (objCTThietBi != null)
+                    setThongTinThietBi(objCTThietBi);
             }
         }
 
@@ -149,7 +158,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (e.RowHandle >= 0)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.RowHandle, colid)));
-                setThongTinThietBi(objCTThietBi);
+                if (objCTThietBi != null)
+                    setThongTinThietBi(objCTThietBi);
             }
         }
 
@@ -185,15 +195,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
         }
 
-        private void gridViewCTThietBi_DataSourceChanged(object sender, EventArgs e)
-        {
-            if (gridViewCTThietBi.FocusedRowHandle >= 0)
-            {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(gridViewCTThietBi.FocusedRowHandle, colid)));
-                setThongTinThietBi(objCTThietBi);
-            }
-        }
-
         private void barButtonSuaTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             enableEdit(true);
@@ -219,6 +220,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
             dateMua.Properties.ReadOnly = !_enable;
             dateLap.Properties.ReadOnly = !_enable;
             _ucTreeLoaiTB.setReadOnly(!_enable);
+            working = _enable;
+            //
+            rbnPageThietBi.Enabled = !_enable;
+            rbnPageChuyen.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
             if (_enable)
             {
                 SetTextGroupControl("Sửa thiết bị", true);
@@ -339,9 +346,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             listCTThietBis = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
             gridControlCTThietBi.DataSource = listCTThietBis;
+            editGUI();
         }
 
-        private void reLoadCTThietBisOnlyAndFocused(int _id)
+        public void reLoadCTThietBisOnlyAndFocused(int _id)
         {
             reLoadCTThietBisOnly();
             int rowHandle = gridViewCTThietBi.LocateByValue(colid.FieldName, _id);
@@ -359,8 +367,30 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonThemTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmNewThietBi frm = new frmNewThietBi(objCTThietBi.phong);
+            //frmNewThietBi frm = new frmNewThietBi(objCTThietBi.phong);
+            //frm.ShowDialog();
+            frmAddThietBi frm = new frmAddThietBi(objPhong, true);
+            frm.Text = "Thêm thiết bị chung vào phòng " + objPhong.ten;
+            frm._ucQuanLyPhongThietBi = this;
             frm.ShowDialog();
+        }
+
+        private void barButtonThemTBRieng_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmAddThietBi frm = new frmAddThietBi(objPhong, false);
+            frm.Text = "Thêm thiết bị riêng vào phòng " + objPhong.ten;
+            frm._ucQuanLyPhongThietBi = this;
+            frm.ShowDialog();
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            enableEdit(true);
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            deleteObj();
         }
     }
 }

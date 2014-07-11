@@ -14,7 +14,7 @@ using QuanLyTaiSanGUI.MyUC;
 
 namespace QuanLyTaiSanGUI.QLPhong
 {
-    public partial class frmChuyen : Form
+    public partial class frmChuyen : DevExpress.XtraEditors.XtraForm
     {
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
         CTThietBi objCTThietBi = null;
@@ -60,6 +60,14 @@ namespace QuanLyTaiSanGUI.QLPhong
             txtSoLuong.Properties.MaxValue = obj.soluong;
         }
 
+        private void setTextGroup(bool p)
+        {
+            if (p)
+                groupControl2.Text = "Chuyển phòng";
+            else
+                groupControl2.Text = "Chuyển tình trạng";
+        }
+
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -68,11 +76,13 @@ namespace QuanLyTaiSanGUI.QLPhong
         private void radioBtnChuyenPhong_CheckedChanged(object sender, EventArgs e)
         {
             _ucComboBoxViTri.setReadOnly(!radioBtnChuyenPhong.Checked);
+            setTextGroup(radioBtnChuyenPhong.Checked);
         }
 
         private void radioBtnChuyenTinhTrang_CheckedChanged(object sender, EventArgs e)
         {
             _ucComboBoxViTri.setReadOnly(radioBtnChuyenTinhTrang.Checked);
+            setTextGroup(radioBtnChuyenTinhTrang.Checked);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

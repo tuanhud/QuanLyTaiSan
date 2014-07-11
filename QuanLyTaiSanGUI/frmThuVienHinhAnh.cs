@@ -19,7 +19,7 @@ using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmThuVienHinhAnh : Form
+    public partial class frmThuVienHinhAnh : DevExpress.XtraEditors.XtraForm
     {
         List<HinhAnh> HinhAnhs = null;
         List<HinhAnh> HinhAnhChons = null;

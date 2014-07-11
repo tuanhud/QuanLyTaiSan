@@ -56,6 +56,13 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 if (listViTriHienThi.Count == 0)
                 {
                     enableGroupViTri("");
+                    btnR_Sua.Enabled = false;
+                    btnR_Xoa.Enabled = false;
+                }
+                else
+                {
+                    btnR_Sua.Enabled = true;
+                    btnR_Xoa.Enabled = true;
                 }
                 treeListViTri.DataSource = listViTriHienThi;
                 listViTriHienThi = ViTriHienThi.getAllCoSo();
@@ -121,8 +128,13 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             type = _type;
             //làm việc
             working = _enable;
-
-            splitContainerControl1.Panel2.Focus();
+            //
+            rbnGroupViTri_CoSo.Enabled = !_enable;
+            rbnGroupViTri_Day.Enabled = !_enable;
+            rbnGroupViTri_Tang.Enabled = !_enable;
+            btnR_Them.Enabled = !_enable;
+            btnR_Sua.Enabled = !_enable;
+            btnR_Xoa.Enabled = !_enable;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -204,9 +216,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 switch (_type)
                 {
                     case "CoSo":
-
-                        ThemMoiNode(-1, "", typeof(CoSo).Name);
-
+                        //ThemMoiNode(-1, "", typeof(CoSo).Name);
                         listHinh = new List<HinhAnh>();
                         panelControl1.Controls.Clear();
                         TextEdit txt = new TextEdit();
@@ -226,9 +236,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             _vitri.coso = objDay.coso;
                         else
                             _vitri.coso = objTang.day.coso;
-
-                        ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name, typeof(Dayy).Name);
-
+                        //ThemMoiNode(_vitri.coso.id, typeof(CoSo).Name, typeof(Dayy).Name);
                         _ucComboBoxViTri.setViTri(_vitri);
                         panelControl1.Controls.Add(_ucComboBoxViTri);
                         break;
@@ -247,9 +255,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             _vitri.coso = objTang.day.coso;
                             _vitri.day = objTang.day;
                         }
-
-                        ThemMoiNode(_vitri.day.id, typeof(Dayy).Name, typeof(Tang).Name);
-
+                        //ThemMoiNode(_vitri.day.id, typeof(Dayy).Name, typeof(Tang).Name);
                         _ucComboBoxViTriChonDay.setViTri(_vitri);
                         panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
                         break;
@@ -572,15 +578,15 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         private void barBtnThemCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             beforeAdd(typeof(CoSo).Name);
-            enableEdit(true, typeof(CoSo).Name, "add");
             SetTextGroupControl("Thêm cơ sở", true);
+            enableEdit(true, typeof(CoSo).Name, "add");
         }
 
         private void barBtnSuaCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, typeof(CoSo).Name, "edit");
             setData(typeof(CoSo).Name);
             SetTextGroupControl("Sửa cơ sở", true);
+            enableEdit(true, typeof(CoSo).Name, "edit");
         }
 
         private void barBtnXoaCoSo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -591,15 +597,15 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         private void barBtnThemDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             beforeAdd(typeof(Dayy).Name);
-            enableEdit(true, typeof(Dayy).Name, "add");
             SetTextGroupControl("Thêm dãy", true);
+            enableEdit(true, typeof(Dayy).Name, "add");
         }
 
         private void barBtnSuaDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, typeof(Dayy).Name, "edit");
             setData(typeof(Dayy).Name);
             SetTextGroupControl("Sửa dãy", true);
+            enableEdit(true, typeof(Dayy).Name, "edit");
         }
 
         private void barBtnXoaDay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -610,16 +616,15 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         private void barBtnThemTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             beforeAdd(typeof(Tang).Name);
-            enableEdit(true, typeof(Tang).Name, "add");
-            
             SetTextGroupControl("Thêm tầng", true);
+            enableEdit(true, typeof(Tang).Name, "add");
         }
 
         private void barBtnSuaTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, typeof(Tang).Name, "edit");
             setData(typeof(Tang).Name);
             SetTextGroupControl("Sửa tầng", true);
+            enableEdit(true, typeof(Tang).Name, "edit");
         }
 
         private void barBtnXoaTang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
