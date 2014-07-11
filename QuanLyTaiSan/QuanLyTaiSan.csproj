@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3A9615F6-7F5B-4E10-BA63-B46B4CC00DE1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QuanLyTaiSan</RootNamespace>
     <AssemblyName>QuanLyTaiSan</AssemblyName>
@@ -45,6 +45,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -175,27 +179,9 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Test_Area.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test_Area.Designer.cs">
-      <DependentUpon>Test_Area.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Test_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test_Form.Designer.cs">
-      <DependentUpon>Test_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test_Form_2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test_Form_2.Designer.cs">
-      <DependentUpon>Test_Form_2.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.resx">
       <DependentUpon>201406110430408_remove_phongId_trong_table_thietBi.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,15 +234,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Test_Area.resx">
-      <DependentUpon>Test_Area.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test_Form.resx">
-      <DependentUpon>Test_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test_Form_2.resx">
-      <DependentUpon>Test_Form_2.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
