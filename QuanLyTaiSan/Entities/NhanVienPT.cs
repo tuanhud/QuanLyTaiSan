@@ -30,17 +30,16 @@ namespace QuanLyTaiSan.Entities
         #endregion
         #region Nghiệp vụ
         /// <summary>
-        /// Lấy hình ảnh đại diện (hình thứ 0)
+        /// Lấy URL hình ảnh đại diện (hình thứ 0 nếu có)
         /// </summary>
-        /// <returns>Có thể null nếu chưa có hình</returns>
-        public HinhAnh getAvatar()
+        /// <returns>Luôn là một URL có nghĩa</returns>
+        public String getAvatar()
         {
             if (hinhanhs == null || hinhanhs.Count == 0)
             {
-                //or return default
-                return null;
+                return HinhAnh.defaultImageURL;
             }
-            return hinhanhs.FirstOrDefault();
+            return hinhanhs.FirstOrDefault().getImageURL();
         }
         public static List<NhanVienPT> getAllByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
