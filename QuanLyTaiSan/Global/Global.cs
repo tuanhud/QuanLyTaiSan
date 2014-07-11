@@ -409,8 +409,18 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class remote_setting
         {
+            
             public static class ftp_host
             {
+                public static String getCombinedPath(String relativePath = "")
+                {
+                    String tmp = "";
+                    tmp +=
+                        Global.remote_setting.ftp_host.HOST_NAME +
+                        Global.remote_setting.ftp_host.PRE_PATH +
+                        relativePath;
+                    return tmp;
+                }
                 public static void reload()
                 {
                     host_name = null;
@@ -449,6 +459,9 @@ namespace QuanLyTaiSan.Entities
                     return re?1:0;
                 }
                 private static String port = null;
+                /// <summary>
+                /// vd: 21
+                /// </summary>
                 public static String PORT
                 {
                     get
@@ -467,6 +480,9 @@ namespace QuanLyTaiSan.Entities
                 }
 
                 private static String host_name=null;
+                /// <summary>
+                /// vd: ftp://example.com
+                /// </summary>
                 public static String HOST_NAME
                 {
                     get
@@ -523,7 +539,7 @@ namespace QuanLyTaiSan.Entities
                 private static String pre_path = null;
                 /// <summary>
                 /// Đường dẫn đến thư mục hình trên HOST,
-                /// (Đường dẫn tuyệt đối)
+                /// (Đường dẫn tuyệt đối), vd: /abspath/path2/
                 /// </summary>
                 public static String PRE_PATH
                 {
@@ -555,6 +571,14 @@ namespace QuanLyTaiSan.Entities
             }
             public static class http_host
             {
+                public static String getCombinedPath(String relativePath="")
+                {
+                    String tmp = "";
+                    tmp += Global.remote_setting.http_host.HOST_NAME;
+                    tmp += !Global.remote_setting.http_host.PORT.Equals("") ? ":" + Global.remote_setting.http_host.PORT : "";
+                    tmp += Global.remote_setting.http_host.PRE_PATH + relativePath;
+                    return tmp;
+                }
                 public static void reload()
                 {
                     host_name = null;
@@ -584,6 +608,9 @@ namespace QuanLyTaiSan.Entities
                 }
 
                 private static String port = null;
+                /// <summary>
+                /// vd: 80
+                /// </summary>
                 public static String PORT
                 {
                     get
@@ -602,6 +629,9 @@ namespace QuanLyTaiSan.Entities
                 }
 
                 private static String host_name = null;
+                /// <summary>
+                /// vd: http://example.com
+                /// </summary>
                 public static String HOST_NAME
                 {
                     get
@@ -622,7 +652,8 @@ namespace QuanLyTaiSan.Entities
                 private static String pre_path = null;
                 /// <summary>
                 /// Đường dẫn đến thư mục hình trên HOST,
-                /// (Đường dẫn tuyệt đối)
+                /// (Đường dẫn tuyệt đối),
+                /// vd: /path1/path2/
                 /// </summary>
                 public static String PRE_PATH
                 {

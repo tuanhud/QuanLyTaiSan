@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,19 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<HinhAnh> hinhanhs { get; set; }
         #endregion
         #region Nghiệp vụ
+        /// <summary>
+        /// Lấy hình ảnh đại diện (hình thứ 0)
+        /// </summary>
+        /// <returns>Có thể null nếu chưa có hình</returns>
+        public HinhAnh getAvatar()
+        {
+            if (hinhanhs == null || hinhanhs.Count == 0)
+            {
+                //or return default
+                return null;
+            }
+            return hinhanhs.FirstOrDefault();
+        }
         public static List<NhanVienPT> getAllByViTri(int _phongid, int _cosoid, int _dayid, int _tangid)
         {
             List<NhanVienPT> re =
@@ -37,6 +51,10 @@ namespace QuanLyTaiSan.Entities
                  select nv).Distinct().ToList();
             return re;
         }
+        /*public static List<NhanVienPT> getAllOneImage()
+        {
+           // xuất ra 1 hình ảnh của list nhân viên
+        }*/
         #endregion
         #region Override method
         protected override void init()

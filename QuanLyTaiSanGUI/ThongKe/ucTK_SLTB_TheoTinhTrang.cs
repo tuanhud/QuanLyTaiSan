@@ -12,6 +12,7 @@ using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.Libraries;
 using DevExpress.XtraBars.Ribbon;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {
@@ -37,6 +38,9 @@ namespace QuanLyTaiSanGUI.ThongKe
 
             checkedComboBoxEdit_coso.Properties.DataSource = null;
             checkedComboBoxEdit_coso.Properties.DataSource = CoSo.getAll();
+
+            //datetime
+            dateEdit_to.EditValue = ServerTimeHelper.getNow();
         }
 
         public RibbonControl getRibbon()
@@ -53,6 +57,12 @@ namespace QuanLyTaiSanGUI.ThongKe
             //get condition
             DateTime? from = (DateTime?)dateEdit_from.EditValue;
             DateTime? to = (DateTime?)dateEdit_to.EditValue;
+            if (from != null && to != null && to < from)
+            {
+                MessageBox.Show("Ngày chọn chưa đúng!");
+                dateEdit_to.EditValue = null;
+                return;
+            }
             //get result
             //String jk = checkedComboBoxEdit_tinhTrang.;
             List<int> list_coso =CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_coso);

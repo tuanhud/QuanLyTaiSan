@@ -56,6 +56,13 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
+        public static String defaultImageURL
+        {
+            get
+            {
+                return "https://www.google.com.vn/images/srpr/logo11w.png";
+            }
+        }
         /// <summary>
         /// Lay tat ca cac hinh cua tat ca CoSo
         /// </summary>
@@ -87,6 +94,14 @@ namespace QuanLyTaiSan.Entities
         }
         [NotMapped]
         protected Bitmap image=null;
+        /// <summary>
+        /// Trả về URL tuyệt đối của Hình ảnh
+        /// </summary>
+        /// <returns></returns>
+        public String getImageURL()
+        {
+            return Global.remote_setting.http_host.getCombinedPath(path);
+        }
         [NotMapped]
         public Bitmap IMAGE
         {
@@ -121,11 +136,9 @@ namespace QuanLyTaiSan.Entities
                 }
                 //build abs path
                 String abs_path =
-                    Global.remote_setting.http_host.HOST_NAME +
-                    Global.remote_setting.http_host.PRE_PATH +
-                    this.path;
+                    Global.remote_setting.http_host.getCombinedPath(this.path);
 
-                //stream image from host via FTPHelper
+                //stream image from host via HTTP
                 Bitmap re = HTTPHelper.getImage(abs_path);
                 this.image = re;
 
@@ -297,11 +310,9 @@ namespace QuanLyTaiSan.Entities
             }
             
             //prepare upload
-            String abs_path
-                =
-                Global.remote_setting.ftp_host.HOST_NAME +
-                Global.remote_setting.ftp_host.PRE_PATH +
-                relative_path;
+            String abs_path =
+                Global.remote_setting.ftp_host.getCombinedPath(this.path);
+                
             //upload hinh va insert vao CSDL
             FTPHelper.uploadImage(
                 tmp,
@@ -310,7 +321,6 @@ namespace QuanLyTaiSan.Entities
                 Global.remote_setting.ftp_host.PASS_WORD
                 );
             
-            //return this.add();
             //finish
             image = tmp;
             return 1;
