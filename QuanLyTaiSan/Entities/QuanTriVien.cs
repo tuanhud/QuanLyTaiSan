@@ -126,7 +126,7 @@ namespace QuanLyTaiSan.Entities
             }
         }
         /// <summary>
-        /// Obj phải được load lên trước (có id, password rồi),
+        /// Obj phải được load lên trước (có id)
         /// update sẽ được gọi tự động
         /// return
         /// -4: update fail

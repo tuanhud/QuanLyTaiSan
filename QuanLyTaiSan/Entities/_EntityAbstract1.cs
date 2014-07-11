@@ -207,6 +207,7 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
+                db.Entry((T)this).State = EntityState.Detached;
                 return db.Set<T>().Find(id);
             }
             catch (Exception ex)

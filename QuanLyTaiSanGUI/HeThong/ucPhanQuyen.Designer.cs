@@ -257,6 +257,7 @@
             this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
@@ -266,6 +267,7 @@
             this.btnOK.TabIndex = 9;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // labelControl1
             // 
@@ -368,6 +370,7 @@
             this.barButtonThemQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barButtonThemQTV.Id = 1;
             this.barButtonThemQTV.Name = "barButtonThemQTV";
+            this.barButtonThemQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemQTV_ItemClick);
             // 
             // barButtonSuaQTV
             // 
@@ -375,6 +378,7 @@
             this.barButtonSuaQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSuaQTV.Id = 2;
             this.barButtonSuaQTV.Name = "barButtonSuaQTV";
+            this.barButtonSuaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaQTV_ItemClick);
             // 
             // barButtonXoaQTV
             // 
@@ -382,6 +386,7 @@
             this.barButtonXoaQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoaQTV.Id = 3;
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
+            this.barButtonXoaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaQTV_ItemClick);
             // 
             // rbnPagePhanQuyen_Home
             // 
