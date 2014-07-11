@@ -13,24 +13,18 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Phong> ListPhongs = Phong.getAll();
-            Grid.DataSource = ListPhongs;
-            Grid.DataBind();
-            Grid.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
-            Grid.Styles.Header.Font.Bold = true;
-            Grid.ExpandRow(1);
-        }
+            //List<Phong> ListPhongs = Phong.getAll();
+            //Grid.DataSource = ListPhongs;
+            //Grid.DataBind();
+            //Grid.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+            //Grid.Styles.Header.Font.Bold = true;
+            //Grid.ExpandRow(1);
 
-        protected void Page_PreInit(object sender, EventArgs e)
-        {
-            if (OurClass.MobileDetect.fBrowserIsMobile())
-            {
-                Grid.Theme = "iOS";
-            }
-            else
-            {
-                //Grid.Theme = "Aqua";
-            }
+            List<ViTriHienThi> ListViTriHienThi = ViTriHienThi.getAll();
+
+            TreeListViTri.DataSource = ListViTriHienThi;
+            TreeListViTri.DataBind();
+            TreeListViTri.ExpandToLevel(1);
         }
     }
 }
