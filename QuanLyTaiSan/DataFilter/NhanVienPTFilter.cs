@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,15 @@ namespace QuanLyTaiSan.DataFilter
         public String subId { get; set; }
         public String sodienthoai { get; set; }
         public String hoten { get; set; }
-        public String imageURL { get; set; }
+        public String imageURL
+        {
+            get
+            {
+                return nhanvienpt.getAvatar();
+            }
+        }
+        public NhanVienPT nhanvienpt { get; set; }
+
         #region Nghiep vu
         public static List<NhanVienPTFilter> getAll()
         {
@@ -29,10 +38,9 @@ namespace QuanLyTaiSan.DataFilter
                     subId = x.subId,
                     hoten = x.hoten,
                     sodienthoai = x.sodienthoai,
-                    imageURL = x.getAvatar()
+                    nhanvienpt = x
                 }
             ).ToList();
-
             return re;
         }
         #endregion

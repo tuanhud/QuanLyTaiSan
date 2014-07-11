@@ -5,14 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
-
+using QuanLyTaiSan.DataFilter;
 namespace Web
 {
     public partial class NhanVien : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<NhanVienPT> ListNhanVienPT = NhanVienPT.getAll();
+            List<NhanVienPTFilter> ListNhanVienPT = NhanVienPTFilter.getAll();
             //List<HinhAnh> ListHinhAnh = ListNhanVienPT[0].hinhanhs.ToList();
             //string text = ListNhanVienPT[0].hinhanhs.First().path.ToString();
             Grid.DataSource = ListNhanVienPT;
