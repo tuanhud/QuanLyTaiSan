@@ -130,11 +130,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
             searchLookUpEditNhanVienPT.Visible = _enable;
             working = _enable;
             //
-            rbnGroupPhong.Enabled = !_enable;
-            rbnGroupThietBi.Enabled = !_enable;
-            btnR_Them.Enabled = !_enable;
-            btnR_Sua.Enabled = !_enable;
-            btnR_Xoa.Enabled = !_enable;
+            //rbnGroupPhong.Enabled = !_enable;
+            //rbnGroupThietBi.Enabled = !_enable;
+            //btnR_Them.Enabled = !_enable;
+            //btnR_Sua.Enabled = !_enable;
+            //btnR_Xoa.Enabled = !_enable;
         }
 
         // Reload dữ liệu
@@ -187,13 +187,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 {
                     case 0:
                         deleteData();
-                        enableBar(false);
                         enableEdit(false);
+                        enableBar(false);
                         break;
                     default:
                         getThongTinPhong(true);
-                        enableBar(true);
                         enableEdit(false);
+                        enableBar(true);
                         break;
                 }
             }
@@ -313,6 +313,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 deleteData();
                 enableBar(false);
             }
+            rbnGroupPhong.Enabled = true;
+            btnR_Them.Enabled = true;
             enableEdit(false);
             function = "";
         }
@@ -453,6 +455,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 _ucComboBoxViTri.setViTri(_ViTriHienTai);
                 txtMaPhong.Focus();
                 enableEdit(true);
+                enableAllBarButton(false);
                 function = "add";
                 setTextGroupControl("Thêm phòng mới", Color.Red);
             }
@@ -469,6 +472,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 setData();
                 txtMaPhong.Focus();
                 enableEdit(true);
+                enableAllBarButton(false);
                 function = "edit";
                 setTextGroupControl("Chỉnh sửa phòng", Color.Red);
             }
@@ -513,6 +517,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             deleteData();
             gridViewPhong.Focus();
             enableEdit(false);
+            enableAllBarButton(true);
             if (listPhong.Count() > 0)
             {
                 setData();
@@ -624,6 +629,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 _ucComboBoxViTri.setViTri(_ViTriHienTai);
                 txtMaPhong.Focus();
                 enableEdit(true);
+                enableAllBarButton(false);
                 function = "add";
                 setTextGroupControl("Thêm phòng mới", Color.Red);
             }
@@ -640,6 +646,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 setData();
                 txtMaPhong.Focus();
                 enableEdit(true);
+                enableAllBarButton(false);
                 function = "edit";
                 setTextGroupControl("Chỉnh sửa phòng", Color.Red);
             }
@@ -661,6 +668,34 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 System.Console.WriteLine(this.Name + ": " + ex.Message);
                 enableBar(false);
+            }
+        }
+
+        private void enableAllBarButton(Boolean _enable)
+        {
+            if (_enable)
+            {
+                if (listPhong.Count > 0)
+                {
+                    rbnGroupPhong.Enabled = _enable;
+                    rbnGroupThietBi.Enabled = _enable;
+                    btnR_Them.Enabled = _enable;
+                    btnR_Sua.Enabled = _enable;
+                    btnR_Xoa.Enabled = _enable;
+                }
+                else
+                {
+                    rbnGroupPhong.Enabled = _enable;
+                    btnR_Them.Enabled = _enable;
+                }
+            }
+            else
+            {
+                rbnGroupPhong.Enabled = _enable;
+                rbnGroupThietBi.Enabled = _enable;
+                btnR_Them.Enabled = _enable;
+                btnR_Sua.Enabled = _enable;
+                btnR_Xoa.Enabled = _enable;
             }
         }
     }
