@@ -22,6 +22,7 @@
                         <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="Số điện thoại" FieldName="sodienthoai" VisibleIndex="3">
+                        <Settings AutoFilterCondition="Contains" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="ID" FieldName="id" Visible="False" VisibleIndex="4">
                     </dx:GridViewDataTextColumn>

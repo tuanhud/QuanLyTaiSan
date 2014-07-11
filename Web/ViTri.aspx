@@ -24,4 +24,5 @@
                 <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
             </dx:ASPxTreeList>
         </div>
+    </div>
 </asp:Content>

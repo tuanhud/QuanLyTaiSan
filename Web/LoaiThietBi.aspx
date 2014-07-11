@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="LoaiThietBi.aspx.cs" Inherits="Web.LoaiThietBi" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="LoaiThietBi.aspx.cs" Inherits="Web.LoaiThietBis" %>
 
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
@@ -14,27 +14,15 @@
             <h3 class="panel-title">Danh sách loại thiết bị</h3>
         </div>
         <div class="panel-body">
-            <dx:ASPxGridView ID="Grid" runat="server" AutoGenerateColumns="False" Theme="Youthful" Width="100%" KeyFieldName="id">
-                <Settings ShowFilterRow="True" ShowGroupPanel="True" />
-                <Columns>
-                    <dx:GridViewDataTextColumn Caption="ID" FieldName="id" VisibleIndex="0" Visible="False">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Tên thiết bị" FieldName="ten" VisibleIndex="1">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Loại thiết bị" FieldName="loai" VisibleIndex="2">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Ngày mua" FieldName="ngaymua" VisibleIndex="3">
-                    </dx:GridViewDataTextColumn>
-                </Columns>
-                <SettingsBehavior AllowSelectByRowClick="True" />
-                <SettingsPager PageSize="10">
-                    <PageSizeItemSettings Visible="true" ShowAllItem="true" />
-                </SettingsPager>
-                <Styles>
-                    <SelectedRow BackColor="#C0FFC0" ForeColor="#0033FF"></SelectedRow>
-                </Styles>
-                <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
-            </dx:ASPxGridView>
+            <dx:ASPxTreeList ID="TreeListLoaiThietBi" runat="server" KeyFieldName="id" ParentFieldName="parent_id" AutoGenerateColumns="False" Theme="Youthful" Width="100%">
+                <columns>
+                    <dx:TreeListTextColumn Caption="Loại thiết bị" FieldName="ten" VisibleIndex="0" Width="20%">
+                    </dx:TreeListTextColumn>
+                    <dx:TreeListTextColumn Caption="Mô tả" FieldName="mota" VisibleIndex="1" CellStyle-Wrap="True">
+                    </dx:TreeListTextColumn>
+                </columns>
+                <settingsdatasecurity allowdelete="False" allowedit="False" allowinsert="False" />
+            </dx:ASPxTreeList>
         </div>
     </div>
 </asp:Content>
