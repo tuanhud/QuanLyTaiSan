@@ -55,8 +55,6 @@
             this.barButtonXoaThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThietBi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.gridControlThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -360,19 +358,6 @@
             this.rbnGroupThietBi.ShowCaptionButton = false;
             this.rbnGroupThietBi.Text = "Thiết bị";
             // 
-            // colsoluong
-            // 
-            this.colsoluong.Caption = "Số lượng";
-            this.colsoluong.FieldName = "soluong";
-            this.colsoluong.Name = "colsoluong";
-            this.colsoluong.Width = 202;
-            // 
-            // rbnGroupPhong_Phong
-            // 
-            this.rbnGroupPhong_Phong.Enabled = false;
-            this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
-            this.rbnGroupPhong_Phong.Text = "Phòng";
-            // 
             // gridControlThietBi
             // 
             this.gridControlThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -508,8 +493,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonXoaThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageThietBi_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupThietBi;
-        private DevExpress.XtraGrid.Columns.GridColumn colsoluong;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colloai;

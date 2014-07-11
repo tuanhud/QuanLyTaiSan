@@ -732,7 +732,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             if (!working)
             {
-                enableEdit(true, node, "edit");
                 setData(node);
                 if (node.Equals(typeof(CoSo).Name))
                 {
@@ -746,6 +745,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     SetTextGroupControl("Sửa tầng", true);
                 }
+                enableEdit(true, node, "edit");
             }
         }
 
@@ -754,7 +754,6 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             if (!working)
             {
                 beforeAdd(node);
-                enableEdit(true, node, "add");
                 if (node.Equals(typeof(CoSo).Name))
                 {
                     SetTextGroupControl("Thêm cơ sở", true);
@@ -767,6 +766,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     SetTextGroupControl("Thêm tầng", true);
                 }
+                enableEdit(true, node, "add");
             }
         }
     }

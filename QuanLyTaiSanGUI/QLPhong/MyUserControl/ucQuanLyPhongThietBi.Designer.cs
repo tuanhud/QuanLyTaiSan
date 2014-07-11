@@ -38,7 +38,6 @@
             this.rbnPagePhongThietbi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnPageThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnPageChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupPhong = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlCTThietBi = new DevExpress.XtraGrid.GridControl();
@@ -189,12 +188,6 @@
             this.rbnPageChuyen.Name = "rbnPageChuyen";
             this.rbnPageChuyen.ShowCaptionButton = false;
             this.rbnPageChuyen.Text = "Chuyển";
-            // 
-            // rbnGroupPhong_Phong
-            // 
-            this.rbnGroupPhong_Phong.Enabled = false;
-            this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
-            this.rbnGroupPhong_Phong.Text = "Phòng";
             // 
             // groupPhong
             // 
@@ -667,7 +660,6 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhongThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhongThietbi_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnPageThietBi;
