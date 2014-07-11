@@ -3,6 +3,7 @@ using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -13,6 +14,38 @@ namespace QuanLyTaiSan.Libraries
 {
     public class DatabaseHelper
     {
+        public static Boolean dropDB(String connectionString="")
+        {
+            return System.Data.Entity.Database.Delete(connectionString);
+            
+            //SqlConnection sqlConnection1 = new SqlConnection(connectionString);
+//            try
+//            {
+//                SqlCommand cmd = new SqlCommand(); ;
+
+//                cmd.CommandText = @"
+//                USE master;
+//                ALTER DATABASE " + dbName + @" SET  SINGLE_USER WITH ROLLBACK IMMEDIATE;
+//                DROP DATABASE " + dbName +";";
+//                cmd.CommandType = CommandType.Text;
+//                cmd.Connection = sqlConnection1;
+
+//                sqlConnection1.Open();
+//                cmd.ExecuteNonQuery();
+//                // Data is accessible through the DataReader object here.
+//                sqlConnection1.Close();
+//                return 1;
+//            }
+//            catch (Exception ex)
+//            {
+//                Debug.WriteLine(ex.ToString());
+//                return -1;
+//            }
+//            finally
+//            {
+//                sqlConnection1.Dispose();
+//            }
+        }
         /// <summary>
         /// Kiểm tra kết nối tới Database thông qua Connection String đưa vào
         /// </summary>

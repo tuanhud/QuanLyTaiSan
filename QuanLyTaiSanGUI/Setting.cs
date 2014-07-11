@@ -73,7 +73,7 @@ namespace QuanLyTaiSanGUI
         private void Setting_Load(object sender, EventArgs e)
         {
             //Check kết nối tới CSDL nếu OK thì gọi Close
-            if (Global.working_database.isReady())
+            if (Global.working_database.isReady() && cau_hinh_ban_dau)
             {
                 this.custom_close();
             }
