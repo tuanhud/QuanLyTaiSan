@@ -10,7 +10,7 @@
 namespace Web {
     
     
-    public partial class PhongHoc {
+    public partial class PhongThietBi {
         
         /// <summary>
         /// Grid control.
