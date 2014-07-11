@@ -16,7 +16,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 {
     public partial class frmAddThietBi : DevExpress.XtraEditors.XtraForm
     {
-        ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi();
+        ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi(true);
         public ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = null;
         Phong objPhong = new Phong();
         bool loaichung = true;
@@ -56,6 +56,10 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                         XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
                         int id = obj.id;
                         _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                        if (!loaichung)
+                        {
+                            _ucQuanLyThietBi.loadData(loaichung);
+                        }
                     }
                 }
             }

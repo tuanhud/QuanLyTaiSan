@@ -21,7 +21,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
     public partial class ucQuanLyThietBi : UserControl
     {
         ucQuanLyThietBi_Control _ucQuanLyThietBi_Control = new ucQuanLyThietBi_Control();
-        List<ThietBiHienThi> listThietBiHienThi = new List<ThietBiHienThi>();
+        List<ThietBi> listThietBi = new List<ThietBi>();
         List<LoaiThietBi> listLoaiThietBi = new List<LoaiThietBi>();
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
 
@@ -33,6 +33,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         int khoangcach;
         Point pointLabelMota, pointTxtMota, pointBtnOk, pointBtnHuy;
         public bool working = false;
+        bool add = false;
 
         public ucQuanLyThietBi()
         {
@@ -43,6 +44,18 @@ namespace QuanLyTaiSanGUI.QLThietBi
             pointBtnHuy = btnHuy.Location;
             khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
 
+            init();
+        }
+
+        public ucQuanLyThietBi(bool _add)
+        {
+            InitializeComponent();
+            pointLabelMota = labelControlMoTa.Location;
+            pointTxtMota = txtMoTa.Location;
+            pointBtnOk = btnOk.Location;
+            pointBtnHuy = btnHuy.Location;
+            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
+            add = _add;
             init();
         }
 
@@ -107,10 +120,12 @@ namespace QuanLyTaiSanGUI.QLThietBi
             _ucTreeLoaiTB.setReadOnly(true);
             panelControlLoaiThietBi.Controls.Clear();
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
-
-            listThietBiHienThi = ThietBiHienThi.getAllByTypeLoai(loaiChung);
-            gridControlThietBi.DataSource = listThietBiHienThi;
-            if (listThietBiHienThi.Count() == 0)
+            if (add && !loaiChung)
+                listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung).ToList();
+            else
+                listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
+            gridControlThietBi.DataSource = listThietBi;
+            if (listThietBi.Count() == 0)
             {
                 enableEdit(false);
                 function = "";
@@ -218,7 +233,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         private void setData()
         {
             errorProvider1.Clear();
-            if (listThietBiHienThi.Count > 0)
+            if (listThietBi.Count > 0)
             {
                 setTextGroupControl("Thông tin thiết bị", Color.Empty);
                 imageSliderThietBi.Images.Clear();
@@ -430,7 +445,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 }
                 if (rowThietBis == 1)
                 {
-                    objThietBi = ThietBi.getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
+                    //objThietBi = ThietBi.getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
+                    objThietBi = gridViewThietBi.GetRow(row) as ThietBi;
                     enableEdit(false);
                     function = "";
                     setData();

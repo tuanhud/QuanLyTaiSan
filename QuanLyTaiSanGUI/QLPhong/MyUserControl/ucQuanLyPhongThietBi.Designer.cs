@@ -255,7 +255,6 @@
             this.gridViewCTThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewCTThietBi.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewCTThietBi_RowClick);
             this.gridViewCTThietBi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewCTThietBi_FocusedRowChanged);
-            this.gridViewCTThietBi.DataSourceChanged += new System.EventHandler(this.gridViewCTThietBi_DataSourceChanged);
             // 
             // colid
             // 

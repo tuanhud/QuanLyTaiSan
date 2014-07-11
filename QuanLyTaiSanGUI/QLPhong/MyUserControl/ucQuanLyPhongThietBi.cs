@@ -148,7 +148,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (e.FocusedRowHandle >= 0)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
-                setThongTinThietBi(objCTThietBi);
+                if (objCTThietBi != null)
+                    setThongTinThietBi(objCTThietBi);
             }
         }
 
@@ -157,7 +158,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (e.RowHandle >= 0)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.RowHandle, colid)));
-                setThongTinThietBi(objCTThietBi);
+                if (objCTThietBi != null)
+                    setThongTinThietBi(objCTThietBi);
             }
         }
 
@@ -190,15 +192,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             foreach (HinhAnh h in listHinh)
             {
                 imageSlider1.Images.Add(h.getImage());
-            }
-        }
-
-        private void gridViewCTThietBi_DataSourceChanged(object sender, EventArgs e)
-        {
-            if (gridViewCTThietBi.FocusedRowHandle >= 0)
-            {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(gridViewCTThietBi.FocusedRowHandle, colid)));
-                setThongTinThietBi(objCTThietBi);
             }
         }
 
@@ -353,6 +346,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             listCTThietBis = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
             gridControlCTThietBi.DataSource = listCTThietBis;
+            editGUI();
         }
 
         public void reLoadCTThietBisOnlyAndFocused(int _id)

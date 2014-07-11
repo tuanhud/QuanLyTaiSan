@@ -417,7 +417,7 @@
             // colloai
             // 
             this.colloai.Caption = "Loại thiết bị";
-            this.colloai.FieldName = "loai";
+            this.colloai.FieldName = "loaithietbi.ten";
             this.colloai.Name = "colloai";
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;

@@ -19,7 +19,7 @@ using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmHinhAnh : Form
+    public partial class frmHinhAnh : DevExpress.XtraEditors.XtraForm
     {
         public static Size HoverSkinImageSize = new Size(116, 86);
         public static Size SkinImageSize = new Size(58, 43);
