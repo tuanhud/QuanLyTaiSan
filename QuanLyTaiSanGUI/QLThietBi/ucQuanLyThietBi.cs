@@ -354,8 +354,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                             }
                             if (thanhcong)
                             {
-                                XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoad();
+                                XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                                 XtraMessageBox.Show("Đã xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
