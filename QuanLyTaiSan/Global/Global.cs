@@ -22,29 +22,37 @@ namespace QuanLyTaiSan.Entities
             }
             public static String[] tracking_tables
             {
+                //UNDEPENDENT (ON INSERT)
+                //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
                 get
                 {
                     return new String[] {
-                    "__MigrationHistory",
-                    "COSOS",
-                    "DAYS",
-                    "HINHANHS",
-                    "TANGS",
-                    "VITRIS",
-                    "PHONGS",
-                    "NHANVIENPTS",
-                    "THIETBIS",
-                    "CTTHIETBIS",
-                    "TINHTRANGS",
-                    "LOAITHIETBIS",
-                    "GROUPS",
-                    "QUANTRIVIENS",
-                    "PERMISSIONS",
-                    "LOGHETHONGS",
-                    "LOGTHIETBIS",
-                    "GROUP_PERMISSION",
-                    "SETTINGS"
-                };
+                        "__MigrationHistory",//UNDEPENDENT
+
+                        "COSOS",//UNDEPENDENT
+                        "DAYS",
+                        "TANGS",
+                        "VITRIS",
+                        "NHANVIENPTS",//UNDEPENDENT
+                        "PHONGS",
+                    
+                        "LOAITHIETBIS",
+                        "TINHTRANGS",//UNDEPENDENT
+                        "THIETBIS",
+                        "CTTHIETBIS",
+                        "LOGTHIETBIS",
+                    
+                        "GROUPS",//UNDEPENDENT
+                        "PERMISSIONS",//UNDEPENDENT
+                        "GROUP_PERMISSION",
+                        "QUANTRIVIENS",
+                    
+                        "HINHANHS",
+
+                        "LOGHETHONGS",//UNDEPENDENT
+                    
+                        "SETTINGS"//UNDEPENDENT
+                    };
                 }
             }
         }
