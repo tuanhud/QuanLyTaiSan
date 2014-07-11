@@ -365,18 +365,21 @@
             // barButtonThemQTV
             // 
             this.barButtonThemQTV.Caption = "Thêm quản trị viên";
+            this.barButtonThemQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
             this.barButtonThemQTV.Id = 1;
             this.barButtonThemQTV.Name = "barButtonThemQTV";
             // 
             // barButtonSuaQTV
             // 
             this.barButtonSuaQTV.Caption = "Sửa quản trị viên";
+            this.barButtonSuaQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSuaQTV.Id = 2;
             this.barButtonSuaQTV.Name = "barButtonSuaQTV";
             // 
             // barButtonXoaQTV
             // 
             this.barButtonXoaQTV.Caption = "Xóa quản trị viên";
+            this.barButtonXoaQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoaQTV.Id = 3;
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
             // 
@@ -394,6 +397,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaQTV);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaQTV);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Quản trị viên";
             // 
             // ucPhanQuyen
