@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -30,8 +31,11 @@ namespace QuanLyTaiSan
             InitializeComponent();
 
             //CTThietBi.getAll();//.Where(c=>c.soluong>0);
-            List<CTThietBi> dd = CTThietBi.getAll().ToList();
-            Console.WriteLine();
+            //List<CTThietBi> dd = CTThietBi.getAll().ToList();
+            //Console.WriteLine();
+            //HinhAnh obj = HinhAnh.getById(2);
+            String tmp = Global.remote_setting.ftp_host.getCombinedPath("vd.jpeg"); //obj.getImageURL();
+            
         }
         private void sync_procedure()
         {

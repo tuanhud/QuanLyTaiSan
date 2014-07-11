@@ -20,7 +20,6 @@ namespace QuanLyTaiSan.Libraries
         {
             try
             {
-
                 HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
 
                 using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
