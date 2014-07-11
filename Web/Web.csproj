@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LoaiThietBi.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootswatch.min.css" />
     <Content Include="favicon.ico" />
@@ -91,6 +92,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoaiThietBi.aspx.cs">
+      <DependentUpon>LoaiThietBi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoaiThietBi.aspx.designer.cs">
+      <DependentUpon>LoaiThietBi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViTri.aspx.cs">
       <DependentUpon>ViTri.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

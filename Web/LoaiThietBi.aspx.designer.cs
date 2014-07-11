@@ -10,15 +10,15 @@
 namespace Web {
     
     
-    public partial class ViTri {
+    public partial class LoaiThietBi {
         
         /// <summary>
-        /// TreeListViTri control.
+        /// Grid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList TreeListViTri;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView Grid;
     }
 }

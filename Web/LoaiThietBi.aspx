@@ -1,31 +1,29 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="QuanTriVien.aspx.cs" Inherits="Web.QuanTriVien" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="LoaiThietBi.aspx.cs" Inherits="Web.LoaiThietBi" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Quản Trị Viên :: Quản lý tài sản</title>
+    <title>Loại Thiết Bi :: Quản lý tài sản</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Danh sách quản trị viên</h3>
+            <h3 class="panel-title">Danh sách loại thiết bị</h3>
         </div>
         <div class="panel-body">
             <dx:ASPxGridView ID="Grid" runat="server" AutoGenerateColumns="False" Theme="Youthful" Width="100%" KeyFieldName="id">
-                <Settings ShowFilterRow="True" />
+                <Settings ShowFilterRow="True" ShowGroupPanel="True" />
                 <Columns>
-                    <dx:GridViewDataTextColumn Caption="Nhóm quản trị" FieldName="ten_group" GroupIndex="0" SortIndex="0" SortOrder="Ascending" VisibleIndex="0">
+                    <dx:GridViewDataTextColumn Caption="ID" FieldName="id" VisibleIndex="0" Visible="False">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="ID" FieldName="id" VisibleIndex="1" Visible="false">
+                    <dx:GridViewDataTextColumn Caption="Tên thiết bị" FieldName="ten" VisibleIndex="1">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Tên gọi" FieldName="hoten" VisibleIndex="2">
+                    <dx:GridViewDataTextColumn Caption="Loại thiết bị" FieldName="loai" VisibleIndex="2">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Tài khoản" FieldName="username" VisibleIndex="3">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Ngày tạo" FieldName="date_create" VisibleIndex="4">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Ngày chỉnh sửa" FieldName="date_modified" VisibleIndex="5">
+                    <dx:GridViewDataTextColumn Caption="Ngày mua" FieldName="ngaymua" VisibleIndex="3">
                     </dx:GridViewDataTextColumn>
                 </Columns>
                 <SettingsBehavior AllowSelectByRowClick="True" />
