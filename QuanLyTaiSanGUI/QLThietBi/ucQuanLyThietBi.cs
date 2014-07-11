@@ -326,6 +326,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     {
                         if (XtraMessageBox.Show(message, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
+                            splashScreenManager.ShowWaitForm();
+                            splashScreenManager.SetWaitFormCaption("Đang xóa thiết bị");
                             for (int i = 0; i < indexCacRow.Count(); i++)
                             {
                                 try
@@ -350,15 +352,20 @@ namespace QuanLyTaiSanGUI.QLThietBi
                                 catch
                                 {
                                     thanhcong = false;
+                                    break;
                                 }
                             }
                             if (thanhcong)
                             {
                                 reLoad();
+                                splashScreenManager.CloseWaitForm();
                                 XtraMessageBox.Show("Xóa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
+                            {
+                                splashScreenManager.CloseWaitForm();
                                 XtraMessageBox.Show("Đã xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     }
                     break;
