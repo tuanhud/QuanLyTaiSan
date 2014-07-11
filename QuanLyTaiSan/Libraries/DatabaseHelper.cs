@@ -114,7 +114,7 @@ namespace QuanLyTaiSan.Libraries
                 syncOrchestrator.Direction = SyncDirectionOrder.UploadAndDownload;
 
                 // subscribe for errors that occur when applying changes to the client
-                //((SqlCeSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed += new EventHandler<DbApplyChangeFailedEventArgs>(Program_ApplyChangeFailed);
+                
                 ((SqlSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed +=
                     new EventHandler<DbApplyChangeFailedEventArgs>(sync_error_event_handler);
 
@@ -221,29 +221,7 @@ namespace QuanLyTaiSan.Libraries
                 SqlConnection serverConn = new SqlConnection(connectionString);
                 DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription(scope_name);
                 // get the description of the Products table from SyncDB dtabase
-                //List of all Table from Entity Framework
-
-                //String[] table_name = new String[] {
-                //    "__MigrationHistory",
-                //    "COSOS",
-                //    "DAYS",
-                //    "HINHANHS",
-                //    "TANGS",
-                //    "VITRIS",
-                //    "PHONGS",
-                //    "NHANVIENPTS",
-                //    "THIETBIS",
-                //    "CTTHIETBIS",
-                //    "TINHTRANGS",
-                //    "LOAITHIETBIS",
-                //    "GROUPS",
-                //    "QUANTRIVIENS",
-                //    "PERMISSIONS",
-                //    "LOGHETHONGS",
-                //    "LOGTHIETBIS",
-                //    "GROUP_PERMISSION",
-                //    "SETTINGS"
-                //};
+                
                 DbSyncTableDescription tableDesc = null;
                 foreach (String item in tracking_tables)
                 {
