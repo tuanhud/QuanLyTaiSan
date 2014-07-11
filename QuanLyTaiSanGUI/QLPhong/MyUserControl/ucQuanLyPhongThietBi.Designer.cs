@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTBChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaTB = new DevExpress.XtraBars.BarButtonItem();
@@ -38,7 +37,6 @@
             this.rbnPagePhongThietbi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnPageThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnPageChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupPhong = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlCTThietBi = new DevExpress.XtraGrid.GridControl();
@@ -80,7 +78,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -190,12 +188,6 @@
             this.rbnPageChuyen.ShowCaptionButton = false;
             this.rbnPageChuyen.Text = "Chuyển";
             // 
-            // rbnGroupPhong_Phong
-            // 
-            this.rbnGroupPhong_Phong.Enabled = false;
-            this.rbnGroupPhong_Phong.Name = "rbnGroupPhong_Phong";
-            this.rbnGroupPhong_Phong.Text = "Phòng";
-            // 
             // groupPhong
             // 
             this.groupPhong.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +243,7 @@
             this.gridViewCTThietBi.Name = "gridViewCTThietBi";
             this.gridViewCTThietBi.OptionsBehavior.Editable = false;
             this.gridViewCTThietBi.OptionsBehavior.ReadOnly = true;
+            this.gridViewCTThietBi.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewCTThietBi.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewCTThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewCTThietBi.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewCTThietBi_RowClick);
@@ -667,7 +660,6 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhong_Phong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonPhongThietBi;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhongThietbi_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnPageThietBi;

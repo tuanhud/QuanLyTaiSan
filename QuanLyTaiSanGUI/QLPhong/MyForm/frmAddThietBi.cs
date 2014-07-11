@@ -51,6 +51,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                     obj.tinhtrang = frm.objTinhTrang;
                     obj.soluong = frm.SoLuong;
                     //Ngày lắp thiết bị
+                    if (!loaichung)
+                        obj.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
                     if (obj.add() > 0)
                     {
                         XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");

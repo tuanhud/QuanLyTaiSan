@@ -92,6 +92,7 @@
             this.treeListLoaiTB.KeyFieldName = "id";
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
             this.treeListLoaiTB.Name = "treeListLoaiTB";
+            this.treeListLoaiTB.OptionsBehavior.AllowQuickHideColumns = false;
             this.treeListLoaiTB.OptionsBehavior.Editable = false;
             this.treeListLoaiTB.OptionsBehavior.EnableFiltering = true;
             this.treeListLoaiTB.OptionsFind.AllowFindPanel = true;

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
@@ -57,7 +56,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.ribbonNhanVienPT = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaNhanVien = new DevExpress.XtraBars.BarButtonItem();
@@ -124,6 +123,7 @@
             this.gridViewNhanVien.Name = "gridViewNhanVien";
             this.gridViewNhanVien.OptionsBehavior.Editable = false;
             this.gridViewNhanVien.OptionsBehavior.ReadOnly = true;
+            this.gridViewNhanVien.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewNhanVien.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewNhanVien.OptionsView.ShowAutoFilterRow = true;
             this.gridViewNhanVien.OptionsView.ShowGroupPanel = false;
