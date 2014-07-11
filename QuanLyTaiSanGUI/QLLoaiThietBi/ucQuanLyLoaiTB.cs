@@ -98,10 +98,9 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 reLoad();
-                //TreeNode node = 
-                //int rowHandle = gridViewPhong.LocateByValue(colid.FieldName, _id);
-                //if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                //    gridViewPhong.FocusedRowHandle = rowHandle;
+                FindNodeByValue findNode = new FindNodeByValue(colid, _id);
+                treeListLoaiTB.NodesIterator.DoOperation(findNode);
+                treeListLoaiTB.FocusedNode = findNode.Node;
             }
             catch (Exception ex)
             {
@@ -161,6 +160,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.add() != -1)
                         {
                             XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            int id = objLoaiThietBi.id;
+                            reLoadAndFocused(id);
                         }
                         break;
                     case "edit":
@@ -168,6 +169,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.update() != -1)
                         {
                             XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            int id = objLoaiThietBi.id;
+                            reLoadAndFocused(id);
                         }
                         break;
                 }
@@ -385,6 +388,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 {
                     lueThuoc.EditValue = objLoaiThietBi.parent_id;
                 }
+                else
+                {
+                    lueThuoc.EditValue = objLoaiThietBi.id;
+                }
             }
         }
 
@@ -444,6 +451,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (objLoaiThietBi.parent != null)
                 {
                     lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                }
+                else
+                {
+                    lueThuoc.EditValue = objLoaiThietBi.id;
                 }
             }
         }

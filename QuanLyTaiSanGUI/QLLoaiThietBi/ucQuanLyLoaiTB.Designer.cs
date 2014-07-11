@@ -53,6 +53,7 @@
             this.barButtonXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -86,7 +87,8 @@
             // treeListLoaiTB
             // 
             this.treeListLoaiTB.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colten});
+            this.colten,
+            this.colid});
             this.treeListLoaiTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListLoaiTB.KeyFieldName = "id";
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
@@ -328,6 +330,12 @@
             this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
             this.rbnGroupLoaiTB.Text = "Loại thiết bị";
             // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
             // ucQuanLyLoaiTB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,5 +391,6 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
     }
 }

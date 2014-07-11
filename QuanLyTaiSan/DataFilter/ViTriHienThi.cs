@@ -14,6 +14,7 @@ namespace QuanLyTaiSan.DataFilter
         public String loai { get; set; }
         public String id_c { get; set; }
         public String id_p { get; set; }
+        public String mota { get; set; }
 
         #region Nghiệp vụ
         public static List<ViTriHienThi> getAllCoSo()
@@ -27,7 +28,8 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.ten,
                      loai = typeof(CoSo).Name,
                      id_c = typeof(CoSo).Name + c.id,
-                     id_p = ""
+                     id_p = "",
+                     mota = c.mota
                  }).OrderBy(c => c.ten).ToList();
             return re;
         }
@@ -42,7 +44,8 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.ten,
                      loai = typeof(Dayy).Name,
                      id_c = typeof(Dayy).Name + c.id,
-                     id_p = typeof(CoSo).Name + c.coso.id
+                     id_p = typeof(CoSo).Name + c.coso.id,
+                     mota = c.mota
                  }).ToList();
             return re;
         }
@@ -57,7 +60,8 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.ten,
                      loai = typeof(Tang).Name,
                      id_c = typeof(Tang).Name + c.id,
-                     id_p = typeof(Dayy).Name + c.day.id
+                     id_p = typeof(Dayy).Name + c.day.id,
+                     mota = c.mota
                  }).ToList();
             return re;
         }
@@ -73,7 +77,8 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.ten,
                      loai = typeof(Phong).Name,
                      id_c = typeof(Phong).Name + c.id,
-                     id_p = (c.vitri.tang != null ? typeof(Tang).Name+c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name+c.vitri.day.id :(c.vitri.coso != null ? typeof(CoSo).Name+c.vitri.coso.id : ""))) 
+                     id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.coso != null ? typeof(CoSo).Name + c.vitri.coso.id : ""))),
+                     mota = c.mota
                  }).ToList();
             return re;
         }
@@ -90,7 +95,8 @@ namespace QuanLyTaiSan.DataFilter
                      ten = c.ten,
                      loai = typeof(Phong).Name,
                      id_c = typeof(Phong).Name + c.id,
-                     id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.coso != null ? typeof(CoSo).Name + c.vitri.coso.id : "")))
+                     id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.coso != null ? typeof(CoSo).Name + c.vitri.coso.id : ""))),
+                     mota = c.mota
                  }).ToList();
             return re;
         }
