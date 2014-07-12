@@ -121,7 +121,7 @@ namespace QuanLyTaiSan.Libraries
                 request.Credentials = new NetworkCredential(user_name, pass_word);
                 request.GetResponse();
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return -1;

@@ -205,7 +205,10 @@ namespace QuanLyTaiSanGUI
         private void backstageViewButtonItemCaiDat_ItemClick(object sender, BackstageViewItemEventArgs e)
         {
             Setting frm = new Setting(false);
-            frm.ShowDialog();
+            DialogResult re = frm.ShowDialog();
+
+            //Thoát frm Setting bắt buộc reNew
+            DBInstance.reNew();
         }
 
         private void ribbonMain_SelectedPageChanging(object sender, RibbonPageChangingEventArgs e)
