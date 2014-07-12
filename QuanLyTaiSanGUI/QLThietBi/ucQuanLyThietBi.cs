@@ -47,6 +47,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             InitializeComponent();
             add = _add;
+            gridViewThietBi.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            gridViewThietBi.OptionsSelection.MultiSelect = true;
             init();
         }
 
@@ -441,6 +443,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void gridViewThietBi_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
+            /*
             int[] indexCacRow = gridViewThietBi.GetSelectedRows();
             int row = 0;
             if (indexCacRow.Count() > 0)
@@ -497,6 +500,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 enableAllBarButton(true);
                 deleteData();
             }
+             */
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -640,6 +644,25 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 return null;
         }
 
+        public List<ThietBi> getListThietBi()
+        {
+            List<ThietBi> list = new List<ThietBi>();
+            if (gridViewThietBi.SelectedRowsCount > 0)
+            {
+                foreach (int r in gridViewThietBi.GetSelectedRows())
+                {
+                    if (r > -1 && gridViewThietBi.GetRow(r) != null)
+                    {
+                        ThietBi obj = gridViewThietBi.GetRow(r) as ThietBi;
+                        list.Add(obj);
+                    }
+                }
+                return list;
+            }
+            else
+                return null;
+        }
+
         private void enableAllBarButton(Boolean _enable)
         {
             if (_enable)
@@ -683,6 +706,56 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 btnR_Sua.Enabled = _enable;
                 btnR_Xoa.Enabled = _enable;
             }
+        }
+
+        private void gridViewThietBi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                enableAllBarButton(true);
+                if (e.FocusedRowHandle > -1)
+                {
+                    objThietBi = gridViewThietBi.GetFocusedRow() != null ? gridViewThietBi.GetFocusedRow() as ThietBi : new ThietBi();
+                    enableEdit(false);
+                    function = "";
+                    setData();
+                }
+                else
+                {
+                    deleteData();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : gridViewThietBi_FocusedRowChanged : " + ex.Message);
+            }
+            finally
+            { }
+        }
+
+        private void gridViewThietBi_DataSourceChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                enableAllBarButton(true);
+                if (gridViewThietBi.FocusedRowHandle > -1)
+                {
+                    objThietBi = gridViewThietBi.GetFocusedRow() != null ? gridViewThietBi.GetFocusedRow() as ThietBi : new ThietBi();
+                    enableEdit(false);
+                    function = "";
+                    setData();
+                }
+                else
+                {
+                    deleteData();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + " : gridViewThietBi_FocusedRowChanged : " + ex.Message);
+            }
+            finally
+            { }
         }
     }
 }

@@ -117,6 +117,8 @@ namespace QuanLyTaiSanGUI
                 if (drawEnd)
                 {
                     DBInstance.reNew();
+                    DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                     if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
@@ -179,6 +181,7 @@ namespace QuanLyTaiSanGUI
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucTK_SLTB_TheoTinhTrang);
                     }
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
             }
             catch (Exception ex)

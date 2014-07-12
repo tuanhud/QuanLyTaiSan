@@ -383,7 +383,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             //frmNewThietBi frm = new frmNewThietBi(objCTThietBi.phong);
             //frm.ShowDialog();
             frmAddThietBi frm = new frmAddThietBi(objPhong, true);
-            frm.Text = "Thêm thiết bị chung vào phòng " + objPhong.ten;
+            frm.Text = "Thêm thiết bị quản lý theo số lượng vào phòng " + objPhong.ten;
             frm._ucQuanLyPhongThietBi = this;
             frm.ShowDialog();
         }
@@ -391,7 +391,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void barButtonThemTBRieng_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmAddThietBi frm = new frmAddThietBi(objPhong, false);
-            frm.Text = "Thêm thiết bị riêng vào phòng " + objPhong.ten;
+            frm.Text = "Thêm thiết bị quản lý theo cá thể vào phòng " + objPhong.ten;
             frm._ucQuanLyPhongThietBi = this;
             frm.ShowDialog();
         }
@@ -404,6 +404,20 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void btnR_Xoa_Click(object sender, EventArgs e)
         {
             deleteObj();
+        }
+
+        private void gridViewCTThietBi_DataSourceChanged(object sender, EventArgs e)
+        {
+            if (working)
+            {
+                enableEdit(false);
+            }
+            if (gridViewCTThietBi.FocusedRowHandle >= 0)
+            {
+                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(gridViewCTThietBi.FocusedRowHandle, colid)));
+                if (objCTThietBi != null)
+                    setThongTinThietBi(objCTThietBi);
+            }
         }
     }
 }
