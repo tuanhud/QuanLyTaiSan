@@ -326,6 +326,24 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class working_database
         {
+            private static Boolean useinternalconfig = false;
+            /// <summary>
+            /// Chỉ định sử dụng file Config trong Project hay là trong Global.local_setting,
+            /// WEB phải set = true trước khi gọi Entity, Winfor KHÔNG cần,
+            /// phải chỉ định connectionString tên Default trong Web.config
+            /// </summary>
+            public static Boolean use_internal_config
+            {
+                get
+                {
+                    return useinternalconfig;
+                }
+                set
+                {
+                    useinternalconfig = value;
+                }
+            }
+
             public static String get_connection_string()
             {
                 return StringHelper.generateConnectionString(

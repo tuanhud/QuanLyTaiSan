@@ -164,6 +164,11 @@
     <Compile Include="Phong.aspx.designer.cs">
       <DependentUpon>Phong.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ViTri.aspx.cs">
       <DependentUpon>ViTri.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,6 +231,10 @@
   <ItemGroup>
     <Content Include="Default.Master" />
     <Content Include="packages.config" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

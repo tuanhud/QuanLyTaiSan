@@ -18,8 +18,15 @@ namespace QuanLyTaiSan.Entities
             {
                 if (db == null)
                 {
-                    //by default, point to working database
-                    db = new OurDBContext();//Global.working_database.get_connection_string());
+                    if (Global.working_database.use_internal_config)
+                    {
+                        db = new OurDBContext();
+                    }
+                    else
+                    {
+                        //by default, point to working database
+                        db = new OurDBContext(Global.working_database.get_connection_string());
+                    }
                 }
                 return db;
             }
@@ -36,7 +43,16 @@ namespace QuanLyTaiSan.Entities
                 db.Dispose();
                 db = null;
             }
-            db = new OurDBContext();//Global.working_database.get_connection_string());
+
+            if (Global.working_database.use_internal_config)
+            {
+                db = new OurDBContext();
+            }
+            else
+            {
+                //by default, point to working database
+                db = new OurDBContext(Global.working_database.get_connection_string());
+            }
         }
         public static void autoRandom()
         {
