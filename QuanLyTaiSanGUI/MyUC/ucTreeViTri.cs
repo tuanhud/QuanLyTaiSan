@@ -87,7 +87,8 @@ namespace QuanLyTaiSanGUI.MyUC
                                     if (this.Parent != null)
                                     {
                                         ucQuanLyPhong _ucQuanLyPhong = this.Parent as ucQuanLyPhong;
-                                        _ucQuanLyPhong.setData(cosoid, dayid, tangid);                                        
+                                        //_ucQuanLyPhong.setData(cosoid, dayid, tangid);   
+                                        _ucQuanLyPhong.FocusedRowChangedTreePhong();
                                     }
                                 }
                                 break;
@@ -100,15 +101,15 @@ namespace QuanLyTaiSanGUI.MyUC
                                     }
                                 }
                                 break;
-                            case "QLThietBi":
-                                {
-                                    if (this.Parent != null)
-                                    {
-                                        ucQuanLyThietBi_Old _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi_Old;
-                                        _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
-                                    }
-                                }
-                                break;
+                            //case "QLThietBi":
+                            //    {
+                            //        if (this.Parent != null)
+                            //        {
+                            //            ucQuanLyThietBi_Old _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi_Old;
+                            //            _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
+                            //        }
+                            //    }
+                            //    break;
                         }
                     }
                 }

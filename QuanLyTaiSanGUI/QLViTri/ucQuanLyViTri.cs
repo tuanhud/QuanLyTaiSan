@@ -331,7 +331,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "CoSo":
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            if (objCoSo.delete() != -1)
+                            if (objCoSo.delete() > 0)
                             {
                                 XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoad();
@@ -346,7 +346,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             CoSo obj = objDay.coso;
-                            if (objDay.delete() != -1)
+                            if (objDay.delete() > 0)
                             {
                                 XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoad();
@@ -362,7 +362,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             Dayy obj = objTang.day;
-                            if (objTang.delete() != -1)
+                            if (objTang.delete() > 0)
                             {
                                 XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoad();
