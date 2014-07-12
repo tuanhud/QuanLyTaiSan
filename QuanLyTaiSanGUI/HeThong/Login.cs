@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Entities;
 using System.Threading;
+using DevExpress.LookAndFeel;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
@@ -87,6 +89,12 @@ namespace QuanLyTaiSanGUI.HeThong
         #region SHOW FRM MAIN IN NEW THREAD
         private void ThreadProc()
         {
+            Application.EnableVisualStyles();
+            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Office_2010_Blue());
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            Application.SetCompatibleTextRenderingDefault(false);
+            
+
             Application.Run(new frmMain());
         }
         private void show_frm_main()

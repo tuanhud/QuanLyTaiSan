@@ -61,11 +61,9 @@ namespace QuanLyTaiSanGUI.Settings
         /// Lưu lại cài đặt
         /// 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>-5: FTP Fail, -2: SERVER DB FAIL, -3: CLIENT DB FAIL </returns>
         public int save()
         {
-            //test ftp;
-            //return FTPHelper.checkconnect(txtAddressFTP.Text, txtUsernameFTP.Text, txtPasswordFTP.Text);
             /*
              * LOCAL SETTING
              */
@@ -92,32 +90,64 @@ namespace QuanLyTaiSanGUI.Settings
             //UPDATE
             Global.local_setting.Save();
 
-            /*
-             * REMOTE SETTING
-             */
-            //Cần phải có kết nối tới Database mới lưu được
-            if (Global.working_database.isReady())
+
+            //CHECK DB CONFIG
+            if (Global.local_setting.use_db_cache)
             {
-                //FTP
-                Global.remote_setting.ftp_host.HOST_NAME = txtAddressFTP.Text;
-                Global.remote_setting.ftp_host.PRE_PATH = txtPrepathFTP.Text;
-                Global.remote_setting.ftp_host.USER_NAME = txtUsernameFTP.Text;
-                Global.remote_setting.ftp_host.PASS_WORD = txtPasswordFTP.Text;
-                Global.remote_setting.ftp_host.PORT = txtPortFTP.Text;
-                //HTTP
-                Global.remote_setting.http_host.HOST_NAME = txtAddressHTTP.Text;
-                Global.remote_setting.http_host.PORT = txtPortHTTP.Text;
-                Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
-
-                Global.remote_setting.ftp_host.save();
-                Global.remote_setting.http_host.save();
-
+                if (!Global.server_database.isReady())
+                {
+                    //SERVER FAIL
+                    return -2;
+                }
+                if (!Global.client_database.isReady())
+                {
+                    //CLIENT FAIL
+                    return -3;
+                }
             }
             else
             {
-                return -1;
+                if (!Global.working_database.isReady())
+                {
+                    //SERVER FAIL
+                    return -2;
+                }
             }
+
+
+            /*
+             * REMOTE SETTING
+             */
+            //FTP
+            Global.remote_setting.ftp_host.HOST_NAME = txtAddressFTP.Text;
+            Global.remote_setting.ftp_host.PRE_PATH = txtPrepathFTP.Text;
+            Global.remote_setting.ftp_host.USER_NAME = txtUsernameFTP.Text;
+            Global.remote_setting.ftp_host.PASS_WORD = txtPasswordFTP.Text;
+            Global.remote_setting.ftp_host.PORT = txtPortFTP.Text;
+
+            if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
+                Global.remote_setting.ftp_host.USER_NAME,
+                Global.remote_setting.ftp_host.PASS_WORD
+                ) > 0
+            )
+            {
+                Global.remote_setting.ftp_host.save();
+            }
+            else
+            {
+                //FTP FAIL
+                return -5;
+            }
+
+            //HTTP
+            Global.remote_setting.http_host.HOST_NAME = txtAddressHTTP.Text;
+            Global.remote_setting.http_host.PORT = txtPortHTTP.Text;
+            Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
+
+            Global.remote_setting.http_host.save();
+
             return 1;
+            
         }
         private void checkEdit_useDBCache_CheckedChanged(object sender, EventArgs e)
         {
