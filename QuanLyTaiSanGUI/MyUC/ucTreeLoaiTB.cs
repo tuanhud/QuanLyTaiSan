@@ -72,10 +72,13 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                obj = _loai;
-                treeListLoaiTB.CollapseAll();
-                TreeListNode node = treeListLoaiTB.FindNodeByFieldValue("id", _loai.id);
-                treeListLoaiTB.FocusedNode = node;
+                if (_loai != null)
+                {
+                    obj = _loai;
+                    treeListLoaiTB.CollapseAll();
+                    TreeListNode node = treeListLoaiTB.FindNodeByFieldValue("id", _loai.id);
+                    treeListLoaiTB.FocusedNode = node;
+                }
             }
             catch (Exception ex)
             {

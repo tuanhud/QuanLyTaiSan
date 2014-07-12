@@ -33,6 +33,7 @@
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnThemVaDong = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -64,7 +65,7 @@
             // btnThem
             // 
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnThem.Location = new System.Drawing.Point(279, 482);
+            this.btnThem.Location = new System.Drawing.Point(233, 482);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 2;
@@ -74,7 +75,7 @@
             // btnDong
             // 
             this.btnDong.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDong.Location = new System.Drawing.Point(360, 482);
+            this.btnDong.Location = new System.Drawing.Point(414, 482);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
             this.btnDong.TabIndex = 3;
@@ -89,11 +90,22 @@
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Ngày lắp:";
             // 
+            // btnThemVaDong
+            // 
+            this.btnThemVaDong.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnThemVaDong.Location = new System.Drawing.Point(314, 482);
+            this.btnThemVaDong.Name = "btnThemVaDong";
+            this.btnThemVaDong.Size = new System.Drawing.Size(94, 23);
+            this.btnThemVaDong.TabIndex = 6;
+            this.btnThemVaDong.Text = "Thêm và Đóng";
+            this.btnThemVaDong.Click += new System.EventHandler(this.btnThemVaDong_Click);
+            // 
             // frmAddThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 517);
+            this.Controls.Add(this.btnThemVaDong);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnThem);
@@ -117,5 +129,6 @@
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnDong;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnThemVaDong;
     }
 }

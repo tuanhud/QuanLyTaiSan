@@ -34,6 +34,7 @@
             this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnYesToAll = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +69,7 @@
             this.lookUpEdit1.Properties.DisplayMember = "value";
             this.lookUpEdit1.Properties.NullText = "";
             this.lookUpEdit1.Properties.ValueMember = "id";
-            this.lookUpEdit1.Size = new System.Drawing.Size(191, 20);
+            this.lookUpEdit1.Size = new System.Drawing.Size(221, 20);
             this.lookUpEdit1.TabIndex = 2;
             // 
             // spinEdit1
@@ -95,13 +96,13 @@
             0,
             0,
             0});
-            this.spinEdit1.Size = new System.Drawing.Size(191, 20);
+            this.spinEdit1.Size = new System.Drawing.Size(221, 20);
             this.spinEdit1.TabIndex = 3;
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(66, 66);
+            this.btnOK.Location = new System.Drawing.Point(12, 66);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -110,18 +111,29 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(147, 66);
+            this.btnHuy.Location = new System.Drawing.Point(217, 66);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // btnYesToAll
+            // 
+            this.btnYesToAll.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnYesToAll.Location = new System.Drawing.Point(93, 66);
+            this.btnYesToAll.Name = "btnYesToAll";
+            this.btnYesToAll.Size = new System.Drawing.Size(118, 23);
+            this.btnYesToAll.TabIndex = 6;
+            this.btnYesToAll.Text = "Yes to all???";
+            this.btnYesToAll.Click += new System.EventHandler(this.btnYesToAll_Click);
+            // 
             // frmTinhTrangVaSoLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 99);
+            this.ClientSize = new System.Drawing.Size(304, 99);
+            this.Controls.Add(this.btnYesToAll);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.spinEdit1);
@@ -147,5 +159,6 @@
         private DevExpress.XtraEditors.SpinEdit spinEdit1;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraEditors.SimpleButton btnYesToAll;
     }
 }

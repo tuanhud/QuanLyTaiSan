@@ -41,5 +41,11 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         {
             this.Close();
         }
+
+        private void btnYesToAll_Click(object sender, EventArgs e)
+        {
+            objTinhTrang = lookUpEdit1.GetSelectedDataRow() as TinhTrang;
+            SoLuong = Convert.ToInt32(spinEdit1.EditValue);
+        }
     }
 }
