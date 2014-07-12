@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
-    public class MyTreeListLocalizer : TreeListLocalizer
+    public class MyTreeListLocalizer : DevExpress.XtraTreeList.Localization.TreeListLocalizer
     {
-        public override string GetLocalizedString(TreeListStringId id)
+        public override string GetLocalizedString(DevExpress.XtraTreeList.Localization.TreeListStringId id)
         {
-            if (id == TreeListStringId.FindControlFindButton)
+            if (id == DevExpress.XtraTreeList.Localization.TreeListStringId.FindControlFindButton)
                 return "Tìm kiếm";
-            if (id == TreeListStringId.FindControlClearButton)
-                return "Làm mới";
             return base.GetLocalizedString(id);
         }
     }

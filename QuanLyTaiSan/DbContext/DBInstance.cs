@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.Entities
             {
                 if (db == null)
                 {
-                    if (Global.working_database.use_internal_config)
+                    if (!Global.working_database.use_internal_config)
                     {
                         db = new OurDBContext();
                     }
@@ -44,7 +44,7 @@ namespace QuanLyTaiSan.Entities
                 db = null;
             }
 
-            if (Global.working_database.use_internal_config)
+            if (!Global.working_database.use_internal_config)
             {
                 db = new OurDBContext();
             }

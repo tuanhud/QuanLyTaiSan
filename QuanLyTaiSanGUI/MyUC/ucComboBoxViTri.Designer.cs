@@ -60,6 +60,7 @@
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsFind.ShowFindButton = false;
+            this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "id_p";
             this.treeListViTri.Size = new System.Drawing.Size(250, 300);
             this.treeListViTri.TabIndex = 1;

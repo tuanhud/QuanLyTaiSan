@@ -28,8 +28,6 @@ namespace QuanLyTaiSanGUI.MyUC
         private void init()
         {
             treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            //Việt hóa
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
         }
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
@@ -42,6 +40,7 @@ namespace QuanLyTaiSanGUI.MyUC
             {
                 FindNode findNode = new FindNode(p.id, typeof(Phong).Name);
                 treeListPhong.NodesIterator.DoOperation(findNode);
+                treeListPhong.FocusedNode = findNode.Node;
                 treeListPhong.SetNodeCheckState(findNode.Node, CheckState.Checked, true);
             }
         }

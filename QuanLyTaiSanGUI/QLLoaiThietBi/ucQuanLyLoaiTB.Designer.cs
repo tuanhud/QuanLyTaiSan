@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -46,7 +47,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ribbonLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
@@ -97,6 +98,7 @@
             this.treeListLoaiTB.OptionsBehavior.EnableFiltering = true;
             this.treeListLoaiTB.OptionsFind.AllowFindPanel = true;
             this.treeListLoaiTB.OptionsFind.AlwaysVisible = true;
+            this.treeListLoaiTB.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
             this.treeListLoaiTB.Size = new System.Drawing.Size(485, 477);
             this.treeListLoaiTB.TabIndex = 0;

@@ -70,6 +70,7 @@
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
             this.treeListLoaiTB.Name = "treeListLoaiTB";
             this.treeListLoaiTB.OptionsBehavior.Editable = false;
+            this.treeListLoaiTB.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
             this.treeListLoaiTB.Size = new System.Drawing.Size(200, 300);
             this.treeListLoaiTB.TabIndex = 0;
