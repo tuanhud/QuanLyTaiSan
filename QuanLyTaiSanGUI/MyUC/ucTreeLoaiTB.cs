@@ -161,5 +161,25 @@ namespace QuanLyTaiSanGUI.MyUC
             finally
             { }
         }
+
+        private void OnFilterNode(object sender, DevExpress.XtraTreeList.FilterNodeEventArgs e)
+        {
+            List<DevExpress.XtraTreeList.Columns.TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<DevExpress.XtraTreeList.Columns.TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListLoaiTB.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, DevExpress.XtraTreeList.Columns.TreeListColumn column)
+        {
+            string filterValue = treeListLoaiTB.FindFilterText;
+            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
+        }
     }
 }

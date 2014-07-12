@@ -37,8 +37,6 @@
             // 
             // treeListViTri
             // 
-            this.treeListViTri.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.treeListViTri.Appearance.FocusedCell.Options.UseBackColor = true;
             this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
@@ -51,7 +49,9 @@
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
+            this.treeListViTri.OptionsFind.ShowCloseButton = false;
             this.treeListViTri.OptionsFind.ShowFindButton = false;
+            this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "id_p";
             this.treeListViTri.Size = new System.Drawing.Size(276, 373);
             this.treeListViTri.TabIndex = 0;

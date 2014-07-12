@@ -18,24 +18,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
             InitializeComponent();
         }
 
-        private void btnLoaiChung_Click(object sender, EventArgs e)
-        {
-            if (this.Parent != null)
-            {
-                ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
-                _ucQuanLyThietBi.loadData(true);
-            }
-        }
-
-        private void btnLoaiRieng_Click(object sender, EventArgs e)
-        {
-            if (this.Parent != null)
-            {
-                ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
-                _ucQuanLyThietBi.loadData(false);
-            }
-        }
-
         public PanelControl getControl()
         {
             return panelControl1;
@@ -43,8 +25,30 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         public void enable_disableRiengChung(Boolean enable)
         {
-            btnLoaiChung.Enabled = !enable;
-            btnLoaiRieng.Enabled = enable;
+            checkBtnTheoSL.Checked = enable;
+            checkBtnTheoCT.Checked = !enable;
+        }
+
+        private void checkBtnTheoSL_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBtnTheoSL.Checked && this.Parent != null)
+            {
+                ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
+                _ucQuanLyThietBi.loadData(true);
+                checkBtnTheoSL.ForeColor = Color.Red;
+                checkBtnTheoCT.ForeColor = Color.Empty;
+            }
+        }
+
+        private void checkBtnTheoCT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBtnTheoCT.Checked && this.Parent != null)
+            {
+                ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
+                _ucQuanLyThietBi.loadData(false);
+                checkBtnTheoSL.ForeColor = Color.Empty;
+                checkBtnTheoCT.ForeColor = Color.Red;
+            }
         }
     }
 }

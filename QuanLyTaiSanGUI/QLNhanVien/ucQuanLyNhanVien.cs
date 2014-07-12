@@ -284,15 +284,19 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             if (function.Equals("phancong"))
             {
+                int id = objNhanVienPT.id;
                 PhanCong(false);
+                int rowHandle = gridViewNhanVien.LocateByValue(colid.FieldName, id);
+                if (rowHandle != GridControl.InvalidRowHandle)
+                    gridViewNhanVien.FocusedRowHandle = rowHandle;
             }
             else
             {
                 enableEdit(false, "");
                 errorProvider1.Clear();
-                listHinhs = null;
+                listHinhs = new List<HinhAnh>();
+                SetData();
             }
-            SetData();
         }
 
         public void SetData()

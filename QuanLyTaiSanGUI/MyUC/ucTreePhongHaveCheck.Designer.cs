@@ -49,6 +49,7 @@
             this.treeListPhong.OptionsBehavior.EnableFiltering = true;
             this.treeListPhong.OptionsFind.AllowFindPanel = true;
             this.treeListPhong.OptionsFind.AlwaysVisible = true;
+            this.treeListPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListPhong.OptionsView.ShowCheckBoxes = true;
             this.treeListPhong.ParentFieldName = "id_p";
             this.treeListPhong.Size = new System.Drawing.Size(407, 375);

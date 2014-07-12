@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.XtraGrid.Localization;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
-    public class MyGridLocalizer : GridLocalizer
+    public class MyGridLocalizer : DevExpress.XtraGrid.Localization.GridLocalizer
     {
-        public override string GetLocalizedString(GridStringId id)
+        public override string GetLocalizedString(DevExpress.XtraGrid.Localization.GridStringId id)
         {
-            if (id == GridStringId.FindControlFindButton)
+            if (id == DevExpress.XtraGrid.Localization.GridStringId.FindControlFindButton)
                 return "Tìm kiếm";
-            if (id == GridStringId.FindControlClearButton)
+            if (id == DevExpress.XtraGrid.Localization.GridStringId.FindControlClearButton)
                 return "Làm mới";
-            if (id == GridStringId.GridGroupPanelText)
+            if (id == DevExpress.XtraGrid.Localization.GridStringId.GridGroupPanelText)
                 return "Kéo thả một cột vào đây để nhóm theo cột đó";
             return base.GetLocalizedString(id);
         }

@@ -531,6 +531,7 @@
     <None Include="Resources\pencil_edit_24.png" />
     <None Include="Resources\plus_2_24.png" />
     <None Include="Resources\fs-view-icon.png" />
+    <None Include="Resources\check-64.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

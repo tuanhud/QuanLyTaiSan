@@ -111,16 +111,16 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (listCTThietBis.Count > 0)
             {
                 panelControl1.Visible = true;
-                barButtonSuaTB.Enabled = true;
-                barButtonXoaTB.Enabled = true;
+                barButtonSua.Enabled = true;
+                barButtonXoa.Enabled = true;
                 barButtonChuyen.Enabled = true;
                 btnR_Sua.Enabled = true;
                 btnR_Xoa.Enabled = true;
             }
             else
             {
-                barButtonSuaTB.Enabled = false;
-                barButtonXoaTB.Enabled = false;
+                barButtonSua.Enabled = false;
+                barButtonXoa.Enabled = false;
                 barButtonChuyen.Enabled = false;
                 btnR_Sua.Enabled = false;
                 btnR_Xoa.Enabled = false;
@@ -154,6 +154,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewCTThietBi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            if (working)
+            {
+                enableEdit(false);
+            }
             if (e.FocusedRowHandle >= 0)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));

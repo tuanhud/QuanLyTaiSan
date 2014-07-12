@@ -20,7 +20,6 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraEditors;
@@ -56,9 +55,9 @@ namespace QuanLyTaiSanGUI
             
 
             //Việt hóa
-            GridLocalizer.Active = new MyGridLocalizer();
-            TreeListLocalizer.Active = new MyTreeListLocalizer();
-            Localizer.Active = new MyLocalizer();
+            DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
+            DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();
+            DevExpress.XtraEditors.Controls.Localizer.Active = new MyLocalizer();
             
 
             _ucThongKeChiTiet = new ucThongKeChiTiet();
@@ -122,6 +121,7 @@ namespace QuanLyTaiSanGUI
             {
                 if (drawEnd)
                 {
+                    DBInstance.reNew();
                     if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
