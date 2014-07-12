@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         Phong objPhong = new Phong();
         NhanVienPT objNhanVienPT = new NhanVienPT();
 
-        int cosoid, dayid, tangid;
+        //int cosoid, dayid, tangid;
 
         List<ViTriHienThi> listVitris = new List<ViTriHienThi>();
         List<Phong> listPhong = new List<Phong>();
@@ -160,7 +160,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucComboBoxViTri);
                 _ucTreeViTri.setVitri(_ViTriHienTai);
-                listPhong = Phong.getPhongByViTri(cosoid, dayid, tangid);
+                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
+                //listPhong = Phong.getPhongByViTri(cosoid, dayid, tangid);
                 gridControlPhong.DataSource = listPhong;
             }
             catch (Exception ex)
@@ -185,15 +186,16 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         //FocusedRowChanged in TreePhong
-        public void setData(int _cosoid, int _dayid, int _tangid)
+        public void FocusedRowChangedTreePhong()
         {
             try
             {
                 _ViTriHienTai = _ucTreeViTri.getVitri();
-                cosoid = _cosoid;
-                dayid = _dayid;
-                tangid = _tangid;
-                listPhong = Phong.getPhongByViTri(_cosoid, _dayid, _tangid);
+                //cosoid = _cosoid;
+                //dayid = _dayid;
+                //tangid = _tangid;
+                //listPhong = Phong.getPhongByViTri(_cosoid, _dayid, _tangid);
+                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
                 gridControlPhong.DataSource = listPhong;
                 switch (listPhong.Count)
                 {
@@ -211,7 +213,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : FocusedRowChangedTreePhong : " + ex.Message);
             }
         }
 
@@ -264,7 +266,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : setData : " + ex.Message);
             }
         }
 
@@ -289,7 +291,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : setDataObj : " + ex.Message);
             }
         }
 
@@ -302,13 +304,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     row = gridViewPhong.FocusedRowHandle;
                 if (row >= 0 && row < listPhong.Count())
                 {
-                    int id = (gridViewPhong.GetRow(row) as Phong).id;
-                    objPhong = Phong.getById(id);
+                    //int id = (gridViewPhong.GetRow(row) as Phong).id;
+                    //objPhong = Phong.getById(id);
+                    objPhong = gridViewPhong.GetRow(row) as Phong;
                     if (objPhong != null)
                     {
                         if (objPhong.nhanvienpt != null)
                         {
-                            objNhanVienPT = NhanVienPT.getById(objPhong.nhanvienpt.id);
+                            objNhanVienPT = objPhong.nhanvienpt;
+                            //objNhanVienPT = NhanVienPT.getById(objPhong.nhanvienpt.id);
                         }
                         setData();
                         enableBar(true);
@@ -338,7 +342,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 case "add":
                     objPhong = new Phong();
                     setDataObj();
-                    if (objPhong.add() != -1)
+                    if (objPhong.add() > 0)
                     {
                         XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoadAndFocused(objPhong.id);
@@ -349,7 +353,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     if (objPhong != null)
                     {
                         setDataObj();
-                        if (objPhong.update() != -1)
+                        if (objPhong.update() > 0)
                         {
                             XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objPhong.id);
@@ -368,7 +372,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         {
                             if (XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
-                                if (objPhong.delete() != -1)
+                                if (objPhong.delete() > 0)
                                 {
                                     XtraMessageBox.Show("Xóa phòng thành công!");
                                     reLoad();
@@ -395,7 +399,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
             }
         }
 
@@ -438,7 +442,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : reloadImagePhong : " + ex.Message);
             }
         }
 
@@ -455,7 +459,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                System.Console.WriteLine(this.Name + " : reloadImageNhanVienPT : " + ex.Message);
             }
         }
 

@@ -170,7 +170,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNhanVienPT.hoten = txtTen.Text;
                     objNhanVienPT.sodienthoai = txtSodt.Text;
                     objNhanVienPT.hinhanhs = listHinhs;
-                    if (objNhanVienPT.update() != -1)
+                    if (objNhanVienPT.update() > 0)
                     {
                         XtraMessageBox.Show("Sửa nhân viên thành công!");
                         //reLoad();
@@ -184,7 +184,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNew.hoten = txtTen.Text;
                     objNew.sodienthoai = txtSodt.Text;
                     objNew.hinhanhs = listHinhs;
-                    if (objNew.add() != -1)
+                    if (objNew.add() > 0)
                     {
                         XtraMessageBox.Show("Thêm nhân viên thành công!");
                         //reLoad();

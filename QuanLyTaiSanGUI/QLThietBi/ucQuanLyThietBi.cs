@@ -303,7 +303,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 case "add":
                     objThietBi = new ThietBi();
                     setDataObj();
-                    if (objThietBi.add() != -1)
+                    if (objThietBi.add() > 0)
                     {
                         XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoadAndFocused(objThietBi.id);
@@ -311,7 +311,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     break;
                 case "edit":
                     setDataObj();
-                    if (objThietBi.update() != -1)
+                    if (objThietBi.update() > 0)
                     {
                         XtraMessageBox.Show("Sửa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reLoadAndFocused(objThietBi.id);
