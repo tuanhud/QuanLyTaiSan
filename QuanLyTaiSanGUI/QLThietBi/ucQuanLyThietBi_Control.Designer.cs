@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnLoaiRieng = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLoaiChung = new DevExpress.XtraEditors.SimpleButton();
+            this.checkBtnTheoSL = new DevExpress.XtraEditors.CheckButton();
+            this.checkBtnTheoCT = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -38,37 +38,41 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.btnLoaiRieng);
-            this.panelControl1.Controls.Add(this.btnLoaiChung);
+            this.panelControl1.Controls.Add(this.checkBtnTheoCT);
+            this.panelControl1.Controls.Add(this.checkBtnTheoSL);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(251, 347);
             this.panelControl1.TabIndex = 0;
             // 
-            // btnLoaiRieng
+            // checkBtnTheoSL
             // 
-            this.btnLoaiRieng.Appearance.Options.UseTextOptions = true;
-            this.btnLoaiRieng.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.btnLoaiRieng.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLoaiRieng.Location = new System.Drawing.Point(0, 23);
-            this.btnLoaiRieng.Name = "btnLoaiRieng";
-            this.btnLoaiRieng.Size = new System.Drawing.Size(245, 23);
-            this.btnLoaiRieng.TabIndex = 1;
-            this.btnLoaiRieng.Text = "Thiết bị quản lý riêng lẻ";
-            this.btnLoaiRieng.Click += new System.EventHandler(this.btnLoaiRieng_Click);
+            this.checkBtnTheoSL.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBtnTheoSL.Appearance.Options.UseFont = true;
+            this.checkBtnTheoSL.Appearance.Options.UseTextOptions = true;
+            this.checkBtnTheoSL.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.checkBtnTheoSL.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBtnTheoSL.Location = new System.Drawing.Point(0, 0);
+            this.checkBtnTheoSL.Name = "checkBtnTheoSL";
+            this.checkBtnTheoSL.Size = new System.Drawing.Size(251, 23);
+            this.checkBtnTheoSL.TabIndex = 2;
+            this.checkBtnTheoSL.Text = "Thiết bị quản lý theo số lượng";
+            this.checkBtnTheoSL.CheckedChanged += new System.EventHandler(this.checkBtnTheoSL_CheckedChanged);
             // 
-            // btnLoaiChung
+            // checkBtnTheoCT
             // 
-            this.btnLoaiChung.Appearance.Options.UseTextOptions = true;
-            this.btnLoaiChung.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.btnLoaiChung.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLoaiChung.Location = new System.Drawing.Point(0, 0);
-            this.btnLoaiChung.Name = "btnLoaiChung";
-            this.btnLoaiChung.Size = new System.Drawing.Size(251, 23);
-            this.btnLoaiChung.TabIndex = 0;
-            this.btnLoaiChung.Text = "Thiết bị quản lý theo số lượng";
-            this.btnLoaiChung.Click += new System.EventHandler(this.btnLoaiChung_Click);
+            this.checkBtnTheoCT.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBtnTheoCT.Appearance.Options.UseFont = true;
+            this.checkBtnTheoCT.Appearance.Options.UseTextOptions = true;
+            this.checkBtnTheoCT.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.checkBtnTheoCT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBtnTheoCT.Location = new System.Drawing.Point(0, 23);
+            this.checkBtnTheoCT.Name = "checkBtnTheoCT";
+            this.checkBtnTheoCT.Size = new System.Drawing.Size(251, 23);
+            this.checkBtnTheoCT.TabIndex = 3;
+            this.checkBtnTheoCT.Text = "Thiết bị quản lý theo cá thể";
+            this.checkBtnTheoCT.CheckedChanged += new System.EventHandler(this.checkBtnTheoCT_CheckedChanged);
             // 
             // ucQuanLyThietBi_Control
             // 
@@ -86,7 +90,7 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnLoaiRieng;
-        private DevExpress.XtraEditors.SimpleButton btnLoaiChung;
+        private DevExpress.XtraEditors.CheckButton checkBtnTheoSL;
+        private DevExpress.XtraEditors.CheckButton checkBtnTheoCT;
     }
 }

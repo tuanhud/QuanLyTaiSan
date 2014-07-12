@@ -48,6 +48,7 @@
             this.popupContainerEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.popupContainerEdit1.Properties.PopupControl = this.popupContainerControl1;
+            this.popupContainerEdit1.Properties.ShowPopupCloseButton = false;
             this.popupContainerEdit1.Size = new System.Drawing.Size(200, 20);
             this.popupContainerEdit1.TabIndex = 0;
             // 
@@ -56,7 +57,7 @@
             this.popupContainerControl1.Controls.Add(this.treeListLoaiTB);
             this.popupContainerControl1.Location = new System.Drawing.Point(4, 31);
             this.popupContainerControl1.Name = "popupContainerControl1";
-            this.popupContainerControl1.Size = new System.Drawing.Size(200, 300);
+            this.popupContainerControl1.Size = new System.Drawing.Size(220, 300);
             this.popupContainerControl1.TabIndex = 1;
             // 
             // treeListLoaiTB
@@ -70,12 +71,18 @@
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
             this.treeListLoaiTB.Name = "treeListLoaiTB";
             this.treeListLoaiTB.OptionsBehavior.Editable = false;
+            this.treeListLoaiTB.OptionsBehavior.EnableFiltering = true;
+            this.treeListLoaiTB.OptionsFind.AllowFindPanel = true;
+            this.treeListLoaiTB.OptionsFind.AlwaysVisible = true;
+            this.treeListLoaiTB.OptionsFind.ShowCloseButton = false;
+            this.treeListLoaiTB.OptionsFind.ShowFindButton = false;
             this.treeListLoaiTB.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
-            this.treeListLoaiTB.Size = new System.Drawing.Size(200, 300);
+            this.treeListLoaiTB.Size = new System.Drawing.Size(220, 300);
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListLoaiTB_AfterCheckNode);
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
+            this.treeListLoaiTB.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colid
             // 
