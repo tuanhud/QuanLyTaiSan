@@ -1,8 +1,10 @@
 ﻿using QuanLyTaiSan.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +30,13 @@ namespace QuanLyTaiSan.Entities
                         db = new OurDBContext(Global.working_database.get_connection_string());
                     }
                 }
+                
+
+                if (!db.Database.Exists())
+                {
+                    //DB CONNECTION FAIl
+                    Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                }
                 return db;
             }
         }
@@ -43,16 +52,7 @@ namespace QuanLyTaiSan.Entities
                 db.Dispose();
                 db = null;
             }
-
-            if (!Global.working_database.use_internal_config)
-            {
-                db = new OurDBContext();
-            }
-            else
-            {
-                //by default, point to working database
-                db = new OurDBContext(Global.working_database.get_connection_string());
-            }
+            db = DB;
         }
         public static void autoRandom()
         {

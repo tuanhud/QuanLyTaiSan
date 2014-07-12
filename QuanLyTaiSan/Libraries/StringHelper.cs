@@ -68,6 +68,7 @@ namespace QuanLyTaiSan.Libraries
             {
                 sqlBuilder.IntegratedSecurity = true;
             }
+            //sqlBuilder.ConnectTimeout = 3;//seconds
 
             Debug.WriteLine("StringHelper: "+sqlBuilder.ToString());
             return sqlBuilder.ToString();

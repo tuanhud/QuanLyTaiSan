@@ -19,11 +19,14 @@ using QuanLyTaiSanGUI.ThongKe;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.HeThong;
-using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
 using QuanLyTaiSanGUI.ThongKe.ChiTiet;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Localization;
+using DevExpress.XtraTreeList.Localization;
+using DevExpress.XtraEditors.Controls;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI
 {
@@ -49,6 +52,8 @@ namespace QuanLyTaiSanGUI
 
         private void init()
         {
+            
+
             //Việt hóa
             DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
             DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();
@@ -203,7 +208,7 @@ namespace QuanLyTaiSanGUI
         private void backstageViewButtonItemCaiDat_ItemClick(object sender, BackstageViewItemEventArgs e)
         {
             Setting frm = new Setting(false);
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void ribbonMain_SelectedPageChanging(object sender, RibbonPageChangingEventArgs e)

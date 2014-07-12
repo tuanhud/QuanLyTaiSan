@@ -1,4 +1,6 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using DevExpress.LookAndFeel;
+using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.HeThong;
 using QuanLyTaiSanGUI.Settings;
 using System;
@@ -14,7 +16,7 @@ using System.Windows.Forms;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class Setting : Form
+    public partial class Setting : DevExpress.XtraEditors.XtraForm
     {
         /// <summary>
         /// Sẽ tự động mở Login lên sau khi Close()
@@ -47,19 +49,31 @@ namespace QuanLyTaiSanGUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            int re = 1;
             if (_ucCauHinh != null)
             {
                 //call ucSave
-                int re = _ucCauHinh.save();
-                
+                re = _ucCauHinh.save();
                 
                 if (re > 0)
                 {
                     this.custom_close();
+                    return;
                 }
-                else
+                else if (re == -5)
                 {
-                    MessageBox.Show("Không thể tạo kết nối tới Database!");
+                    MessageBox.Show("FTP Setting Fail!");
+                    return;
+                }
+                else if (re==-2)
+                {
+                    MessageBox.Show("Server DB Fail!");
+                    return;
+                }
+                else if (re == -3)
+                {
+                    MessageBox.Show("Client DB Fail!");
+                    return;
                 }
             }
             
@@ -67,21 +81,29 @@ namespace QuanLyTaiSanGUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.custom_close();
+            this.Close();
         }
 
         private void Setting_Load(object sender, EventArgs e)
         {
+            btnCauHinh.PerformClick();
+
             //Check kết nối tới CSDL nếu OK thì gọi Close
-            if (Global.working_database.isReady() && cau_hinh_ban_dau)
+            if (cau_hinh_ban_dau)
             {
-                this.custom_close();
+                if (Global.working_database.isReady())
+                {
+                    this.custom_close();
+                }
+                else
+                {
+                    btnGiaoDienvaNgonNgu.Enabled = false;
+                    btnCapNhatPhanMem.Enabled = false;
+                }
             }
-            else //ngược lại set form defaul click Cấu hình. mấy nút kia disable
+            else
             {
-                btnCauHinh.PerformClick();
-                btnGiaoDienvaNgonNgu.Visible = false;
-                btnCapNhatPhanMem.Visible = false;
+
             }
         }
         /// <summary>
@@ -101,6 +123,11 @@ namespace QuanLyTaiSanGUI
         #region show from login in new thread
         private void ThreadProc()
         {
+            Application.EnableVisualStyles();
+            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Office_2010_Blue());
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new Login());
         }
         private void show_frm_login()
