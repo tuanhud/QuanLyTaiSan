@@ -147,6 +147,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             //btnR_Them.Enabled = !_enable;
             //btnR_Sua.Enabled = !_enable;
             //btnR_Xoa.Enabled = !_enable;
+            if (_enable)
+                txtTenPhong.Focus();
         }
 
         // Reload dữ liệu
@@ -712,6 +714,27 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 btnR_Them.Enabled = _enable;
                 btnR_Sua.Enabled = _enable;
                 btnR_Xoa.Enabled = _enable;
+            }
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (!function.Equals("edit"))
+                    return working;
+                else
+                {
+                    //chưa kiểm tra vị trí
+                    if (searchLookUpEditNhanVienPT.EditValue != null)
+                        return objPhong.hinhanhs.ToString() != listHinhAnhPhong.ToString() || objPhong.subId != txtMaPhong.Text || objPhong.ten != txtTenPhong.Text || objPhong.mota != txtMoTaPhong.Text || objPhong.nhanvienpt_id != Convert.ToInt32(searchLookUpEditNhanVienPT.EditValue);
+                    else
+                        return objPhong.hinhanhs.ToString() != listHinhAnhPhong.ToString() || objPhong.subId != txtMaPhong.Text || objPhong.ten != txtTenPhong.Text || objPhong.mota != txtMoTaPhong.Text || objPhong.nhanvienpt_id != null;
+                }
+            }
+            catch
+            {
+                return true;
             }
         }
     }

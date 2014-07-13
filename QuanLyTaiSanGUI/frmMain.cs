@@ -223,23 +223,24 @@ namespace QuanLyTaiSanGUI
                     bool working = false;
                     if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
                     {
-                        working = _ucQuanLyViTri.working;
+                        //working = _ucQuanLyViTri.working;
+                        working = _ucQuanLyViTri.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageNhanVien_Home")))
                     {
-                        working = _ucQuanLyNhanVien.working;
+                        working = _ucQuanLyNhanVien.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageLoaiTB_Home")))
                     {
-                        working = _ucQuanLyLoaiTB.working;
+                        working = _ucQuanLyLoaiTB.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThietBi_Home")))
                     {
-                        working = _ucQuanLyThietBi.working;
+                        working = _ucQuanLyThietBi.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home")))
                     {
-                        working = _ucQuanLyPhongThietBi.working;
+                        working = _ucQuanLyPhongThietBi.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home")))
                     {
@@ -247,7 +248,7 @@ namespace QuanLyTaiSanGUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
                     {
-                        working = _ucQuanLyPhong.working;
+                        working = _ucQuanLyPhong.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home")))
                     {

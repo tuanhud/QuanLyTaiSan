@@ -135,6 +135,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             btnR_Them.Enabled = !_enable;
             btnR_Sua.Enabled = !_enable;
             btnR_Xoa.Enabled = !_enable;
+            if (_enable)
+                txtTen.Focus();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -767,6 +769,35 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     SetTextGroupControl("Thêm tầng", true);
                 }
                 enableEdit(true, node, "add");
+            }
+        }
+        public bool checkworking()
+        {
+            try
+            {
+                if (!function.Equals("edit"))
+                    return working;
+                else
+                {
+                    if (type.Equals("CoSo"))
+                        return objCoSo.ten != txtTen.Text || objCoSo.mota != txtMoTa.Text || objCoSo.hinhanhs.ToString() != listHinh.ToString();
+                    else if (type.Equals("Dayy"))
+                    {
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        return objDay.ten != txtTen.Text || objDay.mota != txtMoTa.Text || objDay.coso != _vitri.coso || objDay.hinhanhs.ToString() != listHinh.ToString();
+                    }
+                    else if (type.Equals("Tang"))
+                    {
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
+                        return objTang.ten != txtTen.Text || objTang.mota != txtMoTa.Text || objTang.day != _vitri2.day || objTang.hinhanhs.ToString() != listHinh.ToString();
+                    }
+                    else
+                        return true;
+                }
+            }
+            catch
+            {
+                return true;
             }
         }
     }

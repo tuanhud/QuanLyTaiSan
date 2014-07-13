@@ -115,6 +115,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.textEdit_password);
             this.Controls.Add(this.textEdit_username);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

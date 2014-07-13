@@ -215,7 +215,7 @@
             this.btnImage.Location = new System.Drawing.Point(185, 26);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 10;
+            this.btnImage.TabIndex = 6;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
@@ -225,7 +225,7 @@
             this.btnHuy.Location = new System.Drawing.Point(141, 317);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 9;
+            this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -235,7 +235,7 @@
             this.btnOK.Location = new System.Drawing.Point(59, 318);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 8;
+            this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -248,7 +248,7 @@
             this.panelControl1.Location = new System.Drawing.Point(59, 182);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(324, 20);
-            this.panelControl1.TabIndex = 7;
+            this.panelControl1.TabIndex = 2;
             // 
             // labelControl4
             // 
@@ -299,7 +299,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(324, 20);
-            this.txtTen.TabIndex = 0;
+            this.txtTen.TabIndex = 1;
             // 
             // txtMoTa
             // 
@@ -309,7 +309,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(324, 106);
-            this.txtMoTa.TabIndex = 1;
+            this.txtMoTa.TabIndex = 3;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // errorProvider1

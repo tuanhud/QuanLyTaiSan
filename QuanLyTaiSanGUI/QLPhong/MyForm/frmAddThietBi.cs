@@ -41,178 +41,142 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         private void btnThem_Click(object sender, EventArgs e)
         {
             themThietBi();
-            //ThietBi objThietBi = _ucQuanLyThietBi.getThietBi();
-            //if(objThietBi != null)
-            //{
-            //    frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
-            //    if(frm.ShowDialog().Equals(DialogResult.OK))
-            //    {
-            //        CTThietBi obj = new CTThietBi();
-            //        obj.phong = objPhong;
-            //        obj.thietbi = objThietBi;
-            //        obj.tinhtrang = frm.objTinhTrang;
-            //        obj.soluong = frm.SoLuong;
-            //        //Ngày lắp thiết bị
-            //        if (!loaichung)
-            //            obj.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-            //        if (obj.add() > 0)
-            //        {
-            //            XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
-            //            int id = obj.id;
-            //            _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-            //            if (!loaichung)
-            //            {
-            //                _ucQuanLyThietBi.loadData(loaichung);
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
         private void btnThemVaDong_Click(object sender, EventArgs e)
         {
-            ThietBi objThietBi = _ucQuanLyThietBi.getThietBi();
-            if (objThietBi != null)
-            {
-                frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
-                if (frm.ShowDialog().Equals(DialogResult.OK))
-                {
-                    CTThietBi obj = new CTThietBi();
-                    obj.phong = objPhong;
-                    obj.thietbi = objThietBi;
-                    obj.tinhtrang = frm.objTinhTrang;
-                    obj.soluong = frm.SoLuong;
-                    //Ngày lắp thiết bị
-                    if (!loaichung)
-                        obj.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                    if (obj.add() > 0)
-                    {
-                        XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
-                        int id = obj.id;
-                        _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                        if (!loaichung)
-                        {
-                            _ucQuanLyThietBi.loadData(loaichung);
-                        }
-                        this.Close();
-                    }
-                }
-                else if (frm.ShowDialog().Equals(DialogResult.Yes))
-                {
-                    CTThietBi obj = new CTThietBi();
-                    obj.phong = objPhong;
-                    obj.thietbi = objThietBi;
-                    obj.tinhtrang = frm.objTinhTrang;
-                    obj.soluong = frm.SoLuong;
-                    //Ngày lắp thiết bị
-                    if (!loaichung)
-                        obj.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                    if (obj.add() > 0)
-                    {
-                        XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
-                        int id = obj.id;
-                        _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                        if (!loaichung)
-                        {
-                            _ucQuanLyThietBi.loadData(loaichung);
-                        }
-                        this.Close();
-                    }
-                }
-            }
+            themThietBi();
+            this.Close();
+            this.Dispose();
         }
 
         private void themThietBi()
         {
-            TinhTrang objTinhTrang = new TinhTrang();
-            int SoLuong = -1;
-            List<ThietBi> list = new List<ThietBi>();
-            list = _ucQuanLyThietBi.getListThietBi();
-            if (list != null && list.Count > 0)
+            int sl = 0;
+            string str = "";
+            try
             {
-                foreach (ThietBi obj in list)
+                TinhTrang objTinhTrang = new TinhTrang();
+                int SoLuong = -1;
+                List<ThietBi> list = new List<ThietBi>();
+                list = _ucQuanLyThietBi.getListThietBi();
+                if (list != null && list.Count > 0)
                 {
-                    if (obj != null)
+                    foreach (ThietBi obj in list)
                     {
-                        if (!yestoall)
+                        if (obj != null)
                         {
-                            frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
-                            CTThietBi objct = new CTThietBi();
-                            switch (frm.ShowDialog())
+                            if (!yestoall)
                             {
-                                case DialogResult.OK:
-                                    objct.phong = objPhong;
-                                    objct.thietbi = obj;
-                                    objct.tinhtrang = frm.objTinhTrang;
-                                    objct.soluong = frm.SoLuong;
-                                    //Ngày lắp thiết bị
-                                    if (!loaichung)
-                                        objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                                    if (objct.add() > 0)
-                                    {
-                                        XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
-                                        int id = objct.id;
-                                        _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                        if (!loaichung)
-                                        {
-                                            _ucQuanLyThietBi.loadData(loaichung);
-                                        }
-                                    }
-                                    break;
-                                case DialogResult.Yes:
-                                    objTinhTrang = frm.objTinhTrang;
-                                    SoLuong = frm.SoLuong;
-                                    yestoall = true;
-                                    objct.phong = objPhong;
-                                    objct.thietbi = obj;
-                                    objct.tinhtrang = frm.objTinhTrang;
-                                    objct.soluong = frm.SoLuong;
-                                    //Ngày lắp thiết bị
-                                    if (!loaichung)
-                                        objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                                    if (objct.add() > 0)
-                                    {
-                                        XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
-                                        int id = objct.id;
-                                        _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                        if (!loaichung)
-                                        {
-                                            _ucQuanLyThietBi.loadData(loaichung);
-                                        }
-                                    }
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            CTThietBi objct = new CTThietBi();
-                            objct.phong = objPhong;
-                            objct.thietbi = obj;
-                            objct.tinhtrang = objTinhTrang;
-                            objct.soluong = SoLuong;
-                            //Ngày lắp thiết bị
-                            if (!loaichung)
-                                objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                            if (objct.add() > 0)
-                            {
-                                XtraMessageBox.Show("Thêm thiết bị vào phòng thành công!");
-                                int id = objct.id;
-                                _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                if (!loaichung)
+                                frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
+                                CTThietBi objct = new CTThietBi();
+                                switch (frm.ShowDialog())
                                 {
-                                    _ucQuanLyThietBi.loadData(loaichung);
+                                    case DialogResult.OK:
+                                        objct.phong = objPhong;
+                                        objct.thietbi = obj;
+                                        objct.tinhtrang = frm.objTinhTrang;
+                                        objct.soluong = frm.SoLuong;
+                                        //Ngày lắp thiết bị
+                                        if (!loaichung)
+                                            objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                                        if (objct.add() > 0)
+                                        {
+                                            //XtraMessageBox.Show("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
+
+                                            showToolTip("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
+                                            int id = objct.id;
+                                            _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                                            sl++;
+                                        }
+                                        break;
+                                    case DialogResult.Yes:
+                                        objTinhTrang = frm.objTinhTrang;
+                                        SoLuong = frm.SoLuong;
+                                        yestoall = true;
+                                        objct.phong = objPhong;
+                                        objct.thietbi = obj;
+                                        objct.tinhtrang = frm.objTinhTrang;
+                                        objct.soluong = frm.SoLuong;
+                                        //Ngày lắp thiết bị
+                                        if (!loaichung)
+                                            objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                                        if (objct.add() > 0)
+                                        {
+                                            if (!yestoall)
+                                                showToolTip("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
+                                            else
+                                            {
+                                                str += "Thêm thiết bị " + obj.ten + " vào phòng thành công!" + Environment.NewLine;
+                                            }
+                                            int id = objct.id;
+                                            _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                                            sl++;
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                CTThietBi objct = new CTThietBi();
+                                objct.phong = objPhong;
+                                objct.thietbi = obj;
+                                objct.tinhtrang = objTinhTrang;
+                                objct.soluong = SoLuong;
+                                //Ngày lắp thiết bị
+                                if (!loaichung)
+                                    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                                if (objct.add() > 0)
+                                {
+                                    str += "Thêm thiết bị " + obj.ten + " vào phòng thành công!" + Environment.NewLine;
+                                    int id = objct.id;
+                                    _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                                    sl++;
                                 }
                             }
                         }
                     }
                 }
+                _ucQuanLyThietBi.loadData(false);
             }
-            yestoall = false;
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi khi thêm thiết bị vào phòng!");
+            }
+            finally
+            {
+                if (yestoall)
+                {
+                    showToolTip(str);
+                    yestoall = false;
+                }
+            }
+        }
+
+        private void showToolTip(String str)
+        {
+            toolTipController1.HideHint();
+            DevExpress.Utils.ToolTipControllerShowEventArgs args = new DevExpress.Utils.ToolTipControllerShowEventArgs();
+            DevExpress.Utils.SuperToolTip tip = new DevExpress.Utils.SuperToolTip();
+            //setup the SuperToolTip...
+            DevExpress.Utils.ToolTipTitleItem titleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            titleItem1.Text = "Thông báo";
+            // Create a tooltip item that represents the SuperTooltip's contents.
+            DevExpress.Utils.ToolTipItem item1 = new DevExpress.Utils.ToolTipItem();
+            item1.Text = str;
+            // Add the tooltip items to the SuperTooltip.
+            tip.Items.Add(titleItem1);
+            tip.Items.Add(item1);
+            args.SuperTip = tip;
+            args.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
+            args.ToolTipLocation = DevExpress.Utils.ToolTipLocation.TopCenter;
+            toolTipController1.ShowHint(args, btnThemVaDong);
         }
     }
 }

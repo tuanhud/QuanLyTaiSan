@@ -61,13 +61,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public void loadData()
         {
             layout.load(gridViewCTThietBi);
-
+            working = false;
             List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listVitris);
             if (objPhong.id > 0)
             {
+                objPhong = objPhong.reload();
                 _ucTreeViTri.setPhong(objPhong);
             }
             else
@@ -242,6 +243,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (_enable)
             {
                 SetTextGroupControl("Sửa thiết bị", true);
+                txtMa.Focus();
             }
             else
             {
@@ -417,6 +419,33 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(gridViewCTThietBi.FocusedRowHandle, colid)));
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
+            }
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (!txtTen.Properties.ReadOnly)
+                {
+                    ThietBi obj = objCTThietBi.thietbi;
+                    return
+                    obj.subId != txtMa.Text ||
+                    obj.ten != txtTen.Text ||
+                    obj.mota != txtMoTa.Text ||
+                    obj.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||
+                    obj.ngaymua != dateMua.DateTime ||
+                    obj.ngaylap != dateLap.DateTime ||
+                    obj.hinhanhs.ToString() != listHinh.ToString();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return true;
             }
         }
     }

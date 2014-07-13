@@ -473,7 +473,7 @@
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
             this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(240, 20);
-            this.searchLookUpEditNhanVienPT.TabIndex = 18;
+            this.searchLookUpEditNhanVienPT.TabIndex = 5;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
             // searchLookUpEdit1View
@@ -518,7 +518,7 @@
             this.panelControl1.Location = new System.Drawing.Point(79, 204);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(240, 20);
-            this.panelControl1.TabIndex = 15;
+            this.panelControl1.TabIndex = 3;
             // 
             // lblHinhPhong
             // 
@@ -533,7 +533,7 @@
             this.btnImage.Location = new System.Drawing.Point(205, 27);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 13;
+            this.btnImage.TabIndex = 8;
             this.btnImage.Text = "Chọn";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -542,7 +542,7 @@
             this.btnHuy.Location = new System.Drawing.Point(160, 304);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 12;
+            this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -551,7 +551,7 @@
             this.btnOK.Location = new System.Drawing.Point(79, 304);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 11;
+            this.btnOK.TabIndex = 6;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -603,7 +603,7 @@
             this.txtTenPhong.Location = new System.Drawing.Point(79, 177);
             this.txtTenPhong.Name = "txtTenPhong";
             this.txtTenPhong.Size = new System.Drawing.Size(240, 20);
-            this.txtTenPhong.TabIndex = 1;
+            this.txtTenPhong.TabIndex = 2;
             // 
             // imgPhong
             // 
@@ -621,7 +621,7 @@
             this.txtMoTaPhong.Location = new System.Drawing.Point(79, 230);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
             this.txtMoTaPhong.Size = new System.Drawing.Size(240, 49);
-            this.txtMoTaPhong.TabIndex = 5;
+            this.txtMoTaPhong.TabIndex = 4;
             this.txtMoTaPhong.UseOptimizedRendering = true;
             // 
             // colsoluong
