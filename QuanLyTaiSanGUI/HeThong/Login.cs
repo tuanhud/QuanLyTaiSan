@@ -24,17 +24,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void Login_Load(object sender, EventArgs e)
         {
-            QuanTriVien obj = QuanTriVien.getByUserName("admin");
-            if (obj == null)
-            {
-                obj = new QuanTriVien();
-                obj.username = "admin";
-                obj.hashPassword("admin");
-                obj.hoten = "Quản trị cấp cao";
-                obj.mota = "Hệ thống tự động thêm";
-                obj.group = new Group { ten = "Admin",key="admin" };
-                obj.add();
-            }
+            
         }
 
         private void button_ok_Click(object sender, EventArgs e)
@@ -46,6 +36,9 @@ namespace QuanLyTaiSanGUI.HeThong
             Boolean re = obj.checkLoginByUserName();
             if (re)
             {
+                //set global var
+                Global.current_login = obj;
+
                 labelControl_msg.Text = "Đăng nhập thành công!";
                 this.show_frm_main();
             }

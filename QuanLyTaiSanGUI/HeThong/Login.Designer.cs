@@ -117,6 +117,8 @@
             this.Controls.Add(this.textEdit_username);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.MaximumSize = new System.Drawing.Size(313, 207);
+            this.MinimumSize = new System.Drawing.Size(313, 207);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";

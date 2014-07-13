@@ -112,7 +112,7 @@ namespace QuanLyTaiSan.Libraries
 
                 // set the direction of sync session to Upload and Download
                 syncOrchestrator.Direction = SyncDirectionOrder.UploadAndDownload;
-
+                
                 // subscribe for errors that occur when applying changes to the client
                 
                 ((SqlSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed +=

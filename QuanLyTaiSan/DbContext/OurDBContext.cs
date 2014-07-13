@@ -4,30 +4,117 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    internal class _OurDBInit : CreateDatabaseIfNotExists<OurDBContext>
+    {
+        private Boolean create_sample_data = false;
+        public _OurDBInit(Boolean create_sample_data=false)
+        {
+            this.create_sample_data = create_sample_data;
+        }
+        protected override void Seed(OurDBContext context) 
+        {
+            /*
+             * Create Sample Data here
+             */
+            if (!create_sample_data)
+            {
+                base.Seed(context);
+                return;
+            }
+            //DATETIME
+            DateTime now = DateTime.Now;
+            String mota = "Hệ thống tự động tạo";
+            //GROUP
+            Group gp = new Group();
+            gp.mota = mota;
+            gp.key = "admin";
+            gp.subId = gp.key;
+            gp.ten = gp.key;
+            gp.date_create = gp.date_modified = now;
+            //ADD
+            context.GROUPS.Add(gp);
+
+            //QUANTRIVIEN
+            QuanTriVien qtv = new QuanTriVien();
+            qtv.username = "admin";
+            qtv.password = StringHelper.SHA1_Salt("admin");
+            qtv.hoten = "Quản trị viên cấp cao";
+            qtv.mota = mota;
+            qtv.subId = qtv.username;
+            qtv.date_create = qtv.date_modified = now;
+            qtv.group = gp;
+            //ADD
+            context.QUANTRIVIENS.Add(qtv);
+
+            //TINHTRANG
+            TinhTrang tinhtrang = new TinhTrang();
+            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.key = "dangsudung";
+            tinhtrang.mota = mota;
+            tinhtrang.subId = tinhtrang.key;
+            tinhtrang.value = "Đang sử dụng";
+            //ADD
+            context.TINHTRANGS.Add(tinhtrang);
+
+            tinhtrang = new TinhTrang();
+            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.key = "khongsudung";
+            tinhtrang.mota = mota;
+            tinhtrang.subId = tinhtrang.key;
+            tinhtrang.value = "Không sử dụng";
+            //ADD
+            context.TINHTRANGS.Add(tinhtrang);
+
+            tinhtrang = new TinhTrang();
+            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.key = "bihu";
+            tinhtrang.mota = mota;
+            tinhtrang.subId = tinhtrang.key;
+            tinhtrang.value = "Bị hư";
+            //ADD
+            context.TINHTRANGS.Add(tinhtrang);
+
+            tinhtrang = new TinhTrang();
+            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.key = "khac";
+            tinhtrang.mota = mota;
+            tinhtrang.subId = tinhtrang.key;
+            tinhtrang.value = "Khác";
+            //ADD
+            context.TINHTRANGS.Add(tinhtrang);
+
+            tinhtrang = new TinhTrang();
+            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.key = "dangsua";
+            tinhtrang.mota = mota;
+            tinhtrang.subId = tinhtrang.key;
+            tinhtrang.value = "Đang sửa";
+            //ADD
+            context.TINHTRANGS.Add(tinhtrang);
+            
+            //call parent
+            base.Seed(context);
+        } 
+ 
+    }
     public class OurDBContext:DbContext
     {
-        public OurDBContext()
-            //: base(Global.working_database.get_connection_string())
-            : base("Default")
-            //: base(@"Data Source=C:\Users\quocdunginfo\Documents\GitHub\QuanLyTaiSan\ProvisionClient\local_db.sdf")
+        public OurDBContext(String connection_string="Default", Boolean create_sample_data = true)
+            : base(connection_string)
         {
-            //Use config file OR use Global setting
+            //Create sample data if indicated
+            IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
 
             //Auto create DB if not exist
-            Database.SetInitializer<OurDBContext>(new CreateDatabaseIfNotExists<OurDBContext>());
-        }
-        public OurDBContext(String connection_string):base(connection_string)
-        {
-            //Dynamic connection String
-
-            //Auto create DB if not exist
-            Database.SetInitializer<OurDBContext>(new CreateDatabaseIfNotExists<OurDBContext>());
+            Database.SetInitializer<OurDBContext>(initializer);
         }
         
         public DbSet<CoSo> COSOS { get; set; }
@@ -60,101 +147,84 @@ namespace QuanLyTaiSan.Entities
             modelBuilder.Entity<CoSo>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("COSOS");
             });
 
             modelBuilder.Entity<Phong>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("PHONGS");
             });
 
             modelBuilder.Entity<ThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("THIETBIS");
             });
 
             modelBuilder.Entity<HinhAnh>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("HINHANHS");
             });
 
             modelBuilder.Entity<QuanTriVien>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("QUANTRIVIENS");
             });
 
             modelBuilder.Entity<Group>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("GROUPS");
             });
 
             modelBuilder.Entity<Permission>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("PERMISSIONS");
             });
             modelBuilder.Entity<LogHeThong>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("LOGHETHONGS");
             });
 
             modelBuilder.Entity<LogThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("LOGTHIETBIS");
             });
 
             modelBuilder.Entity<CTThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("CTTHIETBIS");
             });
 
             modelBuilder.Entity<TinhTrang>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("TINHTRANGS");
             });
 
             modelBuilder.Entity<NhanVienPT>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("NHANVIENPTS");
             });
             modelBuilder.Entity<Tang>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("TANGS");
             });
 
             modelBuilder.Entity<Dayy>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("DAYS");
             });
 
             modelBuilder.Entity<ViTri>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("VITRIS");
             });
 
             modelBuilder.Entity<LoaiThietBi>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("LOAITHIETBIS");
             });
 
             modelBuilder.Entity<Setting>().Map(x =>
             {
                 x.MapInheritedProperties();
-                //x.ToTable("SETTINGS");
             });
             /*
              * n-n relationship GROUP~PERMISSION
@@ -173,10 +243,9 @@ namespace QuanLyTaiSan.Entities
         public override int SaveChanges()
         {
             IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified);
-            //int r = 0;
+            Boolean need_to_sync = true;
             foreach (DbEntityEntry changedEntity in changedEntities)
             {
-                //Console.WriteLine(r++);
                 if (changedEntity.Entity is _EFEventRegisterInterface)
                 {
                     _EFEventRegisterInterface entity = (_EFEventRegisterInterface)changedEntity.Entity;
@@ -195,7 +264,24 @@ namespace QuanLyTaiSan.Entities
                 }
             }
 
-            return base.SaveChanges();
+            int result = base.SaveChanges();
+
+            if (need_to_sync)
+            {
+                //call sync for insert Confliction in new background thread
+                Thread thread = new Thread(new ThreadStart(sync));
+                //thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+
+            return result;
+        }
+        private void sync()
+        {
+            Debug.WriteLine("======Location: OurDBConText======");
+            Debug.WriteLine("======Start sync when insert in new Thread======");
+            Global.client_database.start_sync();
+            Debug.WriteLine("======End sync when insert in new Thread======");
         }
     }
 }

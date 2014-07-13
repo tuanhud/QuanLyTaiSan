@@ -125,19 +125,19 @@ namespace QuanLyTaiSanGUI.Settings
             Global.remote_setting.ftp_host.PASS_WORD = txtPasswordFTP.Text;
             Global.remote_setting.ftp_host.PORT = txtPortFTP.Text;
 
-            if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
-                Global.remote_setting.ftp_host.USER_NAME,
-                Global.remote_setting.ftp_host.PASS_WORD
-                ) > 0
-            )
-            {
+            //if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
+            //    Global.remote_setting.ftp_host.USER_NAME,
+            //    Global.remote_setting.ftp_host.PASS_WORD
+            //    ) > 0
+            //)
+            //{
                 Global.remote_setting.ftp_host.save();
-            }
-            else
-            {
-                //FTP FAIL
-                return -5;
-            }
+            //}
+            //else
+            //{
+            //    //FTP FAIL
+            //    return -5;
+            //}
 
             //HTTP
             Global.remote_setting.http_host.HOST_NAME = txtAddressHTTP.Text;
