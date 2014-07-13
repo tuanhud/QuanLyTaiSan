@@ -127,7 +127,7 @@
             // 
             this.barButtonThemTBChung.Caption = "Thêm thiết bị theo số lượng";
             this.barButtonThemTBChung.Id = 42;
-            this.barButtonThemTBChung.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemTBChung.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.add1;
             this.barButtonThemTBChung.Name = "barButtonThemTBChung";
             this.barButtonThemTBChung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTB_ItemClick);
             // 
@@ -159,7 +159,7 @@
             // 
             this.barButtonThemTBRieng.Caption = "Thêm thiết bị theo cá thể";
             this.barButtonThemTBRieng.Id = 47;
-            this.barButtonThemTBRieng.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemTBRieng.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.add2;
             this.barButtonThemTBRieng.Name = "barButtonThemTBRieng";
             this.barButtonThemTBRieng.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTBRieng_ItemClick);
             // 

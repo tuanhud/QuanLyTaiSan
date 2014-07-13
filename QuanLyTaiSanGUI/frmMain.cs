@@ -182,7 +182,7 @@ namespace QuanLyTaiSanGUI
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                        //_ucTK_SLTB_TheoTinhTrang.loadData();
+                        _ucTK_SLTB_TheoTinhTrang.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucTK_SLTB_TheoTinhTrang);
                     }
