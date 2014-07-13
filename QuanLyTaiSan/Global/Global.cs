@@ -69,29 +69,27 @@ namespace QuanLyTaiSan.Entities
             public static int clean_up_scope()
             {
                 DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
+                DatabaseHelper.setup_sync_scope(
+                    Global.server_database.get_connection_string(),
+                    Global.sync.scope_name,
+                    Global.sync.tracking_tables
+                );
 
                 Global.server_database.prepare_db_structure();
 
                 return 1;
             }
             /// <summary>
-            /// Có hỗ trợ tự động tạo cấu trúc CSDL nếu chưa có,
-            /// Hỗ trợ tự động tạo SYNC SCOPE nếu chưa có
+            /// Có hỗ trợ tự động tạo cấu trúc CSDL nếu chưa có
             /// </summary>
             public static void prepare_db_structure()
             {
                 try
                 {
-                    OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string());
+                    OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(),true);
                     if (tmp != null)
                     {
                         tmp.COSOS.Find(1);
-
-                        DatabaseHelper.setup_sync_scope(
-                            Global.server_database.get_connection_string(),
-                            Global.sync.scope_name,
-                            Global.sync.tracking_tables
-                        );
                     }
 
 
@@ -109,7 +107,8 @@ namespace QuanLyTaiSan.Entities
                         Global.local_setting.db_server_WA,
                         Global.local_setting.db_server_username,
                         Global.local_setting.db_server_password,
-                        Global.local_setting.db_server_port
+                        Global.local_setting.db_server_port,
+                        3
                 );
             }
             /// <summary>
@@ -195,6 +194,11 @@ namespace QuanLyTaiSan.Entities
                 //DROP Database
                 //DatabaseHelper.dropDB(Global.client_database.get_connection_string());
                 DatabaseHelper.drop_sync_scope(Global.client_database.get_connection_string(), Global.sync.scope_name);
+                DatabaseHelper.fetch_sync_scope(
+                    Global.client_database.get_connection_string(),
+                    Global.server_database.get_connection_string(),
+                    Global.sync.scope_name
+                );
 
                 Global.client_database.prepare_db_structure();
 
@@ -210,6 +214,11 @@ namespace QuanLyTaiSan.Entities
                 {
                     return -1;
                 }
+                //Kiểm tra kết nối cho cả client và Server
+                if (!Global.client_database.isReady() || !Global.server_database.isReady())
+                {
+                    return -1;
+                }
 
                 return DatabaseHelper.start_sync_process(
                     Global.client_database.get_connection_string(),
@@ -219,8 +228,7 @@ namespace QuanLyTaiSan.Entities
 
             }
             /// <summary>
-            /// Tự động tạo cấu trúc CSDL nếu chưa có,
-            /// Tự động FETCH server SCOPE về nếu chưa có
+            /// Tự động tạo cấu trúc CSDL nếu chưa có
             /// </summary>
             public static void prepare_db_structure()
             {
@@ -231,16 +239,10 @@ namespace QuanLyTaiSan.Entities
                 }
                 try
                 {
-                    OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string());
+                    OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(),true);
                     if (tmp != null)
                     {
                         tmp.COSOS.Find(1);
-
-                        DatabaseHelper.fetch_sync_scope(
-                            Global.client_database.get_connection_string(),
-                            Global.server_database.get_connection_string(),
-                            Global.sync.scope_name
-                        );
                     }
                 }
                 catch (Exception ex)
@@ -256,7 +258,8 @@ namespace QuanLyTaiSan.Entities
                         Global.local_setting.db_cache_WA,
                         Global.local_setting.db_cache_username,
                         Global.local_setting.db_cache_password,
-                        Global.local_setting.db_cache_port
+                        Global.local_setting.db_cache_port,
+                        3
                 );
             }
             /// <summary>
@@ -352,7 +355,8 @@ namespace QuanLyTaiSan.Entities
                         Global.working_database.db_WA,
                         Global.working_database.db_username,
                         Global.working_database.db_password,
-                        Global.working_database.db_port
+                        Global.working_database.db_port,
+                        3
                 );
             }
             /// <summary>

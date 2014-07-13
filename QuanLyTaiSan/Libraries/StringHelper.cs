@@ -44,7 +44,7 @@ namespace QuanLyTaiSan.Libraries
             obj = salt1 + obj + salt2;
             return StringHelper.SHA1(obj);
         }
-        public static String generateConnectionString(String db_host, String db_name, Boolean useWA=true, String db_username="", String db_password="", String port="")
+        public static String generateConnectionString(String db_host, String db_name, Boolean useWA=true, String db_username="", String db_password="", String port="", int TimeOut=-1)
         {
             SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
@@ -68,7 +68,10 @@ namespace QuanLyTaiSan.Libraries
             {
                 sqlBuilder.IntegratedSecurity = true;
             }
-            //sqlBuilder.ConnectTimeout = 3;//seconds
+            if (TimeOut > 0)
+            {
+                sqlBuilder.ConnectTimeout = TimeOut;//seconds
+            }
 
             Debug.WriteLine("StringHelper: "+sqlBuilder.ToString());
             return sqlBuilder.ToString();
