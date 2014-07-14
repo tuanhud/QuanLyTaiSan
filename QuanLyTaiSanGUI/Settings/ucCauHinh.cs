@@ -200,5 +200,10 @@ namespace QuanLyTaiSanGUI.Settings
             Global.remote_setting.http_host.save();
 
         }
+
+        private void ucCauHinh_Load(object sender, EventArgs e)
+        {
+            txtAddressDatabase.Focus();
+        }
     }
 }

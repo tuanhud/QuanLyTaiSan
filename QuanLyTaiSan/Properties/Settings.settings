@@ -53,5 +53,14 @@
     <Setting Name="db_host" Type="System.String" Scope="User">
       <Value Profile="(Default)">sqlts.hoangthanhit.com</Value>
     </Setting>
+    <Setting Name="login_remember" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="login_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="login_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

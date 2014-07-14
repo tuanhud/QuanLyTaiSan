@@ -87,9 +87,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\QuanLyTaiSan\Properties\Settings.Designer.cs">
-      <Link>_ExternalSetting\Settings.Designer.cs</Link>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -474,11 +471,6 @@
     <EmbeddedResource Include="WaitForm2.resx">
       <DependentUpon>WaitForm2.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="..\QuanLyTaiSan\Properties\Settings.settings">
-      <Link>_ExternalSetting\Settings.settings</Link>
-      <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

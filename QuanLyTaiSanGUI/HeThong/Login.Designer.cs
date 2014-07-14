@@ -42,7 +42,7 @@
             // 
             // textEdit_username
             // 
-            this.textEdit_username.EditValue = "admin";
+            this.textEdit_username.EditValue = "";
             this.textEdit_username.Location = new System.Drawing.Point(86, 37);
             this.textEdit_username.Name = "textEdit_username";
             this.textEdit_username.Size = new System.Drawing.Size(180, 20);
@@ -52,7 +52,7 @@
             // 
             // textEdit_password
             // 
-            this.textEdit_password.EditValue = "admin";
+            this.textEdit_password.EditValue = "";
             this.textEdit_password.Location = new System.Drawing.Point(86, 66);
             this.textEdit_password.Name = "textEdit_password";
             this.textEdit_password.Properties.PasswordChar = '•';
@@ -86,6 +86,7 @@
             this.checkEdit_remember.Properties.Caption = "Ghi nhớ phiên";
             this.checkEdit_remember.Size = new System.Drawing.Size(182, 19);
             this.checkEdit_remember.TabIndex = 4;
+            this.checkEdit_remember.CheckedChanged += new System.EventHandler(this.checkEdit_remember_CheckedChanged);
             // 
             // labelControl_msg
             // 
@@ -122,6 +123,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_username.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_password.Properties)).EndInit();

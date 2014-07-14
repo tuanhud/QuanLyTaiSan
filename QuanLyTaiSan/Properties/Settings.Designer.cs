@@ -226,5 +226,41 @@ namespace QuanLyTaiSan.Properties {
                 this["db_host"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool login_remember {
+            get {
+                return ((bool)(this["login_remember"]));
+            }
+            set {
+                this["login_remember"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        public string login_username {
+            get {
+                return ((string)(this["login_username"]));
+            }
+            set {
+                this["login_username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        public string login_password {
+            get {
+                return ((string)(this["login_password"]));
+            }
+            set {
+                this["login_password"] = value;
+            }
+        }
     }
 }

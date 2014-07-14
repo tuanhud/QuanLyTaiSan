@@ -63,7 +63,7 @@
             this.btnCancel.Location = new System.Drawing.Point(7, 387);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(145, 23);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 25;
             this.btnCancel.Text = "Hủy bỏ";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -73,7 +73,7 @@
             this.btnThongTinPhanMem.Location = new System.Drawing.Point(5, 92);
             this.btnThongTinPhanMem.Name = "btnThongTinPhanMem";
             this.btnThongTinPhanMem.Size = new System.Drawing.Size(145, 23);
-            this.btnThongTinPhanMem.TabIndex = 0;
+            this.btnThongTinPhanMem.TabIndex = 15;
             this.btnThongTinPhanMem.Text = "Thông tin phần mềm";
             this.btnThongTinPhanMem.Click += new System.EventHandler(this.btnThongTinPhanMem_Click);
             // 
@@ -84,7 +84,7 @@
             this.btnSave.Location = new System.Drawing.Point(7, 351);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(143, 23);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -94,7 +94,7 @@
             this.btnCapNhatPhanMem.Location = new System.Drawing.Point(5, 63);
             this.btnCapNhatPhanMem.Name = "btnCapNhatPhanMem";
             this.btnCapNhatPhanMem.Size = new System.Drawing.Size(145, 23);
-            this.btnCapNhatPhanMem.TabIndex = 0;
+            this.btnCapNhatPhanMem.TabIndex = 10;
             this.btnCapNhatPhanMem.Text = "Cập nhật phần mềm";
             // 
             // btnGiaoDienvaNgonNgu
@@ -103,7 +103,7 @@
             this.btnGiaoDienvaNgonNgu.Location = new System.Drawing.Point(5, 34);
             this.btnGiaoDienvaNgonNgu.Name = "btnGiaoDienvaNgonNgu";
             this.btnGiaoDienvaNgonNgu.Size = new System.Drawing.Size(145, 23);
-            this.btnGiaoDienvaNgonNgu.TabIndex = 0;
+            this.btnGiaoDienvaNgonNgu.TabIndex = 5;
             this.btnGiaoDienvaNgonNgu.Text = "Giao diện và ngôn ngữ";
             // 
             // btnCauHinh

@@ -24,7 +24,12 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+            checkEdit_remember.Checked = Global.local_setting.login_remember;
+            if (Global.local_setting.login_remember)
+            {
+                textEdit_username.Text = Global.local_setting.login_username;
+                textEdit_password.Text = Global.local_setting.login_password;
+            }
         }
 
         private void button_ok_Click(object sender, EventArgs e)
@@ -99,5 +104,21 @@ namespace QuanLyTaiSanGUI.HeThong
             Application.Exit();
         }
         #endregion
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Global.local_setting.login_remember = checkEdit_remember.Checked;
+            if (Global.local_setting.login_remember)
+            {
+                Global.local_setting.login_username = textEdit_username.Text;
+                Global.local_setting.login_password = textEdit_password.Text;
+            }
+            Global.local_setting.Save();
+        }
+
+        private void checkEdit_remember_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
