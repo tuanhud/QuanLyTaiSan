@@ -216,3 +216,6 @@ pip-log.txt
 #quocdunginfo
 #tránh bị lợi dụng CSDL
 QuanLyTaiSan/App.config
+QuanLyTaiSan/Properties/licenses.licx
+QuanLyTaiSanGUI/Properties/licenses.licx
+QuanLyTaiSan/Properties/licenses.licx

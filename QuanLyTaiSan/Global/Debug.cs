@@ -28,17 +28,16 @@ namespace QuanLyTaiSan.Entities
                         {
                             Global.debug.remove_file();
                         }
-                        using (StreamWriter sw = File.AppendText(Global.debug.FILENAME))
-                        {
-                            sw.WriteLine(text == null ? "" : text.ToString());
-                        }
-                        return;
                     }
                     catch (Exception ex)
                     {
                         System.Diagnostics.Debug.WriteLine(ex.ToString());
-                        return;
                     }
+                    using (StreamWriter sw = File.AppendText(Global.debug.FILENAME))
+                    {
+                        sw.WriteLine(text == null ? "" : text.ToString());
+                    }
+                    return;
                 default:
                     return;
             }
