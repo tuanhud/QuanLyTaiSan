@@ -168,6 +168,7 @@ namespace QuanLyTaiSanGUI
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
                         _ucPhanQuyen.getControl().Parent = navBarGroupQLPhong.ControlContainer;
                         //_ucPhanQuyen.loadData();
+                        _ucPhanQuyen.reLoad();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucPhanQuyen);
                     }

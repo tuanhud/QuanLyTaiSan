@@ -30,7 +30,7 @@ namespace QuanLyTaiSan.DataFilter
                      id_c = typeof(CoSo).Name + c.id,
                      id_p = "",
                      mota = c.mota
-                 }).OrderBy(c => c.ten).ToList();
+                 }).ToList();
             return re;
         }
         public static List<ViTriHienThi> getAllDay()

@@ -87,7 +87,7 @@ namespace QuanLyTaiSanGUI.HeThong
             }
         }
 
-        private void reLoad()
+        public void reLoad()
         {
             listobjQuanTriVienFilter = QuanTriVienFilter.getAll();
             gridControlPhanQuyen.DataSource = listobjQuanTriVienFilter;

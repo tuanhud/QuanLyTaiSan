@@ -44,7 +44,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             //Ẩn ribbon
             ribbonViTri.Parent = null;
-            treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
             //loadData();
         }
 
