@@ -46,6 +46,7 @@
             this.treeListPhong.Location = new System.Drawing.Point(0, 0);
             this.treeListPhong.Name = "treeListPhong";
             this.treeListPhong.OptionsBehavior.AllowRecursiveNodeChecking = true;
+            this.treeListPhong.OptionsBehavior.Editable = false;
             this.treeListPhong.OptionsBehavior.EnableFiltering = true;
             this.treeListPhong.OptionsFind.AllowFindPanel = true;
             this.treeListPhong.OptionsFind.AlwaysVisible = true;
