@@ -78,6 +78,9 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.btnFTPSave = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit_debugToFile = new DevExpress.XtraEditors.CheckEdit();
+            this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -109,6 +112,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPortHTTP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrepathHTTP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddressHTTP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_debugToFile.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -563,10 +569,38 @@
             this.btnFTPSave.Text = "Cập nhật cấu hình FTP và HTTP";
             this.btnFTPSave.Click += new System.EventHandler(this.btnFTPSave_Click);
             // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.btnDebugClear);
+            this.groupControl4.Controls.Add(this.checkEdit_debugToFile);
+            this.groupControl4.Location = new System.Drawing.Point(362, 267);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(355, 100);
+            this.groupControl4.TabIndex = 131;
+            this.groupControl4.Text = "Developer";
+            // 
+            // checkEdit_debugToFile
+            // 
+            this.checkEdit_debugToFile.Location = new System.Drawing.Point(10, 26);
+            this.checkEdit_debugToFile.Name = "checkEdit_debugToFile";
+            this.checkEdit_debugToFile.Properties.Caption = "Ghi Debug ra file \"debug.txt\"";
+            this.checkEdit_debugToFile.Size = new System.Drawing.Size(167, 19);
+            this.checkEdit_debugToFile.TabIndex = 132;
+            // 
+            // btnDebugClear
+            // 
+            this.btnDebugClear.Location = new System.Drawing.Point(198, 23);
+            this.btnDebugClear.Name = "btnDebugClear";
+            this.btnDebugClear.Size = new System.Drawing.Size(69, 23);
+            this.btnDebugClear.TabIndex = 133;
+            this.btnDebugClear.Text = "Clear Debug";
+            this.btnDebugClear.Click += new System.EventHandler(this.btnDebugClear_Click);
+            // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.btnFTPSave);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
@@ -609,6 +643,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPortHTTP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrepathHTTP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddressHTTP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_debugToFile.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -665,5 +702,8 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton_cleanUpClientScope;
         private DevExpress.XtraEditors.SimpleButton simpleButton_cleanUpServerScope;
         private DevExpress.XtraEditors.SimpleButton btnFTPSave;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_debugToFile;
+        private DevExpress.XtraEditors.SimpleButton btnDebugClear;
     }
 }

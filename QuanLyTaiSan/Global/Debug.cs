@@ -3,47 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
     public static class Debug
     {
-        public static String FILENAME
-        {
-            get
-            {
-                return "debug.txt";
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        private static int mode = 0;//-1;
-        /// <summary>
-        /// 0: Ghi ra Console,
-        /// 1: Ghi ra File "debug.txt",
-        /// 2: Silient
-        /// </summary>
-        public static int MODE
-        {
-            get
-            {
-                if (mode != -1)
-                {
-                    return mode;
-                }
-                mode = Global.local_setting.debug_mode;
-                return mode;
-            }
-            set
-            {
-                mode = value;
-            }
-        }
         public static void WriteLine(Object text=null)
         {
-            switch (MODE)
+            switch (Global.debug.MODE)
             {
                 case 2:
 
@@ -52,14 +21,24 @@ namespace QuanLyTaiSan.Entities
                     System.Diagnostics.Debug.WriteLine(text);
                     return;
                 case 1:
-                    // This text is always added, making the file longer over time 
-                    // if it is not deleted. 
-                    using (StreamWriter sw = File.AppendText(FILENAME))
+                    try
                     {
-                        sw.WriteLine(text==null?"":text.ToString());
+                        long v = new System.IO.FileInfo(Global.debug.FILENAME).Length;//bytes
+                        if (v > 1048576)//1MB MAXIMUM
+                        {
+                            Global.debug.remove_file();
+                        }
+                        using (StreamWriter sw = File.AppendText(Global.debug.FILENAME))
+                        {
+                            sw.WriteLine(text == null ? "" : text.ToString());
+                        }
+                        return;
                     }
-                    return;
-
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.ToString());
+                        return;
+                    }
                 default:
                     return;
             }

@@ -11,6 +11,65 @@ namespace QuanLyTaiSan.Entities
 {
     public static class Global
     {
+        public static class debug
+        {
+            public static void remove_file()
+            {
+                try
+                {
+                    // Try to delete the file.
+                    File.Delete(FILENAME);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.ToString());
+                    // We could not delete the file.
+                    return;
+                }
+            }
+            /// <summary>
+            /// Lưu mode vào local setting
+            /// </summary>
+            /// <returns></returns>
+            public static int save()
+            {
+                Global.local_setting.Save();
+                return 1;
+            }
+            public static String FILENAME
+            {
+                get
+                {
+                    return "debug.txt";
+                }
+            }
+            /// <summary>
+            /// 
+            /// </summary>
+            private static int mode = -1;
+            /// <summary>
+            /// 0: Ghi ra Console,
+            /// 1: Ghi ra File "debug.txt",
+            /// 2: Silient
+            /// </summary>
+            public static int MODE
+            {
+                get
+                {
+                    if (mode != -1)
+                    {
+                        return mode;
+                    }
+                    mode = Global.local_setting.debug_mode;
+                    return mode;
+                }
+                set
+                {
+                    mode = Global.local_setting.debug_mode = value;
+                }
+            }
+        }
         public static class sync
         {
             public static String scope_name

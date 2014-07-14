@@ -39,6 +39,8 @@ namespace QuanLyTaiSanGUI.Settings
             textEdit_ServerDBName.Text = Global.local_setting.db_server_dbname;
             //IS USING DBCACHE
             checkEdit_useDBCache.Checked = Global.local_setting.use_db_cache;
+            //Debug to file
+            checkEdit_debugToFile.Checked = Global.debug.MODE == 1;
 
             /*
              * REMOTE SETTING
@@ -86,7 +88,8 @@ namespace QuanLyTaiSanGUI.Settings
             Global.local_setting.db_server_WA = checkEdit_ServerWA.Checked;
             //IS USING DBCACHE
             Global.local_setting.use_db_cache = checkEdit_useDBCache.Checked;
-
+            //debug mode
+            Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 2;
             //UPDATE
             Global.local_setting.Save();
 
@@ -204,6 +207,11 @@ namespace QuanLyTaiSanGUI.Settings
         private void ucCauHinh_Load(object sender, EventArgs e)
         {
             txtAddressDatabase.Focus();
+        }
+
+        private void btnDebugClear_Click(object sender, EventArgs e)
+        {
+            Global.debug.remove_file();
         }
     }
 }
