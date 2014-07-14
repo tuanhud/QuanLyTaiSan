@@ -25,7 +25,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             ribbonThongKe.Parent = null;
             loadData();
         }
-        private void loadData()
+        public void loadData()
         {
             checkedComboBoxEdit_tinhTrang.Properties.DataSource =
                 TinhTrang.getAll();
@@ -41,6 +41,8 @@ namespace QuanLyTaiSanGUI.ThongKe
 
             //datetime
             dateEdit_to.EditValue = ServerTimeHelper.getNow();
+
+            gridControl1.DataSource = null;
         }
 
         public RibbonControl getRibbon()
@@ -63,6 +65,8 @@ namespace QuanLyTaiSanGUI.ThongKe
                 dateEdit_to.EditValue = null;
                 return;
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             //get result
             //String jk = checkedComboBoxEdit_tinhTrang.;
             List<int> list_coso =CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_coso);
@@ -75,6 +79,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             gridControl1.DataSource = list_tk;
             //list_tk = null;
             DBInstance.reNew();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
     }
 }

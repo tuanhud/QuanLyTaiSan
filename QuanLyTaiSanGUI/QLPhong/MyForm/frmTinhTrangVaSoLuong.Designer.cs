@@ -125,7 +125,7 @@
             this.btnYesToAll.Name = "btnYesToAll";
             this.btnYesToAll.Size = new System.Drawing.Size(118, 23);
             this.btnYesToAll.TabIndex = 6;
-            this.btnYesToAll.Text = "Yes to all???";
+            this.btnYesToAll.Text = "Tương tự cho tất cả";
             this.btnYesToAll.Click += new System.EventHandler(this.btnYesToAll_Click);
             // 
             // frmTinhTrangVaSoLuong

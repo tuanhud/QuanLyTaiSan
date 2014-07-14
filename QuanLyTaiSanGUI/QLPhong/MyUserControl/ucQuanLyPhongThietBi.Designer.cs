@@ -127,7 +127,7 @@
             // 
             this.barButtonThemTBChung.Caption = "Thêm thiết bị theo số lượng";
             this.barButtonThemTBChung.Id = 42;
-            this.barButtonThemTBChung.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemTBChung.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.add1;
             this.barButtonThemTBChung.Name = "barButtonThemTBChung";
             this.barButtonThemTBChung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTB_ItemClick);
             // 
@@ -159,7 +159,7 @@
             // 
             this.barButtonThemTBRieng.Caption = "Thêm thiết bị theo cá thể";
             this.barButtonThemTBRieng.Id = 47;
-            this.barButtonThemTBRieng.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemTBRieng.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.add2;
             this.barButtonThemTBRieng.Name = "barButtonThemTBRieng";
             this.barButtonThemTBRieng.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTBRieng_ItemClick);
             // 
@@ -448,7 +448,7 @@
             this.panelControl1.Location = new System.Drawing.Point(72, 207);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(252, 20);
-            this.panelControl1.TabIndex = 26;
+            this.panelControl1.TabIndex = 3;
             // 
             // lblTenPhong
             // 
@@ -473,14 +473,14 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(253, 20);
-            this.txtMa.TabIndex = 23;
+            this.txtMa.TabIndex = 1;
             // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(148, 385);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 21;
+            this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -490,7 +490,7 @@
             this.btnOK.Location = new System.Drawing.Point(67, 385);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 20;
+            this.btnOK.TabIndex = 7;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -500,7 +500,7 @@
             this.btnImage.Location = new System.Drawing.Point(197, 28);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 19;
+            this.btnImage.TabIndex = 9;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
@@ -574,7 +574,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateLap.Properties.ReadOnly = true;
             this.dateLap.Size = new System.Drawing.Size(253, 20);
-            this.dateLap.TabIndex = 6;
+            this.dateLap.TabIndex = 5;
             // 
             // dateMua
             // 
@@ -589,7 +589,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateMua.Properties.ReadOnly = true;
             this.dateMua.Size = new System.Drawing.Size(253, 20);
-            this.dateMua.TabIndex = 5;
+            this.dateMua.TabIndex = 4;
             // 
             // txtTen
             // 
@@ -599,7 +599,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(253, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 2;
             // 
             // imageSlider1
             // 
@@ -618,7 +618,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(253, 68);
-            this.txtMoTa.TabIndex = 4;
+            this.txtMoTa.TabIndex = 6;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // dxErrorProvider1

@@ -51,6 +51,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
+                PhanCong(false);
+                working = false;
                 layout.load(gridViewNhanVien);
                 NhanVienPTs = NhanVienPT.getAll();
                 gridControlNhanVien.DataSource = null;
@@ -119,6 +121,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             btnR_Them.Enabled = !_enable;
             btnR_Sua.Enabled = !_enable;
             btnR_Xoa.Enabled = !_enable;
+            if (_enable)
+                txtMa.Focus();
         }
 
         public void reLoad()
@@ -333,11 +337,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 errorProvider1.SetError(txtTen, "Chưa điền tên nhân viên");
                 check = false;
             }
-            if (!(txtSodt.Text.Length >= 9 && txtSodt.Text.Length <= 15))
-            {
-                errorProvider1.SetError(txtSodt, "Số điện thoại từ 9-15 kí tự");
-                check = false;
-            }
+            //if (!(txtSodt.Text.Length >= 9 && txtSodt.Text.Length <= 15))
+            //{
+            //    errorProvider1.SetError(txtSodt, "Số điện thoại từ 9-15 kí tự");
+            //    check = false;
+            //}
             if (!IsNumber(txtSodt.Text))
             {
                 errorProvider1.SetError(txtSodt, "Số điện thoại không hợp lệ");
@@ -482,6 +486,27 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         private void btnR_Xoa_Click(object sender, EventArgs e)
         {
             deleteObj();
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (!function.Equals("edit"))
+                    return working;
+                else
+                {
+                    return
+                        objNhanVienPT.subId != txtMa.Text ||
+                        objNhanVienPT.hoten != txtTen.Text ||
+                        objNhanVienPT.sodienthoai != txtSodt.Text ||
+                        objNhanVienPT.hinhanhs.ToString() != listHinhs.ToString();
+                }
+            }
+            catch
+            {
+                return true;
+            }
         }
     }
 }

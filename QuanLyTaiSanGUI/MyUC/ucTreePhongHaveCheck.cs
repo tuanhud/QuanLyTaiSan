@@ -27,7 +27,8 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void init()
         {
-            treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            treeListPhong.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)

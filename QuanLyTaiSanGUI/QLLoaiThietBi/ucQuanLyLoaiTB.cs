@@ -72,6 +72,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             btnR_Them.Enabled = !_enable;
             btnR_Sua.Enabled = !_enable;
             btnR_Xoa.Enabled = !_enable;
+            if (_enable)
+                txtTen.Focus();
         }
 
         public void reLoad()
@@ -471,6 +473,32 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         private void btnR_Xoa_Click(object sender, EventArgs e)
         {
             deleteObj();
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (!function.Equals("edit"))
+                    return working;
+                else
+                {
+                    if (lueThuoc.EditValue != null && Convert.ToInt32(lueThuoc.EditValue) > -1)
+                        return
+                            objLoaiThietBi.ten != txtTen.Text||
+                            objLoaiThietBi.mota != txtMoTa.Text||
+                            objLoaiThietBi.parent_id != Convert.ToInt32(lueThuoc.EditValue);
+                    else
+                        return
+                            objLoaiThietBi.ten != txtTen.Text ||
+                            objLoaiThietBi.mota != txtMoTa.Text ||
+                            objLoaiThietBi.parent_id != null;
+                }
+            }
+            catch
+            {
+                return true;
+            }
         }
 
     }

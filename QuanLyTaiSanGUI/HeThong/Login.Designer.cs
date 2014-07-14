@@ -115,6 +115,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.textEdit_password);
             this.Controls.Add(this.textEdit_username);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.MaximumSize = new System.Drawing.Size(313, 207);
             this.MinimumSize = new System.Drawing.Size(313, 207);

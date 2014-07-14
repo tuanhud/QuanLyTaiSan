@@ -34,7 +34,8 @@ namespace QuanLyTaiSanGUI.MyUC
         private void init(String _type)
         {
             type = _type;
-            treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            //treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+            treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> _list)
