@@ -36,14 +36,7 @@ namespace QuanLyTaiSan.Entities
             {
                 return false;
             }
-            foreach (Permission item in obj.permissions)
-            {
-                if (item.key.Equals(this.key))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return obj.permissions.Where(c => c.key.ToUpper().Equals(this.key.ToUpper())).FirstOrDefault() != null;
         }
         #endregion
 
