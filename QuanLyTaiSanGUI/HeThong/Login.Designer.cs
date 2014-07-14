@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.textEdit_username = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_password = new DevExpress.XtraEditors.TextEdit();
@@ -36,10 +37,10 @@
             this.checkEdit_remember = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl_msg = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.imageList1 = new System.Windows.Forms.ImageList();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.button_ok = new DevExpress.XtraEditors.SimpleButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_username.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_password.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_remember.Properties)).BeginInit();
@@ -109,7 +110,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pictureEdit1);
-            this.groupBox1.Controls.Add(this.simpleButton1);
+            this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.textEdit_username);
             this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Controls.Add(this.button_ok);
@@ -125,12 +126,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quản lý phòng học";
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // pictureEdit1
             // 
             this.pictureEdit1.AllowDrop = true;
@@ -141,14 +136,15 @@
             this.pictureEdit1.Size = new System.Drawing.Size(68, 71);
             this.pictureEdit1.TabIndex = 9;
             // 
-            // simpleButton1
+            // btnThoat
             // 
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(262, 113);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(62, 23);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Thoát";
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.Location = new System.Drawing.Point(262, 113);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(62, 23);
+            this.btnThoat.TabIndex = 8;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // button_ok
             // 
@@ -159,6 +155,12 @@
             this.button_ok.TabIndex = 7;
             this.button_ok.Text = "Đăng nhập";
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Login
             // 
@@ -199,7 +201,7 @@
         private DevExpress.XtraEditors.CheckEdit checkEdit_remember;
         private DevExpress.XtraEditors.LabelControl labelControl_msg;
         private DevExpress.XtraEditors.SimpleButton button_ok;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnThoat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;

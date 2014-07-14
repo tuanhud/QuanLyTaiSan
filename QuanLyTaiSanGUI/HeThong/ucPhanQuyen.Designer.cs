@@ -88,7 +88,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(860, 490);
-            this.splitContainerControl1.SplitterPosition = 283;
+            this.splitContainerControl1.SplitterPosition = 350;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -98,7 +98,7 @@
             this.gridControlPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhanQuyen.MainView = this.gridViewPhanQuyen;
             this.gridControlPhanQuyen.Name = "gridControlPhanQuyen";
-            this.gridControlPhanQuyen.Size = new System.Drawing.Size(572, 490);
+            this.gridControlPhanQuyen.Size = new System.Drawing.Size(505, 490);
             this.gridControlPhanQuyen.TabIndex = 0;
             this.gridControlPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhanQuyen});
@@ -195,7 +195,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(283, 490);
+            this.groupControl1.Size = new System.Drawing.Size(350, 490);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -227,7 +227,7 @@
             this.txtXacNhanMK.Location = new System.Drawing.Point(93, 131);
             this.txtXacNhanMK.Name = "txtXacNhanMK";
             this.txtXacNhanMK.Properties.ReadOnly = true;
-            this.txtXacNhanMK.Size = new System.Drawing.Size(185, 20);
+            this.txtXacNhanMK.Size = new System.Drawing.Size(252, 20);
             this.txtXacNhanMK.TabIndex = 14;
             // 
             // labelControl6
@@ -318,7 +318,7 @@
             this.txtMatKhauQuanTriVien.Location = new System.Drawing.Point(93, 104);
             this.txtMatKhauQuanTriVien.Name = "txtMatKhauQuanTriVien";
             this.txtMatKhauQuanTriVien.Properties.ReadOnly = true;
-            this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(185, 20);
+            this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(252, 20);
             this.txtMatKhauQuanTriVien.TabIndex = 3;
             // 
             // txtTaiKhoanQuanTriVien
@@ -328,7 +328,7 @@
             this.txtTaiKhoanQuanTriVien.Location = new System.Drawing.Point(93, 79);
             this.txtTaiKhoanQuanTriVien.Name = "txtTaiKhoanQuanTriVien";
             this.txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
-            this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(185, 20);
+            this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(252, 20);
             this.txtTaiKhoanQuanTriVien.TabIndex = 3;
             // 
             // txtTenQuanTriVien
@@ -338,7 +338,7 @@
             this.txtTenQuanTriVien.Location = new System.Drawing.Point(93, 53);
             this.txtTenQuanTriVien.Name = "txtTenQuanTriVien";
             this.txtTenQuanTriVien.Properties.ReadOnly = true;
-            this.txtTenQuanTriVien.Size = new System.Drawing.Size(185, 20);
+            this.txtTenQuanTriVien.Size = new System.Drawing.Size(252, 20);
             this.txtTenQuanTriVien.TabIndex = 2;
             // 
             // txtMaQuanTriVien
@@ -348,7 +348,7 @@
             this.txtMaQuanTriVien.Location = new System.Drawing.Point(93, 27);
             this.txtMaQuanTriVien.Name = "txtMaQuanTriVien";
             this.txtMaQuanTriVien.Properties.ReadOnly = true;
-            this.txtMaQuanTriVien.Size = new System.Drawing.Size(185, 20);
+            this.txtMaQuanTriVien.Size = new System.Drawing.Size(252, 20);
             this.txtMaQuanTriVien.TabIndex = 1;
             // 
             // ribbonPhanQuyen
