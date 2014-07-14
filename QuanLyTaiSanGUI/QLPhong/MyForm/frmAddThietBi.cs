@@ -58,6 +58,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 
         private void themThietBi()
         {
+            bool show = true;
+            bool open = false;
             int sl = 0;
             string str = "";
             try
@@ -75,6 +77,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                             if (!yestoall)
                             {
                                 frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
+                                frm.Text += " " + obj.ten;
                                 CTThietBi objct = new CTThietBi();
                                 switch (frm.ShowDialog())
                                 {
@@ -124,6 +127,13 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                             }
                             else
                             {
+                                if (show)
+                                {
+                                    DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                                    open = true;
+                                    show = false;
+                                }
                                 CTThietBi objct = new CTThietBi();
                                 objct.phong = objPhong;
                                 objct.thietbi = obj;
@@ -151,6 +161,10 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
             }
             finally
             {
+                if (open)
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                }
                 if (yestoall)
                 {
                     showToolTip(str);

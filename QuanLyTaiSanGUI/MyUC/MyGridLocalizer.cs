@@ -12,8 +12,6 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             if (id == DevExpress.XtraGrid.Localization.GridStringId.FindControlFindButton)
                 return "Tìm kiếm";
-            if (id == DevExpress.XtraGrid.Localization.GridStringId.FindControlClearButton)
-                return "Làm mới";
             if (id == DevExpress.XtraGrid.Localization.GridStringId.GridGroupPanelText)
                 return "Kéo thả một cột vào đây để nhóm theo cột đó";
             return base.GetLocalizedString(id);

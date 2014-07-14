@@ -319,8 +319,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
                 if (loaiChung)
                 {
-                    objThietBi.ngaymua = null;
-                    objThietBi.ngaylap = null;
+                    //objThietBi.ngaymua = null;
+                    //objThietBi.ngaylap = null;
                 }
                 else
                 {

@@ -185,11 +185,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtTen.Text = _obj.thietbi.ten;
                 txtMoTa.Text = _obj.thietbi.mota;
                 lblTenPhong.Text = _obj.phong.ten;
-                dateMua.DateTime = _obj.thietbi.ngaymua.Value;
-                dateLap.DateTime = _obj.thietbi.ngaylap.Value;
+                dateMua.EditValue = _obj.thietbi.ngaymua;
+                dateLap.EditValue = _obj.thietbi.ngaylap;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id).ToList();
+                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
                 reloadImage();
             }
             catch (Exception ex)
@@ -269,8 +269,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.ten = txtTen.Text;
                 obj.mota = txtMoTa.Text;
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
-                obj.ngaymua = dateMua.DateTime;
-                obj.ngaylap = dateLap.DateTime;
+                obj.ngaymua = dateMua.EditValue != null ? dateMua.DateTime : obj.ngaymua;
+                obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
                 obj.hinhanhs = listHinh;
                 if (obj.update() > 0)
                 {

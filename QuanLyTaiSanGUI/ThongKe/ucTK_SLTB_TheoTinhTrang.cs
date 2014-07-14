@@ -78,7 +78,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             //gridControl1.DataSource = null;
             gridControl1.DataSource = list_tk;
             //list_tk = null;
-            DBInstance.reNew();
+            //DBInstance.reNew();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
     }

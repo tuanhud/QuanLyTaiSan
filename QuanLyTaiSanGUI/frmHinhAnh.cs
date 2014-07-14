@@ -32,6 +32,7 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
             //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
+            comboBoxEdit1.SelectedIndex = 2;
             btnImageDelete.Enabled = false;
             if (list != null)
             {

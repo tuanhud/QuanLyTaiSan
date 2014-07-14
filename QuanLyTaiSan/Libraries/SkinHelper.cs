@@ -13,6 +13,8 @@ namespace QuanLyTaiSan.Libraries
         /// </summary>
         /// <returns>tên skin hoặc null</returns>
 
+        //public static string thanh = "Caramel";
+        
         public static string Caramel()
         {
             return "Caramel";

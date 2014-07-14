@@ -52,6 +52,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             try
             {
                 PhanCong(false);
+                enableEdit(false, "");
                 working = false;
                 layout.load(gridViewNhanVien);
                 NhanVienPTs = NhanVienPT.getAll();
