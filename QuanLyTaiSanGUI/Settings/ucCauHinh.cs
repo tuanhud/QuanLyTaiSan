@@ -115,37 +115,6 @@ namespace QuanLyTaiSanGUI.Settings
             }
 
 
-            /*
-             * REMOTE SETTING
-             */
-            //FTP
-            Global.remote_setting.ftp_host.HOST_NAME = txtAddressFTP.Text;
-            Global.remote_setting.ftp_host.PRE_PATH = txtPrepathFTP.Text;
-            Global.remote_setting.ftp_host.USER_NAME = txtUsernameFTP.Text;
-            Global.remote_setting.ftp_host.PASS_WORD = txtPasswordFTP.Text;
-            Global.remote_setting.ftp_host.PORT = txtPortFTP.Text;
-
-            //if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
-            //    Global.remote_setting.ftp_host.USER_NAME,
-            //    Global.remote_setting.ftp_host.PASS_WORD
-            //    ) > 0
-            //)
-            //{
-                Global.remote_setting.ftp_host.save();
-            //}
-            //else
-            //{
-            //    //FTP FAIL
-            //    return -5;
-            //}
-
-            //HTTP
-            Global.remote_setting.http_host.HOST_NAME = txtAddressHTTP.Text;
-            Global.remote_setting.http_host.PORT = txtPortHTTP.Text;
-            Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
-
-            Global.remote_setting.http_host.save();
-
             return 1;
             
         }
@@ -195,6 +164,41 @@ namespace QuanLyTaiSanGUI.Settings
         private void simpleButton_cleanUpClientScope_Click(object sender, EventArgs e)
         {
             Global.client_database.clean_up_scope();
+        }
+
+        private void btnFTPSave_Click(object sender, EventArgs e)
+        {
+            /*
+             * REMOTE SETTING
+             */
+            //FTP
+            Global.remote_setting.ftp_host.HOST_NAME = txtAddressFTP.Text;
+            Global.remote_setting.ftp_host.PRE_PATH = txtPrepathFTP.Text;
+            Global.remote_setting.ftp_host.USER_NAME = txtUsernameFTP.Text;
+            Global.remote_setting.ftp_host.PASS_WORD = txtPasswordFTP.Text;
+            Global.remote_setting.ftp_host.PORT = txtPortFTP.Text;
+
+            //if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
+            //    Global.remote_setting.ftp_host.USER_NAME,
+            //    Global.remote_setting.ftp_host.PASS_WORD
+            //    ) > 0
+            //)
+            //{
+            Global.remote_setting.ftp_host.save();
+            //}
+            //else
+            //{
+            //    //FTP FAIL
+            //    return -5;
+            //}
+
+            //HTTP
+            Global.remote_setting.http_host.HOST_NAME = txtAddressHTTP.Text;
+            Global.remote_setting.http_host.PORT = txtPortHTTP.Text;
+            Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
+
+            Global.remote_setting.http_host.save();
+
         }
     }
 }
