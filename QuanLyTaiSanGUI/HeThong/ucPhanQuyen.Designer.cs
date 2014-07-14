@@ -174,6 +174,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.dateCreated);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.txtXacNhanMK);
@@ -212,7 +214,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(7, 131);
+            this.labelControl7.Location = new System.Drawing.Point(7, 134);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(65, 13);
             this.labelControl7.TabIndex = 15;
@@ -222,7 +224,7 @@
             // 
             this.txtXacNhanMK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtXacNhanMK.Location = new System.Drawing.Point(93, 128);
+            this.txtXacNhanMK.Location = new System.Drawing.Point(93, 131);
             this.txtXacNhanMK.Name = "txtXacNhanMK";
             this.txtXacNhanMK.Properties.ReadOnly = true;
             this.txtXacNhanMK.Size = new System.Drawing.Size(185, 20);
@@ -230,7 +232,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(8, 185);
+            this.labelControl6.Location = new System.Drawing.Point(8, 188);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(31, 13);
             this.labelControl6.TabIndex = 13;
@@ -271,7 +273,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 159);
+            this.labelControl1.Location = new System.Drawing.Point(6, 162);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(48, 13);
             this.labelControl1.TabIndex = 7;
@@ -279,7 +281,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(6, 104);
+            this.labelControl5.Location = new System.Drawing.Point(6, 107);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(48, 13);
             this.labelControl5.TabIndex = 7;
@@ -287,7 +289,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 79);
+            this.labelControl4.Location = new System.Drawing.Point(6, 82);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(50, 13);
             this.labelControl4.TabIndex = 7;
@@ -295,7 +297,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(6, 53);
+            this.labelControl3.Location = new System.Drawing.Point(6, 56);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(85, 13);
             this.labelControl3.TabIndex = 6;
@@ -303,7 +305,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(6, 27);
+            this.labelControl2.Location = new System.Drawing.Point(6, 30);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(81, 13);
             this.labelControl2.TabIndex = 5;
@@ -313,7 +315,7 @@
             // 
             this.txtMatKhauQuanTriVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMatKhauQuanTriVien.Location = new System.Drawing.Point(93, 101);
+            this.txtMatKhauQuanTriVien.Location = new System.Drawing.Point(93, 104);
             this.txtMatKhauQuanTriVien.Name = "txtMatKhauQuanTriVien";
             this.txtMatKhauQuanTriVien.Properties.ReadOnly = true;
             this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(185, 20);
@@ -323,7 +325,7 @@
             // 
             this.txtTaiKhoanQuanTriVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTaiKhoanQuanTriVien.Location = new System.Drawing.Point(93, 76);
+            this.txtTaiKhoanQuanTriVien.Location = new System.Drawing.Point(93, 79);
             this.txtTaiKhoanQuanTriVien.Name = "txtTaiKhoanQuanTriVien";
             this.txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
             this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(185, 20);
@@ -333,7 +335,7 @@
             // 
             this.txtTenQuanTriVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenQuanTriVien.Location = new System.Drawing.Point(93, 50);
+            this.txtTenQuanTriVien.Location = new System.Drawing.Point(93, 53);
             this.txtTenQuanTriVien.Name = "txtTenQuanTriVien";
             this.txtTenQuanTriVien.Properties.ReadOnly = true;
             this.txtTenQuanTriVien.Size = new System.Drawing.Size(185, 20);
@@ -343,7 +345,7 @@
             // 
             this.txtMaQuanTriVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaQuanTriVien.Location = new System.Drawing.Point(93, 24);
+            this.txtMaQuanTriVien.Location = new System.Drawing.Point(93, 27);
             this.txtMaQuanTriVien.Name = "txtMaQuanTriVien";
             this.txtMaQuanTriVien.Properties.ReadOnly = true;
             this.txtMaQuanTriVien.Size = new System.Drawing.Size(185, 20);

@@ -139,7 +139,7 @@ namespace QuanLyTaiSan.Entities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
-                //db.Set<T>().Attach((T)this);//nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
+                db.Set<T>().Attach((T)this);//nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
                 return -1;
             }
             finally

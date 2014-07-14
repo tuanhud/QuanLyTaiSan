@@ -341,7 +341,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             }
                             else
                             {
-                                XtraMessageBox.Show("Có dãy trong cơ sở. Vui lòng xóa dãy trước!");
+                                XtraMessageBox.Show("Có dãy hoặc phòng trong cơ sở. Vui lòng xóa dãy hoặc phòng trước!");
                             }
                         }
                         break;
@@ -357,7 +357,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
                             else
                             {
-                                XtraMessageBox.Show("Có tầng/phòng trong dãy. Vui lòng xóa tầng/phòng trước!");
+                                XtraMessageBox.Show("Có tầng hoặc phòng trong dãy. Vui lòng xóa tầng hoặc phòng trước!");
                             }
                         }
                         break;
