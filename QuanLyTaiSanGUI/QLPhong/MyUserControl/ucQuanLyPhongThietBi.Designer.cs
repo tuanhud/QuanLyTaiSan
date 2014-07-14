@@ -214,7 +214,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(833, 529);
-            this.splitContainerControl1.SplitterPosition = 335;
+            this.splitContainerControl1.SplitterPosition = 350;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -225,7 +225,7 @@
             this.gridControlCTThietBi.MainView = this.gridViewCTThietBi;
             this.gridControlCTThietBi.MenuManager = this.ribbonPhongThietBi;
             this.gridControlCTThietBi.Name = "gridControlCTThietBi";
-            this.gridControlCTThietBi.Size = new System.Drawing.Size(493, 529);
+            this.gridControlCTThietBi.Size = new System.Drawing.Size(478, 529);
             this.gridControlCTThietBi.TabIndex = 0;
             this.gridControlCTThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTThietBi});
@@ -318,7 +318,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 415);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(335, 114);
+            this.groupControl2.Size = new System.Drawing.Size(350, 114);
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Log";
             // 
@@ -328,7 +328,7 @@
             this.gridControlLog.Location = new System.Drawing.Point(2, 24);
             this.gridControlLog.MainView = this.gridViewlog;
             this.gridControlLog.Name = "gridControlLog";
-            this.gridControlLog.Size = new System.Drawing.Size(331, 88);
+            this.gridControlLog.Size = new System.Drawing.Size(346, 88);
             this.gridControlLog.TabIndex = 0;
             this.gridControlLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewlog});
@@ -414,7 +414,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(335, 415);
+            this.groupControl1.Size = new System.Drawing.Size(350, 415);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Chi tiết thiết bị";
             // 
@@ -423,7 +423,7 @@
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Sua.Location = new System.Drawing.Point(275, 0);
+            this.btnR_Sua.Location = new System.Drawing.Point(290, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
             this.btnR_Sua.TabIndex = 28;
@@ -434,7 +434,7 @@
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Xoa.Location = new System.Drawing.Point(301, 0);
+            this.btnR_Xoa.Location = new System.Drawing.Point(316, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
             this.btnR_Xoa.TabIndex = 27;
@@ -447,7 +447,7 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(72, 207);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(252, 20);
+            this.panelControl1.Size = new System.Drawing.Size(267, 20);
             this.panelControl1.TabIndex = 3;
             // 
             // lblTenPhong
@@ -472,7 +472,7 @@
             this.txtMa.Location = new System.Drawing.Point(71, 154);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
-            this.txtMa.Size = new System.Drawing.Size(253, 20);
+            this.txtMa.Size = new System.Drawing.Size(268, 20);
             this.txtMa.TabIndex = 1;
             // 
             // btnHuy
@@ -573,7 +573,7 @@
             this.dateLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateLap.Properties.ReadOnly = true;
-            this.dateLap.Size = new System.Drawing.Size(253, 20);
+            this.dateLap.Size = new System.Drawing.Size(268, 20);
             this.dateLap.TabIndex = 5;
             // 
             // dateMua
@@ -588,7 +588,7 @@
             this.dateMua.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateMua.Properties.ReadOnly = true;
-            this.dateMua.Size = new System.Drawing.Size(253, 20);
+            this.dateMua.Size = new System.Drawing.Size(268, 20);
             this.dateMua.TabIndex = 4;
             // 
             // txtTen
@@ -598,7 +598,7 @@
             this.txtTen.Location = new System.Drawing.Point(71, 180);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(253, 20);
+            this.txtTen.Size = new System.Drawing.Size(268, 20);
             this.txtTen.TabIndex = 2;
             // 
             // imageSlider1
@@ -617,7 +617,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(71, 313);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(253, 68);
+            this.txtMoTa.Size = new System.Drawing.Size(268, 68);
             this.txtMoTa.TabIndex = 6;
             this.txtMoTa.UseOptimizedRendering = true;
             // 

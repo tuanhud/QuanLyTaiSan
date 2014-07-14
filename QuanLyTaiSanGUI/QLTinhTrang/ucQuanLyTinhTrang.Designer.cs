@@ -61,7 +61,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(710, 500);
-            this.splitContainerControl1.SplitterPosition = 282;
+            this.splitContainerControl1.SplitterPosition = 350;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -75,7 +75,7 @@
             this.treeListTinhTrang.Name = "treeListTinhTrang";
             this.treeListTinhTrang.OptionsBehavior.Editable = false;
             this.treeListTinhTrang.ParentFieldName = "";
-            this.treeListTinhTrang.Size = new System.Drawing.Size(423, 500);
+            this.treeListTinhTrang.Size = new System.Drawing.Size(355, 500);
             this.treeListTinhTrang.TabIndex = 0;
             this.treeListTinhTrang.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListTinhTrang_FocusedNodeChanged);
             // 
@@ -100,7 +100,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(282, 500);
+            this.groupControl1.Size = new System.Drawing.Size(350, 500);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -119,7 +119,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(57, 53);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(220, 120);
+            this.txtMoTa.Size = new System.Drawing.Size(288, 120);
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
@@ -150,7 +150,7 @@
             this.txtTen.Location = new System.Drawing.Point(57, 27);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(220, 20);
+            this.txtTen.Size = new System.Drawing.Size(288, 20);
             this.txtTen.TabIndex = 1;
             // 
             // labelControl2
