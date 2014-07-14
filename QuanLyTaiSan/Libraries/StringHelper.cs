@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
-using System.Diagnostics;
+using QuanLyTaiSan.Entities;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;

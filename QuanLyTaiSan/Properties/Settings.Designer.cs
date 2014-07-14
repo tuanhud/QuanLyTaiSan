@@ -262,5 +262,17 @@ namespace QuanLyTaiSan.Properties {
                 this["login_password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int debug_mode {
+            get {
+                return ((int)(this["debug_mode"]));
+            }
+            set {
+                this["debug_mode"] = value;
+            }
+        }
     }
 }

@@ -62,5 +62,8 @@
     <Setting Name="login_password" Type="System.String" Scope="User">
       <Value Profile="(Default)">admin</Value>
     </Setting>
+    <Setting Name="debug_mode" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

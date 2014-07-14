@@ -108,6 +108,7 @@
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
+    <Compile Include="Global\Debug.cs" />
     <Compile Include="Global\Global.cs" />
     <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />

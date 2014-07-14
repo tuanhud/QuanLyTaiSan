@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics;
+using QuanLyTaiSan.Entities;
 using System.Drawing;
 using System.IO;
 using System.Linq;
