@@ -45,6 +45,14 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Hàm nghiệp vụ
+        public Boolean hasPermission(string permission_name="")
+        {
+            if (group == null || permission_name==null)
+            {
+                return false;
+            }
+            return group.isHasPermission(permission_name);
+        }
         [NotMapped]
         protected Boolean hashed = false;
         /// <summary>

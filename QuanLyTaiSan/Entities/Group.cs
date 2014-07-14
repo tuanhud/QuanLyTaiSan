@@ -40,6 +40,14 @@ namespace QuanLyTaiSan.Entities
             }
             return base.delete();
         }
+        public Boolean isHasPermission(String permission_name="")
+        {
+            if (permission_name == null)
+            {
+                return false;
+            }
+            return this.permissions.Where(c=>c.key.ToUpper().Equals(permission_name.ToUpper())).FirstOrDefault()!=null;
+        }
         public Boolean isHasPermission(Permission obj)
         {
             return obj.isInGroup(this);
