@@ -173,6 +173,7 @@
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Libraries\CheckedComboBoxEditHelper.cs" />
+    <Compile Include="Libraries\ExcelDataBaseHelper.cs" />
     <Compile Include="MyUC\FindNode.cs" />
     <Compile Include="MyUC\GetCheckedNodes.cs" />
     <Compile Include="MyUC\MyGridLocalizer.cs" />
