@@ -72,7 +72,7 @@
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.treeListLoaiTB);
@@ -80,7 +80,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(866, 477);
-            this.splitContainerControl1.SplitterPosition = 485;
+            this.splitContainerControl1.SplitterPosition = 350;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -100,7 +100,7 @@
             this.treeListLoaiTB.OptionsFind.AlwaysVisible = true;
             this.treeListLoaiTB.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
-            this.treeListLoaiTB.Size = new System.Drawing.Size(485, 477);
+            this.treeListLoaiTB.Size = new System.Drawing.Size(511, 477);
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
             this.treeListLoaiTB.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -138,7 +138,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(376, 477);
+            this.groupControl1.Size = new System.Drawing.Size(350, 477);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -147,7 +147,7 @@
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Sua.Location = new System.Drawing.Point(312, 0);
+            this.btnR_Sua.Location = new System.Drawing.Point(286, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
             this.btnR_Sua.TabIndex = 24;
@@ -166,7 +166,7 @@
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Them.Location = new System.Drawing.Point(286, 0);
+            this.btnR_Them.Location = new System.Drawing.Point(260, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 23;
@@ -179,7 +179,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(57, 53);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(304, 120);
+            this.txtMoTa.Size = new System.Drawing.Size(278, 120);
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
@@ -188,7 +188,7 @@
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Xoa.Location = new System.Drawing.Point(338, 0);
+            this.btnR_Xoa.Location = new System.Drawing.Point(312, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
             this.btnR_Xoa.TabIndex = 22;
@@ -222,7 +222,7 @@
             this.panelControl1.Controls.Add(this.lueThuoc);
             this.panelControl1.Location = new System.Drawing.Point(57, 179);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(304, 20);
+            this.panelControl1.Size = new System.Drawing.Size(278, 20);
             this.panelControl1.TabIndex = 7;
             // 
             // lueThuoc
@@ -238,7 +238,7 @@
             this.lueThuoc.Properties.NullText = "";
             this.lueThuoc.Properties.ReadOnly = true;
             this.lueThuoc.Properties.ValueMember = "id";
-            this.lueThuoc.Size = new System.Drawing.Size(304, 20);
+            this.lueThuoc.Size = new System.Drawing.Size(278, 20);
             this.lueThuoc.TabIndex = 3;
             // 
             // ceTBsoluonglon
@@ -257,7 +257,7 @@
             this.txtTen.Location = new System.Drawing.Point(57, 27);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(304, 20);
+            this.txtTen.Size = new System.Drawing.Size(278, 20);
             this.txtTen.TabIndex = 1;
             // 
             // labelControl3

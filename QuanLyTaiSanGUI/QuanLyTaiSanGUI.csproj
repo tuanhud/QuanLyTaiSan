@@ -547,6 +547,8 @@
     <None Include="Resources\Apps-preferences-system-power-management-icon.png" />
     <None Include="Resources\add1.png" />
     <None Include="Resources\add2.png" />
+    <Content Include="Resources\login.ico" />
+    <Content Include="Resources\login.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

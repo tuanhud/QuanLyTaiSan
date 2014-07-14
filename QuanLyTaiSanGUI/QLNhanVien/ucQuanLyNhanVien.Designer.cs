@@ -95,7 +95,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(868, 464);
-            this.splitContainerControl1.SplitterPosition = 341;
+            this.splitContainerControl1.SplitterPosition = 350;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -105,7 +105,7 @@
             this.gridControlNhanVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlNhanVien.MainView = this.gridViewNhanVien;
             this.gridControlNhanVien.Name = "gridControlNhanVien";
-            this.gridControlNhanVien.Size = new System.Drawing.Size(522, 464);
+            this.gridControlNhanVien.Size = new System.Drawing.Size(513, 464);
             this.gridControlNhanVien.TabIndex = 0;
             this.gridControlNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhanVien});
@@ -185,7 +185,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 259);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(341, 205);
+            this.groupControl2.Size = new System.Drawing.Size(350, 205);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Danh sách phòng";
             // 
@@ -195,7 +195,7 @@
             this.listBoxPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxPhong.Location = new System.Drawing.Point(2, 24);
             this.listBoxPhong.Name = "listBoxPhong";
-            this.listBoxPhong.Size = new System.Drawing.Size(337, 179);
+            this.listBoxPhong.Size = new System.Drawing.Size(346, 179);
             this.listBoxPhong.TabIndex = 13;
             this.listBoxPhong.ValueMember = "id";
             // 
@@ -220,7 +220,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(341, 259);
+            this.groupControl1.Size = new System.Drawing.Size(350, 259);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
             // 
@@ -229,7 +229,7 @@
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Sua.Location = new System.Drawing.Point(279, 0);
+            this.btnR_Sua.Location = new System.Drawing.Point(288, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
             this.btnR_Sua.TabIndex = 17;
@@ -250,7 +250,7 @@
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Them.Location = new System.Drawing.Point(253, 0);
+            this.btnR_Them.Location = new System.Drawing.Point(262, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 16;
@@ -261,7 +261,7 @@
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnR_Xoa.Location = new System.Drawing.Point(305, 0);
+            this.btnR_Xoa.Location = new System.Drawing.Point(314, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
             this.btnR_Xoa.TabIndex = 15;
@@ -326,7 +326,7 @@
             this.txtSodt.Location = new System.Drawing.Point(84, 206);
             this.txtSodt.Name = "txtSodt";
             this.txtSodt.Properties.ReadOnly = true;
-            this.txtSodt.Size = new System.Drawing.Size(244, 20);
+            this.txtSodt.Size = new System.Drawing.Size(253, 20);
             this.txtSodt.TabIndex = 3;
             // 
             // txtTen
@@ -336,7 +336,7 @@
             this.txtTen.Location = new System.Drawing.Point(84, 180);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(244, 20);
+            this.txtTen.Size = new System.Drawing.Size(253, 20);
             this.txtTen.TabIndex = 2;
             // 
             // txtMa
@@ -346,7 +346,7 @@
             this.txtMa.Location = new System.Drawing.Point(84, 154);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
-            this.txtMa.Size = new System.Drawing.Size(244, 20);
+            this.txtMa.Size = new System.Drawing.Size(253, 20);
             this.txtMa.TabIndex = 1;
             // 
             // imageSlider1
