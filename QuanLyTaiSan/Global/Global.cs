@@ -47,7 +47,7 @@ namespace QuanLyTaiSan.Entities
             /// <summary>
             /// 
             /// </summary>
-            private static int mode = 1;
+            private static int mode = 0;
             /// <summary>
             /// 0: Ghi ra Console,
             /// 1: Ghi ra File "debug.txt",
@@ -105,12 +105,11 @@ namespace QuanLyTaiSan.Entities
                         "PERMISSIONS",//UNDEPENDENT
                         "GROUP_PERMISSION",
                         "QUANTRIVIENS",
-                    
-                        "HINHANHS",
 
+                        "LOGPHONGS",
+                        "HINHANHS",
+                        "SETTINGS",//UNDEPENDENT
                         "LOGHETHONGS",//UNDEPENDENT
-                    
-                        "SETTINGS"//UNDEPENDENT
                     };
                 }
             }

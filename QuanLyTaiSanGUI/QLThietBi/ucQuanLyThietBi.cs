@@ -382,17 +382,19 @@ namespace QuanLyTaiSanGUI.QLThietBi
                                         {
                                             for (int j = 0; j < objThietBi.ctthietbis.Count; j++)
                                             {
-                                                objThietBi.ctthietbis.ElementAt(j).delete();
+                                                //KHÔNG NÊN XÓA BĂNG TAY KIÊU NÀY
+                                                //objThietBi.ctthietbis.ElementAt(j).delete();
                                             }
                                         }
                                         if (objThietBi.logthietbis != null)
                                         {
                                             for (int j = 0; j < objThietBi.logthietbis.Count; j++)
                                             {
-                                                objThietBi.logthietbis.ElementAt(j).delete();
+                                                //KHÔNG NÊN XÓA BĂNG TAY KIÊU NÀY
+                                                //objThietBi.logthietbis.ElementAt(j).delete();
                                             }
                                         }
-                                        objThietBi.delete();
+                                        thanhcong = objThietBi.delete() > 0;
                                     }
                                     catch
                                     {

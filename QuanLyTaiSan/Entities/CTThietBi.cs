@@ -58,7 +58,7 @@ namespace QuanLyTaiSan.Entities
         /// <param name="moi">Tình trạng cần chuyển sang (null nếu chỉ muốn đổi phòng)</param>
         /// <param name="soluong">Sô lượng cần chuyển (mac dinh la -1 (chuyển tất cả))</param>
         /// <returns></returns>
-        public int dichuyen(Phong dich=null, TinhTrang moi=null, int soluong=-1, String mota="")
+        public int dichuyen(Phong dich=null, TinhTrang moi=null, int soluong=-1, String mota="", List<HinhAnh> hinhs=null)
         {
             //pre set data
             dich = dich == null ? this.phong : dich;
@@ -127,7 +127,6 @@ namespace QuanLyTaiSan.Entities
                     this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
                     //ghi log thietbi ngay sau khi cap nhat ONLY soluong
                     transac = transac && update(ngay, true) > 0;
-                    
                 }
 
 
@@ -148,7 +147,7 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Kich hoat ham ghi log vao LogThietBi
         /// </summary>
-        private int writelog(DateTime? ngay, String mota="")
+        private int writelog(DateTime? ngay, String mota="", List<HinhAnh> hinhs=null)
         {
             //ghi log thiet bi
             LogThietBi logtb = new LogThietBi();
@@ -158,6 +157,7 @@ namespace QuanLyTaiSan.Entities
             logtb.soluong = soluong;
             logtb.thietbi = thietbi;
             logtb.tinhtrang = tinhtrang;
+            logtb.hinhanhs = hinhs == null ? new List<HinhAnh>() : hinhs;
             return logtb.add();
         }
         /// <summary>
@@ -219,7 +219,7 @@ namespace QuanLyTaiSan.Entities
         /// obj.add_auto();
         /// </summary>
         /// <returns></returns>
-        public int add(DateTime? ngay=null, Boolean in_transaction=false)
+        public int add(DateTime? ngay=null, Boolean in_transaction=false, List<HinhAnh> hinhs=null)
         {
             ngay = ngay==null?ServerTimeHelper.getNow():ngay;
             
@@ -241,7 +241,7 @@ namespace QuanLyTaiSan.Entities
                     trans = trans && tmp.update(ngay, true) > 0;
                     id = tmp.id;
                 }
-                //Còn không thì gọi this.add()
+                
                 else
                 {
                     trans = trans && base.add() > 0;

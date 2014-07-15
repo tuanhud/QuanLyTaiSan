@@ -42,6 +42,8 @@ namespace QuanLyTaiSan.Entities
         [Required]
         [ForeignKey("group_id")]
         public virtual Group group { get; set; }
+
+        public virtual ICollection<LogPhong> logphongs { get; set; }
         #endregion
 
         #region Hàm nghiệp vụ
@@ -175,6 +177,11 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        protected override void init()
+        {
+            base.init();
+            logphongs = new List<LogPhong>();
+        }
         public override int update()
         {
             //have to load all [Required] FK object first
