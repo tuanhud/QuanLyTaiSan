@@ -213,5 +213,15 @@ namespace QuanLyTaiSanGUI.Settings
         {
             Global.debug.remove_file();
         }
+
+        private void btnRemoveServerScope_Click(object sender, EventArgs e)
+        {
+            Global.server_database.drop_scope();
+        }
+
+        private void btnRemoveClientScope_Click(object sender, EventArgs e)
+        {
+            Global.client_database.drop_scope();
+        }
     }
 }

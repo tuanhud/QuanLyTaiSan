@@ -79,8 +79,10 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.btnFTPSave = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.checkEdit_debugToFile = new DevExpress.XtraEditors.CheckEdit();
             this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
+            this.checkEdit_debugToFile = new DevExpress.XtraEditors.CheckEdit();
+            this.btnRemoveServerScope = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveClientScope = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -124,12 +126,13 @@
             this.groupControl1.Controls.Add(this.checkEdit_useDBCache);
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(355, 364);
+            this.groupControl1.Size = new System.Drawing.Size(355, 394);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Cấu hình CSDL";
             // 
             // panelControl_Server
             // 
+            this.panelControl_Server.Controls.Add(this.btnRemoveServerScope);
             this.panelControl_Server.Controls.Add(this.checkEdit_ServerWA);
             this.panelControl_Server.Controls.Add(this.simpleButton_cleanUpServerScope);
             this.panelControl_Server.Controls.Add(this.textEdit_ServerDBName);
@@ -255,6 +258,7 @@
             // 
             // panelControl_Cache
             // 
+            this.panelControl_Cache.Controls.Add(this.btnRemoveClientScope);
             this.panelControl_Cache.Controls.Add(this.simpleButton1);
             this.panelControl_Cache.Controls.Add(this.simpleButton_cleanUpClientScope);
             this.panelControl_Cache.Controls.Add(this.labelControl16);
@@ -272,14 +276,14 @@
             this.panelControl_Cache.Enabled = false;
             this.panelControl_Cache.Location = new System.Drawing.Point(6, 197);
             this.panelControl_Cache.Name = "panelControl_Cache";
-            this.panelControl_Cache.Size = new System.Drawing.Size(343, 163);
+            this.panelControl_Cache.Size = new System.Drawing.Size(343, 191);
             this.panelControl_Cache.TabIndex = 17;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(266, 134);
+            this.simpleButton1.Location = new System.Drawing.Point(187, 163);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(72, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(91, 23);
             this.simpleButton1.TabIndex = 125;
             this.simpleButton1.Text = "Start Sync";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -579,14 +583,6 @@
             this.groupControl4.TabIndex = 131;
             this.groupControl4.Text = "Developer";
             // 
-            // checkEdit_debugToFile
-            // 
-            this.checkEdit_debugToFile.Location = new System.Drawing.Point(10, 26);
-            this.checkEdit_debugToFile.Name = "checkEdit_debugToFile";
-            this.checkEdit_debugToFile.Properties.Caption = "Ghi Debug ra file \"debug.txt\"";
-            this.checkEdit_debugToFile.Size = new System.Drawing.Size(167, 19);
-            this.checkEdit_debugToFile.TabIndex = 132;
-            // 
             // btnDebugClear
             // 
             this.btnDebugClear.Location = new System.Drawing.Point(198, 23);
@@ -595,6 +591,32 @@
             this.btnDebugClear.TabIndex = 133;
             this.btnDebugClear.Text = "Clear Debug";
             this.btnDebugClear.Click += new System.EventHandler(this.btnDebugClear_Click);
+            // 
+            // checkEdit_debugToFile
+            // 
+            this.checkEdit_debugToFile.Location = new System.Drawing.Point(10, 26);
+            this.checkEdit_debugToFile.Name = "checkEdit_debugToFile";
+            this.checkEdit_debugToFile.Properties.Caption = "Ghi Debug ra file \"debug.txt\"";
+            this.checkEdit_debugToFile.Size = new System.Drawing.Size(167, 19);
+            this.checkEdit_debugToFile.TabIndex = 132;
+            // 
+            // btnRemoveServerScope
+            // 
+            this.btnRemoveServerScope.Location = new System.Drawing.Point(188, 132);
+            this.btnRemoveServerScope.Name = "btnRemoveServerScope";
+            this.btnRemoveServerScope.Size = new System.Drawing.Size(91, 23);
+            this.btnRemoveServerScope.TabIndex = 111;
+            this.btnRemoveServerScope.Text = "Remove Scope";
+            this.btnRemoveServerScope.Click += new System.EventHandler(this.btnRemoveServerScope_Click);
+            // 
+            // btnRemoveClientScope
+            // 
+            this.btnRemoveClientScope.Location = new System.Drawing.Point(187, 134);
+            this.btnRemoveClientScope.Name = "btnRemoveClientScope";
+            this.btnRemoveClientScope.Size = new System.Drawing.Size(91, 23);
+            this.btnRemoveClientScope.TabIndex = 126;
+            this.btnRemoveClientScope.Text = "Remove Scope";
+            this.btnRemoveClientScope.Click += new System.EventHandler(this.btnRemoveClientScope_Click);
             // 
             // ucCauHinh
             // 
@@ -606,7 +628,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Name = "ucCauHinh";
-            this.Size = new System.Drawing.Size(723, 373);
+            this.Size = new System.Drawing.Size(723, 424);
             this.Load += new System.EventHandler(this.ucCauHinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -705,5 +727,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.CheckEdit checkEdit_debugToFile;
         private DevExpress.XtraEditors.SimpleButton btnDebugClear;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveServerScope;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveClientScope;
     }
 }

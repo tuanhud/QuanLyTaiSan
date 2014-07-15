@@ -168,10 +168,9 @@ namespace QuanLyTaiSan.Entities
         /// Sẽ nhanh hơn nhiều so với getAll
         /// </summary>
         /// <returns></returns>
-        public static IQueryable getQuery()
+        public static IQueryable<T> getQuery()
         {
-            return db.HINHANHS.AsQueryable();
-            //return db.Set<T>();
+            return db.Set<T>().AsQueryable<T>();
         }
         /// <summary>
         /// Sử dụng để đổ DataSource nhanh,
@@ -208,7 +207,7 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                db.Entry((T)this).State = EntityState.Detached;
+                db.Entry((T)this).State = EntityState.Detached;//destroy cached
                 return db.Set<T>().Find(id);
             }
             catch (Exception ex)
@@ -230,6 +229,10 @@ namespace QuanLyTaiSan.Entities
         public void trigger()
         {
             //DO NOT THING, JUST ACTIVATE ENTITY FRAMEWORK TO LOAD
+        }
+        public static List<T> convert(int[] id_array)
+        {
+            return convert(id_array.ToList());
         }
         public static List<T> convert(List<int> id_array)
         {
@@ -259,7 +262,7 @@ namespace QuanLyTaiSan.Entities
         public virtual void onBeforeAdded()
         {
             //time
-            date_create = date_modified = date_create == null ? ServerTimeHelper.getNow() : date_create;
+            date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
         }
     }
 }

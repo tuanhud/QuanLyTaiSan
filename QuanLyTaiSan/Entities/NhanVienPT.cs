@@ -37,7 +37,7 @@ namespace QuanLyTaiSan.Entities
         {
             if (hinhanhs == null || hinhanhs.Count == 0)
             {
-                return HinhAnh.defaultImageURL;
+                return HinhAnh.DEFAULT_IMAGE_URL;
             }
             return hinhanhs.FirstOrDefault().getImageURL();
         }

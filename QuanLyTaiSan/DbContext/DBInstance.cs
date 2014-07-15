@@ -31,7 +31,6 @@ namespace QuanLyTaiSan.Entities
                     }
                 }
                 
-
                 if (!db.Database.Exists())
                 {
                     //DB CONNECTION FAIl

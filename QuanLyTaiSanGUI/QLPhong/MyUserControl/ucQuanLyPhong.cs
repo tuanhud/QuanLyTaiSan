@@ -108,7 +108,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //Xóa hết dữ liệu form thông tin phòng + nhân viên
         private void deleteData()
         {
-            setTextGroupControl("Chi thiết phòng", Color.Empty);
+            setTextGroupControl("Chi tiết phòng", Color.Empty);
             function = "";
             errorProvider1.Clear();
             imgPhong.Images.Clear();
