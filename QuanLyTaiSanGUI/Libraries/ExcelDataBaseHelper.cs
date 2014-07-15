@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.Libraries
 {
     public class ExcelDataBaseHelper
     {
-        public static System.Data.DataTable OpenFile(string fileName)
+        public static System.Data.DataTable OpenFile(String fileName, String sheet)
         {
             //var fullFileName = string.Format("{0}\\{1}", System.IO.Directory.GetCurrentDirectory(), fileName);
             if (!System.IO.File.Exists(fileName))
@@ -17,7 +18,7 @@ namespace QuanLyTaiSanGUI.Libraries
                 return null;
             }
             System.Data.DataTable dt = new System.Data.DataTable();
-            var cmdText = "SELECT * FROM [NhanVienPT$]";
+            var cmdText = String.Format("SELECT * FROM [{0}$]", sheet);
             using (var adapter = new System.Data.OleDb.OleDbDataAdapter(cmdText, GetConnectionString(fileName)))
             {
                 adapter.Fill(dt);
@@ -42,42 +43,40 @@ namespace QuanLyTaiSanGUI.Libraries
             return strConnectionString;
         }
 
-        public static bool ImportNhanVien(string fileName)
+        public static bool ImportNhanVien(String fileName, String sheet)
         {
             try
             {
                 System.Data.DataTable dt = new System.Data.DataTable();
-                dt = OpenFile(fileName);
+                const int STT = 0;
+                const int MANHANVIEN = 1;
+                const int TENNHANVIEN = 2;
+                const int SODIENTHOAI = 3;
+                const int HINHANH = 4;
+                const int PASS = 5;
+                dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
-                    //Ghi file Excel
-                    System.Data.OleDb.OleDbConnection MyConnection;
-                    System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
-                    string sql = null;
-                    MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName));
-                    MyConnection.Open();
-                    myCommand.Connection = MyConnection;
-
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
-                        if (!row[5].Equals("Pass"))
+                        if (!row[PASS].Equals("Pass"))
                         {
-                            if (row[1] != DBNull.Value && row[2] != DBNull.Value)
+                            if (row[MANHANVIEN] != DBNull.Value && row[TENNHANVIEN] != DBNull.Value)
                             {
-                                if (QuanLyTaiSan.Entities.NhanVienPT.getAll().Where(c => c.subId.ToUpper() == row[1].ToString().ToUpper()).FirstOrDefault() == null)
+                                if (NhanVienPT.getAll().FirstOrDefault(c => c.subId.ToUpper() == row[MANHANVIEN].ToString().ToUpper()) == null)
                                 {
                                     try
                                     {
-                                        QuanLyTaiSan.Entities.NhanVienPT obj = new QuanLyTaiSan.Entities.NhanVienPT();
-                                        obj.subId = row[1].ToString();
-                                        obj.hoten = row[2].ToString();
-                                        obj.sodienthoai = row[3].ToString();
-                                        if (row[4] != DBNull.Value)
+                                        NhanVienPT obj = new NhanVienPT();
+                                        obj.subId = row[MANHANVIEN].ToString();
+                                        obj.hoten = row[TENNHANVIEN].ToString();
+                                        obj.sodienthoai = row[SODIENTHOAI].ToString();
+                                        if (row[HINHANH] != DBNull.Value)
                                         {
-                                            String[] file_names = row[3].ToString().Split(',');
+                                            String[] file_names = row[HINHANH].ToString().Split(',');
                                             foreach (String name in file_names)
                                             {
-                                                QuanLyTaiSan.Entities.HinhAnh objHinh = new QuanLyTaiSan.Entities.HinhAnh();
+                                                HinhAnh objHinh = new HinhAnh();
                                                 String file_name = name.TrimStart().TrimEnd();
                                                 String fPath = System.IO.Path.GetDirectoryName(fileName) + "Images\\" + file_name;
                                                 if (System.IO.File.Exists(fPath))
@@ -96,33 +95,24 @@ namespace QuanLyTaiSanGUI.Libraries
                                     }
                                     catch
                                     {
-                                        sql = "Update [NhanVienPT$] set Pass = 'Error' where stt=" + row[0];
-                                        myCommand.CommandText = sql;
-                                        myCommand.ExecuteNonQuery();
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
                                     }
                                     finally
                                     {
-                                        sql = "Update [NhanVienPT$] set Pass = 'Pass' where stt=" + row[0];
-                                        myCommand.CommandText = sql;
-                                        myCommand.ExecuteNonQuery();
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                     }
                                 }
                                 else
                                 {
-                                    sql = "Update [NhanVienPT$] set Pass = 'Exist' where stt=" + row[0];
-                                    myCommand.CommandText = sql;
-                                    myCommand.ExecuteNonQuery();
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
                                 }
                             }
                             else
                             {
-                                sql = "Update [NhanVienPT$] set Pass = 'Error' where stt=" + row[0];
-                                myCommand.CommandText = sql;
-                                myCommand.ExecuteNonQuery();
+                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không đủ thông tin)");
                             }
                         }
                     }
-                    MyConnection.Close();
                 }
                 return true;
             }
@@ -134,6 +124,151 @@ namespace QuanLyTaiSanGUI.Libraries
             finally
             {
             }
+        }
+
+        public static bool ImportViTri(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int COSO = 1;
+                const int DAY = 2;
+                const int TANG = 3;
+                const int MOTA = 4;
+                const int HINHANH = 5;
+                const int PASS = 6;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        if (!row[PASS].Equals("Pass"))
+                        {
+                            if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] != DBNull.Value)
+                            {
+                                CoSo objCoSo = CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().ToUpper()));
+                                if (objCoSo != null)
+                                {
+                                    Dayy objDay = objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().ToUpper()));
+                                    if (objDay != null)
+                                    {
+                                        if (objDay.tangs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[TANG].ToString().ToUpper())) == null)
+                                        {
+                                            Tang obj = new Tang();
+                                            obj.ten = row[TANG].ToString();
+                                            obj.mota = row[MOTA].ToString();
+                                            obj.day = objDay;
+                                            if (obj.add() > 0)
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có dãy)");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có cơ sở)");
+                                }
+
+                            }
+                            else if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] == DBNull.Value)
+                            {
+                                CoSo objCoSo = CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().ToUpper()));
+                                if (objCoSo != null)
+                                {
+                                    if (objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().ToUpper())) == null)
+                                    {
+                                        Dayy obj = new Dayy();
+                                        obj.ten = row[DAY].ToString();
+                                        obj.mota = row[MOTA].ToString();
+                                        obj.coso = objCoSo;
+                                        if (obj.add() > 0)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có cơ sở)");
+                                }
+
+                            }
+                            else if (row[COSO] != DBNull.Value && row[DAY] == DBNull.Value && row[TANG] == DBNull.Value)
+                            {
+                                if (CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().ToUpper())) == null)
+                                {
+                                    CoSo obj = new CoSo();
+                                    obj.ten = row[COSO].ToString();
+                                    obj.mota = row[MOTA].ToString();
+                                    if (obj.add() > 0)
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                    
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                QuanLyTaiSan.Entities.Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
+                return false;
+            }
+            finally
+            {
+            }
+        }
+
+        private static void WriteFile(String fileName, String sheet, String stt, String text)
+        {
+            //Ghi file Excel
+            System.Data.OleDb.OleDbConnection MyConnection;
+            System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+            string sql = null;
+            MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName));
+            MyConnection.Open();
+            myCommand.Connection = MyConnection;
+            sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
+            myCommand.CommandText = sql;
+            myCommand.ExecuteNonQuery();
+            MyConnection.Close();
         }
     }
 }

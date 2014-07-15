@@ -65,6 +65,8 @@
             this.barBtnThemTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTang = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -323,7 +325,8 @@
             this.rbnPageViTri_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupViTri_CoSo,
             this.rbnGroupViTri_Day,
-            this.rbnGroupViTri_Tang});
+            this.rbnGroupViTri_Tang,
+            this.rbnGroupImport});
             this.rbnPageViTri_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
             this.rbnPageViTri_Home.Text = "Vị trí";
@@ -428,6 +431,21 @@
             this.barBtnXoaTang.Name = "barBtnXoaTang";
             this.barBtnXoaTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTang_ItemClick);
             // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Id = 30;
+            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // ribbonViTri
             // 
             this.ribbonViTri.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -442,9 +460,10 @@
             this.barBtnXoaDay,
             this.barBtnThemTang,
             this.barBtnSuaTang,
-            this.barBtnXoaTang});
+            this.barBtnXoaTang,
+            this.barBtnImport});
             this.ribbonViTri.Location = new System.Drawing.Point(0, 0);
-            this.ribbonViTri.MaxItemId = 30;
+            this.ribbonViTri.MaxItemId = 31;
             this.ribbonViTri.Name = "ribbonViTri";
             this.ribbonViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri_Home});
@@ -535,5 +554,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
+        private DevExpress.XtraBars.BarButtonItem barBtnImport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
     }
 }
