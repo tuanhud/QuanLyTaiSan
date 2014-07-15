@@ -54,6 +54,8 @@
             this.barButtonXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -290,9 +292,10 @@
             this.ribbonLoaiTB.ExpandCollapseItem,
             this.barButtonThemLoaiTB,
             this.barButtonSuaLoaiTB,
-            this.barButtonXoaLoaiTB});
+            this.barButtonXoaLoaiTB,
+            this.barBtnImport});
             this.ribbonLoaiTB.Location = new System.Drawing.Point(0, 0);
-            this.ribbonLoaiTB.MaxItemId = 42;
+            this.ribbonLoaiTB.MaxItemId = 43;
             this.ribbonLoaiTB.Name = "ribbonLoaiTB";
             this.ribbonLoaiTB.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageLoaiTB_Home});
@@ -325,7 +328,8 @@
             // rbnPageLoaiTB_Home
             // 
             this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupLoaiTB});
+            this.rbnGroupLoaiTB,
+            this.rbnGroupImport});
             this.rbnPageLoaiTB_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.chair_icon;
             this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
             this.rbnPageLoaiTB_Home.Text = "Loại thiết bị";
@@ -338,6 +342,21 @@
             this.rbnGroupLoaiTB.Name = "rbnGroupLoaiTB";
             this.rbnGroupLoaiTB.ShowCaptionButton = false;
             this.rbnGroupLoaiTB.Text = "Loại thiết bị";
+            // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Id = 42;
+            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
             // ucQuanLyLoaiTB
             // 
@@ -395,5 +414,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
+        private DevExpress.XtraBars.BarButtonItem barBtnImport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
     }
 }
