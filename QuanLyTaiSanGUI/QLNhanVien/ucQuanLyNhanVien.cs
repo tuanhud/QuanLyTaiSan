@@ -521,9 +521,14 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
                 if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportNhanVien(open.FileName))
                 {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
                 }
-                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
 
             }
         }

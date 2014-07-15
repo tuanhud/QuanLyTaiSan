@@ -17,7 +17,7 @@ namespace QuanLyTaiSanGUI.Libraries
                 return null;
             }
             System.Data.DataTable dt = new System.Data.DataTable();
-            var cmdText = "SELECT * FROM [Sheet1$A1:AZ]";
+            var cmdText = "SELECT * FROM [NhanVienPT$]";
             using (var adapter = new System.Data.OleDb.OleDbDataAdapter(cmdText, GetConnectionString(fileName)))
             {
                 adapter.Fill(dt);
@@ -30,13 +30,13 @@ namespace QuanLyTaiSanGUI.Libraries
             var strConnectionString = string.Empty;
             if (System.IO.Path.GetExtension(excelFileName).ToLower() == ".xlsx")
             {
-                strConnectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";", excelFileName);
+                strConnectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;\";", excelFileName);
             }
             else
             {
                 if (System.IO.Path.GetExtension(excelFileName).ToLower() == ".xls")
                 {
-                    strConnectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=YES;IMEX=1\";", excelFileName);
+                    strConnectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=YES;\";", excelFileName);
                 }
             }
             return strConnectionString;
@@ -50,17 +50,79 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName);
                 if (dt != null)
                 {
+                    //Ghi file Excel
+                    System.Data.OleDb.OleDbConnection MyConnection;
+                    System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                    string sql = null;
+                    MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName));
+                    MyConnection.Open();
+                    myCommand.Connection = MyConnection;
+
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
-                        if (!row[1].Equals(""))
+                        if (!row[5].Equals("Pass"))
                         {
-                            QuanLyTaiSan.Entities.NhanVienPT obj = new QuanLyTaiSan.Entities.NhanVienPT();
-                            obj.subId = row[0].ToString();
-                            obj.hoten = row[1].ToString();
-                            obj.sodienthoai = row[2].ToString();
-                            obj.add();
+                            if (row[1] != DBNull.Value && row[2] != DBNull.Value)
+                            {
+                                if (QuanLyTaiSan.Entities.NhanVienPT.getAll().Where(c => c.subId.ToUpper() == row[1].ToString().ToUpper()).FirstOrDefault() == null)
+                                {
+                                    try
+                                    {
+                                        QuanLyTaiSan.Entities.NhanVienPT obj = new QuanLyTaiSan.Entities.NhanVienPT();
+                                        obj.subId = row[1].ToString();
+                                        obj.hoten = row[2].ToString();
+                                        obj.sodienthoai = row[3].ToString();
+                                        if (row[4] != DBNull.Value)
+                                        {
+                                            String[] file_names = row[3].ToString().Split(',');
+                                            foreach (String name in file_names)
+                                            {
+                                                QuanLyTaiSan.Entities.HinhAnh objHinh = new QuanLyTaiSan.Entities.HinhAnh();
+                                                String file_name = name.TrimStart().TrimEnd();
+                                                String fPath = System.IO.Path.GetDirectoryName(fileName) + "Images\\" + file_name;
+                                                if (System.IO.File.Exists(fPath))
+                                                {
+                                                    objHinh.FILE_NAME = file_name;
+                                                    objHinh.IMAGE = (System.Drawing.Bitmap)System.Drawing.Bitmap.FromFile(fPath);
+                                                    objHinh.MAX_SIZE = 400;
+                                                    if (objHinh.upload() > 0)
+                                                    {
+                                                        obj.hinhanhs.Add(objHinh);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        obj.add();
+                                    }
+                                    catch
+                                    {
+                                        sql = "Update [NhanVienPT$] set Pass = 'Error' where stt=" + row[0];
+                                        myCommand.CommandText = sql;
+                                        myCommand.ExecuteNonQuery();
+                                    }
+                                    finally
+                                    {
+                                        sql = "Update [NhanVienPT$] set Pass = 'Pass' where stt=" + row[0];
+                                        myCommand.CommandText = sql;
+                                        myCommand.ExecuteNonQuery();
+                                    }
+                                }
+                                else
+                                {
+                                    sql = "Update [NhanVienPT$] set Pass = 'Exist' where stt=" + row[0];
+                                    myCommand.CommandText = sql;
+                                    myCommand.ExecuteNonQuery();
+                                }
+                            }
+                            else
+                            {
+                                sql = "Update [NhanVienPT$] set Pass = 'Error' where stt=" + row[0];
+                                myCommand.CommandText = sql;
+                                myCommand.ExecuteNonQuery();
+                            }
                         }
                     }
+                    MyConnection.Close();
                 }
                 return true;
             }
