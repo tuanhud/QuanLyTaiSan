@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Entities;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -62,7 +63,7 @@ namespace QuanLyTaiSan.Libraries
                 ftp.KeepAlive = true;
                 ftp.UseBinary = true;
                 ftp.Method = WebRequestMethods.Ftp.UploadFile;
-
+                
                 byte[] bytes = ImageHelper.ImageToByte(image);
                 Stream ftpstream = ftp.GetRequestStream();
                 ftpstream.Write(bytes, 0, bytes.Length);
@@ -71,6 +72,7 @@ namespace QuanLyTaiSan.Libraries
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 return -1;
             }
         }

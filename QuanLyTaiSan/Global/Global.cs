@@ -227,7 +227,10 @@ namespace QuanLyTaiSan.Entities
                 }
             }
 
-            
+            public static int drop_scope()
+            {
+                return DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
+            }
         }
         /// <summary>
         /// Client DB or CACHED DB
@@ -239,6 +242,10 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class client_database
         {
+            public static int drop_scope()
+            {
+                return DatabaseHelper.drop_sync_scope(Global.client_database.get_connection_string(), Global.sync.scope_name);
+            }
             /// <summary>
             /// Xóa SCOPE hiện có (nếu có),
             /// đồng thời FETCH SCOPE từ Server về

@@ -107,6 +107,11 @@ namespace QuanLyTaiSan.Entities
     }
     public class OurDBContext:DbContext
     {
+        public OurDBContext()
+            : base("Default")
+        {
+
+        }
         public OurDBContext(String connection_string="Default", Boolean create_sample_data = true)
             : base(connection_string)
         {

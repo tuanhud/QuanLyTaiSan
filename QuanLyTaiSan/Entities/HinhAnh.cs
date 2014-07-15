@@ -22,7 +22,7 @@ namespace QuanLyTaiSan.Entities
         }
         #region Dinh nghia
         /*
-         * Relative path
+         * Relative path "FILENAME ONLY"
          */
         [StringLength(255)]
         [Required]
@@ -56,7 +56,7 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
-        public static String defaultImageURL
+        public static String DEFAULT_IMAGE_URL
         {
             get
             {
@@ -204,51 +204,6 @@ namespace QuanLyTaiSan.Entities
         public Bitmap getImage()
         {
             return IMAGE;
-       }
-
-        public List<HinhAnh> getAllBy6Id(int id1, int id2, int id3, int id4, int id5, int id6)
-        {
-            //MyDB db = new MyDB();
-            List<HinhAnh> re =
-                (from c in db.HINHANHS
-                 where ((id1 == -1 || c.coso.id == id1) && (id2 == -1 || c.day.id == id2) && (id3 == -1 || c.tang.id == id3) 
-                 && (id4 == -1 || c.phong.id == id4) && (id5 == -1 || c.thietbi.id == id5) && (id6 == -1 || c.nhanvienpt.id == id6))
-                 select new HinhAnh
-                 {
-                    id = c.id,
-                    path = c.path
-                 }).ToList();
-            return re;
-		}
-        /// <summary>
-        /// Tự động tìm trên Table HinhAnh và xóa những hình không hợp lệ,
-        /// Tự động xóa các hình không cần thiết trên Server FTP,
-        /// vd: (tất cả mọi trường khóa ngoại đều null, hoặc tên hình bị rỗng,...)
-        /// </summary>
-        public void validate()
-        {
-            //Xoa hinh tren FTP Server neu ton tai
-            //String abs_path =
-            //    Global.remote_setting.ftp_host.HOST_NAME +
-            //    Global.remote_setting.ftp_host.PRE_PATH +
-            //    this.path;
-            //FTPHelper.deleteFile(abs_path, Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD);
-            
-            List<HinhAnh> re = db.HINHANHS.Where(
-                c =>
-                    (c.phong.id == null
-                    && c.tang.id == null
-                    && c.nhanvienpt.id == null
-                    && c.thietbi.id == null
-                    && c.coso.id == null
-                    && c.day.id == null
-                    )
-                    || c.path==""
-                    ).ToList();
-            foreach (HinhAnh item in re)
-            {
-                item.delete();
-            }
         }
 
         /// <summary>
@@ -256,83 +211,50 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static List<HinhAnh> getAllHinhAnhDangDung()
         {
-            //MyDB db = new MyDB();
-            //List<HinhAnh> re = db.HINHANHS.Where(c => (c.coso.id != null) || (c.day.id != null) || (c.tang.id != null)
-            //     || (c.phong.id != null) || (c.thietbi.id != null) || (c.nhanvienpt.id != null)).ToList().GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
             return db.HINHANHS.Where(c=>c.path!=null).GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
-            //return re;
         }
         /// <summary>
         /// Kiểm tra this.path (sau khi chạy qua hàm lọc tên) đã có trong CSDL hay chưa
-        /// </summary>
-        /// <param name="ghide"></param>
-        /// <returns></returns>
-        private Boolean canBeSaved(Boolean ghide=false)
-        {
-            //Kiem tra trong CSDL co hinh trung ten
-            HinhAnh tmp2 = db.HINHANHS.FirstOrDefault(c => c.path == path);
-            if (tmp2 == null)
-            {
 
-            }
-            else if (ghide)
-            {
-
-            }
-            else
-            {
-                return false;
-            }
-            return true;
-        }
         /// <summary>
         /// Set IMAGE (Bitmap), MAX_SIZE (pixel), FILE_NAME (Tên File nguyên thủy), FK Object(COSO hay PHONG hay ...) truoc
         /// </summary>
-        /// <returns></returns>
+        /// <returns>-5: IMAGE, FILE_NAME FAIL, </returns>
         public int upload(Boolean ghide=false)
         {
-            Bitmap tmp = image;
+            if (image == null || file_name.Equals(""))
+            {
+                return -5;
+            }
             //resize hinh neu co
             if (max_size > 0)
             {
-                tmp = ImageHelper.ScaleBySize(image,max_size);
-                image = tmp;//for sure
+                image = ImageHelper.ScaleBySize(image,max_size);
             }
-            //tao duong dan upload len FTP
-            //String relative_path = ServerTimeHelper.getNow().ToString("yyyy-MM-dd_HH-mm-ss")+"_"+
-            //StringHelper.CoDauThanhKhongDau(file_name) +".JPEG";//Always JPEG
+            
             String relative_path = StringHelper.CoDauThanhKhongDau(file_name) + ".JPEG";
             this.path = relative_path;
-            //Kiểm tra trùng tên hình, không cho upload
-            if (!canBeSaved())
+            //Kiểm tra trùng tên hình, không cho upload nữa nếu CHƯA BẬT GHI ĐÈ
+            if (!ghide && db.HINHANHS.Where(c=>c.path.ToUpper().Equals(this.path.ToUpper()))!=null)
             {
-                return -5;
+                return 1;
             }
             
             //prepare upload
             String abs_path =
                 Global.remote_setting.ftp_host.getCombinedPath(this.path);
-                
+
             //upload hinh va insert vao CSDL
-            FTPHelper.uploadImage(
-                tmp,
+            return FTPHelper.uploadImage(
+                image,
                 abs_path,
                 Global.remote_setting.ftp_host.USER_NAME,
                 Global.remote_setting.ftp_host.PASS_WORD
-                );
-            
-            //finish
-            image = tmp;
-            return 1;
+            );
         }
         #endregion
 
         #region Override method
-        protected override void init()
-        {
-            base.init();
-        }
-        
         public override int update()
         {
             //have to load all [Required] FK object first
@@ -364,24 +286,6 @@ namespace QuanLyTaiSan.Entities
             //...
             return base.update();
         }
-
-        public HinhAnh getByName(String _name)
-        {
-            try
-            {
-                return db.Set<HinhAnh>().Where(c => c.file_name == _name).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-                return null;
-            }
-            finally
-            {
-
-            }
-        }
-
         #endregion
     }
 }

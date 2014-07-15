@@ -1,4 +1,5 @@
 ﻿using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace QuanLyTaiSanGUI
         public Test()
         {
             InitializeComponent();
+
+            ServerTimeHelper.sync_datetime();
         }
     }
 }
