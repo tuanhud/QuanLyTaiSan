@@ -53,6 +53,14 @@ namespace QuanLyTaiSan.Entities
         public int? thietbi_id { get; set; }
         [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
+
+        public int? logphong_id { get; set; }
+        [ForeignKey("logphong_id")]
+        public virtual LogPhong logphong { get; set; }
+
+        public int? logthietbi_id { get; set; }
+        [ForeignKey("logthietbi_id")]
+        public virtual LogThietBi logthietbi { get; set; }
         #endregion
 
         #region Nghiệp vụ

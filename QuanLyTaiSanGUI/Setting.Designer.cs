@@ -105,6 +105,7 @@
             this.btnGiaoDienvaNgonNgu.Size = new System.Drawing.Size(145, 23);
             this.btnGiaoDienvaNgonNgu.TabIndex = 5;
             this.btnGiaoDienvaNgonNgu.Text = "Giao diện và ngôn ngữ";
+            this.btnGiaoDienvaNgonNgu.Click += new System.EventHandler(this.btnGiaoDienvaNgonNgu_Click);
             // 
             // btnCauHinh
             // 

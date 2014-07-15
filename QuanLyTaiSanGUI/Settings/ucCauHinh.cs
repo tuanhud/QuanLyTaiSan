@@ -146,31 +146,48 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void simpleButton_validateServer_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tạo dữ liệu...");
             Global.server_database.prepare_db_structure();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void simpleButton_validateClient_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tạo dữ liệu...");
             Global.client_database.prepare_db_structure();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ...");
             Global.client_database.start_sync();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void simpleButton_cleanUpServerScope_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Client Up Scrope Server...");
             Global.server_database.clean_up_scope();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void simpleButton_cleanUpClientScope_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Client Up Scrope Client...");
             Global.client_database.clean_up_scope();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void btnFTPSave_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang cập nhật...");
             /*
              * REMOTE SETTING
              */
@@ -201,7 +218,7 @@ namespace QuanLyTaiSanGUI.Settings
             Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
 
             Global.remote_setting.http_host.save();
-
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void ucCauHinh_Load(object sender, EventArgs e)

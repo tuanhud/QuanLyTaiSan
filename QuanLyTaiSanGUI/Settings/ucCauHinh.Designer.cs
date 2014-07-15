@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucCauHinh));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl_Server = new DevExpress.XtraEditors.PanelControl();
+            this.btnRemoveServerScope = new DevExpress.XtraEditors.SimpleButton();
             this.checkEdit_ServerWA = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton_cleanUpServerScope = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit_ServerDBName = new DevExpress.XtraEditors.TextEdit();
@@ -44,6 +46,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl_Cache = new DevExpress.XtraEditors.PanelControl();
+            this.btnRemoveClientScope = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_cleanUpClientScope = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
@@ -81,8 +84,6 @@
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
             this.checkEdit_debugToFile = new DevExpress.XtraEditors.CheckEdit();
-            this.btnRemoveServerScope = new DevExpress.XtraEditors.SimpleButton();
-            this.btnRemoveClientScope = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -121,6 +122,9 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.panelControl_Server);
             this.groupControl1.Controls.Add(this.panelControl_Cache);
             this.groupControl1.Controls.Add(this.checkEdit_useDBCache);
@@ -128,10 +132,12 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(355, 394);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Cấu hình CSDL";
+            this.groupControl1.Text = "Cấu hình Cơ sở dữ liệu";
             // 
             // panelControl_Server
             // 
+            this.panelControl_Server.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl_Server.Controls.Add(this.btnRemoveServerScope);
             this.panelControl_Server.Controls.Add(this.checkEdit_ServerWA);
             this.panelControl_Server.Controls.Add(this.simpleButton_cleanUpServerScope);
@@ -151,6 +157,16 @@
             this.panelControl_Server.Size = new System.Drawing.Size(343, 167);
             this.panelControl_Server.TabIndex = 18;
             // 
+            // btnRemoveServerScope
+            // 
+            this.btnRemoveServerScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveServerScope.Image")));
+            this.btnRemoveServerScope.Location = new System.Drawing.Point(238, 133);
+            this.btnRemoveServerScope.Name = "btnRemoveServerScope";
+            this.btnRemoveServerScope.Size = new System.Drawing.Size(91, 23);
+            this.btnRemoveServerScope.TabIndex = 111;
+            this.btnRemoveServerScope.Text = "Xóa Scope";
+            this.btnRemoveServerScope.Click += new System.EventHandler(this.btnRemoveServerScope_Click);
+            // 
             // checkEdit_ServerWA
             // 
             this.checkEdit_ServerWA.Location = new System.Drawing.Point(2, 28);
@@ -162,9 +178,10 @@
             // 
             // simpleButton_cleanUpServerScope
             // 
-            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(88, 132);
+            this.simpleButton_cleanUpServerScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpServerScope.Image")));
+            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(130, 133);
             this.simpleButton_cleanUpServerScope.Name = "simpleButton_cleanUpServerScope";
-            this.simpleButton_cleanUpServerScope.Size = new System.Drawing.Size(94, 24);
+            this.simpleButton_cleanUpServerScope.Size = new System.Drawing.Size(102, 24);
             this.simpleButton_cleanUpServerScope.TabIndex = 110;
             this.simpleButton_cleanUpServerScope.Text = "Clean Up Scope";
             this.simpleButton_cleanUpServerScope.Click += new System.EventHandler(this.simpleButton_cleanUpServerScope_Click);
@@ -194,11 +211,12 @@
             // 
             // simpleButton_validateServer
             // 
+            this.simpleButton_validateServer.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateServer.Image")));
             this.simpleButton_validateServer.Location = new System.Drawing.Point(5, 133);
             this.simpleButton_validateServer.Name = "simpleButton_validateServer";
-            this.simpleButton_validateServer.Size = new System.Drawing.Size(77, 23);
+            this.simpleButton_validateServer.Size = new System.Drawing.Size(119, 23);
             this.simpleButton_validateServer.TabIndex = 105;
-            this.simpleButton_validateServer.Text = "Validate DB";
+            this.simpleButton_validateServer.Text = "Tạo dữ liệu Server";
             this.simpleButton_validateServer.Click += new System.EventHandler(this.simpleButton_validateServer_Click);
             // 
             // txtPasswordDatabase
@@ -258,6 +276,8 @@
             // 
             // panelControl_Cache
             // 
+            this.panelControl_Cache.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl_Cache.Controls.Add(this.btnRemoveClientScope);
             this.panelControl_Cache.Controls.Add(this.simpleButton1);
             this.panelControl_Cache.Controls.Add(this.simpleButton_cleanUpClientScope);
@@ -279,20 +299,32 @@
             this.panelControl_Cache.Size = new System.Drawing.Size(343, 191);
             this.panelControl_Cache.TabIndex = 17;
             // 
+            // btnRemoveClientScope
+            // 
+            this.btnRemoveClientScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveClientScope.Image")));
+            this.btnRemoveClientScope.Location = new System.Drawing.Point(238, 134);
+            this.btnRemoveClientScope.Name = "btnRemoveClientScope";
+            this.btnRemoveClientScope.Size = new System.Drawing.Size(91, 23);
+            this.btnRemoveClientScope.TabIndex = 126;
+            this.btnRemoveClientScope.Text = "Xóa Scope";
+            this.btnRemoveClientScope.Click += new System.EventHandler(this.btnRemoveClientScope_Click);
+            // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(187, 163);
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(130, 163);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(91, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(199, 23);
             this.simpleButton1.TabIndex = 125;
-            this.simpleButton1.Text = "Start Sync";
+            this.simpleButton1.Text = "Đồng bộ hóa dữ liệu";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton_cleanUpClientScope
             // 
-            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(88, 134);
+            this.simpleButton_cleanUpClientScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpClientScope.Image")));
+            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(130, 134);
             this.simpleButton_cleanUpClientScope.Name = "simpleButton_cleanUpClientScope";
-            this.simpleButton_cleanUpClientScope.Size = new System.Drawing.Size(94, 23);
+            this.simpleButton_cleanUpClientScope.Size = new System.Drawing.Size(103, 23);
             this.simpleButton_cleanUpClientScope.TabIndex = 120;
             this.simpleButton_cleanUpClientScope.Text = "Clean Up Scope";
             this.simpleButton_cleanUpClientScope.Click += new System.EventHandler(this.simpleButton_cleanUpClientScope_Click);
@@ -301,9 +333,9 @@
             // 
             this.labelControl16.Location = new System.Drawing.Point(5, 7);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(65, 13);
+            this.labelControl16.Size = new System.Drawing.Size(62, 13);
             this.labelControl16.TabIndex = 6;
-            this.labelControl16.Text = "Địa chỉ Cache";
+            this.labelControl16.Text = "Địa chỉ Client";
             // 
             // checkEdit_CacheWA
             // 
@@ -316,11 +348,12 @@
             // 
             // simpleButton_validateClient
             // 
+            this.simpleButton_validateClient.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateClient.Image")));
             this.simpleButton_validateClient.Location = new System.Drawing.Point(5, 134);
             this.simpleButton_validateClient.Name = "simpleButton_validateClient";
-            this.simpleButton_validateClient.Size = new System.Drawing.Size(77, 23);
+            this.simpleButton_validateClient.Size = new System.Drawing.Size(119, 23);
             this.simpleButton_validateClient.TabIndex = 115;
-            this.simpleButton_validateClient.Text = "Validate DB";
+            this.simpleButton_validateClient.Text = "Tạo dữ liệu Client";
             this.simpleButton_validateClient.Click += new System.EventHandler(this.simpleButton_validateClient_Click);
             // 
             // labelControl15
@@ -395,15 +428,17 @@
             // 
             // checkEdit_useDBCache
             // 
-            this.checkEdit_useDBCache.Location = new System.Drawing.Point(227, 1);
+            this.checkEdit_useDBCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkEdit_useDBCache.Location = new System.Drawing.Point(193, 1);
             this.checkEdit_useDBCache.Name = "checkEdit_useDBCache";
-            this.checkEdit_useDBCache.Properties.Caption = "Sử dụng CSDL Cache";
-            this.checkEdit_useDBCache.Size = new System.Drawing.Size(122, 19);
+            this.checkEdit_useDBCache.Properties.Caption = "Sử dụng Cơ sở dữ liệu Client";
+            this.checkEdit_useDBCache.Size = new System.Drawing.Size(159, 19);
             this.checkEdit_useDBCache.TabIndex = 1;
             this.checkEdit_useDBCache.CheckedChanged += new System.EventHandler(this.checkEdit_useDBCache_CheckedChanged);
             // 
             // groupControl2
             // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.txtPrepathFTP);
             this.groupControl2.Controls.Add(this.labelControl17);
             this.groupControl2.Controls.Add(this.txtPortFTP);
@@ -504,6 +539,7 @@
             // 
             // groupControl3
             // 
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl3.Controls.Add(this.txtPortHTTP);
             this.groupControl3.Controls.Add(this.txtPrepathHTTP);
             this.groupControl3.Controls.Add(this.txtAddressHTTP);
@@ -514,7 +550,7 @@
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(355, 88);
             this.groupControl3.TabIndex = 0;
-            this.groupControl3.Text = "Cấu hình HTTP [Lấy hình ảnh từ sever]";
+            this.groupControl3.Text = "Cấu hình HTTP [Lấy hình ảnh từ server]";
             // 
             // txtPortHTTP
             // 
@@ -544,9 +580,9 @@
             // 
             this.labelControl10.Location = new System.Drawing.Point(17, 62);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(38, 13);
+            this.labelControl10.Size = new System.Drawing.Size(54, 13);
             this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "Prepath";
+            this.labelControl10.Text = "Đường dẫn";
             // 
             // labelControl11
             // 
@@ -566,57 +602,43 @@
             // 
             // btnFTPSave
             // 
-            this.btnFTPSave.Location = new System.Drawing.Point(551, 235);
+            this.btnFTPSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFTPSave.Image = ((System.Drawing.Image)(resources.GetObject("btnFTPSave.Image")));
+            this.btnFTPSave.Location = new System.Drawing.Point(538, 235);
             this.btnFTPSave.Name = "btnFTPSave";
-            this.btnFTPSave.Size = new System.Drawing.Size(166, 23);
+            this.btnFTPSave.Size = new System.Drawing.Size(179, 23);
             this.btnFTPSave.TabIndex = 130;
             this.btnFTPSave.Text = "Cập nhật cấu hình FTP và HTTP";
             this.btnFTPSave.Click += new System.EventHandler(this.btnFTPSave_Click);
             // 
             // groupControl4
             // 
+            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl4.Controls.Add(this.btnDebugClear);
             this.groupControl4.Controls.Add(this.checkEdit_debugToFile);
             this.groupControl4.Location = new System.Drawing.Point(362, 267);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(355, 100);
             this.groupControl4.TabIndex = 131;
-            this.groupControl4.Text = "Developer";
+            this.groupControl4.Text = "Dành cho nhà phát triển";
             // 
             // btnDebugClear
             // 
-            this.btnDebugClear.Location = new System.Drawing.Point(198, 23);
+            this.btnDebugClear.Image = ((System.Drawing.Image)(resources.GetObject("btnDebugClear.Image")));
+            this.btnDebugClear.Location = new System.Drawing.Point(266, 67);
             this.btnDebugClear.Name = "btnDebugClear";
-            this.btnDebugClear.Size = new System.Drawing.Size(69, 23);
+            this.btnDebugClear.Size = new System.Drawing.Size(84, 23);
             this.btnDebugClear.TabIndex = 133;
-            this.btnDebugClear.Text = "Clear Debug";
+            this.btnDebugClear.Text = "Xóa Debug";
             this.btnDebugClear.Click += new System.EventHandler(this.btnDebugClear_Click);
             // 
             // checkEdit_debugToFile
             // 
             this.checkEdit_debugToFile.Location = new System.Drawing.Point(10, 26);
             this.checkEdit_debugToFile.Name = "checkEdit_debugToFile";
-            this.checkEdit_debugToFile.Properties.Caption = "Ghi Debug ra file \"debug.txt\"";
+            this.checkEdit_debugToFile.Properties.Caption = "Ghi lỗi ra file \"debug.txt\"";
             this.checkEdit_debugToFile.Size = new System.Drawing.Size(167, 19);
             this.checkEdit_debugToFile.TabIndex = 132;
-            // 
-            // btnRemoveServerScope
-            // 
-            this.btnRemoveServerScope.Location = new System.Drawing.Point(188, 132);
-            this.btnRemoveServerScope.Name = "btnRemoveServerScope";
-            this.btnRemoveServerScope.Size = new System.Drawing.Size(91, 23);
-            this.btnRemoveServerScope.TabIndex = 111;
-            this.btnRemoveServerScope.Text = "Remove Scope";
-            this.btnRemoveServerScope.Click += new System.EventHandler(this.btnRemoveServerScope_Click);
-            // 
-            // btnRemoveClientScope
-            // 
-            this.btnRemoveClientScope.Location = new System.Drawing.Point(187, 134);
-            this.btnRemoveClientScope.Name = "btnRemoveClientScope";
-            this.btnRemoveClientScope.Size = new System.Drawing.Size(91, 23);
-            this.btnRemoveClientScope.TabIndex = 126;
-            this.btnRemoveClientScope.Text = "Remove Scope";
-            this.btnRemoveClientScope.Click += new System.EventHandler(this.btnRemoveClientScope_Click);
             // 
             // ucCauHinh
             // 
@@ -627,8 +649,9 @@
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.MinimumSize = new System.Drawing.Size(732, 411);
             this.Name = "ucCauHinh";
-            this.Size = new System.Drawing.Size(723, 424);
+            this.Size = new System.Drawing.Size(732, 411);
             this.Load += new System.EventHandler(this.ucCauHinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

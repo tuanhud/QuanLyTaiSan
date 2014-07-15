@@ -12,10 +12,11 @@ namespace QuanLyTaiSan.Entities
     /*
      * Log thiet bi, phuc vu thong ke
      */
-    [Table("LOGTHIETBIS")]
-    public class LogThietBi : _EntityAbstract1<LogThietBi>
+    [Table("LOGPHONGS")]
+    public class LogPhong : _EntityAbstract1<LogPhong>
     {
-        public LogThietBi():base()
+        public LogPhong()
+            : base()
         {
 
         }
@@ -24,18 +25,9 @@ namespace QuanLyTaiSan.Entities
         [Required]
         public DateTime ngay { get; set; }
 
-        [Required]
-        [Index("nothing", 5, IsUnique = true)]
-        public int soluong { get; set; }
-
         /*
          * FK
          */
-        public int thietbi_id { get; set; }
-        [Index("nothing", 2,IsUnique=true)]
-        [Required]
-        [ForeignKey("thietbi_id")]
-        public virtual ThietBi thietbi { get; set; }
 
         public int tinhtrang_id { get; set; }
         [Index("nothing", 3, IsUnique = true)]
@@ -50,7 +42,7 @@ namespace QuanLyTaiSan.Entities
         public virtual Phong phong { get; set; }
 
         public int? quantrivien_id { get; set; }
-        [Index("nothing", 6, IsUnique = true)]
+        [Index("nothing", 2, IsUnique = true)]
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
 
@@ -61,10 +53,6 @@ namespace QuanLyTaiSan.Entities
         public override int update()
         {
             //have to load all [Required] FK object first
-            if (thietbi != null)
-            {
-                thietbi.trigger();
-            }
             if (tinhtrang != null)
             {
                 tinhtrang.trigger();

@@ -5,6 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Libraries;
+using DevExpress.Skins.Info;
+using DevExpress.UserSkins;
+using DevExpress.Skins;
+using DevExpress.XtraSplashScreen;
 
 namespace QuanLyTaiSanGUI
 {
@@ -16,20 +20,22 @@ namespace QuanLyTaiSanGUI
         [STAThread]
         static void Main()
         {
+            BonusSkins.Register();
             Application.EnableVisualStyles();
             UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
-            DevExpress.Skins.SkinManager.EnableFormSkins();
+            SkinManager.EnableFormSkins();
+            
             Application.SetCompatibleTextRenderingDefault(false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly); // dx
-
+            SplashScreenManager.RegisterUserSkins(typeof(BonusSkins).Assembly);
+            SkinManager.Default.RegisterSkin(new SkinBlobXmlCreator(UserLookAndFeel.Default.SkinName, "SkinData.", typeof(BonusSkins).Assembly, null));
 
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
-            //Application.Run(new frmMain());
+            Application.Run(new frmMain());
             //Application.Run(new Test());
             //Application.Run(new QuanLyTaiSanGUI.MyForm.frmNewThietBi());
-            Application.Run(new Setting());
+            //Application.Run(new Setting());
             //Application.Run(new SplashScreen1());
         }
     }
