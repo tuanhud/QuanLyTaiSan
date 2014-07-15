@@ -16,7 +16,7 @@ namespace QuanLyTaiSan.Libraries
 
         public static string Default()
         {
-            return Office_2010_Blue;
+            return Office_2007_Blue;
         }
 
         public static string Caramel = "Caramel";
@@ -54,5 +54,7 @@ namespace QuanLyTaiSan.Libraries
         public static string Office_2010_Blue = "Office 2010 Blue";
         public static string Office_2010_Black = "Office 2010 Black";
         public static string Office_2010_Silver = "Office 2010 Silver";
+        public static string Office_2013_Light_Gray = "Office 2013 Light Gray";
+        public static string Office_2013_Dark_Gray = "Office 2013 Dark Gray";
     }
 }

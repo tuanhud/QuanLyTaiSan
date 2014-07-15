@@ -16,11 +16,13 @@ namespace QuanLyTaiSanGUI
         [STAThread]
         static void Main()
         {
+            DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
             UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
             DevExpress.Skins.SkinManager.EnableFormSkins();
+            
             Application.SetCompatibleTextRenderingDefault(false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly); // dx
+            DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly);
 
 
             //Application.Run(new Form1());

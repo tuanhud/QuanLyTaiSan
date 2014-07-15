@@ -335,6 +335,12 @@
     <Compile Include="Settings\ucCauHinh.Designer.cs">
       <DependentUpon>ucCauHinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\ucGiaoDienvaNgonNgu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucGiaoDienvaNgonNgu.Designer.cs">
+      <DependentUpon>ucGiaoDienvaNgonNgu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\ucThongTinPhanMem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -484,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\ucCauHinh.resx">
       <DependentUpon>ucCauHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucGiaoDienvaNgonNgu.resx">
+      <DependentUpon>ucGiaoDienvaNgonNgu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\ucThongTinPhanMem.resx">
       <DependentUpon>ucThongTinPhanMem.cs</DependentUpon>

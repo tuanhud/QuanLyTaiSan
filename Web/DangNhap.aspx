@@ -64,7 +64,7 @@
             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Mật khẩu" TextMode="Password" required="true"></asp:TextBox>
             <div class="checkbox">
                 <label>
-                    <asp:CheckBox ID="cbRemember" value="remember-me" runat="server" Checked="true" />
+                    <asp:CheckBox ID="cbRemember" value="remember-me" runat="server" />
                     Nhớ đăng nhập lần sau
                 </label>
             </div>

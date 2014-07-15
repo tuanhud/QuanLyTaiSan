@@ -27,6 +27,7 @@ using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraTreeList.Localization;
 using DevExpress.XtraEditors.Controls;
 using QuanLyTaiSan.Libraries;
+using QuanLyTaiSanGUI.Settings;
 
 namespace QuanLyTaiSanGUI
 {
@@ -42,6 +43,12 @@ namespace QuanLyTaiSanGUI
         ucQuanLyThietBi _ucQuanLyThietBi = null;
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
+
+        ucCauHinh _ucCauHinh = null;
+        ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
+        
+        ucThongTinPhanMem _ucThongTinPhanMem = null;
+
         bool drawEnd = false;
         bool open = false;
         public frmMain()
@@ -270,6 +277,32 @@ namespace QuanLyTaiSanGUI
             }
             finally
             { }
+        }
+
+        private void backstageViewTabItemCauHinh_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            _ucCauHinh = new ucCauHinh();
+            _ucCauHinh.Dock = DockStyle.Fill;
+            backstageViewClientControlCauHinh.Controls.Add(_ucCauHinh);
+        }
+
+        private void backstageViewTabItemGiaoDienvaNgonNgu_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
+            _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
+            backstageViewClientControlGiaoDienvaNgonNgu.Controls.Add(_ucGiaoDienvaNgonNgu);
+        }
+
+        private void backstageViewTabItemCapNhatPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+
+        }
+
+        private void backstageViewTabItemThongTinPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            _ucThongTinPhanMem = new ucThongTinPhanMem();
+            _ucThongTinPhanMem.Dock = DockStyle.Fill;
+            backstageViewClientControlThongTinPhanMem.Controls.Add(_ucThongTinPhanMem);
         }
     }
 }

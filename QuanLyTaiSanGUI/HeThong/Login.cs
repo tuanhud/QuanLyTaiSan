@@ -88,11 +88,10 @@ namespace QuanLyTaiSanGUI.HeThong
         #region SHOW FRM MAIN IN NEW THREAD
         private void ThreadProc()
         {
+            DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
             UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
-            DevExpress.Skins.SkinManager.EnableFormSkins();
-            Application.SetCompatibleTextRenderingDefault(false);
-            
+            DevExpress.Skins.SkinManager.EnableFormSkins();            
 
             Application.Run(new frmMain());
         }

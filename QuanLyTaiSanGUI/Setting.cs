@@ -25,6 +25,7 @@ namespace QuanLyTaiSanGUI
 
         private ucCauHinh _ucCauHinh = null;
         private ucThongTinPhanMem _ucThongTinPhanMem = null;
+        private ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
         public Setting()
         {
             InitializeComponent();
@@ -123,10 +124,10 @@ namespace QuanLyTaiSanGUI
         #region show from login in new thread
         private void ThreadProc()
         {
+            DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
             UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
             DevExpress.Skins.SkinManager.EnableFormSkins();
-            Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new Login());
         }
@@ -146,6 +147,14 @@ namespace QuanLyTaiSanGUI
             panelControlHienThiCauHinh.Controls.Clear();
             _ucThongTinPhanMem.Dock = DockStyle.Fill;
             panelControlHienThiCauHinh.Controls.Add(_ucThongTinPhanMem);
+        }
+
+        private void btnGiaoDienvaNgonNgu_Click(object sender, EventArgs e)
+        {
+            _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
+            panelControlHienThiCauHinh.Controls.Clear();
+            _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
+            panelControlHienThiCauHinh.Controls.Add(_ucGiaoDienvaNgonNgu);
         }
     }
 }
