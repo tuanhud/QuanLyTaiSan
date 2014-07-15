@@ -592,6 +592,7 @@
     <None Include="Resources\add1.png" />
     <None Include="Resources\add2.png" />
     <None Include="Resources\import-icon.png" />
+    <None Include="Resources\backgroundthongtinphanmem.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <Content Include="Resources\thietbi.png" />

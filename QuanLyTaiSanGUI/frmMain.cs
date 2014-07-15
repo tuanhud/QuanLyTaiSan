@@ -104,6 +104,7 @@ namespace QuanLyTaiSanGUI
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
+            ThongTinPhanMem();
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -299,6 +300,16 @@ namespace QuanLyTaiSanGUI
         }
 
         private void backstageViewTabItemThongTinPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            //ThongTinPhanMem();
+        }
+
+        private void backstageViewControl1_Hidden(object sender, EventArgs e)
+        {
+            backstageViewTabItemThongTinPhanMem.Selected = true;
+        }
+
+        private void ThongTinPhanMem()
         {
             _ucThongTinPhanMem = new ucThongTinPhanMem();
             _ucThongTinPhanMem.Dock = DockStyle.Fill;
