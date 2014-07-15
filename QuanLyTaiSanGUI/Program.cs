@@ -17,7 +17,7 @@ namespace QuanLyTaiSanGUI
         static void Main()
         {
             Application.EnableVisualStyles();
-            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Office_2010_Blue());
+            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
             DevExpress.Skins.SkinManager.EnableFormSkins();
             Application.SetCompatibleTextRenderingDefault(false);
             DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly); // dx
