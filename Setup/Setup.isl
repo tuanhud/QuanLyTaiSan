@@ -341,41 +341,8 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>DevExpress.BonusSkins.v13.2.dll</td><td>{792F946F-7DA4-44AF-B298-BB4C46EB8D7A}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.bonusskins.v13.2.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.Data.v13.2.dll</td><td>{CAF87F9B-2798-4567-86A7-0AE8E9890AF5}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.data.v13.2.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.Office.v13.2.Core.dll</td><td>{87873885-17F4-408E-B736-7BC8C3024B95}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.office.v13.2.core</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.PivotGrid.v13.2.Core.dll</td><td>{37D98655-0D7D-4441-A92A-F471CBBC7104}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.pivotgrid.v13.2.c</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.Printing.v13.2.Core.dll</td><td>{B57A9FF0-3A1A-4C7A-B4A0-2A418EAC115F}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.printing.v13.2.co</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.RichEdit.v13.2.Core.dll</td><td>{F2CCA537-434B-4A1B-B397-B290ACD16570}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.richedit.v13.2.co</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.Sparkline.v13.2.Core.dll</td><td>{C3EF9B39-3189-4ECD-A63B-0BD6AD387591}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.sparkline.v13.2.c</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.Utils.v13.2.UI.dll</td><td>{C43FB325-070A-435E-84A4-942AAB8E0E7D}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.utils.v13.2.ui.dl</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.Utils.v13.2.dll</td><td>{7A7875DD-E34E-4F19-8FDD-450FB3E5C61E}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.utils.v13.2.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraBars.v13.2.dll</td><td>{446F942A-04F0-4B22-9E2E-CA684F8C9B64}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtrabars.v13.2.dl</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraEditors.v13.2.dll</td><td>{B52F06C2-AE2E-41D1-845D-F168A0595D56}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtraeditors.v13.2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraGrid.v13.2.dll</td><td>{90FEE3D4-443C-4D11-9002-F9D6DC49830C}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtragrid.v13.2.dl</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraLayout.v13.2.dll</td><td>{8393C4B8-7348-4873-A2AD-2AE031C3F3B2}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtralayout.v13.2.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraNavBar.v13.2.dll</td><td>{04D00039-323F-49DE-8107-0468DD4C7707}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtranavbar.v13.2.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraPivotGrid.v13.2.dll</td><td>{69E709B9-5902-4DC4-82FF-25B41DFBA54E}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtrapivotgrid.v13</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraPrinting.v13.2.dll</td><td>{1158B8B5-9EB0-46B2-9AF8-0FE057E64FF3}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtraprinting.v13.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraRichEdit.v13.2.dll</td><td>{C85AC022-9D8B-4063-BDDC-8E70A199E221}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtrarichedit.v13.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraScheduler.v13.2.Core.dll</td><td>{707E4AB5-A847-4382-8231-3C73C825C93A}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtrascheduler.v13</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraScheduler.v13.2.dll</td><td>{7A807452-178F-4DC8-910B-6C0C5C957F2E}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtrascheduler.v131</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraTreeList.v13.2.dll</td><td>{D3829D3A-A97D-4E7C-8E34-6249EE0DC5F3}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtratreelist.v13.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DevExpress.XtraVerticalGrid.v13.2.dll</td><td>{D88C3D99-3A76-4D3C-90CA-0E3DFDA0E424}</td><td>DEVEXPRESS</td><td>2</td><td/><td>devexpress.xtraverticalgrid.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>EntityFramework.SqlServer.dll</td><td>{E9E3015A-998C-4C21-BB7B-357E8E6F5759}</td><td>ENTITYFRAMEWORK</td><td>2</td><td/><td>entityframework.sqlserver.dl</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>EntityFramework.dll</td><td>{A05F60EB-3617-4E0A-8FDD-C788D68F6BD7}</td><td>ENTITYFRAMEWORK</td><td>2</td><td/><td>entityframework.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT</td><td>{83E52942-A65B-489E-ADC2-B63EC639E2E5}</td><td>DEVEXPRESS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{8C5183DE-C534-4D83-B385-8180152F077D}</td><td>ENTITYFRAMEWORK</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{5D9FE346-4180-44FF-8BEE-B9421F7A406F}</td><td>MICROSOFT.SYNCHRONIZATION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Microsoft.Synchronization.Data.SqlServer.dll</td><td>{4A291AA1-B0BA-4BFA-904E-222722BD18AB}</td><td>MICROSOFT.SYNCHRONIZATION</td><td>2</td><td/><td>microsoft.synchronization.da</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Microsoft.Synchronization.dll</td><td>{EB4ECD2F-374F-44E8-AFA0-C7F82F0FD47C}</td><td>MICROSOFT.SYNCHRONIZATION</td><td>2</td><td/><td>microsoft.synchronization.dl</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ProvisionClient.Primary_output</td><td>{E174A675-6FA4-44FD-BB38-6A518E8687EA}</td><td>INSTALLDIR</td><td>2</td><td/><td>provisionclient.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ProvisionController.Primary_output</td><td>{9E4B728B-2940-4E8D-9671-2887215474AC}</td><td>INSTALLDIR</td><td>2</td><td/><td>provisioncontroller.primary_</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ProvisionServer.Primary_output</td><td>{3052F62B-727B-4A39-BF5C-6812C446ED7B}</td><td>INSTALLDIR</td><td>2</td><td/><td>provisionserver.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>QuanLyTaiSan.Primary_output</td><td>{E41671F4-37CC-40C4-AB6E-74C6B2B791F5}</td><td>INSTALLDIR</td><td>2</td><td/><td>quanlytaisan.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>QuanLyTaiSanGUI.Primary_output</td><td>{9DE23EEF-2E82-4D82-B6F5-4DB2486998D4}</td><td>INSTALLDIR</td><td>2</td><td/><td>quanlytaisangui.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>QuanLyTaiSanGUI.Primary_output1</td><td>{28A07C87-ECAF-4716-B3EC-F3861B84D529}</td><td>INSTALLDIR</td><td>2</td><td/><td>quanlytaisangui.primary_outp1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>QuanLyTaiSanGUI.Primary_output2</td><td>{8C8F2BC9-0E33-4913-B8E4-749DB0F7F801}</td><td>INSTALLDIR</td><td>2</td><td/><td>quanlytaisangui.primary_outp2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>QuanLyTaiSan.Primary_output</td><td>{813A38A2-5BAA-446B-9539-402F2CE3D8E9}</td><td>INSTALLDIR</td><td>2</td><td/><td>quanlytaisan.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>QuanLyTaiSanGUI.Primary_output</td><td>{0647508B-F0F8-47FB-A3A1-D84F0537FD62}</td><td>INSTALLDIR</td><td>2</td><td/><td>quanlytaisangui.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1085,9 +1052,6 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>DEVEXPRESS</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>ENTITYFRAMEWORK</td><td>ISX_DEFAULTCOMPONENT1</td></row>
-		<row><td>MICROSOFT.SYNCHRONIZATION</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1173,9 +1137,7 @@
 		<row><td>CommonFiles64Folder</td><td>TARGETDIR</td><td>.:Common64</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
-		<row><td>DEVEXPRESS</td><td>INSTALLDIR</td><td>DEVEXP~1|DevExpress</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
-		<row><td>ENTITYFRAMEWORK</td><td>INSTALLDIR</td><td>ENTITY~1|EntityFramework</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
@@ -1185,7 +1147,6 @@
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
-		<row><td>MICROSOFT.SYNCHRONIZATION</td><td>INSTALLDIR</td><td>MICROS~1|Microsoft.Synchronization</td><td/><td>0</td><td/></row>
 		<row><td>MY_PRODUCT_NAME</td><td>SGU_SOFTWARE</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
@@ -1902,41 +1863,8 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>AlwaysInstall</td><td>DevExpress.BonusSkins.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.Data.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.Office.v13.2.Core.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.PivotGrid.v13.2.Core.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.Printing.v13.2.Core.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.RichEdit.v13.2.Core.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.Sparkline.v13.2.Core.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.Utils.v13.2.UI.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.Utils.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraBars.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraEditors.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraGrid.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraLayout.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraNavBar.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraPivotGrid.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraPrinting.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraRichEdit.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraScheduler.v13.2.Core.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraScheduler.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraTreeList.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>DevExpress.XtraVerticalGrid.v13.2.dll</td></row>
-		<row><td>AlwaysInstall</td><td>EntityFramework.SqlServer.dll</td></row>
-		<row><td>AlwaysInstall</td><td>EntityFramework.dll</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
-		<row><td>AlwaysInstall</td><td>Microsoft.Synchronization.Data.SqlServer.dll</td></row>
-		<row><td>AlwaysInstall</td><td>Microsoft.Synchronization.dll</td></row>
-		<row><td>AlwaysInstall</td><td>ProvisionClient.Primary_output</td></row>
-		<row><td>AlwaysInstall</td><td>ProvisionController.Primary_output</td></row>
-		<row><td>AlwaysInstall</td><td>ProvisionServer.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>QuanLyTaiSan.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>QuanLyTaiSanGUI.Primary_output</td></row>
-		<row><td>AlwaysInstall</td><td>QuanLyTaiSanGUI.Primary_output1</td></row>
-		<row><td>AlwaysInstall</td><td>QuanLyTaiSanGUI.Primary_output2</td></row>
 	</table>
 
 	<table name="File">
@@ -1951,38 +1879,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>devexpress.bonusskins.v13.2.</td><td>DevExpress.BonusSkins.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.BonusSkins.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.BonusSkins.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.data.v13.2.dll</td><td>DevExpress.Data.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.Data.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.Data.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.office.v13.2.core</td><td>DevExpress.Office.v13.2.Core.dll</td><td>DEVEXP~1.DLL|DevExpress.Office.v13.2.Core.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.Office.v13.2.Core.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.pivotgrid.v13.2.c</td><td>DevExpress.PivotGrid.v13.2.Core.dll</td><td>DEVEXP~1.DLL|DevExpress.PivotGrid.v13.2.Core.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.PivotGrid.v13.2.Core.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.printing.v13.2.co</td><td>DevExpress.Printing.v13.2.Core.dll</td><td>DEVEXP~1.DLL|DevExpress.Printing.v13.2.Core.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.Printing.v13.2.Core.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.richedit.v13.2.co</td><td>DevExpress.RichEdit.v13.2.Core.dll</td><td>DEVEXP~1.DLL|DevExpress.RichEdit.v13.2.Core.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.RichEdit.v13.2.Core.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.sparkline.v13.2.c</td><td>DevExpress.Sparkline.v13.2.Core.dll</td><td>DEVEXP~1.DLL|DevExpress.Sparkline.v13.2.Core.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.Sparkline.v13.2.Core.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.utils.v13.2.dll</td><td>DevExpress.Utils.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.Utils.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.Utils.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.utils.v13.2.ui.dl</td><td>DevExpress.Utils.v13.2.UI.dll</td><td>DEVEXP~1.DLL|DevExpress.Utils.v13.2.UI.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.Utils.v13.2.UI.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtrabars.v13.2.dl</td><td>DevExpress.XtraBars.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraBars.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraBars.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtraeditors.v13.2</td><td>DevExpress.XtraEditors.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraEditors.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraEditors.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtragrid.v13.2.dl</td><td>DevExpress.XtraGrid.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraGrid.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraGrid.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtralayout.v13.2.</td><td>DevExpress.XtraLayout.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraLayout.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraLayout.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtranavbar.v13.2.</td><td>DevExpress.XtraNavBar.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraNavBar.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraNavBar.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtrapivotgrid.v13</td><td>DevExpress.XtraPivotGrid.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraPivotGrid.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraPivotGrid.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtraprinting.v13.</td><td>DevExpress.XtraPrinting.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraPrinting.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraPrinting.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtrarichedit.v13.</td><td>DevExpress.XtraRichEdit.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraRichEdit.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraRichEdit.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtrascheduler.v13</td><td>DevExpress.XtraScheduler.v13.2.Core.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraScheduler.v13.2.Core.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraScheduler.v13.2.Core.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtrascheduler.v131</td><td>DevExpress.XtraScheduler.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraScheduler.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraScheduler.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtratreelist.v13.</td><td>DevExpress.XtraTreeList.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraTreeList.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraTreeList.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>devexpress.xtraverticalgrid.</td><td>DevExpress.XtraVerticalGrid.v13.2.dll</td><td>DEVEXP~1.DLL|DevExpress.XtraVerticalGrid.v13.2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\DevExpress\DevExpress.XtraVerticalGrid.v13.2.dll</td><td>1</td><td/></row>
-		<row><td>entityframework.dll</td><td>EntityFramework.dll</td><td>ENTITY~1.DLL|EntityFramework.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\EntityFramework\EntityFramework.dll</td><td>1</td><td/></row>
-		<row><td>entityframework.sqlserver.dl</td><td>EntityFramework.SqlServer.dll</td><td>ENTITY~1.DLL|EntityFramework.SqlServer.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\EntityFramework\EntityFramework.SqlServer.dll</td><td>1</td><td/></row>
-		<row><td>microsoft.synchronization.da</td><td>Microsoft.Synchronization.Data.SqlServer.dll</td><td>MICROS~1.DLL|Microsoft.Synchronization.Data.SqlServer.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\Microsoft.Synchronization\Microsoft.Synchronization.Data.SqlServer.dll</td><td>1</td><td/></row>
-		<row><td>microsoft.synchronization.dl</td><td>Microsoft.Synchronization.dll</td><td>MICROS~1.DLL|Microsoft.Synchronization.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Users\Admin\Desktop\QuanLyTaiSan\Microsoft.Synchronization\Microsoft.Synchronization.dll</td><td>1</td><td/></row>
-		<row><td>provisionclient.primary_outp</td><td>ProvisionClient.Primary_output</td><td>ProvisionClient.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ProvisionClient&gt;|Built</td><td>3</td><td/></row>
-		<row><td>provisioncontroller.primary_</td><td>ProvisionController.Primary_output</td><td>ProvisionController.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ProvisionController&gt;|Built</td><td>3</td><td/></row>
-		<row><td>provisionserver.primary_outp</td><td>ProvisionServer.Primary_output</td><td>ProvisionServer.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ProvisionServer&gt;|Built</td><td>3</td><td/></row>
 		<row><td>quanlytaisan.primary_output</td><td>QuanLyTaiSan.Primary_output</td><td>QuanLyTaiSan.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;QuanLyTaiSan&gt;|Built</td><td>3</td><td/></row>
 		<row><td>quanlytaisangui.primary_outp</td><td>QuanLyTaiSanGUI.Primary_output</td><td>QuanLyTaiSanGUI.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;QuanLyTaiSanGUI&gt;|Built</td><td>3</td><td/></row>
-		<row><td>quanlytaisangui.primary_outp1</td><td>QuanLyTaiSanGUI.Primary_output1</td><td>QuanLyTaiSanGUI.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;QuanLyTaiSanGUI&gt;|Built</td><td>3</td><td/></row>
-		<row><td>quanlytaisangui.primary_outp2</td><td>QuanLyTaiSanGUI.Primary_output2</td><td>QuanLyTaiSanGUI.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;QuanLyTaiSanGUI&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2127,41 +2025,8 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>DevExpress.BonusSkins.v13.2.dll</td><td/><td/><td>_53E5A56B_0BE7_4E8D_A6A5_80B7779A7AB2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.Data.v13.2.dll</td><td/><td/><td>_6D5DD608_5217_4701_9FB4_BA4CDF18EB97_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.Office.v13.2.Core.dll</td><td/><td/><td>_FA542643_DA4F_4E56_A5E2_0460031832C6_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.PivotGrid.v13.2.Core.dll</td><td/><td/><td>_B73FAAF5_01E7_4852_AC80_A34AE944C0F1_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.Printing.v13.2.Core.dll</td><td/><td/><td>_2FFA233C_BA3E_49A6_A07D_6E922E779845_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.RichEdit.v13.2.Core.dll</td><td/><td/><td>_97DC54F5_48BC_4A26_9C48_5218C303A712_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.Sparkline.v13.2.Core.dll</td><td/><td/><td>_BD433FF4_DC0D_4C42_A009_8094B3EEDDCC_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.Utils.v13.2.UI.dll</td><td/><td/><td>_5E435C37_19CA_4059_8640_D3838855B472_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.Utils.v13.2.dll</td><td/><td/><td>_F52DDAF2_C01B_46AB_B81B_35A6321FB316_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraBars.v13.2.dll</td><td/><td/><td>_90DBE2E5_9A2A_4E1F_8DBE_20296D9ED87C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraEditors.v13.2.dll</td><td/><td/><td>_21E2A62B_4A20_49C8_B37C_936DC88ADAE1_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraGrid.v13.2.dll</td><td/><td/><td>_67D92B08_D9A8_458F_8E6D_98822B49EE46_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraLayout.v13.2.dll</td><td/><td/><td>_DBB32AC8_4A6D_4386_8689_C698F9ABAED3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraNavBar.v13.2.dll</td><td/><td/><td>_600D214C_CE78_467A_B493_EE5B0547CC1B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraPivotGrid.v13.2.dll</td><td/><td/><td>_391FB054_9A1C_498B_86AE_3F395B81F09C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraPrinting.v13.2.dll</td><td/><td/><td>_494AF8C1_1D6A_4DB1_896A_3E1DBC965BC4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraRichEdit.v13.2.dll</td><td/><td/><td>_5E76DCE5_51BF_4E30_9990_50CE094713DB_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraScheduler.v13.2.Core.dll</td><td/><td/><td>_46E183B4_9EFB_4845_82CE_F4D94AD5311E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraScheduler.v13.2.dll</td><td/><td/><td>_A727094C_1731_41CF_9C7C_218B45BAE031_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraTreeList.v13.2.dll</td><td/><td/><td>_BA1B050F_A8D4_4D99_AE74_6EED2A2AABF3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DevExpress.XtraVerticalGrid.v13.2.dll</td><td/><td/><td>_7CECCEDE_3C6D_4280_8479_AAB1FC8FDDF4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>EntityFramework.SqlServer.dll</td><td/><td/><td>_54E74F0A_C62C_4DDB_8D1F_AFD421869C1D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>EntityFramework.dll</td><td/><td/><td>_4314E74A_A9A4_46B0_BFD3_121A9C41EDF6_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_A6B7E827_1DBD_4DD8_A442_931EDE9C8EA8_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_1753017C_DF0A_4F99_AC3B_0CFF882D6B9B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_8DE7A511_D722_4801_869C_BD76515C3C0D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Microsoft.Synchronization.Data.SqlServer.dll</td><td/><td/><td>_22DFF973_A5B9_43EC_8CA6_76D9CC822943_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Microsoft.Synchronization.dll</td><td/><td/><td>_A7DDF112_09C3_481B_A118_B9EF1EC64E51_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ProvisionClient.Primary_output</td><td/><td/><td>_0DAC7055_FF5B_43E0_B13A_A27056039EF2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ProvisionController.Primary_output</td><td/><td/><td>_629F71A2_BBA8_4251_AFD4_DD648BE060C5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ProvisionServer.Primary_output</td><td/><td/><td>_95F002C8_FE2C_4152_AC12_D2D8AC0D647F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>QuanLyTaiSan.Primary_output</td><td/><td/><td>_A564A24C_CA9A_444D_86C5_20F8E4520D8E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>QuanLyTaiSanGUI.Primary_output</td><td/><td/><td>_A123F451_5EAC_4723_B2D5_9E16B3911914_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>QuanLyTaiSanGUI.Primary_output1</td><td/><td/><td>_C5510BDE_02EB_44DF_A4D9_FC5D60702F1A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>QuanLyTaiSanGUI.Primary_output2</td><td/><td/><td>_8B140B13_B7F4_4D17_B9B4_60C484912E74_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>QuanLyTaiSan.Primary_output</td><td/><td/><td>_160F6728_6DB3_47F9_A2E4_BBADE326383A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>QuanLyTaiSanGUI.Primary_output</td><td/><td/><td>_BA8F4D46_9E4F_4BA6_848C_CDE84A4B1EE2_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2783,7 +2648,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>SGU Software</td><td>0</td><td/><td>-215838453</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>SGU Software</td><td>0</td><td/><td>1940016976</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-484287191</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-484287191</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-484297367</td></row>
@@ -3885,8 +3750,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-484287191</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-484287191</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-484287191</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.SGUSoftware.com</td><td>0</td><td/><td>-215838453</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>SGU Software</td><td>0</td><td/><td>-215838453</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.SGUSoftware.com</td><td>0</td><td/><td>1940016976</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>SGU Software</td><td>0</td><td/><td>1940016976</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>QUANLY~1|QuanLyTaiSan</td><td>0</td><td/><td>-484276022</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-484287191</td></row>
 	</table>
@@ -4667,7 +4532,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut1</td><td>DesktopFolder</td><td>##ID_STRING3##</td><td>QuanLyTaiSanGUI.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

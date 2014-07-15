@@ -20,6 +20,7 @@ namespace QuanLyTaiSanGUI.HeThong
         public Login()
         {
             InitializeComponent();
+            labelControl_msg.Text = String.Empty;
         }
 
         private void Login_Load(object sender, EventArgs e)

@@ -29,18 +29,6 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
 	<ItemGroup>
-		<ProjectReference Include="..\ProvisionClient\ProvisionClient.csproj">
-			<Name>ProvisionClient</Name>
-			<Project>{03A08C6D-1C1A-4257-A50C-2175E28B813D}</Project>
-		</ProjectReference>
-		<ProjectReference Include="..\ProvisionController\ProvisionController.csproj">
-			<Name>ProvisionController</Name>
-			<Project>{A8D2FF8C-3291-4E7E-BAB4-9008C0CB2D99}</Project>
-		</ProjectReference>
-		<ProjectReference Include="..\ProvisionServer\ProvisionServer.csproj">
-			<Name>ProvisionServer</Name>
-			<Project>{47559428-CCE9-45F9-8653-7EC14A6EBC63}</Project>
-		</ProjectReference>
 		<ProjectReference Include="..\QuanLyTaiSan\QuanLyTaiSan.csproj">
 			<Name>QuanLyTaiSan</Name>
 			<Project>{3A9615F6-7F5B-4E10-BA63-B46B4CC00DE1}</Project>
