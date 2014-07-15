@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
@@ -57,7 +56,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.ribbonNhanVienPT = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaNhanVien = new DevExpress.XtraBars.BarButtonItem();
@@ -66,6 +65,8 @@
             this.rbnPageNhanVien_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupNhanVienPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
@@ -373,9 +374,10 @@
             this.barBtnThemNhanVien,
             this.barBtnSuaNhanVien,
             this.barBtnXoaNhanVien,
-            this.barBtnPhanCong});
+            this.barBtnPhanCong,
+            this.barBtnImport});
             this.ribbonNhanVienPT.Location = new System.Drawing.Point(0, 0);
-            this.ribbonNhanVienPT.MaxItemId = 39;
+            this.ribbonNhanVienPT.MaxItemId = 40;
             this.ribbonNhanVienPT.Name = "ribbonNhanVienPT";
             this.ribbonNhanVienPT.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageNhanVien_Home});
@@ -417,7 +419,8 @@
             // 
             this.rbnPageNhanVien_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupNhanVien,
-            this.rbnGroupNhanVienPhong});
+            this.rbnGroupNhanVienPhong,
+            this.rbnGroupImport});
             this.rbnPageNhanVien_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.nhanvien;
             this.rbnPageNhanVien_Home.Name = "rbnPageNhanVien_Home";
             this.rbnPageNhanVien_Home.Text = "Nhân viên";
@@ -437,6 +440,20 @@
             this.rbnGroupNhanVienPhong.Name = "rbnGroupNhanVienPhong";
             this.rbnGroupNhanVienPhong.ShowCaptionButton = false;
             this.rbnGroupNhanVienPhong.Text = "Phân công";
+            // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Id = 39;
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
             // ucQuanLyNhanVien
             // 
@@ -531,5 +548,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraBars.BarButtonItem barBtnImport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
     }
 }

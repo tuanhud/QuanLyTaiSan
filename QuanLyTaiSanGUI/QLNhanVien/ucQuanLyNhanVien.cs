@@ -509,5 +509,23 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 return true;
             }
         }
+
+        private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+            open.Title = "Chọn tập tin để Import";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportNhanVien(open.FileName))
+                {
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+
+            }
+        }
     }
 }
