@@ -33,11 +33,19 @@ namespace QuanLyTaiSan.Entities
                     {
                         System.Diagnostics.Debug.WriteLine(ex.ToString());
                     }
-                    using (StreamWriter sw = File.AppendText(Global.debug.FILENAME))
+
+                    try
                     {
-                        sw.WriteLine(text == null ? "" : text.ToString());
+                        using (StreamWriter sw = File.AppendText(Global.debug.FILENAME))
+                        {
+                            sw.WriteLine(text == null ? "" : text.ToString());
+                        }
+                        return;
                     }
-                    return;
+                    catch (Exception ex)
+                    {
+                        return;
+                    }
                 default:
                     return;
             }
