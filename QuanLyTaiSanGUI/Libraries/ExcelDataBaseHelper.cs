@@ -256,19 +256,128 @@ namespace QuanLyTaiSanGUI.Libraries
             }
         }
 
+        public static bool ImportLoaiThietBi(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int LOAITHIETBI = 1;
+                const int PARENT = 2;
+                const int LOAICHUNG = 3;
+                const int MOTA = 4;
+                const int PASS = 5;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        if (!row[PASS].Equals("Pass"))
+                        {
+                            if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] != DBNull.Value && row[LOAICHUNG] != DBNull.Value)
+                            {
+                                LoaiThietBi objParent = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[PARENT].ToString().ToUpper()));
+                                if (objParent != null)
+                                {
+                                    if (objParent.thietbis.FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().ToUpper())) == null)
+                                    {
+                                        if (objParent.loaichung.Equals(Convert.ToBoolean(row[LOAICHUNG])))
+                                        {
+                                            LoaiThietBi obj = new LoaiThietBi();
+                                            obj.ten = row[LOAITHIETBI].ToString();
+                                            obj.mota = row[MOTA].ToString();
+                                            obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
+                                            obj.parent = objParent;
+                                            if (obj.add() > 0)
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error (Kiểu quản lý của loại cha và loại con khác nhau)");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có loại thiết bị cha)");
+                                }
+
+                            }
+                            else if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] == DBNull.Value && row[LOAICHUNG] != DBNull.Value)
+                            {
+                                if (LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().ToUpper())) == null)
+                                {
+                                    LoaiThietBi obj = new LoaiThietBi();
+                                    obj.ten = row[LOAITHIETBI].ToString();
+                                    obj.mota = row[MOTA].ToString();
+                                    obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
+                                    if (obj.add() > 0)
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                QuanLyTaiSan.Entities.Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
+                return false;
+            }
+            finally
+            {
+            }
+        }
+
         private static void WriteFile(String fileName, String sheet, String stt, String text)
         {
-            //Ghi file Excel
-            System.Data.OleDb.OleDbConnection MyConnection;
-            System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
-            string sql = null;
-            MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName));
-            MyConnection.Open();
-            myCommand.Connection = MyConnection;
-            sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
-            myCommand.CommandText = sql;
-            myCommand.ExecuteNonQuery();
-            MyConnection.Close();
+            System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName));
+            try
+            {
+                //Ghi file Excel
+                System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                string sql = null;
+                MyConnection.Open();
+                myCommand.Connection = MyConnection;
+                sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
+                myCommand.CommandText = sql;
+                myCommand.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                QuanLyTaiSan.Entities.Debug.WriteLine("ExcelDataBaseHelper : WriteFile : " + ex.Message);
+                MyConnection.Close();
+            }
+            finally
+            {
+                MyConnection.Close();
+            }
         }
     }
 }
