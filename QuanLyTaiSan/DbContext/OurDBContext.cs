@@ -110,7 +110,6 @@ namespace QuanLyTaiSan.Entities
         public OurDBContext()
             : base("Default")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OurDBContext, QuanLyTaiSan.Migrations.Configuration>());
             
         }
         public OurDBContext(String connection_string="Default", Boolean create_sample_data = true)
@@ -121,8 +120,6 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
-
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OurDBContext, QuanLyTaiSan.Migrations.Configuration>());
         }
         
         public DbSet<CoSo> COSOS { get; set; }
