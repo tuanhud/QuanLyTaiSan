@@ -133,6 +133,12 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frmShowImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmShowImage.Designer.cs">
+      <DependentUpon>frmShowImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThuVienHinhAnh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,7 +292,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLThietBi\RinbbonControl.cs" />
     <Compile Include="QLThietBi\ucQuanLyThietBi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -394,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmShowImage.resx">
+      <DependentUpon>frmShowImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThuVienHinhAnh.resx">
       <DependentUpon>frmThuVienHinhAnh.cs</DependentUpon>
@@ -575,6 +583,7 @@
     <None Include="Resources\thongke.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tinhtrang.png" />
     <None Include="Resources\thongtinphanmem.png" />
     <None Include="Resources\phong-thietbi.png" />
     <None Include="Resources\logophanmem.png" />
@@ -595,6 +604,7 @@
     <None Include="Resources\backgroundthongtinphanmem.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
+    <None Include="Resources\Status-media-playlist-repeat-icon.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

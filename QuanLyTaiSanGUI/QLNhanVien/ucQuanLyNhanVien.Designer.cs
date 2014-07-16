@@ -281,7 +281,7 @@
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(210, 25);
+            this.btnImage.Location = new System.Drawing.Point(210, 29);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(67, 23);
             this.btnImage.TabIndex = 8;
@@ -315,7 +315,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 28);
+            this.labelControl1.Location = new System.Drawing.Point(5, 34);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 4;
@@ -353,12 +353,13 @@
             // 
             // imageSlider1
             // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(84, 25);
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider1.Location = new System.Drawing.Point(84, 28);
             this.imageSlider1.Name = "imageSlider1";
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
+            this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
             // 
             // errorProvider1
             // 

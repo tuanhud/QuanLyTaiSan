@@ -279,7 +279,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                 LoaiThietBi objParent = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[PARENT].ToString().ToUpper()));
                                 if (objParent != null)
                                 {
-                                    if (objParent.thietbis.FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().ToUpper())) == null)
+                                    if (objParent.childs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().ToUpper())) == null)
                                     {
                                         if (objParent.loaichung.Equals(Convert.ToBoolean(row[LOAICHUNG])))
                                         {
@@ -357,26 +357,26 @@ namespace QuanLyTaiSanGUI.Libraries
 
         private static void WriteFile(String fileName, String sheet, String stt, String text)
         {
-            System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName));
             try
             {
                 //Ghi file Excel
-                System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
-                string sql = null;
-                MyConnection.Open();
-                myCommand.Connection = MyConnection;
-                sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
-                myCommand.CommandText = sql;
-                myCommand.ExecuteNonQuery();
+                using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
+                {
+                    System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                    string sql = null;
+                    MyConnection.Open();
+                    myCommand.Connection = MyConnection;
+                    sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
+                    myCommand.CommandText = sql;
+                    myCommand.ExecuteNonQuery();
+                }
             }
             catch(Exception ex)
             {
                 QuanLyTaiSan.Entities.Debug.WriteLine("ExcelDataBaseHelper : WriteFile : " + ex.Message);
-                MyConnection.Close();
             }
             finally
             {
-                MyConnection.Close();
             }
         }
     }

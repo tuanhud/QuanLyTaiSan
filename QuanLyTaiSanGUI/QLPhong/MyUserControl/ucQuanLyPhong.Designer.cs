@@ -390,12 +390,13 @@
             // 
             // imgNhanVien
             // 
-            this.imgNhanVien.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imgNhanVien.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
             this.imgNhanVien.Location = new System.Drawing.Point(79, 24);
             this.imgNhanVien.Name = "imgNhanVien";
             this.imgNhanVien.Size = new System.Drawing.Size(120, 120);
             this.imgNhanVien.TabIndex = 0;
             this.imgNhanVien.Text = "imageSlider2";
+            this.imgNhanVien.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgNhanVien_MouseDoubleClick);
             // 
             // groupControl1
             // 
@@ -607,12 +608,13 @@
             // 
             // imgPhong
             // 
-            this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imgPhong.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
             this.imgPhong.Location = new System.Drawing.Point(79, 27);
             this.imgPhong.Name = "imgPhong";
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
             this.imgPhong.TabIndex = 0;
             this.imgPhong.Text = "imageSlider1";
+            this.imgPhong.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgPhong_MouseDoubleClick);
             // 
             // txtMoTaPhong
             // 

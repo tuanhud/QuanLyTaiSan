@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.treeListTinhTrang = new DevExpress.XtraTreeList.TreeList();
-            this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
+            this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -40,14 +41,19 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.gridControlTinhTrang = new DevExpress.XtraGrid.GridControl();
+            this.gridViewTinhTrang = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListTinhTrang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTinhTrang)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -56,41 +62,22 @@
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.treeListTinhTrang);
+            this.splitContainerControl1.Panel1.Controls.Add(this.gridControlTinhTrang);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(710, 500);
-            this.splitContainerControl1.SplitterPosition = 350;
+            this.splitContainerControl1.SplitterPosition = 332;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // treeListTinhTrang
-            // 
-            this.treeListTinhTrang.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colten});
-            this.treeListTinhTrang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListTinhTrang.KeyFieldName = "id";
-            this.treeListTinhTrang.Location = new System.Drawing.Point(0, 0);
-            this.treeListTinhTrang.Name = "treeListTinhTrang";
-            this.treeListTinhTrang.OptionsBehavior.Editable = false;
-            this.treeListTinhTrang.ParentFieldName = "";
-            this.treeListTinhTrang.Size = new System.Drawing.Size(355, 500);
-            this.treeListTinhTrang.TabIndex = 0;
-            this.treeListTinhTrang.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListTinhTrang_FocusedNodeChanged);
-            // 
-            // colten
-            // 
-            this.colten.Caption = "Tình trạng";
-            this.colten.FieldName = "value";
-            this.colten.Name = "colten";
-            this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
             // 
             // groupControl1
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.btnR_Sua);
+            this.groupControl1.Controls.Add(this.btnR_Them);
+            this.groupControl1.Controls.Add(this.btnR_Xoa);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.txtMoTa);
             this.groupControl1.Controls.Add(this.btnHuy);
@@ -100,9 +87,42 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(350, 500);
+            this.groupControl1.Size = new System.Drawing.Size(332, 500);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // btnR_Sua
+            // 
+            this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Sua.Location = new System.Drawing.Point(268, 0);
+            this.btnR_Sua.Name = "btnR_Sua";
+            this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Sua.TabIndex = 30;
+            this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
+            // 
+            // btnR_Them
+            // 
+            this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Them.Location = new System.Drawing.Point(242, 0);
+            this.btnR_Them.Name = "btnR_Them";
+            this.btnR_Them.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Them.TabIndex = 29;
+            this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
+            // 
+            // btnR_Xoa
+            // 
+            this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnR_Xoa.Location = new System.Drawing.Point(294, 0);
+            this.btnR_Xoa.Name = "btnR_Xoa";
+            this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
+            this.btnR_Xoa.TabIndex = 28;
+            this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // labelControl4
             // 
@@ -119,7 +139,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(57, 53);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(288, 120);
+            this.txtMoTa.Size = new System.Drawing.Size(260, 120);
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
@@ -150,7 +170,7 @@
             this.txtTen.Location = new System.Drawing.Point(57, 27);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(288, 20);
+            this.txtTen.Size = new System.Drawing.Size(260, 20);
             this.txtTen.TabIndex = 1;
             // 
             // labelControl2
@@ -167,6 +187,47 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
+            // gridControlTinhTrang
+            // 
+            this.gridControlTinhTrang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlTinhTrang.Location = new System.Drawing.Point(0, 0);
+            this.gridControlTinhTrang.MainView = this.gridViewTinhTrang;
+            this.gridControlTinhTrang.Name = "gridControlTinhTrang";
+            this.gridControlTinhTrang.Size = new System.Drawing.Size(373, 500);
+            this.gridControlTinhTrang.TabIndex = 0;
+            this.gridControlTinhTrang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewTinhTrang});
+            // 
+            // gridViewTinhTrang
+            // 
+            this.gridViewTinhTrang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.coltinhtrang});
+            this.gridViewTinhTrang.GridControl = this.gridControlTinhTrang;
+            this.gridViewTinhTrang.Name = "gridViewTinhTrang";
+            this.gridViewTinhTrang.OptionsBehavior.Editable = false;
+            this.gridViewTinhTrang.OptionsBehavior.ReadOnly = true;
+            this.gridViewTinhTrang.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridViewTinhTrang.OptionsDetail.EnableMasterViewMode = false;
+            this.gridViewTinhTrang.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewTinhTrang.OptionsView.ShowGroupPanel = false;
+            this.gridViewTinhTrang.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewTinhTrang_FocusedRowChanged);
+            this.gridViewTinhTrang.DataSourceChanged += new System.EventHandler(this.gridViewTinhTrang_DataSourceChanged);
+            // 
+            // coltinhtrang
+            // 
+            this.coltinhtrang.Caption = "Tình trạng";
+            this.coltinhtrang.FieldName = "value";
+            this.coltinhtrang.Name = "coltinhtrang";
+            this.coltinhtrang.Visible = true;
+            this.coltinhtrang.VisibleIndex = 0;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "ID";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
             // ucQuanLyTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,13 +237,14 @@
             this.Size = new System.Drawing.Size(710, 500);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListTinhTrang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTinhTrang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,15 +252,20 @@
         #endregion
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraTreeList.TreeList treeListTinhTrang;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOk;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private DevExpress.XtraEditors.SimpleButton btnR_Sua;
+        private DevExpress.XtraEditors.SimpleButton btnR_Them;
+        private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraGrid.GridControl gridControlTinhTrang;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTinhTrang;
+        private DevExpress.XtraGrid.Columns.GridColumn coltinhtrang;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
     }
 }

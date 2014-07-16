@@ -62,6 +62,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             layout.load(gridViewCTThietBi);
             working = false;
+            enableEdit(false);
             List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
@@ -446,6 +447,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
             catch
             {
                 return true;
+            }
+        }
+
+        private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listHinh != null && listHinh.Count > 0)
+            {
+                frmShowImage frm = new frmShowImage(listHinh);
+                frm.ShowDialog();
             }
         }
     }

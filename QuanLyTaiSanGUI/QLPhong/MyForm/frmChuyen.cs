@@ -18,6 +18,7 @@ namespace QuanLyTaiSanGUI.QLPhong
     {
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, true);
         CTThietBi objCTThietBi = null;
+        List<HinhAnh> listHinh = null;
         public frmChuyen()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         {
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucComboBoxViTri);
+            listHinh = new List<HinhAnh>();
         }
 
         public frmChuyen(CTThietBi obj)
@@ -94,7 +96,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     if (radioBtnChuyenPhong.Checked)
                     {
 
-                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text) > 0)
+                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0)
                         {
                             XtraMessageBox.Show("Chuyển phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
@@ -103,7 +105,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     }
                     else
                     {
-                        if (objCTThietBi.dichuyen(null, (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text) > 0)
+                        if (objCTThietBi.dichuyen(null, (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0)
                         {
                             XtraMessageBox.Show("Chuyển tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
@@ -112,7 +114,9 @@ namespace QuanLyTaiSanGUI.QLPhong
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                Debug.WriteLine(this.Name + ": btnOK_Click :" + ex.Message);
+            }
             finally
             { }
         }
@@ -139,6 +143,51 @@ namespace QuanLyTaiSanGUI.QLPhong
                 //dxErrorProvider1.SetError(lookUpTinhTrang, "Tình trạng được chuyển phải khác tình trạng cũ");
             }
             return true;
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmHinhAnh frm = new frmHinhAnh(listHinh);
+                frm.Text = "Quản lý hình ảnh " + objCTThietBi.thietbi.ten;
+                frm.ShowDialog();
+                listHinh = frm.getlistHinhs();
+                reloadImage();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + ": btnImage_Click :" + ex.Message);
+            }
+            finally
+            { }
+        }
+
+        private void reloadImage()
+        {
+            try
+            {
+                imageSlider1.Images.Clear();
+                foreach (HinhAnh h in listHinh)
+                {
+                    imageSlider1.Images.Add(h.getImage());
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + ": reloadImage :" + ex.Message);
+            }
+            finally
+            { }
+        }
+
+        private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listHinh != null && listHinh.Count > 0)
+            {
+                frmShowImage frm = new frmShowImage(listHinh);
+                frm.ShowDialog();
+            }
         }
     }
 }
