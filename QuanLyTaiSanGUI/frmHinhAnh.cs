@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI
                     foreach (string file in open.FileNames)
                     {
                         FileInfo fileinfo = new FileInfo(file);
-
+                        Path.GetFileNameWithoutExtension(fileinfo.Name);
                         //HinhAnh hinhanhcheck = listHinhAnh.Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         HinhAnh hinhanhcheck = HinhAnh.getQuery().Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         if (hinhanhcheck == null)
@@ -135,6 +135,7 @@ namespace QuanLyTaiSanGUI
                     {
                         UploadHinhAnh(fileinfo, false);
                     }
+                    splashScreenManager.CloseWaitForm();
                     if (coUploadHinhAnhDaCo)
                     {
                         foreach (FileInfo fileinfo in listFileInfoDaCo)
@@ -142,7 +143,7 @@ namespace QuanLyTaiSanGUI
                             UploadHinhAnh(fileinfo, true);
                         }
                     }
-                    splashScreenManager.CloseWaitForm();
+                    
                 }
             }
             catch (Exception ex)
@@ -197,7 +198,18 @@ namespace QuanLyTaiSanGUI
             string fPath = fileinfo.ToString();
             string file_name = fileinfo.Name.ToString();
             if (coDoiTenHinhAnh)
-                file_name = StringHelper.RandomName(15);
+            {
+                //file_name = StringHelper.RandomName(15);
+                MyForm.frmDoiTenHinh frm = new MyForm.frmDoiTenHinh(fileinfo.Name.ToString());
+                if (frm.ShowDialog().Equals(DialogResult.No))
+                {
+                    return;
+                }
+                else
+                {
+                    file_name = frm.name;
+                }
+            }
             HinhAnh hinhanh = new HinhAnh();
             hinhanh.FILE_NAME = file_name;
             hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(fPath);
