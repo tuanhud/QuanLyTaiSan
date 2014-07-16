@@ -31,7 +31,7 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
 
         public int sucophong_id { get; set; }
-        [Index("nothing", 2, IsUnique = true)]
+        [Index("nothing", 3, IsUnique = true)]
         [Required]
         [ForeignKey("sucophong_id")]
         public virtual SuCoPhong sucophong { get; set; }
