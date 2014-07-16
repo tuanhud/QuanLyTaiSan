@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.Designer.cs">
       <DependentUpon>201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.cs" />
+    <Compile Include="Migrations\201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.Designer.cs">
+      <DependentUpon>201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -231,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.resx">
       <DependentUpon>201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.resx">
+      <DependentUpon>201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

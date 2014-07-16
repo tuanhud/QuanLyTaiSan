@@ -271,6 +271,14 @@ namespace QuanLyTaiSan.Entities
         {
             return -1;
         }
+        /// <summary>
+        /// nên gọi theo dạng if(obj.upload()>0) obj.add();
+        /// </summary>
+        /// <returns></returns>
+        public override int add()
+        {
+            return base.add();
+        }
         #endregion
     }
 }
