@@ -133,6 +133,12 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frmDoiTenHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmDoiTenHinh.Designer.cs">
+      <DependentUpon>frmDoiTenHinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\frmShowImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLSuCo\ucQuanLySuCo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLSuCo\ucQuanLySuCo.Designer.cs">
+      <DependentUpon>ucQuanLySuCo.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLThietBi\ucQuanLyThietBi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -400,6 +412,9 @@
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmDoiTenHinh.resx">
+      <DependentUpon>frmDoiTenHinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frmShowImage.resx">
       <DependentUpon>frmShowImage.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +489,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLSuCo\ucQuanLySuCo.resx">
+      <DependentUpon>ucQuanLySuCo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi.resx">
       <DependentUpon>ucQuanLyThietBi.cs</DependentUpon>

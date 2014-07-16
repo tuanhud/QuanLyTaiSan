@@ -39,25 +39,12 @@ namespace QuanLyTaiSan.Entities
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
 
+        public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
+
 		#endregion
 
         #region Nghiệp vụ
-        /// <summary>
-        /// Read only
-        /// </summary>
-        [NotMapped]
-        public ICollection<LogSuCoPhong> logsucophongs
-        {
-            /*
-             * Do Sự cố Phòng và Log Phòng không có quan hệ với nhau
-             */
-            get
-            {
-                return this.phong.logsucophongs.Where(
-                    c => c.ten.ToUpper().Equals(this.ten.ToUpper())
-                ).ToList();
-            }
-        }
+
 
         #endregion
 
@@ -98,10 +85,8 @@ namespace QuanLyTaiSan.Entities
             obj.hinhanhs = hinhs==null?new List<HinhAnh>():hinhs;
             obj.mota = mota;
             obj.ngay = ngay;
-            obj.phong = this.phong;
+            obj.sucophong = this;
             obj.quantrivien = Global.current_login;
-            obj.ten = this.ten;
-            obj.subId = this.subId;
             obj.tinhtrang = this.tinhtrang;
             
             return obj.add();
@@ -147,6 +132,13 @@ namespace QuanLyTaiSan.Entities
         protected override void init()
         {
             base.init();
+            logsucophongs = new List<LogSuCoPhong>();
+        }
+        public override int delete()
+        {
+            //auto delete log
+            db.LOGSUCOPHONGS.RemoveRange(logsucophongs);
+            return base.delete();
         }
         #endregion
     }
