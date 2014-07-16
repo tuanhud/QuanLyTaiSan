@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI
                     foreach (string file in open.FileNames)
                     {
                         FileInfo fileinfo = new FileInfo(file);
-                        Path.GetFileNameWithoutExtension(fileinfo.Name);
+                        string ImageNameNoExtension = Path.GetFileNameWithoutExtension(fileinfo.Name);
                         //HinhAnh hinhanhcheck = listHinhAnh.Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         HinhAnh hinhanhcheck = HinhAnh.getQuery().Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         if (hinhanhcheck == null)
@@ -135,7 +135,6 @@ namespace QuanLyTaiSanGUI
                     {
                         UploadHinhAnh(fileinfo, false);
                     }
-                    splashScreenManager.CloseWaitForm();
                     if (coUploadHinhAnhDaCo)
                     {
                         foreach (FileInfo fileinfo in listFileInfoDaCo)
@@ -143,7 +142,7 @@ namespace QuanLyTaiSanGUI
                             UploadHinhAnh(fileinfo, true);
                         }
                     }
-                    
+                    splashScreenManager.CloseWaitForm();
                 }
             }
             catch (Exception ex)
