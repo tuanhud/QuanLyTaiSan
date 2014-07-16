@@ -107,7 +107,8 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             try
             {
                 errorProvider1.Clear();
-                editGUI("view");
+                if(!function.Equals("view")) 
+                    editGUI("view");
                 if (gridViewTinhTrang.RowCount > 0)
                 {
                     if (gridViewTinhTrang.FocusedRowHandle > -1 && gridViewTinhTrang.GetFocusedRow() != null)
