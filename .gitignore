@@ -1,4 +1,4 @@
-#################
+﻿#################
 ## Eclipse
 #################
 
@@ -219,3 +219,4 @@ QuanLyTaiSan/App.config
 QuanLyTaiSan/Properties/licenses.licx
 QuanLyTaiSanGUI/Properties/licenses.licx
 QuanLyTaiSan/Properties/licenses.licx
+FileSetup/
