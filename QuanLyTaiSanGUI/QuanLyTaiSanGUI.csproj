@@ -601,6 +601,7 @@
     <None Include="Resources\thongke.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\warning.png" />
     <None Include="Resources\tinhtrang.png" />
     <None Include="Resources\thongtinphanmem.png" />
     <None Include="Resources\phong-thietbi.png" />
@@ -623,6 +624,7 @@
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />
+    <None Include="Resources\Status-dialog-warning-icon.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

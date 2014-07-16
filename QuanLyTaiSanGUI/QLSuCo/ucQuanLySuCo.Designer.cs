@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonSuCoPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barBtnThem = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSua = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXoa = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageSuCoPhong = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupSuCo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlSuCo = new DevExpress.XtraGrid.GridControl();
             this.gridViewSuCo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonSuCoPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
@@ -43,41 +46,69 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbonControl1
+            // ribbonSuCoPhong
             // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(813, 142);
+            this.ribbonSuCoPhong.ExpandCollapseItem.Id = 0;
+            this.ribbonSuCoPhong.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonSuCoPhong.ExpandCollapseItem,
+            this.barBtnThem,
+            this.barBtnSua,
+            this.barBtnXoa});
+            this.ribbonSuCoPhong.Location = new System.Drawing.Point(0, 0);
+            this.ribbonSuCoPhong.MaxItemId = 4;
+            this.ribbonSuCoPhong.Name = "ribbonSuCoPhong";
+            this.ribbonSuCoPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rbnPageSuCoPhong});
+            this.ribbonSuCoPhong.Size = new System.Drawing.Size(813, 145);
             // 
-            // ribbonPage1
+            // barBtnThem
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.barBtnThem.Caption = "Thêm sự cố";
+            this.barBtnThem.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barBtnThem.Id = 1;
+            this.barBtnThem.Name = "barBtnThem";
             // 
-            // ribbonPageGroup1
+            // barBtnSua
             // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.barBtnSua.Caption = "Sửa sự cố";
+            this.barBtnSua.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barBtnSua.Id = 2;
+            this.barBtnSua.Name = "barBtnSua";
+            // 
+            // barBtnXoa
+            // 
+            this.barBtnXoa.Caption = "Xóa sự cố";
+            this.barBtnXoa.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barBtnXoa.Id = 3;
+            this.barBtnXoa.Name = "barBtnXoa";
+            // 
+            // rbnPageSuCoPhong
+            // 
+            this.rbnPageSuCoPhong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbnGroupSuCo});
+            this.rbnPageSuCoPhong.Image = global::QuanLyTaiSanGUI.Properties.Resources.warning;
+            this.rbnPageSuCoPhong.Name = "rbnPageSuCoPhong";
+            this.rbnPageSuCoPhong.Text = "Sự cố";
+            // 
+            // rbnGroupSuCo
+            // 
+            this.rbnGroupSuCo.ItemLinks.Add(this.barBtnThem);
+            this.rbnGroupSuCo.ItemLinks.Add(this.barBtnSua);
+            this.rbnGroupSuCo.ItemLinks.Add(this.barBtnXoa);
+            this.rbnGroupSuCo.Name = "rbnGroupSuCo";
+            this.rbnGroupSuCo.Text = "Sự cố";
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlSuCo);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(813, 420);
+            this.splitContainerControl1.Size = new System.Drawing.Size(813, 417);
             this.splitContainerControl1.SplitterPosition = 291;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -87,9 +118,9 @@
             this.gridControlSuCo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlSuCo.Location = new System.Drawing.Point(0, 0);
             this.gridControlSuCo.MainView = this.gridViewSuCo;
-            this.gridControlSuCo.MenuManager = this.ribbonControl1;
+            this.gridControlSuCo.MenuManager = this.ribbonSuCoPhong;
             this.gridControlSuCo.Name = "gridControlSuCo";
-            this.gridControlSuCo.Size = new System.Drawing.Size(517, 420);
+            this.gridControlSuCo.Size = new System.Drawing.Size(517, 417);
             this.gridControlSuCo.TabIndex = 0;
             this.gridControlSuCo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSuCo});
@@ -105,7 +136,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(291, 420);
+            this.groupControl1.Size = new System.Drawing.Size(291, 417);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "groupControl1";
             // 
@@ -114,10 +145,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
-            this.Controls.Add(this.ribbonControl1);
+            this.Controls.Add(this.ribbonSuCoPhong);
             this.Name = "ucQuanLySuCo";
             this.Size = new System.Drawing.Size(813, 562);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonSuCoPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).EndInit();
@@ -130,12 +161,15 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonSuCoPhong;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageSuCoPhong;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupSuCo;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gridControlSuCo;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewSuCo;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraBars.BarButtonItem barBtnThem;
+        private DevExpress.XtraBars.BarButtonItem barBtnSua;
+        private DevExpress.XtraBars.BarButtonItem barBtnXoa;
     }
 }

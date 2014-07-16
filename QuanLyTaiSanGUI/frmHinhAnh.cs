@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI
                     foreach (string file in open.FileNames)
                     {
                         FileInfo fileinfo = new FileInfo(file);
-                        Path.GetFileNameWithoutExtension(fileinfo.Name);
+                        string ImageNameNoExtension = Path.GetFileNameWithoutExtension(fileinfo.Name);
                         //HinhAnh hinhanhcheck = listHinhAnh.Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         HinhAnh hinhanhcheck = HinhAnh.getQuery().Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         if (hinhanhcheck == null)
@@ -135,7 +135,6 @@ namespace QuanLyTaiSanGUI
                     {
                         UploadHinhAnh(fileinfo, false);
                     }
-                    splashScreenManager.CloseWaitForm();
                     if (coUploadHinhAnhDaCo)
                     {
                         foreach (FileInfo fileinfo in listFileInfoDaCo)
@@ -143,7 +142,7 @@ namespace QuanLyTaiSanGUI
                             UploadHinhAnh(fileinfo, true);
                         }
                     }
-                    
+                    splashScreenManager.CloseWaitForm();
                 }
             }
             catch (Exception ex)
@@ -195,49 +194,56 @@ namespace QuanLyTaiSanGUI
 
         private void UploadHinhAnh(FileInfo fileinfo, Boolean coDoiTenHinhAnh)
         {
-            string fPath = fileinfo.ToString();
-            string file_name = fileinfo.Name.ToString();
-            if (coDoiTenHinhAnh)
+            try
             {
-                //file_name = StringHelper.RandomName(15);
-                MyForm.frmDoiTenHinh frm = new MyForm.frmDoiTenHinh(fileinfo.Name.ToString());
-                if (frm.ShowDialog().Equals(DialogResult.No))
+                string fPath = fileinfo.ToString();
+                string file_name = fileinfo.Name.ToString();
+                if (coDoiTenHinhAnh)
                 {
-                    return;
+                    //file_name = StringHelper.RandomName(15);
+                    MyForm.frmDoiTenHinh frm = new MyForm.frmDoiTenHinh(fileinfo.Name.ToString());
+                    if (frm.ShowDialog().Equals(DialogResult.No))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        file_name = frm.name;
+                    }
                 }
-                else
+                HinhAnh hinhanh = new HinhAnh();
+                hinhanh.FILE_NAME = file_name;
+                hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(fPath);
+                switch (comboBoxEdit1.SelectedIndex)
                 {
-                    file_name = frm.name;
+                    case 0:
+                        hinhanh.MAX_SIZE = GIUNGUYEN;
+                        break;
+                    case 1:
+                        hinhanh.MAX_SIZE = LON;
+                        break;
+                    case 2:
+                        hinhanh.MAX_SIZE = VUA;
+                        break;
+                    case 3:
+                        hinhanh.MAX_SIZE = NHO;
+                        break;
+                    default:
+                        hinhanh.MAX_SIZE = GIUNGUYEN;
+                        break;
                 }
-            }
-            HinhAnh hinhanh = new HinhAnh();
-            hinhanh.FILE_NAME = file_name;
-            hinhanh.IMAGE = (Bitmap)Bitmap.FromFile(fPath);
-            switch (comboBoxEdit1.SelectedIndex)
-            {
-                case 0:
-                    hinhanh.MAX_SIZE = GIUNGUYEN;
-                    break;
-                case 1:
-                    hinhanh.MAX_SIZE = LON;
-                    break;
-                case 2:
-                    hinhanh.MAX_SIZE = VUA;
-                    break;
-                case 3:
-                    hinhanh.MAX_SIZE = NHO;
-                    break;
-                default:
-                    hinhanh.MAX_SIZE = GIUNGUYEN;
-                    break;
-            }
-            hinhanh.upload();
-            listTemp.Add(hinhanh);
+                hinhanh.upload();
+                listTemp.Add(hinhanh);
 
-            GalleryItem it = new GalleryItem();
-            it.Image = (Image)hinhanh.IMAGE;
-            it.Tag = hinhanh.path;
-            galleryControlImage.Gallery.Groups[0].Items.Add(it);
+                GalleryItem it = new GalleryItem();
+                it.Image = (Image)hinhanh.IMAGE;
+                it.Tag = hinhanh.path;
+                galleryControlImage.Gallery.Groups[0].Items.Add(it);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->UploadHinhAnh: " + ex.Message);
+            }
         }
 
         private void btnImageDelete_Click(object sender, EventArgs e)
@@ -274,40 +280,47 @@ namespace QuanLyTaiSanGUI
 
         private void btnThuVienAnh_Click(object sender, EventArgs e)
         {
-            frmThuVienHinhAnh frm = new frmThuVienHinhAnh();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
+            try
             {
-                int count = 0;
-                List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
-                foreach (HinhAnh hinhanh in frm.getHinhAnhChons())
+                frmThuVienHinhAnh frm = new frmThuVienHinhAnh();
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
                 {
-                    if (listTemp.Where(h => h.path == hinhanh.path).FirstOrDefault() == null)
+                    int count = 0;
+                    List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
+                    foreach (HinhAnh hinhanh in frm.getHinhAnhChons())
                     {
-                        HinhAnh hinhanhADD = new HinhAnh();
-                        hinhanhADD.path = hinhanh.path;
-                        listTemp.Add(hinhanhADD);
-                        count++;
-                    }
-                    else
-                        listHinhAnhDaCo.Add(hinhanh);
-                }
-                if (listHinhAnhDaCo.Count > 0)
-                {
-                    if (XtraMessageBox.Show(String.Format("Có {0} ảnh đã có, bạn có muốn thêm vào không", listHinhAnhDaCo.Count), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        foreach (HinhAnh hinhanh in listHinhAnhDaCo)
+                        if (listTemp.Where(h => h.path == hinhanh.path).FirstOrDefault() == null)
                         {
                             HinhAnh hinhanhADD = new HinhAnh();
                             hinhanhADD.path = hinhanh.path;
                             listTemp.Add(hinhanhADD);
                             count++;
                         }
+                        else
+                            listHinhAnhDaCo.Add(hinhanh);
                     }
+                    if (listHinhAnhDaCo.Count > 0)
+                    {
+                        if (XtraMessageBox.Show(String.Format("Có {0} ảnh đã có, bạn có muốn thêm vào không", listHinhAnhDaCo.Count), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            foreach (HinhAnh hinhanh in listHinhAnhDaCo)
+                            {
+                                HinhAnh hinhanhADD = new HinhAnh();
+                                hinhanhADD.path = hinhanh.path;
+                                listTemp.Add(hinhanhADD);
+                                count++;
+                            }
+                        }
+                    }
+                    LoadHinhAnh(listTemp);
+                    if (count > 0)
+                        XtraMessageBox.Show(String.Format("Đã thêm {0} ảnh", count), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                LoadHinhAnh(listTemp);
-                if (count > 0)
-                    XtraMessageBox.Show(String.Format("Đã thêm {0} ảnh", count), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnThuVienAnh_Click: " + ex.Message);
             }
         }
     }

@@ -133,6 +133,7 @@
             this.gridViewNhanVien.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewNhanVien.OptionsView.ShowGroupPanel = false;
             this.gridViewNhanVien.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewNhanVien_FocusedRowChanged);
+            this.gridViewNhanVien.DataSourceChanged += new System.EventHandler(this.gridViewNhanVien_DataSourceChanged);
             // 
             // colid
             // 

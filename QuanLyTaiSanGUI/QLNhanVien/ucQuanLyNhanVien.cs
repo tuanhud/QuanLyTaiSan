@@ -51,111 +51,96 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                PhanCong(false);
-                enableEdit(false, "");
-                working = false;
+                editGUI("view");
                 layout.load(gridViewNhanVien);
                 NhanVienPTs = NhanVienPT.getAll();
-                gridControlNhanVien.DataSource = null;
                 gridControlNhanVien.DataSource = NhanVienPTs;
-                if (NhanVienPTs.Count > 0)
+                if (NhanVienPTs.Count == 0)
                 {
-                    barBtnSuaNhanVien.Enabled = true;
-                    barBtnXoaNhanVien.Enabled = true;
-                    btnR_Sua.Enabled = true;
-                    btnR_Xoa.Enabled = true;
-                    barBtnPhanCong.Enabled = true;
-                }
-                else
-                {
-                    barBtnSuaNhanVien.Enabled = false;
-                    barBtnXoaNhanVien.Enabled = false;
-                    btnR_Sua.Enabled = false;
-                    btnR_Xoa.Enabled = false;
-                    barBtnPhanCong.Enabled = false;
+                    enableButton(false);
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : loadData : " + ex.Message);
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
             finally
             { }
         }
 
-        private void gridViewNhanVien_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+
+
+        private void editGUI(String _type)
         {
-            try
+            if (_type.Equals("view"))
             {
-                if (gridViewNhanVien.GetFocusedRow() != null)
+                if (function.Equals("phancong"))
                 {
-                    if (function.Equals("edit") || function.Equals("add"))
-                    {
-                        enableEdit(false, "");
-                        SetTextGroupControl("Chi tiết", false);
-                    }
-                    objNhanVienPT = (NhanVienPT)gridViewNhanVien.GetFocusedRow();
-                    SetData();
+                    PhanCong(false);
                 }
+                SetTextGroupControl("Chi tiết", Color.Empty);
+                enableEdit(false);
             }
-            catch (Exception ex)
+            else if (_type.Equals("add"))
             {
-                System.Console.WriteLine(this.Name + " : gridViewNhanVien_FocusedRowChanged : " + ex.Message);
+                if (function.Equals("phancong"))
+                {
+                    PhanCong(false);
+                }
+                SetTextGroupControl("Thêm nhân viên phụ trách", Color.Red);
+                enableEdit(true);
+                clearText();
+                txtMa.Focus();
             }
-            finally
-            { }
+            else if (_type.Equals("edit"))
+            {
+                if (function.Equals("phancong"))
+                {
+                    PhanCong(false);
+                }
+                SetTextGroupControl("Sửa nhân viên phụ trách", Color.Red);
+                enableEdit(true);
+                txtMa.Focus();
+            }
+            else if (_type.Equals("phancong"))
+            {
+                SetTextGroupControl("Chi tiết", Color.Empty);
+                enableEdit(true);
+                btnImage.Visible = false;
+                PhanCong(true);
+            }
+            function = _type;
         }
 
-        public void enableEdit(bool _enable, String _function)
+        private void SetTextGroupControl(String text, Color color)
         {
-            function = _function;
+            groupControl1.Text = text;
+            groupControl1.AppearanceCaption.ForeColor = color;
+        }
+
+        private void enableEdit(bool _enable)
+        {
             btnImage.Visible = _enable;
             btnOK.Visible = _enable;
             btnHuy.Visible = _enable;
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtSodt.Properties.ReadOnly = !_enable;
-            working = _enable;
-            //
-            rbnGroupNhanVien.Enabled = !_enable;
-            rbnGroupNhanVienPhong.Enabled = !_enable;
+            enableButton(!_enable);
             btnR_Them.Enabled = !_enable;
-            btnR_Sua.Enabled = !_enable;
-            btnR_Xoa.Enabled = !_enable;
-            if (_enable)
-                txtMa.Focus();
+            working = _enable;
         }
 
-        public void reLoad()
+        private void enableButton(bool _enable)
         {
-            loadData();
-            if (!function.Equals(""))
-            {
-                enableEdit(false, "");
-                errorProvider1.Clear();
-                listHinhs = null;
-                SetData();
-            }
+            //btnR_Them.Enabled = _enable;
+            btnR_Sua.Enabled = _enable;
+            btnR_Xoa.Enabled = _enable;
+            rbnGroupNhanVien.Enabled = _enable;
+            rbnGroupNhanVienPhong.Enabled = _enable;
         }
 
-        private void reLoadAndFocused(int _id)
-        {
-            try
-            {
-                reLoad();
-                int rowHandle = gridViewNhanVien.LocateByValue(colid.FieldName, _id);
-                if (rowHandle != GridControl.InvalidRowHandle)
-                    gridViewNhanVien.FocusedRowHandle = rowHandle;
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
-            }
-            finally
-            { }
-        }
-
-        public void beforeAdd()
+        private void clearText()
         {
             txtMa.Text = "";
             txtTen.Text = "";
@@ -163,6 +148,65 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             imageSlider1.Images.Clear();
             listHinhs = new List<HinhAnh>();
             listBoxPhong.DataSource = null;
+        }
+
+        private void setDataView()
+        {
+            try
+            {
+                errorProvider1.Clear();
+                if(!function.Equals("view")) 
+                    editGUI("view");
+                if (gridViewNhanVien.RowCount > 0)
+                {
+                    if (gridViewNhanVien.FocusedRowHandle > -1 && gridViewNhanVien.GetFocusedRow() != null)
+                    {
+                        objNhanVienPT = gridViewNhanVien.GetFocusedRow() as NhanVienPT;
+                        txtMa.Text = objNhanVienPT.subId;
+                        txtTen.Text = objNhanVienPT.hoten;
+                        txtSodt.Text = objNhanVienPT.sodienthoai;
+                        listBoxPhong.DataSource = objNhanVienPT.phongs;
+                        listHinhs = objNhanVienPT.hinhanhs.ToList();
+                        reloadImage();
+                    }
+                    else
+                    {
+                        clearText();
+                        objNhanVienPT = new NhanVienPT();
+                    }
+                }
+                else
+                {
+                    clearText();
+                    objNhanVienPT = new NhanVienPT();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setDataView: " + ex.Message);
+            }
+        }
+
+
+
+        private void gridViewNhanVien_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            setDataView();
+        }
+
+        private void reLoadAndFocused(int _id)
+        {
+            try
+            {
+                loadData();
+                int rowHandle = gridViewNhanVien.LocateByValue(colid.FieldName, _id);
+                if (rowHandle != GridControl.InvalidRowHandle)
+                    gridViewNhanVien.FocusedRowHandle = rowHandle;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reLoadAndFocused: " + ex.Message);
+            }
         }
 
         private void Function(String _function)
@@ -229,14 +273,15 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     finally
                     {
                         XtraMessageBox.Show("Phân công nhân viên thành công!");
-                        PhanCong(false);
+                        //PhanCong(false);
+                        editGUI("view");
                         reLoadAndFocused(id);
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : Function : " + ex.Message);
+                Debug.WriteLine(this.Name + "->Function: " + ex.Message);
             }
             finally
             { }
@@ -251,7 +296,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     if (objNhanVienPT.delete() > 0)
                     {
                         XtraMessageBox.Show("Xóa nhân viên thành công!");
-                        reLoad();
+                        loadData();
                     }
                     else
                     {
@@ -261,19 +306,10 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : deleteObj : " + ex.Message);
+                Debug.WriteLine(this.Name + "->deleteObj: " + ex.Message);
             }
             finally
             { }
-        }
-
-        public void SetTextGroupControl(String text, bool _color)
-        {
-            groupControl1.Text = text;
-            if (_color)
-                groupControl1.AppearanceCaption.ForeColor = Color.Red;
-            else
-                groupControl1.AppearanceCaption.ForeColor = Color.Empty; 
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -281,7 +317,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             if (CheckInput())
             {
                 Function(function);
-                enableEdit(false, "");
             }
         }
 
@@ -290,38 +325,16 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             if (function.Equals("phancong"))
             {
                 int id = objNhanVienPT.id;
-                PhanCong(false);
+                editGUI("view");
                 int rowHandle = gridViewNhanVien.LocateByValue(colid.FieldName, id);
                 if (rowHandle != GridControl.InvalidRowHandle)
                     gridViewNhanVien.FocusedRowHandle = rowHandle;
             }
             else
             {
-                enableEdit(false, "");
                 errorProvider1.Clear();
-                listHinhs = new List<HinhAnh>();
-                SetData();
+                setDataView();
             }
-        }
-
-        public void SetData()
-        {
-            try
-            {
-                SetTextGroupControl("Chi tiết", false);
-                txtMa.Text = objNhanVienPT.subId;
-                txtTen.Text = objNhanVienPT.hoten;
-                txtSodt.Text = objNhanVienPT.sodienthoai;
-                listBoxPhong.DataSource = objNhanVienPT.phongs;
-                listHinhs = objNhanVienPT.hinhanhs.ToList();
-                reloadImage();
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(this.Name + " : SetData : " + ex.Message);
-            }
-            finally
-            { }
         }
 
         private Boolean CheckInput()
@@ -384,21 +397,26 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : btnImage_Click : " + ex.Message);
+                Debug.WriteLine(this.Name + "->btnImage_Click: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void reloadImage()
         {
-            imageSlider1.Images.Clear();
-            if (listHinhs != null)
+            try
             {
-                foreach (HinhAnh h in listHinhs)
+                imageSlider1.Images.Clear();
+                if (listHinhs != null)
                 {
-                    imageSlider1.Images.Add(h.getImage());
+                    foreach (HinhAnh h in listHinhs)
+                    {
+                        imageSlider1.Images.Add(h.getImage());
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reloadImage: " + ex.Message);
             }
         }
 
@@ -406,29 +424,21 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                btnOK.Visible = _bool;
-                btnHuy.Visible = _bool;
-                rbnGroupNhanVien.Enabled = !_bool;
-                btnR_Them.Enabled = !_bool;
-                btnR_Sua.Enabled = !_bool;
-                btnR_Xoa.Enabled = !_bool;
                 splitContainerControl1.Panel1.Controls.Clear();
                 if (_bool)
                 {
-                    function = "phancong";
                     List<ViTriHienThi> listVT = ViTriHienThi.getAllHavePhongNotNhanVien(objNhanVienPT.id);
                     _ucTreePhongHaveCheck.loadData(listVT, objNhanVienPT);
                     splitContainerControl1.Panel1.Controls.Add(_ucTreePhongHaveCheck);
                 }
                 else
                 {
-                    function = "";
                     splitContainerControl1.Panel1.Controls.Add(gridControlNhanVien);
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : PhanCong : " + ex.Message);
+                Debug.WriteLine(this.Name + "->PhanCong: " + ex.Message);
             }
             finally
             { }
@@ -441,16 +451,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void barBtnThemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, "add");
-            SetTextGroupControl("Thêm nhân viên", true);
-            beforeAdd();
+            editGUI("add");
         }
 
         private void barBtnSuaNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, "edit");
-            SetData();
-            SetTextGroupControl("Sửa nhân viên", true);
+            editGUI("edit");
         }
 
         private void barBtnXoaNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -460,8 +466,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void barBtnPhanCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            PhanCong(true);
-            working = true;
+            editGUI("phancong");
+            //working = true;
         }
 
         public void LoadListPhong(List<Phong> list)
@@ -472,16 +478,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void btnR_Them_Click(object sender, EventArgs e)
         {
-            enableEdit(true, "add");
-            SetTextGroupControl("Thêm nhân viên", true);
-            beforeAdd();
+            editGUI("add");
         }
 
         private void btnR_Sua_Click(object sender, EventArgs e)
         {
-            enableEdit(true, "edit");
-            SetData();
-            SetTextGroupControl("Sửa nhân viên", true);
+            editGUI("edit");
         }
 
         private void btnR_Xoa_Click(object sender, EventArgs e)
@@ -494,7 +496,18 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             try
             {
                 if (!function.Equals("edit"))
-                    return working;
+                {
+                    if (function.Equals("add"))
+                    {
+                        return
+                            !txtMa.Text.Equals("") ||
+                            !txtTen.Text.Equals("") ||
+                            !txtSodt.Text.Equals("") ||
+                            listHinhs.Count > 0;
+                    }
+                    else
+                        return working;
+                }
                 else
                 {
                     return
@@ -504,8 +517,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         objNhanVienPT.hinhanhs.ToString() != listHinhs.ToString();
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
                 return true;
             }
         }
@@ -523,13 +537,13 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
-                    reLoad();
+                    loadData();
                 }
                 else
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import không thành công!");
-                    reLoad();
+                    loadData();
                 }
 
             }
@@ -542,6 +556,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 frmShowImage frm = new frmShowImage(listHinhs);
                 frm.ShowDialog();
             }
+        }
+
+        private void gridViewNhanVien_DataSourceChanged(object sender, EventArgs e)
+        {
+            setDataView();
         }
     }
 }

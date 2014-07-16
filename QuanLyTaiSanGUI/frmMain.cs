@@ -29,6 +29,7 @@ using DevExpress.XtraEditors.Controls;
 using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.Settings;
 using QuanLyTaiSanGUI.QLTinhTrang;
+using QuanLyTaiSanGUI.QLSuCo;
 
 namespace QuanLyTaiSanGUI
 {
@@ -45,6 +46,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
         ucQuanLyTinhTrang _ucQuanLyTinhTrang = null;
+        ucQuanLySuCo _ucQuanLySuCo = null;
 
         ucCauHinh _ucCauHinh = null;
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
@@ -80,6 +82,7 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
             _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
             _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
+            _ucQuanLySuCo = new ucQuanLySuCo();
 
             //Add ucQuanLyTinhTrang
             backstageViewClientControlTinhTrang.Controls.Add(_ucQuanLyTinhTrang);
@@ -96,6 +99,7 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyThietBi.Dock = DockStyle.Fill;
             _ucQuanLyLoaiTB.Dock = DockStyle.Fill;
             _ucTK_SLTB_TheoTinhTrang.Dock = DockStyle.Fill;
+            _ucQuanLySuCo.Dock = DockStyle.Fill;
             //Add RibbonPage
             //addRibbonPage(_ucThongKeChiTiet.getRibbon());
             //addRibbonPage(_ucThongKeTongQuat.getRibbon());
@@ -107,6 +111,7 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucQuanLyNhanVien.getRibbon());
             addRibbonPage(_ucPhanQuyen.getRibbon());
             addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
+            addRibbonPage(_ucQuanLySuCo.getRibbon());
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
@@ -201,6 +206,13 @@ namespace QuanLyTaiSanGUI
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucTK_SLTB_TheoTinhTrang);
                     }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageSuCoPhong")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        //_ucQuanLySuCo.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLySuCo);
+                    }
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
             }
@@ -266,6 +278,10 @@ namespace QuanLyTaiSanGUI
                         working = _ucQuanLyPhong.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home")))
+                    {
+
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageSuCoPhong")))
                     {
 
                     }

@@ -14,9 +14,21 @@ namespace QuanLyTaiSanGUI.QLSuCo
     public partial class ucQuanLySuCo : UserControl
     {
         List<SuCoPhong> listSuCo = new List<SuCoPhong>();
+
         public ucQuanLySuCo()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            ribbonSuCoPhong.Parent = null;
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbon()
+        {
+            return ribbonSuCoPhong;
         }
 
         private void loadData()
