@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     /// <summary>
-    /// Có thêm những thuộc tính nâng cao
+    /// Có thêm quan hệ 1-n với HinhAnh
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class _EntityAbstract2<T> : _EntityAbstract1<T> /* ,_CRUDInterface<T>*/ where T : _EntityAbstract1<T>
@@ -23,8 +23,6 @@ namespace QuanLyTaiSan.Entities
         }
 
         #region Định nghĩa
-
-        public String ten { get; set; }
         /*
          * FK
          */
@@ -41,8 +39,9 @@ namespace QuanLyTaiSan.Entities
         {
             //Tự động xóa hình thuộc object này
             if (hinhanhs != null)//1 số trường hợp gán listHinhAnh vào obj là null, nó bắt lỗi null
+            {
                 db.HINHANHS.RemoveRange(hinhanhs);//Việc xóa sẽ được thực thi thực sự ngay khi gọi save change
-
+            }
             return base.delete();
         }
         #endregion

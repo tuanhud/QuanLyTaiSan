@@ -39,7 +39,7 @@ namespace QuanLyTaiSan.Entities
         #endregion
         #region Nghiệp vụ
         /// <summary>
-        /// Hàm dùng tạm để test dũu liệu
+        /// Hàm dùng tạm để test du liệu
         /// </summary>
         /// <param name="id1"></param>
         /// <param name="id2"></param>

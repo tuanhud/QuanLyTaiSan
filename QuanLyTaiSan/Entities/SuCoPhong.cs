@@ -9,70 +9,55 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    /*
-     * Log thiet bi, phuc vu thong ke
-     */
-    [Table("LOGPHONGS")]
-    public class LogPhong : _EntityAbstract1<LogPhong>
+    [Table("SUCOPHONGS")]
+    public class SuCoPhong : _EntityAbstract1<SuCoPhong>
     {
-        public LogPhong()
+        public SuCoPhong()
             : base()
         {
 
         }
-        #region Dinh nghia
-        [Index("nothing", 1, IsUnique = true)]
-        [Required]
-        public DateTime ngay { get; set; }
-
+        #region Dinh Nghia
         /*
          * FK
          */
+        [Index("nothing", 1, IsUnique = true)]
+        [Required]
+        [StringLength(255)]
+        public String ten { get; set; }
 
         public int tinhtrang_id { get; set; }
-        [Index("nothing", 3, IsUnique = true)]
+        [Index("nothing", 2, IsUnique = true)]
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
 
         public int phong_id { get; set; }
-        [Index("nothing", 4, IsUnique = true)]
+        [Index("nothing", 3, IsUnique = true)]
         [Required]
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
 
-        public int? quantrivien_id { get; set; }
-        [Index("nothing", 2, IsUnique = true)]
-        [ForeignKey("quantrivien_id")]
-        public virtual QuanTriVien quantrivien { get; set; }
-
-        public virtual ICollection<HinhAnh> hinhanhs { get; set; }
 		#endregion
 
         #region Override method
         public override int update()
         {
             //have to load all [Required] FK object first
-            if (tinhtrang != null)
-            {
-                tinhtrang.trigger();
-            }
             if (phong != null)
             {
                 phong.trigger();
             }
-            if (quantrivien != null)
+            if (tinhtrang != null)
             {
-                quantrivien.trigger();
+                tinhtrang.trigger();
             }
-            
             //...
             return base.update();
         }
         protected override void init()
         {
             base.init();
-            hinhanhs = new List<HinhAnh>();
         }
         #endregion
     }
