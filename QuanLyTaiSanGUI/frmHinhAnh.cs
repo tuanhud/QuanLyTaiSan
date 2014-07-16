@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI
                     foreach (string file in open.FileNames)
                     {
                         FileInfo fileinfo = new FileInfo(file);
-
+                        string ImageNameNoExtension = Path.GetFileNameWithoutExtension(fileinfo.Name);
                         //HinhAnh hinhanhcheck = listHinhAnh.Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         HinhAnh hinhanhcheck = HinhAnh.getQuery().Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
                         if (hinhanhcheck == null)
