@@ -40,9 +40,9 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
-        public virtual ICollection<LogPhong> logphongs { get; set; }
+        public virtual ICollection<SuCoPhong> sucophongs { get; set; }
+        public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
-        public virtual ICollection<Phong> phongs { get; set; }
         #endregion
 
         #region Override
@@ -51,8 +51,8 @@ namespace QuanLyTaiSan.Entities
             base.init();
             ctthietbis = new List<CTThietBi>();
             logthietbis = new List<LogThietBi>();
-            logphongs = new List<LogPhong>();
-            phongs = new List<Phong>();
+            sucophongs = new List<SuCoPhong>();
+            logsucophongs = new List<LogSuCoPhong>();
         }
         public override int delete()
         {

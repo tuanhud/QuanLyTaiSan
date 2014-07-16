@@ -13,7 +13,7 @@ namespace QuanLyTaiSan.Entities
      * Log thiet bi, phuc vu thong ke
      */
     [Table("LOGTHIETBIS")]
-    public class LogThietBi : _EntityAbstract1<LogThietBi>
+    public class LogThietBi : _EntityAbstract2<LogThietBi>
     {
         public LogThietBi():base()
         {
@@ -25,26 +25,26 @@ namespace QuanLyTaiSan.Entities
         public DateTime ngay { get; set; }
 
         [Required]
-        [Index("nothing", 5, IsUnique = true)]
+        [Index("nothing", 2, IsUnique = true)]
         public int soluong { get; set; }
 
         /*
          * FK
          */
         public int thietbi_id { get; set; }
-        [Index("nothing", 2,IsUnique=true)]
+        [Index("nothing", 3,IsUnique=true)]
         [Required]
         [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
 
         public int tinhtrang_id { get; set; }
-        [Index("nothing", 3, IsUnique = true)]
+        [Index("nothing", 4, IsUnique = true)]
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
 
         public int phong_id { get; set; }
-        [Index("nothing", 4, IsUnique = true)]
+        [Index("nothing", 5, IsUnique = true)]
         [Required]
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
@@ -53,38 +53,16 @@ namespace QuanLyTaiSan.Entities
         [Index("nothing", 6, IsUnique = true)]
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
-
-        public virtual ICollection<HinhAnh> hinhanhs { get; set; }
 		#endregion
 
         #region Override method
+        /// <summary>
+        /// LOG THIET BỊ KHÔNG CÓ UPDATE
+        /// </summary>
+        /// <returns></returns>
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (thietbi != null)
-            {
-                thietbi.trigger();
-            }
-            if (tinhtrang != null)
-            {
-                tinhtrang.trigger();
-            }
-            if (phong != null)
-            {
-                phong.trigger();
-            }
-            if (quantrivien != null)
-            {
-                quantrivien.trigger();
-            }
-            
-            //...
-            return base.update();
-        }
-        protected override void init()
-        {
-            base.init();
-            hinhanhs = new List<HinhAnh>();
+            return -1;
         }
         #endregion
     }

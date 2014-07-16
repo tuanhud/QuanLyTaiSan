@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    /*
-     * Log thiet bi, phuc vu thong ke
-     */
-    [Table("LOGPHONGS")]
-    public class LogPhong : _EntityAbstract1<LogPhong>
+    [Table("LOGSUCOPHONGS")]
+    public class LogSuCoPhong: _EntityAbstract2<LogSuCoPhong>
     {
-        public LogPhong()
+        public LogSuCoPhong()
             : base()
         {
 
@@ -23,11 +19,14 @@ namespace QuanLyTaiSan.Entities
         #region Dinh nghia
         [Index("nothing", 1, IsUnique = true)]
         [Required]
-        public DateTime ngay { get; set; }
-
+        [StringLength(255)]
+        public String ten { get; set; }
         /*
          * FK
          */
+        [Index("nothing", 2, IsUnique = true)]
+        [Required]
+        public DateTime ngay { get; set; }
 
         public int tinhtrang_id { get; set; }
         [Index("nothing", 3, IsUnique = true)]
@@ -42,37 +41,24 @@ namespace QuanLyTaiSan.Entities
         public virtual Phong phong { get; set; }
 
         public int? quantrivien_id { get; set; }
-        [Index("nothing", 2, IsUnique = true)]
+        [Index("nothing", 5, IsUnique = true)]
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
 
-        public virtual ICollection<HinhAnh> hinhanhs { get; set; }
-		#endregion
+        #endregion
 
-        #region Override method
-        public override int update()
-        {
-            //have to load all [Required] FK object first
-            if (tinhtrang != null)
-            {
-                tinhtrang.trigger();
-            }
-            if (phong != null)
-            {
-                phong.trigger();
-            }
-            if (quantrivien != null)
-            {
-                quantrivien.trigger();
-            }
-            
-            //...
-            return base.update();
-        }
+        #region Override
         protected override void init()
         {
             base.init();
-            hinhanhs = new List<HinhAnh>();
+        }
+        /// <summary>
+        /// Không có UPDATE cho LOG
+        /// </summary>
+        /// <returns></returns>
+        public override int update()
+        {
+            return -1;
         }
         #endregion
     }

@@ -84,7 +84,8 @@
     <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
-    <Compile Include="Entities\LogPhong.cs" />
+    <Compile Include="Entities\LogSuCoPhong.cs" />
+    <Compile Include="Entities\SuCoPhong.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />
     <Compile Include="Entities\NhanVienPT.cs" />
     <Compile Include="Entities\Setting.cs" />
@@ -174,9 +175,9 @@
     <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.Designer.cs">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407151005145_them_rangbuoc_phong_logphong_hinhanh_vvv.cs" />
-    <Compile Include="Migrations\201407151005145_them_rangbuoc_phong_logphong_hinhanh_vvv.Designer.cs">
-      <DependentUpon>201407151005145_them_rangbuoc_phong_logphong_hinhanh_vvv.cs</DependentUpon>
+    <Compile Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs" />
+    <Compile Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.Designer.cs">
+      <DependentUpon>201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -228,8 +229,8 @@
     <EmbeddedResource Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.resx">
       <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407151005145_them_rangbuoc_phong_logphong_hinhanh_vvv.resx">
-      <DependentUpon>201407151005145_them_rangbuoc_phong_logphong_hinhanh_vvv.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.resx">
+      <DependentUpon>201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -189,7 +189,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 dateLap.EditValue = _obj.thietbi.ngaylap;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
+                gridControlLog.DataSource = _obj.logthietbis.Where(c => c.soluong>0);//_obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
                 reloadImage();
             }
             catch (Exception ex)

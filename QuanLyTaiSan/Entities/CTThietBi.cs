@@ -45,7 +45,17 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
         #region Nghiep vu
-
+        /// <summary>
+        /// Readonly
+        /// </summary>
+        [NotMapped]
+        public ICollection<LogThietBi> logthietbis
+        {
+            get
+            {
+                return this.thietbi.logthietbis.Where(c => c.phong_id == this.phong_id).ToList();
+            }
+        }
         /// <summary>
         /// Di chuyển, kết hợp đổi tình trạng,
         /// có hỗ trợ ghi LOG tự động,vd:

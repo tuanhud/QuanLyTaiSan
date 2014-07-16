@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     /// <summary>
-    /// Chỉ bao gồm định nghĩa về id
+    /// Định nghĩa cơ bản mà mọi Entity phải có
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class _EntityAbstract1<T> : _EFEventRegisterInterface, _CRUDInterface<T> where T : _EntityAbstract1<T>
