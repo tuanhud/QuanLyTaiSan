@@ -135,8 +135,6 @@ namespace QuanLyTaiSan.Entities
                     Global.sync.tracking_tables
                 );
 
-                Global.server_database.prepare_db_structure();
-
                 return 1;
             }
             /// <summary>
@@ -264,8 +262,6 @@ namespace QuanLyTaiSan.Entities
                     Global.server_database.get_connection_string(),
                     Global.sync.scope_name
                 );
-
-                Global.client_database.prepare_db_structure();
 
                 return 1;
             }
