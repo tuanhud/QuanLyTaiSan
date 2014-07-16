@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("NHANVIENPTS")]
-    public class NhanVienPT : _EntityAbstract1<NhanVienPT>
+    public class NhanVienPT : _EntityAbstract2<NhanVienPT>
     {
         public NhanVienPT():base()
         {
@@ -26,7 +26,6 @@ namespace QuanLyTaiSan.Entities
          * FK 
          */
         public virtual ICollection<Phong> phongs { get; set; }
-        public virtual ICollection<HinhAnh> hinhanhs { get; set; }
         #endregion
         #region Nghiệp vụ
         /// <summary>
@@ -60,7 +59,6 @@ namespace QuanLyTaiSan.Entities
         {
             base.init();
             phongs = new List<Phong>();
-            hinhanhs = new List<HinhAnh>();
         }
         public override int delete()
         {

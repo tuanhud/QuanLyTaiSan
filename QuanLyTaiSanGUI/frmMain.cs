@@ -28,6 +28,7 @@ using DevExpress.XtraTreeList.Localization;
 using DevExpress.XtraEditors.Controls;
 using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.Settings;
+using QuanLyTaiSanGUI.QLTinhTrang;
 
 namespace QuanLyTaiSanGUI
 {
@@ -43,6 +44,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyThietBi _ucQuanLyThietBi = null;
         ucQuanLyLoaiTB _ucQuanLyLoaiTB = null;
         ucTK_SLTB_TheoTinhTrang _ucTK_SLTB_TheoTinhTrang = null;
+        ucQuanLyTinhTrang _ucQuanLyTinhTrang = null;
 
         ucCauHinh _ucCauHinh = null;
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
@@ -77,6 +79,10 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyThietBi = new ucQuanLyThietBi();
             _ucQuanLyLoaiTB = new ucQuanLyLoaiTB();
             _ucTK_SLTB_TheoTinhTrang = new ThongKe.ucTK_SLTB_TheoTinhTrang();
+            _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
+
+            //Add ucQuanLyTinhTrang
+            backstageViewClientControlTinhTrang.Controls.Add(_ucQuanLyTinhTrang);
 
             //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             //DockStyle
@@ -314,6 +320,11 @@ namespace QuanLyTaiSanGUI
             _ucThongTinPhanMem = new ucThongTinPhanMem();
             _ucThongTinPhanMem.Dock = DockStyle.Fill;
             backstageViewClientControlThongTinPhanMem.Controls.Add(_ucThongTinPhanMem);
+        }
+
+        private void backstageViewTabItemTinhTrang_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            _ucQuanLyTinhTrang.loadData();
         }
     }
 }

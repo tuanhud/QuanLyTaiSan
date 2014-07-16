@@ -7,13 +7,13 @@ namespace QuanLyTaiSan.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class them_rangbuoc_phong_logphong_hinhanh_vvv : IMigrationMetadata
+    public sealed partial class CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(them_rangbuoc_phong_logphong_hinhanh_vvv));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407151005145_them_rangbuoc_phong_logphong_hinhanh_vvv"; }
+            get { return "201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES"; }
         }
         
         string IMigrationMetadata.Source

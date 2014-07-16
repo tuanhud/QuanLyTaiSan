@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using QuanLyTaiSan.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,22 +51,8 @@ namespace QuanLyTaiSan.Entities
                 db.Dispose();
                 db = null;
             }
-            //sync before create new Connection
-            if (true)
-            {
-                //call sync for insert Confliction in new background thread
-                Thread thread = new Thread(new ThreadStart(sync));
-                thread.Start();
-            }
-
+            
             db = DB;
-        }
-        private static void sync()
-        {
-            Debug.WriteLine("======Location: OurDBConText======");
-            Debug.WriteLine("======Start sync when insert in new Thread======");
-            Global.client_database.start_sync();
-            Debug.WriteLine("======End sync when insert in new Thread======");
         }
         public static void autoRandom()
         {

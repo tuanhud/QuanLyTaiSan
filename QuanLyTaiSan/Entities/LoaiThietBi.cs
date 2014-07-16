@@ -19,7 +19,9 @@ namespace QuanLyTaiSan.Entities
             
         }
         #region Dinh nghia
+        [Index(IsUnique = true)]
         [Required]
+        [StringLength(255)]
         public String ten { get; set; }
 
         public Boolean loaichung { get; set; }

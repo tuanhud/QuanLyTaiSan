@@ -43,7 +43,8 @@ namespace QuanLyTaiSan.Entities
         [ForeignKey("group_id")]
         public virtual Group group { get; set; }
 
-        public virtual ICollection<LogPhong> logphongs { get; set; }
+        public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
+        public virtual ICollection<LogThietBi> logthietbis { get; set; }
         #endregion
 
         #region Hàm nghiệp vụ
@@ -180,7 +181,8 @@ namespace QuanLyTaiSan.Entities
         protected override void init()
         {
             base.init();
-            logphongs = new List<LogPhong>();
+            logsucophongs = new List<LogSuCoPhong>();
+            logthietbis = new List<LogThietBi>();
         }
         public override int update()
         {

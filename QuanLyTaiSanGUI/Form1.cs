@@ -3,31 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraTreeList;
-using DevExpress.XtraTreeList.Nodes;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.MyUC;
-using QuanLyTaiSanGUI.QLLoaiThietBi;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
         public Form1()
         {
             InitializeComponent();
-
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            frmMain frm = new frmMain();
-            frm.Show();
+            QuanLyTaiSanGUI.QLTinhTrang.ucQuanLyTinhTrang uc = new QuanLyTaiSanGUI.QLTinhTrang.ucQuanLyTinhTrang();
+            uc.Dock = DockStyle.Fill;
+            uc.loadData();
+            panelControl1.Controls.Add(uc);
         }
     }
 }

@@ -110,8 +110,11 @@ namespace QuanLyTaiSan.Entities
         public OurDBContext()
             : base("Default")
         {
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OurDBContext, QuanLyTaiSan.Migrations.Configuration>());
-            
+            //Create sample data if indicated
+            IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(false);
+
+            //Auto create DB if not exist
+            Database.SetInitializer<OurDBContext>(initializer);
         }
         public OurDBContext(String connection_string="Default", Boolean create_sample_data = true)
             : base(connection_string)
@@ -121,8 +124,6 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
-
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OurDBContext, QuanLyTaiSan.Migrations.Configuration>());
         }
         
         public DbSet<CoSo> COSOS { get; set; }
@@ -135,7 +136,8 @@ namespace QuanLyTaiSan.Entities
         public DbSet<Permission> PERMISSIONS { get; set; }
         public DbSet<LogHeThong> LOGHETHONGS { get; set; }
         public DbSet<LogThietBi> LOGTHIETBIS { get; set; }
-        public DbSet<LogPhong> LOGPHONGS { get; set; }
+        public DbSet<SuCoPhong> SUCOPHONGS { get; set; }
+        public DbSet<LogSuCoPhong> LOGSUCOPHONGS { get; set; }
         public DbSet<TinhTrang> TINHTRANGS { get; set; }
         public DbSet<NhanVienPT> NHANVIENPTS { get; set; }
         public DbSet<Tang> TANGS { get; set; }
@@ -231,7 +233,12 @@ namespace QuanLyTaiSan.Entities
                 x.MapInheritedProperties();
             });
 
-            modelBuilder.Entity<LogPhong>().Map(x =>
+            modelBuilder.Entity<SuCoPhong>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<LogSuCoPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });

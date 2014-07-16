@@ -54,9 +54,9 @@ namespace QuanLyTaiSan.Entities
         [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
 
-        public int? logphong_id { get; set; }
-        [ForeignKey("logphong_id")]
-        public virtual LogPhong logphong { get; set; }
+        public int? logsucophong_id { get; set; }
+        [ForeignKey("logsucophong_id")]
+        public virtual LogSuCoPhong logsucophong { get; set; }
 
         public int? logthietbi_id { get; set; }
         [ForeignKey("logthietbi_id")]
@@ -263,36 +263,21 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        /// <summary>
+        /// Hình ảnh không có update
+        /// </summary>
+        /// <returns></returns>
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (tang != null)
-            {
-                tang.trigger();
-            }
-            if (coso != null)
-            {
-                coso.trigger();
-            }
-            if (day != null)
-            {
-                day.trigger();
-            }
-            if (thietbi != null)
-            {
-                thietbi.trigger();
-            }
-            if (nhanvienpt != null)
-            {
-                nhanvienpt.trigger();
-            }
-            if (phong != null)
-            {
-                phong.trigger();
-            }
-            
-            //...
-            return base.update();
+            return -1;
+        }
+        /// <summary>
+        /// nên gọi theo dạng if(obj.upload()>0) obj.add();
+        /// </summary>
+        /// <returns></returns>
+        public override int add()
+        {
+            return base.add();
         }
         #endregion
     }

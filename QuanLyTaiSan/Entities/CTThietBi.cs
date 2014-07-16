@@ -45,7 +45,17 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
         #endregion
         #region Nghiep vu
-
+        /// <summary>
+        /// Readonly
+        /// </summary>
+        [NotMapped]
+        public ICollection<LogThietBi> logthietbis
+        {
+            get
+            {
+                return this.thietbi.logthietbis.Where(c => c.phong_id == this.phong_id).ToList();
+            }
+        }
         /// <summary>
         /// Di chuyển, kết hợp đổi tình trạng,
         /// có hỗ trợ ghi LOG tự động,vd:
@@ -117,7 +127,7 @@ namespace QuanLyTaiSan.Entities
                         {
                             tmp.soluong += soluong;
                             tmp.mota = mota;//mota.Equals("")?tmp.mota:mota;
-                            transac = transac && tmp.update(ngay, true) > 0;//UPDATE
+                            transac = transac && tmp.update(ngay, true, hinhs) > 0;//UPDATE
                         }
                     }
 
@@ -126,7 +136,7 @@ namespace QuanLyTaiSan.Entities
                     this.soluong -= soluong;
                     this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
                     //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                    transac = transac && update(ngay, true) > 0;
+                    transac = transac && update(ngay, true, hinhs) > 0;
                 }
 
 
@@ -238,14 +248,14 @@ namespace QuanLyTaiSan.Entities
                 {
                     tmp.soluong += soluong;
                     //call update on tmp
-                    trans = trans && tmp.update(ngay, true) > 0;
+                    trans = trans && tmp.update(ngay, true, hinhs) > 0;
                     id = tmp.id;
                 }
                 
                 else
                 {
                     trans = trans && base.add() > 0;
-                    trans = trans && writelog(ngay, mota) > 0;
+                    trans = trans && writelog(ngay, mota,hinhs) > 0;
                 }
 
             }
@@ -276,7 +286,7 @@ namespace QuanLyTaiSan.Entities
         /// <param name="ngay"></param>
         /// <param name="in_transaction"></param>
         /// <returns></returns>
-        private int update(DateTime? ngay=null, Boolean in_transaction=false)
+        private int update(DateTime? ngay=null, Boolean in_transaction=false, List<HinhAnh> hinhs=null)
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -302,7 +312,7 @@ namespace QuanLyTaiSan.Entities
             //SCRIPT
 
             transac = transac && base.update() > 0;
-            transac = transac && writelog(ngay, mota) > 0;
+            transac = transac && writelog(ngay, mota,hinhs) > 0;
 
             //END SCRIPT
             if (!in_transaction)

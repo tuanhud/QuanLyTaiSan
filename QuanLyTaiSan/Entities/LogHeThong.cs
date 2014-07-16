@@ -17,12 +17,21 @@ namespace QuanLyTaiSan.Entities
 
         }
         #region Dinh nghia
-        [Required]
-        public DateTime ngay { get; set; }
-
         //PARENT DIFINITION
         //vd: { "USER":quocdunginfo, "ACTION":DELETE_USER, "PARAM": nguoibixoa }
         //public String mota { get; set; }
         #endregion
+
+        #region Override
+        /// <summary>
+        /// Log hệ thống không có update
+        /// </summary>
+        /// <returns></returns>
+        public override int update()
+        {
+            return -1;
+        }
+        #endregion
+
     }
 }

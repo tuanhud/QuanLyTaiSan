@@ -609,6 +609,7 @@
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
+            this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
             // 
             // txtMoTa
             // 

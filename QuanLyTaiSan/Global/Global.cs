@@ -81,7 +81,7 @@ namespace QuanLyTaiSan.Entities
             }
             public static String[] tracking_tables
             {
-                //UNDEPENDENT (ON INSERT)
+                //UNDEPENDENT (bản thân không có chưa bất kỳ FK nào)
                 //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
                 get
                 {
@@ -99,14 +99,16 @@ namespace QuanLyTaiSan.Entities
                         "TINHTRANGS",//UNDEPENDENT
                         "THIETBIS",
                         "CTTHIETBIS",
-                        "LOGTHIETBIS",
                     
                         "GROUPS",//UNDEPENDENT
                         "PERMISSIONS",//UNDEPENDENT
                         "GROUP_PERMISSION",
                         "QUANTRIVIENS",
 
-                        "LOGPHONGS",
+                        "LOGTHIETBIS",
+
+                        "SUCOPHONGS",//UNDEPENDENT
+                        "LOGSUCOPHONGS",
                         "HINHANHS",
                         "SETTINGS",//UNDEPENDENT
                         "LOGHETHONGS",//UNDEPENDENT
@@ -133,8 +135,6 @@ namespace QuanLyTaiSan.Entities
                     Global.sync.tracking_tables
                 );
 
-                Global.server_database.prepare_db_structure();
-
                 return 1;
             }
             /// <summary>
@@ -149,8 +149,6 @@ namespace QuanLyTaiSan.Entities
                     {
                         tmp.COSOS.Find(1);
                     }
-
-
                 }
                 catch (Exception ex)
                 {
@@ -166,7 +164,7 @@ namespace QuanLyTaiSan.Entities
                         Global.local_setting.db_server_username,
                         Global.local_setting.db_server_password,
                         Global.local_setting.db_server_port,
-                        3
+                        10
                 );
             }
             /// <summary>
@@ -265,8 +263,6 @@ namespace QuanLyTaiSan.Entities
                     Global.sync.scope_name
                 );
 
-                Global.client_database.prepare_db_structure();
-
                 return 1;
             }
             /// <summary>
@@ -304,7 +300,7 @@ namespace QuanLyTaiSan.Entities
                 }
                 try
                 {
-                    OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(),true);
+                    OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(),false);
                     if (tmp != null)
                     {
                         tmp.COSOS.Find(1);
@@ -324,7 +320,7 @@ namespace QuanLyTaiSan.Entities
                         Global.local_setting.db_cache_username,
                         Global.local_setting.db_cache_password,
                         Global.local_setting.db_cache_port,
-                        3
+                        10
                 );
             }
             /// <summary>

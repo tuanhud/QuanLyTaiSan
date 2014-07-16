@@ -23,14 +23,15 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public int? order { get; set; }
 
+        [Index(IsUnique = true)]
+        [Required]
+        [StringLength(255)]
+        public String ten { get; set; }
         public virtual ICollection<Dayy> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
         #endregion
-        
 
         #region Nghiệp vụ
-        
-
         #endregion
 
         #region Override method

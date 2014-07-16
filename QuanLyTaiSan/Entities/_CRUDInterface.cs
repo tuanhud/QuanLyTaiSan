@@ -8,24 +8,13 @@ namespace QuanLyTaiSan.Entities
 {
     public interface _CRUDInterface<T>
     {
-        ///// <summary>
-        ///// Lấy tất cả Object có trong bảng dữ liệu
-        ///// </summary>
-        ///// <returns></returns>
-        //    List<T> getAll();
-        ///// <summary>
-        ///// Lấy Object theo id
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //    T getById(int id);
         /// <summary>
         /// Thêm
         /// </summary>
         /// <returns></returns>
             int add();
         /// <summary>
-        /// Sửa (cập nhật sau khi đã edit)
+        /// Sửa
         /// </summary>
         /// <returns></returns>
             int update();
@@ -35,7 +24,7 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
             int delete();
         /// <summary>
-        /// Trả về Object tương đương nhưng thuộc tính bị đè từ CSDL
+        /// Trả về Object tương đương ứng với dbContext mới
         /// </summary>
         /// <returns></returns>
             T reload();
@@ -43,8 +32,5 @@ namespace QuanLyTaiSan.Entities
         /// Sử dụng để FORCE LOAD FK OBJECT khi UPDATE
         /// </summary>
             void trigger();
-        /// <summary>
-        /// event register
-        /// </summary>
     }
 }

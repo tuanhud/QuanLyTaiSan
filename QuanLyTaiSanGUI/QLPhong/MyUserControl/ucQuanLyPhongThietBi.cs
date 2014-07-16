@@ -62,6 +62,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             layout.load(gridViewCTThietBi);
             working = false;
+            enableEdit(false);
             List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
@@ -189,7 +190,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 dateLap.EditValue = _obj.thietbi.ngaylap;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
+                gridControlLog.DataSource = _obj.logthietbis.Where(c => c.soluong>0);//_obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
                 reloadImage();
             }
             catch (Exception ex)
@@ -446,6 +447,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
             catch
             {
                 return true;
+            }
+        }
+
+        private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listHinh != null && listHinh.Count > 0)
+            {
+                frmShowImage frm = new frmShowImage(listHinh);
+                frm.ShowDialog();
             }
         }
     }
