@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -40,8 +41,76 @@ namespace QuanLyTaiSan.Entities
 
 		#endregion
 
+        #region Nghiệp vụ
+        /// <summary>
+        /// Read only
+        /// </summary>
+        [NotMapped]
+        public ICollection<LogSuCoPhong> logsucophongs
+        {
+            /*
+             * Do Sự cố Phòng và Log Phòng không có quan hệ với nhau
+             */
+            get
+            {
+                return this.phong.logsucophongs.Where(
+                    c => c.ten.ToUpper().Equals(this.ten.ToUpper())
+                ).ToList();
+            }
+        }
+
+        #endregion
+
         #region Override method
-        public override int update()
+        /// <summary>
+        /// Set tên, tình trạng, phòng, mô tả trước khi gọi,
+        /// Có hỗ trợ ghi log
+        /// </summary>
+        /// <param name="hinhs">Hình sự cố</param>
+        /// <returns></returns>
+        public int add(List<HinhAnh> hinhs=null)
+        {
+            Boolean transac = true;
+            DateTime ngay = ServerTimeHelper.getNow();
+            using (var dbContextTransaction = db.Database.BeginTransaction())
+            {
+                //add
+                transac = transac && base.add()>0;
+                //write log
+                transac = transac && writelog(ngay, this.mota, hinhs)>0;
+
+                //final transac controller
+                if (transac)
+                {
+                    dbContextTransaction.Commit();
+                }
+                else
+                {
+                    dbContextTransaction.Rollback();
+                }
+
+                return transac ? 1 : -1;
+            }
+        }
+        protected int writelog(DateTime ngay, String mota="", List<HinhAnh> hinhs=null)
+        {
+            LogSuCoPhong obj = new LogSuCoPhong();
+            obj.hinhanhs = hinhs==null?new List<HinhAnh>():hinhs;
+            obj.mota = mota;
+            obj.ngay = ngay;
+            obj.phong = this.phong;
+            obj.quantrivien = Global.current_login;
+            obj.ten = this.ten;
+            obj.subId = this.subId;
+            obj.tinhtrang = this.tinhtrang;
+            
+            return obj.add();
+        }
+        /// <summary>
+        /// Có hỗ trợ ghi log
+        /// </summary>
+        /// <returns></returns>
+        public int update(List<HinhAnh> hinhs=null)
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -52,8 +121,28 @@ namespace QuanLyTaiSan.Entities
             {
                 tinhtrang.trigger();
             }
-            //...
-            return base.update();
+
+            Boolean transac = true;
+            DateTime ngay = ServerTimeHelper.getNow();
+            using (var dbContextTransaction = db.Database.BeginTransaction())
+            {
+                //add
+                transac = transac && base.update() > 0;
+                //write log
+                transac = transac && writelog(ngay, this.mota, hinhs) > 0;
+
+                //final transac controller
+                if (transac)
+                {
+                    dbContextTransaction.Commit();
+                }
+                else
+                {
+                    dbContextTransaction.Rollback();
+                }
+
+                return transac ? 1 : -1;
+            }
         }
         protected override void init()
         {
