@@ -146,6 +146,42 @@ namespace QuanLyTaiSan.Entities
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
         public DbSet<Setting> SETTINGS { get; set; }
 
+        /// <summary>
+        /// Kiem tra model backing changed
+        /// </summary>
+        /// <returns></returns>
+        public bool isValidModel()
+        {
+            try
+            {
+                COSOS.Find(1);
+                DAYYS.Find(1);
+                TANGS.Find(1);
+                VITRIS.Find(1);
+                PHONGS.Find(1);
+                THIETBIS.Find(1);
+                CTTHIETBIS.Find(1);
+                HINHANHS.Find(1);
+                QUANTRIVIENS.Find(1);
+                NHANVIENPTS.Find(1);
+                LOGHETHONGS.Find(1);
+                LOGSUCOPHONGS.Find(1);
+                LOGTHIETBIS.Find(1);
+                LOAITHIETBIS.Find(1);
+                SETTINGS.Find(1);
+                TINHTRANGS.Find(1);
+                PERMISSIONS.Find(1);
+                SUCOPHONGS.Find(1);
+                GROUPS.Find(1);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return false;
+            }
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //CONFIG

@@ -72,8 +72,7 @@ namespace QuanLyTaiSan.Libraries
             {
                 sqlBuilder.ConnectTimeout = TimeOut;//seconds
             }
-
-            Debug.WriteLine("StringHelper: "+sqlBuilder.ToString());
+            //Debug.WriteLine("StringHelper: "+sqlBuilder.ToString());
             return sqlBuilder.ToString();
         }
         /// <summary>

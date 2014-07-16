@@ -13,20 +13,9 @@ namespace QuanLyTaiSan.Entities
     {
         public static class debug
         {
-            public static void remove_file()
+            public static int remove_file()
             {
-                try
-                {
-                    // Try to delete the file.
-                    File.Delete(FILENAME);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.ToString());
-                    // We could not delete the file.
-                    return;
-                }
+                return FileHelper.delete(FILENAME);
             }
             /// <summary>
             /// Lưu mode vào local setting
@@ -170,13 +159,21 @@ namespace QuanLyTaiSan.Entities
             /// <summary>
             /// Kiểm tra kết nối tới Database
             /// </summary>
-            /// <returns></returns>
-            public static Boolean isReady(int TimeOut = -1)
+            /// <returns>-1: Not exist, -2: model backing changed, >0: OK</returns>
+            public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                return DatabaseHelper.isReady(
+                if (!DatabaseHelper.isExist(
                     Global.server_database.get_connection_string()
-                );
+                ))
+                {
+                    return -1;
+                }
+                //Check model backing
+                using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(),false))
+                {
+                    return tmp.isValidModel() ? 1 : -2;
+                }
             }
             public static String db_host
             {
@@ -276,12 +273,12 @@ namespace QuanLyTaiSan.Entities
                     return -1;
                 }
                 //Kiểm tra kết nối cho cả client và Server
-                if (!Global.client_database.isReady() || !Global.server_database.isReady())
+                if (Global.client_database.isReady()<0 || Global.server_database.isReady()<0)
                 {
                     return -1;
                 }
 
-                return DatabaseHelper.start_sync_process(
+                return DatabaseHelper.start_sync(
                     Global.client_database.get_connection_string(),
                     Global.server_database.get_connection_string(),
                     Global.sync.scope_name
@@ -326,13 +323,21 @@ namespace QuanLyTaiSan.Entities
             /// <summary>
             /// Kiểm tra kết nối tới Database
             /// </summary>
-            /// <returns></returns>
-            public static Boolean isReady(int TimeOut = -1)
+            /// <returns>-1: Not exist, -2: model backing changed, >0: OK</returns>
+            public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                return DatabaseHelper.isReady(
+                if (!DatabaseHelper.isExist(
                     Global.client_database.get_connection_string()
-                );
+                ))
+                {
+                    return -1;
+                }
+                //Check model backing
+                using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
+                {
+                    return tmp.isValidModel() ? 1 : -2;
+                }
             }
             public static String db_host
             {
@@ -423,13 +428,22 @@ namespace QuanLyTaiSan.Entities
             /// <summary>
             /// Kiểm tra kết nối tới Database
             /// </summary>
-            /// <returns></returns>
-            public static Boolean isReady(int TimeOut=-1)
+            /// <returns>-1: Not exist, -2: model backing changed, >0: OK</returns>
+            public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                return DatabaseHelper.isReady(
+                if (!DatabaseHelper.isExist(
                     Global.working_database.get_connection_string()
-                );
+                ))
+                {
+                    return -1;
+                }
+                //Check model backing
+                //Check model backing
+                using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false))
+                {
+                    return tmp.isValidModel() ? 1 : -2;
+                }
             }
             public static String db_host
             {
@@ -494,6 +508,11 @@ namespace QuanLyTaiSan.Entities
             
             public static class ftp_host
             {
+                /// <summary>
+                /// Generate duong dan ftp dang FULL ung voi relative path
+                /// </summary>
+                /// <param name="relativePath"></param>
+                /// <returns></returns>
                 public static String getCombinedPath(String relativePath = "")
                 {
                     String tmp = "";

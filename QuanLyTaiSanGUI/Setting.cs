@@ -92,7 +92,7 @@ namespace QuanLyTaiSanGUI
             //Check kết nối tới CSDL nếu OK thì gọi Close
             if (cau_hinh_ban_dau)
             {
-                if (Global.working_database.isReady())
+                if (Global.working_database.isReady()>0)
                 {
                     this.custom_close();
                 }

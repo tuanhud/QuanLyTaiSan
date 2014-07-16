@@ -17,8 +17,6 @@ namespace QuanLyTaiSanGUI
         public Test()
         {
             InitializeComponent();
-
-            ServerTimeHelper.sync_datetime();
         }
     }
 }

@@ -46,7 +46,7 @@ namespace QuanLyTaiSanGUI.Settings
              * REMOTE SETTING
              */
             //Phai co ket noi toi Database moi lay duoc remote 
-            if (Global.working_database.isReady())
+            if (Global.working_database.isReady()>0)
             {
                 //FTP
                 txtAddressFTP.Text = Global.remote_setting.ftp_host.HOST_NAME;
@@ -97,12 +97,12 @@ namespace QuanLyTaiSanGUI.Settings
             //CHECK DB CONFIG
             if (Global.local_setting.use_db_cache)
             {
-                if (!Global.server_database.isReady())
+                if (Global.server_database.isReady()<0)
                 {
                     //SERVER FAIL
                     return -2;
                 }
-                if (!Global.client_database.isReady())
+                if (Global.client_database.isReady()<0)
                 {
                     //CLIENT FAIL
                     return -3;
@@ -110,7 +110,7 @@ namespace QuanLyTaiSanGUI.Settings
             }
             else
             {
-                if (!Global.working_database.isReady())
+                if (Global.working_database.isReady()<0)
                 {
                     //SERVER FAIL
                     return -2;

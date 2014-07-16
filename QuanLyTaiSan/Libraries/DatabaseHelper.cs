@@ -17,41 +17,13 @@ namespace QuanLyTaiSan.Libraries
         public static Boolean dropDB(String connectionString="")
         {
             return System.Data.Entity.Database.Delete(connectionString);
-            
-            //SqlConnection sqlConnection1 = new SqlConnection(connectionString);
-//            try
-//            {
-//                SqlCommand cmd = new SqlCommand(); ;
-
-//                cmd.CommandText = @"
-//                USE master;
-//                ALTER DATABASE " + dbName + @" SET  SINGLE_USER WITH ROLLBACK IMMEDIATE;
-//                DROP DATABASE " + dbName +";";
-//                cmd.CommandType = CommandType.Text;
-//                cmd.Connection = sqlConnection1;
-
-//                sqlConnection1.Open();
-//                cmd.ExecuteNonQuery();
-//                // Data is accessible through the DataReader object here.
-//                sqlConnection1.Close();
-//                return 1;
-//            }
-//            catch (Exception ex)
-//            {
-//                Debug.WriteLine(ex.ToString());
-//                return -1;
-//            }
-//            finally
-//            {
-//                sqlConnection1.Dispose();
-//            }
         }
         /// <summary>
         /// Kiểm tra kết nối tới Database thông qua Connection String đưa vào
         /// </summary>
         /// <param name="connectionString"></param>
         /// <returns></returns>
-        public static Boolean isReady(String connectionString="")
+        public static Boolean isExist(String connectionString="")
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -67,7 +39,7 @@ namespace QuanLyTaiSan.Libraries
                 }
             }
         }
-        public static Boolean isReady(SqlConnection connectionInstance)
+        public static Boolean isExist(SqlConnection connectionInstance)
         {
             try
             {
@@ -89,7 +61,7 @@ namespace QuanLyTaiSan.Libraries
             Debug.WriteLine(e.Error);
             Debug.WriteLine("=========END ERROR==========");
         }
-        public static int start_sync_process(String client_connectionString, String server_connectionString, String scope_name)
+        public static int start_sync(String client_connectionString, String server_connectionString, String scope_name)
         {
             SqlConnection clientConn = new SqlConnection(client_connectionString);
             // create a connection to the SyncDB server database
@@ -154,7 +126,7 @@ namespace QuanLyTaiSan.Libraries
         public static int drop_sync_scope(String connectionString, String scope_name)
         {
             SqlConnection serverConn = new SqlConnection(connectionString);
-            if (!isReady(serverConn))
+            if (!isExist(serverConn))
             {
                 return -1;
             }
@@ -194,8 +166,7 @@ namespace QuanLyTaiSan.Libraries
                 // get the description of ProductsScope from the SyncDB server database
                 DbSyncScopeDescription scopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope(server_scope_name, serverConn);
 
-                // create CE provisioning object based on the ProductsScope
-                //SqlCeSyncScopeProvisioning clientProvision = new SqlCeSyncScopeProvisioning(clientConn, scopeDesc);
+                // create provisioning object based on the Scope
                 SqlSyncScopeProvisioning clientProvision = new SqlSyncScopeProvisioning(clientConn, scopeDesc);
                 // starts the provisioning process
                 clientProvision.Apply();
