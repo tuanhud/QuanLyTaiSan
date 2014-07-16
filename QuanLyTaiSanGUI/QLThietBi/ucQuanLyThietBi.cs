@@ -849,5 +849,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 return true;
             }
         }
+
+        private void imageSliderThietBi_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listHinhAnh != null && listHinhAnh.Count > 0)
+            {
+                frmShowImage frm = new frmShowImage(listHinhAnh);
+                frm.ShowDialog();
+            }
+        }
     }
 }

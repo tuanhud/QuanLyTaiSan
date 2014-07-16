@@ -24,186 +24,268 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             InitializeComponent();
         }
 
-        public void reLoad()
+        public void loadData()
         {
-            listTinhTrang = TinhTrang.getAll().OrderBy(i => i.value).ToList();
-            treeListTinhTrang.DataSource = listTinhTrang;
-            checkSuaXoa();
-        }
-
-        private void checkSuaXoa()
-        {
-            if (listTinhTrang.Count == 0)
+            try
             {
-                beforeAdd();
-                if (this.ParentForm != null)
+                editGUI("view");
+                listTinhTrang = TinhTrang.getAll();
+                if (listTinhTrang.Count == 0)
                 {
-                    frmMain frm = (frmMain)this.ParentForm;
-                    //frm.enableSuaXoaRibbonTinhTrang(false);
+                    enableButton(false);
                 }
+                gridControlTinhTrang.DataSource = listTinhTrang;
             }
-            else
+            catch (Exception ex)
             {
-                if (this.ParentForm != null)
-                {
-                    frmMain frm = (frmMain)this.ParentForm;
-                    //frm.enableSuaXoaRibbonTinhTrang(true);
-                }
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
         }
 
-        public void beforeAdd()
+        private void reloadAndFocused(int _id)
         {
-            txtTen.Text = "";
-            txtMoTa.Text = "";        
+            loadData();
+            int rowHandle = gridViewTinhTrang.LocateByValue(colid.FieldName, _id);
+            if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                gridViewTinhTrang.FocusedRowHandle = rowHandle;
         }
 
-        public void enableEdit(bool _enable, String _function)
+        private void editGUI(String _type)
         {
-            function = _function;
-            if (_enable)
+            function = _type;
+            if (_type.Equals("view"))
             {
-                btnOk.Visible = true;
-                btnHuy.Visible = true;
-                txtTen.Properties.ReadOnly = false;
-                txtMoTa.Properties.ReadOnly = false;
+                SetTextGroupControl("Chi tiết", Color.Empty);
+                enableEdit(false);
             }
-            else
+            else if (_type.Equals("add"))
             {
-                btnOk.Visible = false;
-                btnHuy.Visible = false;
-                txtTen.Properties.ReadOnly = true;
-                txtMoTa.Properties.ReadOnly = true;
+                SetTextGroupControl("Thêm tình trạng", Color.Red);
+                enableEdit(true);
+                clearText();
+                txtTen.Focus();
+            }
+            else if (_type.Equals("edit"))
+            {
+                SetTextGroupControl("Sửa tình trạng", Color.Red);
+                enableEdit(true);
+                txtTen.Focus();
             }
         }
 
-        public void SetTextGroupControl(String text, Color color)
+        private void SetTextGroupControl(String text, Color color)
         {
             groupControl1.Text = text;
             groupControl1.AppearanceCaption.ForeColor = color;
         }
 
-        public void setData()
+        private void enableEdit(bool _enable)
         {
-            if (listTinhTrang.Count > 0)
+            btnOk.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtTen.Properties.ReadOnly = !_enable;
+            txtMoTa.Properties.ReadOnly = !_enable;
+            enableButton(!_enable);
+            btnR_Them.Enabled = !_enable;
+        }
+
+        private void enableButton(bool _enable)
+        {
+            //btnR_Them.Enabled = _enable;
+            btnR_Sua.Enabled = _enable;
+            btnR_Xoa.Enabled = _enable;
+        }
+
+        private void clearText()
+        {
+            txtTen.Text = "";
+            txtMoTa.Text = "";
+        }
+
+        private void setDataView()
+        {
+            try
             {
                 errorProvider1.Clear();
-                txtTen.Text = objTinhTrang.value;
-                txtMoTa.Text = objTinhTrang.mota;
+                editGUI("view");
+                if (gridViewTinhTrang.RowCount > 0)
+                {
+                    if (gridViewTinhTrang.FocusedRowHandle > -1 && gridViewTinhTrang.GetFocusedRow() != null)
+                    {
+                        objTinhTrang = gridViewTinhTrang.GetFocusedRow() as TinhTrang;
+                        txtTen.Text = objTinhTrang.value;
+                        txtMoTa.Text = objTinhTrang.mota;
+                    }
+                    else
+                    {
+                        clearText();
+                        objTinhTrang = new TinhTrang();
+                    }
+                }
+                else
+                {
+                    clearText();
+                    objTinhTrang = new TinhTrang();
+                }
             }
-            else
-                beforeAdd();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setDataView: " + ex.Message);
+            }
         }
 
         private void setDataObj()
         {
-            //string ten = txtTen.Text.Trim();
-            //while (ten.IndexOf("  ") != -1)
-            //{
-            //    ten = ten.Replace("  ", " ");
-            //}
-            //objTinhTrang.value = ten;
-            objTinhTrang.value = txtTen.Text;
-            objTinhTrang.mota = txtMoTa.Text;
-            objTinhTrang.key = StringHelper.CoDauThanhKhongDau(txtTen.Text).Replace(" ", String.Empty).ToUpper();
-        }
-
-        private void CRU()
-        {
-            switch (function)
-            { 
-                case "add":
-                    objTinhTrang = new TinhTrang();
-                    setDataObj();
-                    if (objTinhTrang.add() != -1)
-                    {
-                        XtraMessageBox.Show("Thêm tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    break;
-                case "edit":
-                    setDataObj();
-                    if (objTinhTrang.update() != -1)
-                    {
-                        XtraMessageBox.Show("Sửa tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    break;    
+            try
+            {
+                objTinhTrang.value = txtTen.Text;
+                objTinhTrang.mota = txtMoTa.Text;
+                objTinhTrang.key = StringHelper.CoDauThanhKhongDau(txtTen.Text).Replace(" ", String.Empty).ToUpper();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setDataObj: " + ex.Message);
             }
         }
 
-        public void deleteObj()
+        private void deleteObj()
         {
-            if (CTThietBi.listThietBiTheoTinhTrang(objTinhTrang.id).Count > 0)
+            try
             {
-                XtraMessageBox.Show("Không thể xóa tình trạng này!\r\nNguyên do: Có các thiết bị thuộc tình trạng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tình trạng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (objTinhTrang.ctthietbis.Count > 0 || objTinhTrang.logthietbis.Count > 0)
                 {
-                    if (objTinhTrang.delete() != -1)
+                    XtraMessageBox.Show("Không thể xóa tình trạng này!\r\nNguyên do: Có các thiết bị thuộc tình trạng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tình trạng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        XtraMessageBox.Show("Xóa loại tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoad();
+                        if (objTinhTrang.delete() > 0)
+                        {
+                            XtraMessageBox.Show("Xóa loại tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loadData();
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Xóa loại tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->deleteObj: " + ex.Message);
             }
         }
 
         private Boolean checkInput()
-        { 
-            Boolean check = true;
-            if (function.Equals("add"))
-            {
-                if (listTinhTrang.Where(i => i.value == txtTen.Text).FirstOrDefault() != null)
-                {
-                    check = false;
-                    errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
-                }
-            }
-            else if (function.Equals("edit"))
-            {
-                if (listTinhTrang.Where(i => i.value == txtTen.Text && i.id != objTinhTrang.id).FirstOrDefault() != null)
-                {
-                    check = false;
-                    errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
-                }
-            }
-            if (txtTen.Text.Length == 0)
-            {
-                check = false;
-                errorProvider1.SetError(txtTen, "Chưa điền tên tình trạng");
-            }
-            return check;
-        }
-
-        private void treeListTinhTrang_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            if (treeListTinhTrang.GetDataRecordByNode(e.Node) != null)
+            try
             {
-                enableEdit(false, "");
-                SetTextGroupControl("Chi tiết", Color.Black);
-                objTinhTrang = (TinhTrang)treeListTinhTrang.GetDataRecordByNode(e.Node);
-                setData();
+                Boolean check = true;
+                if (function.Equals("add"))
+                {
+                    if (listTinhTrang.Where(i => i.value == txtTen.Text).FirstOrDefault() != null)
+                    {
+                        check = false;
+                        errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                    }
+                }
+                else if (function.Equals("edit"))
+                {
+                    if (listTinhTrang.Where(i => i.value == txtTen.Text && i.id != objTinhTrang.id).FirstOrDefault() != null)
+                    {
+                        check = false;
+                        errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                    }
+                }
+                if (txtTen.Text.Length == 0)
+                {
+                    check = false;
+                    errorProvider1.SetError(txtTen, "Chưa điền tên tình trạng");
+                }
+                return check;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkInput: " + ex.Message);
+                return false;
             }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (checkInput())
+            try
             {
-                CRU();
-                reLoad();
-                setData();
-                enableEdit(false, "");
+                if (checkInput())
+                {
+                    switch (function)
+                    {
+                        case "add":
+                            objTinhTrang = new TinhTrang();
+                            setDataObj();
+                            if (objTinhTrang.add() > 0)
+                            {
+                                XtraMessageBox.Show("Thêm tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int id = objTinhTrang.id;
+                                reloadAndFocused(id);
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Thêm tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            break;
+                        case "edit":
+                            setDataObj();
+                            if (objTinhTrang.update() > 0)
+                            {
+                                XtraMessageBox.Show("Sửa tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int id = objTinhTrang.id;
+                                reloadAndFocused(id);
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Sửa tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnOk_Click: " + ex.Message);
             }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            SetTextGroupControl("Chi tiết", Color.Black);
-            setData();
-            enableEdit(false, "");
             errorProvider1.Clear();
+            setDataView();
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+            deleteObj();
+        }
+
+        private void gridViewTinhTrang_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            setDataView();
+        }
+
+        private void gridViewTinhTrang_DataSourceChanged(object sender, EventArgs e)
+        {
+            setDataView();
         }
     }
 }

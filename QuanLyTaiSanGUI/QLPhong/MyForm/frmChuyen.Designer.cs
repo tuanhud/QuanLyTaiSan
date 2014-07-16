@@ -56,6 +56,8 @@
             this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -65,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSoLuong
@@ -90,7 +93,7 @@
             0,
             0,
             0});
-            this.txtSoLuong.Size = new System.Drawing.Size(268, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(232, 20);
             this.txtSoLuong.TabIndex = 5;
             // 
             // labelControl1
@@ -191,7 +194,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(92, 207);
+            this.btnOK.Location = new System.Drawing.Point(143, 207);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 19;
@@ -200,7 +203,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(173, 207);
+            this.btnHuy.Location = new System.Drawing.Point(224, 207);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 20;
@@ -219,7 +222,7 @@
             // 
             this.txtGhiChu.Location = new System.Drawing.Point(67, 129);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(268, 72);
+            this.txtGhiChu.Size = new System.Drawing.Size(232, 72);
             this.txtGhiChu.TabIndex = 17;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -242,7 +245,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(347, 182);
+            this.groupControl1.Size = new System.Drawing.Size(434, 182);
             this.groupControl1.TabIndex = 21;
             this.groupControl1.Text = "Thông tin thiết bị";
             // 
@@ -298,6 +301,8 @@
             // 
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
+            this.groupControl2.Controls.Add(this.btnImage);
+            this.groupControl2.Controls.Add(this.imageSlider1);
             this.groupControl2.Controls.Add(this.lookUpTinhTrang);
             this.groupControl2.Controls.Add(this.panelControl1);
             this.groupControl2.Controls.Add(this.labelControl9);
@@ -313,7 +318,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 182);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(347, 238);
+            this.groupControl2.Size = new System.Drawing.Size(434, 238);
             this.groupControl2.TabIndex = 22;
             this.groupControl2.Text = "Chuyển tình trạng";
             // 
@@ -328,7 +333,7 @@
             this.lookUpTinhTrang.Properties.DisplayMember = "value";
             this.lookUpTinhTrang.Properties.NullText = "";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
-            this.lookUpTinhTrang.Size = new System.Drawing.Size(268, 20);
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(232, 20);
             this.lookUpTinhTrang.TabIndex = 22;
             // 
             // panelControl1
@@ -336,18 +341,37 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Location = new System.Drawing.Point(67, 50);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(268, 20);
+            this.panelControl1.Size = new System.Drawing.Size(232, 20);
             this.panelControl1.TabIndex = 21;
             // 
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // imageSlider1
+            // 
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider1.Location = new System.Drawing.Point(305, 50);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(120, 120);
+            this.imageSlider1.TabIndex = 23;
+            this.imageSlider1.Text = "imageSlider1";
+            this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
+            // 
+            // btnImage
+            // 
+            this.btnImage.Location = new System.Drawing.Point(305, 176);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(75, 23);
+            this.btnImage.TabIndex = 24;
+            this.btnImage.Text = "Chọn ảnh";
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            // 
             // frmChuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 420);
+            this.ClientSize = new System.Drawing.Size(434, 420);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -365,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -398,5 +423,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LookUpEdit lookUpTinhTrang;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraEditors.SimpleButton btnImage;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
     }
 }

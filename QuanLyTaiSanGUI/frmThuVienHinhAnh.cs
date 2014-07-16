@@ -21,8 +21,8 @@ namespace QuanLyTaiSanGUI
 {
     public partial class frmThuVienHinhAnh : DevExpress.XtraEditors.XtraForm
     {
-        List<HinhAnh> HinhAnhs = null;
-        List<HinhAnh> HinhAnhChons = null;
+        List<HinhAnh> HinhAnhs = new List<HinhAnh>();
+        List<HinhAnh> HinhAnhChons = new List<HinhAnh>();
         
         public frmThuVienHinhAnh()
         {
@@ -45,9 +45,10 @@ namespace QuanLyTaiSanGUI
                     galleryControlImage.Gallery.Groups[0].Items.Add(item);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                XtraMessageBox.Show("Có lỗi trong khi load ảnh!");
+                Debug.WriteLine(this.Name + "->LoadHinhAnh: " + ex.Message);
+                //XtraMessageBox.Show("Có lỗi trong khi load ảnh!");
             }
         }
 
@@ -58,13 +59,21 @@ namespace QuanLyTaiSanGUI
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            List<GalleryItem> listitemselected = galleryControlImage.Gallery.GetCheckedItems();
-            HinhAnhChons = new List<HinhAnh>();
-            foreach (GalleryItem gallery in listitemselected)
+            try
             {
-                HinhAnh hinhanh = new HinhAnh();
-                hinhanh.path = gallery.Tag.ToString();
-                HinhAnhChons.Add(hinhanh);
+                List<GalleryItem> listitemselected = galleryControlImage.Gallery.GetCheckedItems();
+                HinhAnhChons = new List<HinhAnh>();
+                foreach (GalleryItem gallery in listitemselected)
+                {
+                    HinhAnh hinhanh = new HinhAnh();
+                    hinhanh.path = gallery.Tag.ToString();
+                    HinhAnhChons.Add(hinhanh);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnOK_Click: " + ex.Message);
+                //XtraMessageBox.Show("Có lỗi trong khi load ảnh!");
             }
         }
 

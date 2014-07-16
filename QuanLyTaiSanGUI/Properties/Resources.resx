@@ -139,11 +139,11 @@
   <data name="chair-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chair-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fs-view-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fs-view-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plus_2_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus_2_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pencil_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pencil_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,6 +172,9 @@
   <data name="plus_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backgroundthongtinphanmem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backgroundthongtinphanmem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="thietbi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\thietbi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,13 +196,13 @@
   <data name="pencil_edit_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pencil_edit_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="plus_2_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus_2_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backgroundthongtinphanmem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backgroundthongtinphanmem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tinhtrang" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tinhtrang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

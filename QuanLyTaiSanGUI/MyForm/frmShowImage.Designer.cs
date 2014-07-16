@@ -1,6 +1,6 @@
 ﻿namespace QuanLyTaiSanGUI
 {
-    partial class Form1
+    partial class frmShowImage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelControl1
+            // imageSlider1
             // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(590, 402);
-            this.panelControl1.TabIndex = 0;
+            this.imageSlider1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider1.Location = new System.Drawing.Point(0, 0);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(584, 442);
+            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.Text = "imageSlider1";
             // 
-            // Form1
+            // frmShowImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 402);
-            this.Controls.Add(this.panelControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(584, 442);
+            this.Controls.Add(this.imageSlider1);
+            this.Name = "frmShowImage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Xem ảnh";
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
     }
 }

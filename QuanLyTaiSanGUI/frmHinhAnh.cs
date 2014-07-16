@@ -76,70 +76,78 @@ namespace QuanLyTaiSanGUI
 
         private void btnImageUpload_Click(object sender, EventArgs e)
         {
-            List<HinhAnh> listHinhAnh = new List<HinhAnh>();
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Hình ảnh(*.png,*.bmp,*.jpg,*.jpeg)|*.png;*.bmp;*.jpg;*.jpeg";
-            open.Title = "My Image Browser";
-            open.Multiselect = true;
-
-            if (open.ShowDialog() == DialogResult.OK)
+            try
             {
-                List<FileInfo> listFileInfoDaCo = new List<FileInfo>();
-                List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
-                List<FileInfo> listHinhAnhSeUpload = new List<FileInfo>();
-                Boolean coUploadHinhAnhDaCo = false;
-                listHinhAnh = HinhAnh.getAll();
+                List<HinhAnh> listHinhAnh = new List<HinhAnh>();
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Hình ảnh(*.png,*.bmp,*.jpg,*.jpeg)|*.png;*.bmp;*.jpg;*.jpeg";
+                open.Title = "My Image Browser";
+                open.Multiselect = true;
 
-                foreach (string file in open.FileNames)
+                if (open.ShowDialog() == DialogResult.OK)
                 {
-                    FileInfo fileinfo = new FileInfo(file);
+                    List<FileInfo> listFileInfoDaCo = new List<FileInfo>();
+                    List<HinhAnh> listHinhAnhDaCo = new List<HinhAnh>();
+                    List<FileInfo> listHinhAnhSeUpload = new List<FileInfo>();
+                    Boolean coUploadHinhAnhDaCo = false;
+                    //listHinhAnh = HinhAnh.getAll();
 
-                    HinhAnh hinhanhcheck = listHinhAnh.Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
-                    if (hinhanhcheck == null)
+                    foreach (string file in open.FileNames)
                     {
-                        listHinhAnhSeUpload.Add(fileinfo);
-                    }
-                    else
-                    {
-                        listFileInfoDaCo.Add(fileinfo);
-                        listHinhAnhDaCo.Add(hinhanhcheck);
-                    }
-                }
-                if (listFileInfoDaCo.Count > 0)
-                {
-                    if (XtraMessageBox.Show(String.Format("Có {0} ảnh đã có trên Host, bạn có muốn dùng ảnh cũ?", listFileInfoDaCo.Count), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        coUploadHinhAnhDaCo = false;
-                        foreach (HinhAnh hinhanh in listHinhAnhDaCo)
+                        FileInfo fileinfo = new FileInfo(file);
+
+                        //HinhAnh hinhanhcheck = listHinhAnh.Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
+                        HinhAnh hinhanhcheck = HinhAnh.getQuery().Where(h => h.path == (fileinfo.Name.ToString() + ".JPEG")).FirstOrDefault();
+                        if (hinhanhcheck == null)
                         {
-                            HinhAnh hinhanhADD = new HinhAnh();
-                            hinhanhADD.path = hinhanh.path;
-                            listTemp.Add(hinhanhADD);
-
-                            GalleryItem it = new GalleryItem();
-                            it.Image = (Image)hinhanh.IMAGE;
-                            it.Tag = hinhanh.path;
-                            galleryControlImage.Gallery.Groups[0].Items.Add(it);
+                            listHinhAnhSeUpload.Add(fileinfo);
+                        }
+                        else
+                        {
+                            listFileInfoDaCo.Add(fileinfo);
+                            listHinhAnhDaCo.Add(hinhanhcheck);
                         }
                     }
-                    else
+                    if (listFileInfoDaCo.Count > 0)
                     {
-                        coUploadHinhAnhDaCo = true;
+                        if (XtraMessageBox.Show(String.Format("Có {0} ảnh đã có trên Host, bạn có muốn dùng ảnh cũ?", listFileInfoDaCo.Count), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            coUploadHinhAnhDaCo = false;
+                            foreach (HinhAnh hinhanh in listHinhAnhDaCo)
+                            {
+                                HinhAnh hinhanhADD = new HinhAnh();
+                                hinhanhADD.path = hinhanh.path;
+                                listTemp.Add(hinhanhADD);
+
+                                GalleryItem it = new GalleryItem();
+                                it.Image = (Image)hinhanh.IMAGE;
+                                it.Tag = hinhanh.path;
+                                galleryControlImage.Gallery.Groups[0].Items.Add(it);
+                            }
+                        }
+                        else
+                        {
+                            coUploadHinhAnhDaCo = true;
+                        }
                     }
-                }
-                splashScreenManager.ShowWaitForm();
-                foreach (FileInfo fileinfo in listHinhAnhSeUpload)
-                {
-                    UploadHinhAnh(fileinfo, false);
-                }
-                if (coUploadHinhAnhDaCo)
-                {
-                    foreach (FileInfo fileinfo in listFileInfoDaCo)
+                    splashScreenManager.ShowWaitForm();
+                    foreach (FileInfo fileinfo in listHinhAnhSeUpload)
                     {
-                        UploadHinhAnh(fileinfo, true);
+                        UploadHinhAnh(fileinfo, false);
                     }
+                    if (coUploadHinhAnhDaCo)
+                    {
+                        foreach (FileInfo fileinfo in listFileInfoDaCo)
+                        {
+                            UploadHinhAnh(fileinfo, true);
+                        }
+                    }
+                    splashScreenManager.CloseWaitForm();
                 }
-                splashScreenManager.CloseWaitForm();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnImageUpload_Click: " + ex.Message);
             }
         }
 

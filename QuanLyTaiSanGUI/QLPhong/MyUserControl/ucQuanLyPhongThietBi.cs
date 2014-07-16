@@ -448,5 +448,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 return true;
             }
         }
+
+        private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listHinh != null && listHinh.Count > 0)
+            {
+                frmShowImage frm = new frmShowImage(listHinh);
+                frm.ShowDialog();
+            }
+        }
     }
 }

@@ -195,12 +195,13 @@
             // 
             // imageSliderThietBi
             // 
-            this.imageSliderThietBi.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.imageSliderThietBi.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
             this.imageSliderThietBi.Location = new System.Drawing.Point(73, 27);
             this.imageSliderThietBi.Name = "imageSliderThietBi";
             this.imageSliderThietBi.Size = new System.Drawing.Size(120, 120);
             this.imageSliderThietBi.TabIndex = 0;
             this.imageSliderThietBi.Text = "imageSlider1";
+            this.imageSliderThietBi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderThietBi_MouseDoubleClick);
             // 
             // txtMoTa
             // 
