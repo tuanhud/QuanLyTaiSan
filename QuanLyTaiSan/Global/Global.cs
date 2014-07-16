@@ -164,7 +164,7 @@ namespace QuanLyTaiSan.Entities
                         Global.local_setting.db_server_username,
                         Global.local_setting.db_server_password,
                         Global.local_setting.db_server_port,
-                        3
+                        10
                 );
             }
             /// <summary>
@@ -320,7 +320,7 @@ namespace QuanLyTaiSan.Entities
                         Global.local_setting.db_cache_username,
                         Global.local_setting.db_cache_password,
                         Global.local_setting.db_cache_port,
-                        3
+                        10
                 );
             }
             /// <summary>
