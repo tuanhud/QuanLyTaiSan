@@ -62,6 +62,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             layout.load(gridViewCTThietBi);
             working = false;
+            enableEdit(false);
             List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
             _ucTreeLoaiTB.loadData(listLoai);
             List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
