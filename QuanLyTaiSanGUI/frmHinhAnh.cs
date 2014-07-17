@@ -31,7 +31,7 @@ namespace QuanLyTaiSanGUI
         public frmHinhAnh(List<HinhAnh> list)
         {
             InitializeComponent();
-            //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
+            frmMain.CaiDatGiaoDien();
             comboBoxEdit1.SelectedIndex = 2;
             btnImageDelete.Enabled = false;
             if (list != null)

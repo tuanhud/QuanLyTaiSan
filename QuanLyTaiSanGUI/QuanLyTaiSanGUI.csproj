@@ -346,6 +346,12 @@
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\ucCapNhatPhanMem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucCapNhatPhanMem.Designer.cs">
+      <DependentUpon>ucCapNhatPhanMem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\ucCauHinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -513,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucCapNhatPhanMem.resx">
+      <DependentUpon>ucCapNhatPhanMem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\ucCauHinh.resx">
       <DependentUpon>ucCauHinh.cs</DependentUpon>

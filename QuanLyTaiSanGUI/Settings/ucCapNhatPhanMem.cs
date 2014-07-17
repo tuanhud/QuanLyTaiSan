@@ -15,6 +15,12 @@ namespace QuanLyTaiSanGUI.Settings
         public ucCapNhatPhanMem()
         {
             InitializeComponent();
+            panelControlCapNhatPhanMem.Visible = false;
+        }
+
+        private void btnCapNhatPhanMem_Click(object sender, EventArgs e)
+        {
+            panelControlCapNhatPhanMem.Visible = true;
         }
     }
 }

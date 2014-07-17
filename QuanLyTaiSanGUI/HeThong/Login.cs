@@ -20,6 +20,7 @@ namespace QuanLyTaiSanGUI.HeThong
         public Login()
         {
             InitializeComponent();
+            frmMain.CaiDatGiaoDien();
             labelControl_msg.Text = String.Empty;
         }
 
@@ -90,7 +91,8 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
-            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
+            //UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
+            //frmMain.SpashScreen();
             DevExpress.Skins.SkinManager.EnableFormSkins();            
 
             Application.Run(new frmMain());

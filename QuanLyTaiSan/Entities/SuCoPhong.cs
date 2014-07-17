@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("SUCOPHONGS")]
-    public class SuCoPhong : _EntityAbstract1<SuCoPhong>
+    public class SuCoPhong : _EntityAbstract2<SuCoPhong>
     {
         public SuCoPhong()
             : base()

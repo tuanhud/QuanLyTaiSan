@@ -30,6 +30,7 @@ using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.Settings;
 using QuanLyTaiSanGUI.QLTinhTrang;
 using QuanLyTaiSanGUI.QLSuCo;
+using DevExpress.LookAndFeel;
 
 namespace QuanLyTaiSanGUI
 {
@@ -50,7 +51,7 @@ namespace QuanLyTaiSanGUI
 
         ucCauHinh _ucCauHinh = null;
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
-        
+        ucCapNhatPhanMem _ucCapNhatPhanMem = null;
         ucThongTinPhanMem _ucThongTinPhanMem = null;
 
         bool drawEnd = false;
@@ -58,13 +59,23 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
+            SplashScreen();
+            CaiDatGiaoDien();
             init();
+        }
+
+        public static void CaiDatGiaoDien()
+        {
+            UserLookAndFeel.Default.SkinName = Properties.Settings.Default["ApplicationSkinName"].ToString();
+        }
+
+        public static void SplashScreen()
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly);
         }
 
         private void init()
         {
-            
-
             //Việt hóa
             DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
             DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();
@@ -233,15 +244,6 @@ namespace QuanLyTaiSanGUI
             open = false;
         }
 
-        private void backstageViewButtonItemCaiDat_ItemClick(object sender, BackstageViewItemEventArgs e)
-        {
-            Setting frm = new Setting(false);
-            DialogResult re = frm.ShowDialog();
-
-            //Thoát frm Setting bắt buộc reNew
-            DBInstance.reNew();
-        }
-
         private void ribbonMain_SelectedPageChanging(object sender, RibbonPageChangingEventArgs e)
         {
             try
@@ -308,6 +310,7 @@ namespace QuanLyTaiSanGUI
             _ucCauHinh = new ucCauHinh();
             _ucCauHinh.Dock = DockStyle.Fill;
             backstageViewClientControlCauHinh.Controls.Add(_ucCauHinh);
+            _ucCauHinh.load_data();
         }
 
         private void backstageViewTabItemGiaoDienvaNgonNgu_SelectedChanged(object sender, BackstageViewItemEventArgs e)
@@ -319,7 +322,9 @@ namespace QuanLyTaiSanGUI
 
         private void backstageViewTabItemCapNhatPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-
+            _ucCapNhatPhanMem = new ucCapNhatPhanMem();
+            _ucCapNhatPhanMem.Dock = DockStyle.Fill;
+            backstageViewClientControlCapNhatPhanMem.Controls.Add(_ucCapNhatPhanMem);
         }
 
         private void backstageViewTabItemThongTinPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
@@ -343,6 +348,14 @@ namespace QuanLyTaiSanGUI
         {
             if(backstageViewTabItemTinhTrang.Selected)
                 _ucQuanLyTinhTrang.loadData();
+        }
+
+        private void backstageViewButtonItemLogout_ItemClick(object sender, BackstageViewItemEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Application.Exit();
+            //else backstageViewTabItemThongTinPhanMem.Selected = true;
+
         }
     }
 }

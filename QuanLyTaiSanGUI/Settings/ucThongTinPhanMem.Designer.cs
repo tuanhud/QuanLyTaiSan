@@ -52,13 +52,14 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.groupControl1);
             this.groupBox1.Controls.Add(this.pictureEdit1);
+            this.groupBox1.Controls.Add(this.groupControl1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
             this.groupBox1.Location = new System.Drawing.Point(74, 35);
+            this.groupBox1.MinimumSize = new System.Drawing.Size(550, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(565, 325);
+            this.groupBox1.Size = new System.Drawing.Size(646, 327);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phần mềm";
@@ -81,7 +82,7 @@
             this.groupControl1.Location = new System.Drawing.Point(6, 139);
             this.groupControl1.LookAndFeel.SkinName = "Office 2007 Blue";
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(553, 180);
+            this.groupControl1.Size = new System.Drawing.Size(634, 182);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Phần mềm Quản lý phòng học";
             // 
@@ -196,18 +197,18 @@
             // 
             // pictureEdit1
             // 
+            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureEdit1.BackgroundImage = global::QuanLyTaiSanGUI.Properties.Resources.backgroundthongtinphanmem;
-            this.pictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureEdit1.EditValue = global::QuanLyTaiSanGUI.Properties.Resources.thongtinphanmem;
-            this.pictureEdit1.Enabled = false;
-            this.pictureEdit1.Location = new System.Drawing.Point(3, 18);
+            this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
             this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Size = new System.Drawing.Size(559, 114);
-            this.pictureEdit1.TabIndex = 0;
+            this.pictureEdit1.Properties.PictureAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureEdit1.Size = new System.Drawing.Size(634, 112);
+            this.pictureEdit1.TabIndex = 4;
             // 
             // ucThongTinPhanMem
             // 
@@ -216,7 +217,7 @@
             this.AutoScroll = true;
             this.Controls.Add(this.groupBox1);
             this.Name = "ucThongTinPhanMem";
-            this.Size = new System.Drawing.Size(723, 398);
+            this.Size = new System.Drawing.Size(804, 400);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -229,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl lblThongTinPhanMem;
@@ -241,5 +241,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }
