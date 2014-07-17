@@ -54,6 +54,14 @@ namespace QuanLyTaiSan.Entities
         [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
 
+        public int? ctthietbi_id { get; set; }
+        [ForeignKey("ctthietbi_id")]
+        public virtual CTThietBi ctthietbi { get; set; }
+
+        public int? sucophong_id { get; set; }
+        [ForeignKey("sucophong_id")]
+        public virtual SuCoPhong sucophong { get; set; }
+
         public int? logsucophong_id { get; set; }
         [ForeignKey("logsucophong_id")]
         public virtual LogSuCoPhong logsucophong { get; set; }

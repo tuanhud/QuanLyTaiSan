@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.Entities
 {
     [Table("CTTHIETBIS")]
-    public class CTThietBi:_EntityAbstract1<CTThietBi>
+    public class CTThietBi:_EntityAbstract2<CTThietBi>
     {
         public CTThietBi():base()
         {
