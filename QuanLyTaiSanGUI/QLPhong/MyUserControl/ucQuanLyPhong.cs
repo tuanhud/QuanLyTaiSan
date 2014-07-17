@@ -68,11 +68,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
             //load layout
             layout.load(gridViewPhong);
 
-            //listVitris = ViTriHienThi.getAll().ToList();
+            listVitris = ViTriHienThi.getAll().ToList();
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.loadData(listVitris);
             _ViTriHienTai = _ucTreeViTri.getVitri();
-            //listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
+            listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count() == 0)
             {
