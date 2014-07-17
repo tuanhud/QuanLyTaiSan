@@ -223,9 +223,13 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNhanVienPT.hinhanhs = listHinhs;
                     if (objNhanVienPT.update() > 0)
                     {
-                        XtraMessageBox.Show("Sửa nhân viên thành công!");
+                        XtraMessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //reLoad();
                         reLoadAndFocused(objNhanVienPT.id);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Sửa nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (_function.Equals("add"))
@@ -237,9 +241,13 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNew.hinhanhs = listHinhs;
                     if (objNew.add() > 0)
                     {
-                        XtraMessageBox.Show("Thêm nhân viên thành công!");
+                        XtraMessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //reLoad();
                         reLoadAndFocused(objNew.id);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Thêm nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (_function.Equals("phancong"))
@@ -274,7 +282,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     }
                     finally
                     {
-                        XtraMessageBox.Show("Phân công nhân viên thành công!");
+                        XtraMessageBox.Show("Phân công nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //PhanCong(false);
                         editGUI("view");
                         reLoadAndFocused(id);
@@ -293,16 +301,16 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (objNhanVienPT.delete() > 0)
                     {
-                        XtraMessageBox.Show("Xóa nhân viên thành công!");
+                        XtraMessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loadData();
                     }
                     else
                     {
-                        XtraMessageBox.Show("Nhân viên này đã được phân công, không thể xóa!");
+                        XtraMessageBox.Show("Nhân viên này đã được phân công, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

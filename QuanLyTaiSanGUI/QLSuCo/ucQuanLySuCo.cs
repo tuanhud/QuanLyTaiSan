@@ -323,31 +323,38 @@ namespace QuanLyTaiSanGUI.QLSuCo
                         objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
                         if (objSuCo.add() > 0)
                         {
-                            DevExpress.XtraEditors.XtraMessageBox.Show("ok!");
+                            DevExpress.XtraEditors.XtraMessageBox.Show("Thêm sự cố thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             int id = objSuCo.id;
                             reLoadAndFocused(id);
                         }
                         else
                         {
-                            DevExpress.XtraEditors.XtraMessageBox.Show("fail!");
+                            DevExpress.XtraEditors.XtraMessageBox.Show("Thêm sự cố không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else if (function.Equals("edit"))
                     {
-                        objSuCo.ten = txtTen.Text;
-                        objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
-                        objSuCo.mota = txtMota.Text;
-                        objSuCo.hinhanhs = listHinhs;
-                        objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
-                        if (objSuCo.update() > 0)
+                        if (checkworking())
                         {
-                            DevExpress.XtraEditors.XtraMessageBox.Show("ok!");
-                            int id = objSuCo.id;
-                            reLoadAndFocused(id);
+                            objSuCo.ten = txtTen.Text;
+                            objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
+                            objSuCo.mota = txtMota.Text;
+                            objSuCo.hinhanhs = listHinhs;
+                            objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
+                            if (objSuCo.update() > 0)
+                            {
+                                DevExpress.XtraEditors.XtraMessageBox.Show("Sửa sự cố thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int id = objSuCo.id;
+                                reLoadAndFocused(id);
+                            }
+                            else
+                            {
+                                DevExpress.XtraEditors.XtraMessageBox.Show("Sửa sự cố không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            DevExpress.XtraEditors.XtraMessageBox.Show("fail!");
+                            DevExpress.XtraEditors.XtraMessageBox.Show("Không thể cập nhật nếu không có thay đổi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -411,7 +418,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         {
             try
             {
-                if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc là muốn xóa sự cố?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc là muốn xóa sự cố?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (objSuCo.delete() > 0)
                     {

@@ -563,6 +563,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(500, 400);
             this.Controls.Add(this.groupControlPhong);
             this.Controls.Add(this.ribbonSuCoPhong);
             this.Name = "ucQuanLySuCo";

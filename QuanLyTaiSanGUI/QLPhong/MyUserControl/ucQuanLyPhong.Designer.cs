@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -86,7 +85,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -669,6 +668,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(500, 560);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonPhong);
             this.Name = "ucQuanLyPhong";

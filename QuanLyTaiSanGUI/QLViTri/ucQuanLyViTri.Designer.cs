@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -51,7 +50,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.rbnPageViTri_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupViTri_CoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -475,7 +474,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoScrollMinSize = new System.Drawing.Size(400, 400);
+            this.AutoScrollMinSize = new System.Drawing.Size(500, 400);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonViTri);
             this.Name = "ucQuanLyViTri";

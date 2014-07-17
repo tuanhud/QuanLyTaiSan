@@ -168,7 +168,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                         }
                         else
                         {
-                            XtraMessageBox.Show("Xóa loại tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            XtraMessageBox.Show("Xóa loại tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
