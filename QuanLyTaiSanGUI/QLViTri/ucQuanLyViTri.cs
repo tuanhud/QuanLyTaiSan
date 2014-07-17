@@ -56,6 +56,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
+                    txtTen.Text = "";
+                    txtMoTa.Text = "";
                     enableGroupViTri("");
                     btnR_Sua.Enabled = false;
                     btnR_Xoa.Enabled = false;
@@ -224,7 +226,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         panelControl1.Controls.Clear();
                         TextEdit txt = new TextEdit();
                         txt.Properties.ReadOnly = true;
-                        txt.Text = "Đại học Sài Gòn";
+                        txt.Text = "[Đại học Sài Gòn]";
                         txt.Dock = DockStyle.Fill;
                         panelControl1.Controls.Add(txt);
                         break;

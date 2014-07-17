@@ -29,13 +29,12 @@ namespace QuanLyTaiSanGUI.QLSuCo
         private void init()
         {
             ribbonSuCoPhong.Parent = null;
-            gridViewSuCo.Columns[colmodified.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            gridViewSuCo.Columns[colday.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewSuCo.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewSuCo.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewSuCo.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             
-            gridViewLogSuCo.Columns[collngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
-            gridViewLogSuCo.Columns[collngay.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            gridViewLogSuCo.Columns[collmodified.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewLogSuCo.Columns[colltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -65,28 +64,35 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         public void loadData(int id, bool _first = false)
         {
-            if (!_first)
+            try
             {
-                objPhong = Phong.getById(id);
+                if (!_first)
+                {
+                    objPhong = Phong.getById(id);
+                }
+                if (objPhong != null && objPhong.id > 0)
+                {
+                    listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).ToList();
+                    gridControlSuCo.DataSource = listSuCo;
+                    barBtnThem.Enabled = true;
+                    btnR_Them.Enabled = true;
+                }
+                else
+                {
+                    listSuCo = new List<SuCoPhong>();
+                    gridControlSuCo.DataSource = listSuCo;
+                    function = "";
+                    barBtnThem.Enabled = false;
+                    btnR_Them.Enabled = false;
+                }
+                if (listSuCo.Count == 0)
+                {
+                    enableButton(false);
+                }
             }
-            if (objPhong != null && objPhong.id > 0)
+            catch (Exception ex)
             {
-                listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).ToList();
-                gridControlSuCo.DataSource = listSuCo;
-                barBtnThem.Enabled = true;
-                btnR_Them.Enabled = true;
-            }
-            else
-            {
-                listSuCo = new List<SuCoPhong>();
-                gridControlSuCo.DataSource = listSuCo;
-                function = "";
-                barBtnThem.Enabled = false;
-                btnR_Them.Enabled = false;
-            }
-            if (listSuCo.Count == 0)
-            {
-                enableButton(false);
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
         }
 
@@ -158,6 +164,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             lblNhanVien.Text = "";
             txtMota.Text = "";
             imageSlider1.Images.Clear();
+            dateEdit1.EditValue = DateTime.Now;
         }
 
         private void setDataView(bool isLog = false, DevExpress.XtraGrid.Views.Grid.GridView view = null)
@@ -183,6 +190,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                         objSuCo = gridViewSuCo.GetFocusedRow() as SuCoPhong;
                         txtTen.Text = objSuCo.ten;
                         lblPhong.Text = objSuCo.phong.ten;
+                        dateEdit1.EditValue = objSuCo.ngay;
                         if (!isLog)
                         {
                             lookUpEditTinhTrang.EditValue = objSuCo.tinhtrang_id;
@@ -298,29 +306,53 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (function.Equals("add"))
+            try
             {
-                SuCoPhong objSuCo2 = new SuCoPhong();
-                objSuCo2.ten = txtTen.Text;
-                objSuCo2.phong = objPhong;
-                objSuCo2.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
-                objSuCo2.mota = txtMota.Text;
-                objSuCo2.hinhanhs = listHinhs;
-                if (objSuCo2.add() > 0)
+                if (CheckInput())
                 {
-                    DevExpress.XtraEditors.XtraMessageBox.Show("ok!");
-                }
-                else
-                {
-                    DevExpress.XtraEditors.XtraMessageBox.Show("fail!");
+                    if (function.Equals("add"))
+                    {
+                        objSuCo = new SuCoPhong();
+                        objSuCo.ten = txtTen.Text;
+                        objSuCo.phong = objPhong;
+                        objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
+                        objSuCo.mota = txtMota.Text;
+                        objSuCo.hinhanhs = listHinhs;
+                        objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
+                        if (objSuCo.add() > 0)
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("ok!");
+                            int id = objSuCo.id;
+                            reLoadAndFocused(id);
+                        }
+                        else
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("fail!");
+                        }
+                    }
+                    else if (function.Equals("edit"))
+                    {
+                        objSuCo.ten = txtTen.Text;
+                        objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
+                        objSuCo.mota = txtMota.Text;
+                        objSuCo.hinhanhs = listHinhs;
+                        objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
+                        if (objSuCo.update() > 0)
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("ok!");
+                            int id = objSuCo.id;
+                            reLoadAndFocused(id);
+                        }
+                        else
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("fail!");
+                        }
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
-                objSuCo.mota = txtMota.Text;
-                objSuCo.hinhanhs = listHinhs;
-                objSuCo.update();
+                Debug.WriteLine(this.Name + "->btnOK_Click: " + ex.Message);
             }
         }
 
@@ -398,8 +430,43 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            //errorProvider1.Clear();
+            dxErrorProvider1.ClearErrors();
             setDataView();
+        }
+
+        private Boolean CheckInput()
+        {
+            dxErrorProvider1.ClearErrors();
+            Boolean check = true;
+            if (txtTen.Text.Length == 0)
+            {
+                check = false;
+                dxErrorProvider1.SetError(txtTen, "Chưa điền tên");
+            }
+            if (lookUpEditTinhTrang.EditValue == null)
+            {
+                check = false;
+                dxErrorProvider1.SetError(lookUpEditTinhTrang, "Chưa chọn tình trạng");
+            }
+            return check;
+        }
+
+        private void reLoadAndFocused(int _id)
+        {
+            try
+            {
+                loadData(objPhong.id);
+                int rowHandle = gridViewSuCo.LocateByValue(colid.FieldName, _id);
+                if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                {
+                    gridViewSuCo.FocusedRowHandle = rowHandle;
+                    gridViewSuCo.ExpandMasterRow(rowHandle);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reLoadAndFocused: " + ex.Message);
+            }
         }
     }
 }

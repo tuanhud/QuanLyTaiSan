@@ -72,6 +72,8 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
             this.groupControlPhong = new DevExpress.XtraEditors.GroupControl();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).BeginInit();
@@ -88,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMota.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPhong)).BeginInit();
             this.groupControlPhong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridViewLogSuCo
@@ -172,7 +175,8 @@
             this.coltinhtrang,
             this.colmota,
             this.colmodified,
-            this.colday});
+            this.colday,
+            this.colid});
             this.gridViewSuCo.GridControl = this.gridControlSuCo;
             this.gridViewSuCo.Name = "gridViewSuCo";
             this.gridViewSuCo.OptionsBehavior.Editable = false;
@@ -229,6 +233,7 @@
             // colday
             // 
             this.colday.Caption = "Ngày tạo";
+            this.colday.FieldName = "ngay";
             this.colday.Name = "colday";
             this.colday.Visible = true;
             this.colday.VisibleIndex = 3;
@@ -542,6 +547,16 @@
             this.groupControlPhong.TabIndex = 3;
             this.groupControlPhong.Text = "Phòng";
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
             // ucQuanLySuCo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,6 +582,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMota.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlPhong)).EndInit();
             this.groupControlPhong.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,5 +633,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmodified;
         private DevExpress.XtraGrid.Columns.GridColumn collmodified;
         private DevExpress.XtraGrid.Columns.GridColumn colday;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
     }
 }
