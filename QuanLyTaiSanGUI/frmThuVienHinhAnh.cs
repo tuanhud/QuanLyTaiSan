@@ -27,7 +27,7 @@ namespace QuanLyTaiSanGUI
         public frmThuVienHinhAnh()
         {
             InitializeComponent();
-            //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
+            frmMain.CaiDatGiaoDien();
             HinhAnhs = HinhAnh.getAllHinhAnhDangDung();
             LoadHinhAnh();
         }

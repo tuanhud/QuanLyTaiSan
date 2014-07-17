@@ -17,5 +17,11 @@ namespace QuanLyTaiSanGUI.Settings
             InitializeComponent();
             DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(galleryControlGiaoDien, true);
         }
+
+        private void galleryControlGallery1_ItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            Properties.Settings.Default["ApplicationSkinName"] = e.Item.Tag.ToString();
+            Properties.Settings.Default.Save();
+        }
     }
 }

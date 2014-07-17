@@ -30,6 +30,7 @@ using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.Settings;
 using QuanLyTaiSanGUI.QLTinhTrang;
 using QuanLyTaiSanGUI.QLSuCo;
+using DevExpress.LookAndFeel;
 
 namespace QuanLyTaiSanGUI
 {
@@ -58,13 +59,23 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
+            SplashScreen();
+            CaiDatGiaoDien();
             init();
+        }
+
+        public static void CaiDatGiaoDien()
+        {
+            UserLookAndFeel.Default.SkinName = Properties.Settings.Default["ApplicationSkinName"].ToString();
+        }
+
+        public static void SplashScreen()
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly);
         }
 
         private void init()
         {
-            
-
             //Việt hóa
             DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
             DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();

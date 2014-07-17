@@ -171,7 +171,7 @@ namespace QuanLyTaiSanGUI.Settings
         private void simpleButton_cleanUpServerScope_Click(object sender, EventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Client Up Scrope Server...");
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
             Global.server_database.clean_up_scope();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
@@ -179,7 +179,7 @@ namespace QuanLyTaiSanGUI.Settings
         private void simpleButton_cleanUpClientScope_Click(object sender, EventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Client Up Scrope Client...");
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
             Global.client_database.clean_up_scope();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }

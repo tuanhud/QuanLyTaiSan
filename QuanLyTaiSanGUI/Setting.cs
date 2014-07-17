@@ -29,11 +29,13 @@ namespace QuanLyTaiSanGUI
         public Setting()
         {
             InitializeComponent();
+            frmMain.CaiDatGiaoDien();
         }
         public Setting(Boolean cauHinhBanDau=true)
         {
             InitializeComponent();
             this.cau_hinh_ban_dau = cauHinhBanDau;
+            frmMain.CaiDatGiaoDien();
         }
 
         private void btnCauHinh_Click(object sender, EventArgs e)
@@ -126,7 +128,7 @@ namespace QuanLyTaiSanGUI
         {
             DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
-            UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
+            //UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
             DevExpress.Skins.SkinManager.EnableFormSkins();
 
             Application.Run(new Login());

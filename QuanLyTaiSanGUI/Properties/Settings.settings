@@ -5,5 +5,8 @@
     <Setting Name="vdthoi" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ApplicationSkinName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Office 2007 Blue</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
