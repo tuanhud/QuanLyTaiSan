@@ -102,15 +102,15 @@ namespace QuanLyTaiSanGUI.MyUC
                                     }
                                 }
                                 break;
-                            //case "QLThietBi":
-                            //    {
-                            //        if (this.Parent != null)
-                            //        {
-                            //            ucQuanLyThietBi_Old _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi_Old;
-                            //            _ucQuanLyThietBi.setData(phongid, cosoid, dayid, tangid);
-                            //        }
-                            //    }
-                            //    break;
+                            case "QLSuCoPhong":
+                                {
+                                    if (this.Parent != null)
+                                    {
+                                        QuanLyTaiSanGUI.QLSuCo.ucQuanLySuCo _ucQuanLySuCo = this.Parent as QuanLyTaiSanGUI.QLSuCo.ucQuanLySuCo;
+                                        _ucQuanLySuCo.loadData(phongid);
+                                    }
+                                }
+                                break;
                         }
                     }
                 }
