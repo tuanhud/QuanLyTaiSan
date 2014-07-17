@@ -251,7 +251,7 @@ namespace QuanLyTaiSan.Entities
             String relative_path = StringHelper.CoDauThanhKhongDau(file_name) + ".JPEG";
             this.path = relative_path;
             //Kiểm tra trùng tên hình, không cho upload nữa nếu CHƯA BẬT GHI ĐÈ
-            if (!ghide && db.HINHANHS.Where(c=>c.path.ToUpper().Equals(this.path.ToUpper()))!=null)
+            if (!ghide && db.HINHANHS.Where(c=>c.path.ToUpper().Equals(this.path.ToUpper())).Count()>0)
             {
                 return 1;
             }

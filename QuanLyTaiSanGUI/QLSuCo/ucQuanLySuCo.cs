@@ -14,8 +14,10 @@ namespace QuanLyTaiSanGUI.QLSuCo
     public partial class ucQuanLySuCo : UserControl
     {
         QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri("QLSuCoPhong");
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
         List<SuCoPhong> listSuCo = new List<SuCoPhong>();
         SuCoPhong objSuCo = new SuCoPhong();
+        Phong objPhong = new Phong();
         String function = "";
 
         public ucQuanLySuCo()
@@ -57,18 +59,35 @@ namespace QuanLyTaiSanGUI.QLSuCo
             _ucTreeViTri.loadData(listViTri);
             List<TinhTrang> listTinhTrang = TinhTrang.getAll();
             lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
-            lookUpEditTinhTrang.EditValue = listTinhTrang.Count > 0 ? listTinhTrang.FirstOrDefault().id.ToString() : "";
-            listSuCo = SuCoPhong.getAll();
-            gridControlSuCo.DataSource = listSuCo;
+            objPhong = _ucTreeViTri.getPhong();
+            loadData(objPhong != null ? objPhong.id : -1, true);
         }
 
-        public void loadData(int id)
+        public void loadData(int id, bool _first = false)
         {
-            //List<TinhTrang> listTinhTrang = TinhTrang.getAll();
-            //lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
-            //lookUpEditTinhTrang.EditValue = listTinhTrang.Count > 0 ? listTinhTrang.FirstOrDefault().id.ToString() : "";
-            listSuCo = SuCoPhong.getQuery().Where(c=>c.phong_id == id).ToList();
-            gridControlSuCo.DataSource = listSuCo;
+            if (!_first)
+            {
+                objPhong = Phong.getById(id);
+            }
+            if (objPhong != null && objPhong.id > 0)
+            {
+                listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).ToList();
+                gridControlSuCo.DataSource = listSuCo;
+                barBtnThem.Enabled = true;
+                btnR_Them.Enabled = true;
+            }
+            else
+            {
+                listSuCo = new List<SuCoPhong>();
+                gridControlSuCo.DataSource = listSuCo;
+                function = "";
+                barBtnThem.Enabled = false;
+                btnR_Them.Enabled = false;
+            }
+            if (listSuCo.Count == 0)
+            {
+                enableButton(false);
+            }
         }
 
 
@@ -82,19 +101,20 @@ namespace QuanLyTaiSanGUI.QLSuCo
             }
             else if (_type.Equals("onlyview"))
             {
-                SetTextGroupControl("Chi tiết", Color.Empty);
+                SetTextGroupControl("Chi tiết Log", Color.Empty);
                 enableButton(false);
             }
             else if (_type.Equals("add"))
             {
-                SetTextGroupControl("Thêm tình trạng", Color.Red);
+                SetTextGroupControl("Thêm sự cố", Color.Red);
                 enableEdit(true);
                 clearText();
                 txtTen.Focus();
+                lblPhong.Text = objPhong != null ? objPhong.ten : "";
             }
             else if (_type.Equals("edit"))
             {
-                SetTextGroupControl("Sửa tình trạng", Color.Red);
+                SetTextGroupControl("Sửa sự cố", Color.Red);
                 enableEdit(true);
                 txtTen.Focus();
             }
@@ -111,7 +131,6 @@ namespace QuanLyTaiSanGUI.QLSuCo
             btnOK.Visible = _enable;
             btnHuy.Visible = _enable;
             btnImage.Visible = _enable;
-            checkEdit1.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMota.Properties.ReadOnly = !_enable;
             lookUpEditTinhTrang.Properties.ReadOnly = !_enable;
@@ -163,23 +182,30 @@ namespace QuanLyTaiSanGUI.QLSuCo
                     {                        
                         objSuCo = gridViewSuCo.GetFocusedRow() as SuCoPhong;
                         txtTen.Text = objSuCo.ten;
-                        lookUpEditTinhTrang.EditValue = objSuCo.tinhtrang_id;
                         lblPhong.Text = objSuCo.phong.ten;
-                        txtMota.Text = objSuCo.mota;
-                        if (isLog && view.FocusedRowHandle > -1 && view.GetFocusedRow() != null)
+                        if (!isLog)
+                        {
+                            lookUpEditTinhTrang.EditValue = objSuCo.tinhtrang_id;
+                            txtMota.Text = objSuCo.mota;
+                            if (objSuCo.hinhanhs.Count > 0)
+                            {
+                                listHinhs = objSuCo.hinhanhs.ToList();
+                                reloadImage();
+                            }
+                        }
+                        else if (isLog && view.FocusedRowHandle > -1 && view.GetFocusedRow() != null)
                         {
                             LogSuCoPhong obj = view.GetFocusedRow() as LogSuCoPhong;
                             dateEdit1.EditValue = obj.ngay;
                             lblNhanVien.Text = obj.quantrivien != null ? obj.quantrivien.hoten : "";
+                            lookUpEditTinhTrang.EditValue = obj.tinhtrang_id;
                             txtMota.Text = obj.mota;
+                            if (obj.hinhanhs.Count > 0)
+                            {
+                                listHinhs = obj.hinhanhs.ToList();
+                                reloadImage();
+                            }
                         }
-                        //else if (objSuCo.logsucophongs.Count > 0 && !isLog)
-                        //{
-                        //    LogSuCoPhong obj = objSuCo.logsucophongs.OrderByDescending(c => c.ngay).FirstOrDefault();
-                        //    dateEdit1.EditValue = obj.ngay;
-                        //    lblNhanVien.Text = obj.quantrivien != null ? obj.quantrivien.hoten : "";
-                        //    txtMota.Text = obj.mota;
-                        //}
                     }
                     else
                     {
@@ -204,12 +230,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         private void barBtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            foreach (SuCoPhong obj in listSuCo)
-            {
-                obj.tinhtrang = TinhTrang.getById(21);
-                obj.mota = "xyz";
-                obj.update();
-            }
+            editGUI("add");
         }
 
         private void gridViewSuCo_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
@@ -255,5 +276,95 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 setDataView(true, e.View as DevExpress.XtraGrid.Views.Grid.GridView);
             }
         }
+
+        private void reloadImage()
+        {
+            try
+            {
+                imageSlider1.Images.Clear();
+                if (listHinhs != null)
+                {
+                    foreach (HinhAnh h in listHinhs)
+                    {
+                        imageSlider1.Images.Add(h.getImage());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reloadImage: " + ex.Message);
+            }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            if (function.Equals("add"))
+            {
+                objSuCo = new SuCoPhong();
+                objSuCo.ten = txtTen.Text;
+                objSuCo.phong = objPhong;
+                objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
+                objSuCo.mota = txtMota.Text;
+                objSuCo.hinhanhs = listHinhs;
+                objSuCo.add();
+            }
+            else
+            {
+                objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
+                objSuCo.mota = txtMota.Text;
+                objSuCo.hinhanhs = listHinhs;
+                objSuCo.update();
+            }
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmHinhAnh frm = new frmHinhAnh(listHinhs);
+                if (function.Equals("edit"))
+                {
+                    frm.Text = "Quản lý hình ảnh " + objSuCo.ten;
+
+                }
+                else
+                {
+                    frm.Text = "Quản lý hình ảnh sự cố mới";
+                }
+                frm.ShowDialog();
+                listHinhs = frm.getlistHinhs();
+                reloadImage();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnImage_Click: " + ex.Message);
+            }
+        }
+
+        private void btnR_Them_Click(object sender, EventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void btnR_Sua_Click(object sender, EventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void btnR_Xoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barBtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
     }
 }

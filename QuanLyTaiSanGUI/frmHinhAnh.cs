@@ -135,6 +135,7 @@ namespace QuanLyTaiSanGUI
                     {
                         UploadHinhAnh(fileinfo, false);
                     }
+                    splashScreenManager.CloseWaitForm();
                     if (coUploadHinhAnhDaCo)
                     {
                         foreach (FileInfo fileinfo in listFileInfoDaCo)
@@ -142,7 +143,6 @@ namespace QuanLyTaiSanGUI
                             UploadHinhAnh(fileinfo, true);
                         }
                     }
-                    splashScreenManager.CloseWaitForm();
                 }
             }
             catch (Exception ex)
@@ -194,6 +194,7 @@ namespace QuanLyTaiSanGUI
 
         private void UploadHinhAnh(FileInfo fileinfo, Boolean coDoiTenHinhAnh)
         {
+            bool open = false;
             try
             {
                 string fPath = fileinfo.ToString();
@@ -209,6 +210,8 @@ namespace QuanLyTaiSanGUI
                     else
                     {
                         file_name = frm.name;
+                        open = true;
+                        splashScreenManager.ShowWaitForm();
                     }
                 }
                 HinhAnh hinhanh = new HinhAnh();
@@ -232,13 +235,16 @@ namespace QuanLyTaiSanGUI
                         hinhanh.MAX_SIZE = GIUNGUYEN;
                         break;
                 }
-                hinhanh.upload();
-                listTemp.Add(hinhanh);
-
-                GalleryItem it = new GalleryItem();
-                it.Image = (Image)hinhanh.IMAGE;
-                it.Tag = hinhanh.path;
-                galleryControlImage.Gallery.Groups[0].Items.Add(it);
+                if (hinhanh.upload() > 0)
+                {
+                    listTemp.Add(hinhanh);
+                    GalleryItem it = new GalleryItem();
+                    it.Image = (Image)hinhanh.IMAGE;
+                    it.Tag = hinhanh.path;
+                    galleryControlImage.Gallery.Groups[0].Items.Add(it);
+                }
+                if(open)
+                    splashScreenManager.CloseWaitForm();
             }
             catch (Exception ex)
             {

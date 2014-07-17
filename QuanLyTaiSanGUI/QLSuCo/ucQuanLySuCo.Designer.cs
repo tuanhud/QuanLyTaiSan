@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewLogSuCo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collngay = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.collmodified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collqtvien = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,6 +42,7 @@
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmodified = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonSuCoPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThem = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSua = new DevExpress.XtraBars.BarButtonItem();
@@ -52,7 +54,6 @@
             this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
             this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
             this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.lblNhanVien = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.btnImage = new DevExpress.XtraEditors.SimpleButton();
@@ -71,8 +72,6 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
             this.groupControlPhong = new DevExpress.XtraEditors.GroupControl();
-            this.collmodified = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).BeginInit();
@@ -81,7 +80,6 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTinhTrang.Properties)).BeginInit();
@@ -116,6 +114,14 @@
             this.collngay.FieldName = "ngay";
             this.collngay.Name = "collngay";
             // 
+            // collmodified
+            // 
+            this.collmodified.Caption = "Ngày";
+            this.collmodified.FieldName = "date_create";
+            this.collmodified.Name = "collmodified";
+            this.collmodified.Visible = true;
+            this.collmodified.VisibleIndex = 3;
+            // 
             // colltinhtrang
             // 
             this.colltinhtrang.Caption = "Tình trạng";
@@ -143,10 +149,10 @@
             // gridControlSuCo
             // 
             this.gridControlSuCo.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.LevelTemplate = this.gridViewLogSuCo;
-            gridLevelNode2.RelationName = "Log";
+            gridLevelNode1.LevelTemplate = this.gridViewLogSuCo;
+            gridLevelNode1.RelationName = "Log";
             this.gridControlSuCo.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControlSuCo.Location = new System.Drawing.Point(0, 0);
             this.gridControlSuCo.MainView = this.gridViewSuCo;
             this.gridControlSuCo.MenuManager = this.ribbonSuCoPhong;
@@ -216,9 +222,16 @@
             // 
             // colmodified
             // 
-            this.colmodified.Caption = "day_modified";
-            this.colmodified.FieldName = "day_modified";
+            this.colmodified.Caption = "date_modified";
+            this.colmodified.FieldName = "date_modified";
             this.colmodified.Name = "colmodified";
+            // 
+            // colday
+            // 
+            this.colday.Caption = "Ngày tạo";
+            this.colday.Name = "colday";
+            this.colday.Visible = true;
+            this.colday.VisibleIndex = 3;
             // 
             // ribbonSuCoPhong
             // 
@@ -249,6 +262,7 @@
             this.barBtnSua.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barBtnSua.Id = 2;
             this.barBtnSua.Name = "barBtnSua";
+            this.barBtnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSua_ItemClick);
             // 
             // barBtnXoa
             // 
@@ -256,6 +270,7 @@
             this.barBtnXoa.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barBtnXoa.Id = 3;
             this.barBtnXoa.Name = "barBtnXoa";
+            this.barBtnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoa_ItemClick);
             // 
             // rbnPageSuCoPhong
             // 
@@ -295,7 +310,6 @@
             this.groupControl1.Controls.Add(this.btnR_Sua);
             this.groupControl1.Controls.Add(this.btnR_Them);
             this.groupControl1.Controls.Add(this.btnR_Xoa);
-            this.groupControl1.Controls.Add(this.checkEdit1);
             this.groupControl1.Controls.Add(this.lblNhanVien);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.btnImage);
@@ -329,6 +343,7 @@
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
             this.btnR_Sua.TabIndex = 24;
+            this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // btnR_Them
             // 
@@ -339,6 +354,7 @@
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 23;
+            this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
             // 
@@ -349,15 +365,7 @@
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
             this.btnR_Xoa.TabIndex = 22;
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(204, 27);
-            this.checkEdit1.MenuManager = this.ribbonSuCoPhong;
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Dùng ảnh mới";
-            this.checkEdit1.Size = new System.Drawing.Size(94, 19);
-            this.checkEdit1.TabIndex = 19;
+            this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // lblNhanVien
             // 
@@ -377,11 +385,12 @@
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(204, 52);
+            this.btnImage.Location = new System.Drawing.Point(204, 29);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
             this.btnImage.TabIndex = 15;
             this.btnImage.Text = "Chọn";
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnHuy
             // 
@@ -398,6 +407,7 @@
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 12;
             this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // labelControl7
             // 
@@ -479,6 +489,8 @@
             this.lookUpEditTinhTrang.Name = "lookUpEditTinhTrang";
             this.lookUpEditTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditTinhTrang.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("value", "Tình trạng")});
             this.lookUpEditTinhTrang.Properties.DisplayMember = "value";
             this.lookUpEditTinhTrang.Properties.NullText = "[Chọn tình trạng]";
             this.lookUpEditTinhTrang.Properties.ValueMember = "id";
@@ -529,21 +541,6 @@
             this.groupControlPhong.TabIndex = 3;
             this.groupControlPhong.Text = "Phòng";
             // 
-            // collmodified
-            // 
-            this.collmodified.Caption = "Ngày";
-            this.collmodified.FieldName = "day_create";
-            this.collmodified.Name = "collmodified";
-            this.collmodified.Visible = true;
-            this.collmodified.VisibleIndex = 3;
-            // 
-            // colday
-            // 
-            this.colday.Caption = "Ngày tạo";
-            this.colday.Name = "colday";
-            this.colday.Visible = true;
-            this.colday.VisibleIndex = 3;
-            // 
             // ucQuanLySuCo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,7 +558,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTinhTrang.Properties)).EndInit();
@@ -598,7 +594,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn collqtvien;
         private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
         private DevExpress.XtraEditors.GroupControl groupControlPhong;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraEditors.LabelControl lblNhanVien;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.SimpleButton btnImage;
