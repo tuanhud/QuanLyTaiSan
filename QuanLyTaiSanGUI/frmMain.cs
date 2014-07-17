@@ -209,7 +209,8 @@ namespace QuanLyTaiSanGUI
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageSuCoPhong")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                        //_ucQuanLySuCo.loadData();
+                        _ucQuanLySuCo.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
+                        _ucQuanLySuCo.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLySuCo);
                     }
@@ -340,7 +341,8 @@ namespace QuanLyTaiSanGUI
 
         private void backstageViewTabItemTinhTrang_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            _ucQuanLyTinhTrang.loadData();
+            if(backstageViewTabItemTinhTrang.Selected)
+                _ucQuanLyTinhTrang.loadData();
         }
     }
 }
