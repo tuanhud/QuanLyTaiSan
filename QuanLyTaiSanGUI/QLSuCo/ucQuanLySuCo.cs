@@ -300,13 +300,20 @@ namespace QuanLyTaiSanGUI.QLSuCo
         {
             if (function.Equals("add"))
             {
-                objSuCo = new SuCoPhong();
-                objSuCo.ten = txtTen.Text;
-                objSuCo.phong = objPhong;
-                objSuCo.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
-                objSuCo.mota = txtMota.Text;
-                objSuCo.hinhanhs = listHinhs;
-                objSuCo.add();
+                SuCoPhong objSuCo2 = new SuCoPhong();
+                objSuCo2.ten = txtTen.Text;
+                objSuCo2.phong = objPhong;
+                objSuCo2.tinhtrang = lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang;
+                objSuCo2.mota = txtMota.Text;
+                objSuCo2.hinhanhs = listHinhs;
+                if (objSuCo2.add() > 0)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show("ok!");
+                }
+                else
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show("fail!");
+                }
             }
             else
             {
@@ -353,7 +360,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         private void btnR_Xoa_Click(object sender, EventArgs e)
         {
-
+            deleteObj();
         }
 
         private void barBtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -363,8 +370,36 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            deleteObj();
         }
 
+        private void deleteObj()
+        {
+            try
+            {
+                if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc là muốn xóa sự cố?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (objSuCo.delete() > 0)
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Xóa sự cố thành công!");
+                        loadData(objPhong.id);
+                    }
+                    else
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("Xóa sự cố thất bại!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->deleteObj: " + ex.Message);
+            }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            //errorProvider1.Clear();
+            setDataView();
+        }
     }
 }

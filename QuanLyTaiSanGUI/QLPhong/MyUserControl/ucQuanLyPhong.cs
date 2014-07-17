@@ -339,54 +339,64 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void CRUD()
         {
-            switch (function)
+            try
             {
-                case "add":
-                    objPhong = new Phong();
-                    setDataObj();
-                    if (objPhong.add() > 0)
-                    {
-                        XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reLoadAndFocused(objPhong.id);
-                    }
-                    else XtraMessageBox.Show("Có lỗi trong khi thêm");
-                    break;
-                case "edit":
-                    if (objPhong != null)
-                    {
+                switch (function)
+                {
+                    case "add":
+                        objPhong = new Phong();
                         setDataObj();
-                        if (objPhong.update() > 0)
+                        if (objPhong.add() > 0)
                         {
-                            XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objPhong.id);
+                            function = "";
                         }
-                        else XtraMessageBox.Show("Có lỗi trong khi sửa");
-                    }
-                    break;
-                case "delete":
-                    if (objPhong != null)
-                    {
-                        if (objPhong.countThietBi() > 0)
+                        else XtraMessageBox.Show("Có lỗi trong khi thêm");
+                        break;
+                    case "edit":
+                        if (objPhong != null)
                         {
-                            XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
-                        }
-                        else
-                        {
-                            if (XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            setDataObj();
+                            if (objPhong.update() > 0)
                             {
-                                if (objPhong.delete() > 0)
+                                XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                reLoadAndFocused(objPhong.id);
+                                enableEdit(false);
+                                function = "";
+                            }
+                            else XtraMessageBox.Show("Có lỗi trong khi sửa");
+                        }
+                        break;
+                    case "delete":
+                        if (objPhong != null)
+                        {
+                            if (objPhong.countThietBi() > 0)
+                            {
+                                XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
+                            }
+                            else
+                            {
+                                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
-                                    XtraMessageBox.Show("Xóa phòng thành công!");
-                                    reLoad();
-                                }
-                                else
-                                {
-                                    XtraMessageBox.Show("Lỗi trong khi xóa phòng!");
+                                    if (objPhong.delete() > 0)
+                                    {
+                                        XtraMessageBox.Show("Xóa phòng thành công!");
+                                        reLoad();
+                                    }
+                                    else
+                                    {
+                                        XtraMessageBox.Show("Lỗi trong khi xóa phòng!");
+                                    }
                                 }
                             }
                         }
-                    }
-                    break;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->CRUD: " + ex.Message);
             }
         }
 
@@ -401,7 +411,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
+                System.Console.WriteLine(this.Name + "->reLoadAndFocused: " + ex.Message);
             }
         }
 
@@ -726,7 +736,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 else
                 {
                     //chưa kiểm tra vị trí
-                    if (searchLookUpEditNhanVienPT.EditValue != null)
+                    if (!searchLookUpEditNhanVienPT.EditValue.Equals(-1) && searchLookUpEditNhanVienPT.EditValue != null )
                         return objPhong.hinhanhs.ToString() != listHinhAnhPhong.ToString() || objPhong.subId != txtMaPhong.Text || objPhong.ten != txtTenPhong.Text || objPhong.mota != txtMoTaPhong.Text || objPhong.nhanvienpt_id != Convert.ToInt32(searchLookUpEditNhanVienPT.EditValue);
                     else
                         return objPhong.hinhanhs.ToString() != listHinhAnhPhong.ToString() || objPhong.subId != txtMaPhong.Text || objPhong.ten != txtTenPhong.Text || objPhong.mota != txtMoTaPhong.Text || objPhong.nhanvienpt_id != null;

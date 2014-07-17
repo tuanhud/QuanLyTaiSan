@@ -116,11 +116,11 @@
             // 
             // collmodified
             // 
-            this.collmodified.Caption = "Ngày";
+            this.collmodified.Caption = "Ngày sửa";
             this.collmodified.FieldName = "date_create";
             this.collmodified.Name = "collmodified";
             this.collmodified.Visible = true;
-            this.collmodified.VisibleIndex = 3;
+            this.collmodified.VisibleIndex = 0;
             // 
             // colltinhtrang
             // 
@@ -128,7 +128,7 @@
             this.colltinhtrang.FieldName = "tinhtrang.value";
             this.colltinhtrang.Name = "colltinhtrang";
             this.colltinhtrang.Visible = true;
-            this.colltinhtrang.VisibleIndex = 0;
+            this.colltinhtrang.VisibleIndex = 1;
             // 
             // collmota
             // 
@@ -136,7 +136,7 @@
             this.collmota.FieldName = "mota";
             this.collmota.Name = "collmota";
             this.collmota.Visible = true;
-            this.collmota.VisibleIndex = 1;
+            this.collmota.VisibleIndex = 2;
             // 
             // collqtvien
             // 
@@ -144,7 +144,7 @@
             this.collqtvien.FieldName = "quantrivien.hoten";
             this.collqtvien.Name = "collqtvien";
             this.collqtvien.Visible = true;
-            this.collqtvien.VisibleIndex = 2;
+            this.collqtvien.VisibleIndex = 3;
             // 
             // gridControlSuCo
             // 
@@ -399,6 +399,7 @@
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 13;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 

@@ -136,7 +136,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             //btnR_Them.Enabled = _enable;
             btnR_Sua.Enabled = _enable;
             btnR_Xoa.Enabled = _enable;
-            rbnGroupNhanVien.Enabled = _enable;
+            barBtnSuaNhanVien.Enabled = _enable;
+            barBtnXoaNhanVien.Enabled = _enable;
+            //rbnGroupNhanVien.Enabled = _enable;
             rbnGroupNhanVienPhong.Enabled = _enable;
         }
 
