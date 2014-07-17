@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewLogSuCo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collngay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collmodified = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,6 +43,7 @@
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmodified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colday = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonSuCoPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThem = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSua = new DevExpress.XtraBars.BarButtonItem();
@@ -73,7 +74,6 @@
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
             this.groupControlPhong = new DevExpress.XtraEditors.GroupControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).BeginInit();
@@ -152,10 +152,10 @@
             // gridControlSuCo
             // 
             this.gridControlSuCo.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.gridViewLogSuCo;
-            gridLevelNode1.RelationName = "Log";
+            gridLevelNode2.LevelTemplate = this.gridViewLogSuCo;
+            gridLevelNode2.RelationName = "Log";
             this.gridControlSuCo.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControlSuCo.Location = new System.Drawing.Point(0, 0);
             this.gridControlSuCo.MainView = this.gridViewSuCo;
             this.gridControlSuCo.MenuManager = this.ribbonSuCoPhong;
@@ -237,6 +237,12 @@
             this.colday.Name = "colday";
             this.colday.Visible = true;
             this.colday.VisibleIndex = 3;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // ribbonSuCoPhong
             // 
@@ -377,7 +383,7 @@
             this.lblNhanVien.Location = new System.Drawing.Point(78, 260);
             this.lblNhanVien.Name = "lblNhanVien";
             this.lblNhanVien.Size = new System.Drawing.Size(63, 13);
-            this.lblNhanVien.TabIndex = 18;
+            this.lblNhanVien.TabIndex = 5;
             this.lblNhanVien.Text = "labelControl8";
             // 
             // labelControl5
@@ -393,7 +399,7 @@
             this.btnImage.Location = new System.Drawing.Point(204, 29);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 15;
+            this.btnImage.TabIndex = 9;
             this.btnImage.Text = "Chọn";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -402,7 +408,7 @@
             this.btnHuy.Location = new System.Drawing.Point(159, 359);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 13;
+            this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -411,7 +417,7 @@
             this.btnOK.Location = new System.Drawing.Point(78, 359);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 12;
+            this.btnOK.TabIndex = 7;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -431,12 +437,13 @@
             this.dateEdit1.Location = new System.Drawing.Point(78, 205);
             this.dateEdit1.MenuManager = this.ribbonSuCoPhong;
             this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Size = new System.Drawing.Size(238, 20);
-            this.dateEdit1.TabIndex = 10;
+            this.dateEdit1.TabIndex = 3;
             // 
             // labelControl6
             // 
@@ -451,7 +458,7 @@
             this.lblPhong.Location = new System.Drawing.Point(78, 234);
             this.lblPhong.Name = "lblPhong";
             this.lblPhong.Size = new System.Drawing.Size(63, 13);
-            this.lblPhong.TabIndex = 7;
+            this.lblPhong.TabIndex = 4;
             this.lblPhong.Text = "labelControl5";
             // 
             // labelControl4
@@ -521,6 +528,7 @@
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
+            this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
             // 
             // txtMota
             // 
@@ -530,7 +538,7 @@
             this.txtMota.MenuManager = this.ribbonSuCoPhong;
             this.txtMota.Name = "txtMota";
             this.txtMota.Size = new System.Drawing.Size(238, 70);
-            this.txtMota.TabIndex = 9;
+            this.txtMota.TabIndex = 6;
             this.txtMota.UseOptimizedRendering = true;
             // 
             // groupControlPhong
@@ -550,12 +558,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
             // 
             // ucQuanLySuCo
             // 

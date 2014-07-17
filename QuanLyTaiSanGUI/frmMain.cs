@@ -280,7 +280,7 @@ namespace QuanLyTaiSanGUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageSuCoPhong")))
                     {
-
+                        working = _ucQuanLySuCo.checkworking();
                     }
                     if (working)
                     {

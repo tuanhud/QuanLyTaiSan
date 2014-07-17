@@ -117,7 +117,7 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : treeListPhong_FocusedNodeChanged : " + ex.Message);
+                Debug.WriteLine(this.Name + "->treeListPhong_FocusedNodeChanged: " + ex.Message);
             }
             finally
             { }
@@ -135,7 +135,7 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : getVitri : " + ex.Message);
+                Debug.WriteLine(this.Name + "->getVitri: " + ex.Message);
                 return null;
             }
             finally
@@ -159,7 +159,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (obj != null)
+                if (obj != null && obj.id > 0)
                 {
                     FindNode findNode = null;
                     if (obj.tang != null)
@@ -194,7 +194,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (obj != null)
+                if (obj != null && obj.id > 0)
                 {
                     FindNode findNode = new FindNode(obj.id, typeof(Phong).Name);
                     treeListViTri.CollapseAll();

@@ -19,6 +19,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         SuCoPhong objSuCo = new SuCoPhong();
         Phong objPhong = new Phong();
         String function = "";
+        bool working = false;
 
         public ucQuanLySuCo()
         {
@@ -144,6 +145,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             enableButton(!_enable);
             barBtnThem.Enabled = !_enable;
             btnR_Them.Enabled = !_enable;
+            working = _enable;
         }
 
         private void enableButton(bool _enable)
@@ -466,6 +468,49 @@ namespace QuanLyTaiSanGUI.QLSuCo
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->reLoadAndFocused: " + ex.Message);
+            }
+        }
+
+        private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listHinhs != null && listHinhs.Count > 0)
+            {
+                frmShowImage frm = new frmShowImage(listHinhs);
+                frm.ShowDialog();
+            }
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (!function.Equals("edit"))
+                {
+                    if (function.Equals("add"))
+                    {
+                        return
+                            !txtTen.Text.Equals("") ||
+                            lookUpEditTinhTrang.GetSelectedDataRow() != null ||
+                            !txtMota.Text.Equals("") ||
+                            listHinhs.Count > 0;
+                    }
+                    else
+                        return working;
+                }
+                else
+                {
+                    return
+                        objSuCo.ten != txtTen.Text ||
+                        objSuCo.tinhtrang != lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang ||
+                        !objSuCo.ngay.Equals(dateEdit1.EditValue) ||
+                        objSuCo.mota != txtMota.Text ||
+                        objSuCo.hinhanhs.ToString() != listHinhs.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
             }
         }
     }

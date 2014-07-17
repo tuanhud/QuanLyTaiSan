@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -62,7 +61,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
@@ -175,6 +174,7 @@
             this.dateEditNgayMua.EditValue = null;
             this.dateEditNgayMua.Location = new System.Drawing.Point(73, 232);
             this.dateEditNgayMua.Name = "dateEditNgayMua";
+            this.dateEditNgayMua.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
             this.dateEditNgayMua.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayMua.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
