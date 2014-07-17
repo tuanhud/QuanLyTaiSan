@@ -21,6 +21,7 @@ namespace QuanLyTaiSan.Entities
         }
 
         #region Dinh nghia
+        public DateTime? ngay { get; set; }
         [Required]
         public int soluong { get; set; }
         /*
@@ -61,36 +62,37 @@ namespace QuanLyTaiSan.Entities
         /// có hỗ trợ ghi LOG tự động,vd:
         /// CTThietBi obj = CTThietBi.getById(24552);
         /// Phong dich = null;// Phong.getById(1228);
-        /// TinhTrang ttr = null;//TinhTrang.getById(3);
+        /// TinhTrang ttr = TinhTrang.getById(3);
         /// int re = obj.dichuyen(dich, ttr, -1, "đổi tình trạng toàn bộ luôn");
         /// </summary>
         /// <param name="dich">Phòng cần di chuyển đến (null nếu chỉ muốn đổi tình trạng)</param>
-        /// <param name="moi">Tình trạng cần chuyển sang (null nếu chỉ muốn đổi phòng)</param>
-        /// <param name="soluong">Sô lượng cần chuyển (mac dinh la -1 (chuyển tất cả))</param>
-        /// <param name="hinhs">Hình mô tả cho quá trình di chuyển, Do khi update thành công thì mới set List hình cho nó</param>
+        /// <param name="ttmoi">Tình trạng cần chuyển sang (null nếu chỉ muốn đổi phòng)</param>
+        /// <param name="soluong">Số lượng cần chuyển (mac dinh la -1 (chuyển tất cả))</param>
+        /// /// <param name="mota">Mô tả cho quá trình di chuyển</param>
+        /// <param name="hinhs">Hình mô tả cho quá trình di chuyển (Hình sạch)</param>
         /// <returns></returns>
-        public int dichuyen(Phong dich=null, TinhTrang moi=null, int soluong=-1, String mota="", List<HinhAnh> hinhs=null)
+        public int dichuyen(Phong dich=null, TinhTrang ttmoi=null, int soluong=-1, String mota="", List<HinhAnh> hinhs=null, DateTime? ngay=null)
         {
             //pre set data
             dich = dich == null ? this.phong : dich;
             //=> dich co the van se la null (do this.phong có thể là null)
-            moi = moi == null ? this.tinhtrang : moi;//tinh trang không thể null
-
+            ttmoi = ttmoi == null ? this.tinhtrang : ttmoi;//tinh trang không thể null
+            ngay = ngay == null ? ServerTimeHelper.getNow() : ngay;
             //XÉT ĐIỀU KIỆN
             if
-                (
-                    //Nếu Không có bất kỳ sự thay đổi nào, phòng và tình trạng giống với this
-                    ((dich!=null && dich.id == this.phong.id) || (dich==null && this.phong==null))
-                    && moi.id == this.tinhtrang.id
-                )
+            (
+                //Nếu Không có bất kỳ sự thay đổi nào, phòng và tình trạng giống với this
+                ((dich!=null && dich.id == this.phong.id) || (dich==null && this.phong==null))
+                && ttmoi.id == this.tinhtrang.id
+            )
             {
                 return -2;
             }
             //kiem tra rang buoc không cho thực thi
             if
-                (
-                    soluong == 0 || soluong > this.soluong
-                )
+            (
+                soluong == 0 || soluong > this.soluong
+            )
             {
                 return -2;
             }
@@ -99,46 +101,44 @@ namespace QuanLyTaiSan.Entities
             Boolean transac = true;
             using (var dbContextTransaction = db.Database.BeginTransaction()) 
             {
-                CTThietBi tmp=null;
-                DateTime ngay = ServerTimeHelper.getNow();
-                if (true)
-                {
-                    //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
-                    //kiem tra co record nao trung với record cần tạo mới (dich, tinhtrang, thietbi) ?
-                    tmp = search(dich, this.thietbi, moi);
+                //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
+                //kiem tra co record nao trung với record cần tạo mới (dich, tinhtrang, thietbi) ?
+                CTThietBi tmp = search(dich, this.thietbi, ttmoi);
 
-                    //NO
-                    //TAO MOI CTTB => add
-                    if (tmp == null)
+                //NO
+                //TAO MOI CTTB => add
+                if (tmp == null)
+                {
+                    tmp = new CTThietBi();
+                    tmp.phong = dich;
+                    tmp.soluong = soluong;
+                    tmp.thietbi = this.thietbi;
+                    tmp.tinhtrang = ttmoi;
+                    tmp.mota = mota;
+                    tmp.hinhanhs = hinhs;
+                    tmp.ngay = ngay;
+                    transac = transac && tmp.add(true) > 0;//ADD
+                }
+                else
+                {
+                    //Đã có CTTB sẵn giống với CTTB cần tạo mới
+                    //SELECT CTTB do len => update
+                    if (tmp.id != this.id)
                     {
-                        tmp = new CTThietBi();
-                        tmp.phong = dich;
-                        tmp.soluong = soluong;
-                        tmp.thietbi = this.thietbi;
-                        tmp.tinhtrang = moi;
+                        tmp.soluong += soluong;
                         tmp.mota = mota;
                         tmp.hinhanhs = hinhs;
-                        transac = transac && tmp.add(ngay, true) > 0;//ADD
+                        transac = transac && tmp.update(true) > 0;//UPDATE
                     }
-                    else
-                    {
-                        //Đã có CTTB sẵn giống với CTTB cần tạo mới
-                        //SELECT CTTB do len => update
-                        if (tmp.id != this.id)
-                        {
-                            tmp.soluong += soluong;
-                            tmp.mota = mota;
-                            transac = transac && tmp.update(ngay, true, hinhs) > 0;//UPDATE
-                        }
-                    }
-
-                    //cap nhat lai so luong cho cái hiện đã bị chuyển
-                    this.mota = mota;
-                    this.soluong -= soluong;
-                    this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
-                    //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                    transac = transac && update(ngay, true,hinhs) > 0;
                 }
+
+                //cap nhat lai so luong cho cái hiện đã bị chuyển
+                this.mota = mota;
+                this.soluong -= soluong;
+                this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
+                //ghi log thietbi ngay sau khi cap nhat ONLY soluong
+                transac = transac && update(true) > 0;
+                
 
 
                 //final transac controller
@@ -158,17 +158,17 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Kich hoat ham ghi log vao LogThietBi
         /// </summary>
-        private int writelog(DateTime? ngay, String mota="", List<HinhAnh> hinhs=null)
+        private int writelog(String mota="")
         {
             //ghi log thiet bi
             LogThietBi logtb = new LogThietBi();
             logtb.mota = mota;
-            logtb.ngay = ngay==null?ServerTimeHelper.getNow():(DateTime)ngay;
-            logtb.phong = phong;
-            logtb.soluong = soluong;
-            logtb.thietbi = thietbi;
-            logtb.tinhtrang = tinhtrang;
-            logtb.hinhanhs = hinhs == null ? new List<HinhAnh>() : hinhs;
+            logtb.phong = this.phong;
+            logtb.soluong = this.soluong;
+            logtb.thietbi = this.thietbi;
+            logtb.tinhtrang = this.tinhtrang;
+            //quocdunginfo ERROR
+            //logtb.hinhanhs = this.hinhanhs == null ? new List<HinhAnh>() : HinhAnh.clone(this.hinhanhs.ToList());
             logtb.quantrivien = Global.current_login;
             return logtb.add();
         }
@@ -218,7 +218,8 @@ namespace QuanLyTaiSan.Entities
         /// obj.tinhtrang = tinhtrang;
         /// obj.soluong=soluong;
         /// obj.mota=mota;
-        /// obj.add_auto();
+        /// obj.hinhanhs = hinhs;
+        /// obj.add();
         /// 
         /// B. Trường hợp thêm Thiết bị vào phòng chọn được: Thiết bị
         /// 
@@ -228,13 +229,13 @@ namespace QuanLyTaiSan.Entities
         /// obj.tinhtrang = tinhtrang;
         /// obj.soluong=soluong;
         /// obj.mota=mota;
-        /// obj.hinhanh = hinhs;//Do khi add thì set List hình cho nó là hợp lý
-        /// obj.add_auto();
+        /// obj.hinhanh = hinhs;//Hình sạch
+        /// obj.add();
         /// </summary>
         /// <returns></returns>
-        public int add(DateTime? ngay=null, Boolean in_transaction=false)
+        public int add(Boolean in_transaction=false)
         {
-            ngay = ngay==null?ServerTimeHelper.getNow():ngay;
+            this.ngay = this.ngay==null?ServerTimeHelper.getNow():this.ngay;
             
             Boolean trans = true;
             DbContextTransaction dbTransac = null;
@@ -250,16 +251,16 @@ namespace QuanLyTaiSan.Entities
                 if (tmp != null)
                 {
                     tmp.soluong += soluong;
+                    tmp.ngay = this.ngay;
                     //call update on tmp
-                    trans = trans && tmp.update(ngay, true, this.hinhanhs.ToList()) > 0;
+                    trans = trans && tmp.update(true) > 0;
                     id = tmp.id;
                 }
-                
                 else
                 {
                     trans = trans && base.add() > 0;
                     //Cần phải clone hình ra trước khi gọi writelog
-                    trans = trans && writelog(ngay, mota, HinhAnh.clone(this.hinhanhs.ToList())) > 0;
+                    trans = trans && writelog(mota) > 0;
                 }
 
             }
@@ -290,7 +291,7 @@ namespace QuanLyTaiSan.Entities
         /// <param name="ngay"></param>
         /// <param name="in_transaction"></param>
         /// <returns></returns>
-        private int update(DateTime? ngay=null, Boolean in_transaction=false, List<HinhAnh> hinhs=null)
+        public int update(Boolean in_transaction=false)
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -316,7 +317,7 @@ namespace QuanLyTaiSan.Entities
             //SCRIPT
 
             transac = transac && base.update() > 0;
-            transac = transac && writelog(ngay, mota,hinhs) > 0;
+            transac = transac && writelog(mota) > 0;
 
             //END SCRIPT
             if (!in_transaction)

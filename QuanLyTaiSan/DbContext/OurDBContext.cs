@@ -299,10 +299,11 @@ namespace QuanLyTaiSan.Entities
         }
         public override int SaveChanges()
         {
-            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified);
-            Boolean need_to_sync = true;
+            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified || c.State==EntityState.Deleted);
+            Boolean need_to_sync = false;
             foreach (DbEntityEntry changedEntity in changedEntities)
             {
+                need_to_sync = true;
                 if (changedEntity.Entity is _EFEventRegisterInterface)
                 {
                     _EFEventRegisterInterface entity = (_EFEventRegisterInterface)changedEntity.Entity;
@@ -316,6 +317,10 @@ namespace QuanLyTaiSan.Entities
                         case EntityState.Modified:
                             entity.onBeforeUpdated();
                             break;
+
+                        //case EntityState.Deleted:
+                        //    entity.onBeforeDeleted();
+                        //    break;
 
                     }
                 }

@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.Designer.cs">
       <DependentUpon>201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407171700135_sua_dinhnghia_cttb.cs" />
+    <Compile Include="Migrations\201407171700135_sua_dinhnghia_cttb.Designer.cs">
+      <DependentUpon>201407171700135_sua_dinhnghia_cttb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -252,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.resx">
       <DependentUpon>201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407171700135_sua_dinhnghia_cttb.resx">
+      <DependentUpon>201407171700135_sua_dinhnghia_cttb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

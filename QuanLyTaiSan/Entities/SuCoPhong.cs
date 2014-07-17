@@ -56,7 +56,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="hinhs">Hình sự cố</param>
         /// <returns></returns>
-        public int add()
+        public override int add()
         {
             Boolean transac = true;
             DateTime ngay = ServerTimeHelper.getNow();
@@ -80,10 +80,11 @@ namespace QuanLyTaiSan.Entities
                 return transac ? 1 : -1;
             }
         }
-        protected int writelog(String mota="", List<HinhAnh> hinhs=null)
+        protected int writelog(String mota="")
         {
             LogSuCoPhong obj = new LogSuCoPhong();
-            obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():hinhanhs;
+            //quocdunginfo ERROR
+            //obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():HinhAnh.clone(this.hinhanhs.ToList());
             obj.mota = mota;
             obj.sucophong = this;
             obj.quantrivien = Global.current_login;
@@ -95,7 +96,7 @@ namespace QuanLyTaiSan.Entities
         /// Có hỗ trợ ghi log
         /// </summary>
         /// <returns></returns>
-        public int update()
+        public override int update()
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -114,7 +115,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.update() > 0;
                 //write log
-                transac = transac && writelog(this.mota,hinhs) > 0;
+                transac = transac && writelog(this.mota) > 0;
 
                 //final transac controller
                 if (transac)

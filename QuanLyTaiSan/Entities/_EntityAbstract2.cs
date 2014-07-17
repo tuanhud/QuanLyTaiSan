@@ -44,6 +44,12 @@ namespace QuanLyTaiSan.Entities
             }
             return base.delete();
         }
+        public override void onBeforeDeleted()
+        {
+            base.onBeforeDeleted();
+            //Tự động xóa hết hình ảnh
+            //db.HINHANHS.RemoveRange(this.hinhanhs);
+        }
         #endregion
     }
 }

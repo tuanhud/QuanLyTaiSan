@@ -269,7 +269,13 @@ namespace QuanLyTaiSan.Entities
             return re;
         }
         #endregion
-
+        /// <summary>
+        /// Chạy nghiệp vụ trước khi bị xóa
+        /// </summary>
+        public virtual void onBeforeDeleted()
+        {
+            
+        }
         /// <summary>
         /// Chạy nghiệp vụ trước khi được cập nhật vào CSDL
         /// </summary>
