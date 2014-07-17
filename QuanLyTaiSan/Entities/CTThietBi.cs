@@ -168,6 +168,7 @@ namespace QuanLyTaiSan.Entities
             logtb.thietbi = thietbi;
             logtb.tinhtrang = tinhtrang;
             logtb.hinhanhs = hinhs == null ? new List<HinhAnh>() : hinhs;
+            logtb.quantrivien = Global.current_login;
             return logtb.add();
         }
         /// <summary>

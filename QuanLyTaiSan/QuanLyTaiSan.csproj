@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201407170606392_them_hinhanhs_vao_cttbs_sucophong.Designer.cs">
       <DependentUpon>201407170606392_them_hinhanhs_vao_cttbs_sucophong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs" />
+    <Compile Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.Designer.cs">
+      <DependentUpon>201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -245,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407170606392_them_hinhanhs_vao_cttbs_sucophong.resx">
       <DependentUpon>201407170606392_them_hinhanhs_vao_cttbs_sucophong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.resx">
+      <DependentUpon>201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

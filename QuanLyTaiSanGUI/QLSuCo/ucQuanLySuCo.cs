@@ -196,7 +196,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                         else if (isLog && view.FocusedRowHandle > -1 && view.GetFocusedRow() != null)
                         {
                             LogSuCoPhong obj = view.GetFocusedRow() as LogSuCoPhong;
-                            dateEdit1.EditValue = obj.ngay;
+                            //dateEdit1.EditValue = obj.ngay;
                             lblNhanVien.Text = obj.quantrivien != null ? obj.quantrivien.hoten : "";
                             lookUpEditTinhTrang.EditValue = obj.tinhtrang_id;
                             txtMota.Text = obj.mota;
