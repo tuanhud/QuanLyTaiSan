@@ -208,7 +208,10 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 db.Entry((T)this).State = EntityState.Detached;//destroy cached
-                return db.Set<T>().Find(id);
+                T tmp = db.Set<T>().Find(id);
+                //very importance (nếu kh có sẽ bị INSERT lại OBJ, chưa hiểu rõ)
+                db.Entry<T>(tmp).State = EntityState.Unchanged;
+                return tmp;
             }
             catch (Exception ex)
             {

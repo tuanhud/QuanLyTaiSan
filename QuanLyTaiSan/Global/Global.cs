@@ -492,7 +492,18 @@ namespace QuanLyTaiSan.Entities
             }
 
         }
-        public static QuanTriVien current_login { get; set; }
+        private static QuanTriVien _current_login = null;
+        public static QuanTriVien current_login {
+            get
+            {
+                //very importance because of OLD DBCONTEXT
+                return _current_login = _current_login.reload();
+            }
+            set
+            {
+                _current_login = value;
+            }
+        }
         public static Properties.Settings local_setting
         {
             get

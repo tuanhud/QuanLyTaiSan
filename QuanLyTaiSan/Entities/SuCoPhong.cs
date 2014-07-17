@@ -19,6 +19,8 @@ namespace QuanLyTaiSan.Entities
 
         }
         #region Dinh Nghia
+        [Required]
+        public DateTime ngay { get; set; }
         /*
          * FK
          */
@@ -28,13 +30,12 @@ namespace QuanLyTaiSan.Entities
         public String ten { get; set; }
 
         public int tinhtrang_id { get; set; }
-        [Index("nothing", 2, IsUnique = true)]
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
 
         public int phong_id { get; set; }
-        [Index("nothing", 3, IsUnique = true)]
+        [Index("nothing", 2, IsUnique = true)]
         [Required]
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
@@ -50,7 +51,7 @@ namespace QuanLyTaiSan.Entities
 
         #region Override method
         /// <summary>
-        /// Set tên, tình trạng, phòng, mô tả trước khi gọi,
+        /// Set tên, tình trạng, phòng, mô tả, ngày trước khi gọi,
         /// Có hỗ trợ ghi log
         /// </summary>
         /// <param name="hinhs">Hình sự cố</param>
@@ -64,7 +65,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.add()>0;
                 //write log
-                transac = transac && writelog(ngay, this.mota, hinhs)>0;
+                transac = transac && writelog(this.mota, hinhs)>0;
 
                 //final transac controller
                 if (transac)
@@ -79,12 +80,11 @@ namespace QuanLyTaiSan.Entities
                 return transac ? 1 : -1;
             }
         }
-        protected int writelog(DateTime ngay, String mota="", List<HinhAnh> hinhs=null)
+        protected int writelog(String mota="", List<HinhAnh> hinhs=null)
         {
             LogSuCoPhong obj = new LogSuCoPhong();
             obj.hinhanhs = hinhs==null?new List<HinhAnh>():hinhs;
             obj.mota = mota;
-            obj.ngay = ngay;
             obj.sucophong = this;
             obj.quantrivien = Global.current_login;
             obj.tinhtrang = this.tinhtrang;
@@ -114,7 +114,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.update() > 0;
                 //write log
-                transac = transac && writelog(ngay, this.mota, hinhs) > 0;
+                transac = transac && writelog(this.mota, hinhs) > 0;
 
                 //final transac controller
                 if (transac)

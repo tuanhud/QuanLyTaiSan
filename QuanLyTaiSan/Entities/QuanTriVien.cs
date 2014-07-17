@@ -74,6 +74,7 @@ namespace QuanLyTaiSan.Entities
             {
                 if (password.ToUpper().Equals(obj.password.ToUpper()))
                 {
+                    this.id = obj.id;
                     return true;
                 }
             }
@@ -104,6 +105,7 @@ namespace QuanLyTaiSan.Entities
             {
                 if (password.ToUpper().Equals(obj.password.ToUpper()))
                 {
+                    this.id = obj.id;
                     return true;
                 }
             }
