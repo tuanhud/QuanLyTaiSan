@@ -84,6 +84,7 @@
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
             this.checkEdit_debugToFile = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -122,8 +123,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.panelControl_Server);
             this.groupControl1.Controls.Add(this.panelControl_Cache);
@@ -159,6 +159,7 @@
             // 
             // btnRemoveServerScope
             // 
+            this.btnRemoveServerScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveServerScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveServerScope.Image")));
             this.btnRemoveServerScope.Location = new System.Drawing.Point(238, 133);
             this.btnRemoveServerScope.Name = "btnRemoveServerScope";
@@ -178,6 +179,7 @@
             // 
             // simpleButton_cleanUpServerScope
             // 
+            this.simpleButton_cleanUpServerScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_cleanUpServerScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpServerScope.Image")));
             this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(130, 133);
             this.simpleButton_cleanUpServerScope.Name = "simpleButton_cleanUpServerScope";
@@ -211,6 +213,7 @@
             // 
             // simpleButton_validateServer
             // 
+            this.simpleButton_validateServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_validateServer.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateServer.Image")));
             this.simpleButton_validateServer.Location = new System.Drawing.Point(5, 133);
             this.simpleButton_validateServer.Name = "simpleButton_validateServer";
@@ -301,6 +304,7 @@
             // 
             // btnRemoveClientScope
             // 
+            this.btnRemoveClientScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveClientScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveClientScope.Image")));
             this.btnRemoveClientScope.Location = new System.Drawing.Point(238, 134);
             this.btnRemoveClientScope.Name = "btnRemoveClientScope";
@@ -311,6 +315,7 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
             this.simpleButton1.Location = new System.Drawing.Point(130, 163);
             this.simpleButton1.Name = "simpleButton1";
@@ -321,6 +326,7 @@
             // 
             // simpleButton_cleanUpClientScope
             // 
+            this.simpleButton_cleanUpClientScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_cleanUpClientScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpClientScope.Image")));
             this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(130, 134);
             this.simpleButton_cleanUpClientScope.Name = "simpleButton_cleanUpClientScope";
@@ -348,6 +354,7 @@
             // 
             // simpleButton_validateClient
             // 
+            this.simpleButton_validateClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_validateClient.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateClient.Image")));
             this.simpleButton_validateClient.Location = new System.Drawing.Point(5, 134);
             this.simpleButton_validateClient.Name = "simpleButton_validateClient";
@@ -640,10 +647,22 @@
             this.checkEdit_debugToFile.Size = new System.Drawing.Size(167, 19);
             this.checkEdit_debugToFile.TabIndex = 132;
             // 
+            // simpleButton_Luu
+            // 
+            this.simpleButton_Luu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_Luu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Luu.Image")));
+            this.simpleButton_Luu.Location = new System.Drawing.Point(642, 374);
+            this.simpleButton_Luu.Name = "simpleButton_Luu";
+            this.simpleButton_Luu.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton_Luu.TabIndex = 132;
+            this.simpleButton_Luu.Text = "Lưu";
+            this.simpleButton_Luu.Click += new System.EventHandler(this.simpleButton_Luu_Click);
+            // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.simpleButton_Luu);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.btnFTPSave);
             this.Controls.Add(this.groupControl3);
@@ -752,5 +771,6 @@
         private DevExpress.XtraEditors.SimpleButton btnDebugClear;
         private DevExpress.XtraEditors.SimpleButton btnRemoveServerScope;
         private DevExpress.XtraEditors.SimpleButton btnRemoveClientScope;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
     }
 }

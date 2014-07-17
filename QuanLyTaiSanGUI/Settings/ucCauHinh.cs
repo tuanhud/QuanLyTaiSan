@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.Settings
 {
@@ -239,6 +240,49 @@ namespace QuanLyTaiSanGUI.Settings
         private void btnRemoveClientScope_Click(object sender, EventArgs e)
         {
             Global.client_database.drop_scope();
+        }
+
+        private void simpleButton_Luu_Click(object sender, EventArgs e)
+        {
+            int re = 1;
+            //if (_ucCauHinh != null)
+            {
+                //call ucSave
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                re = save();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                if (re > 0)
+                {
+                    XtraMessageBox.Show("Lưu cài đặt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (this.ParentForm.Name.Equals("Setting"))
+                    {
+                        Setting _Setting = new Setting();
+                        _Setting.KiemtraKetnoiDatabase();
+                    }
+                    return;
+                }
+                else if (re == -5)
+                {
+                    XtraMessageBox.Show("Lỗi cài đặt FTP!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (re == -2)
+                {
+                    XtraMessageBox.Show("Lỗi cài đặt Database Server!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (re == -3)
+                {
+                    XtraMessageBox.Show("Lỗi cài đặt Database Client!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
+
+        private void simpleButton_Huy_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

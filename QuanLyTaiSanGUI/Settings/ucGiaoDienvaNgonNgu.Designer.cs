@@ -51,10 +51,6 @@
             this.comboBoxEditNgonNgu.Name = "comboBoxEditNgonNgu";
             this.comboBoxEditNgonNgu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditNgonNgu.Properties.Items.AddRange(new object[] {
-            "Tiếng việt",
-            "Tiếng anh",
-            "Tiếng pháp"});
             this.comboBoxEditNgonNgu.Size = new System.Drawing.Size(150, 20);
             this.comboBoxEditNgonNgu.TabIndex = 0;
             // 
@@ -70,9 +66,9 @@
             this.galleryControlGiaoDien.Gallery.ImageSize = new System.Drawing.Size(100, 100);
             this.galleryControlGiaoDien.Gallery.ShowItemText = true;
             this.galleryControlGiaoDien.Gallery.ItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.galleryControlGallery1_ItemClick);
-            this.galleryControlGiaoDien.Location = new System.Drawing.Point(2, 21);
+            this.galleryControlGiaoDien.Location = new System.Drawing.Point(2, 24);
             this.galleryControlGiaoDien.Name = "galleryControlGiaoDien";
-            this.galleryControlGiaoDien.Size = new System.Drawing.Size(707, 269);
+            this.galleryControlGiaoDien.Size = new System.Drawing.Size(707, 266);
             this.galleryControlGiaoDien.TabIndex = 0;
             this.galleryControlGiaoDien.Text = "galleryControl1";
             // 
@@ -80,7 +76,7 @@
             // 
             this.galleryControlClient1.GalleryControl = this.galleryControlGiaoDien;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
-            this.galleryControlClient1.Size = new System.Drawing.Size(686, 265);
+            this.galleryControlClient1.Size = new System.Drawing.Size(686, 262);
             // 
             // groupControl1
             // 
