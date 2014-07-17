@@ -35,6 +35,8 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButtonLuuGiaoDien = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonHuyGiaoDien = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditNgonNgu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryControlGiaoDien)).BeginInit();
             this.galleryControlGiaoDien.SuspendLayout();
@@ -56,19 +58,21 @@
             // 
             // galleryControlGiaoDien
             // 
+            this.galleryControlGiaoDien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.galleryControlGiaoDien.Controls.Add(this.galleryControlClient1);
             this.galleryControlGiaoDien.DesignGalleryGroupIndex = 0;
             this.galleryControlGiaoDien.DesignGalleryItemIndex = 0;
-            this.galleryControlGiaoDien.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // galleryControlGallery1
             // 
-            this.galleryControlGiaoDien.Gallery.ImageSize = new System.Drawing.Size(100, 100);
+            this.galleryControlGiaoDien.Gallery.ImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlGiaoDien.Gallery.ShowItemText = true;
             this.galleryControlGiaoDien.Gallery.ItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.galleryControlGallery1_ItemClick);
-            this.galleryControlGiaoDien.Location = new System.Drawing.Point(2, 24);
+            this.galleryControlGiaoDien.Location = new System.Drawing.Point(2, 55);
             this.galleryControlGiaoDien.Name = "galleryControlGiaoDien";
-            this.galleryControlGiaoDien.Size = new System.Drawing.Size(707, 266);
+            this.galleryControlGiaoDien.Size = new System.Drawing.Size(705, 240);
             this.galleryControlGiaoDien.TabIndex = 0;
             this.galleryControlGiaoDien.Text = "galleryControl1";
             // 
@@ -76,7 +80,7 @@
             // 
             this.galleryControlClient1.GalleryControl = this.galleryControlGiaoDien;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
-            this.galleryControlClient1.Size = new System.Drawing.Size(686, 262);
+            this.galleryControlClient1.Size = new System.Drawing.Size(684, 236);
             // 
             // groupControl1
             // 
@@ -89,7 +93,7 @@
             this.groupControl1.Controls.Add(this.comboBoxEditNgonNgu);
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(709, 79);
+            this.groupControl1.Size = new System.Drawing.Size(711, 79);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Ngôn ngữ";
             // 
@@ -108,14 +112,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.Appearance.Options.UseFont = true;
-            this.groupControl2.AutoSize = true;
             this.groupControl2.CaptionImage = ((System.Drawing.Image)(resources.GetObject("groupControl2.CaptionImage")));
+            this.groupControl2.Controls.Add(this.simpleButtonLuuGiaoDien);
+            this.groupControl2.Controls.Add(this.simpleButtonHuyGiaoDien);
             this.groupControl2.Controls.Add(this.galleryControlGiaoDien);
-            this.groupControl2.Location = new System.Drawing.Point(3, 88);
+            this.groupControl2.Location = new System.Drawing.Point(3, 85);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(711, 292);
+            this.groupControl2.Size = new System.Drawing.Size(711, 298);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Giao diện";
+            // 
+            // simpleButtonLuuGiaoDien
+            // 
+            this.simpleButtonLuuGiaoDien.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonLuuGiaoDien.Image")));
+            this.simpleButtonLuuGiaoDien.Location = new System.Drawing.Point(6, 28);
+            this.simpleButtonLuuGiaoDien.Name = "simpleButtonLuuGiaoDien";
+            this.simpleButtonLuuGiaoDien.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonLuuGiaoDien.TabIndex = 2;
+            this.simpleButtonLuuGiaoDien.Text = "Lưu";
+            this.simpleButtonLuuGiaoDien.Click += new System.EventHandler(this.simpleButtonLuuGiaoDien_Click);
+            // 
+            // simpleButtonHuyGiaoDien
+            // 
+            this.simpleButtonHuyGiaoDien.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonHuyGiaoDien.Image")));
+            this.simpleButtonHuyGiaoDien.Location = new System.Drawing.Point(89, 28);
+            this.simpleButtonHuyGiaoDien.Name = "simpleButtonHuyGiaoDien";
+            this.simpleButtonHuyGiaoDien.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonHuyGiaoDien.TabIndex = 2;
+            this.simpleButtonHuyGiaoDien.Text = "Hủy";
+            this.simpleButtonHuyGiaoDien.Click += new System.EventHandler(this.simpleButtonHuyGiaoDien_Click);
             // 
             // ucGiaoDienvaNgonNgu
             // 
@@ -135,7 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -147,5 +171,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonLuuGiaoDien;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonHuyGiaoDien;
     }
 }

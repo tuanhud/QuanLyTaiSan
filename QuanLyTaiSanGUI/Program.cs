@@ -20,15 +20,6 @@ namespace QuanLyTaiSanGUI
             DevExpress.UserSkins.BonusSkins.Register();
             DevExpress.Skins.SkinManager.EnableFormSkins();
 
-            //BonusSkins.Register();
-            //Application.EnableVisualStyles();
-            //UserLookAndFeel.Default.SetSkinStyle(SkinHelper.Default());
-            //SkinManager.EnableFormSkins();
-            
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //SplashScreenManager.RegisterUserSkins(typeof(BonusSkins).Assembly);
-            //SkinManager.Default.RegisterSkin(new SkinBlobXmlCreator(UserLookAndFeel.Default.SkinName, "SkinData.", typeof(BonusSkins).Assembly, null));
-
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
