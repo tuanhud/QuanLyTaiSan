@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhAnh));
             this.galleryControlImage = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
@@ -60,9 +60,9 @@
             this.galleryControlImage.Gallery.AllowHoverImages = true;
             this.galleryControlImage.Gallery.AllowMarqueeSelection = true;
             this.galleryControlImage.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
-            galleryItemGroup2.Caption = "Danh sách hình ảnh";
+            galleryItemGroup1.Caption = "Danh sách hình ảnh";
             this.galleryControlImage.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.galleryControlImage.Gallery.HoverImageSize = new System.Drawing.Size(200, 200);
             this.galleryControlImage.Gallery.ImageSize = new System.Drawing.Size(100, 100);
             this.galleryControlImage.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.Multiple;
@@ -70,6 +70,7 @@
             this.galleryControlImage.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
             this.galleryControlImage.Gallery.ShowItemText = true;
             this.galleryControlImage.Gallery.ItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.galleryControlImage_Gallery_ItemClick);
+            this.galleryControlImage.Gallery.ItemCheckedChanged += new DevExpress.XtraBars.Ribbon.GalleryItemEventHandler(this.galleryControlImage_Gallery_ItemCheckedChanged);
             this.galleryControlImage.Gallery.CustomDrawItemImage += new DevExpress.XtraBars.Ribbon.GalleryItemCustomDrawEventHandler(this.galleryControlGallery_CustomDrawItemImage);
             this.galleryControlImage.Location = new System.Drawing.Point(0, 33);
             this.galleryControlImage.Name = "galleryControlImage";

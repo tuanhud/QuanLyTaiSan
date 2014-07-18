@@ -186,7 +186,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtTen.Text = _obj.thietbi.ten;
                 txtMoTa.Text = _obj.thietbi.mota;
                 lblTenPhong.Text = _obj.phong.ten;
-                dateMua.EditValue = _obj.thietbi.ngaymua;
+                dateMua.EditValue = _obj.thietbi.loaithietbi.loaichung ? null : _obj.thietbi.ngaymua;
                 dateLap.EditValue = _obj.ngay;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
@@ -206,7 +206,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             imageSlider1.Images.Clear();
             foreach (HinhAnh h in listHinh)
             {
-                imageSlider1.Images.Add(h.getImage());
+                try
+                {
+                    imageSlider1.Images.Add(h.getImage());
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->reloadImage: " + ex.Message);
+                }
             }
         }
 
@@ -232,7 +239,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            dateMua.Properties.ReadOnly = !_enable;
+            if(objCTThietBi != null && 
+                objCTThietBi.thietbi != null && 
+                objCTThietBi.thietbi.loaithietbi != null && 
+                objCTThietBi.thietbi.loaithietbi.loaichung && _enable)
+                dateMua.Properties.ReadOnly = true;
+            else
+                dateMua.Properties.ReadOnly = !_enable;
             dateLap.Properties.ReadOnly = !_enable;
             _ucTreeLoaiTB.setReadOnly(!_enable);
             working = _enable;
@@ -271,7 +284,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.mota = txtMoTa.Text;
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 obj.ngaymua = dateMua.EditValue != null ? dateMua.DateTime : obj.ngaymua;
-                //obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
                 obj.hinhanhs = listHinh;
                 if (obj.update() > 0)
                 {
@@ -436,8 +448,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     obj.mota != txtMoTa.Text ||
                     obj.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||
                     obj.ngaymua != dateMua.DateTime ||
-                    //obj.ngaylap != dateLap.DateTime ||
-                    obj.hinhanhs.ToString() != listHinh.ToString();
+                    objCTThietBi.ngay != dateLap.DateTime ||
+                    obj.hinhanhs.Except(listHinh).Count() > 0 ||
+                    listHinh.Except(obj.hinhanhs).Count() > 0;
                 }
                 else
                 {
@@ -457,6 +470,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 frmShowImage frm = new frmShowImage(listHinh);
                 frm.ShowDialog();
             }
+        }
+
+        private void gridViewlog_DoubleClick(object sender, EventArgs e)
+        {
+            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.ToList());
+            frm.Text += " " + objCTThietBi.thietbi.ten;
+            frm.ShowDialog();
         }
     }
 }

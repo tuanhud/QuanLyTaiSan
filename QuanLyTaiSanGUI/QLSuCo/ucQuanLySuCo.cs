@@ -20,6 +20,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         Phong objPhong = new Phong();
         String function = "";
         bool working = false;
+        QuanLyTaiSanGUI.MyUC.MyLayout layout = new QuanLyTaiSanGUI.MyUC.MyLayout();
 
         public ucQuanLySuCo()
         {
@@ -35,12 +36,14 @@ namespace QuanLyTaiSanGUI.QLSuCo
             gridViewSuCo.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewSuCo.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             
-            gridViewLogSuCo.Columns[collmodified.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            gridViewLogSuCo.Columns[collcreate.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewLogSuCo.Columns[colltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
             _ucTreeViTri.Parent = this;
+
+            layout.save(gridViewSuCo);
         }
 
         public DevExpress.XtraBars.Ribbon.RibbonControl getRibbon()
@@ -55,6 +58,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         public void loadData()
         {
+            layout.load(gridViewSuCo);
             List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listViTri);
             List<TinhTrang> listTinhTrang = TinhTrang.getAll();
@@ -210,6 +214,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                             lblNhanVien.Text = obj.quantrivien != null ? obj.quantrivien.hoten : "";
                             lookUpEditTinhTrang.EditValue = obj.tinhtrang_id;
                             txtMota.Text = obj.mota;
+                            dateEdit1.EditValue = obj.date_create;
                             if (obj.hinhanhs.Count > 0)
                             {
                                 listHinhs = obj.hinhanhs.ToList();
