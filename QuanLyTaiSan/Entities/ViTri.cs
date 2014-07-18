@@ -191,11 +191,15 @@ namespace QuanLyTaiSan.Entities
 
             return base.update();
         }
+        /// <summary>
+        /// -2: Có phòng sử dụng vị trí
+        /// </summary>
+        /// <returns></returns>
         public override int delete()
         {
             if (phongs.Count > 0)
             {
-                return -1;
+                return -2;
             }
             return base.delete();
         }

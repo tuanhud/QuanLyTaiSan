@@ -336,14 +336,19 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "CoSo":
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            if (objCoSo.delete() > 0)
+                            int ree = objCoSo.delete();
+                            if (ree>0)
                             {
                                 XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoad();
                             }
-                            else
+                            else if(ree==-2)
                             {
-                                XtraMessageBox.Show("Có dãy hoặc phòng trong cơ sở. Vui lòng xóa dãy hoặc phòng trước!");
+                                XtraMessageBox.Show("Có phòng trong cơ sở. Vui lòng xóa phòng trước!");
+                            }
+                            else if (ree == -3)
+                            {
+                                XtraMessageBox.Show("Có dãy trong cơ sở. Vui lòng xóa dãy trước!");
                             }
                         }
                         break;
@@ -351,15 +356,20 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa dãy?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             CoSo obj = objDay.coso;
-                            if (objDay.delete() > 0)
+                            int ree = objDay.delete();
+                            if (ree>0)
                             {
                                 XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoad();
                             }
 
-                            else
+                            else if(ree==-2)
                             {
-                                XtraMessageBox.Show("Có tầng hoặc phòng trong dãy. Vui lòng xóa tầng hoặc phòng trước!");
+                                XtraMessageBox.Show("Có phòng trong dãy. Vui lòng xóa phòng trước!");
+                            }
+                            else if (ree == -3)
+                            {
+                                XtraMessageBox.Show("Có tầng trong dãy. Vui lòng xóa tầng trước!");
                             }
                         }
                         break;

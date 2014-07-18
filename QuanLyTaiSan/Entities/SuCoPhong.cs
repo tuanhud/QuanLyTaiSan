@@ -139,11 +139,10 @@ namespace QuanLyTaiSan.Entities
         {
             if (logsucophongs != null)
             {
-                foreach (LogSuCoPhong item in logsucophongs)
+                while (logsucophongs.Count > 0)
                 {
-                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                    logsucophongs.FirstOrDefault().delete();
                 }
-                db.LOGSUCOPHONGS.RemoveRange(logsucophongs);
             }
             return base.delete();
         }

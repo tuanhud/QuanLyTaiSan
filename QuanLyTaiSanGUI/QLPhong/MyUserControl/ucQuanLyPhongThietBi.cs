@@ -284,8 +284,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.mota = txtMoTa.Text;
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 obj.ngaymua = dateMua.EditValue != null ? dateMua.DateTime : obj.ngaymua;
-                //obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
-                //objCTThietBi.ngay = dateLap.EditValue != null ? dateLap.DateTime : objCTThietBi.ngay;
                 obj.hinhanhs = listHinh;
                 if (obj.update() > 0)
                 {

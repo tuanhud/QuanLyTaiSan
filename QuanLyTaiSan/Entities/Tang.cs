@@ -49,10 +49,20 @@ namespace QuanLyTaiSan.Entities
         }
         public override int delete()
         {
-            if (vitris.Count > 0)
+            //Nếu có ít nhất 1 phòng sử dụng vị trí chứa tầng này thì KHÔNG cho xóa
+            if (vitris.Where(c => c.phongs.Count > 0).FirstOrDefault() != null)
             {
-                return -1;
+                return -2;
             }
+            //Xóa tất cả vị trí liên quan
+            if (vitris != null)
+            {
+                while (vitris.Count > 0)
+                {
+                    vitris.FirstOrDefault().delete();
+                }
+            }
+
             return base.delete();
         }
         #endregion

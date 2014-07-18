@@ -42,14 +42,14 @@ namespace QuanLyTaiSan.DataFilter
             //DATETIME
             if (date_from != null)
             {
-                query = query.Where(x => x.thietbi.date_modified >= date_from);
+                query = query.Where(x => x.ngay >= date_from);
             }
             if (date_to != null)
             {
                 //"date_to" have to be the last second of the day, 1 day additional           
                 date_to = date_to.Value.AddDays(1);
 
-                query = query.Where(x => x.thietbi.date_modified <= date_to);
+                query = query.Where(x => x.ngay <= date_to);
             }
             //LTB
             if (list_ltb != null && list_ltb.Count > 0)

@@ -201,6 +201,8 @@
             // 
             // dateCreated
             // 
+            this.dateCreated.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateCreated.EditValue = null;
             this.dateCreated.Location = new System.Drawing.Point(93, 155);
             this.dateCreated.Name = "dateCreated";
@@ -208,8 +210,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateCreated.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateCreated.Size = new System.Drawing.Size(185, 20);
-            this.dateCreated.TabIndex = 16;
+            this.dateCreated.Size = new System.Drawing.Size(252, 20);
+            this.dateCreated.TabIndex = 25;
             this.dateCreated.EditValueChanged += new System.EventHandler(this.dateCreated_EditValueChanged);
             // 
             // labelControl7
@@ -226,9 +228,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtXacNhanMK.Location = new System.Drawing.Point(93, 131);
             this.txtXacNhanMK.Name = "txtXacNhanMK";
+            this.txtXacNhanMK.Properties.PasswordChar = '●';
             this.txtXacNhanMK.Properties.ReadOnly = true;
             this.txtXacNhanMK.Size = new System.Drawing.Size(252, 20);
-            this.txtXacNhanMK.TabIndex = 14;
+            this.txtXacNhanMK.TabIndex = 20;
             // 
             // labelControl6
             // 
@@ -240,6 +243,8 @@
             // 
             // lookUpEdit_group
             // 
+            this.lookUpEdit_group.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lookUpEdit_group.Location = new System.Drawing.Point(93, 183);
             this.lookUpEdit_group.Name = "lookUpEdit_group";
             this.lookUpEdit_group.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -248,15 +253,15 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ten", "Tên nhóm")});
             this.lookUpEdit_group.Properties.DisplayMember = "ten";
             this.lookUpEdit_group.Properties.ValueMember = "id";
-            this.lookUpEdit_group.Size = new System.Drawing.Size(185, 20);
-            this.lookUpEdit_group.TabIndex = 12;
+            this.lookUpEdit_group.Size = new System.Drawing.Size(252, 20);
+            this.lookUpEdit_group.TabIndex = 30;
             // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(145, 209);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 10;
+            this.btnHuy.TabIndex = 40;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -266,7 +271,7 @@
             this.btnOK.Location = new System.Drawing.Point(64, 209);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 9;
+            this.btnOK.TabIndex = 35;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -317,9 +322,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMatKhauQuanTriVien.Location = new System.Drawing.Point(93, 104);
             this.txtMatKhauQuanTriVien.Name = "txtMatKhauQuanTriVien";
+            this.txtMatKhauQuanTriVien.Properties.PasswordChar = '●';
             this.txtMatKhauQuanTriVien.Properties.ReadOnly = true;
             this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(252, 20);
-            this.txtMatKhauQuanTriVien.TabIndex = 3;
+            this.txtMatKhauQuanTriVien.TabIndex = 15;
             // 
             // txtTaiKhoanQuanTriVien
             // 
@@ -329,7 +335,7 @@
             this.txtTaiKhoanQuanTriVien.Name = "txtTaiKhoanQuanTriVien";
             this.txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
             this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(252, 20);
-            this.txtTaiKhoanQuanTriVien.TabIndex = 3;
+            this.txtTaiKhoanQuanTriVien.TabIndex = 10;
             // 
             // txtTenQuanTriVien
             // 
@@ -339,7 +345,7 @@
             this.txtTenQuanTriVien.Name = "txtTenQuanTriVien";
             this.txtTenQuanTriVien.Properties.ReadOnly = true;
             this.txtTenQuanTriVien.Size = new System.Drawing.Size(252, 20);
-            this.txtTenQuanTriVien.TabIndex = 2;
+            this.txtTenQuanTriVien.TabIndex = 5;
             // 
             // txtMaQuanTriVien
             // 
