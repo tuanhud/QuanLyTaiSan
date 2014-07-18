@@ -470,6 +470,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void gridViewlog_DoubleClick(object sender, EventArgs e)
         {
             frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.ToList());
+            frm.Text += " " + objCTThietBi.thietbi.ten;
             frm.ShowDialog();
         }
     }
