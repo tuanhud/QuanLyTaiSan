@@ -68,11 +68,11 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual int add()
         {
-            ////Nếu đã có trong CSDL rồi
-            //if (id > 0)
-            //{
-            //    return id;
-            //}
+            //Nếu đã có trong CSDL rồi
+            if (id > 0)
+            {
+                return id;
+            }
 
             try
             {

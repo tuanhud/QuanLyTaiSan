@@ -36,12 +36,32 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 		
 		#region Override method
+        /// <summary>
+        /// -2: dính phòng, -3: dính tầng
+        /// </summary>
+        /// <returns></returns>
         public override int delete()
         {
-            if (tangs.Count > 0 || vitris.Count > 0)
+            //Nếu có ít nhất 1 phòng sử dụng vị trí chứa dãy này thì KHÔNG cho xóa
+            if (vitris.Where(c => c.phongs.Count > 0).FirstOrDefault() != null)
             {
-                return -1;
+                return -2;
             }
+            //Kiểm tra có tầng KHÔNG cho xóa
+            if (tangs.Count>0)
+            {
+                return -3;
+            }
+            //======================================================
+            //Xóa tất cả vị trí liên quan
+            if (vitris != null)
+            {
+                while (vitris.Count > 0)
+                {
+                    vitris.FirstOrDefault().delete();
+                }
+            }
+
             return base.delete();
         }
         protected override void init()

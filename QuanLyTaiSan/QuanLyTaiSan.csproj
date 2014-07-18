@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.Designer.cs">
       <DependentUpon>201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407180818153_them_diachi_cho_cs.cs" />
+    <Compile Include="Migrations\201407180818153_them_diachi_cho_cs.Designer.cs">
+      <DependentUpon>201407180818153_them_diachi_cho_cs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -266,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.resx">
       <DependentUpon>201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407180818153_them_diachi_cho_cs.resx">
+      <DependentUpon>201407180818153_them_diachi_cho_cs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -35,12 +35,19 @@ namespace QuanLyTaiSan.Entities
             base.init();
             this.hinhanhs = new List<HinhAnh>();
         }
+        /// <summary>
+        /// Tự động xóa mọi hình ảnh liên quan
+        /// </summary>
+        /// <returns></returns>
         public override int delete()
         {
-            ////Tự động xóa hình thuộc object này
+            //Tự động xóa hình thuộc object này
             if (hinhanhs != null)//1 số trường hợp gán listHinhAnh vào obj là null, nó bắt lỗi null
             {
-                db.HINHANHS.RemoveRange(hinhanhs);
+                while (hinhanhs.Count > 0)
+                {
+                    hinhanhs.FirstOrDefault().delete();
+                }
             }
             return base.delete();
         }

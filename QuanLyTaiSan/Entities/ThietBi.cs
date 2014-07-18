@@ -120,20 +120,18 @@ namespace QuanLyTaiSan.Entities
             //được quyền xóa tất cả
             if (ctthietbis != null)
             {
-                foreach (CTThietBi item in ctthietbis)
+                while (ctthietbis.Count > 0)
                 {
-                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                    ctthietbis.FirstOrDefault().delete();
                 }
-                db.CTTHIETBIS.RemoveRange(ctthietbis);
             }
-            //xóa log luôn
+            //xóa log luôn, do khi xóa CTTB thì KHÔNG xóa LOG, nên nhiệm vụ được giao cho xóa TB
             if (logthietbis != null)
             {
-                foreach (LogThietBi item in logthietbis)
+                while (logthietbis.Count > 0)
                 {
-                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                    logthietbis.FirstOrDefault().delete();
                 }
-                db.LOGTHIETBIS.RemoveRange(logthietbis);
             }
             return base.delete();
         }

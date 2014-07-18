@@ -54,11 +54,11 @@
             this.dateEdit_from = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.ribbonThongKe = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -107,13 +107,13 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
-            this.gridColumn6,
-            this.gridColumn5,
-            this.gridColumn4,
-            this.gridColumn3});
+            this.gridColumn2});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "soluong", null, "(TC: {0})"),
@@ -372,23 +372,6 @@
             this.rbnPageThongKe_Home});
             this.ribbonThongKe.Size = new System.Drawing.Size(850, 145);
             // 
-            // rbnPageThongKe_Home
-            // 
-            this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.rbnPageThongKe_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
-            this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
-            this.rbnPageThongKe_Home.Text = "Thống kê";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Thống kê";
-            // 
             // barButtonItem1
             // 
             this.barButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
@@ -410,6 +393,23 @@
             this.barButtonItem3.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
             this.barButtonItem3.Id = 3;
             this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // rbnPageThongKe_Home
+            // 
+            this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPageThongKe_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
+            this.rbnPageThongKe_Home.Text = "Thống kê";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Thống kê";
             // 
             // ucTK_SLTB_TheoTinhTrang
             // 
