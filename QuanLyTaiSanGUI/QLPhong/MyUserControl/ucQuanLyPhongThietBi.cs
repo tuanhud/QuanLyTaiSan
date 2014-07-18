@@ -186,7 +186,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtTen.Text = _obj.thietbi.ten;
                 txtMoTa.Text = _obj.thietbi.mota;
                 lblTenPhong.Text = _obj.phong.ten;
-                dateMua.EditValue = _obj.thietbi.ngaymua;
+                dateMua.EditValue = _obj.thietbi.loaithietbi.loaichung ? null : _obj.thietbi.ngaymua;
                 dateLap.EditValue = _obj.ngay;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
@@ -239,7 +239,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            dateMua.Properties.ReadOnly = !_enable;
+            if(objCTThietBi != null && 
+                objCTThietBi.thietbi != null && 
+                objCTThietBi.thietbi.loaithietbi != null && 
+                objCTThietBi.thietbi.loaithietbi.loaichung && _enable)
+                dateMua.Properties.ReadOnly = true;
+            else
+                dateMua.Properties.ReadOnly = !_enable;
             dateLap.Properties.ReadOnly = !_enable;
             _ucTreeLoaiTB.setReadOnly(!_enable);
             working = _enable;
@@ -445,7 +451,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     obj.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||
                     obj.ngaymua != dateMua.DateTime ||
                     objCTThietBi.ngay != dateLap.DateTime ||
-                    obj.hinhanhs.ToString() != listHinh.ToString();
+                    obj.hinhanhs.Except(listHinh).Count() > 0 ||
+                    listHinh.Except(obj.hinhanhs).Count() > 0;
                 }
                 else
                 {

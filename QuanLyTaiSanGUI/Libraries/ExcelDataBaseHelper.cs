@@ -639,6 +639,77 @@ namespace QuanLyTaiSanGUI.Libraries
             }
         }
 
+        public static bool ImportThietBiChung(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int MANHANVIEN = 1;
+                const int TENNHANVIEN = 2;
+                const int SODIENTHOAI = 3;
+                const int NGAYTAO = 4;
+                const int HINHANH = 5;
+                const int PASS = 6;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        if (!row[PASS].Equals("Pass"))
+                        {
+                            if (row[MANHANVIEN] != DBNull.Value && row[TENNHANVIEN] != DBNull.Value)
+                            {
+                                if (NhanVienPT.getAll().FirstOrDefault(c => c.subId.ToUpper() == row[MANHANVIEN].ToString().ToUpper()) == null)
+                                {
+                                    try
+                                    {
+                                        NhanVienPT obj = new NhanVienPT();
+                                        obj.subId = row[MANHANVIEN].ToString();
+                                        obj.hoten = row[TENNHANVIEN].ToString();
+                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                        obj.sodienthoai = row[SODIENTHOAI].ToString();
+                                        if (row[HINHANH] != DBNull.Value)
+                                        {
+                                            String[] file_names = row[HINHANH].ToString().Split(',');
+                                            obj.hinhanhs = AddImage(fileName, file_names);
+                                        }
+                                        if (obj.add() > 0)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
+                return false;
+            }
+        }
+
         private static void WriteFile(String fileName, String sheet, String stt, String text)
         {
             try
