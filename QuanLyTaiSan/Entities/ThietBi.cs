@@ -105,11 +105,35 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        /// <summary>
+        /// -2: Gỡ TB ra khỏi phòng trước
+        /// </summary>
+        /// <returns></returns>
         public override int delete()
         {
-            if (ctthietbis.Count > 0 || logthietbis.Count > 0)
+            //Nếu thiết bị đó có nằm trong phòng nào đó với SL >0 thì chặn xóa
+            if (ctthietbis.Where(c => c.soluong > 0).FirstOrDefault() != null)
             {
-                return -1;
+                return -2;
+            }
+
+            //được quyền xóa tất cả
+            if (ctthietbis != null)
+            {
+                foreach (CTThietBi item in ctthietbis)
+                {
+                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                }
+                db.CTTHIETBIS.RemoveRange(ctthietbis);
+            }
+            //xóa log luôn
+            if (logthietbis != null)
+            {
+                foreach (LogThietBi item in logthietbis)
+                {
+                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                }
+                db.LOGTHIETBIS.RemoveRange(logthietbis);
             }
             return base.delete();
         }

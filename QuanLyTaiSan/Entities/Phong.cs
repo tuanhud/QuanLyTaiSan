@@ -91,12 +91,40 @@ namespace QuanLyTaiSan.Entities
 
             return base.update();
         }
+        /// <summary>
+        /// -2: TB, -3: Sự cố, 
+        /// </summary>
+        /// <returns></returns>
         public override int delete()
         {
-            //check constrain
-            if (ctthietbis.Count > 0 || logthietbis.Count>0 || sucophongs.Count>0)
+            //Nếu trong phòng vẫn còn ít nhất 1 TB với SL >0 thì không thể xóa
+            if (ctthietbis.Where(c => c.soluong > 0).FirstOrDefault() != null)
             {
-                return -1;
+                return -2;
+            }
+            //Nếu trong phòng còn sự cố
+            if (sucophongs.Count>0)
+            {
+                return -3;
+            }
+            //======================================================
+            //Được quyền xóa mọi ràng buộc
+            if (ctthietbis != null)
+            {
+                foreach (CTThietBi item in ctthietbis)
+                {
+                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                }
+                db.CTTHIETBIS.RemoveRange(ctthietbis);
+            }
+            //Được quyền xóa mọi ràng buộc
+            if (logthietbis != null)
+            {
+                foreach (LogThietBi item in logthietbis)
+                {
+                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                }
+                db.LOGTHIETBIS.RemoveRange(logthietbis);
             }
 
             return base.delete();
