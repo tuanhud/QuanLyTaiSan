@@ -21,6 +21,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         Phong objPhong = new Phong();
         bool loaichung = true;
         bool yestoall = false;
+        string text = "";
 
         public frmAddThietBi()
         {
@@ -60,12 +61,12 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         {
             bool show = true;
             bool open = false;
-            int sl = 0;
-            string str = "";
+            int id = -1;
             try
             {
                 TinhTrang objTinhTrang = new TinhTrang();
                 int SoLuong = -1;
+                String GhiChu = "";
                 List<ThietBi> list = new List<ThietBi>();
                 list = _ucQuanLyThietBi.getListThietBi();
                 if (list != null && list.Count > 0)
@@ -78,7 +79,6 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                             {
                                 frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
                                 frm.Text += " " + obj.ten;
-                                CTThietBi objct = new CTThietBi();
                                 switch (frm.ShowDialog())
                                 {
                                     case DialogResult.OK:
@@ -95,11 +95,17 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 
                                             showToolTip("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
                                             int id = objct.id;
+										}
+                                        text = "";
+                                        id = AddObj(obj, frm.objTinhTrang, frm.SoLuong, frm.GhiChu);
+                                        showToolTip(text);
+                                        if (id > 0)
                                             _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                            sl++;
-                                        }
                                         break;
                                     case DialogResult.Yes:
+                                        yestoall = true;
+                                        show = true;
+                                        text = "";
                                         objTinhTrang = frm.objTinhTrang;
                                         SoLuong = frm.SoLuong;
                                         yestoall = true;
@@ -122,6 +128,11 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                             _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
                                             sl++;
                                         }
+                                        GhiChu = frm.GhiChu;
+                                        int id2 = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
+                                        id = id2 > 0 ? id2 : id;
+                                        //if (id > 0)
+                                        //    _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
                                         break;
                                 }
                             }
@@ -149,14 +160,21 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                     _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
                                     sl++;
                                 }
+                                int id2 = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
+                                id = id2 > 0 ? id2 : id;
+                                //if (id > 0)
+                                //    _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
                             }
                         }
                     }
+                    if(yestoall)
+                        _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                    _ucQuanLyThietBi.loadData(loaichung);
                 }
-                _ucQuanLyThietBi.loadData(false);
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(this.Name + "->themThietBi: " + ex.Message);
                 XtraMessageBox.Show("Lỗi khi thêm thiết bị vào phòng!");
             }
             finally
@@ -167,9 +185,36 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                 }
                 if (yestoall)
                 {
-                    showToolTip(str);
+                    showToolTip(text);
                     yestoall = false;
                 }
+            }
+        }
+
+        private int AddObj(ThietBi objThietBi, TinhTrang objTinhTrang, int SoLuong, String GhiChu)
+        {
+            try
+            {
+                CTThietBi obj = new CTThietBi();
+                obj.phong = objPhong;
+                obj.thietbi = objThietBi;
+                obj.tinhtrang = objTinhTrang;
+                obj.soluong = SoLuong;
+                obj.mota = GhiChu;
+                obj.ngay = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                if (obj.add() > 0)
+                {
+                    text += "Thêm thiết bị " + objThietBi.ten + " vào phòng thành công!" + Environment.NewLine;
+                    return obj.id;
+                }
+                else
+                    text += "Thêm thiết bị " + objThietBi.ten + " vào phòng không thành công!" + Environment.NewLine;
+                    return -1;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->AddObj: " + ex.Message);
+                return -1;
             }
         }
 
