@@ -181,7 +181,7 @@ namespace QuanLyTaiSan.Entities
                         tmpb.date_create = tmpb.date_modified = DateTime.Now;
                         tmpb.loaithietbi = ltb_list[rd.Next(ltb_list.Count)];
                         tmpb.mota = DateTime.Now.ToString("dd-MM-yyyy H:i:s.ffff");
-                        tmpb.ngaylap = tmpb.ngaymua = DateTime.Now;
+                        //tmpb.ngaylap = tmpb.ngaymua = DateTime.Now;
                         tmpb.subId = DateTime.Now.ToString("dd-MM-yyyy H:i:s.ffff");
                         tmpb.ten = "Thiết bị "+t;
                         tmpb.hinhanhs.Add(new HinhAnh { path = rd.Next(10) + ".JPEG" });

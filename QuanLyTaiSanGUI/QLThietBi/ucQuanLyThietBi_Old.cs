@@ -227,7 +227,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
                 txtMa.Text = objThietBi.subId;
                 dateEditMua.EditValue = objThietBi.ngaymua;
-                dateEditLap.EditValue = objThietBi.ngaylap;
+                //dateEditLap.EditValue = objThietBi.ngaylap;
                 txtMoTa.Text = objThietBi.mota;
 
                 //log chua lam
@@ -246,12 +246,12 @@ namespace QuanLyTaiSanGUI.QLThietBi
             if (objThietBi.loaithietbi.loaichung)
             {
                 objThietBi.ngaymua = null;
-                objThietBi.ngaylap = null;
+                //objThietBi.ngaylap = null;
             }
             else
             {
                 objThietBi.ngaymua = dateEditMua.DateTime;
-                objThietBi.ngaylap = dateEditLap.DateTime;
+                //objThietBi.ngaylap = dateEditLap.DateTime;
             }
             objThietBi.mota = txtMoTa.Text;
         }

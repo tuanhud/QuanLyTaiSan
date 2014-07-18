@@ -87,7 +87,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.mota = txtMoTa.Text;
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 obj.ngaymua = dateMua.DateTime;
-                obj.ngaylap = dateLap.DateTime;
+                //obj.ngaylap = dateLap.DateTime;
                 obj.hinhanhs = listHinh;
                 if (obj.update() > 0)
                 {
@@ -143,7 +143,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtMoTa.Text = _obj.thietbi.mota;
                 lblTenPhong.Text = _obj.phong.ten;
                 dateMua.DateTime = _obj.thietbi.ngaymua.Value;
-                dateLap.DateTime = _obj.thietbi.ngaylap.Value;
+                //dateLap.DateTime = _obj.thietbi.ngaylap.Value;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
                 reloadImage();

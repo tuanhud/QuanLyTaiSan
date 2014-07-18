@@ -297,13 +297,14 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual T clone()
         {
-            T tmp = db.Set<T>().AsNoTracking<T>().Where(c => c.id == this.id).FirstOrDefault();
-            if (tmp == null)
-            {
-                return null;
-            }
-            tmp.id = 0;
-            return tmp;
+            //T tmp = db.Set<T>().AsNoTracking<T>().Where(c => c.id == this.id).FirstOrDefault();
+            //if (tmp == null)
+            //{
+            //    return null;
+            //}
+            //tmp.id = 0;
+            //return tmp;
+            return null;
         }
     }
 }

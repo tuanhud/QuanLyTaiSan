@@ -371,25 +371,28 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     case "delete":
                         if (objPhong != null)
                         {
-                            if (objPhong.countThietBi() > 0)
+                            if(XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
-                                XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
-                            }
-                            else
-                            {
-                                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                int reee = objPhong.delete();
+                                if (reee > 0)
                                 {
-                                    if (objPhong.delete() > 0)
-                                    {
-                                        XtraMessageBox.Show("Xóa phòng thành công!");
-                                        reLoad();
-                                    }
-                                    else
-                                    {
-                                        XtraMessageBox.Show("Lỗi trong khi xóa phòng!");
-                                    }
+                                    XtraMessageBox.Show("Xóa phòng thành công!");
+                                    reLoad();
+                                }
+                                else if(reee == -2)
+                                {
+                                    XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
+                                }
+                                else if (reee == -3)
+                                {
+                                    XtraMessageBox.Show("Xóa sự cố trong phòng trước!");
+                                }
+                                else
+                                {
+                                    XtraMessageBox.Show("Lỗi trong khi xóa phòng!");
                                 }
                             }
+
                         }
                         break;
                 }

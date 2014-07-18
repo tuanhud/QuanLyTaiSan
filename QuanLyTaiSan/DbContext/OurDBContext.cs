@@ -268,16 +268,17 @@ namespace QuanLyTaiSan.Entities
             {
                 x.MapInheritedProperties();
             });
-
+            
             modelBuilder.Entity<SuCoPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
-
+            
             modelBuilder.Entity<LogSuCoPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
+
 
             modelBuilder.Entity<Setting>().Map(x =>
             {
@@ -299,7 +300,7 @@ namespace QuanLyTaiSan.Entities
         }
         public override int SaveChanges()
         {
-            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified || c.State==EntityState.Deleted);
+            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified);
             Boolean need_to_sync = false;
             foreach (DbEntityEntry changedEntity in changedEntities)
             {
