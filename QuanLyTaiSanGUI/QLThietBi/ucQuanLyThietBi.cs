@@ -825,7 +825,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     if (!loaiChung)
                     {
                         return
-                            objThietBi.hinhanhs.ToString() != listHinhAnh.ToString()||
+                            objThietBi.hinhanhs.Except(listHinhAnh).Count() > 0 ||
+                            listHinhAnh.Except(objThietBi.hinhanhs).Count() > 0 ||
                             objThietBi.subId != txtMa.Text||
                             objThietBi.ten != txtTen.Text||
                             objThietBi.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi()||
@@ -835,7 +836,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     else
                     {
                         return
-                            objThietBi.hinhanhs.ToString() != listHinhAnh.ToString() ||
+                            objThietBi.hinhanhs.Except(listHinhAnh).Count() > 0 ||
+                            listHinhAnh.Except(objThietBi.hinhanhs).Count() > 0 ||
                             objThietBi.subId != txtMa.Text ||
                             objThietBi.ten != txtTen.Text ||
                             objThietBi.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||

@@ -254,6 +254,12 @@
     <Compile Include="QLPhong\MyForm\frmChuyen.Designer.cs">
       <DependentUpon>frmChuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLPhong\MyForm\frmLogThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPhong\MyForm\frmLogThietBi.Designer.cs">
+      <DependentUpon>frmLogThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmNewThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,6 +475,9 @@
     <EmbeddedResource Include="QLPhong\MyForm\frmChuyen.resx">
       <DependentUpon>frmChuyen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyForm\frmLogThietBi.resx">
+      <DependentUpon>frmLogThietBi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyForm\frmNewThietBi.resx">
       <DependentUpon>frmNewThietBi.cs</DependentUpon>
     </EmbeddedResource>
@@ -634,6 +643,7 @@
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />
     <None Include="Resources\Status-dialog-warning-icon.png" />
+    <None Include="Resources\Maps-icon.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

@@ -16,6 +16,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
     {
         public TinhTrang objTinhTrang = new TinhTrang();
         public int SoLuong = -1;
+        public String GhiChu = "";
         public frmTinhTrangVaSoLuong()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         {
             objTinhTrang = lookUpEdit1.GetSelectedDataRow() as TinhTrang;
             SoLuong = Convert.ToInt32(spinEdit1.EditValue);
+            GhiChu = txtGhiChu.Text;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -46,6 +48,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         {
             objTinhTrang = lookUpEdit1.GetSelectedDataRow() as TinhTrang;
             SoLuong = Convert.ToInt32(spinEdit1.EditValue);
+            GhiChu = txtGhiChu.Text;
         }
     }
 }

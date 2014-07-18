@@ -100,7 +100,6 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         private void editGUI(String _type)
         {
-            function = _type;
             if (_type.Equals("view"))
             {
                 SetTextGroupControl("Chi tiết", Color.Empty);
@@ -125,6 +124,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 enableEdit(true);
                 txtTen.Focus();
             }
+            function = _type;
         }
 
         private void SetTextGroupControl(String text, Color color)
@@ -177,12 +177,12 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 clearText();
                 if (isLog)
                 {
-                    if (!function.Equals("onlyview"))
+                    //if (!function.Equals("onlyview"))
                         editGUI("onlyview");
                 }
                 else
                 {
-                    if (!function.Equals("view"))
+                    //if (!function.Equals("view"))
                         editGUI("view");
                 }
                 if (gridViewSuCo.RowCount > 0)
@@ -511,7 +511,8 @@ namespace QuanLyTaiSanGUI.QLSuCo
                         objSuCo.tinhtrang != lookUpEditTinhTrang.GetSelectedDataRow() as TinhTrang ||
                         !objSuCo.ngay.Equals(dateEdit1.EditValue) ||
                         objSuCo.mota != txtMota.Text ||
-                        objSuCo.hinhanhs.ToString() != listHinhs.ToString();
+                        objSuCo.hinhanhs.Except(listHinhs).Count() > 0 ||
+                        listHinhs.Except(objSuCo.hinhanhs).Count() > 0;
                 }
             }
             catch (Exception ex)

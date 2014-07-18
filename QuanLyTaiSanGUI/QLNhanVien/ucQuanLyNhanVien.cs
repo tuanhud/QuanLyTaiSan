@@ -524,7 +524,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         objNhanVienPT.subId != txtMa.Text ||
                         objNhanVienPT.hoten != txtTen.Text ||
                         objNhanVienPT.sodienthoai != txtSodt.Text ||
-                        objNhanVienPT.hinhanhs.ToString() != listHinhs.ToString();
+                        objNhanVienPT.hinhanhs.Except(listHinhs).Count() > 0 ||
+                        listHinhs.Except(objNhanVienPT.hinhanhs).Count() > 0;
                 }
             }
             catch(Exception ex)

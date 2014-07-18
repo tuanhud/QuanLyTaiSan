@@ -187,10 +187,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtMoTa.Text = _obj.thietbi.mota;
                 lblTenPhong.Text = _obj.phong.ten;
                 dateMua.EditValue = _obj.thietbi.ngaymua;
-                dateLap.EditValue = _obj.thietbi.ngaylap;
+                dateLap.EditValue = _obj.ngay;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.logthietbis.Where(c => c.soluong>0);//_obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
+                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
                 reloadImage();
             }
             catch (Exception ex)
