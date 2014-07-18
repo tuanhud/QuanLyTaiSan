@@ -150,12 +150,16 @@ namespace QuanLyTaiSanGUI.Libraries
             {
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
-                const int COSO = 1;
-                const int DAY = 2;
-                const int TANG = 3;
-                const int MOTA = 4;
-                const int HINHANH = 5;
-                const int PASS = 6;
+                const int MACOSO = 1;
+                const int COSO = 2;
+                const int MADAY = 3;
+                const int DAY = 4;
+                const int MATANG = 5;
+                const int TANG = 6;
+                const int MOTA = 7;
+                const int NGAYTAO = 8;
+                const int HINHANH = 9;
+                const int PASS = 10;
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
@@ -163,7 +167,7 @@ namespace QuanLyTaiSanGUI.Libraries
                     {
                         try
                         {
-                            if (!row[PASS].Equals("Pass"))
+                            if (row[COSO] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] != DBNull.Value)
                                 {
@@ -176,9 +180,16 @@ namespace QuanLyTaiSanGUI.Libraries
                                             if (objDay.tangs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[TANG].ToString().ToUpper())) == null)
                                             {
                                                 Tang obj = new Tang();
+                                                obj.subId = row[MATANG] != DBNull.Value ? row[MATANG].ToString() : null;
                                                 obj.ten = row[TANG].ToString();
                                                 obj.mota = row[MOTA].ToString();
                                                 obj.day = objDay;
+                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                                if (row[HINHANH] != DBNull.Value)
+                                                {
+                                                    String[] file_names = row[HINHANH].ToString().Split(',');
+                                                    obj.hinhanhs = AddImage(fileName, file_names);
+                                                }
                                                 if (obj.add() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
@@ -212,9 +223,16 @@ namespace QuanLyTaiSanGUI.Libraries
                                         if (objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().ToUpper())) == null)
                                         {
                                             Dayy obj = new Dayy();
+                                            obj.subId = row[MADAY] != DBNull.Value ? row[MADAY].ToString() : null;
                                             obj.ten = row[DAY].ToString();
                                             obj.mota = row[MOTA].ToString();
                                             obj.coso = objCoSo;
+                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                            if (row[HINHANH] != DBNull.Value)
+                                            {
+                                                String[] file_names = row[HINHANH].ToString().Split(',');
+                                                obj.hinhanhs = AddImage(fileName, file_names);
+                                            }
                                             if (obj.add() > 0)
                                             {
                                                 WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
@@ -240,8 +258,15 @@ namespace QuanLyTaiSanGUI.Libraries
                                     if (CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().ToUpper())) == null)
                                     {
                                         CoSo obj = new CoSo();
+                                        obj.subId = row[MACOSO] != DBNull.Value ? row[MACOSO].ToString() : null;
                                         obj.ten = row[COSO].ToString();
                                         obj.mota = row[MOTA].ToString();
+                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                        if (row[HINHANH] != DBNull.Value)
+                                        {
+                                            String[] file_names = row[HINHANH].ToString().Split(',');
+                                            obj.hinhanhs = AddImage(fileName, file_names);
+                                        }
                                         if (obj.add() > 0)
                                         {
                                             WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
@@ -297,7 +322,7 @@ namespace QuanLyTaiSanGUI.Libraries
                     {
                         try
                         {
-                            if (!row[PASS].Equals("Pass"))
+                            if (row[LOAITHIETBI] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] != DBNull.Value && row[LOAICHUNG] != DBNull.Value)
                                 {
@@ -383,20 +408,254 @@ namespace QuanLyTaiSanGUI.Libraries
             }
         }
 
+        public static bool ImportTinhTrang(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int TINHTRANG = 1;
+                const int MOTA = 2;
+                const int PASS = 3;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        try
+                        {
+                            if (row[TINHTRANG] != DBNull.Value && !row[PASS].Equals("Pass"))
+                            {
+                                if (TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper().Equals(row[TINHTRANG].ToString().ToUpper())) == null)
+                                {
+                                    TinhTrang obj = new TinhTrang();
+                                    obj.value = row[TINHTRANG].ToString();
+                                    obj.mota = row[MOTA].ToString();
+                                    obj.key = QuanLyTaiSan.Libraries.StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString()).Replace(" ", String.Empty).ToUpper();
+                                    if (obj.add() > 0)
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                            Debug.WriteLine("ExcelDataBaseHelper->ImportTinhTrang : " + ex.Message);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportTinhTrang : " + ex.Message);
+                return false;
+            }
+        }
+
+        public static bool ImportPhong(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int MAPHONG = 1;
+                const int TENPHONG = 2;
+                const int MOTA = 3;
+                const int COSO = 4;
+                const int DAY = 5;
+                const int TANG = 6;
+                const int NHANVIENPT = 7;
+                const int MANHANVIEN = 8;
+                const int NGAYTAO = 9;
+                const int HINHANH = 10;
+                const int PASS = 11;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        bool ok = false;
+                        if (!row[PASS].Equals("Pass"))
+                        {
+                            if (row[TENPHONG] != DBNull.Value)
+                            {
+                                if (Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[TENPHONG].ToString().ToUpper()) == null)
+                                {
+                                    try
+                                    {
+                                        ViTri objViTri = new ViTri();
+                                        CoSo objCoSo = new CoSo();
+                                        Dayy objDay = new Dayy();
+                                        Tang objTang = new Tang();
+                                        if(row[COSO] != DBNull.Value)
+                                        {
+                                            objCoSo = CoSo.getAll().Where(c => c.ten.ToUpper().Equals(row[COSO].ToString().ToUpper())).FirstOrDefault();
+                                            if (objCoSo != null && objCoSo.id > 0)
+                                            {
+                                                if (row[DAY] != DBNull.Value && objCoSo.days.Count > 0)
+                                                {
+                                                    objDay = objCoSo.days.Where(c => c.ten.ToUpper().Equals(row[DAY].ToString().ToUpper())).FirstOrDefault();
+                                                    if (objDay != null && objDay.id > 0)
+                                                    {
+                                                        if (row[TANG] != DBNull.Value && objDay.tangs.Count > 0)
+                                                        {
+                                                            objTang = objDay.tangs.Where(c => c.ten.ToUpper().Equals(row[TANG].ToString().ToUpper())).FirstOrDefault();
+                                                            if (objTang != null && objTang.id > 0)
+                                                            {
+                                                                objViTri.coso = objCoSo;
+                                                                objViTri.day = objDay;
+                                                                objViTri.tang = objTang;
+                                                                ok = true;
+                                                            }
+                                                            else
+                                                            {
+                                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có tầng)");
+                                                            }
+                                                        }
+                                                        else if (row[TANG] == DBNull.Value)
+                                                        {
+                                                            objViTri.coso = objCoSo;
+                                                            objViTri.day = objDay;
+                                                            objViTri.tang = new Tang();
+                                                            ok = true;
+                                                        }
+                                                        else
+                                                        {
+                                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có tầng)");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có dãy)");
+                                                    }
+                                                }
+                                                else if (row[DAY] == DBNull.Value)
+                                                {
+                                                    objViTri.coso = objCoSo;
+                                                    objViTri.day = new Dayy();
+                                                    objViTri.tang = new Tang();
+                                                    ok = true;
+                                                }
+                                                else
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có dãy)");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có cơ sở)");
+                                            }
+                                        }
+
+                                        if (ok)
+                                        {
+                                            Phong obj = new Phong();
+                                            obj.subId = row[MAPHONG] != DBNull.Value ? row[MAPHONG].ToString() : null;
+                                            obj.vitri = objViTri;
+                                            obj.ten = row[TENPHONG].ToString();
+                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                            obj.mota = row[MOTA].ToString();
+                                            if (row[HINHANH] != DBNull.Value)
+                                            {
+                                                String[] file_names = row[HINHANH].ToString().Split(',');
+                                                obj.hinhanhs = AddImage(fileName, file_names);
+                                            }
+
+                                            if(row[NHANVIENPT] != DBNull.Value)
+                                            {
+                                                if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().ToUpper()).Count() == 1)
+                                                {
+                                                    obj.nhanvienpt = NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().ToUpper());
+                                                }
+                                                else if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().ToUpper()).Count() > 1)
+                                                {
+                                                    if (row[MANHANVIEN] != DBNull.Value)
+                                                    {
+                                                        if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().ToUpper() && c.subId.ToUpper() == row[MANHANVIEN].ToString().ToUpper()).Count() == 1)
+                                                        {
+                                                            obj.nhanvienpt = NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().ToUpper() && c.subId.ToUpper() == row[MANHANVIEN].ToString().ToUpper());
+                                                        }
+                                                        else
+                                                        {
+                                                            WriteFile(fileName, sheet, row[STT].ToString(), "Pass - Error (Mã nhân viên không đúng)");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString(), "Pass - Error (Nhân viên trùng tên nhưng không có mã)");
+                                                    }
+                                                }
+                                            }
+
+                                            if (obj.add() > 0)
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error (Vị trí lỗi)");
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Debug.WriteLine("ExcelDataBaseHelper->ImportPhong: " + ex.Message);
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportPhong: " + ex.Message);
+                return false;
+            }
+        }
+
         private static void WriteFile(String fileName, String sheet, String stt, String text)
         {
             try
             {
-                //Ghi file Excel
-                using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
+                if (!stt.Equals(""))
                 {
-                    System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
-                    string sql = null;
-                    MyConnection.Open();
-                    myCommand.Connection = MyConnection;
-                    sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
-                    myCommand.CommandText = sql;
-                    myCommand.ExecuteNonQuery();
+                    //Ghi file Excel
+                    using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
+                    {
+                        System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+                        string sql = null;
+                        MyConnection.Open();
+                        myCommand.Connection = MyConnection;
+                        sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
+                        myCommand.CommandText = sql;
+                        myCommand.ExecuteNonQuery();
+                    }
                 }
             }
             catch(Exception ex)
