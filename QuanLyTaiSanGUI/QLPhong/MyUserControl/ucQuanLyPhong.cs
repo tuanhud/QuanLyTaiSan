@@ -780,5 +780,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 frm.ShowDialog();
             }
         }
+
+        private void gridViewPhong_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.ParentForm != null)
+            {
+                frmMain frm = this.ParentForm as frmMain;
+                frm.loadDataByPhong(objPhong);
+            }
+        }
     }
 }
