@@ -65,7 +65,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.add()>0;
                 //write log
-                transac = transac && writelog(this.mota)>0;
+                transac = transac && writelog()>0;
 
                 //final transac controller
                 if (transac)
@@ -80,12 +80,12 @@ namespace QuanLyTaiSan.Entities
                 return transac ? 1 : -1;
             }
         }
-        protected int writelog(String mota="")
+        protected int writelog()
         {
             LogSuCoPhong obj = new LogSuCoPhong();
             //quocdunginfo ERROR
-            //obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():HinhAnh.clone(this.hinhanhs.ToList());
-            obj.mota = mota;
+            obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():HinhAnh.clone(this.hinhanhs);
+            obj.mota = this.mota;
             obj.sucophong = this;
             obj.quantrivien = Global.current_login;
             obj.tinhtrang = this.tinhtrang;
@@ -115,7 +115,7 @@ namespace QuanLyTaiSan.Entities
                 //add
                 transac = transac && base.update() > 0;
                 //write log
-                transac = transac && writelog(this.mota) > 0;
+                transac = transac && writelog() > 0;
 
                 //final transac controller
                 if (transac)
@@ -137,8 +137,14 @@ namespace QuanLyTaiSan.Entities
         }
         public override int delete()
         {
-            //auto delete log
-            db.LOGSUCOPHONGS.RemoveRange(logsucophongs);
+            if (logsucophongs != null)
+            {
+                foreach (LogSuCoPhong item in logsucophongs)
+                {
+                    db.HINHANHS.RemoveRange(item.hinhanhs);
+                }
+                db.LOGSUCOPHONGS.RemoveRange(logsucophongs);
+            }
             return base.delete();
         }
         #endregion

@@ -37,18 +37,12 @@ namespace QuanLyTaiSan.Entities
         }
         public override int delete()
         {
-            //Tự động xóa hình thuộc object này
+            ////Tự động xóa hình thuộc object này
             if (hinhanhs != null)//1 số trường hợp gán listHinhAnh vào obj là null, nó bắt lỗi null
             {
-                db.HINHANHS.RemoveRange(hinhanhs);//Việc xóa sẽ được thực thi thực sự ngay khi gọi save change
+                db.HINHANHS.RemoveRange(hinhanhs);
             }
             return base.delete();
-        }
-        public override void onBeforeDeleted()
-        {
-            base.onBeforeDeleted();
-            //Tự động xóa hết hình ảnh
-            //db.HINHANHS.RemoveRange(this.hinhanhs);
         }
         #endregion
     }

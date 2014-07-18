@@ -473,14 +473,14 @@ namespace QuanLyTaiSanGUI.QLPhong
                         txtMa.Text = objThietBi.id.ToString();
                         txtTen.Text = objThietBi.ten;
                         txtMoTa.Text = objThietBi.mota;
-                        if (objThietBi.ngaylap == null)
-                        {
-                            dateEditLap.EditValue = null;
-                        }
-                        else
-                        {
-                            dateEditLap.DateTime = (DateTime)objThietBi.ngaylap;
-                        }
+                        //if (objThietBi.ngaylap == null)
+                        //{
+                        //    dateEditLap.EditValue = null;
+                        //}
+                        //else
+                        //{
+                        //    dateEditLap.DateTime = (DateTime)objThietBi.ngaylap;
+                        //}
                         if (objThietBi.ngaymua == null)
                         {
                             dateEditMua.EditValue = null;

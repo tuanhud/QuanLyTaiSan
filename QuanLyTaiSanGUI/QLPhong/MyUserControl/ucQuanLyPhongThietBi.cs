@@ -187,7 +187,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtMoTa.Text = _obj.thietbi.mota;
                 lblTenPhong.Text = _obj.phong.ten;
                 dateMua.EditValue = _obj.thietbi.ngaymua;
-                dateLap.EditValue = _obj.thietbi.ngaylap;
+                //dateLap.EditValue = _obj.thietbi.ngaylap;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
                 gridControlLog.DataSource = _obj.logthietbis.Where(c => c.soluong>0);//_obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
@@ -271,7 +271,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.mota = txtMoTa.Text;
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 obj.ngaymua = dateMua.EditValue != null ? dateMua.DateTime : obj.ngaymua;
-                obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
+                //obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
                 obj.hinhanhs = listHinh;
                 if (obj.update() > 0)
                 {
@@ -436,7 +436,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     obj.mota != txtMoTa.Text ||
                     obj.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||
                     obj.ngaymua != dateMua.DateTime ||
-                    obj.ngaylap != dateLap.DateTime ||
+                    //obj.ngaylap != dateLap.DateTime ||
                     obj.hinhanhs.ToString() != listHinh.ToString();
                 }
                 else

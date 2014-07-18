@@ -158,17 +158,16 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Kich hoat ham ghi log vao LogThietBi
         /// </summary>
-        private int writelog(String mota="")
+        private int writelog()
         {
             //ghi log thiet bi
             LogThietBi logtb = new LogThietBi();
-            logtb.mota = mota;
+            logtb.mota = this.mota;
             logtb.phong = this.phong;
             logtb.soluong = this.soluong;
             logtb.thietbi = this.thietbi;
             logtb.tinhtrang = this.tinhtrang;
-            //quocdunginfo ERROR
-            //logtb.hinhanhs = this.hinhanhs == null ? new List<HinhAnh>() : HinhAnh.clone(this.hinhanhs.ToList());
+            logtb.hinhanhs = HinhAnh.clone(this.hinhanhs);
             logtb.quantrivien = Global.current_login;
             return logtb.add();
         }
@@ -252,6 +251,11 @@ namespace QuanLyTaiSan.Entities
                 {
                     tmp.soluong += soluong;
                     tmp.ngay = this.ngay;
+                    tmp.mota = this.mota;
+                    if (this.hinhanhs != null)
+                    {
+                        tmp.hinhanhs = hinhanhs;
+                    }
                     //call update on tmp
                     trans = trans && tmp.update(true) > 0;
                     id = tmp.id;
@@ -260,7 +264,7 @@ namespace QuanLyTaiSan.Entities
                 {
                     trans = trans && base.add() > 0;
                     //Cần phải clone hình ra trước khi gọi writelog
-                    trans = trans && writelog(mota) > 0;
+                    trans = trans && writelog() > 0;
                 }
 
             }
@@ -317,7 +321,7 @@ namespace QuanLyTaiSan.Entities
             //SCRIPT
 
             transac = transac && base.update() > 0;
-            transac = transac && writelog(mota) > 0;
+            transac = transac && writelog() > 0;
 
             //END SCRIPT
             if (!in_transaction)

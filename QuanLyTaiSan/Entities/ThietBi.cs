@@ -27,10 +27,6 @@ namespace QuanLyTaiSan.Entities
          */
         public DateTime? ngaymua { get; set; }
         /*
-         * Ngày đưa vào sử dụng, ngày lắp
-         */
-        public DateTime? ngaylap { get; set; }
-        /*
          * FK
          */
         public int loaithietbi_id { get; set; }
@@ -120,7 +116,6 @@ namespace QuanLyTaiSan.Entities
         public override void onBeforeAdded()
         {
             ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
-            ngaylap = ngaylap == null ? ServerTimeHelper.getNow() : ngaylap;
 
             base.onBeforeAdded();
         }
@@ -157,7 +152,6 @@ namespace QuanLyTaiSan.Entities
 
             //time
             ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
-            ngaylap = ngaylap == null ? ServerTimeHelper.getNow() : ngaylap;
 
             return base.add();
         }

@@ -26,8 +26,8 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = c.loaithietbi.ten,
-                     ngaymua = c.ngaymua,
-                     ngaylap = c.ngaylap
+                     ngaymua = c.ngaymua
+                     //ngaylap = c.ngaylap
                  }).ToList();
             return re;
         }

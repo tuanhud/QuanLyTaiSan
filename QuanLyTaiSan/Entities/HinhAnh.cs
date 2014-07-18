@@ -77,7 +77,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static List<HinhAnh> clone(List<HinhAnh> list)
+        public static List<HinhAnh> clone(ICollection<HinhAnh> list)
         {
             if (list == null || list.Count <= 0)
             {
@@ -87,8 +87,6 @@ namespace QuanLyTaiSan.Entities
             foreach (HinhAnh item in list)
             {
                 HinhAnh neww = item.clone();
-                //very usefull when HinhAnh should only have 1 FK
-                neww.clearAllFK();
                 tmp.Add(neww);
             }
             return tmp;
@@ -351,12 +349,8 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override HinhAnh clone()
         {
-            HinhAnh tmp = base.clone();
-            if (tmp == null)
-            {
-                return null;
-            }
-            tmp.clearAllFK();
+            HinhAnh tmp = new HinhAnh();
+            tmp.path = this.path;
             return tmp;
         }
         #endregion

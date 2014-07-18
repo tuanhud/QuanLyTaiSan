@@ -87,8 +87,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                         objct.tinhtrang = frm.objTinhTrang;
                                         objct.soluong = frm.SoLuong;
                                         //Ngày lắp thiết bị
-                                        if (!loaichung)
-                                            objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                                        //if (!loaichung)
+                                        //    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
                                         if (objct.add() > 0)
                                         {
                                             //XtraMessageBox.Show("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
@@ -108,8 +108,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                         objct.tinhtrang = frm.objTinhTrang;
                                         objct.soluong = frm.SoLuong;
                                         //Ngày lắp thiết bị
-                                        if (!loaichung)
-                                            objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                                        //if (!loaichung)
+                                        //    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
                                         if (objct.add() > 0)
                                         {
                                             if (!yestoall)
@@ -140,8 +140,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                 objct.tinhtrang = objTinhTrang;
                                 objct.soluong = SoLuong;
                                 //Ngày lắp thiết bị
-                                if (!loaichung)
-                                    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
+                                //if (!loaichung)
+                                //    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
                                 if (objct.add() > 0)
                                 {
                                     str += "Thêm thiết bị " + obj.ten + " vào phòng thành công!" + Environment.NewLine;
