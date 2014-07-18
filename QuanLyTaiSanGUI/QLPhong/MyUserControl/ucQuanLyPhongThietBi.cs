@@ -271,7 +271,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.mota = txtMoTa.Text;
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 obj.ngaymua = dateMua.EditValue != null ? dateMua.DateTime : obj.ngaymua;
-                //obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
+                obj.ngaylap = dateLap.EditValue != null ? dateLap.DateTime : obj.ngaylap;
                 obj.hinhanhs = listHinh;
                 if (obj.update() > 0)
                 {
@@ -436,7 +436,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     obj.mota != txtMoTa.Text ||
                     obj.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||
                     obj.ngaymua != dateMua.DateTime ||
-                    //obj.ngaylap != dateLap.DateTime ||
+                    obj.ngaylap != dateLap.DateTime ||
                     obj.hinhanhs.ToString() != listHinh.ToString();
                 }
                 else
