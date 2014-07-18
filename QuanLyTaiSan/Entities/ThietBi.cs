@@ -89,7 +89,7 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung && c.ctthietbis.Count == 0).ToList();
+                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung && c.ctthietbis.Where(e=>e.soluong>0).Count() == 0).ToList();
             }
             catch (Exception ex)
             {

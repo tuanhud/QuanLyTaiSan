@@ -737,9 +737,21 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 {
                     //chưa kiểm tra vị trí
                     if (!searchLookUpEditNhanVienPT.EditValue.Equals(-1) && searchLookUpEditNhanVienPT.EditValue != null )
-                        return objPhong.hinhanhs.ToString() != listHinhAnhPhong.ToString() || objPhong.subId != txtMaPhong.Text || objPhong.ten != txtTenPhong.Text || objPhong.mota != txtMoTaPhong.Text || objPhong.nhanvienpt_id != Convert.ToInt32(searchLookUpEditNhanVienPT.EditValue);
+                        return
+                            objPhong.hinhanhs.Except(listHinhAnhPhong).Count() > 0 ||
+                            listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 || 
+                            objPhong.subId != txtMaPhong.Text || 
+                            objPhong.ten != txtTenPhong.Text || 
+                            objPhong.mota != txtMoTaPhong.Text || 
+                            objPhong.nhanvienpt_id != Convert.ToInt32(searchLookUpEditNhanVienPT.EditValue);
                     else
-                        return objPhong.hinhanhs.ToString() != listHinhAnhPhong.ToString() || objPhong.subId != txtMaPhong.Text || objPhong.ten != txtTenPhong.Text || objPhong.mota != txtMoTaPhong.Text || objPhong.nhanvienpt_id != null;
+                        return 
+                            objPhong.hinhanhs.Except(listHinhAnhPhong).Count() > 0 ||
+                            listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 || 
+                            objPhong.subId != txtMaPhong.Text || 
+                            objPhong.ten != txtTenPhong.Text || 
+                            objPhong.mota != txtMoTaPhong.Text || 
+                            objPhong.nhanvienpt_id != null;
                 }
             }
             catch

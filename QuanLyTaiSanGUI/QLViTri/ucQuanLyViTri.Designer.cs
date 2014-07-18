@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -50,7 +51,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rbnPageViTri_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupViTri_CoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -67,6 +68,8 @@
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.rbnGroupMap = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnMap = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -326,7 +329,8 @@
             this.rbnGroupViTri_CoSo,
             this.rbnGroupViTri_Day,
             this.rbnGroupViTri_Tang,
-            this.rbnGroupImport});
+            this.rbnGroupImport,
+            this.rbnGroupMap});
             this.rbnPageViTri_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
             this.rbnPageViTri_Home.Text = "Vị trí";
@@ -461,13 +465,29 @@
             this.barBtnThemTang,
             this.barBtnSuaTang,
             this.barBtnXoaTang,
-            this.barBtnImport});
+            this.barBtnImport,
+            this.barBtnMap});
             this.ribbonViTri.Location = new System.Drawing.Point(0, 0);
-            this.ribbonViTri.MaxItemId = 31;
+            this.ribbonViTri.MaxItemId = 32;
             this.ribbonViTri.Name = "ribbonViTri";
             this.ribbonViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri_Home});
             this.ribbonViTri.Size = new System.Drawing.Size(855, 145);
+            // 
+            // rbnGroupMap
+            // 
+            this.rbnGroupMap.ItemLinks.Add(this.barBtnMap);
+            this.rbnGroupMap.Name = "rbnGroupMap";
+            this.rbnGroupMap.ShowCaptionButton = false;
+            this.rbnGroupMap.Text = "Bản đồ";
+            // 
+            // barBtnMap
+            // 
+            this.barBtnMap.Caption = "Xem bản đồ";
+            this.barBtnMap.Id = 31;
+            this.barBtnMap.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Maps_icon;
+            this.barBtnMap.Name = "barBtnMap";
+            this.barBtnMap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnMap_ItemClick);
             // 
             // ucQuanLyViTri
             // 
@@ -556,5 +576,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraBars.BarButtonItem barBtnMap;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupMap;
     }
 }
