@@ -645,12 +645,14 @@ namespace QuanLyTaiSanGUI.Libraries
             {
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
-                const int MANHANVIEN = 1;
-                const int TENNHANVIEN = 2;
-                const int SODIENTHOAI = 3;
-                const int NGAYTAO = 4;
-                const int HINHANH = 5;
-                const int PASS = 6;
+                const int LOAITB = 1;
+                const int PHONG = 2;
+                const int TINHTRANG = 3;
+                const int SOLUONG = 4;
+                const int NGAYTAO = 5;
+                const int NGAYLAP = 6;
+                const int HINHANH = 7;
+                const int PASS = 8;
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
@@ -658,40 +660,98 @@ namespace QuanLyTaiSanGUI.Libraries
                     {
                         if (!row[PASS].Equals("Pass"))
                         {
-                            if (row[MANHANVIEN] != DBNull.Value && row[TENNHANVIEN] != DBNull.Value)
+                            bool ok = false;
+                            if (row[LOAITB] != DBNull.Value && row[PHONG] != DBNull.Value && row[TINHTRANG] != DBNull.Value && row[SOLUONG] != DBNull.Value)
                             {
-                                if (NhanVienPT.getAll().FirstOrDefault(c => c.subId.ToUpper() == row[MANHANVIEN].ToString().ToUpper()) == null)
+                                LoaiThietBi objLoai = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().ToUpper());
+                                if (objLoai != null)
                                 {
                                     try
                                     {
-                                        NhanVienPT obj = new NhanVienPT();
-                                        obj.subId = row[MANHANVIEN].ToString();
-                                        obj.hoten = row[TENNHANVIEN].ToString();
-                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
-                                        obj.sodienthoai = row[SODIENTHOAI].ToString();
-                                        if (row[HINHANH] != DBNull.Value)
+                                        TinhTrang objTinhTrang = new TinhTrang();
+                                        Phong objPhong = Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[PHONG].ToString().ToUpper());
+                                        if (objPhong != null)
                                         {
-                                            String[] file_names = row[HINHANH].ToString().Split(',');
-                                            obj.hinhanhs = AddImage(fileName, file_names);
-                                        }
-                                        if (obj.add() > 0)
-                                        {
-                                            WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                            objTinhTrang = TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper() == row[TINHTRANG].ToString().ToUpper());
+                                            if (objTinhTrang != null)
+                                            {
+                                                ok = true;
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có tình trạng)");
+                                            }
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có phòng)");
+                                        }
+                                        if (ok)
+                                        {
+                                            if (objLoai.thietbis.FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().ToUpper()) == null)
+                                            {
+                                                ThietBi objThietBi = new ThietBi();
+                                                objThietBi.ten = row[LOAITB].ToString();
+                                                objThietBi.loaithietbi = objLoai;
+                                                objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                                if (row[HINHANH] != DBNull.Value)
+                                                {
+                                                    String[] file_names = row[HINHANH].ToString().Split(',');
+                                                    objThietBi.hinhanhs = AddImage(fileName, file_names);
+                                                }
+                                                if (objThietBi.add() > 0)
+                                                {
+                                                    CTThietBi obj = new CTThietBi();
+                                                    obj.thietbi = objThietBi;
+                                                    obj.phong = objPhong;
+                                                    obj.tinhtrang = objTinhTrang;
+                                                    obj.soluong = Convert.ToInt32(row[SOLUONG].ToString());
+                                                    obj.mota = "Import";
+                                                    obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString()) : DateTime.Now;
+                                                    if (obj.add() > 0)
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                                    }
+                                                    else
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Lỗi khi thêm thiết bị)");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                ThietBi objThietBi = objLoai.thietbis.FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().ToUpper());
+                                                CTThietBi obj = new CTThietBi();
+                                                obj.thietbi = objThietBi;
+                                                obj.phong = objPhong;
+                                                obj.tinhtrang = objTinhTrang;
+                                                obj.soluong = Convert.ToInt32(row[SOLUONG].ToString());
+                                                obj.mota = "Import";
+                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString()) : DateTime.Now;
+                                                if (obj.add() > 0)
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                                }
+                                                else
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                                }
+                                            }
                                         }
                                     }
                                     catch (Exception ex)
                                     {
-                                        Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
+                                        Debug.WriteLine("ExcelDataBaseHelper->ImportThietBiChung: " + ex.Message);
                                         WriteFile(fileName, sheet, row[STT].ToString(), "Error");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString(), "Exist");
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có loại thiết bị)");
                                 }
                             }
                             else
@@ -705,7 +765,123 @@ namespace QuanLyTaiSanGUI.Libraries
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
+                Debug.WriteLine("ExcelDataBaseHelper->ImportThietBiChung: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static bool ImportThietBiRieng(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int MATB = 1;
+                const int TENTB = 2;
+                const int MOTA = 3;
+                const int LOAITB = 4;
+                const int PHONG = 5;
+                const int TINHTRANG = 6;
+                const int NGAYTAO = 7;
+                const int NGAYMUA = 8;
+                const int NGAYLAP = 9;
+                const int HINHANH = 10;
+                const int PASS = 11;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        if (!row[PASS].Equals("Pass"))
+                        {
+                            bool ok = false;
+                            if (row[TENTB] != DBNull.Value && row[LOAITB] != DBNull.Value && row[PHONG] != DBNull.Value && row[TINHTRANG] != DBNull.Value)
+                            {
+                                LoaiThietBi objLoai = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().ToUpper());
+                                if (objLoai != null)
+                                {
+                                    try
+                                    {
+                                        TinhTrang objTinhTrang = new TinhTrang();
+                                        Phong objPhong = Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[PHONG].ToString().ToUpper());
+                                        if (objPhong != null)
+                                        {
+                                            objTinhTrang = TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper() == row[TINHTRANG].ToString().ToUpper());
+                                            if (objTinhTrang != null)
+                                            {
+                                                ok = true;
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có tình trạng)");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có phòng)");
+                                        }
+                                        if (ok)
+                                        {
+                                            ThietBi objThietBi = new ThietBi();
+                                            objThietBi.subId = row[MATB] != DBNull.Value ? row[MATB].ToString() : null;
+                                            objThietBi.ten = row[TENTB].ToString();
+                                            objThietBi.loaithietbi = objLoai;
+                                            objThietBi.mota = row[MOTA].ToString();
+                                            objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
+                                            objThietBi.ngaymua = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYMUA].ToString()) : DateTime.Now;
+                                            if (row[HINHANH] != DBNull.Value)
+                                            {
+                                                String[] file_names = row[HINHANH].ToString().Split(',');
+                                                objThietBi.hinhanhs = AddImage(fileName, file_names);
+                                            }
+                                            if (objThietBi.add() > 0)
+                                            {
+                                                CTThietBi obj = new CTThietBi();
+                                                obj.thietbi = objThietBi;
+                                                obj.phong = objPhong;
+                                                obj.tinhtrang = objTinhTrang;
+                                                obj.soluong = 1;
+                                                obj.mota = "Import";
+                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString()) : DateTime.Now;
+                                                if (obj.add() > 0)
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
+                                                }
+                                                else
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Lỗi khi thêm thiết bị)");
+                                            }
+                                        }
+                                        
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Debug.WriteLine("ExcelDataBaseHelper->ImportThietBiChung: " + ex.Message);
+                                        WriteFile(fileName, sheet, row[STT].ToString(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không có loại thiết bị)");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportThietBiChung: " + ex.Message);
                 return false;
             }
         }
