@@ -35,7 +35,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             gridViewSuCo.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewSuCo.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             
-            gridViewLogSuCo.Columns[collmodified.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            gridViewLogSuCo.Columns[collcreate.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewLogSuCo.Columns[colltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -210,6 +210,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                             lblNhanVien.Text = obj.quantrivien != null ? obj.quantrivien.hoten : "";
                             lookUpEditTinhTrang.EditValue = obj.tinhtrang_id;
                             txtMota.Text = obj.mota;
+                            dateEdit1.EditValue = obj.date_create;
                             if (obj.hinhanhs.Count > 0)
                             {
                                 listHinhs = obj.hinhanhs.ToList();

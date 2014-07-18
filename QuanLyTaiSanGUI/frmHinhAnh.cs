@@ -329,5 +329,13 @@ namespace QuanLyTaiSanGUI
                 Debug.WriteLine(this.Name + "->btnThuVienAnh_Click: " + ex.Message);
             }
         }
+
+        private void galleryControlImage_Gallery_ItemCheckedChanged(object sender, GalleryItemEventArgs e)
+        {
+            if (e.Item.Checked)
+            {
+                btnImageDelete.Enabled = true;
+            }
+        }
     }
 }

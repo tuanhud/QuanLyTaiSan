@@ -347,6 +347,7 @@
             this.gridViewlog.OptionsBehavior.ReadOnly = true;
             this.gridViewlog.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewlog.OptionsView.ShowGroupPanel = false;
+            this.gridViewlog.DoubleClick += new System.EventHandler(this.gridViewlog_DoubleClick);
             // 
             // colLogId
             // 
@@ -357,6 +358,8 @@
             // colngay
             // 
             this.colngay.Caption = "Ngày";
+            this.colngay.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.colngay.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colngay.FieldName = "date_create";
             this.colngay.Name = "colngay";
             this.colngay.Visible = true;

@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewLogSuCo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collngay = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.collmodified = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.collcreate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.collqtvien = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -73,7 +74,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
             this.groupControlPhong = new DevExpress.XtraEditors.GroupControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).BeginInit();
@@ -97,7 +98,7 @@
             // 
             this.gridViewLogSuCo.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.collngay,
-            this.collmodified,
+            this.collcreate,
             this.colltinhtrang,
             this.collmota,
             this.collqtvien});
@@ -117,13 +118,15 @@
             this.collngay.FieldName = "ngay";
             this.collngay.Name = "collngay";
             // 
-            // collmodified
+            // collcreate
             // 
-            this.collmodified.Caption = "Ngày sửa";
-            this.collmodified.FieldName = "date_create";
-            this.collmodified.Name = "collmodified";
-            this.collmodified.Visible = true;
-            this.collmodified.VisibleIndex = 0;
+            this.collcreate.Caption = "Ngày";
+            this.collcreate.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.collcreate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.collcreate.FieldName = "date_create";
+            this.collcreate.Name = "collcreate";
+            this.collcreate.Visible = true;
+            this.collcreate.VisibleIndex = 0;
             // 
             // colltinhtrang
             // 
@@ -152,10 +155,10 @@
             // gridControlSuCo
             // 
             this.gridControlSuCo.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.LevelTemplate = this.gridViewLogSuCo;
-            gridLevelNode2.RelationName = "Log";
+            gridLevelNode1.LevelTemplate = this.gridViewLogSuCo;
+            gridLevelNode1.RelationName = "Log";
             this.gridControlSuCo.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControlSuCo.Location = new System.Drawing.Point(0, 0);
             this.gridControlSuCo.MainView = this.gridViewSuCo;
             this.gridControlSuCo.MenuManager = this.ribbonSuCoPhong;
@@ -232,7 +235,7 @@
             // 
             // colday
             // 
-            this.colday.Caption = "Ngày tạo";
+            this.colday.Caption = "Ngày";
             this.colday.FieldName = "ngay";
             this.colday.Name = "colday";
             this.colday.Visible = true;
@@ -390,9 +393,9 @@
             // 
             this.labelControl5.Location = new System.Drawing.Point(6, 208);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(48, 13);
+            this.labelControl5.Size = new System.Drawing.Size(29, 13);
             this.labelControl5.TabIndex = 17;
-            this.labelControl5.Text = "Ngày tạo:";
+            this.labelControl5.Text = "Ngày:";
             // 
             // btnImage
             // 
@@ -635,7 +638,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
         private DevExpress.XtraGrid.Columns.GridColumn colmodified;
-        private DevExpress.XtraGrid.Columns.GridColumn collmodified;
+        private DevExpress.XtraGrid.Columns.GridColumn collcreate;
         private DevExpress.XtraGrid.Columns.GridColumn colday;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;

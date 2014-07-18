@@ -206,7 +206,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             imageSlider1.Images.Clear();
             foreach (HinhAnh h in listHinh)
             {
-                imageSlider1.Images.Add(h.getImage());
+                try
+                {
+                    imageSlider1.Images.Add(h.getImage());
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->reloadImage: " + ex.Message);
+                }
             }
         }
 
@@ -437,7 +444,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     obj.mota != txtMoTa.Text ||
                     obj.loaithietbi != _ucTreeLoaiTB.getLoaiThietBi() ||
                     obj.ngaymua != dateMua.DateTime ||
-                    //obj.ngaylap != dateLap.DateTime ||
+                    objCTThietBi.ngay != dateLap.DateTime ||
                     obj.hinhanhs.ToString() != listHinh.ToString();
                 }
                 else
@@ -458,6 +465,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 frmShowImage frm = new frmShowImage(listHinh);
                 frm.ShowDialog();
             }
+        }
+
+        private void gridViewlog_DoubleClick(object sender, EventArgs e)
+        {
+            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.ToList());
+            frm.ShowDialog();
         }
     }
 }
