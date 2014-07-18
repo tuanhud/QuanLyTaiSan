@@ -185,7 +185,6 @@
             this.gridViewSuCo.OptionsBehavior.Editable = false;
             this.gridViewSuCo.OptionsBehavior.ReadOnly = true;
             this.gridViewSuCo.OptionsCustomization.AllowQuickHideColumns = false;
-            this.gridViewSuCo.OptionsDetail.AllowOnlyOneMasterRowExpanded = true;
             this.gridViewSuCo.OptionsDetail.ShowDetailTabs = false;
             this.gridViewSuCo.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewSuCo.OptionsView.ShowAutoFilterRow = true;

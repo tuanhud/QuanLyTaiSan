@@ -31,14 +31,15 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlLogThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewLogThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.colthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnhanvien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.coldatecreate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLogThietBi)).BeginInit();
@@ -76,6 +77,7 @@
             // gridViewLogThietBi
             // 
             this.gridViewLogThietBi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.coldatecreate,
             this.colthietbi,
             this.coltinhtrang,
             this.colsoluong,
@@ -84,26 +86,13 @@
             this.colphong});
             this.gridViewLogThietBi.GridControl = this.gridControlLogThietBi;
             this.gridViewLogThietBi.Name = "gridViewLogThietBi";
+            this.gridViewLogThietBi.OptionsBehavior.Editable = false;
+            this.gridViewLogThietBi.OptionsBehavior.ReadOnly = true;
+            this.gridViewLogThietBi.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridViewLogThietBi.OptionsDetail.EnableMasterViewMode = false;
+            this.gridViewLogThietBi.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewLogThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewLogThietBi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewLogThietBi_FocusedRowChanged);
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.imageSlider1);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(260, 421);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "groupControl1";
-            // 
-            // imageSlider1
-            // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
-            this.imageSlider1.Location = new System.Drawing.Point(5, 24);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(252, 222);
-            this.imageSlider1.TabIndex = 0;
-            this.imageSlider1.Text = "imageSlider1";
             // 
             // colthietbi
             // 
@@ -153,6 +142,35 @@
             this.colphong.Visible = true;
             this.colphong.VisibleIndex = 5;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.imageSlider1);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(260, 421);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "groupControl1";
+            // 
+            // imageSlider1
+            // 
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider1.Location = new System.Drawing.Point(5, 24);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(252, 222);
+            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.Text = "imageSlider1";
+            // 
+            // coldatecreate
+            // 
+            this.coldatecreate.Caption = "Ngày";
+            this.coldatecreate.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.coldatecreate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.coldatecreate.FieldName = "date_create";
+            this.coldatecreate.Name = "coldatecreate";
+            this.coldatecreate.Visible = true;
+            this.coldatecreate.VisibleIndex = 6;
+            // 
             // frmLogThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,5 +203,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmota;
         private DevExpress.XtraGrid.Columns.GridColumn colnhanvien;
         private DevExpress.XtraGrid.Columns.GridColumn colphong;
+        private DevExpress.XtraGrid.Columns.GridColumn coldatecreate;
     }
 }
