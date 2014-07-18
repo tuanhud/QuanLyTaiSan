@@ -82,20 +82,6 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                 switch (frm.ShowDialog())
                                 {
                                     case DialogResult.OK:
-                                        objct.phong = objPhong;
-                                        objct.thietbi = obj;
-                                        objct.tinhtrang = frm.objTinhTrang;
-                                        objct.soluong = frm.SoLuong;
-                                        //Ngày lắp thiết bị
-                                        //if (!loaichung)
-                                        //    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                                        if (objct.add() > 0)
-                                        {
-                                            //XtraMessageBox.Show("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
-
-                                            showToolTip("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
-                                            int id = objct.id;
-										}
                                         text = "";
                                         id = AddObj(obj, frm.objTinhTrang, frm.SoLuong, frm.GhiChu);
                                         showToolTip(text);
@@ -108,26 +94,6 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                         text = "";
                                         objTinhTrang = frm.objTinhTrang;
                                         SoLuong = frm.SoLuong;
-                                        yestoall = true;
-                                        objct.phong = objPhong;
-                                        objct.thietbi = obj;
-                                        objct.tinhtrang = frm.objTinhTrang;
-                                        objct.soluong = frm.SoLuong;
-                                        //Ngày lắp thiết bị
-                                        //if (!loaichung)
-                                        //    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                                        if (objct.add() > 0)
-                                        {
-                                            if (!yestoall)
-                                                showToolTip("Thêm thiết bị " + obj.ten + " vào phòng thành công!");
-                                            else
-                                            {
-                                                str += "Thêm thiết bị " + obj.ten + " vào phòng thành công!" + Environment.NewLine;
-                                            }
-                                            int id = objct.id;
-                                            _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                            sl++;
-                                        }
                                         GhiChu = frm.GhiChu;
                                         int id2 = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
                                         id = id2 > 0 ? id2 : id;
@@ -144,21 +110,6 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                     DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
                                     open = true;
                                     show = false;
-                                }
-                                CTThietBi objct = new CTThietBi();
-                                objct.phong = objPhong;
-                                objct.thietbi = obj;
-                                objct.tinhtrang = objTinhTrang;
-                                objct.soluong = SoLuong;
-                                //Ngày lắp thiết bị
-                                //if (!loaichung)
-                                //    objct.thietbi.ngaylap = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                                if (objct.add() > 0)
-                                {
-                                    str += "Thêm thiết bị " + obj.ten + " vào phòng thành công!" + Environment.NewLine;
-                                    int id = objct.id;
-                                    _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                    sl++;
                                 }
                                 int id2 = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
                                 id = id2 > 0 ? id2 : id;
