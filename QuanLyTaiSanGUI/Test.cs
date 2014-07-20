@@ -18,7 +18,10 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
 
-            CoSo obj = CoSo.getById(1);
+            
+            List<String> re = FTPHelper.GetFilesInDirectory(Global.remote_setting.ftp_host.getCombinedPath(""), Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD).ToList();
+
+
         }
     }
 }
