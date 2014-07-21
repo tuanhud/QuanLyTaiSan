@@ -188,6 +188,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             lblPhong.Text = "";
             lblNhanVien.Text = "";
             txtMota.Text = "";
+            listHinhs = new List<HinhAnh>();
             imageSlider1.Images.Clear();
             dateEdit1.EditValue = DateTime.Now;
         }
