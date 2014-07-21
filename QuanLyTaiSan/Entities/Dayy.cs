@@ -82,7 +82,32 @@ namespace QuanLyTaiSan.Entities
             //...
             return base.update();
         }
+        public override void moveUp()
+        {
+            Dayy prev = db.DAYYS.Where(c => c.order < this.order && c.coso_id==this.coso_id).OrderByDescending(c => c.order).FirstOrDefault();
+            if (prev == null)
+            {
+                return;
+            }
+            //SWAP order value
+            int? order_1 = this.order == null ? this.id : this.order;
+            int? order_2 = prev.order == null ? prev.id : prev.order;
 
+            this.order = order_2;
+            prev.order = order_1;
+
+            this.update();
+            prev.update();
+        }
+        public override void moveDown()
+        {
+            Dayy next = db.DAYYS.Where(c => c.order > this.order && c.coso_id == this.coso_id).OrderBy(c => c.order).FirstOrDefault();
+            if (next == null)
+            {
+                return;
+            }
+            next.moveUp();
+        }
         #endregion
     }
 }
