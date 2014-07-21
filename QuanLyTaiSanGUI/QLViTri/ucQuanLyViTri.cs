@@ -33,6 +33,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         String type = "";
         String function = "";
         String node = "";
+        int khoangcach = -1;
+        Point pointLabelMota, pointTxtMota, pointBtnOK, pointBtnHuy;
         public Boolean working = false;
 
         public ucQuanLyViTri()
@@ -51,6 +53,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             txt.Dock = DockStyle.Fill;
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             _ucComboBoxViTriChonDay.Dock = DockStyle.Fill;
+
+            pointLabelMota = labelControlMoTa.Location;
+            pointTxtMota = txtMoTa.Location;
+            pointBtnOK = btnOK.Location;
+            pointBtnHuy = btnHuy.Location;
+            khoangcach = Math.Abs(txtDiaChi.Location.Y - txtMoTa.Location.Y);
         }
 
         public void loadData()
@@ -74,6 +82,26 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             }
         }
 
+        private void showDiaChi(bool show)
+        {
+            labelControlDiaChi.Visible = show;
+            txtDiaChi.Visible = show;
+            if (!show)
+            {
+                labelControlMoTa.Location = labelControlDiaChi.Location;
+                txtMoTa.Location = txtDiaChi.Location;
+                btnOK.Location = new Point(pointBtnOK.X, pointBtnOK.Y - khoangcach);
+                btnHuy.Location = new Point(pointBtnHuy.X, pointBtnHuy.Y - khoangcach);
+            }
+            else
+            {
+                labelControlMoTa.Location = pointLabelMota;
+                txtMoTa.Location = pointTxtMota;
+                btnOK.Location = new Point(pointBtnOK.X, pointBtnOK.Y);
+                btnHuy.Location = new Point(pointBtnHuy.X, pointBtnHuy.Y);
+            }
+        }
+
         private void editGUI(String _function, String _type)
         {
             try
@@ -84,6 +112,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Chi tiết cơ sở", Color.Empty);
+                        showDiaChi(true);
                         enableCoSoButton(true);
                         barBtnThemCoSo.Enabled = true;
                         enableDayButton(false);
@@ -96,6 +125,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
                         SetTextGroupControl("Chi tiết dãy", Color.Empty);
+                        showDiaChi(false);
                         enableCoSoButton(false);
                         barBtnThemCoSo.Enabled = true;
                         enableDayButton(true);
@@ -108,6 +138,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     else if (_type.Equals(typeof(Tang).Name))
                     {
                         SetTextGroupControl("Chi tiết tầng", Color.Empty);
+                        showDiaChi(false);
                         enableCoSoButton(false);
                         barBtnThemCoSo.Enabled = true;
                         enableDayButton(false);
@@ -132,6 +163,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Thêm cơ sở", Color.Empty);
+                        showDiaChi(true);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(txt))
                         {
                             panelControl1.Controls.Clear();
@@ -141,6 +173,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
                         SetTextGroupControl("Thêm dãy", Color.Empty);
+                        showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTri))
                         {
                             panelControl1.Controls.Clear();
@@ -164,6 +197,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     else if (_type.Equals(typeof(Tang).Name))
                     {
                         SetTextGroupControl("Thêm tầng", Color.Empty);
+                        showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTriChonDay))
                         {
                             panelControl1.Controls.Clear();
@@ -196,6 +230,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Sửa cơ sở", Color.Empty);
+                        showDiaChi(true);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(txt))
                         {
                             panelControl1.Controls.Clear();
@@ -205,6 +240,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
                         SetTextGroupControl("Sửa dãy", Color.Empty);
+                        showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTri))
                         {
                             panelControl1.Controls.Clear();
@@ -214,6 +250,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     else if (_type.Equals(typeof(Tang).Name))
                     {
                         SetTextGroupControl("Sửa tầng", Color.Empty);
+                        showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTriChonDay))
                         {
                             panelControl1.Controls.Clear();
@@ -260,6 +297,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             btnImage.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
+            txtDiaChi.Properties.ReadOnly = !_enable;
             _ucComboBoxViTri.setReadOnly(!_enable);
             _ucComboBoxViTriChonDay.setReadOnly(!_enable);
             enableRightButton(!_enable);
@@ -397,6 +435,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "CoSo":
                         objCoSo.ten = txtTen.Text;
                         objCoSo.mota = txtMoTa.Text;
+                        objCoSo.diachi = txtDiaChi.Text;
                         objCoSo.hinhanhs = listHinh;
                         if (objCoSo.update() > 0)
                         {
@@ -458,6 +497,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         CoSo objCoSoNew = new CoSo();
                         objCoSoNew.ten = txtTen.Text;
                         objCoSoNew.mota = txtMoTa.Text;
+                        objCoSo.diachi = txtDiaChi.Text;
                         objCoSoNew.hinhanhs = listHinh;
                         if (objCoSoNew.add() > 0)
                         {
@@ -774,6 +814,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     return
                         !txtTen.Text.Equals("") ||
                         !txtMoTa.Text.Equals("") ||
+                        (txtDiaChi.Properties.ReadOnly && !txtDiaChi.Text.Equals("")) ||
                         listHinh.Count() > 0;
                 }
                 else if (function.Equals("edit"))
@@ -782,6 +823,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         return
                             objCoSo.ten != txtTen.Text ||
                             objCoSo.mota != txtMoTa.Text ||
+                            (txtDiaChi.Text != (objCoSo.diachi != null ? objCoSo.diachi : "")) ||
                             objCoSo.hinhanhs.Except(listHinh).Count() > 0 ||
                             listHinh.Except(objCoSo.hinhanhs).Count() > 0;
                     else if (type.Equals("Dayy"))

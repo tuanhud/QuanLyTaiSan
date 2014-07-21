@@ -85,7 +85,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 enableEdit(false, "");
                 loaiThietBis = LoaiTBHienThi.getAll();
                 treeListLoaiTB.DataSource = loaiThietBis;
-                listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.ten).ToList();
+                listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.order).ToList();
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
                 lueThuoc.Properties.DataSource = listLoaiThietBiCha;
                 checkSuaXoa();

@@ -37,6 +37,8 @@
             this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControlMoTa = new DevExpress.XtraEditors.LabelControl();
             this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
             this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
             this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
@@ -44,7 +46,7 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlDiaChi = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -78,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
@@ -163,6 +166,8 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.txtDiaChi);
+            this.groupControl1.Controls.Add(this.labelControlMoTa);
             this.groupControl1.Controls.Add(this.btnR_Sua);
             this.groupControl1.Controls.Add(this.btnR_Them);
             this.groupControl1.Controls.Add(this.btnR_Xoa);
@@ -170,7 +175,7 @@
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOK);
             this.groupControl1.Controls.Add(this.panelControl1);
-            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.labelControlDiaChi);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
@@ -183,6 +188,25 @@
             this.groupControl1.Size = new System.Drawing.Size(350, 470);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDiaChi.Location = new System.Drawing.Point(59, 208);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Properties.ReadOnly = true;
+            this.txtDiaChi.Size = new System.Drawing.Size(280, 43);
+            this.txtDiaChi.TabIndex = 16;
+            this.txtDiaChi.UseOptimizedRendering = true;
+            // 
+            // labelControlMoTa
+            // 
+            this.labelControlMoTa.Location = new System.Drawing.Point(7, 260);
+            this.labelControlMoTa.Name = "labelControlMoTa";
+            this.labelControlMoTa.Size = new System.Drawing.Size(31, 13);
+            this.labelControlMoTa.TabIndex = 15;
+            this.labelControlMoTa.Text = "Mô tả:";
             // 
             // btnR_Sua
             // 
@@ -229,7 +253,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(141, 317);
+            this.btnHuy.Location = new System.Drawing.Point(140, 369);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 5;
@@ -239,7 +263,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(59, 318);
+            this.btnOK.Location = new System.Drawing.Point(59, 369);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -257,13 +281,13 @@
             this.panelControl1.Size = new System.Drawing.Size(280, 20);
             this.panelControl1.TabIndex = 2;
             // 
-            // labelControl4
+            // labelControlDiaChi
             // 
-            this.labelControl4.Location = new System.Drawing.Point(7, 211);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(31, 13);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Mô tả:";
+            this.labelControlDiaChi.Location = new System.Drawing.Point(7, 211);
+            this.labelControlDiaChi.Name = "labelControlDiaChi";
+            this.labelControlDiaChi.Size = new System.Drawing.Size(36, 13);
+            this.labelControlDiaChi.TabIndex = 6;
+            this.labelControlDiaChi.Text = "Địa chỉ:";
             // 
             // labelControl3
             // 
@@ -314,7 +338,7 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(59, 208);
+            this.txtMoTa.Location = new System.Drawing.Point(59, 257);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(280, 106);
@@ -533,6 +557,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
@@ -553,7 +578,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControlDiaChi;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -590,5 +615,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupOrder;
         private DevExpress.XtraBars.BarButtonItem barBtnUp;
         private DevExpress.XtraBars.BarButtonItem barBtnDown;
+        private DevExpress.XtraEditors.MemoEdit txtDiaChi;
+        private DevExpress.XtraEditors.LabelControl labelControlMoTa;
     }
 }
