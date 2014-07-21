@@ -358,6 +358,7 @@ namespace QuanLyTaiSanGUI
         private void backstageViewButtonItemRestart_ItemClick(object sender, BackstageViewItemEventArgs e)
         {
             Application.Restart();
+            Application.ExitThread();
         }
     }
 }
