@@ -895,10 +895,10 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void barBtnMap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (objCoSo != null && objCoSo.id > 0 && objCoSo.mota.Length>0)
+            if (objCoSo != null && objCoSo.id > 0 && objCoSo.diachi != null && objCoSo.diachi.Length > 0)
             {
                 String url = @"http://www.google.com/maps/search/";
-                System.Diagnostics.Process.Start(url + objCoSo.mota);
+                System.Diagnostics.Process.Start(url + objCoSo.diachi);
             }
         }
 

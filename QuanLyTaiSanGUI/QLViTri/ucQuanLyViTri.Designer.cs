@@ -253,7 +253,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(140, 369);
+            this.btnHuy.Location = new System.Drawing.Point(142, 340);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 5;
@@ -263,7 +263,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(59, 369);
+            this.btnOK.Location = new System.Drawing.Point(61, 340);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -341,7 +341,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(59, 257);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(280, 106);
+            this.txtMoTa.Size = new System.Drawing.Size(280, 77);
             this.txtMoTa.TabIndex = 3;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
