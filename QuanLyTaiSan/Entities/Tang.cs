@@ -66,6 +66,32 @@ namespace QuanLyTaiSan.Entities
 
             return base.delete();
         }
+        public override void moveUp()
+        {
+            Tang prev = db.TANGS.Where(c => c.order < this.order && c.day_id == this.day_id).OrderByDescending(c => c.order).FirstOrDefault();
+            if (prev == null)
+            {
+                return;
+            }
+            //SWAP order value
+            int? order_1 = this.order == null ? this.id : this.order;
+            int? order_2 = prev.order == null ? prev.id : prev.order;
+
+            this.order = order_2;
+            prev.order = order_1;
+
+            this.update();
+            prev.update();
+        }
+        public override void moveDown()
+        {
+            Tang next = db.TANGS.Where(c => c.order > this.order && c.day_id == this.day_id).OrderBy(c => c.order).FirstOrDefault();
+            if (next == null)
+            {
+                return;
+            }
+            next.moveUp();
+        }
         #endregion
     }
 }
