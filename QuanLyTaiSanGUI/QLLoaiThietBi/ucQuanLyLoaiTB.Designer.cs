@@ -59,7 +59,7 @@
             this.colkieu_ql = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -300,7 +300,7 @@
             this.barButtonXoaLoaiTB,
             this.barBtnImport,
             this.barBtnUp,
-            this.barButtonItem2});
+            this.barBtnDown});
             this.ribbonLoaiTB.Location = new System.Drawing.Point(0, 0);
             this.ribbonLoaiTB.MaxItemId = 45;
             this.ribbonLoaiTB.Name = "ribbonLoaiTB";
@@ -377,7 +377,7 @@
             // rbnGroupOrder
             // 
             this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
-            this.rbnGroupOrder.ItemLinks.Add(this.barButtonItem2);
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnDown);
             this.rbnGroupOrder.Name = "rbnGroupOrder";
             this.rbnGroupOrder.ShowCaptionButton = false;
             this.rbnGroupOrder.Text = "Sắp xếp";
@@ -390,13 +390,13 @@
             this.barBtnUp.Name = "barBtnUp";
             this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
             // 
-            // barButtonItem2
+            // barBtnDown
             // 
-            this.barButtonItem2.Caption = "Xuống";
-            this.barButtonItem2.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
-            this.barButtonItem2.Id = 44;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.barBtnDown.Caption = "Xuống";
+            this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
+            this.barBtnDown.Id = 44;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
             // 
             // ucQuanLyLoaiTB
             // 
@@ -458,7 +458,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colkieu_ql;
         private DevExpress.XtraBars.BarButtonItem barBtnUp;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barBtnDown;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupOrder;
     }
 }

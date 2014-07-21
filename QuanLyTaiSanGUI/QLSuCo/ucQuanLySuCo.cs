@@ -67,6 +67,25 @@ namespace QuanLyTaiSanGUI.QLSuCo
             loadData(objPhong != null ? objPhong.id : -1, true);
         }
 
+        public void loadDataByPhong(Phong obj)
+        {
+            try
+            {
+                obj = obj.reload();
+                layout.load(gridViewSuCo);
+                List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
+                _ucTreeViTri.loadData(listViTri);
+                List<TinhTrang> listTinhTrang = TinhTrang.getAll();
+                lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
+                _ucTreeViTri.setPhong(obj);
+                loadData(obj != null ? obj.id : -1);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
+            }
+        }
+
         public void loadData(int id, bool _first = false)
         {
             try

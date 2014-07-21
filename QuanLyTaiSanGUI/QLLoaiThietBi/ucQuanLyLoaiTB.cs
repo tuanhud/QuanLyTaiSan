@@ -540,12 +540,34 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            try
+            {
+                if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
+                {
+                    objLoaiThietBi.moveUp();
+                    reLoadAndFocused(objLoaiThietBi.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
         }
 
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            try
+            {
+                if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
+                {
+                    objLoaiThietBi.moveDown();
+                    reLoadAndFocused(objLoaiThietBi.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
         }
 
     }

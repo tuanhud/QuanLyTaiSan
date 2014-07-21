@@ -54,6 +54,8 @@ namespace QuanLyTaiSanGUI
         ucCapNhatPhanMem _ucCapNhatPhanMem = null;
         ucThongTinPhanMem _ucThongTinPhanMem = null;
 
+        Phong objPhong = new Phong();
+
         bool drawEnd = false;
         bool open = false;
         public frmMain()
@@ -183,6 +185,8 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
                         if(!open)
                             _ucQuanLyPhongThietBi.setPhong(new Phong());
+                        else
+                            _ucQuanLyPhongThietBi.setPhong(objPhong);
                         _ucQuanLyPhongThietBi.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
@@ -215,7 +219,10 @@ namespace QuanLyTaiSanGUI
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
                         _ucQuanLySuCo.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
-                        _ucQuanLySuCo.loadData();
+                        if (!open)
+                            _ucQuanLySuCo.loadData();
+                        else
+                            _ucQuanLySuCo.loadDataByPhong(objPhong);
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLySuCo);
                     }
@@ -230,11 +237,18 @@ namespace QuanLyTaiSanGUI
             { }
         }
 
-        public void loadDataByPhong(Phong obj)
+        public void loadDataByPhong(Phong obj, String type)
         {
             open = true;
-            _ucQuanLyPhongThietBi.setPhong(obj);
-            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+            objPhong = obj;
+            if (type.Equals("thietbi"))
+            {
+                ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home");
+            }
+            else if (type.Equals("suco"))
+            {
+                ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageSuCoPhong");
+            }
             open = false;
         }
 

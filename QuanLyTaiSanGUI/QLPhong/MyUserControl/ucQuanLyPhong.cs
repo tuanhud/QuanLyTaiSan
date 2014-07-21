@@ -103,6 +103,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             btnR_Sua.Enabled = _enable;
             btnR_Xoa.Enabled = _enable;
             rbnGroupThietBi.Enabled = _enable;
+            rbnGroupSuCo.Enabled = _enable;
         }
 
         //Xóa hết dữ liệu form thông tin phòng + nhân viên
@@ -648,7 +649,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (this.ParentForm != null)
             {
                 frmMain frm = this.ParentForm as frmMain;
-                frm.loadDataByPhong(objPhong);
+                frm.loadDataByPhong(objPhong, "thietbi");
             }
         }
 
@@ -786,7 +787,16 @@ namespace QuanLyTaiSanGUI.MyUserControl
             if (this.ParentForm != null)
             {
                 frmMain frm = this.ParentForm as frmMain;
-                frm.loadDataByPhong(objPhong);
+                frm.loadDataByPhong(objPhong, "thietbi");
+            }
+        }
+
+        private void barBtnSuCo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.ParentForm != null)
+            {
+                frmMain frm = this.ParentForm as frmMain;
+                frm.loadDataByPhong(objPhong, "suco");
             }
         }
     }
