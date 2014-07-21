@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
+    /// <summary>
+    /// Do not call SaveChanges in here, caller will do it later for consistency
+    /// </summary>
     public interface _EFEventRegisterInterface
     {
         /// <summary>
@@ -20,5 +23,17 @@ namespace QuanLyTaiSan.Entities
         /// Before db.Savechange()
         /// </summary>
         void onBeforeDeleted();
+        /// <summary>
+        /// Before db.Savechange()
+        /// </summary>
+        void onAfterUpdated();
+        /// <summary>
+        /// Before db.Savechange()
+        /// </summary>
+        void onAfterAdded();
+        /// <summary>
+        /// Before db.Savechange()
+        /// </summary>
+        void onAfterDeleted();
     }
 }

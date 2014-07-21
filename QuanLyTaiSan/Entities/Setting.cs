@@ -20,7 +20,7 @@ namespace QuanLyTaiSan.Entities
         [Index(IsUnique = true)]
         [StringLength(100)]
         public String key { get; set; }
-        [Required]
+
         public String value { get; set; }
         #endregion
 
