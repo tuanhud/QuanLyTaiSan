@@ -68,11 +68,11 @@
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnGroupMap = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnMap = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -463,6 +463,30 @@
             this.barBtnMap.Name = "barBtnMap";
             this.barBtnMap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnMap_ItemClick);
             // 
+            // rbnGroupOrder
+            // 
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnDown);
+            this.rbnGroupOrder.Name = "rbnGroupOrder";
+            this.rbnGroupOrder.ShowCaptionButton = false;
+            this.rbnGroupOrder.Text = "Sắp xếp";
+            // 
+            // barBtnUp
+            // 
+            this.barBtnUp.Caption = "Move Up";
+            this.barBtnUp.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_up;
+            this.barBtnUp.Id = 32;
+            this.barBtnUp.Name = "barBtnUp";
+            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
+            // 
+            // barBtnDown
+            // 
+            this.barBtnDown.Caption = "Move Down";
+            this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
+            this.barBtnDown.Id = 33;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
+            // 
             // ribbonViTri
             // 
             this.ribbonViTri.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -492,28 +516,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // rbnGroupOrder
-            // 
-            this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
-            this.rbnGroupOrder.ItemLinks.Add(this.barBtnDown);
-            this.rbnGroupOrder.Name = "rbnGroupOrder";
-            this.rbnGroupOrder.ShowCaptionButton = false;
-            this.rbnGroupOrder.Text = "Sắp xếp";
-            // 
-            // barBtnUp
-            // 
-            this.barBtnUp.Caption = "Move Up";
-            this.barBtnUp.Id = 32;
-            this.barBtnUp.Name = "barBtnUp";
-            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
-            // 
-            // barBtnDown
-            // 
-            this.barBtnDown.Caption = "Move Down";
-            this.barBtnDown.Id = 33;
-            this.barBtnDown.Name = "barBtnDown";
-            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
             // 
             // ucQuanLyViTri
             // 

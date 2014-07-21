@@ -160,6 +160,9 @@
   <data name="add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Maps-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maps-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="phong1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -177,6 +180,9 @@
   </data>
   <data name="plus_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="thietbi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\thietbi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,7 +214,7 @@
   <data name="add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Maps-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Maps-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
