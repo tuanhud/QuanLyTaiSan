@@ -29,9 +29,11 @@
                     </dx:GridViewDataTextColumn>
                 </Columns>
                 <SettingsBehavior AllowSelectByRowClick="True" />
-                <SettingsPager PageSize="10">
+                <Settings ShowFilterRow="True" VerticalScrollBarMode="Visible" VerticalScrollableHeight="400" />
+                <%--<SettingsPager PageSize="10">
                     <PageSizeItemSettings Visible="true" ShowAllItem="true" />
-                </SettingsPager>
+                </SettingsPager>--%>
+                <SettingsPager Mode="EndlessPaging" PageSize="20"></SettingsPager>
                 <Styles>
                     <SelectedRow BackColor="#C0FFC0" ForeColor="#0033FF"></SelectedRow>
                 </Styles>
