@@ -80,6 +80,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
+                enableEdit(false, "");
                 loaiThietBis = LoaiThietBi.getAll().ToList();
                 treeListLoaiTB.DataSource = loaiThietBis;
                 listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.ten).ToList();
@@ -480,7 +481,16 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 if (!function.Equals("edit"))
-                    return working;
+                    if (function.Equals("add"))
+                    {
+                        return
+                            !txtTen.Text.Equals("") ||
+                            !txtMoTa.Text.Equals("");
+                    }
+                    else
+                    {
+                        return working;
+                    }
                 else
                 {
                     if (lueThuoc.EditValue != null && Convert.ToInt32(lueThuoc.EditValue) > -1)
