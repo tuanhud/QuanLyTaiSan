@@ -397,6 +397,7 @@
             this.imgNhanVien.Size = new System.Drawing.Size(120, 120);
             this.imgNhanVien.TabIndex = 0;
             this.imgNhanVien.Text = "imageSlider2";
+            this.imgNhanVien.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imgNhanVien.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgNhanVien_MouseDoubleClick);
             // 
             // groupControl1
@@ -615,6 +616,7 @@
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
             this.imgPhong.TabIndex = 0;
             this.imgPhong.Text = "imageSlider1";
+            this.imgPhong.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imgPhong.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgPhong_MouseDoubleClick);
             // 
             // txtMoTaPhong

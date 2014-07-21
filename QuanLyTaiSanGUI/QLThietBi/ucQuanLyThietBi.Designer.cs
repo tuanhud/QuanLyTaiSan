@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -61,7 +62,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -200,6 +201,7 @@
             this.imageSliderThietBi.Size = new System.Drawing.Size(120, 120);
             this.imageSliderThietBi.TabIndex = 0;
             this.imageSliderThietBi.Text = "imageSlider1";
+            this.imageSliderThietBi.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imageSliderThietBi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderThietBi_MouseDoubleClick);
             // 
             // txtMoTa

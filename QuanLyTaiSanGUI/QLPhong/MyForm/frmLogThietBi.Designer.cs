@@ -31,6 +31,7 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlLogThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewLogThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.coldatecreate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsoluong = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,7 +40,6 @@
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.coldatecreate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLogThietBi)).BeginInit();
@@ -93,6 +93,16 @@
             this.gridViewLogThietBi.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewLogThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewLogThietBi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewLogThietBi_FocusedRowChanged);
+            // 
+            // coldatecreate
+            // 
+            this.coldatecreate.Caption = "Ngày";
+            this.coldatecreate.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.coldatecreate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.coldatecreate.FieldName = "date_create";
+            this.coldatecreate.Name = "coldatecreate";
+            this.coldatecreate.Visible = true;
+            this.coldatecreate.VisibleIndex = 6;
             // 
             // colthietbi
             // 
@@ -166,16 +176,6 @@
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
             // 
-            // coldatecreate
-            // 
-            this.coldatecreate.Caption = "Ngày";
-            this.coldatecreate.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.coldatecreate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.coldatecreate.FieldName = "date_create";
-            this.coldatecreate.Name = "coldatecreate";
-            this.coldatecreate.Visible = true;
-            this.coldatecreate.VisibleIndex = 6;
-            // 
             // frmLogThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +183,7 @@
             this.ClientSize = new System.Drawing.Size(743, 421);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmLogThietBi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log thiết bị";
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
