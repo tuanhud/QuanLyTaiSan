@@ -473,7 +473,7 @@
             // 
             // barBtnUp
             // 
-            this.barBtnUp.Caption = "Move Up";
+            this.barBtnUp.Caption = "Lên";
             this.barBtnUp.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_up;
             this.barBtnUp.Id = 32;
             this.barBtnUp.Name = "barBtnUp";
@@ -481,7 +481,7 @@
             // 
             // barBtnDown
             // 
-            this.barBtnDown.Caption = "Move Down";
+            this.barBtnDown.Caption = "Xuống";
             this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
             this.barBtnDown.Id = 33;
             this.barBtnDown.Name = "barBtnDown";

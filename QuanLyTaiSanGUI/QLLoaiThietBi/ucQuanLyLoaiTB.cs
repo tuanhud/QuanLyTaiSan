@@ -15,12 +15,13 @@ using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Localization;
 using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
     public partial class ucQuanLyLoaiTB : UserControl
     {
-        List<LoaiThietBi> loaiThietBis = new List<LoaiThietBi>();
+        List<LoaiTBHienThi> loaiThietBis = new List<LoaiTBHienThi>();
         List<LoaiThietBi> listLoaiThietBiCha = new List<LoaiThietBi>();
         List<LoaiThietBi> loaiThietBiParents = new List<LoaiThietBi>();
         string function = "";
@@ -45,7 +46,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 {
                     enableEdit(false, "");
                     SetTextGroupControl("Chi tiết", Color.Black);
-                    objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                    //objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                    objLoaiThietBi = LoaiThietBi.getById(Convert.ToInt32(e.Node.GetValue(0)));
                     setData();
                 }
             }
@@ -81,7 +83,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 enableEdit(false, "");
-                loaiThietBis = LoaiThietBi.getAll().ToList();
+                loaiThietBis = LoaiTBHienThi.getAll();
                 treeListLoaiTB.DataSource = loaiThietBis;
                 listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.ten).ToList();
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
@@ -534,6 +536,16 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 }
 
             }
+        }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
 
     }
