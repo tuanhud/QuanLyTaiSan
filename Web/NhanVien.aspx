@@ -27,11 +27,12 @@
                     <dx:GridViewDataTextColumn Caption="ID" FieldName="id" Visible="False" VisibleIndex="4">
                     </dx:GridViewDataTextColumn>
                 </Columns>
-                <Settings ShowFilterRow="True" />
+                <Settings ShowFilterRow="True" VerticalScrollBarMode="Visible" VerticalScrollableHeight="400" />
                 <SettingsBehavior AllowSelectByRowClick="True" />
-                <SettingsPager PageSize="10">
+                <%--<SettingsPager PageSize="10">
                     <PageSizeItemSettings Visible="true" ShowAllItem="true" />
-                </SettingsPager>
+                </SettingsPager>--%>
+                <SettingsPager Mode="EndlessPaging" PageSize="20"></SettingsPager>
                 <Styles>
                     <SelectedRow BackColor="#C0FFC0" ForeColor="#0033FF"></SelectedRow>
                 </Styles>

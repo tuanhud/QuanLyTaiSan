@@ -354,5 +354,11 @@ namespace QuanLyTaiSanGUI
             //else backstageViewTabItemThongTinPhanMem.Selected = true;
 
         }
+
+        private void backstageViewButtonItemRestart_ItemClick(object sender, BackstageViewItemEventArgs e)
+        {
+            Application.Restart();
+            Application.ExitThread();
+        }
     }
 }

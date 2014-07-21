@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DangNhap.aspx" />
+    <Content Include="ImageManager.aspx" />
     <Content Include="Image\loading.gif" />
     <Content Include="LoaiThietBi.aspx" />
     <Content Include="Css\bootstrap.css" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="DangNhap.aspx.designer.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageManager.aspx.cs">
+      <DependentUpon>ImageManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageManager.aspx.designer.cs">
+      <DependentUpon>ImageManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoaiThietBi.aspx.cs">
       <DependentUpon>LoaiThietBi.aspx</DependentUpon>
