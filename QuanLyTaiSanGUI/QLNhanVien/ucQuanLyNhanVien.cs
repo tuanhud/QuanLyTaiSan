@@ -569,7 +569,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (listHinhs != null && listHinhs.Count > 0)
+            if (imageSlider1.Images.Count > 0)
             {
                 frmShowImage frm = new frmShowImage(listHinhs);
                 frm.ShowDialog();

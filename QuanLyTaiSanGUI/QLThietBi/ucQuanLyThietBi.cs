@@ -854,7 +854,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void imageSliderThietBi_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (listHinhAnh != null && listHinhAnh.Count > 0)
+            if (imageSliderThietBi.Images.Count > 0)
             {
                 frmShowImage frm = new frmShowImage(listHinhAnh);
                 frm.ShowDialog();

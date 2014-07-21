@@ -844,7 +844,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (listHinh != null && listHinh.Count > 0)
+            if (imageSlider1.Images.Count > 0)
             {
                 frmShowImage frm = new frmShowImage(listHinh);
                 frm.ShowDialog();
