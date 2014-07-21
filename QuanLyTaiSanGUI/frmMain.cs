@@ -117,6 +117,7 @@ namespace QuanLyTaiSanGUI
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
+            backstageViewControl1.SelectedTabIndex = 9;
             ThongTinPhanMem();
         }
 
