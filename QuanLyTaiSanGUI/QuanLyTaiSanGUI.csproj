@@ -133,6 +133,18 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frmCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmCustom.Designer.cs">
+      <DependentUpon>frmCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmCustomXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmCustomXtraForm.Designer.cs">
+      <DependentUpon>frmCustomXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\frmDoiTenHinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -423,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmCustom.resx">
+      <DependentUpon>frmCustom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frmDoiTenHinh.resx">
       <DependentUpon>frmDoiTenHinh.cs</DependentUpon>

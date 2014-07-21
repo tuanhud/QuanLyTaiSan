@@ -12,15 +12,15 @@ using QuanLyTaiSan.Entities;
 using System.Threading;
 using DevExpress.LookAndFeel;
 using QuanLyTaiSan.Libraries;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
-    public partial class Login : DevExpress.XtraEditors.XtraForm
+    public partial class Login : frmCustomXtraForm
     {
         public Login()
         {
             InitializeComponent();
-            frmMain.CaiDatGiaoDien();
             labelControl_msg.Text = String.Empty;
         }
 

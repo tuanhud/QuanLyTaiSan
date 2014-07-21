@@ -16,10 +16,11 @@ using DevExpress.XtraBars.Helpers;
 using DevExpress.LookAndFeel;
 using System.IO;
 using QuanLyTaiSan.Libraries;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmHinhAnh : DevExpress.XtraEditors.XtraForm
+    public partial class frmHinhAnh : frmCustomXtraForm
     {
         public static Size HoverSkinImageSize = new Size(116, 86);
         public static Size SkinImageSize = new Size(58, 43);
@@ -31,7 +32,6 @@ namespace QuanLyTaiSanGUI
         public frmHinhAnh(List<HinhAnh> list)
         {
             InitializeComponent();
-            frmMain.CaiDatGiaoDien();
             comboBoxEdit1.SelectedIndex = 2;
             btnImageDelete.Enabled = false;
             if (list != null)

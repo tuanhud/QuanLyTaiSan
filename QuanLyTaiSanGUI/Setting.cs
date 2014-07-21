@@ -13,10 +13,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class Setting : DevExpress.XtraEditors.XtraForm
+    public partial class Setting : frmCustomXtraForm
     {
         /// <summary>
         /// Sẽ tự động mở Login lên sau khi Close()
@@ -48,7 +49,6 @@ namespace QuanLyTaiSanGUI
 
         public void HienThiCauHinh()
         {
-            frmMain.CaiDatGiaoDien();
             panelControlHienThiCauHinh.Controls.Clear();
             if (_ucCauHinh == null)
             {

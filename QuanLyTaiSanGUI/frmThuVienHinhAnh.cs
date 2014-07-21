@@ -16,10 +16,11 @@ using DevExpress.XtraBars.Helpers;
 using DevExpress.LookAndFeel;
 using System.IO;
 using QuanLyTaiSan.Libraries;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmThuVienHinhAnh : DevExpress.XtraEditors.XtraForm
+    public partial class frmThuVienHinhAnh : frmCustomXtraForm
     {
         List<HinhAnh> HinhAnhs = new List<HinhAnh>();
         List<HinhAnh> HinhAnhChons = new List<HinhAnh>();
@@ -27,7 +28,6 @@ namespace QuanLyTaiSanGUI
         public frmThuVienHinhAnh()
         {
             InitializeComponent();
-            frmMain.CaiDatGiaoDien();
             HinhAnhs = HinhAnh.getAllHinhAnhDangDung();
             LoadHinhAnh();
         }

@@ -31,10 +31,11 @@ using QuanLyTaiSanGUI.Settings;
 using QuanLyTaiSanGUI.QLTinhTrang;
 using QuanLyTaiSanGUI.QLSuCo;
 using DevExpress.LookAndFeel;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class frmMain : RibbonForm
+    public partial class frmMain : frmCustom  //RibbonForm
     {
         ucThongKeChiTiet _ucThongKeChiTiet = null;
         ucThongKeTongQuat _ucThongKeTongQuat = null;
@@ -59,13 +60,7 @@ namespace QuanLyTaiSanGUI
         public frmMain()
         {
             InitializeComponent();
-            CaiDatGiaoDien();
             init();
-        }
-
-        public static void CaiDatGiaoDien()
-        {
-            UserLookAndFeel.Default.SkinName = Properties.Settings.Default["ApplicationSkinName"].ToString();
         }
 
         private void init()
@@ -120,7 +115,7 @@ namespace QuanLyTaiSanGUI
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
-            //ThongTinPhanMem();
+            ThongTinPhanMem();
         }
 
         private void navBarControl1_ActiveGroupChanged(object sender, DevExpress.XtraNavBar.NavBarGroupEventArgs e)
@@ -351,14 +346,25 @@ namespace QuanLyTaiSanGUI
         {
             if (XtraMessageBox.Show("Bạn có muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();
-            //else backstageViewTabItemThongTinPhanMem.Selected = true;
-
         }
 
         private void backstageViewButtonItemRestart_ItemClick(object sender, BackstageViewItemEventArgs e)
         {
+            
+        }
+
+        private void backstageViewTabItemRestart_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
             Application.Restart();
             Application.ExitThread();
+        }
+
+        private void backstageViewTabItemLogout_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Application.Exit();
+            else
+                backstageViewControl1.Ribbon.HideApplicationButtonContentControl();
         }
     }
 }
