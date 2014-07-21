@@ -30,6 +30,12 @@ namespace QuanLyTaiSan.Entities
         /// Optional
         /// </summary>
         public String subId { get; set; }
+
+        /// <summary>
+        /// Dùng để sắp xếp, mặc định khi thêm mới thì sẽ bật trigger để tự lấy id qua
+        /// </summary>
+        public int? order { get; set; }
+
         /// <summary>
         /// Optional
         /// </summary>
@@ -269,12 +275,65 @@ namespace QuanLyTaiSan.Entities
             return re;
         }
         #endregion
+        
+        /// <summary>
+        /// Clone to new Object
+        /// </summary>
+        /// <returns></returns>
+        public virtual T clone()
+        {
+            //T tmp = db.Set<T>().AsNoTracking<T>().Where(c => c.id == this.id).FirstOrDefault();
+            //if (tmp == null)
+            //{
+            //    return null;
+            //}
+            //tmp.id = 0;
+            //return tmp;
+            return null;
+        }
+        /// <summary>
+        /// Move object lên 1 nấc (sử dụng trường order),
+        /// Tự động update
+        /// </summary>
+        public virtual void moveUp()
+        {
+            T prev =  db.Set<T>().Where(c => c.order < this.order).OrderByDescending(c => c.order).FirstOrDefault();
+            if (prev == null)
+            {
+                return;
+            }
+            //SWAP order value
+            int? order_1 = this.order == null ? this.id:this.order;
+            int? order_2 = prev.order == null ? prev.id : prev.order;
+
+            this.order = order_2;
+            prev.order = order_1;
+
+            this.update();
+            prev.update();
+        }
+
+        /// <summary>
+        /// Move object xuống 1 nấc (sử dụng trường order),
+        /// Tự động update
+        /// </summary>
+        public virtual void moveDown()
+        {
+            T next = db.Set<T>().Where(c => c.order > this.order).OrderBy(c => c.order).FirstOrDefault();
+            if (next == null)
+            {
+                return;
+            }
+            next.moveUp();
+        }
+
+        #region Envent register
         /// <summary>
         /// Chạy nghiệp vụ trước khi bị xóa
         /// </summary>
         public virtual void onBeforeDeleted()
         {
-            
+
         }
         /// <summary>
         /// Chạy nghiệp vụ trước khi được cập nhật vào CSDL
@@ -291,20 +350,22 @@ namespace QuanLyTaiSan.Entities
             //time
             date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
         }
-        /// <summary>
-        /// Clone to new Object
-        /// </summary>
-        /// <returns></returns>
-        public virtual T clone()
+
+
+        public void onAfterUpdated()
         {
-            //T tmp = db.Set<T>().AsNoTracking<T>().Where(c => c.id == this.id).FirstOrDefault();
-            //if (tmp == null)
-            //{
-            //    return null;
-            //}
-            //tmp.id = 0;
-            //return tmp;
-            return null;
+            
         }
+
+        public void onAfterAdded()
+        {
+            this.order = this.id;
+        }
+
+        public void onAfterDeleted()
+        {
+            
+        }
+        #endregion
     }
 }

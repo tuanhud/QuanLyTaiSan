@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
+            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colloai
+            // 
+            this.colloai.Caption = "loai";
+            this.colloai.FieldName = "loai";
+            this.colloai.Name = "colloai";
             // 
             // treeListViTri
             // 
@@ -42,6 +49,14 @@
             this.colten,
             this.colloai});
             this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
+            styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            styleFormatCondition1.Appearance.Options.UseFont = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colloai;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "Phong";
+            this.treeListViTri.FormatConditions.AddRange(new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition[] {
+            styleFormatCondition1});
             this.treeListViTri.KeyFieldName = "id_c";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
@@ -71,12 +86,6 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
-            // 
-            // colloai
-            // 
-            this.colloai.Caption = "loai";
-            this.colloai.FieldName = "loai";
-            this.colloai.Name = "colloai";
             // 
             // ucTreeViTri
             // 

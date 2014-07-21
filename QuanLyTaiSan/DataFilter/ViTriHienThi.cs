@@ -15,6 +15,7 @@ namespace QuanLyTaiSan.DataFilter
         public String id_c { get; set; }
         public String id_p { get; set; }
         public String mota { get; set; }
+        public int? order { get; set; }
 
         #region Nghiệp vụ
         public static List<ViTriHienThi> getAllCoSo()
@@ -29,8 +30,9 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(CoSo).Name,
                      id_c = typeof(CoSo).Name + c.id,
                      id_p = "",
-                     mota = c.mota
-                 }).ToList();
+                     mota = c.mota,
+                     order = c.order
+                 }).OrderBy(c=>c.order).ToList();
             return re;
         }
         public static List<ViTriHienThi> getAllDay()
@@ -45,8 +47,9 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(Dayy).Name,
                      id_c = typeof(Dayy).Name + c.id,
                      id_p = typeof(CoSo).Name + c.coso.id,
-                     mota = c.mota
-                 }).ToList();
+                     mota = c.mota,
+                     order = c.order
+                 }).OrderBy(c => c.order).ToList();
             return re;
         }
         public static List<ViTriHienThi> getAllTang()
@@ -61,8 +64,9 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(Tang).Name,
                      id_c = typeof(Tang).Name + c.id,
                      id_p = typeof(Dayy).Name + c.day.id,
-                     mota = c.mota
-                 }).ToList();
+                     mota = c.mota,
+                     order = c.order
+                 }).OrderBy(c => c.order).ToList();
             return re;
         }
 
@@ -113,7 +117,7 @@ namespace QuanLyTaiSan.DataFilter
 
         public static List<ViTriHienThi> getAllHaveDay()
         {
-            return getAllCoSo().Concat(getAllDay()).ToList();
+            return getAllCoSo().Concat(getAllDay()).OrderBy(c => c.order).ToList();
         }
 
         public static List<ViTriHienThi> getAllHavePhongNotNhanVien(int _idnhanvien)

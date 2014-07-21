@@ -124,6 +124,7 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
+
         }
         
         public DbSet<CoSo> COSOS { get; set; }
@@ -301,34 +302,50 @@ namespace QuanLyTaiSan.Entities
         public override int SaveChanges()
         {
             IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified);
+            ICollection<_EFEventRegisterInterface> Added_Callbacks = new List<_EFEventRegisterInterface>();
+            ICollection<_EFEventRegisterInterface> Modified_Callbacks = new List<_EFEventRegisterInterface>();
             Boolean need_to_sync = false;
-            foreach (DbEntityEntry changedEntity in changedEntities)
-            {
-                need_to_sync = true;
-                if (changedEntity.Entity is _EFEventRegisterInterface)
+            //Before
+                foreach (DbEntityEntry item in changedEntities)
                 {
-                    _EFEventRegisterInterface entity = (_EFEventRegisterInterface)changedEntity.Entity;
-
-                    switch (changedEntity.State)
+                    need_to_sync = true;
+                    if (item.Entity is _EFEventRegisterInterface)
                     {
-                        case EntityState.Added:
-                            entity.onBeforeAdded();
-                            break;
+                        _EFEventRegisterInterface entity = (_EFEventRegisterInterface)item.Entity;
+                        switch (item.State)
+                        {
+                            case EntityState.Added:
+                                Added_Callbacks.Add(entity);
+                                entity.onBeforeAdded();
+                                break;
 
-                        case EntityState.Modified:
-                            entity.onBeforeUpdated();
-                            break;
-
-                        //case EntityState.Deleted:
-                        //    entity.onBeforeDeleted();
-                        //    break;
-
+                            case EntityState.Modified:
+                                Modified_Callbacks.Add(entity);
+                                entity.onBeforeUpdated();
+                                break;
+                        }
                     }
                 }
-            }
-
+            //SaveChange lần 1
             int result = base.SaveChanges();
+            //After
+                foreach (_EFEventRegisterInterface item in Added_Callbacks)
+                {
+                    item.onAfterAdded();
+                }
+                foreach (_EFEventRegisterInterface item in Modified_Callbacks)
+                {
+                    item.onAfterUpdated();
+                }
+            //Savechanges lần 2
+            result = base.SaveChanges();
 
+            //clear RAM
+                Added_Callbacks = null;
+                Modified_Callbacks = null;
+                changedEntities = null;
+
+            //Auto Sync
             if (need_to_sync)
             {
                 //call sync for insert Confliction in new background thread

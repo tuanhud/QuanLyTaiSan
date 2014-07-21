@@ -202,6 +202,12 @@
     <Compile Include="MyUC\MyLayout.cs" />
     <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
+    <Compile Include="MyUC\ucThemSuaXoaButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUC\ucThemSuaXoaButton.Designer.cs">
+      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -463,6 +469,9 @@
     <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
       <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyUC\ucThemSuaXoaButton.resx">
+      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
       <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </EmbeddedResource>
@@ -559,6 +568,9 @@
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\ChiTiet\ucThongKeChiTiet.resx">
       <DependentUpon>ucThongKeChiTiet.cs</DependentUpon>
     </EmbeddedResource>
@@ -634,6 +646,7 @@
     <None Include="Resources\thongke.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\warning-icon.png" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\tinhtrang.png" />
     <None Include="Resources\thongtinphanmem.png" />
@@ -654,6 +667,8 @@
     <None Include="Resources\add2.png" />
     <None Include="Resources\import-icon.png" />
     <None Include="Resources\backgroundthongtinphanmem.png" />
+    <None Include="Resources\arrow_up.png" />
+    <None Include="Resources\arrow_down.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />

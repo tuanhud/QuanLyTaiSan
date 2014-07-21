@@ -38,5 +38,14 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <returns></returns>
             T clone();
+        /// <summary>
+        /// Order column
+        /// </summary>
+            void moveUp();
+        /// <summary>
+        /// Order column
+        /// </summary>
+            void moveDown();
+
     }
 }

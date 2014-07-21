@@ -54,7 +54,7 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                return this.thietbi.logthietbis.Where(c => c.phong_id == this.phong_id).ToList();
+                return this.thietbi.logthietbis.ToList();//Where(c => c.phong_id == this.phong_id).ToList();
             }
         }
         /// <summary>

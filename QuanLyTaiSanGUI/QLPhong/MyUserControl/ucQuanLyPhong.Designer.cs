@@ -87,6 +87,8 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.rbnGroupSuCo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnSuCo = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -253,9 +255,10 @@
             this.barButtonThemPhong,
             this.barButtonSuaPhong,
             this.barButtonXoaPhong,
-            this.barButtonShowListTB});
+            this.barButtonShowListTB,
+            this.barBtnSuCo});
             this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhong.MaxItemId = 44;
+            this.ribbonPhong.MaxItemId = 45;
             this.ribbonPhong.Name = "ribbonPhong";
             this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home});
@@ -297,7 +300,8 @@
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupPhong,
-            this.rbnGroupThietBi});
+            this.rbnGroupThietBi,
+            this.rbnGroupSuCo});
             this.rbnPagePhong_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
             this.rbnPagePhong_Home.Text = "Phòng";
@@ -397,6 +401,7 @@
             this.imgNhanVien.Size = new System.Drawing.Size(120, 120);
             this.imgNhanVien.TabIndex = 0;
             this.imgNhanVien.Text = "imageSlider2";
+            this.imgNhanVien.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imgNhanVien.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgNhanVien_MouseDoubleClick);
             // 
             // groupControl1
@@ -615,6 +620,7 @@
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
             this.imgPhong.TabIndex = 0;
             this.imgPhong.Text = "imageSlider1";
+            this.imgPhong.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imgPhong.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgPhong_MouseDoubleClick);
             // 
             // txtMoTaPhong
@@ -665,6 +671,21 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
+            // 
+            // rbnGroupSuCo
+            // 
+            this.rbnGroupSuCo.ItemLinks.Add(this.barBtnSuCo);
+            this.rbnGroupSuCo.Name = "rbnGroupSuCo";
+            this.rbnGroupSuCo.ShowCaptionButton = false;
+            this.rbnGroupSuCo.Text = "Sự cố";
+            // 
+            // barBtnSuCo
+            // 
+            this.barBtnSuCo.Caption = "Xem sự cố";
+            this.barBtnSuCo.Id = 44;
+            this.barBtnSuCo.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.warning_icon;
+            this.barBtnSuCo.Name = "barBtnSuCo";
+            this.barBtnSuCo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuCo_ItemClick);
             // 
             // ucQuanLyPhong
             // 
@@ -764,5 +785,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraBars.BarButtonItem barBtnSuCo;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupSuCo;
     }
 }

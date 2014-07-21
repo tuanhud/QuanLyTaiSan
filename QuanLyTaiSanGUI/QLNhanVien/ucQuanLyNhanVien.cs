@@ -58,6 +58,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 if (NhanVienPTs.Count == 0)
                 {
                     enableButton(false);
+                    barBtnThemNhanVien.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -80,6 +81,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 }
                 SetTextGroupControl("Chi tiết", Color.Empty);
                 enableEdit(false);
+                barBtnThemNhanVien.Enabled = true;
             }
             else if (_type.Equals("add"))
             {
@@ -127,6 +129,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtTen.Properties.ReadOnly = !_enable;
             txtSodt.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
+            barBtnThemNhanVien.Enabled = !_enable;
             btnR_Them.Enabled = !_enable;
             working = _enable;
         }
@@ -566,7 +569,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
 
         private void imageSlider1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (listHinhs != null && listHinhs.Count > 0)
+            if (imageSlider1.Images.Count > 0)
             {
                 frmShowImage frm = new frmShowImage(listHinhs);
                 frm.ShowDialog();

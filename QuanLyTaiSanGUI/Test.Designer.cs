@@ -28,11 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.ucThemSuaXoaButton1 = new QuanLyTaiSanGUI.MyUC.ucThemSuaXoaButton();
+            this.SuspendLayout();
+            // 
+            // ucThemSuaXoaButton1
+            // 
+            this.ucThemSuaXoaButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.ucThemSuaXoaButton1.Appearance.Options.UseBackColor = true;
+            this.ucThemSuaXoaButton1.Location = new System.Drawing.Point(12, 12);
+            this.ucThemSuaXoaButton1.Name = "ucThemSuaXoaButton1";
+            this.ucThemSuaXoaButton1.Size = new System.Drawing.Size(84, 32);
+            this.ucThemSuaXoaButton1.TabIndex = 0;
+            this.ucThemSuaXoaButton1.ButtonThemClick += new QuanLyTaiSanGUI.MyUC.MyEventHandler(this.ucThemSuaXoaButton1_ButtonThemClick);
+            // 
+            // Test
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.ucThemSuaXoaButton1);
+            this.Name = "Test";
             this.Text = "Test";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private MyUC.ucThemSuaXoaButton ucThemSuaXoaButton1;
     }
 }

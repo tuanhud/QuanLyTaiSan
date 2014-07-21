@@ -37,6 +37,8 @@
             this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControlMoTa = new DevExpress.XtraEditors.LabelControl();
             this.btnR_Sua = new DevExpress.XtraEditors.SimpleButton();
             this.btnR_Them = new DevExpress.XtraEditors.SimpleButton();
             this.btnR_Xoa = new DevExpress.XtraEditors.SimpleButton();
@@ -44,14 +46,13 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlDiaChi = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.rbnPageViTri_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupViTri_CoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -67,20 +68,25 @@
             this.barBtnXoaTang = new DevExpress.XtraBars.BarButtonItem();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.rbnGroupMap = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnMap = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonViTri)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -160,6 +166,8 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.txtDiaChi);
+            this.groupControl1.Controls.Add(this.labelControlMoTa);
             this.groupControl1.Controls.Add(this.btnR_Sua);
             this.groupControl1.Controls.Add(this.btnR_Them);
             this.groupControl1.Controls.Add(this.btnR_Xoa);
@@ -167,7 +175,7 @@
             this.groupControl1.Controls.Add(this.btnHuy);
             this.groupControl1.Controls.Add(this.btnOK);
             this.groupControl1.Controls.Add(this.panelControl1);
-            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.labelControlDiaChi);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
@@ -180,6 +188,25 @@
             this.groupControl1.Size = new System.Drawing.Size(350, 470);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDiaChi.Location = new System.Drawing.Point(59, 208);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Properties.ReadOnly = true;
+            this.txtDiaChi.Size = new System.Drawing.Size(280, 43);
+            this.txtDiaChi.TabIndex = 16;
+            this.txtDiaChi.UseOptimizedRendering = true;
+            // 
+            // labelControlMoTa
+            // 
+            this.labelControlMoTa.Location = new System.Drawing.Point(7, 260);
+            this.labelControlMoTa.Name = "labelControlMoTa";
+            this.labelControlMoTa.Size = new System.Drawing.Size(31, 13);
+            this.labelControlMoTa.TabIndex = 15;
+            this.labelControlMoTa.Text = "Mô tả:";
             // 
             // btnR_Sua
             // 
@@ -226,7 +253,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(141, 317);
+            this.btnHuy.Location = new System.Drawing.Point(142, 340);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 5;
@@ -236,7 +263,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(59, 318);
+            this.btnOK.Location = new System.Drawing.Point(61, 340);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -254,13 +281,13 @@
             this.panelControl1.Size = new System.Drawing.Size(280, 20);
             this.panelControl1.TabIndex = 2;
             // 
-            // labelControl4
+            // labelControlDiaChi
             // 
-            this.labelControl4.Location = new System.Drawing.Point(7, 211);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(31, 13);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Mô tả:";
+            this.labelControlDiaChi.Location = new System.Drawing.Point(7, 211);
+            this.labelControlDiaChi.Name = "labelControlDiaChi";
+            this.labelControlDiaChi.Size = new System.Drawing.Size(36, 13);
+            this.labelControlDiaChi.TabIndex = 6;
+            this.labelControlDiaChi.Text = "Địa chỉ:";
             // 
             // labelControl3
             // 
@@ -294,6 +321,7 @@
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
             this.imageSlider1.TabIndex = 2;
             this.imageSlider1.Text = "imageSlider1";
+            this.imageSlider1.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
             // 
             // txtTen
@@ -310,18 +338,12 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(59, 208);
+            this.txtMoTa.Location = new System.Drawing.Point(59, 257);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
-            this.txtMoTa.Size = new System.Drawing.Size(280, 106);
+            this.txtMoTa.Size = new System.Drawing.Size(280, 77);
             this.txtMoTa.TabIndex = 3;
             this.txtMoTa.UseOptimizedRendering = true;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.RightToLeft = true;
             // 
             // rbnPageViTri_Home
             // 
@@ -330,7 +352,8 @@
             this.rbnGroupViTri_Day,
             this.rbnGroupViTri_Tang,
             this.rbnGroupImport,
-            this.rbnGroupMap});
+            this.rbnGroupMap,
+            this.rbnGroupOrder});
             this.rbnPageViTri_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
             this.rbnPageViTri_Home.Text = "Vị trí";
@@ -403,7 +426,6 @@
             // 
             // rbnGroupViTri_Tang
             // 
-            this.rbnGroupViTri_Tang.Enabled = false;
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnThemTang);
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnSuaTang);
             this.rbnGroupViTri_Tang.ItemLinks.Add(this.barBtnXoaTang);
@@ -450,6 +472,45 @@
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
+            // rbnGroupMap
+            // 
+            this.rbnGroupMap.ItemLinks.Add(this.barBtnMap);
+            this.rbnGroupMap.Name = "rbnGroupMap";
+            this.rbnGroupMap.ShowCaptionButton = false;
+            this.rbnGroupMap.Text = "Bản đồ";
+            // 
+            // barBtnMap
+            // 
+            this.barBtnMap.Caption = "Xem bản đồ";
+            this.barBtnMap.Id = 31;
+            this.barBtnMap.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Maps_icon;
+            this.barBtnMap.Name = "barBtnMap";
+            this.barBtnMap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnMap_ItemClick);
+            // 
+            // rbnGroupOrder
+            // 
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnDown);
+            this.rbnGroupOrder.Name = "rbnGroupOrder";
+            this.rbnGroupOrder.ShowCaptionButton = false;
+            this.rbnGroupOrder.Text = "Sắp xếp";
+            // 
+            // barBtnUp
+            // 
+            this.barBtnUp.Caption = "Lên";
+            this.barBtnUp.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_up;
+            this.barBtnUp.Id = 32;
+            this.barBtnUp.Name = "barBtnUp";
+            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
+            // 
+            // barBtnDown
+            // 
+            this.barBtnDown.Caption = "Xuống";
+            this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
+            this.barBtnDown.Id = 33;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
+            // 
             // ribbonViTri
             // 
             this.ribbonViTri.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -466,28 +527,19 @@
             this.barBtnSuaTang,
             this.barBtnXoaTang,
             this.barBtnImport,
-            this.barBtnMap});
+            this.barBtnMap,
+            this.barBtnUp,
+            this.barBtnDown});
             this.ribbonViTri.Location = new System.Drawing.Point(0, 0);
-            this.ribbonViTri.MaxItemId = 32;
+            this.ribbonViTri.MaxItemId = 34;
             this.ribbonViTri.Name = "ribbonViTri";
             this.ribbonViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri_Home});
             this.ribbonViTri.Size = new System.Drawing.Size(855, 145);
             // 
-            // rbnGroupMap
+            // dxErrorProvider1
             // 
-            this.rbnGroupMap.ItemLinks.Add(this.barBtnMap);
-            this.rbnGroupMap.Name = "rbnGroupMap";
-            this.rbnGroupMap.ShowCaptionButton = false;
-            this.rbnGroupMap.Text = "Bản đồ";
-            // 
-            // barBtnMap
-            // 
-            this.barBtnMap.Caption = "Xem bản đồ";
-            this.barBtnMap.Id = 31;
-            this.barBtnMap.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Maps_icon;
-            this.barBtnMap.Name = "barBtnMap";
-            this.barBtnMap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnMap_ItemClick);
+            this.dxErrorProvider1.ContainerControl = this;
             // 
             // ucQuanLyViTri
             // 
@@ -505,12 +557,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonViTri)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,7 +578,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControlDiaChi;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -535,18 +588,9 @@
         private DevExpress.XtraEditors.SimpleButton btnImage;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOK;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid_c;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid_p;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonViTri;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemPhong;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaPhong;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaPhong;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemThietBi;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaThietBi;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaThietBi;
-        private DevExpress.XtraBars.BarButtonItem barBtnCHuyenTinhTrang;
-        private DevExpress.XtraBars.BarButtonItem barBtnChuyenPhong;
         private DevExpress.XtraBars.BarButtonItem barBtnThemCoSo;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaCoSo;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaCoSo;
@@ -556,17 +600,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnThemTang;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaTang;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaTang;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemNhanVien;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaNhanVien;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaNhanVien;
-        private DevExpress.XtraBars.BarButtonItem barBtnPhanCong;
-        private DevExpress.XtraBars.BarButtonItem barBtnThemLoaiTB;
-        private DevExpress.XtraBars.BarButtonItem barBtnSuaLoaiTB;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoaLoaiTB;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageViTri_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupViTri_CoSo;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupViTri_Day;
@@ -578,5 +611,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
         private DevExpress.XtraBars.BarButtonItem barBtnMap;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupMap;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupOrder;
+        private DevExpress.XtraBars.BarButtonItem barBtnUp;
+        private DevExpress.XtraBars.BarButtonItem barBtnDown;
+        private DevExpress.XtraEditors.MemoEdit txtDiaChi;
+        private DevExpress.XtraEditors.LabelControl labelControlMoTa;
     }
 }

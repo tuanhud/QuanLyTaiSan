@@ -15,12 +15,13 @@ using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Localization;
 using QuanLyTaiSanGUI.MyUC;
+using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
     public partial class ucQuanLyLoaiTB : UserControl
     {
-        List<LoaiThietBi> loaiThietBis = new List<LoaiThietBi>();
+        List<LoaiTBHienThi> loaiThietBis = new List<LoaiTBHienThi>();
         List<LoaiThietBi> listLoaiThietBiCha = new List<LoaiThietBi>();
         List<LoaiThietBi> loaiThietBiParents = new List<LoaiThietBi>();
         string function = "";
@@ -45,7 +46,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 {
                     enableEdit(false, "");
                     SetTextGroupControl("Chi tiết", Color.Black);
-                    objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                    //objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
+                    objLoaiThietBi = LoaiThietBi.getById(Convert.ToInt32(e.Node.GetValue(0)));
                     setData();
                 }
             }
@@ -80,9 +82,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                loaiThietBis = LoaiThietBi.getAll().ToList();
+                enableEdit(false, "");
+                loaiThietBis = LoaiTBHienThi.getAll();
                 treeListLoaiTB.DataSource = loaiThietBis;
-                listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.ten).ToList();
+                listLoaiThietBiCha = LoaiThietBi.getAllParent().OrderBy(l => l.order).ToList();
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
                 lueThuoc.Properties.DataSource = listLoaiThietBiCha;
                 checkSuaXoa();
@@ -480,7 +483,16 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 if (!function.Equals("edit"))
-                    return working;
+                    if (function.Equals("add"))
+                    {
+                        return
+                            !txtTen.Text.Equals("") ||
+                            !txtMoTa.Text.Equals("");
+                    }
+                    else
+                    {
+                        return working;
+                    }
                 else
                 {
                     if (lueThuoc.EditValue != null && Convert.ToInt32(lueThuoc.EditValue) > -1)
@@ -523,6 +535,38 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     reLoad();
                 }
 
+            }
+        }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
+                {
+                    objLoaiThietBi.moveUp();
+                    reLoadAndFocused(objLoaiThietBi.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
+                {
+                    objLoaiThietBi.moveDown();
+                    reLoadAndFocused(objLoaiThietBi.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
             }
         }
 

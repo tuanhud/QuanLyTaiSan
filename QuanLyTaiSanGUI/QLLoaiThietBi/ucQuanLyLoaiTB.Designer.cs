@@ -52,10 +52,14 @@
             this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.colkieu_ql = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -89,8 +93,9 @@
             // treeListLoaiTB
             // 
             this.treeListLoaiTB.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.colid,
             this.colten,
-            this.colid});
+            this.colkieu_ql});
             this.treeListLoaiTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListLoaiTB.KeyFieldName = "id";
             this.treeListLoaiTB.Location = new System.Drawing.Point(0, 0);
@@ -293,9 +298,11 @@
             this.barButtonThemLoaiTB,
             this.barButtonSuaLoaiTB,
             this.barButtonXoaLoaiTB,
-            this.barBtnImport});
+            this.barBtnImport,
+            this.barBtnUp,
+            this.barBtnDown});
             this.ribbonLoaiTB.Location = new System.Drawing.Point(0, 0);
-            this.ribbonLoaiTB.MaxItemId = 43;
+            this.ribbonLoaiTB.MaxItemId = 45;
             this.ribbonLoaiTB.Name = "ribbonLoaiTB";
             this.ribbonLoaiTB.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageLoaiTB_Home});
@@ -325,11 +332,20 @@
             this.barButtonXoaLoaiTB.Name = "barButtonXoaLoaiTB";
             this.barButtonXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaLoaiTB_ItemClick);
             // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Id = 42;
+            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // rbnPageLoaiTB_Home
             // 
             this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLoaiTB,
-            this.rbnGroupImport});
+            this.rbnGroupImport,
+            this.rbnGroupOrder});
             this.rbnPageLoaiTB_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.chair_icon;
             this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
             this.rbnPageLoaiTB_Home.Text = "Loại thiết bị";
@@ -350,13 +366,37 @@
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
             // 
-            // barBtnImport
+            // colkieu_ql
             // 
-            this.barBtnImport.Caption = "Import";
-            this.barBtnImport.Id = 42;
-            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
-            this.barBtnImport.Name = "barBtnImport";
-            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            this.colkieu_ql.Caption = "Kiểu quản lý";
+            this.colkieu_ql.FieldName = "kieu_ql";
+            this.colkieu_ql.Name = "colkieu_ql";
+            this.colkieu_ql.Visible = true;
+            this.colkieu_ql.VisibleIndex = 1;
+            // 
+            // rbnGroupOrder
+            // 
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnDown);
+            this.rbnGroupOrder.Name = "rbnGroupOrder";
+            this.rbnGroupOrder.ShowCaptionButton = false;
+            this.rbnGroupOrder.Text = "Sắp xếp";
+            // 
+            // barBtnUp
+            // 
+            this.barBtnUp.Caption = "Lên";
+            this.barBtnUp.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_up;
+            this.barBtnUp.Id = 43;
+            this.barBtnUp.Name = "barBtnUp";
+            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
+            // 
+            // barBtnDown
+            // 
+            this.barBtnDown.Caption = "Xuống";
+            this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
+            this.barBtnDown.Id = 44;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
             // 
             // ucQuanLyLoaiTB
             // 
@@ -416,5 +456,9 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colkieu_ql;
+        private DevExpress.XtraBars.BarButtonItem barBtnUp;
+        private DevExpress.XtraBars.BarButtonItem barBtnDown;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupOrder;
     }
 }
