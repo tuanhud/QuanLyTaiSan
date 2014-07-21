@@ -45,7 +45,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             //Ẩn ribbon
             ribbonViTri.Parent = null;
-            treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
+            //treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
             txt.Properties.ReadOnly = true;
             txt.Text = "[Đại học Sài Gòn]";
             txt.Dock = DockStyle.Fill;
@@ -854,6 +854,24 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 String url = @"http://www.google.com/maps/search/";
                 System.Diagnostics.Process.Start(url + objCoSo.mota);
+            }
+        }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (node.Equals(typeof(CoSo).Name))
+            {
+                objCoSo.moveUp();
+                reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
+            }
+        }
+
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (node.Equals(typeof(CoSo).Name))
+            {
+                objCoSo.moveDown();
+                reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
             }
         }
     }

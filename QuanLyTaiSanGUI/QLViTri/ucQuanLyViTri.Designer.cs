@@ -70,6 +70,9 @@
             this.barBtnMap = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -325,7 +328,8 @@
             this.rbnGroupViTri_Day,
             this.rbnGroupViTri_Tang,
             this.rbnGroupImport,
-            this.rbnGroupMap});
+            this.rbnGroupMap,
+            this.rbnGroupOrder});
             this.rbnPageViTri_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.vitri1;
             this.rbnPageViTri_Home.Name = "rbnPageViTri_Home";
             this.rbnPageViTri_Home.Text = "Vị trí";
@@ -475,9 +479,11 @@
             this.barBtnSuaTang,
             this.barBtnXoaTang,
             this.barBtnImport,
-            this.barBtnMap});
+            this.barBtnMap,
+            this.barBtnUp,
+            this.barBtnDown});
             this.ribbonViTri.Location = new System.Drawing.Point(0, 0);
-            this.ribbonViTri.MaxItemId = 32;
+            this.ribbonViTri.MaxItemId = 34;
             this.ribbonViTri.Name = "ribbonViTri";
             this.ribbonViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri_Home});
@@ -486,6 +492,28 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
+            // 
+            // rbnGroupOrder
+            // 
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
+            this.rbnGroupOrder.ItemLinks.Add(this.barBtnDown);
+            this.rbnGroupOrder.Name = "rbnGroupOrder";
+            this.rbnGroupOrder.ShowCaptionButton = false;
+            this.rbnGroupOrder.Text = "Sắp xếp";
+            // 
+            // barBtnUp
+            // 
+            this.barBtnUp.Caption = "Move Up";
+            this.barBtnUp.Id = 32;
+            this.barBtnUp.Name = "barBtnUp";
+            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
+            // 
+            // barBtnDown
+            // 
+            this.barBtnDown.Caption = "Move Down";
+            this.barBtnDown.Id = 33;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
             // 
             // ucQuanLyViTri
             // 
@@ -557,5 +585,8 @@
         private DevExpress.XtraBars.BarButtonItem barBtnMap;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupMap;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupOrder;
+        private DevExpress.XtraBars.BarButtonItem barBtnUp;
+        private DevExpress.XtraBars.BarButtonItem barBtnDown;
     }
 }
