@@ -45,7 +45,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             //Ẩn ribbon
             ribbonViTri.Parent = null;
-            treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
+            //treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
             txt.Properties.ReadOnly = true;
             txt.Text = "[Đại học Sài Gòn]";
             txt.Dock = DockStyle.Fill;
@@ -272,6 +272,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             //btnR_Them.Enabled = _enable;
             btnR_Sua.Enabled = _enable;
             btnR_Xoa.Enabled = _enable;
+            barBtnDown.Enabled = _enable;
+            barBtnUp.Enabled = _enable;
         }
 
         private void enableCoSoButton(bool _enable)
@@ -542,7 +544,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             if (ree>0)
                             {
                                 XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
+                                reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name, true);
                             }
                             else if(ree == -2)
                             {
@@ -561,7 +563,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             if (objTang.delete() > 0)
                             {
                                 XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
+                                reLoadAndSelectNode(objDay.id, typeof(Dayy).Name, true);
                             }
                             else
                             {
@@ -577,7 +579,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             }
         }
 
-        private void reLoadAndSelectNode(int _id, String _type)
+        private void reLoadAndSelectNode(int _id, String _type, bool _expanded = false)
         {
             try
             {
@@ -586,6 +588,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 FindNode findNode = new FindNode(_id, _type);
                 treeListViTri.NodesIterator.DoOperation(findNode);
                 treeListViTri.FocusedNode = findNode.Node;
+                treeListViTri.FocusedNode.Expanded = _expanded;
             }
             catch (Exception ex)
             {
@@ -854,6 +857,58 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 String url = @"http://www.google.com/maps/search/";
                 System.Diagnostics.Process.Start(url + objCoSo.mota);
+            }
+        }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (node.Equals(typeof(CoSo).Name))
+                {
+                    objCoSo.moveUp();
+                    reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
+                }
+                else if (node.Equals(typeof(Dayy).Name))
+                {
+                    objDay.moveUp();
+                    reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
+                }
+                else if (node.Equals(typeof(Tang).Name))
+                {
+                    objTang.moveUp();
+                    reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (node.Equals(typeof(CoSo).Name))
+                {
+                    objCoSo.moveDown();
+                    reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
+                }
+                else if (node.Equals(typeof(Dayy).Name))
+                {
+                    objDay.moveDown();
+                    reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
+                }
+                else if (node.Equals(typeof(Tang).Name))
+                {
+                    objTang.moveDown();
+                    reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnDown_ItemClick: " + ex.Message);
             }
         }
     }
