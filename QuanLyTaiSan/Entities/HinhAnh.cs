@@ -73,7 +73,8 @@ namespace QuanLyTaiSan.Entities
 
         #region Nghiệp vụ
         /// <summary>
-        /// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết
+        /// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết,
+        /// Can tim phuong an thiet ke khac huu hieu hon viec override static method
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>

@@ -20,13 +20,10 @@ namespace QuanLyTaiSan.Libraries
         public static byte[] ImageToByte(Bitmap image)
         {
             byte[] byteArray = new byte[0];
-            using (MemoryStream stream = new MemoryStream())
-            {
-                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-                stream.Close();
-                byteArray = stream.ToArray();
-            }
-            return byteArray;
+            MemoryStream stream = new MemoryStream();
+            image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+            stream.Close();
+            return stream.ToArray();
         }
         /// <summary>
         /// Thu nhỏ 1 hình

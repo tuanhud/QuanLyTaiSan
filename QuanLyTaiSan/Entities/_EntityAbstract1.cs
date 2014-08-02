@@ -20,6 +20,7 @@ namespace QuanLyTaiSan.Entities
     {
         public _EntityAbstract1()
         {
+            //Need to find out another approach, reporting by code analysized
             init();//it will call TOP level first
         }
         #region Định nghĩa

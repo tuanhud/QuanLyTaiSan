@@ -32,14 +32,23 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public int addOrUpdate()
         {
-            Setting tmp = db.SETTINGS.FirstOrDefault(c => c.key.ToUpper().Equals(this.key.ToUpper()));
-            if (tmp != null)
+            try
             {
-                return update();
+                //may throw Exception
+                Setting tmp = db.SETTINGS.FirstOrDefault(c => c.key.ToUpper().Equals(this.key.ToUpper()));
+                if (tmp != null)
+                {
+                    return update();
+                }
+                else
+                {
+                    return add();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return add();
+                Debug.WriteLine(ex);
+                return -1;
             }
         }
         /// <summary>
