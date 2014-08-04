@@ -30,7 +30,12 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public int trangthai { get; set; }
         public String lydotuchoi { get; set; }
+        /// <summary>
+        /// Mượn cho lớp nào (nếu có)
+        /// </summary>
         public String lop { get; set; }
+        [Required]
+        public String phong { get; set; }
         /*
          * FK
          */
@@ -47,8 +52,6 @@ namespace QuanLyTaiSan.Entities
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
         [Required]
-        public virtual Phong phong { get; set; }
-        [Required]
         public int soluongsv { get; set; }
         #endregion
         #region Override
@@ -59,10 +62,6 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            if (phong != null)
-            {
-                phong.trigger();
-            }
             if (giangvien != null)
             {
                 giangvien.trigger();

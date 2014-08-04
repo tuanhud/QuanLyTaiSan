@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Users\Admin\Desktop\New folder\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -119,9 +123,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BieuMauMuonPhong.aspx" />
+    <Content Include="Content\CodeFormatter.css" />
+    <Content Include="Content\ComponentList\Sprite.png" />
+    <Content Include="Content\ComponentList\Styles.css" />
+    <Content Include="Content\DemoIcons\FormLayout.png" />
+    <Content Include="Content\DemoIcons\Menu.png" />
+    <Content Include="Content\DemoIcons\Ribbon.png" />
+    <Content Include="Content\DemoIcons\Splitter.png" />
+    <Content Include="Content\DemoIcons\TreeView.png" />
+    <Content Include="Content\Display.png" />
+    <Content Include="Content\FeatureIcons\Ajax.png" />
+    <Content Include="Content\FeatureIcons\Appearance.png" />
+    <Content Include="Content\FeatureIcons\ClientSide.png" />
+    <Content Include="Content\FeatureIcons\Cookies.png" />
+    <Content Include="Content\FeatureIcons\CrossBrowser.png" />
+    <Content Include="Content\FeatureIcons\DataBinding.png" />
+    <Content Include="Content\FeatureIcons\Lite.png" />
+    <Content Include="Content\ImagePreview.gif" />
+    <Content Include="Content\Loading.gif" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\sprite.png" />
+    <Content Include="Content\VideoBanner.png" />
+    <Content Include="Content\VideoButton.png" />
     <Content Include="DangNhap.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="ImageManager.aspx" />
     <Content Include="Image\loading.gif" />
+    <Content Include="Js\Demo.js" />
     <Content Include="LoaiThietBi.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootswatch.min.css" />
@@ -132,24 +161,39 @@
     <Content Include="Js\jquery-1.10.2.min.js" />
     <Content Include="Js\respond.min.js" />
     <Content Include="Phong.aspx" />
+    <Content Include="Test.aspx" />
+    <Content Include="UserControl\Search.ascx" />
     <Content Include="ViTri.aspx" />
     <Content Include="ThietBis.aspx" />
     <Content Include="PhongThietBi.aspx" />
     <Content Include="QuanTriVien.aspx" />
     <Content Include="Css\metro\bootstrap-responsive.css" />
     <Content Include="Css\metro\bootstrap.blue.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Default1.aspx" />
     <Content Include="NhanVien.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BieuMauMuonPhong.aspx.cs">
+      <DependentUpon>BieuMauMuonPhong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BieuMauMuonPhong.aspx.designer.cs">
+      <DependentUpon>BieuMauMuonPhong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DangNhap.aspx.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DangNhap.aspx.designer.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ImageManager.aspx.cs">
       <DependentUpon>ImageManager.aspx</DependentUpon>
@@ -176,6 +220,20 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Search.ascx.cs">
+      <DependentUpon>Search.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Search.ascx.designer.cs">
+      <DependentUpon>Search.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViTri.aspx.cs">
       <DependentUpon>ViTri.aspx</DependentUpon>
@@ -205,12 +263,12 @@
     <Compile Include="QuanTriVien.aspx.designer.cs">
       <DependentUpon>QuanTriVien.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Default1.aspx.cs">
+      <DependentUpon>Default1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Default1.aspx.designer.cs">
+      <DependentUpon>Default1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.Master.cs">
       <DependentUpon>Default.Master</DependentUpon>
@@ -228,13 +286,6 @@
     </Compile>
     <Compile Include="OurClass\MobileDetect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.Master" />

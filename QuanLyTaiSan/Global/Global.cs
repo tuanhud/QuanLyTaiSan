@@ -516,16 +516,36 @@ namespace QuanLyTaiSan.Entities
             }
 
         }
-        private static QuanTriVien _current_login = null;
-        public static QuanTriVien current_login {
+        private static GiangVien _current_giangvien_login = null;
+        /// <summary>
+        /// Dành cho Web (Giảng viên login vào để mượn phòng)
+        /// </summary>
+        public static GiangVien current_giangvien_login
+        {
             get
             {
                 //very importance because of OLD DBCONTEXT
-                return _current_login = _current_login.reload();
+                return _current_giangvien_login = _current_giangvien_login.reload();
             }
             set
             {
-                _current_login = value;
+                _current_giangvien_login = value;
+            }
+        }
+        
+        private static QuanTriVien _current_quantrivien_login = null;
+        /// <summary>
+        /// Dành cho Winform (Quản trị viên sử dụng pâần mềm quản lý)
+        /// </summary>
+        public static QuanTriVien current_quantrivien_login {
+            get
+            {
+                //very importance because of OLD DBCONTEXT
+                return _current_quantrivien_login = _current_quantrivien_login.reload();
+            }
+            set
+            {
+                _current_quantrivien_login = value;
             }
         }
         public static Properties.Settings local_setting
