@@ -32,6 +32,11 @@ namespace QuanLyTaiSanGUI.HeThong
                 textEdit_username.Text = Global.local_setting.login_username;
                 textEdit_password.Text = Global.local_setting.login_password;
             }
+            //Trước khi login phải sync CSDL
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ CSDL...");
+            Global.client_database.start_sync();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void button_ok_Click(object sender, EventArgs e)

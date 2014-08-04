@@ -175,6 +175,19 @@ namespace QuanLyTaiSan.Entities
                     return tmp.isValidModel() ? 1 : -2;
                 }
             }
+            /// <summary>
+            /// Kiểm tra CSDL đã có SYNC SCOPE
+            /// </summary>
+            /// <returns></returns>
+            public static int isHasScope()
+            {
+                if (!Global.local_setting.use_db_cache)
+                {
+                    return -1;
+                }
+                //kiểm tra CSDL sẵn sàng để sync
+                return DatabaseHelper.isHasScope(Global.server_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
+            }
             public static String db_host
             {
                 get
@@ -236,6 +249,15 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class client_database
         {
+            public static int isHasScope()
+            {
+                if (!Global.local_setting.use_db_cache)
+                {
+                    return -1;
+                }
+                //kiểm tra CSDL sẵn sàng để sync
+                return DatabaseHelper.isHasScope(Global.client_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
+            }
             public static int drop_scope()
             {
                 return DatabaseHelper.drop_sync_scope(Global.client_database.get_connection_string(), Global.sync.scope_name);

@@ -118,6 +118,42 @@ namespace QuanLyTaiSan.Libraries
             }
         }
         /// <summary>
+        /// Kiểm tra có SCOPE chưa
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <param name="scope_name"></param>
+        /// <returns></returns>
+        public static int isHasScope(String connectionString, String scope_name, String[] tracking_tables)
+        {
+            SqlConnection serverConn = new SqlConnection(connectionString);
+            if (!isExist(serverConn))
+            {
+                return -1;
+            }
+
+            try
+            {
+                // define a new scope named ProductsScope
+                DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription(scope_name);
+                DbSyncTableDescription tableDesc = null;
+                foreach (String item in tracking_tables)
+                {
+                    //parse
+                    tableDesc = SqlSyncDescriptionBuilder.GetDescriptionForTable(item, serverConn);
+
+                    // add the table description to the sync scope definition
+                    scopeDesc.Tables.Add(tableDesc);
+                }
+                SqlSyncScopeProvisioning tmp = new SqlSyncScopeProvisioning(serverConn, scopeDesc);
+                return tmp.ScopeExists(scope_name)?1:-1;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return -1;
+            }
+        }
+        /// <summary>
         /// Xóa 1 SCOPE khỏi 1 Server nếu có
         /// </summary>
         /// <param name="connectionString"></param>
@@ -165,9 +201,10 @@ namespace QuanLyTaiSan.Libraries
 
                 // get the description of ProductsScope from the SyncDB server database
                 DbSyncScopeDescription scopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope(server_scope_name, serverConn);
-
+                
                 // create provisioning object based on the Scope
                 SqlSyncScopeProvisioning clientProvision = new SqlSyncScopeProvisioning(clientConn, scopeDesc);
+                
                 // starts the provisioning process
                 clientProvision.Apply();
                 return 1;
