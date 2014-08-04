@@ -162,7 +162,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     txtTen.Focus();
                     if (_type.Equals(typeof(CoSo).Name))
                     {
-                        SetTextGroupControl("Thêm cơ sở", Color.Empty);
+                        SetTextGroupControl("Thêm cơ sở", Color.Red);
                         showDiaChi(true);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(txt))
                         {
@@ -172,7 +172,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
-                        SetTextGroupControl("Thêm dãy", Color.Empty);
+                        SetTextGroupControl("Thêm dãy", Color.Red);
                         showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTri))
                         {
@@ -196,7 +196,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
-                        SetTextGroupControl("Thêm tầng", Color.Empty);
+                        SetTextGroupControl("Thêm tầng", Color.Red);
                         showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTriChonDay))
                         {
@@ -229,7 +229,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     txtTen.Focus();
                     if (_type.Equals(typeof(CoSo).Name))
                     {
-                        SetTextGroupControl("Sửa cơ sở", Color.Empty);
+                        SetTextGroupControl("Sửa cơ sở", Color.Red);
                         showDiaChi(true);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(txt))
                         {
@@ -239,7 +239,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
-                        SetTextGroupControl("Sửa dãy", Color.Empty);
+                        SetTextGroupControl("Sửa dãy", Color.Red);
                         showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTri))
                         {
@@ -249,7 +249,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
-                        SetTextGroupControl("Sửa tầng", Color.Empty);
+                        SetTextGroupControl("Sửa tầng", Color.Red);
                         showDiaChi(false);
                         if (panelControl1.Controls.Count > 0 && !panelControl1.Controls[0].Equals(_ucComboBoxViTriChonDay))
                         {
