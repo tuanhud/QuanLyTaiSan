@@ -27,7 +27,7 @@ namespace QuanLyTaiSan.DataFilter
                      loaichung = c.loaichung,
                      kieu_ql = c.loaichung ? "Theo số lượng" : "Theo cá thể",
                      order = c.order
-                 }).OrderBy(c => c.order).ToList();
+                 }).OrderBy(c=>c.parent_id).ThenBy(c => c.order).ToList();
             return re;
         }
     }
