@@ -85,7 +85,9 @@
     <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
+    <Compile Include="Entities\GiangVien.cs" />
     <Compile Include="Entities\LogSuCoPhong.cs" />
+    <Compile Include="Entities\PhieuMuonPhong.cs" />
     <Compile Include="Entities\SuCoPhong.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />
     <Compile Include="Entities\NhanVienPT.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
+    <Compile Include="Entities\_EntityAbstract3.cs" />
     <Compile Include="Global\Debug.cs" />
     <Compile Include="Global\Global.cs" />
     <Compile Include="Libraries\DatabaseHelper.cs" />
@@ -216,6 +219,10 @@
     <Compile Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.Designer.cs">
       <DependentUpon>201407210442427_go_rangbuoc_trong_Setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408040646276_them_nghiepvu_muonphong.cs" />
+    <Compile Include="Migrations\201408040646276_them_nghiepvu_muonphong.Designer.cs">
+      <DependentUpon>201408040646276_them_nghiepvu_muonphong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -295,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.resx">
       <DependentUpon>201407210442427_go_rangbuoc_trong_Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408040646276_them_nghiepvu_muonphong.resx">
+      <DependentUpon>201408040646276_them_nghiepvu_muonphong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

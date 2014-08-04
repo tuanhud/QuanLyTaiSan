@@ -34,10 +34,14 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
         public virtual ICollection<SuCoPhong> sucophongs { get; set; }
-
+        public virtual ICollection<PhieuMuonPhong> phieumuonphongs { get; set; }
         public int? nhanvienpt_id { get; set; }
         [ForeignKey("nhanvienpt_id")]
         public virtual NhanVienPT nhanvienpt { get; set; }
+
+        public int? quantrivien_id { get; set; }
+        [ForeignKey("quantrivien_id")]
+        public virtual QuanTriVien quantrivien { get; set; }
         #endregion
         #region Nghiep vu
         
@@ -77,6 +81,7 @@ namespace QuanLyTaiSan.Entities
             this.ctthietbis = new List<CTThietBi>();
             this.logthietbis = new List<LogThietBi>();
             this.sucophongs = new List<SuCoPhong>();
+            this.phieumuonphongs = new List<PhieuMuonPhong>();
         }
         public override int update()
         {

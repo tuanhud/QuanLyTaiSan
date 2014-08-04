@@ -101,6 +101,8 @@ namespace QuanLyTaiSan.Entities
                         "HINHANHS",
                         "SETTINGS",//UNDEPENDENT
                         "LOGHETHONGS",//UNDEPENDENT
+                        "GIANGVIENS",//UNDEPENDENT
+                        "PHIEUMUONPHONGS"
                     };
                 }
             }
