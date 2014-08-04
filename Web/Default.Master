@@ -52,9 +52,9 @@
                             <a href="QuanTriVien.aspx">Quản trị viên</a>
                         </li>
                     </ul>
-                    <p class="navbar-form navbar-left">
+                    <%--<p class="navbar-form navbar-left">
                         <asp:TextBox ID="txtSearch" placeholder="Tìm kiếm" CssClass="form-control col-lg-8" runat="server"></asp:TextBox>
-                    </p>
+                    </p>--%>
                     <%if (Convert.ToString(Page.Session["Username"]) == "admin"){ %>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">

@@ -49,7 +49,7 @@ namespace QuanLyTaiSanGUI.HeThong
             if (re)
             {
                 //set global var
-                Global.current_login = obj;
+                Global.current_quantrivien_login = obj;
 
                 labelControl_msg.Text = "Đăng nhập thành công!";
                 this.show_frm_main();

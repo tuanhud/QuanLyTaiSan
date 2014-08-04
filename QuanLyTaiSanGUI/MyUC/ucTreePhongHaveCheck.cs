@@ -19,10 +19,18 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreePhongHaveCheck : UserControl
     {
+        bool isQuanTriVien = false;
         public ucTreePhongHaveCheck()
         {
             InitializeComponent();
             init();
+        }
+
+        public ucTreePhongHaveCheck(bool _bool=false)
+        {
+            InitializeComponent();
+            init();
+            isQuanTriVien = _bool;
         }
 
         private void init()
@@ -33,16 +41,49 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
         {
-            treeListPhong.BeginUnboundLoad();
-            treeListPhong.DataSource = list;
-            treeListPhong.EndUnboundLoad();
-            List<Phong> _list = nhanvien.phongs.ToList();
-            foreach (Phong p in _list)
+            try
             {
-                FindNode findNode = new FindNode(p.id, typeof(Phong).Name);
-                treeListPhong.NodesIterator.DoOperation(findNode);
-                treeListPhong.FocusedNode = findNode.Node;
-                treeListPhong.SetNodeCheckState(findNode.Node, CheckState.Checked, true);
+                treeListPhong.BeginUnboundLoad();
+                treeListPhong.DataSource = list;
+                treeListPhong.EndUnboundLoad();
+                List<Phong> _list = nhanvien.phongs.ToList();
+                foreach (Phong p in _list)
+                {
+                    FindNode findNode = new FindNode(p.id, typeof(Phong).Name);
+                    treeListPhong.NodesIterator.DoOperation(findNode);
+                    treeListPhong.FocusedNode = findNode.Node;
+                    treeListPhong.SetNodeCheckState(findNode.Node, CheckState.Checked, true);
+                }
+                if (treeListPhong.Nodes.Count > 0)
+                    treeListPhong.FocusedNode = treeListPhong.Nodes[0];
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
+            }
+        }
+
+        public void loadData(List<ViTriHienThi> list, QuanTriVien quantrivien)
+        {
+            try
+            {
+                treeListPhong.BeginUnboundLoad();
+                treeListPhong.DataSource = list;
+                treeListPhong.EndUnboundLoad();
+                List<Phong> _list = quantrivien.phongs.ToList();
+                foreach (Phong p in _list)
+                {
+                    FindNode findNode = new FindNode(p.id, typeof(Phong).Name);
+                    treeListPhong.NodesIterator.DoOperation(findNode);
+                    treeListPhong.FocusedNode = findNode.Node;
+                    treeListPhong.SetNodeCheckState(findNode.Node, CheckState.Checked, true);
+                }
+                if (treeListPhong.Nodes.Count > 0)
+                    treeListPhong.FocusedNode = treeListPhong.Nodes[0];
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
         }
 
@@ -50,8 +91,16 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             if (this.Parent.Parent.Parent != null)
             {
-                ucQuanLyNhanVien _ucQuanLyNhanVien = this.Parent.Parent.Parent as ucQuanLyNhanVien;
-                _ucQuanLyNhanVien.LoadListPhong(getListPhong());
+                if (isQuanTriVien)
+                {
+                    QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV _ucPhanCongQTV = this.Parent.Parent.Parent as QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV;
+                    _ucPhanCongQTV.LoadListPhong(getListPhong());
+                }
+                else
+                {
+                    ucQuanLyNhanVien _ucQuanLyNhanVien = this.Parent.Parent.Parent as ucQuanLyNhanVien;
+                    _ucQuanLyNhanVien.LoadListPhong(getListPhong());
+                }
             }
         }
 

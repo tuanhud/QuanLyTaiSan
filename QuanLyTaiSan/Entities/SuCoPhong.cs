@@ -87,7 +87,7 @@ namespace QuanLyTaiSan.Entities
             obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():HinhAnh.clone(this.hinhanhs);
             obj.mota = this.mota;
             obj.sucophong = this;
-            obj.quantrivien = Global.current_login;
+            obj.quantrivien = Global.current_quantrivien_login;
             obj.tinhtrang = this.tinhtrang;
             
             return obj.add();

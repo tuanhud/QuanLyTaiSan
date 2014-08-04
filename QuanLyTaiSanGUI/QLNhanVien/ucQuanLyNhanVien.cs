@@ -108,6 +108,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 SetTextGroupControl("Chi tiết", Color.Empty);
                 enableEdit(true);
+                txtMa.Properties.ReadOnly = true;
+                txtTen.Properties.ReadOnly = true;
+                txtSodt.Properties.ReadOnly = true;
                 btnImage.Visible = false;
                 PhanCong(true);
             }
