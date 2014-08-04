@@ -37,6 +37,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 _ucQuanLyThietBi.loadData(true);
                 checkBtnTheoSL.ForeColor = Color.Red;
                 checkBtnTheoCT.ForeColor = Color.Empty;
+                panelControl1.Focus();
             }
         }
 
@@ -48,6 +49,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 _ucQuanLyThietBi.loadData(false);
                 checkBtnTheoSL.ForeColor = Color.Empty;
                 checkBtnTheoCT.ForeColor = Color.Red;
+                panelControl1.Focus();
             }
         }
     }

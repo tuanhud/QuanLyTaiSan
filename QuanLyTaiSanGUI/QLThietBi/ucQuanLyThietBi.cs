@@ -583,6 +583,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             enableEdit(false);
             function = "";
             int[] indexCacRow = gridViewThietBi.GetSelectedRows();

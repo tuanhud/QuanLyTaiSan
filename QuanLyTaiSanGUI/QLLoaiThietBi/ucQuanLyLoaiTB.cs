@@ -71,6 +71,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             working = _enable;
             //
             rbnGroupLoaiTB.Enabled = !_enable;
+            rbnGroupOrder.Enabled = !_enable;
             btnR_Them.Enabled = !_enable;
             btnR_Sua.Enabled = !_enable;
             btnR_Xoa.Enabled = !_enable;
@@ -171,6 +172,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                             int id = objLoaiThietBi.id;
                             reLoadAndFocused(id);
                         }
+                        else
+                        {
+                            XtraMessageBox.Show("Đã có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            reLoad();
+                        }
                         break;
                     case "edit":
                         setDataObj();
@@ -179,6 +185,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                             XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             int id = objLoaiThietBi.id;
                             reLoadAndFocused(id);
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Đã có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            reLoad();
                         }
                         break;
                 }
@@ -195,37 +206,25 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    int id = -1;
+                    if (objLoaiThietBi.parent_id != null)
                     {
-                        int id = -1;
-                        if (objLoaiThietBi.parent_id != null)
-                        {
-                            id = Convert.ToInt32(objLoaiThietBi.parent_id);
-                        }
-                        if (objLoaiThietBi.childs.Count > 0)
-                        {
-                            if (XtraMessageBox.Show("Loại thiết bị này là gốc, bạn có muốn xóa luôn những loại thiết bị con?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                            {
-                                for (int i = 0; i < objLoaiThietBi.childs.Count; i++)
-                                {
-                                    objLoaiThietBi.childs.ElementAt(i).delete();
-                                }
-                            }
-                        }
-                        if (objLoaiThietBi.delete() > 0)
-                        {
-                            XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (id > -1)
-                                reLoadAndFocused(id);
-                            else
-                                reLoad();
-                        }
+                        id = Convert.ToInt32(objLoaiThietBi.parent_id);
+                    }
+                    if (objLoaiThietBi.delete() > 0)
+                    {
+                        XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (id > -1)
+                            reLoadAndFocused(id);
+                        else
+                            reLoad();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị hoặc loại thiết bị con", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        reLoad();
                     }
                 }
             }
@@ -422,6 +421,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             barButtonSuaLoaiTB.Enabled = enable;
             barButtonXoaLoaiTB.Enabled = enable;
+            rbnGroupOrder.Enabled = enable;
             btnR_Sua.Enabled = enable;
             btnR_Xoa.Enabled = enable;
         }
