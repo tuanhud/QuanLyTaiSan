@@ -7,53 +7,69 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <div class="panel panel-success">
-        <div class="panel-heading">
-            <h3 class="panel-title">Biểu mẫu mượn phòng</h3>
+
+    <asp:Panel ID="PanelDone" runat="server" Width="100%">
+        <div class="alert alert-dismissable alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Quá trình mượn phòng đang được xem xét!</strong> Bạn sẽ nhận được thông báo trong thời gian sớm nhất <a href="BieuMauMuonPhong.aspx" class="alert-link">Click vào đây nếu muốn mượn thêm phòng</a>.
         </div>
-        <div class="panel-body">
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Từ ngày</label>
-                <div class="col-lg-10">
-                    <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server"></dx:ASPxDateEdit>
-                </div>
-            </div>
-            <br />
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Đến ngày</label>
-                <div class="col-lg-10">
-                    <dx:ASPxDateEdit ID="ASPxDateEdit2" runat="server"></dx:ASPxDateEdit>
-                </div>
-            </div>
-            <br />
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Phòng cần mượn</label>
-                <div class="col-lg-10">
-                    <dx:ASPxComboBox ID="ASPxComboBox1" runat="server" ValueType="System.String"></dx:ASPxComboBox>
-                </div>
-            </div>
-            <br />
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Số lượng sinh viên</label>
-                <div class="col-lg-10">
-                    <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px"></dx:ASPxTextBox>
-                </div>
-            </div>
-            <br />
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Lớp</label>
-                <div class="col-lg-10">
-                    <dx:ASPxTextBox ID="ASPxTextBox2" runat="server" Width="170px"></dx:ASPxTextBox>
-                </div>
-            </div>
-            <br />
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Lý do sử dụng</label>
-                <div class="col-lg-10">
-                    <dx:ASPxMemo ID="ASPxMemo1" runat="server" Height="71px" Width="170px"></dx:ASPxMemo>
-                </div>
-            </div>
-            <asp:Button ID="Button1" runat="server" Text="Mượn phòng" CssClass="btn btn-success" />
+    </asp:Panel>
+
+    <asp:Panel ID="PanelFails" runat="server" Width="100%">
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Có lỗi xảy ra!</strong> Xem lỗi bên dưới, sửa lại cho đúng và click vào mượn phòng.
         </div>
-    </div>
+    </asp:Panel>
+    <asp:Panel ID="PanelProcess" runat="server" Width="100%">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Biểu mẫu mượn phòng</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Từ ngày</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxDateEdit ID="ASPxDateEditNgayMuon" runat="server"></dx:ASPxDateEdit>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Đến ngày</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxDateEdit ID="ASPxDateEditNgayTra" runat="server"></dx:ASPxDateEdit>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Phòng cần mượn</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxTextBox ID="ASPxTextBoxPhong" runat="server" Width="170px"></dx:ASPxTextBox>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Số lượng sinh viên</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxTextBox ID="ASPxTextBoxSoLuong" runat="server" Width="170px"></dx:ASPxTextBox>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Lớp</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxTextBox ID="ASPxTextBoxLop" runat="server" Width="170px"></dx:ASPxTextBox>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Lý do sử dụng</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxMemo ID="ASPxMemoLyDoMuon" runat="server" Height="71px" Width="170px"></dx:ASPxMemo>
+                    </div>
+                </div>
+                <center><asp:Button ID="ButtonMuonPhong" runat="server" Text="Mượn phòng" CssClass="btn btn-success" OnClick="ButtonMuonPhong_Click" /></center>
+            </div>
+        </div>
+    </asp:Panel>
 </asp:Content>

@@ -13,66 +13,93 @@ namespace Web {
     public partial class BieuMauMuonPhong {
         
         /// <summary>
-        /// ASPxDateEdit1 control.
+        /// PanelDone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit ASPxDateEdit1;
+        protected global::System.Web.UI.WebControls.Panel PanelDone;
         
         /// <summary>
-        /// ASPxDateEdit2 control.
+        /// PanelFails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit ASPxDateEdit2;
+        protected global::System.Web.UI.WebControls.Panel PanelFails;
         
         /// <summary>
-        /// ASPxComboBox1 control.
+        /// PanelProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox ASPxComboBox1;
+        protected global::System.Web.UI.WebControls.Panel PanelProcess;
         
         /// <summary>
-        /// ASPxTextBox1 control.
+        /// ASPxDateEditNgayMuon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox1;
+        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit ASPxDateEditNgayMuon;
         
         /// <summary>
-        /// ASPxTextBox2 control.
+        /// ASPxDateEditNgayTra control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox2;
+        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit ASPxDateEditNgayTra;
         
         /// <summary>
-        /// ASPxMemo1 control.
+        /// ASPxTextBoxPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxMemo ASPxMemo1;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBoxPhong;
         
         /// <summary>
-        /// Button1 control.
+        /// ASPxTextBoxSoLuong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBoxSoLuong;
+        
+        /// <summary>
+        /// ASPxTextBoxLop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBoxLop;
+        
+        /// <summary>
+        /// ASPxMemoLyDoMuon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxMemo ASPxMemoLyDoMuon;
+        
+        /// <summary>
+        /// ButtonMuonPhong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonMuonPhong;
     }
 }
