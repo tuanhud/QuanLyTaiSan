@@ -336,6 +336,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             txtTen.Text = "";
             txtMoTa.Text = "";
+            txtDiaChi.Text = "";
             listHinh = new List<HinhAnh>();
             imageSlider1.Images.Clear();
         }
@@ -355,6 +356,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             editGUI("view", typeof(CoSo).Name);
                             objCoSo = CoSo.getById(Convert.ToInt32(treeListViTri.FocusedNode.GetValue(0)));
                             txtTen.Text = objCoSo.ten;
+                            txtDiaChi.Text = objCoSo.diachi;
                             txtMoTa.Text = objCoSo.mota;
                             node = typeof(CoSo).Name;
                             listHinh = objCoSo.hinhanhs.ToList();
