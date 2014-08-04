@@ -85,6 +85,7 @@
     <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
+    <Compile Include="DataFilter\DoSearch.cs" />
     <Compile Include="Entities\LogSuCoPhong.cs" />
     <Compile Include="Entities\SuCoPhong.cs" />
     <Compile Include="Entities\LoaiThietBi.cs" />
