@@ -16,6 +16,7 @@ namespace QuanLyTaiSan.DataFilter
         public String id_p { get; set; }
         public String mota { get; set; }
         public int? order { get; set; }
+        public Phong phong { get; set; }
 
         #region Nghiệp vụ
         public static List<ViTriHienThi> getAllCoSo()
@@ -82,8 +83,9 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(Phong).Name,
                      id_c = typeof(Phong).Name + c.id,
                      id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.coso != null ? typeof(CoSo).Name + c.vitri.coso.id : ""))),
-                     mota = c.mota
-                 }).ToList();
+                     mota = c.mota,
+                     phong = c
+                 }).OrderBy(c => c.ten).ToList();
             return re;
         }
 
@@ -100,8 +102,9 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(Phong).Name,
                      id_c = typeof(Phong).Name + c.id,
                      id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.coso != null ? typeof(CoSo).Name + c.vitri.coso.id : ""))),
-                     mota = c.mota
-                 }).ToList();
+                     mota = c.mota,
+                     phong = c
+                 }).OrderBy(c => c.ten).ToList();
             return re;
         }
 
@@ -118,8 +121,9 @@ namespace QuanLyTaiSan.DataFilter
                      loai = typeof(Phong).Name,
                      id_c = typeof(Phong).Name + c.id,
                      id_p = (c.vitri.tang != null ? typeof(Tang).Name + c.vitri.tang.id : (c.vitri.day != null ? typeof(Dayy).Name + c.vitri.day.id : (c.vitri.coso != null ? typeof(CoSo).Name + c.vitri.coso.id : ""))),
-                     mota = c.mota
-                 }).ToList();
+                     mota = c.mota,
+                     phong = c
+                 }).OrderBy(c => c.ten).ToList();
             return re;
         }
 

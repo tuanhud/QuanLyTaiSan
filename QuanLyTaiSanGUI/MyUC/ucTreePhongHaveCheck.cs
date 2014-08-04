@@ -36,7 +36,7 @@ namespace QuanLyTaiSanGUI.MyUC
         private void init()
         {
             //treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            treeListPhong.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
+            //treeListPhong.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
@@ -89,18 +89,25 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void treeListPhong_AfterCheckNode(object sender, NodeEventArgs e)
         {
-            if (this.Parent.Parent.Parent != null)
+            try
             {
-                if (isQuanTriVien)
+                if (this.Parent.Parent.Parent != null)
                 {
-                    QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV _ucPhanCongQTV = this.Parent.Parent.Parent as QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV;
-                    _ucPhanCongQTV.LoadListPhong(getListPhong());
+                    if (isQuanTriVien)
+                    {
+                        QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV _ucPhanCongQTV = this.Parent.Parent.Parent as QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV;
+                        _ucPhanCongQTV.LoadListPhong(getListPhong());
+                    }
+                    else
+                    {
+                        ucQuanLyNhanVien _ucQuanLyNhanVien = this.Parent.Parent.Parent as ucQuanLyNhanVien;
+                        _ucQuanLyNhanVien.LoadListPhong(getListPhong());
+                    }
                 }
-                else
-                {
-                    ucQuanLyNhanVien _ucQuanLyNhanVien = this.Parent.Parent.Parent as ucQuanLyNhanVien;
-                    _ucQuanLyNhanVien.LoadListPhong(getListPhong());
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->treeListPhong_AfterCheckNode: " + ex.Message);
             }
         }
 
@@ -111,7 +118,7 @@ namespace QuanLyTaiSanGUI.MyUC
             treeListPhong.NodesIterator.DoOperation(op);
             foreach (TreeListNode node in op.CheckedNodes)
             {
-                Phong obj = Phong.getById(Convert.ToInt32(node.GetValue(0)));
+                Phong obj = node.GetValue(colphong) as Phong;
                 listPhong.Add(obj);
             }
             return listPhong;

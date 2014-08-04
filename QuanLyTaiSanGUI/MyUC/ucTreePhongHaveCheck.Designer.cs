@@ -32,6 +32,7 @@
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListPhong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +41,8 @@
             this.treeListPhong.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.colloai});
+            this.colloai,
+            this.colphong});
             this.treeListPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListPhong.KeyFieldName = "id_c";
             this.treeListPhong.Location = new System.Drawing.Point(0, 0);
@@ -80,6 +82,12 @@
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
             // 
+            // colphong
+            // 
+            this.colphong.Caption = "phong";
+            this.colphong.FieldName = "phong";
+            this.colphong.Name = "colphong";
+            // 
             // ucTreePhongHaveCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,5 +106,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colphong;
     }
 }
