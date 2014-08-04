@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201408040646276_them_nghiepvu_muonphong.Designer.cs">
       <DependentUpon>201408040646276_them_nghiepvu_muonphong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408040719280_them_truong_LOP_vaoPhieuMuonPhong.cs" />
+    <Compile Include="Migrations\201408040719280_them_truong_LOP_vaoPhieuMuonPhong.Designer.cs">
+      <DependentUpon>201408040719280_them_truong_LOP_vaoPhieuMuonPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -305,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408040646276_them_nghiepvu_muonphong.resx">
       <DependentUpon>201408040646276_them_nghiepvu_muonphong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408040719280_them_truong_LOP_vaoPhieuMuonPhong.resx">
+      <DependentUpon>201408040719280_them_truong_LOP_vaoPhieuMuonPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

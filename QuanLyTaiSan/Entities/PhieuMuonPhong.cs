@@ -30,6 +30,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public int trangthai { get; set; }
         public String lydotuchoi { get; set; }
+        public String lop { get; set; }
         /*
          * FK
          */
