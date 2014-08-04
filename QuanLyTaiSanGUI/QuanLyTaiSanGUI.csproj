@@ -238,6 +238,12 @@
     <Compile Include="MyUC\ucComboBoxViTri.Designer.cs">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhanCongQTV\ucPhanCongQTV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PhanCongQTV\ucPhanCongQTV.Designer.cs">
+      <DependentUpon>ucPhanCongQTV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -486,6 +492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucComboBoxViTri.resx">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhanCongQTV\ucPhanCongQTV.resx">
+      <DependentUpon>ucPhanCongQTV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
       <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
