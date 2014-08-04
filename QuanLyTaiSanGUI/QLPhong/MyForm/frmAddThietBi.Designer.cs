@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnThemVaDong = new DevExpress.XtraEditors.SimpleButton();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -104,7 +103,7 @@
             // 
             // toolTipController1
             // 
-            this.toolTipController1.ToolTipLocation = DevExpress.Utils.ToolTipLocation.TopCenter;
+            this.toolTipController1.ToolTipLocation = DevExpress.Utils.ToolTipLocation.BottomCenter;
             this.toolTipController1.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
             // 
             // frmAddThietBi

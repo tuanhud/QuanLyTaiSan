@@ -171,22 +171,31 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 
         private void showToolTip(String str)
         {
-            toolTipController1.HideHint();
-            DevExpress.Utils.ToolTipControllerShowEventArgs args = new DevExpress.Utils.ToolTipControllerShowEventArgs();
-            DevExpress.Utils.SuperToolTip tip = new DevExpress.Utils.SuperToolTip();
-            //setup the SuperToolTip...
-            DevExpress.Utils.ToolTipTitleItem titleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            titleItem1.Text = "Thông báo";
-            // Create a tooltip item that represents the SuperTooltip's contents.
-            DevExpress.Utils.ToolTipItem item1 = new DevExpress.Utils.ToolTipItem();
-            item1.Text = str;
-            // Add the tooltip items to the SuperTooltip.
-            tip.Items.Add(titleItem1);
-            tip.Items.Add(item1);
-            args.SuperTip = tip;
-            args.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
-            args.ToolTipLocation = DevExpress.Utils.ToolTipLocation.TopCenter;
-            toolTipController1.ShowHint(args, btnThemVaDong);
+            try
+            {
+                toolTipController1.HideHint();
+                DevExpress.Utils.ToolTipControllerShowEventArgs args = new DevExpress.Utils.ToolTipControllerShowEventArgs();
+                DevExpress.Utils.SuperToolTip tip = new DevExpress.Utils.SuperToolTip();
+                //setup the SuperToolTip...
+                DevExpress.Utils.ToolTipTitleItem titleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+                titleItem1.Text = "Thông báo";
+                // Create a tooltip item that represents the SuperTooltip's contents.
+                DevExpress.Utils.ToolTipItem item1 = new DevExpress.Utils.ToolTipItem();
+                item1.Text = str;
+                // Add the tooltip items to the SuperTooltip.
+                tip.Items.Add(titleItem1);
+                tip.Items.Add(item1);
+                args.SuperTip = tip;
+                args.IconType = DevExpress.Utils.ToolTipIconType.Information;
+                args.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
+                args.ToolTipLocation = DevExpress.Utils.ToolTipLocation.BottomCenter;
+                Point p = new Point((this.Location.X + this.Size.Width / 2), this.Location.Y + this.Size.Height / 2);
+                toolTipController1.ShowHint(args, p);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->showToolTip: " + ex.Message);
+            }
         }
     }
 }
