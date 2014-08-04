@@ -146,6 +146,8 @@ namespace QuanLyTaiSan.Entities
         public DbSet<ViTri> VITRIS { get; set; }
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
         public DbSet<Setting> SETTINGS { get; set; }
+        public DbSet<GiangVien> GIANGVIENS { get; set; }
+        public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
 
         /// <summary>
         /// Kiem tra model backing changed
@@ -174,6 +176,8 @@ namespace QuanLyTaiSan.Entities
                 PERMISSIONS.Find(1);
                 SUCOPHONGS.Find(1);
                 GROUPS.Find(1);
+                GIANGVIENS.Find(1);
+                PHIEUMUONPHONGS.Find(1);
 
                 return true;
             }
@@ -282,6 +286,16 @@ namespace QuanLyTaiSan.Entities
 
 
             modelBuilder.Entity<Setting>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<GiangVien>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<PhieuMuonPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });

@@ -74,6 +74,32 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
         #region Override method
+        public override void moveUp()
+        {
+            LoaiThietBi prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == this.parent_id).OrderByDescending(c => c.order).FirstOrDefault();
+            if (prev == null)
+            {
+                return;
+            }
+            //SWAP order value
+            int? order_1 = this.order == null ? this.id : this.order;
+            int? order_2 = prev.order == null ? prev.id : prev.order;
+
+            this.order = order_2;
+            prev.order = order_1;
+
+            this.update();
+            prev.update();
+        }
+        public override void moveDown()
+        {
+            LoaiThietBi next = db.LOAITHIETBIS.Where(c => c.order > this.order && c.parent_id == this.parent_id).OrderBy(c => c.order).FirstOrDefault();
+            if (next == null)
+            {
+                return;
+            }
+            next.moveUp();
+        }
         public override int delete()
         {
             if (thietbis.Count > 0 || childs.Count>0)

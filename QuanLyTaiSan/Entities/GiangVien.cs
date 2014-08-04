@@ -10,59 +10,40 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Entities
 {
-    [Table("QUANTRIVIENS")]
-    public class QuanTriVien : _EntityAbstract3<QuanTriVien>
+    [Table("GIANGVIENS")]
+    public class GiangVien : _EntityAbstract3<GiangVien>
     {
         
-        public QuanTriVien():base()
+        public GiangVien():base()
         {
 
         }
         
         #region Định nghĩa thuộc tính
-
+        [Required]
+        public String khoa { get; set; }
+        [Required]
+        public String email { get; set; }
         /*
          * FK
          */
-
-        public int group_id { get; set; }
-        [Required]
-        [ForeignKey("group_id")]
-        public virtual Group group { get; set; }
-
-        public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
-        public virtual ICollection<LogThietBi> logthietbis { get; set; }
-        public virtual ICollection<Phong> phongs { get; set; }
         public virtual ICollection<PhieuMuonPhong> phieumuonphongs { get; set; }
         #endregion
 
         #region Hàm nghiệp vụ
-        public Boolean hasPermission(string permission_name="")
-        {
-            if (group == null || permission_name==null)
-            {
-                return false;
-            }
-            return group.isHasPermission(permission_name);
-        }
+        
         #endregion
 
         #region Override method
         protected override void init()
         {
             base.init();
-            logsucophongs = new List<LogSuCoPhong>();
-            logthietbis = new List<LogThietBi>();
-            phongs = new List<Phong>();
             phieumuonphongs = new List<PhieuMuonPhong>();
         }
         public override int update()
         {
             //have to load all [Required] FK object first
-            if (group != null)
-            {
-                group.trigger();
-            }
+            
             
             //...
             return base.update();
