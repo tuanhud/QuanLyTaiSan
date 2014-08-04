@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Web
 {
-    public partial class Default2 : System.Web.UI.Page
+    public partial class BieuMauMuonPhong : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -12,6 +12,20 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (!IsPostBack)
+            //{
+            //    //Very Important
+            //    Global.working_database.use_internal_config = true;
+            //    //Global.debug.MODE = 0;
+
+            //    if (Convert.ToString(Page.Session["Username"]) != "admin")
+            //    {
+            //        //Response.Redirect("DangNhap.aspx");
+            //    }
+            //}
+        }
+        protected override void OnInit(EventArgs e)
+        {
             //Very Important
             Global.working_database.use_internal_config = true;
             //Global.debug.MODE = 0;

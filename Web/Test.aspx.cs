@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Entities;
 
 namespace Web
 {
@@ -11,7 +12,7 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Global.working_database.use_internal_config = true;            
         }
     }
 }
