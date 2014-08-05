@@ -478,7 +478,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 check = false;
                 dxErrorProvider1.SetError(txtTen, "Chưa điền tên");
             }
-            else if(listSuCo.Where(c=>c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count()>0)
+            else if(function.Equals("add") && listSuCo.Where(c=>c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count()>0)
             {
                 check = false;
                 dxErrorProvider1.SetError(txtTen, "Tên sự cố này đã tồn tại");
@@ -551,6 +551,11 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
                 return true;
             }
+        }
+
+        private void gridViewSuCo_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            setDataView();
         }
     }
 }

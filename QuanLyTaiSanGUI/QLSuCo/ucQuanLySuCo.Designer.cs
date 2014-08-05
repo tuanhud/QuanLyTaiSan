@@ -188,6 +188,7 @@
             this.gridViewSuCo.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewSuCo.OptionsView.ShowAutoFilterRow = true;
             this.gridViewSuCo.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridViewSuCo.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewSuCo_RowClick);
             this.gridViewSuCo.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gridViewSuCo_MasterRowEmpty);
             this.gridViewSuCo.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gridViewSuCo_MasterRowGetChildList);
             this.gridViewSuCo.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gridViewSuCo_MasterRowGetRelationName);

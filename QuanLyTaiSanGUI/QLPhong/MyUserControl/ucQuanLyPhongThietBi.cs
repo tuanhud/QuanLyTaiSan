@@ -160,9 +160,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 enableEdit(false);
             }
-            if (e.FocusedRowHandle >= 0)
+            if (e.FocusedRowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
+                objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
@@ -170,9 +171,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewCTThietBi_RowClick(object sender, RowClickEventArgs e)
         {
-            if (e.RowHandle >= 0)
+            if (e.RowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.RowHandle, colid)));
+                //objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.RowHandle, colid)));
+                objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
@@ -427,9 +429,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 enableEdit(false);
             }
-            if (gridViewCTThietBi.FocusedRowHandle >= 0)
+            if (gridViewCTThietBi.FocusedRowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(gridViewCTThietBi.FocusedRowHandle, colid)));
+                objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
