@@ -89,9 +89,6 @@ namespace QuanLyTaiSanGUI
             _ucQuanLySuCo = new ucQuanLySuCo();
             _ucPhanCongQTV = new ucPhanCongQTV();
 
-            //Add ucQuanLyTinhTrang
-            backstageViewClientControlTinhTrang.Controls.Add(_ucQuanLyTinhTrang);
-
             //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             //DockStyle
             _ucThongKeChiTiet.Dock = DockStyle.Fill;
@@ -106,6 +103,7 @@ namespace QuanLyTaiSanGUI
             _ucTK_SLTB_TheoTinhTrang.Dock = DockStyle.Fill;
             _ucQuanLySuCo.Dock = DockStyle.Fill;
             _ucPhanCongQTV.Dock = DockStyle.Fill;
+            _ucQuanLyTinhTrang.Dock = DockStyle.Fill;
             //Add RibbonPage
             //addRibbonPage(_ucThongKeChiTiet.getRibbon());
             //addRibbonPage(_ucThongKeTongQuat.getRibbon());
@@ -119,6 +117,7 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
             addRibbonPage(_ucQuanLySuCo.getRibbon());
             addRibbonPage(_ucPhanCongQTV.getRibbon());
+            addRibbonPage(_ucQuanLyTinhTrang.getRibbon());
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
@@ -234,6 +233,13 @@ namespace QuanLyTaiSanGUI
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucPhanCongQTV);
                     }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageTinhTrang_Home")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyTinhTrang.loadData();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucQuanLyTinhTrang);
+                    }
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
             }
@@ -304,9 +310,13 @@ namespace QuanLyTaiSanGUI
                     {
                         working = _ucQuanLySuCo.checkworking();
                     }
-                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanCongQTV")))
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanCongQTV_Home")))
                     {
-                        //working = _ucPhanCongQTV.checkworking();
+                        working = _ucPhanCongQTV.checkworking();
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageTinhTrang_Home")))
+                    {
+                        working = _ucQuanLyTinhTrang.checkworking();
                     }
                     if (working)
                     {
@@ -367,11 +377,7 @@ namespace QuanLyTaiSanGUI
             backstageViewClientControlThongTinPhanMem.Controls.Add(_ucThongTinPhanMem);
         }
 
-        private void backstageViewTabItemTinhTrang_SelectedChanged(object sender, BackstageViewItemEventArgs e)
-        {
-            if(backstageViewTabItemTinhTrang.Selected)
-                _ucQuanLyTinhTrang.loadData();
-        }
+
 
         private void backstageViewButtonItemLogout_ItemClick(object sender, BackstageViewItemEventArgs e)
         {

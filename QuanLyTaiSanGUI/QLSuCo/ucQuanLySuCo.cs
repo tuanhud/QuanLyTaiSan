@@ -31,12 +31,12 @@ namespace QuanLyTaiSanGUI.QLSuCo
         private void init()
         {
             ribbonSuCoPhong.Parent = null;
-            gridViewSuCo.Columns[colday.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridViewSuCo.Columns[colday.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewSuCo.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewSuCo.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewSuCo.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             
-            gridViewLogSuCo.Columns[collcreate.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridViewLogSuCo.Columns[collcreate.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewLogSuCo.Columns[colltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -61,7 +61,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             layout.load(gridViewSuCo);
             List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listViTri);
-            List<TinhTrang> listTinhTrang = TinhTrang.getAll();
+            List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
             lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
             objPhong = _ucTreeViTri.getPhong();
             loadData(objPhong != null ? objPhong.id : -1, true);
@@ -75,7 +75,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 layout.load(gridViewSuCo);
                 List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
                 _ucTreeViTri.loadData(listViTri);
-                List<TinhTrang> listTinhTrang = TinhTrang.getAll();
+                List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
                 lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
                 _ucTreeViTri.setPhong(obj);
                 loadData(obj != null ? obj.id : -1);
@@ -96,7 +96,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 }
                 if (objPhong != null && objPhong.id > 0)
                 {
-                    listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).ToList();
+                    listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).OrderByDescending(c=>c.ngay).ToList();
                     gridControlSuCo.DataSource = listSuCo;
                     barBtnThem.Enabled = true;
                     btnR_Them.Enabled = true;
@@ -249,6 +249,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 }
                 else
                 {
+                    enableButton(false);
                     objSuCo = new SuCoPhong();
                 }
             }
@@ -287,7 +288,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         private void gridViewSuCo_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             SuCoPhong c = (SuCoPhong)gridViewSuCo.GetRow(e.RowHandle);
-            e.ChildList = c.logsucophongs.ToList();
+            e.ChildList = c.logsucophongs.OrderByDescending(p=>p.date_create).ToList();
         }
 
         private void gridViewSuCo_DataSourceChanged(object sender, EventArgs e)
@@ -476,6 +477,11 @@ namespace QuanLyTaiSanGUI.QLSuCo
             {
                 check = false;
                 dxErrorProvider1.SetError(txtTen, "Chưa điền tên");
+            }
+            else if(listSuCo.Where(c=>c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count()>0)
+            {
+                check = false;
+                dxErrorProvider1.SetError(txtTen, "Tên sự cố này đã tồn tại");
             }
             if (lookUpEditTinhTrang.EditValue == null)
             {

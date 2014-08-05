@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         NhanVienPT objNhanVienPT = new NhanVienPT();
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
-        public Boolean working = false;
+        Boolean working = false;
 
         MyLayout layout = new MyLayout();
 
@@ -40,7 +40,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
              ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
-            gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            //gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             listBoxPhong.SortOrder = SortOrder.Ascending;
             gridViewNhanVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewNhanVien.Columns[colsodienthoai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -53,7 +53,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 editGUI("view");
                 layout.load(gridViewNhanVien);
-                NhanVienPTs = NhanVienPT.getAll();
+                NhanVienPTs = NhanVienPT.getQuery().OrderBy(c=>c.hoten).ToList();
                 gridControlNhanVien.DataSource = NhanVienPTs;
                 if (NhanVienPTs.Count == 0)
                 {
@@ -173,7 +173,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         txtMa.Text = objNhanVienPT.subId;
                         txtTen.Text = objNhanVienPT.hoten;
                         txtSodt.Text = objNhanVienPT.sodienthoai;
-                        listBoxPhong.DataSource = objNhanVienPT.phongs;
+                        listPhong = objNhanVienPT.phongs.ToList();
+                        listBoxPhong.DataSource = listPhong;
                         listHinhs = objNhanVienPT.hinhanhs.ToList();
                         reloadImage();
                     }
@@ -185,6 +186,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 }
                 else
                 {
+                    enableButton(false);
+                    barBtnThemNhanVien.Enabled = true;
                     clearText();
                     objNhanVienPT = new NhanVienPT();
                 }
@@ -511,20 +514,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                if (!function.Equals("edit"))
-                {
-                    if (function.Equals("add"))
-                    {
-                        return
-                            !txtMa.Text.Equals("") ||
-                            !txtTen.Text.Equals("") ||
-                            !txtSodt.Text.Equals("") ||
-                            listHinhs.Count > 0;
-                    }
-                    else
-                        return working;
-                }
-                else
+                if (function.Equals("edit"))
                 {
                     return
                         objNhanVienPT.subId != txtMa.Text ||
@@ -533,6 +523,22 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         objNhanVienPT.hinhanhs.Except(listHinhs).Count() > 0 ||
                         listHinhs.Except(objNhanVienPT.hinhanhs).Count() > 0;
                 }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtMa.Text.Equals("") ||
+                        !txtTen.Text.Equals("") ||
+                        !txtSodt.Text.Equals("") ||
+                        listHinhs.Count > 0;
+                }
+                else if (function.Equals("phancong"))
+                {
+                    return
+                        objNhanVienPT.phongs.Except(listPhong).Count() > 0 ||
+                        listPhong.Except(objNhanVienPT.phongs).Count() > 0;
+                }
+                else
+                    return working;
             }
             catch(Exception ex)
             {

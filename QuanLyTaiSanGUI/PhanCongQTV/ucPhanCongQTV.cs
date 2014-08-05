@@ -32,7 +32,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
         {
             ribbonPhanCongQTV.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
-            gridViewQuanTriVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            //gridViewQuanTriVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             listBoxPhong.SortOrder = SortOrder.Ascending;
             gridViewQuanTriVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewQuanTriVien.Columns[colsodienthoai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -45,7 +45,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
             {
                 PhanCong(false);
                 layout.load(gridViewQuanTriVien);
-                QuanTriViens = QuanTriVien.getAll();
+                QuanTriViens = QuanTriVien.getQuery().OrderBy(c=>c.hoten).ToList();
                 gridControlQuanTriVien.DataSource = QuanTriViens;
                 if (QuanTriViens.Count == 0)
                 {
@@ -115,7 +115,8 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                         txtTen.Text = objQuanTriVien.hoten;
                         txtUsername.Text = objQuanTriVien.username;
                         txtMota.Text = objQuanTriVien.mota;
-                        listBoxPhong.DataSource = objQuanTriVien.phongs;
+                        listPhong = objQuanTriVien.phongs.ToList();
+                        listBoxPhong.DataSource = listPhong;
                     }
                     else
                     {
@@ -204,6 +205,26 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
             int rowHandle = gridViewQuanTriVien.LocateByValue(colid.FieldName, id);
             if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
                 gridViewQuanTriVien.FocusedRowHandle = rowHandle;
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (working)
+                {
+                    return
+                        objQuanTriVien.phongs.Except(listPhong).Count() > 0 ||
+                        listPhong.Except(objQuanTriVien.phongs).Count() > 0;
+                }
+                else 
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
+            }
         }
     }
 }

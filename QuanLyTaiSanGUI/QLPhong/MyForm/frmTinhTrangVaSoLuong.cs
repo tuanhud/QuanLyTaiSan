@@ -25,7 +25,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
         public frmTinhTrangVaSoLuong(bool _loaichung)
         {
             InitializeComponent();
-            List<TinhTrang> list = TinhTrang.getAll();
+            List<TinhTrang> list = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
             lookUpEdit1.Properties.DataSource = list;
             spinEdit1.Properties.ReadOnly = !_loaichung;
             if (list.Count > 0)
