@@ -89,12 +89,17 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             txtMoTa.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnR_Them.Enabled = !_enable;
+            barButtonThemTinhTrang.Enabled = !_enable;
             working = _enable;
         }
 
         private void enableButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
+            barButtonSuaTinhTrang.Enabled = _enable;
+            barButtonXoaTinhTrang.Enabled = _enable;
+            barBtnUp.Enabled = _enable;
+            barBtnDown.Enabled = _enable;
             btnR_Sua.Enabled = _enable;
             btnR_Xoa.Enabled = _enable;
         }
@@ -128,6 +133,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 }
                 else
                 {
+                    enableButton(false);
                     clearText();
                     objTinhTrang = new TinhTrang();
                 }

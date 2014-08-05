@@ -186,6 +186,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 }
                 else
                 {
+                    enableButton(false);
+                    barBtnThemNhanVien.Enabled = true;
                     clearText();
                     objNhanVienPT = new NhanVienPT();
                 }

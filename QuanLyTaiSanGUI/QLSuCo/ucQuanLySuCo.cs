@@ -249,6 +249,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 }
                 else
                 {
+                    enableButton(false);
                     objSuCo = new SuCoPhong();
                 }
             }
