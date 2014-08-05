@@ -43,7 +43,6 @@
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.ribbonTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaTinhTrang = new DevExpress.XtraBars.BarButtonItem();
@@ -53,6 +52,7 @@
             this.rbnPageTinhTrang_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
@@ -61,8 +61,8 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonTinhTrang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -231,12 +231,6 @@
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Tên:";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.RightToLeft = true;
-            // 
             // ribbonTinhTrang
             // 
             this.ribbonTinhTrang.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -321,6 +315,10 @@
             this.rbnGroupOrder.ShowCaptionButton = false;
             this.rbnGroupOrder.Text = "Sắp xếp";
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // ucQuanLyTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,8 +336,8 @@
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonTinhTrang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,7 +353,6 @@
         private DevExpress.XtraEditors.SimpleButton btnOk;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
@@ -372,5 +369,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageTinhTrang_Home;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupTinhTrang;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupOrder;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }

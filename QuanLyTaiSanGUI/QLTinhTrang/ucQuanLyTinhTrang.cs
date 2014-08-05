@@ -114,7 +114,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
-                errorProvider1.Clear();
+                dxErrorProvider1.ClearErrors();
                 if(!function.Equals("view")) 
                     editGUI("view");
                 if (gridViewTinhTrang.RowCount > 0)
@@ -192,13 +192,14 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
+                dxErrorProvider1.ClearErrors();
                 Boolean check = true;
                 if (function.Equals("add"))
                 {
                     if (listTinhTrang.Where(i => i.value == txtTen.Text).FirstOrDefault() != null)
                     {
                         check = false;
-                        errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng đã có");
                     }
                 }
                 else if (function.Equals("edit"))
@@ -206,13 +207,13 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     if (listTinhTrang.Where(i => i.value == txtTen.Text && i.id != objTinhTrang.id).FirstOrDefault() != null)
                     {
                         check = false;
-                        errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng đã có");
                     }
                 }
                 if (txtTen.Text.Length == 0)
                 {
                     check = false;
-                    errorProvider1.SetError(txtTen, "Chưa điền tên tình trạng");
+                    dxErrorProvider1.SetError(txtTen, "Chưa điền tên tình trạng");
                 }
                 return check;
             }
@@ -269,7 +270,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            dxErrorProvider1.ClearErrors();
             setDataView();
         }
 
