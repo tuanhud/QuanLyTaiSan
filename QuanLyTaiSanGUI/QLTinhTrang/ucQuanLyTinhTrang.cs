@@ -199,7 +199,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     if (listTinhTrang.Where(i => i.value == txtTen.Text).FirstOrDefault() != null)
                     {
                         check = false;
-                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng này đã tồn tại");
                     }
                 }
                 else if (function.Equals("edit"))
@@ -207,7 +207,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     if (listTinhTrang.Where(i => i.value == txtTen.Text && i.id != objTinhTrang.id).FirstOrDefault() != null)
                     {
                         check = false;
-                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng này đã tồn tại");
                     }
                 }
                 if (txtTen.Text.Length == 0)
