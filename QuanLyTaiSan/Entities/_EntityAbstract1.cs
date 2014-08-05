@@ -22,7 +22,8 @@ namespace QuanLyTaiSan.Entities
         public _EntityAbstract1()
         {
             //Need to find out another approach, reporting by code analysized
-            init();//it will call TOP level first
+            //it will call TOP level first
+            init();
         }
         #region Định nghĩa
         [Key]
@@ -55,14 +56,9 @@ namespace QuanLyTaiSan.Entities
         #endregion
         
         #region Nghiệp vụ
-        //[NotMapped]
-        //public Dictionary<String, String> errors;
-        ///// <summary>
-        ///// Lấy danh sách các lỗi khi update/add
-        ///// </summary>
         protected virtual void init()
         {
-            //this.errors = new Dictionary<string, string>();
+            
         }
         /*
          * Method of interface
@@ -92,30 +88,13 @@ namespace QuanLyTaiSan.Entities
                 //script
                 db.Set<T>().Add((T)this);
                 db.SaveChanges();
-                //clear error
-                //errors.Clear();
                 return id;
             }
-            //catch (DbEntityValidationException va)
-            //{
-            //    foreach (var item in va.EntityValidationErrors)
-            //    {
-            //        foreach (var item2 in item.ValidationErrors)
-            //        {
-            //            errors.Add(item2.PropertyName, item2.ErrorMessage);
-            //        }
-            //    }
-            //    return -1;
-            //}
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
                 //db.Set<T>().Remove((T)this);//remove if fail
                 return -1;
-            }
-            finally
-            {
-                
             }
         }
 
@@ -129,34 +108,13 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                //script
-                //db.Set<T>().Attach((T)this);
-                //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
-                //db.Entry(this).State = EntityState.Modified;//importance
                 db.SaveChanges();
-                //clear error
-                //errors.Clear();
                 return 1;
             }
-            //catch (DbEntityValidationException va)
-            //{
-            //    foreach (var item in va.EntityValidationErrors)
-            //    {
-            //        foreach (var item2 in item.ValidationErrors)
-            //        {
-            //            errors.Add(item2.PropertyName, item2.ErrorMessage);
-            //        }
-            //    }
-            //    return -1;
-            //}
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
                 return -1;
-            }
-            finally
-            {
-                
             }
         }
 
@@ -170,7 +128,6 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                //db.Set<T>().Attach((T)this);//Có thể gây lỗi bị clear list khóa ngoại,...
                 db.Set<T>().Remove((T)this);
                 db.SaveChanges();
                 return 1;
@@ -178,12 +135,9 @@ namespace QuanLyTaiSan.Entities
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
-                db.Set<T>().Attach((T)this);//nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
+                //nếu bị lỗi thì Attach lại, để không bị mất khóa ngoại, cháu chắt
+                db.Set<T>().Attach((T)this);
                 return -1;
-            }
-            finally
-            {
-                
             }
         }
         public static T getById(int id)
@@ -196,10 +150,6 @@ namespace QuanLyTaiSan.Entities
             {
                 Debug.WriteLine(ex.ToString());
                 return null;
-            }
-            finally
-            {
-                
             }
         }
         /// <summary>
@@ -220,16 +170,12 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                return db.Set<T>().ToList();//.ToList();//return toList là dở vì phải load hết dữ liệu trước
+                return db.Set<T>().ToList();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
                 return new List<T>();
-            }
-            finally
-            {
-                
             }
         }
         /// <summary>
@@ -275,10 +221,6 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(ex.ToString());
                 return null;
             }
-            finally
-            {
-
-            }
         }
         /// <summary>
         /// Force to load object because of Lazy Loading,
@@ -307,8 +249,6 @@ namespace QuanLyTaiSan.Entities
             }
             return re;
         }
-        #endregion
-        
         /// <summary>
         /// Clone to new Object
         /// </summary>
@@ -330,13 +270,13 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public virtual void moveUp()
         {
-            T prev =  db.Set<T>().Where(c => c.order < this.order).OrderByDescending(c => c.order).FirstOrDefault();
+            T prev = db.Set<T>().Where(c => c.order < this.order).OrderByDescending(c => c.order).FirstOrDefault();
             if (prev == null)
             {
                 return;
             }
             //SWAP order value
-            int? order_1 = this.order == null ? this.id:this.order;
+            int? order_1 = this.order == null ? this.id : this.order;
             int? order_2 = prev.order == null ? prev.id : prev.order;
 
             this.order = order_2;
@@ -359,8 +299,9 @@ namespace QuanLyTaiSan.Entities
             }
             next.moveUp();
         }
-
-        #region Envent register
+        #endregion
+        
+        #region Event register
         /// <summary>
         /// Chạy nghiệp vụ trước khi bị xóa
         /// </summary>

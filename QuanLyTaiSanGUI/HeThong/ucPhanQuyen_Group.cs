@@ -54,5 +54,10 @@ namespace QuanLyTaiSanGUI.HeThong
             txtMoTa.Text = obj.mota;
             listBoxQuyen.DataSource = obj.permissions.ToList();
         }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
