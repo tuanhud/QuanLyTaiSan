@@ -48,7 +48,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
-            gridViewlog.Columns[colngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridViewlog.Columns[colngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewCTThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[colloaiTB.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -190,7 +190,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 dateLap.EditValue = _obj.ngay;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
+                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).OrderByDescending(c=>c.date_create).ToList();
                 reloadImage();
             }
             catch (Exception ex)
