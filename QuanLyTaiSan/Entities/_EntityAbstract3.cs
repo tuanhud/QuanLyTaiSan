@@ -16,8 +16,9 @@ namespace QuanLyTaiSan.Entities
         public String hoten { get; set; }
 
         [Index(IsUnique = true)]
-        [StringLength(100)]
-        [Required]
+        [StringLength(100,ErrorMessage="Tên đăng nhập tối đa 100 ký tự")]
+        [Required(ErrorMessage = "Tên đăng nhập không được để trống")]
+        [Display(Name = "Tên đăng nhập")]
         public String username { get; set; }
 
         /// <summary>
@@ -125,7 +126,12 @@ namespace QuanLyTaiSan.Entities
         {
             if (newPass == null || newPassConfirm == null)
             {
-                return -3;
+                //Coi như không có gì xảy ra
+                return -1;
+            }
+            if (newPass.Equals("") || newPassConfirm.Equals(""))
+            {
+                return -1;
             }
             if (!newPass.ToUpper().Equals(newPassConfirm.ToUpper()))
             {

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,9 +55,14 @@ namespace QuanLyTaiSan.Entities
         #endregion
         
         #region Nghiệp vụ
+        //[NotMapped]
+        //public Dictionary<String, String> errors;
+        ///// <summary>
+        ///// Lấy danh sách các lỗi khi update/add
+        ///// </summary>
         protected virtual void init()
         {
-            
+            //this.errors = new Dictionary<string, string>();
         }
         /*
          * Method of interface
@@ -86,8 +92,21 @@ namespace QuanLyTaiSan.Entities
                 //script
                 db.Set<T>().Add((T)this);
                 db.SaveChanges();
+                //clear error
+                //errors.Clear();
                 return id;
             }
+            //catch (DbEntityValidationException va)
+            //{
+            //    foreach (var item in va.EntityValidationErrors)
+            //    {
+            //        foreach (var item2 in item.ValidationErrors)
+            //        {
+            //            errors.Add(item2.PropertyName, item2.ErrorMessage);
+            //        }
+            //    }
+            //    return -1;
+            //}
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
@@ -115,8 +134,21 @@ namespace QuanLyTaiSan.Entities
                 //Sử dụng EntityState.Modified có thể gây lỗi Validation Error, khi update 1 object mà có [Required] FK object khác, mà FK Object  chưa được load ít nhất 1 lần => Bắt buộc phải load FK Object trước
                 //db.Entry(this).State = EntityState.Modified;//importance
                 db.SaveChanges();
+                //clear error
+                //errors.Clear();
                 return 1;
             }
+            //catch (DbEntityValidationException va)
+            //{
+            //    foreach (var item in va.EntityValidationErrors)
+            //    {
+            //        foreach (var item2 in item.ValidationErrors)
+            //        {
+            //            errors.Add(item2.PropertyName, item2.ErrorMessage);
+            //        }
+            //    }
+            //    return -1;
+            //}
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
@@ -232,10 +264,10 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                db.Entry((T)this).State = EntityState.Detached;//destroy cached
+                db.Entry(this).State = EntityState.Detached;//destroy cached
                 T tmp = db.Set<T>().Find(id);
                 //very importance (nếu kh có sẽ bị INSERT lại OBJ, chưa hiểu rõ)
-                db.Entry<T>(tmp).State = EntityState.Unchanged;
+                db.Entry(tmp).State = EntityState.Unchanged;
                 return tmp;
             }
             catch (Exception ex)
