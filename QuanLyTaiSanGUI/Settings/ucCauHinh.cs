@@ -305,6 +305,8 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
 
+        private string passwordMaHoa = "ajdshja^%jasdaASHGHJ";
+
         private void simpleButton_Import_Click(object sender, EventArgs e)
         {
             OpenFileDialog _OpenFileDialog = new OpenFileDialog();
@@ -328,23 +330,16 @@ namespace QuanLyTaiSanGUI.Settings
                 if (result.Count > 0)
                 {
                     string strXML = result[0].InnerText;
-                    string password = "";
-                    frmPasswordXML _frmDatPasswordXML = new frmPasswordXML();
-                    _frmDatPasswordXML.Text = "Vui lòng điền password";
-                    if (_frmDatPasswordXML.ShowDialog(this) == DialogResult.OK)
+                    string strXMLCauHinh = QuanLyTaiSan.Libraries.StringHelper.Decrypt(strXML, passwordMaHoa);
+                    if (strXMLCauHinh != string.Empty)
                     {
-                        password = _frmDatPasswordXML.textEdit_Password.Text;
-                        string strXMLCauHinh = QuanLyTaiSan.Libraries.StringHelper.Decrypt(strXML, password);
-                        if (strXMLCauHinh != string.Empty)
-                        {
-                            SetThongTinCauHinh(strXMLCauHinh);
-                            XtraMessageBox.Show("Import file XML thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            XtraMessageBox.Show("Sai password!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+                        SetThongTinCauHinh(strXMLCauHinh);
+                        XtraMessageBox.Show("Import file XML thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Sai password!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 else
@@ -358,22 +353,17 @@ namespace QuanLyTaiSanGUI.Settings
         private void simpleButton_Export_Click(object sender, EventArgs e)
         {
             string strXML = "";
-            frmPasswordXML _frmDatPasswordXML = new frmPasswordXML();
-            _frmDatPasswordXML.Text = "Đặt password cho file XML";
-            if (_frmDatPasswordXML.ShowDialog(this) == DialogResult.OK)
-            {
-                strXML = QuanLyTaiSan.Libraries.StringHelper.Encrypt(LayThongTinCauHinhHienTai(), _frmDatPasswordXML.textEdit_Password.Text);
-                SaveFileDialog _SaveFileDialog = new SaveFileDialog();
-                _SaveFileDialog.Filter = "XML File|*.xml";
-                _SaveFileDialog.Title = "Lưu file XML";
-                _SaveFileDialog.ShowDialog();
+            strXML = QuanLyTaiSan.Libraries.StringHelper.Encrypt(LayThongTinCauHinhHienTai(), passwordMaHoa);
+            SaveFileDialog _SaveFileDialog = new SaveFileDialog();
+            _SaveFileDialog.Filter = "XML File|*.xml";
+            _SaveFileDialog.Title = "Lưu file XML";
+            _SaveFileDialog.ShowDialog();
 
-                if (_SaveFileDialog.FileName != "")
-                {
-                    var xFile = new XElement("CauHinh", strXML);
-                    xFile.Save(_SaveFileDialog.FileName);
-                    XtraMessageBox.Show("Export file XML thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            if (_SaveFileDialog.FileName != "")
+            {
+                var xFile = new XElement("CauHinh", strXML);
+                xFile.Save(_SaveFileDialog.FileName);
+                XtraMessageBox.Show("Export file XML thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
