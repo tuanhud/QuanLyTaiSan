@@ -260,6 +260,11 @@ namespace QuanLyTaiSan.Entities
             /// </summary>
             public static int start_sync()
             {
+                //Kiểm tra nếu sử dụng internal config thì bỏ qua
+                if (Global.working_database.use_internal_config)
+                {
+                    return -1;
+                }
                 //Kiểm tra có sử dụng DBCache
                 if (!Global.local_setting.use_db_cache)
                 {
