@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         NhanVienPT objNhanVienPT = new NhanVienPT();
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
-        public Boolean working = false;
+        Boolean working = false;
 
         MyLayout layout = new MyLayout();
 

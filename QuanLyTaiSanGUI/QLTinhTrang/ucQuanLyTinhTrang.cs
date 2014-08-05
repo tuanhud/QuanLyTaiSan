@@ -18,10 +18,12 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         List<TinhTrang> listTinhTrang = new List<TinhTrang>();
         TinhTrang objTinhTrang = new TinhTrang();
         String function = "";
+        bool working = false;
 
         public ucQuanLyTinhTrang()
         {
             InitializeComponent();
+            ribbonTinhTrang.Parent = null;
         }
 
         public void loadData()
@@ -29,7 +31,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             try
             {
                 editGUI("view");
-                listTinhTrang = TinhTrang.getAll();
+                listTinhTrang = TinhTrang.getQuery().OrderBy(c=>c.order).ToList();
                 if (listTinhTrang.Count == 0)
                 {
                     enableButton(false);
@@ -87,6 +89,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             txtMoTa.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnR_Them.Enabled = !_enable;
+            working = _enable;
         }
 
         private void enableButton(bool _enable)
@@ -288,5 +291,86 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             setDataView();
         }
+
+        private void barButtonThemTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void barButtonSuaTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void barButtonXoaTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbon()
+        {
+            return ribbonTinhTrang;
+        }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (objTinhTrang != null && objTinhTrang.id > 0)
+                {
+                    objTinhTrang.moveUp();
+                    reloadAndFocused(objTinhTrang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (objTinhTrang != null && objTinhTrang.id > 0)
+                {
+                    objTinhTrang.moveDown();
+                    reloadAndFocused(objTinhTrang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        objTinhTrang.value != txtTen.Text ||
+                        objTinhTrang.mota != txtMoTa.Text;
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("");
+                }
+                else
+                {
+                    return working;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
+            }
+        }
+
     }
 }
