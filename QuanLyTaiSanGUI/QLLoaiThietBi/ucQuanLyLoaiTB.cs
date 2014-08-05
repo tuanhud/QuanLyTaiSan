@@ -333,6 +333,25 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 check = false;
                 errorProvider1.SetError(txtTen, "Chưa điền tên thiết bị");
             }
+            else
+            {
+                if (function.Equals("add"))
+                {
+                    if (loaiThietBis.Where(c => c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count() > 0)
+                    {
+                        check = false;
+                        errorProvider1.SetError(txtTen, "Tên loại thiết bị này đã tồn tại");
+                    }
+                }
+                else if (function.Equals("edit"))
+                {
+                    if (!objLoaiThietBi.ten.ToUpper().Equals(txtTen.Text.ToUpper()) && loaiThietBis.Where(c => c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count() > 0)
+                    {
+                        check = false;
+                        errorProvider1.SetError(txtTen, "Tên loại thiết bị này đã tồn tại");
+                    }
+                }
+            }
             LoaiThietBi cha = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
             if (cha.id != -1)
             {

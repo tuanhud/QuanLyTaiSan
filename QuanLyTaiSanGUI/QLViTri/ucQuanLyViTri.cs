@@ -653,6 +653,25 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 check = false;
                 dxErrorProvider1.SetError(txtTen, "Chưa điền tên");
             }
+            else if(type.Equals(typeof(CoSo).Name))
+            {
+                if (function.Equals("add"))
+                {
+                    if (CoSo.getQuery().Where(c => c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count() > 0)
+                    {
+                        check = false;
+                        dxErrorProvider1.SetError(txtTen, "Tên cơ sở này đã tồn tại");
+                    }
+                }
+                else if (function.Equals("edit"))
+                {
+                    if (!objCoSo.ten.ToUpper().Equals(txtTen.Text.ToUpper()) && CoSo.getQuery().Where(c => c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count() > 0)
+                    {
+                        check = false;
+                        dxErrorProvider1.SetError(txtTen, "Tên cơ sở này đã tồn tại");
+                    }
+                }
+            }
             return check;
         }
 
