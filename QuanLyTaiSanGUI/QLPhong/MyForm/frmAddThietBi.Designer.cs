@@ -103,6 +103,7 @@
             // 
             // toolTipController1
             // 
+            this.toolTipController1.AutoPopDelay = 3000;
             this.toolTipController1.ToolTipLocation = DevExpress.Utils.ToolTipLocation.BottomCenter;
             this.toolTipController1.ToolTipType = DevExpress.Utils.ToolTipType.SuperTip;
             // 

@@ -50,6 +50,7 @@
             this.backstageViewTabItemRestart = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.backstageViewItemSeparator7 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.backstageViewTabItemLogout = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.barStaticUser = new DevExpress.XtraBars.BarStaticItem();
             this.rbnPageNothing = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
@@ -71,9 +72,10 @@
             this.ribbonMain.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonMain.ExpandCollapseItem});
+            this.ribbonMain.ExpandCollapseItem,
+            this.barStaticUser});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 1;
+            this.ribbonMain.MaxItemId = 3;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageNothing});
@@ -235,6 +237,15 @@
             this.backstageViewTabItemLogout.Selected = false;
             this.backstageViewTabItemLogout.ItemPressed += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemLogout_ItemPressed);
             // 
+            // barStaticUser
+            // 
+            this.barStaticUser.Caption = "null";
+            this.barStaticUser.Id = 2;
+            this.barStaticUser.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticUser.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticUser.Name = "barStaticUser";
+            this.barStaticUser.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // rbnPageNothing
             // 
             this.rbnPageNothing.Name = "rbnPageNothing";
@@ -243,6 +254,7 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticUser);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 676);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMain;
@@ -354,7 +366,8 @@
         private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator7;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemLogout;
         private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;    
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;
+        private DevExpress.XtraBars.BarStaticItem barStaticUser;    
         
     }
 }
