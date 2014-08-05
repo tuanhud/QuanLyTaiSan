@@ -49,13 +49,22 @@ namespace Web {
         protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit ASPxDateEditNgayMuon;
         
         /// <summary>
-        /// ASPxDateEditNgayTra control.
+        /// ASPxTimeEditTuGio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit ASPxDateEditNgayTra;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTimeEdit ASPxTimeEditTuGio;
+        
+        /// <summary>
+        /// ASPxTimeEditDenGio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTimeEdit ASPxTimeEditDenGio;
         
         /// <summary>
         /// ASPxTextBoxPhong control.

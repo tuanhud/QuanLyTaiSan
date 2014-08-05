@@ -16,6 +16,8 @@ namespace QuanLyTaiSan.Entities
         /// Ngày bắt đầu mượn
         /// </summary>
         [Required]
+        public String khoaphongmuon { get; set; }
+        [Required]
         public DateTime ngaymuon { get; set; }
         /// <summary>
         /// Ngày trả
@@ -29,13 +31,13 @@ namespace QuanLyTaiSan.Entities
         /// -1: Đã bị từ chối
         /// </summary>
         public int trangthai { get; set; }
-        public String lydotuchoi { get; set; }
+        public String ghichu { get; set; }
         /// <summary>
         /// Mượn cho lớp nào (nếu có)
         /// </summary>
         public String lop { get; set; }
         [Required]
-        public String phong { get; set; }
+        public int sophong { get; set; }
         /*
          * FK
          */
