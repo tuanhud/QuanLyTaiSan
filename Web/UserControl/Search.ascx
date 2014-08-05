@@ -15,7 +15,7 @@
     <b class="Clear"></b>
 </div>
 <dx:ASPxPopupControl runat="server" ID="SearchPopup" ClientInstanceName="SearchPopup" OnWindowCallback="SearchPopup_WindowCallback"
-    EnableTheming="false" ShowHeader="false" PopupAlignCorrection="Disabled"
+EnableTheming="false" ShowHeader="false" PopupAlignCorrection="Disabled"
     PopupVerticalAlign="Below" PopupHorizontalAlign="LeftSides" CssClass="SearchPopup" Width="275px" LoadingPanelText="Đang tìm...">
     <ClientSideEvents BeginCallback="DXDemo.Search.onSearchPopupBeginCallback" EndCallback="DXDemo.Search.onSearchPopupEndCallback" />
     <ContentCollection>

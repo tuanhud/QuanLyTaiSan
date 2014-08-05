@@ -221,6 +221,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 else
                 {
                     MessageBox.Show("Có lỗi xảy ra!");
+                    showValidationError();
                     return;
                 }
 
@@ -250,14 +251,14 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            enableEdit(false, "");
+            //enableEdit(false, "");
             setThongTinChiTiet(objQuanTriVienFilter.quantrivien);
         }
 
         private void barButtonThemQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             enableEdit(true, "add");
-            setThongTinChiTiet(new QuanTriVien());
+            clearThongTinChiTiet();
         }
 
         private void barButtonXoaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

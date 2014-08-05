@@ -28,16 +28,23 @@
             </div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">Từ ngày</label>
+                    <label class="col-lg-2 control-label">Ngày mượn</label>
                     <div class="col-lg-10">
                         <dx:ASPxDateEdit ID="ASPxDateEditNgayMuon" runat="server"></dx:ASPxDateEdit>
                     </div>
                 </div>
                 <br />
                 <div class="form-group">
-                    <label class="col-lg-2 control-label">Đến ngày</label>
+                    <label class="col-lg-2 control-label">Từ giờ</label>
                     <div class="col-lg-10">
-                        <dx:ASPxDateEdit ID="ASPxDateEditNgayTra" runat="server"></dx:ASPxDateEdit>
+                        <dx:ASPxTimeEdit ID="ASPxTimeEditTuGio" runat="server"></dx:ASPxTimeEdit>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Đến giờ</label>
+                    <div class="col-lg-10">
+                        <dx:ASPxTimeEdit ID="ASPxTimeEditDenGio" runat="server"></dx:ASPxTimeEdit>
                     </div>
                 </div>
                 <br />
@@ -51,7 +58,10 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Số lượng sinh viên</label>
                     <div class="col-lg-10">
-                        <dx:ASPxTextBox ID="ASPxTextBoxSoLuong" runat="server" Width="170px"></dx:ASPxTextBox>
+                        <dx:ASPxTextBox ID="ASPxTextBoxSoLuong" runat="server" Width="170px">
+                            <MaskSettings Mask="<01..1000>" IncludeLiterals="DecimalSymbol" />
+                            <ValidationSettings ErrorDisplayMode="ImageWithTooltip" />
+                        </dx:ASPxTextBox>
                     </div>
                 </div>
                 <br />

@@ -224,6 +224,18 @@
     <Compile Include="Migrations\201408040805353_Them_nghiepVu_muonPhong.Designer.cs">
       <DependentUpon>201408040805353_Them_nghiepVu_muonPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408050529462_sua_thuoctinh_phieumuonphong.cs" />
+    <Compile Include="Migrations\201408050529462_sua_thuoctinh_phieumuonphong.Designer.cs">
+      <DependentUpon>201408050529462_sua_thuoctinh_phieumuonphong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408050612322_them_thuoc_tinh_khoaphongmuon.cs" />
+    <Compile Include="Migrations\201408050612322_them_thuoc_tinh_khoaphongmuon.Designer.cs">
+      <DependentUpon>201408050612322_them_thuoc_tinh_khoaphongmuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.cs" />
+    <Compile Include="Migrations\201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.Designer.cs">
+      <DependentUpon>201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -306,6 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408040805353_Them_nghiepVu_muonPhong.resx">
       <DependentUpon>201408040805353_Them_nghiepVu_muonPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408050529462_sua_thuoctinh_phieumuonphong.resx">
+      <DependentUpon>201408050529462_sua_thuoctinh_phieumuonphong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408050612322_them_thuoc_tinh_khoaphongmuon.resx">
+      <DependentUpon>201408050612322_them_thuoc_tinh_khoaphongmuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.resx">
+      <DependentUpon>201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

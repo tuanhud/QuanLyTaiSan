@@ -149,7 +149,7 @@ namespace QuanLyTaiSan.Entities
         public DbSet<Setting> SETTINGS { get; set; }
         public DbSet<GiangVien> GIANGVIENS { get; set; }
         public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
-
+        #region STATIC
         /// <summary>
         /// for SYNC
         /// </summary>
@@ -191,6 +191,24 @@ namespace QuanLyTaiSan.Entities
                 };
             }
         }
+        #endregion
+        #region Manual
+        /// <summary>
+        /// Lấy danh sách lỗi sau khi add/update được gọi,
+        /// dùng để phục vụ mục đích hiển thị lỗi
+        /// </summary>
+        public ICollection<DbValidationError> ERRORs
+        {
+            get
+            {
+                List<DbValidationError> re = new List<DbValidationError>();
+                foreach (DbEntityValidationResult tmp in DBInstance.DB.GetValidationErrors())
+                {
+                    re.AddRange(tmp.ValidationErrors);
+                }
+                return re;
+            }
+        }
         /// <summary>
         /// Kiem tra model backing changed
         /// </summary>
@@ -229,6 +247,15 @@ namespace QuanLyTaiSan.Entities
                 return false;
             }
         }
+        private void sync()
+        {
+            Debug.WriteLine("======Location: OurDBConText======");
+            Debug.WriteLine("======Start sync when insert in new Thread======");
+            Global.client_database.start_sync();
+            Debug.WriteLine("======End sync when insert in new Thread======");
+        }
+        #endregion
+        #region Override
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //CONFIG
@@ -412,28 +439,22 @@ namespace QuanLyTaiSan.Entities
 
             return result;
         }
-        private void sync()
+        protected override DbEntityValidationResult ValidateEntity(DbEntityEntry entityEntry, IDictionary<object, object> items)
         {
-            Debug.WriteLine("======Location: OurDBConText======");
-            Debug.WriteLine("======Start sync when insert in new Thread======");
-            Global.client_database.start_sync();
-            Debug.WriteLine("======End sync when insert in new Thread======");
-        }
-        /// <summary>
-        /// Lấy danh sách lỗi sau khi add/update được gọi,
-        /// dùng để phục vụ mục đích hiển thị lỗi
-        /// </summary>
-        public ICollection<DbValidationError> ERRORs
-        {
-            get
+            if (entityEntry.Entity is QuanTriVien && entityEntry.State == EntityState.Added)
             {
-                List<DbValidationError> re = new List<DbValidationError>();
-                foreach (DbEntityValidationResult tmp in DBInstance.DB.GetValidationErrors())
+                QuanTriVien tmp = (QuanTriVien)entityEntry.Entity;
+                if (this.QUANTRIVIENS.Where(c=>c.username.ToUpper().Equals(tmp.username.ToUpper())).FirstOrDefault()!=null)
                 {
-                    re.AddRange(tmp.ValidationErrors);
+                    List<DbValidationError> list = new List<DbValidationError>();
+                    list.Add(new DbValidationError("username", "Tên đăng nhập đã có"));
+
+                    return new DbEntityValidationResult(entityEntry, list);
                 }
-                return re;
             }
+            return base.ValidateEntity(entityEntry, items);
         }
+        #endregion
+        
     }
 }

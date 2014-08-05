@@ -338,7 +338,7 @@ namespace QuanLyTaiSanGUI.Settings
                     }
                     else
                     {
-                        XtraMessageBox.Show("Sai password!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Lỗi giải mã!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
