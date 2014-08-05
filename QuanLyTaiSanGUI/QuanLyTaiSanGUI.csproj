@@ -130,6 +130,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPasswordXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPasswordXML.Designer.cs">
+      <DependentUpon>frmPasswordXML.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHinhAnh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +453,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPasswordXML.resx">
+      <DependentUpon>frmPasswordXML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>

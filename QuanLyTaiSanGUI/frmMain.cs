@@ -69,6 +69,10 @@ namespace QuanLyTaiSanGUI
 
         private void init()
         {
+            //Hiện tên người dùng
+            if (Global.current_quantrivien_login != null && Global.current_quantrivien_login.hoten!=null)
+                barStaticUser.Caption = Global.current_quantrivien_login.hoten;
+
             //Việt hóa
             DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
             DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();

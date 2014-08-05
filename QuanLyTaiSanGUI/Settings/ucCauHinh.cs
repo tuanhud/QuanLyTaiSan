@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
 using DevExpress.XtraEditors;
+using System.Xml.Linq;
+using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace QuanLyTaiSanGUI.Settings
 {
@@ -302,9 +305,130 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
 
-        private void simpleButton_Huy_Click(object sender, EventArgs e)
+        private void simpleButton_Import_Click(object sender, EventArgs e)
         {
-            
+            OpenFileDialog _OpenFileDialog = new OpenFileDialog();
+            _OpenFileDialog.Title = "Chọn file XML cấu hình";
+            _OpenFileDialog.Filter = "XML File|*.xml";
+            _OpenFileDialog.Multiselect = false;
+            DialogResult _DialogResult = _OpenFileDialog.ShowDialog();
+            if (_DialogResult == DialogResult.OK)
+            {
+                XmlDocument xml = new XmlDocument();
+                try
+                {
+                    xml.Load(_OpenFileDialog.FileName);
+                }
+                catch
+                {
+                    XtraMessageBox.Show("Có lỗi khi đọc file!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var result = xml.SelectNodes("/CauHinh");
+                if (result.Count > 0)
+                {
+                    string strXML = result[0].InnerText;
+                    string password = "";
+                    frmPasswordXML _frmDatPasswordXML = new frmPasswordXML();
+                    _frmDatPasswordXML.Text = "Vui lòng điền password";
+                    if (_frmDatPasswordXML.ShowDialog(this) == DialogResult.OK)
+                    {
+                        password = _frmDatPasswordXML.textEdit_Password.Text;
+                        string strXMLCauHinh = QuanLyTaiSan.Libraries.StringHelper.Decrypt(strXML, password);
+                        if (strXMLCauHinh != string.Empty)
+                        {
+                            SetThongTinCauHinh(strXMLCauHinh);
+                            XtraMessageBox.Show("Import file XML thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Sai password!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("File XML không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
+
+        private void simpleButton_Export_Click(object sender, EventArgs e)
+        {
+            string strXML = "";
+            frmPasswordXML _frmDatPasswordXML = new frmPasswordXML();
+            _frmDatPasswordXML.Text = "Đặt password cho file XML";
+            if (_frmDatPasswordXML.ShowDialog(this) == DialogResult.OK)
+            {
+                strXML = QuanLyTaiSan.Libraries.StringHelper.Encrypt(LayThongTinCauHinhHienTai(), _frmDatPasswordXML.textEdit_Password.Text);
+                SaveFileDialog _SaveFileDialog = new SaveFileDialog();
+                _SaveFileDialog.Filter = "XML File|*.xml";
+                _SaveFileDialog.Title = "Lưu file XML";
+                _SaveFileDialog.ShowDialog();
+
+                if (_SaveFileDialog.FileName != "")
+                {
+                    var xFile = new XElement("CauHinh", strXML);
+                    xFile.Save(_SaveFileDialog.FileName);
+                    XtraMessageBox.Show("Export file XML thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void SetThongTinCauHinh(String strXMLCauHinh)
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(strXMLCauHinh);
+
+            XmlNode node = xml.DocumentElement.SelectSingleNode("/Controls");
+            DevExpress.XtraEditors.CheckEdit _CheckEdit = null;
+            DevExpress.XtraEditors.TextEdit _TextEdit = null;
+            foreach (XmlNode nodechild in node)
+            {
+                _CheckEdit = this.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.CheckEdit;
+                if (_CheckEdit != null)
+                    _CheckEdit.Checked = Int32.Parse(nodechild.InnerText) > 0 ? true : false;
+                _TextEdit = this.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.TextEdit;
+                if (_TextEdit != null)
+                    _TextEdit.Text = nodechild.InnerText;
+            }
+        }
+
+        private String LayThongTinCauHinhHienTai()
+        {
+            String str = "";
+            var XML = new XElement("Controls",
+                new XElement(checkEdit_useDBCache.Name, (checkEdit_useDBCache.Checked ? 1 : 0).ToString()),
+                new XElement(txtAddressDatabase.Name, txtAddressDatabase.Text),
+                new XElement(txtPortDatabase.Name, txtPortDatabase.Text),
+                new XElement(checkEdit_ServerWA.Name, (checkEdit_ServerWA.Checked ? 1 : 0).ToString()),
+                new XElement(txtUsernameDatabase.Name, txtUsernameDatabase.Text),
+                new XElement(txtPasswordDatabase.Name, txtPasswordDatabase.Text),
+                new XElement(textEdit_ServerDBName.Name, textEdit_ServerDBName.Text),
+
+                new XElement(textEdit_CacheHost.Name, textEdit_CacheHost.Text),
+                new XElement(textEdit_CachePort.Name, textEdit_CachePort.Text),
+                new XElement(checkEdit_CacheWA.Name, (checkEdit_CacheWA.Checked ? 1 : 0).ToString()),
+                new XElement(textEdit_CacheAccount.Name, textEdit_CacheAccount.Text),
+                new XElement(textEdit_CachePass.Name, textEdit_CachePass.Text),
+                new XElement(textEdit_CacheDBName.Name, textEdit_CacheDBName.Text),
+
+                new XElement(txtAddressFTP.Name, txtAddressFTP.Text),
+                new XElement(txtPortFTP.Name, txtPortFTP.Text),
+                new XElement(txtPrepathFTP.Name, txtPrepathFTP.Text),
+                new XElement(txtUsernameFTP.Name, txtUsernameFTP.Text),
+                new XElement(txtPasswordFTP.Name, txtPasswordFTP.Text),
+
+                new XElement(txtAddressHTTP.Name, txtAddressHTTP.Text),
+                new XElement(txtPortHTTP.Name, txtPortHTTP.Text),
+                new XElement(txtPrepathHTTP.Name, txtPrepathHTTP.Text),
+
+                new XElement(checkEdit_debugToFile.Name, (checkEdit_debugToFile.Checked ? 1 : 0).ToString()));
+
+            str = XML.ToString();
+            return str;
         }
     }
 }

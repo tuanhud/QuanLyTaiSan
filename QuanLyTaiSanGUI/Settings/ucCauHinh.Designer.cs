@@ -80,11 +80,13 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.btnFTPSave = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
             this.checkEdit_debugToFile = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton_Import = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_Export = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFTPSave = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -164,7 +166,7 @@
             this.btnRemoveServerScope.Location = new System.Drawing.Point(238, 133);
             this.btnRemoveServerScope.Name = "btnRemoveServerScope";
             this.btnRemoveServerScope.Size = new System.Drawing.Size(91, 23);
-            this.btnRemoveServerScope.TabIndex = 111;
+            this.btnRemoveServerScope.TabIndex = 9;
             this.btnRemoveServerScope.Text = "Xóa Scope";
             this.btnRemoveServerScope.Click += new System.EventHandler(this.btnRemoveServerScope_Click);
             // 
@@ -174,7 +176,7 @@
             this.checkEdit_ServerWA.Name = "checkEdit_ServerWA";
             this.checkEdit_ServerWA.Properties.Caption = "Xác thực Windows";
             this.checkEdit_ServerWA.Size = new System.Drawing.Size(122, 19);
-            this.checkEdit_ServerWA.TabIndex = 15;
+            this.checkEdit_ServerWA.TabIndex = 3;
             this.checkEdit_ServerWA.CheckedChanged += new System.EventHandler(this.checkEdit_ServerWA_CheckedChanged_1);
             // 
             // simpleButton_cleanUpServerScope
@@ -184,7 +186,7 @@
             this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(130, 133);
             this.simpleButton_cleanUpServerScope.Name = "simpleButton_cleanUpServerScope";
             this.simpleButton_cleanUpServerScope.Size = new System.Drawing.Size(102, 24);
-            this.simpleButton_cleanUpServerScope.TabIndex = 110;
+            this.simpleButton_cleanUpServerScope.TabIndex = 8;
             this.simpleButton_cleanUpServerScope.Text = "Clean Up Scope";
             this.simpleButton_cleanUpServerScope.Click += new System.EventHandler(this.simpleButton_cleanUpServerScope_Click);
             // 
@@ -193,7 +195,7 @@
             this.textEdit_ServerDBName.Location = new System.Drawing.Point(74, 102);
             this.textEdit_ServerDBName.Name = "textEdit_ServerDBName";
             this.textEdit_ServerDBName.Size = new System.Drawing.Size(160, 20);
-            this.textEdit_ServerDBName.TabIndex = 30;
+            this.textEdit_ServerDBName.TabIndex = 6;
             // 
             // labelControl18
             // 
@@ -209,7 +211,7 @@
             this.txtPortDatabase.Location = new System.Drawing.Point(284, 5);
             this.txtPortDatabase.Name = "txtPortDatabase";
             this.txtPortDatabase.Size = new System.Drawing.Size(45, 20);
-            this.txtPortDatabase.TabIndex = 10;
+            this.txtPortDatabase.TabIndex = 2;
             // 
             // simpleButton_validateServer
             // 
@@ -218,7 +220,7 @@
             this.simpleButton_validateServer.Location = new System.Drawing.Point(5, 133);
             this.simpleButton_validateServer.Name = "simpleButton_validateServer";
             this.simpleButton_validateServer.Size = new System.Drawing.Size(119, 23);
-            this.simpleButton_validateServer.TabIndex = 105;
+            this.simpleButton_validateServer.TabIndex = 7;
             this.simpleButton_validateServer.Text = "Tạo dữ liệu Server";
             this.simpleButton_validateServer.Click += new System.EventHandler(this.simpleButton_validateServer_Click);
             // 
@@ -229,14 +231,14 @@
             this.txtPasswordDatabase.Properties.PasswordChar = '●';
             this.txtPasswordDatabase.Properties.UseSystemPasswordChar = true;
             this.txtPasswordDatabase.Size = new System.Drawing.Size(160, 20);
-            this.txtPasswordDatabase.TabIndex = 25;
+            this.txtPasswordDatabase.TabIndex = 5;
             // 
             // txtUsernameDatabase
             // 
             this.txtUsernameDatabase.Location = new System.Drawing.Point(74, 50);
             this.txtUsernameDatabase.Name = "txtUsernameDatabase";
             this.txtUsernameDatabase.Size = new System.Drawing.Size(160, 20);
-            this.txtUsernameDatabase.TabIndex = 20;
+            this.txtUsernameDatabase.TabIndex = 4;
             // 
             // labelControl4
             // 
@@ -251,7 +253,7 @@
             this.txtAddressDatabase.Location = new System.Drawing.Point(74, 5);
             this.txtAddressDatabase.Name = "txtAddressDatabase";
             this.txtAddressDatabase.Size = new System.Drawing.Size(160, 20);
-            this.txtAddressDatabase.TabIndex = 5;
+            this.txtAddressDatabase.TabIndex = 1;
             // 
             // labelControl3
             // 
@@ -309,7 +311,7 @@
             this.btnRemoveClientScope.Location = new System.Drawing.Point(238, 134);
             this.btnRemoveClientScope.Name = "btnRemoveClientScope";
             this.btnRemoveClientScope.Size = new System.Drawing.Size(91, 23);
-            this.btnRemoveClientScope.TabIndex = 126;
+            this.btnRemoveClientScope.TabIndex = 18;
             this.btnRemoveClientScope.Text = "Xóa Scope";
             this.btnRemoveClientScope.Click += new System.EventHandler(this.btnRemoveClientScope_Click);
             // 
@@ -320,7 +322,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(130, 163);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(199, 23);
-            this.simpleButton1.TabIndex = 125;
+            this.simpleButton1.TabIndex = 19;
             this.simpleButton1.Text = "Đồng bộ hóa dữ liệu";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
@@ -331,7 +333,7 @@
             this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(130, 134);
             this.simpleButton_cleanUpClientScope.Name = "simpleButton_cleanUpClientScope";
             this.simpleButton_cleanUpClientScope.Size = new System.Drawing.Size(103, 23);
-            this.simpleButton_cleanUpClientScope.TabIndex = 120;
+            this.simpleButton_cleanUpClientScope.TabIndex = 17;
             this.simpleButton_cleanUpClientScope.Text = "Clean Up Scope";
             this.simpleButton_cleanUpClientScope.Click += new System.EventHandler(this.simpleButton_cleanUpClientScope_Click);
             // 
@@ -349,7 +351,7 @@
             this.checkEdit_CacheWA.Name = "checkEdit_CacheWA";
             this.checkEdit_CacheWA.Properties.Caption = "Xác thực Windows";
             this.checkEdit_CacheWA.Size = new System.Drawing.Size(122, 19);
-            this.checkEdit_CacheWA.TabIndex = 45;
+            this.checkEdit_CacheWA.TabIndex = 12;
             this.checkEdit_CacheWA.CheckedChanged += new System.EventHandler(this.checkEdit_CacheWA_CheckedChanged);
             // 
             // simpleButton_validateClient
@@ -359,7 +361,7 @@
             this.simpleButton_validateClient.Location = new System.Drawing.Point(5, 134);
             this.simpleButton_validateClient.Name = "simpleButton_validateClient";
             this.simpleButton_validateClient.Size = new System.Drawing.Size(119, 23);
-            this.simpleButton_validateClient.TabIndex = 115;
+            this.simpleButton_validateClient.TabIndex = 16;
             this.simpleButton_validateClient.Text = "Tạo dữ liệu Client";
             this.simpleButton_validateClient.Click += new System.EventHandler(this.simpleButton_validateClient_Click);
             // 
@@ -384,7 +386,7 @@
             this.textEdit_CacheHost.Location = new System.Drawing.Point(74, 4);
             this.textEdit_CacheHost.Name = "textEdit_CacheHost";
             this.textEdit_CacheHost.Size = new System.Drawing.Size(160, 20);
-            this.textEdit_CacheHost.TabIndex = 35;
+            this.textEdit_CacheHost.TabIndex = 10;
             // 
             // labelControl13
             // 
@@ -399,14 +401,14 @@
             this.textEdit_CacheDBName.Location = new System.Drawing.Point(74, 105);
             this.textEdit_CacheDBName.Name = "textEdit_CacheDBName";
             this.textEdit_CacheDBName.Size = new System.Drawing.Size(160, 20);
-            this.textEdit_CacheDBName.TabIndex = 60;
+            this.textEdit_CacheDBName.TabIndex = 15;
             // 
             // textEdit_CacheAccount
             // 
             this.textEdit_CacheAccount.Location = new System.Drawing.Point(74, 52);
             this.textEdit_CacheAccount.Name = "textEdit_CacheAccount";
             this.textEdit_CacheAccount.Size = new System.Drawing.Size(160, 20);
-            this.textEdit_CacheAccount.TabIndex = 50;
+            this.textEdit_CacheAccount.TabIndex = 13;
             // 
             // labelControl9
             // 
@@ -423,7 +425,7 @@
             this.textEdit_CachePass.Properties.PasswordChar = '●';
             this.textEdit_CachePass.Properties.UseSystemPasswordChar = true;
             this.textEdit_CachePass.Size = new System.Drawing.Size(160, 20);
-            this.textEdit_CachePass.TabIndex = 55;
+            this.textEdit_CachePass.TabIndex = 14;
             // 
             // textEdit_CachePort
             // 
@@ -431,7 +433,7 @@
             this.textEdit_CachePort.Location = new System.Drawing.Point(285, 4);
             this.textEdit_CachePort.Name = "textEdit_CachePort";
             this.textEdit_CachePort.Size = new System.Drawing.Size(45, 20);
-            this.textEdit_CachePort.TabIndex = 40;
+            this.textEdit_CachePort.TabIndex = 11;
             // 
             // checkEdit_useDBCache
             // 
@@ -440,7 +442,7 @@
             this.checkEdit_useDBCache.Name = "checkEdit_useDBCache";
             this.checkEdit_useDBCache.Properties.Caption = "Sử dụng Cơ sở dữ liệu Client";
             this.checkEdit_useDBCache.Size = new System.Drawing.Size(159, 19);
-            this.checkEdit_useDBCache.TabIndex = 1;
+            this.checkEdit_useDBCache.TabIndex = 0;
             this.checkEdit_useDBCache.CheckedChanged += new System.EventHandler(this.checkEdit_useDBCache_CheckedChanged);
             // 
             // groupControl2
@@ -468,7 +470,7 @@
             this.txtPrepathFTP.Location = new System.Drawing.Point(85, 56);
             this.txtPrepathFTP.Name = "txtPrepathFTP";
             this.txtPrepathFTP.Size = new System.Drawing.Size(166, 20);
-            this.txtPrepathFTP.TabIndex = 75;
+            this.txtPrepathFTP.TabIndex = 22;
             // 
             // labelControl17
             // 
@@ -484,7 +486,7 @@
             this.txtPortFTP.Location = new System.Drawing.Point(296, 32);
             this.txtPortFTP.Name = "txtPortFTP";
             this.txtPortFTP.Size = new System.Drawing.Size(45, 20);
-            this.txtPortFTP.TabIndex = 70;
+            this.txtPortFTP.TabIndex = 21;
             // 
             // txtPasswordFTP
             // 
@@ -494,7 +496,7 @@
             this.txtPasswordFTP.Properties.PasswordChar = '●';
             this.txtPasswordFTP.Properties.UseSystemPasswordChar = true;
             this.txtPasswordFTP.Size = new System.Drawing.Size(166, 20);
-            this.txtPasswordFTP.TabIndex = 85;
+            this.txtPasswordFTP.TabIndex = 24;
             // 
             // txtUsernameFTP
             // 
@@ -502,7 +504,7 @@
             this.txtUsernameFTP.Location = new System.Drawing.Point(85, 81);
             this.txtUsernameFTP.Name = "txtUsernameFTP";
             this.txtUsernameFTP.Size = new System.Drawing.Size(166, 20);
-            this.txtUsernameFTP.TabIndex = 80;
+            this.txtUsernameFTP.TabIndex = 23;
             // 
             // labelControl5
             // 
@@ -518,7 +520,7 @@
             this.txtAddressFTP.Location = new System.Drawing.Point(85, 32);
             this.txtAddressFTP.Name = "txtAddressFTP";
             this.txtAddressFTP.Size = new System.Drawing.Size(166, 20);
-            this.txtAddressFTP.TabIndex = 65;
+            this.txtAddressFTP.TabIndex = 20;
             // 
             // labelControl6
             // 
@@ -565,7 +567,7 @@
             this.txtPortHTTP.Location = new System.Drawing.Point(297, 33);
             this.txtPortHTTP.Name = "txtPortHTTP";
             this.txtPortHTTP.Size = new System.Drawing.Size(45, 20);
-            this.txtPortHTTP.TabIndex = 95;
+            this.txtPortHTTP.TabIndex = 26;
             // 
             // txtPrepathHTTP
             // 
@@ -573,7 +575,7 @@
             this.txtPrepathHTTP.Location = new System.Drawing.Point(86, 59);
             this.txtPrepathHTTP.Name = "txtPrepathHTTP";
             this.txtPrepathHTTP.Size = new System.Drawing.Size(166, 20);
-            this.txtPrepathHTTP.TabIndex = 100;
+            this.txtPrepathHTTP.TabIndex = 27;
             // 
             // txtAddressHTTP
             // 
@@ -581,7 +583,7 @@
             this.txtAddressHTTP.Location = new System.Drawing.Point(86, 33);
             this.txtAddressHTTP.Name = "txtAddressHTTP";
             this.txtAddressHTTP.Size = new System.Drawing.Size(166, 20);
-            this.txtAddressHTTP.TabIndex = 90;
+            this.txtAddressHTTP.TabIndex = 25;
             // 
             // labelControl10
             // 
@@ -607,17 +609,6 @@
             this.labelControl12.TabIndex = 0;
             this.labelControl12.Text = "Địa chỉ Sever";
             // 
-            // btnFTPSave
-            // 
-            this.btnFTPSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFTPSave.Image = ((System.Drawing.Image)(resources.GetObject("btnFTPSave.Image")));
-            this.btnFTPSave.Location = new System.Drawing.Point(538, 235);
-            this.btnFTPSave.Name = "btnFTPSave";
-            this.btnFTPSave.Size = new System.Drawing.Size(179, 23);
-            this.btnFTPSave.TabIndex = 130;
-            this.btnFTPSave.Text = "Cập nhật cấu hình FTP và HTTP";
-            this.btnFTPSave.Click += new System.EventHandler(this.btnFTPSave_Click);
-            // 
             // groupControl4
             // 
             this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -635,7 +626,7 @@
             this.btnDebugClear.Location = new System.Drawing.Point(266, 67);
             this.btnDebugClear.Name = "btnDebugClear";
             this.btnDebugClear.Size = new System.Drawing.Size(84, 23);
-            this.btnDebugClear.TabIndex = 133;
+            this.btnDebugClear.TabIndex = 30;
             this.btnDebugClear.Text = "Xóa Debug";
             this.btnDebugClear.Click += new System.EventHandler(this.btnDebugClear_Click);
             // 
@@ -645,7 +636,29 @@
             this.checkEdit_debugToFile.Name = "checkEdit_debugToFile";
             this.checkEdit_debugToFile.Properties.Caption = "Ghi lỗi ra file \"debug.txt\"";
             this.checkEdit_debugToFile.Size = new System.Drawing.Size(167, 19);
-            this.checkEdit_debugToFile.TabIndex = 132;
+            this.checkEdit_debugToFile.TabIndex = 29;
+            // 
+            // simpleButton_Import
+            // 
+            this.simpleButton_Import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_Import.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Import.Image")));
+            this.simpleButton_Import.Location = new System.Drawing.Point(480, 374);
+            this.simpleButton_Import.Name = "simpleButton_Import";
+            this.simpleButton_Import.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton_Import.TabIndex = 32;
+            this.simpleButton_Import.Text = "Import";
+            this.simpleButton_Import.Click += new System.EventHandler(this.simpleButton_Import_Click);
+            // 
+            // simpleButton_Export
+            // 
+            this.simpleButton_Export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Export.Image")));
+            this.simpleButton_Export.Location = new System.Drawing.Point(561, 374);
+            this.simpleButton_Export.Name = "simpleButton_Export";
+            this.simpleButton_Export.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton_Export.TabIndex = 33;
+            this.simpleButton_Export.Text = "Export";
+            this.simpleButton_Export.Click += new System.EventHandler(this.simpleButton_Export_Click);
             // 
             // simpleButton_Luu
             // 
@@ -654,14 +667,27 @@
             this.simpleButton_Luu.Location = new System.Drawing.Point(642, 374);
             this.simpleButton_Luu.Name = "simpleButton_Luu";
             this.simpleButton_Luu.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton_Luu.TabIndex = 132;
+            this.simpleButton_Luu.TabIndex = 31;
             this.simpleButton_Luu.Text = "Lưu";
             this.simpleButton_Luu.Click += new System.EventHandler(this.simpleButton_Luu_Click);
+            // 
+            // btnFTPSave
+            // 
+            this.btnFTPSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFTPSave.Image = ((System.Drawing.Image)(resources.GetObject("btnFTPSave.Image")));
+            this.btnFTPSave.Location = new System.Drawing.Point(538, 235);
+            this.btnFTPSave.Name = "btnFTPSave";
+            this.btnFTPSave.Size = new System.Drawing.Size(179, 23);
+            this.btnFTPSave.TabIndex = 28;
+            this.btnFTPSave.Text = "Cập nhật cấu hình FTP và HTTP";
+            this.btnFTPSave.Click += new System.EventHandler(this.btnFTPSave_Click);
             // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.simpleButton_Import);
+            this.Controls.Add(this.simpleButton_Export);
             this.Controls.Add(this.simpleButton_Luu);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.btnFTPSave);
@@ -772,5 +798,7 @@
         private DevExpress.XtraEditors.SimpleButton btnRemoveServerScope;
         private DevExpress.XtraEditors.SimpleButton btnRemoveClientScope;
         private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Export;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Import;
     }
 }
