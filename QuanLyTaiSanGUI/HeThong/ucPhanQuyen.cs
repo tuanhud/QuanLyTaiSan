@@ -34,6 +34,12 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void gridViewPhanQuyen_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            //reload old object, discard changes
+            if (objQuanTriVienFilter != null)
+            {
+                objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
+            }
+
             if (gridViewPhanQuyen.GetFocusedRow() != null)
             {
                 groupControl1.Text = "Thông tin";
@@ -63,6 +69,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 lookUpEdit_group.EditValue = obj.group.id;
             }
             enableEdit(false, "");
+            dxErrorProvider1.ClearErrors();
         }
 
         public void enableEdit(bool _enable, String _function)
@@ -104,7 +111,6 @@ namespace QuanLyTaiSanGUI.HeThong
             {
                 setThongTinChiTiet(objQuanTriVienFilter.quantrivien);
             }
-            dxErrorProvider1.ClearErrors();
         }
 
         private void dateCreated_EditValueChanged(object sender, EventArgs e)
@@ -154,16 +160,24 @@ namespace QuanLyTaiSanGUI.HeThong
                 objQuanTriVienFilter.quantrivien.group = lookUpEdit_group.GetSelectedDataRow() as Group;
                 objQuanTriVienFilter.quantrivien.hoten = txtTenQuanTriVien.Text;
                 objQuanTriVienFilter.quantrivien.mota = memoEdit_mota.Text;
-                //always try to change pass first
-                int re2 = objQuanTriVienFilter.quantrivien.changePassword(txtMatKhauQuanTriVien.Text, txtXacNhanMK.Text);
-                if (re2 > 0 || (txtMatKhauQuanTriVien.Text.Equals("") && txtXacNhanMK.Text.Equals("")))
+                //try to change pass first
+                if (
+                    txtMatKhauQuanTriVien.Text.Equals("")
+                    &&
+                    txtXacNhanMK.Text.Equals("")
+                    )
                 {
-
+                    //ignore
                 }
-                else
+                else if (!txtMatKhauQuanTriVien.Text.Equals(txtXacNhanMK.Text))
                 {
                     dxErrorProvider1.SetError(txtMatKhauQuanTriVien, "Mật khẩu không khớp!");
                     dxErrorProvider1.SetError(txtXacNhanMK, "Mật khẩu không khớp!");
+                    return;
+                }
+                else
+                {
+                    objQuanTriVienFilter.quantrivien.changePassword(txtMatKhauQuanTriVien.Text);
                 }
 
                 //call update
@@ -176,8 +190,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 else
                 {
                     MessageBox.Show("Sửa KHÔNG thành công!");
-                    //showValidationError();
-                    //objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
+                    showValidationError();
                     return;
                 }                
             }
@@ -213,19 +226,23 @@ namespace QuanLyTaiSanGUI.HeThong
 
             }
         }
-        //private void showValidationError()
-        //{
-        //    foreach (var tmp in DBInstance.DB.GetValidationErrors())
-        //    {
-        //        foreach (var item in tmp.ValidationErrors)
-        //        {
-        //            if (item.PropertyName.Equals("username"))
-        //            {
-        //                dxErrorProvider1.SetError(txtTaiKhoanQuanTriVien, item.ErrorMessage);
-        //            }
-        //        }
-        //    }
-        //}
+        /// <summary>
+        /// hiển thị thông báo lỗi
+        /// </summary>
+        private void showValidationError()
+        {
+            foreach (var item in DBInstance.DB.ERRORs)
+            {
+                if (item.PropertyName.Equals("username"))
+                {
+                    dxErrorProvider1.SetError(txtTaiKhoanQuanTriVien,item.ErrorMessage);
+                }
+                if (item.PropertyName.Equals("hoten"))
+                {
+                    dxErrorProvider1.SetError(txtTenQuanTriVien, item.ErrorMessage);
+                }
+            }
+        }
         private void barButtonSuaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             enableEdit(true, "edit");

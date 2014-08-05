@@ -12,7 +12,7 @@ namespace QuanLyTaiSan.Entities
     public abstract class _EntityAbstract3<T>: _EntityAbstract1<T> /* ,_CRUDInterface<T>*/ where T : _EntityAbstract3<T>
     {
         #region Định nghĩa thuộc tính
-        [Required]
+        [Required(ErrorMessage = "Họ tên không được trống")]
         public String hoten { get; set; }
 
         [Index(IsUnique = true)]
@@ -108,48 +108,27 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(ex);
                 return null;
             }
-            finally
-            {
-
-            }
         }
         /// <summary>
-        /// Obj phải được load lên trước (có id)
-        /// update sẽ được gọi tự động
+        /// Obj phải được load lên trước (có id),
+        /// Cần phải gọi update
         /// return
-        /// -4: update fail
-        /// -3: dữ liệu không hợp lệ,
-        /// -1: passConfirm fail,
-        ///  >0: thành công
+        /// -1: fail,
+        ///  > 0: thành công
         /// </summary>
-        public int changePassword(String newPass, String newPassConfirm)
+        public int changePassword(String newPass)
         {
-            if (newPass == null || newPassConfirm == null)
-            {
-                //Coi như không có gì xảy ra
-                return -1;
-            }
-            if (newPass.Equals("") || newPassConfirm.Equals(""))
-            {
-                return -1;
-            }
-            if (!newPass.ToUpper().Equals(newPassConfirm.ToUpper()))
+            if (newPass == null || newPass.Equals(""))
             {
                 return -1;
             }
 
             //đổi pass
             hashPassword(newPass);
-            //update
-            if (update() < 0)
-            {
-                return -4;
-            }
             return 1;
         }
         /// <summary>
         /// Hash password và SET vào this.password
-        /// 
         /// </summary>
         /// <param name="raw_pass">Mật khẩu thô</param>
         public void hashPassword(String raw_pass)
@@ -158,6 +137,8 @@ namespace QuanLyTaiSan.Entities
             hashed = true;
         }
         
+        #endregion
+        #region Override
         #endregion
     }
 }

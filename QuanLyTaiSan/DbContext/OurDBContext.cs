@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Data.Entity.Validation;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -149,6 +150,47 @@ namespace QuanLyTaiSan.Entities
         public DbSet<GiangVien> GIANGVIENS { get; set; }
         public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
 
+        /// <summary>
+        /// for SYNC
+        /// </summary>
+        public static String[] tracking_tables
+        {
+            //UNDEPENDENT (bản thân không có bất kỳ FK nào)
+            //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
+            get
+            {
+                return new String[] {
+                    "__MigrationHistory",//UNDEPENDENT
+
+                    "COSOS",//UNDEPENDENT
+                    "DAYS",
+                    "TANGS",
+                    "VITRIS",
+                    "NHANVIENPTS",//UNDEPENDENT
+                    "PHONGS",
+                    
+                    "LOAITHIETBIS",
+                    "TINHTRANGS",//UNDEPENDENT
+                    "THIETBIS",
+                    "CTTHIETBIS",
+                    
+                    "GROUPS",//UNDEPENDENT
+                    "PERMISSIONS",//UNDEPENDENT
+                    "GROUP_PERMISSION",
+                    "QUANTRIVIENS",
+
+                    "LOGTHIETBIS",
+
+                    "SUCOPHONGS",//UNDEPENDENT
+                    "LOGSUCOPHONGS",
+                    "HINHANHS",
+                    "SETTINGS",//UNDEPENDENT
+                    "LOGHETHONGS",//UNDEPENDENT
+                    "GIANGVIENS",//UNDEPENDENT
+                    "PHIEUMUONPHONGS"
+                };
+            }
+        }
         /// <summary>
         /// Kiem tra model backing changed
         /// </summary>
@@ -376,6 +418,22 @@ namespace QuanLyTaiSan.Entities
             Debug.WriteLine("======Start sync when insert in new Thread======");
             Global.client_database.start_sync();
             Debug.WriteLine("======End sync when insert in new Thread======");
+        }
+        /// <summary>
+        /// Lấy danh sách lỗi sau khi add/update được gọi,
+        /// dùng để phục vụ mục đích hiển thị lỗi
+        /// </summary>
+        public ICollection<DbValidationError> ERRORs
+        {
+            get
+            {
+                List<DbValidationError> re = new List<DbValidationError>();
+                foreach (DbEntityValidationResult tmp in DBInstance.DB.GetValidationErrors())
+                {
+                    re.AddRange(tmp.ValidationErrors);
+                }
+                return re;
+            }
         }
     }
 }
