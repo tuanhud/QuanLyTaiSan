@@ -289,6 +289,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             lueThuoc.Properties.DataSource = listLoaiThietBiCha;
             setData();
             enableEdit(false, "");
+            if (loaiThietBis.Count == 0)
+            {
+                btnR_Sua.Enabled = false;
+                btnR_Xoa.Enabled = false;
+            }
             errorProvider1.Clear();
         }
 
@@ -482,18 +487,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                if (!function.Equals("edit"))
-                    if (function.Equals("add"))
-                    {
-                        return
-                            !txtTen.Text.Equals("") ||
-                            !txtMoTa.Text.Equals("");
-                    }
-                    else
-                    {
-                        return working;
-                    }
-                else
+                if (function.Equals("edit"))
                 {
                     if (lueThuoc.EditValue != null && Convert.ToInt32(lueThuoc.EditValue) > -1)
                         return
@@ -506,9 +500,20 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                             objLoaiThietBi.mota != txtMoTa.Text ||
                             objLoaiThietBi.parent_id != null;
                 }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("");
+                }
+                else
+                {
+                    return working;
+                }  
             }
-            catch
+            catch(Exception ex)
             {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
                 return true;
             }
         }

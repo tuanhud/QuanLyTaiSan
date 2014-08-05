@@ -52,14 +52,15 @@
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlLogThietBi);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(743, 421);
-            this.splitContainerControl1.SplitterPosition = 478;
+            this.splitContainerControl1.Size = new System.Drawing.Size(832, 479);
+            this.splitContainerControl1.SplitterPosition = 309;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -69,7 +70,7 @@
             this.gridControlLogThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlLogThietBi.MainView = this.gridViewLogThietBi;
             this.gridControlLogThietBi.Name = "gridControlLogThietBi";
-            this.gridControlLogThietBi.Size = new System.Drawing.Size(478, 421);
+            this.gridControlLogThietBi.Size = new System.Drawing.Size(519, 479);
             this.gridControlLogThietBi.TabIndex = 0;
             this.gridControlLogThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLogThietBi});
@@ -160,7 +161,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(260, 421);
+            this.groupControl1.Size = new System.Drawing.Size(309, 479);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Hình ảnh";
             // 
@@ -172,7 +173,7 @@
             this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
             this.imageSlider1.Location = new System.Drawing.Point(4, 27);
             this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(252, 219);
+            this.imageSlider1.Size = new System.Drawing.Size(300, 277);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
             // 
@@ -180,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 421);
+            this.ClientSize = new System.Drawing.Size(832, 479);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmLogThietBi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

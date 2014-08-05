@@ -18,10 +18,12 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         List<TinhTrang> listTinhTrang = new List<TinhTrang>();
         TinhTrang objTinhTrang = new TinhTrang();
         String function = "";
+        bool working = false;
 
         public ucQuanLyTinhTrang()
         {
             InitializeComponent();
+            ribbonTinhTrang.Parent = null;
         }
 
         public void loadData()
@@ -29,7 +31,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             try
             {
                 editGUI("view");
-                listTinhTrang = TinhTrang.getAll();
+                listTinhTrang = TinhTrang.getQuery().OrderBy(c=>c.order).ToList();
                 if (listTinhTrang.Count == 0)
                 {
                     enableButton(false);
@@ -87,11 +89,17 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             txtMoTa.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnR_Them.Enabled = !_enable;
+            barButtonThemTinhTrang.Enabled = !_enable;
+            working = _enable;
         }
 
         private void enableButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
+            barButtonSuaTinhTrang.Enabled = _enable;
+            barButtonXoaTinhTrang.Enabled = _enable;
+            barBtnUp.Enabled = _enable;
+            barBtnDown.Enabled = _enable;
             btnR_Sua.Enabled = _enable;
             btnR_Xoa.Enabled = _enable;
         }
@@ -106,7 +114,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
-                errorProvider1.Clear();
+                dxErrorProvider1.ClearErrors();
                 if(!function.Equals("view")) 
                     editGUI("view");
                 if (gridViewTinhTrang.RowCount > 0)
@@ -125,6 +133,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 }
                 else
                 {
+                    enableButton(false);
                     clearText();
                     objTinhTrang = new TinhTrang();
                 }
@@ -183,13 +192,14 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
+                dxErrorProvider1.ClearErrors();
                 Boolean check = true;
                 if (function.Equals("add"))
                 {
                     if (listTinhTrang.Where(i => i.value == txtTen.Text).FirstOrDefault() != null)
                     {
                         check = false;
-                        errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng đã có");
                     }
                 }
                 else if (function.Equals("edit"))
@@ -197,13 +207,13 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     if (listTinhTrang.Where(i => i.value == txtTen.Text && i.id != objTinhTrang.id).FirstOrDefault() != null)
                     {
                         check = false;
-                        errorProvider1.SetError(txtTen, "Tên tình trạng đã có");
+                        dxErrorProvider1.SetError(txtTen, "Tên tình trạng đã có");
                     }
                 }
                 if (txtTen.Text.Length == 0)
                 {
                     check = false;
-                    errorProvider1.SetError(txtTen, "Chưa điền tên tình trạng");
+                    dxErrorProvider1.SetError(txtTen, "Chưa điền tên tình trạng");
                 }
                 return check;
             }
@@ -260,7 +270,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            dxErrorProvider1.ClearErrors();
             setDataView();
         }
 
@@ -288,5 +298,86 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             setDataView();
         }
+
+        private void barButtonThemTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void barButtonSuaTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void barButtonXoaTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbon()
+        {
+            return ribbonTinhTrang;
+        }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (objTinhTrang != null && objTinhTrang.id > 0)
+                {
+                    objTinhTrang.moveUp();
+                    reloadAndFocused(objTinhTrang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (objTinhTrang != null && objTinhTrang.id > 0)
+                {
+                    objTinhTrang.moveDown();
+                    reloadAndFocused(objTinhTrang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        objTinhTrang.value != txtTen.Text ||
+                        objTinhTrang.mota != txtMoTa.Text;
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("");
+                }
+                else
+                {
+                    return working;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
+            }
+        }
+
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewLogSuCo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collngay = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,7 +73,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
             this.groupControlPhong = new DevExpress.XtraEditors.GroupControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSuCo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuCo)).BeginInit();
@@ -163,7 +162,7 @@
             this.gridControlSuCo.MainView = this.gridViewSuCo;
             this.gridControlSuCo.MenuManager = this.ribbonSuCoPhong;
             this.gridControlSuCo.Name = "gridControlSuCo";
-            this.gridControlSuCo.Size = new System.Drawing.Size(474, 396);
+            this.gridControlSuCo.Size = new System.Drawing.Size(475, 396);
             this.gridControlSuCo.TabIndex = 0;
             this.gridControlSuCo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSuCo,
@@ -189,6 +188,7 @@
             this.gridViewSuCo.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewSuCo.OptionsView.ShowAutoFilterRow = true;
             this.gridViewSuCo.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridViewSuCo.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewSuCo_RowClick);
             this.gridViewSuCo.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gridViewSuCo_MasterRowEmpty);
             this.gridViewSuCo.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gridViewSuCo_MasterRowGetChildList);
             this.gridViewSuCo.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gridViewSuCo_MasterRowGetRelationName);
@@ -444,6 +444,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEdit1.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEdit1.Size = new System.Drawing.Size(238, 20);
             this.dateEdit1.TabIndex = 3;
             // 

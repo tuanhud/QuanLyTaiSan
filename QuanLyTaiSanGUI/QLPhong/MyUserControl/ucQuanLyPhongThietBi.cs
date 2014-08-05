@@ -48,7 +48,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
-            gridViewlog.Columns[colngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridViewlog.Columns[colngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridViewCTThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[colloaiTB.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -160,9 +160,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 enableEdit(false);
             }
-            if (e.FocusedRowHandle >= 0)
+            if (e.FocusedRowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
                 objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
+                objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
@@ -170,9 +171,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewCTThietBi_RowClick(object sender, RowClickEventArgs e)
         {
-            if (e.RowHandle >= 0)
+            if (e.RowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.RowHandle, colid)));
+                //objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.RowHandle, colid)));
+                objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
@@ -190,7 +192,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 dateLap.EditValue = _obj.ngay;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).ToList();
+                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).OrderByDescending(c=>c.date_create).ToList();
                 reloadImage();
             }
             catch (Exception ex)
@@ -427,9 +429,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 enableEdit(false);
             }
-            if (gridViewCTThietBi.FocusedRowHandle >= 0)
+            if (gridViewCTThietBi.FocusedRowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(gridViewCTThietBi.FocusedRowHandle, colid)));
+                objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
