@@ -304,9 +304,9 @@ namespace QuanLyTaiSanGUI
                     {
                         working = _ucQuanLySuCo.checkworking();
                     }
-                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanCongQTV")))
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanCongQTV_Home")))
                     {
-                        //working = _ucPhanCongQTV.checkworking();
+                        working = _ucPhanCongQTV.checkworking();
                     }
                     if (working)
                     {

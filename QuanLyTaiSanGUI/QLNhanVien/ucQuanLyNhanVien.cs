@@ -173,7 +173,8 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         txtMa.Text = objNhanVienPT.subId;
                         txtTen.Text = objNhanVienPT.hoten;
                         txtSodt.Text = objNhanVienPT.sodienthoai;
-                        listBoxPhong.DataSource = objNhanVienPT.phongs;
+                        listPhong = objNhanVienPT.phongs.ToList();
+                        listBoxPhong.DataSource = listPhong;
                         listHinhs = objNhanVienPT.hinhanhs.ToList();
                         reloadImage();
                     }
@@ -511,20 +512,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                if (!function.Equals("edit"))
-                {
-                    if (function.Equals("add"))
-                    {
-                        return
-                            !txtMa.Text.Equals("") ||
-                            !txtTen.Text.Equals("") ||
-                            !txtSodt.Text.Equals("") ||
-                            listHinhs.Count > 0;
-                    }
-                    else
-                        return working;
-                }
-                else
+                if (function.Equals("edit"))
                 {
                     return
                         objNhanVienPT.subId != txtMa.Text ||
@@ -533,6 +521,22 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                         objNhanVienPT.hinhanhs.Except(listHinhs).Count() > 0 ||
                         listHinhs.Except(objNhanVienPT.hinhanhs).Count() > 0;
                 }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtMa.Text.Equals("") ||
+                        !txtTen.Text.Equals("") ||
+                        !txtSodt.Text.Equals("") ||
+                        listHinhs.Count > 0;
+                }
+                else if (function.Equals("phancong"))
+                {
+                    return
+                        objNhanVienPT.phongs.Except(listPhong).Count() > 0 ||
+                        listPhong.Except(objNhanVienPT.phongs).Count() > 0;
+                }
+                else
+                    return working;
             }
             catch(Exception ex)
             {
