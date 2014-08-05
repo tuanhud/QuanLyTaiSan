@@ -40,7 +40,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
              ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
-            gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            //gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             listBoxPhong.SortOrder = SortOrder.Ascending;
             gridViewNhanVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewNhanVien.Columns[colsodienthoai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -53,7 +53,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 editGUI("view");
                 layout.load(gridViewNhanVien);
-                NhanVienPTs = NhanVienPT.getAll();
+                NhanVienPTs = NhanVienPT.getQuery().OrderBy(c=>c.hoten).ToList();
                 gridControlNhanVien.DataSource = NhanVienPTs;
                 if (NhanVienPTs.Count == 0)
                 {
