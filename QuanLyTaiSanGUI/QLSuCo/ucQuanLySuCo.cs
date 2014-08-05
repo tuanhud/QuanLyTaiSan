@@ -478,11 +478,11 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 check = false;
                 dxErrorProvider1.SetError(txtTen, "Chưa điền tên");
             }
-            else if(function.Equals("add") && listSuCo.Where(c=>c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count()>0)
-            {
-                check = false;
-                dxErrorProvider1.SetError(txtTen, "Tên sự cố này đã tồn tại");
-            }
+            //else if(function.Equals("add") && listSuCo.Where(c=>c.ten.ToUpper().Equals(txtTen.Text.ToUpper())).Count()>0)
+            //{
+            //    check = false;
+            //    dxErrorProvider1.SetError(txtTen, "Tên sự cố này đã tồn tại");
+            //}
             if (lookUpEditTinhTrang.EditValue == null)
             {
                 check = false;

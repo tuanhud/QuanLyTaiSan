@@ -289,6 +289,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             lueThuoc.Properties.DataSource = listLoaiThietBiCha;
             setData();
             enableEdit(false, "");
+            if (loaiThietBis.Count == 0)
+            {
+                btnR_Sua.Enabled = false;
+                btnR_Xoa.Enabled = false;
+            }
             errorProvider1.Clear();
         }
 
