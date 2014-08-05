@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTBChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSua = new DevExpress.XtraBars.BarButtonItem();
@@ -79,7 +78,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -225,7 +224,7 @@
             this.gridControlCTThietBi.MainView = this.gridViewCTThietBi;
             this.gridControlCTThietBi.MenuManager = this.ribbonPhongThietBi;
             this.gridControlCTThietBi.Name = "gridControlCTThietBi";
-            this.gridControlCTThietBi.Size = new System.Drawing.Size(478, 529);
+            this.gridControlCTThietBi.Size = new System.Drawing.Size(479, 529);
             this.gridControlCTThietBi.TabIndex = 0;
             this.gridControlCTThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTThietBi});
@@ -576,6 +575,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateLap.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateLap.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateLap.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateLap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateLap.Properties.ReadOnly = true;
             this.dateLap.Size = new System.Drawing.Size(268, 20);
             this.dateLap.TabIndex = 5;
@@ -592,6 +595,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateMua.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateMua.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateMua.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateMua.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateMua.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateMua.Properties.ReadOnly = true;
             this.dateMua.Size = new System.Drawing.Size(268, 20);
             this.dateMua.TabIndex = 4;

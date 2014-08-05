@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -62,7 +61,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -179,6 +178,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayMua.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditNgayMua.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateEditNgayMua.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEditNgayMua.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateEditNgayMua.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditNgayMua.Properties.ReadOnly = true;
             this.dateEditNgayMua.Size = new System.Drawing.Size(266, 20);
             this.dateEditNgayMua.TabIndex = 5;
@@ -367,7 +370,7 @@
             this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlThietBi.MainView = this.gridViewThietBi;
             this.gridControlThietBi.Name = "gridControlThietBi";
-            this.gridControlThietBi.Size = new System.Drawing.Size(485, 495);
+            this.gridControlThietBi.Size = new System.Drawing.Size(486, 495);
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});
@@ -417,6 +420,8 @@
             // colngaymua
             // 
             this.colngaymua.Caption = "Ngày mua";
+            this.colngaymua.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colngaymua.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colngaymua.FieldName = "ngaymua";
             this.colngaymua.Name = "colngaymua";
             this.colngaymua.Visible = true;
