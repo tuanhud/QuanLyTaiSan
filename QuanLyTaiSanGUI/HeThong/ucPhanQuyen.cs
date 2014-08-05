@@ -262,6 +262,16 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void barButtonXoaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (Global.current_quantrivien_login == null)
+            {
+                return;
+            }
+            if (Global.current_quantrivien_login.id == objQuanTriVienFilter.quantrivien.id)
+            {
+                MessageBox.Show("Không thể xóa bản thân!");
+                return;
+            }
+
             int re = objQuanTriVienFilter.quantrivien.delete();
             if (re > 0)
             {
