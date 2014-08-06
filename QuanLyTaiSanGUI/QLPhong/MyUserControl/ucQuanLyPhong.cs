@@ -799,5 +799,32 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 frm.loadDataByPhong(objPhong, "suco");
             }
         }
+
+        private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+            open.Title = "Chọn tập tin để Import";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
+                //if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
+                //if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                    loadData();
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                    loadData();
+                }
+
+            }
+        }
     }
 }

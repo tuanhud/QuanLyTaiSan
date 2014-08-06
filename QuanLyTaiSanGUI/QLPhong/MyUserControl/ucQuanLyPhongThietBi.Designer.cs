@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTBChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSua = new DevExpress.XtraBars.BarButtonItem();
@@ -78,7 +79,10 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.rbnPageImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnImportSL = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImportCT = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -114,9 +118,11 @@
             this.barButtonSua,
             this.barButtonXoa,
             this.barButtonChuyen,
-            this.barButtonThemTBRieng});
+            this.barButtonThemTBRieng,
+            this.barBtnImportSL,
+            this.barBtnImportCT});
             this.ribbonPhongThietBi.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhongThietBi.MaxItemId = 48;
+            this.ribbonPhongThietBi.MaxItemId = 50;
             this.ribbonPhongThietBi.Name = "ribbonPhongThietBi";
             this.ribbonPhongThietBi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhongThietbi_Home});
@@ -166,7 +172,8 @@
             // 
             this.rbnPagePhongThietbi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnPageThietBi,
-            this.rbnPageChuyen});
+            this.rbnPageChuyen,
+            this.rbnPageImport});
             this.rbnPagePhongThietbi_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
             this.rbnPagePhongThietbi_Home.Name = "rbnPagePhongThietbi_Home";
             this.rbnPagePhongThietbi_Home.Text = "Phòng - Thiết bị";
@@ -224,7 +231,7 @@
             this.gridControlCTThietBi.MainView = this.gridViewCTThietBi;
             this.gridControlCTThietBi.MenuManager = this.ribbonPhongThietBi;
             this.gridControlCTThietBi.Name = "gridControlCTThietBi";
-            this.gridControlCTThietBi.Size = new System.Drawing.Size(479, 529);
+            this.gridControlCTThietBi.Size = new System.Drawing.Size(478, 529);
             this.gridControlCTThietBi.TabIndex = 0;
             this.gridControlCTThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTThietBi});
@@ -639,6 +646,30 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // rbnPageImport
+            // 
+            this.rbnPageImport.ItemLinks.Add(this.barBtnImportSL);
+            this.rbnPageImport.ItemLinks.Add(this.barBtnImportCT);
+            this.rbnPageImport.Name = "rbnPageImport";
+            this.rbnPageImport.ShowCaptionButton = false;
+            this.rbnPageImport.Text = "Import";
+            // 
+            // barBtnImportSL
+            // 
+            this.barBtnImportSL.Caption = "Import TB theo SL";
+            this.barBtnImportSL.Id = 48;
+            this.barBtnImportSL.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImportSL.Name = "barBtnImportSL";
+            this.barBtnImportSL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportSL_ItemClick);
+            // 
+            // barBtnImportCT
+            // 
+            this.barBtnImportCT.Caption = "Import TB theo CT";
+            this.barBtnImportCT.Id = 49;
+            this.barBtnImportCT.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImportCT.Name = "barBtnImportCT";
+            this.barBtnImportCT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportCT_ItemClick);
+            // 
             // ucQuanLyPhongThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,5 +762,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonThemTBRieng;
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraBars.BarButtonItem barBtnImportSL;
+        private DevExpress.XtraBars.BarButtonItem barBtnImportCT;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnPageImport;
     }
 }
