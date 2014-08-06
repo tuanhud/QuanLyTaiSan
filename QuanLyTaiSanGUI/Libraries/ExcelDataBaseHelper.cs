@@ -123,7 +123,7 @@ namespace QuanLyTaiSanGUI.Libraries
                 {
                     HinhAnh objHinh = new HinhAnh();
                     String file_name = name.TrimStart().TrimEnd();
-                    String fPath = System.IO.Path.GetDirectoryName(fileName) + "Images\\" + file_name;
+                    String fPath = System.IO.Path.GetDirectoryName(fileName) + "\\Images\\" + file_name;
                     if (System.IO.File.Exists(fPath))
                     {
                         objHinh.FILE_NAME = file_name;
