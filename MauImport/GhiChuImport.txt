@@ -1,0 +1,9 @@
+﻿STT(*) => STT
+Thêm cột Pass
+ViTrí => ViTri
+NhânViên => NhanVienPT
+Phòng => Phong
+Loại thiết bị => LoaiThietBi
+Tình trạng => TinhTrang
+Thiết bị theo số lượng => ThietBiChung
+Thiết bị theo cá thể => ThietBiRieng
