@@ -4,42 +4,6 @@
     <title>Quản lý mượn phòng</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="center">
-        <asp:Panel ID="PanelDangNhap" runat="server" Visible="False">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Đăng nhập</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-lg-12">
-                        <asp:Panel ID="PanelThongBao" runat="server" Visible="False">
-                            <div class="row">
-                                <div class="alert alert-danger" role="alert">
-                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                    <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <div class="row">
-                            <asp:TextBox ID="TextBoxTaiKhoan" runat="server" CssClass="form-control" placeholder="Tài khoản"></asp:TextBox>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <asp:TextBox ID="TextBoxMatKhau" runat="server" CssClass="form-control" placeholder="Mật khẩu" TextMode="Password"></asp:TextBox>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <asp:CheckBox ID="CheckBoxNhoDangNhap" runat="server" />
-                            Nhớ đăng nhập lần sau
-                        </div>
-                        <br />
-                        <asp:Button ID="ButtonDangNhap" runat="server" Text="Đăng nhập" CssClass="btn btn-success center-block" />
-                    </div>
-                </div>
-            </div>
-        </asp:Panel>
-    </div>
     <asp:Panel ID="PanelQuanLyMuonPhong" runat="server" Visible="True">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -92,46 +56,56 @@
             </table>
         </div>
         <!-- Popup Duyệt -->
-        <div class="modal fade" id="PopupDuyet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Duyệt mượn phòng</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <asp:HiddenField ID="HiddenFieldID" ClientIDMode="Static" runat="server" />
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">Trạng thái</div>
-                            <div class="col-lg-10">
-                                <asp:DropDownList ID="DropDownListTrangThai" runat="server" CssClass="selectpicker">
-                                    <asp:ListItem Text="Chờ duyệt" Value="0"></asp:ListItem>
-                                    <asp:ListItem Text="Chấp nhận" Value="1"></asp:ListItem>
-                                    <asp:ListItem Text="Hủy bỏ" Value="-1"></asp:ListItem>
-                                </asp:DropDownList>
-                                <script type="text/javascript">
-                                    window.onload = function () {
-                                        $('.selectpicker').selectpicker();
-                                    };
-                                </script>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel" runat="server">
+            <ContentTemplate>
+                <div class="modal fade" id="PopupDuyet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Duyệt mượn phòng</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <asp:HiddenField ID="HiddenFieldID" ClientIDMode="Static" runat="server" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">Trạng thái</div>
+                                    <div class="col-lg-10">
+                                        <asp:DropDownList ID="DropDownListTrangThai" runat="server" CssClass="selectpicker">
+                                            <asp:ListItem Text="Chờ duyệt" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="Chấp nhận" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Hủy bỏ" Value="-1"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <script type="text/javascript">
+                                            window.onload = function () {
+                                                $('.selectpicker').selectpicker();
+                                            };
+                                        </script>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-2">Ghi chú</div>
+                                    <div class="col-lg-10">
+                                        <asp:TextBox ID="TextBoxGhiChu" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Phòng C.A107" Height="100px"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                <asp:Button ID="ButtonLuu" CssClass="btn btn-primary" runat="server" Text="Lưu" OnClick="ButtonLuu_Click" />
+                                <asp:UpdateProgress runat="server" ID="UpdateProgress" AssociatedUpdatePanelID="UpdatePanel" DisplayAfter="0" DynamicLayout="false">
+                                    <ProgressTemplate>
+                                        <img alt="Đang lưu..." src="Images/loading.gif" />
+                                    </ProgressTemplate>
+                                </asp:UpdateProgress>
                             </div>
                         </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-lg-2">Ghi chú</div>
-                            <div class="col-lg-10">
-                                <asp:TextBox ID="TextBoxGhiChu" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Phòng C.A107" Height="100px"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        <asp:Button ID="ButtonLuu" CssClass="btn btn-primary" runat="server" Text="Lưu" OnClick="ButtonLuu_Click" />
                     </div>
                 </div>
-            </div>
-        </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </asp:Panel>
 </asp:Content>
