@@ -60,7 +60,28 @@ namespace WebQLPH
 
         protected void ButtonLuu_Click(object sender, EventArgs e)
         {
+            try
+            {
+                PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
+                _PhieuMuonPhong.id = Convert.ToInt32(HiddenFieldID.Value);
+                _PhieuMuonPhong.trangthai = Convert.ToInt32(DropDownListTrangThai.SelectedValue);
+                _PhieuMuonPhong.ghichu = TextBoxGhiChu.Text;
+                QuanTriVien _QuanTriVien = new QuanTriVien();
+                _QuanTriVien = QuanTriVien.getByUserName(Session["username"].ToString());
+                _PhieuMuonPhong.quantrivien = _QuanTriVien;
+                if (_PhieuMuonPhong.update() > 0)
+                {
+                    Response.Redirect(Request.RawUrl);
+                }
+                else
+                {
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
         }
     }
 }
