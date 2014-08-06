@@ -24,7 +24,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        [Index("nothing", 1, IsUnique = true)]
+        //[Index("nothing", 1, IsUnique = true)]
         [Required]
         [StringLength(255)]
         public String ten { get; set; }
@@ -35,7 +35,7 @@ namespace QuanLyTaiSan.Entities
         public virtual TinhTrang tinhtrang { get; set; }
 
         public int phong_id { get; set; }
-        [Index("nothing", 2, IsUnique = true)]
+        //[Index("nothing", 2, IsUnique = true)]
         [Required]
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
