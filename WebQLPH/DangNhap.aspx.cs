@@ -13,7 +13,7 @@ namespace WebQLPH
         {
             try
             {
-                if (!Convert.ToString(Session["Username_Remember"]).Equals(String.Empty))
+                if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
                 {
                     Response.Redirect("Default.aspx");
                 }

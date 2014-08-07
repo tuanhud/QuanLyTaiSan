@@ -12,17 +12,12 @@
             <uc:ucDangNhap runat="server" ID="ucDangNhap" />
         </asp:Panel>
     </div>
-    <asp:Panel ID="PanelQuanLyMuonPhongQuanTriVien" runat="server" Visible="false">
+    <asp:Panel ID="PanelQuanLyMuonPhong" runat="server" Visible="false">
         <asp:UpdatePanel ID="UpdatePanel" runat="server">
             <ContentTemplate>
-                <ul class="panel panel-info">
+                <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><b>DANH SÁCH 10 PHÒNG MƯỢN GẦN NHẤT</b></h3>
-                        <asp:UpdateProgress runat="server" ID="UpdateProgress" AssociatedUpdatePanelID="UpdatePanel" DisplayAfter="0" DynamicLayout="false">
-                            <ProgressTemplate>
-                                <img alt="Đang xử lý..." src="Images/loading.gif" />
-                            </ProgressTemplate>
-                        </asp:UpdateProgress>
+                        <h3 class="panel-title"><b><asp:Label ID="LabelPanel" runat="server" Text="Label"></asp:Label></b></h3>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead class="centered">
@@ -48,7 +43,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="RepeaterQuanLyMuonPhongQuanTriVien" runat="server">
+                            <asp:Repeater ID="RepeaterQuanLyMuonPhong" runat="server">
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Container.ItemIndex + 1 %></td>
@@ -62,17 +57,19 @@
                                         <td><%# Eval("lop") %></td>
                                         <td><%# Eval("lydomuon") %></td>
                                         <td><%# Duyet() %></td>
-                                        <td><%# Eval("ghichu") %></td>
+                                        <td id="GhiChu<%#Eval("id")%>"><%# Eval("ghichu") %></td>
                                         <td><%# Eval("quantrivien.hoten") %></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <cp:CollectionPager ID="CollectionPagerQuanLyMuonPhongQuanTriVien" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="" LabelStyle="FONT-WEIGHT: blue;" LastText="" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="False">
+                </div>
+                <div class="centerCollectionPager">
+                    <div class="CollectionPager">
+                        <cp:CollectionPager ID="CollectionPagerQuanLyMuonPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
                         </cp:CollectionPager>
-                    </ul>
+                    </div>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
@@ -107,13 +104,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <asp:CheckBox ID="CheckBoxGuiMailThongBao" runat="server" Checked="true" />&nbsp;Gửi mail thông báo
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                         <asp:Button ID="ButtonLuu" CssClass="btn btn-primary" runat="server" Text="Lưu" OnClick="ButtonLuu_Click" OnClientClick="return KiemTraTruocKhiLuu();" />
                     </div>
                 </div>
             </div>
         </div>
-    </asp:Panel>
-    <asp:Panel ID="PanelQuanLyMuonPhongGiangVien" runat="server" Visible="false">
     </asp:Panel>
 </asp:Content>
