@@ -171,10 +171,6 @@ namespace QuanLyTaiSan.Entities
                 this.id = tmp.id;
                 return 1;
             }
-
-            //time
-            ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
-
             return base.add();
         }
         #endregion

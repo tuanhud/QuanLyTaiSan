@@ -28,19 +28,16 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
         public int phong_id { get; set; }
-        [Index("nothing", 1, IsUnique = true)]
         [Required]
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
 
-        public int thietbi_id { get; set; }
-        [Index("nothing", 2,IsUnique=true)]
+        public int thietbi_id { get; set; }        
         [Required]
         [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
 
         public int tinhtrang_id { get; set; }
-        [Index("nothing", 3, IsUnique = true)]
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
@@ -82,7 +79,7 @@ namespace QuanLyTaiSan.Entities
             if
             (
                 //Nếu Không có bất kỳ sự thay đổi nào, phòng và tình trạng giống với this
-                ((dich!=null && dich.id == this.phong.id) || (dich==null && this.phong==null))
+                ((dich==null && this.phong==null) || (dich!=null && dich.id == this.phong.id))
                 && ttmoi.id == this.tinhtrang.id
             )
             {
@@ -97,63 +94,47 @@ namespace QuanLyTaiSan.Entities
                 return -2;
             }
             soluong = soluong < 0 ? this.soluong : soluong;
-            //BEGIN===================================
-            Boolean transac = true;
-            using (var dbContextTransaction = db.Database.BeginTransaction()) 
+            
+            //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
+            //kiem tra co record nao trung với record cần tạo mới (dich, tinhtrang, thietbi) ?
+            CTThietBi tmp = search(dich, this.thietbi, ttmoi);
+
+            //NO
+            //TAO MOI CTTB => add
+            if (tmp == null)
             {
-                //tao hoac cap nhat mot CTTB moi cho PHONG moi (dich)
-                //kiem tra co record nao trung với record cần tạo mới (dich, tinhtrang, thietbi) ?
-                CTThietBi tmp = search(dich, this.thietbi, ttmoi);
-
-                //NO
-                //TAO MOI CTTB => add
-                if (tmp == null)
-                {
-                    tmp = new CTThietBi();
-                    tmp.phong = dich;
-                    tmp.soluong = soluong;
-                    tmp.thietbi = this.thietbi;
-                    tmp.tinhtrang = ttmoi;
-                    tmp.mota = mota;
-                    tmp.hinhanhs = hinhs;
-                    tmp.ngay = ngay;
-                    transac = transac && tmp.add(true) > 0;//ADD
-                }
-                else
-                {
-                    //Đã có CTTB sẵn giống với CTTB cần tạo mới
-                    //SELECT CTTB do len => update
-                    if (tmp.id != this.id)
-                    {
-                        tmp.soluong += soluong;
-                        tmp.mota = mota;
-                        tmp.hinhanhs = hinhs;
-                        transac = transac && tmp.update(true) > 0;//UPDATE
-                    }
-                }
-
-                //cap nhat lai so luong cho cái hiện đã bị chuyển
-                this.mota = mota;
-                this.soluong -= soluong;
-                this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
-                //ghi log thietbi ngay sau khi cap nhat ONLY soluong
-                transac = transac && update(true) > 0;
-                
-
-
-                //final transac controller
-                if (transac)
-                {
-                    dbContextTransaction.Commit();
-                }
-                else
-                {
-                    dbContextTransaction.Rollback();
-                }
-
-                return transac ? 1 : -1;
+                tmp = new CTThietBi();
+                tmp.phong = dich;
+                tmp.soluong = soluong;
+                tmp.thietbi = this.thietbi;
+                tmp.tinhtrang = ttmoi;
+                tmp.mota = mota;
+                tmp.hinhanhs = hinhs;
+                tmp.ngay = ngay;
+                tmp.add();
             }
-            //END===================================
+            else
+            {
+                //Đã có CTTB sẵn giống với CTTB cần tạo mới
+                //SELECT CTTB do len => update
+                if (tmp.id != this.id)
+                {
+                    tmp.soluong += soluong;
+                    tmp.mota = mota;
+                    tmp.hinhanhs = HinhAnh.clone(hinhs);
+                    tmp.ngay = ngay;
+                    tmp.update();
+                }
+            }
+
+            //cap nhat lai so luong cho cái hiện đã bị chuyển
+            this.mota = mota;
+            this.soluong -= soluong;
+            this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
+            this.hinhanhs = HinhAnh.clone(hinhs);
+            //ghi log thietbi ngay sau khi cap nhat ONLY soluong
+            this.update();
+            return 1;
         }
         /// <summary>
         /// Kich hoat ham ghi log vao LogThietBi
@@ -232,62 +213,28 @@ namespace QuanLyTaiSan.Entities
         /// obj.add();
         /// </summary>
         /// <returns></returns>
-        public int add(Boolean in_transaction=false)
+        public override int add()
         {
             this.ngay = this.ngay==null?ServerTimeHelper.getNow():this.ngay;
-            
-            Boolean trans = true;
-            DbContextTransaction dbTransac = null;
-            if (!in_transaction)
-            {
-                dbTransac = db.Database.BeginTransaction();
-            }
             //SCRIPT
-            try
+            CTThietBi tmp = search(phong, thietbi, tinhtrang);
+            //Nếu có CTTB sẵn trùng Phòng, Thiết bị, Tình trạng thì cộng dồn SL vào và update
+            if (tmp != null)
             {
-                CTThietBi tmp = search(phong, thietbi, tinhtrang);
-                //Nếu có CTTB sẵn trùng Phòng, Thiết bị, Tình trạng thì cộng dồn SL vào và update
-                if (tmp != null)
-                {
-                    tmp.soluong += soluong;
-                    tmp.ngay = this.ngay;
-                    tmp.mota = this.mota;
-                    if (this.hinhanhs != null)
-                    {
-                        tmp.hinhanhs = hinhanhs;
-                    }
-                    //call update on tmp
-                    trans = trans && tmp.update(true) > 0;
-                    id = tmp.id;
-                }
-                else
-                {
-                    trans = trans && base.add() > 0;
-                    //Cần phải clone hình ra trước khi gọi writelog
-                    trans = trans && writelog() > 0;
-                }
-
+                tmp.soluong += soluong;
+                tmp.ngay = this.ngay;
+                tmp.mota = this.mota;
+                tmp.hinhanhs = HinhAnh.clone(this.hinhanhs);
+                //call update on tmp
+                tmp.update();
+                //id = tmp.id;
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine(ex.ToString());
-                return -1;
+                base.add();
+                writelog();
             }
-
-            //END SCRIPT
-            if (!in_transaction)
-            {
-                if (trans)
-                {
-                    dbTransac.Commit();
-                }
-                else
-                {
-                    dbTransac.Rollback();
-                }
-                dbTransac.Dispose();
-            }
-            return trans ? 1 : -1; 
+            return 1;
         }
         /// <summary>
         /// Có hỗ trợ ghi log, có hỗ trợ transaction
@@ -295,7 +242,7 @@ namespace QuanLyTaiSan.Entities
         /// <param name="ngay"></param>
         /// <param name="in_transaction"></param>
         /// <returns></returns>
-        public int update(Boolean in_transaction=false)
+        public override int update()
         {
             //have to load all [Required] FK object first
             if (phong != null)
@@ -311,34 +258,17 @@ namespace QuanLyTaiSan.Entities
                 thietbi.trigger();
             }
 
-            //UPDATE
-            DbContextTransaction dbTransac = null;
-            Boolean transac = true;
-            if (!in_transaction)
-            {
-                dbTransac = db.Database.BeginTransaction();
-            }
-            //SCRIPT
-
-            transac = transac && base.update() > 0;
-            transac = transac && writelog() > 0;
-
-            //END SCRIPT
-            if (!in_transaction)
-            {
-                if (transac)
-                {
-                    dbTransac.Commit();
-                }
-                else
-                {
-                    dbTransac.Rollback();
-                }
-                dbTransac.Dispose();
-            }
-            return transac ? 1 : -1; 
+            base.update();
+            writelog();
+            return 1;
         }
-
+        public override int delete()
+        {
+            //trước khi delete phải ghi log
+            this.phong = null;
+            writelog();
+            return base.delete();
+        }
         #endregion
     }
 }

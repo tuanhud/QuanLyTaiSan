@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyTaiSanGUI.ThongKe.ChiTiet
 {
-    public partial class ucThongKeChiTiet : UserControl
+    public partial class ucThongKeChiTiet : UserControl, _ourUcInterface
     {
         public ucThongKeChiTiet()
         {
             InitializeComponent();
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

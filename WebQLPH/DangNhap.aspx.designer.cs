@@ -13,15 +13,6 @@ namespace WebQLPH {
     public partial class DangNhap {
         
         /// <summary>
-        /// PanelDangNhap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
-        
-        /// <summary>
         /// ucDangNhap control.
         /// </summary>
         /// <remarks>

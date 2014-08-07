@@ -54,6 +54,33 @@ namespace QuanLyTaiSan.Entities
             
             db = DB;
         }
+        /// <summary>
+        /// > 0: OK,
+        /// < 0: Fail
+        /// </summary>
+        /// <returns></returns>
+        public static int commit()
+        {
+            if (db != null)
+            {
+                using (var dbTrans = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        db.SaveChanges();
+                        dbTrans.Commit();
+                        return 1;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                        dbTrans.Rollback();
+                        return -1;
+                    }
+                }
+            }
+            return -1;
+        }
         public static void autoRandom()
         {
             Random rd = new Random();

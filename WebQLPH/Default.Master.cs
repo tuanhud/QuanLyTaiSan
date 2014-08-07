@@ -20,6 +20,7 @@ namespace WebQLPH
                     PanelAdmin.Visible = true;
                     UserName.InnerText = Session["HoTen"].ToString();
                 }
+                
                 if (!string.IsNullOrWhiteSpace(Page.Request["op"]))
                 {
                     Session.Clear();
@@ -34,6 +35,11 @@ namespace WebQLPH
         protected override void OnInit(EventArgs e)
         {
             Global.working_database.use_internal_config = true;
+        }
+
+        protected bool LaQuanTriVien()
+        {
+            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
         }
     }
 }

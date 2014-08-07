@@ -11,16 +11,19 @@ namespace WebQLPH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
+                try
                 {
-                    Response.Redirect("Default.aspx");
+                    if (!Convert.ToString(Session["UserName"]).Equals(string.Empty))
+                    {
+                        Response.Redirect("Default.aspx");
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
+                catch (Exception ex)
+                {
+                    Console.Write(ex);
+                }
             }
         }
     }

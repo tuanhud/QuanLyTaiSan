@@ -7,16 +7,22 @@
     <title>Biểu mẫu mượn phòng</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="center">
-        <asp:Panel ID="PanelDangNhap" runat="server" Visible="False">
+    <asp:Panel ID="PanelDangNhap" runat="server" Visible="false">
+        <div class="center">
             <uc:ucDangNhap runat="server" ID="ucDangNhap" />
-        </asp:Panel>
-    </div>
+        </div>
+    </asp:Panel>
     <asp:Panel ID="PanelThongBaoMuonPhongThanhCong" runat="server" Visible="false">
         <div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <strong>Hoàn thành!</strong> Chúng tôi sẽ xem xét và gửi thông báo cho bạn trong thời gian sớm nhất.
             <a href="MuonPhong.aspx" class="alert-link">Click vào đây để mượn thêm phòng</a>
+        </div>
+    </asp:Panel>
+    <asp:Panel ID="PanelKhongPhaiGiangVien" runat="server" Visible="false">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <span class="glyphicon glyphicon-info-sign"></span>
+            Vui lòng đăng nhập bằng tài khoản giảng viên để mượn phòng.
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelMuonPhong" runat="server" Visible="False">

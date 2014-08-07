@@ -16,7 +16,7 @@ using System.Data.Entity.Validation;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
-    public partial class ucPhanQuyen : UserControl
+    public partial class ucPhanQuyen : UserControl, _ourUcInterface
     {
         private List<QuanTriVienFilter> listobjQuanTriVienFilter = null;
         private QuanTriVienFilter objQuanTriVienFilter = null;
@@ -35,7 +35,7 @@ namespace QuanLyTaiSanGUI.HeThong
         private void gridViewPhanQuyen_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             //reload old object, discard changes
-            if (objQuanTriVienFilter != null)
+            if (objQuanTriVienFilter != null && objQuanTriVienFilter.quantrivien!=null)
             {
                 objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
             }
@@ -184,15 +184,16 @@ namespace QuanLyTaiSanGUI.HeThong
                 int re = objQuanTriVienFilter.quantrivien.update();
                 if (re > 0)
                 {
-                    MessageBox.Show("Sửa thành công!");
-                    reLoad();
+                    if (DBInstance.commit() > 0)
+                    {
+                        MessageBox.Show("Sửa thành công!");
+                        reLoad();
+                        return;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Sửa KHÔNG thành công!");
-                    showValidationError();
-                    return;
-                }                
+                MessageBox.Show("Sửa KHÔNG thành công!");
+                showValidationError();
+                return;            
             }
             else if (function.Equals("add"))
             {
@@ -213,18 +214,17 @@ namespace QuanLyTaiSanGUI.HeThong
                 int re = obj.add();
                 if (re > 0)
                 {
-                    MessageBox.Show("Thêm thành công!");
-
-                    //reload
-                    reLoad();
+                    if (DBInstance.commit() > 0)
+                    {
+                        MessageBox.Show("Thêm thành công!");
+                        //reload
+                        reLoad();
+                        return;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Có lỗi xảy ra!");
-                    showValidationError();
-                    return;
-                }
-
+                MessageBox.Show("Có lỗi xảy ra!");
+                showValidationError();
+                return;
             }
         }
         /// <summary>
@@ -276,15 +276,15 @@ namespace QuanLyTaiSanGUI.HeThong
             int re = objQuanTriVienFilter.quantrivien.delete();
             if (re > 0)
             {
-                MessageBox.Show("Xóa thành công!");
+                if (DBInstance.commit() > 0)
+                {
+                    MessageBox.Show("Xóa thành công!");
+                    //reload
+                    reLoad();
+                    return;
+                }
             }
-            else
-            {
-                MessageBox.Show("Xóa KHÔNG thành công");
-            }
-
-            //reload
-            reLoad();
+            MessageBox.Show("Xóa KHÔNG thành công");
         }
         private void clearThongTinChiTiet()
         {

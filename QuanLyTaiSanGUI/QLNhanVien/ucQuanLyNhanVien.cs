@@ -18,7 +18,7 @@ using DevExpress.XtraGrid;
 
 namespace QuanLyTaiSanGUI.QLNhanVien
 {
-    public partial class ucQuanLyNhanVien : UserControl
+    public partial class ucQuanLyNhanVien : UserControl,_ourUcInterface
     {
         ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
         List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
@@ -588,6 +588,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         private void gridViewNhanVien_DataSourceChanged(object sender, EventArgs e)
         {
             setDataView();
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -439,14 +439,43 @@ namespace QuanLyTaiSan.Entities
 
             return result;
         }
+        protected override bool ShouldValidateEntity(DbEntityEntry entityEntry)
+        {
+            //if (entityEntry.Entity is CoSo && entityEntry.State == EntityState.Deleted)
+            //{
+                
+            //    return true;
+            //}
+            return base.ShouldValidateEntity(entityEntry);
+        }
         protected override DbEntityValidationResult ValidateEntity(DbEntityEntry entityEntry, IDictionary<object, object> items)
         {
+            //Khai báo Validation
+            List<DbValidationError> list = new List<DbValidationError>();
+            ////Kiểm tra CoSo
+            //if (entityEntry.Entity is CoSo && entityEntry.State == EntityState.Deleted)
+            //{
+            //    CoSo tmp = (CoSo)entityEntry.Entity;
+            //    CoSo tmp2 = this.COSOS.AsNoTracking().Where(c => c.id == tmp.id).FirstOrDefault();
+            //    //check Dãy
+            //    if(tmp2.days.Count>0)
+            //    {
+            //        list.Add(new DbValidationError("error", "Cơ sở có chứa dãy"));
+            //        return new DbEntityValidationResult(entityEntry, list);
+            //    }
+            //    //check Phòng
+            //    if (tmp2.vitris.Where(c=>c.phongs.Count>0).FirstOrDefault()!=null)
+            //    {
+            //        list.Add(new DbValidationError("error", "Cơ sở có chứa phòng"));
+            //        return new DbEntityValidationResult(entityEntry, list);
+            //    }
+            //}
+            //Kiểm tra QuanTriVien
             if (entityEntry.Entity is QuanTriVien && entityEntry.State == EntityState.Added)
             {
                 QuanTriVien tmp = (QuanTriVien)entityEntry.Entity;
-                if (this.QUANTRIVIENS.Where(c=>c.username.ToUpper().Equals(tmp.username.ToUpper())).FirstOrDefault()!=null)
+                if (this.QUANTRIVIENS.Where(c => c.username.ToUpper().Equals(tmp.username.ToUpper())).FirstOrDefault() != null)
                 {
-                    List<DbValidationError> list = new List<DbValidationError>();
                     list.Add(new DbValidationError("username", "Tên đăng nhập đã có"));
 
                     return new DbEntityValidationResult(entityEntry, list);
