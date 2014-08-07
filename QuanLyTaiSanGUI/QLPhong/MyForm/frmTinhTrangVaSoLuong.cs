@@ -12,7 +12,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.QLPhong.MyForm
 {
-    public partial class frmTinhTrangVaSoLuong : DevExpress.XtraEditors.XtraForm
+    public partial class frmTinhTrangVaSoLuong : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
     {
         public TinhTrang objTinhTrang = new TinhTrang();
         public int SoLuong = -1;

@@ -349,9 +349,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn loại thiết bị ra khỏi phòng không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //if (XtraMessageBox.Show("Bạn có chắc là muốn loại thiết bị ra khỏi phòng không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                String str = String.Format("Bạn có chắc là muốn loại thiết bị {0}\n ra khỏi phòng {1} không?", objCTThietBi.thietbi.ten, objCTThietBi.phong.ten);
+                frmRemoveThietBi frm = new frmRemoveThietBi(str);
+                if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    //objCTThietBi.mota = "abc";
+                    objCTThietBi.mota = frm.mota;
                     if (objCTThietBi.delete() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Loại thiết bị ra khỏi phòng thành công!");

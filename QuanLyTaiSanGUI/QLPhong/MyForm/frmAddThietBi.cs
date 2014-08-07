@@ -14,7 +14,7 @@ using QuanLyTaiSanGUI.MyUserControl;
 
 namespace QuanLyTaiSanGUI.QLPhong.MyForm
 {
-    public partial class frmAddThietBi : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddThietBi : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
     {
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi(true);
         public ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = null;
