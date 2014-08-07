@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CollectionPager, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CollectionPager.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -72,6 +76,7 @@
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Images\loading.gif" />
@@ -97,12 +102,19 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
-    <Content Include="t.aspx" />
     <Content Include="UserControl\TimKiem.ascx" />
+    <Content Include="UserControl\ucDangNhap.ascx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangNhap.aspx.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DangNhap.aspx.designer.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,19 +144,19 @@
     <Compile Include="QuanLyMuonPhong.aspx.designer.cs">
       <DependentUpon>QuanLyMuonPhong.aspx</DependentUpon>
     </Compile>
-    <Compile Include="t.aspx.cs">
-      <DependentUpon>t.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="t.aspx.designer.cs">
-      <DependentUpon>t.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\TimKiem.ascx.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.designer.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucDangNhap.ascx.cs">
+      <DependentUpon>ucDangNhap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucDangNhap.ascx.designer.cs">
+      <DependentUpon>ucDangNhap.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

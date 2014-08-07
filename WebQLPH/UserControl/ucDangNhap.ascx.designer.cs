@@ -7,54 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebQLPH {
+namespace WebQLPH.UserControl {
     
     
-    public partial class Default {
+    public partial class ucDangNhap {
         
         /// <summary>
-        /// head control.
+        /// PanelThongBao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
         
         /// <summary>
-        /// PanelDangNhap control.
+        /// LabelThongBao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
+        protected global::System.Web.UI.WebControls.Label LabelThongBao;
         
         /// <summary>
-        /// PanelAdmin control.
+        /// TextBoxTaiKhoan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelAdmin;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTaiKhoan;
         
         /// <summary>
-        /// UserName control.
+        /// TextBoxMatKhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserName;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMatKhau;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// CheckBoxQuanTriVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxQuanTriVien;
+        
+        /// <summary>
+        /// CheckBoxNhoDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxNhoDangNhap;
+        
+        /// <summary>
+        /// ButtonDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDangNhap;
     }
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="MuonPhong.aspx.cs" Inherits="WebQLPH.MuonPhong" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Src="~/UserControl/ucDangNhap.ascx" TagPrefix="uc" TagName="ucDangNhap" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Biểu mẫu mượn phòng</title>
@@ -8,37 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="center">
         <asp:Panel ID="PanelDangNhap" runat="server" Visible="False">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Đăng nhập</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-lg-12">
-                        <asp:Panel ID="PanelThongBao" runat="server" Visible="False">
-                            <div class="row">
-                                <div class="alert alert-danger" role="alert">
-                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                    <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <div class="row">
-                            <asp:TextBox ID="TextBoxTaiKhoan" runat="server" CssClass="form-control" placeholder="Tài khoản"></asp:TextBox>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <asp:TextBox ID="TextBoxMatKhau" runat="server" CssClass="form-control" placeholder="Mật khẩu" TextMode="Password"></asp:TextBox>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <asp:CheckBox ID="CheckBoxNhoDangNhap" runat="server" />
-                            Nhớ đăng nhập lần sau
-                        </div>
-                        <br />
-                        <asp:Button ID="ButtonDangNhap" runat="server" Text="Đăng nhập" CssClass="btn btn-success center-block" OnClick="ButtonDangNhap_Click" />
-                    </div>
-                </div>
-            </div>
+            <uc:ucDangNhap runat="server" ID="ucDangNhap" />
         </asp:Panel>
     </div>
     <asp:Panel ID="PanelThongBaoMuonPhongThanhCong" runat="server" Visible="false">
@@ -56,12 +27,9 @@
             <div class="panel-body">
                 <div class="col-lg-12">
                     <asp:Panel ID="PanelThongBaoMuonPhong" runat="server" Visible="false">
-                        <div class="row">
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <span class="glyphicon glyphicon-info-sign"></span>
-                                <asp:Label ID="LabelThongBaoMuonPhong" runat="server" Text="Label"></asp:Label>
-                            </div>
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                            <asp:Label ID="LabelThongBaoMuonPhong" runat="server" Text="Label"></asp:Label>
                         </div>
                     </asp:Panel>
                     <div class="row">

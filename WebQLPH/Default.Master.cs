@@ -12,10 +12,23 @@ namespace WebQLPH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Convert.ToString(Session["Username"]) != String.Empty)
+            try
             {
-                PanelAdmin.Visible = true;
-                UserName.InnerText = Session["Username"].ToString();
+                if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
+                {
+                    PanelDangNhap.Visible = false;
+                    PanelAdmin.Visible = true;
+                    UserName.InnerText = Session["HoTen"].ToString();
+                }
+                if (!string.IsNullOrWhiteSpace(Page.Request["op"]))
+                {
+                    Session.Clear();
+                    Response.Redirect("Default.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
             }
         }
         protected override void OnInit(EventArgs e)

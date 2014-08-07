@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="icon" href="favicon.ico" />
-    <title>Trang chủ </title>
+    <title></title>
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/theme.css" rel="stylesheet" />
@@ -40,30 +40,35 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="MuonPhong.aspx"><span class="glyphicon glyphicon-edit"></span>Mượn phòng</a></li>
+                        <li <%if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("MuonPhong.aspx")) Response.Write("class=\"active\""); %>><a href="MuonPhong.aspx"><span class="glyphicon glyphicon-edit"></span>&nbsp;Mượn phòng</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>Quản lý phòng <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quản lý phòng <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>Vị trí</a></li>
-                                <li><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>Phòng</a></li>
-                                <li><a href="PhongThietBi.aspx"><span class="glyphicon glyphicon-credit-card"></span>Phòng - Thiết bị</a></li>
-                                <li><a href="ThietBi.aspx"><span class="glyphicon glyphicon-phone"></span>Thiết bị</a></li>
-                                <li><a href="LoaiThietBi.aspx"><span class="glyphicon glyphicon-briefcase"></span>Loại thiết bị</a></li>
-                                <li><a href="NhanVien.aspx"><span class="glyphicon glyphicon-user"></span>Nhân viên</a></li>
-                                <li><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>Sự cố</a></li>
+                                <li><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Vị trí</a></li>
+                                <li><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>
+                                <li><a href="PhongThietBi.aspx"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Phòng - Thiết bị</a></li>
+                                <li><a href="ThietBi.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Thiết bị</a></li>
+                                <li><a href="LoaiThietBi.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Loại thiết bị</a></li>
+                                <li><a href="NhanVien.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Nhân viên</a></li>
+                                <li><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Sự cố</a></li>
                             </ul>
                         </li>
-                        <li><a href="ThongTin.aspx"><span class="glyphicon glyphicon-info-sign"></span>Thông tin</a></li>
-                        <li><a href="LienHe.aspx"><span class="glyphicon glyphicon-envelope"></span>Liên hệ</a></li>
+                        <li><a href="ThongTin.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin</a></li>
+                        <li><a href="LienHe.aspx"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Liên hệ</a></li>
                     </ul>
+                    <asp:Panel ID="PanelDangNhap" runat="server">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="DangNhap.aspx"><span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;Đăng nhập</a></li>
+                        </ul>
+                    </asp:Panel>
                     <asp:Panel ID="PanelAdmin" runat="server" Visible="false">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Chào <b id="UserName" runat="server"></b> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Thông tin cá nhân</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-flag"></span>Xem thông báo</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Thoát</a></li>
+                                    <li><a href="?op=thongtincanhan"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
+                                    <li><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Quản lý mượn phòng</a></li>
+                                    <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>
                                 </ul>
                             </li>
                         </ul>
