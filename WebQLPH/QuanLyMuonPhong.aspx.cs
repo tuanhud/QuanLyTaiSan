@@ -14,9 +14,72 @@ namespace WebQLPH
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListPhieuMuonPhong = PhieuMuonPhong.getQuery().Where(c=>c.trangthai == 0).OrderByDescending(c=>c.id).Take(10).ToList();
-            RepeaterQuanLyMuonPhong.DataSource = ListPhieuMuonPhong;
-            RepeaterQuanLyMuonPhong.DataBind();
+            Response.CacheControl = "no-cache";
+            Response.AddHeader("Pragma", "no-cache");
+            Response.Expires = -1;
+
+            _PageLoad();
+        }
+        protected void _PageLoad()
+        {
+            if (!IsPostBack)
+            {
+                try
+                {
+                    if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
+                    {
+                        HienDangNhap(false);
+                    }
+                    else
+                    {
+                        HienDangNhap(true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+        }
+
+        protected void HienDangNhap(bool hien)
+        {
+            if (hien)
+            {
+                PanelDangNhap.Visible = true;
+            }
+            else
+            {
+                PanelDangNhap.Visible = false;
+                if (LaQuanTriVien())
+                    HienPanelQuanTriVien(true);
+            }
+        }
+
+        protected bool LaQuanTriVien()
+        {
+            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
+        }
+
+        protected void HienPanelQuanTriVien(bool hien)
+        {
+            if (hien)
+            {
+                ListPhieuMuonPhong = PhieuMuonPhong.getQuery().OrderByDescending(c => c.id).ToList();
+
+                CollectionPagerQuanLyMuonPhongQuanTriVien.DataSource = ListPhieuMuonPhong;
+                CollectionPagerQuanLyMuonPhongQuanTriVien.BindToControl = RepeaterQuanLyMuonPhongQuanTriVien;
+                RepeaterQuanLyMuonPhongQuanTriVien.DataSource = CollectionPagerQuanLyMuonPhongQuanTriVien.DataSourcePaged;
+                RepeaterQuanLyMuonPhongQuanTriVien.DataBind();
+
+                PanelQuanLyMuonPhongQuanTriVien.Visible = true;
+                PanelQuanLyMuonPhongGiangVien.Visible = false;
+            }
+            else
+            {
+                PanelQuanLyMuonPhongGiangVien.Visible = true;
+                PanelQuanLyMuonPhongQuanTriVien.Visible = false;
+            }
         }
 
         protected string NgayTao()
@@ -42,17 +105,17 @@ namespace WebQLPH
         protected string Duyet()
         {
             int trangthai = Convert.ToInt32(Eval("trangthai").ToString());
-            string str = string.Empty;
+            string str = String.Format("data-toggle='modal' data-target='#PopupDuyet' onclick=\"return Duyet('{0}','{1}','{2}');\">", Eval("id"), Eval("trangthai"), Eval("ghichu"));
             switch (trangthai)
             {
                 case 0:
-                    str = "<button class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#PopupDuyet\" onclick='return Duyet(\"" + Eval("id") + "\");'>Chờ duyệt</span>";
+                    str = "<button class='btn btn-primary btn-sm' " + str + "Chờ duyệt</span>";
                     break;
                 case 1:
-                    str = "<button class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#PopupDuyet\" onclick='return Duyet(\"" + Eval("id") + "\");'>Chấp nhận</span>";
+                    str = "<button class='btn btn-success btn-sm' " + str + "Chấp nhận</span>";
                     break;
                 case -1:
-                    str = "<button class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#PopupDuyet\" onclick='return Duyet(\"" + Eval("id") + "\");'>Hủy bỏ</span>";
+                    str = "<button class='btn btn-danger btn-sm' " + str + "Hủy bỏ</span>";
                     break;
             }
             return str;
@@ -63,7 +126,7 @@ namespace WebQLPH
             try
             {
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
-                _PhieuMuonPhong.id = Convert.ToInt32(HiddenFieldID.Value);
+                _PhieuMuonPhong = PhieuMuonPhong.getById(Convert.ToInt32(HiddenFieldID.Value));
                 _PhieuMuonPhong.trangthai = Convert.ToInt32(DropDownListTrangThai.SelectedValue);
                 _PhieuMuonPhong.ghichu = TextBoxGhiChu.Text;
                 QuanTriVien _QuanTriVien = new QuanTriVien();

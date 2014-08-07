@@ -13,24 +13,6 @@ namespace WebQLPH {
     public partial class QuanLyMuonPhong {
         
         /// <summary>
-        /// PanelQuanLyMuonPhong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhong;
-        
-        /// <summary>
-        /// RepeaterQuanLyMuonPhong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyMuonPhong;
-        
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +22,33 @@ namespace WebQLPH {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// PanelDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
+        
+        /// <summary>
+        /// ucDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebQLPH.UserControl.ucDangNhap ucDangNhap;
+        
+        /// <summary>
+        /// PanelQuanLyMuonPhongQuanTriVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhongQuanTriVien;
+        
+        /// <summary>
         /// UpdatePanel control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,33 @@ namespace WebQLPH {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        
+        /// <summary>
+        /// UpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress;
+        
+        /// <summary>
+        /// RepeaterQuanLyMuonPhongQuanTriVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyMuonPhongQuanTriVien;
+        
+        /// <summary>
+        /// CollectionPagerQuanLyMuonPhongQuanTriVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyMuonPhongQuanTriVien;
         
         /// <summary>
         /// HiddenFieldID control.
@@ -85,12 +121,12 @@ namespace WebQLPH {
         protected global::System.Web.UI.WebControls.Button ButtonLuu;
         
         /// <summary>
-        /// UpdateProgress control.
+        /// PanelQuanLyMuonPhongGiangVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress;
+        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhongGiangVien;
     }
 }

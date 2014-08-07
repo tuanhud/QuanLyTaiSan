@@ -29,15 +29,6 @@ namespace WebQLPH
                     {
                         HienDangNhap(true);
                     }
-
-
-
-                    if (Convert.ToString(Session["Username_Remember"]) != String.Empty)
-                    {
-                        TextBoxTaiKhoan.Text = Session["Username_Remember"].ToString();
-                        TextBoxMatKhau.Text = Session["Password_Remember"].ToString();
-                        CheckBoxNhoDangNhap.Checked = true;
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -56,65 +47,6 @@ namespace WebQLPH
             {
                 PanelDangNhap.Visible = false;
                 PanelMuonPhong.Visible = true;
-            }
-        }
-
-        protected void ButtonDangNhap_Click(object sender, EventArgs e)
-        {
-            DangNhap();
-        }
-
-        protected void DangNhap()
-        {
-            try
-            {
-                string Username = TextBoxTaiKhoan.Text;
-                string Password = TextBoxMatKhau.Text;
-
-                if (Username == "")
-                {
-                    PanelThongBao.Visible = true;
-                    LabelThongBao.Text = "Tài khoản không được trống";
-                    return;
-                }
-                if (Password == "")
-                {
-                    PanelThongBao.Visible = true;
-                    LabelThongBao.Text = "Mật khẩu không được trống";
-                    return;
-                }
-
-                _GiangVien = new GiangVien();
-                _GiangVien.username = Username;
-                _GiangVien.hashPassword(Password);
-                Boolean KiemTraDangNhap = _GiangVien.checkLoginByUserName();
-                if (KiemTraDangNhap)
-                {
-                    if (CheckBoxNhoDangNhap.Checked == true)
-                    {
-                        Session["Username_Remember"] = Username;
-                        Session["Password_Remember"] = Password;
-                    }
-                    else
-                    {
-                        Session["Username_Remember"] = String.Empty;
-                        Session["Password_Remember"] = String.Empty;
-                        CheckBoxNhoDangNhap.Checked = false;
-                    }
-                    Session["Username"] = Username;
-                    Response.Redirect(Request.RawUrl);
-                }
-                else
-                {
-                    PanelThongBao.Visible = true;
-                    LabelThongBao.Text = "Tài khoản hoặc mật khẩu không chính xác";
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-                PanelThongBao.Visible = true;
-                LabelThongBao.Text = "<strong>Có lỗi xảy ra !</strong> Vui lòng kiểm tra lại thông tin.";
             }
         }
 
