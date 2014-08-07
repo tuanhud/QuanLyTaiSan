@@ -13,6 +13,24 @@ namespace WebQLPH {
     public partial class MuonPhong {
         
         /// <summary>
+        /// PanelDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
+        
+        /// <summary>
+        /// ucDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebQLPH.UserControl.ucDangNhap ucDangNhap;
+        
+        /// <summary>
         /// PanelThongBaoMuonPhongThanhCong control.
         /// </summary>
         /// <remarks>
@@ -20,6 +38,15 @@ namespace WebQLPH {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelThongBaoMuonPhongThanhCong;
+        
+        /// <summary>
+        /// PanelKhongPhaiGiangVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelKhongPhaiGiangVien;
         
         /// <summary>
         /// PanelMuonPhong control.

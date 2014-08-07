@@ -100,10 +100,7 @@ namespace WebQLPH.UserControl
                         Session["HoTen"] = _QuanTriVien.hoten;
                     }
                     Session["KieuDangNhap"] = KieuDangNhap;
-                    if (Request.UrlReferrer.Equals(null))
-                        Response.Redirect(Request.UrlReferrer.ToString());
-                    else
-                        Response.Redirect("Default.aspx");
+                    Response.Redirect(Request.RawUrl);
                 }
                 else
                 {

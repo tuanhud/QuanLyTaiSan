@@ -23,8 +23,12 @@ namespace WebQLPH
                 try
                 {
                     if (Convert.ToString(Session["Username"]).Equals(String.Empty))
-                        Response.Redirect("DangNhap.aspx");
-                    QuanLyPhongMuon();
+                        PanelDangNhap.Visible = true;
+                    else
+                    {
+                        PanelQuanLyMuonPhong.Visible = true;
+                        QuanLyPhongMuon();
+                    }
                 }
                 catch (Exception ex)
                 {
