@@ -14,12 +14,12 @@ namespace WebQLPH
         {
             try
             {
-                if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-                {
-                    PanelDangNhap.Visible = false;
-                    PanelAdmin.Visible = true;
-                    UserName.InnerText = Session["HoTen"].ToString();
-                }
+                if (Convert.ToString(Session["Username"]).Equals(String.Empty))
+                    Response.Redirect("DangNhap.aspx");
+                PanelDangNhap.Visible = false;
+                PanelAdmin.Visible = true;
+                UserName.InnerText = Session["HoTen"].ToString();
+                
                 if (!string.IsNullOrWhiteSpace(Page.Request["op"]))
                 {
                     Session.Clear();
@@ -34,6 +34,11 @@ namespace WebQLPH
         protected override void OnInit(EventArgs e)
         {
             Global.working_database.use_internal_config = true;
+        }
+
+        protected bool LaQuanTriVien()
+        {
+            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
         }
     }
 }

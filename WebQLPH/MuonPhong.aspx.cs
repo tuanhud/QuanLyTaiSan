@@ -19,34 +19,16 @@ namespace WebQLPH
             {
                 try
                 {
-                    if (Convert.ToString(Session["Username"]) != String.Empty)
-                    {
-                        HienDangNhap(false);
-                        _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
-                        TextBoxKhoa.Text = _GiangVien.khoa;
-                    }
-                    else
-                    {
-                        HienDangNhap(true);
-                    }
+                    if (Convert.ToString(Session["Username"]).Equals(String.Empty))
+                        Response.Redirect("DangNhap.aspx");
+                    string a = Session["Username"].ToString();
+                    _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
+                    TextBoxKhoa.Text = _GiangVien.khoa;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                 }
-            }
-        }
-        protected void HienDangNhap(bool hien)
-        {
-            if (hien)
-            {
-                PanelDangNhap.Visible = true;
-                PanelMuonPhong.Visible = false;
-            }
-            else
-            {
-                PanelDangNhap.Visible = false;
-                PanelMuonPhong.Visible = true;
             }
         }
 

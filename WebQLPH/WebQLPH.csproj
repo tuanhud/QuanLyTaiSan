@@ -82,6 +82,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="MuonPhong.aspx" />
     <Content Include="QuanLyMuonPhong.aspx" />
+    <Content Include="QuanLyTaiKhoan.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap-select.js" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="QuanLyMuonPhong.aspx.designer.cs">
       <DependentUpon>QuanLyMuonPhong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyTaiKhoan.aspx.cs">
+      <DependentUpon>QuanLyTaiKhoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanLyTaiKhoan.aspx.designer.cs">
+      <DependentUpon>QuanLyTaiKhoan.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>

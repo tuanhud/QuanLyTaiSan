@@ -15,7 +15,10 @@ namespace WebQLPH
             {
                 if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
                 {
-                    Response.Redirect("Default.aspx");
+                    if (Request.UrlReferrer.Equals(null))
+                        Response.Redirect(Request.UrlReferrer.ToString());
+                    else
+                        Response.Redirect("Default.aspx");
                 }
             }
             catch (Exception ex)

@@ -18,49 +18,22 @@ namespace WebQLPH
             Response.AddHeader("Pragma", "no-cache");
             Response.Expires = -1;
 
-            _PageLoad();
-        }
-        protected void _PageLoad()
-        {
             if (!IsPostBack)
             {
                 try
                 {
-                    if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-                    {
-                        HienDangNhap(false);
-                    }
-                    else
-                    {
-                        HienDangNhap(true);
-                    }
+                    if (Convert.ToString(Session["Username"]).Equals(String.Empty))
+                        Response.Redirect("DangNhap.aspx");
+                    QuanLyPhongMuon();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                 }
             }
-        }
+        }        
 
-        protected void HienDangNhap(bool hien)
-        {
-            if (hien)
-            {
-                PanelDangNhap.Visible = true;
-            }
-            else
-            {
-                PanelQuanLyMuonPhong.Visible = true;
-                LoadInfo();
-            }
-        }
-
-        protected bool LaQuanTriVien()
-        {
-            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
-        }
-
-        protected void LoadInfo()
+        protected void QuanLyPhongMuon()
         {
             if (LaQuanTriVien())
             {
@@ -78,6 +51,11 @@ namespace WebQLPH
             CollectionPagerQuanLyMuonPhong.BindToControl = RepeaterQuanLyMuonPhong;
             RepeaterQuanLyMuonPhong.DataSource = CollectionPagerQuanLyMuonPhong.DataSourcePaged;
             RepeaterQuanLyMuonPhong.DataBind();
+        }
+
+        protected bool LaQuanTriVien()
+        {
+            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
         }
 
         protected string NgayTao()
