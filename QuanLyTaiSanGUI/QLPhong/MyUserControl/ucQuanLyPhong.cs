@@ -20,7 +20,7 @@ using DevExpress.XtraGrid.Localization;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
-    public partial class ucQuanLyPhong : UserControl
+    public partial class ucQuanLyPhong : UserControl, _ourUcInterface
     {
         ViTri _ViTriHienTai = new ViTri();
         Phong objPhong = new Phong();

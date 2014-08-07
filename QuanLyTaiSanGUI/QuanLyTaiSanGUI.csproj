@@ -136,6 +136,7 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="_ourUcInterface.cs" />
     <Compile Include="MyForm\frmCustom.cs">
       <SubType>Form</SubType>
     </Compile>

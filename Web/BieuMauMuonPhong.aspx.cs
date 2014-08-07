@@ -43,7 +43,7 @@ namespace Web
                 _PhieuMuonPhong = new PhieuMuonPhong();
                 _PhieuMuonPhong.ngaymuon = ASPxDateEditNgayMuon.Date.Add(-ASPxDateEditNgayMuon.Date.TimeOfDay).Add(ASPxTimeEditTuGio.DateTime.TimeOfDay);
                 _PhieuMuonPhong.ngaytra = ASPxDateEditNgayMuon.Date.Add(-ASPxDateEditNgayMuon.Date.TimeOfDay).Add(ASPxTimeEditDenGio.DateTime.TimeOfDay);
-                _PhieuMuonPhong.sophong = ASPxTextBoxPhong.Text;
+                //_PhieuMuonPhong.sophong = ASPxTextBoxPhong.Text;
                 _PhieuMuonPhong.soluongsv = Int32.Parse(ASPxTextBoxSoLuong.Text);
                 _PhieuMuonPhong.lop = ASPxTextBoxLop.Text;
                 _PhieuMuonPhong.lydomuon = ASPxMemoLyDoMuon.Text;

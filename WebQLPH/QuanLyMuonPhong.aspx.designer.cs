@@ -22,31 +22,13 @@ namespace WebQLPH {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// PanelDangNhap control.
+        /// PanelQuanLyMuonPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
-        
-        /// <summary>
-        /// ucDangNhap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WebQLPH.UserControl.ucDangNhap ucDangNhap;
-        
-        /// <summary>
-        /// PanelQuanLyMuonPhongQuanTriVien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhongQuanTriVien;
+        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhong;
         
         /// <summary>
         /// UpdatePanel control.
@@ -58,31 +40,31 @@ namespace WebQLPH {
         protected global::System.Web.UI.UpdatePanel UpdatePanel;
         
         /// <summary>
-        /// UpdateProgress control.
+        /// LabelPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress;
+        protected global::System.Web.UI.WebControls.Label LabelPanel;
         
         /// <summary>
-        /// RepeaterQuanLyMuonPhongQuanTriVien control.
+        /// RepeaterQuanLyMuonPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyMuonPhongQuanTriVien;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyMuonPhong;
         
         /// <summary>
-        /// CollectionPagerQuanLyMuonPhongQuanTriVien control.
+        /// CollectionPagerQuanLyMuonPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyMuonPhongQuanTriVien;
+        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyMuonPhong;
         
         /// <summary>
         /// HiddenFieldID control.
@@ -112,6 +94,15 @@ namespace WebQLPH {
         protected global::System.Web.UI.WebControls.TextBox TextBoxGhiChu;
         
         /// <summary>
+        /// CheckBoxGuiMailThongBao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxGuiMailThongBao;
+        
+        /// <summary>
         /// ButtonLuu control.
         /// </summary>
         /// <remarks>
@@ -119,14 +110,5 @@ namespace WebQLPH {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonLuu;
-        
-        /// <summary>
-        /// PanelQuanLyMuonPhongGiangVien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhongGiangVien;
     }
 }

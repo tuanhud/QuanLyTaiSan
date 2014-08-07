@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace QuanLyTaiSanGUI.Settings
 {
-    public partial class ucCauHinh : UserControl
+    public partial class ucCauHinh : UserControl,_ourUcInterface
     {
         public ucCauHinh()
         {
@@ -419,6 +419,11 @@ namespace QuanLyTaiSanGUI.Settings
 
             str = XML.ToString();
             return str;
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -11,7 +11,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSanGUI.QLSuCo
 {
-    public partial class ucQuanLySuCo : UserControl
+    public partial class ucQuanLySuCo : UserControl, _ourUcInterface
     {
         QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri("QLSuCoPhong");
         List<HinhAnh> listHinhs = new List<HinhAnh>();
@@ -556,6 +556,11 @@ namespace QuanLyTaiSanGUI.QLSuCo
         private void gridViewSuCo_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             setDataView();
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

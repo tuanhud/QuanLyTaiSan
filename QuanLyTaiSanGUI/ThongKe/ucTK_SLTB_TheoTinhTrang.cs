@@ -16,7 +16,7 @@ using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {
-    public partial class ucTK_SLTB_TheoTinhTrang : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucTK_SLTB_TheoTinhTrang : DevExpress.XtraEditors.XtraUserControl, _ourUcInterface
     {
         QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
         public ucTK_SLTB_TheoTinhTrang()
@@ -76,6 +76,11 @@ namespace QuanLyTaiSanGUI.ThongKe
 
             gridControl1.DataSource = list_tk;
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

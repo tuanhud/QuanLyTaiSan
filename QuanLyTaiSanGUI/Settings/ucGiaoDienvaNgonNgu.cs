@@ -12,7 +12,7 @@ using DevExpress.XtraBars.Ribbon;
 
 namespace QuanLyTaiSanGUI.Settings
 {
-    public partial class ucGiaoDienvaNgonNgu : UserControl
+    public partial class ucGiaoDienvaNgonNgu : UserControl, _ourUcInterface
     {
         string GiaoDien = Properties.Settings.Default["ApplicationSkinName"].ToString();
         GalleryItem _item = null;
@@ -49,6 +49,11 @@ namespace QuanLyTaiSanGUI.Settings
         private void ucGiaoDienvaNgonNgu_Validating(object sender, CancelEventArgs e)
         {
             //e.Cancel = true;
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

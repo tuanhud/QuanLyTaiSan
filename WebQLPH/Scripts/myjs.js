@@ -1,6 +1,8 @@
-﻿function Duyet(id,trangthai,ghichu) {
+﻿function Duyet(id,trangthai) {
     document.getElementById("HiddenFieldID").value = id;
     document.getElementById("DropDownListTrangThai").value = trangthai;
+    var ghichu = "GhiChu" + id;
+    ghichu = document.getElementById(ghichu).innerHTML;
     document.getElementById("TextBoxGhiChu").value = ghichu;
     return false;
 }

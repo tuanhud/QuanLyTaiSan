@@ -9,7 +9,7 @@
   margin-bottom: 20px;
 }
 
-.theme-showcase > p > .btn {
+.theme-showcase p .btn {
   margin: 5px 0;
 }
 
@@ -21,8 +21,43 @@
     max-width: 300px;
     margin: 0 auto;
 }
-
+.centerCollectionPager{
+    max-width: 300px;
+    margin: 0 auto;
+}
 .centered tr th{
     text-align:center;
     vertical-align:middle !important;
+}
+
+.CollectionPager {
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.CollectionPager span a{
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  color: #428bca;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.CollectionPager span a:hover,
+.CollectionPager span a:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.CollectionPager b{
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #428bca;
+  border: 1px solid #ddd;
 }

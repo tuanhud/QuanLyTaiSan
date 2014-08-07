@@ -18,68 +18,44 @@ namespace WebQLPH
             Response.AddHeader("Pragma", "no-cache");
             Response.Expires = -1;
 
-            _PageLoad();
-        }
-        protected void _PageLoad()
-        {
             if (!IsPostBack)
             {
                 try
                 {
-                    if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-                    {
-                        HienDangNhap(false);
-                    }
-                    else
-                    {
-                        HienDangNhap(true);
-                    }
+                    if (Convert.ToString(Session["Username"]).Equals(String.Empty))
+                        Response.Redirect("DangNhap.aspx");
+                    QuanLyPhongMuon();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                 }
             }
-        }
+        }        
 
-        protected void HienDangNhap(bool hien)
+        protected void QuanLyPhongMuon()
         {
-            if (hien)
+            if (LaQuanTriVien())
             {
-                PanelDangNhap.Visible = true;
+                LabelPanel.Text = "DANH SÁCH GIẢNG VIÊN MƯỢN PHÒNG";
+                ListPhieuMuonPhong = PhieuMuonPhong.getQuery().OrderByDescending(c => c.id).ToList();
             }
             else
             {
-                PanelDangNhap.Visible = false;
-                if (LaQuanTriVien())
-                    HienPanelQuanTriVien(true);
+                LabelPanel.Text = "DANH SÁCH PHÒNG BẠN ĐÃ MƯỢN";
+                GiangVien _GiangVien = GiangVien.getByUserName(Convert.ToString(Session["UserName"]));
+                ListPhieuMuonPhong = _GiangVien.phieumuonphongs.OrderByDescending(c => c.id).ToList();
             }
+
+            CollectionPagerQuanLyMuonPhong.DataSource = ListPhieuMuonPhong;
+            CollectionPagerQuanLyMuonPhong.BindToControl = RepeaterQuanLyMuonPhong;
+            RepeaterQuanLyMuonPhong.DataSource = CollectionPagerQuanLyMuonPhong.DataSourcePaged;
+            RepeaterQuanLyMuonPhong.DataBind();
         }
 
         protected bool LaQuanTriVien()
         {
             return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
-        }
-
-        protected void HienPanelQuanTriVien(bool hien)
-        {
-            if (hien)
-            {
-                ListPhieuMuonPhong = PhieuMuonPhong.getQuery().OrderByDescending(c => c.id).ToList();
-
-                CollectionPagerQuanLyMuonPhongQuanTriVien.DataSource = ListPhieuMuonPhong;
-                CollectionPagerQuanLyMuonPhongQuanTriVien.BindToControl = RepeaterQuanLyMuonPhongQuanTriVien;
-                RepeaterQuanLyMuonPhongQuanTriVien.DataSource = CollectionPagerQuanLyMuonPhongQuanTriVien.DataSourcePaged;
-                RepeaterQuanLyMuonPhongQuanTriVien.DataBind();
-
-                PanelQuanLyMuonPhongQuanTriVien.Visible = true;
-                PanelQuanLyMuonPhongGiangVien.Visible = false;
-            }
-            else
-            {
-                PanelQuanLyMuonPhongGiangVien.Visible = true;
-                PanelQuanLyMuonPhongQuanTriVien.Visible = false;
-            }
         }
 
         protected string NgayTao()
@@ -105,18 +81,37 @@ namespace WebQLPH
         protected string Duyet()
         {
             int trangthai = Convert.ToInt32(Eval("trangthai").ToString());
-            string str = String.Format("data-toggle='modal' data-target='#PopupDuyet' onclick=\"return Duyet('{0}','{1}','{2}');\">", Eval("id"), Eval("trangthai"), Eval("ghichu"));
-            switch (trangthai)
+            string str = string.Empty;
+            if (LaQuanTriVien())
             {
-                case 0:
-                    str = "<button class='btn btn-primary btn-sm' " + str + "Chờ duyệt</span>";
-                    break;
-                case 1:
-                    str = "<button class='btn btn-success btn-sm' " + str + "Chấp nhận</span>";
-                    break;
-                case -1:
-                    str = "<button class='btn btn-danger btn-sm' " + str + "Hủy bỏ</span>";
-                    break;
+                str = string.Format("data-toggle='modal' data-target='#PopupDuyet' onclick=\"return Duyet('{0}','{1}');\">", Eval("id"), Eval("trangthai"));
+                switch (trangthai)
+                {
+                    case 0:
+                        str = "<button class='btn btn-primary btn-sm' " + str + "Chờ duyệt</span>";
+                        break;
+                    case 1:
+                        str = "<button class='btn btn-success btn-sm' " + str + "Chấp nhận</span>";
+                        break;
+                    case -1:
+                        str = "<button class='btn btn-danger btn-sm' " + str + "Hủy bỏ</span>";
+                        break;
+                }
+            }
+            else
+            {
+                switch (trangthai)
+                {
+                    case 0:
+                        str = "<label class='label label-primary btn-sm'>Chờ duyệt</span>";
+                        break;
+                    case 1:
+                        str = "<label class='label label-success btn-sm'>Chấp nhận</span>";
+                        break;
+                    case -1:
+                        str = "<label class='label label-danger btn-sm'>Hủy bỏ</span>";
+                        break;
+                }
             }
             return str;
         }

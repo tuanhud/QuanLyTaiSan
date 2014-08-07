@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyTaiSanGUI.Settings
 {
-    public partial class ucThongTinPhanMem : UserControl
+    public partial class ucThongTinPhanMem : UserControl, _ourUcInterface
     {
         public ucThongTinPhanMem()
         {
             InitializeComponent();
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

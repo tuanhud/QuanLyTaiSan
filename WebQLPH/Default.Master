@@ -68,6 +68,9 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="?op=thongtincanhan"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
                                     <li><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Quản lý mượn phòng</a></li>
+                                    <%if(LaQuanTriVien()){ %>
+                                    <li><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Quản lý tài khoản</a></li>
+                                    <%} %>
                                     <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>
                                 </ul>
                             </li>

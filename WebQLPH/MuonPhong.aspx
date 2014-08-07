@@ -7,11 +7,6 @@
     <title>Biểu mẫu mượn phòng</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="center">
-        <asp:Panel ID="PanelDangNhap" runat="server" Visible="False">
-            <uc:ucDangNhap runat="server" ID="ucDangNhap" />
-        </asp:Panel>
-    </div>
     <asp:Panel ID="PanelThongBaoMuonPhongThanhCong" runat="server" Visible="false">
         <div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -26,7 +21,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-lg-12">
-                    <asp:Panel ID="PanelThongBaoMuonPhong" runat="server" Visible="false">
+                    <asp:Panel ID="PanelThongBaoMuonPhong" runat="server">
                         <div class="alert alert-warning alert-dismissible" role="alert">
                             <span class="glyphicon glyphicon-info-sign"></span>
                             <asp:Label ID="LabelThongBaoMuonPhong" runat="server" Text="Label"></asp:Label>
