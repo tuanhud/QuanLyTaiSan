@@ -29,50 +29,54 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.checkBtnTheoSL = new DevExpress.XtraEditors.CheckButton();
-            this.checkBtnTheoCT = new DevExpress.XtraEditors.CheckButton();
+            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.colname = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.checkBtnTheoCT);
-            this.panelControl1.Controls.Add(this.checkBtnTheoSL);
+            this.panelControl1.Controls.Add(this.treeList1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(251, 347);
             this.panelControl1.TabIndex = 0;
             // 
-            // checkBtnTheoSL
+            // treeList1
             // 
-            this.checkBtnTheoSL.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBtnTheoSL.Appearance.Options.UseFont = true;
-            this.checkBtnTheoSL.Appearance.Options.UseTextOptions = true;
-            this.checkBtnTheoSL.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.checkBtnTheoSL.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBtnTheoSL.Location = new System.Drawing.Point(0, 0);
-            this.checkBtnTheoSL.Name = "checkBtnTheoSL";
-            this.checkBtnTheoSL.Size = new System.Drawing.Size(251, 23);
-            this.checkBtnTheoSL.TabIndex = 2;
-            this.checkBtnTheoSL.Text = "Thiết bị quản lý theo số lượng";
-            this.checkBtnTheoSL.CheckedChanged += new System.EventHandler(this.checkBtnTheoSL_CheckedChanged);
+            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.colname,
+            this.colid});
+            this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeList1.Location = new System.Drawing.Point(0, 0);
+            this.treeList1.Name = "treeList1";
+            this.treeList1.OptionsBehavior.AllowQuickHideColumns = false;
+            this.treeList1.OptionsBehavior.Editable = false;
+            this.treeList1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeList1.OptionsView.ShowColumns = false;
+            this.treeList1.OptionsView.ShowIndicator = false;
+            this.treeList1.Size = new System.Drawing.Size(251, 347);
+            this.treeList1.TabIndex = 4;
+            this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
             // 
-            // checkBtnTheoCT
+            // colname
             // 
-            this.checkBtnTheoCT.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBtnTheoCT.Appearance.Options.UseFont = true;
-            this.checkBtnTheoCT.Appearance.Options.UseTextOptions = true;
-            this.checkBtnTheoCT.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.checkBtnTheoCT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBtnTheoCT.Location = new System.Drawing.Point(0, 23);
-            this.checkBtnTheoCT.Name = "checkBtnTheoCT";
-            this.checkBtnTheoCT.Size = new System.Drawing.Size(251, 23);
-            this.checkBtnTheoCT.TabIndex = 3;
-            this.checkBtnTheoCT.Text = "Thiết bị quản lý theo cá thể";
-            this.checkBtnTheoCT.CheckedChanged += new System.EventHandler(this.checkBtnTheoCT_CheckedChanged);
+            this.colname.Caption = "name";
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 0;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // ucQuanLyThietBi_Control
             // 
@@ -83,6 +87,7 @@
             this.Size = new System.Drawing.Size(251, 347);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,7 +95,8 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.CheckButton checkBtnTheoSL;
-        private DevExpress.XtraEditors.CheckButton checkBtnTheoCT;
+        private DevExpress.XtraTreeList.TreeList treeList1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colname;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
     }
 }

@@ -16,6 +16,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public ucQuanLyThietBi_Control()
         {
             InitializeComponent();
+            CreateNode(treeList1);
+            treeList1.ExpandAll();
         }
 
         public PanelControl getControl()
@@ -23,34 +25,50 @@ namespace QuanLyTaiSanGUI.QLThietBi
             return panelControl1;
         }
 
-        public void enable_disableRiengChung(Boolean enable)
+        private void CreateNode(DevExpress.XtraTreeList.TreeList tl)
         {
-            checkBtnTheoSL.Checked = enable;
-            checkBtnTheoCT.Checked = !enable;
+            tl.BeginUnboundLoad();
+            // Create a root node
+            DevExpress.XtraTreeList.Nodes.TreeListNode parentForRootNodes = null;
+
+            DevExpress.XtraTreeList.Nodes.TreeListNode rootNode2 = tl.AppendNode(new object[] { "Thiết bị quản lý theo số lượng", 0 }, parentForRootNodes);
+
+            DevExpress.XtraTreeList.Nodes.TreeListNode rootNode = tl.AppendNode(new object[] { "Thiết bị quản lý theo cá thể", 1 }, parentForRootNodes);
+            // Create a child for a root Node
+            tl.AppendNode(new object[] { "Thiết bị đang được sử dụng", 2 }, rootNode);
+            tl.AppendNode(new object[] { "Thiết bị chưa được sử dụng", 3 }, rootNode);
+
+            tl.EndUnboundLoad();
         }
 
-        private void checkBtnTheoSL_CheckedChanged(object sender, EventArgs e)
+        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            if (checkBtnTheoSL.Checked && this.Parent != null)
+            if (this.Parent != null)
             {
                 ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
-                _ucQuanLyThietBi.loadData(true);
-                checkBtnTheoSL.ForeColor = Color.Red;
-                checkBtnTheoCT.ForeColor = Color.Empty;
-                panelControl1.Focus();
+                if (e.Node != null && e.Node.GetValue(colid).Equals(0))
+                {
+                    _ucQuanLyThietBi.loadData(true);
+                }
+                else if (e.Node != null && e.Node.GetValue(colid).Equals(1))
+                {
+                    _ucQuanLyThietBi.loadData(false);
+                }
+                else if (e.Node != null && e.Node.GetValue(colid).Equals(2))
+                {
+                    _ucQuanLyThietBi.loadData(false);
+                }
+                else if (e.Node != null && e.Node.GetValue(colid).Equals(3))
+                {
+                    _ucQuanLyThietBi.loadData(false);
+                }
             }
         }
 
-        private void checkBtnTheoCT_CheckedChanged(object sender, EventArgs e)
+        public void FocusedNode(int id)
         {
-            if (checkBtnTheoCT.Checked && this.Parent != null)
-            {
-                ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
-                _ucQuanLyThietBi.loadData(false);
-                checkBtnTheoSL.ForeColor = Color.Empty;
-                checkBtnTheoCT.ForeColor = Color.Red;
-                panelControl1.Focus();
-            }
+            DevExpress.XtraTreeList.Nodes.TreeListNode node = treeList1.FindNodeByFieldValue(colid.FieldName, id);
+            node.Selected = true;
         }
     }
 }

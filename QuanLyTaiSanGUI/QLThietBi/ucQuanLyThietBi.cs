@@ -89,7 +89,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 layout.load(gridViewThietBi);
 
                 loaiChung = _loaichung;
-                _ucQuanLyThietBi_Control.enable_disableRiengChung(loaiChung);
+                
+                //_ucQuanLyThietBi_Control.FocusedNode(loaiChung ? 0 : 1);
 
                 listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
                 listLoaiThietBi.Insert(0, loaiThietBiNULL);
