@@ -62,14 +62,14 @@ namespace QuanLyTaiSanGUI.Libraries
                     {
                         if (!row[PASS].Equals("Pass"))
                         {
-                            if (row[MANHANVIEN] != DBNull.Value && row[TENNHANVIEN] != DBNull.Value)
+                            if (row[TENNHANVIEN] != DBNull.Value)
                             {
-                                if (NhanVienPT.getAll().FirstOrDefault(c => c.subId.ToUpper() == row[MANHANVIEN].ToString().ToUpper()) == null)
+                                if (NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[TENNHANVIEN].ToString().ToUpper()) == null)
                                 {
                                     try
                                     {
                                         NhanVienPT obj = new NhanVienPT();
-                                        obj.subId = row[MANHANVIEN].ToString();
+                                        obj.subId = row[MANHANVIEN] != DBNull.Value ? row[MANHANVIEN].ToString() : null;
                                         obj.hoten = row[TENNHANVIEN].ToString();
                                         obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
                                         obj.sodienthoai = row[SODIENTHOAI].ToString();
