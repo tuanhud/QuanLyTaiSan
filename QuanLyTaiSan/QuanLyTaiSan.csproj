@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201408060750152_chinh_sua_su_co_phong.Designer.cs">
       <DependentUpon>201408060750152_chinh_sua_su_co_phong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408070710467_choPhepLOGTB_Phong_null.cs" />
+    <Compile Include="Migrations\201408070710467_choPhepLOGTB_Phong_null.Designer.cs">
+      <DependentUpon>201408070710467_choPhepLOGTB_Phong_null.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408060750152_chinh_sua_su_co_phong.resx">
       <DependentUpon>201408060750152_chinh_sua_su_co_phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408070710467_choPhepLOGTB_Phong_null.resx">
+      <DependentUpon>201408070710467_choPhepLOGTB_Phong_null.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

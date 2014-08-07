@@ -58,33 +58,15 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int add()
         {
-            Boolean transac = true;
-            DateTime ngay = ServerTimeHelper.getNow();
-            using (var dbContextTransaction = db.Database.BeginTransaction())
-            {
-                //add
-                transac = transac && base.add()>0;
-                //write log
-                transac = transac && writelog()>0;
-
-                //final transac controller
-                if (transac)
-                {
-                    dbContextTransaction.Commit();
-                }
-                else
-                {
-                    dbContextTransaction.Rollback();
-                }
-
-                return transac ? 1 : -1;
-            }
+            //add
+            base.add();
+            writelog();
+            return 1;
         }
         protected int writelog()
         {
             LogSuCoPhong obj = new LogSuCoPhong();
-            //quocdunginfo ERROR
-            obj.hinhanhs = hinhanhs==null?new List<HinhAnh>():HinhAnh.clone(this.hinhanhs);
+            obj.hinhanhs = HinhAnh.clone(this.hinhanhs);
             obj.mota = this.mota;
             obj.sucophong = this;
             obj.quantrivien = Global.current_quantrivien_login;
@@ -108,27 +90,12 @@ namespace QuanLyTaiSan.Entities
                 tinhtrang.trigger();
             }
 
-            Boolean transac = true;
-            DateTime ngay = ServerTimeHelper.getNow();
-            using (var dbContextTransaction = db.Database.BeginTransaction())
-            {
-                //add
-                transac = transac && base.update() > 0;
-                //write log
-                transac = transac && writelog() > 0;
-
-                //final transac controller
-                if (transac)
-                {
-                    dbContextTransaction.Commit();
-                }
-                else
-                {
-                    dbContextTransaction.Rollback();
-                }
-
-                return transac ? 1 : -1;
-            }
+            
+            //add
+            base.update();
+            //write log
+            writelog();
+            return 1;
         }
         protected override void init()
         {

@@ -40,22 +40,6 @@ namespace QuanLyTaiSan.Entities
             base.init();
             phieumuonphongs = new List<PhieuMuonPhong>();
         }
-        public override int update()
-        {
-            //have to load all [Required] FK object first
-            
-            
-            //...
-            return base.update();
-        }
-        /// <summary>
-        /// Trước khi add phải gọi hashPassword trước
-        /// </summary>
-        /// <returns></returns>
-        public override int add()
-        {
-            return base.add();
-        }
         #endregion
     }
 }

@@ -14,7 +14,7 @@ namespace QuanLyTaiSan.Entities
     {
         public CoSo():base()
         {
-            this.days = new List<Dayy>();
+            
         }
        
         #region Định nghĩa

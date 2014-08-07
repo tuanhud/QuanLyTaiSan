@@ -20,7 +20,7 @@ using DevExpress.XtraTreeList.Localization;
 
 namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 {
-    public partial class ucQuanLyViTri : UserControl
+    public partial class ucQuanLyViTri : UserControl,_ourUcInterface
     {
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         TextEdit txt = new TextEdit();
@@ -973,6 +973,11 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 Debug.WriteLine(this.Name + "->barBtnDown_ItemClick: " + ex.Message);
             }
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

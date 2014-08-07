@@ -87,8 +87,8 @@ namespace QuanLyTaiSan.Entities
             {
                 //script
                 db.Set<T>().Add((T)this);
-                db.SaveChanges();
-                return id;
+                //db.SaveChanges();
+                return 1;
             }
             catch (Exception ex)
             {
@@ -108,7 +108,7 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                db.SaveChanges();
+                //db.SaveChanges();
                 return 1;
             }
             catch (Exception ex)
@@ -129,7 +129,7 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 db.Set<T>().Remove((T)this);
-                db.SaveChanges();
+                //db.SaveChanges();
                 return 1;
             }
             catch (Exception ex)
