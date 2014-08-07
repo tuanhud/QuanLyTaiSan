@@ -21,7 +21,7 @@ using QuanLyTaiSanGUI.QLPhong.MyForm;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
-    public partial class ucQuanLyPhongThietBi : UserControl
+    public partial class ucQuanLyPhongThietBi : UserControl, _ourUcInterface
     {
         Phong objPhong = new Phong();
         CTThietBi objCTThietBi = new CTThietBi();
@@ -531,6 +531,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 }
 
             }
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

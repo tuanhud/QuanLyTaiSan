@@ -13,7 +13,7 @@ using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.QLTinhTrang
 {
-    public partial class ucQuanLyTinhTrang : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucQuanLyTinhTrang : DevExpress.XtraEditors.XtraUserControl, _ourUcInterface
     {
         List<TinhTrang> listTinhTrang = new List<TinhTrang>();
         TinhTrang objTinhTrang = new TinhTrang();
@@ -379,5 +379,10 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             }
         }
 
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QuanLyTaiSanGUI.Settings
 {
-    public partial class ucCapNhatPhanMem : UserControl
+    public partial class ucCapNhatPhanMem : UserControl, _ourUcInterface
     {
         public ucCapNhatPhanMem()
         {
@@ -21,6 +21,11 @@ namespace QuanLyTaiSanGUI.Settings
         private void btnCapNhatPhanMem_Click(object sender, EventArgs e)
         {
             panelControlCapNhatPhanMem.Visible = true;
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

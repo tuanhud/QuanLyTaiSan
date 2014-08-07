@@ -12,19 +12,25 @@ using System.Windows.Forms;
 
 namespace QuanLyTaiSanGUI
 {
-    public partial class Test : Form
+    interface vdthoi{
+        void reLoad();
+    }
+    public partial class Test : Form, vdthoi
     {
         public Test()
         {
             InitializeComponent();
-
-            
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
         {
             MessageBox.Show("them click");
             ucThemSuaXoaButton1.btnSua.Hide();
+        }
+
+        public void reLoad()
+        {
+            MessageBox.Show("wtf");
         }
     }
 }

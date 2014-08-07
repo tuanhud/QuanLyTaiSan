@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {
-    public partial class ucThongKeTongQuat : UserControl
+    public partial class ucThongKeTongQuat : UserControl, _ourUcInterface
     {
         public ucThongKeTongQuat()
         {
             InitializeComponent();
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

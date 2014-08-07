@@ -16,7 +16,7 @@ using System.Data.Entity.Validation;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
-    public partial class ucPhanQuyen : UserControl
+    public partial class ucPhanQuyen : UserControl, _ourUcInterface
     {
         private List<QuanTriVienFilter> listobjQuanTriVienFilter = null;
         private QuanTriVienFilter objQuanTriVienFilter = null;

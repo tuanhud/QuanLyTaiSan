@@ -19,7 +19,7 @@ using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
-    public partial class ucQuanLyLoaiTB : UserControl
+    public partial class ucQuanLyLoaiTB : UserControl,_ourUcInterface
     {
         List<LoaiTBHienThi> loaiThietBis = new List<LoaiTBHienThi>();
         List<LoaiThietBi> listLoaiThietBiCha = new List<LoaiThietBi>();

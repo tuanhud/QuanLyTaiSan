@@ -12,7 +12,7 @@ using QuanLyTaiSan.DataFilter;
 
 namespace QuanLyTaiSanGUI.PhanCongQTV
 {
-    public partial class ucPhanCongQTV : UserControl
+    public partial class ucPhanCongQTV : UserControl,_ourUcInterface
     {
         QuanLyTaiSanGUI.MyUC.ucTreePhongHaveCheck _ucTreePhongHaveCheck = new QuanLyTaiSanGUI.MyUC.ucTreePhongHaveCheck(true);
         List<QuanTriVien> QuanTriViens = new List<QuanTriVien>();
@@ -225,6 +225,11 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                 Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
                 return true;
             }
+        }
+
+        public void reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }

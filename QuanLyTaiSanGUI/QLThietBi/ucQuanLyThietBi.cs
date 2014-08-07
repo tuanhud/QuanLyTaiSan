@@ -18,7 +18,7 @@ using DevExpress.XtraGrid;
 
 namespace QuanLyTaiSanGUI.QLThietBi
 {
-    public partial class ucQuanLyThietBi : UserControl
+    public partial class ucQuanLyThietBi : UserControl,_ourUcInterface
     {
         ucQuanLyThietBi_Control _ucQuanLyThietBi_Control = new ucQuanLyThietBi_Control();
         List<ThietBi> listThietBi = new List<ThietBi>();
@@ -916,6 +916,11 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 frmShowImage frm = new frmShowImage(listHinhAnh);
                 frm.ShowDialog();
             }
+        }
+
+        void _ourUcInterface.reLoad()
+        {
+            throw new NotImplementedException();
         }
     }
 }
