@@ -37,8 +37,7 @@ namespace QuanLyTaiSan.Entities
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
 
-        public int phong_id { get; set; }
-        [Required]
+        public int? phong_id { get; set; }
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
 
