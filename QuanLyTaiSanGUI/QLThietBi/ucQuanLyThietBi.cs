@@ -184,16 +184,16 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
                 if (add && !loaiChung)
                 {
-                    listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung).ToList();
+                    listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung);
                 }
                 else
                 {
                     if (state == 0 || state == 1)
                         listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
                     else if (state == 2)
-                        listThietBi = ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.phong != null && e.soluong > 0).Count() > 0).ToList();
+                        listThietBi = ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.soluong > 0).Count() > 0).ToList();
                     else if (state == 3)
-                        listThietBi = ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.phong != null && e.soluong > 0).Count() == 0).ToList();
+                        listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung);
                 }
                 gridControlThietBi.DataSource = listThietBi;
                 if (listThietBi.Count() == 0)
