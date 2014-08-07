@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.components = new System.ComponentModel.Container();
+            this.labelControlMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             this.labelControlMoTa = new DevExpress.XtraEditors.LabelControl();
             this.labelControlNgayMua = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlLoaiTB = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlTen = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dateEditNgayMua = new DevExpress.XtraEditors.DateEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
@@ -61,7 +62,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -81,13 +82,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelControl8
+            // labelControlMa
             // 
-            this.labelControl8.Location = new System.Drawing.Point(8, 156);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(54, 13);
-            this.labelControl8.TabIndex = 24;
-            this.labelControl8.Text = "Mã thiết bị:";
+            this.labelControlMa.Location = new System.Drawing.Point(8, 156);
+            this.labelControlMa.Name = "labelControlMa";
+            this.labelControlMa.Size = new System.Drawing.Size(54, 13);
+            this.labelControlMa.TabIndex = 24;
+            this.labelControlMa.Text = "Mã thiết bị:";
             // 
             // txtMa
             // 
@@ -142,21 +143,21 @@
             this.labelControlNgayMua.TabIndex = 11;
             this.labelControlNgayMua.Text = "Ngày mua:";
             // 
-            // labelControl3
+            // labelControlLoaiTB
             // 
-            this.labelControl3.Location = new System.Drawing.Point(8, 209);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(59, 13);
-            this.labelControl3.TabIndex = 9;
-            this.labelControl3.Text = "Loại thiết bị:";
+            this.labelControlLoaiTB.Location = new System.Drawing.Point(8, 209);
+            this.labelControlLoaiTB.Name = "labelControlLoaiTB";
+            this.labelControlLoaiTB.Size = new System.Drawing.Size(59, 13);
+            this.labelControlLoaiTB.TabIndex = 9;
+            this.labelControlLoaiTB.Text = "Loại thiết bị:";
             // 
-            // labelControl2
+            // labelControlTen
             // 
-            this.labelControl2.Location = new System.Drawing.Point(8, 182);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(58, 13);
-            this.labelControl2.TabIndex = 8;
-            this.labelControl2.Text = "Tên thiết bị:";
+            this.labelControlTen.Location = new System.Drawing.Point(8, 182);
+            this.labelControlTen.Name = "labelControlTen";
+            this.labelControlTen.Size = new System.Drawing.Size(58, 13);
+            this.labelControlTen.TabIndex = 8;
+            this.labelControlTen.Text = "Tên thiết bị:";
             // 
             // labelControl1
             // 
@@ -226,15 +227,15 @@
             this.groupControlThietBi.Controls.Add(this.btnR_Them);
             this.groupControlThietBi.Controls.Add(this.btnR_Xoa);
             this.groupControlThietBi.Controls.Add(this.panelControlLoaiThietBi);
-            this.groupControlThietBi.Controls.Add(this.labelControl8);
+            this.groupControlThietBi.Controls.Add(this.labelControlMa);
             this.groupControlThietBi.Controls.Add(this.txtMa);
             this.groupControlThietBi.Controls.Add(this.btnHuy);
             this.groupControlThietBi.Controls.Add(this.btnOk);
             this.groupControlThietBi.Controls.Add(this.btnImage);
             this.groupControlThietBi.Controls.Add(this.labelControlMoTa);
             this.groupControlThietBi.Controls.Add(this.labelControlNgayMua);
-            this.groupControlThietBi.Controls.Add(this.labelControl3);
-            this.groupControlThietBi.Controls.Add(this.labelControl2);
+            this.groupControlThietBi.Controls.Add(this.labelControlLoaiTB);
+            this.groupControlThietBi.Controls.Add(this.labelControlTen);
             this.groupControlThietBi.Controls.Add(this.labelControl1);
             this.groupControlThietBi.Controls.Add(this.dateEditNgayMua);
             this.groupControlThietBi.Controls.Add(this.txtTen);
@@ -370,7 +371,7 @@
             this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlThietBi.MainView = this.gridViewThietBi;
             this.gridControlThietBi.Name = "gridControlThietBi";
-            this.gridControlThietBi.Size = new System.Drawing.Size(486, 495);
+            this.gridControlThietBi.Size = new System.Drawing.Size(485, 495);
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});
@@ -483,15 +484,15 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControlMa;
         private DevExpress.XtraEditors.TextEdit txtMa;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOk;
         private DevExpress.XtraEditors.SimpleButton btnImage;
         private DevExpress.XtraEditors.LabelControl labelControlMoTa;
         private DevExpress.XtraEditors.LabelControl labelControlNgayMua;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControlLoaiTB;
+        private DevExpress.XtraEditors.LabelControl labelControlTen;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.DateEdit dateEditNgayMua;
         private DevExpress.XtraEditors.TextEdit txtTen;

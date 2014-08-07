@@ -30,8 +30,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         List<HinhAnh> listHinhAnh = new List<HinhAnh>();
         String function = "";
         Boolean loaiChung = true;
-        int khoangcach;
-        Point pointLabelMota, pointTxtMota, pointBtnOk, pointBtnHuy;
+        Point pointLabelMota, pointTxtMota, pointLabelLoai, pointPanelLoai;
         public bool working = false;
         bool add = false;
 
@@ -56,9 +55,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             pointLabelMota = labelControlMoTa.Location;
             pointTxtMota = txtMoTa.Location;
-            pointBtnOk = btnOk.Location;
-            pointBtnHuy = btnHuy.Location;
-            khoangcach = Math.Abs(dateEditNgayMua.Location.Y - txtMoTa.Location.Y);
+            pointLabelLoai = labelControlLoaiTB.Location;
+            pointPanelLoai = panelControlLoaiThietBi.Location;
 
             ribbonThietBi.Parent = null;
             _ucQuanLyThietBi_Control.Parent = this;
@@ -96,32 +94,52 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
                 listLoaiThietBi.Insert(0, loaiThietBiNULL);
 
-                int Y = Math.Abs(pointBtnHuy.Y - khoangcach);
-                if (loaiChung)
-                {
-                    labelControlNgayMua.Visible = false;
-                    dateEditNgayMua.Visible = false;
-                    labelControlMoTa.Location = labelControlNgayMua.Location;
-                    txtMoTa.Location = dateEditNgayMua.Location;
-                    btnOk.Location = new Point(pointBtnOk.X, Y);
-                    btnHuy.Location = new Point(pointBtnHuy.X, Y);
-                    gridViewThietBi.Columns.ColumnByName("colngaymua").Visible = false;
-                }
-                else
-                {
-                    labelControlNgayMua.Visible = true;
-                    dateEditNgayMua.Visible = true;
-                    labelControlMoTa.Location = pointLabelMota;
-                    txtMoTa.Location = pointTxtMota;
-                    btnOk.Location = pointBtnOk;
-                    btnHuy.Location = pointBtnHuy;
-                    gridViewThietBi.Columns.ColumnByName("colngaymua").Visible = true;
-                }
+                editGUIforView();
+
                 reLoad();
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : loadData : " + ex.Message);
+                Debug.WriteLine(this.Name + "=>loadData: " + ex.Message);
+            }
+        }
+
+        private void editGUIforView()
+        {
+            try
+            {
+                //edit GUI
+                rbnGroupThietBi.Visible = !loaiChung;
+                btnR_Them.Visible = !loaiChung;
+                btnR_Sua.Visible = !loaiChung;
+                btnR_Xoa.Visible = !loaiChung;
+                gridViewThietBi.Columns[colngaymua.FieldName].Visible = !loaiChung;
+                gridViewThietBi.Columns[colten.FieldName].Visible = !loaiChung;
+                labelControlNgayMua.Visible = !loaiChung;
+                dateEditNgayMua.Visible = !loaiChung;
+                labelControlMa.Visible = !loaiChung;
+                labelControlTen.Visible = !loaiChung;
+                txtMa.Visible = !loaiChung;
+                txtTen.Visible = !loaiChung;
+
+                if (loaiChung)
+                {
+                    panelControlLoaiThietBi.Location = txtMa.Location;
+                    labelControlLoaiTB.Location = labelControlMa.Location;
+                    txtMoTa.Location = txtTen.Location;
+                    labelControlMoTa.Location = labelControlTen.Location;
+                }
+                else
+                {
+                    panelControlLoaiThietBi.Location = pointPanelLoai;
+                    labelControlLoaiTB.Location = pointLabelLoai;
+                    labelControlMoTa.Location = pointLabelMota;
+                    txtMoTa.Location = pointTxtMota;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "=>editGUIforView: " + ex.Message);
             }
         }
 
@@ -136,7 +154,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 panelControlLoaiThietBi.Controls.Clear();
                 panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
                 if (add && !loaiChung)
+                {
                     listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung).ToList();
+                }
                 else
                     listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
                 gridControlThietBi.DataSource = listThietBi;

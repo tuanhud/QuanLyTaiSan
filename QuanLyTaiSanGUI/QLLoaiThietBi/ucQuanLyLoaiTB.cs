@@ -24,18 +24,35 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         List<LoaiTBHienThi> loaiThietBis = new List<LoaiTBHienThi>();
         List<LoaiThietBi> listLoaiThietBiCha = new List<LoaiThietBi>();
         List<LoaiThietBi> loaiThietBiParents = new List<LoaiThietBi>();
+        List<HinhAnh> listHinhs = new List<HinhAnh>();
         string function = "";
         LoaiThietBi objLoaiThietBi = null;
         LoaiThietBi loaiThietBiNULL = new LoaiThietBi();
-        public bool working = false;
+        bool working = false;
+        Point pointLabelTen, pointTxtTen, pointLabelMota, pointTxtMota, pointLabelLoai, pointPanelLoai, pointBtnOk, pointBtnHuy;
+        int khoangcach;
 
         public ucQuanLyLoaiTB()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
             ribbonLoaiTB.Parent = null;
             loaiThietBiNULL.ten = "[Không thuộc loại nào]";
             loaiThietBiNULL.id = -1;
             loaiThietBiNULL.parent = null;
+            khoangcach = Math.Abs(imageSliderLoaiTB.Location.Y - txtTen.Location.Y);
+            pointLabelTen = labelControlTen.Location;
+            pointTxtTen = txtTen.Location;
+            pointLabelMota = labelControlMota.Location;
+            pointTxtMota = txtMoTa.Location;
+            pointLabelLoai = labelControlLoai.Location;
+            pointPanelLoai = panelControlLoai.Location;
+            pointBtnOk = btnOk.Location;
+            pointBtnHuy = btnHuy.Location;
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -75,6 +92,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             btnR_Them.Enabled = !_enable;
             btnR_Sua.Enabled = !_enable;
             btnR_Xoa.Enabled = !_enable;
+            btnImage.Visible = _enable && ceTBsoluonglon.Checked;
             if (_enable)
                 txtTen.Focus();
         }
@@ -120,6 +138,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         public void beforeAdd()
         {
             errorProvider1.Clear();
+            listHinhs = new List<HinhAnh>();
+            imageSliderLoaiTB.Images.Clear();
             txtTen.Text = "";
             txtMoTa.Text = "";
             lueThuoc.EditValue = loaiThietBiNULL.id;
@@ -130,6 +150,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
+                listHinhs = new List<HinhAnh>();
                 if (loaiThietBis.Count > 0)
                 {
                     errorProvider1.Clear();
@@ -139,10 +160,15 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         lueThuoc.EditValue = loaiThietBiNULL.id;
                     else
                         lueThuoc.EditValue = objLoaiThietBi.parent_id;
+                    //editGUI
+                    editGuiforShowImage(objLoaiThietBi.loaichung);
+                    ceTBsoluonglon.Checked = objLoaiThietBi.loaichung;
                     if (objLoaiThietBi.loaichung)
-                        ceTBsoluonglon.Checked = true;
-                    else
-                        ceTBsoluonglon.Checked = false;
+                    {
+                        if (objLoaiThietBi.thietbis.Count > 0 && objLoaiThietBi.thietbis.FirstOrDefault().hinhanhs.Count > 0)
+                            listHinhs = objLoaiThietBi.thietbis.FirstOrDefault().hinhanhs.ToList();
+                        reloadImage();
+                    }
                     if (objLoaiThietBi.thietbis.Count > 0 || checkLoaiThietBiConCoThietBiKhong(objLoaiThietBi))
                         ceTBsoluonglon.Properties.ReadOnly = true;
                 }
@@ -208,32 +234,50 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             {
                 if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    bool check = true;
                     int id = -1;
                     if (objLoaiThietBi.parent_id != null)
                     {
                         id = Convert.ToInt32(objLoaiThietBi.parent_id);
                     }
-                    if (objLoaiThietBi.delete() > 0)
+                    if (objLoaiThietBi.loaichung)
                     {
-                        XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (id > -1)
-                            reLoadAndFocused(id);
-                        else
-                            reLoad();
+                        if (objLoaiThietBi.thietbis.Count > 0)
+                        {
+                            foreach (ThietBi obj in objLoaiThietBi.thietbis.ToList())
+                            {
+                                if (obj.delete() <= 0)
+                                {
+                                    check = false;
+                                    XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị hoặc loại thiết bị con", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    reLoad();
+                                    break;
+                                }
+                            }
+                        }
                     }
-                    else
+                    if (check)
                     {
-                        XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị hoặc loại thiết bị con", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        reLoad();
+                        if (objLoaiThietBi.delete() > 0)
+                        {
+                            XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (id > -1)
+                                reLoadAndFocused(id);
+                            else
+                                reLoad();
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị hoặc loại thiết bị con", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            reLoad();
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : deleteObj : " + ex.Message);
+                Debug.WriteLine(this.Name + "=>deleteObj: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private Boolean checkLoaiThietBiConCoThietBiKhong(LoaiThietBi parent)
@@ -252,8 +296,24 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             {
                 objLoaiThietBi.ten = txtTen.Text;
                 objLoaiThietBi.mota = txtMoTa.Text;
-                objLoaiThietBi.date_create = DateTime.Today;
-                objLoaiThietBi.date_modified = DateTime.Today;
+                if (ceTBsoluonglon.Checked)
+                {
+                    if (objLoaiThietBi.thietbis.Count == 0)
+                    {
+                        ThietBi obj = new ThietBi();
+                        obj.ten = txtTen.Text;
+                        obj.mota = txtMoTa.Text;
+                        obj.hinhanhs = listHinhs;
+                        objLoaiThietBi.thietbis.Add(obj);
+                    }
+                    else
+                    {
+                        ThietBi obj = objLoaiThietBi.thietbis.FirstOrDefault();
+                        obj.ten = txtTen.Text;
+                        obj.mota = txtMoTa.Text;
+                        obj.hinhanhs = listHinhs;
+                    }
+                }
                 LoaiThietBi parentLoaiThietBi = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
                 if (parentLoaiThietBi.id != -1)
                     objLoaiThietBi.parent = LoaiThietBi.getById(parentLoaiThietBi.id);
@@ -594,5 +654,81 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             }
         }
 
+        private void editGuiforShowImage(bool _enable)
+        {
+            labelControlHinh.Visible = _enable;
+            imageSliderLoaiTB.Visible = _enable;
+            btnImage.Visible = _enable && !function.Equals("");
+            if (_enable)
+            {
+                labelControlTen.Location = pointLabelTen;
+                txtTen.Location = pointTxtTen;
+                labelControlMota.Location = pointLabelMota;
+                txtMoTa.Location = pointTxtMota;
+                labelControlLoai.Location = pointLabelLoai;
+                panelControlLoai.Location = pointPanelLoai;
+                btnOk.Location = pointBtnOk;
+                btnHuy.Location = pointBtnHuy;
+            }
+            else
+            {
+                labelControlTen.Location = labelControlHinh.Location;
+                txtTen.Location = imageSliderLoaiTB.Location;
+                labelControlMota.Location = new Point(pointLabelMota.X, pointLabelMota.Y - khoangcach);
+                txtMoTa.Location = new Point(pointTxtMota.X, pointTxtMota.Y - khoangcach);
+                labelControlLoai.Location = new Point(pointLabelLoai.X, pointLabelLoai.Y - khoangcach);
+                panelControlLoai.Location = new Point(pointPanelLoai.X, pointPanelLoai.Y - khoangcach);
+                btnOk.Location = new Point(pointBtnOk.X, pointBtnOk.Y - khoangcach);
+                btnHuy.Location = new Point(pointBtnHuy.X, pointBtnHuy.Y - khoangcach);
+            }
+        }
+
+        private void ceTBsoluonglon_CheckedChanged(object sender, EventArgs e)
+        {
+            editGuiforShowImage(ceTBsoluonglon.Checked);
+        }
+
+        private void reloadImage()
+        {
+            try
+            {
+                imageSliderLoaiTB.Images.Clear();
+                if (listHinhs != null)
+                {
+                    foreach (HinhAnh h in listHinhs)
+                    {
+                        imageSliderLoaiTB.Images.Add(h.getImage());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reloadImage: " + ex.Message);
+            }
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmHinhAnh frm = new frmHinhAnh(listHinhs);
+                if (function.Equals("edit"))
+                {
+                    frm.Text = "Quản lý hình ảnh " + objLoaiThietBi.ten;
+
+                }
+                else
+                {
+                    frm.Text = "Quản lý hình ảnh loại thiết bị mới";
+                }
+                frm.ShowDialog();
+                listHinhs = frm.getlistHinhs();
+                reloadImage();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnImage_Click: " + ex.Message);
+            }
+        }
     }
 }
