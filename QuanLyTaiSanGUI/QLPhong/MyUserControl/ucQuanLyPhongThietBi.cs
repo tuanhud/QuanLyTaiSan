@@ -287,7 +287,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 obj.loaithietbi = _ucTreeLoaiTB.getLoaiThietBi();
                 obj.ngaymua = dateMua.EditValue != null ? dateMua.DateTime : obj.ngaymua;
                 obj.hinhanhs = listHinh;
-                if (obj.update() > 0)
+                if (obj.update() > 0 && DBInstance.commit() > 0)
                 {
                     XtraMessageBox.Show("Sửa thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     reLoadCTThietBisOnlyAndFocused(objCTThietBi.id);
@@ -300,10 +300,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": editObj :" + ex.Message);
+                Debug.WriteLine(this.Name + "=>editObj:" + ex.Message);
             }
-            finally
-            { }
         }
 
         private Boolean CheckInput()
@@ -353,7 +351,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 if (XtraMessageBox.Show("Bạn có chắc là muốn loại thiết bị ra khỏi phòng không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (objCTThietBi.delete() > 0)
+                    //objCTThietBi.mota = "abc";
+                    if (objCTThietBi.delete() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Loại thiết bị ra khỏi phòng thành công!");
                         reLoadCTThietBisOnly();
@@ -366,10 +365,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : deleteObj : " + ex.Message);
+                Debug.WriteLine(this.Name + "=>deleteObj: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void reLoadCTThietBisOnly()
@@ -476,7 +473,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewlog_DoubleClick(object sender, EventArgs e)
         {
-            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.ToList());
+            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c=>c.date_create).ToList());
             frm.Text += " " + objCTThietBi.thietbi.ten;
             frm.ShowDialog();
         }

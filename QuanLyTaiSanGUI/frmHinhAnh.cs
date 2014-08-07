@@ -37,10 +37,11 @@ namespace QuanLyTaiSanGUI
             if (list != null)
             {
                 listHinhs = list;
-                foreach(HinhAnh hinh in list)
-                {
-                    listTemp.Add(hinh);
-                }
+                //foreach(HinhAnh hinh in list)
+                //{
+                //    listTemp.Add(hinh);
+                //}
+                listTemp = new List<HinhAnh>(list);
                 LoadHinhAnh(list);
             }
             //else

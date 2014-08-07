@@ -192,7 +192,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     case "add":
                         objLoaiThietBi = new LoaiThietBi();
                         setDataObj();
-                        if (objLoaiThietBi.add() > 0)
+                        if (objLoaiThietBi.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             int id = objLoaiThietBi.id;
@@ -206,7 +206,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         break;
                     case "edit":
                         setDataObj();
-                        if (objLoaiThietBi.update() > 0)
+                        if (objLoaiThietBi.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             int id = objLoaiThietBi.id;
@@ -258,7 +258,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     }
                     if (check)
                     {
-                        if (objLoaiThietBi.delete() > 0)
+                        if (objLoaiThietBi.delete() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (id > -1)

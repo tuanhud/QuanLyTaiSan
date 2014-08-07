@@ -347,7 +347,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     case "add":
                         objPhong = new Phong();
                         setDataObj();
-                        if (objPhong.add() > 0)
+                        if (objPhong.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objPhong.id);
@@ -359,7 +359,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         if (objPhong != null)
                         {
                             setDataObj();
-                            if (objPhong.update() > 0)
+                            if (objPhong.update() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoadAndFocused(objPhong.id);
@@ -375,7 +375,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                             if(XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
                                 int reee = objPhong.delete();
-                                if (reee > 0)
+                                if (reee > 0 && DBInstance.commit() > 0)
                                 {
                                     XtraMessageBox.Show("Xóa phòng thành công!");
                                     reLoad();

@@ -153,7 +153,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                 obj.soluong = SoLuong;
                 obj.mota = GhiChu;
                 obj.ngay = dateEdit1.EditValue == null ? DateTime.Now : dateEdit1.DateTime;
-                if (obj.add() > 0)
+                if (obj.add() > 0 && DBInstance.commit() > 0)
                 {
                     text += "Thêm thiết bị " + objThietBi.ten + " vào phòng thành công!" + Environment.NewLine;
                     return obj.id;
