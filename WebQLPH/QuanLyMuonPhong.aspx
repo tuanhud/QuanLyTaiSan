@@ -7,7 +7,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:Panel ID="PanelQuanLyMuonPhong" runat="server">
+    <asp:Panel ID="PanelDangNhap" runat="server" Visible="false">
+        <div class="center">
+            <uc:ucDangNhap runat="server" ID="ucDangNhap" />
+        </div>
+    </asp:Panel>
+    <asp:Panel ID="PanelQuanLyMuonPhong" runat="server" Visible="false">
         <asp:UpdatePanel ID="UpdatePanel" runat="server">
             <ContentTemplate>
                 <div class="panel panel-info">

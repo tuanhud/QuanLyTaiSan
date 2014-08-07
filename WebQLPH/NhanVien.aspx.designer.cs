@@ -10,123 +10,114 @@
 namespace WebQLPH {
     
     
-    public partial class QuanLyMuonPhong {
+    public partial class NhanVien {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// PanelThongBao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
         
         /// <summary>
-        /// PanelDangNhap control.
+        /// LabelThongBao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
+        protected global::System.Web.UI.WebControls.Label LabelThongBao;
         
         /// <summary>
-        /// ucDangNhap control.
+        /// PanelThongTinNhanVienPhuTrach control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebQLPH.UserControl.ucDangNhap ucDangNhap;
+        protected global::System.Web.UI.WebControls.Panel PanelThongTinNhanVienPhuTrach;
         
         /// <summary>
-        /// PanelQuanLyMuonPhong control.
+        /// ImageSliderNhanVienPhuTrach control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhong;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ImageSliderNhanVienPhuTrach;
         
         /// <summary>
-        /// UpdatePanel control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// LabelPanel control.
+        /// TextBox_MaNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPanel;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MaNhanVien;
         
         /// <summary>
-        /// RepeaterQuanLyMuonPhong control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyMuonPhong;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// CollectionPagerQuanLyMuonPhong control.
+        /// TextBox_HoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyMuonPhong;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_HoTen;
         
         /// <summary>
-        /// HiddenFieldID control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldID;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// DropDownListTrangThai control.
+        /// TextBox_SoDienThoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListTrangThai;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_SoDienThoai;
         
         /// <summary>
-        /// TextBoxGhiChu control.
+        /// PanelDanhSachNhanVienPhuTrach control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxGhiChu;
+        protected global::System.Web.UI.WebControls.Panel PanelDanhSachNhanVienPhuTrach;
         
         /// <summary>
-        /// CheckBoxGuiMailThongBao control.
+        /// GridViewNhanVienPhuTrach control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxGuiMailThongBao;
-        
-        /// <summary>
-        /// ButtonLuu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonLuu;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridViewNhanVienPhuTrach;
     }
 }

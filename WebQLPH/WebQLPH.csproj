@@ -81,6 +81,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Images\loading.gif" />
     <Content Include="MuonPhong.aspx" />
+    <Content Include="NhanVien.aspx" />
     <Content Include="QuanLyMuonPhong.aspx" />
     <Content Include="QuanLyTaiKhoan.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="MuonPhong.aspx.designer.cs">
       <DependentUpon>MuonPhong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien.aspx.cs">
+      <DependentUpon>NhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NhanVien.aspx.designer.cs">
+      <DependentUpon>NhanVien.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyMuonPhong.aspx.cs">
