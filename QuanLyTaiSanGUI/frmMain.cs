@@ -179,7 +179,8 @@ namespace QuanLyTaiSanGUI
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
                         _ucQuanLyThietBi.getControl().Parent = navBarGroupQLPhong.ControlContainer;
-                        _ucQuanLyThietBi.loadData(true);
+                        //_ucQuanLyThietBi.loadData(true);
+                        _ucQuanLyThietBi.loadData(0,true);
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyThietBi);
                     }

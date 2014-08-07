@@ -46,21 +46,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
             if (this.Parent != null)
             {
                 ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
-                if (e.Node != null && e.Node.GetValue(colid).Equals(0))
+                if (e.Node != null && e.Node.GetValue(colid) != null)
                 {
-                    _ucQuanLyThietBi.loadData(true);
-                }
-                else if (e.Node != null && e.Node.GetValue(colid).Equals(1))
-                {
-                    _ucQuanLyThietBi.loadData(false);
-                }
-                else if (e.Node != null && e.Node.GetValue(colid).Equals(2))
-                {
-                    _ucQuanLyThietBi.loadData(false);
-                }
-                else if (e.Node != null && e.Node.GetValue(colid).Equals(3))
-                {
-                    _ucQuanLyThietBi.loadData(false);
+                    _ucQuanLyThietBi.loadData(Convert.ToInt32(e.Node.GetValue(colid)));
                 }
             }
         }

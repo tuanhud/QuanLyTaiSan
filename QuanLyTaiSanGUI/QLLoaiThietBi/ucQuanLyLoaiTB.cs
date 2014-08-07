@@ -250,7 +250,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                                 {
                                     check = false;
                                     XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị hoặc loại thiết bị con", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    reLoad();
+                                    //reLoad();
                                     break;
                                 }
                             }
@@ -269,7 +269,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         else
                         {
                             XtraMessageBox.Show("Không thể xóa loại thiết bị này!\r\nNguyên do: Loại thiết bị này có chứa các thiết bị hoặc loại thiết bị con", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            reLoad();
+                            //reLoad();
                         }
                     }
                 }

@@ -31,8 +31,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
         String function = "";
         Boolean loaiChung = true;
         Point pointLabelMota, pointTxtMota, pointLabelLoai, pointPanelLoai;
-        public bool working = false;
+        bool working = false;
         bool add = false;
+        int state = 0;
 
         MyLayout layout = new MyLayout();
 
@@ -105,6 +106,33 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
         }
 
+        public void loadData(int _state, bool loadLeft=false)
+        {
+            try
+            {
+                layout.load(gridViewThietBi);
+                state = _state;
+                if(_state == 0)
+                    loaiChung = true;
+                else
+                    loaiChung = false;
+                
+                if(loadLeft)
+                    _ucQuanLyThietBi_Control.FocusedNode(_state);
+
+                listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
+                listLoaiThietBi.Insert(0, loaiThietBiNULL);
+
+                editGUIforView();
+
+                reLoad();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "=>loadData: " + ex.Message);
+            }
+        }
+
         private void editGUIforView()
         {
             try
@@ -159,7 +187,14 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung).ToList();
                 }
                 else
-                    listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
+                {
+                    if (state == 0 || state == 1)
+                        listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
+                    else if (state == 2)
+                        listThietBi = ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.phong != null && e.soluong > 0).Count() > 0).ToList();
+                    else if (state == 3)
+                        listThietBi = ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.phong != null && e.soluong > 0).Count() == 0).ToList();
+                }
                 gridControlThietBi.DataSource = listThietBi;
                 if (listThietBi.Count() == 0)
                 {
