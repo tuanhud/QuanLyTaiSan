@@ -78,7 +78,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                             String[] file_names = row[HINHANH].ToString().Split(',');
                                             obj.hinhanhs = AddImage(fileName, file_names);
                                         }
-                                        if (obj.add() > 0)
+                                        if (obj.add() > 0 && DBInstance.commit() > 0)
                                         {
                                             WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                         }
@@ -190,7 +190,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                     String[] file_names = row[HINHANH].ToString().Split(',');
                                                     obj.hinhanhs = AddImage(fileName, file_names);
                                                 }
-                                                if (obj.add() > 0)
+                                                if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                                 }
@@ -233,7 +233,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 String[] file_names = row[HINHANH].ToString().Split(',');
                                                 obj.hinhanhs = AddImage(fileName, file_names);
                                             }
-                                            if (obj.add() > 0)
+                                            if (obj.add() > 0 && DBInstance.commit() > 0)
                                             {
                                                 WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                             }
@@ -267,7 +267,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                             String[] file_names = row[HINHANH].ToString().Split(',');
                                             obj.hinhanhs = AddImage(fileName, file_names);
                                         }
-                                        if (obj.add() > 0)
+                                        if (obj.add() > 0 && DBInstance.commit() > 0)
                                         {
                                             WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                         }
@@ -339,7 +339,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
                                                 obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString()) : DateTime.Now;
                                                 obj.parent = objParent;
-                                                if (obj.add() > 0)
+                                                if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                                 }
@@ -372,7 +372,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                         obj.ten = row[LOAITHIETBI].ToString();
                                         obj.mota = row[MOTA].ToString();
                                         obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
-                                        if (obj.add() > 0)
+                                        if (obj.add() > 0 && DBInstance.commit() > 0)
                                         {
                                             WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                         }
@@ -432,7 +432,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                     obj.value = row[TINHTRANG].ToString();
                                     obj.mota = row[MOTA].ToString();
                                     obj.key = QuanLyTaiSan.Libraries.StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString()).Replace(" ", String.Empty).ToUpper();
-                                    if (obj.add() > 0)
+                                    if (obj.add() > 0 && DBInstance.commit() > 0)
                                     {
                                         WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                     }
@@ -598,7 +598,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 }
                                             }
 
-                                            if (obj.add() > 0)
+                                            if (obj.add() > 0 && DBInstance.commit() > 0)
                                             {
                                                 WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                             }
@@ -609,7 +609,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString(), "Error (Vị trí lỗi)");
+                                            //WriteFile(fileName, sheet, row[STT].ToString(), "Error (Vị trí lỗi)");
                                         }
                                     }
                                     catch (Exception ex)
@@ -699,7 +699,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                     String[] file_names = row[HINHANH].ToString().Split(',');
                                                     objThietBi.hinhanhs = AddImage(fileName, file_names);
                                                 }
-                                                if (objThietBi.add() > 0)
+                                                if (objThietBi.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     CTThietBi obj = new CTThietBi();
                                                     obj.thietbi = objThietBi;
@@ -708,7 +708,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                     obj.soluong = Convert.ToInt32(row[SOLUONG].ToString());
                                                     obj.mota = "Import";
                                                     obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString()) : DateTime.Now;
-                                                    if (obj.add() > 0)
+                                                    if (obj.add() > 0 && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                                     }
@@ -732,7 +732,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.soluong = Convert.ToInt32(row[SOLUONG].ToString());
                                                 obj.mota = "Import";
                                                 obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString()) : DateTime.Now;
-                                                if (obj.add() > 0)
+                                                if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                                 }
@@ -834,7 +834,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 String[] file_names = row[HINHANH].ToString().Split(',');
                                                 objThietBi.hinhanhs = AddImage(fileName, file_names);
                                             }
-                                            if (objThietBi.add() > 0)
+                                            if (objThietBi.add() > 0 && DBInstance.commit() > 0)
                                             {
                                                 CTThietBi obj = new CTThietBi();
                                                 obj.thietbi = objThietBi;
@@ -843,7 +843,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.soluong = 1;
                                                 obj.mota = "Import";
                                                 obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString()) : DateTime.Now;
-                                                if (obj.add() > 0)
+                                                if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString(), "Pass");
                                                 }
