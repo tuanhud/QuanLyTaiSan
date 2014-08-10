@@ -15,3 +15,12 @@ function KiemTraTruocKhiLuu() {
     }
     return true;
 }
+function KiemTraDoiMatKhauTruocKhiLuu() {
+    var TextBoxMatKhauMoi = document.getElementById("TextBoxMatKhauMoi").value;
+    if (TextBoxMatKhauMoi == "") {
+        alert("Mật khẩu mới không được rỗng");
+        document.getElementById("TextBoxMatKhauMoi").focus();
+        return false;
+    }
+    return true;
+}

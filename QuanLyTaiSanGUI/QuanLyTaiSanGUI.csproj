@@ -137,6 +137,12 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLPhong\MyForm\frmRemoveThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPhong\MyForm\frmRemoveThietBi.Designer.cs">
+      <DependentUpon>frmRemoveThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="_ourUcInterface.cs" />
     <Compile Include="MyForm\frmCustom.cs">
       <SubType>Form</SubType>
@@ -518,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyForm\frmNewThietBi.resx">
       <DependentUpon>frmNewThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\MyForm\frmRemoveThietBi.resx">
+      <DependentUpon>frmRemoveThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.resx">
       <DependentUpon>frmTinhTrangVaSoLuong.cs</DependentUpon>

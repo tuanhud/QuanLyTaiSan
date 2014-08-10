@@ -22,7 +22,7 @@
             </div>
             <br />
             <div class="row">
-                <asp:CheckBox ID="CheckBoxQuanTriVien" runat="server" />
+                <asp:CheckBox ID="CheckBoxQuanTriVien" runat="server" Checked="true" />
                 Tôi là quản trị viên
             </div>
             <div class="row">

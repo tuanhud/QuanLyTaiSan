@@ -10,9 +10,6 @@ namespace WebQLPH
 {
     public partial class MuonPhong : System.Web.UI.Page
     {
-        GiangVien _GiangVien = null;
-        PhieuMuonPhong _PhieuMuonPhong = null;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,10 +17,16 @@ namespace WebQLPH
                 try
                 {
                     if (Convert.ToString(Session["Username"]).Equals(String.Empty))
-                        Response.Redirect("DangNhap.aspx");
-                    string a = Session["Username"].ToString();
-                    _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
-                    TextBoxKhoa.Text = _GiangVien.khoa;
+                        PanelDangNhap.Visible = true;
+                    else
+                    {
+                        if (Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien"))
+                            PanelKhongPhaiGiangVien.Visible = true;
+                        else
+                            PanelMuonPhong.Visible = true;
+                        GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
+                        TextBoxKhoa.Text = _GiangVien.khoa;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -33,11 +36,6 @@ namespace WebQLPH
         }
 
         protected void ButtonMuonPhong_Click(object sender, EventArgs e)
-        {
-            MuonPhongMoi();
-        }
-
-        protected void MuonPhongMoi()
         {
             try
             {
@@ -97,7 +95,7 @@ namespace WebQLPH
                     TextBoxLyDoSuDung.Focus();
                     return;
                 }
-                
+
                 string khoaphongmuon = TextBoxKhoa.Text;
                 DateTime thoigianmuon = Convert.ToDateTime(TextBoxNgayMuon.Text + " " + TextBoxThoiGianMuon.Text);
                 DateTime thoigiantra = Convert.ToDateTime(TextBoxNgayMuon.Text + " " + TextBoxThoiGianTra.Text);
@@ -135,7 +133,7 @@ namespace WebQLPH
                 string lop = TextBoxLop.Text;
                 string lydosudung = TextBoxLyDoSuDung.Text;
 
-                _PhieuMuonPhong = new PhieuMuonPhong();
+                PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
                 _PhieuMuonPhong.khoaphongmuon = khoaphongmuon;
                 _PhieuMuonPhong.ngaymuon = thoigianmuon;
                 _PhieuMuonPhong.ngaytra = thoigiantra;
@@ -143,12 +141,13 @@ namespace WebQLPH
                 _PhieuMuonPhong.soluongsv = soluong;
                 _PhieuMuonPhong.lop = lop;
                 _PhieuMuonPhong.lydomuon = lydosudung;
-                _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
+                GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
                 _PhieuMuonPhong.giangvien = _GiangVien;
 
                 if (_PhieuMuonPhong.add() > 0)
                 {
                     PanelThongBaoMuonPhongThanhCong.Visible = true;
+                    PanelMuonPhong.Visible = false;
                 }
                 else
                 {
@@ -163,5 +162,6 @@ namespace WebQLPH
                 LabelThongBaoMuonPhong.Text = "<strong>Có lỗi xảy ra !</strong> Vui lòng kiểm tra lại thông tin.";
             }
         }
+            
     }
 }

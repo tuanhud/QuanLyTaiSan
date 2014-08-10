@@ -439,7 +439,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objCoSo.mota = txtMoTa.Text;
                         objCoSo.diachi = txtDiaChi.Text;
                         objCoSo.hinhanhs = listHinh;
-                        if (objCoSo.update() > 0)
+                        if (objCoSo.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
@@ -455,7 +455,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         ViTri _vitri = _ucComboBoxViTri.getViTri();
                         objDay.coso = _vitri.coso;
                         objDay.hinhanhs = listHinh;
-                        if (objDay.update() > 0)
+                        if (objDay.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
@@ -471,7 +471,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
                         objTang.day = _vitri2.day;
                         objTang.hinhanhs = listHinh;
-                        if (objTang.update() > 0)
+                        if (objTang.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
@@ -501,7 +501,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objCoSoNew.mota = txtMoTa.Text;
                         objCoSo.diachi = txtDiaChi.Text;
                         objCoSoNew.hinhanhs = listHinh;
-                        if (objCoSoNew.add() > 0)
+                        if (objCoSoNew.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndSelectNode(objCoSoNew.id, typeof(CoSo).Name);
@@ -518,7 +518,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objDayNew.hinhanhs = listHinh;
                         ViTri _vitri = _ucComboBoxViTri.getViTri();
                         objDayNew.coso = _vitri.coso;
-                        if (objDayNew.add() > 0)
+                        if (objDayNew.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndSelectNode(objDayNew.id, typeof(Dayy).Name);
@@ -535,7 +535,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objTangNew.hinhanhs = listHinh;
                         ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
                         objTangNew.day = _vitri2.day;
-                        if (objTangNew.add() > 0)
+                        if (objTangNew.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndSelectNode(objTangNew.id, typeof(Tang).Name);
@@ -563,7 +563,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa cơ sở?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             int ree = objCoSo.delete();
-                            if (ree>0)
+                            if (ree > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Xóa cơ sở thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 loadData();
@@ -583,7 +583,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         {
                             objCoSo = objDay.coso;
                             int ree = objDay.delete();
-                            if (ree>0)
+                            if (ree > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Xóa dãy thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name, true);
@@ -602,7 +602,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tầng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             objDay = objTang.day;
-                            if (objTang.delete() > 0)
+                            if (objTang.delete() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Xóa tầng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 reLoadAndSelectNode(objDay.id, typeof(Dayy).Name, true);
@@ -930,16 +930,19 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 if (node.Equals(typeof(CoSo).Name))
                 {
                     objCoSo.moveUp();
+                    DBInstance.commit();
                     reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
                 }
                 else if (node.Equals(typeof(Dayy).Name))
                 {
                     objDay.moveUp();
+                    DBInstance.commit();
                     reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
                 }
                 else if (node.Equals(typeof(Tang).Name))
                 {
                     objTang.moveUp();
+                    DBInstance.commit();
                     reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
                 }
             }
@@ -956,16 +959,19 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 if (node.Equals(typeof(CoSo).Name))
                 {
                     objCoSo.moveDown();
+                    DBInstance.commit();
                     reLoadAndSelectNode(objCoSo.id, typeof(CoSo).Name);
                 }
                 else if (node.Equals(typeof(Dayy).Name))
                 {
                     objDay.moveDown();
+                    DBInstance.commit();
                     reLoadAndSelectNode(objDay.id, typeof(Dayy).Name);
                 }
                 else if (node.Equals(typeof(Tang).Name))
                 {
                     objTang.moveDown();
+                    DBInstance.commit();
                     reLoadAndSelectNode(objTang.id, typeof(Tang).Name);
                 }
             }
