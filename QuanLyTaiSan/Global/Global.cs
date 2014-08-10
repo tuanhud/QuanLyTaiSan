@@ -582,6 +582,8 @@ namespace QuanLyTaiSan.Entities
                     obj.value = port;
                     re = re && obj.addOrUpdate() > 0;
 
+                    re = re && DBInstance.commit() > 0;
+
                     if (re)
                     {
                         reload();
@@ -729,6 +731,8 @@ namespace QuanLyTaiSan.Entities
                     obj = Setting.getByKey("http_image_port");
                     obj.value = port;
                     re = re && obj.addOrUpdate() > 0;
+
+                    re = re && DBInstance.commit() > 0;
 
                     if (re)
                     {
