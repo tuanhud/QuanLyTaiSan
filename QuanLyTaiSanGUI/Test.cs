@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web.Script.Serialization;
 
 namespace QuanLyTaiSanGUI
 {
@@ -20,6 +21,11 @@ namespace QuanLyTaiSanGUI
         public Test()
         {
             InitializeComponent();
+            Dictionary<String, String> i = new Dictionary<string, string>();
+            i.Add("Username","quocdunginfo");
+            i.Add("IP", "125.4567.78~!@#$%^&*()_+{}|:");
+            var json = new JavaScriptSerializer().Serialize(i.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
+            Console.WriteLine(json);
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)

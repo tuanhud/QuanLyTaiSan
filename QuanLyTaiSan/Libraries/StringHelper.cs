@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
+using System.Web.Script.Serialization;
 
 namespace QuanLyTaiSan.Libraries
 {
@@ -188,6 +189,18 @@ namespace QuanLyTaiSan.Libraries
             catch
             {
                 return string.Empty;
+            }
+        }
+        public static string toJSON(Dictionary<String,String> input)
+        {
+            try
+            {
+                string json = new JavaScriptSerializer().Serialize(input.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
+                return json;
+            }
+            catch (Exception ex)
+            {
+                return "";
             }
         }
     }

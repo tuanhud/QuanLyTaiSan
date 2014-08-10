@@ -129,7 +129,8 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 db.Set<T>().Remove((T)this);
-                //db.SaveChanges();
+                
+                //END
                 return 1;
             }
             catch (Exception ex)
@@ -298,6 +299,33 @@ namespace QuanLyTaiSan.Entities
                 return;
             }
             next.moveUp();
+        }
+        private Dictionary<string, string> buildLog(String action_name=null,String object_type=null,String object_id=null)
+        {
+            Dictionary<string, string> re = new Dictionary<string, string>();
+            if(Global.current_quantrivien_login!=null)
+            {
+                re.Add("uName",Global.current_quantrivien_login.username);
+                re.Add("uID", Global.current_quantrivien_login.id.ToString());
+            }
+            if (Global.current_quantrivien_login != null)
+            {
+                re.Add("uName2", Global.current_giangvien_login.username);
+                re.Add("uID2", Global.current_giangvien_login.id.ToString());
+            }
+            if (action_name != null && !action_name.Equals(""))
+            {
+                re.Add("action", action_name);
+            }
+            if (object_type != null && !object_type.Equals(""))
+            {
+                re.Add("objType", object_type);
+            }
+            if (object_id != null && !object_id.Equals(""))
+            {
+                re.Add("objID", object_id);
+            }
+            return re;
         }
         #endregion
         
