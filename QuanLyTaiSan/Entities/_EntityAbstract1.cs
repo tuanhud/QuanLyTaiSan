@@ -317,12 +317,12 @@ namespace QuanLyTaiSan.Entities
             Dictionary<string, string> re = new Dictionary<string, string>();
             if(Global.current_quantrivien_login!=null)
             {
-                re.Add("uName",Global.current_quantrivien_login.username);
+                re.Add("uName", Global.current_quantrivien_login.username + " | " +Global.current_quantrivien_login.hoten);
                 re.Add("uID", Global.current_quantrivien_login.id.ToString());
             }
             if (Global.current_giangvien_login != null)
             {
-                re.Add("uName2", Global.current_giangvien_login.username);
+                re.Add("uName2", Global.current_giangvien_login.username + "|" + Global.current_giangvien_login.hoten);
                 re.Add("uID2", Global.current_giangvien_login.id.ToString());
             }
             if (action_name != null && !action_name.Equals(""))
@@ -333,8 +333,8 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 //Hình thức ghép: username | ten | hoten
-                List<string> nicename=new List<string>();
-                //
+                List<string> nicename = new List<string>();
+
                 var ppp = this.GetType().GetProperty("username");
                 if (ppp != null)
                 {
@@ -352,7 +352,7 @@ namespace QuanLyTaiSan.Entities
                 }
                 
                 //
-                if (nicename != null && !nicename.Equals(""))
+                if (nicename != null && nicename.Count>0)
                 {
                     re.Add("objName", String.Join(" | ", nicename));
                     nicename = null;
