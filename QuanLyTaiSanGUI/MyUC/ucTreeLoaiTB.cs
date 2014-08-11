@@ -97,14 +97,14 @@ namespace QuanLyTaiSanGUI.MyUC
                     obj = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
                     popupContainerEdit1.Text = obj.ten;
                     popupContainerEdit1.ClosePopup();
-                    if (type.Equals("add"))
-                    {
-                        if (this.ParentForm != null)
-                        {
-                            frmNewThietBi frm = this.ParentForm as frmNewThietBi;
-                            frm.LoaiTB_FocusedChanged(obj.loaichung);
-                        }
-                    }
+                    //if (type.Equals("add"))
+                    //{
+                    //    if (this.ParentForm != null)
+                    //    {
+                    //        frmNewThietBi frm = this.ParentForm as frmNewThietBi;
+                    //        frm.LoaiTB_FocusedChanged(obj.loaichung);
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)
