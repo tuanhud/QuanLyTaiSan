@@ -384,9 +384,10 @@ namespace QuanLyTaiSan.Entities
         }
         public override int SaveChanges()
         {
-            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified);
+            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified || c.State==EntityState.Deleted);
             ICollection<_EFEventRegisterInterface> Added_Callbacks = new List<_EFEventRegisterInterface>();
             ICollection<_EFEventRegisterInterface> Modified_Callbacks = new List<_EFEventRegisterInterface>();
+            ICollection<_EFEventRegisterInterface> Deleted_Callbacks = new List<_EFEventRegisterInterface>();
             Boolean need_to_sync = false;
             //Before
                 foreach (DbEntityEntry item in changedEntities)
@@ -406,6 +407,11 @@ namespace QuanLyTaiSan.Entities
                                 Modified_Callbacks.Add(entity);
                                 entity.onBeforeUpdated();
                                 break;
+
+                            case EntityState.Deleted:
+                                Deleted_Callbacks.Add(entity);
+                                entity.onBeforeDeleted();
+                                break;
                         }
                     }
                 }
@@ -420,7 +426,7 @@ namespace QuanLyTaiSan.Entities
                 {
                     item.onAfterUpdated();
                 }
-            //Savechanges lần 2
+
             result = base.SaveChanges();
 
             //clear RAM

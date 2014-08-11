@@ -211,16 +211,23 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                db.Entry(this).State = EntityState.Detached;//destroy cached
-                T tmp = db.Set<T>().Find(id);
-                //very importance (nếu kh có sẽ bị INSERT lại OBJ, chưa hiểu rõ)
-                db.Entry(tmp).State = EntityState.Unchanged;
-                return tmp;
+                db.Entry(this).Reload();
+                return (T)this;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Debug.WriteLine(ex.ToString());
-                return null;
+                try
+                {
+                    //Case 1: Multi db context tracking
+                    //Case 2: Object not loaded before
+                    return db.Set<T>().Find(this.id);
+                }
+                catch (Exception ex)
+                {
+                    //for any other error
+                    Debug.WriteLine(ex.ToString());
+                    return null;
+                }
             }
         }
         /// <summary>
@@ -308,7 +315,7 @@ namespace QuanLyTaiSan.Entities
                 re.Add("uName",Global.current_quantrivien_login.username);
                 re.Add("uID", Global.current_quantrivien_login.id.ToString());
             }
-            if (Global.current_quantrivien_login != null)
+            if (Global.current_giangvien_login != null)
             {
                 re.Add("uName2", Global.current_giangvien_login.username);
                 re.Add("uID2", Global.current_giangvien_login.id.ToString());
@@ -331,11 +338,44 @@ namespace QuanLyTaiSan.Entities
         
         #region Event register
         /// <summary>
+        /// Kiểm tra Entity type hiện tại có cần phải ghi log ?
+        /// </summary>
+        /// <returns></returns>
+        private Boolean needToWriteLogHeThong()
+        {
+            //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
+            return (
+                this is CoSo
+                || this is Dayy
+                || this is Tang
+                || this is CTThietBi
+                || this is PhieuMuonPhong
+                || this is ThietBi
+                || this is GiangVien
+                || this is QuanTriVien
+                || this is Group
+                || this is LoaiThietBi
+                || this is NhanVienPT
+                || this is Phong
+                || this is Setting
+                || this is SuCoPhong
+                || this is TinhTrang
+                );
+        }
+        /// <summary>
         /// Chạy nghiệp vụ trước khi bị xóa
         /// </summary>
         public virtual void onBeforeDeleted()
         {
-
+            //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
+            if (needToWriteLogHeThong())
+            {
+                LogHeThong log = new LogHeThong();
+                log.onBeforeAdded();
+                //quocdunginfo fail (conflict with write log hethong)
+                log.mota = StringHelper.toJSON(buildLog("delete", typeof(T).Name, 5.ToString()));
+                log.add();
+            }
         }
         /// <summary>
         /// Chạy nghiệp vụ trước khi được cập nhật vào CSDL
@@ -353,20 +393,32 @@ namespace QuanLyTaiSan.Entities
             date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
         }
 
-
         public void onAfterUpdated()
         {
-            
+            //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
+            if (needToWriteLogHeThong())
+            {
+                LogHeThong log = new LogHeThong();
+                log.onBeforeAdded();//MANUAL MODE
+                log.mota = StringHelper.toJSON(buildLog("edit", typeof(T).Name, this.id.ToString()));
+                log.add();
+            }
         }
 
         public void onAfterAdded()
         {
+            //AUTO ORDER
             this.order = this.id;
-        }
 
-        public void onAfterDeleted()
-        {
-            
+            //LOGHETHONG
+            //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
+            if (needToWriteLogHeThong())
+            {
+                LogHeThong log = new LogHeThong();
+                log.onBeforeAdded();//MANUAL MODE
+                log.mota = StringHelper.toJSON(buildLog("add",typeof(T).Name, this.id.ToString()));
+                log.add();
+            }
         }
         #endregion
     }
