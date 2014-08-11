@@ -67,6 +67,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             loaiThietBiNULL.loaichung = false;
             loaiThietBiNULL.id = -1;
 
+            gridViewThietBi.Columns[colma.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewThietBi.Columns[colloai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
@@ -143,6 +144,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 btnR_Sua.Visible = !loaiChung;
                 btnR_Xoa.Visible = !loaiChung;
                 gridViewThietBi.Columns[colngaymua.FieldName].Visible = !loaiChung;
+                gridViewThietBi.Columns[colma.FieldName].Visible = !loaiChung;
                 gridViewThietBi.Columns[colten.FieldName].Visible = !loaiChung;
                 labelControlNgayMua.Visible = !loaiChung;
                 dateEditNgayMua.Visible = !loaiChung;

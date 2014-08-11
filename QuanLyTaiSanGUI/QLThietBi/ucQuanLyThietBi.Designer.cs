@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControlMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -62,7 +61,8 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.colma = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -380,6 +380,7 @@
             // 
             this.gridViewThietBi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
+            this.colma,
             this.colten,
             this.colloai,
             this.colngaymua});
@@ -398,7 +399,7 @@
             // 
             // colid
             // 
-            this.colid.Caption = "id";
+            this.colid.Caption = "Id";
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             // 
@@ -408,7 +409,7 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
+            this.colten.VisibleIndex = 1;
             // 
             // colloai
             // 
@@ -416,7 +417,7 @@
             this.colloai.FieldName = "loaithietbi.ten";
             this.colloai.Name = "colloai";
             this.colloai.Visible = true;
-            this.colloai.VisibleIndex = 1;
+            this.colloai.VisibleIndex = 2;
             // 
             // colngaymua
             // 
@@ -426,7 +427,7 @@
             this.colngaymua.FieldName = "ngaymua";
             this.colngaymua.Name = "colngaymua";
             this.colngaymua.Visible = true;
-            this.colngaymua.VisibleIndex = 2;
+            this.colngaymua.VisibleIndex = 3;
             // 
             // splitContainerControl1
             // 
@@ -448,6 +449,14 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
+            // 
+            // colma
+            // 
+            this.colma.Caption = "Mã thiết bị";
+            this.colma.FieldName = "subId";
+            this.colma.Name = "colma";
+            this.colma.Visible = true;
+            this.colma.VisibleIndex = 0;
             // 
             // ucQuanLyThietBi
             // 
@@ -518,6 +527,7 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Sua;
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
+        private DevExpress.XtraGrid.Columns.GridColumn colma;
 
     }
 }

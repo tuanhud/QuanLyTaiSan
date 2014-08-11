@@ -82,6 +82,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.colma = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -264,6 +265,7 @@
             this.gridViewCTThietBi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
             this.colidTB,
+            this.colma,
             this.colten,
             this.colloaiTB,
             this.coltinhtrang,
@@ -284,9 +286,10 @@
             // 
             // colid
             // 
-            this.colid.Caption = "id";
+            this.colid.Caption = "Id";
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
+            this.colid.Width = 46;
             // 
             // colidTB
             // 
@@ -300,8 +303,8 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
-            this.colten.Width = 189;
+            this.colten.VisibleIndex = 1;
+            this.colten.Width = 307;
             // 
             // colloaiTB
             // 
@@ -309,8 +312,8 @@
             this.colloaiTB.FieldName = "tenloai";
             this.colloaiTB.Name = "colloaiTB";
             this.colloaiTB.Visible = true;
-            this.colloaiTB.VisibleIndex = 1;
-            this.colloaiTB.Width = 174;
+            this.colloaiTB.VisibleIndex = 2;
+            this.colloaiTB.Width = 283;
             // 
             // coltinhtrang
             // 
@@ -318,8 +321,8 @@
             this.coltinhtrang.FieldName = "tinhtrang";
             this.coltinhtrang.Name = "coltinhtrang";
             this.coltinhtrang.Visible = true;
-            this.coltinhtrang.VisibleIndex = 2;
-            this.coltinhtrang.Width = 144;
+            this.coltinhtrang.VisibleIndex = 3;
+            this.coltinhtrang.Width = 233;
             // 
             // colsoluong
             // 
@@ -327,8 +330,8 @@
             this.colsoluong.FieldName = "soluong";
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.Visible = true;
-            this.colsoluong.VisibleIndex = 3;
-            this.colsoluong.Width = 89;
+            this.colsoluong.VisibleIndex = 4;
+            this.colsoluong.Width = 143;
             // 
             // colnone
             // 
@@ -336,8 +339,8 @@
             this.colnone.FieldName = "kieuQL";
             this.colnone.Name = "colnone";
             this.colnone.Visible = true;
-            this.colnone.VisibleIndex = 4;
-            this.colnone.Width = 85;
+            this.colnone.VisibleIndex = 5;
+            this.colnone.Width = 151;
             // 
             // groupControl2
             // 
@@ -669,6 +672,15 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // colma
+            // 
+            this.colma.Caption = "Mã thiết bị";
+            this.colma.FieldName = "subId";
+            this.colma.Name = "colma";
+            this.colma.Visible = true;
+            this.colma.VisibleIndex = 0;
+            this.colma.Width = 133;
+            // 
             // ucQuanLyPhongThietBi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -764,5 +776,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnImportSL;
         private DevExpress.XtraBars.BarButtonItem barBtnImportCT;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnPageImport;
+        private DevExpress.XtraGrid.Columns.GridColumn colma;
     }
 }

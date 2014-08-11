@@ -10,6 +10,7 @@ namespace QuanLyTaiSan.DataFilter
     {
         public int id { get; set; }
         public int idTB { get; set; }
+        public String subId { get; set; }
         public String ten { get; set; }
         public String tinhtrang { get; set; }
         public int soluong { get; set; }
@@ -28,6 +29,7 @@ namespace QuanLyTaiSan.DataFilter
                  {
                      id = c.id,
                      idTB = c.thietbi.id,
+                     subId = c.thietbi.subId,
                      ten = c.thietbi.ten,
                      tinhtrang = c.tinhtrang.value,
                      soluong = c.soluong,
