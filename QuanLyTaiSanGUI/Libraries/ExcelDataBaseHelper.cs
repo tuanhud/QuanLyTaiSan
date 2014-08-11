@@ -527,7 +527,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                         {
                                                             objViTri.coso = objCoSo;
                                                             objViTri.day = objDay;
-                                                            objViTri.tang = new Tang();
+                                                            objViTri.tang = null;
                                                             ok = true;
                                                         }
                                                         else
@@ -543,8 +543,8 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 else if (row[DAY] == DBNull.Value)
                                                 {
                                                     objViTri.coso = objCoSo;
-                                                    objViTri.day = new Dayy();
-                                                    objViTri.tang = new Tang();
+                                                    objViTri.day = null;
+                                                    objViTri.tang = null;
                                                     ok = true;
                                                 }
                                                 else

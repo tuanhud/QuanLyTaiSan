@@ -22,8 +22,18 @@
     <asp:Panel ID="PanelQuanLyTaiKhoan" runat="server" Visible="false">
         <asp:UpdatePanel ID="UpdatePanel" runat="server">
             <ContentTemplate>
-                <div class="panel">
-                    <asp:Button ID="ButtonThemMoiTaiKhoan" runat="server" Text="Thêm mới" CssClass="btn btn-primary" ClientIDMode="Static" />
+                <asp:Panel ID="PanelThanhCong" runat="server" Visible="false">
+                    <div class="alert alert-success" role="alert">
+                        <asp:Label ID="LabelThongBaoThanhCong" runat="server" Text="Label"></asp:Label>
+                    </div>
+                </asp:Panel>
+                <asp:Panel ID="PanelThatBai" runat="server" Visible="false">
+                    <div class="alert alert-danger" role="alert">
+                        <asp:Label ID="LabelThongBaoThatBai" runat="server" Text="Label"></asp:Label>
+                    </div>
+                </asp:Panel>
+                <div class="buttonthem">
+                    <asp:Button ID="ButtonThemMoiTaiKhoan" data-target="#PopupQuanLyTaiKhoan" OnClientClick="ShowThemMoi()" data-toggle="modal" runat="server" Text="Thêm mới" CssClass="btn btn-primary" ClientIDMode="Static" />
                 </div>
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -48,11 +58,11 @@
                                     <tr>
                                         <td><%# Container.ItemIndex + 1 %></td>
                                         <td id="hoten<%#Eval("id")%>"><%# Eval("hoten") %></td>
-                                        <td><%# Eval("email") %></td>
-                                        <td><%# Eval("username") %></td>
-                                        <td><%# Eval("khoa") %></td>
+                                        <td id="email<%#Eval("id")%>"><%# Eval("email") %></td>
+                                        <td id="username<%#Eval("id")%>"><%# Eval("username") %></td>
+                                        <td id="khoa<%#Eval("id")%>"><%# Eval("khoa") %></td>
                                         <td><%# NgayTao() %></td>
-                                        <td><%# Eval("mota") %></td>
+                                        <td id="mota<%#Eval("id")%>"><%# Eval("mota") %></td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -60,7 +70,7 @@
       <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#" onclick="CapNhat(<%#Eval("id")%>);"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Cập nhật</a></li>
+                                                    <li><a href="#" onclick="ShowCapNhat(<%#Eval("id")%>);" data-target="#PopupQuanLyTaiKhoan" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Cập nhật</a></li>
                                                     <li><a href="?op=xoa&id=<%#Eval("id")%>" onclick="return confirm('Bạn chắc chắn muốn xóa tài khoản <%#Eval("username")%>?');"><span class="glyphicon glyphicon-remove"></span>&nbsp;Xóa</a></li>
                                                 </ul>
                                             </div>
@@ -73,34 +83,84 @@
                 </div>
                 <div class="centerCollectionPager">
                     <div class="CollectionPager">
-                        <cp:CollectionPager ID="CollectionPagerQuanLyTaiKhoan" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
+                        <cp:CollectionPager ID="CollectionPagerQuanLyTaiKhoan" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="30" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
                         </cp:CollectionPager>
                     </div>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <!-- Popup Duyệt -->
-        <div class="modal fade" id="PopupTaiKhoan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- Popup Quản lý -->
+        <div class="modal fade" id="PopupQuanLyTaiKhoan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Đổi mật khẩu mới cho tài tài khoản <b id="hotentaikhoan">abc</b></h4>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <asp:HiddenField ID="HiddenFieldID" ClientIDMode="Static" runat="server" />
                         </div>
                         <div class="row">
-                            <div class="col-lg-2">Mật khẩu mới</div>
-                            <div class="col-lg-10">
-                                <asp:TextBox ID="TextBoxMatKhauMoi" runat="server" CssClass="form-control" TextMode="Password" ClientIDMode="Static"></asp:TextBox>
+                            <div class="col-lg-4">Họ tên(*):</div>
+                            <div class="col-lg-8">
+                                <asp:TextBox ID="TextBoxHoTen" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-4">Email(*):</div>
+                            <div class="col-lg-8">
+                                <asp:TextBox ID="TextBoxEmail" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                            </div>
+                        </div>
+                        <br />
+                        <%--<div class="row" id="ShowThongBao">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8" id="ThongBao" style="font-size:small">
+                            </div>
+                        </div>--%>
+                        <div class="row">
+                            <div class="col-lg-4">Tài khoản(*):</div>
+                            <div class="col-lg-8">
+                                <i id="ThongBao" style="font-size: small"></i>
+                                <asp:TextBox ID="TextBoxTaiKhoan" runat="server" AutoCompleteType="Disabled" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-4" id="matkhau">Mật khẩu(*):</div>
+                            <div class="col-lg-8">
+                                <asp:TextBox ID="TextBoxMatKhau" runat="server" TextMode="Password" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                <i id="thongbaomatkhau" style="font-size: small; color: blue">Để trống nếu không muốn thay đổi</i>
+                            </div>
+                        </div>
+                        <div class="row" id="rownhaplaimatkhau">
+                            <br />
+                            <div class="col-lg-4" id="nhaplaimatkhau">Nhập lại mật khẩu(*):</div>
+                            <div class="col-lg-8">
+                                <asp:TextBox ID="TextBoxNhapLaiMatKhau" runat="server" TextMode="Password" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-4">Khoa(*):</div>
+                            <div class="col-lg-8">
+                                <asp:TextBox ID="TextBoxKhoa" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-4">Ghi chú:</div>
+                            <div class="col-lg-8">
+                                <asp:TextBox ID="TextBoxGhiChu" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        <asp:Button ID="ButtonLuuMatKhau" CssClass="btn btn-primary" runat="server" Text="Lưu" OnClick="ButtonLuu_Click" OnClientClick="return KiemTraDoiMatKhauTruocKhiLuu();" />
+                        <asp:Button ID="ButtonThemMoi" ClientIDMode="Static" CssClass="btn btn-primary" runat="server" Text="Thêm mới" OnClick="ButtonThemMoi_Click" OnClientClick="return ThemMoi();" />
+                        <asp:Button ID="ButtonLuu" ClientIDMode="Static" CssClass="btn btn-primary" runat="server" Text="Lưu" OnClientClick="return CapNhat();" OnClick="ButtonLuu_Click" />
                     </div>
                 </div>
             </div>

@@ -42,7 +42,7 @@
                                 <th><i>Người duyệt</i></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="centered">
                             <asp:Repeater ID="RepeaterQuanLyMuonPhong" runat="server">
                                 <ItemTemplate>
                                     <tr>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="centerCollectionPager">
                     <div class="CollectionPager">
-                        <cp:CollectionPager ID="CollectionPagerQuanLyMuonPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
+                        <cp:CollectionPager ID="CollectionPagerQuanLyMuonPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="50" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
                         </cp:CollectionPager>
                     </div>
                 </div>

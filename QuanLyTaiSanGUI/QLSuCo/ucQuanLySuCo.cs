@@ -347,7 +347,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                         objSuCo.mota = txtMota.Text;
                         objSuCo.hinhanhs = listHinhs;
                         objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
-                        if (objSuCo.add() > 0)
+                        if (objSuCo.add() > 0 && DBInstance.commit() > 0)
                         {
                             DevExpress.XtraEditors.XtraMessageBox.Show("Thêm sự cố thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             int id = objSuCo.id;
@@ -367,7 +367,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                             objSuCo.mota = txtMota.Text;
                             objSuCo.hinhanhs = listHinhs;
                             objSuCo.ngay = dateEdit1.EditValue != null ? dateEdit1.DateTime : DateTime.Now;
-                            if (objSuCo.update() > 0)
+                            if (objSuCo.update() > 0 && DBInstance.commit() > 0)
                             {
                                 DevExpress.XtraEditors.XtraMessageBox.Show("Sửa sự cố thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 int id = objSuCo.id;
@@ -446,7 +446,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             {
                 if (DevExpress.XtraEditors.XtraMessageBox.Show("Bạn có chắc là muốn xóa sự cố?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (objSuCo.delete() > 0)
+                    if (objSuCo.delete() > 0 && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraEditors.XtraMessageBox.Show("Xóa sự cố thành công!");
                         loadData(objPhong.id);

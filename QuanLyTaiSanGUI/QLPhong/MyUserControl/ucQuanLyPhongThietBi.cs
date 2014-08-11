@@ -49,6 +49,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
             //gridViewlog.Columns[colngay.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            gridViewCTThietBi.Columns[colma.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[colloaiTB.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewCTThietBi.Columns[coltinhtrang.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;

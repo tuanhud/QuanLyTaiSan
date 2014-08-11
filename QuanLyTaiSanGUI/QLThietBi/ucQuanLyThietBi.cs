@@ -67,6 +67,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             loaiThietBiNULL.loaichung = false;
             loaiThietBiNULL.id = -1;
 
+            gridViewThietBi.Columns[colma.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewThietBi.Columns[colloai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
@@ -143,6 +144,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 btnR_Sua.Visible = !loaiChung;
                 btnR_Xoa.Visible = !loaiChung;
                 gridViewThietBi.Columns[colngaymua.FieldName].Visible = !loaiChung;
+                gridViewThietBi.Columns[colma.FieldName].Visible = !loaiChung;
                 gridViewThietBi.Columns[colten.FieldName].Visible = !loaiChung;
                 labelControlNgayMua.Visible = !loaiChung;
                 dateEditNgayMua.Visible = !loaiChung;
@@ -400,7 +402,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     case "add":
                         objThietBi = new ThietBi();
                         setDataObj();
-                        if (objThietBi.add() > 0)
+                        if (objThietBi.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objThietBi.id);
@@ -408,7 +410,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                         break;
                     case "edit":
                         setDataObj();
-                        if (objThietBi.update() > 0)
+                        if (objThietBi.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objThietBi.id);
@@ -450,7 +452,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                                                 //objThietBi.logthietbis.ElementAt(j).delete();
                                             }
                                         }
-                                        thanhcong = objThietBi.delete() > 0;
+                                        thanhcong = objThietBi.delete() > 0 && DBInstance.commit() > 0;
                                     }
                                     catch
                                     {

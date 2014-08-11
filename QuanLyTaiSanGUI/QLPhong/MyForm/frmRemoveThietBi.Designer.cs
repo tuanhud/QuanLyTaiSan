@@ -73,9 +73,11 @@
             // 
             // labelControl2
             // 
+            this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.Location = new System.Drawing.Point(13, 12);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(63, 13);
+            this.labelControl2.Size = new System.Drawing.Size(345, 34);
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "labelControl2";
             // 
@@ -89,7 +91,9 @@
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtMota);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRemoveThietBi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loại bỏ thiết bị ra khỏi phòng";
             ((System.ComponentModel.ISupportInitialize)(this.txtMota.Properties)).EndInit();
             this.ResumeLayout(false);

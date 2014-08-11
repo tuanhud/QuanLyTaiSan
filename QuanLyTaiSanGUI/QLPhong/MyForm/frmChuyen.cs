@@ -96,7 +96,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     if (radioBtnChuyenPhong.Checked)
                     {
 
-                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0)
+                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Chuyển phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
@@ -105,7 +105,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     }
                     else
                     {
-                        if (objCTThietBi.dichuyen(null, (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0)
+                        if (objCTThietBi.dichuyen(null, (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Chuyển tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
@@ -115,10 +115,8 @@ namespace QuanLyTaiSanGUI.QLPhong
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + ": btnOK_Click :" + ex.Message);
+                Debug.WriteLine(this.Name + "->btnOK_Click:" + ex.Message);
             }
-            finally
-            { }
         }
 
         private Boolean CheckInput()
@@ -157,10 +155,8 @@ namespace QuanLyTaiSanGUI.QLPhong
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + ": btnImage_Click :" + ex.Message);
+                Debug.WriteLine(this.Name + "->btnImage_Click :" + ex.Message);
             }
-            finally
-            { }
         }
 
         private void reloadImage()
@@ -175,7 +171,7 @@ namespace QuanLyTaiSanGUI.QLPhong
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + ": reloadImage :" + ex.Message);
+                Debug.WriteLine(this.Name + "->reloadImage :" + ex.Message);
             }
             finally
             { }

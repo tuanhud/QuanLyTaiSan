@@ -629,6 +629,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
                 {
                     objLoaiThietBi.moveUp();
+                    DBInstance.commit();
                     reLoadAndFocused(objLoaiThietBi.id);
                 }
             }
@@ -645,6 +646,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
                 {
                     objLoaiThietBi.moveDown();
+                    DBInstance.commit();
                     reLoadAndFocused(objLoaiThietBi.id);
                 }
             }

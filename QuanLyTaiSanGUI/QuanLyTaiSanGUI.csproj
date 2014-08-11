@@ -295,12 +295,6 @@
     <Compile Include="QLPhong\MyForm\frmLogThietBi.Designer.cs">
       <DependentUpon>frmLogThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyForm\frmNewThietBi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QLPhong\MyForm\frmNewThietBi.Designer.cs">
-      <DependentUpon>frmNewThietBi.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,24 +306,6 @@
     </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhongThietBi.Designer.cs">
       <DependentUpon>ucQuanLyPhongThietBi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucChiTietPhong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucChiTietPhong.Designer.cs">
-      <DependentUpon>ucChiTietPhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucChiTietPhongs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucChiTietPhongs.Designer.cs">
-      <DependentUpon>ucChiTietPhongs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="QLPhong\MyUserControl\ucChiTietThietBi.Designer.cs">
-      <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </Compile>
     <Compile Include="QLPhong\MyUserControl\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
@@ -368,12 +344,6 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QLThietBi\ucQuanLyThietBi_Old.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="QLThietBi\ucQuanLyThietBi_Old.Designer.cs">
-      <DependentUpon>ucQuanLyThietBi_Old.cs</DependentUpon>
     </Compile>
     <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.cs">
       <SubType>UserControl</SubType>
@@ -522,9 +492,6 @@
     <EmbeddedResource Include="QLPhong\MyForm\frmLogThietBi.resx">
       <DependentUpon>frmLogThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\MyForm\frmNewThietBi.resx">
-      <DependentUpon>frmNewThietBi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyForm\frmRemoveThietBi.resx">
       <DependentUpon>frmRemoveThietBi.cs</DependentUpon>
     </EmbeddedResource>
@@ -533,15 +500,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhongThietBi.resx">
       <DependentUpon>ucQuanLyPhongThietBi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhong.resx">
-      <DependentUpon>ucChiTietPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietPhongs.resx">
-      <DependentUpon>ucChiTietPhongs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\MyUserControl\ucChiTietThietBi.resx">
-      <DependentUpon>ucChiTietThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\MyUserControl\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
@@ -566,9 +524,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi_Old.resx">
-      <DependentUpon>ucQuanLyThietBi_Old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLTinhTrang\ucQuanLyTinhTrang.resx">
       <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>
