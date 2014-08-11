@@ -93,6 +93,12 @@ namespace QuanLyTaiSan.Entities
             }
             return false;
         }
+
+        public static Boolean isUsernameExist(String username)
+        {
+            return getByUserName(username)==null?false:true;
+        }
+
         public static T getByUserName(String username)
         {
             try

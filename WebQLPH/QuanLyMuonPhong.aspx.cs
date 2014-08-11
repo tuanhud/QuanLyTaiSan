@@ -131,9 +131,9 @@ namespace WebQLPH
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien = QuanTriVien.getByUserName(Session["username"].ToString());
                 _PhieuMuonPhong.quantrivien = _QuanTriVien;
-                if (_PhieuMuonPhong.update() > 0)
+                if (_PhieuMuonPhong.update() > 0 && DBInstance.commit() > 0)
                 {
-                    Response.Redirect(Request.RawUrl);
+                    QuanLyPhongMuon();
                 }
                 else
                 {
