@@ -499,7 +499,7 @@ namespace QuanLyTaiSan.Entities
             get
             {
                 //very importance because of OLD DBCONTEXT
-                return _current_giangvien_login = _current_giangvien_login.reload();
+                return _current_giangvien_login = _current_giangvien_login==null ? null: _current_giangvien_login.reload();
             }
             set
             {
@@ -515,7 +515,7 @@ namespace QuanLyTaiSan.Entities
             get
             {
                 //very importance because of OLD DBCONTEXT
-                return _current_quantrivien_login = _current_quantrivien_login.reload();
+                return _current_quantrivien_login = _current_quantrivien_login==null ? null:_current_quantrivien_login.reload();
             }
             set
             {
