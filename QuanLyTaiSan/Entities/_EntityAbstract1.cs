@@ -333,28 +333,29 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 //Hình thức ghép: username | ten | hoten
-                String nicename=null;
+                List<string> nicename=new List<string>();
                 //
                 var ppp = this.GetType().GetProperty("username");
                 if (ppp != null)
                 {
-                    nicename = ppp.GetValue(this).ToString();
+                    nicename.Add(ppp.GetValue(this).ToString());
                 }
                 ppp = this.GetType().GetProperty("ten");
                 if (ppp != null)
                 {
-                    nicename += "|"+ppp.GetValue(this).ToString();
+                    nicename.Add(ppp.GetValue(this).ToString());
                 }
                 ppp = this.GetType().GetProperty("hoten");
                 if (ppp != null)
                 {
-                    nicename += "|"+ppp.GetValue(this).ToString();
+                    nicename.Add(ppp.GetValue(this).ToString());
                 }
                 
                 //
                 if (nicename != null && !nicename.Equals(""))
                 {
-                    re.Add("objName", nicename);
+                    re.Add("objName", String.Join(" | ", nicename));
+                    nicename = null;
                 }
             }
             catch (Exception)
