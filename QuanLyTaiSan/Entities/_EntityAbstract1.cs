@@ -307,7 +307,12 @@ namespace QuanLyTaiSan.Entities
             }
             next.moveUp();
         }
-        private Dictionary<string, string> buildLog(String action_name=null,String object_type=null,String object_id=null)
+        /// <summary>
+        /// Build log hệ thống cho this
+        /// </summary>
+        /// <param name="action_name"></param>
+        /// <returns></returns>
+        private Dictionary<string, string> buildLog(String action_name=null)
         {
             Dictionary<string, string> re = new Dictionary<string, string>();
             if(Global.current_quantrivien_login!=null)
@@ -324,14 +329,39 @@ namespace QuanLyTaiSan.Entities
             {
                 re.Add("action", action_name);
             }
-            if (object_type != null && !object_type.Equals(""))
+            re.Add("objType", typeof(T).Name);
+            try
             {
-                re.Add("objType", object_type);
+                //Hình thức ghép: username | ten | hoten
+                String nicename=null;
+                //
+                var ppp = this.GetType().GetProperty("username");
+                if (ppp != null)
+                {
+                    nicename = ppp.GetValue(this).ToString();
+                }
+                ppp = this.GetType().GetProperty("ten");
+                if (ppp != null)
+                {
+                    nicename += "|"+ppp.GetValue(this).ToString();
+                }
+                ppp = this.GetType().GetProperty("hoten");
+                if (ppp != null)
+                {
+                    nicename += "|"+ppp.GetValue(this).ToString();
+                }
+                
+                //
+                if (nicename != null && !nicename.Equals(""))
+                {
+                    re.Add("objName", nicename);
+                }
             }
-            if (object_id != null && !object_id.Equals(""))
+            catch (Exception)
             {
-                re.Add("objID", object_id);
+
             }
+            re.Add("objID", this.id.ToString());
             return re;
         }
         #endregion
@@ -373,7 +403,7 @@ namespace QuanLyTaiSan.Entities
                 LogHeThong log = new LogHeThong();
                 log.onBeforeAdded();
                 //quocdunginfo fail (conflict with write log hethong)
-                log.mota = StringHelper.toJSON(buildLog("delete", typeof(T).Name, 5.ToString()));
+                log.mota = StringHelper.toJSON(buildLog("delete"));
                 log.add();
             }
         }
@@ -400,7 +430,7 @@ namespace QuanLyTaiSan.Entities
             {
                 LogHeThong log = new LogHeThong();
                 log.onBeforeAdded();//MANUAL MODE
-                log.mota = StringHelper.toJSON(buildLog("edit", typeof(T).Name, this.id.ToString()));
+                log.mota = StringHelper.toJSON(buildLog("edit"));
                 log.add();
             }
         }
@@ -416,7 +446,7 @@ namespace QuanLyTaiSan.Entities
             {
                 LogHeThong log = new LogHeThong();
                 log.onBeforeAdded();//MANUAL MODE
-                log.mota = StringHelper.toJSON(buildLog("add",typeof(T).Name, this.id.ToString()));
+                log.mota = StringHelper.toJSON(buildLog("add"));
                 log.add();
             }
         }
