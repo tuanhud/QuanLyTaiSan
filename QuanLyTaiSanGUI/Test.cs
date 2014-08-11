@@ -21,11 +21,19 @@ namespace QuanLyTaiSanGUI
         public Test()
         {
             InitializeComponent();
-            Dictionary<String, String> i = new Dictionary<string, string>();
-            i.Add("Username","quocdunginfo");
-            i.Add("IP", "125.4567.78~!@#$%^&*()_+{}|:");
-            var json = new JavaScriptSerializer().Serialize(i.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
-            Console.WriteLine(json);
+            //Dictionary<String, String> i = new Dictionary<string, string>();
+            //i.Add("Username","quocdunginfo");
+            //i.Add("IP", "125.4567.78~!@#$%^&*()_+{}|:");
+            //var json = new JavaScriptSerializer().Serialize(i.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
+            //Console.WriteLine(json);
+
+            OurDBContext db=new OurDBContext();
+            QuanTriVien obj = db.QUANTRIVIENS.Find(5);
+            obj.username = "what the hell";
+            obj = obj.reload();
+            obj = obj.reload();
+            obj = obj.reload();
+            String m = obj.username;
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)

@@ -31,9 +31,5 @@ namespace QuanLyTaiSan.Entities
         /// Before db.Savechange()
         /// </summary>
         void onAfterAdded();
-        /// <summary>
-        /// Before db.Savechange()
-        /// </summary>
-        void onAfterDeleted();
     }
 }
