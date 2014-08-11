@@ -162,7 +162,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
-                errorProvider1.Clear();
+                dxErrorProvider1.ClearErrors();
                 if(!function.Equals("view")) 
                     editGUI("view");
                 if (gridViewNhanVien.RowCount > 0)
@@ -230,7 +230,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNhanVienPT.hoten = txtTen.Text;
                     objNhanVienPT.sodienthoai = txtSodt.Text;
                     objNhanVienPT.hinhanhs = listHinhs;
-                    if (objNhanVienPT.update() > 0)
+                    if (objNhanVienPT.update() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //reLoad();
@@ -248,7 +248,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     objNew.hoten = txtTen.Text;
                     objNew.sodienthoai = txtSodt.Text;
                     objNew.hinhanhs = listHinhs;
-                    if (objNew.add() > 0)
+                    if (objNew.add() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //reLoad();
@@ -277,24 +277,20 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                             objToAdd.nhanvienpt = objNhanVienPT;
                             objToAdd.update();
                         }
-                        //objNhanVienPT.phongs = listPhong;
-                        //if (objNhanVienPT.update() != -1)
-                        //{
-                        //    XtraMessageBox.Show("Phân công nhân viên thành công!");
-                        //    reLoad();
-                        //    PhanCong(false);
-                        //}
+                        if (DBInstance.commit() > 0)
+                        {
+                            XtraMessageBox.Show("Phân công nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            editGUI("view");
+                            reLoadAndFocused(id);
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Phân công nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        System.Console.WriteLine(this.Name + " : btnOK_PhanCong_Click : " + ex.Message);
-                    }
-                    finally
-                    {
-                        XtraMessageBox.Show("Phân công nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //PhanCong(false);
-                        editGUI("view");
-                        reLoadAndFocused(id);
+                        Debug.WriteLine(this.Name + "->Function-PhanCong: " + ex.Message);
                     }
                 }
             }
@@ -302,8 +298,6 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 Debug.WriteLine(this.Name + "->Function: " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void deleteObj()
@@ -312,7 +306,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             {
                 if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhân viên?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (objNhanVienPT.delete() > 0)
+                    if (objNhanVienPT.delete() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loadData();
@@ -351,23 +345,23 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             }
             else
             {
-                errorProvider1.Clear();
+                dxErrorProvider1.ClearErrors();
                 setDataView();
             }
         }
 
         private Boolean CheckInput()
         {
-            errorProvider1.Clear();
+            dxErrorProvider1.ClearErrors();
             Boolean check = true;
-            if (txtMa.Text.Length == 0)
-            {
-                errorProvider1.SetError(txtMa, "Chưa điền mã nhân viên");
-                check = false;
-            }
+            //if (txtMa.Text.Length == 0)
+            //{
+            //    dxErrorProvider1.SetError(txtMa, "Chưa điền mã nhân viên");
+            //    check = false;
+            //}
             if (txtTen.Text.Length == 0)
             {
-                errorProvider1.SetError(txtTen, "Chưa điền tên nhân viên");
+                dxErrorProvider1.SetError(txtTen, "Chưa điền tên nhân viên");
                 check = false;
             }
             //if (!(txtSodt.Text.Length >= 9 && txtSodt.Text.Length <= 15))
@@ -377,14 +371,14 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             //}
             if (!IsNumber(txtSodt.Text))
             {
-                errorProvider1.SetError(txtSodt, "Số điện thoại không hợp lệ");
+                dxErrorProvider1.SetError(txtSodt, "Số điện thoại không hợp lệ");
                 check = false;
             }
-            if (txtSodt.Text.Length == 0)
-            {
-                errorProvider1.SetError(txtSodt, "Chưa điền số điện thoại");
-                check = false;
-            }
+            //if (txtSodt.Text.Length == 0)
+            //{
+            //    dxErrorProvider1.SetError(txtSodt, "Chưa điền số điện thoại");
+            //    check = false;
+            //}
             return check;
         }
 

@@ -170,16 +170,20 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                     objToAdd.quantrivien = objQuanTriVien;
                     objToAdd.update();
                 }
+                if (DBInstance.commit() > 0)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Phân công quản trị viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PhanCong(false);
+                    reLoadAndFocused(id);
+                }
+                else
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show("Phân công quản trị viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->btnOK_PhanCong_Click: " + ex.Message);
-            }
-            finally
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("Phân công quản trị viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PhanCong(false);
-                reLoadAndFocused(id);
+                Debug.WriteLine(this.Name + "->btnOK_Click: " + ex.Message);
             }
         }
 

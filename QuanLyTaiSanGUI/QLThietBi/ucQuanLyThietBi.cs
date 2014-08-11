@@ -402,7 +402,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     case "add":
                         objThietBi = new ThietBi();
                         setDataObj();
-                        if (objThietBi.add() > 0)
+                        if (objThietBi.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objThietBi.id);
@@ -410,7 +410,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                         break;
                     case "edit":
                         setDataObj();
-                        if (objThietBi.update() > 0)
+                        if (objThietBi.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa thiết bị thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             reLoadAndFocused(objThietBi.id);
@@ -452,7 +452,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                                                 //objThietBi.logthietbis.ElementAt(j).delete();
                                             }
                                         }
-                                        thanhcong = objThietBi.delete() > 0;
+                                        thanhcong = objThietBi.delete() > 0 && DBInstance.commit() > 0;
                                     }
                                     catch
                                     {

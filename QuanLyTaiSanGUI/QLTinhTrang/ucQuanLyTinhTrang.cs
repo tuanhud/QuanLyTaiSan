@@ -170,7 +170,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 {
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tình trạng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        if (objTinhTrang.delete() > 0)
+                        if (objTinhTrang.delete() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Xóa loại tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             loadData();
@@ -235,7 +235,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                         case "add":
                             objTinhTrang = new TinhTrang();
                             setDataObj();
-                            if (objTinhTrang.add() > 0)
+                            if (objTinhTrang.add() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Thêm tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 int id = objTinhTrang.id;
@@ -248,7 +248,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                             break;
                         case "edit":
                             setDataObj();
-                            if (objTinhTrang.update() > 0)
+                            if (objTinhTrang.update() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Sửa tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 int id = objTinhTrang.id;
@@ -326,6 +326,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 if (objTinhTrang != null && objTinhTrang.id > 0)
                 {
                     objTinhTrang.moveUp();
+                    DBInstance.commit();
                     reloadAndFocused(objTinhTrang.id);
                 }
             }
@@ -342,6 +343,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 if (objTinhTrang != null && objTinhTrang.id > 0)
                 {
                     objTinhTrang.moveDown();
+                    DBInstance.commit();
                     reloadAndFocused(objTinhTrang.id);
                 }
             }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
@@ -57,7 +56,6 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ribbonNhanVienPT = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaNhanVien = new DevExpress.XtraBars.BarButtonItem();
@@ -68,6 +66,7 @@
             this.rbnGroupNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupNhanVienPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
@@ -81,8 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonNhanVienPT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -363,12 +362,6 @@
             this.imageSlider1.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.RightToLeft = true;
-            // 
             // ribbonNhanVienPT
             // 
             this.ribbonNhanVienPT.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -460,6 +453,10 @@
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // ucQuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,8 +481,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonNhanVienPT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,7 +513,6 @@
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnImage;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.ListBoxControl listBoxPhong;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonNhanVienPT;
         private DevExpress.XtraBars.BarButtonItem barBtnThemNhanVien;
@@ -531,5 +527,6 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }
