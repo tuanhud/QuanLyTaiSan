@@ -32,6 +32,28 @@ namespace WebQLPH
                         else
                             PanelKhongPhaiQuanTriVien.Visible = true;
                     }
+
+                    if (!String.IsNullOrEmpty(Request["op"]))
+                    {
+                        if (Request["op"].Equals("xoa"))
+                        {
+                            int id = Convert.ToInt32(Request["id"].ToString());
+                            GiangVien _GiangVien = new GiangVien();
+                            _GiangVien = GiangVien.getById(id);
+                            if (_GiangVien.delete() > 0 && DBInstance.commit() > 0)
+                            {
+                                PanelThanhCong.Visible = true;
+                                LabelThongBaoThanhCong.Text = "Đã xóa tài khoản <strong>" + _GiangVien.username + "</strong> ra khỏi hệ thống";
+                                _QuanLyTaiKhoan();
+                            }
+                            else
+                            {
+                                PanelThatBai.Visible = true;
+                                LabelThongBaoThatBai.Text = "Giảng viên này đã tạo phiếu mượn phòng. Không thể xóa!";
+                            }
+                        }
+
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -65,7 +87,56 @@ namespace WebQLPH
         {
             try
             {
+                GiangVien _GiangVien = new GiangVien();
+                int id = Convert.ToInt32(HiddenFieldID.Value);
+                _GiangVien = GiangVien.getById(id);
+                _GiangVien.hoten = TextBoxHoTen.Text;
+                _GiangVien.email = TextBoxEmail.Text;
+                _GiangVien.username = TextBoxTaiKhoan.Text;
+                if(!TextBoxMatKhau.Text.Equals(string.Empty))
+                    _GiangVien.password = TextBoxMatKhau.Text;
+                _GiangVien.khoa = TextBoxKhoa.Text;
+                _GiangVien.mota = TextBoxGhiChu.Text;
+                if (_GiangVien.update() > 0 && DBInstance.commit() > 0)
+                {
+                    PanelThanhCong.Visible = true;
+                    LabelThongBaoThanhCong.Text = "Chỉnh sửa tài khoản <strong>" + _GiangVien.username + "</strong> thành công";
+                    _QuanLyTaiKhoan();
+                }
+                else
+                {
+                    PanelThatBai.Visible = true;
+                    LabelThongBaoThatBai.Text = "Có lỗi trong khi chỉnh sửa";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+        }
 
+        protected void ButtonThemMoi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GiangVien _GiangVien = new GiangVien();
+                _GiangVien.hoten = TextBoxHoTen.Text;
+                _GiangVien.email = TextBoxEmail.Text;
+                _GiangVien.username = TextBoxTaiKhoan.Text;
+                _GiangVien.changePassword(TextBoxMatKhau.Text);
+                _GiangVien.khoa = TextBoxKhoa.Text;
+                _GiangVien.mota = TextBoxGhiChu.Text;
+                if (_GiangVien.add() > 0 && DBInstance.commit() > 0)
+                {
+                    PanelThanhCong.Visible = true;
+                    LabelThongBaoThanhCong.Text = "Thêm mới tài khoản <strong>" + _GiangVien.username + "</strong> thành công";
+                    _QuanLyTaiKhoan();
+                }
+                else
+                {
+                    PanelThatBai.Visible = true;
+                    LabelThongBaoThatBai.Text = "Có lỗi trong khi thêm";
+                }
             }
             catch (Exception ex)
             {

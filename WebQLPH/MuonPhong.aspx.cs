@@ -144,7 +144,7 @@ namespace WebQLPH
                 GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
                 _PhieuMuonPhong.giangvien = _GiangVien;
 
-                if (_PhieuMuonPhong.add() > 0)
+                if (_PhieuMuonPhong.add() > 0 && DBInstance.commit() > 0)
                 {
                     PanelThongBaoMuonPhongThanhCong.Visible = true;
                     PanelMuonPhong.Visible = false;

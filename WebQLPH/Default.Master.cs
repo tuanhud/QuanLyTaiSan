@@ -23,8 +23,11 @@ namespace WebQLPH
                 
                 if (!string.IsNullOrWhiteSpace(Page.Request["op"]))
                 {
-                    Session.Clear();
-                    Response.Redirect("Default.aspx");
+                    if (Page.Request["op"].Equals("thoat"))
+                    {
+                        Session.Clear();
+                        Response.Redirect("Default.aspx");
+                    }
                 }
             }
             catch (Exception ex)

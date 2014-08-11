@@ -31,7 +31,6 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Hàm nghiệp vụ
-        
         #endregion
 
         #region Override method
