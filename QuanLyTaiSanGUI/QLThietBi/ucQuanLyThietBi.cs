@@ -193,7 +193,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                     if (state == 0 || state == 1)
                         listThietBi = ThietBi.getAllByTypeLoai(loaiChung);
                     else if (state == 2)
-                        listThietBi = ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.soluong > 0).Count() > 0).ToList();
+                        listThietBi = ThietBi.getAllByTypeLoaiHavePhong(loaiChung);
                     else if (state == 3)
                         listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung);
                 }

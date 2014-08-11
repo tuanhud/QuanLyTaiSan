@@ -36,7 +36,7 @@ namespace QuanLyTaiSan.DataFilter
                      tenloai = c.thietbi.loaithietbi.ten,
                      kieuQL = c.thietbi.loaithietbi.loaichung == true ? "Theo số lượng" : "Theo cá thể",
                      ctthietbi = c
-                 }).ToList();
+                 }).OrderBy(p => p.ten).ToList();
             return re;
         }
         #endregion

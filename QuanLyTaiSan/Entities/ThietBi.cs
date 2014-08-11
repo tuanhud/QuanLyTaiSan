@@ -72,7 +72,7 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung).ToList();
+                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung).OrderBy(c=>c.ten).ToList();
             }
             catch (Exception ex)
             {
@@ -89,7 +89,24 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung && c.ctthietbis.Where(e=>e.soluong>0).Count() == 0).ToList();
+                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == _loaichung && c.ctthietbis.Where(e => e.soluong > 0).Count() == 0).OrderBy(c => c.ten).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return new List<ThietBi>();
+            }
+            finally
+            {
+
+            }
+        }
+
+        public static List<ThietBi> getAllByTypeLoaiHavePhong(bool _loaichung)
+        {
+            try
+            {
+                return db.Set<ThietBi>().Where(c => c.loaithietbi.loaichung == false && c.ctthietbis.Where(e => e.soluong > 0).Count() > 0).OrderBy(c => c.ten).ToList();
             }
             catch (Exception ex)
             {

@@ -46,6 +46,7 @@
             this.gridViewCTThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colidTB = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colma = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colloaiTB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,7 +83,6 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.colma = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -138,7 +138,7 @@
             // 
             // barButtonSua
             // 
-            this.barButtonSua.Caption = "Sửa";
+            this.barButtonSua.Caption = "Sửa thiết bị";
             this.barButtonSua.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
             this.barButtonSua.Id = 43;
             this.barButtonSua.Name = "barButtonSua";
@@ -146,7 +146,7 @@
             // 
             // barButtonXoa
             // 
-            this.barButtonXoa.Caption = "Xóa";
+            this.barButtonXoa.Caption = "Loại bỏ TB";
             this.barButtonXoa.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
             this.barButtonXoa.Id = 44;
             this.barButtonXoa.Name = "barButtonXoa";
@@ -296,6 +296,15 @@
             this.colidTB.Caption = "idTB";
             this.colidTB.FieldName = "idTB";
             this.colidTB.Name = "colidTB";
+            // 
+            // colma
+            // 
+            this.colma.Caption = "Mã thiết bị";
+            this.colma.FieldName = "subId";
+            this.colma.Name = "colma";
+            this.colma.Visible = true;
+            this.colma.VisibleIndex = 0;
+            this.colma.Width = 133;
             // 
             // colten
             // 
@@ -671,15 +680,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // colma
-            // 
-            this.colma.Caption = "Mã thiết bị";
-            this.colma.FieldName = "subId";
-            this.colma.Name = "colma";
-            this.colma.Visible = true;
-            this.colma.VisibleIndex = 0;
-            this.colma.Width = 133;
             // 
             // ucQuanLyPhongThietBi
             // 
