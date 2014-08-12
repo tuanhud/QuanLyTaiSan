@@ -210,7 +210,8 @@ namespace QuanLyTaiSan.Entities
             }
         }
         /// <summary>
-        /// Kiem tra model backing changed
+        /// Kiem tra model backing changed,
+        /// CSDL Sẽ tạo tự động nếu chưa có (Chưa hay lắm)
         /// </summary>
         /// <returns></returns>
         public bool isValidModel()

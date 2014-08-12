@@ -86,7 +86,25 @@
             this.simpleButton_Import = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_Export = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_Luu = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFTPSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoteSettingSave = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.btnSmtpSendTest = new DevExpress.XtraEditors.SimpleButton();
+            this.txtSmtpTestEmail = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.cbSmtpUseSSL = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSmtpHost = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSmtpUsername = new DevExpress.XtraEditors.TextEdit();
+            this.txtSmtpPassword = new DevExpress.XtraEditors.TextEdit();
+            this.txtSmtpPort = new DevExpress.XtraEditors.TextEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -121,18 +139,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_debugToFile.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSmtpUseSSL.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpHost.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.panelControl_Server);
             this.groupControl1.Controls.Add(this.panelControl_Cache);
             this.groupControl1.Controls.Add(this.checkEdit_useDBCache);
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(355, 394);
+            this.groupControl1.Size = new System.Drawing.Size(362, 416);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Cấu hình Cơ sở dữ liệu";
             // 
@@ -156,14 +186,14 @@
             this.panelControl_Server.Controls.Add(this.labelControl1);
             this.panelControl_Server.Location = new System.Drawing.Point(6, 24);
             this.panelControl_Server.Name = "panelControl_Server";
-            this.panelControl_Server.Size = new System.Drawing.Size(343, 167);
+            this.panelControl_Server.Size = new System.Drawing.Size(350, 167);
             this.panelControl_Server.TabIndex = 18;
             // 
             // btnRemoveServerScope
             // 
             this.btnRemoveServerScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveServerScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveServerScope.Image")));
-            this.btnRemoveServerScope.Location = new System.Drawing.Point(238, 133);
+            this.btnRemoveServerScope.Location = new System.Drawing.Point(245, 133);
             this.btnRemoveServerScope.Name = "btnRemoveServerScope";
             this.btnRemoveServerScope.Size = new System.Drawing.Size(91, 23);
             this.btnRemoveServerScope.TabIndex = 9;
@@ -183,7 +213,7 @@
             // 
             this.simpleButton_cleanUpServerScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_cleanUpServerScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpServerScope.Image")));
-            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(130, 133);
+            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(137, 133);
             this.simpleButton_cleanUpServerScope.Name = "simpleButton_cleanUpServerScope";
             this.simpleButton_cleanUpServerScope.Size = new System.Drawing.Size(102, 24);
             this.simpleButton_cleanUpServerScope.TabIndex = 8;
@@ -217,7 +247,7 @@
             // 
             this.simpleButton_validateServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_validateServer.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateServer.Image")));
-            this.simpleButton_validateServer.Location = new System.Drawing.Point(5, 133);
+            this.simpleButton_validateServer.Location = new System.Drawing.Point(12, 133);
             this.simpleButton_validateServer.Name = "simpleButton_validateServer";
             this.simpleButton_validateServer.Size = new System.Drawing.Size(119, 23);
             this.simpleButton_validateServer.TabIndex = 7;
@@ -301,14 +331,14 @@
             this.panelControl_Cache.Enabled = false;
             this.panelControl_Cache.Location = new System.Drawing.Point(6, 197);
             this.panelControl_Cache.Name = "panelControl_Cache";
-            this.panelControl_Cache.Size = new System.Drawing.Size(343, 191);
+            this.panelControl_Cache.Size = new System.Drawing.Size(350, 214);
             this.panelControl_Cache.TabIndex = 17;
             // 
             // btnRemoveClientScope
             // 
             this.btnRemoveClientScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveClientScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveClientScope.Image")));
-            this.btnRemoveClientScope.Location = new System.Drawing.Point(238, 134);
+            this.btnRemoveClientScope.Location = new System.Drawing.Point(245, 136);
             this.btnRemoveClientScope.Name = "btnRemoveClientScope";
             this.btnRemoveClientScope.Size = new System.Drawing.Size(91, 23);
             this.btnRemoveClientScope.TabIndex = 18;
@@ -319,18 +349,18 @@
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(130, 163);
+            this.simpleButton1.Location = new System.Drawing.Point(211, 186);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(199, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(125, 23);
             this.simpleButton1.TabIndex = 19;
-            this.simpleButton1.Text = "Đồng bộ hóa dữ liệu";
+            this.simpleButton1.Text = "Đồng bộ dữ liệu";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton_cleanUpClientScope
             // 
             this.simpleButton_cleanUpClientScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_cleanUpClientScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpClientScope.Image")));
-            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(130, 134);
+            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(137, 136);
             this.simpleButton_cleanUpClientScope.Name = "simpleButton_cleanUpClientScope";
             this.simpleButton_cleanUpClientScope.Size = new System.Drawing.Size(103, 23);
             this.simpleButton_cleanUpClientScope.TabIndex = 17;
@@ -358,7 +388,7 @@
             // 
             this.simpleButton_validateClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_validateClient.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateClient.Image")));
-            this.simpleButton_validateClient.Location = new System.Drawing.Point(5, 134);
+            this.simpleButton_validateClient.Location = new System.Drawing.Point(12, 136);
             this.simpleButton_validateClient.Name = "simpleButton_validateClient";
             this.simpleButton_validateClient.Size = new System.Drawing.Size(119, 23);
             this.simpleButton_validateClient.TabIndex = 16;
@@ -438,7 +468,7 @@
             // checkEdit_useDBCache
             // 
             this.checkEdit_useDBCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkEdit_useDBCache.Location = new System.Drawing.Point(193, 1);
+            this.checkEdit_useDBCache.Location = new System.Drawing.Point(200, 1);
             this.checkEdit_useDBCache.Name = "checkEdit_useDBCache";
             this.checkEdit_useDBCache.Properties.Caption = "Sử dụng Cơ sở dữ liệu Client";
             this.checkEdit_useDBCache.Size = new System.Drawing.Size(159, 19);
@@ -458,7 +488,7 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl7);
             this.groupControl2.Controls.Add(this.labelControl8);
-            this.groupControl2.Location = new System.Drawing.Point(362, 3);
+            this.groupControl2.Location = new System.Drawing.Point(3, 3);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(355, 136);
             this.groupControl2.TabIndex = 0;
@@ -555,7 +585,7 @@
             this.groupControl3.Controls.Add(this.labelControl10);
             this.groupControl3.Controls.Add(this.labelControl11);
             this.groupControl3.Controls.Add(this.labelControl12);
-            this.groupControl3.Location = new System.Drawing.Point(362, 142);
+            this.groupControl3.Location = new System.Drawing.Point(3, 145);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(355, 88);
             this.groupControl3.TabIndex = 0;
@@ -614,7 +644,7 @@
             this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl4.Controls.Add(this.btnDebugClear);
             this.groupControl4.Controls.Add(this.checkEdit_debugToFile);
-            this.groupControl4.Location = new System.Drawing.Point(362, 267);
+            this.groupControl4.Location = new System.Drawing.Point(371, 3);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(355, 100);
             this.groupControl4.TabIndex = 131;
@@ -623,11 +653,11 @@
             // btnDebugClear
             // 
             this.btnDebugClear.Image = ((System.Drawing.Image)(resources.GetObject("btnDebugClear.Image")));
-            this.btnDebugClear.Location = new System.Drawing.Point(266, 67);
+            this.btnDebugClear.Location = new System.Drawing.Point(242, 67);
             this.btnDebugClear.Name = "btnDebugClear";
-            this.btnDebugClear.Size = new System.Drawing.Size(84, 23);
+            this.btnDebugClear.Size = new System.Drawing.Size(108, 23);
             this.btnDebugClear.TabIndex = 30;
-            this.btnDebugClear.Text = "Xóa Debug";
+            this.btnDebugClear.Text = "Xóa file debug";
             this.btnDebugClear.Click += new System.EventHandler(this.btnDebugClear_Click);
             // 
             // checkEdit_debugToFile
@@ -642,7 +672,7 @@
             // 
             this.simpleButton_Import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Import.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Import.Image")));
-            this.simpleButton_Import.Location = new System.Drawing.Point(480, 374);
+            this.simpleButton_Import.Location = new System.Drawing.Point(9, 391);
             this.simpleButton_Import.Name = "simpleButton_Import";
             this.simpleButton_Import.Size = new System.Drawing.Size(75, 23);
             this.simpleButton_Import.TabIndex = 32;
@@ -653,7 +683,7 @@
             // 
             this.simpleButton_Export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Export.Image")));
-            this.simpleButton_Export.Location = new System.Drawing.Point(561, 374);
+            this.simpleButton_Export.Location = new System.Drawing.Point(9, 420);
             this.simpleButton_Export.Name = "simpleButton_Export";
             this.simpleButton_Export.Size = new System.Drawing.Size(75, 23);
             this.simpleButton_Export.TabIndex = 33;
@@ -664,39 +694,206 @@
             // 
             this.simpleButton_Luu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Luu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Luu.Image")));
-            this.simpleButton_Luu.Location = new System.Drawing.Point(642, 374);
+            this.simpleButton_Luu.Location = new System.Drawing.Point(551, 397);
             this.simpleButton_Luu.Name = "simpleButton_Luu";
-            this.simpleButton_Luu.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton_Luu.Size = new System.Drawing.Size(175, 23);
             this.simpleButton_Luu.TabIndex = 31;
-            this.simpleButton_Luu.Text = "Lưu";
+            this.simpleButton_Luu.Text = "Cập nhật cho máy cá nhân";
             this.simpleButton_Luu.Click += new System.EventHandler(this.simpleButton_Luu_Click);
             // 
-            // btnFTPSave
+            // btnRemoteSettingSave
             // 
-            this.btnFTPSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFTPSave.Image = ((System.Drawing.Image)(resources.GetObject("btnFTPSave.Image")));
-            this.btnFTPSave.Location = new System.Drawing.Point(538, 235);
-            this.btnFTPSave.Name = "btnFTPSave";
-            this.btnFTPSave.Size = new System.Drawing.Size(179, 23);
-            this.btnFTPSave.TabIndex = 28;
-            this.btnFTPSave.Text = "Cập nhật cấu hình FTP và HTTP";
-            this.btnFTPSave.Click += new System.EventHandler(this.btnFTPSave_Click);
+            this.btnRemoteSettingSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoteSettingSave.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoteSettingSave.Image")));
+            this.btnRemoteSettingSave.Location = new System.Drawing.Point(548, 397);
+            this.btnRemoteSettingSave.Name = "btnRemoteSettingSave";
+            this.btnRemoteSettingSave.Size = new System.Drawing.Size(179, 23);
+            this.btnRemoteSettingSave.TabIndex = 28;
+            this.btnRemoteSettingSave.Text = "Cập nhật cho toàn hệ thống";
+            this.btnRemoteSettingSave.Click += new System.EventHandler(this.btnRemoteSettingSave_Click);
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(736, 452);
+            this.xtraTabControl1.TabIndex = 132;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.groupControl4);
+            this.xtraTabPage1.Controls.Add(this.groupControl1);
+            this.xtraTabPage1.Controls.Add(this.simpleButton_Luu);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(730, 424);
+            this.xtraTabPage1.Text = "Cấu hình cục bộ (Local)";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.groupControl5);
+            this.xtraTabPage2.Controls.Add(this.groupControl2);
+            this.xtraTabPage2.Controls.Add(this.groupControl3);
+            this.xtraTabPage2.Controls.Add(this.btnRemoteSettingSave);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(730, 424);
+            this.xtraTabPage2.Text = "Cấu hình toàn cục (Remote)";
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl5.Controls.Add(this.labelControl24);
+            this.groupControl5.Controls.Add(this.labelControl23);
+            this.groupControl5.Controls.Add(this.btnSmtpSendTest);
+            this.groupControl5.Controls.Add(this.txtSmtpTestEmail);
+            this.groupControl5.Controls.Add(this.labelControl19);
+            this.groupControl5.Controls.Add(this.cbSmtpUseSSL);
+            this.groupControl5.Controls.Add(this.labelControl20);
+            this.groupControl5.Controls.Add(this.labelControl21);
+            this.groupControl5.Controls.Add(this.txtSmtpHost);
+            this.groupControl5.Controls.Add(this.labelControl22);
+            this.groupControl5.Controls.Add(this.txtSmtpUsername);
+            this.groupControl5.Controls.Add(this.txtSmtpPassword);
+            this.groupControl5.Controls.Add(this.txtSmtpPort);
+            this.groupControl5.Location = new System.Drawing.Point(364, 3);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(339, 206);
+            this.groupControl5.TabIndex = 133;
+            this.groupControl5.Text = "Cấu hình gửi mail (SMTP)";
+            // 
+            // labelControl24
+            // 
+            this.labelControl24.Location = new System.Drawing.Point(10, 154);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(104, 13);
+            this.labelControl24.TabIndex = 29;
+            this.labelControl24.Text = "Gửi thử email kiểm tra";
+            // 
+            // labelControl23
+            // 
+            this.labelControl23.Location = new System.Drawing.Point(12, 180);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(28, 13);
+            this.labelControl23.TabIndex = 28;
+            this.labelControl23.Text = "Email:";
+            // 
+            // btnSmtpSendTest
+            // 
+            this.btnSmtpSendTest.Location = new System.Drawing.Point(245, 175);
+            this.btnSmtpSendTest.Name = "btnSmtpSendTest";
+            this.btnSmtpSendTest.Size = new System.Drawing.Size(80, 23);
+            this.btnSmtpSendTest.TabIndex = 27;
+            this.btnSmtpSendTest.Text = "Gửi";
+            this.btnSmtpSendTest.Click += new System.EventHandler(this.btnSmtpSendTest_Click);
+            // 
+            // txtSmtpTestEmail
+            // 
+            this.txtSmtpTestEmail.Location = new System.Drawing.Point(69, 177);
+            this.txtSmtpTestEmail.Name = "txtSmtpTestEmail";
+            this.txtSmtpTestEmail.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpTestEmail.TabIndex = 26;
+            this.txtSmtpTestEmail.ToolTip = "Địa chỉ email nhận Test mail (sẽ KHÔNG lưu lại)";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(10, 32);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(26, 13);
+            this.labelControl19.TabIndex = 19;
+            this.labelControl19.Text = "Host:";
+            // 
+            // cbSmtpUseSSL
+            // 
+            this.cbSmtpUseSSL.Location = new System.Drawing.Point(7, 53);
+            this.cbSmtpUseSSL.Name = "cbSmtpUseSSL";
+            this.cbSmtpUseSSL.Properties.Caption = "Xác thực TLS/SSL";
+            this.cbSmtpUseSSL.Size = new System.Drawing.Size(122, 19);
+            this.cbSmtpUseSSL.TabIndex = 23;
+            this.cbSmtpUseSSL.ToolTip = "Một vài SMTP Host bắt buộc sử dụng TLS/SSL";
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Location = new System.Drawing.Point(245, 32);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(29, 13);
+            this.labelControl20.TabIndex = 18;
+            this.labelControl20.Text = "Cổng:";
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(10, 80);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(50, 13);
+            this.labelControl21.TabIndex = 17;
+            this.labelControl21.Text = "Tài khoản:";
+            // 
+            // txtSmtpHost
+            // 
+            this.txtSmtpHost.Location = new System.Drawing.Point(69, 29);
+            this.txtSmtpHost.Name = "txtSmtpHost";
+            this.txtSmtpHost.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpHost.TabIndex = 20;
+            this.txtSmtpHost.ToolTip = "vd: smtp.gmail.com";
+            // 
+            // labelControl22
+            // 
+            this.labelControl22.Location = new System.Drawing.Point(10, 106);
+            this.labelControl22.Name = "labelControl22";
+            this.labelControl22.Size = new System.Drawing.Size(48, 13);
+            this.labelControl22.TabIndex = 16;
+            this.labelControl22.Text = "Mật khẩu:";
+            // 
+            // txtSmtpUsername
+            // 
+            this.txtSmtpUsername.Location = new System.Drawing.Point(69, 78);
+            this.txtSmtpUsername.Name = "txtSmtpUsername";
+            this.txtSmtpUsername.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpUsername.TabIndex = 24;
+            this.txtSmtpUsername.ToolTip = "vd: quocdunginfo@gmail.com\r\n(Vừa là tài khoản đăng nhập SMTP, vùa là địa chỉ emai" +
+    "l dùng để gửi)";
+            // 
+            // txtSmtpPassword
+            // 
+            this.txtSmtpPassword.Location = new System.Drawing.Point(69, 103);
+            this.txtSmtpPassword.Name = "txtSmtpPassword";
+            this.txtSmtpPassword.Properties.PasswordChar = '●';
+            this.txtSmtpPassword.Properties.UseSystemPasswordChar = true;
+            this.txtSmtpPassword.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpPassword.TabIndex = 25;
+            // 
+            // txtSmtpPort
+            // 
+            this.txtSmtpPort.EditValue = "";
+            this.txtSmtpPort.Location = new System.Drawing.Point(280, 28);
+            this.txtSmtpPort.Name = "txtSmtpPort";
+            this.txtSmtpPort.Size = new System.Drawing.Size(45, 20);
+            this.txtSmtpPort.TabIndex = 22;
+            this.txtSmtpPort.ToolTip = "vd: 587 (đối với Gmail), 465 (dối với Yahoo),...\r\n";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.simpleButton_Import);
+            this.panelControl1.Controls.Add(this.simpleButton_Export);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl1.Location = new System.Drawing.Point(859, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(91, 452);
+            this.panelControl1.TabIndex = 133;
             // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.simpleButton_Import);
-            this.Controls.Add(this.simpleButton_Export);
-            this.Controls.Add(this.simpleButton_Luu);
-            this.Controls.Add(this.groupControl4);
-            this.Controls.Add(this.btnFTPSave);
-            this.Controls.Add(this.groupControl3);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.groupControl1);
+            this.AutoSize = true;
+            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.xtraTabControl1);
             this.MinimumSize = new System.Drawing.Size(732, 411);
             this.Name = "ucCauHinh";
-            this.Size = new System.Drawing.Size(732, 411);
+            this.Size = new System.Drawing.Size(950, 452);
             this.Load += new System.EventHandler(this.ucCauHinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -736,6 +933,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_debugToFile.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            this.groupControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSmtpUseSSL.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpHost.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -791,7 +1003,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton_cleanUpClientScope;
         private DevExpress.XtraEditors.SimpleButton simpleButton_cleanUpServerScope;
-        private DevExpress.XtraEditors.SimpleButton btnFTPSave;
+        private DevExpress.XtraEditors.SimpleButton btnRemoteSettingSave;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.CheckEdit checkEdit_debugToFile;
         private DevExpress.XtraEditors.SimpleButton btnDebugClear;
@@ -800,5 +1012,23 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton_Luu;
         private DevExpress.XtraEditors.SimpleButton simpleButton_Export;
         private DevExpress.XtraEditors.SimpleButton simpleButton_Import;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.CheckEdit cbSmtpUseSSL;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.TextEdit txtSmtpHost;
+        private DevExpress.XtraEditors.LabelControl labelControl22;
+        private DevExpress.XtraEditors.TextEdit txtSmtpUsername;
+        private DevExpress.XtraEditors.TextEdit txtSmtpPassword;
+        private DevExpress.XtraEditors.TextEdit txtSmtpPort;
+        private DevExpress.XtraEditors.SimpleButton btnSmtpSendTest;
+        private DevExpress.XtraEditors.TextEdit txtSmtpTestEmail;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
     }
 }

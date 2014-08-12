@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.Libraries
 {
-    class ImageCache
+    public class ImageCache
     {
         private static Dictionary<String, Bitmap> collection = new Dictionary<string, Bitmap>();
         public static Bitmap get(String file_name)

@@ -69,6 +69,7 @@
     <Content Include="Check.aspx" />
     <Content Include="Content\css\blueimp-gallery.css" />
     <Content Include="Content\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\css\bootstrap-image-gallery.css" />
     <Content Include="Content\css\bootstrap-select.css" />
     <Content Include="Content\css\bootstrap-select.min.css" />
     <Content Include="Content\css\bootstrap-theme.css" />
@@ -93,6 +94,7 @@
     <Content Include="QuanLyTaiKhoan.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-image-gallery.js" />
     <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -104,6 +106,8 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery.blueimp-gallery.js" />
+    <Content Include="Scripts\jquery.blueimp-gallery.min.js" />
     <Content Include="Scripts\less-1.5.1.js" />
     <Content Include="Scripts\less-1.5.1.min.js" />
     <Content Include="Scripts\moment-with-langs.js" />

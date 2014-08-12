@@ -51,6 +51,7 @@ namespace QuanLyTaiSanGUI
         ucQuanLyTinhTrang _ucQuanLyTinhTrang = null;
         ucQuanLySuCo _ucQuanLySuCo = null;
         ucPhanCongQTV _ucPhanCongQTV = null;
+        ucLogHeThong _ucLogHeThong = null;
 
         ucCauHinh _ucCauHinh = null;
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
@@ -92,6 +93,7 @@ namespace QuanLyTaiSanGUI
             _ucQuanLyTinhTrang = new ucQuanLyTinhTrang();
             _ucQuanLySuCo = new ucQuanLySuCo();
             _ucPhanCongQTV = new ucPhanCongQTV();
+            _ucLogHeThong = new ucLogHeThong();
 
             //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             //DockStyle
@@ -108,6 +110,7 @@ namespace QuanLyTaiSanGUI
             _ucQuanLySuCo.Dock = DockStyle.Fill;
             _ucPhanCongQTV.Dock = DockStyle.Fill;
             _ucQuanLyTinhTrang.Dock = DockStyle.Fill;
+            _ucLogHeThong.Dock = DockStyle.Fill;
             //Add RibbonPage
             //addRibbonPage(_ucThongKeChiTiet.getRibbon());
             //addRibbonPage(_ucThongKeTongQuat.getRibbon());
@@ -122,6 +125,7 @@ namespace QuanLyTaiSanGUI
             addRibbonPage(_ucQuanLySuCo.getRibbon());
             addRibbonPage(_ucPhanCongQTV.getRibbon());
             addRibbonPage(_ucQuanLyTinhTrang.getRibbon());
+            addRibbonPage(_ucLogHeThong.getRibbon());
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageViTri_Home");
@@ -244,6 +248,12 @@ namespace QuanLyTaiSanGUI
                         _ucQuanLyTinhTrang.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyTinhTrang);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageLogHeThong")))
+                    {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        panelControl1.Controls.Clear();
+                        panelControl1.Controls.Add(_ucLogHeThong);
                     }
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }

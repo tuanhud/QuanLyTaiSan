@@ -61,6 +61,12 @@ namespace QuanLyTaiSanGUI.Settings
                 //HTTP
                 txtAddressHTTP.Text = Global.remote_setting.http_host.HOST_NAME;
                 txtPrepathHTTP.Text = Global.remote_setting.http_host.PRE_PATH;
+                //SMTP
+                txtSmtpHost.Text = Global.remote_setting.smtp_config.SMTP_HOST;
+                txtSmtpPassword.Text = Global.remote_setting.smtp_config.SMTP_PASSWORD;
+                txtSmtpPort.Text = Global.remote_setting.smtp_config.SMTP_PORT.ToString();
+                txtSmtpUsername.Text = Global.remote_setting.smtp_config.SMTP_USERNAME;
+                cbSmtpUseSSL.Checked = Global.remote_setting.smtp_config.SMTP_USESSL;
             }
         }
         /// <summary>
@@ -90,13 +96,13 @@ namespace QuanLyTaiSanGUI.Settings
             Global.local_setting.db_server_port = txtPortDatabase.Text;
             Global.local_setting.db_server_dbname = textEdit_ServerDBName.Text;
             Global.local_setting.db_server_WA = checkEdit_ServerWA.Checked;
+
             //IS USING DBCACHE
             Global.local_setting.use_db_cache = checkEdit_useDBCache.Checked;
             //debug mode
-            Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 2;
-            //UPDATE
+            Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
+            //UPDATE LOCAL SETTING
             Global.local_setting.Save();
-
 
             //CHECK DB CONFIG
             if (Global.local_setting.use_db_cache)
@@ -123,7 +129,6 @@ namespace QuanLyTaiSanGUI.Settings
 
 
             return 1;
-            
         }
         private void checkEdit_useDBCache_CheckedChanged(object sender, EventArgs e)
         {
@@ -192,7 +197,7 @@ namespace QuanLyTaiSanGUI.Settings
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
-        private void btnFTPSave_Click(object sender, EventArgs e)
+        private void btnRemoteSettingSave_Click(object sender, EventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang cập nhật...");
@@ -208,16 +213,17 @@ namespace QuanLyTaiSanGUI.Settings
 
             //if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
             //    Global.remote_setting.ftp_host.USER_NAME,
-            //    Global.remote_setting.ftp_host.PASS_WORD
+            //    Global.remote_setting.ftp_host.PASS_WORD,
+            //    10
             //    ) > 0
             //)
             //{
-            Global.remote_setting.ftp_host.save();
+                Global.remote_setting.ftp_host.save();
             //}
             //else
             //{
-            //    //FTP FAIL
-            //    return -5;
+            //    MessageBox.Show("FTP Fail");
+            //    return;
             //}
 
             //HTTP
@@ -226,6 +232,15 @@ namespace QuanLyTaiSanGUI.Settings
             Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
 
             Global.remote_setting.http_host.save();
+            //SMTP MAIL
+            Global.remote_setting.smtp_config.SMTP_HOST = txtSmtpHost.Text;
+            Global.remote_setting.smtp_config.SMTP_PASSWORD = txtSmtpPassword.Text;
+            Global.remote_setting.smtp_config.SMTP_PORT = StringHelper.toInt(txtSmtpPort.Text);
+            Global.remote_setting.smtp_config.SMTP_USERNAME = txtSmtpUsername.Text;
+            Global.remote_setting.smtp_config.SMTP_USESSL = cbSmtpUseSSL.Checked;
+
+            Global.remote_setting.smtp_config.save();
+
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
@@ -242,8 +257,6 @@ namespace QuanLyTaiSanGUI.Settings
             //Load DB State Indicator
             btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0;
             btnRemoveClientScope.Enabled = Global.client_database.isHasScope() > 0;
-
-            simpleButton1.Enabled = simpleButton_cleanUpClientScope.Enabled = simpleButton_cleanUpServerScope.Enabled = Global.local_setting.use_db_cache;
             
             simpleButton_validateServer.Enabled = !(Global.server_database.isReady() > 0);
             simpleButton_validateClient.Enabled = !(Global.client_database.isReady() > 0);
@@ -433,6 +446,27 @@ namespace QuanLyTaiSanGUI.Settings
         private void saveLocalSetting()
         {
 
+        }
+
+        private void btnSmtpSendTest_Click(object sender, EventArgs e)
+        {
+            if (EmailHelper.sendMail(
+                txtSmtpTestEmail.Text,
+                "Test email",
+                ServerTimeHelper.getNow().ToString(),
+                txtSmtpHost.Text,
+                StringHelper.toInt(txtSmtpPort.Text),
+                cbSmtpUseSSL.Checked,
+                txtSmtpUsername.Text,
+                txtSmtpPassword.Text                
+                ) > 0)
+            {
+                MessageBox.Show("Email được gửi thành công, vui lòng kiểm tra hộp thư đến!");
+            }
+            else
+            {
+                MessageBox.Show("Gửi email bị lỗi!");
+            }
         }
     }
 }
