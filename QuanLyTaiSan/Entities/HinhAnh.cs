@@ -222,6 +222,7 @@ namespace QuanLyTaiSan.Entities
                         Path.Combine(FileHelper.localPath(), CACHE_PATH, this.path)
                         );
                 }
+                
                 //finish
                 return re;
             }

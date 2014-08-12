@@ -623,7 +623,7 @@ namespace QuanLyTaiSan.Entities
                 {
                     get
                     {
-                        if (smtp_port == 0)
+                        if (smtp_port == null)
                         {
                             smtp_port = StringHelper.toInt(Setting.getValue("smtp_port"));
                         }
