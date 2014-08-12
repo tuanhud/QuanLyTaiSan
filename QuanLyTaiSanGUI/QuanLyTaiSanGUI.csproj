@@ -137,6 +137,12 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\ucLogHeThong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucLogHeThong.Designer.cs">
+      <DependentUpon>ucLogHeThong.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmRemoveThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -429,6 +435,9 @@
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucLogHeThong.resx">
+      <DependentUpon>ucLogHeThong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frmCustom.resx">
       <DependentUpon>frmCustom.cs</DependentUpon>
     </EmbeddedResource>
@@ -647,6 +656,8 @@
     <None Include="Resources\backgroundthongtinphanmem.png" />
     <None Include="Resources\arrow_up.png" />
     <None Include="Resources\arrow_down.png" />
+    <None Include="Resources\log-icon-16.png" />
+    <None Include="Resources\log-icon-32.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />
