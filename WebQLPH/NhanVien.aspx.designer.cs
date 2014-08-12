@@ -13,39 +13,12 @@ namespace WebQLPH {
     public partial class NhanVien {
         
         /// <summary>
-        /// Panel_Web control.
+        /// Panel_Main control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Web;
-        
-        /// <summary>
-        /// ucNhanVien_Web control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WebQLPH.UserControl.NhanVien.ucNhanVien_Web ucNhanVien_Web;
-        
-        /// <summary>
-        /// Panel_Mobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Mobile;
-        
-        /// <summary>
-        /// ucNhanVien_Mobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WebQLPH.UserControl.NhanVien.ucNhanVien_Mobile ucNhanVien_Mobile;
+        protected global::System.Web.UI.WebControls.Panel Panel_Main;
     }
 }

@@ -82,9 +82,6 @@
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="Images\1.jpg" />
-    <Content Include="Images\2.jpg" />
-    <Content Include="Images\3.jpg" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\NoImage.jpg" />
     <Content Include="MuonPhong.aspx" />

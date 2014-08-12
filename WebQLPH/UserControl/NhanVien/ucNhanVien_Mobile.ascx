@@ -3,11 +3,11 @@
 <%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxImageSlider" tagprefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 
-<asp:Panel ID="PanelThongBao" runat="server" Visible="False">
+<asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
         <div class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
         </div>
     </div>
 </asp:Panel>
@@ -57,7 +57,7 @@
 
     <div class="leftCollectionPager">
         <div class="CollectionPager">
-            <cp:CollectionPager ID="CollectionPagerDanhSachPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
+            <cp:CollectionPager ID="CollectionPagerDanhSachPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="TrangPhong" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
         </div>
     </div>
 </asp:Panel>
