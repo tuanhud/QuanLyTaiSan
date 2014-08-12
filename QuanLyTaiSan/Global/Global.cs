@@ -642,7 +642,7 @@ namespace QuanLyTaiSan.Entities
                     {
                         if (smtp_usessl == null)
                         {
-                            var ksmtp_usessl = Setting.getValue("smtp_usessl");//.Equals("1");
+                            smtp_usessl = Setting.getValue("smtp_usessl").Equals("1");
                         }
                         return (Boolean)smtp_usessl;
                     }
