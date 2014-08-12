@@ -184,6 +184,7 @@
             this.gridViewLogHeThong.OptionsBehavior.ReadOnly = true;
             this.gridViewLogHeThong.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewLogHeThong.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewLogHeThong.OptionsView.ShowGroupPanel = false;
             // 
             // colid
             // 
