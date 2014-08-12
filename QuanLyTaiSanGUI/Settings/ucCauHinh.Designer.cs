@@ -91,6 +91,10 @@
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.btnSmtpSendTest = new DevExpress.XtraEditors.SimpleButton();
+            this.txtSmtpTestEmail = new DevExpress.XtraEditors.TextEdit();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.cbSmtpUseSSL = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
@@ -101,10 +105,6 @@
             this.txtSmtpPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtSmtpPort = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.txtSmtpTestEmail = new DevExpress.XtraEditors.TextEdit();
-            this.btnSmtpSendTest = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -145,6 +145,7 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSmtpUseSSL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpHost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpUsername.Properties)).BeginInit();
@@ -152,7 +153,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -765,6 +765,39 @@
             this.groupControl5.TabIndex = 133;
             this.groupControl5.Text = "Cấu hình gửi mail (SMTP)";
             // 
+            // labelControl24
+            // 
+            this.labelControl24.Location = new System.Drawing.Point(10, 154);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(104, 13);
+            this.labelControl24.TabIndex = 29;
+            this.labelControl24.Text = "Gửi thử email kiểm tra";
+            // 
+            // labelControl23
+            // 
+            this.labelControl23.Location = new System.Drawing.Point(12, 180);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(28, 13);
+            this.labelControl23.TabIndex = 28;
+            this.labelControl23.Text = "Email:";
+            // 
+            // btnSmtpSendTest
+            // 
+            this.btnSmtpSendTest.Location = new System.Drawing.Point(245, 175);
+            this.btnSmtpSendTest.Name = "btnSmtpSendTest";
+            this.btnSmtpSendTest.Size = new System.Drawing.Size(80, 23);
+            this.btnSmtpSendTest.TabIndex = 27;
+            this.btnSmtpSendTest.Text = "Gửi";
+            this.btnSmtpSendTest.Click += new System.EventHandler(this.btnSmtpSendTest_Click);
+            // 
+            // txtSmtpTestEmail
+            // 
+            this.txtSmtpTestEmail.Location = new System.Drawing.Point(69, 177);
+            this.txtSmtpTestEmail.Name = "txtSmtpTestEmail";
+            this.txtSmtpTestEmail.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpTestEmail.TabIndex = 26;
+            this.txtSmtpTestEmail.ToolTip = "Địa chỉ email nhận Test mail (sẽ KHÔNG lưu lại)";
+            // 
             // labelControl19
             // 
             this.labelControl19.Location = new System.Drawing.Point(10, 32);
@@ -839,7 +872,7 @@
             this.txtSmtpPort.Name = "txtSmtpPort";
             this.txtSmtpPort.Size = new System.Drawing.Size(45, 20);
             this.txtSmtpPort.TabIndex = 22;
-            this.txtSmtpPort.ToolTip = "vd: 687 (đối với Gmail), 465 (dối với Yahoo),...\r\n";
+            this.txtSmtpPort.ToolTip = "vd: 587 (đối với Gmail), 465 (dối với Yahoo),...\r\n";
             // 
             // panelControl1
             // 
@@ -850,38 +883,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(91, 452);
             this.panelControl1.TabIndex = 133;
-            // 
-            // txtSmtpTestEmail
-            // 
-            this.txtSmtpTestEmail.Location = new System.Drawing.Point(69, 177);
-            this.txtSmtpTestEmail.Name = "txtSmtpTestEmail";
-            this.txtSmtpTestEmail.Size = new System.Drawing.Size(160, 20);
-            this.txtSmtpTestEmail.TabIndex = 26;
-            // 
-            // btnSmtpSendTest
-            // 
-            this.btnSmtpSendTest.Location = new System.Drawing.Point(245, 175);
-            this.btnSmtpSendTest.Name = "btnSmtpSendTest";
-            this.btnSmtpSendTest.Size = new System.Drawing.Size(80, 23);
-            this.btnSmtpSendTest.TabIndex = 27;
-            this.btnSmtpSendTest.Text = "Gửi";
-            this.btnSmtpSendTest.Click += new System.EventHandler(this.btnSmtpSendTest_Click);
-            // 
-            // labelControl23
-            // 
-            this.labelControl23.Location = new System.Drawing.Point(12, 180);
-            this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(28, 13);
-            this.labelControl23.TabIndex = 28;
-            this.labelControl23.Text = "Email:";
-            // 
-            // labelControl24
-            // 
-            this.labelControl24.Location = new System.Drawing.Point(10, 154);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(104, 13);
-            this.labelControl24.TabIndex = 29;
-            this.labelControl24.Text = "Gửi thử email kiểm tra";
             // 
             // ucCauHinh
             // 
@@ -939,6 +940,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
             this.groupControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSmtpUseSSL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpHost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpUsername.Properties)).EndInit();
@@ -946,7 +948,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
