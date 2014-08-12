@@ -117,7 +117,6 @@
     <Compile Include="Entities\_EntityAbstract3.cs" />
     <Compile Include="Global\Debug.cs" />
     <Compile Include="Global\Global.cs" />
-    <Compile Include="Libraries\MailHelper.cs" />
     <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\EmailHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />
