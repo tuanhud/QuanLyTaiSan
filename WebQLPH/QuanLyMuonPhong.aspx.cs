@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH
 {
     public partial class QuanLyMuonPhong : System.Web.UI.Page
     {
         List<PhieuMuonPhong> ListPhieuMuonPhong = null;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.CacheControl = "no-cache";
@@ -133,6 +133,24 @@ namespace WebQLPH
                 _PhieuMuonPhong.quantrivien = _QuanTriVien;
                 if (_PhieuMuonPhong.update() > 0 && DBInstance.commit() > 0)
                 {
+                    if (CheckBoxGuiMailThongBao.Checked == true)
+                    {
+                        string from = "admin@sgu.edu.vn";
+                        string to = _PhieuMuonPhong.giangvien.email;
+                        string sub = "[Thông Báo] V/v mượn phòng ngày " + _PhieuMuonPhong.date_create;
+                        string tinhtrang = string.Empty;
+                        switch(_PhieuMuonPhong.trangthai)
+                        {
+                            case -1:
+                                tinhtrang = "đã bị hủy bỏ";
+                                break;
+                            case 1:
+                                tinhtrang = "đã được chấp nhận";
+                                break;
+                        }
+                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p></p>Ghi chú từ người duyệt:</p></p>{2}</p></p>Người duyệt: <b>{3}</b></p></p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.ghichu, _PhieuMuonPhong.quantrivien.hoten, _PhieuMuonPhong.giangvien.email);
+                        MailHelper.sendMail_UseLocal(from, to, sub, msg);
+                    }
                     QuanLyPhongMuon();
                 }
                 else
