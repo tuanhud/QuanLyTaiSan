@@ -105,6 +105,7 @@
             this.txtSmtpPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtSmtpPort = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -153,6 +154,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -477,7 +480,6 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.txtPrepathFTP);
             this.groupControl2.Controls.Add(this.labelControl17);
             this.groupControl2.Controls.Add(this.txtPortFTP);
@@ -488,163 +490,180 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl7);
             this.groupControl2.Controls.Add(this.labelControl8);
-            this.groupControl2.Location = new System.Drawing.Point(3, 3);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(355, 136);
+            this.groupControl2.Size = new System.Drawing.Size(428, 136);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Cấu hình FTP [Upload hình ảnh lên server]";
             // 
             // txtPrepathFTP
             // 
+            this.txtPrepathFTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrepathFTP.EditValue = "";
-            this.txtPrepathFTP.Location = new System.Drawing.Point(85, 56);
+            this.txtPrepathFTP.Location = new System.Drawing.Point(85, 52);
             this.txtPrepathFTP.Name = "txtPrepathFTP";
-            this.txtPrepathFTP.Size = new System.Drawing.Size(166, 20);
+            this.txtPrepathFTP.Size = new System.Drawing.Size(239, 20);
             this.txtPrepathFTP.TabIndex = 22;
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(16, 59);
+            this.labelControl17.Location = new System.Drawing.Point(12, 55);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(54, 13);
+            this.labelControl17.Size = new System.Drawing.Size(58, 13);
             this.labelControl17.TabIndex = 2;
-            this.labelControl17.Text = "Đường dẫn";
+            this.labelControl17.Text = "Đường dẫn:";
             // 
             // txtPortFTP
             // 
+            this.txtPortFTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPortFTP.EditValue = "21";
-            this.txtPortFTP.Location = new System.Drawing.Point(296, 32);
+            this.txtPortFTP.Location = new System.Drawing.Point(370, 28);
             this.txtPortFTP.Name = "txtPortFTP";
             this.txtPortFTP.Size = new System.Drawing.Size(45, 20);
             this.txtPortFTP.TabIndex = 21;
             // 
             // txtPasswordFTP
             // 
+            this.txtPasswordFTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPasswordFTP.EditValue = "";
-            this.txtPasswordFTP.Location = new System.Drawing.Point(85, 107);
+            this.txtPasswordFTP.Location = new System.Drawing.Point(85, 103);
             this.txtPasswordFTP.Name = "txtPasswordFTP";
             this.txtPasswordFTP.Properties.PasswordChar = '●';
             this.txtPasswordFTP.Properties.UseSystemPasswordChar = true;
-            this.txtPasswordFTP.Size = new System.Drawing.Size(166, 20);
+            this.txtPasswordFTP.Size = new System.Drawing.Size(239, 20);
             this.txtPasswordFTP.TabIndex = 24;
             // 
             // txtUsernameFTP
             // 
+            this.txtUsernameFTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsernameFTP.EditValue = "";
-            this.txtUsernameFTP.Location = new System.Drawing.Point(85, 81);
+            this.txtUsernameFTP.Location = new System.Drawing.Point(85, 77);
             this.txtUsernameFTP.Name = "txtUsernameFTP";
-            this.txtUsernameFTP.Size = new System.Drawing.Size(166, 20);
+            this.txtUsernameFTP.Size = new System.Drawing.Size(239, 20);
             this.txtUsernameFTP.TabIndex = 23;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(16, 110);
+            this.labelControl5.Location = new System.Drawing.Point(14, 106);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(44, 13);
+            this.labelControl5.Size = new System.Drawing.Size(48, 13);
             this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "Mật khẩu";
+            this.labelControl5.Text = "Mật khẩu:";
             // 
             // txtAddressFTP
             // 
+            this.txtAddressFTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddressFTP.EditValue = "";
-            this.txtAddressFTP.Location = new System.Drawing.Point(85, 32);
+            this.txtAddressFTP.Location = new System.Drawing.Point(85, 28);
             this.txtAddressFTP.Name = "txtAddressFTP";
-            this.txtAddressFTP.Size = new System.Drawing.Size(166, 20);
+            this.txtAddressFTP.Size = new System.Drawing.Size(239, 20);
             this.txtAddressFTP.TabIndex = 20;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(16, 84);
+            this.labelControl6.Location = new System.Drawing.Point(12, 80);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(46, 13);
+            this.labelControl6.Size = new System.Drawing.Size(50, 13);
             this.labelControl6.TabIndex = 0;
-            this.labelControl6.Text = "Tài khoản";
+            this.labelControl6.Text = "Tài khoản:";
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(265, 35);
+            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl7.Location = new System.Drawing.Point(335, 31);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(25, 13);
+            this.labelControl7.Size = new System.Drawing.Size(29, 13);
             this.labelControl7.TabIndex = 0;
-            this.labelControl7.Text = "Cổng";
+            this.labelControl7.Text = "Cổng:";
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(16, 35);
+            this.labelControl8.Location = new System.Drawing.Point(12, 31);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(63, 13);
+            this.labelControl8.Size = new System.Drawing.Size(67, 13);
             this.labelControl8.TabIndex = 0;
-            this.labelControl8.Text = "Địa chỉ Sever";
+            this.labelControl8.Text = "Địa chỉ Sever:";
             // 
             // groupControl3
             // 
-            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl3.Controls.Add(this.txtPortHTTP);
             this.groupControl3.Controls.Add(this.txtPrepathHTTP);
             this.groupControl3.Controls.Add(this.txtAddressHTTP);
             this.groupControl3.Controls.Add(this.labelControl10);
             this.groupControl3.Controls.Add(this.labelControl11);
             this.groupControl3.Controls.Add(this.labelControl12);
-            this.groupControl3.Location = new System.Drawing.Point(3, 145);
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl3.Location = new System.Drawing.Point(0, 136);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(355, 88);
+            this.groupControl3.Size = new System.Drawing.Size(428, 88);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Cấu hình HTTP [Lấy hình ảnh từ server]";
             // 
             // txtPortHTTP
             // 
+            this.txtPortHTTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPortHTTP.EditValue = "80";
-            this.txtPortHTTP.Location = new System.Drawing.Point(297, 33);
+            this.txtPortHTTP.Location = new System.Drawing.Point(370, 33);
             this.txtPortHTTP.Name = "txtPortHTTP";
             this.txtPortHTTP.Size = new System.Drawing.Size(45, 20);
             this.txtPortHTTP.TabIndex = 26;
             // 
             // txtPrepathHTTP
             // 
+            this.txtPrepathHTTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrepathHTTP.EditValue = "";
             this.txtPrepathHTTP.Location = new System.Drawing.Point(86, 59);
             this.txtPrepathHTTP.Name = "txtPrepathHTTP";
-            this.txtPrepathHTTP.Size = new System.Drawing.Size(166, 20);
+            this.txtPrepathHTTP.Size = new System.Drawing.Size(239, 20);
             this.txtPrepathHTTP.TabIndex = 27;
             // 
             // txtAddressHTTP
             // 
+            this.txtAddressHTTP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddressHTTP.EditValue = "";
             this.txtAddressHTTP.Location = new System.Drawing.Point(86, 33);
             this.txtAddressHTTP.Name = "txtAddressHTTP";
-            this.txtAddressHTTP.Size = new System.Drawing.Size(166, 20);
+            this.txtAddressHTTP.Size = new System.Drawing.Size(239, 20);
             this.txtAddressHTTP.TabIndex = 25;
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(17, 62);
+            this.labelControl10.Location = new System.Drawing.Point(12, 62);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(54, 13);
+            this.labelControl10.Size = new System.Drawing.Size(58, 13);
             this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "Đường dẫn";
+            this.labelControl10.Text = "Đường dẫn:";
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(266, 36);
+            this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl11.Location = new System.Drawing.Point(335, 36);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(25, 13);
+            this.labelControl11.Size = new System.Drawing.Size(29, 13);
             this.labelControl11.TabIndex = 0;
-            this.labelControl11.Text = "Cổng";
+            this.labelControl11.Text = "Cổng:";
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(17, 36);
+            this.labelControl12.Location = new System.Drawing.Point(12, 36);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(63, 13);
+            this.labelControl12.Size = new System.Drawing.Size(67, 13);
             this.labelControl12.TabIndex = 0;
-            this.labelControl12.Text = "Địa chỉ Sever";
+            this.labelControl12.Text = "Địa chỉ Sever:";
             // 
             // groupControl4
             // 
             this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl4.Controls.Add(this.btnDebugClear);
             this.groupControl4.Controls.Add(this.checkEdit_debugToFile);
-            this.groupControl4.Location = new System.Drawing.Point(371, 3);
+            this.groupControl4.Location = new System.Drawing.Point(494, 3);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(355, 100);
             this.groupControl4.TabIndex = 131;
@@ -694,7 +713,7 @@
             // 
             this.simpleButton_Luu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Luu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Luu.Image")));
-            this.simpleButton_Luu.Location = new System.Drawing.Point(551, 397);
+            this.simpleButton_Luu.Location = new System.Drawing.Point(674, 397);
             this.simpleButton_Luu.Name = "simpleButton_Luu";
             this.simpleButton_Luu.Size = new System.Drawing.Size(175, 23);
             this.simpleButton_Luu.TabIndex = 31;
@@ -703,9 +722,9 @@
             // 
             // btnRemoteSettingSave
             // 
-            this.btnRemoteSettingSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoteSettingSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoteSettingSave.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoteSettingSave.Image")));
-            this.btnRemoteSettingSave.Location = new System.Drawing.Point(548, 397);
+            this.btnRemoteSettingSave.Location = new System.Drawing.Point(238, 398);
             this.btnRemoteSettingSave.Name = "btnRemoteSettingSave";
             this.btnRemoteSettingSave.Size = new System.Drawing.Size(179, 23);
             this.btnRemoteSettingSave.TabIndex = 28;
@@ -714,11 +733,11 @@
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(736, 452);
+            this.xtraTabControl1.Size = new System.Drawing.Size(859, 452);
             this.xtraTabControl1.TabIndex = 132;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -730,22 +749,18 @@
             this.xtraTabPage1.Controls.Add(this.groupControl1);
             this.xtraTabPage1.Controls.Add(this.simpleButton_Luu);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(730, 424);
+            this.xtraTabPage1.Size = new System.Drawing.Size(853, 424);
             this.xtraTabPage1.Text = "Cấu hình cục bộ (Local)";
             // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Controls.Add(this.groupControl5);
-            this.xtraTabPage2.Controls.Add(this.groupControl2);
-            this.xtraTabPage2.Controls.Add(this.groupControl3);
-            this.xtraTabPage2.Controls.Add(this.btnRemoteSettingSave);
+            this.xtraTabPage2.Controls.Add(this.splitContainerControl1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(730, 424);
+            this.xtraTabPage2.Size = new System.Drawing.Size(853, 424);
             this.xtraTabPage2.Text = "Cấu hình toàn cục (Remote)";
             // 
             // groupControl5
             // 
-            this.groupControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl5.Controls.Add(this.labelControl24);
             this.groupControl5.Controls.Add(this.labelControl23);
             this.groupControl5.Controls.Add(this.btnSmtpSendTest);
@@ -759,15 +774,16 @@
             this.groupControl5.Controls.Add(this.txtSmtpUsername);
             this.groupControl5.Controls.Add(this.txtSmtpPassword);
             this.groupControl5.Controls.Add(this.txtSmtpPort);
-            this.groupControl5.Location = new System.Drawing.Point(364, 3);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl5.Location = new System.Drawing.Point(0, 0);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(339, 206);
+            this.groupControl5.Size = new System.Drawing.Size(420, 198);
             this.groupControl5.TabIndex = 133;
             this.groupControl5.Text = "Cấu hình gửi mail (SMTP)";
             // 
             // labelControl24
             // 
-            this.labelControl24.Location = new System.Drawing.Point(10, 154);
+            this.labelControl24.Location = new System.Drawing.Point(10, 150);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(104, 13);
             this.labelControl24.TabIndex = 29;
@@ -775,7 +791,7 @@
             // 
             // labelControl23
             // 
-            this.labelControl23.Location = new System.Drawing.Point(12, 180);
+            this.labelControl23.Location = new System.Drawing.Point(10, 172);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(28, 13);
             this.labelControl23.TabIndex = 28;
@@ -783,7 +799,8 @@
             // 
             // btnSmtpSendTest
             // 
-            this.btnSmtpSendTest.Location = new System.Drawing.Point(245, 175);
+            this.btnSmtpSendTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSmtpSendTest.Location = new System.Drawing.Point(326, 167);
             this.btnSmtpSendTest.Name = "btnSmtpSendTest";
             this.btnSmtpSendTest.Size = new System.Drawing.Size(80, 23);
             this.btnSmtpSendTest.TabIndex = 27;
@@ -792,9 +809,11 @@
             // 
             // txtSmtpTestEmail
             // 
-            this.txtSmtpTestEmail.Location = new System.Drawing.Point(69, 177);
+            this.txtSmtpTestEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSmtpTestEmail.Location = new System.Drawing.Point(69, 169);
             this.txtSmtpTestEmail.Name = "txtSmtpTestEmail";
-            this.txtSmtpTestEmail.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpTestEmail.Size = new System.Drawing.Size(241, 20);
             this.txtSmtpTestEmail.TabIndex = 26;
             this.txtSmtpTestEmail.ToolTip = "Địa chỉ email nhận Test mail (sẽ KHÔNG lưu lại)";
             // 
@@ -817,7 +836,8 @@
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(245, 32);
+            this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl20.Location = new System.Drawing.Point(326, 32);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(29, 13);
             this.labelControl20.TabIndex = 18;
@@ -833,9 +853,11 @@
             // 
             // txtSmtpHost
             // 
+            this.txtSmtpHost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSmtpHost.Location = new System.Drawing.Point(69, 29);
             this.txtSmtpHost.Name = "txtSmtpHost";
-            this.txtSmtpHost.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpHost.Size = new System.Drawing.Size(241, 20);
             this.txtSmtpHost.TabIndex = 20;
             this.txtSmtpHost.ToolTip = "vd: smtp.gmail.com";
             // 
@@ -849,26 +871,31 @@
             // 
             // txtSmtpUsername
             // 
+            this.txtSmtpUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSmtpUsername.Location = new System.Drawing.Point(69, 78);
             this.txtSmtpUsername.Name = "txtSmtpUsername";
-            this.txtSmtpUsername.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpUsername.Size = new System.Drawing.Size(241, 20);
             this.txtSmtpUsername.TabIndex = 24;
             this.txtSmtpUsername.ToolTip = "vd: quocdunginfo@gmail.com\r\n(Vừa là tài khoản đăng nhập SMTP, vùa là địa chỉ emai" +
     "l dùng để gửi)";
             // 
             // txtSmtpPassword
             // 
+            this.txtSmtpPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSmtpPassword.Location = new System.Drawing.Point(69, 103);
             this.txtSmtpPassword.Name = "txtSmtpPassword";
             this.txtSmtpPassword.Properties.PasswordChar = '●';
             this.txtSmtpPassword.Properties.UseSystemPasswordChar = true;
-            this.txtSmtpPassword.Size = new System.Drawing.Size(160, 20);
+            this.txtSmtpPassword.Size = new System.Drawing.Size(241, 20);
             this.txtSmtpPassword.TabIndex = 25;
             // 
             // txtSmtpPort
             // 
+            this.txtSmtpPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSmtpPort.EditValue = "";
-            this.txtSmtpPort.Location = new System.Drawing.Point(280, 28);
+            this.txtSmtpPort.Location = new System.Drawing.Point(361, 28);
             this.txtSmtpPort.Name = "txtSmtpPort";
             this.txtSmtpPort.Size = new System.Drawing.Size(45, 20);
             this.txtSmtpPort.TabIndex = 22;
@@ -884,13 +911,30 @@
             this.panelControl1.Size = new System.Drawing.Size(91, 452);
             this.panelControl1.TabIndex = 133;
             // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl3);
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl2);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl5);
+            this.splitContainerControl1.Panel2.Controls.Add(this.btnRemoteSettingSave);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(853, 424);
+            this.splitContainerControl1.SplitterPosition = 428;
+            this.splitContainerControl1.TabIndex = 134;
+            this.splitContainerControl1.Text = "splitContainerControl1";
+            // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.xtraTabControl1);
+            this.Controls.Add(this.panelControl1);
             this.MinimumSize = new System.Drawing.Size(732, 411);
             this.Name = "ucCauHinh";
             this.Size = new System.Drawing.Size(950, 452);
@@ -948,6 +992,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1030,5 +1076,6 @@
         private DevExpress.XtraEditors.TextEdit txtSmtpTestEmail;
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
     }
 }
