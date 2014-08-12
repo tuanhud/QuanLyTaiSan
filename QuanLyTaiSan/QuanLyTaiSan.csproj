@@ -76,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFilter\ChiTietTBHienThi.cs" />
-    <Compile Include="DataFilter\HinhAnhinFolder.cs" />
     <Compile Include="DataFilter\FilterAbstract.cs" />
     <Compile Include="DataFilter\LoaiTBHienThi.cs" />
     <Compile Include="DataFilter\NhanVienPTFilter.cs" />
@@ -117,6 +116,7 @@
     <Compile Include="Entities\_EntityAbstract3.cs" />
     <Compile Include="Global\Debug.cs" />
     <Compile Include="Global\Global.cs" />
+    <Compile Include="Libraries\MailHelper.cs" />
     <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
