@@ -136,7 +136,6 @@ namespace WebQLPH
                 {
                     if (CheckBoxGuiMailThongBao.Checked == true)
                     {
-                        string from = "admin@sgu.edu.vn";
                         string to = _PhieuMuonPhong.giangvien.email;
                         string sub = "[Thông Báo] V/v mượn phòng ngày " + _PhieuMuonPhong.date_create;
                         string tinhtrang = string.Empty;
@@ -150,7 +149,7 @@ namespace WebQLPH
                                 break;
                         }
                         string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p></p>Ghi chú từ người duyệt:</p></p>{2}</p></p>Người duyệt: <b>{3}</b></p></p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.ghichu, _PhieuMuonPhong.quantrivien.hoten, _PhieuMuonPhong.giangvien.email);
-                        MailHelper.sendMail_UseGmail(from, to, sub, msg);
+                        EmailHelper.sendMail(to, sub, msg);
                     }
                     QuanLyPhongMuon();
                 }

@@ -25,15 +25,16 @@ namespace QuanLyTaiSan.Libraries
         /// <returns></returns>
         public static int sendMail(String receive_email, String receive_title, String receive_html, String smtp_host, int smtp_port, Boolean smtp_usessl, String sender_email, String sender_password)
         {
-            MailMessage mail = new MailMessage();
-            mail.To.Add(receive_email);
-
-            mail.Subject = receive_title;
-            mail.IsBodyHtml = true;
-            mail.Body = receive_html;
-            mail.From = new MailAddress(sender_email);
             try
             {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(receive_email);
+
+                mail.Subject = receive_title;
+                mail.IsBodyHtml = true;
+                mail.Body = receive_html;
+                mail.From = new MailAddress(sender_email);
+            
                 SmtpClient client = new SmtpClient();
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.EnableSsl = smtp_usessl;
