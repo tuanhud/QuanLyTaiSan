@@ -36,29 +36,35 @@ namespace QuanLyTaiSan.Libraries
             }
         }
 
-        public static bool sendMail_UseGmail(string strFrom, string strPass, string strTo, string strSubject, string strBody)
+        public static bool sendMail_UseGmail(string strFrom, string strTo, string strSubject, string strBody)
         {
-            MailMessage ms = new MailMessage(strFrom, strTo, strSubject, strBody);
+            MailMessage ms = new MailMessage("sarahkendrick68@gmail.com", strTo, strSubject, strBody);
 
             ms.BodyEncoding = System.Text.Encoding.UTF8;
             ms.SubjectEncoding = System.Text.Encoding.UTF8;
             ms.IsBodyHtml = true;
 
             ms.ReplyTo = new MailAddress(strFrom);
-            ms.Sender = new MailAddress(strFrom);
+            ms.Sender = new MailAddress("sarahkendrick68@gmail.com");
 
-            SmtpClient SmtpMail = new SmtpClient("smtp.gmail.com", 587);
-            SmtpMail.Credentials = new NetworkCredential(strFrom, strPass);
-            SmtpMail.EnableSsl = true;
+            using (SmtpClient client = new SmtpClient())
+            {
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential("sarahkendrick68@gmail.com", "");
+                client.Host = "smtp.gmail.com";
+                client.Port = 587;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-            try
-            {
-                SmtpMail.Send(ms);
-                return true;
-            }
-            catch
-            {
-                return false;
+                try
+                {
+                    client.Send(ms);
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
     }

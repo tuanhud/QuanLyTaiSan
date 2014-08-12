@@ -11,8 +11,10 @@
     <meta name="author" content="" />
     <link rel="icon" href="favicon.ico" />
     <title></title>
-    <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
+    <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
+    <link href="Content/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
 
@@ -97,5 +99,7 @@
     <script src="Scripts/moment.js"></script>
     <script src="Scripts/bootstrap-datetimepicker.js"></script>
     <script src="Scripts/bootstrap-select.js"></script>
+    <script src="Scripts/jquery.blueimp-gallery.min.js"></script>
+    <script src="Scripts/bootstrap-image-gallery.js"></script>
 </body>
 </html>

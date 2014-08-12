@@ -124,6 +124,7 @@ namespace WebQLPH
         {
             try
             {
+
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
                 _PhieuMuonPhong = PhieuMuonPhong.getById(Convert.ToInt32(HiddenFieldID.Value));
                 _PhieuMuonPhong.trangthai = Convert.ToInt32(DropDownListTrangThai.SelectedValue);
@@ -149,7 +150,7 @@ namespace WebQLPH
                                 break;
                         }
                         string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p></p>Ghi chú từ người duyệt:</p></p>{2}</p></p>Người duyệt: <b>{3}</b></p></p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.ghichu, _PhieuMuonPhong.quantrivien.hoten, _PhieuMuonPhong.giangvien.email);
-                        MailHelper.sendMail_UseLocal(from, to, sub, msg);
+                        MailHelper.sendMail_UseGmail(from, to, sub, msg);
                     }
                     QuanLyPhongMuon();
                 }
