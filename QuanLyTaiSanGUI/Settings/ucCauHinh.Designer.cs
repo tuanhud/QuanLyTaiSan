@@ -106,6 +106,7 @@
             this.txtSmtpPort = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -156,6 +157,8 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+            this.splitContainerControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -163,9 +166,10 @@
             this.groupControl1.Controls.Add(this.panelControl_Server);
             this.groupControl1.Controls.Add(this.panelControl_Cache);
             this.groupControl1.Controls.Add(this.checkEdit_useDBCache);
-            this.groupControl1.Location = new System.Drawing.Point(3, 3);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(362, 416);
+            this.groupControl1.Size = new System.Drawing.Size(428, 416);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Cấu hình Cơ sở dữ liệu";
             // 
@@ -189,14 +193,14 @@
             this.panelControl_Server.Controls.Add(this.labelControl1);
             this.panelControl_Server.Location = new System.Drawing.Point(6, 24);
             this.panelControl_Server.Name = "panelControl_Server";
-            this.panelControl_Server.Size = new System.Drawing.Size(350, 167);
+            this.panelControl_Server.Size = new System.Drawing.Size(416, 167);
             this.panelControl_Server.TabIndex = 18;
             // 
             // btnRemoveServerScope
             // 
-            this.btnRemoveServerScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveServerScope.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRemoveServerScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveServerScope.Image")));
-            this.btnRemoveServerScope.Location = new System.Drawing.Point(245, 133);
+            this.btnRemoveServerScope.Location = new System.Drawing.Point(311, 133);
             this.btnRemoveServerScope.Name = "btnRemoveServerScope";
             this.btnRemoveServerScope.Size = new System.Drawing.Size(91, 23);
             this.btnRemoveServerScope.TabIndex = 9;
@@ -214,9 +218,9 @@
             // 
             // simpleButton_cleanUpServerScope
             // 
-            this.simpleButton_cleanUpServerScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_cleanUpServerScope.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton_cleanUpServerScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpServerScope.Image")));
-            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(137, 133);
+            this.simpleButton_cleanUpServerScope.Location = new System.Drawing.Point(203, 133);
             this.simpleButton_cleanUpServerScope.Name = "simpleButton_cleanUpServerScope";
             this.simpleButton_cleanUpServerScope.Size = new System.Drawing.Size(102, 24);
             this.simpleButton_cleanUpServerScope.TabIndex = 8;
@@ -225,9 +229,11 @@
             // 
             // textEdit_ServerDBName
             // 
+            this.textEdit_ServerDBName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit_ServerDBName.Location = new System.Drawing.Point(74, 102);
             this.textEdit_ServerDBName.Name = "textEdit_ServerDBName";
-            this.textEdit_ServerDBName.Size = new System.Drawing.Size(160, 20);
+            this.textEdit_ServerDBName.Size = new System.Drawing.Size(232, 20);
             this.textEdit_ServerDBName.TabIndex = 6;
             // 
             // labelControl18
@@ -240,17 +246,18 @@
             // 
             // txtPortDatabase
             // 
+            this.txtPortDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPortDatabase.EditValue = "";
-            this.txtPortDatabase.Location = new System.Drawing.Point(284, 5);
+            this.txtPortDatabase.Location = new System.Drawing.Point(357, 5);
             this.txtPortDatabase.Name = "txtPortDatabase";
             this.txtPortDatabase.Size = new System.Drawing.Size(45, 20);
             this.txtPortDatabase.TabIndex = 2;
             // 
             // simpleButton_validateServer
             // 
-            this.simpleButton_validateServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_validateServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton_validateServer.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateServer.Image")));
-            this.simpleButton_validateServer.Location = new System.Drawing.Point(12, 133);
+            this.simpleButton_validateServer.Location = new System.Drawing.Point(78, 133);
             this.simpleButton_validateServer.Name = "simpleButton_validateServer";
             this.simpleButton_validateServer.Size = new System.Drawing.Size(119, 23);
             this.simpleButton_validateServer.TabIndex = 7;
@@ -259,18 +266,22 @@
             // 
             // txtPasswordDatabase
             // 
+            this.txtPasswordDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPasswordDatabase.Location = new System.Drawing.Point(74, 76);
             this.txtPasswordDatabase.Name = "txtPasswordDatabase";
             this.txtPasswordDatabase.Properties.PasswordChar = '●';
             this.txtPasswordDatabase.Properties.UseSystemPasswordChar = true;
-            this.txtPasswordDatabase.Size = new System.Drawing.Size(160, 20);
+            this.txtPasswordDatabase.Size = new System.Drawing.Size(231, 20);
             this.txtPasswordDatabase.TabIndex = 5;
             // 
             // txtUsernameDatabase
             // 
+            this.txtUsernameDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsernameDatabase.Location = new System.Drawing.Point(74, 50);
             this.txtUsernameDatabase.Name = "txtUsernameDatabase";
-            this.txtUsernameDatabase.Size = new System.Drawing.Size(160, 20);
+            this.txtUsernameDatabase.Size = new System.Drawing.Size(231, 20);
             this.txtUsernameDatabase.TabIndex = 4;
             // 
             // labelControl4
@@ -283,9 +294,11 @@
             // 
             // txtAddressDatabase
             // 
+            this.txtAddressDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAddressDatabase.Location = new System.Drawing.Point(74, 5);
             this.txtAddressDatabase.Name = "txtAddressDatabase";
-            this.txtAddressDatabase.Size = new System.Drawing.Size(160, 20);
+            this.txtAddressDatabase.Size = new System.Drawing.Size(231, 20);
             this.txtAddressDatabase.TabIndex = 1;
             // 
             // labelControl3
@@ -298,7 +311,8 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(253, 8);
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Location = new System.Drawing.Point(326, 8);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(25, 13);
             this.labelControl2.TabIndex = 18;
@@ -334,14 +348,14 @@
             this.panelControl_Cache.Enabled = false;
             this.panelControl_Cache.Location = new System.Drawing.Point(6, 197);
             this.panelControl_Cache.Name = "panelControl_Cache";
-            this.panelControl_Cache.Size = new System.Drawing.Size(350, 214);
+            this.panelControl_Cache.Size = new System.Drawing.Size(416, 214);
             this.panelControl_Cache.TabIndex = 17;
             // 
             // btnRemoveClientScope
             // 
-            this.btnRemoveClientScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveClientScope.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRemoveClientScope.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveClientScope.Image")));
-            this.btnRemoveClientScope.Location = new System.Drawing.Point(245, 136);
+            this.btnRemoveClientScope.Location = new System.Drawing.Point(311, 136);
             this.btnRemoveClientScope.Name = "btnRemoveClientScope";
             this.btnRemoveClientScope.Size = new System.Drawing.Size(91, 23);
             this.btnRemoveClientScope.TabIndex = 18;
@@ -352,7 +366,7 @@
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(211, 186);
+            this.simpleButton1.Location = new System.Drawing.Point(277, 186);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(125, 23);
             this.simpleButton1.TabIndex = 19;
@@ -361,9 +375,9 @@
             // 
             // simpleButton_cleanUpClientScope
             // 
-            this.simpleButton_cleanUpClientScope.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_cleanUpClientScope.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton_cleanUpClientScope.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_cleanUpClientScope.Image")));
-            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(137, 136);
+            this.simpleButton_cleanUpClientScope.Location = new System.Drawing.Point(203, 136);
             this.simpleButton_cleanUpClientScope.Name = "simpleButton_cleanUpClientScope";
             this.simpleButton_cleanUpClientScope.Size = new System.Drawing.Size(103, 23);
             this.simpleButton_cleanUpClientScope.TabIndex = 17;
@@ -389,9 +403,9 @@
             // 
             // simpleButton_validateClient
             // 
-            this.simpleButton_validateClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton_validateClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton_validateClient.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_validateClient.Image")));
-            this.simpleButton_validateClient.Location = new System.Drawing.Point(12, 136);
+            this.simpleButton_validateClient.Location = new System.Drawing.Point(78, 136);
             this.simpleButton_validateClient.Name = "simpleButton_validateClient";
             this.simpleButton_validateClient.Size = new System.Drawing.Size(119, 23);
             this.simpleButton_validateClient.TabIndex = 16;
@@ -400,7 +414,8 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(254, 7);
+            this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl15.Location = new System.Drawing.Point(326, 7);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(25, 13);
             this.labelControl15.TabIndex = 5;
@@ -416,9 +431,11 @@
             // 
             // textEdit_CacheHost
             // 
+            this.textEdit_CacheHost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit_CacheHost.Location = new System.Drawing.Point(74, 4);
             this.textEdit_CacheHost.Name = "textEdit_CacheHost";
-            this.textEdit_CacheHost.Size = new System.Drawing.Size(160, 20);
+            this.textEdit_CacheHost.Size = new System.Drawing.Size(231, 20);
             this.textEdit_CacheHost.TabIndex = 10;
             // 
             // labelControl13
@@ -431,16 +448,20 @@
             // 
             // textEdit_CacheDBName
             // 
+            this.textEdit_CacheDBName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit_CacheDBName.Location = new System.Drawing.Point(74, 105);
             this.textEdit_CacheDBName.Name = "textEdit_CacheDBName";
-            this.textEdit_CacheDBName.Size = new System.Drawing.Size(160, 20);
+            this.textEdit_CacheDBName.Size = new System.Drawing.Size(231, 20);
             this.textEdit_CacheDBName.TabIndex = 15;
             // 
             // textEdit_CacheAccount
             // 
+            this.textEdit_CacheAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit_CacheAccount.Location = new System.Drawing.Point(74, 52);
             this.textEdit_CacheAccount.Name = "textEdit_CacheAccount";
-            this.textEdit_CacheAccount.Size = new System.Drawing.Size(160, 20);
+            this.textEdit_CacheAccount.Size = new System.Drawing.Size(231, 20);
             this.textEdit_CacheAccount.TabIndex = 13;
             // 
             // labelControl9
@@ -453,17 +474,20 @@
             // 
             // textEdit_CachePass
             // 
+            this.textEdit_CachePass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit_CachePass.Location = new System.Drawing.Point(74, 78);
             this.textEdit_CachePass.Name = "textEdit_CachePass";
             this.textEdit_CachePass.Properties.PasswordChar = '●';
             this.textEdit_CachePass.Properties.UseSystemPasswordChar = true;
-            this.textEdit_CachePass.Size = new System.Drawing.Size(160, 20);
+            this.textEdit_CachePass.Size = new System.Drawing.Size(231, 20);
             this.textEdit_CachePass.TabIndex = 14;
             // 
             // textEdit_CachePort
             // 
+            this.textEdit_CachePort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textEdit_CachePort.EditValue = "";
-            this.textEdit_CachePort.Location = new System.Drawing.Point(285, 4);
+            this.textEdit_CachePort.Location = new System.Drawing.Point(357, 4);
             this.textEdit_CachePort.Name = "textEdit_CachePort";
             this.textEdit_CachePort.Size = new System.Drawing.Size(45, 20);
             this.textEdit_CachePort.TabIndex = 11;
@@ -471,7 +495,7 @@
             // checkEdit_useDBCache
             // 
             this.checkEdit_useDBCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkEdit_useDBCache.Location = new System.Drawing.Point(200, 1);
+            this.checkEdit_useDBCache.Location = new System.Drawing.Point(266, 1);
             this.checkEdit_useDBCache.Name = "checkEdit_useDBCache";
             this.checkEdit_useDBCache.Properties.Caption = "Sử dụng Cơ sở dữ liệu Client";
             this.checkEdit_useDBCache.Size = new System.Drawing.Size(159, 19);
@@ -660,19 +684,20 @@
             // 
             // groupControl4
             // 
-            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl4.Controls.Add(this.btnDebugClear);
             this.groupControl4.Controls.Add(this.checkEdit_debugToFile);
-            this.groupControl4.Location = new System.Drawing.Point(494, 3);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(355, 100);
+            this.groupControl4.Size = new System.Drawing.Size(420, 100);
             this.groupControl4.TabIndex = 131;
             this.groupControl4.Text = "Dành cho nhà phát triển";
             // 
             // btnDebugClear
             // 
+            this.btnDebugClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDebugClear.Image = ((System.Drawing.Image)(resources.GetObject("btnDebugClear.Image")));
-            this.btnDebugClear.Location = new System.Drawing.Point(242, 67);
+            this.btnDebugClear.Location = new System.Drawing.Point(307, 67);
             this.btnDebugClear.Name = "btnDebugClear";
             this.btnDebugClear.Size = new System.Drawing.Size(108, 23);
             this.btnDebugClear.TabIndex = 30;
@@ -691,7 +716,7 @@
             // 
             this.simpleButton_Import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Import.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Import.Image")));
-            this.simpleButton_Import.Location = new System.Drawing.Point(9, 391);
+            this.simpleButton_Import.Location = new System.Drawing.Point(9, 27);
             this.simpleButton_Import.Name = "simpleButton_Import";
             this.simpleButton_Import.Size = new System.Drawing.Size(75, 23);
             this.simpleButton_Import.TabIndex = 32;
@@ -702,7 +727,7 @@
             // 
             this.simpleButton_Export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Export.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Export.Image")));
-            this.simpleButton_Export.Location = new System.Drawing.Point(9, 420);
+            this.simpleButton_Export.Location = new System.Drawing.Point(9, 56);
             this.simpleButton_Export.Name = "simpleButton_Export";
             this.simpleButton_Export.Size = new System.Drawing.Size(75, 23);
             this.simpleButton_Export.TabIndex = 33;
@@ -713,7 +738,7 @@
             // 
             this.simpleButton_Luu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton_Luu.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton_Luu.Image")));
-            this.simpleButton_Luu.Location = new System.Drawing.Point(674, 397);
+            this.simpleButton_Luu.Location = new System.Drawing.Point(242, 106);
             this.simpleButton_Luu.Name = "simpleButton_Luu";
             this.simpleButton_Luu.Size = new System.Drawing.Size(175, 23);
             this.simpleButton_Luu.TabIndex = 31;
@@ -722,9 +747,9 @@
             // 
             // btnRemoteSettingSave
             // 
-            this.btnRemoteSettingSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoteSettingSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoteSettingSave.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoteSettingSave.Image")));
-            this.btnRemoteSettingSave.Location = new System.Drawing.Point(238, 398);
+            this.btnRemoteSettingSave.Location = new System.Drawing.Point(238, 204);
             this.btnRemoteSettingSave.Name = "btnRemoteSettingSave";
             this.btnRemoteSettingSave.Size = new System.Drawing.Size(179, 23);
             this.btnRemoteSettingSave.TabIndex = 28;
@@ -745,9 +770,7 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.groupControl4);
-            this.xtraTabPage1.Controls.Add(this.groupControl1);
-            this.xtraTabPage1.Controls.Add(this.simpleButton_Luu);
+            this.xtraTabPage1.Controls.Add(this.splitContainerControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(853, 424);
             this.xtraTabPage1.Text = "Cấu hình cục bộ (Local)";
@@ -928,6 +951,22 @@
             this.splitContainerControl1.TabIndex = 134;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
+            // splitContainerControl2
+            // 
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            this.splitContainerControl2.Panel1.Controls.Add(this.groupControl1);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.groupControl4);
+            this.splitContainerControl2.Panel2.Controls.Add(this.simpleButton_Luu);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.splitContainerControl2.Size = new System.Drawing.Size(853, 424);
+            this.splitContainerControl2.SplitterPosition = 428;
+            this.splitContainerControl2.TabIndex = 132;
+            this.splitContainerControl2.Text = "splitContainerControl2";
+            // 
             // ucCauHinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -935,7 +974,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.panelControl1);
-            this.MinimumSize = new System.Drawing.Size(732, 411);
+            this.MinimumSize = new System.Drawing.Size(600, 411);
             this.Name = "ucCauHinh";
             this.Size = new System.Drawing.Size(950, 452);
             this.Load += new System.EventHandler(this.ucCauHinh_Load);
@@ -994,6 +1033,8 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+            this.splitContainerControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1077,5 +1118,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
     }
 }
