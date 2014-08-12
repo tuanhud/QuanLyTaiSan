@@ -22,6 +22,17 @@ namespace QuanLyTaiSan.Entities
         //public String mota { get; set; }
         #endregion
 
+        #region Nghiep vu
+        public static List<LogHeThong> getAllByDK(DateTime? tuNgay, DateTime? denNgay, int gioiHan)
+        {
+            List<LogHeThong> re =
+                (from c in db.LOGHETHONGS
+                 where ((tuNgay == null || c.date_create >= tuNgay) && (denNgay == null || c.date_create <= denNgay))
+                 select c).Take(gioiHan).OrderBy(c => c.date_create).ToList();
+            return re;
+        }
+        #endregion
+
         #region Override
         /// <summary>
         /// Log hệ thống không có update
