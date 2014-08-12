@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuanLyTaiSan.Properties;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -127,7 +128,20 @@ namespace QuanLyTaiSan.Entities
             sucophong = null;
             sucophong_id = null;
         }
-
+        /// <summary>
+        /// Hình ảnh mặc định khi không có mạng hoặc hình bị fail
+        /// </summary>
+        [NotMapped]
+        public static Bitmap DEFAULT_IMAGE
+        {
+            get
+            {
+                return Resources.default_image_when_fail;
+            }
+        }
+        /// <summary>
+        /// URL hình ảnh mặc định (dành riêng cho web)
+        /// </summary>
         [NotMapped]
         public static String DEFAULT_IMAGE_URL
         {
@@ -146,22 +160,22 @@ namespace QuanLyTaiSan.Entities
             return list;
         }
         /// <summary>
-        /// Kiem tra hinh da co tren may Local hay chua
+        /// Kiểm tra hình ảnh có trên Disk
         /// </summary>
         /// <returns></returns>
-        private Boolean isCacheExist()
+        private Boolean isCacheDiskExist()
         {
             //TU dong tao Folder cached neu chua co
             FileHelper.createFolderIfNotExist(
                 Path.Combine(FileHelper.localPath(),CACHE_PATH)
                 );
-            return FileHelper.isExist(getCachedPath());
+            return FileHelper.isExist(getCacheDiskPath());
         }
         /// <summary>
-        /// Lay Local Path cached cua mot hinh neu co
+        /// Generate local path của hình hiện tại
         /// </summary>
         /// <returns></returns>
-        private String getCachedPath()
+        private String getCacheDiskPath()
         {
             return Path.Combine(FileHelper.localPath(), HinhAnh.CACHE_PATH, path);
         }
@@ -186,45 +200,45 @@ namespace QuanLyTaiSan.Entities
                 {
                     return image;
                 }
-                //check global RAM repository
-                image = ImageCache.get(path);
-                if(image!=null)
-                {
-                    return image;
-                }
-                //check folder cache
-                if (isCacheExist())
-                {
-                    //load to RAM
-                    image = ImageHelper.fromFile(getCachedPath());
-                    //register to Global repository
-                    ImageCache.register(path,image);
-
-                    return image;
-                }
-                //get http info from Global
-                if (!Global.remote_setting.http_host.IS_READY)
-                {
-                    return null;
-                }
                 //build abs path
                 String abs_path =
                     Global.remote_setting.http_host.getCombinedPath(this.path);
-
-                //stream image from host via HTTP
-                Bitmap re = HTTPHelper.getImage(abs_path);
-                this.image = re;
-
-                //Write cached
-                if (image != null)
+                //check global RAM repository
+                image = ImageHelper.CACHE.get(abs_path);
+                if(image != null)
                 {
-                    this.image.Save(
-                        Path.Combine(FileHelper.localPath(), CACHE_PATH, this.path)
-                        );
+                    return image;
                 }
                 
-                //finish
-                return re;
+                //check folder cache
+                if (isCacheDiskExist())
+                {
+                    //load to Object REF
+                    image = ImageHelper.fromFile(getCacheDiskPath());
+                    //register to CACHE repository
+                    ImageHelper.CACHE.register(abs_path, image);
+
+                    return image;
+                }
+
+                //get image from INternet via HTTP Helper
+                image = HTTPHelper.getImage(abs_path);
+
+                if (image != null)
+                {
+                    //IMAGE GET FROM NETWORK OK
+                    //WRITE CACHE TO DISK
+                    image.Save(getCacheDiskPath());
+                    //register to CACHE
+                    ImageHelper.CACHE.register(abs_path, image);
+                    return image;
+                }
+                else
+                {
+                    //NETWORK FAIL OR URL INVALID
+                    ImageHelper.CACHE.mark_url_fail(abs_path);
+                    return image = DEFAULT_IMAGE;
+                }
             }
             set
             {
