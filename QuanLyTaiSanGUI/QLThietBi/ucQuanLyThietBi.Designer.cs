@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControlMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -57,12 +58,12 @@
             this.gridControlThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colma = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
-            this.colma = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -393,6 +394,7 @@
             this.gridViewThietBi.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewThietBi.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridViewThietBi.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewThietBi_RowClick);
             this.gridViewThietBi.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewThietBi_SelectionChanged);
             this.gridViewThietBi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewThietBi_FocusedRowChanged);
             this.gridViewThietBi.DataSourceChanged += new System.EventHandler(this.gridViewThietBi_DataSourceChanged);
@@ -402,6 +404,14 @@
             this.colid.Caption = "Id";
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
+            // 
+            // colma
+            // 
+            this.colma.Caption = "Mã thiết bị";
+            this.colma.FieldName = "subId";
+            this.colma.Name = "colma";
+            this.colma.Visible = true;
+            this.colma.VisibleIndex = 0;
             // 
             // colten
             // 
@@ -449,14 +459,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
-            // 
-            // colma
-            // 
-            this.colma.Caption = "Mã thiết bị";
-            this.colma.FieldName = "subId";
-            this.colma.Name = "colma";
-            this.colma.Visible = true;
-            this.colma.VisibleIndex = 0;
             // 
             // ucQuanLyThietBi
             // 

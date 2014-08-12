@@ -924,5 +924,28 @@ namespace QuanLyTaiSanGUI.QLThietBi
         {
             throw new NotImplementedException();
         }
+
+        private void gridViewThietBi_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            try
+            {
+                enableAllBarButton(true);
+                if (gridViewThietBi.FocusedRowHandle > -1)
+                {
+                    objThietBi = gridViewThietBi.GetFocusedRow() != null ? gridViewThietBi.GetFocusedRow() as ThietBi : new ThietBi();
+                    enableEdit(false);
+                    function = "";
+                    setData();
+                }
+                else
+                {
+                    deleteData();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->gridViewThietBi_RowClick: " + ex.Message);
+            }
+        }
     }
 }
