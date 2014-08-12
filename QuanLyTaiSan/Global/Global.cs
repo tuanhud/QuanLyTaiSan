@@ -152,10 +152,6 @@ namespace QuanLyTaiSan.Entities
             /// <returns></returns>
             public static int isHasScope()
             {
-                if (!Global.local_setting.use_db_cache)
-                {
-                    return -1;
-                }
                 //kiểm tra CSDL sẵn sàng để sync
                 return DatabaseHelper.isHasScope(Global.server_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
             }
@@ -222,10 +218,6 @@ namespace QuanLyTaiSan.Entities
         {
             public static int isHasScope()
             {
-                if (!Global.local_setting.use_db_cache)
-                {
-                    return -1;
-                }
                 //kiểm tra CSDL sẵn sàng để sync
                 return DatabaseHelper.isHasScope(Global.client_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
             }
@@ -534,7 +526,132 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class remote_setting
         {
-            
+            public static class smtp_config
+            {
+                public static int save()
+                {
+                    Boolean re = true;
+                    Setting obj = Setting.getByKey("smtp_host");
+                    obj.value = smtp_host;
+                    re = re && obj.addOrUpdate() > 0;
+
+                    obj = Setting.getByKey("smtp_username");
+                    obj.value = smtp_username;
+                    re = re && obj.addOrUpdate() > 0;
+
+                    obj = Setting.getByKey("smtp_password");
+                    obj.value = smtp_password;
+                    re = re && obj.addOrUpdate() > 0;
+
+                    obj = Setting.getByKey("smtp_port");
+                    obj.value = smtp_port==null?"0":smtp_port.ToString();
+                    re = re && obj.addOrUpdate() > 0;
+
+                    obj = Setting.getByKey("smtp_usessl");
+                    obj.value = smtp_usessl == null || smtp_usessl == false ? "0" : "1";
+                    re = re && obj.addOrUpdate() > 0;
+
+                    re = re && DBInstance.commit() > 0;
+
+                    if (re)
+                    {
+                        reload();
+                    }
+                    return re ? 1 : -1;
+                }
+
+                private static void reload()
+                {
+                    smtp_host = smtp_password = smtp_username = null;
+                    smtp_port = null;
+                    smtp_usessl = true;
+                }
+
+                private static String smtp_host = null;
+                public static String SMTP_HOST
+                {
+                    get
+                    {
+                        if (smtp_host == null)
+                        {
+                            smtp_host = Setting.getValue("smtp_host");
+                        }
+                        return smtp_host;
+                    }
+                    set
+                    {
+                        smtp_host = value;
+                    }
+                }
+
+                private static String smtp_username = null;
+                public static String SMTP_USERNAME
+                {
+                    get
+                    {
+                        if (smtp_username == null)
+                        {
+                            smtp_username = Setting.getValue("smtp_username");
+                        }
+                        return smtp_username;
+                    }
+                    set
+                    {
+                        smtp_username = value;
+                    }
+                }
+
+                private static String smtp_password = null;
+                public static String SMTP_PASSWORD
+                {
+                    get
+                    {
+                        if (smtp_password == null)
+                        {
+                            smtp_password = Setting.getValue("smtp_password");
+                        }
+                        return smtp_password;
+                    }
+                    set
+                    {
+                        smtp_password = value;
+                    }
+                }
+
+                private static int? smtp_port = null;
+                public static int SMTP_PORT
+                {
+                    get
+                    {
+                        if (smtp_port == 0)
+                        {
+                            smtp_port = StringHelper.toInt(Setting.getValue("smtp_port"));
+                        }
+                        return (int)smtp_port;
+                    }
+                    set
+                    {
+                        smtp_port = value;
+                    }
+                }
+
+                private static Boolean? smtp_usessl = null;
+                public static Boolean SMTP_USESSL
+                {
+                    get
+                    {
+                        if (smtp_usessl == null)
+                        {
+                            smtp_usessl = Setting.getValue("smtp_usessl").Equals("1");
+                        }
+                        return (Boolean)smtp_usessl;
+                    }
+                    set
+                    {
+                        smtp_usessl = value;
+                    }
+                }
+            }
             public static class ftp_host
             {
                 /// <summary>
@@ -588,7 +705,7 @@ namespace QuanLyTaiSan.Entities
                     {
                         reload();
                     }
-                    return re?1:0;
+                    return re?1:-1;
                 }
                 private static String port = null;
                 /// <summary>
@@ -738,7 +855,7 @@ namespace QuanLyTaiSan.Entities
                     {
                         reload();
                     }
-                    return re ? 1 : 0;
+                    return re ? 1 : -1;
                 }
 
                 private static String port = null;

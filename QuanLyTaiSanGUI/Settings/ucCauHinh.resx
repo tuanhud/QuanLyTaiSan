@@ -325,7 +325,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDgAACw4BQL7hQQAAARRJREFUOE9jMDAwYABi
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDAAACwwBP0AiyAAAARRJREFUOE9jMDAwYABi
         fyB+DsQ/gPgbGgaJvQPiSqhakHo4BjGigPgXEE8DYkcgdkfDtkD+CSD+D8SN6IaADJgPlRTAZgNUbANU
         DciQJnQXLAYK/AViHjwGFCIZADKkGKYW5AJiDGACqgsD4iIgXg/E90g1AGQRDCcB2W8oNeA1OQZkADUJ
         AnEcEJNkABdQwxJoICYD6WYg/gTEIMBCKBDVgIouoMUAKBZguI6QAQvxaAYZMouQAVJARQeQDPkHZINS
@@ -380,7 +380,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDgAACw4BQL7hQQAAAQhJREFUOE9jMDAwYABi
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDAAACwwBP0AiyAAAAQhJREFUOE9jMDAwYABi
         fyB+DsQ/gPgbGgaJvQPiSqhakHo4BjGigPgXEE8DYkcgdkfDtkD+CSD+D8SN6IaADJgPlRTAZgNUbANU
         DciQJnQXLAYK/AViHjwGFCIZADKkGKYW5AJiDGACqgsD4iIgXg/E90g1AGQRDCcB2W8oNeA1uQZ4ADXO
         AuJnxBrAB1ToAMT2QGwCxDuhgUl0GIBsA4U6NtwHFJciFAs78BgAMrSVkAEToAaA0gkI/4PyfwPpCiAW
@@ -410,7 +410,7 @@
         nd7zF4l8iLzdn4uinqU7//99+vwvAkQRj9c5xmIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnFTPSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRemoteSettingSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAVdEVYdFRpdGxlAENoZWNrO01hcms7VGljawsAxyQAAALuSURBVDhPlZJJTFNRGEZfNE4gauLC

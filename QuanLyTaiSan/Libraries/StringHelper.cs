@@ -17,6 +17,28 @@ namespace QuanLyTaiSan.Libraries
     public class StringHelper
     {
         /// <summary>
+        /// Hàm chuyển chuỗi sang int;
+        /// null, "", FAIL => 0
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static int toInt(String input)
+        {
+            if (input == null || input.Equals(""))
+            {
+                return 0;
+            }
+            try
+            {
+                int re = Convert.ToInt32(input);
+                return re;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        /// <summary>
         /// SHA1 thuần, trả về kiểu HOA </summary>
         public static String SHA1(String obj)
         {

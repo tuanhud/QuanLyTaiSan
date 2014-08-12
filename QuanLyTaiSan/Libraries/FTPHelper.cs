@@ -135,23 +135,29 @@ namespace QuanLyTaiSan.Libraries
         /// <param name="host_name">dạng ftp url, vd: ftp://host.com</param>
         /// <param name="user_name"></param>
         /// <param name="pass_word"></param>
+        /// <param name="timeout">giây</param>
         /// <returns></returns>
 
-        public static int checkconnect(String host_name, String user_name, String pass_word)
+        public static int checkconnect(String host_name, String user_name, String pass_word, int timeout=-1)
         {
             try
             {
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(host_name);
                 request.Method = WebRequestMethods.Ftp.ListDirectory;
                 request.Credentials = new NetworkCredential(user_name, pass_word);
+                if (timeout > 0)
+                {
+                    request.Timeout = timeout * 1000;
+                }
                 request.GetResponse();
+                return 1;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Debug.WriteLine(ex.ToString());
                 return -1;
             }
-            return 1;
+            
         }
 
         #region Image Utilities

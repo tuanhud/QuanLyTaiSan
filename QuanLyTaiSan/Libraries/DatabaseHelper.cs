@@ -68,8 +68,6 @@ namespace QuanLyTaiSan.Libraries
             SqlConnection serverConn = new SqlConnection(server_connectionString);
             try
             {
-                
-                
                 // create the sync orhcestrator
                 SyncOrchestrator syncOrchestrator = new SyncOrchestrator();
                 
