@@ -28,7 +28,7 @@ namespace QuanLyTaiSan.Entities
             List<LogHeThong> re =
                 (from c in db.LOGHETHONGS
                  where ((tuNgay == null || c.date_create >= tuNgay) && (denNgay == null || c.date_create <= denNgay))
-                 select c).Take(gioiHan).OrderBy(c => c.date_create).ToList();
+                 select c).OrderBy(c => c.date_create).Take(gioiHan).ToList();
             return re;
         }
         #endregion
