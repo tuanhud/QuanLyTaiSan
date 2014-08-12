@@ -82,7 +82,11 @@
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\NoImage.jpg" />
     <Content Include="MuonPhong.aspx" />
     <Content Include="NhanVien.aspx" />
     <Content Include="QuanLyHinhAnh.aspx" />
@@ -111,6 +115,8 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
+    <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
+    <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
     <Content Include="Web.config" />
@@ -181,6 +187,20 @@
     <Compile Include="QuanLyTaiKhoan.aspx.designer.cs">
       <DependentUpon>QuanLyTaiKhoan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx.cs">
+      <DependentUpon>ucNhanVien_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx.designer.cs">
+      <DependentUpon>ucNhanVien_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\NhanVien\ucNhanVien_Web.ascx.cs">
+      <DependentUpon>ucNhanVien_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\NhanVien\ucNhanVien_Web.ascx.designer.cs">
+      <DependentUpon>ucNhanVien_Web.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\TimKiem.ascx.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -210,6 +230,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ImageUpload\" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -217,9 +240,6 @@
       <Project>{3a9615f6-7f5b-4e10-ba63-b46b4cc00de1}</Project>
       <Name>QuanLyTaiSan</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ImageUpload\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

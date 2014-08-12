@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -116,7 +117,6 @@
     <Compile Include="Entities\_EntityAbstract3.cs" />
     <Compile Include="Global\Debug.cs" />
     <Compile Include="Global\Global.cs" />
-    <Compile Include="Libraries\MailHelper.cs" />
     <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\EmailHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />
@@ -124,6 +124,7 @@
     <Compile Include="Libraries\HTTPHelper.cs" />
     <Compile Include="Libraries\ImageCache.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
+    <Compile Include="Libraries\MobileDetect.cs" />
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\SkinHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />

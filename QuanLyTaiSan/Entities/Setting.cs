@@ -59,11 +59,7 @@ namespace QuanLyTaiSan.Entities
         public static String getValue(String key)
         {
             Setting tmp = getByKey(key);
-            if (tmp != null)
-            {
-                return tmp.value;
-            }
-            return "";
+            return tmp.value == null ? "" : tmp.value;
         }
         /// <summary>
         /// Sau khi getByKey, goi addOrUpdate sẽ an toàn hơn,
@@ -82,13 +78,16 @@ namespace QuanLyTaiSan.Entities
                 {
                     tmp = new Setting();
                     tmp.key = key;
+                    tmp.value = "";
                 }
                 return tmp;
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.ToString());
                 tmp = new Setting();
                 tmp.key = key;
+                tmp.value = "";
                 return tmp;
             }
         }
