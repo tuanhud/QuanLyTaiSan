@@ -64,3 +64,6 @@
 .buttonthem {
     margin-bottom: 10px;
 }
+#modelHinhAnh {
+    overflow: hidden;
+}

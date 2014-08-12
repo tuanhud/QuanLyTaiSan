@@ -13,6 +13,33 @@ namespace WebQLPH {
     public partial class QuanLyHinhAnh {
         
         /// <summary>
+        /// PanelThongBao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
+        
+        /// <summary>
+        /// LabelThongBao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelThongBao;
+        
+        /// <summary>
+        /// LabelThongBaoAnhDaCo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelThongBaoAnhDaCo;
+        
+        /// <summary>
         /// ImageUpload control.
         /// </summary>
         /// <remarks>
@@ -38,5 +65,14 @@ namespace WebQLPH {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterHinhAnh;
+        
+        /// <summary>
+        /// CollectionPagerQuanLyHinhAnh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyHinhAnh;
     }
 }
