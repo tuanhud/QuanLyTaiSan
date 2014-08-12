@@ -15,11 +15,6 @@ namespace WebQLPH.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        public void LoadData()
-        {
             if (!IsPostBack)
             {
                 if (Request.QueryString["id"] != null)
@@ -71,18 +66,27 @@ namespace WebQLPH.UserControl.NhanVien
                     }
                     else
                     {
-                        PanelThongBao.Visible = true;
-                        LabelThongBao.Text = "Không có nhân viên này";
+                        Panel_ThongBaoLoi.Visible = true;
+                        Label_ThongBaoLoi.Text = "Không có nhân viên này";
                     }
                 }
                 else
                 {
                     listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
                     PanelDanhSachNhanVienPhuTrach.Visible = true;
-                    CollectionPagerQuanLyNhanVien.DataSource = listNhanVienPT;
-                    CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;
-                    RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
-                    RepeaterQuanLyNhanVien.DataBind();
+                    if (listNhanVienPT != null && listNhanVienPT.Count > 0)
+                    {
+                        CollectionPagerQuanLyNhanVien.DataSource = listNhanVienPT;
+                        CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;
+                        RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
+                        RepeaterQuanLyNhanVien.DataBind();
+                    }
+                    else
+                    {
+                        Panel_ThongBaoLoi.Visible = true;
+                        Label_ThongBaoLoi.Text = "Chưa có nhân viên";
+                        return;
+                    }
                 }
             }
         }

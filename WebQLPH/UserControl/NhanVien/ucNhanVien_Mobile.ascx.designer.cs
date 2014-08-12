@@ -13,22 +13,22 @@ namespace WebQLPH.UserControl.NhanVien {
     public partial class ucNhanVien_Mobile {
         
         /// <summary>
-        /// PanelThongBao control.
+        /// Panel_ThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
+        protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
         
         /// <summary>
-        /// LabelThongBao control.
+        /// Label_ThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao;
+        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
         
         /// <summary>
         /// PanelThongTinNhanVienPhuTrach control.

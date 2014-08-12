@@ -422,18 +422,21 @@ namespace QuanLyTaiSanGUI.Settings
                 new XElement(textEdit_CacheAccount.Name, textEdit_CacheAccount.Text),
                 new XElement(textEdit_CachePass.Name, textEdit_CachePass.Text),
                 new XElement(textEdit_CacheDBName.Name, textEdit_CacheDBName.Text),
+                new XElement(checkEdit_debugToFile.Name, (checkEdit_debugToFile.Checked ? 1 : 0).ToString()),
 
                 new XElement(txtAddressFTP.Name, txtAddressFTP.Text),
                 new XElement(txtPortFTP.Name, txtPortFTP.Text),
                 new XElement(txtPrepathFTP.Name, txtPrepathFTP.Text),
                 new XElement(txtUsernameFTP.Name, txtUsernameFTP.Text),
                 new XElement(txtPasswordFTP.Name, txtPasswordFTP.Text),
-
                 new XElement(txtAddressHTTP.Name, txtAddressHTTP.Text),
                 new XElement(txtPortHTTP.Name, txtPortHTTP.Text),
                 new XElement(txtPrepathHTTP.Name, txtPrepathHTTP.Text),
-
-                new XElement(checkEdit_debugToFile.Name, (checkEdit_debugToFile.Checked ? 1 : 0).ToString()));
+                new XElement(txtSmtpHost.Name, txtSmtpHost.Text),
+                new XElement(txtSmtpPort.Name, txtSmtpPort.Text),
+                new XElement(cbSmtpUseSSL.Name, (cbSmtpUseSSL.Checked ? 1 : 0).ToString()),
+                new XElement(txtSmtpUsername.Name, txtSmtpUsername.Text),
+                new XElement(txtSmtpPassword.Name, txtSmtpPassword.Text));
 
             str = XML.ToString();
             return str;
