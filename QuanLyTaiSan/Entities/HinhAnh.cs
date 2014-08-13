@@ -238,6 +238,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static List<HinhAnh> getAllHinhAnhDangDung()
         {
+            //to List se loai bo tracking
             return db.HINHANHS.ToList();//.Where(c=>c.path!=null).GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
         }
         /// <summary>
@@ -298,7 +299,9 @@ namespace QuanLyTaiSan.Entities
                 {
                     continue;
                 }
-                //quocdunginfo: importance (need to fix)
+                //quocdunginfo: importance (need to fix), do not use direct IColection.Except(
+                //boi vi he thong auto tracking se tu dong mark Added State
+                //FAIL
                 db.Entry(item).State = EntityState.Unchanged;
                 //Không cho phép 1 đối tượng có 2 hình giống nhau
                 if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault() != null)
