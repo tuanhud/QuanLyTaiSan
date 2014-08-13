@@ -108,7 +108,8 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                //db.SaveChanges();
+                //have to use if autodetectchange off
+                //db.Entry(this).State = EntityState.Modified;
                 return 1;
             }
             catch (Exception ex)

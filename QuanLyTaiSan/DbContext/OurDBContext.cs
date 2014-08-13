@@ -125,7 +125,6 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
-
         }
 
         public DbSet<CoSo> COSOS { get; set; }
@@ -259,6 +258,7 @@ namespace QuanLyTaiSan.Entities
         #region Override
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
             //CONFIG
             //AUTO DELETE ON CASCADE
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyTaiSan.Properties;
+using System.Data.Entity;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -297,6 +298,8 @@ namespace QuanLyTaiSan.Entities
                 {
                     continue;
                 }
+                //quocdunginfo: importance (need to fix)
+                db.Entry(item).State = EntityState.Unchanged;
                 //Không cho phép 1 đối tượng có 2 hình giống nhau
                 if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault() != null)
                 {
@@ -305,7 +308,7 @@ namespace QuanLyTaiSan.Entities
 
                 if (item.id > 0)
                 {
-                    new_list.Add(item);//reload for sure
+                    new_list.Add(item);
                 }
                 else
                 {
