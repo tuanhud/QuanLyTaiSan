@@ -25,109 +25,46 @@ namespace QuanLyTaiSan.Entities
         /*
          * Relative path "FILENAME ONLY"
          */
-        [StringLength(255)]
         [Required]
+        [Index(IsUnique = true)]
+        [StringLength(255)]
         public String path { get; set; }
-        /*
-         * FK
-         */
-        public int? tang_id { get; set; }
-        [ForeignKey("tang_id")]
-        public virtual Tang tang { get; set; }
 
-        public int? coso_id { get; set; }
-        [ForeignKey("coso_id")]
-        public virtual CoSo coso { get; set; }
+        public virtual ICollection<CoSo> cosos { get; set; }
+        public virtual ICollection<CTThietBi> ctthietbis { get; set; }
+        public virtual ICollection<Dayy> days { get; set; }
+        public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
+        public virtual ICollection<LogThietBi> logthietbis { get; set; }
+        public virtual ICollection<NhanVienPT> nhanvienpts { get; set; }
+        public virtual ICollection<Phong> phongs { get; set; }
+        public virtual ICollection<SuCoPhong> sucophongs { get; set; }
+        public virtual ICollection<Tang> tangs { get; set; }
+        public virtual ICollection<ThietBi> thietbis { get; set; }
 
-        public int? day_id { get; set; }
-        [ForeignKey("day_id")]
-        public virtual Dayy day { get; set; }
-
-        public int? nhanvienpt_id { get; set; }
-        [ForeignKey("nhanvienpt_id")]
-        public virtual NhanVienPT nhanvienpt { get; set; }
-
-        public int? phong_id { get; set; }
-        [ForeignKey("phong_id")]
-        public virtual Phong phong { get; set; }
-
-        public int? thietbi_id { get; set; }
-        [ForeignKey("thietbi_id")]
-        public virtual ThietBi thietbi { get; set; }
-
-        public int? ctthietbi_id { get; set; }
-        [ForeignKey("ctthietbi_id")]
-        public virtual CTThietBi ctthietbi { get; set; }
-
-        public int? sucophong_id { get; set; }
-        [ForeignKey("sucophong_id")]
-        public virtual SuCoPhong sucophong { get; set; }
-
-        public int? logsucophong_id { get; set; }
-        [ForeignKey("logsucophong_id")]
-        public virtual LogSuCoPhong logsucophong { get; set; }
-
-        public int? logthietbi_id { get; set; }
-        [ForeignKey("logthietbi_id")]
-        public virtual LogThietBi logthietbi { get; set; }
         #endregion
 
         #region Nghiệp vụ
-        /// <summary>
-        /// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết,
-        /// Can tim phuong an thiet ke khac huu hieu hon viec override static method
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
-        public static List<HinhAnh> clone(ICollection<HinhAnh> list)
-        {
-            if (list == null || list.Count <= 0)
-            {
-                return new List<HinhAnh>();
-            }
-            List<HinhAnh> tmp = new List<HinhAnh>();
-            foreach (HinhAnh item in list)
-            {
-                HinhAnh neww = item.clone();
-                tmp.Add(neww);
-            }
-            return tmp;
-        }
-        /// <summary>
-        /// Xóa hết mọi khóa ngoại: COSO, DAY,...
-        /// </summary>
-        private void clearAllFK()
-        {
-            coso = null;
-            coso_id = null;
-
-            day = null;
-            day_id = null;
-
-            tang = null;
-            tang_id = null;
-
-            thietbi = null;
-            thietbi_id = null;
-
-            logthietbi = null;
-            logthietbi_id = null;
-
-            ctthietbi = null;
-            ctthietbi_id = null;
-
-            logsucophong = null;
-            logsucophong_id = null;
-
-            nhanvienpt = null;
-            nhanvienpt_id = null;
-
-            phong = null;
-            phong_id = null;
-
-            sucophong = null;
-            sucophong_id = null;
-        }
+        ///// <summary>
+        ///// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết,
+        ///// Can tim phuong an thiet ke khac huu hieu hon viec override static method
+        ///// </summary>
+        ///// <param name="list"></param>
+        ///// <returns></returns>
+        //public static List<HinhAnh> clone(ICollection<HinhAnh> list)
+        //{
+        //    if (list == null || list.Count <= 0)
+        //    {
+        //        return new List<HinhAnh>();
+        //    }
+        //    List<HinhAnh> tmp = new List<HinhAnh>();
+        //    foreach (HinhAnh item in list)
+        //    {
+        //        HinhAnh neww = item.clone();
+        //        tmp.Add(neww);
+        //    }
+        //    return tmp;
+        //}
+        
         /// <summary>
         /// Hình ảnh mặc định khi không có mạng hoặc hình bị fail
         /// </summary>
@@ -156,8 +93,9 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public List<HinhAnh> getAllCoSo()
         {
-            List<HinhAnh> list = db.HINHANHS.Where(c => c.coso != null).ToList();
-            return list;
+            //List<HinhAnh> list = db.HINHANHS.Where(c => c.coso != null).ToList();
+            //return list;
+            return new List<HinhAnh>();
         }
         /// <summary>
         /// Kiểm tra hình ảnh có trên Disk
@@ -299,7 +237,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static List<HinhAnh> getAllHinhAnhDangDung()
         {
-            return db.HINHANHS.Where(c=>c.path!=null).GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
+            return db.HINHANHS.ToList();//.Where(c=>c.path!=null).GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
         }
         /// <summary>
         /// Kiểm tra this.path (sau khi chạy qua hàm lọc tên) đã có trong CSDL hay chưa
@@ -332,13 +270,57 @@ namespace QuanLyTaiSan.Entities
             String abs_path =
                 Global.remote_setting.ftp_host.getCombinedPath(this.path);
 
-            //upload hinh va insert vao CSDL
+            //upload hinh
             return FTPHelper.uploadImage(
                 image,
                 abs_path,
                 Global.remote_setting.ftp_host.USER_NAME,
                 Global.remote_setting.ftp_host.PASS_WORD
             );
+        }
+        /// <summary>
+        /// Chuyển list HinhAnh sang dạng chuẩn,
+        /// item trong list sẽ bị reload,
+        /// vd: nếu HinhAnh có path trùng rồi thì load object lên thay thế,
+        /// HinhAnh mà path chưa có trong CSDL sẽ lấy luôn (Entity Framework sẽ tự động add),
+        /// HinhAnh có path trùng nhau sẽ bị bỏ qua luôn
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static List<HinhAnh> validate(List<HinhAnh> list)
+        {
+            //Kiểm duyệt và load lại list hình ảnh
+            List<HinhAnh> new_list = new List<HinhAnh>();
+            foreach (HinhAnh item in list)
+            {
+                if (item == null)
+                {
+                    continue;
+                }
+                //Không cho phép 1 đối tượng có 2 hình giống nhau
+                if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault() != null)
+                {
+                    continue;
+                }
+
+                if (item.id > 0)
+                {
+                    new_list.Add(item);//reload for sure
+                }
+                else
+                {
+                    HinhAnh tmp2 = db.HINHANHS.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault();
+                    if (tmp2 != null)
+                    {
+                        new_list.Add(tmp2);
+                    }
+                    else
+                    {
+                        new_list.Add(item);
+                    }
+                }
+            }
+            return new_list;
         }
         #endregion
 
