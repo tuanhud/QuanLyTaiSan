@@ -17,7 +17,10 @@ namespace WebQLPH
         string folder_thumb = "Thumb/";
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListImage();
+            if (!IsPostBack)
+            {
+                ListImage();
+            }
         }
 
         protected void ButtonTaiLen_Click(object sender, EventArgs e)
