@@ -256,6 +256,7 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
         #region Override
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             

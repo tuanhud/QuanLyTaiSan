@@ -18,16 +18,15 @@ namespace QuanLyTaiSanGUI
     }
     public partial class Test : Form, vdthoi
     {
+        private void onDBConnectionChanged(Boolean connectionOK)
+        {
+            label1.Text = "Connection " + (connectionOK?"OK":"FAIL") + DateTime.Now.ToShortTimeString();
+        }
         public Test()
         {
             InitializeComponent();
 
-            //CoSo obj = CoSo.getById(1);
-            //List<HinhAnh> k = obj.hinhanhs;
-
-            //k.Add(new HinhAnh {path="tttt" });
-
-            //DBInstance.commit();
+            DBInstance._connectionOK += new QuanLyTaiSan.Entities.DBInstance.DBConnectionChanged(this.onDBConnectionChanged);
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
@@ -39,6 +38,11 @@ namespace QuanLyTaiSanGUI
         public void reLoad()
         {
             MessageBox.Show("wtf");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CoSo t = CoSo.getQuery().FirstOrDefault();
         }
     }
 }
