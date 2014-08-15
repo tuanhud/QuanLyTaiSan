@@ -14,8 +14,8 @@ namespace QuanLyTaiSan.Entities
     public class DBInstance
     {
         #region Event 
-        public delegate void DBConnectionChanged(Boolean connectionOK);
-        public static event DBConnectionChanged _connectionOK;
+        public delegate void DBConnectionChanged(EventArgs e);
+        public static event DBConnectionChanged onDBConnectionDown;
 
         #endregion
 
@@ -36,7 +36,6 @@ namespace QuanLyTaiSan.Entities
                         db = new OurDBContext(Global.working_database.get_connection_string());
                     }
                 }
-                Boolean ok=true;
                 try
                 {
                     db.Set<CoSo>().AsQueryable().FirstOrDefault();
@@ -45,13 +44,11 @@ namespace QuanLyTaiSan.Entities
                 {
                     //DB CONNECTION FAIl
                     Debug.WriteLine("=========DB CONNECTION FAIL==========");
-                    ok = false;
-                }
-                
-                //Raise event
-                if (_connectionOK != null)
-                {
-                    _connectionOK(ok);
+                    //Raise event
+                    if (onDBConnectionDown != null)
+                    {
+                        onDBConnectionDown(new EventArgs());
+                    }
                 }
                 return db;
             }

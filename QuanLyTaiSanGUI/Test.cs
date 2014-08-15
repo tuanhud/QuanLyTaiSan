@@ -26,7 +26,6 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
 
-            DBInstance._connectionOK += new QuanLyTaiSan.Entities.DBInstance.DBConnectionChanged(this.onDBConnectionChanged);
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
