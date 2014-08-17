@@ -7,13 +7,13 @@ namespace QuanLyTaiSan.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class them_order_cho_day_tang_tinhtrang_detienSapXepVeSau : IMigrationMetadata
+    public sealed partial class base2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(them_order_cho_day_tang_tinhtrang_detienSapXepVeSau));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(base2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau"; }
+            get { return "201408131617156_base2"; }
         }
         
         string IMigrationMetadata.Source

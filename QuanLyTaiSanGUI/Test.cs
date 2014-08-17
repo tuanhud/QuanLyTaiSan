@@ -18,11 +18,14 @@ namespace QuanLyTaiSanGUI
     }
     public partial class Test : Form, vdthoi
     {
+        private void onDBConnectionChanged(Boolean connectionOK)
+        {
+            label1.Text = "Connection " + (connectionOK?"OK":"FAIL") + DateTime.Now.ToShortTimeString();
+        }
         public Test()
         {
             InitializeComponent();
 
-            EmailHelper.sendMail("quocdunginfo@gmail.com","tiêu đề", "nội dung dạng html<br/>hehehe");
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
@@ -34,6 +37,11 @@ namespace QuanLyTaiSanGUI
         public void reLoad()
         {
             MessageBox.Show("wtf");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CoSo t = CoSo.getQuery().FirstOrDefault();
         }
     }
 }

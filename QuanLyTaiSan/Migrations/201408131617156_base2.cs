@@ -3,16 +3,16 @@ namespace QuanLyTaiSan.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class them_diachi_cho_cs : DbMigration
+    public partial class base2 : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.COSOS", "diachi", c => c.String());
+            CreateIndex("dbo.HINHANHS", "path", unique: true);
         }
         
         public override void Down()
         {
-            DropColumn("dbo.COSOS", "diachi");
+            DropIndex("dbo.HINHANHS", new[] { "path" });
         }
     }
 }

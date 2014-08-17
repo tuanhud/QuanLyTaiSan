@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Validation;
@@ -108,7 +109,8 @@ namespace QuanLyTaiSan.Entities
 
             try
             {
-                //db.SaveChanges();
+                //have to use if autodetectchange off
+                //db.Entry(this).State = EntityState.Modified;
                 return 1;
             }
             catch (Exception ex)
@@ -155,12 +157,27 @@ namespace QuanLyTaiSan.Entities
         }
         /// <summary>
         /// Có thể query trên danh sách sau đó mới trả về List,
-        /// Sẽ nhanh hơn nhiều so với getAll
+        /// Sẽ nhanh hơn nhiều so với getAll,
+        /// Có thể quăng Exception do mất kết nối tới Database (Cần tìm phương án khắc phục)
         /// </summary>
         /// <returns></returns>
         public static IQueryable<T> getQuery()
         {
-            return db.Set<T>().AsQueryable<T>();
+            //if (db.Database.Connection.State == ConnectionState.Broken ||
+            //    db.Database.Connection.State == ConnectionState.Closed
+            //    )
+            //{
+            //    return new List<T>().AsQueryable<T>();
+            //}
+            try
+            {
+                db.Set<T>().AsQueryable().FirstOrDefault();
+                return db.Set<T>().AsQueryable<T>();
+            }
+            catch (Exception)
+            {
+                return new List<T>().AsQueryable<T>();
+            }
         }
         /// <summary>
         /// Sử dụng để đổ DataSource nhanh,

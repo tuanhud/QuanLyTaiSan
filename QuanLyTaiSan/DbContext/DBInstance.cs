@@ -13,6 +13,12 @@ namespace QuanLyTaiSan.Entities
 {
     public class DBInstance
     {
+        #region Event 
+        public delegate void DBConnectionChanged(EventArgs e);
+        public static event DBConnectionChanged onDBConnectionDown;
+
+        #endregion
+
         private static OurDBContext db = null;
         public static OurDBContext DB
         {
@@ -30,11 +36,19 @@ namespace QuanLyTaiSan.Entities
                         db = new OurDBContext(Global.working_database.get_connection_string());
                     }
                 }
-                
-                if (!db.Database.Exists())
+                try
+                {
+                    db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                }
+                catch (Exception)
                 {
                     //DB CONNECTION FAIl
                     Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                    //Raise event
+                    if (onDBConnectionDown != null)
+                    {
+                        onDBConnectionDown(new EventArgs());
+                    }
                 }
                 return db;
             }
