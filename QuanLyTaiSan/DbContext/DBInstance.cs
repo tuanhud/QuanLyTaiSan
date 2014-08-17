@@ -81,8 +81,20 @@ namespace QuanLyTaiSan.Entities
                 {
                     try
                     {
-                        db.SaveChanges();
+                        if (Global.client_database.start_sync() < 0)
+                        {
+                            throw new Exception("Can not sync");
+                        }
+                        int re = db.SaveChanges();
                         dbTrans.Commit();
+                        //sync when data done
+                        if (re > 0)
+                        {
+                            if (Global.client_database.start_sync() < 0)
+                            {
+                                throw new Exception("Can not sync");
+                            }
+                        }
                         return 1;
                     }
                     catch (Exception ex)

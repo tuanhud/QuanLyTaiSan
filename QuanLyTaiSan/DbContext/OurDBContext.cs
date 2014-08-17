@@ -569,15 +569,9 @@ namespace QuanLyTaiSan.Entities
             ICollection<_EFEventRegisterInterface> Added_Callbacks = new List<_EFEventRegisterInterface>();
             ICollection<_EFEventRegisterInterface> Modified_Callbacks = new List<_EFEventRegisterInterface>();
             ICollection<_EFEventRegisterInterface> Deleted_Callbacks = new List<_EFEventRegisterInterface>();
-            Boolean need_to_sync = false;
-            //Before
+
             foreach (DbEntityEntry item in changedEntities)
             {
-                if (need_to_sync == false)
-                {
-                    Global.client_database.start_sync();
-                }
-                need_to_sync = true;
                 if (item.Entity is _EFEventRegisterInterface)
                 {
                     _EFEventRegisterInterface entity = (_EFEventRegisterInterface)item.Entity;
@@ -613,22 +607,21 @@ namespace QuanLyTaiSan.Entities
                 item.onAfterUpdated();
             }
 
-            result = base.SaveChanges();
-
+            result += base.SaveChanges();
             //clear RAM
             Added_Callbacks = null;
             Modified_Callbacks = null;
             changedEntities = null;
 
             //Auto Sync
-            if (need_to_sync)
-            {
-                //call sync for insert Confliction in new background thread
-                Thread thread = new Thread(new ThreadStart(sync));
-                //thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
-            }
-
+            //if (need_to_sync)
+            //{
+            //    //call sync for insert Confliction in new background thread
+            //    Thread thread = new Thread(new ThreadStart(sync));
+            //    thread.SetApartmentState(ApartmentState.STA);
+            //    thread.Start();
+            //}
+           
             return result;
         }
         protected override bool ShouldValidateEntity(DbEntityEntry entityEntry)

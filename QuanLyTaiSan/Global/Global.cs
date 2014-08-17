@@ -255,12 +255,12 @@ namespace QuanLyTaiSan.Entities
                 //Kiểm tra nếu sử dụng internal config thì bỏ qua
                 if (Global.working_database.use_internal_config)
                 {
-                    return -1;
+                    return 1;
                 }
                 //Kiểm tra có sử dụng DBCache
                 if (!Global.local_setting.use_db_cache)
                 {
-                    return -1;
+                    return 1;
                 }
                 //Kiểm tra kết nối cho cả client và Server
                 if (Global.client_database.isReady()<0 || Global.server_database.isReady()<0)
