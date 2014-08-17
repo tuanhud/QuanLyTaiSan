@@ -324,6 +324,7 @@ namespace QuanLyTaiSan.Entities
                     HinhAnh tmp = HinhAnh.getByPath(item.path);
                     if (tmp != null)
                     {
+                        db.Entry(item).State = EntityState.Detached;
                         new_list.Add(tmp);
                     }
                     else
