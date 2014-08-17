@@ -45,6 +45,14 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
+        public static HinhAnh getByPath(string path)
+        {
+            if (path == null)
+            {
+                return null;
+            }
+            return db.HINHANHS.Where(c => c.path.ToUpper().Equals(path.ToUpper())).FirstOrDefault();
+        }
         ///// <summary>
         ///// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết,
         ///// Can tim phuong an thiet ke khac huu hieu hon viec override static method
@@ -295,34 +303,34 @@ namespace QuanLyTaiSan.Entities
             List<HinhAnh> new_list = new List<HinhAnh>();
             foreach (HinhAnh item in list)
             {
+                //null check
                 if (item == null)
                 {
                     continue;
                 }
-                //quocdunginfo: importance (need to fix), do not use direct IColection.Except(
-                //boi vi he thong auto tracking se tu dong mark Added State
-                //FAIL
-                db.Entry(item).State = EntityState.Unchanged;
-                //Không cho phép 1 đối tượng có 2 hình giống nhau
+                //trùng path
                 if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault() != null)
                 {
                     continue;
                 }
-
+                
+                //đã được load lên bởi dbContext
                 if (item.id > 0)
                 {
                     new_list.Add(item);
                 }
                 else
                 {
-                    HinhAnh tmp2 = db.HINHANHS.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault();
-                    if (tmp2 != null)
+                    HinhAnh tmp = HinhAnh.getByPath(item.path);
+                    if (tmp != null)
                     {
-                        new_list.Add(tmp2);
+                        new_list.Add(tmp);
                     }
                     else
                     {
+                        db.Entry(item).State = EntityState.Added;
                         new_list.Add(item);
+                        continue;
                     }
                 }
             }

@@ -507,6 +507,10 @@ namespace QuanLyTaiSan.Entities
             //Before
             foreach (DbEntityEntry item in changedEntities)
             {
+                if (need_to_sync == false)
+                {
+                    Global.client_database.start_sync();
+                }
                 need_to_sync = true;
                 if (item.Entity is _EFEventRegisterInterface)
                 {
