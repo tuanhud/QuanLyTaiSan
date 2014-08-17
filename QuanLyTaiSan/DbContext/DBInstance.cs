@@ -65,10 +65,7 @@ namespace QuanLyTaiSan.Entities
                 db.Dispose();
                 db = null;
             }
-            //sync Database 
-            //Global.client_database.start_sync();
-
-            //
+            
             db = DB;
         }
         /// <summary>

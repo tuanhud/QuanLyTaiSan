@@ -182,11 +182,23 @@ namespace QuanLyTaiSan.Entities
 
                     "SUCOPHONGS",//UNDEPENDENT
                     "LOGSUCOPHONGS",
-                    "HINHANHS",
+                    
                     "SETTINGS",//UNDEPENDENT
                     "LOGHETHONGS",//UNDEPENDENT
                     "GIANGVIENS",//UNDEPENDENT
-                    "PHIEUMUONPHONGS"
+                    "PHIEUMUONPHONGS",
+
+                    "HINHANHS",
+                    "COSO_HINHANH",
+                    "DAY_HINHANH",
+                    "TANG_HINHANH",
+                    "THIETBI_HINHANH",
+                    "CTTHIETBI_HINHANH",
+                    "LOGSUCOPHONG_HINHANH",
+                    "LOGTHIETBI_HINHANH",
+                    "NHANVIENPT_HINHANH",
+                    "PHONG_HINHANH",
+                    "SUCOPHONG_HINHANH",
                 };
             }
         }
