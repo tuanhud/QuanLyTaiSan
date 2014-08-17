@@ -311,6 +311,7 @@ namespace QuanLyTaiSan.Entities
                 //trùng path
                 if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).FirstOrDefault() != null)
                 {
+                    db.Entry(item).State = EntityState.Detached;
                     continue;
                 }
                 
