@@ -30,6 +30,8 @@ namespace QuanLyTaiSan.Entities
         public virtual Dayy day { get; set; }
 
         public virtual ICollection<ViTri> vitris { get; set; }
+
+        public virtual ICollection<Permission> permissions { get; set; }
 		#endregion
 		#region Override method
         protected override void init()

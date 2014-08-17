@@ -106,6 +106,10 @@ namespace QuanLyTaiSan.Entities
         }
 
     }
+    /// <summary>
+    /// Lúc gán kiểu obj.hinhanhs = list;
+    /// là lúc Entity State bị đổi
+    /// </summary>
     public class OurDBContext : DbContext
     {
         public OurDBContext()
@@ -174,8 +178,14 @@ namespace QuanLyTaiSan.Entities
                     "CTTHIETBIS",
                     
                     "GROUPS",//UNDEPENDENT
+                    
                     "PERMISSIONS",//UNDEPENDENT
                     "GROUP_PERMISSION",
+                    "COSO_PERMISSION",
+                    "DAY_PERMISSION",
+                    "TANG_PERMISSION",
+                    "PHONG_PERMISSION",
+
                     "QUANTRIVIENS",
 
                     "LOGTHIETBIS",
@@ -268,10 +278,10 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
         #region Override
-        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
+
             //CONFIG
             //AUTO DELETE ON CASCADE
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
@@ -383,6 +393,50 @@ namespace QuanLyTaiSan.Entities
                 x.MapInheritedProperties();
             });
             /*
+             * n-n relationship COSO, DAY, TANG, PHONG - PERMISSION
+             */
+            modelBuilder.Entity<CoSo>().
+            HasMany(c => c.permissions).
+            WithMany(p => p.cosos).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("COSO_PERMISSION");
+                });
+
+            modelBuilder.Entity<Dayy>().
+            HasMany(c => c.permissions).
+            WithMany(p => p.days).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("DAY_PERMISSION");
+                });
+            modelBuilder.Entity<Tang>().
+            HasMany(c => c.permissions).
+            WithMany(p => p.tangs).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("TANG_PERMISSION");
+                });
+            modelBuilder.Entity<Phong>().
+            HasMany(c => c.permissions).
+            WithMany(p => p.phongs).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("PHONG_PERMISSION");
+                });
+            /*
              * n-n relationship OBJECT~HINHANH
              */
             modelBuilder.Entity<CoSo>().
@@ -472,7 +526,7 @@ namespace QuanLyTaiSan.Entities
                     m.MapRightKey("id2");
                     m.ToTable("PHONG_HINHANH");
                 });
-            
+
             modelBuilder.Entity<NhanVienPT>().
             HasMany(c => c.hinhanhs).
             WithMany(p => p.nhanvienpts).

@@ -34,6 +34,8 @@ namespace QuanLyTaiSan.Entities
         public virtual CoSo coso { get; set; }
         public virtual ICollection<Tang> tangs { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
+
+        public virtual ICollection<Permission> permissions { get; set; }
 		#endregion
 		
 		#region Override method

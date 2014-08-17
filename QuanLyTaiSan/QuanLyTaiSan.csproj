@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201408131617156_base2.Designer.cs">
       <DependentUpon>201408131617156_base2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408171401413_permission_framework.cs" />
+    <Compile Include="Migrations\201408171401413_permission_framework.Designer.cs">
+      <DependentUpon>201408171401413_permission_framework.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408131617156_base2.resx">
       <DependentUpon>201408131617156_base2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408171401413_permission_framework.resx">
+      <DependentUpon>201408171401413_permission_framework.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

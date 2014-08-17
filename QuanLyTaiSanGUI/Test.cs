@@ -26,6 +26,14 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
 
+            Global.working_database.use_internal_config = true;
+
+            QuanTriVien obj = QuanTriVien.getByUserName("admin");
+            List<Permission> pp = obj.group.permissions.ToList();
+            
+            Boolean re = obj.canEdit<CoSo>(CoSo.getById(7));
+            re = obj.canEdit<Phong>(Phong.getById(1));
+            re = obj.canEdit<Phong>(Phong.getById(3));
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)

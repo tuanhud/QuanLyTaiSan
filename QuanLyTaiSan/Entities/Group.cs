@@ -32,6 +32,149 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
+        internal bool canEdit<T>(T __obj) where T:_EntityAbstract1<T>
+        {
+            Boolean re = false;
+            if (__obj == null)
+            {
+                goto done;
+            }
+            String obj_type = "";
+            //Xét quyền từ cao đến thấp (từ ưu tiên cao hơn xuống ưu tiên thấp hơn)
+            if (__obj is CoSo)
+            {
+                obj_type = "COSO";
+                var obj = __obj as CoSo;
+                //Quyền ROOT
+                
+                //Quyền Edit trên mọi Cơ sở hoặc trên CS này
+                re = permissions.Where(
+                    c =>
+                        c.key.ToUpper().Equals(obj_type)
+                        &&
+                        c.can_edit == true
+                        &&
+                            (
+                                c.cosos.Count==0
+                                ||
+                                c.cosos.Select(t=>t.id).Contains(obj.id)
+                            )
+                        ).FirstOrDefault() != null;
+            }
+            else if(__obj is Dayy)
+            {
+                obj_type = "DAY";
+                var obj = __obj as Dayy;
+                //Quyền ROOT
+                
+                //Quyền edit CS chứa dãy này
+                re = canEdit<CoSo>(obj.coso);
+                if (re)
+                {
+                    goto done;
+                }
+                //Quyền edit dãy này
+                re = permissions.Where(
+                    c =>
+                        c.key.ToUpper().Equals(obj_type)
+                        &&
+                        c.can_edit == true
+                        &&
+                            (
+                                c.days.Count == 0
+                                ||
+                                c.days.Select(t => t.id).Contains(obj.id)
+                            )
+                        ).FirstOrDefault()!=null;
+            }
+            else if (__obj is Tang)
+            {
+                obj_type = "TANG";
+                var obj = __obj as Tang;
+                //Quyền ROOT
+
+                //Quyền edit CS chứa dãy chứa tầng này
+                re = canEdit<CoSo>(obj.day.coso);
+                if (re)
+                {
+                    goto done;
+                }
+                //Quyền edit dãy chưa tầng này
+                re = canEdit<Dayy>(obj.day);
+                if (re)
+                {
+                    goto done;
+                }
+                //Quyền edit tầng này
+                re = permissions.Where(
+                    c =>
+                        c.key.ToUpper().Equals(obj_type)
+                        &&
+                        c.can_edit == true
+                        &&
+                            (
+                                c.tangs.Count == 0
+                                ||
+                                c.tangs.Select(t => t.id).Contains(obj.id)
+                            )
+                        ).FirstOrDefault() != null;
+            }
+            else if (__obj is Phong)
+            {
+                obj_type = "PHONG";
+                var obj = __obj as Phong;
+                //Quyền ROOT
+
+                //Quyền edit CS chứa phòng này
+                re = canEdit<CoSo>(obj.vitri.coso);
+                if (re)
+                {
+                    goto done;
+                }
+                //Quyền edit dãy chứa phòng này
+                re = canEdit<Dayy>(obj.vitri.day);
+                if (re)
+                {
+                    goto done;
+                }
+                //Quyền edit tầng chứa phòng này
+                re = canEdit<Tang>(obj.vitri.tang);
+                if (re)
+                {
+                    goto done;
+                }
+
+                //Quyền edit phòng này
+                re = permissions.Where(
+                    c =>
+                        c.key.ToUpper().Equals(obj_type)
+                        &&
+                        c.can_edit == true
+                        &&
+                            (
+                                c.phongs.Count == 0
+                                ||
+                                c.phongs.Select(t => t.id).Contains(obj.id)
+                            )
+                        ).FirstOrDefault() != null;
+            }
+            //final 
+            done:
+                return re;
+        }
+
+        internal bool canView<T>(T obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool canDo(string fixed_permission)
+        {
+            throw new NotImplementedException();
+        }
+        
+        #endregion
+        #region Override method
         public override int delete()
         {
             if (quantriviens.Count > 0)
@@ -40,20 +183,6 @@ namespace QuanLyTaiSan.Entities
             }
             return base.delete();
         }
-        public Boolean isHasPermission(String permission_name="")
-        {
-            if (permission_name == null)
-            {
-                return false;
-            }
-            return this.permissions.Where(c=>c.key.ToUpper().Equals(permission_name.ToUpper())).FirstOrDefault()!=null;
-        }
-        public Boolean isHasPermission(Permission obj)
-        {
-            return obj.isInGroup(this);
-        }
-        #endregion
-        #region Override method
         protected override void init()
         {
             base.init();
@@ -61,5 +190,7 @@ namespace QuanLyTaiSan.Entities
             this.quantriviens = new List<QuanTriVien>();
         }
         #endregion
+
+        
     }
 }

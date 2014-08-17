@@ -33,6 +33,8 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual ICollection<Dayy> days { get; set; }
         public virtual ICollection<ViTri> vitris { get; set; }
+
+        public virtual ICollection<Permission> permissions { get; set; }
         #endregion
 
         #region Nghiệp vụ

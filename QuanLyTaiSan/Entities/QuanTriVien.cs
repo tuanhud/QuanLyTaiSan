@@ -38,13 +38,23 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Hàm nghiệp vụ
-        public Boolean hasPermission(string permission_name="")
+        public Boolean canView<T>(T obj)
         {
-            if (group == null || permission_name==null)
-            {
-                return false;
-            }
-            return group.isHasPermission(permission_name);
+            return group.canView<T>((T)obj);
+        }
+        public Boolean canEdit<T>(T obj) where T:_EntityAbstract1<T>
+        {
+            return group.canEdit<T>((T)obj);
+        }
+        /// <summary>
+        /// vd: obj.canDo("DB_CONFIG")
+        /// </summary>
+        /// <param name="fixed_permission"></param>
+        /// <returns></returns>
+
+        public Boolean canDo(string fixed_permission="")
+        {
+            return group.canDo(fixed_permission);
         }
         #endregion
 

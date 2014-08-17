@@ -35,6 +35,9 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
         public virtual ICollection<SuCoPhong> sucophongs { get; set; }
         public virtual ICollection<PhieuMuonPhong> phieumuonphongs { get; set; }
+
+        public virtual ICollection<Permission> permissions { get; set; }
+
         public int? nhanvienpt_id { get; set; }
         [ForeignKey("nhanvienpt_id")]
         public virtual NhanVienPT nhanvienpt { get; set; }
