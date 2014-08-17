@@ -66,14 +66,8 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
             init();
+        }
 
-            //Đăng ký thông báo về mạng
-            DBInstance.onDBConnectionDown += new DBInstance.DBConnectionChanged(this.onDBConnectionDown);
-        }
-        private void onDBConnectionDown(EventArgs e)
-        {
-            MessageBox.Show("Rớt kết nối DB! Vui lòng thử lại sau...");
-        }
         private void init()
         {
             //Hiện tên người dùng
