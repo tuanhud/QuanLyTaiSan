@@ -32,8 +32,9 @@
             </thead>
             <tbody class="centered">
                 <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
-                    <ItemTemplate>
-                        <% if(check && id == Int32.Parse(Eval("id").ToString())) { %>
+                    <ItemTemplate> 
+                        <%--<% if (check && id == 0)
+                           { %>
                         <tr style="background: #ff00ff;">
                             <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
                             <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("subid") %></a></td>
@@ -47,8 +48,13 @@
                             <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("hoten") %></a></td>
                             <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("sodienthoai") %></a></td>
                         </tr>
-                        <% } %>
-                        
+                        <% } %>--%>
+                        <tr>
+                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
+                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("subid") %></a></td>
+                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("hoten") %></a></td>
+                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("sodienthoai") %></a></td>
+                        </tr>
                     </ItemTemplate>
                 </asp:Repeater>
             </tbody>

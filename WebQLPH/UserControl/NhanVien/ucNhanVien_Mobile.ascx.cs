@@ -15,6 +15,11 @@ namespace WebQLPH.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        public void LoadData()
+        {
             if (!IsPostBack)
             {
                 if (Request.QueryString["id"] != null)

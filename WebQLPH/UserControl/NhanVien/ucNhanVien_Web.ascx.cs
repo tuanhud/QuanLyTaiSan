@@ -14,8 +14,14 @@ namespace WebQLPH.UserControl.NhanVien
         NhanVienPT _NhanVienPT = null;
         public int id { get; set; }
         public Boolean check { get; set; }
+        //public List<NhanVienPT> listNhanVienPT_Temp = null;
 
         protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void LoadData()
         {
             if (!IsPostBack)
             {
@@ -27,6 +33,7 @@ namespace WebQLPH.UserControl.NhanVien
                     CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;
                     RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
                     RepeaterQuanLyNhanVien.DataBind();
+                    //listNhanVienPT_Temp = (List<NhanVienPT>)((object)CollectionPagerQuanLyNhanVien.DataSourcePaged);
                 }
                 else
                 {
@@ -52,6 +59,10 @@ namespace WebQLPH.UserControl.NhanVien
                     if (_NhanVienPT != null)
                     {
                         check = true;
+                        for (int i = 0; i < RepeaterQuanLyNhanVien.Items.Count; i++)
+                        { 
+                            
+                        }
                         Label_ThongTin.Text = String.Format("Thông tin {0}", _NhanVienPT.hoten);
                         PanelThongBao.Visible = false;
                         ImageSliderNhanVienPhuTrach.Items.Clear();
@@ -109,6 +120,8 @@ namespace WebQLPH.UserControl.NhanVien
             TextBox_MaNhanVien.Text = "";
             TextBox_HoTen.Text = "";
             TextBox_SoDienThoai.Text = "";
+            CollectionPagerDanhSachPhong.DataSource = null;
+            RepeaterDanhSachPhong.DataSource = null;
         }
     }
 }

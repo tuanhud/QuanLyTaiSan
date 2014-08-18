@@ -12,24 +12,19 @@ namespace WebQLPH
     public partial class NhanVien : System.Web.UI.Page
     {
         Boolean isMobile = false;
-        ucNhanVien_Web _ucNhanVien_Web = null;
-        ucNhanVien_Mobile _ucNhanVien_Mobile = null;
         
         protected void Page_Load(object sender, EventArgs e)
         {
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {
-                if (_ucNhanVien_Web == null)
-                    _ucNhanVien_Web = new ucNhanVien_Web();
-                
-                Panel_Main.Controls.Add(_ucNhanVien_Web);
+                Panel_Web.Visible = true;
+                _ucNhanVien_Web.LoadData();
             }
             else
             {
-                if (_ucNhanVien_Mobile == null)
-                    _ucNhanVien_Mobile = new ucNhanVien_Mobile();
-                Panel_Main.Controls.Add(_ucNhanVien_Mobile);
+                Panel_Mobile.Visible = true;
+                _ucNhanVien_Mobile.LoadData();
             }
         }
     }
