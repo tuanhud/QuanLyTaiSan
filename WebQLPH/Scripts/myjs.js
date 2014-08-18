@@ -72,6 +72,18 @@ $(document).ready(function () {
             checktaikhoan(taikhoan);
         }
     });
+    $("input").keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            var id = $("#HiddenFieldID").val();
+            if(id == "")
+                $("#ButtonThemMoi").click();
+            else
+                $("#ButtonLuu").click();
+            return false;
+        }
+        event.stopPropagation();
+    });
 });
 function ThemMoi() {
     if ($("#TextBoxHoTen").val() == "") {
@@ -118,7 +130,7 @@ function ThemMoi() {
     return true;
 }
 function ShowCapNhat(id) {
-    
+
     $("#HiddenFieldID").val(id);
 
     $("#ThongBao").hide();
