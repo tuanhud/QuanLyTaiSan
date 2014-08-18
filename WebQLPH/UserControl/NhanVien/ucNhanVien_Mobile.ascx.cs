@@ -78,13 +78,10 @@ namespace WebQLPH.UserControl.NhanVien
                 else
                 {
                     listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
-                    PanelDanhSachNhanVienPhuTrach.Visible = true;
                     if (listNhanVienPT != null && listNhanVienPT.Count > 0)
                     {
-                        CollectionPagerQuanLyNhanVien.DataSource = listNhanVienPT;
-                        CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;
-                        RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
-                        RepeaterQuanLyNhanVien.DataBind();
+                        PanelDanhSachNhanVienPhuTrach.Visible = true;
+                        BindData();
                     }
                     else
                     {
@@ -93,6 +90,25 @@ namespace WebQLPH.UserControl.NhanVien
                         return;
                     }
                 }
+            }
+        }
+
+        private void BindData()
+        {
+            if (listNhanVienPT != null && listNhanVienPT.Count > 0)
+            {
+                var list = listNhanVienPT.Select(a => new
+                {
+                    id = a.id,
+                    subid = a.subId,
+                    hoten = a.hoten,
+                    sodienthoai = a.sodienthoai,
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { CollectionPagerDanhSachPhong.QueryStringKey })).ToString()
+                }).ToList();
+                CollectionPagerQuanLyNhanVien.DataSource = list;
+                CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;
+                RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
+                RepeaterQuanLyNhanVien.DataBind();
             }
         }
     }

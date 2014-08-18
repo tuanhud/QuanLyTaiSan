@@ -25,15 +25,15 @@
             <br />
             <div>
                 <asp:Label ID="Label1" runat="server" Text="Mã nhân viên"></asp:Label>
-                <asp:TextBox ID="TextBox_MaNhanVien" CssClass="form-control" placeholder="Mã nhân viên" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox_MaNhanVien" CssClass="form-control" placeholder="Mã nhân viên" runat="server" Enabled="False"></asp:TextBox>
                 <br />
 
                 <asp:Label ID="Label2" runat="server" Text="Họ tên"></asp:Label>
-                <asp:TextBox ID="TextBox_HoTen" CssClass="form-control" placeholder="Họ tên nhân viên" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox_HoTen" CssClass="form-control" placeholder="Họ tên nhân viên" runat="server" Enabled="False"></asp:TextBox>
                 <br />
 
                 <asp:Label ID="Label3" runat="server" Text="Số điện thoại"></asp:Label>
-                <asp:TextBox ID="TextBox_SoDienThoai" CssClass="form-control" placeholder="Số điện thoại" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox_SoDienThoai" CssClass="form-control" placeholder="Số điện thoại" runat="server" Enabled="False"></asp:TextBox>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
 
     <div class="leftCollectionPager">
         <div class="CollectionPager">
-            <cp:CollectionPager ID="CollectionPagerDanhSachPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="TrangPhong" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
+            <cp:CollectionPager ID="CollectionPagerDanhSachPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
         </div>
     </div>
 </asp:Panel>
@@ -80,10 +80,10 @@
                 <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
-                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("subid") %></a></td>
-                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("hoten") %></a></td>
-                            <td><a href="<% ResolveClientUrl("NhanVien.aspx"); %>?id=<%# Eval("id") %>"><%# Eval("sodienthoai") %></a></td>
+                            <td><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
+                            <td><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
+                            <td><a href="<%# Eval("url") %>"><%# Eval("hoten") %></a></td>
+                            <td><a href="<%# Eval("url") %>"><%# Eval("sodienthoai") %></a></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
