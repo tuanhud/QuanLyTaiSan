@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Web;
 
 namespace QuanLyTaiSan.Libraries
 {
@@ -212,6 +213,7 @@ namespace QuanLyTaiSan.Libraries
                 return string.Empty;
             }
         }
+
         public static string toJSON(Dictionary<String,String> input)
         {
             try
@@ -223,6 +225,28 @@ namespace QuanLyTaiSan.Libraries
             {
                 return "";
             }
+        }
+
+        public static Uri AddParameter(Uri url, string paramName, string paramValue)
+        {
+            var uriBuilder = new UriBuilder(url);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            query.Remove(paramName);
+            query[paramName] = paramValue;
+            uriBuilder.Query = query.ToString();
+            return new Uri(uriBuilder.ToString());
+        }
+
+        public static Uri AddParameter(Uri url, string paramName, string paramValue, List<string> listRemove)
+        {
+            var uriBuilder = new UriBuilder(url);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            for (int i = 0; i < listRemove.Count; i++)
+                query.Remove(listRemove.ElementAt(i));
+            query.Remove(paramName);
+            query[paramName] = paramValue;
+            uriBuilder.Query = query.ToString();
+            return new Uri(uriBuilder.ToString());
         }
     }
 }

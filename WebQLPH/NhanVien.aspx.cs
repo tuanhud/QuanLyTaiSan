@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Libraries;
 using WebQLPH.UserControl.NhanVien;
+using System.Text;
 
 namespace WebQLPH
 {
