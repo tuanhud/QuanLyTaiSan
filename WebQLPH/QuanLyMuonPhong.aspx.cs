@@ -137,18 +137,21 @@ namespace WebQLPH
                     if (CheckBoxGuiMailThongBao.Checked == true)
                     {
                         string to = _PhieuMuonPhong.giangvien.email;
-                        string sub = "[Thông Báo] V/v mượn phòng ngày " + _PhieuMuonPhong.date_create;
+                        string sub = "[Thông Báo] V/v mượn phòng ngày " + Convert.ToDateTime(_PhieuMuonPhong.date_create).ToString("d/M/yyyy");
                         string tinhtrang = string.Empty;
                         switch(_PhieuMuonPhong.trangthai)
                         {
                             case -1:
                                 tinhtrang = "đã bị hủy bỏ";
                                 break;
+                            case 0:
+                                tinhtrang = "đang được xét duyệt";
+                                break;
                             case 1:
                                 tinhtrang = "đã được chấp nhận";
                                 break;
                         }
-                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p></p>Ghi chú từ người duyệt:</p></p>{2}</p></p>Người duyệt: <b>{3}</b></p></p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.ghichu, _PhieuMuonPhong.quantrivien.hoten, _PhieuMuonPhong.giangvien.email);
+                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.ghichu.Replace("\r\n", "<br />"), _PhieuMuonPhong.quantrivien.hoten, _PhieuMuonPhong.giangvien.email);
                         EmailHelper.sendMail(to, sub, msg);
                     }
                     QuanLyPhongMuon();

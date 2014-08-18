@@ -127,125 +127,13 @@
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\SkinHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />
-    <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.cs" />
-    <Compile Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.Designer.cs">
-      <DependentUpon>201406110430408_remove_phongId_trong_table_thietBi.cs</DependentUpon>
+    <Compile Include="Migrations\201408131615017_base.cs" />
+    <Compile Include="Migrations\201408131615017_base.Designer.cs">
+      <DependentUpon>201408131615017_base.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201406110439374_sua_lai_tiep_them_mota.cs" />
-    <Compile Include="Migrations\201406110439374_sua_lai_tiep_them_mota.Designer.cs">
-      <DependentUpon>201406110439374_sua_lai_tiep_them_mota.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.cs" />
-    <Compile Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.Designer.cs">
-      <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406121532241_them_rangbuoc_day_thuoc_coso.cs" />
-    <Compile Include="Migrations\201406121532241_them_rangbuoc_day_thuoc_coso.Designer.cs">
-      <DependentUpon>201406121532241_them_rangbuoc_day_thuoc_coso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406140633592_them_mota_loaichung_loairieng.cs" />
-    <Compile Include="Migrations\201406140633592_them_mota_loaichung_loairieng.Designer.cs">
-      <DependentUpon>201406140633592_them_mota_loaichung_loairieng.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.cs" />
-    <Compile Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.Designer.cs">
-      <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs" />
-    <Compile Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.Designer.cs">
-      <DependentUpon>201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs" />
-    <Compile Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.Designer.cs">
-      <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406210635305_them_entity_setting.cs" />
-    <Compile Include="Migrations\201406210635305_them_entity_setting.Designer.cs">
-      <DependentUpon>201406210635305_them_entity_setting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406211025184_bo_rang_buoc_path_hinhanh.cs" />
-    <Compile Include="Migrations\201406211025184_bo_rang_buoc_path_hinhanh.Designer.cs">
-      <DependentUpon>201406211025184_bo_rang_buoc_path_hinhanh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.cs" />
-    <Compile Include="Migrations\201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.Designer.cs">
-      <DependentUpon>201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.cs" />
-    <Compile Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.Designer.cs">
-      <DependentUpon>201406260748543_TURN_OFF_CASCADE_DELETE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs" />
-    <Compile Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.Designer.cs">
-      <DependentUpon>201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs" />
-    <Compile Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.Designer.cs">
-      <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs" />
-    <Compile Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.Designer.cs">
-      <DependentUpon>201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.cs" />
-    <Compile Include="Migrations\201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.Designer.cs">
-      <DependentUpon>201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407170606392_them_hinhanhs_vao_cttbs_sucophong.cs" />
-    <Compile Include="Migrations\201407170606392_them_hinhanhs_vao_cttbs_sucophong.Designer.cs">
-      <DependentUpon>201407170606392_them_hinhanhs_vao_cttbs_sucophong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs" />
-    <Compile Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.Designer.cs">
-      <DependentUpon>201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407171700135_sua_dinhnghia_cttb.cs" />
-    <Compile Include="Migrations\201407171700135_sua_dinhnghia_cttb.Designer.cs">
-      <DependentUpon>201407171700135_sua_dinhnghia_cttb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.cs" />
-    <Compile Include="Migrations\201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.Designer.cs">
-      <DependentUpon>201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407180818153_them_diachi_cho_cs.cs" />
-    <Compile Include="Migrations\201407180818153_them_diachi_cho_cs.Designer.cs">
-      <DependentUpon>201407180818153_them_diachi_cho_cs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.cs" />
-    <Compile Include="Migrations\201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.Designer.cs">
-      <DependentUpon>201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407210324038_them_order_cho_tatca.cs" />
-    <Compile Include="Migrations\201407210324038_them_order_cho_tatca.Designer.cs">
-      <DependentUpon>201407210324038_them_order_cho_tatca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.cs" />
-    <Compile Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.Designer.cs">
-      <DependentUpon>201407210442427_go_rangbuoc_trong_Setting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408040805353_Them_nghiepVu_muonPhong.cs" />
-    <Compile Include="Migrations\201408040805353_Them_nghiepVu_muonPhong.Designer.cs">
-      <DependentUpon>201408040805353_Them_nghiepVu_muonPhong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408050529462_sua_thuoctinh_phieumuonphong.cs" />
-    <Compile Include="Migrations\201408050529462_sua_thuoctinh_phieumuonphong.Designer.cs">
-      <DependentUpon>201408050529462_sua_thuoctinh_phieumuonphong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408050612322_them_thuoc_tinh_khoaphongmuon.cs" />
-    <Compile Include="Migrations\201408050612322_them_thuoc_tinh_khoaphongmuon.Designer.cs">
-      <DependentUpon>201408050612322_them_thuoc_tinh_khoaphongmuon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.cs" />
-    <Compile Include="Migrations\201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.Designer.cs">
-      <DependentUpon>201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408060750152_chinh_sua_su_co_phong.cs" />
-    <Compile Include="Migrations\201408060750152_chinh_sua_su_co_phong.Designer.cs">
-      <DependentUpon>201408060750152_chinh_sua_su_co_phong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408070710467_choPhepLOGTB_Phong_null.cs" />
-    <Compile Include="Migrations\201408070710467_choPhepLOGTB_Phong_null.Designer.cs">
-      <DependentUpon>201408070710467_choPhepLOGTB_Phong_null.cs</DependentUpon>
+    <Compile Include="Migrations\201408131617156_base2.cs" />
+    <Compile Include="Migrations\201408131617156_base2.Designer.cs">
+      <DependentUpon>201408131617156_base2.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -255,95 +143,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201406110430408_remove_phongId_trong_table_thietBi.resx">
-      <DependentUpon>201406110430408_remove_phongId_trong_table_thietBi.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408131615017_base.resx">
+      <DependentUpon>201408131615017_base.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406110439374_sua_lai_tiep_them_mota.resx">
-      <DependentUpon>201406110439374_sua_lai_tiep_them_mota.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406110444009_them_mota_cho_mot_vai_doiTuong.resx">
-      <DependentUpon>201406110444009_them_mota_cho_mot_vai_doiTuong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406121532241_them_rangbuoc_day_thuoc_coso.resx">
-      <DependentUpon>201406121532241_them_rangbuoc_day_thuoc_coso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406140633592_them_mota_loaichung_loairieng.resx">
-      <DependentUpon>201406140633592_them_mota_loaichung_loairieng.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406161322533_mot_entity_co_nhieuhinhanh.resx">
-      <DependentUpon>201406161322533_mot_entity_co_nhieuhinhanh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406200349510_them_rang_buoc_unique_choLOGTHIETBI.resx">
-      <DependentUpon>201406200349510_them_rang_buoc_unique_choLOGTHIETBI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.resx">
-      <DependentUpon>201406200410362_DoiTenLOGTINHTRANG_LOGTHIETBI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406210635305_them_entity_setting.resx">
-      <DependentUpon>201406210635305_them_entity_setting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406211025184_bo_rang_buoc_path_hinhanh.resx">
-      <DependentUpon>201406211025184_bo_rang_buoc_path_hinhanh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.resx">
-      <DependentUpon>201406260644132_them_rangbuoc_xoa_cs_xoaluonvitri_.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406260748543_TURN_OFF_CASCADE_DELETE.resx">
-      <DependentUpon>201406260748543_TURN_OFF_CASCADE_DELETE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.resx">
-      <DependentUpon>201406271532533_them_subId_macdinh_moi_doi_tuong_phai_co__them_subId_macdinh_moi_doi_tuong_phai_co.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.resx">
-      <DependentUpon>201406300429493_them_truong_order_vao_coso_tudong_lay_id_quasaukhiADD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.resx">
-      <DependentUpon>201407160413276_CSDL_v2_them_entites_quan_ly_SUCOPHONG_ThaydoimotsorangbuocKhac_BIGCHANGES.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.resx">
-      <DependentUpon>201407161530183_sua_moi_quanhe_SUCOPHONG_LOGSUCOPHONG.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407170606392_them_hinhanhs_vao_cttbs_sucophong.resx">
-      <DependentUpon>201407170606392_them_hinhanhs_vao_cttbs_sucophong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.resx">
-      <DependentUpon>201407170907134_chuyen_thuoctinh_ngay_LOGSUCO_SUCO_goboMotVaiIndex_K_canthiet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407171700135_sua_dinhnghia_cttb.resx">
-      <DependentUpon>201407171700135_sua_dinhnghia_cttb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.resx">
-      <DependentUpon>201407180311147_boNgayLapTrongThietBi_ChuyenQuaCTTB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407180818153_them_diachi_cho_cs.resx">
-      <DependentUpon>201407180818153_them_diachi_cho_cs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.resx">
-      <DependentUpon>201407210318504_them_order_cho_day_tang_tinhtrang_detienSapXepVeSau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407210324038_them_order_cho_tatca.resx">
-      <DependentUpon>201407210324038_them_order_cho_tatca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407210442427_go_rangbuoc_trong_Setting.resx">
-      <DependentUpon>201407210442427_go_rangbuoc_trong_Setting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408040805353_Them_nghiepVu_muonPhong.resx">
-      <DependentUpon>201408040805353_Them_nghiepVu_muonPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408050529462_sua_thuoctinh_phieumuonphong.resx">
-      <DependentUpon>201408050529462_sua_thuoctinh_phieumuonphong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408050612322_them_thuoc_tinh_khoaphongmuon.resx">
-      <DependentUpon>201408050612322_them_thuoc_tinh_khoaphongmuon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.resx">
-      <DependentUpon>201408050717108_sua_thuoc_tinh_phieumuonphong_lydotuchoi_thanh_ghichu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408060750152_chinh_sua_su_co_phong.resx">
-      <DependentUpon>201408060750152_chinh_sua_su_co_phong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408070710467_choPhepLOGTB_Phong_null.resx">
-      <DependentUpon>201408070710467_choPhepLOGTB_Phong_null.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408131617156_base2.resx">
+      <DependentUpon>201408131617156_base2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

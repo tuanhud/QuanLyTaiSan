@@ -66,7 +66,7 @@ namespace QuanLyTaiSan.Entities
         protected int writelog()
         {
             LogSuCoPhong obj = new LogSuCoPhong();
-            obj.hinhanhs = HinhAnh.clone(this.hinhanhs);
+            obj.hinhanhs = hinhanhs;
             obj.mota = this.mota;
             obj.sucophong = this;
             obj.quantrivien = Global.current_quantrivien_login;

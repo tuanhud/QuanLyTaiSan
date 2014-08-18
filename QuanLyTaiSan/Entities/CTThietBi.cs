@@ -121,7 +121,7 @@ namespace QuanLyTaiSan.Entities
                 {
                     tmp.soluong += soluong;
                     tmp.mota = mota;
-                    tmp.hinhanhs = HinhAnh.clone(hinhs);
+                    tmp.hinhanhs = hinhs;
                     tmp.ngay = ngay;
                     tmp.update();
                 }
@@ -131,7 +131,7 @@ namespace QuanLyTaiSan.Entities
             this.mota = mota;
             this.soluong -= soluong;
             this.soluong = this.soluong < 0 ? 0 : this.soluong;//for sure
-            this.hinhanhs = HinhAnh.clone(hinhs);
+            this.hinhanhs = hinhs;
             //ghi log thietbi ngay sau khi cap nhat ONLY soluong
             this.update();
             return 1;
@@ -148,7 +148,7 @@ namespace QuanLyTaiSan.Entities
             logtb.soluong = this.soluong;
             logtb.thietbi = this.thietbi;
             logtb.tinhtrang = this.tinhtrang;
-            logtb.hinhanhs = HinhAnh.clone(this.hinhanhs);
+            logtb.hinhanhs = hinhanhs;
             logtb.quantrivien = Global.current_quantrivien_login;
             return logtb.add();
         }
@@ -224,7 +224,7 @@ namespace QuanLyTaiSan.Entities
                 tmp.soluong += soluong;
                 tmp.ngay = this.ngay;
                 tmp.mota = this.mota;
-                tmp.hinhanhs = HinhAnh.clone(this.hinhanhs);
+                tmp.hinhanhs = hinhanhs;
                 //call update on tmp
                 tmp.update();
                 //id = tmp.id;

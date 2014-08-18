@@ -41,15 +41,31 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int delete()
         {
-            //Tự động xóa hình thuộc object này
-            if (hinhanhs != null)//1 số trường hợp gán listHinhAnh vào obj là null, nó bắt lỗi null
-            {
-                while (hinhanhs.Count > 0)
-                {
-                    hinhanhs.FirstOrDefault().delete();
-                }
-            }
+            ////Tự động xóa hình thuộc object này
+            //if (hinhanhs != null)//1 số trường hợp gán listHinhAnh vào obj là null, nó bắt lỗi null
+            //{
+            //    while (hinhanhs.Count > 0)
+            //    {
+            //        hinhanhs.FirstOrDefault().delete();
+            //    }
+            //}
             return base.delete();
+        }
+        public override int add()
+        {
+            //Kiểm duyệt và load lại list hình ảnh
+            //re-assign
+            this.hinhanhs = HinhAnh.validate(this.hinhanhs.ToList());
+
+            return base.add();
+        }
+        public override int update()
+        {
+            //Kiểm duyệt và load lại list hình ảnh
+            //re-assign
+            this.hinhanhs = HinhAnh.validate(this.hinhanhs.ToList());
+
+            return base.update();
         }
         #endregion
     }

@@ -37,7 +37,7 @@ namespace QuanLyTaiSan.DataFilter
         /// <returns></returns>
         public static List<TKSLThietBiFilter> getAll(List<int> list_coso = null, List<int> list_ltb = null, List<int> list_tinhtrang = null, DateTime? date_from = null, DateTime? date_to = null, int row_per_page = -1, int page_index = 1, Boolean orderby_id_desc=true)
         {
-            IQueryable<CTThietBi> query = db.CTTHIETBIS.AsQueryable();
+            IQueryable<CTThietBi> query = CTThietBi.getQuery();
 
             //DATETIME
             if (date_from != null)

@@ -16,11 +16,11 @@ namespace QuanLyTaiSan.Entities
     internal class _OurDBInit : CreateDatabaseIfNotExists<OurDBContext>
     {
         private Boolean create_sample_data = false;
-        public _OurDBInit(Boolean create_sample_data=false)
+        public _OurDBInit(Boolean create_sample_data = false)
         {
             this.create_sample_data = create_sample_data;
         }
-        protected override void Seed(OurDBContext context) 
+        protected override void Seed(OurDBContext context)
         {
             /*
              * Create Sample Data here
@@ -100,13 +100,13 @@ namespace QuanLyTaiSan.Entities
             tinhtrang.value = "Đang sửa";
             //ADD
             context.TINHTRANGS.Add(tinhtrang);
-            
+
             //call parent
             base.Seed(context);
-        } 
- 
+        }
+
     }
-    public class OurDBContext:DbContext
+    public class OurDBContext : DbContext
     {
         public OurDBContext()
             : base("Default")
@@ -117,7 +117,7 @@ namespace QuanLyTaiSan.Entities
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
         }
-        public OurDBContext(String connection_string="Default", Boolean create_sample_data = true)
+        public OurDBContext(String connection_string = "Default", Boolean create_sample_data = true)
             : base(connection_string)
         {
             //Create sample data if indicated
@@ -125,13 +125,12 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
-
         }
-        
+
         public DbSet<CoSo> COSOS { get; set; }
         public DbSet<Phong> PHONGS { get; set; }
         public DbSet<ThietBi> THIETBIS { get; set; }
-        public DbSet<CTThietBi> CTTHIETBIS { get; set; }        
+        public DbSet<CTThietBi> CTTHIETBIS { get; set; }
         public DbSet<HinhAnh> HINHANHS { get; set; }
         public DbSet<Group> GROUPS { get; set; }
         public DbSet<QuanTriVien> QUANTRIVIENS { get; set; }
@@ -183,11 +182,23 @@ namespace QuanLyTaiSan.Entities
 
                     "SUCOPHONGS",//UNDEPENDENT
                     "LOGSUCOPHONGS",
-                    "HINHANHS",
+                    
                     "SETTINGS",//UNDEPENDENT
                     "LOGHETHONGS",//UNDEPENDENT
                     "GIANGVIENS",//UNDEPENDENT
-                    "PHIEUMUONPHONGS"
+                    "PHIEUMUONPHONGS",
+
+                    "HINHANHS",
+                    "COSO_HINHANH",
+                    "DAY_HINHANH",
+                    "TANG_HINHANH",
+                    "THIETBI_HINHANH",
+                    "CTTHIETBI_HINHANH",
+                    "LOGSUCOPHONG_HINHANH",
+                    "LOGTHIETBI_HINHANH",
+                    "NHANVIENPT_HINHANH",
+                    "PHONG_HINHANH",
+                    "SUCOPHONG_HINHANH",
                 };
             }
         }
@@ -257,8 +268,10 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
         #region Override
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
             //CONFIG
             //AUTO DELETE ON CASCADE
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
@@ -343,12 +356,12 @@ namespace QuanLyTaiSan.Entities
             {
                 x.MapInheritedProperties();
             });
-            
+
             modelBuilder.Entity<SuCoPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
-            
+
             modelBuilder.Entity<LogSuCoPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
@@ -370,7 +383,120 @@ namespace QuanLyTaiSan.Entities
                 x.MapInheritedProperties();
             });
             /*
-             * n-n relationship GROUP~PERMISSION
+             * n-n relationship OBJECT~HINHANH
+             */
+            modelBuilder.Entity<CoSo>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.cosos).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("COSO_HINHANH");
+                });
+
+            modelBuilder.Entity<Dayy>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.days).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("DAY_HINHANH");
+                });
+
+            modelBuilder.Entity<Tang>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.tangs).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("TANG_HINHANH");
+                });
+
+            modelBuilder.Entity<ThietBi>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.thietbis).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("THIETBI_HINHANH");
+                });
+
+            modelBuilder.Entity<SuCoPhong>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.sucophongs).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("SUCOPHONG_HINHANH");
+                });
+
+            modelBuilder.Entity<LogSuCoPhong>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.logsucophongs).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("LOGSUCOPHONG_HINHANH");
+                });
+
+            modelBuilder.Entity<LogThietBi>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.logthietbis).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("LOGTHIETBI_HINHANH");
+                });
+
+            modelBuilder.Entity<Phong>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.phongs).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("PHONG_HINHANH");
+                });
+            
+            modelBuilder.Entity<NhanVienPT>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.nhanvienpts).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("NHANVIENPT_HINHANH");
+                });
+
+            modelBuilder.Entity<CTThietBi>().
+            HasMany(c => c.hinhanhs).
+            WithMany(p => p.ctthietbis).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("CTTHIETBI_HINHANH");
+                });
+            /*
+             * n-n relationship GROUP~PERMISSION,
+             * Định nghĩa chi tiết
              */
             modelBuilder.Entity<Group>().
             HasMany(c => c.permissions).
@@ -385,55 +511,60 @@ namespace QuanLyTaiSan.Entities
         }
         public override int SaveChanges()
         {
-            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c=>c.State==EntityState.Added || c.State==EntityState.Modified || c.State==EntityState.Deleted);
+            IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c => c.State == EntityState.Added || c.State == EntityState.Modified || c.State == EntityState.Deleted);
             ICollection<_EFEventRegisterInterface> Added_Callbacks = new List<_EFEventRegisterInterface>();
             ICollection<_EFEventRegisterInterface> Modified_Callbacks = new List<_EFEventRegisterInterface>();
             ICollection<_EFEventRegisterInterface> Deleted_Callbacks = new List<_EFEventRegisterInterface>();
             Boolean need_to_sync = false;
             //Before
-                foreach (DbEntityEntry item in changedEntities)
+            foreach (DbEntityEntry item in changedEntities)
+            {
+                if (need_to_sync == false)
                 {
-                    need_to_sync = true;
-                    if (item.Entity is _EFEventRegisterInterface)
+                    Global.client_database.start_sync();
+                }
+                need_to_sync = true;
+                if (item.Entity is _EFEventRegisterInterface)
+                {
+                    _EFEventRegisterInterface entity = (_EFEventRegisterInterface)item.Entity;
+                    switch (item.State)
                     {
-                        _EFEventRegisterInterface entity = (_EFEventRegisterInterface)item.Entity;
-                        switch (item.State)
-                        {
-                            case EntityState.Added:
-                                Added_Callbacks.Add(entity);
-                                entity.onBeforeAdded();
-                                break;
+                        case EntityState.Added:
+                            //quocdunginfo fail here (Some time HinhAnh was "added state")
+                            Added_Callbacks.Add(entity);
+                            entity.onBeforeAdded();
+                            break;
 
-                            case EntityState.Modified:
-                                Modified_Callbacks.Add(entity);
-                                entity.onBeforeUpdated();
-                                break;
+                        case EntityState.Modified:
+                            Modified_Callbacks.Add(entity);
+                            entity.onBeforeUpdated();
+                            break;
 
-                            case EntityState.Deleted:
-                                Deleted_Callbacks.Add(entity);
-                                entity.onBeforeDeleted();
-                                break;
-                        }
+                        case EntityState.Deleted:
+                            Deleted_Callbacks.Add(entity);
+                            entity.onBeforeDeleted();
+                            break;
                     }
                 }
+            }
             //SaveChange lần 1
             int result = base.SaveChanges();
             //After
-                foreach (_EFEventRegisterInterface item in Added_Callbacks)
-                {
-                    item.onAfterAdded();
-                }
-                foreach (_EFEventRegisterInterface item in Modified_Callbacks)
-                {
-                    item.onAfterUpdated();
-                }
+            foreach (_EFEventRegisterInterface item in Added_Callbacks)
+            {
+                item.onAfterAdded();
+            }
+            foreach (_EFEventRegisterInterface item in Modified_Callbacks)
+            {
+                item.onAfterUpdated();
+            }
 
             result = base.SaveChanges();
 
             //clear RAM
-                Added_Callbacks = null;
-                Modified_Callbacks = null;
-                changedEntities = null;
+            Added_Callbacks = null;
+            Modified_Callbacks = null;
+            changedEntities = null;
 
             //Auto Sync
             if (need_to_sync)
@@ -450,7 +581,7 @@ namespace QuanLyTaiSan.Entities
         {
             //if (entityEntry.Entity is CoSo && entityEntry.State == EntityState.Deleted)
             //{
-                
+
             //    return true;
             //}
             return base.ShouldValidateEntity(entityEntry);
@@ -491,6 +622,6 @@ namespace QuanLyTaiSan.Entities
             return base.ValidateEntity(entityEntry, items);
         }
         #endregion
-        
+
     }
 }
