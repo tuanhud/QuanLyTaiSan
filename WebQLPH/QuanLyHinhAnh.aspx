@@ -13,7 +13,7 @@
                 <asp:Label ID="LabelThongBao" runat="server" Text="Label" Visible="false"></asp:Label>
                 <asp:Label ID="LabelThongBaoAnhDaCo" runat="server" Text="Label" Visible="false"></asp:Label>
             </asp:Panel>
-            <asp:FileUpload ID="ImageUpload" runat="server" CssClass="btn btn-success" AllowMultiple="True" ClientIDMode="Static" /><br />
+            <asp:FileUpload ID="ImageUpload" runat="server" AllowMultiple="True" ClientIDMode="Static" CssClass="btn btn-success" /><br />
             <asp:Button ID="ButtonTaiLen" CssClass="btn btn-success" runat="server" Text="Tải lên" OnClick="ButtonTaiLen_Click" />
         </div>
     </div>
@@ -31,7 +31,29 @@
             </div>
             <div class="centerCollectionPager">
                 <div class="CollectionPager">
-                    <cp:CollectionPager ID="CollectionPagerQuanLyHinhAnh" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="3" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
+                    <cp:CollectionPager 
+                        ID="CollectionPagerQuanLyHinhAnh" 
+                        runat="server" 
+                        LabelText="" 
+                        MaxPages="5" 
+                        ShowLabel="False" 
+                        BackNextDisplay="HyperLinks" 
+                        BackNextLinkSeparator="" 
+                        BackNextLocation="None" 
+                        BackText="Trước" 
+                        EnableViewState="False" 
+                        FirstText="Đầu"
+                        LastText="Cuối" 
+                        NextText="Sau" 
+                        PageNumbersSeparator="" 
+                        PageSize="3" 
+                        PagingMode="QueryString" 
+                        QueryStringKey="Trang" 
+                        ResultsFormat=""
+                        ResultsLocation="None" 
+                        ResultsStyle="" 
+                        ShowFirstLast="False" 
+                        ClientIDMode="Static">
                     </cp:CollectionPager>
                 </div>
             </div>

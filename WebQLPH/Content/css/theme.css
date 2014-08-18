@@ -22,8 +22,8 @@
     margin: 0 auto;
 }
 .centerCollectionPager{
-    max-width: 300px;
-    margin: 0 auto;
+    /*max-width: 300px;
+    margin: 0 auto;*/
 }
 .centered tr th, .centered tr td{
     text-align:center;
