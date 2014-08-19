@@ -16,13 +16,18 @@ namespace WebQLPH
     {
         string folder_img = "/ImageUpload/";
         string folder_thumb = "Thumb/";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ListImage();
+                // Đặt tên để set class, đặt tên in hoa
+                Default SetClassActive = this.Master as Default;
+                SetClassActive.page = "QUANLYHINHANH";
+
                 CreateFolder(folder_img);
                 CreateFolder(folder_img + folder_thumb);
+                ListImage();
             }
         }
 

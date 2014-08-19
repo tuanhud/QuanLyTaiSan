@@ -38,9 +38,17 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Hàm nghiệp vụ
-        public Boolean canView<T>(T obj)
+        public bool canView<T>(T obj) where T : _EntityAbstract1<T>
         {
             return group.canView<T>((T)obj);
+        }
+        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        {
+            return group.canDelete<T>((T)obj);
+        }
+        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        {
+            return group.canAdd<T>();
         }
         public Boolean canEdit<T>(T obj) where T:_EntityAbstract1<T>
         {

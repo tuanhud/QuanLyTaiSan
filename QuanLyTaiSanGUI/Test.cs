@@ -26,14 +26,60 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
 
-            Global.working_database.use_internal_config = true;
-
-            QuanTriVien obj = QuanTriVien.getByUserName("admin");
-            List<Permission> pp = obj.group.permissions.ToList();
             
-            Boolean re = obj.canEdit<CoSo>(CoSo.getById(7));
-            re = obj.canEdit<Phong>(Phong.getById(1));
-            re = obj.canEdit<Phong>(Phong.getById(3));
+
+            //Global.working_database.use_internal_config = true;
+
+            //QuanTriVien obj = QuanTriVien.getByUserName("admin");
+            ////List<Permission> pp = obj.group.permissions.ToList();
+            
+            //Boolean re = obj.reload().canEdit<CoSo>(CoSo.getById(7));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
+            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
+            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
+
+            button1.Enabled = false;
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
@@ -50,6 +96,12 @@ namespace QuanLyTaiSanGUI
         private void button1_Click(object sender, EventArgs e)
         {
             CoSo t = CoSo.getQuery().FirstOrDefault();
+        }
+
+        private void button1_EnabledChanged(object sender, EventArgs e)
+        {
+            Button tmp = sender as Button;
+            tmp.Enabled = false && tmp.Enabled;
         }
     }
 }

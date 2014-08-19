@@ -18,6 +18,10 @@ namespace WebQLPH
 
             if (!IsPostBack)
             {
+                // Đặt tên để set class, đặt tên in hoa
+                Default SetClassActive = this.Master as Default;
+                SetClassActive.page = "QUANLYTAIKHOAN";
+
                 try
                 {
                     if (Convert.ToString(Session["Username"]).Equals(String.Empty))

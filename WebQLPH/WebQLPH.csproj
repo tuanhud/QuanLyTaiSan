@@ -96,6 +96,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\NoImage.jpg" />
+    <Content Include="LienHe.aspx" />
     <Content Include="MuonPhong.aspx" />
     <Content Include="NhanVien.aspx" />
     <Content Include="QuanLyHinhAnh.aspx" />
@@ -129,6 +130,8 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
+    <Content Include="ThongTin.aspx" />
+    <Content Include="ThongTinCaNhan.aspx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
@@ -168,6 +171,13 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
+    <Compile Include="LienHe.aspx.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LienHe.aspx.designer.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MuonPhong.aspx.cs">
       <DependentUpon>MuonPhong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +213,20 @@
     </Compile>
     <Compile Include="QuanLyTaiKhoan.aspx.designer.cs">
       <DependentUpon>QuanLyTaiKhoan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTin.aspx.cs">
+      <DependentUpon>ThongTin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThongTin.aspx.designer.cs">
+      <DependentUpon>ThongTin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.designer.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx.cs">
       <DependentUpon>ucNhanVien_Mobile.ascx</DependentUpon>
