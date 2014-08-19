@@ -16,7 +16,6 @@ namespace WebQLPH
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Đặt tên để set class, đặt tên in hoa
             Default SetClassActive = this.Master as Default;
             SetClassActive.page = "NHANVIEN";
 

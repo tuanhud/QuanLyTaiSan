@@ -17,20 +17,37 @@
     <table class="table table-bordered table-striped">
         <tbody>
             <tr>
-                <td width="250">
+                <td width="300">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Vị trí
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="Aqua" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged">
-                            <Columns>
-                                <dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0">
-                                </dx:TreeListTextColumn>
-                            </Columns>
-                            <SettingsBehavior AllowFocusedNode="True" />
-                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
-                        </dx:ASPxTreeList>
+                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" EnableCallbacks="False" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged"><Columns><dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0"></dx:TreeListTextColumn></Columns><SettingsBehavior AllowFocusedNode="True" ProcessFocusedNodeChangedOnServer="True" /><SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" /></dx:ASPxTreeList>
                     </div>
+                    <asp:Panel ID="Panel_GoogleMap" runat="server" Visible="False">
+                        <div class="panel panel-primary" data-toggle="modal" data-target="#myModal" onclick="return false;">
+                            <div class="panel-heading">
+                                Bản đồ
+                            </div>
+                            <iframe ID="Iframe_GoogleMap" runat="server" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+                        </div>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Bản đồ</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe ID="Iframe_Popup" runat="server" width="100%" height="500px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </asp:Panel>
                 </td>
                 <td>
                     <div class="panel panel-primary">
@@ -49,25 +66,39 @@
         
                         <div class="panel-body">
                             <div class="center">
-                                <dx:ASPxImageSlider ID="ASPxImageSlider1" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px">
-                                </dx:ASPxImageSlider>
+                                <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
                             </div>
                             <br />
                             <div>
-                                <asp:Label ID="Label1" runat="server" Text="Tên"></asp:Label>
-                                <asp:TextBox ID="TextBox_MaNhanVien" CssClass="form-control" placeholder="Tên" runat="server" Enabled="False"></asp:TextBox>
+                                <div class="row">
+                                    <div class="col-lg-2">Tên</div>
+                                    <div class="col-lg-10">
+                                        <asp:TextBox ID="TextBox_Ten" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
+                                    </div>
+                                </div>
                                 <br />
-
-                                <asp:Label ID="Label2" runat="server" Text="Thuộc"></asp:Label>
-                                <asp:TextBox ID="TextBox_HoTen" CssClass="form-control" placeholder="Thuộc" runat="server" Enabled="False"></asp:TextBox>
+                                <div class="row">
+                                    <div class="col-lg-2">Thuộc</div>
+                                    <div class="col-lg-10">
+                                        <asp:TextBox ID="TextBox_Thuoc" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
+                                    </div>
+                                </div>
                                 <br />
-
-                                <asp:Label ID="Label_DiaChi" runat="server" Text="Địa chỉ"></asp:Label>
-                                <asp:TextBox ID="TextBox_SoDienThoai" CssClass="form-control" placeholder="Địa chỉ" runat="server" Enabled="False"></asp:TextBox>
-                                <br />
-
-                                <asp:Label ID="Label4" runat="server" Text="Mô tả"></asp:Label>
-                                <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Mô tả" runat="server" Enabled="False" TextMode="MultiLine"></asp:TextBox>
+                                <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
+                                    <div class="row">
+                                        <div class="col-lg-2">Địa chỉ</div>
+                                        <div class="col-lg-10">
+                                            <asp:TextBox ID="TextBox_DiaChi" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </asp:Panel>
+                                <div class="row">
+                                    <div class="col-lg-2">Mô tả</div>
+                                    <div class="col-lg-10">
+                                        <asp:TextBox ID="TextBox_Mota" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
