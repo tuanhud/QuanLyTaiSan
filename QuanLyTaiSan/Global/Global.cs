@@ -482,22 +482,6 @@ namespace QuanLyTaiSan.Entities
             }
 
         }
-        private static GiangVien _current_giangvien_login = null;
-        /// <summary>
-        /// Dành cho Web (Giảng viên login vào để mượn phòng)
-        /// </summary>
-        public static GiangVien current_giangvien_login
-        {
-            get
-            {
-                //very importance because of OLD DBCONTEXT
-                return _current_giangvien_login = _current_giangvien_login==null ? null: _current_giangvien_login.reload();
-            }
-            set
-            {
-                _current_giangvien_login = value;
-            }
-        }
         
         private static QuanTriVien _current_quantrivien_login = null;
         /// <summary>

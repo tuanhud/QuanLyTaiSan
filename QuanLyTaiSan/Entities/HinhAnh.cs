@@ -126,7 +126,7 @@ namespace QuanLyTaiSan.Entities
         {
             return Path.Combine(FileHelper.localPath(), HinhAnh.CACHE_PATH, path);
         }
-        [NotMapped]
+        
         protected Bitmap image=null;
         /// <summary>
         /// Trả về URL tuyệt đối của Hình ảnh
@@ -192,7 +192,6 @@ namespace QuanLyTaiSan.Entities
                 image = value;
             }
         }
-        [NotMapped]
         protected String file_name = null;
         [NotMapped]
         public String FILE_NAME {
@@ -207,7 +206,7 @@ namespace QuanLyTaiSan.Entities
             
         }
 
-        [NotMapped]
+        
         protected int max_size = -1;
         [NotMapped]
         public int MAX_SIZE {
@@ -220,7 +219,7 @@ namespace QuanLyTaiSan.Entities
                 this.max_size = value;
             }
         }
-        [NotMapped]
+        
         protected static String cache_path = "ImageCache";
         [NotMapped]
         public static String CACHE_PATH

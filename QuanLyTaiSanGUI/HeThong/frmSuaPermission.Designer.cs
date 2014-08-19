@@ -80,6 +80,8 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl_quyenCoDinh)).BeginInit();
             this.xtraTabControl_quyenCoDinh.SuspendLayout();
             this.xtraTabPage_quyenCoDinh.SuspendLayout();
@@ -134,7 +136,7 @@
             // 
             this.xtraTabPage_quyenCoDinh.Controls.Add(this.groupControl_quyenCoDinh);
             this.xtraTabPage_quyenCoDinh.Name = "xtraTabPage_quyenCoDinh";
-            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(928, 285);
+            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(929, 288);
             this.xtraTabPage_quyenCoDinh.Text = "Quyền cố định";
             // 
             // groupControl_quyenCoDinh
@@ -201,7 +203,7 @@
             this.xtraTabPage_quyenObject.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage_quyenObject.Controls.Add(this.groupControl2);
             this.xtraTabPage_quyenObject.Name = "xtraTabPage_quyenObject";
-            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(928, 285);
+            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(929, 288);
             this.xtraTabPage_quyenObject.Text = "Quyền trên hạng mục, đối tượng cụ thể";
             // 
             // xtraTabControl2
@@ -222,7 +224,7 @@
             this.xtraTabPage_CoSo.Controls.Add(this.gridControl_CoSo);
             this.xtraTabPage_CoSo.Controls.Add(this.btnThemQuyenCoSo);
             this.xtraTabPage_CoSo.Name = "xtraTabPage_CoSo";
-            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(621, 253);
+            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(622, 256);
             this.xtraTabPage_CoSo.Text = "Cơ sở";
             // 
             // gridControl_CoSo
@@ -264,7 +266,7 @@
             this.xtraTabPage_Day.Controls.Add(this.gridControl_Day);
             this.xtraTabPage_Day.Controls.Add(this.btnThemQuyenDay);
             this.xtraTabPage_Day.Name = "xtraTabPage_Day";
-            this.xtraTabPage_Day.Size = new System.Drawing.Size(621, 253);
+            this.xtraTabPage_Day.Size = new System.Drawing.Size(622, 256);
             this.xtraTabPage_Day.Text = "Dãy";
             // 
             // gridControl_Day
@@ -317,7 +319,7 @@
             this.xtraTabPage_Tầng.Controls.Add(this.gridControl_Tang);
             this.xtraTabPage_Tầng.Controls.Add(this.btnThemQuyenTang);
             this.xtraTabPage_Tầng.Name = "xtraTabPage_Tầng";
-            this.xtraTabPage_Tầng.Size = new System.Drawing.Size(621, 253);
+            this.xtraTabPage_Tầng.Size = new System.Drawing.Size(622, 256);
             this.xtraTabPage_Tầng.Text = "Tầng";
             // 
             // gridControl_Tang
@@ -380,7 +382,7 @@
             this.xtraTabPage_Phong.Controls.Add(this.gridControl_Phong);
             this.xtraTabPage_Phong.Controls.Add(this.btnThemQuyenPhong);
             this.xtraTabPage_Phong.Name = "xtraTabPage_Phong";
-            this.xtraTabPage_Phong.Size = new System.Drawing.Size(621, 253);
+            this.xtraTabPage_Phong.Size = new System.Drawing.Size(622, 256);
             this.xtraTabPage_Phong.Text = "Phòng";
             // 
             // gridControl_Phong
@@ -585,12 +587,33 @@
             // 
             this.repositoryMemo.Name = "repositoryMemo";
             // 
+            // btnOK
+            // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnOK.Location = new System.Drawing.Point(774, 546);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 4;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(855, 546);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 9;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // frmSuaPermission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 545);
+            this.ClientSize = new System.Drawing.Size(949, 581);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.xtraTabControl_quyenCoDinh);
             this.Name = "frmSuaPermission";
             this.Text = "Sửa quyền";
@@ -690,6 +713,8 @@
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenFull;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemo;
+        private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
 
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhanQuyen = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhanQuyen = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -45,8 +44,12 @@
             this.barButtonThemQTV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaQTV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaQTV = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnThemGroup = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSuaGroup = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXoaGroup = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupQTV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dateCreated = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtXacNhanMK = new DevExpress.XtraEditors.TextEdit();
@@ -63,7 +66,9 @@
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.rbnGroupPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -104,7 +109,7 @@
             this.gridControlPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhanQuyen.MainView = this.gridViewPhanQuyen;
             this.gridControlPhanQuyen.Name = "gridControlPhanQuyen";
-            this.gridControlPhanQuyen.Size = new System.Drawing.Size(505, 490);
+            this.gridControlPhanQuyen.Size = new System.Drawing.Size(506, 490);
             this.gridControlPhanQuyen.TabIndex = 0;
             this.gridControlPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhanQuyen});
@@ -232,9 +237,13 @@
             this.ribbonPhanQuyen.ExpandCollapseItem,
             this.barButtonThemQTV,
             this.barButtonSuaQTV,
-            this.barButtonXoaQTV});
+            this.barButtonXoaQTV,
+            this.barBtnThemGroup,
+            this.barBtnSuaGroup,
+            this.barBtnXoaGroup,
+            this.barBtnPhanQuyen});
             this.ribbonPhanQuyen.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhanQuyen.MaxItemId = 4;
+            this.ribbonPhanQuyen.MaxItemId = 8;
             this.ribbonPhanQuyen.Name = "ribbonPhanQuyen";
             this.ribbonPhanQuyen.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhanQuyen_Home});
@@ -264,22 +273,57 @@
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
             this.barButtonXoaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaQTV_ItemClick);
             // 
+            // barBtnThemGroup
+            // 
+            this.barBtnThemGroup.Caption = "Thêm nhóm quyền";
+            this.barBtnThemGroup.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barBtnThemGroup.Id = 4;
+            this.barBtnThemGroup.Name = "barBtnThemGroup";
+            this.barBtnThemGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemGroup_ItemClick);
+            // 
+            // barBtnSuaGroup
+            // 
+            this.barBtnSuaGroup.Caption = "Sửa nhóm quyền";
+            this.barBtnSuaGroup.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaGroup.Id = 5;
+            this.barBtnSuaGroup.Name = "barBtnSuaGroup";
+            this.barBtnSuaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaGroup_ItemClick);
+            // 
+            // barBtnXoaGroup
+            // 
+            this.barBtnXoaGroup.Caption = "Xóa nhóm quyền";
+            this.barBtnXoaGroup.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barBtnXoaGroup.Id = 6;
+            this.barBtnXoaGroup.Name = "barBtnXoaGroup";
+            this.barBtnXoaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaGroup_ItemClick);
+            // 
             // rbnPagePhanQuyen_Home
             // 
             this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.rbnGroupQTV,
+            this.rbnGroupGroup,
+            this.rbnGroupPhanQuyen});
             this.rbnPagePhanQuyen_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
             this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
             this.rbnPagePhanQuyen_Home.Text = "Phân quyền";
             // 
-            // ribbonPageGroup1
+            // rbnGroupQTV
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonThemQTV);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonSuaQTV);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonXoaQTV);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Quản trị viên";
+            this.rbnGroupQTV.ItemLinks.Add(this.barButtonThemQTV);
+            this.rbnGroupQTV.ItemLinks.Add(this.barButtonSuaQTV);
+            this.rbnGroupQTV.ItemLinks.Add(this.barButtonXoaQTV);
+            this.rbnGroupQTV.Name = "rbnGroupQTV";
+            this.rbnGroupQTV.ShowCaptionButton = false;
+            this.rbnGroupQTV.Text = "Quản trị viên";
+            // 
+            // rbnGroupGroup
+            // 
+            this.rbnGroupGroup.ItemLinks.Add(this.barBtnThemGroup);
+            this.rbnGroupGroup.ItemLinks.Add(this.barBtnSuaGroup);
+            this.rbnGroupGroup.ItemLinks.Add(this.barBtnXoaGroup);
+            this.rbnGroupGroup.Name = "rbnGroupGroup";
+            this.rbnGroupGroup.ShowCaptionButton = false;
+            this.rbnGroupGroup.Text = "Nhóm quyền";
             // 
             // dateCreated
             // 
@@ -445,6 +489,21 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // rbnGroupPhanQuyen
+            // 
+            this.rbnGroupPhanQuyen.ItemLinks.Add(this.barBtnPhanQuyen);
+            this.rbnGroupPhanQuyen.Name = "rbnGroupPhanQuyen";
+            this.rbnGroupPhanQuyen.ShowCaptionButton = false;
+            this.rbnGroupPhanQuyen.Text = "Phân quyền";
+            // 
+            // barBtnPhanQuyen
+            // 
+            this.barBtnPhanQuyen.Caption = "Phân quyền";
+            this.barBtnPhanQuyen.Id = 7;
+            this.barBtnPhanQuyen.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Actions_view_pim_tasks_icon;
+            this.barBtnPhanQuyen.Name = "barBtnPhanQuyen";
+            this.barBtnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPhanQuyen_ItemClick);
+            // 
             // ucPhanQuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,10 +568,16 @@
         private DevExpress.XtraBars.BarButtonItem barButtonSuaQTV;
         private DevExpress.XtraBars.BarButtonItem barButtonXoaQTV;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbnPagePhanQuyen_Home;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupQTV;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.MemoEdit memoEdit_mota;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupGroup;
+        private DevExpress.XtraBars.BarButtonItem barBtnThemGroup;
+        private DevExpress.XtraBars.BarButtonItem barBtnSuaGroup;
+        private DevExpress.XtraBars.BarButtonItem barBtnXoaGroup;
+        private DevExpress.XtraBars.BarButtonItem barBtnPhanQuyen;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhanQuyen;
 
     }
 }

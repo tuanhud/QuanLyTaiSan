@@ -55,25 +55,10 @@ namespace WebQLPH.UserControl
                     return;
                 }
 
-                Boolean KiemTraDangNhap = false;
-                String KieuDangNhap = string.Empty;
-
-                if (CheckBoxQuanTriVien.Checked == true)
-                {
-                    QuanTriVien _QuanTriVien = new QuanTriVien();
-                    _QuanTriVien.username = Username;
-                    _QuanTriVien.hashPassword(Password);
-                    KiemTraDangNhap = _QuanTriVien.checkLoginByUserName();
-                    KieuDangNhap = "QuanTriVien";
-                }
-                else
-                {
-                    GiangVien _GiangVien = new GiangVien();
-                    _GiangVien.username = Username;
-                    _GiangVien.hashPassword(Password);
-                    KiemTraDangNhap = _GiangVien.checkLoginByUserName();
-                    KieuDangNhap = "GiangVien";
-                }
+                QuanTriVien _QuanTriVien = new QuanTriVien();
+                _QuanTriVien.username = Username;
+                _QuanTriVien.hashPassword(Password);
+                Boolean KiemTraDangNhap = _QuanTriVien.checkLoginByUserName();
 
                 if (KiemTraDangNhap)
                 {
@@ -89,17 +74,8 @@ namespace WebQLPH.UserControl
                         CheckBoxNhoDangNhap.Checked = false;
                     }
                     Session["Username"] = Username;
-                    if (KieuDangNhap.Equals("GiangVien"))
-                    {
-                        GiangVien _GiangVien = GiangVien.getByUserName(Username);
-                        Session["HoTen"] = _GiangVien.hoten;
-                    }
-                    else
-                    {
-                        QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
-                        Session["HoTen"] = _QuanTriVien.hoten;
-                    }
-                    Session["KieuDangNhap"] = KieuDangNhap;
+                    _QuanTriVien = QuanTriVien.getByUserName(Username);
+                    Session["HoTen"] = _QuanTriVien.hoten;
                     Response.Redirect(Request.RawUrl);
                 }
                 else

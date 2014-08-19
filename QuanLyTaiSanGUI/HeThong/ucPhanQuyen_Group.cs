@@ -16,17 +16,67 @@ namespace QuanLyTaiSanGUI.HeThong
     public partial class ucPhanQuyen_Group : UserControl
     {
         List<Group> listGroup = null;
-        Group objGroup = null;
+        List<Permission> listPermission = new List<Permission>();
+        Group objGroup = new Group();
+        String function = "";
+        bool working = false;
+
         public ucPhanQuyen_Group()
         {
             InitializeComponent();
-            loadData();
+            editGUI("view");
         }
 
-        private void loadData()
+        public void loadData()
         {
             listGroup = Group.getAll();
             gridControlGroup.DataSource = listGroup;
+        }
+
+        public void editGUI(String _type)
+        {
+            function = _type;
+            if (_type.Equals("view"))
+            {
+                SetTextGroupControl("Chi tiết", Color.Empty);
+                enableEdit(false);
+            }
+            else if (_type.Equals("add"))
+            {
+                SetTextGroupControl("Thêm nhóm quyền", Color.Red);
+                enableEdit(true);
+                clearText();
+                txtTen.Focus();
+            }
+            else if (_type.Equals("edit"))
+            {
+                SetTextGroupControl("Sửa nhóm quyền", Color.Red);
+                enableEdit(true);
+                txtTen.Focus();
+            }
+        }
+
+        private void SetTextGroupControl(String text, Color color)
+        {
+            groupControl1.Text = text;
+            groupControl1.AppearanceCaption.ForeColor = color;
+        }
+
+        private void enableEdit(bool _enable)
+        {
+            btnOK.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtKey.Properties.ReadOnly = !_enable;
+            txtTen.Properties.ReadOnly = !_enable;
+            txtMoTa.Properties.ReadOnly = !_enable;
+            working = _enable;
+        }
+
+        private void clearText()
+        {
+            txtKey.Text = "";
+            txtTen.Text = "";
+            txtMoTa.Text = "";
         }
 
         public GridControl getLeftControl()
@@ -40,24 +90,160 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void gridViewGroup_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (e.FocusedRowHandle >= 0)
+            setDataView();
+        }
+
+        private void setDataView()
+        {
+            try
             {
-                objGroup = gridViewGroup.GetRow(e.FocusedRowHandle) as Group;
-                setData(objGroup);
+                dxErrorProvider1.ClearErrors();
+                if (!function.Equals("view"))
+                    editGUI("view");
+                if (gridViewGroup.RowCount > 0)
+                {
+                    if (gridViewGroup.FocusedRowHandle > -1 && gridViewGroup.GetFocusedRow() != null)
+                    {
+                        objGroup = gridViewGroup.GetFocusedRow() as Group;
+                        txtKey.Text = objGroup.key;
+                        txtTen.Text = objGroup.ten;
+                        txtMoTa.Text = objGroup.mota;
+                        listBoxQuyen.DataSource = objGroup.permissions.ToList();
+                    }
+                    else
+                    {
+                        clearText();
+                        objGroup = new Group();
+                    }
+                }
+                else
+                {
+                    //enableButton(false);
+                    clearText();
+                    objGroup = new Group();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setDataView: " + ex.Message);
             }
         }
 
-        private void setData(Group obj)
+        private void setDataObj()
         {
-            txtKey.Text = obj.key;
-            txtTen.Text = obj.ten;
-            txtMoTa.Text = obj.mota;
-            listBoxQuyen.DataSource = obj.permissions.ToList();
+            try
+            {
+                objGroup.key = txtKey.Text;
+                objGroup.ten = txtTen.Text;
+                objGroup.mota = txtMoTa.Text;
+                objGroup.permissions = listPermission;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setDataObj: " + ex.Message);
+            }
+        }
+
+        private void deleteObj()
+        {
+            try
+            {
+                if (objGroup.quantriviens.Count > 0)
+                {
+                    XtraMessageBox.Show("Không thể xóa nhóm quyền này!\r\nNguyên do: Có quản trị viên thuộc nhóm quyền này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (XtraMessageBox.Show("Bạn có chắc là muốn xóa nhóm quyền này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        if (objGroup.delete() > 0 && DBInstance.commit() > 0)
+                        {
+                            XtraMessageBox.Show("Xóa nhóm quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            loadData();
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Xóa nhóm quyền không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->deleteObj: " + ex.Message);
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (checkInput())
+                {
+                    switch (function)
+                    {
+                        case "add":
+                            objGroup = new Group();
+                            setDataObj();
+                            if (objGroup.add() > 0 && DBInstance.commit() > 0)
+                            {
+                                XtraMessageBox.Show("Thêm nhóm quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int id = objGroup.id;
+                                reloadAndFocused(id);
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Thêm nhóm quyền không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            break;
+                        case "edit":
+                            setDataObj();
+                            if (objGroup.update() > 0 && DBInstance.commit() > 0)
+                            {
+                                XtraMessageBox.Show("Sửa nhóm quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int id = objGroup.id;
+                                reloadAndFocused(id);
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Sửa nhóm quyền không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnOk_Click: " + ex.Message);
+            }
+        }
 
+        private void reloadAndFocused(int _id)
+        {
+            loadData();
+            int rowHandle = gridViewGroup.LocateByValue(colid.FieldName, _id);
+            if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                gridViewGroup.FocusedRowHandle = rowHandle;
+        }
+
+        public void showFormPhanQuyen()
+        {
+            frmSuaPermission frm = new frmSuaPermission(objGroup.permissions.ToList());
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                listPermission = frm.getResult();
+                listBoxQuyen.DataSource = listPermission;
+            }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            setDataView();
+        }
+
+        private Boolean checkInput()
+        {
+            return true;
         }
     }
 }

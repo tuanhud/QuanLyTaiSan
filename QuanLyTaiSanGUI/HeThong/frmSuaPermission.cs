@@ -24,7 +24,7 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             InitializeComponent();
 
-            this.input = input;
+            this.input = new List<Permission>(input);
         }
 
         private void frmSuaPermission_Load(object sender, EventArgs e)
@@ -158,6 +158,16 @@ namespace QuanLyTaiSanGUI.HeThong
             checkEdit_quyenThem.Checked = 
             checkEdit_quyenXoa.Checked = 
             checkEdit_quyenSua.Checked = tmp;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

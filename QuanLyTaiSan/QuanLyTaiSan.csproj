@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QuanLyTaiSan</RootNamespace>
     <AssemblyName>QuanLyTaiSan</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -26,6 +26,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,10 +53,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Synchronization, Version=2.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Synchronization.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
@@ -91,7 +92,6 @@
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="DataFilter\DoSearch.cs" />
-    <Compile Include="Entities\GiangVien.cs" />
     <Compile Include="Entities\LogSuCoPhong.cs" />
     <Compile Include="Entities\PhieuMuonPhong.cs" />
     <Compile Include="Entities\SuCoPhong.cs" />
@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.Designer.cs">
       <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs" />
+    <Compile Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.Designer.cs">
+      <DependentUpon>201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.resx">
       <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.resx">
+      <DependentUpon>201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

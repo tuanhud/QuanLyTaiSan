@@ -11,7 +11,7 @@ namespace Web
     public partial class BieuMauMuonPhong : System.Web.UI.Page
     {
         PhieuMuonPhong _PhieuMuonPhong = null;
-        GiangVien _GiangVien = null;
+        //GiangVien _GiangVien = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -47,9 +47,9 @@ namespace Web
                 _PhieuMuonPhong.soluongsv = Int32.Parse(ASPxTextBoxSoLuong.Text);
                 _PhieuMuonPhong.lop = ASPxTextBoxLop.Text;
                 _PhieuMuonPhong.lydomuon = ASPxMemoLyDoMuon.Text;
-                _GiangVien = new GiangVien();
-                _GiangVien.username = "admin";
-                _PhieuMuonPhong.giangvien = _GiangVien;                
+                //_GiangVien = new GiangVien();
+                //_GiangVien.username = "admin";
+                //_PhieuMuonPhong.giangvien = _GiangVien;                
 
                 if (_PhieuMuonPhong.add() > 0)
                 {

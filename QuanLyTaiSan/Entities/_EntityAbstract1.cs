@@ -337,11 +337,6 @@ namespace QuanLyTaiSan.Entities
                 re.Add("uName", Global.current_quantrivien_login.username + " | " +Global.current_quantrivien_login.hoten);
                 re.Add("uID", Global.current_quantrivien_login.id.ToString());
             }
-            if (Global.current_giangvien_login != null)
-            {
-                re.Add("uName2", Global.current_giangvien_login.username + "|" + Global.current_giangvien_login.hoten);
-                re.Add("uID2", Global.current_giangvien_login.id.ToString());
-            }
             if (action_name != null && !action_name.Equals(""))
             {
                 re.Add("action", action_name);
@@ -352,21 +347,21 @@ namespace QuanLyTaiSan.Entities
                 //Hình thức ghép: username | ten | hoten
                 List<string> nicename = new List<string>();
 
-                var ppp = this.GetType().GetProperty("username");
-                if (ppp != null)
-                {
-                    nicename.Add(ppp.GetValue(this).ToString());
-                }
-                ppp = this.GetType().GetProperty("ten");
-                if (ppp != null)
-                {
-                    nicename.Add(ppp.GetValue(this).ToString());
-                }
-                ppp = this.GetType().GetProperty("hoten");
-                if (ppp != null)
-                {
-                    nicename.Add(ppp.GetValue(this).ToString());
-                }
+                //var ppp = this.GetType().GetProperty("username");
+                //if (ppp != null)
+                //{
+                //    nicename.Add(ppp.GetValue(this).ToString());
+                //}
+                //ppp = this.GetType().GetProperty("ten");
+                //if (ppp != null)
+                //{
+                //    nicename.Add(ppp.GetValue(this).ToString());
+                //}
+                //ppp = this.GetType().GetProperty("hoten");
+                //if (ppp != null)
+                //{
+                //    nicename.Add(ppp.GetValue(this).ToString());
+                //}
                 
                 //
                 if (nicename != null && nicename.Count>0)
@@ -399,7 +394,6 @@ namespace QuanLyTaiSan.Entities
                 || this is CTThietBi
                 || this is PhieuMuonPhong
                 || this is ThietBi
-                || this is GiangVien
                 || this is QuanTriVien
                 || this is Group
                 || this is LoaiThietBi

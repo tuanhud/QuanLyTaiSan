@@ -27,8 +27,8 @@ namespace WebQLPH
                             PanelKhongPhaiGiangVien.Visible = true;
                         else
                             PanelMuonPhong.Visible = true;
-                        GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
-                        TextBoxKhoa.Text = _GiangVien.khoa;
+                        QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Session["Username"].ToString());
+                        TextBoxKhoa.Text = _QuanTriVien.donvi;
                     }
                 }
                 catch (Exception ex)
@@ -47,6 +47,13 @@ namespace WebQLPH
                     PanelThongBaoMuonPhong.Visible = true;
                     LabelThongBaoMuonPhong.Text = "Khoa(Phòng) mượn không được rỗng";
                     TextBoxKhoa.Focus();
+                    return;
+                }
+                if (Convert.ToDateTime(TextBoxNgayMuon.Text)< DateTime.Now)
+                {
+                    PanelThongBaoMuonPhong.Visible = true;
+                    LabelThongBaoMuonPhong.Text = "Ngày mượn phòng phải lớn hơn hoặc trùng với ngày hiện tại";
+                    TextBoxNgayMuon.Focus();
                     return;
                 }
                 if (TextBoxNgayMuon.Text.Equals(string.Empty))
@@ -137,15 +144,15 @@ namespace WebQLPH
                 string lydosudung = TextBoxLyDoSuDung.Text;
 
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
-                _PhieuMuonPhong.khoaphongmuon = khoaphongmuon;
+                _PhieuMuonPhong.donvi = khoaphongmuon;
                 _PhieuMuonPhong.ngaymuon = thoigianmuon;
                 _PhieuMuonPhong.ngaytra = thoigiantra;
                 _PhieuMuonPhong.sophong = phong;
                 _PhieuMuonPhong.soluongsv = soluong;
                 _PhieuMuonPhong.lop = lop;
                 _PhieuMuonPhong.lydomuon = lydosudung;
-                GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
-                _PhieuMuonPhong.giangvien = _GiangVien;
+                QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Session["Username"].ToString());
+                _PhieuMuonPhong.nguoimuon = _QuanTriVien;
 
                 if (_PhieuMuonPhong.add() > 0 && DBInstance.commit() > 0)
                 {

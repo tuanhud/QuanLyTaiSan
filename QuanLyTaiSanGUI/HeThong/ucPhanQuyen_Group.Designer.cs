@@ -37,8 +37,6 @@
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.btnHuy_Quyen = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK_Quyen = new DevExpress.XtraEditors.SimpleButton();
             this.listBoxQuyen = new DevExpress.XtraEditors.ListBoxControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -49,6 +47,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtKey = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGroup)).BeginInit();
@@ -63,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -86,7 +86,7 @@
             this.gridControlGroup.Location = new System.Drawing.Point(0, 0);
             this.gridControlGroup.MainView = this.gridViewGroup;
             this.gridControlGroup.Name = "gridControlGroup";
-            this.gridControlGroup.Size = new System.Drawing.Size(386, 492);
+            this.gridControlGroup.Size = new System.Drawing.Size(387, 492);
             this.gridControlGroup.TabIndex = 0;
             this.gridControlGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGroup});
@@ -100,6 +100,11 @@
             this.colmota});
             this.gridViewGroup.GridControl = this.gridControlGroup;
             this.gridViewGroup.Name = "gridViewGroup";
+            this.gridViewGroup.OptionsBehavior.Editable = false;
+            this.gridViewGroup.OptionsBehavior.ReadOnly = true;
+            this.gridViewGroup.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridViewGroup.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewGroup.OptionsView.ShowGroupPanel = false;
             this.gridViewGroup.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewGroup_FocusedRowChanged);
             // 
             // colid
@@ -145,8 +150,6 @@
             // 
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.groupControl2.Controls.Add(this.btnHuy_Quyen);
-            this.groupControl2.Controls.Add(this.btnOK_Quyen);
             this.groupControl2.Controls.Add(this.listBoxQuyen);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 202);
@@ -155,33 +158,15 @@
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Quyền";
             // 
-            // btnHuy_Quyen
-            // 
-            this.btnHuy_Quyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnHuy_Quyen.Location = new System.Drawing.Point(144, 262);
-            this.btnHuy_Quyen.Name = "btnHuy_Quyen";
-            this.btnHuy_Quyen.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy_Quyen.TabIndex = 2;
-            this.btnHuy_Quyen.Text = "Hủy";
-            // 
-            // btnOK_Quyen
-            // 
-            this.btnOK_Quyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOK_Quyen.Location = new System.Drawing.Point(63, 262);
-            this.btnOK_Quyen.Name = "btnOK_Quyen";
-            this.btnOK_Quyen.Size = new System.Drawing.Size(75, 23);
-            this.btnOK_Quyen.TabIndex = 1;
-            this.btnOK_Quyen.Text = "OK";
-            // 
             // listBoxQuyen
             // 
             this.listBoxQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxQuyen.DisplayMember = "mota";
+            this.listBoxQuyen.DisplayMember = "translated";
             this.listBoxQuyen.Location = new System.Drawing.Point(6, 27);
             this.listBoxQuyen.Name = "listBoxQuyen";
-            this.listBoxQuyen.Size = new System.Drawing.Size(309, 229);
+            this.listBoxQuyen.Size = new System.Drawing.Size(309, 258);
             this.listBoxQuyen.TabIndex = 0;
             this.listBoxQuyen.ValueMember = "id";
             // 
@@ -211,6 +196,7 @@
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
@@ -273,6 +259,10 @@
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // ucPhanQuyen_Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -320,7 +311,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colkey;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colmota;
-        private DevExpress.XtraEditors.SimpleButton btnHuy_Quyen;
-        private DevExpress.XtraEditors.SimpleButton btnOK_Quyen;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }

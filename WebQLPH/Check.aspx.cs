@@ -23,14 +23,14 @@ namespace WebQLPH
                     }
                     else
                     {
-                        if (GiangVien.isUsernameExist(TextBoxTaiKhoan))
+                        if (QuanTriVien.isUsernameExist(TextBoxTaiKhoan))
                             Response.Write("1");
                         else Response.Write("-1");
                     }
                 }
                 else
                 {
-                    if (GiangVien.isUsernameExist(TextBoxTaiKhoan))
+                    if (QuanTriVien.isUsernameExist(TextBoxTaiKhoan))
                         Response.Write("1");
                     else Response.Write("-1");
                 }
