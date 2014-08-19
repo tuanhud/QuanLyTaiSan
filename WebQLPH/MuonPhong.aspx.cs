@@ -27,8 +27,8 @@ namespace WebQLPH
                             PanelKhongPhaiGiangVien.Visible = true;
                         else
                             PanelMuonPhong.Visible = true;
-                        GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
-                        TextBoxKhoa.Text = _GiangVien.khoa;
+                        QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Session["Username"].ToString());
+                        TextBoxKhoa.Text = _QuanTriVien.donvi;
                     }
                 }
                 catch (Exception ex)
@@ -151,8 +151,8 @@ namespace WebQLPH
                 _PhieuMuonPhong.soluongsv = soluong;
                 _PhieuMuonPhong.lop = lop;
                 _PhieuMuonPhong.lydomuon = lydosudung;
-                GiangVien _GiangVien = GiangVien.getByUserName(Session["Username"].ToString());
-                _PhieuMuonPhong.giangvien = _GiangVien;
+                QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Session["Username"].ToString());
+                _PhieuMuonPhong.nguoimuon = _QuanTriVien;
 
                 if (_PhieuMuonPhong.add() > 0 && DBInstance.commit() > 0)
                 {

@@ -71,9 +71,9 @@
     width:100%;
     max-width: 300px;
 }
-#PanelThongTinCaNhan {
-     max-width: 600px;
-     margin: 0 auto;
+#PanelThongTinCaNhan, #PanelEditThongTinCaNhan {
+    max-width: 600px;
+    margin: 0 auto;
 }
 .right {
     float:right;

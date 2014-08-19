@@ -248,5 +248,15 @@ namespace QuanLyTaiSan.Libraries
             uriBuilder.Query = query.ToString();
             return new Uri(uriBuilder.ToString());
         }
+
+        public static String ConvertRNToBR(string content)
+        {
+            return content.Replace("\r\n", "<br />");
+        }
+
+        public static String ConvertBRToRN(string content)
+        {
+            return content.Replace("<br />", "\r\n");
+        }
     }
 }

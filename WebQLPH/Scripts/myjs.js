@@ -66,7 +66,9 @@ function checktaikhoan(loai) {
 	    }
 	});
 }
+
 $(document).ready(function () {
+    $("alert").hide();
     $('#TextBoxTaiKhoan').keyup(function () {
         if ($("#TextBoxTaiKhoan").val() != "") {
             checktaikhoan(taikhoan);
@@ -76,7 +78,7 @@ $(document).ready(function () {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             var id = $("#HiddenFieldID").val();
-            if(id == "")
+            if (id == "")
                 $("#ButtonThemMoi").click();
             else
                 $("#ButtonLuu").click();
