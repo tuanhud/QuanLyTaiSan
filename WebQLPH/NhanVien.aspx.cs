@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Libraries;
 using WebQLPH.UserControl.NhanVien;
+using System.Text;
 
 namespace WebQLPH
 {
@@ -15,6 +16,10 @@ namespace WebQLPH
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Đặt tên để set class, đặt tên in hoa
+            Default SetClassActive = this.Master as Default;
+            SetClassActive.page = "NHANVIEN";
+
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {

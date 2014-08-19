@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,12 +16,26 @@ namespace WebQLPH
     {
         string folder_img = "/ImageUpload/";
         string folder_thumb = "Thumb/";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                // Đặt tên để set class, đặt tên in hoa
+                Default SetClassActive = this.Master as Default;
+                SetClassActive.page = "QUANLYHINHANH";
+
+                CreateFolder(folder_img);
+                CreateFolder(folder_img + folder_thumb);
                 ListImage();
             }
+        }
+
+        protected void CreateFolder(string FolderName)
+        {
+            string FullPathFolderName = Server.MapPath(Path.Combine(FolderName));
+            if (!Directory.Exists(FullPathFolderName))
+                Directory.CreateDirectory(FullPathFolderName);
         }
 
         protected void ButtonTaiLen_Click(object sender, EventArgs e)
@@ -31,9 +46,10 @@ namespace WebQLPH
                 if (ImageUpload.HasFile)
                 {
                     string NameFileImage = "", NameFileImageDaCo = "";
+
                     foreach (HttpPostedFile imageupload in ImageUpload.PostedFiles)
                     {
-                        if (imageupload.ContentType == "image/jpeg")
+                        if (imageupload.ContentType.Contains("image"))
                         {
                             DirectoryInfo dirInfo = new DirectoryInfo(Server.MapPath(folder_img));
                             if (File.Exists(dirInfo + imageupload.FileName))
@@ -77,7 +93,7 @@ namespace WebQLPH
             {
                 PanelThongBao.Visible = true;
                 LabelThongBao.Text = "<div class='alert alert-danger' role='alert'>Có lỗi trong khi tải lên</div>";
-                Console.Write(ex);
+                Response.Write(ex);
             }
         }
 
