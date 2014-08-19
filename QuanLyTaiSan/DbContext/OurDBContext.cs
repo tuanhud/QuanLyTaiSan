@@ -150,7 +150,6 @@ namespace QuanLyTaiSan.Entities
         public DbSet<ViTri> VITRIS { get; set; }
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
         public DbSet<Setting> SETTINGS { get; set; }
-        public DbSet<GiangVien> GIANGVIENS { get; set; }
         public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
         #region STATIC
         /// <summary>
@@ -195,7 +194,6 @@ namespace QuanLyTaiSan.Entities
                     
                     "SETTINGS",//UNDEPENDENT
                     "LOGHETHONGS",//UNDEPENDENT
-                    "GIANGVIENS",//UNDEPENDENT
                     "PHIEUMUONPHONGS",
 
                     "HINHANHS",
@@ -258,7 +256,6 @@ namespace QuanLyTaiSan.Entities
                 PERMISSIONS.Find(1);
                 SUCOPHONGS.Find(1);
                 GROUPS.Find(1);
-                GIANGVIENS.Find(1);
                 PHIEUMUONPHONGS.Find(1);
 
                 return true;
@@ -383,15 +380,21 @@ namespace QuanLyTaiSan.Entities
                 x.MapInheritedProperties();
             });
 
-            modelBuilder.Entity<GiangVien>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
             modelBuilder.Entity<PhieuMuonPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
+            /*
+             * Double 1-n relationship PHIEUMUONPHONG~QUANTRIVIEN
+             */
+            //modelBuilder.Entity<PhieuMuonPhong>()
+            //.HasRequired(a => a.nguoimuon)
+            //.WithMany(b => b.phieudamuons);
+
+            //modelBuilder.Entity<PhieuMuonPhong>()
+            //.HasOptional(a => a.nguoiduyet)
+            //.WithMany(b => b.phieudaduyets);
+
             /*
              * n-n relationship COSO, DAY, TANG, PHONG - PERMISSION
              */

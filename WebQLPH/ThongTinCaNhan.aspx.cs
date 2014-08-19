@@ -16,7 +16,14 @@ namespace WebQLPH
                 // Đặt tên để set class, đặt tên in hoa
                 Default SetClassActive = this.Master as Default;
                 SetClassActive.page = "THONGTINCANHAN";
+                
             }
+        }
+
+        protected void LinkButtonEditThongTinCaNhan_Click(object sender, EventArgs e)
+        {
+            PanelEditThongTinCaNhan.Visible = true;
+            PanelThongTinCaNhan.Visible = false;
         }
     }
 }

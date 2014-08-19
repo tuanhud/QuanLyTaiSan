@@ -21,7 +21,15 @@ namespace QuanLyTaiSan.Entities
         }
         
         #region Định nghĩa thuộc tính
-
+        /// <summary>
+        /// Dơn vị mà quản trị viên này trực thuộc
+        /// ,có thể là: Phòng Ban, Khoa, Đơn vị,... nào đó
+        /// </summary>
+        public String donvi { get; set; }
+        /// <summary>
+        /// email dùng để cấp lại mật khẩu hoặc để thông báo thông tin
+        /// </summary>
+        public String email { get; set; }
         /*
          * FK
          */
@@ -33,7 +41,15 @@ namespace QuanLyTaiSan.Entities
 
         public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
+        /// <summary>
+        /// DS Phòng được phân công là người phụ trách
+        /// </summary>
         public virtual ICollection<Phong> phongs { get; set; }
+
+        /// <summary>
+        /// Danh sách phiếu mà Quản trị viên này mượn
+        /// </summary>
+        
         public virtual ICollection<PhieuMuonPhong> phieumuonphongs { get; set; }
         #endregion
 

@@ -49,6 +49,13 @@ namespace WebQLPH
                     TextBoxKhoa.Focus();
                     return;
                 }
+                if (Convert.ToDateTime(TextBoxNgayMuon.Text)< DateTime.Now)
+                {
+                    PanelThongBaoMuonPhong.Visible = true;
+                    LabelThongBaoMuonPhong.Text = "Ngày mượn phòng phải lớn hơn hoặc trùng với ngày hiện tại";
+                    TextBoxNgayMuon.Focus();
+                    return;
+                }
                 if (TextBoxNgayMuon.Text.Equals(string.Empty))
                 {
                     PanelThongBaoMuonPhong.Visible = true;
@@ -137,7 +144,7 @@ namespace WebQLPH
                 string lydosudung = TextBoxLyDoSuDung.Text;
 
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
-                _PhieuMuonPhong.khoaphongmuon = khoaphongmuon;
+                _PhieuMuonPhong.donvi = khoaphongmuon;
                 _PhieuMuonPhong.ngaymuon = thoigianmuon;
                 _PhieuMuonPhong.ngaytra = thoigiantra;
                 _PhieuMuonPhong.sophong = phong;
