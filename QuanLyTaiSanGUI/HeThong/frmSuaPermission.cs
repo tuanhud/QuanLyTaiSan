@@ -159,5 +159,15 @@ namespace QuanLyTaiSanGUI.HeThong
             checkEdit_quyenXoa.Checked = 
             checkEdit_quyenSua.Checked = tmp;
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

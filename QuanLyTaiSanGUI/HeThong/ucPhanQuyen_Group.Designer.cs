@@ -163,7 +163,7 @@
             this.listBoxQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxQuyen.DisplayMember = "mota";
+            this.listBoxQuyen.DisplayMember = "translated";
             this.listBoxQuyen.Location = new System.Drawing.Point(6, 27);
             this.listBoxQuyen.Name = "listBoxQuyen";
             this.listBoxQuyen.Size = new System.Drawing.Size(309, 258);

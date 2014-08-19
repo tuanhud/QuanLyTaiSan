@@ -229,7 +229,11 @@ namespace QuanLyTaiSanGUI.HeThong
         public void showFormPhanQuyen()
         {
             frmSuaPermission frm = new frmSuaPermission(objGroup.permissions.ToList());
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                listPermission = frm.getResult();
+                listBoxQuyen.DataSource = listPermission;
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
