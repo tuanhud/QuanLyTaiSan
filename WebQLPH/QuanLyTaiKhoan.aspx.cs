@@ -42,12 +42,12 @@ namespace WebQLPH
                         if (Request["op"].Equals("xoa"))
                         {
                             int id = Convert.ToInt32(Request["id"].ToString());
-                            GiangVien _GiangVien = new GiangVien();
-                            _GiangVien = GiangVien.getById(id);
-                            if (_GiangVien.delete() > 0 && DBInstance.commit() > 0)
+                            QuanTriVien _QuanTriVien = new QuanTriVien();
+                            _QuanTriVien = QuanTriVien.getById(id);
+                            if (_QuanTriVien.delete() > 0 && DBInstance.commit() > 0)
                             {
                                 PanelThanhCong.Visible = true;
-                                LabelThongBaoThanhCong.Text = "Đã xóa tài khoản <strong>" + _GiangVien.username + "</strong> ra khỏi hệ thống";
+                                LabelThongBaoThanhCong.Text = "Đã xóa tài khoản <strong>" + _QuanTriVien.username + "</strong> ra khỏi hệ thống";
                                 _QuanLyTaiKhoan();
                             }
                             else
@@ -73,7 +73,7 @@ namespace WebQLPH
 
         protected void _QuanLyTaiKhoan()
         {
-            List<GiangVien> ListGiangVien = GiangVien.getQuery().ToList();
+            List<QuanTriVien> ListGiangVien = QuanTriVien.getQuery().ToList();
 
             CollectionPagerQuanLyTaiKhoan.DataSource = ListGiangVien;
             CollectionPagerQuanLyTaiKhoan.BindToControl = RepeaterQuanLyTaiKhoan;
@@ -91,20 +91,20 @@ namespace WebQLPH
         {
             try
             {
-                GiangVien _GiangVien = new GiangVien();
+                QuanTriVien _QuanTriVien = new QuanTriVien();
                 int id = Convert.ToInt32(HiddenFieldID.Value);
-                _GiangVien = GiangVien.getById(id);
-                _GiangVien.hoten = TextBoxHoTen.Text;
-                _GiangVien.email = TextBoxEmail.Text;
-                _GiangVien.username = TextBoxTaiKhoan.Text;
+                _QuanTriVien = QuanTriVien.getById(id);
+                _QuanTriVien.hoten = TextBoxHoTen.Text;
+                _QuanTriVien.email = TextBoxEmail.Text;
+                _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if(!TextBoxMatKhau.Text.Equals(string.Empty))
-                    _GiangVien.password = TextBoxMatKhau.Text;
-                _GiangVien.khoa = TextBoxKhoa.Text;
-                _GiangVien.mota = TextBoxGhiChu.Text;
-                if (_GiangVien.update() > 0 && DBInstance.commit() > 0)
+                    _QuanTriVien.password = TextBoxMatKhau.Text;
+                _QuanTriVien.donvi = TextBoxKhoa.Text;
+                _QuanTriVien.mota = TextBoxGhiChu.Text;
+                if (_QuanTriVien.update() > 0 && DBInstance.commit() > 0)
                 {
                     PanelThanhCong.Visible = true;
-                    LabelThongBaoThanhCong.Text = "Chỉnh sửa tài khoản <strong>" + _GiangVien.username + "</strong> thành công";
+                    LabelThongBaoThanhCong.Text = "Chỉnh sửa tài khoản <strong>" + _QuanTriVien.username + "</strong> thành công";
                     _QuanLyTaiKhoan();
                 }
                 else
@@ -123,17 +123,17 @@ namespace WebQLPH
         {
             try
             {
-                GiangVien _GiangVien = new GiangVien();
-                _GiangVien.hoten = TextBoxHoTen.Text;
-                _GiangVien.email = TextBoxEmail.Text;
-                _GiangVien.username = TextBoxTaiKhoan.Text;
-                _GiangVien.changePassword(TextBoxMatKhau.Text);
-                _GiangVien.khoa = TextBoxKhoa.Text;
-                _GiangVien.mota = TextBoxGhiChu.Text;
-                if (_GiangVien.add() > 0 && DBInstance.commit() > 0)
+                QuanTriVien _QuanTriVien = new QuanTriVien();
+                _QuanTriVien.hoten = TextBoxHoTen.Text;
+                _QuanTriVien.email = TextBoxEmail.Text;
+                _QuanTriVien.username = TextBoxTaiKhoan.Text;
+                _QuanTriVien.changePassword(TextBoxMatKhau.Text);
+                _QuanTriVien.donvi = TextBoxKhoa.Text;
+                _QuanTriVien.mota = TextBoxGhiChu.Text;
+                if (_QuanTriVien.add() > 0 && DBInstance.commit() > 0)
                 {
                     PanelThanhCong.Visible = true;
-                    LabelThongBaoThanhCong.Text = "Thêm mới tài khoản <strong>" + _GiangVien.username + "</strong> thành công";
+                    LabelThongBaoThanhCong.Text = "Thêm mới tài khoản <strong>" + _QuanTriVien.username + "</strong> thành công";
                     _QuanLyTaiKhoan();
                 }
                 else
