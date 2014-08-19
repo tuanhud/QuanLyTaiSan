@@ -51,8 +51,8 @@ namespace WebQLPH
             else
             {
                 LabelPanel.Text = "DANH SÁCH PHÒNG BẠN ĐÃ MƯỢN";
-                GiangVien _GiangVien = GiangVien.getByUserName(Convert.ToString(Session["UserName"]));
-                ListPhieuMuonPhong = _GiangVien.phieumuonphongs.OrderByDescending(c => c.id).ToList();
+                QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
+                ListPhieuMuonPhong = _QuanTriVien.phieumuonphongs.OrderByDescending(c => c.id).ToList();
             }
 
             CollectionPagerQuanLyMuonPhong.DataSource = ListPhieuMuonPhong;
@@ -69,7 +69,7 @@ namespace WebQLPH
         protected string NgayTao()
         {
             DateTime dt = Convert.ToDateTime(Eval("date_create").ToString());
-            return dt.ToString("HH\\hmm d/M/yyyy");
+            return dt.ToString("d/M/yyyy HH\\hmm");
         }
         protected string NgayMuon()
         {
@@ -140,7 +140,7 @@ namespace WebQLPH
                 {
                     if (CheckBoxGuiMailThongBao.Checked == true)
                     {
-                        string to = _PhieuMuonPhong.giangvien.email;
+                        string to = _PhieuMuonPhong.nguoiduyet.email;
                         string sub = "[Thông Báo] V/v mượn phòng ngày " + Convert.ToDateTime(_PhieuMuonPhong.date_create).ToString("d/M/yyyy");
                         string tinhtrang = string.Empty;
                         switch(_PhieuMuonPhong.trangthai)
@@ -155,7 +155,7 @@ namespace WebQLPH
                                 tinhtrang = "đã được chấp nhận";
                                 break;
                         }
-                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.mota.Replace("\r\n", "<br />"), _PhieuMuonPhong.nguoiduyet.hoten, _PhieuMuonPhong.giangvien.email);
+                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.nguoiduyet.hoten, tinhtrang, _PhieuMuonPhong.mota.Replace("\r\n", "<br />"), _PhieuMuonPhong.nguoiduyet.hoten, _PhieuMuonPhong.nguoiduyet.email);
                         EmailHelper.sendMail(to, sub, msg);
                     }
                     QuanLyPhongMuon();

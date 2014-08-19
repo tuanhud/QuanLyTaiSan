@@ -47,6 +47,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtKey = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGroup)).BeginInit();
@@ -61,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -98,6 +100,11 @@
             this.colmota});
             this.gridViewGroup.GridControl = this.gridControlGroup;
             this.gridViewGroup.Name = "gridViewGroup";
+            this.gridViewGroup.OptionsBehavior.Editable = false;
+            this.gridViewGroup.OptionsBehavior.ReadOnly = true;
+            this.gridViewGroup.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridViewGroup.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewGroup.OptionsView.ShowGroupPanel = false;
             this.gridViewGroup.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewGroup_FocusedRowChanged);
             // 
             // colid
@@ -156,7 +163,7 @@
             this.listBoxQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxQuyen.DisplayMember = "mota";
+            this.listBoxQuyen.DisplayMember = "translated";
             this.listBoxQuyen.Location = new System.Drawing.Point(6, 27);
             this.listBoxQuyen.Name = "listBoxQuyen";
             this.listBoxQuyen.Size = new System.Drawing.Size(309, 258);
@@ -252,6 +259,10 @@
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // ucPhanQuyen_Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +311,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colkey;
         private DevExpress.XtraGrid.Columns.GridColumn colten;
         private DevExpress.XtraGrid.Columns.GridColumn colmota;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }
