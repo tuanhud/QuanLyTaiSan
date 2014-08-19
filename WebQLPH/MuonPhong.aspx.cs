@@ -137,7 +137,7 @@ namespace WebQLPH
                 string lydosudung = TextBoxLyDoSuDung.Text;
 
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
-                _PhieuMuonPhong.khoaphongmuon = khoaphongmuon;
+                _PhieuMuonPhong.donvi = khoaphongmuon;
                 _PhieuMuonPhong.ngaymuon = thoigianmuon;
                 _PhieuMuonPhong.ngaytra = thoigiantra;
                 _PhieuMuonPhong.sophong = phong;

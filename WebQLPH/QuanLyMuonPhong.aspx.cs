@@ -132,10 +132,10 @@ namespace WebQLPH
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
                 _PhieuMuonPhong = PhieuMuonPhong.getById(Convert.ToInt32(HiddenFieldID.Value));
                 _PhieuMuonPhong.trangthai = Convert.ToInt32(DropDownListTrangThai.SelectedValue);
-                _PhieuMuonPhong.ghichu = TextBoxGhiChu.Text;
+                _PhieuMuonPhong.mota = TextBoxGhiChu.Text;
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien = QuanTriVien.getByUserName(Session["username"].ToString());
-                _PhieuMuonPhong.quantrivien = _QuanTriVien;
+                _PhieuMuonPhong.nguoiduyet = _QuanTriVien;
                 if (_PhieuMuonPhong.update() > 0 && DBInstance.commit() > 0)
                 {
                     if (CheckBoxGuiMailThongBao.Checked == true)
@@ -155,7 +155,7 @@ namespace WebQLPH
                                 tinhtrang = "đã được chấp nhận";
                                 break;
                         }
-                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.ghichu.Replace("\r\n", "<br />"), _PhieuMuonPhong.quantrivien.hoten, _PhieuMuonPhong.giangvien.email);
+                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.giangvien.hoten, tinhtrang, _PhieuMuonPhong.mota.Replace("\r\n", "<br />"), _PhieuMuonPhong.nguoiduyet.hoten, _PhieuMuonPhong.giangvien.email);
                         EmailHelper.sendMail(to, sub, msg);
                     }
                     QuanLyPhongMuon();

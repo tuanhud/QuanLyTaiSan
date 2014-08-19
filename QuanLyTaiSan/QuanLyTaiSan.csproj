@@ -91,7 +91,6 @@
     <Compile Include="DataFilter\QuanTriVienFilter.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="DataFilter\DoSearch.cs" />
-    <Compile Include="Entities\GiangVien.cs" />
     <Compile Include="Entities\LogSuCoPhong.cs" />
     <Compile Include="Entities\PhieuMuonPhong.cs" />
     <Compile Include="Entities\SuCoPhong.cs" />
@@ -146,6 +145,10 @@
     <Compile Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.Designer.cs">
       <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs" />
+    <Compile Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.Designer.cs">
+      <DependentUpon>201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -165,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.resx">
       <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.resx">
+      <DependentUpon>201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

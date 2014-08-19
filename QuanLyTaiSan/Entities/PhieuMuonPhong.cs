@@ -13,10 +13,14 @@ namespace QuanLyTaiSan.Entities
     {
         #region Dinh nghia
         /// <summary>
-        /// Ngày bắt đầu mượn
+        /// Đơn vị mượn: vd Khoa, Phòng, Ban, ....,
+        /// Có thể khác với ĐƠn vị mà quản trị viên trực thuộc
         /// </summary>
         [Required]
-        public String khoaphongmuon { get; set; }
+        public String donvi { get; set; }
+        /// <summary>
+        /// Ngày bắt đầu mượn
+        /// </summary>
         [Required]
         public DateTime ngaymuon { get; set; }
         /// <summary>
@@ -25,13 +29,17 @@ namespace QuanLyTaiSan.Entities
         [Required]
         public DateTime ngaytra { get; set; }
         public String lydomuon { get; set; }
+
+        /// <summary>
+        /// Khi duyệt phòng, Quản trị viên cần ghi chú lý do duyệt (hủy, cấp, ...)
+        /// </summary>
+        public String ghichu { get; set; }
         /// <summary>
         /// 0: Chưa xử lý/Mới,
         /// 1: Đã được chấp nhận,
         /// -1: Đã bị từ chối
         /// </summary>
         public int trangthai { get; set; }
-        public String ghichu { get; set; }
         /// <summary>
         /// Mượn cho lớp nào (nếu có)
         /// </summary>
@@ -41,18 +49,19 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-       
+        public int nguoimuon_id { get; set; }       
         /// <summary>
-        /// Người đệ trình phiếu
+        /// Người tạo phiếu
         /// </summary>
         [Required]
-        public virtual GiangVien giangvien { get; set; }
+        [ForeignKey("nguoimuon_id")]
+        public virtual QuanTriVien nguoimuon { get; set; }
         /// <summary>
-        /// Người xử lý phiếu
+        /// Người xử lý (duyệt) phiếu
         /// </summary>
-        public int? quantrivien_id { get; set; }
-        [ForeignKey("quantrivien_id")]
-        public virtual QuanTriVien quantrivien { get; set; }
+        public int? nguoiduyet_id { get; set; }
+        [ForeignKey("nguoiduyet_id")]
+        public virtual QuanTriVien nguoiduyet { get; set; }
         [Required]
         public int soluongsv { get; set; }
         #endregion
@@ -64,13 +73,13 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            if (giangvien != null)
+            if (nguoimuon != null)
             {
-                giangvien.trigger();
+                nguoimuon.trigger();
             }
-            if (quantrivien != null)
+            if (nguoiduyet != null)
             {
-                quantrivien.trigger();
+                nguoiduyet.trigger();
             }
 
             return base.update();
