@@ -54,9 +54,11 @@
     <Reference Include="DevExpress.Web.ASPxThemes.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -131,6 +133,9 @@
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
+    <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
+    <Content Include="UserControl\ViTri\ucViTri_Web.ascx" />
+    <Content Include="ViTri.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
@@ -226,6 +231,27 @@
     </Compile>
     <Compile Include="UserControl\ucDangNhap.ascx.designer.cs">
       <DependentUpon>ucDangNhap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Mobile.ascx.cs">
+      <DependentUpon>ucViTri_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Mobile.ascx.designer.cs">
+      <DependentUpon>ucViTri_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Web.ascx.cs">
+      <DependentUpon>ucViTri_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Web.ascx.designer.cs">
+      <DependentUpon>ucViTri_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViTri.aspx.cs">
+      <DependentUpon>ViTri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViTri.aspx.designer.cs">
+      <DependentUpon>ViTri.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
