@@ -45,9 +45,17 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public Boolean can_view { get; set; }
         /// <summary>
-        /// Quyền thêm, sửa, xóa
+        /// Quyền sửa
         /// </summary>
         public Boolean can_edit { get; set; }
+        /// <summary>
+        /// Quyền xóa
+        /// </summary>
+        public Boolean can_delete { get; set; }
+        /// <summary>
+        /// Quyền thêm
+        /// </summary>
+        public Boolean can_add { get; set; }
         /*
          * FK
          */
@@ -84,8 +92,105 @@ namespace QuanLyTaiSan.Entities
         protected override void init()
         {
             base.init();
-            this.groups = new List<Group>();
+            this.cosos = new List<CoSo>();
+            this.days = new List<Dayy>();
+            this.tangs = new List<Tang>();
+            this.phongs = new List<Phong>();
+
         }
+        #endregion
+
+        #region NotMapped
+        /// <summary>
+        /// Hiển thị thông tin chi tiết về quyền này cho người dùng dễ hiểu
+        /// </summary>
+        [NotMapped]
+        public String translated
+        {
+            get
+            {
+                String tmp = "";
+                tmp += allow_or_deny ? "Cho phép: " : "Cấm: ";
+                //Quyền cố định
+                if (stand_alone)
+                {
+                    tmp += mota;
+                    goto done;
+                }
+                tmp += can_view ? "Xem, " : "";
+                tmp += can_add ? "Thêm, " : "";
+                tmp += can_edit ? "Sửa, " : "";
+                tmp += can_delete ? "Xóa, " : "";
+
+                tmp += "trên ";
+                
+                //Cơ sở
+                if (key.ToUpper().Equals("COSO"))
+                {
+                    if (cosos.Count == 0)
+                    {
+                        tmp += "tất cả Cơ sở ";
+                    }
+                    else
+                    {
+                        tmp += "Cơ sở {";
+                        tmp +=String.Join(", ", cosos.Select(c => c.ten+" [ID="+c.id+"]"));
+                        tmp += "} ";
+                    }
+                    goto done;
+                }
+                //Dãy
+                if (key.ToUpper().Equals("DAY"))
+                {
+                    if (days.Count == 0)
+                    {
+                        tmp += "tất cả Dãy ";
+                    }
+                    else
+                    {
+                        tmp += "Dãy {";
+                        tmp += String.Join(", ", days.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += "} ";
+                    }
+                    goto done;
+                }
+                //Tầng
+                if (key.ToUpper().Equals("TANG"))
+                {
+                    if (days.Count == 0)
+                    {
+                        tmp += "tất cả Tầng ";
+                    }
+                    else
+                    {
+                        tmp += "Tầng {";
+                        tmp += String.Join(", ", days.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += "} ";
+                    }
+                    goto done;
+                }
+                //Phòng
+                if (key.ToUpper().Equals("PHONG"))
+                {
+                    if (days.Count == 0)
+                    {
+                        tmp += "tất cả Phòng ";
+                    }
+                    else
+                    {
+                        tmp += "Phòng {";
+                        tmp += String.Join(", ", phongs.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += "} ";
+                    }
+                    goto done;
+                }
+                //finish
+                done:
+                    tmp += recursive_to_child && !stand_alone ? "(và tất cả các đối tượng con cháu)" : "";
+                    return tmp;
+            }
+        }
+
         #endregion
     }
 }

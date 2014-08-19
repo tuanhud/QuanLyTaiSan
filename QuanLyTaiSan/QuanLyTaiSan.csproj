@@ -77,9 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFilter\ChiTietTBHienThi.cs" />
+    <Compile Include="DataFilter\DayyFilter.cs" />
     <Compile Include="DataFilter\FilterAbstract.cs" />
     <Compile Include="DataFilter\LoaiTBHienThi.cs" />
     <Compile Include="DataFilter\NhanVienPTFilter.cs" />
+    <Compile Include="DataFilter\PhongFilter2.cs" />
+    <Compile Include="DataFilter\TangFilter.cs" />
     <Compile Include="DataFilter\ThietBiHienThi.cs" />
     <Compile Include="DataFilter\TKSLThietBiFilter.cs" />
     <Compile Include="DataFilter\ViTriHienThi.cs" />
@@ -139,6 +142,10 @@
     <Compile Include="Migrations\201408171401413_permission_framework.Designer.cs">
       <DependentUpon>201408171401413_permission_framework.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.cs" />
+    <Compile Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.Designer.cs">
+      <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -155,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408171401413_permission_framework.resx">
       <DependentUpon>201408171401413_permission_framework.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.resx">
+      <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

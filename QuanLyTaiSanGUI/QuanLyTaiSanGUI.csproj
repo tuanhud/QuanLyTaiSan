@@ -137,6 +137,12 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\frmSuaPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frmSuaPermission.Designer.cs">
+      <DependentUpon>frmSuaPermission.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\ucLogHeThong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -434,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\frmSuaPermission.resx">
+      <DependentUpon>frmSuaPermission.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucLogHeThong.resx">
       <DependentUpon>ucLogHeThong.cs</DependentUpon>

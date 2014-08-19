@@ -1,4 +1,6 @@
 ﻿using DevExpress.LookAndFeel;
+using QuanLyTaiSan.Entities;
+using QuanLyTaiSanGUI.HeThong;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,7 @@ namespace QuanLyTaiSanGUI
             //Application.Run(new frmThuVienHinhAnh());
             //Application.Run(new Test());
             Application.Run(new Setting());
+            //Application.Run(new frmSuaPermission(QuanTriVien.getByUserName("admin").group.permissions.ToList()));
             //Application.Run(new frmMain());
             //Application.Run(new SplashScreen1());
         }

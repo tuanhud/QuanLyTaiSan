@@ -32,7 +32,7 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
-        internal bool canEdit<T>(T __obj) where T:_EntityAbstract1<T>
+        public bool canEdit<T>(T __obj) where T:_EntityAbstract1<T>
         {
             Boolean re = false;
             if (__obj == null)
@@ -41,15 +41,22 @@ namespace QuanLyTaiSan.Entities
             }
             String obj_type = "";
             //Xét quyền từ cao đến thấp (từ ưu tiên cao hơn xuống ưu tiên thấp hơn)
+            //Quyền ROOT
+            if (permissions.Where(c => c.key.ToUpper().Equals("ROOT")).FirstOrDefault() != null)
+            {
+                goto done;
+            }
+            //Quyền trên Object hoặc Fixed
             if (__obj is CoSo)
             {
                 obj_type = "COSO";
                 var obj = __obj as CoSo;
-                //Quyền ROOT
                 
                 //Quyền Edit trên mọi Cơ sở hoặc trên CS này
                 re = permissions.Where(
                     c =>
+                        c.allow_or_deny==true
+                        &&
                         c.key.ToUpper().Equals(obj_type)
                         &&
                         c.can_edit == true
@@ -65,7 +72,6 @@ namespace QuanLyTaiSan.Entities
             {
                 obj_type = "DAY";
                 var obj = __obj as Dayy;
-                //Quyền ROOT
                 
                 //Quyền edit CS chứa dãy này
                 re = canEdit<CoSo>(obj.coso);
@@ -163,12 +169,19 @@ namespace QuanLyTaiSan.Entities
                 return re;
         }
 
-        internal bool canView<T>(T obj)
+        public bool canView<T>(T obj) where T : _EntityAbstract1<T>
         {
             throw new NotImplementedException();
         }
-
-        internal bool canDo(string fixed_permission)
+        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        {
+            throw new NotImplementedException();
+        }
+        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        {
+            throw new NotImplementedException();
+        }
+        public bool canDo(string fixed_permission)
         {
             throw new NotImplementedException();
         }
