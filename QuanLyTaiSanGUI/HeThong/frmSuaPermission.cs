@@ -24,7 +24,7 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             InitializeComponent();
 
-            this.input = input;
+            this.input = new List<Permission>(input);
         }
 
         private void frmSuaPermission_Load(object sender, EventArgs e)

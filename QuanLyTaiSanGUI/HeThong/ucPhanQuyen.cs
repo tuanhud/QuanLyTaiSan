@@ -29,6 +29,7 @@ namespace QuanLyTaiSanGUI.HeThong
             InitializeComponent();
             ribbonPhanQuyen.Parent = null;
             _ucPhanQuyen_Control.Parent = this;
+            rbnGroupGroup.Visible = false;
             reLoad();
         }
 
@@ -75,32 +76,16 @@ namespace QuanLyTaiSanGUI.HeThong
         public void enableEdit(bool _enable, String _function)
         {
             this.function = _function;
-            if (_enable)
-            {
-                btnOK.Visible = true;
-                btnHuy.Visible = true;
-                txtMaQuanTriVien.Properties.ReadOnly = false;
-                txtTenQuanTriVien.Properties.ReadOnly = false;
-                txtTaiKhoanQuanTriVien.Properties.ReadOnly = false;
-                txtMatKhauQuanTriVien.Properties.ReadOnly = false;
-                txtXacNhanMK.Properties.ReadOnly = false;
-                dateCreated.Properties.ReadOnly = false;
-                lookUpEdit_group.Properties.ReadOnly = false;
-                memoEdit_mota.Properties.ReadOnly = false;
-            }
-            else
-            {
-                btnOK.Visible = false;
-                btnHuy.Visible = false;
-                txtMaQuanTriVien.Properties.ReadOnly = true;
-                txtTenQuanTriVien.Properties.ReadOnly = true;
-                txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
-                txtMatKhauQuanTriVien.Properties.ReadOnly = true;
-                txtXacNhanMK.Properties.ReadOnly = true;
-                dateCreated.Properties.ReadOnly = true;
-                lookUpEdit_group.Properties.ReadOnly = true;
-                memoEdit_mota.Properties.ReadOnly = true;
-            }
+            btnOK.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtMaQuanTriVien.Properties.ReadOnly = !_enable;
+            txtTenQuanTriVien.Properties.ReadOnly = !_enable;
+            txtTaiKhoanQuanTriVien.Properties.ReadOnly = !_enable;
+            txtMatKhauQuanTriVien.Properties.ReadOnly = !_enable;
+            txtXacNhanMK.Properties.ReadOnly = !_enable;
+            dateCreated.Properties.ReadOnly = !_enable;
+            lookUpEdit_group.Properties.ReadOnly = !_enable;
+            memoEdit_mota.Properties.ReadOnly = !_enable;
         }
 
         public void reLoad()
@@ -137,6 +122,8 @@ namespace QuanLyTaiSanGUI.HeThong
 
         public void showGroup(bool b)
         {
+            rbnGroupGroup.Visible = b;
+            rbnGroupQTV.Visible = !b;
             splitContainerControl1.Panel1.Controls.Clear();
             splitContainerControl1.Panel2.Controls.Clear();
             if (b)
@@ -289,6 +276,26 @@ namespace QuanLyTaiSanGUI.HeThong
         private void clearThongTinChiTiet()
         {
             memoEdit_mota.Text = txtXacNhanMK.Text =  txtTenQuanTriVien.Text = txtTaiKhoanQuanTriVien.Text = txtMatKhauQuanTriVien.Text = txtMaQuanTriVien.Text = "";
+        }
+
+        private void barBtnThemGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _ucPhanQuyen_Group.editGUI("add");
+        }
+
+        private void barBtnSuaGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _ucPhanQuyen_Group.editGUI("edit");
+        }
+
+        private void barBtnXoaGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barBtnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _ucPhanQuyen_Group.showFormPhanQuyen();
         }
     }
 }
