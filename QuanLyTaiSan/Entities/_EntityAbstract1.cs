@@ -347,21 +347,21 @@ namespace QuanLyTaiSan.Entities
                 //Hình thức ghép: username | ten | hoten
                 List<string> nicename = new List<string>();
 
-                var ppp = this.GetType().GetProperty("username");
-                if (ppp != null)
-                {
-                    nicename.Add(ppp.GetValue(this).ToString());
-                }
-                ppp = this.GetType().GetProperty("ten");
-                if (ppp != null)
-                {
-                    nicename.Add(ppp.GetValue(this).ToString());
-                }
-                ppp = this.GetType().GetProperty("hoten");
-                if (ppp != null)
-                {
-                    nicename.Add(ppp.GetValue(this).ToString());
-                }
+                //var ppp = this.GetType().GetProperty("username");
+                //if (ppp != null)
+                //{
+                //    nicename.Add(ppp.GetValue(this).ToString());
+                //}
+                //ppp = this.GetType().GetProperty("ten");
+                //if (ppp != null)
+                //{
+                //    nicename.Add(ppp.GetValue(this).ToString());
+                //}
+                //ppp = this.GetType().GetProperty("hoten");
+                //if (ppp != null)
+                //{
+                //    nicename.Add(ppp.GetValue(this).ToString());
+                //}
                 
                 //
                 if (nicename != null && nicename.Count>0)
