@@ -18,27 +18,30 @@ namespace QuanLyTaiSanGUI.HeThong
             InitializeComponent();
         }
 
-        private void btnQTV_Click(object sender, EventArgs e)
+        public PanelControl getControl()
         {
-            if (this.Parent != null)
-            {
-                ucPhanQuyen _ucPhanQuyen = this.Parent as ucPhanQuyen;
-                _ucPhanQuyen.showGroup(false);
-            }
+            checkBtnQTV.Checked = true;
+            return panelPhanQuyen_Control;
         }
 
-        private void btnGroup_Click(object sender, EventArgs e)
+        private void checkBtnGroup_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.Parent != null)
+            if (checkBtnGroup.Checked && this.Parent != null)
             {
                 ucPhanQuyen _ucPhanQuyen = this.Parent as ucPhanQuyen;
                 _ucPhanQuyen.showGroup(true);
+                checkBtnQTV.Checked = !checkBtnGroup.Checked;
             }
         }
 
-        public PanelControl getControl()
+        private void checkBtnQTV_CheckedChanged(object sender, EventArgs e)
         {
-            return panelPhanQuyen_Control;
+            if (checkBtnQTV.Checked && this.Parent != null)
+            {
+                ucPhanQuyen _ucPhanQuyen = this.Parent as ucPhanQuyen;
+                _ucPhanQuyen.showGroup(false);
+                checkBtnGroup.Checked = !checkBtnQTV.Checked;
+            }
         }
     }
 }
