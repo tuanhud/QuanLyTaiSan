@@ -30,8 +30,8 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiep vu
-        [NotMapped]
-        protected Boolean hashed = false;
+        
+        protected Boolean hashed = true;
         /// <summary>
         /// id, password hashed phải đưa vào trước </summary>
         public Boolean checkLoginById()
