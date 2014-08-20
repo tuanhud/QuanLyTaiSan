@@ -174,6 +174,9 @@ namespace WebQLPH.UserControl.ViTri
                         SetError("Không có dữ liệu về tầng này");
                     }
                     break;
+                default:
+                    Response.Redirect("~/ViTri.aspx");
+                    return;
             }
         }
 
