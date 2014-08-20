@@ -40,7 +40,7 @@ namespace WebQLPH.UserControl.NhanVien
                     }
                     catch
                     {
-                        Response.Redirect("~/NhanVien.aspx");
+                        Response.Redirect(Request.Url.AbsolutePath);
                         return;
                     }
 
