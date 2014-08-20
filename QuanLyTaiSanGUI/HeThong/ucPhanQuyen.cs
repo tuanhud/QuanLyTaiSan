@@ -56,6 +56,63 @@ namespace QuanLyTaiSanGUI.HeThong
                 Debug.WriteLine(this.Name + "->gridViewPhanQuyen_FocusedRowChanged: " + ex.Message);
             }
         }
+
+        public void editGUI(String _type)
+        {
+            this.function = _type;
+            if (_type.Equals("view"))
+            {
+                SetTextGroupControl("Chi tiết", Color.Empty);
+                enableEdit(false);
+            }
+            else if (_type.Equals("add"))
+            {
+                SetTextGroupControl("Thêm quản trị viên", Color.Red);
+                enableEdit(true);
+                clearText();
+                txtMaQuanTriVien.Focus();
+            }
+            else if (_type.Equals("edit"))
+            {
+                SetTextGroupControl("Sửa quản trị viên", Color.Red);
+                enableEdit(true);
+                txtMaQuanTriVien.Focus();
+            }
+        }
+
+        private void SetTextGroupControl(String text, Color color)
+        {
+            groupControl1.Text = text;
+            groupControl1.AppearanceCaption.ForeColor = color;
+        }
+
+        private void enableEdit(bool _enable)
+        {
+            btnOK.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtMaQuanTriVien.Properties.ReadOnly = !_enable;
+            txtTenQuanTriVien.Properties.ReadOnly = !_enable;
+            txtTaiKhoanQuanTriVien.Properties.ReadOnly = !_enable;
+            txtMatKhauQuanTriVien.Properties.ReadOnly = !_enable;
+            txtXacNhanMK.Properties.ReadOnly = !_enable;
+            dateCreated.Properties.ReadOnly = !_enable;
+            lookUpEdit_group.Properties.ReadOnly = !_enable;
+            memoEdit_mota.Properties.ReadOnly = !_enable;
+        }
+
+        private void clearText()
+        {
+            txtMaQuanTriVien.Text = "";
+            txtTenQuanTriVien.Text = "";
+            txtTaiKhoanQuanTriVien.Text = "";
+            txtMatKhauQuanTriVien.Text = "";
+            txtXacNhanMK.Text = "";
+            dateCreated.DateTime = DateTime.Now;
+            //lookUpEdit_group
+            memoEdit_mota.Text = "";
+        }
+
+
         /// <summary>
         /// Goi hien thi len Panel Thong tin chi tiet
         /// </summary>
@@ -78,28 +135,13 @@ namespace QuanLyTaiSanGUI.HeThong
                 {
                     lookUpEdit_group.EditValue = obj.group.id;
                 }
-                enableEdit(false, "");
+                editGUI("view");
                 dxErrorProvider1.ClearErrors();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->setThongTinChiTiet: " + ex.Message);
             }
-        }
-
-        public void enableEdit(bool _enable, String _function)
-        {
-            this.function = _function;
-            btnOK.Visible = _enable;
-            btnHuy.Visible = _enable;
-            txtMaQuanTriVien.Properties.ReadOnly = !_enable;
-            txtTenQuanTriVien.Properties.ReadOnly = !_enable;
-            txtTaiKhoanQuanTriVien.Properties.ReadOnly = !_enable;
-            txtMatKhauQuanTriVien.Properties.ReadOnly = !_enable;
-            txtXacNhanMK.Properties.ReadOnly = !_enable;
-            dateCreated.Properties.ReadOnly = !_enable;
-            lookUpEdit_group.Properties.ReadOnly = !_enable;
-            memoEdit_mota.Properties.ReadOnly = !_enable;
         }
 
         public void reLoad()
@@ -263,7 +305,7 @@ namespace QuanLyTaiSanGUI.HeThong
         }
         private void barButtonSuaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, "edit");
+            editGUI("edit");
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -274,8 +316,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void barButtonThemQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, "add");
-            clearThongTinChiTiet();
+            editGUI("add");
         }
 
         private void barButtonXoaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -302,10 +343,6 @@ namespace QuanLyTaiSanGUI.HeThong
                 }
             }
             MessageBox.Show("Xóa KHÔNG thành công");
-        }
-        private void clearThongTinChiTiet()
-        {
-            memoEdit_mota.Text = txtXacNhanMK.Text =  txtTenQuanTriVien.Text = txtTaiKhoanQuanTriVien.Text = txtMatKhauQuanTriVien.Text = txtMaQuanTriVien.Text = "";
         }
 
         private void barBtnThemGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

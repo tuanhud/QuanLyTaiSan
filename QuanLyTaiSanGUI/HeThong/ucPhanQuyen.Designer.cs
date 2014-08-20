@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhanQuyen = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhanQuyen = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -47,9 +48,11 @@
             this.barBtnThemGroup = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaGroup = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaGroup = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhanQuyen_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupQTV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.dateCreated = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtXacNhanMK = new DevExpress.XtraEditors.TextEdit();
@@ -66,9 +69,7 @@
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.rbnGroupPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -297,6 +298,14 @@
             this.barBtnXoaGroup.Name = "barBtnXoaGroup";
             this.barBtnXoaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaGroup_ItemClick);
             // 
+            // barBtnPhanQuyen
+            // 
+            this.barBtnPhanQuyen.Caption = "Phân quyền";
+            this.barBtnPhanQuyen.Id = 7;
+            this.barBtnPhanQuyen.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Actions_view_pim_tasks_icon;
+            this.barBtnPhanQuyen.Name = "barBtnPhanQuyen";
+            this.barBtnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPhanQuyen_ItemClick);
+            // 
             // rbnPagePhanQuyen_Home
             // 
             this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -324,6 +333,13 @@
             this.rbnGroupGroup.Name = "rbnGroupGroup";
             this.rbnGroupGroup.ShowCaptionButton = false;
             this.rbnGroupGroup.Text = "Nhóm quyền";
+            // 
+            // rbnGroupPhanQuyen
+            // 
+            this.rbnGroupPhanQuyen.ItemLinks.Add(this.barBtnPhanQuyen);
+            this.rbnGroupPhanQuyen.Name = "rbnGroupPhanQuyen";
+            this.rbnGroupPhanQuyen.ShowCaptionButton = false;
+            this.rbnGroupPhanQuyen.Text = "Phân quyền";
             // 
             // dateCreated
             // 
@@ -488,21 +504,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // rbnGroupPhanQuyen
-            // 
-            this.rbnGroupPhanQuyen.ItemLinks.Add(this.barBtnPhanQuyen);
-            this.rbnGroupPhanQuyen.Name = "rbnGroupPhanQuyen";
-            this.rbnGroupPhanQuyen.ShowCaptionButton = false;
-            this.rbnGroupPhanQuyen.Text = "Phân quyền";
-            // 
-            // barBtnPhanQuyen
-            // 
-            this.barBtnPhanQuyen.Caption = "Phân quyền";
-            this.barBtnPhanQuyen.Id = 7;
-            this.barBtnPhanQuyen.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Actions_view_pim_tasks_icon;
-            this.barBtnPhanQuyen.Name = "barBtnPhanQuyen";
-            this.barBtnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPhanQuyen_ItemClick);
             // 
             // ucPhanQuyen
             // 
