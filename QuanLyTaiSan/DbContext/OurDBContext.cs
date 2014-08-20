@@ -33,6 +33,29 @@ namespace QuanLyTaiSan.Entities
             //DATETIME
             DateTime now = DateTime.Now;
             String mota = "Hệ thống tự động tạo";
+
+            //PERMISSION
+            List<Permission> pers = new List<Permission>();
+            Permission per = null;
+            foreach (String item in Permission.STAND_ALONE_LIST)
+            {
+                per = new Permission();
+                per.stand_alone = true;
+                per.allow_or_deny = true;
+                per.key = item;
+
+                if (
+                    context.PERMISSIONS.Where(
+                    c =>
+                        c.key.ToUpper().Equals(item.ToUpper())
+                    ).FirstOrDefault() == null
+                )
+                {
+                    pers.Add(per);
+                    context.PERMISSIONS.Add(per);
+                }
+            }
+
             //GROUP
             Group gp = new Group();
             gp.mota = mota;
@@ -40,22 +63,35 @@ namespace QuanLyTaiSan.Entities
             gp.subId = gp.key;
             gp.ten = gp.key;
             gp.date_create = gp.date_modified = now;
+            gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._ROOT)).FirstOrDefault());
             //ADD
-            context.GROUPS.Add(gp);
+            if (
+                context.GROUPS.Where(c => c.ten.ToUpper().Equals(gp.ten)).FirstOrDefault() == null
+                )
+            {
+                context.GROUPS.Add(gp);
+            }
 
             //QUANTRIVIEN
             QuanTriVien qtv = new QuanTriVien();
             qtv.username = "admin";
-            qtv.password = StringHelper.SHA1_Salt("admin");
+            qtv.hashPassword(qtv.username);
             qtv.hoten = "Quản trị viên cấp cao";
             qtv.mota = mota;
             qtv.subId = qtv.username;
             qtv.date_create = qtv.date_modified = now;
             qtv.group = gp;
             //ADD
-            context.QUANTRIVIENS.Add(qtv);
+            if (
+                context.QUANTRIVIENS.Where(c => c.username.ToUpper().Equals(qtv.username)).FirstOrDefault() == null
+                )
+            {
+                context.QUANTRIVIENS.Add(qtv);
+            }
 
             //TINHTRANG
+            List<TinhTrang> tinhtrangs = new List<TinhTrang>();
+
             TinhTrang tinhtrang = new TinhTrang();
             tinhtrang.date_create = tinhtrang.date_modified = now;
             tinhtrang.key = "dangsudung";
@@ -63,7 +99,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrang.subId = tinhtrang.key;
             tinhtrang.value = "Đang sử dụng";
             //ADD
-            context.TINHTRANGS.Add(tinhtrang);
+            tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
             tinhtrang.date_create = tinhtrang.date_modified = now;
@@ -72,7 +108,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrang.subId = tinhtrang.key;
             tinhtrang.value = "Không sử dụng";
             //ADD
-            context.TINHTRANGS.Add(tinhtrang);
+            tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
             tinhtrang.date_create = tinhtrang.date_modified = now;
@@ -81,7 +117,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrang.subId = tinhtrang.key;
             tinhtrang.value = "Bị hư";
             //ADD
-            context.TINHTRANGS.Add(tinhtrang);
+            tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
             tinhtrang.date_create = tinhtrang.date_modified = now;
@@ -90,7 +126,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrang.subId = tinhtrang.key;
             tinhtrang.value = "Khác";
             //ADD
-            context.TINHTRANGS.Add(tinhtrang);
+            tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
             tinhtrang.date_create = tinhtrang.date_modified = now;
@@ -99,7 +135,15 @@ namespace QuanLyTaiSan.Entities
             tinhtrang.subId = tinhtrang.key;
             tinhtrang.value = "Đang sửa";
             //ADD
-            context.TINHTRANGS.Add(tinhtrang);
+            tinhtrangs.Add(tinhtrang);
+            //LIST ADD
+            foreach (TinhTrang item in tinhtrangs)
+            {
+                if (context.TINHTRANGS.Where(c => c.value.ToUpper().Equals(item.value.ToUpper())).FirstOrDefault() == null)
+                {
+                    context.TINHTRANGS.Add(item);
+                }
+            }
 
             //call parent
             base.Seed(context);
@@ -112,6 +156,7 @@ namespace QuanLyTaiSan.Entities
     /// </summary>
     public class OurDBContext : DbContext
     {
+        private Boolean create_sample_data = false;
         public OurDBContext()
             : base("Default")
         {
@@ -121,9 +166,10 @@ namespace QuanLyTaiSan.Entities
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
         }
-        public OurDBContext(String connection_string = "Default", Boolean create_sample_data = true)
+        public OurDBContext(String connection_string = "Default", Boolean create_sample_data = false)
             : base(connection_string)
         {
+            this.create_sample_data = create_sample_data;
             //Create sample data if indicated
             IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
 
@@ -568,6 +614,15 @@ namespace QuanLyTaiSan.Entities
         }
         public override int SaveChanges()
         {
+            //Ban đầu lúc tạo CSDL Server (Seed), sau khi Seed xong thì SaveChanges sẽ được gọi
+            //nếu không kiểm tra để bỏ qua thì lớp Entity sẽ được callback,
+            //LogHeThong sẽ được tạo ra, sẽ gọi new DB tren Global.working_database...
+            //khi đó sẽ tự động tạo CSDL cho CLIENT luôn và log hệ thống sẽ bị ghi ở CSDL khác với Server
+            if (create_sample_data == true)
+            {
+                return base.SaveChanges();
+            }
+
             IEnumerable<DbEntityEntry> changedEntities = ChangeTracker.Entries().Where(c => c.State == EntityState.Added || c.State == EntityState.Modified || c.State == EntityState.Deleted);
             ICollection<_EFEventRegisterInterface> Added_Callbacks = new List<_EFEventRegisterInterface>();
             ICollection<_EFEventRegisterInterface> Modified_Callbacks = new List<_EFEventRegisterInterface>();

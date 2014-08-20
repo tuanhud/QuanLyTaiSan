@@ -104,28 +104,67 @@ namespace QuanLyTaiSan.Entities
 
         #region Standalone Permission constant
         public static String[] STAND_ALONE_LIST = {
-            "WEB_MUONPHONG",
+            "WEB_MUONPHONG",//
             "WEB_QLMUONPHONG",
             "CLIENT_CONFIG",
-            "SERVER_CONFIG"
+            "SERVER_CONFIG",
+            "ROOT"//version 1.1
         };
         /// <summary>
         /// Sử dụng tính năng mượn phòng (tạo yêu cầu) trên WEB
         /// </summary>
-        public static String _WEB_MUONPHUONG = "WEB_MUONPHONG";
+        [NotMapped]
+        public static String _WEB_MUONPHUONG
+        {
+            get
+            {
+                return STAND_ALONE_LIST[0];
+            }
+        }
         /// <summary>
         /// Sử dụng tính năng quản lý phiếu mượn phòng trên WEB
         /// </summary>
-        public static String _WEB_QLMUONPHUONG = "WEB_QLMUONPHONG";
+        [NotMapped]
+        public static String _WEB_QLMUONPHUONG
+        {
+            get
+            {
+                return STAND_ALONE_LIST[1];
+            }
+        }
         /// <summary>
         /// Quyền cấu máy client
         /// </summary>
-        public static String _CLIENT_CONFIG = "CLIENT_CONFIG";
+        [NotMapped]
+        public static String _CLIENT_CONFIG
+        {
+            get
+            {
+                return STAND_ALONE_LIST[2];
+            }
+        }
         /// <summary>
         /// Quyền cấu hình máy server
         /// </summary>
-        public static String _SERVER_CONFIG = "SERVER_CONFIG";
-
+        [NotMapped]
+        public static String _SERVER_CONFIG
+        {
+            get
+            {
+                return STAND_ALONE_LIST[3];
+            }
+        }
+        /// <summary>
+        /// Quyền ROOT
+        /// </summary>
+        [NotMapped]
+        public static String _ROOT
+        {
+            get
+            {
+                return STAND_ALONE_LIST[4];
+            }
+        }
         #endregion
 
         #region NotMapped
