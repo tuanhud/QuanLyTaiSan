@@ -23,6 +23,8 @@ namespace QuanLyTaiSanGUI.HeThong
         private ucPhanQuyen_Control _ucPhanQuyen_Control = new ucPhanQuyen_Control();
         private ucPhanQuyen_Group _ucPhanQuyen_Group = new ucPhanQuyen_Group();
         private String function = "";
+        private bool working = false;
+        private bool show = false;
 
         public ucPhanQuyen()
         {
@@ -30,6 +32,7 @@ namespace QuanLyTaiSanGUI.HeThong
             ribbonPhanQuyen.Parent = null;
             _ucPhanQuyen_Control.Parent = this;
             rbnGroupGroup.Visible = false;
+            _ucPhanQuyen_Group.EnableButton2 = new ucPhanQuyen_Group.enableButton2(enableButton2);
             reLoad();
         }
 
@@ -56,6 +59,81 @@ namespace QuanLyTaiSanGUI.HeThong
                 Debug.WriteLine(this.Name + "->gridViewPhanQuyen_FocusedRowChanged: " + ex.Message);
             }
         }
+
+        public void editGUI(String _type)
+        {
+            this.function = _type;
+            if (_type.Equals("view"))
+            {
+                SetTextGroupControl("Chi tiết", Color.Empty);
+                enableEdit(false);
+            }
+            else if (_type.Equals("add"))
+            {
+                SetTextGroupControl("Thêm quản trị viên", Color.Red);
+                enableEdit(true);
+                clearText();
+                txtMaQuanTriVien.Focus();
+            }
+            else if (_type.Equals("edit"))
+            {
+                SetTextGroupControl("Sửa quản trị viên", Color.Red);
+                enableEdit(true);
+                txtMaQuanTriVien.Focus();
+            }
+        }
+
+        private void SetTextGroupControl(String text, Color color)
+        {
+            groupControl1.Text = text;
+            groupControl1.AppearanceCaption.ForeColor = color;
+        }
+
+        private void enableEdit(bool _enable)
+        {
+            btnOK.Visible = _enable;
+            btnHuy.Visible = _enable;
+            txtMaQuanTriVien.Properties.ReadOnly = !_enable;
+            txtTenQuanTriVien.Properties.ReadOnly = !_enable;
+            txtTaiKhoanQuanTriVien.Properties.ReadOnly = !_enable;
+            txtMatKhauQuanTriVien.Properties.ReadOnly = !_enable;
+            txtXacNhanMK.Properties.ReadOnly = !_enable;
+            dateCreated.Properties.ReadOnly = !_enable;
+            lookUpEdit_group.Properties.ReadOnly = !_enable;
+            memoEdit_mota.Properties.ReadOnly = !_enable;
+            barButtonThemQTV.Enabled = !_enable;
+            enableButton(!_enable);
+            working = _enable;
+        }
+
+        private void enableButton(bool _enable)
+        {
+            //btnR_Them.Enabled = _enable;
+            barButtonSuaQTV.Enabled = _enable;
+            barButtonXoaQTV.Enabled = _enable;
+        }
+
+        private void enableButton2(bool _enable)
+        {
+            //btnR_Them.Enabled = _enable;
+            barBtnThemGroup.Enabled = _enable;
+            barBtnSuaGroup.Enabled = _enable;
+            barBtnXoaGroup.Enabled = _enable;
+        }
+
+        private void clearText()
+        {
+            txtMaQuanTriVien.Text = "";
+            txtTenQuanTriVien.Text = "";
+            txtTaiKhoanQuanTriVien.Text = "";
+            txtMatKhauQuanTriVien.Text = "";
+            txtXacNhanMK.Text = "";
+            dateCreated.DateTime = DateTime.Now;
+            //lookUpEdit_group
+            memoEdit_mota.Text = "";
+        }
+
+
         /// <summary>
         /// Goi hien thi len Panel Thong tin chi tiet
         /// </summary>
@@ -78,28 +156,13 @@ namespace QuanLyTaiSanGUI.HeThong
                 {
                     lookUpEdit_group.EditValue = obj.group.id;
                 }
-                enableEdit(false, "");
+                editGUI("view");
                 dxErrorProvider1.ClearErrors();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->setThongTinChiTiet: " + ex.Message);
             }
-        }
-
-        public void enableEdit(bool _enable, String _function)
-        {
-            this.function = _function;
-            btnOK.Visible = _enable;
-            btnHuy.Visible = _enable;
-            txtMaQuanTriVien.Properties.ReadOnly = !_enable;
-            txtTenQuanTriVien.Properties.ReadOnly = !_enable;
-            txtTaiKhoanQuanTriVien.Properties.ReadOnly = !_enable;
-            txtMatKhauQuanTriVien.Properties.ReadOnly = !_enable;
-            txtXacNhanMK.Properties.ReadOnly = !_enable;
-            dateCreated.Properties.ReadOnly = !_enable;
-            lookUpEdit_group.Properties.ReadOnly = !_enable;
-            memoEdit_mota.Properties.ReadOnly = !_enable;
         }
 
         public void reLoad()
@@ -141,11 +204,18 @@ namespace QuanLyTaiSanGUI.HeThong
             return _ucPhanQuyen_Control.getControl();
         }
 
-        public void showGroup(bool b)
+        public bool showGroup(bool b)
         {
+            if (checkworking())
+            {
+                if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn chuyển sang chức năng khác?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return false;
+                }
+            }
+            show = b;
             rbnGroupGroup.Visible = b;
             rbnGroupQTV.Visible = !b;
-            rbnGroupPhanQuyen.Visible = b;
             splitContainerControl1.Panel1.Controls.Clear();
             splitContainerControl1.Panel2.Controls.Clear();
             if (b)
@@ -158,7 +228,9 @@ namespace QuanLyTaiSanGUI.HeThong
             {
                 splitContainerControl1.Panel1.Controls.Add(gridControlPhanQuyen);
                 splitContainerControl1.Panel2.Controls.Add(groupControl1);
+                editGUI("view");
             }
+            return true;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -263,7 +335,7 @@ namespace QuanLyTaiSanGUI.HeThong
         }
         private void barButtonSuaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, "edit");
+            editGUI("edit");
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -274,8 +346,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void barButtonThemQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            enableEdit(true, "add");
-            clearThongTinChiTiet();
+            editGUI("add");
         }
 
         private void barButtonXoaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -303,10 +374,6 @@ namespace QuanLyTaiSanGUI.HeThong
             }
             MessageBox.Show("Xóa KHÔNG thành công");
         }
-        private void clearThongTinChiTiet()
-        {
-            memoEdit_mota.Text = txtXacNhanMK.Text =  txtTenQuanTriVien.Text = txtTaiKhoanQuanTriVien.Text = txtMatKhauQuanTriVien.Text = txtMaQuanTriVien.Text = "";
-        }
 
         private void barBtnThemGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -320,12 +387,47 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void barBtnXoaGroup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            _ucPhanQuyen_Group.deleteObj();
         }
 
-        private void barBtnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public bool checkworking()
         {
-            _ucPhanQuyen_Group.showFormPhanQuyen();
+            try
+            {
+                if (!show)
+                {
+                    if (function.Equals("edit"))
+                    {
+                        return
+                            objQuanTriVienFilter.quantrivien.subId != txtMaQuanTriVien.Text ||
+                            objQuanTriVienFilter.quantrivien.hoten != txtTenQuanTriVien.Text ||
+                            objQuanTriVienFilter.quantrivien.username != txtTaiKhoanQuanTriVien.Text ||
+                            (!txtMatKhauQuanTriVien.Text.Equals("") && objQuanTriVienFilter.quantrivien.password != txtMatKhauQuanTriVien.Text) ||
+                            objQuanTriVienFilter.quantrivien.mota != memoEdit_mota.Text;
+                    }
+                    else if (function.Equals("add"))
+                    {
+                        return
+                            !txtMaQuanTriVien.Text.Equals("") ||
+                            !txtTenQuanTriVien.Text.Equals("") ||
+                            !txtTaiKhoanQuanTriVien.Text.Equals("") ||
+                            !txtMatKhauQuanTriVien.Text.Equals("") ||
+                            !txtXacNhanMK.Text.Equals("") ||
+                            !memoEdit_mota.Text.Equals("");
+                    }
+                    else
+                    {
+                        return working;
+                    }
+                }
+                else
+                    return _ucPhanQuyen_Group.checkworking();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
+            }
         }
     }
 }

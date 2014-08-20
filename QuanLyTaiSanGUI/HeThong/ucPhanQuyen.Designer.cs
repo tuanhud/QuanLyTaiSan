@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhanQuyen = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhanQuyen = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -66,9 +67,7 @@
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.rbnGroupPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -240,8 +239,7 @@
             this.barButtonXoaQTV,
             this.barBtnThemGroup,
             this.barBtnSuaGroup,
-            this.barBtnXoaGroup,
-            this.barBtnPhanQuyen});
+            this.barBtnXoaGroup});
             this.ribbonPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.ribbonPhanQuyen.MaxItemId = 8;
             this.ribbonPhanQuyen.Name = "ribbonPhanQuyen";
@@ -301,8 +299,7 @@
             // 
             this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupQTV,
-            this.rbnGroupGroup,
-            this.rbnGroupPhanQuyen});
+            this.rbnGroupGroup});
             this.rbnPagePhanQuyen_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
             this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
             this.rbnPagePhanQuyen_Home.Text = "Phân quyền";
@@ -489,21 +486,6 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // rbnGroupPhanQuyen
-            // 
-            this.rbnGroupPhanQuyen.ItemLinks.Add(this.barBtnPhanQuyen);
-            this.rbnGroupPhanQuyen.Name = "rbnGroupPhanQuyen";
-            this.rbnGroupPhanQuyen.ShowCaptionButton = false;
-            this.rbnGroupPhanQuyen.Text = "Phân quyền";
-            // 
-            // barBtnPhanQuyen
-            // 
-            this.barBtnPhanQuyen.Caption = "Phân quyền";
-            this.barBtnPhanQuyen.Id = 7;
-            this.barBtnPhanQuyen.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.Actions_view_pim_tasks_icon;
-            this.barBtnPhanQuyen.Name = "barBtnPhanQuyen";
-            this.barBtnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPhanQuyen_ItemClick);
-            // 
             // ucPhanQuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,8 +558,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnThemGroup;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaGroup;
         private DevExpress.XtraBars.BarButtonItem barBtnXoaGroup;
-        private DevExpress.XtraBars.BarButtonItem barBtnPhanQuyen;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupPhanQuyen;
 
     }
 }

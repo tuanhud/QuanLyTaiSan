@@ -29,8 +29,10 @@ namespace QuanLyTaiSanGUI.HeThong
             if (checkBtnGroup.Checked && this.Parent != null)
             {
                 ucPhanQuyen _ucPhanQuyen = this.Parent as ucPhanQuyen;
-                _ucPhanQuyen.showGroup(true);
-                checkBtnQTV.Checked = !checkBtnGroup.Checked;
+                if (_ucPhanQuyen.showGroup(true))
+                    checkBtnQTV.Checked = !checkBtnGroup.Checked;
+                else
+                    checkBtnGroup.Checked = false;
             }
         }
 
@@ -39,8 +41,10 @@ namespace QuanLyTaiSanGUI.HeThong
             if (checkBtnQTV.Checked && this.Parent != null)
             {
                 ucPhanQuyen _ucPhanQuyen = this.Parent as ucPhanQuyen;
-                _ucPhanQuyen.showGroup(false);
-                checkBtnGroup.Checked = !checkBtnQTV.Checked;
+                if (_ucPhanQuyen.showGroup(false))
+                    checkBtnGroup.Checked = !checkBtnQTV.Checked;
+                else
+                    checkBtnQTV.Checked = false;
             }
         }
     }
