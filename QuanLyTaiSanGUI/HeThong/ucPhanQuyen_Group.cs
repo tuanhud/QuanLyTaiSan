@@ -21,14 +21,18 @@ namespace QuanLyTaiSanGUI.HeThong
         String function = "";
         bool working = false;
 
+        public delegate void enableButton2(bool b);
+
+        public enableButton2 EnableButton2;
+
         public ucPhanQuyen_Group()
         {
             InitializeComponent();
-            editGUI("view");
         }
 
         public void loadData()
         {
+            editGUI("view");
             listGroup = Group.getAll();
             gridControlGroup.DataSource = listGroup;
         }
@@ -66,10 +70,13 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             btnOK.Visible = _enable;
             btnHuy.Visible = _enable;
+            btnPhanQuyen.Visible = _enable;
             txtKey.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
             working = _enable;
+            if(EnableButton2!= null)
+                EnableButton2(!_enable);
         }
 
         private void clearText()
@@ -144,7 +151,7 @@ namespace QuanLyTaiSanGUI.HeThong
             }
         }
 
-        private void deleteObj()
+        public void deleteObj()
         {
             try
             {
@@ -226,7 +233,17 @@ namespace QuanLyTaiSanGUI.HeThong
                 gridViewGroup.FocusedRowHandle = rowHandle;
         }
 
-        public void showFormPhanQuyen()
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            setDataView();
+        }
+
+        private Boolean checkInput()
+        {
+            return true;
+        }
+
+        private void btnPhanQuyen_Click(object sender, EventArgs e)
         {
             frmSuaPermission frm = new frmSuaPermission(objGroup.permissions.ToList());
             if (frm.ShowDialog() == DialogResult.Yes)
@@ -236,14 +253,39 @@ namespace QuanLyTaiSanGUI.HeThong
             }
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        public bool checkworking()
         {
-            setDataView();
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        objGroup.key != txtKey.Text ||
+                        objGroup.ten != txtTen.Text ||
+                        objGroup.mota != txtMoTa.Text;
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtKey.Text.Equals("") ||
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("");
+                }
+                else
+                {
+                    return working;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
+            }
         }
 
-        private Boolean checkInput()
+        private void gridViewGroup_DataSourceChanged(object sender, EventArgs e)
         {
-            return true;
+            setDataView();
         }
     }
 }
