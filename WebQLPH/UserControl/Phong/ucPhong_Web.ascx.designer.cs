@@ -58,13 +58,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachPhong;
         
         /// <summary>
-        /// CollectionPagerQuanLyNhanVien control.
+        /// CollectionPagerDanhSachPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyNhanVien;
+        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachPhong;
         
         /// <summary>
         /// Label_ThongTinPhong control.

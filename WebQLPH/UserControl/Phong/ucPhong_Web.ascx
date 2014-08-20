@@ -14,7 +14,7 @@
     </div>
 </asp:Panel>
 
-<asp:Panel ID="Panel_Chinh" runat="server" Visible="true">
+<asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
     <table class="table table-bordered table-striped">
         <tbody>
             <tr>
@@ -23,7 +23,22 @@
                         <div class="panel-heading">
                             Vị trí
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" EnableCallbacks="False" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged"><Columns><dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0"></dx:TreeListTextColumn></Columns><SettingsBehavior AllowFocusedNode="True" ProcessFocusedNodeChangedOnServer="True" /><SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" /></dx:ASPxTreeList>
+                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" EnableCallbacks="False">
+                            <Columns>
+                                <dx:TreeListTextColumn Caption="Tên" Name="colten" VisibleIndex="0">
+                                    <DataCellTemplate>
+                                        <a href="<%# Request.Url.AbsolutePath %>?idObj=<%# Eval("id")  %>&type=<%# Eval("loai") %>"><%# Eval("ten") %></a>
+                                    </DataCellTemplate>
+                                </dx:TreeListTextColumn>
+                                <dx:TreeListTextColumn Caption="Mô tả" Name="colmota" VisibleIndex="1">
+                                    <DataCellTemplate>
+                                        <a href="<%# Request.Url.AbsolutePath %>?idObj=<%# Eval("id")  %>&type=<%# Eval("loai") %>"><%# Eval("mota") %></a>
+                                    </DataCellTemplate>
+                                </dx:TreeListTextColumn>
+                            </Columns>
+                            <SettingsBehavior AllowFocusedNode="True" />
+                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                        </dx:ASPxTreeList>
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -41,10 +56,12 @@
                             <tbody class="centered">
                                 <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                                     <ItemTemplate>
-                                        <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
-                                        <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
-                                        <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("hoten") %></a></td>
-                                        <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("sodienthoai") %></a></td>
+                                        <tr>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></a></td>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("nhanvienpt") %></a></td>
+                                        </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </tbody>
@@ -57,7 +74,7 @@
             
                     <div class="leftCollectionPager">
                         <div class="CollectionPager">
-                            <cp:CollectionPager ID="CollectionPagerQuanLyNhanVien" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="20" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
+                            <cp:CollectionPager ID="CollectionPagerDanhSachPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
                         </div>
                     </div>
                 </td>
