@@ -66,6 +66,12 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
             init();
+            DBInstance.onDBConnectionDown += new DBInstance.DBConnectionChanged(this.rotmang);
+        }
+
+        private void rotmang(EventArgs e)
+        {
+            showConnection("Rớt mạng", false);
         }
 
         private void init()
@@ -417,6 +423,12 @@ namespace QuanLyTaiSanGUI
                 Application.Exit();
             else
                 backstageViewControl1.Ribbon.HideApplicationButtonContentControl();
+        }
+
+        public void showConnection(String text, bool haveConn)
+        {
+            barStaticConnectionT.Caption = text;
+            barStaticConnection.Enabled = haveConn;
         }
     }
 }
