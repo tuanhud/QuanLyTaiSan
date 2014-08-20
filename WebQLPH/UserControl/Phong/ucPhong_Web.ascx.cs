@@ -32,7 +32,6 @@ namespace WebQLPH.UserControl.Phong
                     Panel_Chinh.Visible = true;
                     ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     ASPxTreeList_ViTri.DataBind();
-                    FindNodeTreeList(1, "CoSo");
                     if (Request.QueryString["idObj"] != null && Request.QueryString["type"] != null)
                     {
                         int idObj = -1;
@@ -47,16 +46,25 @@ namespace WebQLPH.UserControl.Phong
                             Response.Redirect(Request.Url.AbsolutePath);
                         }
                         if (type.Equals(typeof(CoSo).Name))
-                        { 
-                            
+                        {
+                            if(FindNodeTreeList(idObj, type))
+                                LoadDanhSachPhong(idObj, 1);
+                            else
+                                Response.Redirect(Request.Url.AbsolutePath);
                         }
                         else if (type.Equals(typeof(Dayy).Name))
-                        { 
-                        
+                        {
+                            if (FindNodeTreeList(idObj, type))
+                                LoadDanhSachPhong(idObj, 2);
+                            else
+                                Response.Redirect(Request.Url.AbsolutePath);
                         }
                         else if (type.Equals(typeof(Tang).Name))
                         {
-
+                            if (FindNodeTreeList(idObj, type))
+                                LoadDanhSachPhong(idObj, 3);
+                            else
+                                Response.Redirect(Request.Url.AbsolutePath);
                         }
                         else
                         {
@@ -271,14 +279,16 @@ namespace WebQLPH.UserControl.Phong
             TextBox_SoDienThoai.Text = "";
         }
 
-        private void FindNodeTreeList(int id, string type)
+        private Boolean FindNodeTreeList(int id, string type)
         {
             List<DevExpress.Web.ASPxTreeList.TreeListNode> listNode = ASPxTreeList_ViTri.FindNodesByFieldValue("loai", type);
             DevExpress.Web.ASPxTreeList.TreeListNode node = listNode.Where(item => ((ViTriHienThi)item.DataItem).id == id).FirstOrDefault();
             if (node != null)
             {
                 node.Focus();
+                return true;
             }
+            return false;
         }
     }
 }
