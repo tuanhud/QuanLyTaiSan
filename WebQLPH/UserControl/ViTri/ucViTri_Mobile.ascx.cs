@@ -50,7 +50,7 @@ namespace WebQLPH.UserControl.ViTri
                         TextBox_Thuoc.Text = "[Đại học Sài Gòn]";
                         Panel_DiaChi.Visible = true;
                         TextBox_DiaChi.Text = objCoSo.diachi;
-                        TextBox_Mota.Text = objCoSo.mota;
+                        TextBox_MoTa.Text = objCoSo.mota;
                         if (objCoSo.diachi != null)
                         {
                             if (objCoSo.diachi.Length > 0)
@@ -82,7 +82,7 @@ namespace WebQLPH.UserControl.ViTri
                         TextBox_Thuoc.Text = objDay.coso.ten;
                         Panel_DiaChi.Visible = false;
                         TextBox_DiaChi.Text = "";
-                        TextBox_Mota.Text = objDay.mota;
+                        TextBox_MoTa.Text = objDay.mota;
                         Button_Map.Visible = false;
                     }
                     else
@@ -104,7 +104,7 @@ namespace WebQLPH.UserControl.ViTri
                         TextBox_Thuoc.Text = objTang.day.coso.ten + " - " + objTang.day.ten;
                         Panel_DiaChi.Visible = false;
                         TextBox_DiaChi.Text = "";
-                        TextBox_Mota.Text = objTang.mota;
+                        TextBox_MoTa.Text = objTang.mota;
                         Button_Map.Visible = false;
                     }
                     else

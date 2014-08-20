@@ -99,6 +99,7 @@
     <Content Include="LienHe.aspx" />
     <Content Include="MuonPhong.aspx" />
     <Content Include="NhanVien.aspx" />
+    <Content Include="Phong.aspx" />
     <Content Include="QuanLyHinhAnh.aspx" />
     <Content Include="QuanLyMuonPhong.aspx" />
     <Content Include="QuanLyTaiKhoan.aspx" />
@@ -135,6 +136,8 @@
     <Content Include="ThongTinCaNhan.aspx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
+    <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
+    <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
@@ -193,6 +196,13 @@
     <Compile Include="NhanVien.aspx.designer.cs">
       <DependentUpon>NhanVien.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Phong.aspx.cs">
+      <DependentUpon>Phong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Phong.aspx.designer.cs">
+      <DependentUpon>Phong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyHinhAnh.aspx.cs">
       <DependentUpon>QuanLyHinhAnh.aspx</DependentUpon>
@@ -242,6 +252,20 @@
     </Compile>
     <Compile Include="UserControl\NhanVien\ucNhanVien_Web.ascx.designer.cs">
       <DependentUpon>ucNhanVien_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Phong\ucPhong_Mobile.ascx.cs">
+      <DependentUpon>ucPhong_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Phong\ucPhong_Mobile.ascx.designer.cs">
+      <DependentUpon>ucPhong_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Phong\ucPhong_Web.ascx.cs">
+      <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
+      <DependentUpon>ucPhong_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>

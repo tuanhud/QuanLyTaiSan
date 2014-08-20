@@ -97,7 +97,7 @@
                                 <div class="row">
                                     <div class="col-lg-2">Mô tả</div>
                                     <div class="col-lg-10">
-                                        <asp:TextBox ID="TextBox_Mota" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox_MoTa" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

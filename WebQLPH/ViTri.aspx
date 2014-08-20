@@ -4,7 +4,7 @@
 <%@ Register Src="~/UserControl/ViTri/ucViTri_Mobile.ascx" TagPrefix="uc" TagName="ucViTri_Mobile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Nhân viên phụ trách</title>
+    <title>Vị trí</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
