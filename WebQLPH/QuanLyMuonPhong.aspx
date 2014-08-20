@@ -48,7 +48,7 @@
                                     <tr>
                                         <td><%# Container.ItemIndex + 1 %></td>
                                         <td><%# NgayTao() %></td>
-                                        <td><%# Eval("khoaphongmuon") %></td>
+                                        <td><%# Eval("donvi") %></td>
                                         <td><%# NgayMuon() %></td>
                                         <td><%# Tu() %></td>
                                         <td><%# Den() %></td>
@@ -58,7 +58,7 @@
                                         <td><%# Eval("lydomuon") %></td>
                                         <td><%# Duyet() %></td>
                                         <td id="GhiChu<%#Eval("id")%>"><%# Eval("ghichu") %></td>
-                                        <td><%# Eval("quantrivien.hoten") %></td>
+                                        <td><%# Eval("nguoiduyet.hoten") %></td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>

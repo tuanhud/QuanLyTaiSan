@@ -52,7 +52,8 @@ namespace WebQLPH
             {
                 LabelPanel.Text = "DANH SÁCH PHÒNG BẠN ĐÃ MƯỢN";
                 QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
-                ListPhieuMuonPhong = _QuanTriVien.phieumuonphongs.OrderByDescending(c => c.id).ToList();
+                ListPhieuMuonPhong = PhieuMuonPhong.getQuery().Where(c => c.nguoimuon.id == _QuanTriVien.id).ToList();
+                //ListPhieuMuonPhong = _QuanTriVien.phieumuonphongs.OrderByDescending(c => c.id).ToList();
             }
 
             CollectionPagerQuanLyMuonPhong.DataSource = ListPhieuMuonPhong;

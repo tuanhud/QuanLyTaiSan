@@ -13,7 +13,7 @@
                 <asp:Label ID="LabelThongBao" runat="server" Text="Label" Visible="false"></asp:Label>
                 <asp:Label ID="LabelThongBaoAnhDaCo" runat="server" Text="Label" Visible="false"></asp:Label>
             </asp:Panel>
-            <asp:FileUpload ID="ImageUpload" runat="server" AllowMultiple="True" ClientIDMode="Static" CssClass="btn btn-success" /><br />
+            <asp:FileUpload ID="ImageUpload" runat="server" Multiple="Multiple" ClientIDMode="Static" CssClass="btn btn-success" /><br />
             <asp:Button ID="ButtonTaiLen" CssClass="btn btn-success" runat="server" Text="Tải lên" OnClick="ButtonTaiLen_Click" />
         </div>
     </div>
