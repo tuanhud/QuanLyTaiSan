@@ -171,14 +171,17 @@ namespace QuanLyTaiSan.Entities
 
         public bool canView<T>(T obj) where T : _EntityAbstract1<T>
         {
+            return true;
             throw new NotImplementedException();
         }
         public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
         {
+            return true;
             throw new NotImplementedException();
         }
         public bool canAdd<T>() where T : _EntityAbstract1<T>
         {
+            return true;
             throw new NotImplementedException();
         }
         /// <summary>
