@@ -31,7 +31,7 @@ namespace WebQLPH.UserControl.NhanVien
                     }
                     catch
                     {
-                        Response.Redirect("~/NhanVien.aspx");
+                        Response.Redirect(Request.Url.AbsolutePath);
                         return;
                     }
 
@@ -110,6 +110,11 @@ namespace WebQLPH.UserControl.NhanVien
                 RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
                 RepeaterQuanLyNhanVien.DataBind();
             }
+        }
+
+        protected void Button_Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.Url.AbsolutePath);
         }
     }
 }

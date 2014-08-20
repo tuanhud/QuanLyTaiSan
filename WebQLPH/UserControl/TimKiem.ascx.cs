@@ -41,8 +41,8 @@ namespace WebQLPH.UserControl
                 foreach (Tang ten_tang in ten_tangs)
                     Searchs.Add(new DoSearch(ten_tang.id, ten_tang.ten, "TANG"));
 
-                var ten_phongs = Phong.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (Phong ten_phong in ten_phongs)
+                var ten_phongs = QuanLyTaiSan.Entities.Phong.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
+                foreach (QuanLyTaiSan.Entities.Phong ten_phong in ten_phongs)
                     Searchs.Add(new DoSearch(ten_phong.id, ten_phong.ten, "PHONG"));
 
                 var ten_thietbis = ThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();

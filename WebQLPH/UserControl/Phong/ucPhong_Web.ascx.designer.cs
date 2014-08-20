@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebQLPH.UserControl.ViTri {
+namespace WebQLPH.UserControl.Phong {
     
     
-    public partial class ucViTri_Mobile {
+    public partial class ucPhong_Web {
         
         /// <summary>
         /// Panel_ThongBaoLoi control.
@@ -40,15 +40,6 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
-        /// Panel_TreeViTri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_TreeViTri;
-        
-        /// <summary>
         /// ASPxTreeList_ViTri control.
         /// </summary>
         /// <remarks>
@@ -58,93 +49,165 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
         
         /// <summary>
-        /// Panel_ThongTinObj control.
+        /// RepeaterDanhSachPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThongTinObj;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachPhong;
         
         /// <summary>
-        /// Label_ThongTin control.
+        /// CollectionPagerQuanLyNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTin;
+        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyNhanVien;
         
         /// <summary>
-        /// ASPxImageSlider_Object control.
+        /// Label_ThongTinPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Object;
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinPhong;
         
         /// <summary>
-        /// TextBox_Ten control.
+        /// PanelThongBao_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
+        protected global::System.Web.UI.WebControls.Panel PanelThongBao_Phong;
         
         /// <summary>
-        /// TextBox_Thuoc control.
+        /// LabelThongBao_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
+        protected global::System.Web.UI.WebControls.Label LabelThongBao_Phong;
         
         /// <summary>
-        /// Panel_DiaChi control.
+        /// ASPxImageSlider_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_DiaChi;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Phong;
         
         /// <summary>
-        /// TextBox_DiaChi control.
+        /// TextBox_MaPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_DiaChi;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MaPhong;
         
         /// <summary>
-        /// TextBox_MoTa control.
+        /// TextBox_TenPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTa;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_TenPhong;
         
         /// <summary>
-        /// Button_Map control.
+        /// TextBox_ViTriPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Map;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_ViTriPhong;
         
         /// <summary>
-        /// Button_Back control.
+        /// TextBox_MoTaPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Back;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTaPhong;
+        
+        /// <summary>
+        /// TextBox_NhanVienPhuTrach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_NhanVienPhuTrach;
+        
+        /// <summary>
+        /// Label_ThongTinNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinNhanVien;
+        
+        /// <summary>
+        /// PanelThongBao_NhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelThongBao_NhanVien;
+        
+        /// <summary>
+        /// LabelThongBao_NhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelThongBao_NhanVien;
+        
+        /// <summary>
+        /// ASPxImageSlider_NhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_NhanVien;
+        
+        /// <summary>
+        /// TextBox_MaNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MaNhanVien;
+        
+        /// <summary>
+        /// TextBox_TenNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_TenNhanVien;
+        
+        /// <summary>
+        /// TextBox_SoDienThoai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_SoDienThoai;
     }
 }

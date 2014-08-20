@@ -66,6 +66,12 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
             init();
+            DBInstance.onDBConnectionDown += new DBInstance.DBConnectionChanged(this.rotmang);
+        }
+
+        private void rotmang(EventArgs e)
+        {
+            showConnection("Rớt mạng", false);
         }
 
         private void init()
@@ -311,7 +317,7 @@ namespace QuanLyTaiSanGUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home")))
                     {
-
+                        working = _ucPhanQuyen.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
                     {
@@ -417,6 +423,12 @@ namespace QuanLyTaiSanGUI
                 Application.Exit();
             else
                 backstageViewControl1.Ribbon.HideApplicationButtonContentControl();
+        }
+
+        public void showConnection(String text, bool haveConn)
+        {
+            barStaticConnectionT.Caption = text;
+            barStaticConnection.Enabled = haveConn;
         }
     }
 }
