@@ -181,9 +181,15 @@ namespace QuanLyTaiSan.Entities
         {
             throw new NotImplementedException();
         }
-        public bool canDo(string fixed_permission)
+        /// <summary>
+        /// Kiểm tra quyền cố định,
+        /// Xem Permission._XXXXXX để xem các quyền được định nghĩa
+        /// </summary>
+        /// <param name="stand_alone_permission"></param>
+        /// <returns></returns>
+        public bool canDo(string stand_alone_permission)
         {
-            throw new NotImplementedException();
+            return true;
         }
         
         #endregion

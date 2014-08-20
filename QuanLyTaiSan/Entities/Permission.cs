@@ -18,8 +18,7 @@ namespace QuanLyTaiSan.Entities
         }
         #region Dinh nghia
         /// <summary>
-        /// COSO, DAY, TANG, PHONG => stand_alone = false,
-        /// CONFIG => stand_alone => true
+        /// COSO, DAY, TANG, PHONG => stand_alone = false
         /// </summary>
         public String key { get; set; }
 
@@ -92,6 +91,9 @@ namespace QuanLyTaiSan.Entities
         protected override void init()
         {
             base.init();
+            //
+
+            //
             this.cosos = new List<CoSo>();
             this.days = new List<Dayy>();
             this.tangs = new List<Tang>();
@@ -100,7 +102,34 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
 
+        #region Standalone Permission constant
+        public static String[] STAND_ALONE_LIST = {
+            "WEB_MUONPHONG",
+            "WEB_QLMUONPHONG",
+            "CLIENT_CONFIG",
+            "SERVER_CONFIG"
+        };
+        /// <summary>
+        /// Sử dụng tính năng mượn phòng (tạo yêu cầu) trên WEB
+        /// </summary>
+        public static String _WEB_MUONPHUONG = "WEB_MUONPHONG";
+        /// <summary>
+        /// Sử dụng tính năng quản lý phiếu mượn phòng trên WEB
+        /// </summary>
+        public static String _WEB_QLMUONPHUONG = "WEB_QLMUONPHONG";
+        /// <summary>
+        /// Quyền cấu máy client
+        /// </summary>
+        public static String _CLIENT_CONFIG = "CLIENT_CONFIG";
+        /// <summary>
+        /// Quyền cấu hình máy server
+        /// </summary>
+        public static String _SERVER_CONFIG = "SERVER_CONFIG";
+
+        #endregion
+
         #region NotMapped
+
         /// <summary>
         /// Hiển thị thông tin chi tiết về quyền này cho người dùng dễ hiểu
         /// </summary>
