@@ -14,6 +14,9 @@ namespace WebQLPH
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Default SetClassActive = this.Master as Default;
+            SetClassActive.page = "VITRI";
+
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {

@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnQTV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGroup = new DevExpress.XtraEditors.SimpleButton();
             this.panelPhanQuyen_Control = new DevExpress.XtraEditors.PanelControl();
+            this.checkBtnGroup = new DevExpress.XtraEditors.CheckButton();
+            this.checkBtnQTV = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhanQuyen_Control)).BeginInit();
             this.panelPhanQuyen_Control.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnQTV
-            // 
-            this.btnQTV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQTV.Location = new System.Drawing.Point(0, 23);
-            this.btnQTV.Name = "btnQTV";
-            this.btnQTV.Size = new System.Drawing.Size(255, 23);
-            this.btnQTV.TabIndex = 0;
-            this.btnQTV.Text = "Quản trị viên";
-            this.btnQTV.Click += new System.EventHandler(this.btnQTV_Click);
-            // 
-            // btnGroup
-            // 
-            this.btnGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGroup.Location = new System.Drawing.Point(0, 0);
-            this.btnGroup.Name = "btnGroup";
-            this.btnGroup.Size = new System.Drawing.Size(255, 23);
-            this.btnGroup.TabIndex = 1;
-            this.btnGroup.Text = "Group";
-            this.btnGroup.Click += new System.EventHandler(this.btnGroup_Click);
-            // 
             // panelPhanQuyen_Control
             // 
             this.panelPhanQuyen_Control.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelPhanQuyen_Control.Controls.Add(this.btnQTV);
-            this.panelPhanQuyen_Control.Controls.Add(this.btnGroup);
+            this.panelPhanQuyen_Control.Controls.Add(this.checkBtnGroup);
+            this.panelPhanQuyen_Control.Controls.Add(this.checkBtnQTV);
             this.panelPhanQuyen_Control.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPhanQuyen_Control.Location = new System.Drawing.Point(0, 0);
             this.panelPhanQuyen_Control.Name = "panelPhanQuyen_Control";
             this.panelPhanQuyen_Control.Size = new System.Drawing.Size(255, 440);
             this.panelPhanQuyen_Control.TabIndex = 2;
+            // 
+            // checkBtnGroup
+            // 
+            this.checkBtnGroup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBtnGroup.Location = new System.Drawing.Point(0, 23);
+            this.checkBtnGroup.Name = "checkBtnGroup";
+            this.checkBtnGroup.Size = new System.Drawing.Size(255, 23);
+            this.checkBtnGroup.TabIndex = 2;
+            this.checkBtnGroup.Text = "Nhóm quyền";
+            this.checkBtnGroup.CheckedChanged += new System.EventHandler(this.checkBtnGroup_CheckedChanged);
+            // 
+            // checkBtnQTV
+            // 
+            this.checkBtnQTV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBtnQTV.Location = new System.Drawing.Point(0, 0);
+            this.checkBtnQTV.Name = "checkBtnQTV";
+            this.checkBtnQTV.Size = new System.Drawing.Size(255, 23);
+            this.checkBtnQTV.TabIndex = 3;
+            this.checkBtnQTV.Text = "Quản trị viên";
+            this.checkBtnQTV.CheckedChanged += new System.EventHandler(this.checkBtnQTV_CheckedChanged);
             // 
             // ucPhanQuyen_Control
             // 
@@ -81,8 +81,8 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnQTV;
-        private DevExpress.XtraEditors.SimpleButton btnGroup;
         private DevExpress.XtraEditors.PanelControl panelPhanQuyen_Control;
+        private DevExpress.XtraEditors.CheckButton checkBtnQTV;
+        private DevExpress.XtraEditors.CheckButton checkBtnGroup;
     }
 }

@@ -49,6 +49,33 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
         
         /// <summary>
+        /// Panel_GoogleMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_GoogleMap;
+        
+        /// <summary>
+        /// Iframe_GoogleMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Iframe_GoogleMap;
+        
+        /// <summary>
+        /// Iframe_Popup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Iframe_Popup;
+        
+        /// <summary>
         /// Label_ThongTin control.
         /// </summary>
         /// <remarks>
@@ -76,84 +103,57 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Label LabelThongBao;
         
         /// <summary>
-        /// ASPxImageSlider1 control.
+        /// ASPxImageSlider_Object control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider1;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Object;
         
         /// <summary>
-        /// Label1 control.
+        /// TextBox_Ten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
         
         /// <summary>
-        /// TextBox_MaNhanVien control.
+        /// TextBox_Thuoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MaNhanVien;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
         
         /// <summary>
-        /// Label2 control.
+        /// Panel_DiaChi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Panel Panel_DiaChi;
         
         /// <summary>
-        /// TextBox_HoTen control.
+        /// TextBox_DiaChi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_HoTen;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_DiaChi;
         
         /// <summary>
-        /// Label_DiaChi control.
+        /// TextBox_Mota control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DiaChi;
-        
-        /// <summary>
-        /// TextBox_SoDienThoai control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_SoDienThoai;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Mota;
     }
 }

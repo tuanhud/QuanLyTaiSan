@@ -24,16 +24,26 @@
             </div>
             <br />
             <div>
-                <asp:Label ID="Label1" runat="server" Text="Mã nhân viên"></asp:Label>
-                <asp:TextBox ID="TextBox_MaNhanVien" CssClass="form-control" placeholder="Mã nhân viên" runat="server" Enabled="False"></asp:TextBox>
+                <div class="row">
+                    <div class="col-lg-3">Mã nhân viên</div>
+                    <div class="col-lg-9">
+                        <asp:TextBox ID="TextBox_MaNhanVien" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                </div>
                 <br />
-
-                <asp:Label ID="Label2" runat="server" Text="Họ tên"></asp:Label>
-                <asp:TextBox ID="TextBox_HoTen" CssClass="form-control" placeholder="Họ tên nhân viên" runat="server" Enabled="False"></asp:TextBox>
+                <div class="row">
+                    <div class="col-lg-3">Họ tên</div>
+                    <div class="col-lg-9">
+                        <asp:TextBox ID="TextBox_HoTen" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                </div>
                 <br />
-
-                <asp:Label ID="Label3" runat="server" Text="Số điện thoại"></asp:Label>
-                <asp:TextBox ID="TextBox_SoDienThoai" CssClass="form-control" placeholder="Số điện thoại" runat="server" Enabled="False"></asp:TextBox>
+                <div class="row">
+                    <div class="col-lg-3">Số điện thoại</div>
+                    <div class="col-lg-9">
+                        <asp:TextBox ID="TextBox_SoDienThoai" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

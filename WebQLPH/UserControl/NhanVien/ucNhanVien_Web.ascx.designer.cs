@@ -94,15 +94,6 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ImageSliderNhanVienPhuTrach;
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// TextBox_MaNhanVien control.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.TextBox TextBox_MaNhanVien;
         
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
         /// TextBox_HoTen control.
         /// </summary>
         /// <remarks>
@@ -128,15 +110,6 @@ namespace WebQLPH.UserControl.NhanVien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_HoTen;
-        
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
         /// TextBox_SoDienThoai control.

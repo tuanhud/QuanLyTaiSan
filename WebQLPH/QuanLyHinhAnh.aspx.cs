@@ -46,9 +46,10 @@ namespace WebQLPH
                 if (ImageUpload.HasFile)
                 {
                     string NameFileImage = "", NameFileImageDaCo = "";
-
-                    foreach (HttpPostedFile imageupload in ImageUpload.PostedFiles)
+                    HttpFileCollection FileNameImages = Request.Files;
+                    for (int i = 0; i < FileNameImages.Count; i++)
                     {
+                        HttpPostedFile imageupload = FileNameImages[i];
                         if (imageupload.ContentType.Contains("image"))
                         {
                             DirectoryInfo dirInfo = new DirectoryInfo(Server.MapPath(folder_img));
