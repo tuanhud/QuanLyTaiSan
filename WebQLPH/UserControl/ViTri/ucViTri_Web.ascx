@@ -29,7 +29,7 @@
                             <div class="panel-heading">
                                 Bản đồ
                             </div>
-                            <iframe id="Iframe_GoogleMap" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+                            <iframe ID="Iframe_GoogleMap" runat="server" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
                         </div>
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -39,7 +39,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Bản đồ</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <iframe id="Iframe_Popup" width="100%" height="500px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+                                        <iframe ID="Iframe_Popup" runat="server" width="100%" height="500px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -47,7 +47,6 @@
                                 </div>
                             </div>
                         </div>
-                        <asp:Label ID="Label_Script" runat="server"></asp:Label>
                     </asp:Panel>
                 </td>
                 <td>
@@ -97,7 +96,7 @@
                                 <div class="row">
                                     <div class="col-lg-2">Mô tả</div>
                                     <div class="col-lg-10">
-                                        <asp:TextBox ID="TextBox_MoTa" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox_Mota" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>

@@ -24,6 +24,7 @@ namespace WebQLPH.UserControl.ViTri
 
         public void LoadData()
         {
+            Panel_Chinh.Visible = true;
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
@@ -32,7 +33,6 @@ namespace WebQLPH.UserControl.ViTri
                 ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 ASPxTreeList_ViTri.DataBind();
                 ASPxTreeList_ViTri.ExpandToLevel(1);
-                LoadFocusedNodeData();
             }
             else
             {
@@ -90,8 +90,8 @@ namespace WebQLPH.UserControl.ViTri
             TextBox_Ten.Text = "";
             TextBox_Thuoc.Text = "";
             TextBox_DiaChi.Text = "";
-            TextBox_MoTa.Text = "";
-            Panel_DiaChi.Visible = false;
+            TextBox_Mota.Text = "";
+            Panel_DiaChi.Visible = true;
             Panel_GoogleMap.Visible = false;
         }
 
@@ -115,14 +115,14 @@ namespace WebQLPH.UserControl.ViTri
                         TextBox_Thuoc.Text = "[Đại học Sài Gòn]";
                         Panel_DiaChi.Visible = true;
                         TextBox_DiaChi.Text = objCoSo.diachi;
-                        TextBox_MoTa.Text = objCoSo.mota;
+                        TextBox_Mota.Text = objCoSo.mota;
                         if (objCoSo.diachi != null)
                         {
                             if (objCoSo.diachi.Length > 0)
                             {
                                 Panel_GoogleMap.Visible = true;
-                                string strSrc = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
-                                Label_Script.Text = string.Format("<script>document.getElementById(\"Iframe_GoogleMap\").src = \"{0}\";document.getElementById(\"Iframe_Popup\").src = \"{1}\";</script>", strSrc, strSrc);
+                                Iframe_GoogleMap.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
+                                Iframe_Popup.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
                             }
                             else
                                 Panel_GoogleMap.Visible = false;
@@ -146,7 +146,7 @@ namespace WebQLPH.UserControl.ViTri
                         TextBox_Thuoc.Text = objDay.coso.ten;
                         Panel_DiaChi.Visible = false;
                         TextBox_DiaChi.Text = "";
-                        TextBox_MoTa.Text = objDay.mota;
+                        TextBox_Mota.Text = objDay.mota;
                         Panel_GoogleMap.Visible = false;
                     }
                     else
@@ -165,7 +165,7 @@ namespace WebQLPH.UserControl.ViTri
                         TextBox_Thuoc.Text = objTang.day.coso.ten + " - " + objTang.day.ten;
                         Panel_DiaChi.Visible = false;
                         TextBox_DiaChi.Text = "";
-                        TextBox_MoTa.Text = objTang.mota;
+                        TextBox_Mota.Text = objTang.mota;
                         Panel_GoogleMap.Visible = false;
                     }
                     else
@@ -174,18 +174,10 @@ namespace WebQLPH.UserControl.ViTri
                         SetError("Không có dữ liệu về tầng này");
                     }
                     break;
-                default:
-                    Response.Redirect("~/ViTri.aspx");
-                    return;
             }
         }
 
         protected void ASPxTreeList_ViTri_FocusedNodeChanged(object sender, EventArgs e)
-        {
-            LoadFocusedNodeData();
-        }
-
-        private void LoadFocusedNodeData()
         {
             if (listViTriHienThi.Count > 0)
             {

@@ -58,13 +58,22 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Panel Panel_GoogleMap;
         
         /// <summary>
-        /// Label_Script control.
+        /// Iframe_GoogleMap control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Script;
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Iframe_GoogleMap;
+        
+        /// <summary>
+        /// Iframe_Popup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Iframe_Popup;
         
         /// <summary>
         /// Label_ThongTin control.
@@ -139,12 +148,12 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.TextBox TextBox_DiaChi;
         
         /// <summary>
-        /// TextBox_MoTa control.
+        /// TextBox_Mota control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTa;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Mota;
     }
 }
