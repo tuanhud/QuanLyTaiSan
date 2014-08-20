@@ -10,33 +10,42 @@
 namespace WebQLPH {
     
     
-    public partial class t {
+    public partial class LoaiThietBis {
         
         /// <summary>
-        /// form1 control.
+        /// Panel_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Panel Panel_Web;
         
         /// <summary>
-        /// filMyFile control.
+        /// ucLoaiThietBi_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile filMyFile;
+        protected global::WebQLPH.UserControl.LoaiThietBis.ucLoaiThietBi_Web ucLoaiThietBi_Web;
         
         /// <summary>
-        /// Button1 control.
+        /// Panel_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Panel Panel_Mobile;
+        
+        /// <summary>
+        /// ucLoaiThietBi_Mobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebQLPH.UserControl.LoaiThietBis.ucLoaiThietBi_Mobile ucLoaiThietBi_Mobile;
     }
 }

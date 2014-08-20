@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebQLPH.UserControl.ViTri {
+namespace WebQLPH.UserControl.LoaiThietBis {
     
     
-    public partial class ucViTri_Web {
+    public partial class ucLoaiThietBi_Web {
         
         /// <summary>
         /// Panel_ThongBaoLoi control.
@@ -40,40 +40,13 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
-        /// ASPxTreeList_ViTri control.
+        /// ASPxTreeList_LoaiThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
-        
-        /// <summary>
-        /// Panel_GoogleMap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_GoogleMap;
-        
-        /// <summary>
-        /// Iframe_GoogleMap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Iframe_GoogleMap;
-        
-        /// <summary>
-        /// Iframe_Popup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Iframe_Popup;
+        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_LoaiThietBi;
         
         /// <summary>
         /// Label_ThongTin control.
@@ -103,15 +76,6 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Label LabelThongBao;
         
         /// <summary>
-        /// ASPxImageSlider_Object control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Object;
-        
-        /// <summary>
         /// TextBox_Ten control.
         /// </summary>
         /// <remarks>
@@ -121,31 +85,13 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
         
         /// <summary>
-        /// TextBox_Thuoc control.
+        /// TextBox_KieuQuanLy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
-        
-        /// <summary>
-        /// Panel_DiaChi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_DiaChi;
-        
-        /// <summary>
-        /// TextBox_DiaChi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_DiaChi;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_KieuQuanLy;
         
         /// <summary>
         /// TextBox_Mota control.
@@ -155,5 +101,14 @@ namespace WebQLPH.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Mota;
+        
+        /// <summary>
+        /// TextBox_Thuoc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
     }
 }

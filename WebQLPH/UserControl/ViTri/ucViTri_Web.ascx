@@ -29,7 +29,7 @@
                             <div class="panel-heading">
                                 Bản đồ
                             </div>
-                            <iframe ID="Iframe_GoogleMap" runat="server" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+                            <iframe id="Iframe_GoogleMap" runat="server" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
                         </div>
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

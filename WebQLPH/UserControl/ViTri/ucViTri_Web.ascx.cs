@@ -121,8 +121,8 @@ namespace WebQLPH.UserControl.ViTri
                             if (objCoSo.diachi.Length > 0)
                             {
                                 Panel_GoogleMap.Visible = true;
-                                Iframe_GoogleMap.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
-                                Iframe_Popup.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
+                                //Iframe_GoogleMap.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
+                                //Iframe_Popup.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
                             }
                             else
                                 Panel_GoogleMap.Visible = false;
