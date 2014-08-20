@@ -113,7 +113,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             function = "";
             errorProvider1.Clear();
             imgPhong.Images.Clear();
-            listHinhAnhPhong = null;
+            listHinhAnhPhong = new List<HinhAnh>();
             txtMaPhong.Text = "";
             txtTenPhong.Text = "";
             txtMoTaPhong.Text = "";
@@ -784,7 +784,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewPhong_DoubleClick(object sender, EventArgs e)
         {
-            if (this.ParentForm != null)
+            if (this.ParentForm != null && objPhong != null && objPhong.id > 0)
             {
                 frmMain frm = this.ParentForm as frmMain;
                 frm.loadDataByPhong(objPhong, "thietbi");
