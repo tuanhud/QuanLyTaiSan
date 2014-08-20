@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlGroup = new DevExpress.XtraGrid.GridControl();
             this.gridViewGroup = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -47,7 +48,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtKey = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGroup)).BeginInit();
@@ -86,7 +87,7 @@
             this.gridControlGroup.Location = new System.Drawing.Point(0, 0);
             this.gridControlGroup.MainView = this.gridViewGroup;
             this.gridControlGroup.Name = "gridControlGroup";
-            this.gridControlGroup.Size = new System.Drawing.Size(387, 492);
+            this.gridControlGroup.Size = new System.Drawing.Size(386, 492);
             this.gridControlGroup.TabIndex = 0;
             this.gridControlGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGroup});
