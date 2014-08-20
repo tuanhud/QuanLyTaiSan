@@ -311,7 +311,7 @@ namespace QuanLyTaiSanGUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhanQuyen_Home")))
                     {
-
+                        working = _ucPhanQuyen.checkworking();
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
                     {
