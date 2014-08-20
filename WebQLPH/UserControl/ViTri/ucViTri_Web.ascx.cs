@@ -24,7 +24,6 @@ namespace WebQLPH.UserControl.ViTri
 
         public void LoadData()
         {
-            Panel_Chinh.Visible = true;
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
@@ -33,6 +32,7 @@ namespace WebQLPH.UserControl.ViTri
                 ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 ASPxTreeList_ViTri.DataBind();
                 ASPxTreeList_ViTri.ExpandToLevel(1);
+                LoadFocusedNodeData();
             }
             else
             {
@@ -91,7 +91,7 @@ namespace WebQLPH.UserControl.ViTri
             TextBox_Thuoc.Text = "";
             TextBox_DiaChi.Text = "";
             TextBox_Mota.Text = "";
-            Panel_DiaChi.Visible = true;
+            Panel_DiaChi.Visible = false;
             Panel_GoogleMap.Visible = false;
         }
 
@@ -121,8 +121,8 @@ namespace WebQLPH.UserControl.ViTri
                             if (objCoSo.diachi.Length > 0)
                             {
                                 Panel_GoogleMap.Visible = true;
-                                Iframe_GoogleMap.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
-                                Iframe_Popup.Src = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
+                                string strSrc = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
+                                Label_Script.Text = string.Format("<script>document.getElementById(\"Iframe_GoogleMap\").src = \"{0}\";document.getElementById(\"Iframe_Popup\").src = \"{1}\";</script>", strSrc, strSrc);
                             }
                             else
                                 Panel_GoogleMap.Visible = false;
@@ -178,6 +178,11 @@ namespace WebQLPH.UserControl.ViTri
         }
 
         protected void ASPxTreeList_ViTri_FocusedNodeChanged(object sender, EventArgs e)
+        {
+            LoadFocusedNodeData();
+        }
+
+        private void LoadFocusedNodeData()
         {
             if (listViTriHienThi.Count > 0)
             {
