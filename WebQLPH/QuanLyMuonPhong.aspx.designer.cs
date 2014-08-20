@@ -40,60 +40,6 @@ namespace WebQLPH {
         protected global::WebQLPH.UserControl.ucDangNhap ucDangNhap;
         
         /// <summary>
-        /// PanelQuanLyPhongMuon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelQuanLyPhongMuon;
-        
-        /// <summary>
-        /// lidanhsachgiangvienmuonphong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lidanhsachgiangvienmuonphong;
-        
-        /// <summary>
-        /// PanelQuanLyPhongBanMuon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelQuanLyPhongBanMuon;
-        
-        /// <summary>
-        /// UpdatePanelQuanLyPhongBanMuon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelQuanLyPhongBanMuon;
-        
-        /// <summary>
-        /// RepeaterQuanLyPhongBanMuon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyPhongBanMuon;
-        
-        /// <summary>
-        /// CollectionPagerQuanLyPhongBanMuon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyPhongBanMuon;
-        
-        /// <summary>
         /// PanelQuanLyMuonPhong control.
         /// </summary>
         /// <remarks>
@@ -103,13 +49,22 @@ namespace WebQLPH {
         protected global::System.Web.UI.WebControls.Panel PanelQuanLyMuonPhong;
         
         /// <summary>
-        /// UpdatePanelQuanLyMuonPhong control.
+        /// UpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelQuanLyMuonPhong;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        
+        /// <summary>
+        /// LabelPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPanel;
         
         /// <summary>
         /// RepeaterQuanLyMuonPhong control.

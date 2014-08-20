@@ -1,5 +1,4 @@
 ﻿using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,16 +28,13 @@ namespace WebQLPH
                         PanelDangNhap.Visible = true;
                     else
                     {
-                        if (PermissionHelper.QuyenHienThiQuanTriVien())
+                        if (LaQuanTriVien())
                         {
                             PanelQuanLyTaiKhoan.Visible = true;
                             _QuanLyTaiKhoan();
                         }
                         else
                             PanelKhongPhaiQuanTriVien.Visible = true;
-
-                        if (!PermissionHelper.QuyenThemQuanTriVien())
-                            ButtonThemMoiTaiKhoan.Visible = false;
                     }
 
                     if (!String.IsNullOrEmpty(Request["op"]))
@@ -48,14 +44,6 @@ namespace WebQLPH
                             int id = Convert.ToInt32(Request["id"].ToString());
                             QuanTriVien _QuanTriVien = new QuanTriVien();
                             _QuanTriVien = QuanTriVien.getById(id);
-
-                            if (!PermissionHelper.QuyenXoaQuanTriVien(_QuanTriVien))
-                            {
-                                PanelThatBai.Visible = true;
-                                LabelThongBaoThatBai.Text = "Bạn không có quyền xóa tài khoản này";
-                                return;
-                            }
-
                             if (_QuanTriVien.delete() > 0 && DBInstance.commit() > 0)
                             {
                                 PanelThanhCong.Visible = true;
@@ -78,6 +66,11 @@ namespace WebQLPH
             }
         }
 
+        protected bool LaQuanTriVien()
+        {
+            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
+        }
+
         protected void _QuanLyTaiKhoan()
         {
             List<QuanTriVien> ListGiangVien = QuanTriVien.getQuery().ToList();
@@ -86,61 +79,23 @@ namespace WebQLPH
             CollectionPagerQuanLyTaiKhoan.BindToControl = RepeaterQuanLyTaiKhoan;
             RepeaterQuanLyTaiKhoan.DataSource = CollectionPagerQuanLyTaiKhoan.DataSourcePaged;
             RepeaterQuanLyTaiKhoan.DataBind();
-
-            List<Group> ListGroup = Group.getQuery().ToList();
-            DropDownListNhom.DataSource = ListGroup;
-            DropDownListNhom.DataBind();
-        }
-
-        protected string _QuyenSuaQuanTriVien()
-        {
-            int id = Convert.ToInt32(Eval("id").ToString());
-            QuanTriVien _QuanTriVien = new QuanTriVien();
-            _QuanTriVien = QuanTriVien.getById(id);
-            if (PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
-                return "<li><a href=\"#\" onclick=\"ShowCapNhat(" + Eval("id") + "," + Eval("group_id") + ");\" data-target=\"#PopupQuanLyTaiKhoan\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-pencil\"></span>&nbsp;Cập nhật</a></li>";
-            return "";
-        }
-
-        protected string _QuyenXoaQuanTriVien()
-        {
-            int id = Convert.ToInt32(Eval("id").ToString());
-            QuanTriVien _QuanTriVien = new QuanTriVien();
-            _QuanTriVien = QuanTriVien.getById(id);
-            if (PermissionHelper.QuyenXoaQuanTriVien(_QuanTriVien))
-                return "<li><a href=\"?op=xoa&id=" + Eval("id") + "\" onclick=\"return confirm('Bạn chắc chắn muốn xóa tài khoản " + Eval("username") + "?');\"><span class=\"glyphicon glyphicon-remove\"></span>&nbsp;Xóa</a></li>";
-            return "";
         }
 
         protected string NgayTao()
         {
             DateTime dt = Convert.ToDateTime(Eval("date_create").ToString());
-            return dt.ToString("d/M/yyyy HH\\hmm");
-        }
-
-        protected string MoTa()
-        {
-            return StringHelper.ConvertRNToBR(Eval("mota").ToString());
+            return dt.ToString("HH\\hmm d/M/yyyy");
         }
 
         protected void ButtonLuu_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = Convert.ToInt32(HiddenFieldID.Value.ToString());
                 QuanTriVien _QuanTriVien = new QuanTriVien();
+                int id = Convert.ToInt32(HiddenFieldID.Value);
                 _QuanTriVien = QuanTriVien.getById(id);
-
-                if (!PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
-                {
-                    PanelThatBai.Visible = true;
-                    LabelThongBaoThatBai.Text = "Bạn không có quyền sửa tài khoản này";
-                    return;
-                }
-
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if(!TextBoxMatKhau.Text.Equals(string.Empty))
                     _QuanTriVien.password = TextBoxMatKhau.Text;
@@ -168,19 +123,11 @@ namespace WebQLPH
         {
             try
             {
-                if (!PermissionHelper.QuyenThemQuanTriVien())
-                {
-                    PanelThatBai.Visible = true;
-                    LabelThongBaoThatBai.Text = "Bạn không có quyền thêm mới tài khoản";
-                    return;
-                }
-
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
-                _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
+                _QuanTriVien.changePassword(TextBoxMatKhau.Text);
                 _QuanTriVien.donvi = TextBoxKhoa.Text;
                 _QuanTriVien.mota = TextBoxGhiChu.Text;
                 if (_QuanTriVien.add() > 0 && DBInstance.commit() > 0)

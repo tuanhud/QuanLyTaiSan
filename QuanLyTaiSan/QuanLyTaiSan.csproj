@@ -127,7 +127,6 @@
     <Compile Include="Libraries\HTTPHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\MobileDetect.cs" />
-    <Compile Include="Libraries\PermissionHelper.cs" />
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\SkinHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />

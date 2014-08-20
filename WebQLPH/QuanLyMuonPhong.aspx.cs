@@ -30,7 +30,7 @@ namespace WebQLPH
                         PanelDangNhap.Visible = true;
                     else
                     {
-                        PanelQuanLyPhongMuon.Visible = true;
+                        PanelQuanLyMuonPhong.Visible = true;
                         QuanLyPhongMuon();
                     }
                 }
@@ -39,36 +39,32 @@ namespace WebQLPH
                     Console.WriteLine(ex);
                 }
             }
-        }
+        }        
 
         protected void QuanLyPhongMuon()
         {
-            QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
-            ListPhieuMuonPhong = PhieuMuonPhong.getQuery().Where(c => c.nguoimuon.id == _QuanTriVien.id).ToList();
-            if (ListPhieuMuonPhong.Count > 0)
+            if (LaQuanTriVien())
             {
-                CollectionPagerQuanLyPhongBanMuon.DataSource = ListPhieuMuonPhong;
-                CollectionPagerQuanLyPhongBanMuon.BindToControl = RepeaterQuanLyMuonPhong;
-                RepeaterQuanLyPhongBanMuon.DataSource = CollectionPagerQuanLyPhongBanMuon.DataSourcePaged;
-                RepeaterQuanLyPhongBanMuon.DataBind();
-
-                PanelQuanLyPhongBanMuon.Visible = true;
-            }
-
-            if (PermissionHelper.QuyenQuanLyMuonPhong())
-            {
-                lidanhsachgiangvienmuonphong.Visible = true;
+                LabelPanel.Text = "DANH SÁCH GIẢNG VIÊN MƯỢN PHÒNG";
                 ListPhieuMuonPhong = PhieuMuonPhong.getQuery().OrderByDescending(c => c.id).ToList();
-                if (ListPhieuMuonPhong.Count > 0)
-                {
-                    CollectionPagerQuanLyMuonPhong.DataSource = ListPhieuMuonPhong;
-                    CollectionPagerQuanLyMuonPhong.BindToControl = RepeaterQuanLyMuonPhong;
-                    RepeaterQuanLyMuonPhong.DataSource = CollectionPagerQuanLyMuonPhong.DataSourcePaged;
-                    RepeaterQuanLyMuonPhong.DataBind();
-
-                    PanelQuanLyMuonPhong.Visible = true;
-                }
             }
+            else
+            {
+                LabelPanel.Text = "DANH SÁCH PHÒNG BẠN ĐÃ MƯỢN";
+                QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
+                ListPhieuMuonPhong = PhieuMuonPhong.getQuery().Where(c => c.nguoimuon.id == _QuanTriVien.id).ToList();
+                //ListPhieuMuonPhong = _QuanTriVien.phieumuonphongs.OrderByDescending(c => c.id).ToList();
+            }
+
+            CollectionPagerQuanLyMuonPhong.DataSource = ListPhieuMuonPhong;
+            CollectionPagerQuanLyMuonPhong.BindToControl = RepeaterQuanLyMuonPhong;
+            RepeaterQuanLyMuonPhong.DataSource = CollectionPagerQuanLyMuonPhong.DataSourcePaged;
+            RepeaterQuanLyMuonPhong.DataBind();
+        }
+
+        protected bool LaQuanTriVien()
+        {
+            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
         }
 
         protected string NgayTao()
@@ -91,42 +87,40 @@ namespace WebQLPH
             DateTime dt = Convert.ToDateTime(Eval("ngaytra").ToString());
             return dt.ToString("HH\\hmm");
         }
-
-        protected string TrangThai()
-        {
-            int trangthai = Convert.ToInt32(Eval("trangthai").ToString());
-            string str = string.Empty;
-            switch (trangthai)
-            {
-                case 0:
-                    str = "<label class='label label-primary btn-sm'>Chờ duyệt</span>";
-                    break;
-                case 1:
-                    str = "<label class='label label-success btn-sm'>Chấp nhận</span>";
-                    break;
-                case -1:
-                    str = "<label class='label label-danger btn-sm'>Hủy bỏ</span>";
-                    break;
-            }
-            return str;
-        }
-
         protected string Duyet()
         {
             int trangthai = Convert.ToInt32(Eval("trangthai").ToString());
             string str = string.Empty;
-            str = string.Format("data-toggle='modal' data-target='#PopupDuyet' onclick=\"return Duyet('{0}','{1}');\">", Eval("id"), Eval("trangthai"));
-            switch (trangthai)
+            if (LaQuanTriVien())
             {
-                case 0:
-                    str = "<button class='btn btn-primary btn-sm' " + str + "Chờ duyệt</span>";
-                    break;
-                case 1:
-                    str = "<button class='btn btn-success btn-sm' " + str + "Chấp nhận</span>";
-                    break;
-                case -1:
-                    str = "<button class='btn btn-danger btn-sm' " + str + "Hủy bỏ</span>";
-                    break;
+                str = string.Format("data-toggle='modal' data-target='#PopupDuyet' onclick=\"return Duyet('{0}','{1}');\">", Eval("id"), Eval("trangthai"));
+                switch (trangthai)
+                {
+                    case 0:
+                        str = "<button class='btn btn-primary btn-sm' " + str + "Chờ duyệt</span>";
+                        break;
+                    case 1:
+                        str = "<button class='btn btn-success btn-sm' " + str + "Chấp nhận</span>";
+                        break;
+                    case -1:
+                        str = "<button class='btn btn-danger btn-sm' " + str + "Hủy bỏ</span>";
+                        break;
+                }
+            }
+            else
+            {
+                switch (trangthai)
+                {
+                    case 0:
+                        str = "<label class='label label-primary btn-sm'>Chờ duyệt</span>";
+                        break;
+                    case 1:
+                        str = "<label class='label label-success btn-sm'>Chấp nhận</span>";
+                        break;
+                    case -1:
+                        str = "<label class='label label-danger btn-sm'>Hủy bỏ</span>";
+                        break;
+                }
             }
             return str;
         }
@@ -139,7 +133,7 @@ namespace WebQLPH
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
                 _PhieuMuonPhong = PhieuMuonPhong.getById(Convert.ToInt32(HiddenFieldID.Value));
                 _PhieuMuonPhong.trangthai = Convert.ToInt32(DropDownListTrangThai.SelectedValue);
-                _PhieuMuonPhong.ghichu = TextBoxGhiChu.Text;
+                _PhieuMuonPhong.mota = TextBoxGhiChu.Text;
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien = QuanTriVien.getByUserName(Session["username"].ToString());
                 _PhieuMuonPhong.nguoiduyet = _QuanTriVien;
@@ -150,7 +144,7 @@ namespace WebQLPH
                         string to = _PhieuMuonPhong.nguoiduyet.email;
                         string sub = "[Thông Báo] V/v mượn phòng ngày " + Convert.ToDateTime(_PhieuMuonPhong.date_create).ToString("d/M/yyyy");
                         string tinhtrang = string.Empty;
-                        switch (_PhieuMuonPhong.trangthai)
+                        switch(_PhieuMuonPhong.trangthai)
                         {
                             case -1:
                                 tinhtrang = "đã bị hủy bỏ";

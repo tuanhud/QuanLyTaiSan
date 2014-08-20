@@ -1,5 +1,4 @@
 ﻿using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,14 +23,12 @@ namespace WebQLPH
                         PanelDangNhap.Visible = true;
                     else
                     {
-                        if (!PermissionHelper.QuyenMuonPhong())
+                        if (Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien"))
                             PanelKhongPhaiGiangVien.Visible = true;
                         else
-                        {
                             PanelMuonPhong.Visible = true;
-                            QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Session["Username"].ToString());
-                            TextBoxKhoa.Text = _QuanTriVien.donvi;
-                        }
+                        QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Session["Username"].ToString());
+                        TextBoxKhoa.Text = _QuanTriVien.donvi;
                     }
                 }
                 catch (Exception ex)

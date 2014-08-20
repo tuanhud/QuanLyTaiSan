@@ -64,7 +64,7 @@ namespace WebQLPH.UserControl.ViTri {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Iframe_GoogleMap;
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Iframe_GoogleMap;
         
         /// <summary>
         /// Iframe_Popup control.
@@ -73,7 +73,7 @@ namespace WebQLPH.UserControl.ViTri {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Iframe_Popup;
+        protected global::System.Web.UI.HtmlControls.HtmlIframe Iframe_Popup;
         
         /// <summary>
         /// Label_ThongTin control.

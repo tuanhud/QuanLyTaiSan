@@ -5,11 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebQLPH.UserControl.LoaiThietBis
+namespace WebQLPH
 {
-    public partial class ucLoaiThietBi_Mobile : System.Web.UI.UserControl
+    public partial class t : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
         {
 
         }

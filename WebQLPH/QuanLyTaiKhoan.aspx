@@ -16,7 +16,7 @@
     <asp:Panel ID="PanelKhongPhaiQuanTriVien" runat="server" Visible="false">
         <div class="alert alert-warning alert-dismissible" role="alert">
             <span class="glyphicon glyphicon-info-sign"></span>
-            Bạn không có quyền xem thông tin tài khoản.
+            Vui lòng đăng nhập bằng tài khoản quản trị viên để quản lý.
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelQuanLyTaiKhoan" runat="server" Visible="false">
@@ -60,17 +60,18 @@
                                         <td id="hoten<%#Eval("id")%>"><%# Eval("hoten") %></td>
                                         <td id="email<%#Eval("id")%>"><%# Eval("email") %></td>
                                         <td id="username<%#Eval("id")%>"><%# Eval("username") %></td>
-                                        <td id="khoa<%#Eval("id")%>"><%# Eval("donvi") %></td>
+                                        <td id="khoa<%#Eval("id")%>"><%# Eval("khoa") %></td>
                                         <td><%# NgayTao() %></td>
-                                        <td id="mota<%#Eval("id")%>"><%#MoTa()%></td>
+                                        <td id="mota<%#Eval("id")%>"><%# Eval("mota") %></td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                                    Công cụ&nbsp;<span class="caret"></span>
+                                                    Công cụ
+      <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <%#_QuyenSuaQuanTriVien()%>
-                                                    <%#_QuyenXoaQuanTriVien()%>
+                                                    <li><a href="#" onclick="ShowCapNhat(<%#Eval("id")%>);" data-target="#PopupQuanLyTaiKhoan" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Cập nhật</a></li>
+                                                    <li><a href="?op=xoa&id=<%#Eval("id")%>" onclick="return confirm('Bạn chắc chắn muốn xóa tài khoản <%#Eval("username")%>?');"><span class="glyphicon glyphicon-remove"></span>&nbsp;Xóa</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -114,14 +115,11 @@
                             </div>
                         </div>
                         <br />
-                        <div class="row">
-                            <div class="col-lg-4">Nhóm(*):</div>
-                            <div class="col-lg-8">
-                                <asp:DropDownList ID="DropDownListNhom" runat="server" CssClass="form-control" ClientIDMode="Static" DataTextField="ten" DataValueField="id">
-                                </asp:DropDownList>
+                        <%--<div class="row" id="ShowThongBao">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8" id="ThongBao" style="font-size:small">
                             </div>
-                        </div>
-                        <br />
+                        </div>--%>
                         <div class="row">
                             <div class="col-lg-4">Tài khoản(*):</div>
                             <div class="col-lg-8">

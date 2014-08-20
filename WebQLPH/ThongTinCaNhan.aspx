@@ -52,15 +52,6 @@
                         </div>
                     </div>
                     <br />
-                     <div class="row">
-                        <div class="col-lg-4">
-                            Nhóm:
-                        </div>
-                        <div class="col-lg-8">
-                            <asp:DropDownList ID="DropDownListNhom" runat="server" DataValueField="id" DataTextField="ten"></asp:DropDownList>
-                        </div>
-                    </div>
-                    <br />
                     <div class="row">
                         <div class="col-lg-4">
                             Tài khoản:
@@ -134,16 +125,6 @@
                         <div class="col-lg-8">
                             <b>
                                 <asp:Label ID="LabelEmail" runat="server" Text="Label"></asp:Label></b>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-lg-4">
-                            Nhóm:
-                        </div>
-                        <div class="col-lg-8">
-                            <asp:HiddenField ID="HiddenFieldIDNhom" runat="server" />
-                            <b><asp:Label ID="LabelNhom" runat="server" Text="Label"></asp:Label></b>
                         </div>
                     </div>
                     <br />

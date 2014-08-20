@@ -49,7 +49,7 @@
                                 <li <%if (page.Equals("PHONG")) Response.Write("class=\"active\""); %>><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>
                                 <li <%if (page.Equals("PHONGTHIETBI")) Response.Write("class=\"active\""); %>><a href="PhongThietBi.aspx"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Phòng - Thiết bị</a></li>
                                 <li <%if (page.Equals("THIETBI")) Response.Write("class=\"active\""); %>><a href="ThietBi.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Thiết bị</a></li>
-                                <li <%if (page.Equals("LOAITHIETBI")) Response.Write("class=\"active\""); %>><a href="LoaiThietBis.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Loại thiết bị</a></li>
+                                <li <%if (page.Equals("LOAITHIETBI")) Response.Write("class=\"active\""); %>><a href="LoaiThietBi.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Loại thiết bị</a></li>
                                 <li <%if (page.Equals("NHANVIEN")) Response.Write("class=\"active\""); %>><a href="NhanVien.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Nhân viên</a></li>
                                 <li <%if (page.Equals("SUCO")) Response.Write("class=\"active\""); %>><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Sự cố</a></li>
                             </ul>
@@ -75,11 +75,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li <%if (page.Equals("THONGTINCANHAN")) Response.Write("class=\"active\""); %>><a href="ThongTinCaNhan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
-                                    <%if(QuanLyTaiSan.Libraries.PermissionHelper.QuyenMuonPhong()){%>
-                                    <li <%if (page.Equals("QUANLYMUONPHONG")) Response.Write("class=\"active\""); %>><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Quản lý mượn phòng</a></li>
-                                    <%}if(QuanLyTaiSan.Libraries.PermissionHelper.QuyenHienThiQuanTriVien()){%>
-                                    <li <%if (page.Equals("QUANLYTAIKHOAN")) Response.Write("class=\"active\""); %>><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Quản lý tài khoản</a></li>
-                                    <%}%>
+                                    <li <%if (page.Equals("QUANLYMUONPHONG")) Response.Write("class=\"active\""); %>><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Quản lý mượn phòng</a></li>
+                                    <%if (LaQuanTriVien())
+                                      { %>
+                                    <li <%if (page.Equals("QUANLYTAIKHOAN")) Response.Write("class=\"active\""); %>><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Quản lý tài khoản</a></li>
+                                    <%} %>
                                     <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>
                                 </ul>
                             </li>

@@ -41,8 +41,6 @@ namespace WebQLPH
             QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
             LabelHoTen.Text = LabelHoTens.Text = _QuanTriVien.hoten;
             LabelEmail.Text = _QuanTriVien.email;
-            LabelNhom.Text = _QuanTriVien.group.ten;
-            HiddenFieldIDNhom.Value = _QuanTriVien.group_id.ToString();
             LabelTaiKhoan.Text = _QuanTriVien.username;
             LabelKhoa.Text = _QuanTriVien.donvi;
             LabelNgayTao.Text = Convert.ToDateTime(_QuanTriVien.date_create).ToString("d/M/yyyy HH\\hmm");
@@ -57,13 +55,6 @@ namespace WebQLPH
 
             TextBoxHoTen.Text = LabelHoTens.Text;
             TextBoxEmail.Text = LabelEmail.Text;
-
-            List<Group> ListGroup = Group.getQuery().ToList();
-            DropDownListNhom.DataSource = ListGroup;
-            DropDownListNhom.DataBind();
-
-            DropDownListNhom.SelectedValue = HiddenFieldIDNhom.Value;
-
             TextBoxTaiKhoan.Text = LabelTaiKhoan.Text;
             TextBoxTaiKhoan.Enabled = false;
             TextBoxDonVi.Text = LabelKhoa.Text;
@@ -75,7 +66,6 @@ namespace WebQLPH
             QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
             _QuanTriVien.hoten = TextBoxHoTen.Text;
             _QuanTriVien.email = TextBoxEmail.Text;
-            _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
             if (!TextBoxMatKhauMoi.Text.Equals("")) _QuanTriVien.hashPassword(TextBoxMatKhauMoi.Text);
             _QuanTriVien.donvi = TextBoxDonVi.Text;
             _QuanTriVien.mota = TextBoxGhiChu.Text;
