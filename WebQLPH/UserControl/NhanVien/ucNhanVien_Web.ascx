@@ -35,10 +35,10 @@
                                 <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
                                     <ItemTemplate>
                                         <tr>
-                                            <td<%# Eval("id").ToString()==idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
-                                            <td<%# Eval("id").ToString()==idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
-                                            <td<%# Eval("id").ToString()==idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("hoten") %></a></td>
-                                            <td<%# Eval("id").ToString()==idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("sodienthoai") %></a></td>
+                                            <td<%# Eval("id").ToString() == idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
+                                            <td<%# Eval("id").ToString() == idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
+                                            <td<%# Eval("id").ToString() == idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("hoten") %></a></td>
+                                            <td<%# Eval("id").ToString() == idNhanVien.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("sodienthoai") %></a></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>

@@ -97,6 +97,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\NoImage.jpg" />
     <Content Include="LienHe.aspx" />
+    <Content Include="LoaiThietBis.aspx" />
     <Content Include="MuonPhong.aspx" />
     <Content Include="NhanVien.aspx" />
     <Content Include="QuanLyHinhAnh.aspx" />
@@ -133,6 +134,8 @@
     <Content Include="Scripts\myjs.js" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
+    <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx" />
+    <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
@@ -178,6 +181,13 @@
     </Compile>
     <Compile Include="LienHe.aspx.designer.cs">
       <DependentUpon>LienHe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiThietBis.aspx.cs">
+      <DependentUpon>LoaiThietBis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoaiThietBis.aspx.designer.cs">
+      <DependentUpon>LoaiThietBis.aspx</DependentUpon>
     </Compile>
     <Compile Include="MuonPhong.aspx.cs">
       <DependentUpon>MuonPhong.aspx</DependentUpon>
@@ -228,6 +238,20 @@
     </Compile>
     <Compile Include="ThongTinCaNhan.aspx.designer.cs">
       <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx.cs">
+      <DependentUpon>ucLoaiThietBi_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx.designer.cs">
+      <DependentUpon>ucLoaiThietBi_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx.cs">
+      <DependentUpon>ucLoaiThietBi_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx.designer.cs">
+      <DependentUpon>ucLoaiThietBi_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx.cs">
       <DependentUpon>ucNhanVien_Mobile.ascx</DependentUpon>

@@ -40,7 +40,7 @@ namespace WebQLPH.UserControl.NhanVien
                     }
                     catch
                     {
-                        Response.Redirect("~/NhanVien.aspx");
+                        Response.Redirect(Request.Url.AbsolutePath);
                         return;
                     }
 
@@ -119,7 +119,7 @@ namespace WebQLPH.UserControl.NhanVien
                     subid = a.subId,
                     hoten = a.hoten,
                     sodienthoai = a.sodienthoai,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { CollectionPagerQuanLyNhanVien.QueryStringKey })).ToString()
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { CollectionPagerDanhSachPhong.QueryStringKey })).ToString()
                 }).ToList();
                 CollectionPagerQuanLyNhanVien.DataSource = list;
                 CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;

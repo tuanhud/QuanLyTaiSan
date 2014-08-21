@@ -75,6 +75,7 @@ namespace WebQLPH.UserControl
                     }
                     Session["Username"] = Username;
                     _QuanTriVien = QuanTriVien.getByUserName(Username);
+                    Global.current_quantrivien_login = _QuanTriVien;
                     Session["HoTen"] = _QuanTriVien.hoten;
                     Response.Redirect(Request.RawUrl);
                 }

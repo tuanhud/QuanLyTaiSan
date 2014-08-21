@@ -103,6 +103,15 @@ namespace WebQLPH {
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
         
         /// <summary>
+        /// DropDownListNhom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListNhom;
+        
+        /// <summary>
         /// TextBoxTaiKhoan control.
         /// </summary>
         /// <remarks>
@@ -191,6 +200,24 @@ namespace WebQLPH {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelEmail;
+        
+        /// <summary>
+        /// HiddenFieldIDNhom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldIDNhom;
+        
+        /// <summary>
+        /// LabelNhom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelNhom;
         
         /// <summary>
         /// LabelTaiKhoan control.
