@@ -433,13 +433,13 @@ namespace QuanLyTaiSan.Entities
             /*
              * Double 1-n relationship PHIEUMUONPHONG~QUANTRIVIEN
              */
-            //modelBuilder.Entity<PhieuMuonPhong>()
-            //.HasRequired(a => a.nguoimuon)
-            //.WithMany(b => b.phieudamuons);
+            modelBuilder.Entity<PhieuMuonPhong>()
+            .HasRequired(a => a.nguoimuon)
+            .WithMany(b => b.phieudamuons);
 
-            //modelBuilder.Entity<PhieuMuonPhong>()
-            //.HasOptional(a => a.nguoiduyet)
-            //.WithMany(b => b.phieudaduyets);
+            modelBuilder.Entity<PhieuMuonPhong>()
+            .HasOptional(a => a.nguoiduyet)
+            .WithMany(b => b.phieudaduyets);
 
             /*
              * n-n relationship COSO, DAY, TANG, PHONG - PERMISSION

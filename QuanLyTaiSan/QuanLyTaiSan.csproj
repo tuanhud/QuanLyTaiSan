@@ -130,25 +130,9 @@
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\SkinHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />
-    <Compile Include="Migrations\201408131615017_base.cs" />
-    <Compile Include="Migrations\201408131615017_base.Designer.cs">
-      <DependentUpon>201408131615017_base.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408131617156_base2.cs" />
-    <Compile Include="Migrations\201408131617156_base2.Designer.cs">
-      <DependentUpon>201408131617156_base2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408171401413_permission_framework.cs" />
-    <Compile Include="Migrations\201408171401413_permission_framework.Designer.cs">
-      <DependentUpon>201408171401413_permission_framework.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.cs" />
-    <Compile Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.Designer.cs">
-      <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs" />
-    <Compile Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.Designer.cs">
-      <DependentUpon>201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs</DependentUpon>
+    <Compile Include="Migrations\201408211701089_basev3_22082014.cs" />
+    <Compile Include="Migrations\201408211701089_basev3_22082014.Designer.cs">
+      <DependentUpon>201408211701089_basev3_22082014.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -158,20 +142,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201408131615017_base.resx">
-      <DependentUpon>201408131615017_base.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408131617156_base2.resx">
-      <DependentUpon>201408131617156_base2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408171401413_permission_framework.resx">
-      <DependentUpon>201408171401413_permission_framework.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408180445382_them_dinh_nghia_ve_permission.resx">
-      <DependentUpon>201408180445382_them_dinh_nghia_ve_permission.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.resx">
-      <DependentUpon>201408190516231_hopTheGiangVienVaQuanTriVien_phanBietTheoGroup.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408211701089_basev3_22082014.resx">
+      <DependentUpon>201408211701089_basev3_22082014.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

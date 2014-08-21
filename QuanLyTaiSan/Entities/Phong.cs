@@ -34,7 +34,6 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
         public virtual ICollection<SuCoPhong> sucophongs { get; set; }
-        public virtual ICollection<PhieuMuonPhong> phieumuonphongs { get; set; }
 
         public virtual ICollection<Permission> permissions { get; set; }
 
@@ -84,7 +83,6 @@ namespace QuanLyTaiSan.Entities
             this.ctthietbis = new List<CTThietBi>();
             this.logthietbis = new List<LogThietBi>();
             this.sucophongs = new List<SuCoPhong>();
-            this.phieumuonphongs = new List<PhieuMuonPhong>();
         }
         public override int update()
         {

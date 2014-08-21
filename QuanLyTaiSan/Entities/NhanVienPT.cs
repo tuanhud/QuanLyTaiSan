@@ -18,6 +18,11 @@ namespace QuanLyTaiSan.Entities
             
         }
         #region Dinh nghia
+        /// <summary>
+        /// true: Nam,
+        /// false: Nữ
+        /// </summary>
+        public Boolean gioitinh { get; set; }
         [Required]
         public String hoten { get; set; }
         public String sodienthoai { get; set; }
@@ -49,10 +54,6 @@ namespace QuanLyTaiSan.Entities
                  select nv).Distinct().ToList();
             return re;
         }
-        /*public static List<NhanVienPT> getAllOneImage()
-        {
-           // xuất ra 1 hình ảnh của list nhân viên
-        }*/
         #endregion
         #region Override method
         protected override void init()
