@@ -94,6 +94,15 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label LabelThongBao_Phong;
         
         /// <summary>
+        /// Panel_Phong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Phong;
+        
+        /// <summary>
         /// ASPxImageSlider_Phong control.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.TextBox TextBox_NhanVienPhuTrach;
         
         /// <summary>
+        /// Label_Phong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Phong;
+        
+        /// <summary>
         /// Label_ThongTinNhanVien control.
         /// </summary>
         /// <remarks>
@@ -157,22 +175,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinNhanVien;
         
         /// <summary>
-        /// PanelThongBao_NhanVien control.
+        /// Panel_NhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao_NhanVien;
-        
-        /// <summary>
-        /// LabelThongBao_NhanVien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao_NhanVien;
+        protected global::System.Web.UI.WebControls.Panel Panel_NhanVien;
         
         /// <summary>
         /// ASPxImageSlider_NhanVien control.
@@ -209,5 +218,23 @@ namespace WebQLPH.UserControl.Phong {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_SoDienThoai;
+        
+        /// <summary>
+        /// Label_NhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_NhanVien;
+        
+        /// <summary>
+        /// Label_Script control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Script;
     }
 }
