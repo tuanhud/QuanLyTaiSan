@@ -76,15 +76,15 @@ namespace WebQLPH.UserControl
                     break;
                 case "COSO":
                     name = "Cơ sở";
-                    url = "/ViTri.aspx?loai=coso&id=";
+                    url = "/ViTri.aspx?type=CoSo&id=";
                     break;
                 case "DAY":
                     name = "Dãy";
-                    url = "/ViTri.aspx?loai=day&id=";
+                    url = "/ViTri.aspx?type=Dayy&id=";
                     break;
                 case "TANG":
                     name = "Tầng";
-                    url = "/ViTri.aspx?loai=tang&id=";
+                    url = "/ViTri.aspx?type=Tang&id=";
                     break;
                 case "PHONG":
                     name = "Phòng";
@@ -96,7 +96,7 @@ namespace WebQLPH.UserControl
                     break;
                 case "LOAITHIETBI":
                     name = "Loại thiết bị";
-                    url = "/LoaiThietBi.aspx?id=";
+                    url = "/LoaiThietBis.aspx?id=";
                     break;
             }
             if (loai.Equals("name"))

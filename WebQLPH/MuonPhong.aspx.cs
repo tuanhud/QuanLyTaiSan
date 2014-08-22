@@ -52,7 +52,7 @@ namespace WebQLPH
                     TextBoxKhoa.Focus();
                     return;
                 }
-                if (Convert.ToDateTime(TextBoxNgayMuon.Text)< DateTime.Now)
+                if (Convert.ToDateTime(TextBoxNgayMuon.Text) < DateTime.Now.Date)
                 {
                     PanelThongBaoMuonPhong.Visible = true;
                     LabelThongBaoMuonPhong.Text = "Ngày mượn phòng phải lớn hơn hoặc trùng với ngày hiện tại";
@@ -112,6 +112,13 @@ namespace WebQLPH
                 string khoaphongmuon = TextBoxKhoa.Text;
                 DateTime thoigianmuon = Convert.ToDateTime(TextBoxNgayMuon.Text + " " + TextBoxThoiGianMuon.Text);
                 DateTime thoigiantra = Convert.ToDateTime(TextBoxNgayMuon.Text + " " + TextBoxThoiGianTra.Text);
+                if (thoigianmuon <= DateTime.Now)
+                {
+                    PanelThongBaoMuonPhong.Visible = true;
+                    LabelThongBaoMuonPhong.Text = "Thời gian mượn phải lớn hơn thời gian hiện tại";
+                    TextBoxThoiGianMuon.Focus();
+                    return;
+                }
                 if (thoigiantra <= thoigianmuon)
                 {
                     PanelThongBaoMuonPhong.Visible = true;

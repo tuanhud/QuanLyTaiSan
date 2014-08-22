@@ -430,5 +430,107 @@ namespace QuanLyTaiSanGUI
             barStaticConnectionT.Caption = text;
             barStaticConnection.Enabled = haveConn;
         }
+
+        private void backstageViewTabImportAll_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+            open.Title = "Chọn tập tin để Import";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                //vitri
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportViTri(open.FileName, "ViTri"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+                //nhanvien
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportNhanVien(open.FileName, "NhanVienPT"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+                //phong
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+                //loaitb
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportLoaiThietBi(open.FileName, "LoaiThietBi"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+                //tinhtrang
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportTinhTrang(open.FileName, "TinhTrang"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+                //tb chung
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+                //tb rieng
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+
+            }
+        }
     }
 }

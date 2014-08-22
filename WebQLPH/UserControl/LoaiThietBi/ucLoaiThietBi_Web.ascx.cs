@@ -20,7 +20,6 @@ namespace WebQLPH.UserControl.LoaiThietBis
 
         public void LoadData()
         {
-            Panel_Chinh.Visible = true;
             ListLoaiThietBi = LoaiThietBi.getAll();
             if (ListLoaiThietBi.Count > 0)
             {
@@ -28,7 +27,7 @@ namespace WebQLPH.UserControl.LoaiThietBis
                 ClearData();
                 ASPxTreeList_LoaiThietBi.DataSource = ListLoaiThietBi;
                 ASPxTreeList_LoaiThietBi.DataBind();
-                ASPxTreeList_LoaiThietBi.ExpandToLevel(1);
+                LoadFocusedNodeData();
             }
             else
             {
@@ -77,6 +76,11 @@ namespace WebQLPH.UserControl.LoaiThietBis
         }
 
         protected void ASPxTreeList_LoaiThietBi_FocusedNodeChanged(object sender, EventArgs e)
+        {
+            LoadFocusedNodeData();
+        }
+
+        private void LoadFocusedNodeData()
         {
             if (ListLoaiThietBi.Count > 0)
             {

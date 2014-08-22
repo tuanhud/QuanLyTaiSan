@@ -11,17 +11,17 @@
     <meta name="author" content="" />
     <link rel="icon" href="favicon.ico" />
     <title></title>
-    <link href="Content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
-    <link href="Content/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/bootstrap-datetimepicker.css" />
     <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
-    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
     <script src="Scripts/myjs.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

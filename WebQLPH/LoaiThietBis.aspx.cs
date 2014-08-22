@@ -27,7 +27,7 @@ namespace WebQLPH
             else
             {
                 Panel_Mobile.Visible = true;
-                //ucLoaiThietBi_Mobile.LoadData();
+                ucLoaiThietBi_Mobile.LoadData();
             }
         }
     }

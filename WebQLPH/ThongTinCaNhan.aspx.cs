@@ -81,6 +81,7 @@ namespace WebQLPH
             _QuanTriVien.mota = TextBoxGhiChu.Text;
             if (_QuanTriVien.update() > 0 && DBInstance.commit() > 0)
             {
+                Session["HoTen"] = _QuanTriVien.hoten;
                 PanelThongBaoThanhCong.Visible = true;
                 LabelThongBaoThanhCong.Text = "Cập nhật thông tin tài khoản thành công";
                 ShowPanelThongTinCaNhan(true);
