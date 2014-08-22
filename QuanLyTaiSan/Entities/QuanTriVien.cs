@@ -50,7 +50,8 @@ namespace QuanLyTaiSan.Entities
         /// Danh sách phiếu mà Quản trị viên này mượn
         /// </summary>
         
-        public virtual ICollection<PhieuMuonPhong> phieumuonphongs { get; set; }
+        public virtual ICollection<PhieuMuonPhong> phieudamuons { get; set; }
+        public virtual ICollection<PhieuMuonPhong> phieudaduyets { get; set; }
         #endregion
 
         #region Hàm nghiệp vụ
@@ -89,7 +90,8 @@ namespace QuanLyTaiSan.Entities
             logsucophongs = new List<LogSuCoPhong>();
             logthietbis = new List<LogThietBi>();
             phongs = new List<Phong>();
-            phieumuonphongs = new List<PhieuMuonPhong>();
+            phieudamuons = new List<PhieuMuonPhong>();
+            phieudaduyets = new List<PhieuMuonPhong>();
         }
         public override int update()
         {

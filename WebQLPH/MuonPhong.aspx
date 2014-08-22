@@ -22,7 +22,7 @@
     <asp:Panel ID="PanelKhongPhaiGiangVien" runat="server" Visible="false">
         <div class="alert alert-warning alert-dismissible" role="alert">
             <span class="glyphicon glyphicon-info-sign"></span>
-            Vui lòng đăng nhập bằng tài khoản giảng viên để mượn phòng.
+            Tài khoản này không được phép mượn phòng. Liên hệ với chúng tôi để biết thêm chi tiết.
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelMuonPhong" runat="server" Visible="False">

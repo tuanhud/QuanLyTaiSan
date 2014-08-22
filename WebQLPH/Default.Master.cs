@@ -41,11 +41,6 @@ namespace WebQLPH
             Global.working_database.use_internal_config = true;
         }
 
-        protected bool LaQuanTriVien()
-        {
-            return Convert.ToString(Session["KieuDangNhap"]).Equals("QuanTriVien");
-        }
-
         protected void ParentClassActive(string category)
         {
             String[] ThuocQuanLyPhong = { "VITRI", "PHONG", "PHONGTHIETBI", "THIETBI", "LOAITHIETBI", "NHANVIEN", "SUCO" };

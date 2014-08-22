@@ -30,6 +30,7 @@ function KiemTraDoiMatKhauTruocKhiLuu() {
 }
 function ShowThemMoi() {
     taikhoan = "";
+    document.getElementById("DropDownListNhom").value = 1;
     $("#ThongBao").hide();
     $("#ButtonLuu").hide();
     $("#thongbaomatkhau").hide();
@@ -68,7 +69,6 @@ function checktaikhoan(loai) {
 }
 
 $(document).ready(function () {
-    $("alert").hide();
     $('#TextBoxTaiKhoan').keyup(function () {
         if ($("#TextBoxTaiKhoan").val() != "") {
             checktaikhoan(taikhoan);
@@ -78,10 +78,13 @@ $(document).ready(function () {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             var id = $("#HiddenFieldID").val();
-            if (id == "")
+            if (id == "") {
                 $("#ButtonThemMoi").click();
-            else
+            }
+            else {
                 $("#ButtonLuu").click();
+                $("#ButtonDangNhap").click();
+            }
             return false;
         }
         event.stopPropagation();
@@ -131,9 +134,11 @@ function ThemMoi() {
 
     return true;
 }
-function ShowCapNhat(id) {
+function ShowCapNhat(id, nhom) {
 
     $("#HiddenFieldID").val(id);
+
+    document.getElementById("DropDownListNhom").value = nhom;
 
     $("#ThongBao").hide();
     $("#matkhau").html("Mật khẩu mới(*):");
@@ -145,7 +150,7 @@ function ShowCapNhat(id) {
     var email = $("#email" + id).html();
     taikhoan = $("#username" + id).html();
     var khoa = $("#khoa" + id).html();
-    var mota = $("#mota" + id).html();
+    var mota = $("#mota" + id).html().replace(/<br>/g, "\r\n");
 
     $("#myModalLabel").html("Chỉnh sửa tài khoản " + taikhoan);
 

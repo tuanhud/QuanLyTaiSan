@@ -26,7 +26,7 @@
                 Nhớ đăng nhập lần sau
             </div>
             <br />
-            <asp:Button ID="ButtonDangNhap" runat="server" Text="Đăng nhập" CssClass="btn btn-success center-block" OnClick="ButtonDangNhap_Click" />
+            <asp:Button ID="ButtonDangNhap" runat="server" Text="Đăng nhập" CssClass="btn btn-success center-block" OnClick="ButtonDangNhap_Click" ClientIDMode="Static" />
         </div>
     </div>
 </div>
