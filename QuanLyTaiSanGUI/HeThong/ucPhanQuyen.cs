@@ -40,11 +40,11 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             try
             {
-                //reload old object, discard changes
-                if (objQuanTriVienFilter != null && objQuanTriVienFilter.quantrivien != null)
-                {
-                    objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
-                }
+                ////reload old object, discard changes
+                //if (objQuanTriVienFilter != null && objQuanTriVienFilter.quantrivien != null)
+                //{
+                //    objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
+                //}
 
                 if (gridViewPhanQuyen.GetFocusedRow() != null)
                 {
@@ -169,6 +169,7 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             try
             {
+                gridControlPhanQuyen.DataSource = null;
                 gridControlPhanQuyen.DataSource = listobjQuanTriVienFilter = QuanTriVienFilter.getAll();
                 reloadGroup();
                 if (objQuanTriVienFilter != null)
@@ -239,6 +240,8 @@ namespace QuanLyTaiSanGUI.HeThong
             {
                 if (function.Equals("edit"))
                 {
+                    //objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
+
                     objQuanTriVienFilter.quantrivien.username = txtTaiKhoanQuanTriVien.Text;
                     objQuanTriVienFilter.quantrivien.date_create = (DateTime)dateCreated.EditValue;
                     objQuanTriVienFilter.quantrivien.group = lookUpEdit_group.GetSelectedDataRow() as Group;

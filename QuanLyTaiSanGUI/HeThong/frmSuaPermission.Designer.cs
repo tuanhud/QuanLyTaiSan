@@ -38,6 +38,14 @@
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnThemQuyenCoDinh = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage_quyenObject = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit_quyenXoa = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenXem = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenThem = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenSua = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenFull = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenDeny = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenBaoHam = new DevExpress.XtraEditors.CheckEdit();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage_CoSo = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_CoSo = new DevExpress.XtraGrid.GridControl();
@@ -65,14 +73,16 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnThemQuyenPhong = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.checkEdit_quyenXoa = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenXem = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenThem = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenSua = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenFull = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenDeny = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenBaoHam = new DevExpress.XtraEditors.CheckEdit();
+            this.xtraTabPage_quyenHangMuc = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit_quyenXoa2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenXem2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenThem2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenSua2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenFull2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit_quyenDeny2 = new DevExpress.XtraEditors.CheckEdit();
+            this.listBoxControl_quyenHangMuc = new DevExpress.XtraEditors.ListBoxControl();
+            this.btnThemQuyenHangMuc = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btn_XoaQuyen = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl_DSQuyen = new DevExpress.XtraGrid.GridControl();
@@ -91,6 +101,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView_quyenCoDinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
             this.xtraTabPage_quyenObject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage_CoSo.SuspendLayout();
@@ -105,15 +124,16 @@
             this.xtraTabPage_Phong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Phong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Phong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam.Properties)).BeginInit();
+            this.xtraTabPage_quyenHangMuc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenHangMuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_DSQuyen)).BeginInit();
@@ -130,13 +150,14 @@
             this.xtraTabControl_quyenCoDinh.TabIndex = 0;
             this.xtraTabControl_quyenCoDinh.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_quyenCoDinh,
-            this.xtraTabPage_quyenObject});
+            this.xtraTabPage_quyenObject,
+            this.xtraTabPage_quyenHangMuc});
             // 
             // xtraTabPage_quyenCoDinh
             // 
             this.xtraTabPage_quyenCoDinh.Controls.Add(this.groupControl_quyenCoDinh);
             this.xtraTabPage_quyenCoDinh.Name = "xtraTabPage_quyenCoDinh";
-            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(929, 288);
+            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(928, 285);
             this.xtraTabPage_quyenCoDinh.Text = "Quyền cố định";
             // 
             // groupControl_quyenCoDinh
@@ -200,15 +221,87 @@
             // 
             // xtraTabPage_quyenObject
             // 
-            this.xtraTabPage_quyenObject.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage_quyenObject.Controls.Add(this.groupControl2);
+            this.xtraTabPage_quyenObject.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage_quyenObject.Name = "xtraTabPage_quyenObject";
-            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(929, 288);
-            this.xtraTabPage_quyenObject.Text = "Quyền trên hạng mục, đối tượng cụ thể";
+            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(928, 285);
+            this.xtraTabPage_quyenObject.Text = "Quyền trên đối tượng cụ thể";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.checkEdit_quyenXoa);
+            this.groupControl2.Controls.Add(this.checkEdit_quyenXem);
+            this.groupControl2.Controls.Add(this.checkEdit_quyenThem);
+            this.groupControl2.Controls.Add(this.checkEdit_quyenSua);
+            this.groupControl2.Controls.Add(this.checkEdit_quyenFull);
+            this.groupControl2.Controls.Add(this.checkEdit_quyenDeny);
+            this.groupControl2.Controls.Add(this.checkEdit_quyenBaoHam);
+            this.groupControl2.Location = new System.Drawing.Point(7, 5);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(134, 225);
+            this.groupControl2.TabIndex = 9;
+            this.groupControl2.Text = "Tùy chọn quyền";
+            // 
+            // checkEdit_quyenXoa
+            // 
+            this.checkEdit_quyenXoa.Location = new System.Drawing.Point(26, 162);
+            this.checkEdit_quyenXoa.Name = "checkEdit_quyenXoa";
+            this.checkEdit_quyenXoa.Properties.Caption = "Xóa";
+            this.checkEdit_quyenXoa.Size = new System.Drawing.Size(56, 19);
+            this.checkEdit_quyenXoa.TabIndex = 6;
+            // 
+            // checkEdit_quyenXem
+            // 
+            this.checkEdit_quyenXem.Location = new System.Drawing.Point(26, 76);
+            this.checkEdit_quyenXem.Name = "checkEdit_quyenXem";
+            this.checkEdit_quyenXem.Properties.Caption = "Xem";
+            this.checkEdit_quyenXem.Size = new System.Drawing.Size(54, 19);
+            this.checkEdit_quyenXem.TabIndex = 5;
+            // 
+            // checkEdit_quyenThem
+            // 
+            this.checkEdit_quyenThem.Location = new System.Drawing.Point(26, 104);
+            this.checkEdit_quyenThem.Name = "checkEdit_quyenThem";
+            this.checkEdit_quyenThem.Properties.Caption = "Thêm";
+            this.checkEdit_quyenThem.Size = new System.Drawing.Size(59, 19);
+            this.checkEdit_quyenThem.TabIndex = 4;
+            // 
+            // checkEdit_quyenSua
+            // 
+            this.checkEdit_quyenSua.Location = new System.Drawing.Point(26, 133);
+            this.checkEdit_quyenSua.Name = "checkEdit_quyenSua";
+            this.checkEdit_quyenSua.Properties.Caption = "Sửa";
+            this.checkEdit_quyenSua.Size = new System.Drawing.Size(52, 19);
+            this.checkEdit_quyenSua.TabIndex = 3;
+            // 
+            // checkEdit_quyenFull
+            // 
+            this.checkEdit_quyenFull.Location = new System.Drawing.Point(5, 51);
+            this.checkEdit_quyenFull.Name = "checkEdit_quyenFull";
+            this.checkEdit_quyenFull.Properties.Caption = "Tất cả";
+            this.checkEdit_quyenFull.Size = new System.Drawing.Size(75, 19);
+            this.checkEdit_quyenFull.TabIndex = 2;
+            this.checkEdit_quyenFull.CheckedChanged += new System.EventHandler(this.checkEdit_quyenFull_CheckedChanged_1);
+            // 
+            // checkEdit_quyenDeny
+            // 
+            this.checkEdit_quyenDeny.Location = new System.Drawing.Point(5, 191);
+            this.checkEdit_quyenDeny.Name = "checkEdit_quyenDeny";
+            this.checkEdit_quyenDeny.Properties.Caption = "Cấm";
+            this.checkEdit_quyenDeny.Size = new System.Drawing.Size(59, 19);
+            this.checkEdit_quyenDeny.TabIndex = 1;
+            // 
+            // checkEdit_quyenBaoHam
+            // 
+            this.checkEdit_quyenBaoHam.Location = new System.Drawing.Point(5, 24);
+            this.checkEdit_quyenBaoHam.Name = "checkEdit_quyenBaoHam";
+            this.checkEdit_quyenBaoHam.Properties.Caption = "Quyền bao hàm";
+            this.checkEdit_quyenBaoHam.Size = new System.Drawing.Size(115, 19);
+            this.checkEdit_quyenBaoHam.TabIndex = 0;
             // 
             // xtraTabControl2
             // 
-            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl2.Location = new System.Drawing.Point(147, 2);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage_CoSo;
             this.xtraTabControl2.Size = new System.Drawing.Size(627, 281);
@@ -224,7 +317,7 @@
             this.xtraTabPage_CoSo.Controls.Add(this.gridControl_CoSo);
             this.xtraTabPage_CoSo.Controls.Add(this.btnThemQuyenCoSo);
             this.xtraTabPage_CoSo.Name = "xtraTabPage_CoSo";
-            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(622, 256);
+            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(621, 253);
             this.xtraTabPage_CoSo.Text = "Cơ sở";
             // 
             // gridControl_CoSo
@@ -266,7 +359,7 @@
             this.xtraTabPage_Day.Controls.Add(this.gridControl_Day);
             this.xtraTabPage_Day.Controls.Add(this.btnThemQuyenDay);
             this.xtraTabPage_Day.Name = "xtraTabPage_Day";
-            this.xtraTabPage_Day.Size = new System.Drawing.Size(622, 256);
+            this.xtraTabPage_Day.Size = new System.Drawing.Size(621, 253);
             this.xtraTabPage_Day.Text = "Dãy";
             // 
             // gridControl_Day
@@ -313,13 +406,14 @@
             this.btnThemQuyenDay.Size = new System.Drawing.Size(75, 23);
             this.btnThemQuyenDay.TabIndex = 9;
             this.btnThemQuyenDay.Text = "Cấp quyền";
+            this.btnThemQuyenDay.Click += new System.EventHandler(this.btnThemQuyenDay_Click);
             // 
             // xtraTabPage_Tầng
             // 
             this.xtraTabPage_Tầng.Controls.Add(this.gridControl_Tang);
             this.xtraTabPage_Tầng.Controls.Add(this.btnThemQuyenTang);
             this.xtraTabPage_Tầng.Name = "xtraTabPage_Tầng";
-            this.xtraTabPage_Tầng.Size = new System.Drawing.Size(622, 256);
+            this.xtraTabPage_Tầng.Size = new System.Drawing.Size(621, 253);
             this.xtraTabPage_Tầng.Text = "Tầng";
             // 
             // gridControl_Tang
@@ -376,13 +470,14 @@
             this.btnThemQuyenTang.Size = new System.Drawing.Size(75, 23);
             this.btnThemQuyenTang.TabIndex = 9;
             this.btnThemQuyenTang.Text = "Cấp quyền";
+            this.btnThemQuyenTang.Click += new System.EventHandler(this.btnThemQuyenTang_Click);
             // 
             // xtraTabPage_Phong
             // 
             this.xtraTabPage_Phong.Controls.Add(this.gridControl_Phong);
             this.xtraTabPage_Phong.Controls.Add(this.btnThemQuyenPhong);
             this.xtraTabPage_Phong.Name = "xtraTabPage_Phong";
-            this.xtraTabPage_Phong.Size = new System.Drawing.Size(622, 256);
+            this.xtraTabPage_Phong.Size = new System.Drawing.Size(621, 253);
             this.xtraTabPage_Phong.Text = "Phòng";
             // 
             // gridControl_Phong
@@ -450,78 +545,95 @@
             this.btnThemQuyenPhong.Size = new System.Drawing.Size(75, 23);
             this.btnThemQuyenPhong.TabIndex = 9;
             this.btnThemQuyenPhong.Text = "Cấp quyền";
+            this.btnThemQuyenPhong.Click += new System.EventHandler(this.btnThemQuyenPhong_Click);
             // 
-            // groupControl2
+            // xtraTabPage_quyenHangMuc
             // 
-            this.groupControl2.Controls.Add(this.checkEdit_quyenXoa);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenXem);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenThem);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenSua);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenFull);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenDeny);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenBaoHam);
-            this.groupControl2.Location = new System.Drawing.Point(636, 26);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(134, 253);
-            this.groupControl2.TabIndex = 6;
-            this.groupControl2.Text = "Tùy chọn quyền";
+            this.xtraTabPage_quyenHangMuc.Controls.Add(this.groupControl3);
+            this.xtraTabPage_quyenHangMuc.Controls.Add(this.listBoxControl_quyenHangMuc);
+            this.xtraTabPage_quyenHangMuc.Controls.Add(this.btnThemQuyenHangMuc);
+            this.xtraTabPage_quyenHangMuc.Name = "xtraTabPage_quyenHangMuc";
+            this.xtraTabPage_quyenHangMuc.Size = new System.Drawing.Size(928, 285);
+            this.xtraTabPage_quyenHangMuc.Text = "Quyền trên hạng mục";
             // 
-            // checkEdit_quyenXoa
+            // groupControl3
             // 
-            this.checkEdit_quyenXoa.Location = new System.Drawing.Point(26, 162);
-            this.checkEdit_quyenXoa.Name = "checkEdit_quyenXoa";
-            this.checkEdit_quyenXoa.Properties.Caption = "Xóa";
-            this.checkEdit_quyenXoa.Size = new System.Drawing.Size(56, 19);
-            this.checkEdit_quyenXoa.TabIndex = 6;
+            this.groupControl3.Controls.Add(this.checkEdit_quyenXoa2);
+            this.groupControl3.Controls.Add(this.checkEdit_quyenXem2);
+            this.groupControl3.Controls.Add(this.checkEdit_quyenThem2);
+            this.groupControl3.Controls.Add(this.checkEdit_quyenSua2);
+            this.groupControl3.Controls.Add(this.checkEdit_quyenFull2);
+            this.groupControl3.Controls.Add(this.checkEdit_quyenDeny2);
+            this.groupControl3.Location = new System.Drawing.Point(8, 8);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(134, 195);
+            this.groupControl3.TabIndex = 12;
+            this.groupControl3.Text = "Tùy chọn quyền";
             // 
-            // checkEdit_quyenXem
+            // checkEdit_quyenXoa2
             // 
-            this.checkEdit_quyenXem.Location = new System.Drawing.Point(26, 76);
-            this.checkEdit_quyenXem.Name = "checkEdit_quyenXem";
-            this.checkEdit_quyenXem.Properties.Caption = "Xem";
-            this.checkEdit_quyenXem.Size = new System.Drawing.Size(54, 19);
-            this.checkEdit_quyenXem.TabIndex = 5;
+            this.checkEdit_quyenXoa2.Location = new System.Drawing.Point(26, 136);
+            this.checkEdit_quyenXoa2.Name = "checkEdit_quyenXoa2";
+            this.checkEdit_quyenXoa2.Properties.Caption = "Xóa";
+            this.checkEdit_quyenXoa2.Size = new System.Drawing.Size(56, 19);
+            this.checkEdit_quyenXoa2.TabIndex = 6;
             // 
-            // checkEdit_quyenThem
+            // checkEdit_quyenXem2
             // 
-            this.checkEdit_quyenThem.Location = new System.Drawing.Point(26, 104);
-            this.checkEdit_quyenThem.Name = "checkEdit_quyenThem";
-            this.checkEdit_quyenThem.Properties.Caption = "Thêm";
-            this.checkEdit_quyenThem.Size = new System.Drawing.Size(59, 19);
-            this.checkEdit_quyenThem.TabIndex = 4;
+            this.checkEdit_quyenXem2.Location = new System.Drawing.Point(26, 50);
+            this.checkEdit_quyenXem2.Name = "checkEdit_quyenXem2";
+            this.checkEdit_quyenXem2.Properties.Caption = "Xem";
+            this.checkEdit_quyenXem2.Size = new System.Drawing.Size(54, 19);
+            this.checkEdit_quyenXem2.TabIndex = 5;
             // 
-            // checkEdit_quyenSua
+            // checkEdit_quyenThem2
             // 
-            this.checkEdit_quyenSua.Location = new System.Drawing.Point(26, 133);
-            this.checkEdit_quyenSua.Name = "checkEdit_quyenSua";
-            this.checkEdit_quyenSua.Properties.Caption = "Sửa";
-            this.checkEdit_quyenSua.Size = new System.Drawing.Size(52, 19);
-            this.checkEdit_quyenSua.TabIndex = 3;
+            this.checkEdit_quyenThem2.Location = new System.Drawing.Point(26, 78);
+            this.checkEdit_quyenThem2.Name = "checkEdit_quyenThem2";
+            this.checkEdit_quyenThem2.Properties.Caption = "Thêm";
+            this.checkEdit_quyenThem2.Size = new System.Drawing.Size(59, 19);
+            this.checkEdit_quyenThem2.TabIndex = 4;
             // 
-            // checkEdit_quyenFull
+            // checkEdit_quyenSua2
             // 
-            this.checkEdit_quyenFull.Location = new System.Drawing.Point(5, 51);
-            this.checkEdit_quyenFull.Name = "checkEdit_quyenFull";
-            this.checkEdit_quyenFull.Properties.Caption = "Tất cả";
-            this.checkEdit_quyenFull.Size = new System.Drawing.Size(75, 19);
-            this.checkEdit_quyenFull.TabIndex = 2;
-            this.checkEdit_quyenFull.CheckedChanged += new System.EventHandler(this.checkEdit_quyenFull_CheckedChanged);
+            this.checkEdit_quyenSua2.Location = new System.Drawing.Point(26, 107);
+            this.checkEdit_quyenSua2.Name = "checkEdit_quyenSua2";
+            this.checkEdit_quyenSua2.Properties.Caption = "Sửa";
+            this.checkEdit_quyenSua2.Size = new System.Drawing.Size(52, 19);
+            this.checkEdit_quyenSua2.TabIndex = 3;
             // 
-            // checkEdit_quyenDeny
+            // checkEdit_quyenFull2
             // 
-            this.checkEdit_quyenDeny.Location = new System.Drawing.Point(5, 191);
-            this.checkEdit_quyenDeny.Name = "checkEdit_quyenDeny";
-            this.checkEdit_quyenDeny.Properties.Caption = "Cấm";
-            this.checkEdit_quyenDeny.Size = new System.Drawing.Size(59, 19);
-            this.checkEdit_quyenDeny.TabIndex = 1;
+            this.checkEdit_quyenFull2.Location = new System.Drawing.Point(5, 25);
+            this.checkEdit_quyenFull2.Name = "checkEdit_quyenFull2";
+            this.checkEdit_quyenFull2.Properties.Caption = "Tất cả";
+            this.checkEdit_quyenFull2.Size = new System.Drawing.Size(75, 19);
+            this.checkEdit_quyenFull2.TabIndex = 2;
+            this.checkEdit_quyenFull2.CheckedChanged += new System.EventHandler(this.checkEdit_quyenFull2_CheckedChanged);
             // 
-            // checkEdit_quyenBaoHam
+            // checkEdit_quyenDeny2
             // 
-            this.checkEdit_quyenBaoHam.Location = new System.Drawing.Point(5, 24);
-            this.checkEdit_quyenBaoHam.Name = "checkEdit_quyenBaoHam";
-            this.checkEdit_quyenBaoHam.Properties.Caption = "Quyền bao hàm";
-            this.checkEdit_quyenBaoHam.Size = new System.Drawing.Size(115, 19);
-            this.checkEdit_quyenBaoHam.TabIndex = 0;
+            this.checkEdit_quyenDeny2.Location = new System.Drawing.Point(5, 165);
+            this.checkEdit_quyenDeny2.Name = "checkEdit_quyenDeny2";
+            this.checkEdit_quyenDeny2.Properties.Caption = "Cấm";
+            this.checkEdit_quyenDeny2.Size = new System.Drawing.Size(59, 19);
+            this.checkEdit_quyenDeny2.TabIndex = 1;
+            // 
+            // listBoxControl_quyenHangMuc
+            // 
+            this.listBoxControl_quyenHangMuc.Location = new System.Drawing.Point(151, 8);
+            this.listBoxControl_quyenHangMuc.Name = "listBoxControl_quyenHangMuc";
+            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(190, 253);
+            this.listBoxControl_quyenHangMuc.TabIndex = 11;
+            // 
+            // btnThemQuyenHangMuc
+            // 
+            this.btnThemQuyenHangMuc.Location = new System.Drawing.Point(347, 8);
+            this.btnThemQuyenHangMuc.Name = "btnThemQuyenHangMuc";
+            this.btnThemQuyenHangMuc.Size = new System.Drawing.Size(75, 23);
+            this.btnThemQuyenHangMuc.TabIndex = 10;
+            this.btnThemQuyenHangMuc.Text = "Cấp quyền";
+            this.btnThemQuyenHangMuc.Click += new System.EventHandler(this.btnThemQuyenHangMuc_Click);
             // 
             // groupControl1
             // 
@@ -627,6 +739,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView_quyenCoDinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
             this.xtraTabPage_quyenObject.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage_CoSo.ResumeLayout(false);
@@ -641,15 +762,16 @@
             this.xtraTabPage_Phong.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Phong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Phong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam.Properties)).EndInit();
+            this.xtraTabPage_quyenHangMuc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenHangMuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_DSQuyen)).EndInit();
@@ -671,9 +793,7 @@
         private DevExpress.XtraEditors.SimpleButton btnThemQuyenCoDinh;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage_quyenObject;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton btnThemQuyenCoSo;
-        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenBaoHam;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage_CoSo;
         private DevExpress.XtraGrid.GridControl gridControl_CoSo;
@@ -693,7 +813,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView_Phong;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraEditors.SimpleButton btnThemQuyenPhong;
-        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenDeny;
         private DevExpress.XtraEditors.SimpleButton btn_XoaQuyen;
         private DevExpress.XtraGrid.GridControl gridControl_DSQuyen;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView_DSQuyen;
@@ -706,15 +825,28 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemo;
+        private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage_quyenHangMuc;
+        private DevExpress.XtraEditors.SimpleButton btnThemQuyenHangMuc;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControl_quyenHangMuc;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenXoa;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenXem;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenThem;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenSua;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenFull;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemo;
-        private DevExpress.XtraEditors.SimpleButton btnOK;
-        private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenDeny;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenBaoHam;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenXoa2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenXem2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenThem2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenSua2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenFull2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenDeny2;
 
     }
 }

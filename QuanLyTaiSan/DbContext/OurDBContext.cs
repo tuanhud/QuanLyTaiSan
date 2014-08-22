@@ -199,63 +199,66 @@ namespace QuanLyTaiSan.Entities
         public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
         #region STATIC
         /// <summary>
+        /// Dùng trong frm Sửa quyền
+        /// </summary>
+        public static String[] entity_list =
+        {
+            "COSO", "DAY", "TANG", "NHANVIENPT", "QUANTRIVIEN", "SUCOPHONG", "PHONG", "THIETBI", "LOAITHIETBI", "GROUP", "TINHTRANG"
+        };
+        /// <summary>
         /// for SYNC
         /// </summary>
-        public static String[] tracking_tables
+        
+        public static String[] tracking_tables =
         {
             //UNDEPENDENT (bản thân không có bất kỳ FK nào)
             //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
-            get
-            {
-                return new String[] {
-                    "__MigrationHistory",//UNDEPENDENT
+            "__MigrationHistory",//UNDEPENDENT
 
-                    "COSOS",//UNDEPENDENT
-                    "DAYS",
-                    "TANGS",
-                    "VITRIS",
-                    "NHANVIENPTS",//UNDEPENDENT
-                    "PHONGS",
+            "COSOS",//UNDEPENDENT
+            "DAYS",
+            "TANGS",
+            "VITRIS",
+            "NHANVIENPTS",//UNDEPENDENT
+            "PHONGS",
                     
-                    "LOAITHIETBIS",
-                    "TINHTRANGS",//UNDEPENDENT
-                    "THIETBIS",
-                    "CTTHIETBIS",
+            "LOAITHIETBIS",
+            "TINHTRANGS",//UNDEPENDENT
+            "THIETBIS",
+            "CTTHIETBIS",
                     
-                    "GROUPS",//UNDEPENDENT
+            "GROUPS",//UNDEPENDENT
                     
-                    "PERMISSIONS",//UNDEPENDENT
-                    "GROUP_PERMISSION",
-                    "COSO_PERMISSION",
-                    "DAY_PERMISSION",
-                    "TANG_PERMISSION",
-                    "PHONG_PERMISSION",
+            "PERMISSIONS",//UNDEPENDENT
+            "GROUP_PERMISSION",
+            "COSO_PERMISSION",
+            "DAY_PERMISSION",
+            "TANG_PERMISSION",
+            "PHONG_PERMISSION",
 
-                    "QUANTRIVIENS",
+            "QUANTRIVIENS",
 
-                    "LOGTHIETBIS",
+            "LOGTHIETBIS",
 
-                    "SUCOPHONGS",//UNDEPENDENT
-                    "LOGSUCOPHONGS",
+            "SUCOPHONGS",//UNDEPENDENT
+            "LOGSUCOPHONGS",
                     
-                    "SETTINGS",//UNDEPENDENT
-                    "LOGHETHONGS",//UNDEPENDENT
-                    "PHIEUMUONPHONGS",
+            "SETTINGS",//UNDEPENDENT
+            "LOGHETHONGS",//UNDEPENDENT
+            "PHIEUMUONPHONGS",
 
-                    "HINHANHS",
-                    "COSO_HINHANH",
-                    "DAY_HINHANH",
-                    "TANG_HINHANH",
-                    "THIETBI_HINHANH",
-                    "CTTHIETBI_HINHANH",
-                    "LOGSUCOPHONG_HINHANH",
-                    "LOGTHIETBI_HINHANH",
-                    "NHANVIENPT_HINHANH",
-                    "PHONG_HINHANH",
-                    "SUCOPHONG_HINHANH",
-                };
-            }
-        }
+            "HINHANHS",
+            "COSO_HINHANH",
+            "DAY_HINHANH",
+            "TANG_HINHANH",
+            "THIETBI_HINHANH",
+            "CTTHIETBI_HINHANH",
+            "LOGSUCOPHONG_HINHANH",
+            "LOGTHIETBI_HINHANH",
+            "NHANVIENPT_HINHANH",
+            "PHONG_HINHANH",
+            "SUCOPHONG_HINHANH",
+        };
         #endregion
         #region Manual
         /// <summary>

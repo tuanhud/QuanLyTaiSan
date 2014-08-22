@@ -103,6 +103,17 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Standalone Permission constant
+        /// <summary>
+        /// Sử dụng trong ds quyền trên hạng mục
+        /// </summary>
+        [NotMapped]
+        public static String[] ENTITY_LIST
+        {
+            get
+            {
+                return OurDBContext.entity_list;
+            }
+        }
         public static String[] STAND_ALONE_LIST = {
             "WEB_MUONPHONG",//
             "WEB_QLMUONPHONG",
@@ -252,6 +263,36 @@ namespace QuanLyTaiSan.Entities
                     }
                     goto done;
                 }
+                //
+                if (key.ToUpper().Equals("THIETBI"))
+                {
+                    tmp += "tất cả Thiết bị ";
+                }
+                //
+                if (key.ToUpper().Equals("QUANTRIVIEN"))
+                {
+                    tmp += "tất cả Quản trị viên ";
+                }
+                //
+                if (key.ToUpper().Equals("NHANVIENPT"))
+                {
+                    tmp += "tất cả Nhân viên phụ trách ";
+                }
+                //
+                if (key.ToUpper().Equals("LOAITHIETBI"))
+                {
+                    tmp += "tất cả Loại thiết bị ";
+                }
+                //
+                if (key.ToUpper().Equals("SUCOPHONG"))
+                {
+                    tmp += "tất cả Sự cố phòng ";
+                }
+                //
+                if (key.ToUpper().Equals("GROUP"))
+                {
+                    tmp += "tất cả Group ";
+                }
                 //finish
                 done:
                     tmp += recursive_to_child && !stand_alone ? "(và tất cả các đối tượng con cháu)" : "";
@@ -260,5 +301,6 @@ namespace QuanLyTaiSan.Entities
         }
 
         #endregion
+        
     }
 }
