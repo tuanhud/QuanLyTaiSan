@@ -26,7 +26,7 @@ namespace WebQLPH
             else
             {
                 Panel_Mobile.Visible = true;
-                //_ucPhong_Mobile.LoadData();
+                _ucPhong_Mobile.LoadData();
             }
         }
     }
