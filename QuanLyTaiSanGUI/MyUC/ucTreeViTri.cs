@@ -25,6 +25,17 @@ namespace QuanLyTaiSanGUI.MyUC
         public int dayid = -1;
         public int tangid = -1;
         public String type = "";
+
+
+        public delegate void SetData_phong_thietbi(int id);
+
+        public SetData_phong_thietbi setData_phong_thietbi = null;
+
+        public ucTreeViTri()
+        {
+            InitializeComponent();
+        }
+
         public ucTreeViTri(String _type)
         {
             InitializeComponent();
@@ -81,6 +92,10 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (this.ParentForm != null)
                     {
                         frmMain frm = this.ParentForm as frmMain;
+                        if (setData_phong_thietbi != null)
+                        {
+                            setData_phong_thietbi(phongid);
+                        }
                         switch (type)
                         {
                             case "QLPhong":
@@ -93,15 +108,15 @@ namespace QuanLyTaiSanGUI.MyUC
                                     }
                                 }
                                 break;
-                            case "QLPhongThietBi":
-                                {
-                                    if (this.Parent != null)
-                                    {
-                                        ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
-                                        _ucQuanLyPhongThietBi.setData(phongid);
-                                    }
-                                }
-                                break;
+                            //case "QLPhongThietBi":
+                            //    {
+                            //        if (this.Parent != null)
+                            //        {
+                            //            ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
+                            //            _ucQuanLyPhongThietBi.setData(phongid);
+                            //        }
+                            //    }
+                            //    break;
                             case "QLSuCoPhong":
                                 {
                                     if (this.Parent != null)

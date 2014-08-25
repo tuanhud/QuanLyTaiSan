@@ -27,7 +27,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         CTThietBi objCTThietBi = new CTThietBi();
         List<ChiTietTBHienThi> listCTThietBis = null;
         List<HinhAnh> listHinh = new List<HinhAnh>();
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhongThietBi");
+        //ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhongThietBi");
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri();
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
         public bool working = false;
         MyLayout layout = new MyLayout();
@@ -44,7 +45,10 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void init()
         {
             ribbonPhongThietBi.Parent = null;
-            _ucTreeViTri.Parent = this;
+            //_ucTreeViTri.Parent = this;
+            _ucTreeViTri.setData_phong_thietbi = new ucTreeViTri.SetData_phong_thietbi(setData);
+
+
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
