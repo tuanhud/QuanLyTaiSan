@@ -58,7 +58,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         // Load dữ liệu
-        public void loadData()
+        public void loadData(Phong obj = null)
         {
             try
             {
@@ -69,9 +69,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 _ucTreeLoaiTB.loadData(listLoai);
                 List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
                 _ucTreeViTri.loadData(listVitris);
-                if (objPhong.id > 0)
+                if (obj != null)
                 {
-                    //objPhong = objPhong.reload();
+                    objPhong = obj;
                     _ucTreeViTri.setPhong(objPhong);
                 }
                 else
@@ -87,11 +87,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
             }
-        }
-
-        public void setPhong(Phong obj)
-        {
-            objPhong = obj;
         }
 
         public void setData(int _phongid)

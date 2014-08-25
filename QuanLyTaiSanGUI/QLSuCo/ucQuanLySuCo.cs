@@ -57,33 +57,22 @@ namespace QuanLyTaiSanGUI.QLSuCo
             return _ucTreeViTri.getTreeList();
         }
 
-        public void loadData()
+        public void loadData(Phong obj = null)
         {
             layout.load(gridViewSuCo);
             List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
             _ucTreeViTri.loadData(listViTri);
             List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
             lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
-            objPhong = _ucTreeViTri.getPhong();
-            loadData(objPhong != null ? objPhong.id : -1, true);
-        }
-
-        public void loadDataByPhong(Phong obj)
-        {
-            try
+            if (obj == null)
             {
-                //obj = obj.reload();
-                layout.load(gridViewSuCo);
-                List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
-                _ucTreeViTri.loadData(listViTri);
-                List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
-                lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
+                objPhong = _ucTreeViTri.getPhong();
+                loadData(objPhong != null ? objPhong.id : -1, true);
+            }
+            else
+            {
                 _ucTreeViTri.setPhong(obj);
                 loadData(obj != null ? obj.id : -1);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
         }
 

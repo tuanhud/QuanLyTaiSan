@@ -199,10 +199,9 @@ namespace QuanLyTaiSanGUI
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
                         _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
                         if(!open)
-                            _ucQuanLyPhongThietBi.setPhong(new Phong());
+                            _ucQuanLyPhongThietBi.loadData();
                         else
-                            _ucQuanLyPhongThietBi.setPhong(objPhong.reload());
-                        _ucQuanLyPhongThietBi.loadData();
+                            _ucQuanLyPhongThietBi.loadData(objPhong.reload());
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
                     }
@@ -237,7 +236,7 @@ namespace QuanLyTaiSanGUI
                         if (!open)
                             _ucQuanLySuCo.loadData();
                         else
-                            _ucQuanLySuCo.loadDataByPhong(objPhong.reload());
+                            _ucQuanLySuCo.loadData(objPhong.reload());
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLySuCo);
                     }
