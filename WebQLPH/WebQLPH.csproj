@@ -222,6 +222,7 @@
     </Compile>
     <Compile Include="PhongThietBi.aspx.cs">
       <DependentUpon>PhongThietBi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PhongThietBi.aspx.designer.cs">
       <DependentUpon>PhongThietBi.aspx</DependentUpon>
@@ -250,6 +251,7 @@
     </Compile>
     <Compile Include="ThietBis.aspx.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ThietBis.aspx.designer.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
@@ -298,12 +300,14 @@
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx.cs">
       <DependentUpon>ucPhongThietBi_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx.designer.cs">
       <DependentUpon>ucPhongThietBi_Mobile.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx.cs">
       <DependentUpon>ucPhongThietBi_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucPhongThietBi_Web.ascx</DependentUpon>
@@ -324,12 +328,14 @@
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.cs">
       <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.designer.cs">
       <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Web.ascx.cs">
       <DependentUpon>ucThietBi_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucThietBi_Web.ascx</DependentUpon>

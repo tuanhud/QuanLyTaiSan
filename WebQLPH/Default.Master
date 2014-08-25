@@ -48,7 +48,7 @@
                                 <li <%if (page.Equals("VITRI")) Response.Write("class=\"active\""); %>><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Vị trí</a></li>
                                 <li <%if (page.Equals("PHONG")) Response.Write("class=\"active\""); %>><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>
                                 <li <%if (page.Equals("PHONGTHIETBI")) Response.Write("class=\"active\""); %>><a href="PhongThietBi.aspx"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Phòng - Thiết bị</a></li>
-                                <li <%if (page.Equals("THIETBI")) Response.Write("class=\"active\""); %>><a href="ThietBi.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Thiết bị</a></li>
+                                <li <%if (page.Equals("THIETBI")) Response.Write("class=\"active\""); %>><a href="ThietBis.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Thiết bị</a></li>
                                 <li <%if (page.Equals("LOAITHIETBI")) Response.Write("class=\"active\""); %>><a href="LoaiThietBis.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Loại thiết bị</a></li>
                                 <li <%if (page.Equals("NHANVIEN")) Response.Write("class=\"active\""); %>><a href="NhanVien.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Nhân viên</a></li>
                                 <li <%if (page.Equals("SUCO")) Response.Write("class=\"active\""); %>><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Sự cố</a></li>
