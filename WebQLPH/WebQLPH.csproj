@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="CollectionPager, Version=0.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\CollectionPager.dll</HintPath>
+      <HintPath>dll\CollectionPager.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
