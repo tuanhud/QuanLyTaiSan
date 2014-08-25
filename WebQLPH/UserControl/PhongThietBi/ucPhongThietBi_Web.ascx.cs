@@ -24,9 +24,102 @@ namespace WebQLPH.UserControl.PhongThietBi
         public void LoadData()
         {
             listViTriHienThi = ViTriHienThi.getAllHavePhong();
-            ASPxTreeList_ViTri.DataSource = listViTriHienThi;
-            ASPxTreeList_ViTri.DataBind();
-            Panel_Chinh.Visible = true;
+            if (listViTriHienThi.Count > 0)
+            {
+                Panel_Chinh.Visible = true;
+                ASPxTreeList_ViTri.DataSource = listViTriHienThi;
+                ASPxTreeList_ViTri.DataBind();
+                if (Request.QueryString["key"] != null)
+                {
+                    string key = "";
+                    try
+                    {
+                        key = Request.QueryString["key"].ToString();
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    if (FindNodeTreeList(key))
+                    {
+                        if (Request.QueryString["id"] != null)
+                        {
+                            int idPhong = -1;
+                            try
+                            {
+                                idPhong = Int32.Parse(Request.QueryString["id"].ToString());
+                            }
+                            catch
+                            {
+                                Response.Redirect(Request.Url.AbsolutePath);
+                            }
+                            objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
+                            if (objPhong != null)
+                            {
+                                LoadDataObjPhong();
+                            }
+                            else
+                            {
+                                Response.Redirect(Request.Url.AbsolutePath);
+                            }
+                        }
+                        else
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+            }
+            else
+            {
+                Panel_ThongBaoLoi.Visible = true;
+                Label_ThongBaoLoi.Text = "Chưa có phòng";
+            }
+        }
+
+        private void LoadDataObjPhong()
+        {
+            if (objPhong != null)
+            {
+                listThietBiCuaPhong = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
+                CollectionPagerDanhSachThietBi.DataSource = listThietBiCuaPhong;
+                CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;
+                RepeaterDanhSachThietBi.DataSource = CollectionPagerDanhSachThietBi.DataSourcePaged;
+                RepeaterDanhSachThietBi.DataBind();
+
+                if (listThietBiCuaPhong != null)
+                {
+                    if (listThietBiCuaPhong.Count > 0)
+                        Label_DanhSachThietBi.Text = string.Format("Danh sách thiết bị của {0}", objPhong.ten);
+                    else
+                        Label_DanhSachThietBi.Text = string.Format("{0} chưa có thiết bị", objPhong.ten);
+                }
+                else
+                    Label_DanhSachThietBi.Text = string.Format("{0} chưa có thiết bị", objPhong.ten);
+            }
+            else
+            {
+                Response.Redirect(Request.Url.AbsolutePath);
+            }
+        }
+
+        protected void ASPxTreeList_ViTri_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
+        {
+            string key = e.Argument.ToString();
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+            if (node != null)
+            {
+                if (Object.Equals(node.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+                    e.Result = Request.Url.AbsolutePath + "?key=" + key + "&id=" + node.GetValue("id").ToString();
+                else
+                    e.Result = "";
+            }
+            else
+                e.Result = Request.Url.AbsolutePath;
         }
 
         protected void ASPxTreeList_ViTri_HtmlDataCellPrepared(object sender, DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventArgs e)
@@ -35,45 +128,15 @@ namespace WebQLPH.UserControl.PhongThietBi
                 e.Cell.Font.Bold = true;
         }
 
-        protected void ASPxTreeList_ViTri_FocusedNodeChanged(object sender, EventArgs e)
+        private Boolean FindNodeTreeList(string key)
         {
-            LoadFocusedNodeData();
-        }
-
-        private void LoadFocusedNodeData()
-        {
-            if (listViTriHienThi.Count > 0)
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+            if (node != null)
             {
-                if (ASPxTreeList_ViTri.FocusedNode != null && ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")) > 0)
-                {
-                    if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(QuanLyTaiSan.Entities.Phong).Name))
-                    {
-                        LoadDataObj(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")));
-                    }
-                }
+                node.Focus();
+                return true;
             }
-        }
-
-        private void LoadDataObj(int id)
-        {
-            objPhong = QuanLyTaiSan.Entities.Phong.getById(id);
-            listThietBiCuaPhong = ChiTietTBHienThi.getAllByPhongId(id);
-            CollectionPagerDanhSachThietBi.DataSource = listThietBiCuaPhong;
-            CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;
-            
-            RepeaterDanhSachThietBi.DataSource = CollectionPagerDanhSachThietBi.DataSourcePaged;
-            RepeaterDanhSachThietBi.DataBind();
-            ASPxGridView_DanhSachThietBi.DataSource = listThietBiCuaPhong;
-            ASPxGridView_DanhSachThietBi.DataBind();
-            if (listThietBiCuaPhong != null)
-            {
-                if (listThietBiCuaPhong.Count > 0)
-                    Label_DanhSachThietBi.Text = string.Format("Danh sách thiết bị của {0}", objPhong != null ? objPhong.ten : "[Phòng]");
-                else
-                    Label_DanhSachThietBi.Text = string.Format("{0} chưa có thiết bị", objPhong != null ? objPhong.ten : "[Phòng]");
-            }
-            else
-                Label_DanhSachThietBi.Text = string.Format("{0} này chưa có thiết bị", objPhong != null ? objPhong.ten : "[Phòng]");
+            return false;
         }
     }
 }
