@@ -19,24 +19,60 @@
     <table class="table table-bordered table-striped">
         <tbody>
             <tr>
-                <td width="600px">
+                <td width="400px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Chọn phòng
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" Theme="MetropolisBlue" KeyFieldName="id_c" ParentFieldName="id_p" Width="100%" EnableCallbacks="False" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared">
+                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared">
                             <Columns>
                                 <dx:TreeListTextColumn Caption="Tên" FieldName="ten" Name="colten" VisibleIndex="0">
                                 </dx:TreeListTextColumn>
-                                <dx:TreeListTextColumn Caption="Mô tả" FieldName="mota" Name="colmota" VisibleIndex="1">
-                                </dx:TreeListTextColumn>
                             </Columns>
-                            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" ProcessFocusedNodeChangedOnServer="True" />
-                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                            <Settings ShowTreeLines="False" SuppressOuterGridLines="true" />
+                            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
+                            <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
+                            <ClientSideEvents
+                                CustomDataCallback="function(s, e) {
+                                if(e.result != '')
+                                    document.location = e.result;
+                                }"
+                                FocusedNodeChanged="function(s, e) { 
+                                var key = treeList.GetFocusedNodeKey();
+                                treeList.PerformCustomDataCallback(key); 
+                            }" />                            
                         </dx:ASPxTreeList>
                     </div>
                 </td>
                 <td>
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">Sắp xếp:
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default">Loại thiết bị</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="TextBox_Search" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <span class="input-group-btn">
+                                            <asp:Button ID="Button_Search" CssClass="btn btn-default" runat="server" Text="Tìm" Width="100px" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Danh sách thiết bị
@@ -79,28 +115,6 @@
                         <div class="CollectionPager">
                             <cp:CollectionPager ID="CollectionPagerDanhSachThietBi" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
                         </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Danh sách thiết bị
-                        </div>
-                        <dx:ASPxGridView ID="ASPxGridView_DanhSachThietBi" runat="server" AutoGenerateColumns="False" Width="100%">
-                            <Columns>
-                                <dx:GridViewDataTextColumn Caption="Mã thiết bị" FieldName="subId" Name="colsubid" VisibleIndex="0">
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Tên thiết bị" FieldName="ten" Name="colten" VisibleIndex="1">
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption=" Tên loại" FieldName="tenloai" Name="coltenloai" VisibleIndex="2">
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Số lượng" FieldName="soluong" Name="colsoluong" VisibleIndex="3">
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Kiểu quản lí" FieldName="kieuQL" Name="colkieuquanli" VisibleIndex="4">
-                                </dx:GridViewDataTextColumn>
-                            </Columns>
-                            <SettingsPager Visible="False">
-                            </SettingsPager>
-                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
-                        </dx:ASPxGridView>
                     </div>
                 </td>
             </tr>

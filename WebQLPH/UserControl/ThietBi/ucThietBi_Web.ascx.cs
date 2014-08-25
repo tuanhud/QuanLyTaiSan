@@ -27,7 +27,62 @@ namespace WebQLPH.UserControl.ThietBi
 
         public void LoadData()
         {
-            CreateNode();
+            listThietBi = QuanLyTaiSan.Entities.ThietBi.getAll();
+            if (listThietBi.Count > 0)
+            {
+                Panel_Chinh.Visible = true;
+                CreateNode();
+                if (Request.QueryString["id"] != null)
+                {
+                    idThietBi = -1;
+                    try
+                    {
+                        idThietBi = Int32.Parse(Request.QueryString["id"].ToString());
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                        return;
+                    }
+                    objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idThietBi);
+                    if (objThietBi != null)
+                    {
+                        Panel_ThietBi.Visible = true;
+                        Label_ThietBi.Visible = false;
+                        PanelThongBao_ThietBi.Visible = false;
+                        Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
+                        LoadImage(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
+                        TextBox_MaThietBi.Text = objThietBi.subId;
+                        TextBox_TenThietBi.Text = objThietBi.ten;
+                        TextBox_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
+                        TextBox_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
+                        TextBox_MoTaThietBi.Text = objThietBi.mota;
+                    }
+                    else
+                    {
+                        //ClearData();
+                        PanelThongBao_ThietBi.Visible = true;
+                        LabelThongBao_ThietBi.Text = "Không có thiết bị này";
+                    }
+                }
+            }
+            else
+            {
+                Panel_ThongBaoLoi.Visible = true;
+                Label_ThongBaoLoi.Text = "Chưa có thiết bị";
+            }
+        }
+
+        private void ClearData()
+        {
+            Panel_ThietBi.Visible = false;
+            PanelThongBao_ThietBi.Visible = false;
+            Label_ThongTinThietBi.Text = "Thông tin thiết bị";
+            LoadImage(null, ASPxImageSlider_ThietBi);
+            TextBox_MaThietBi.Text = "";
+            TextBox_TenThietBi.Text = "";
+            TextBox_LoaiThietBi.Text = "";
+            TextBox_MoTaThietBi.Text = "";
         }
 
         public void CreateNode()
@@ -38,12 +93,12 @@ namespace WebQLPH.UserControl.ThietBi
             parent2.SetValue("ten", p2);
             ASPxTreeList_ThietBi.AppendNode(2, parent2).SetValue("ten", c1);
             ASPxTreeList_ThietBi.AppendNode(3, parent2).SetValue("ten", c2);
-            Panel_Chinh.Visible = true;
+            LoadFocusedNodeData();
         }
 
         protected void ASPxTreeList_ThietBi_FocusedNodeChanged(object sender, EventArgs e)
         {
-
+            LoadFocusedNodeData();
         }
 
         private void LoadFocusedNodeData()
@@ -74,24 +129,37 @@ namespace WebQLPH.UserControl.ThietBi
 
         private void LoadDanhSachThietBi(int loai)
         {
+            List<QuanLyTaiSan.Entities.ThietBi> list = null;
             switch (loai)
             {
                 case 1:
-                    listThietBi = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
+                    list = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
                     break;
                 case 2:
-                    listThietBi = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false).ToList();
+                    list = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false).ToList();
                     break;
                 case 3:
-                    listThietBi = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
+                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
                     break;
                 case 4:
-                    listThietBi = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
+                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
                     break;
                 default:
                     Response.Redirect(Request.Url.AbsolutePath);
                     return;
             }
+            var bind = list.Select(item => new
+            {
+                id = item.id,
+                subid = item.subId,
+                ten = item.ten,
+                loaithietbi = item.loaithietbi != null ? item.loaithietbi.ten : "",
+                url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
+            }).ToList();
+            CollectionPagerDanhSachThietBi.DataSource = bind;
+            CollectionPagerDanhSachThietBi.BindToControl = RepeaterThietBi;
+            RepeaterThietBi.DataSource = CollectionPagerDanhSachThietBi.DataSourcePaged;
+            RepeaterThietBi.DataBind();
         }
 
         private void LoadImage(List<HinhAnh> listHinhAnh, DevExpress.Web.ASPxImageSlider.ASPxImageSlider _ASPxImageSlider)
@@ -130,6 +198,16 @@ namespace WebQLPH.UserControl.ThietBi
                 item.Text = "Không có ảnh";
                 _ASPxImageSlider.Items.Add(item);
             }
+        }
+
+        protected void ASPxTreeList_ThietBi_CustomDataCallback1(object sender, TreeListCustomDataCallbackEventArgs e)
+        {
+            string key = e.Argument.ToString();
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
+            if (node != null)
+                e.Result = Request.Url.AbsolutePath + "?key=" + key;
+            else
+                e.Result = Request.Url.AbsolutePath;
         }
     }
 }

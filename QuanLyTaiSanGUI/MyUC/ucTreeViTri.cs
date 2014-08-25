@@ -25,11 +25,8 @@ namespace QuanLyTaiSanGUI.MyUC
         private int dayid = -1;
         private int tangid = -1;
 
-        public delegate void SetData_phong_thietbi(int id);
-        public SetData_phong_thietbi setData_phong_thietbi = null;
-
-        public delegate void LoadData_suco(int id, bool b = false);
-        public LoadData_suco loadData_suco = null;
+        public delegate void SetData_phongid(int id);
+        public SetData_phongid setData_phongid = null;
 
         public delegate void FocusedRow_phong();
         public FocusedRow_phong focusedRow_phong = null;
@@ -74,10 +71,8 @@ namespace QuanLyTaiSanGUI.MyUC
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
                             break;
                     }
-                    if (setData_phong_thietbi != null)
-                        setData_phong_thietbi(phongid);
-                    if (loadData_suco != null)
-                        loadData_suco(phongid);
+                    if (setData_phongid != null)
+                        setData_phongid(phongid);
                     if (focusedRow_phong != null && (cosoid > 0 || dayid > 0 || tangid > 0))
                         focusedRow_phong();
                 }

@@ -49,6 +49,24 @@ namespace WebQLPH.UserControl.PhongThietBi {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
         
         /// <summary>
+        /// TextBox_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Search;
+        
+        /// <summary>
+        /// Button_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Search;
+        
+        /// <summary>
         /// Label_DanhSachThietBi control.
         /// </summary>
         /// <remarks>
@@ -74,14 +92,5 @@ namespace WebQLPH.UserControl.PhongThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::SiteUtils.CollectionPager CollectionPagerDanhSachThietBi;
-        
-        /// <summary>
-        /// ASPxGridView_DanhSachThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView ASPxGridView_DanhSachThietBi;
     }
 }

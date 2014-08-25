@@ -24,12 +24,18 @@
                         <div class="panel-heading">
                             Thiết bị
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_ThietBi" runat="server" AutoGenerateColumns="False" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" EnableCallbacks="False" OnFocusedNodeChanged="ASPxTreeList_ThietBi_FocusedNodeChanged">
+                        <dx:ASPxTreeList ID="ASPxTreeList_ThietBi" runat="server" AutoGenerateColumns="False" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ThietBi_CustomDataCallback1">
                             <Columns>
                                 <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="ten" Name="colten" VisibleIndex="0" ShowInCustomizationForm="True"></dx:TreeListTextColumn>
                             </Columns>
-                            <SettingsBehavior AllowFocusedNode="True" ProcessFocusedNodeChangedOnServer="True" AutoExpandAllNodes="True" />
-                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                            <Settings ShowTreeLines="False" SuppressOuterGridLines="true" />
+                            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
+                            <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
+                            <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
+                                FocusedNodeChanged="function(s, e) { 
+                                var key = treeList.GetFocusedNodeKey();
+                                treeList.PerformCustomDataCallback(key); 
+                            }" />                            
                         </dx:ASPxTreeList>
                     </div>
                 </td>
@@ -56,8 +62,8 @@
                                     <ItemTemplate>
                                         <tr>
                                             <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></a></td>
-                                            <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
                                             <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
+                                            <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
                                             <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("loaithietbi") %></a></td>
                                         </tr>
                                     </ItemTemplate>

@@ -118,9 +118,9 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public static int commit()
         {
-            if (db != null)
+            if (DB != null)
             {
-                using (var dbTrans = db.Database.BeginTransaction())
+                using (var dbTrans = DB.Database.BeginTransaction())
                 {
                     try
                     {
@@ -128,7 +128,7 @@ namespace QuanLyTaiSan.Entities
                         {
                             throw new Exception("Can not sync");
                         }
-                        int re = db.SaveChanges();
+                        int re = DB.SaveChanges();
                         dbTrans.Commit();
                         //sync when data done
                         if (re > 0)

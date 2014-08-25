@@ -43,7 +43,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             ribbonPhongThietBi.Parent = null;
             //_ucTreeViTri.Parent = this;
-            _ucTreeViTri.setData_phong_thietbi = new ucTreeViTri.SetData_phong_thietbi(setData);
+            _ucTreeViTri.setData_phongid = new ucTreeViTri.SetData_phongid(setData);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
@@ -58,7 +58,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         // Load dữ liệu
-        public void loadData()
+        public void loadData(Phong obj = null)
         {
             try
             {
@@ -69,9 +69,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 _ucTreeLoaiTB.loadData(listLoai);
                 List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
                 _ucTreeViTri.loadData(listVitris);
-                if (objPhong.id > 0)
+                if (obj != null)
                 {
-                    //objPhong = objPhong.reload();
+                    objPhong = obj;
                     _ucTreeViTri.setPhong(objPhong);
                 }
                 else
@@ -87,11 +87,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
             }
-        }
-
-        public void setPhong(Phong obj)
-        {
-            objPhong = obj;
         }
 
         public void setData(int _phongid)
@@ -481,9 +476,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewlog_DoubleClick(object sender, EventArgs e)
         {
-            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c=>c.date_create).ToList());
-            frm.Text += " " + objCTThietBi.thietbi.ten;
-            frm.ShowDialog();
+            if (objCTThietBi != null && objCTThietBi.id > 0 && objCTThietBi.logthietbis.Count > 0)
+            {
+                frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c => c.date_create).ToList());
+                frm.Text += " " + objCTThietBi.thietbi.ten;
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnImportSL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
