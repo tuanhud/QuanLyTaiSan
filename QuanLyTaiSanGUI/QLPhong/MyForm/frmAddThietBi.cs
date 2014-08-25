@@ -17,11 +17,13 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
     public partial class frmAddThietBi : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
     {
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi(true);
-        public ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = null;
         Phong objPhong = new Phong();
         bool loaichung = true;
         bool yestoall = false;
         string text = "";
+
+        public delegate void ReLoadAndFocused_phong_thietbi(int id);
+        public ReLoadAndFocused_phong_thietbi reLoadAndFocused_phong_thietbi = null;
 
         public frmAddThietBi()
         {
@@ -85,8 +87,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                         text = "";
                                         id = AddObj(obj, frm.objTinhTrang, frm.SoLuong, frm.GhiChu);
                                         showToolTip(text);
-                                        if (id > 0)
-                                            _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                                        if (reLoadAndFocused_phong_thietbi != null && id > 0)
+                                            reLoadAndFocused_phong_thietbi(id);
                                         break;
                                     case DialogResult.Yes:
                                         yestoall = true;
@@ -118,8 +120,8 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                             }
                         }
                     }
-                    if(yestoall)
-                        _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
+                    if (reLoadAndFocused_phong_thietbi != null && yestoall)
+                        reLoadAndFocused_phong_thietbi(id);
                     _ucQuanLyThietBi.loadData(loaichung);
                 }
             }

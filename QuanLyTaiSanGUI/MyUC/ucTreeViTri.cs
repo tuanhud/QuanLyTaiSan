@@ -20,10 +20,10 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {
-        public int phongid = -1;
-        public int cosoid = -1;
-        public int dayid = -1;
-        public int tangid = -1;
+        private int phongid = -1;
+        private int cosoid = -1;
+        private int dayid = -1;
+        private int tangid = -1;
 
         public delegate void SetData_phong_thietbi(int id);
         public SetData_phong_thietbi setData_phong_thietbi = null;
@@ -74,9 +74,9 @@ namespace QuanLyTaiSanGUI.MyUC
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
                             break;
                     }
-                    if (setData_phong_thietbi != null && phongid > 0)
+                    if (setData_phong_thietbi != null)
                         setData_phong_thietbi(phongid);
-                    if (loadData_suco != null && phongid > 0)
+                    if (loadData_suco != null)
                         loadData_suco(phongid);
                     if (focusedRow_phong != null && (cosoid > 0 || dayid > 0 || tangid > 0))
                         focusedRow_phong();
