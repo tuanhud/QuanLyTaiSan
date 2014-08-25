@@ -14,13 +14,14 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
 {
     public partial class ucPhanCongQTV : UserControl,_ourUcInterface
     {
-        QuanLyTaiSanGUI.MyUC.ucTreePhongHaveCheck _ucTreePhongHaveCheck = new QuanLyTaiSanGUI.MyUC.ucTreePhongHaveCheck(true);
+        //QuanLyTaiSanGUI.MyUC.ucTreePhongHaveCheck _ucTreePhongHaveCheck = new QuanLyTaiSanGUI.MyUC.ucTreePhongHaveCheck(true);
+        MyUC.ucTreePhongHaveCheck _ucTreePhongHaveCheck = new MyUC.ucTreePhongHaveCheck();
         List<QuanTriVien> QuanTriViens = new List<QuanTriVien>();
         List<Phong> listPhong = new List<Phong>();
         QuanTriVien objQuanTriVien = new QuanTriVien();
         public Boolean working = false;
 
-        QuanLyTaiSanGUI.MyUC.MyLayout layout = new QuanLyTaiSanGUI.MyUC.MyLayout();
+        MyUC.MyLayout layout = new MyUC.MyLayout();
 
         public ucPhanCongQTV()
         {
@@ -32,6 +33,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
         {
             ribbonPhanCongQTV.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
+            _ucTreePhongHaveCheck.loadListPhong = new MyUC.ucTreePhongHaveCheck.LoadListPhong(LoadListPhong);
             //gridViewQuanTriVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             listBoxPhong.SortOrder = SortOrder.Ascending;
             gridViewQuanTriVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -141,7 +143,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
             PhanCong(true);
         }
 
-        public void LoadListPhong(List<Phong> list)
+        private void LoadListPhong(List<Phong> list)
         {
             listBoxPhong.DataSource = list;
             listPhong = list;

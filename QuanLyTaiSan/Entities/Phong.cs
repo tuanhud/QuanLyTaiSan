@@ -61,7 +61,7 @@ namespace QuanLyTaiSan.Entities
             List<Phong> re =
                 (from c in db.PHONGS
                  where ((_cosoid == -1 || c.vitri.coso.id == _cosoid) && (_dayid == -1 || c.vitri.day.id == _dayid) && (_tangid == -1 || c.vitri.tang.id == _tangid))
-                 select c).ToList();
+                 select c).OrderBy(p=>p.ten).ToList();
             return re;
         }
 
@@ -70,7 +70,7 @@ namespace QuanLyTaiSan.Entities
             List<Phong> re =
                 (from c in db.PHONGS
                  where (c.vitri == obj)
-                 select c).ToList();
+                 select c).OrderBy(p => p.ten).ToList();
             return re;
         }
 

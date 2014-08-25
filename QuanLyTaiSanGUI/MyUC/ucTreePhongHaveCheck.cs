@@ -19,24 +19,12 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreePhongHaveCheck : UserControl
     {
-        bool isQuanTriVien = false;
+        public delegate void LoadListPhong(List<Phong> list);
+        public LoadListPhong loadListPhong = null;
+
         public ucTreePhongHaveCheck()
         {
             InitializeComponent();
-            init();
-        }
-
-        public ucTreePhongHaveCheck(bool _bool=false)
-        {
-            InitializeComponent();
-            init();
-            isQuanTriVien = _bool;
-        }
-
-        private void init()
-        {
-            //treeListPhong.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            //treeListPhong.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> list, NhanVienPT nhanvien)
@@ -91,19 +79,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (this.Parent.Parent.Parent != null)
-                {
-                    if (isQuanTriVien)
-                    {
-                        QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV _ucPhanCongQTV = this.Parent.Parent.Parent as QuanLyTaiSanGUI.PhanCongQTV.ucPhanCongQTV;
-                        _ucPhanCongQTV.LoadListPhong(getListPhong());
-                    }
-                    else
-                    {
-                        ucQuanLyNhanVien _ucQuanLyNhanVien = this.Parent.Parent.Parent as ucQuanLyNhanVien;
-                        _ucQuanLyNhanVien.LoadListPhong(getListPhong());
-                    }
-                }
+                loadListPhong(getListPhong());
             }
             catch (Exception ex)
             {

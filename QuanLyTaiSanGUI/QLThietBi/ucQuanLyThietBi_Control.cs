@@ -13,6 +13,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
 {
     public partial class ucQuanLyThietBi_Control : UserControl
     {
+        public delegate void LoadData_thietbi(int id, bool b = false);
+        public LoadData_thietbi loadData_thietbi = null;
+
         public ucQuanLyThietBi_Control()
         {
             InitializeComponent();
@@ -43,13 +46,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            if (this.Parent != null)
+            if (loadData_thietbi != null && e.Node != null && e.Node.GetValue(colid) != null)
             {
-                ucQuanLyThietBi _ucQuanLyThietBi = this.Parent as ucQuanLyThietBi;
-                if (e.Node != null && e.Node.GetValue(colid) != null)
-                {
-                    _ucQuanLyThietBi.loadData(Convert.ToInt32(e.Node.GetValue(colid)));
-                }
+                loadData_thietbi(Convert.ToInt32(e.Node.GetValue(colid)));
             }
         }
 

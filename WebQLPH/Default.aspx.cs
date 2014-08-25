@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace WebQLPH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //CoSo.getAll();
+            //CoSo.getAll();
+            //CoSo.getAll();
+            //CoSo.getAll();
         }
     }
 }

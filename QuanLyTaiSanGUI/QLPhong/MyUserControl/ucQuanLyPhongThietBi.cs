@@ -36,9 +36,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucQuanLyPhongThietBi()
         {
             InitializeComponent();
-            //loadData();
-            //enableEdit(false, "");
-            //enableBar(false);
             init();
         }
 
@@ -46,9 +43,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             ribbonPhongThietBi.Parent = null;
             //_ucTreeViTri.Parent = this;
-            _ucTreeViTri.setData_phong_thietbi = new ucTreeViTri.SetData_phong_thietbi(setData);
-
-
+            _ucTreeViTri.setData_phongid = new ucTreeViTri.SetData_phongid(setData);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);
@@ -63,33 +58,35 @@ namespace QuanLyTaiSanGUI.MyUserControl
         }
 
         // Load dữ liệu
-        public void loadData()
+        public void loadData(Phong obj = null)
         {
-            layout.load(gridViewCTThietBi);
-            working = false;
-            enableEdit(false);
-            List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
-            _ucTreeLoaiTB.loadData(listLoai);
-            List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
-            _ucTreeViTri.loadData(listVitris);
-            if (objPhong.id > 0)
+            try
             {
-                objPhong = objPhong.reload();
-                _ucTreeViTri.setPhong(objPhong);
+                layout.load(gridViewCTThietBi);
+                working = false;
+                enableEdit(false);
+                List<LoaiThietBi> listLoai = LoaiThietBi.getAll();
+                _ucTreeLoaiTB.loadData(listLoai);
+                List<ViTriHienThi> listVitris = ViTriHienThi.getAllHavePhong();
+                _ucTreeViTri.loadData(listVitris);
+                if (obj != null)
+                {
+                    objPhong = obj;
+                    _ucTreeViTri.setPhong(objPhong);
+                }
+                else
+                {
+                    objPhong = _ucTreeViTri.getPhong();
+                }
+                gridControlCTThietBi.DataSource = null;
+                listCTThietBis = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
+                gridControlCTThietBi.DataSource = listCTThietBis;
+                editGUI();
             }
-            else
+            catch (Exception ex)
             {
-                objPhong = _ucTreeViTri.getPhong();
+                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
             }
-            gridControlCTThietBi.DataSource = null;
-            listCTThietBis = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
-            gridControlCTThietBi.DataSource = listCTThietBis;
-            editGUI();
-        }
-
-        public void setPhong(Phong obj)
-        {
-            objPhong = obj;
         }
 
         public void setData(int _phongid)
@@ -202,10 +199,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": setThongTinThietBi :" + ex.Message);
+                Debug.WriteLine(this.Name + "->setThongTinThietBi:" + ex.Message);
             }
-            finally
-            { }
         }
 
         private void reloadImage()
@@ -406,7 +401,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             //frm.ShowDialog();
             frmAddThietBi frm = new frmAddThietBi(objPhong, true);
             frm.Text = "Thêm thiết bị quản lý theo số lượng vào phòng " + objPhong.ten;
-            frm._ucQuanLyPhongThietBi = this;
+            frm.reLoadAndFocused_phong_thietbi = new frmAddThietBi.ReLoadAndFocused_phong_thietbi(reLoadCTThietBisOnlyAndFocused);
             frm.ShowDialog();
         }
 
@@ -414,7 +409,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             frmAddThietBi frm = new frmAddThietBi(objPhong, false);
             frm.Text = "Thêm thiết bị quản lý theo cá thể vào phòng " + objPhong.ten;
-            frm._ucQuanLyPhongThietBi = this;
+            frm.reLoadAndFocused_phong_thietbi = new frmAddThietBi.ReLoadAndFocused_phong_thietbi(reLoadCTThietBisOnlyAndFocused);
             frm.ShowDialog();
         }
 
@@ -481,9 +476,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewlog_DoubleClick(object sender, EventArgs e)
         {
-            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c=>c.date_create).ToList());
-            frm.Text += " " + objCTThietBi.thietbi.ten;
-            frm.ShowDialog();
+            if (objCTThietBi != null && objCTThietBi.id > 0 && objCTThietBi.logthietbis.Count > 0)
+            {
+                frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c => c.date_create).ToList());
+                frm.Text += " " + objCTThietBi.thietbi.ten;
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnImportSL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

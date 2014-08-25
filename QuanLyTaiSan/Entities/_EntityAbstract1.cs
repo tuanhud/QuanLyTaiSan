@@ -223,27 +223,39 @@ namespace QuanLyTaiSan.Entities
         {
             if (id <= 0)
             {
-                return null;
+                return (T)this;
             }
 
             try
             {
-                db.Entry(this).Reload();
+                if (db.Entry(this).State == EntityState.Detached)
+                {
+                    db.Set<T>().Attach((T)this);
+                    return (T)this;
+                }
                 return (T)this;
             }
             catch (Exception)
             {
                 try
                 {
-                    //Case 1: Multi db context tracking
-                    //Case 2: Object not loaded before
-                    return db.Set<T>().Find(this.id);
+                    db.Entry(this).Reload();
+                    return (T)this;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    //for any other error
-                    Debug.WriteLine(ex.ToString());
-                    return null;
+                    try
+                    {
+                        //Case 1: Multi db context tracking
+                        //Case 2: Object not loaded before
+                        return db.Set<T>().Find(this.id);
+                    }
+                    catch (Exception exx)
+                    {
+                        //for any other error
+                        Debug.WriteLine(exx.ToString());
+                        return null;
+                    }
                 }
             }
         }

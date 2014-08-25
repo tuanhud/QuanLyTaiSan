@@ -35,7 +35,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         List<HinhAnh> listHinhAnhPhong = new List<HinhAnh>();
         List<HinhAnh> listHinhAnhNhanVien = new List<HinhAnh>();
 
-        ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhong");
+        //ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhong");
+        ucTreeViTri _ucTreeViTri = new ucTreeViTri();
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
         String function = "";
         public bool working = false;
@@ -50,7 +51,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void init()
         {
-            _ucTreeViTri.Parent = this;
+            //_ucTreeViTri.Parent = this;
+            _ucTreeViTri.focusedRow_phong = new ucTreeViTri.FocusedRow_phong(FocusedRowChangedTreePhong);
             ribbonPhong.Parent = null;
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucComboBoxViTri);
