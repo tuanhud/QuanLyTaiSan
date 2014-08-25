@@ -43,7 +43,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             ribbonPhongThietBi.Parent = null;
             //_ucTreeViTri.Parent = this;
-            _ucTreeViTri.setData_phong_thietbi = new ucTreeViTri.SetData_phong_thietbi(setData);
+            _ucTreeViTri.setData_phongid = new ucTreeViTri.SetData_phongid(setData);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucTreeLoaiTB);
             _ucTreeLoaiTB.setReadOnly(true);

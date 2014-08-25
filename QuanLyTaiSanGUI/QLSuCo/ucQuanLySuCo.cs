@@ -43,7 +43,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
             //_ucTreeViTri.Parent = this;
-            _ucTreeViTri.loadData_suco = new QuanLyTaiSanGUI.MyUC.ucTreeViTri.LoadData_suco(loadData);
+            _ucTreeViTri.setData_phongid = new QuanLyTaiSanGUI.MyUC.ucTreeViTri.SetData_phongid(loadDataById);
             layout.save(gridViewSuCo);
         }
 
@@ -67,23 +67,25 @@ namespace QuanLyTaiSanGUI.QLSuCo
             if (obj == null)
             {
                 objPhong = _ucTreeViTri.getPhong();
-                loadData(objPhong != null ? objPhong.id : -1, true);
             }
             else
             {
-                _ucTreeViTri.setPhong(obj);
-                loadData(obj != null ? obj.id : -1);
+                objPhong = obj;
+                _ucTreeViTri.setPhong(objPhong);
             }
+            loadDataByPhong();
         }
 
-        public void loadData(int id, bool _first = false)
+        public void loadDataById(int id)
+        {
+            objPhong = Phong.getById(id);
+            loadDataByPhong();
+        }
+
+        public void loadDataByPhong()
         {
             try
             {
-                if (!_first)
-                {
-                    objPhong = Phong.getById(id);
-                }
                 if (objPhong != null && objPhong.id > 0)
                 {
                     listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).OrderByDescending(c=>c.ngay).ToList();
@@ -106,7 +108,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
+                Debug.WriteLine(this.Name + "->loadDataByPhong: " + ex.Message);
             }
         }
 
@@ -439,7 +441,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                     if (objSuCo.delete() > 0 && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraEditors.XtraMessageBox.Show("Xóa sự cố thành công!");
-                        loadData(objPhong.id);
+                        loadDataByPhong();
                     }
                     else
                     {
@@ -485,7 +487,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         {
             try
             {
-                loadData(objPhong.id);
+                loadDataByPhong();
                 int rowHandle = gridViewSuCo.LocateByValue(colid.FieldName, _id);
                 if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
                 {
