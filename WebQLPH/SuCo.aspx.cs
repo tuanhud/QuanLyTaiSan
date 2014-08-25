@@ -8,25 +8,25 @@ using System.Web.UI.WebControls;
 
 namespace WebQLPH
 {
-    public partial class ThietBis : System.Web.UI.Page
+    public partial class SuCo : System.Web.UI.Page
     {
         Boolean isMobile = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             Default SetClassActive = this.Master as Default;
-            SetClassActive.page = "THIETBI";
+            SetClassActive.page = "SUCO";
 
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {
                 Panel_Web.Visible = true;
-                ucThietBi_Web.LoadData();
+                ucSuCo_Web.LoadData();
             }
             else
             {
                 Panel_Mobile.Visible = true;
-                ucThietBi_Mobile.LoadData();
+                ucSuCo_Mobile.LoadData();
             }
         }
     }

@@ -135,6 +135,7 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
+    <Content Include="SuCo.aspx" />
     <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
@@ -146,6 +147,8 @@
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
+    <Content Include="UserControl\SuCo\ucSuCo_Mobile.ascx" />
+    <Content Include="UserControl\SuCo\ucSuCo_Web.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
@@ -249,6 +252,13 @@
     <Compile Include="QuanLyTaiKhoan.aspx.designer.cs">
       <DependentUpon>QuanLyTaiKhoan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SuCo.aspx.cs">
+      <DependentUpon>SuCo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuCo.aspx.designer.cs">
+      <DependentUpon>SuCo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThietBis.aspx.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,6 +335,20 @@
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SuCo\ucSuCo_Mobile.ascx.cs">
+      <DependentUpon>ucSuCo_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SuCo\ucSuCo_Mobile.ascx.designer.cs">
+      <DependentUpon>ucSuCo_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SuCo\ucSuCo_Web.ascx.cs">
+      <DependentUpon>ucSuCo_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SuCo\ucSuCo_Web.ascx.designer.cs">
+      <DependentUpon>ucSuCo_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.cs">
       <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>

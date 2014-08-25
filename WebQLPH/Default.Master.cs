@@ -39,6 +39,8 @@ namespace WebQLPH
         protected override void OnInit(EventArgs e)
         {
             Global.working_database.use_internal_config = true;
+            if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
+                Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
         }
 
         protected void ParentClassActive(string category)
