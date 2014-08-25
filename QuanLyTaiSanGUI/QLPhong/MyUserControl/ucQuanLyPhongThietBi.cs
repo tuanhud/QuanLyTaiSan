@@ -36,9 +36,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public ucQuanLyPhongThietBi()
         {
             InitializeComponent();
-            //loadData();
-            //enableEdit(false, "");
-            //enableBar(false);
             init();
         }
 
@@ -94,7 +91,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         public void setPhong(Phong obj)
         {
-            objPhong = obj.reload();
+            objPhong = obj;
         }
 
         public void setData(int _phongid)

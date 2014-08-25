@@ -72,7 +72,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         {
             try
             {
-                obj = obj.reload();
+                //obj = obj.reload();
                 layout.load(gridViewSuCo);
                 List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
                 _ucTreeViTri.loadData(listViTri);

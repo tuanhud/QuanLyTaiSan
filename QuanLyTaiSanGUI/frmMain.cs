@@ -201,7 +201,7 @@ namespace QuanLyTaiSanGUI
                         if(!open)
                             _ucQuanLyPhongThietBi.setPhong(new Phong());
                         else
-                            _ucQuanLyPhongThietBi.setPhong(objPhong);
+                            _ucQuanLyPhongThietBi.setPhong(objPhong.reload());
                         _ucQuanLyPhongThietBi.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
@@ -237,7 +237,7 @@ namespace QuanLyTaiSanGUI
                         if (!open)
                             _ucQuanLySuCo.loadData();
                         else
-                            _ucQuanLySuCo.loadDataByPhong(objPhong);
+                            _ucQuanLySuCo.loadDataByPhong(objPhong.reload());
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLySuCo);
                     }
