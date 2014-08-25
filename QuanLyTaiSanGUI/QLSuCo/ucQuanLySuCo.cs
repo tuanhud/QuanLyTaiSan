@@ -88,7 +88,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             {
                 if (objPhong != null && objPhong.id > 0)
                 {
-                    listSuCo = SuCoPhong.getQuery().Where(c => c.phong_id == objPhong.id).OrderByDescending(c=>c.ngay).ToList();
+                    listSuCo = objPhong.sucophongs.OrderByDescending(c => c.ngay).ToList();
                     gridControlSuCo.DataSource = listSuCo;
                     barBtnThem.Enabled = true;
                     btnR_Them.Enabled = true;
