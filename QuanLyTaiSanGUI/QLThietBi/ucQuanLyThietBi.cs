@@ -60,7 +60,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             pointPanelLoai = panelControlLoaiThietBi.Location;
 
             ribbonThietBi.Parent = null;
-            _ucQuanLyThietBi_Control.Parent = this;
+            _ucQuanLyThietBi_Control.loadData_thietbi = new ucQuanLyThietBi_Control.LoadData_thietbi(loadData);
             _ucTreeLoaiTB.Dock = DockStyle.Fill;
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
             loaiThietBiNULL.ten = "[Chọn loại thiết bị]";
