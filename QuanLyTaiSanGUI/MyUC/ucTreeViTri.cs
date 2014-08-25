@@ -28,26 +28,31 @@ namespace QuanLyTaiSanGUI.MyUC
 
 
         public delegate void SetData_phong_thietbi(int id);
-
         public SetData_phong_thietbi setData_phong_thietbi = null;
+
+        public delegate void LoadData_suco(int id, bool b);
+        public LoadData_suco loadData_suco = null;
+
+        public delegate void FocusedRow_phong();
+        public FocusedRow_phong focusedRow_phong = null;
 
         public ucTreeViTri()
         {
             InitializeComponent();
         }
 
-        public ucTreeViTri(String _type)
-        {
-            InitializeComponent();
-            init(_type);
-        }
+        //public ucTreeViTri(String _type)
+        //{
+        //    InitializeComponent();
+        //    init(_type);
+        //}
 
-        private void init(String _type)
-        {
-            type = _type;
-            //treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            //treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
-        }
+        //private void init(String _type)
+        //{
+        //    type = _type;
+        //    //treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
+        //    //treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
+        //}
 
         public void loadData(List<ViTriHienThi> _list)
         {
@@ -89,53 +94,18 @@ namespace QuanLyTaiSanGUI.MyUC
                             phongid = Convert.ToInt32(e.Node.GetValue(0));
                             break;
                     }
-                    if (this.ParentForm != null)
-                    {
-                        frmMain frm = this.ParentForm as frmMain;
-                        if (setData_phong_thietbi != null)
-                        {
-                            setData_phong_thietbi(phongid);
-                        }
-                        switch (type)
-                        {
-                            case "QLPhong":
-                                {
-                                    if (this.Parent != null)
-                                    {
-                                        ucQuanLyPhong _ucQuanLyPhong = this.Parent as ucQuanLyPhong;
-                                        //_ucQuanLyPhong.setData(cosoid, dayid, tangid);   
-                                        _ucQuanLyPhong.FocusedRowChangedTreePhong();
-                                    }
-                                }
-                                break;
-                            //case "QLPhongThietBi":
-                            //    {
-                            //        if (this.Parent != null)
-                            //        {
-                            //            ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = this.Parent as ucQuanLyPhongThietBi;
-                            //            _ucQuanLyPhongThietBi.setData(phongid);
-                            //        }
-                            //    }
-                            //    break;
-                            case "QLSuCoPhong":
-                                {
-                                    if (this.Parent != null)
-                                    {
-                                        QuanLyTaiSanGUI.QLSuCo.ucQuanLySuCo _ucQuanLySuCo = this.Parent as QuanLyTaiSanGUI.QLSuCo.ucQuanLySuCo;
-                                        _ucQuanLySuCo.loadData(phongid);
-                                    }
-                                }
-                                break;
-                        }
-                    }
+                    if (setData_phong_thietbi != null && phongid > 0)
+                        setData_phong_thietbi(phongid);
+                    if (loadData_suco != null && phongid > 0)
+                        loadData_suco(phongid, false);
+                    if (focusedRow_phong != null && (cosoid > 0 || dayid > 0 || tangid > 0))
+                        focusedRow_phong();
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->treeListPhong_FocusedNodeChanged: " + ex.Message);
             }
-            finally
-            { }
         }
 
         public ViTri getVitri()

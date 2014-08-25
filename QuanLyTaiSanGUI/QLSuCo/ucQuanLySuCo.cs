@@ -13,7 +13,8 @@ namespace QuanLyTaiSanGUI.QLSuCo
 {
     public partial class ucQuanLySuCo : UserControl, _ourUcInterface
     {
-        QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri("QLSuCoPhong");
+        //QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri("QLSuCoPhong");
+        QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri();
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         List<SuCoPhong> listSuCo = new List<SuCoPhong>();
         SuCoPhong objSuCo = new SuCoPhong();
@@ -41,8 +42,8 @@ namespace QuanLyTaiSanGUI.QLSuCo
             gridViewLogSuCo.Columns[collmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
-            _ucTreeViTri.Parent = this;
-
+            //_ucTreeViTri.Parent = this;
+            _ucTreeViTri.loadData_suco = new QuanLyTaiSanGUI.MyUC.ucTreeViTri.LoadData_suco(loadData);
             layout.save(gridViewSuCo);
         }
 
