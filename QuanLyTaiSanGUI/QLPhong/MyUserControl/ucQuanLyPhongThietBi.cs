@@ -476,9 +476,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewlog_DoubleClick(object sender, EventArgs e)
         {
-            frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c=>c.date_create).ToList());
-            frm.Text += " " + objCTThietBi.thietbi.ten;
-            frm.ShowDialog();
+            if (objCTThietBi != null && objCTThietBi.id > 0 && objCTThietBi.logthietbis.Count > 0)
+            {
+                frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c => c.date_create).ToList());
+                frm.Text += " " + objCTThietBi.thietbi.ten;
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnImportSL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
