@@ -41,7 +41,7 @@
   <ItemGroup>
     <Reference Include="CollectionPager, Version=0.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\CollectionPager.dll</HintPath>
+      <HintPath>dll\CollectionPager.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -93,7 +93,6 @@
     <Content Include="Content\css\theme.css" />
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="dll\CollectionPager.dll" />
     <Content Include="favicon.ico" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\NoImage.jpg" />
@@ -223,7 +222,6 @@
     </Compile>
     <Compile Include="PhongThietBi.aspx.cs">
       <DependentUpon>PhongThietBi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PhongThietBi.aspx.designer.cs">
       <DependentUpon>PhongThietBi.aspx</DependentUpon>
@@ -252,7 +250,6 @@
     </Compile>
     <Compile Include="ThietBis.aspx.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ThietBis.aspx.designer.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
@@ -301,14 +298,12 @@
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx.cs">
       <DependentUpon>ucPhongThietBi_Mobile.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx.designer.cs">
       <DependentUpon>ucPhongThietBi_Mobile.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx.cs">
       <DependentUpon>ucPhongThietBi_Web.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucPhongThietBi_Web.ascx</DependentUpon>
@@ -326,16 +321,15 @@
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.cs">
       <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.designer.cs">
       <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Web.ascx.cs">
       <DependentUpon>ucThietBi_Web.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucThietBi_Web.ascx</DependentUpon>
