@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Web;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -25,33 +26,74 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                if (db == null)
+                if (Global.working_database.use_internal_config)
                 {
-                    if (Global.working_database.use_internal_config)
+                    OurDBContext tmp = HttpContext.Current.Items["db_context"] as OurDBContext;
+                    if (tmp == null)
                     {
-                        db = new OurDBContext();
+                        tmp = new OurDBContext();
+                        HttpContext.Current.Items["db_context"] = tmp;
                     }
-                    else
+                    return tmp;
+                }
+                else
+                {
+                    if (db == null)
                     {
-                        //by default, point to working database
                         db = new OurDBContext(Global.working_database.get_connection_string());
                     }
-                }
-                try
-                {
-                    db.Set<CoSo>().AsQueryable().FirstOrDefault();
-                }
-                catch (Exception)
-                {
-                    //DB CONNECTION FAIl
-                    Debug.WriteLine("=========DB CONNECTION FAIL==========");
-                    //Raise event
-                    if (onDBConnectionDown != null)
+
+                    try
                     {
-                        onDBConnectionDown(new EventArgs());
+                        db.Set<CoSo>().AsQueryable().FirstOrDefault();
                     }
+                    catch (Exception)
+                    {
+                        //DB CONNECTION FAIl
+                        Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                        //Raise event
+                        if (onDBConnectionDown != null)
+                        {
+                            onDBConnectionDown(new EventArgs());
+                        }
+                    }
+                    return db;
                 }
-                return db;
+
+
+
+
+                //OLD=========================
+
+                //if (db == null)
+                //{
+                //    //Dành cho ASP.NET
+                //    if (Global.working_database.use_internal_config)
+                //    {
+                //        db = new OurDBContext();
+                //    }
+                //    //Dành cho Winform
+                //    else
+                //    {
+                //        //by default, point to working database
+                //        db = new OurDBContext(Global.working_database.get_connection_string());
+                //    }
+                //}
+                //try
+                //{
+                //    db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                //}
+                //catch (Exception)
+                //{
+                //    //DB CONNECTION FAIl
+                //    Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                //    //Raise event
+                //    if (onDBConnectionDown != null)
+                //    {
+                //        onDBConnectionDown(new EventArgs());
+                //    }
+                //}
+                //return db;
             }
         }
         /// <summary>

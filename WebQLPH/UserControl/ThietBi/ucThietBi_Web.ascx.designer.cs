@@ -49,102 +49,120 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ThietBi;
         
         /// <summary>
-        /// Panel_GoogleMap control.
+        /// RepeaterThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_GoogleMap;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterThietBi;
         
         /// <summary>
-        /// Label_Script control.
+        /// CollectionPagerDanhSachThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Script;
+        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachThietBi;
         
         /// <summary>
-        /// Label_ThongTin control.
+        /// Label_ThongTinThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTin;
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
         
         /// <summary>
-        /// PanelThongBao control.
+        /// PanelThongBao_ThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
+        protected global::System.Web.UI.WebControls.Panel PanelThongBao_ThietBi;
         
         /// <summary>
-        /// LabelThongBao control.
+        /// LabelThongBao_ThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao;
+        protected global::System.Web.UI.WebControls.Label LabelThongBao_ThietBi;
         
         /// <summary>
-        /// ASPxImageSlider_Object control.
+        /// Panel_ThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Object;
+        protected global::System.Web.UI.WebControls.Panel Panel_ThietBi;
         
         /// <summary>
-        /// TextBox_Ten control.
+        /// ASPxImageSlider_ThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_ThietBi;
         
         /// <summary>
-        /// TextBox_Thuoc control.
+        /// TextBox_MaThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MaThietBi;
         
         /// <summary>
-        /// Panel_DiaChi control.
+        /// TextBox_TenThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_DiaChi;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_TenThietBi;
         
         /// <summary>
-        /// TextBox_DiaChi control.
+        /// TextBox_LoaiThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_DiaChi;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_LoaiThietBi;
         
         /// <summary>
-        /// TextBox_MoTa control.
+        /// TextBox_NgayMua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTa;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_NgayMua;
+        
+        /// <summary>
+        /// TextBox_MoTaThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTaThietBi;
+        
+        /// <summary>
+        /// Label_ThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThietBi;
     }
 }
