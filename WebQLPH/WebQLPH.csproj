@@ -93,6 +93,7 @@
     <Content Include="Content\css\theme.css" />
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="dll\CollectionPager.dll" />
     <Content Include="favicon.ico" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\NoImage.jpg" />
@@ -135,6 +136,7 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
+    <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx" />
@@ -145,6 +147,8 @@
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
+    <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
+    <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
@@ -246,6 +250,13 @@
     <Compile Include="QuanLyTaiKhoan.aspx.designer.cs">
       <DependentUpon>QuanLyTaiKhoan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ThietBis.aspx.cs">
+      <DependentUpon>ThietBis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThietBis.aspx.designer.cs">
+      <DependentUpon>ThietBis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThongTin.aspx.cs">
       <DependentUpon>ThongTin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -315,6 +326,19 @@
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+    <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.cs">
+      <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.designer.cs">
+      <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ThietBi\ucThietBi_Web.ascx.cs">
+      <DependentUpon>ucThietBi_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ThietBi\ucThietBi_Web.ascx.designer.cs">
+      <DependentUpon>ucThietBi_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 
 namespace WebQLPH.UserControl
 {
@@ -45,8 +44,8 @@ namespace WebQLPH.UserControl
                 foreach (QuanLyTaiSan.Entities.Phong ten_phong in ten_phongs)
                     Searchs.Add(new DoSearch(ten_phong.id, ten_phong.ten, "PHONG"));
 
-                var ten_thietbis = ThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (ThietBi ten_thietbi in ten_thietbis)
+                var ten_thietbis = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
+                foreach (QuanLyTaiSan.Entities.ThietBi ten_thietbi in ten_thietbis)
                     Searchs.Add(new DoSearch(ten_thietbi.id, ten_thietbi.ten, "THIETBI"));
 
                 var ten_loaithietbis = LoaiThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
