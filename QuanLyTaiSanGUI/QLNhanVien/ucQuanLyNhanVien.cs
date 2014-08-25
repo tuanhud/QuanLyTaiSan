@@ -40,6 +40,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
              ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
+            _ucTreePhongHaveCheck.loadListPhong = new ucTreePhongHaveCheck.LoadListPhong(LoadListPhong);
             //gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             listBoxPhong.SortOrder = SortOrder.Ascending;
             gridViewNhanVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -483,7 +484,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             //working = true;
         }
 
-        public void LoadListPhong(List<Phong> list)
+        private void LoadListPhong(List<Phong> list)
         {
             listBoxPhong.DataSource = list;
             listPhong = list;

@@ -24,13 +24,11 @@ namespace QuanLyTaiSanGUI.MyUC
         public int cosoid = -1;
         public int dayid = -1;
         public int tangid = -1;
-        public String type = "";
-
 
         public delegate void SetData_phong_thietbi(int id);
         public SetData_phong_thietbi setData_phong_thietbi = null;
 
-        public delegate void LoadData_suco(int id, bool b);
+        public delegate void LoadData_suco(int id, bool b = false);
         public LoadData_suco loadData_suco = null;
 
         public delegate void FocusedRow_phong();
@@ -41,30 +39,12 @@ namespace QuanLyTaiSanGUI.MyUC
             InitializeComponent();
         }
 
-        //public ucTreeViTri(String _type)
-        //{
-        //    InitializeComponent();
-        //    init(_type);
-        //}
-
-        //private void init(String _type)
-        //{
-        //    type = _type;
-        //    //treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-        //    //treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
-        //}
-
         public void loadData(List<ViTriHienThi> _list)
         {
             treeListViTri.BeginUnboundLoad();
             treeListViTri.DataSource = _list;
             treeListViTri.EndUnboundLoad();
         }
-
-        //public void reLoad(List<ViTriHienThi> _list)
-        //{
-        //    loadData(_list, type);
-        //}
 
         private void treeListPhong_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
@@ -97,7 +77,7 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (setData_phong_thietbi != null && phongid > 0)
                         setData_phong_thietbi(phongid);
                     if (loadData_suco != null && phongid > 0)
-                        loadData_suco(phongid, false);
+                        loadData_suco(phongid);
                     if (focusedRow_phong != null && (cosoid > 0 || dayid > 0 || tangid > 0))
                         focusedRow_phong();
                 }
