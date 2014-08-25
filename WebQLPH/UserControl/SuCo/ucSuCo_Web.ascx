@@ -24,22 +24,23 @@
                         <div class="panel-heading">
                             Vị trí
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_SuCo" runat="server" KeyFieldName="id_c" ParentFieldName="id_p" AutoGenerateColumns="False" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_SuCo_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_SuCo_FocusedNodeChanged">
+                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" KeyFieldName="id_c" ParentFieldName="id_p" AutoGenerateColumns="False" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared">
                             <Columns>
                                 <dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0" ShowInCustomizationForm="True">
-                                    <DataCellTemplate>
-                                        <a href="<%# Request.Url.AbsolutePath %>?key=<%# Eval("id")%>&type=<%#Eval("loai") %>"><%# Eval("ten") %></a>
-                                    </DataCellTemplate>
                                 </dx:TreeListTextColumn>
                             </Columns>
-                            <Settings SuppressOuterGridLines="true" />
+                            <Settings ShowTreeLines="False" SuppressOuterGridLines="true" />
                             <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                             <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
-                            <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
+                            <ClientSideEvents 
+                                CustomDataCallback="function(s, e) {
+                                if(e.result != '')
+                                    document.location = e.result;
+                                }"
                                 FocusedNodeChanged="function(s, e) { 
                                 var key = treeList.GetFocusedNodeKey();
                                 treeList.PerformCustomDataCallback(key); 
-                            }" />                            
+                            }" />                        
                         </dx:ASPxTreeList>
                     </div>
                 </td>
@@ -59,7 +60,7 @@
                                     <th>Tên sự cố</th>
                                     <th>Tình trạng</th>
                                     <th>Ghi chú</th>
-                                    <th>Ghi chú</th>
+                                    <th>Ngày</th>
                                 </tr>
                             </thead>
                             <tbody class="centered">
@@ -67,9 +68,10 @@
                                     <ItemTemplate>
                                         <tr>
                                             <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachSuCo.CurrentPage - 1)*CollectionPagerDanhSachSuCo.PageSize) %></a></td>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
                                             <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("loaiSuCo") %></a></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("tinhtrang") %></a></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("mota") %></a></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ngay") %></a></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>

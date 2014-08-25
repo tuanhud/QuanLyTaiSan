@@ -15,6 +15,12 @@ namespace WebQLPH.UserControl.SuCo
         List<SuCoPhong> listSuCoPhong = new List<SuCoPhong>();
         SuCoPhong objSuCoPhong = new SuCoPhong();
 
+        public int idPhong = -1;
+        List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
+        QuanLyTaiSan.Entities.Phong objPhong = null;
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,21 +28,196 @@ namespace WebQLPH.UserControl.SuCo
 
         public void LoadData()
         {
-            List<ViTriHienThi> listViTriHienThi = ViTriHienThi.getAll();
-            ASPxTreeList_SuCo.DataSource = listViTriHienThi;
-            ASPxTreeList_SuCo.DataBind();
-            ASPxTreeList_SuCo.ExpandToLevel(1);
-            Panel_Chinh.Visible = true;
+            listViTriHienThi = ViTriHienThi.getAllHavePhong();
+            if (listViTriHienThi.Count > 0)
+            {
+                Panel_Chinh.Visible = true;
+                ASPxTreeList_ViTri.DataSource = listViTriHienThi;
+                ASPxTreeList_ViTri.DataBind();
+                ASPxTreeList_ViTri.ExpandToLevel(1);
+
+                if (Request.QueryString["key"] != null)
+                {
+                    try
+                    {
+                        string key = "";
+                        try
+                        {
+                            key = Request.QueryString["key"].ToString();
+                        }
+                        catch
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                        if (FindNodeTreeList(key))
+                        {
+                            if (Request.QueryString["pid"] != null)
+                            {
+                                int idPhong = -1;
+                                try
+                                {
+                                    idPhong = Int32.Parse(Request.QueryString["pid"].ToString());
+                                }
+                                catch
+                                {
+                                    Response.Redirect(Request.Url.AbsolutePath);
+                                }
+                                objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
+                                if (objPhong != null)
+                                {
+                                    LoadDataObjPhong();
+                                }
+                                else
+                                {
+                                    Response.Redirect(Request.Url.AbsolutePath);
+                                }
+                            }
+                            else
+                            {
+                                Response.Redirect(Request.Url.AbsolutePath);
+                            }
+                        }
+                        else
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                        return;
+                    }
+                }
+                else
+                {
+                    LoadFocusedNodeData();
+                }
+
+                if (Request.QueryString["id"] != null)
+                {
+                    idSuCo = -1;
+                    try
+                    {
+                        idSuCo = Int32.Parse(Request.QueryString["id"].ToString());
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                        return;
+                    }
+                    objSuCoPhong = QuanLyTaiSan.Entities.SuCoPhong.getById(idSuCo);
+                    if (objSuCoPhong != null)
+                    {
+                        Panel_SuCo.Visible = true;
+                        Label_SuCo.Visible = false;
+                        PanelThongBao_SuCo.Visible = false;
+                        Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_SuCo);
+                        TextBox_MaSuCo.Text = objSuCoPhong.subId;
+                        TextBox_TenSuCo.Text = objSuCoPhong.ten;
+                        //TextBox_LoaiSuCo.Text = objSuCoPhong.loaithietbi != null ? objSuCoPhong.loaithietbi.ten : "";
+                        //TextBox_NgayMua.Text = objSuCoPhong.ngaymua != null ? objSuCoPhong.ngaymua.ToString() : "";
+                        TextBox_MoTaSuCo.Text = objSuCoPhong.mota;
+                    }
+                    else
+                    {
+                        ClearData();
+                        PanelThongBao_SuCo.Visible = true;
+                        LabelThongBao_SuCo.Text = "Không có sự cố này";
+                    }
+                }
+                else
+                {
+                    Label_ThongBao.Text = "Chưa chọn sự cố";
+                }
+
+            }
+            else
+            {
+                Panel_ThongBaoLoi.Visible = true;
+                Label_ThongBaoLoi.Text = "Chưa có vị trí";
+            }
         }
 
-        protected void ASPxTreeList_SuCo_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
+        private void ClearData()
+        {
+            
+        }
+
+        private void LoadFocusedNodeData()
+        {
+            
+        }
+
+        private bool FindNodeTreeList(string key)
+        {
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+            if (node != null)
+            {
+                node.Focus();
+                return true;
+            }
+            return false;
+        }
+
+        protected void ASPxTreeList_ViTri_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
+        {
+            string key = e.Argument.ToString();
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+            if (node != null)
+            {
+                if (Object.Equals(node.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+                    e.Result = Request.Url.AbsolutePath + "?key=" + key + "&pid=" + node.GetValue("id").ToString();
+                else
+                    e.Result = "";
+            }
+            else
+                e.Result = Request.Url.AbsolutePath;
+        }
+
+        protected void ASPxTreeList_ViTri_FocusedNodeChanged(object sender, EventArgs e)
         {
 
         }
 
-        protected void ASPxTreeList_SuCo_FocusedNodeChanged(object sender, EventArgs e)
+        protected void ASPxTreeList_ViTri_HtmlDataCellPrepared(object sender, DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventArgs e)
         {
+            if (Object.Equals(e.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+                e.Cell.Font.Bold = true;
+        }
+        private void LoadDataObjPhong()
+        {
+            if (objPhong != null)
+            {
+                listSuCoPhong = objPhong.sucophongs.OrderByDescending(c => c.ngay).ToList();
+                var bind = listSuCoPhong.Select(item => new
+                {
+                    id = item.id,
+                    ten = item.ten,
+                    tinhtrang = item.tinhtrang.mota,
+                    mota = item.mota,
+                    ngay = item.ngay,
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
+                }).ToList();
+                CollectionPagerDanhSachSuCo.DataSource = bind;
+                CollectionPagerDanhSachSuCo.BindToControl = RepeaterSuCo;
+                RepeaterSuCo.DataSource = CollectionPagerDanhSachSuCo.DataSourcePaged;
+                RepeaterSuCo.DataBind();
 
+                if (listSuCoPhong != null)
+                {
+                    if (listSuCoPhong.Count > 0)
+                        Label_SuCo.Text = string.Format("Danh sách sự cố của {0}", objPhong.ten);
+                    else
+                        Label_SuCo.Text = string.Format("{0} chưa có sự cố", objPhong.ten);
+                }
+                else
+                    Label_SuCo.Text = string.Format("{0} chưa có sự cố", objPhong.ten);
+            }
+            else
+            {
+                Response.Redirect(Request.Url.AbsolutePath);
+            }
         }
     }
 }

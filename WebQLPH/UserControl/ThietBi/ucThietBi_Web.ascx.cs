@@ -53,6 +53,7 @@ namespace WebQLPH.UserControl.ThietBi
                 {
                     LoadFocusedNodeData();
                 }
+
                 if (Request.QueryString["id"] != null)
                 {
                     idThietBi = -1;

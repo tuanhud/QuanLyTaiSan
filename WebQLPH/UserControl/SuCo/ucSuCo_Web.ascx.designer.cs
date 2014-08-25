@@ -40,13 +40,13 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
-        /// ASPxTreeList_SuCo control.
+        /// ASPxTreeList_ViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_SuCo;
+        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
         
         /// <summary>
         /// RepeaterSuCo control.
