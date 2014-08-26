@@ -42,49 +42,15 @@ namespace WebQLPH.UserControl.PhongThietBi
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
                     }
-                    if (FindNodeTreeList(key))
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+                    if (node != null)
                     {
-                        if (Request.QueryString["id"] != null)
+                        node.Focus();
+                        int idPhong = Convert.ToInt32(node.GetValue("id").ToString());
+                        objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
+                        if (objPhong != null)
                         {
-                            int idPhong = -1;
-                            try
-                            {
-                                idPhong = Int32.Parse(Request.QueryString["id"].ToString());
-                            }
-                            catch
-                            {
-                                Response.Redirect(Request.Url.AbsolutePath);
-                            }
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
-                            if (objPhong != null)
-                            {
-                                LoadDataObjPhong();
-                                if (Request.QueryString["idTB"] != null)
-                                {
-                                    int idTB = -1;
-                                    try
-                                    {
-                                        idTB = Int32.Parse(Request.QueryString["idTB"].ToString());
-                                    }
-                                    catch
-                                    {
-                                        Response.Redirect(Request.Url.AbsolutePath);
-                                    }
-                                    objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idTB);
-                                    if (objThietBi != null)
-                                    {
-
-                                    }
-                                    else
-                                    {
-                                        Response.Redirect(Request.Url.AbsolutePath);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Response.Redirect(Request.Url.AbsolutePath);
-                            }
+                            LoadDataObjPhong();
                         }
                         else
                         {
@@ -118,7 +84,7 @@ namespace WebQLPH.UserControl.PhongThietBi
                     tinhtrang = a.tinhtrang,
                     soluong = a.soluong,
                     kieuQL = a.kieuQL,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idTB", a.id.ToString())
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/Popup/LogThietBi.aspx")), "id", a.id.ToString())
                 }).ToList();
                 CollectionPagerDanhSachThietBi.DataSource = bind;
                 CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;
@@ -148,7 +114,7 @@ namespace WebQLPH.UserControl.PhongThietBi
             if (node != null)
             {
                 if (Object.Equals(node.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
-                    e.Result = Request.Url.AbsolutePath + "?key=" + key + "&id=" + node.GetValue("id").ToString();
+                    e.Result = Request.Url.AbsolutePath + "?key=" + key;
                 else
                     e.Result = "";
             }
@@ -160,17 +126,6 @@ namespace WebQLPH.UserControl.PhongThietBi
         {
             if (Object.Equals(e.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
                 e.Cell.Font.Bold = true;
-        }
-
-        private Boolean FindNodeTreeList(string key)
-        {
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
-            if (node != null)
-            {
-                node.Focus();
-                return true;
-            }
-            return false;
         }
     }
 }
