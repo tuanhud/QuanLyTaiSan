@@ -79,6 +79,7 @@ namespace WebQLPH.UserControl.ThietBi
                         TextBox_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
                         TextBox_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
                         TextBox_MoTaThietBi.Text = objThietBi.mota;
+                        Label_TenThietBi.Text = objThietBi.ten;
                     }
                     else
                     {
