@@ -82,13 +82,7 @@
 .right {
     float:right;
 }
-.on_focus {
-    background-color: yellow;
-}
-.off_focus {
-    background-color: yellowgreen;
-}
-.rowfocus {
-    background-color: #d9edf7 !important;
-    color: black;
+.focusrow, .focusrow td {
+    background-color: #5cb85c !important;
+    color: white !important;
 }
