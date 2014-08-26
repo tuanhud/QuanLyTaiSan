@@ -54,7 +54,7 @@
                            { %>   
                         <div class="panel-body">Vị trí này không có phòng</div>
                         <% } else { %>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped table-hover">
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
