@@ -14,7 +14,13 @@
         </div>
     </div>
 </asp:Panel>
-
+<ol class="breadcrumb">
+  <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
+  <li <%# Request.QueryString["id"] != null?"":"class=\"active\"" %>><a href="<%# QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[]{"id"})) %>">Thiết bị</a></li>
+  <% if(Request.QueryString["id"] != null){ %>
+    <li><a href="<%# Request.Url.AbsoluteUri %>"><asp:Label ID="Label_TenThietBi" runat="server"></asp:Label></a></li>
+  <%} %>
+</ol>
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <table class="table table-bordered table-striped">
         <tbody>

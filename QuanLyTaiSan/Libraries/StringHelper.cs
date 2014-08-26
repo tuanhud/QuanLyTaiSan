@@ -249,6 +249,16 @@ namespace QuanLyTaiSan.Libraries
             return new Uri(uriBuilder.ToString());
         }
 
+        public static Uri RemoveParameter(Uri url, List<string> listRemove)
+        {
+            var uriBuilder = new UriBuilder(url);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            for (int i = 0; i < listRemove.Count; i++)
+                query.Remove(listRemove.ElementAt(i));
+            uriBuilder.Query = query.ToString();
+            return new Uri(uriBuilder.ToString());
+        }
+
         public static String ConvertRNToBR(string content)
         {
             return content.Replace("\r\n", "<br />");
