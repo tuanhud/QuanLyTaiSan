@@ -11,7 +11,7 @@ namespace WebQLPH.UserControl.NhanVien
     public partial class ucNhanVien_Web : System.Web.UI.UserControl
     {
         List<NhanVienPT> listNhanVienPT = null;
-        NhanVienPT _NhanVienPT = null;
+        NhanVienPT objNhanVienPT = null;
         public int idNhanVien = -1;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,49 +41,25 @@ namespace WebQLPH.UserControl.NhanVien
                     catch
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
-                        return;
                     }
 
-                    _NhanVienPT = NhanVienPT.getById(idNhanVien);
-                    if (_NhanVienPT != null)
+                    objNhanVienPT = NhanVienPT.getById(idNhanVien);
+                    if (objNhanVienPT != null)
                     {
-                        Label_ThongTin.Text = String.Format("Thông tin {0}", _NhanVienPT.hoten);
-                        PanelThongBao.Visible = false;
-                        ImageSliderNhanVienPhuTrach.Items.Clear();
-                        if (_NhanVienPT.hinhanhs != null && _NhanVienPT.hinhanhs.Count > 0)
-                        {
-                            foreach (HinhAnh hinhanh in _NhanVienPT.hinhanhs)
-                            {
-                                DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                                item.ImageUrl = hinhanh.getImageURL();
-                                if (hinhanh.mota != null && hinhanh.mota.Length > 0)
-                                    item.Text = hinhanh.mota;
-                                else
-                                    item.Text = hinhanh.FILE_NAME;
-                                ImageSliderNhanVienPhuTrach.Items.Add(item);
-                            }
-                        }
-                        else
-                        {
-                            DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                            item.ImageUrl = "~/Images/NoImage.jpg";
-                            item.Text = "Không có ảnh";
-                            ImageSliderNhanVienPhuTrach.Items.Add(item);
-                        }
-                        TextBox_MaNhanVien.Text = _NhanVienPT.subId;
-                        TextBox_HoTen.Text = _NhanVienPT.hoten;
-                        TextBox_SoDienThoai.Text = _NhanVienPT.sodienthoai;
+                        Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
+                        TextBox_MaNhanVien.Text = objNhanVienPT.subId;
+                        TextBox_HoTen.Text = objNhanVienPT.hoten;
+                        TextBox_SoDienThoai.Text = objNhanVienPT.sodienthoai;
 
-                        CollectionPagerDanhSachPhong.DataSource = _NhanVienPT.phongs.ToList();
+                        CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();
                         CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
                         RepeaterDanhSachPhong.DataSource = CollectionPagerDanhSachPhong.DataSourcePaged;
                         RepeaterDanhSachPhong.DataBind();
                     }
                     else
                     {
-                        PanelThongBao.Visible = true;
-                        LabelThongBao.Text = "Không có nhân viên này";
-                        DeleteForm();
+                        Response.Redirect(Request.Url.AbsolutePath);
                     }
                 }
                 else
@@ -97,11 +73,7 @@ namespace WebQLPH.UserControl.NhanVien
 
         private void DeleteForm()
         {
-            ImageSliderNhanVienPhuTrach.Items.Clear();
-            DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-            item.ImageUrl = "~/Images/NoImage.jpg";
-            item.Text = "Không có ảnh";
-            ImageSliderNhanVienPhuTrach.Items.Add(item);
+            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVienPT);
             TextBox_MaNhanVien.Text = "";
             TextBox_HoTen.Text = "";
             TextBox_SoDienThoai.Text = "";

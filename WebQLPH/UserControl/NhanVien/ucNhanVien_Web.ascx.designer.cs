@@ -67,31 +67,13 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
-        /// PanelThongBao control.
+        /// ASPxImageSlider_NhanVienPT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
-        
-        /// <summary>
-        /// LabelThongBao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao;
-        
-        /// <summary>
-        /// ImageSliderNhanVienPhuTrach control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ImageSliderNhanVienPhuTrach;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_NhanVienPT;
         
         /// <summary>
         /// TextBox_MaNhanVien control.

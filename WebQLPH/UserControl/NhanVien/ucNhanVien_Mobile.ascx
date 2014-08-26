@@ -19,8 +19,8 @@
         </div>
         
         <div class="panel-body">
-            <div class="center">
-                <dx:ASPxImageSlider ID="ImageSliderNhanVienPhuTrach" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
+            <div class="center200">
+                <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
             </div>
             <br />
             <div>

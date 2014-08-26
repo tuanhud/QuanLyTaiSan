@@ -66,11 +66,7 @@ namespace WebQLPH.UserControl.ViTri
         private void ClearData()
         {
             Label_ThongTin.Text = "Thông tin";
-            ASPxImageSlider_Object.Items.Clear();
-            DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-            item.ImageUrl = "~/Images/NoImage.jpg";
-            item.Text = "Không có ảnh";
-            ASPxImageSlider_Object.Items.Add(item);
+            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_Object);
             TextBox_Ten.Text = "";
             TextBox_Thuoc.Text = "";
             TextBox_DiaChi.Text = "";

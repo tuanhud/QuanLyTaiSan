@@ -61,19 +61,9 @@
                         <div class="panel-heading">
                             <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
                         </div>
-
-                        <asp:Panel ID="PanelThongBao" runat="server" Visible="False">
-                            <div>
-                                <div class="alert alert-danger" role="alert">
-                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                    <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
-                                </div>
-                            </div>
-                        </asp:Panel>
-        
                         <div class="panel-body">
                             <div class="center">
-                                <dx:ASPxImageSlider ID="ImageSliderNhanVienPhuTrach" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
+                                <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
                             </div>
                             <br />
                             <div>

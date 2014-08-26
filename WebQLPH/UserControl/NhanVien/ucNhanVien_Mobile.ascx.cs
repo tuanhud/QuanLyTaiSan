@@ -11,7 +11,7 @@ namespace WebQLPH.UserControl.NhanVien
     public partial class ucNhanVien_Mobile : System.Web.UI.UserControl
     {
         List<NhanVienPT> listNhanVienPT = null;
-        NhanVienPT _NhanVienPT = new NhanVienPT();
+        NhanVienPT objNhanVienPT = new NhanVienPT();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,44 +35,23 @@ namespace WebQLPH.UserControl.NhanVien
                         return;
                     }
 
-                    _NhanVienPT = NhanVienPT.getById(id);
-                    if (_NhanVienPT != null)
+                    objNhanVienPT = NhanVienPT.getById(id);
+                    if (objNhanVienPT != null)
                     {
                         PanelThongTinNhanVienPhuTrach.Visible = true;
-                        Label_ThongTin.Text = String.Format("Thông tin {0}", _NhanVienPT.hoten);
-                        TextBox_MaNhanVien.Text = _NhanVienPT.subId;
-                        TextBox_HoTen.Text = _NhanVienPT.hoten;
-                        TextBox_SoDienThoai.Text = _NhanVienPT.sodienthoai;
-                        ImageSliderNhanVienPhuTrach.Items.Clear();
-                        if (_NhanVienPT.hinhanhs != null && _NhanVienPT.hinhanhs.Count > 0)
-                        {
-                            foreach (HinhAnh hinhanh in _NhanVienPT.hinhanhs)
-                            {
-                                DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                                item.ImageUrl = hinhanh.getImageURL();
-                                if (hinhanh.mota != null && hinhanh.mota.Length > 0)
-                                    item.Text = hinhanh.mota;
-                                else
-                                    item.Text = hinhanh.FILE_NAME;
-                                ImageSliderNhanVienPhuTrach.Items.Add(item);
-                            }
-                        }
-                        else
-                        {
-                            DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                            item.ImageUrl = "~/Images/NoImage.jpg";
-                            item.Text = "Không có ảnh";
-                            ImageSliderNhanVienPhuTrach.Items.Add(item);
-                        }
-                        CollectionPagerDanhSachPhong.DataSource = _NhanVienPT.phongs.ToList();
+                        Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
+                        TextBox_MaNhanVien.Text = objNhanVienPT.subId;
+                        TextBox_HoTen.Text = objNhanVienPT.hoten;
+                        TextBox_SoDienThoai.Text = objNhanVienPT.sodienthoai;
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
+                        CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();
                         CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
                         RepeaterDanhSachPhong.DataSource = CollectionPagerDanhSachPhong.DataSourcePaged;
                         RepeaterDanhSachPhong.DataBind();
                     }
                     else
                     {
-                        Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = "Không có nhân viên này";
+                        Response.Redirect(Request.Url.AbsolutePath);
                     }
                 }
                 else
