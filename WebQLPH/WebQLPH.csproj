@@ -124,6 +124,7 @@
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="PopupMasterPage.Master" />
+    <None Include="Properties\PublishProfiles\dsesgu.edu.vn.pubxml" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Properties\PublishProfiles\qlts.hoangthanhit.com.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />

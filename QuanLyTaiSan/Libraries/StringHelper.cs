@@ -258,5 +258,11 @@ namespace QuanLyTaiSan.Libraries
         {
             return content.Replace("<br />", "\r\n");
         }
+
+        //public static String SplitCharacter(string content, int number)
+        //{
+        //    string ct = content.Split(" ");
+        //    foreach
+        //}
     }
 }

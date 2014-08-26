@@ -32,7 +32,7 @@
                             <Settings ShowTreeLines="False" SuppressOuterGridLines="true" />
                             <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                             <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
-                            <ClientSideEvents 
+                            <ClientSideEvents
                                 CustomDataCallback="function(s, e) {
                                 if(e.result != '')
                                     document.location = e.result;
@@ -40,7 +40,7 @@
                                 FocusedNodeChanged="function(s, e) { 
                                 var key = treeList.GetFocusedNodeKey();
                                 treeList.PerformCustomDataCallback(key); 
-                            }" />                        
+                            }" />
                         </dx:ASPxTreeList>
                     </div>
                 </td>
@@ -50,10 +50,12 @@
                             Danh sách sự cố
                         </div>
                         <% if (RepeaterSuCo.Items.Count == 0)
-                           { %>   
+                           { %>
                         <div class="panel-body">Chưa có sự cố</div>
-                        <% } else { %>
-                        <table class="table table-bordered table-striped">
+                        <% }
+                           else
+                           { %>
+                        <table class="table table-bordered table-striped table-hover">
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
@@ -66,12 +68,12 @@
                             <tbody class="centered">
                                 <asp:Repeater ID="RepeaterSuCo" runat="server">
                                     <ItemTemplate>
-                                        <tr>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachSuCo.CurrentPage - 1)*CollectionPagerDanhSachSuCo.PageSize) %></a></td>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("tinhtrang") %></a></td>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("mota") %></a></td>
-                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ngay") %></a></td>
+                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer">
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" class=\"rowfocus\"":"" %>><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachSuCo.CurrentPage - 1)*CollectionPagerDanhSachSuCo.PageSize) %></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("ten") %></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("tinhtrang") %></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("mota") %></td>
+                                            <td<%# Eval("id").ToString() == idSuCo.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("ngay") %></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -79,7 +81,7 @@
                         </table>
                         <% } %>
                     </div>
-            
+
                     <div class="leftCollectionPager">
                         <div class="CollectionPager">
                             <cp:CollectionPager ID="CollectionPagerDanhSachSuCo" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>

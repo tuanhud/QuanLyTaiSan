@@ -82,3 +82,13 @@
 .right {
     float:right;
 }
+.on_focus {
+    background-color: yellow;
+}
+.off_focus {
+    background-color: yellowgreen;
+}
+.rowfocus {
+    background-color:#5cb85c !important;
+    color:white;
+}

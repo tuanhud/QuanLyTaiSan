@@ -193,3 +193,11 @@ function CapNhat() {
 
     return true;
 }
+function onFocus() {
+    $(this).parent("tr").addClass('on_focus');
+    alert($(this));
+}
+function onBlur() {
+    $(this).parent("tr").addClass('off_focus');
+    alert($(this));
+}

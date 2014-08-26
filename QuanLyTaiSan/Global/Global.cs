@@ -153,8 +153,9 @@ namespace QuanLyTaiSan.Entities
             /// <returns></returns>
             public static int isHasScope()
             {
+                int tmp = 0;
                 //kiểm tra CSDL sẵn sàng để sync
-                return DatabaseHelper.isHasScope(Global.server_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
+                return tmp = DatabaseHelper.isHasScope(Global.server_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
             }
             public static String db_host
             {
