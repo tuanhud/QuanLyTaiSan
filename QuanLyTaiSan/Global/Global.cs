@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -490,12 +491,33 @@ namespace QuanLyTaiSan.Entities
         public static QuanTriVien current_quantrivien_login {
             get
             {
-                //very importance because of OLD DBCONTEXT
-                return _current_quantrivien_login = _current_quantrivien_login==null ? null:_current_quantrivien_login.reload();
+                if (Global.working_database.use_internal_config)
+                {
+                    QuanTriVien tmp = HttpContext.Current.Items["current_quantrivien_login"] as QuanTriVien;
+                    if (tmp == null)
+                    {
+                        return null;
+                    }
+                    tmp = tmp.reload();
+                    HttpContext.Current.Items["current_quantrivien_login"] = tmp;
+                    return tmp;
+                }
+                else
+                {
+                    //very importance because of OLD DBCONTEXT
+                    return _current_quantrivien_login = _current_quantrivien_login == null ? null : _current_quantrivien_login.reload();
+                }
             }
             set
             {
-                _current_quantrivien_login = value;
+                if (Global.working_database.use_internal_config)
+                {
+                    HttpContext.Current.Items["current_quantrivien_login"] = value;
+                }
+                else
+                {
+                    _current_quantrivien_login = value;
+                }
             }
         }
         public static Properties.Settings local_setting

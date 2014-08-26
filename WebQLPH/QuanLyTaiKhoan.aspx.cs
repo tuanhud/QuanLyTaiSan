@@ -142,8 +142,8 @@ namespace WebQLPH
                 _QuanTriVien.email = TextBoxEmail.Text;
                 _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
-                if(!TextBoxMatKhau.Text.Equals(string.Empty))
-                    _QuanTriVien.password = TextBoxMatKhau.Text;
+                if (!TextBoxMatKhau.Text.Equals(string.Empty))
+                    _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
                 _QuanTriVien.donvi = TextBoxKhoa.Text;
                 _QuanTriVien.mota = TextBoxGhiChu.Text;
                 if (_QuanTriVien.update() > 0 && DBInstance.commit() > 0)
@@ -178,7 +178,7 @@ namespace WebQLPH
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
+                _QuanTriVien.group = Group.getById(Convert.ToInt32(DropDownListNhom.SelectedValue));
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
                 _QuanTriVien.donvi = TextBoxKhoa.Text;
