@@ -4,6 +4,8 @@
 <%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxImageSlider" tagprefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
         <div class="alert alert-danger" role="alert">
@@ -26,16 +28,15 @@
                             <Columns>
                                 <dx:TreeListTextColumn Caption="Tên" Name="colten" VisibleIndex="0">
                                     <DataCellTemplate>
-                                        <a href="<%# Request.Url.AbsolutePath %>?idObj=<%# Eval("id")  %>&type=<%# Eval("loai") %>"><%# Eval("ten") %></a>
+                                        <%# Eval("ten") %>
                                     </DataCellTemplate>
                                 </dx:TreeListTextColumn>
                                 <dx:TreeListTextColumn Caption="Mô tả" Name="colmota" VisibleIndex="1">
                                     <DataCellTemplate>
-                                        <a href="<%# Request.Url.AbsolutePath %>?idObj=<%# Eval("id")  %>&type=<%# Eval("loai") %>"><%# Eval("mota") %></a>
+                                        <%# Eval("mota") %>
                                     </DataCellTemplate>
                                 </dx:TreeListTextColumn>
                             </Columns>
-                            <Settings ShowTreeLines="False" SuppressOuterGridLines="true" />
                             <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                             <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                             <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
@@ -65,11 +66,11 @@
                             <tbody class="centered">
                                 <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                                     <ItemTemplate>
-                                        <tr>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></a></td>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("nhanvienpt") %></a></td>
+                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer">
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></td>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("ten") %></td>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("subid") %></td>
+                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("nhanvienpt") %></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -91,15 +92,6 @@
                         </div>
 
                         <div class="panel-body">
-                            <asp:Panel ID="PanelThongBao_Phong" runat="server" Visible="False">
-                                <div>
-                                    <div class="alert alert-danger" role="alert">
-                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                        <asp:Label ID="LabelThongBao_Phong" runat="server" Text="Label"></asp:Label>
-                                    </div>
-                                </div>
-                            </asp:Panel>
-
                             <asp:Panel ID="Panel_Phong" runat="server" Visible="False">
                                 <div class="center">
                                     <dx:ASPxImageSlider ID="ASPxImageSlider_Phong" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>

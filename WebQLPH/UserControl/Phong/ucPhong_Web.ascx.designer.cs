@@ -76,24 +76,6 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinPhong;
         
         /// <summary>
-        /// PanelThongBao_Phong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao_Phong;
-        
-        /// <summary>
-        /// LabelThongBao_Phong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao_Phong;
-        
-        /// <summary>
         /// Panel_Phong control.
         /// </summary>
         /// <remarks>
@@ -227,14 +209,5 @@ namespace WebQLPH.UserControl.Phong {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_NhanVien;
-        
-        /// <summary>
-        /// Label_Script control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Script;
     }
 }

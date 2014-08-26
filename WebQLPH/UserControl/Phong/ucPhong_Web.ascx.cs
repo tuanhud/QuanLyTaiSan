@@ -32,45 +32,39 @@ namespace WebQLPH.UserControl.Phong
                     Panel_Chinh.Visible = true;
                     ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     ASPxTreeList_ViTri.DataBind();
-                    if (Request.QueryString["idObj"] != null && Request.QueryString["type"] != null)
+                    if (Request.QueryString["key"] != null)
                     {
-                        int idObj = -1;
-                        string type = "";
+                        string key = "";
                         try
                         {
-                            idObj = Int32.Parse(Request.QueryString["idObj"].ToString());
-                            type = Request.QueryString["type"].ToString();
+                            key = Request.QueryString["key"].ToString();
                         }
                         catch
                         {
                             Response.Redirect(Request.Url.AbsolutePath);
                         }
-
-                        if (type.Equals(typeof(CoSo).Name))
+                        
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+                        if (node != null)
                         {
-                            if (FindNodeTreeList(idObj, type))
-                                LoadDanhSachPhong(idObj, 1);
-                            else
-                                Response.Redirect(Request.Url.AbsolutePath);
-                        }
-                        else if (type.Equals(typeof(Dayy).Name))
-                        {
-                            if (FindNodeTreeList(idObj, type))
-                                LoadDanhSachPhong(idObj, 2);
-                            else
-                                Response.Redirect(Request.Url.AbsolutePath);
-                        }
-                        else if (type.Equals(typeof(Tang).Name))
-                        {
-                            if (FindNodeTreeList(idObj, type))
-                                LoadDanhSachPhong(idObj, 3);
+                            node.Focus();
+                            if (Object.Equals(node.GetValue("loai").ToString(), typeof(CoSo).Name))
+                            {
+                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), 1);
+                            }
+                            else if (Object.Equals(node.GetValue("loai").ToString(), typeof(Dayy).Name))
+                            {
+                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), 2);
+                            }
+                            else if (Object.Equals(node.GetValue("loai").ToString(), typeof(Tang).Name))
+                            {
+                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), 3);
+                            }
                             else
                                 Response.Redirect(Request.Url.AbsolutePath);
                         }
                         else
-                        {
                             Response.Redirect(Request.Url.AbsolutePath);
-                        }
                     }
                     else
                     {
@@ -93,9 +87,8 @@ namespace WebQLPH.UserControl.Phong
                         {
                             Panel_Phong.Visible = true;
                             Label_Phong.Visible = false;
-                            PanelThongBao_Phong.Visible = false;
                             Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
-                            LoadImage(objPhong.hinhanhs.ToList(), ASPxImageSlider_Phong);
+                            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), ASPxImageSlider_Phong);
                             TextBox_MaPhong.Text = objPhong.subId;
                             TextBox_TenPhong.Text = objPhong.ten;
                             string strCoSo, strDay, strTang;
@@ -127,7 +120,7 @@ namespace WebQLPH.UserControl.Phong
                                 Label_NhanVien.Visible = false;
                                 Label_NhanVien.Text = "";
                                 Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
-                                LoadImage(objPhong.nhanvienpt.hinhanhs.ToList(), ASPxImageSlider_NhanVien);
+                                QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), ASPxImageSlider_NhanVien);
                                 TextBox_MaNhanVien.Text = objPhong.nhanvienpt.subId;
                                 TextBox_TenNhanVien.Text = objPhong.nhanvienpt.hoten;
                                 TextBox_SoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
@@ -138,7 +131,7 @@ namespace WebQLPH.UserControl.Phong
                                 Label_NhanVien.Visible = true;
                                 Label_NhanVien.Text = "Phòng này chưa có nhân viên phụ trách";
                                 Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
-                                LoadImage(null, ASPxImageSlider_NhanVien);
+                                QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVien);
                                 TextBox_MaNhanVien.Text = "";
                                 TextBox_TenNhanVien.Text = "";
                                 TextBox_SoDienThoai.Text = "";
@@ -146,9 +139,7 @@ namespace WebQLPH.UserControl.Phong
                         }
                         else
                         {
-                            ClearData();
-                            PanelThongBao_Phong.Visible = true;
-                            LabelThongBao_Phong.Text = "Không có phòng này";
+                            Response.Redirect(Request.Url.AbsolutePath);
                         }
                     }
                     else
@@ -229,50 +220,11 @@ namespace WebQLPH.UserControl.Phong
             RepeaterDanhSachPhong.DataBind();
         }
 
-        private void LoadImage(List<HinhAnh> listHinhAnh, DevExpress.Web.ASPxImageSlider.ASPxImageSlider _ASPxImageSlider)
-        {
-            _ASPxImageSlider.Items.Clear();
-            if (listHinhAnh != null)
-            {
-                if (listHinhAnh.Count > 0)
-                {
-                    foreach (HinhAnh hinhanh in listHinhAnh)
-                    {
-                        DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                        item.ImageUrl = hinhanh.getImageURL();
-                        if (hinhanh.mota != null)
-                        {
-                            if (hinhanh.mota.Length > 0)
-                                item.Text = hinhanh.mota;
-                        }
-                        else
-                            item.Text = hinhanh.FILE_NAME;
-                        _ASPxImageSlider.Items.Add(item);
-                    }
-                }
-                else
-                {
-                    DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                    item.ImageUrl = "~/Images/NoImage.jpg";
-                    item.Text = "Không có ảnh";
-                    _ASPxImageSlider.Items.Add(item);
-                }
-            }
-            else
-            {
-                DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                item.ImageUrl = "~/Images/NoImage.jpg";
-                item.Text = "Không có ảnh";
-                _ASPxImageSlider.Items.Add(item);
-            }
-        }
-
         private void ClearData()
         {
             Panel_Phong.Visible = false;
-            PanelThongBao_Phong.Visible = false;
             Label_ThongTinPhong.Text = "Thông tin phòng";
-            LoadImage(null, ASPxImageSlider_Phong);
+            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_Phong);
             TextBox_MaPhong.Text = "";
             TextBox_TenPhong.Text = "";
             TextBox_ViTriPhong.Text = "";
@@ -283,22 +235,10 @@ namespace WebQLPH.UserControl.Phong
             Label_NhanVien.Visible = true;
             Label_NhanVien.Text = "Không có dữ liệu";
             Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
-            LoadImage(null, ASPxImageSlider_NhanVien);
+            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVien);
             TextBox_MaNhanVien.Text = "";
             TextBox_TenNhanVien.Text = "";
             TextBox_SoDienThoai.Text = "";
-        }
-
-        private Boolean FindNodeTreeList(int id, string type)
-        {
-            List<DevExpress.Web.ASPxTreeList.TreeListNode> listNode = ASPxTreeList_ViTri.FindNodesByFieldValue("loai", type);
-            DevExpress.Web.ASPxTreeList.TreeListNode node = listNode.Where(item => ((ViTriHienThi)item.DataItem).id == id).FirstOrDefault();
-            if (node != null)
-            {
-                node.Focus();                
-                return true;
-            }
-            return false;
         }
 
         protected void ASPxTreeList_ViTri_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
@@ -306,7 +246,7 @@ namespace WebQLPH.UserControl.Phong
             string key = e.Argument.ToString();
             DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
             if (node != null)
-                e.Result = Request.Url.AbsolutePath + "?idObj=" + node.GetValue("id").ToString() + "&type=" + node.GetValue("loai").ToString();
+                e.Result = Request.Url.AbsolutePath + "?key=" + key;
             else
                 e.Result = Request.Url.AbsolutePath;
         }

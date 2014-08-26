@@ -90,11 +90,11 @@
             <tbody class="centered">
                 <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
                     <ItemTemplate>
-                        <tr>
-                            <td><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></a></td>
-                            <td><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
-                            <td><a href="<%# Eval("url") %>"><%# Eval("hoten") %></a></td>
-                            <td><a href="<%# Eval("url") %>"><%# Eval("sodienthoai") %></a></td>
+                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer">
+                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></td>
+                            <td><%# Eval("subid") %></td>
+                            <td><%# Eval("hoten") %></td>
+                            <td><%# Eval("sodienthoai") %></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
