@@ -82,3 +82,7 @@
 .right {
     float:right;
 }
+.focusrow, .focusrow td {
+    background-color: #5cb85c !important;
+    color: white !important;
+}

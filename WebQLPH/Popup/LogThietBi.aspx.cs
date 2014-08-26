@@ -21,11 +21,11 @@ namespace WebQLPH.UserControl.PhongThietBi
                 int id = -1;
                 try
                 {
-                    id = Int32.Parse(Request.QueryString["idObj"].ToString());
+                    id = Int32.Parse(Request.QueryString["id"].ToString());
                 }
                 catch
                 {
-                    Response.Redirect("https://www.google.com");
+                    Response.Redirect("~/");
                 }
                 objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(id);
                 if (objThietBi != null)
@@ -59,7 +59,7 @@ namespace WebQLPH.UserControl.PhongThietBi
                             idLog = -1;
                             try
                             {
-                                idLog = Int32.Parse(Request.QueryString["idObj"].ToString());
+                                idLog = Int32.Parse(Request.QueryString["idLog"].ToString());
                             }
                             catch
                             {
@@ -70,14 +70,14 @@ namespace WebQLPH.UserControl.PhongThietBi
                         {
                             idLog = listLogThietBi.ElementAt(0).id;
                         }
-                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(listLogThietBi.ElementAt(idLog).hinhanhs.ToList(), ASPxImageSlider_Log);
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(listLogThietBi.Where(item => item.id == idLog).FirstOrDefault().hinhanhs.ToList(), ASPxImageSlider_Log);
                     }
                 }
                 else
                 {
-                    if (Request.UrlReferrer.ToString() == "")
+                    if (Request.UrlReferrer == null)
                     {
-                        Response.Redirect("https://www.google.com");
+                        Response.Redirect("~/");
                     }
                     else
                     {
@@ -88,9 +88,9 @@ namespace WebQLPH.UserControl.PhongThietBi
             }
             else
             {
-                if (Request.UrlReferrer.ToString() == "")
+                if (Request.UrlReferrer == null)
                 {
-                    Response.Redirect("https://www.google.com");
+                    Response.Redirect("~/");
                 }
                 else
                 { 

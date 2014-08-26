@@ -28,7 +28,7 @@
                                 </dx:TreeListTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
-                            <SettingsCookies Enabled="True" StoreExpandedNodes="True" />
+                            <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                             <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
                                 FocusedNodeChanged="function(s, e) { 

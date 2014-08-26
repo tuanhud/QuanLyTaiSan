@@ -20,17 +20,25 @@
         <div class="panel-heading">
             Chọn vị trí cần xem
         </div>
-        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%">
+        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback">
             <Columns>
                 <dx:TreeListTextColumn Caption="Tên" Name="colten" VisibleIndex="0">
                     <DataCellTemplate>
-                        <a href="<%# Request.Url.AbsolutePath %>?idObj=<%# Eval("id")  %>&type=<%# Eval("loai") %>"><%# Eval("ten") %></a>
+                        <%# Eval("ten") %>
                     </DataCellTemplate>
                 </dx:TreeListTextColumn>
             </Columns>
-            <Settings SuppressOuterGridLines="true" />
-            <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" storeselection="True" />
+            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
+            <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+            <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
+                Init="function(s, e) {
+                    s.SetFocusedNodeKey('');
+                }"
+                NodeClick="function(s, e) {
+	                var key = e.nodeKey;
+	                treeList.PerformCustomDataCallback(key);
+                }" />
         </dx:ASPxTreeList>
     </div>
 </asp:Panel>
@@ -44,7 +52,7 @@
         { %>   
             <div class="panel-body">Vị trí này không có phòng</div>
         <% } else { %>
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped table-hover">
                 <thead class="centered">
                     <tr>
                         <th>#</th>
@@ -56,11 +64,11 @@
                 <tbody class="centered">
                     <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                         <ItemTemplate>
-                            <tr>
-                                <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></a></td>
-                                <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
-                                <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
-                                <td<%# Eval("id").ToString() == idPhong.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("nhanvienpt") %></a></td>
+                            <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer">
+                                <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></td>
+                                <td><%# Eval("ten") %></td>
+                                <td><%# Eval("subid") %></td>
+                                <td><%# Eval("nhanvienpt") %></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -84,7 +92,7 @@
         </div>
 
         <div class="panel-body">
-            <div class="center">
+            <div class="center200">
                 <dx:ASPxImageSlider ID="ASPxImageSlider_Phong" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
             </div>
             <br />
@@ -133,7 +141,7 @@
         
         <div class="panel-body">
             <asp:Panel ID="Panel_NhanVien" runat="server" Visible="False">
-                <div class="center">
+                <div class="center200">
                     <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVien" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
                 </div>
                 <br />

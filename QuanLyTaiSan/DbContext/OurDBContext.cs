@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.Entities
         private Boolean create_sample_data = false;
         public _OurDBInit(Boolean create_sample_data = false)
         {
-            this.create_sample_data = create_sample_data;
+            this.create_sample_data = true;// create_sample_data;
         }
         protected override void Seed(OurDBContext context)
         {

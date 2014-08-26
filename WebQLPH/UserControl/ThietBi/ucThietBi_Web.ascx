@@ -14,7 +14,13 @@
         </div>
     </div>
 </asp:Panel>
-
+<ol class="breadcrumb">
+  <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
+  <li <%# Request.QueryString["id"] != null?"":"class=\"active\"" %>><a href="<%# QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[]{"id"})) %>">Thiết bị</a></li>
+  <% if(Request.QueryString["id"] != null){ %>
+    <li><a href="<%# Request.Url.AbsoluteUri %>"><asp:Label ID="Label_TenThietBi" runat="server"></asp:Label></a></li>
+  <%} %>
+</ol>
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <table class="table table-bordered table-striped">
         <tbody>
@@ -28,9 +34,6 @@
                             <Columns>
                                 <dx:TreeListTextColumn Caption="ID" FieldName="id" Name="colid" VisibleIndex="0" ShowInCustomizationForm="True" Visible="false"></dx:TreeListTextColumn>
                                 <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="name" Name="colname" VisibleIndex="1" ShowInCustomizationForm="True">
-                                    <DataCellTemplate>
-                                        <a href="<%# Request.Url.AbsolutePath %>?key=<%# Eval("id")  %>"><%# Eval("name") %></a>
-                                    </DataCellTemplate>
                                 </dx:TreeListTextColumn>
                             </Columns>
                             <Settings SuppressOuterGridLines="true" />
@@ -53,7 +56,7 @@
                            { %>   
                         <div class="panel-body">Chưa có thiết bị</div>
                         <% } else { %>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped table-hover">
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
@@ -65,11 +68,11 @@
                             <tbody class="centered">
                                 <asp:Repeater ID="RepeaterThietBi" runat="server">
                                     <ItemTemplate>
-                                        <tr>
-                                            <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></a></td>
-                                            <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("subid") %></a></td>
-                                            <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("ten") %></a></td>
-                                            <td<%# Eval("id").ToString() == idThietBi.ToString()?" style=\"background: #d9edf7;\"":"" %>><a href="<%# Eval("url") %>"><%# Eval("loaithietbi") %></a></td>
+                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer" <%# Eval("id").ToString() == idThietBi.ToString()?" class=\"focusrow\"":"" %>>
+                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
+                                            <td><%# Eval("subid") %></td>
+                                            <td><%# Eval("ten") %></td>
+                                            <td><%# Eval("loaithietbi") %></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>

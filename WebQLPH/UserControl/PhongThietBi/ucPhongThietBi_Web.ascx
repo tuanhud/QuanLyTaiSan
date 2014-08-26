@@ -19,7 +19,6 @@
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
     <script type="text/javascript" language="javascript">
         function OnMoreInfoClick(contentUrl) {
-            alert(contentUrl);
             clientPopupControl.SetContentUrl(contentUrl);
             clientPopupControl.Show();
         }
@@ -63,7 +62,7 @@
                             <asp:Label ID="Label_DanhSachThietBi" runat="server"></asp:Label>
                         </div>
                         <% } else { %>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped table-hover">
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
@@ -106,7 +105,7 @@
             </tr>
         </tbody>
     </table>
-    <dx:ASPxPopupControl ID="ASPxPopupControl_ThietBi" runat="server" ClientInstanceName="clientPopupControl" CloseAction="CloseButton" Height="700px" Modal="True" Width="700px" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Log thiết bị" Theme="MetropolisBlue">
+    <dx:ASPxPopupControl ID="ASPxPopupControl_ThietBi" runat="server" ClientInstanceName="clientPopupControl" CloseAction="CloseButton" Height="800px" Modal="True" Width="1000px" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Log thiết bị" Theme="MetropolisBlue">
         <ContentCollection>
             <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
             </dx:PopupControlContentControl>
