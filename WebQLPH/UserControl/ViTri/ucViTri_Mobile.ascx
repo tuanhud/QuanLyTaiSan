@@ -15,23 +15,27 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-<asp:Panel ID="Panel_TreeViTri" runat="server" Visible="False">
+    <asp:Panel ID="Panel_TreeViTri" runat="server" Visible="False">
     <div class="panel panel-primary">
         <div class="panel-heading">
             Vị trí
         </div>
-        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" EnableCallbacks="False">
+        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback">
             <Columns>
                 <dx:TreeListTextColumn Caption="Tên" FieldName="ten" Name="colten" VisibleIndex="0" ShowInCustomizationForm="True">
                 </dx:TreeListTextColumn>
-                <dx:TreeListTextColumn Caption="#" Name="colchitiet" VisibleIndex="2">
-                    <DataCellTemplate>
-                        <a href="<%# Request.Url.AbsolutePath %>?id=<%# Eval("id")  %>&type=<%# Eval("loai") %>">Chi tiết</a>
-                    </DataCellTemplate>
-                </dx:TreeListTextColumn>
             </Columns>
-            <SettingsBehavior AllowFocusedNode="True" />
+            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
+            <SettingsCookies Enabled="True" StoreExpandedNodes="True" />
             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+            <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
+                Init="function(s, e) {
+                    s.SetFocusedNodeKey('');
+                }"
+                NodeClick="function(s, e) {
+	                var key = e.nodeKey;
+	                treeList.PerformCustomDataCallback(key);
+                }" />
         </dx:ASPxTreeList>
     </div>
     </asp:Panel>
@@ -41,7 +45,7 @@
                 <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
             </div>
             <div class="panel-body">
-                <div class="center">
+                <div class="center200">
                     <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
                 </div>
                 <br />

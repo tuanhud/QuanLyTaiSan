@@ -22,7 +22,20 @@
                         <div class="panel-heading">
                             Vị trí
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" EnableCallbacks="False" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged"><Columns><dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0"></dx:TreeListTextColumn></Columns><SettingsBehavior AllowFocusedNode="True" ProcessFocusedNodeChangedOnServer="True" /><SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" /></dx:ASPxTreeList>
+                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback">
+                            <Columns>
+                                <dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0">
+                                </dx:TreeListTextColumn>
+                            </Columns>
+                            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
+                            <SettingsCookies Enabled="True" StoreExpandedNodes="True" />
+                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                            <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
+                                FocusedNodeChanged="function(s, e) { 
+                                var key = treeList.GetFocusedNodeKey();
+                                treeList.PerformCustomDataCallback(key); 
+                            }" />
+                        </dx:ASPxTreeList>
                     </div>
                     <asp:Panel ID="Panel_GoogleMap" runat="server" Visible="False">
                         <div class="panel panel-primary" data-toggle="modal" data-target="#myModal" onclick="return false;">

@@ -119,6 +119,7 @@
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="PopupMasterPage.Master" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Properties\PublishProfiles\qlts.hoangthanhit.com.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
@@ -142,6 +143,7 @@
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
+    <Content Include="Popup\LogThietBi.aspx" />
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx" />
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
@@ -227,6 +229,13 @@
     <Compile Include="PhongThietBi.aspx.designer.cs">
       <DependentUpon>PhongThietBi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PopupMasterPage.Master.cs">
+      <DependentUpon>PopupMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupMasterPage.Master.designer.cs">
+      <DependentUpon>PopupMasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyHinhAnh.aspx.cs">
       <DependentUpon>QuanLyHinhAnh.aspx</DependentUpon>
@@ -297,6 +306,13 @@
     </Compile>
     <Compile Include="UserControl\NhanVien\ucNhanVien_Web.ascx.designer.cs">
       <DependentUpon>ucNhanVien_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\LogThietBi.aspx.cs">
+      <DependentUpon>LogThietBi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Popup\LogThietBi.aspx.designer.cs">
+      <DependentUpon>LogThietBi.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx.cs">
       <DependentUpon>ucPhongThietBi_Mobile.ascx</DependentUpon>

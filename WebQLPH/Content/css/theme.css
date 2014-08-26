@@ -21,6 +21,10 @@
     max-width: 300px;
     margin: 0 auto;
 }
+.center200 {
+    max-width: 200px;
+    margin: 0 auto;
+}
 .centerCollectionPager{
     /*max-width: 300px;
     margin: 0 auto;*/

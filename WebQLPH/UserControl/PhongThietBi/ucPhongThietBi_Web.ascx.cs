@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
+using DevExpress.Web.ASPxEditors;
 
 namespace WebQLPH.UserControl.PhongThietBi
 {
@@ -15,6 +16,7 @@ namespace WebQLPH.UserControl.PhongThietBi
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<ChiTietTBHienThi> listThietBiCuaPhong = new List<ChiTietTBHienThi>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
+        QuanLyTaiSan.Entities.ThietBi objThietBi = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,6 +59,27 @@ namespace WebQLPH.UserControl.PhongThietBi
                             if (objPhong != null)
                             {
                                 LoadDataObjPhong();
+                                if (Request.QueryString["idTB"] != null)
+                                {
+                                    int idTB = -1;
+                                    try
+                                    {
+                                        idTB = Int32.Parse(Request.QueryString["idTB"].ToString());
+                                    }
+                                    catch
+                                    {
+                                        Response.Redirect(Request.Url.AbsolutePath);
+                                    }
+                                    objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idTB);
+                                    if (objThietBi != null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        Response.Redirect(Request.Url.AbsolutePath);
+                                    }
+                                }
                             }
                             else
                             {
@@ -86,7 +109,18 @@ namespace WebQLPH.UserControl.PhongThietBi
             if (objPhong != null)
             {
                 listThietBiCuaPhong = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
-                CollectionPagerDanhSachThietBi.DataSource = listThietBiCuaPhong;
+                var bind = listThietBiCuaPhong.Select(a => new
+                {
+                    id = a.id,
+                    ten = a.ten,
+                    subId = a.subId,
+                    tenloai = a.tenloai,
+                    tinhtrang = a.tinhtrang,
+                    soluong = a.soluong,
+                    kieuQL = a.kieuQL,
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idTB", a.id.ToString())
+                }).ToList();
+                CollectionPagerDanhSachThietBi.DataSource = bind;
                 CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;
                 RepeaterDanhSachThietBi.DataSource = CollectionPagerDanhSachThietBi.DataSourcePaged;
                 RepeaterDanhSachThietBi.DataBind();

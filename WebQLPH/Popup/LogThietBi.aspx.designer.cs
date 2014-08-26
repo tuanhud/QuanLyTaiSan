@@ -10,7 +10,7 @@
 namespace WebQLPH.UserControl.PhongThietBi {
     
     
-    public partial class ucPhongThietBi_Web {
+    public partial class LogThietBi {
         
         /// <summary>
         /// Panel_ThongBaoLoi control.
@@ -40,57 +40,39 @@ namespace WebQLPH.UserControl.PhongThietBi {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
-        /// ASPxTreeList_ViTri control.
+        /// Label_DanhSachLogThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
+        protected global::System.Web.UI.WebControls.Label Label_DanhSachLogThietBi;
         
         /// <summary>
-        /// Label_DanhSachThietBi control.
+        /// RepeaterDanhSachLogThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DanhSachThietBi;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachLogThietBi;
         
         /// <summary>
-        /// RepeaterDanhSachThietBi control.
+        /// CollectionPagerDanhSachLogThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachThietBi;
+        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachLogThietBi;
         
         /// <summary>
-        /// CollectionPagerDanhSachThietBi control.
+        /// ASPxImageSlider_Log control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachThietBi;
-        
-        /// <summary>
-        /// ASPxPopupControl_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl ASPxPopupControl_ThietBi;
-        
-        /// <summary>
-        /// PopupControlContentControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Log;
     }
 }

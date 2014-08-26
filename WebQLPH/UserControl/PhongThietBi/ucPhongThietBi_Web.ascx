@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucPhongThietBi_Web.ascx.cs" Inherits="WebQLPH.UserControl.PhongThietBi.ucPhongThietBi_Web" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 
 <%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
@@ -16,10 +17,17 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
+    <script type="text/javascript" language="javascript">
+        function OnMoreInfoClick(contentUrl) {
+            alert(contentUrl);
+            clientPopupControl.SetContentUrl(contentUrl);
+            clientPopupControl.Show();
+        }
+    </script>
     <table class="table table-bordered table-striped">
         <tbody>
             <tr>
-                <td width="400px">
+                <td width="300px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Chọn phòng
@@ -46,34 +54,6 @@
                 </td>
                 <td>
                     <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">Sắp xếp:
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default">Loại thiết bị</button>
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                            <span class="caret"></span>
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="TextBox_Search" CssClass="form-control" runat="server"></asp:TextBox>
-                                        <span class="input-group-btn">
-                                            <asp:Button ID="Button_Search" CssClass="btn btn-default" runat="server" Text="Tìm" Width="100px" />
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             Danh sách thiết bị
                         </div>
@@ -87,11 +67,13 @@
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
-                                    <th>Mã thiết bị</th>
                                     <th>Tên</th>
+                                    <th>Mã thiết bị</th>
                                     <th>Loại thiết bị</th>
+                                    <th>Tình trạng</th>
                                     <th>Số lượng</th>
                                     <th>Kiểu quản lí</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody class="centered">
@@ -99,11 +81,15 @@
                                     <ItemTemplate>
                                         <tr>
                                             <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
-                                            <td><%# Eval("subId") %></td>
                                             <td><%# Eval("ten") %></td>
+                                            <td><%# Eval("subId") %></td>
                                             <td><%# Eval("tenloai") %></td>
+                                            <td><%# Eval("tinhtrang") %></td>
                                             <td><%# Eval("soluong") %></td>
                                             <td><%# Eval("kieuQL") %></td>
+                                            <td>
+                                                <a href="javascript:void(0);" onclick="OnMoreInfoClick('<%# Eval("url") %>');" title="Xem log của <%# Eval("ten") %>">Xem log</a>
+                                            </td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -113,11 +99,17 @@
                     </div>
                     <div class="leftCollectionPager">
                         <div class="CollectionPager">
-                            <cp:CollectionPager ID="CollectionPagerDanhSachThietBi" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="1" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
+                            <cp:CollectionPager ID="CollectionPagerDanhSachThietBi" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="3" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
                         </div>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
+    <dx:ASPxPopupControl ID="ASPxPopupControl_ThietBi" runat="server" ClientInstanceName="clientPopupControl" CloseAction="CloseButton" Height="700px" Modal="True" Width="700px" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Log thiết bị" Theme="MetropolisBlue">
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </dx:ASPxPopupControl>
 </asp:Panel>

@@ -31,51 +31,35 @@ namespace WebQLPH.UserControl.ViTri
                 ClearData();
                 ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 ASPxTreeList_ViTri.DataBind();
-                ASPxTreeList_ViTri.ExpandToLevel(1);
-                LoadFocusedNodeData();
+                if (Request.QueryString["key"] != null)
+                {
+                    string key = "";
+                    try
+                    {
+                        key = Request.QueryString["key"].ToString();
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    if (FindNodeTreeList(key))
+                    {
+                        LoadFocusedNodeData();
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                {
+                    LoadFocusedNodeData();
+                }
             }
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
                 Label_ThongBaoLoi.Text = "Chưa có vị trí";
-            }
-        }
-
-        private void LoadImage(List<HinhAnh> listHinhAnh)
-        {
-            ASPxImageSlider_Object.Items.Clear();
-            if (listHinhAnh != null)
-            {
-                if (listHinhAnh.Count > 0)
-                {
-                    foreach (HinhAnh hinhanh in listHinhAnh)
-                    {
-                        DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                        item.ImageUrl = hinhanh.getImageURL();
-                        if (hinhanh.mota != null)
-                        {
-                            if (hinhanh.mota.Length > 0)
-                                item.Text = hinhanh.mota;
-                        }
-                        else
-                            item.Text = hinhanh.FILE_NAME;
-                        ASPxImageSlider_Object.Items.Add(item);
-                    }
-                }
-                else
-                {
-                    DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                    item.ImageUrl = "~/Images/NoImage.jpg";
-                    item.Text = "Không có ảnh";
-                    ASPxImageSlider_Object.Items.Add(item);
-                }
-            }
-            else
-            {
-                DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                item.ImageUrl = "~/Images/NoImage.jpg";
-                item.Text = "Không có ảnh";
-                ASPxImageSlider_Object.Items.Add(item);
             }
         }
 
@@ -110,7 +94,7 @@ namespace WebQLPH.UserControl.ViTri
                     if (objCoSo != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objCoSo.ten);
-                        LoadImage(objCoSo.hinhanhs.ToList());
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), ASPxImageSlider_Object);
                         TextBox_Ten.Text = objCoSo.ten;
                         TextBox_Thuoc.Text = "[Đại học Sài Gòn]";
                         Panel_DiaChi.Visible = true;
@@ -141,7 +125,7 @@ namespace WebQLPH.UserControl.ViTri
                     if (objDay != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objDay.ten);
-                        LoadImage(objDay.hinhanhs.ToList());
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), ASPxImageSlider_Object);
                         TextBox_Ten.Text = objDay.ten;
                         TextBox_Thuoc.Text = objDay.coso.ten;
                         Panel_DiaChi.Visible = false;
@@ -160,7 +144,7 @@ namespace WebQLPH.UserControl.ViTri
                     if (objTang != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objTang.ten);
-                        LoadImage(objTang.hinhanhs.ToList());
+                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), ASPxImageSlider_Object);
                         TextBox_Ten.Text = objTang.ten;
                         TextBox_Thuoc.Text = objTang.day.coso.ten + " - " + objTang.day.ten;
                         Panel_DiaChi.Visible = false;
@@ -175,14 +159,9 @@ namespace WebQLPH.UserControl.ViTri
                     }
                     break;
                 default:
-                    Response.Redirect("~/ViTri.aspx");
+                    Response.Redirect(Request.Url.AbsolutePath);
                     return;
             }
-        }
-
-        protected void ASPxTreeList_ViTri_FocusedNodeChanged(object sender, EventArgs e)
-        {
-            LoadFocusedNodeData();
         }
 
         private void LoadFocusedNodeData()
@@ -205,6 +184,27 @@ namespace WebQLPH.UserControl.ViTri
                     }
                 }
             }
+        }
+
+        protected void ASPxTreeList_ViTri_CustomDataCallback(object sender, TreeListCustomDataCallbackEventArgs e)
+        {
+            string key = e.Argument.ToString();
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+            if (node != null)
+                e.Result = Request.Url.AbsolutePath + "?key=" + key;
+            else
+                e.Result = Request.Url.AbsolutePath;
+        }
+
+        private Boolean FindNodeTreeList(string key)
+        {
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+            if (node != null)
+            {
+                node.Focus();
+                return true;
+            }
+            return false;
         }
     }
 }

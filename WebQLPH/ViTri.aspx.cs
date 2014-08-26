@@ -17,17 +17,8 @@ namespace WebQLPH
             Default SetClassActive = this.Master as Default;
             SetClassActive.page = "VITRI";
 
-            isMobile = MobileDetect.fBrowserIsMobile();
-            if (!isMobile)
-            {
-                Panel_Web.Visible = true;
-                _ucViTri_Web.LoadData();
-            }
-            else
-            {
-                Panel_Mobile.Visible = true;
-                _ucViTri_Mobile.LoadData();
-            }
+            Panel_Mobile.Visible = true;
+            _ucViTri_Mobile.LoadData();
         }
     }
 }
