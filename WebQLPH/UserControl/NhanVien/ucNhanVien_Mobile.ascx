@@ -78,7 +78,7 @@
         <div class="panel-heading">
             Danh sách nhân viên
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped table-hover">
             <thead class="centered">
                 <tr>
                     <th>#</th>

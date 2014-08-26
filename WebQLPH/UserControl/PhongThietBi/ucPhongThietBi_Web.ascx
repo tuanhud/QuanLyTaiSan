@@ -62,7 +62,7 @@
                             <asp:Label ID="Label_DanhSachThietBi" runat="server"></asp:Label>
                         </div>
                         <% } else { %>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped table-hover">
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
