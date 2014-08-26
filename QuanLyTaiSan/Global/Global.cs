@@ -135,14 +135,14 @@ namespace QuanLyTaiSan.Entities
             public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                if (!DatabaseHelper.isExist(
-                    Global.server_database.get_connection_string()
-                ))
-                {
-                    return -1;
-                }
+                //if (!DatabaseHelper.isExist(
+                //    Global.server_database.get_connection_string()
+                //))
+                //{
+                //    return -1;
+                //}
                 //Check model backing
-                using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(),false))
+                using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
                 {
                     return tmp.isValidModel() ? 1 : -2;
                 }
@@ -318,12 +318,12 @@ namespace QuanLyTaiSan.Entities
             public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                if (!DatabaseHelper.isExist(
-                    Global.client_database.get_connection_string()
-                ))
-                {
-                    return -1;
-                }
+                //if (!DatabaseHelper.isExist(
+                //    Global.client_database.get_connection_string()
+                //))
+                //{
+                //    return -1;
+                //}
                 //Check model backing
                 using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
                 {
@@ -423,12 +423,12 @@ namespace QuanLyTaiSan.Entities
             public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                if (!DatabaseHelper.isExist(
-                    Global.working_database.get_connection_string()
-                ))
-                {
-                    return -1;
-                }
+                //if (!DatabaseHelper.isExist(
+                //    Global.working_database.get_connection_string()
+                //))
+                //{
+                //    return -1;
+                //}
                 //Check model backing
                 //Check model backing
                 using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false))

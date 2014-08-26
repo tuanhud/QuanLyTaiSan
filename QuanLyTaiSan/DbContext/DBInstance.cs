@@ -129,7 +129,7 @@ namespace QuanLyTaiSan.Entities
                             throw new Exception("Can not sync");
                         }
                         int re = DB.SaveChanges();
-                        dbTrans.Commit();
+                        dbTrans.Commit();                        
                         //sync when data done
                         if (re > 0)
                         {
@@ -143,7 +143,14 @@ namespace QuanLyTaiSan.Entities
                     catch (Exception ex)
                     {
                         Debug.WriteLine(ex);
-                        dbTrans.Rollback();
+                        try
+                        {
+                            dbTrans.Rollback();
+                        }
+                        catch (Exception exx)
+                        {
+                            Debug.WriteLine(exx.ToString());
+                        }
                         return -1;
                     }
                 }

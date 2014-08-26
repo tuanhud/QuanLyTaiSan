@@ -1,20 +1,45 @@
-DECLARE @Sql NVARCHAR(500) DECLARE @Cursor CURSOR
+declare @n char(1)
+set @n = char(10)
 
-SET @Cursor = CURSOR FAST_FORWARD FOR
-SELECT DISTINCT sql = 'ALTER TABLE [' + tc2.TABLE_NAME + '] DROP [' + rc1.CONSTRAINT_NAME + ']'
-FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS rc1
-LEFT JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc2 ON tc2.CONSTRAINT_NAME =rc1.CONSTRAINT_NAME
+declare @stmt nvarchar(max)
 
-OPEN @Cursor FETCH NEXT FROM @Cursor INTO @Sql
+-- procedures
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop procedure [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.procedures
 
-WHILE (@@FETCH_STATUS = 0)
-BEGIN
-Exec SP_EXECUTESQL @Sql
-FETCH NEXT FROM @Cursor INTO @Sql
-END
 
-CLOSE @Cursor DEALLOCATE @Cursor
-GO
+-- check constraints
+select @stmt = isnull( @stmt + @n, '' ) +
+'alter table [' + schema_name(schema_id) + '].[' + object_name( parent_object_id ) + ']    drop constraint [' + name + ']'
+from sys.check_constraints
 
-EXEC sp_MSForEachTable 'DROP TABLE ?'
-GO
+-- functions
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop function [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.objects
+where type in ( 'FN', 'IF', 'TF' )
+
+-- views
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop view [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.views
+
+-- foreign keys
+select @stmt = isnull( @stmt + @n, '' ) +
+    'alter table [' + schema_name(schema_id) + '].[' + object_name( parent_object_id ) + '] drop constraint [' + name + ']'
+from sys.foreign_keys
+
+-- tables
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop table [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.tables
+
+-- user defined types
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop type [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.types
+where is_user_defined = 1
+
+
+exec sp_executesql @stmt
