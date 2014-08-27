@@ -112,6 +112,16 @@ namespace QuanLyTaiSan.Entities
             db = DB;
         }
         /// <summary>
+        /// Đồng bộ CSDL lên Server
+        /// </summary>
+        private static void sync()
+        {
+            Debug.WriteLine("======Location: DBInstance======");
+            Debug.WriteLine("======Start sync when insert, in new Thread======");
+            Global.client_database.start_sync();
+            Debug.WriteLine("======End sync when insert, in new Thread======");
+        }
+        /// <summary>
         /// > 0: OK,
         /// < 0: Fail
         /// </summary>
@@ -124,19 +134,14 @@ namespace QuanLyTaiSan.Entities
                 {
                     try
                     {
-                        if (Global.client_database.start_sync() < 0)
-                        {
-                            throw new Exception("Can not sync");
-                        }
                         int re = DB.SaveChanges();
                         dbTrans.Commit();                        
                         //sync when data done
                         if (re > 0)
                         {
-                            if (Global.client_database.start_sync() < 0)
-                            {
-                                throw new Exception("Can not sync");
-                            }
+                            Thread thread = new Thread(new ThreadStart(sync));
+                            thread.SetApartmentState(ApartmentState.STA);
+                            thread.Start();
                         }
                         return 1;
                     }

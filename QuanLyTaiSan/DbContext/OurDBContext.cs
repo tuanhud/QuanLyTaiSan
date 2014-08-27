@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.Entities
         private Boolean create_sample_data = false;
         public _OurDBInit(Boolean create_sample_data = false)
         {
-            this.create_sample_data = true;// create_sample_data;
+            this.create_sample_data = create_sample_data;
         }
         protected override void Seed(OurDBContext context)
         {
@@ -156,7 +156,7 @@ namespace QuanLyTaiSan.Entities
     /// </summary>
     public class OurDBContext : DbContext
     {
-        private Boolean create_sample_data = true;
+        private Boolean create_sample_data = false;
         public OurDBContext()
             : base("Default")
         {
@@ -165,12 +165,11 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
-            this.create_sample_data = true;
         }
         public OurDBContext(String connection_string = "Default", Boolean create_sample_data = false)
             : base(connection_string)
         {
-            this.create_sample_data = true;// create_sample_data;
+            this.create_sample_data = create_sample_data;
             //Create sample data if indicated
             IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
 
@@ -287,26 +286,26 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                COSOS.Find(1);
-                DAYYS.Find(1);
-                TANGS.Find(1);
-                VITRIS.Find(1);
-                PHONGS.Find(1);
-                THIETBIS.Find(1);
-                CTTHIETBIS.Find(1);
-                HINHANHS.Find(1);
-                QUANTRIVIENS.Find(1);
-                NHANVIENPTS.Find(1);
-                LOGHETHONGS.Find(1);
-                LOGSUCOPHONGS.Find(1);
-                LOGTHIETBIS.Find(1);
-                LOAITHIETBIS.Find(1);
-                SETTINGS.Find(1);
-                TINHTRANGS.Find(1);
-                PERMISSIONS.Find(1);
-                SUCOPHONGS.Find(1);
-                GROUPS.Find(1);
-                PHIEUMUONPHONGS.Find(1);
+                COSOS.Find(Guid.Empty);
+                DAYYS.Find(Guid.Empty);
+                TANGS.Find(Guid.Empty);
+                VITRIS.Find(Guid.Empty);
+                PHONGS.Find(Guid.Empty);
+                THIETBIS.Find(Guid.Empty);
+                CTTHIETBIS.Find(Guid.Empty);
+                HINHANHS.Find(Guid.Empty);
+                QUANTRIVIENS.Find(Guid.Empty);
+                NHANVIENPTS.Find(Guid.Empty);
+                LOGHETHONGS.Find(Guid.Empty);
+                LOGSUCOPHONGS.Find(Guid.Empty);
+                LOGTHIETBIS.Find(Guid.Empty);
+                LOAITHIETBIS.Find(Guid.Empty);
+                SETTINGS.Find(Guid.Empty);
+                TINHTRANGS.Find(Guid.Empty);
+                PERMISSIONS.Find(Guid.Empty);
+                SUCOPHONGS.Find(Guid.Empty);
+                GROUPS.Find(Guid.Empty);
+                PHIEUMUONPHONGS.Find(Guid.Empty);
 
                 return true;
             }
@@ -315,13 +314,6 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(ex.ToString());
                 return false;
             }
-        }
-        private void sync()
-        {
-            Debug.WriteLine("======Location: OurDBConText======");
-            Debug.WriteLine("======Start sync when insert in new Thread======");
-            Global.client_database.start_sync();
-            Debug.WriteLine("======End sync when insert in new Thread======");
         }
         #endregion
         #region Override
