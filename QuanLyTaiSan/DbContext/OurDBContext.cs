@@ -18,7 +18,7 @@ namespace QuanLyTaiSan.Entities
         private Boolean create_sample_data = false;
         public _OurDBInit(Boolean create_sample_data = false)
         {
-            this.create_sample_data = true;// create_sample_data;
+            this.create_sample_data = create_sample_data;
         }
         protected override void Seed(OurDBContext context)
         {
@@ -156,7 +156,7 @@ namespace QuanLyTaiSan.Entities
     /// </summary>
     public class OurDBContext : DbContext
     {
-        private Boolean create_sample_data = true;
+        private Boolean create_sample_data = false;
         public OurDBContext()
             : base("Default")
         {
@@ -165,12 +165,11 @@ namespace QuanLyTaiSan.Entities
 
             //Auto create DB if not exist
             Database.SetInitializer<OurDBContext>(initializer);
-            this.create_sample_data = true;
         }
         public OurDBContext(String connection_string = "Default", Boolean create_sample_data = false)
             : base(connection_string)
         {
-            this.create_sample_data = true;// create_sample_data;
+            this.create_sample_data = create_sample_data;
             //Create sample data if indicated
             IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
 
@@ -315,13 +314,6 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(ex.ToString());
                 return false;
             }
-        }
-        private void sync()
-        {
-            Debug.WriteLine("======Location: OurDBConText======");
-            Debug.WriteLine("======Start sync when insert in new Thread======");
-            Global.client_database.start_sync();
-            Debug.WriteLine("======End sync when insert in new Thread======");
         }
         #endregion
         #region Override
