@@ -353,7 +353,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
                         {
                             editGUI("view", typeof(CoSo).Name);
-                            objCoSo = CoSo.getById(QuanLyTaiSan.Libraries.GUID.From(treeListViTri.FocusedNode.GetValue(colid)));
+                            objCoSo = CoSo.getById(GUID.From(treeListViTri.FocusedNode.GetValue(colid)));
                             txtTen.Text = objCoSo.ten;
                             txtDiaChi.Text = objCoSo.diachi;
                             txtMoTa.Text = objCoSo.mota;
@@ -364,7 +364,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
                         {
                             editGUI("view", typeof(Dayy).Name);
-                            objDay = Dayy.getById(QuanLyTaiSan.Libraries.GUID.From(treeListViTri.FocusedNode.GetValue(colid)));
+                            objDay = Dayy.getById(GUID.From(treeListViTri.FocusedNode.GetValue(colid)));
                             txtTen.Text = objDay.ten;
                             txtMoTa.Text = objDay.mota;
                             node = typeof(Dayy).Name;
@@ -377,7 +377,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                         {
                             editGUI("view", typeof(Tang).Name);
-                            objTang = Tang.getById(QuanLyTaiSan.Libraries.GUID.From(treeListViTri.FocusedNode.GetValue(colid)));
+                            objTang = Tang.getById(GUID.From(treeListViTri.FocusedNode.GetValue(colid)));
                             txtTen.Text = objTang.ten;
                             txtMoTa.Text = objTang.mota;
                             node = typeof(Tang).Name;

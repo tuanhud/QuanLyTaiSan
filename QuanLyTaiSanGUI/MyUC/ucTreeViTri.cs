@@ -15,6 +15,7 @@ using QuanLyTaiSanGUI.MyUserControl;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -56,19 +57,19 @@ namespace QuanLyTaiSanGUI.MyUC
                     switch (e.Node.GetValue(colloai).ToString())
                     {
                         case "CoSo":
-                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
+                            cosoid = GUID.From(e.Node.GetValue(colid));
                             break;
                         case "Dayy":
-                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
-                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(colid).ToString());
+                            dayid = GUID.From(e.Node.GetValue(colid));
+                            cosoid = GUID.From(e.Node.ParentNode.GetValue(colid));
                             break;
                         case "Tang":
-                            tangid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
-                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(colid).ToString());
-                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid).ToString());
+                            tangid = GUID.From(e.Node.GetValue(colid));
+                            dayid = GUID.From(e.Node.ParentNode.GetValue(colid));
+                            cosoid = GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid));
                             break;
                         case "Phong":
-                            phongid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
+                            phongid = GUID.From(e.Node.GetValue(colid));
                             break;
                     }
                     if (setData_phongid != null)

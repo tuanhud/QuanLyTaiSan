@@ -16,6 +16,7 @@ using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Localization;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
@@ -64,7 +65,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     enableEdit(false, "");
                     SetTextGroupControl("Chi tiết", Color.Black);
                     //objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-                    objLoaiThietBi = LoaiThietBi.getById(QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0)));
+                    objLoaiThietBi = LoaiThietBi.getById(GUID.From(e.Node.GetValue(colid)));
                     setData();
                 }
             }
@@ -122,7 +123,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             try
             {
                 reLoad();
-                TreeListNode node = treeListLoaiTB.FindNodeByFieldValue(colid.FieldName, _id);
+                TreeListNode node = treeListLoaiTB.FindNodeByKeyID(_id);
                 if (node != null)
                 {
                     node.Selected = true;
