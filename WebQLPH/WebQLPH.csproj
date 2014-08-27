@@ -151,6 +151,8 @@
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
+    <Content Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx" />
+    <Content Include="UserControl\LogThietBi\ucLogThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
     <Content Include="LogThietBi.aspx" />
@@ -320,6 +322,20 @@
     </Compile>
     <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucLoaiThietBi_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx.cs">
+      <DependentUpon>ucLogThietBi_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx.designer.cs">
+      <DependentUpon>ucLogThietBi_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LogThietBi\ucLogThietBi_Web.ascx.cs">
+      <DependentUpon>ucLogThietBi_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LogThietBi\ucLogThietBi_Web.ascx.designer.cs">
+      <DependentUpon>ucLogThietBi_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx.cs">
       <DependentUpon>ucNhanVien_Mobile.ascx</DependentUpon>

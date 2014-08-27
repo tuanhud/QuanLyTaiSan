@@ -13,66 +13,39 @@ namespace WebQLPH.UserControl.PhongThietBi {
     public partial class LogThietBi {
         
         /// <summary>
-        /// Panel_ThongBaoLoi control.
+        /// Panel_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
+        protected global::System.Web.UI.WebControls.Panel Panel_Web;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// _ucLogThietBi_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::WebQLPH.UserControl.LogThietBi.ucLogThietBi_Web _ucLogThietBi_Web;
         
         /// <summary>
-        /// Panel_Chinh control.
+        /// Panel_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
+        protected global::System.Web.UI.WebControls.Panel Panel_Mobile;
         
         /// <summary>
-        /// Label_DanhSachLogThietBi control.
+        /// _ucLogThietBi_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DanhSachLogThietBi;
-        
-        /// <summary>
-        /// RepeaterDanhSachLogThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachLogThietBi;
-        
-        /// <summary>
-        /// CollectionPagerDanhSachLogThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachLogThietBi;
-        
-        /// <summary>
-        /// ASPxImageSlider_Log control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Log;
+        protected global::WebQLPH.UserControl.LogThietBi.ucLogThietBi_Mobile _ucLogThietBi_Mobile;
     }
 }

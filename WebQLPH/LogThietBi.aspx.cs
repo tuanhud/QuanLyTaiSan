@@ -4,98 +4,29 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.PhongThietBi
 {
     public partial class LogThietBi : System.Web.UI.Page
     {
-        QuanLyTaiSan.Entities.ThietBi objThietBi = null;
-        List<QuanLyTaiSan.Entities.LogThietBi> listLogThietBi = new List<QuanLyTaiSan.Entities.LogThietBi>();
-        public int idLog = -1;
+        Boolean isMobile = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null)
+            Default SetClassActive = this.Master as Default;
+            SetClassActive.page = "LOGTHIETBI";
+
+            isMobile = MobileDetect.fBrowserIsMobile();
+            if (!isMobile)
             {
-                int id = -1;
-                try
-                {
-                    id = Int32.Parse(Request.QueryString["id"].ToString());
-                }
-                catch
-                {
-                    Response.Redirect("~/");
-                }
-                objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(id);
-                if (objThietBi != null)
-                {
-                    Panel_Chinh.Visible = true;
-                    listLogThietBi = objThietBi.logthietbis.ToList();
-                    var bind = listLogThietBi.Select(a => new
-                    {
-                        id = a.id,
-                        ten = a.thietbi.ten,
-                        tinhtrang = a.tinhtrang.value,
-                        soluong= a.soluong,
-                        ghichu = a.mota,
-                        quantrivien = a.quantrivien.hoten,
-                        phong = a.phong.ten,
-                        ngay = a.date_create,
-                        url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
-                    }).ToList();
-                    CollectionPagerDanhSachLogThietBi.DataSource = bind;
-                    CollectionPagerDanhSachLogThietBi.BindToControl = RepeaterDanhSachLogThietBi;
-                    RepeaterDanhSachLogThietBi.DataSource = CollectionPagerDanhSachLogThietBi.DataSourcePaged;
-                    RepeaterDanhSachLogThietBi.DataBind();
-                    if (listLogThietBi.Count == 0)
-                    {
-                        Label_DanhSachLogThietBi.Text = "Thiết bị này không có log";
-                    }
-                    else
-                    {
-                        if (Request.QueryString["idLog"] != null)
-                        {
-                            idLog = -1;
-                            try
-                            {
-                                idLog = Int32.Parse(Request.QueryString["idLog"].ToString());
-                            }
-                            catch
-                            {
-                                Response.Redirect(Request.Url.AbsolutePath);
-                            }
-                        }
-                        else
-                        {
-                            idLog = listLogThietBi.ElementAt(0).id;
-                        }
-                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(listLogThietBi.Where(item => item.id == idLog).FirstOrDefault().hinhanhs.ToList(), ASPxImageSlider_Log);
-                    }
-                }
-                else
-                {
-                    if (Request.UrlReferrer == null)
-                    {
-                        Response.Redirect("~/");
-                    }
-                    else
-                    {
-                        Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = "Không có thiết bị này";
-                    }
-                }
+                Panel_Web.Visible = true;
+                _ucLogThietBi_Web.LoadData();
             }
             else
             {
-                if (Request.UrlReferrer == null)
-                {
-                    Response.Redirect("~/");
-                }
-                else
-                { 
-                    //
-                }
+                Panel_Mobile.Visible = true;
+                _ucLogThietBi_Mobile.LoadData();
             }
         }
     }
