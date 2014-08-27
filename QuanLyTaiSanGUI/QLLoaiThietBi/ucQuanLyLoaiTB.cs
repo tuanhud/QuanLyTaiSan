@@ -573,7 +573,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         return
                             objLoaiThietBi.ten != txtTen.Text||
                             objLoaiThietBi.mota != txtMoTa.Text||
-                            objLoaiThietBi.parent_id != QuanLyTaiSan.Libraries.GUID.From(lueThuoc.EditValue);
+                            objLoaiThietBi.parent_id != GUID.From(lueThuoc.EditValue);
                     else
                         return
                             objLoaiThietBi.ten != txtTen.Text ||

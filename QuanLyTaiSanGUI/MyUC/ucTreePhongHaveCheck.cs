@@ -101,12 +101,14 @@ namespace QuanLyTaiSanGUI.MyUC
         public List<Phong> getListPhong()
         {
             List<Phong> listPhong = new List<Phong>();
-            GetCheckedNodes op = new GetCheckedNodes("loai",typeof(Phong).Name);
-            treeListPhong.NodesIterator.DoOperation(op);
-            foreach (TreeListNode node in op.CheckedNodes)
+            List<TreeListNode> listNode = treeListPhong.GetAllCheckedNodes();
+            foreach (TreeListNode node in listNode)
             {
-                Phong obj = node.GetValue(colphong) as Phong;
-                listPhong.Add(obj);
+                if (node.GetValue(colloai).Equals(typeof(Phong).Name))
+                {
+                    Phong obj = node.GetValue(colphong) as Phong;
+                    listPhong.Add(obj);
+                }
             }
             return listPhong;
         }

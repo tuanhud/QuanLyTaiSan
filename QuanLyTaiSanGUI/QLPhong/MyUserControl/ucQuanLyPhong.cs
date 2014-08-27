@@ -17,6 +17,7 @@ using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Localization;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -26,22 +27,20 @@ namespace QuanLyTaiSanGUI.MyUserControl
         Phong objPhong = new Phong();
         NhanVienPT objNhanVienPT = new NhanVienPT();
 
-        //int cosoid, dayid, tangid;
-
         List<ViTriHienThi> listVitris = new List<ViTriHienThi>();
         List<Phong> listPhong = new List<Phong>();
         List<NhanVienPT> listNhanVienPT = new List<NhanVienPT>();
-
         List<HinhAnh> listHinhAnhPhong = new List<HinhAnh>();
         List<HinhAnh> listHinhAnhNhanVien = new List<HinhAnh>();
 
-        //ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhong");
         ucTreeViTri _ucTreeViTri = new ucTreeViTri();
         ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri(false, false);
         String function = "";
         public bool working = false;
-        //String layout = "";
         MyLayout layout = new MyLayout();
+
+        public delegate void LoadDataByPhong(Phong obj, String str);
+        public LoadDataByPhong loadDataByPhong = null;
 
         public ucQuanLyPhong()
         {
@@ -648,10 +647,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonXemListTB_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (this.ParentForm != null)
+            if (loadDataByPhong != null && objPhong != null && objPhong.id != Guid.Empty)
             {
-                frmMain frm = this.ParentForm as frmMain;
-                frm.loadDataByPhong(objPhong, "thietbi");
+                loadDataByPhong(objPhong, "thietbi");
             }
         }
 
@@ -749,7 +747,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                             objPhong.subId != txtMaPhong.Text || 
                             objPhong.ten != txtTenPhong.Text || 
                             objPhong.mota != txtMoTaPhong.Text ||
-                            objPhong.nhanvienpt_id != QuanLyTaiSan.Libraries.GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
+                            objPhong.nhanvienpt_id != GUID.From(searchLookUpEditNhanVienPT.EditValue);
                     else
                         return 
                             objPhong.hinhanhs.Except(listHinhAnhPhong).Count() > 0 ||
@@ -786,19 +784,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewPhong_DoubleClick(object sender, EventArgs e)
         {
-            if (this.ParentForm != null && objPhong != null && objPhong.id != Guid.Empty)
+            if (loadDataByPhong != null && objPhong != null && objPhong.id != Guid.Empty)
             {
-                frmMain frm = this.ParentForm as frmMain;
-                frm.loadDataByPhong(objPhong, "thietbi");
+                loadDataByPhong(objPhong, "thietbi");
             }
         }
 
         private void barBtnSuCo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (this.ParentForm != null)
+            if (loadDataByPhong != null && objPhong != null && objPhong.id != Guid.Empty)
             {
-                frmMain frm = this.ParentForm as frmMain;
-                frm.loadDataByPhong(objPhong, "suco");
+                loadDataByPhong(objPhong, "suco");
             }
         }
 

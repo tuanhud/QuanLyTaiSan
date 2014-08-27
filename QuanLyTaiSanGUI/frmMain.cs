@@ -90,6 +90,9 @@ namespace QuanLyTaiSanGUI
             _ucThongKeTongQuat = new ucThongKeTongQuat();
             _ucPhanQuyen = new ucPhanQuyen();
             _ucQuanLyPhong = new ucQuanLyPhong();
+
+            _ucQuanLyPhong.loadDataByPhong = new ucQuanLyPhong.LoadDataByPhong(loadDataByPhong);
+
             _ucQuanLyPhongThietBi = new ucQuanLyPhongThietBi();
             _ucQuanLyViTri = new ucQuanLyViTri();
             _ucQuanLyNhanVien = new ucQuanLyNhanVien();
@@ -271,7 +274,7 @@ namespace QuanLyTaiSanGUI
             { }
         }
 
-        public void loadDataByPhong(Phong obj, String type)
+        private void loadDataByPhong(Phong obj, String type)
         {
             open = true;
             objPhong = obj;
