@@ -3,7 +3,7 @@ namespace QuanLyTaiSan.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class basev3_22082014 : DbMigration
+    public partial class basev4GUID : DbMigration
     {
         public override void Up()
         {
@@ -11,11 +11,11 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.COSOS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false, maxLength: 255),
                         diachi = c.String(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -27,11 +27,11 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.DAYS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false),
-                        coso_id = c.Int(nullable: false),
+                        coso_id = c.Guid(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -44,10 +44,10 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.HINHANHS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         path = c.String(nullable: false, maxLength: 255),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -59,14 +59,14 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.CTTHIETBIS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ngay = c.DateTime(),
                         soluong = c.Int(nullable: false),
-                        phong_id = c.Int(nullable: false),
-                        thietbi_id = c.Int(nullable: false),
-                        tinhtrang_id = c.Int(nullable: false),
+                        phong_id = c.Guid(nullable: false),
+                        thietbi_id = c.Guid(nullable: false),
+                        tinhtrang_id = c.Guid(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -83,13 +83,13 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.PHONGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false, maxLength: 255),
-                        vitri_id = c.Int(nullable: false),
-                        nhanvienpt_id = c.Int(),
-                        quantrivien_id = c.Int(),
+                        vitri_id = c.Guid(nullable: false),
+                        nhanvienpt_id = c.Guid(),
+                        quantrivien_id = c.Guid(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -107,14 +107,14 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.LOGTHIETBIS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         soluong = c.Int(nullable: false),
-                        thietbi_id = c.Int(nullable: false),
-                        tinhtrang_id = c.Int(nullable: false),
-                        phong_id = c.Int(),
-                        quantrivien_id = c.Int(),
+                        thietbi_id = c.Guid(nullable: false),
+                        tinhtrang_id = c.Guid(nullable: false),
+                        phong_id = c.Guid(),
+                        quantrivien_id = c.Guid(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -133,15 +133,15 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.QUANTRIVIENS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         donvi = c.String(),
                         email = c.String(),
-                        group_id = c.Int(nullable: false),
+                        group_id = c.Guid(nullable: false),
                         hoten = c.String(nullable: false),
                         username = c.String(nullable: false, maxLength: 100),
                         password = c.String(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -155,11 +155,11 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.GROUPS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         key = c.String(maxLength: 100),
                         ten = c.String(nullable: false, maxLength: 100),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -171,7 +171,7 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.PERMISSIONS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         key = c.String(),
                         stand_alone = c.Boolean(nullable: false),
                         allow_or_deny = c.Boolean(nullable: false),
@@ -181,7 +181,7 @@ namespace QuanLyTaiSan.Migrations
                         can_delete = c.Boolean(nullable: false),
                         can_add = c.Boolean(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -192,11 +192,11 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.TANGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false),
-                        day_id = c.Int(nullable: false),
+                        day_id = c.Guid(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -209,12 +209,12 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.VITRIS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
-                        coso_id = c.Int(nullable: false),
-                        day_id = c.Int(),
-                        tang_id = c.Int(),
+                        id = c.Guid(nullable: false, identity: true),
+                        coso_id = c.Guid(nullable: false),
+                        day_id = c.Guid(),
+                        tang_id = c.Guid(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -231,12 +231,12 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.LOGSUCOPHONGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
-                        tinhtrang_id = c.Int(nullable: false),
-                        sucophong_id = c.Int(nullable: false),
-                        quantrivien_id = c.Int(),
+                        id = c.Guid(nullable: false, identity: true),
+                        tinhtrang_id = c.Guid(nullable: false),
+                        sucophong_id = c.Guid(nullable: false),
+                        quantrivien_id = c.Guid(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -253,13 +253,13 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.SUCOPHONGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ngay = c.DateTime(nullable: false),
                         ten = c.String(nullable: false, maxLength: 255),
-                        tinhtrang_id = c.Int(nullable: false),
-                        phong_id = c.Int(nullable: false),
+                        tinhtrang_id = c.Guid(nullable: false),
+                        phong_id = c.Guid(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -274,11 +274,11 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.TINHTRANGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         key = c.String(maxLength: 100),
                         value = c.String(nullable: false, maxLength: 255),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -291,7 +291,7 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.PHIEUMUONPHONGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         donvi = c.String(nullable: false),
                         ngaymuon = c.DateTime(nullable: false),
                         ngaytra = c.DateTime(nullable: false),
@@ -300,11 +300,11 @@ namespace QuanLyTaiSan.Migrations
                         trangthai = c.Int(nullable: false),
                         lop = c.String(),
                         sophong = c.Int(nullable: false),
-                        nguoimuon_id = c.Int(nullable: false),
-                        nguoiduyet_id = c.Int(),
+                        nguoimuon_id = c.Guid(nullable: false),
+                        nguoiduyet_id = c.Guid(),
                         soluongsv = c.Int(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -319,12 +319,12 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.THIETBIS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false),
                         ngaymua = c.DateTime(),
-                        loaithietbi_id = c.Int(nullable: false),
+                        loaithietbi_id = c.Guid(nullable: false),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -337,12 +337,12 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.LOAITHIETBIS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false, maxLength: 255),
                         loaichung = c.Boolean(nullable: false),
-                        parent_id = c.Int(),
+                        parent_id = c.Guid(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -356,12 +356,12 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.NHANVIENPTS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         gioitinh = c.Boolean(nullable: false),
                         hoten = c.String(nullable: false),
                         sodienthoai = c.String(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -372,9 +372,9 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.LOGHETHONGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -385,11 +385,11 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.SETTINGS",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Guid(nullable: false, identity: true),
                         key = c.String(nullable: false, maxLength: 100),
                         value = c.String(),
                         subId = c.String(),
-                        order = c.Int(),
+                        order = c.Long(),
                         mota = c.String(),
                         date_create = c.DateTime(),
                         date_modified = c.DateTime(),
@@ -401,8 +401,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.CTTHIETBI_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.CTTHIETBIS", t => t.id1, cascadeDelete: true)
@@ -414,8 +414,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.PHONG_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.PHONGS", t => t.id1, cascadeDelete: true)
@@ -427,8 +427,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.LOGTHIETBI_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.LOGTHIETBIS", t => t.id1, cascadeDelete: true)
@@ -440,8 +440,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.TANG_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.TANGS", t => t.id1, cascadeDelete: true)
@@ -453,8 +453,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.TANG_PERMISSION",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.TANGS", t => t.id1, cascadeDelete: true)
@@ -466,8 +466,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.GROUP_PERMISSION",
                 c => new
                     {
-                        group_id = c.Int(nullable: false),
-                        permission_id = c.Int(nullable: false),
+                        group_id = c.Guid(nullable: false),
+                        permission_id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.group_id, t.permission_id })
                 .ForeignKey("dbo.GROUPS", t => t.group_id, cascadeDelete: true)
@@ -479,8 +479,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.LOGSUCOPHONG_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.LOGSUCOPHONGS", t => t.id1, cascadeDelete: true)
@@ -492,8 +492,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.SUCOPHONG_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.SUCOPHONGS", t => t.id1, cascadeDelete: true)
@@ -505,8 +505,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.THIETBI_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.THIETBIS", t => t.id1, cascadeDelete: true)
@@ -518,8 +518,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.NHANVIENPT_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.NHANVIENPTS", t => t.id1, cascadeDelete: true)
@@ -531,8 +531,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.PHONG_PERMISSION",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.PHONGS", t => t.id1, cascadeDelete: true)
@@ -544,8 +544,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.DAY_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.DAYS", t => t.id1, cascadeDelete: true)
@@ -557,8 +557,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.DAY_PERMISSION",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.DAYS", t => t.id1, cascadeDelete: true)
@@ -570,8 +570,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.COSO_HINHANH",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.COSOS", t => t.id1, cascadeDelete: true)
@@ -583,8 +583,8 @@ namespace QuanLyTaiSan.Migrations
                 "dbo.COSO_PERMISSION",
                 c => new
                     {
-                        id1 = c.Int(nullable: false),
-                        id2 = c.Int(nullable: false),
+                        id1 = c.Guid(nullable: false),
+                        id2 = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.id1, t.id2 })
                 .ForeignKey("dbo.COSOS", t => t.id1, cascadeDelete: true)

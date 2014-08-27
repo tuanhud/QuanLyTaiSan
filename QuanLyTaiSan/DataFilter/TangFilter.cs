@@ -9,7 +9,7 @@ namespace QuanLyTaiSan.DataFilter
 {
     public class TangFilter : FilterAbstract<TangFilter>
     {
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
         public String ten_coso { get; set; }
         public String ten_day { get; set; }

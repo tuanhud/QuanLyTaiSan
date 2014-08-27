@@ -9,13 +9,13 @@ namespace QuanLyTaiSan.DataFilter
 {
     public class ViTriHienThi : FilterAbstract<ViTriHienThi>
     {
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
         public String loai { get; set; }
         public String id_c { get; set; }
         public String id_p { get; set; }
         public String mota { get; set; }
-        public int? order { get; set; }
+        public long? order { get; set; }
         public Phong phong { get; set; }
 
         #region Nghiệp vụ
@@ -89,7 +89,7 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public static List<ViTriHienThi> getAllPhongNotNhanVien(int _idnhanvien)
+        public static List<ViTriHienThi> getAllPhongNotNhanVien(Guid _idnhanvien)
         {
             //OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -108,7 +108,7 @@ namespace QuanLyTaiSan.DataFilter
             return re;
         }
 
-        public static List<ViTriHienThi> getAllPhongNotQuanTriVien(int _idquantrivien)
+        public static List<ViTriHienThi> getAllPhongNotQuanTriVien(Guid _idquantrivien)
         {
             //OurDBContext db = new OurDBContext();
             List<ViTriHienThi> re =
@@ -142,12 +142,12 @@ namespace QuanLyTaiSan.DataFilter
             return getAllCoSo().Concat(getAllDay()).OrderBy(c => c.order).ToList();
         }
 
-        public static List<ViTriHienThi> getAllHavePhongNotNhanVien(int _idnhanvien)
+        public static List<ViTriHienThi> getAllHavePhongNotNhanVien(Guid _idnhanvien)
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhongNotNhanVien(_idnhanvien)).ToList();
         }
 
-        public static List<ViTriHienThi> getAllHavePhongNotQuanTriVien(int _idquantrivien)
+        public static List<ViTriHienThi> getAllHavePhongNotQuanTriVien(Guid _idquantrivien)
         {
             return getAllCoSo().Concat(getAllDay()).Concat(getAllTang()).Concat(getAllPhongNotQuanTriVien(_idquantrivien)).ToList();
         }

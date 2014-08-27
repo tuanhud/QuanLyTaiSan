@@ -8,7 +8,7 @@ namespace QuanLyTaiSan.DataFilter
 {
     public class ThietBiHienThi : FilterAbstract<ThietBiHienThi>
     {
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
         public String loai { get; set; }
         public DateTime? ngaymua { get; set; }

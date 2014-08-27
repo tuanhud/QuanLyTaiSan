@@ -21,17 +21,17 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
 
-        public int tinhtrang_id { get; set; }
+        public Guid tinhtrang_id { get; set; }
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
 
-        public int sucophong_id { get; set; }
+        public Guid sucophong_id { get; set; }
         [Required]
         [ForeignKey("sucophong_id")]
         public virtual SuCoPhong sucophong { get; set; }
 
-        public int? quantrivien_id { get; set; }
+        public Guid? quantrivien_id { get; set; }
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
 

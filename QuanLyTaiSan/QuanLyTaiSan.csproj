@@ -126,6 +126,7 @@
     <Compile Include="Libraries\EmailHelper.cs" />
     <Compile Include="Libraries\FileHelper.cs" />
     <Compile Include="Libraries\FTPHelper.cs" />
+    <Compile Include="Libraries\GUID.cs" />
     <Compile Include="Libraries\HTTPHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\MobileDetect.cs" />
@@ -133,9 +134,9 @@
     <Compile Include="Libraries\ServerTimeHelper.cs" />
     <Compile Include="Libraries\SkinHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />
-    <Compile Include="Migrations\201408211701089_basev3_22082014.cs" />
-    <Compile Include="Migrations\201408211701089_basev3_22082014.Designer.cs">
-      <DependentUpon>201408211701089_basev3_22082014.cs</DependentUpon>
+    <Compile Include="Migrations\201408270501123_basev4GUID.cs" />
+    <Compile Include="Migrations\201408270501123_basev4GUID.Designer.cs">
+      <DependentUpon>201408270501123_basev4GUID.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -145,8 +146,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201408211701089_basev3_22082014.resx">
-      <DependentUpon>201408211701089_basev3_22082014.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408270501123_basev4GUID.resx">
+      <DependentUpon>201408270501123_basev4GUID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -21,13 +21,13 @@ namespace QuanLyTaiSan.DataFilter
 
         #region Dinh nghia
         [Required]
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
         public String loai { get; set; }
         
         #endregion
         #region Nghiệp vụ
-        public DoSearch(int _id, String _ten, String _loai)
+        public DoSearch(Guid _id, String _ten, String _loai)
         {
             id = _id;
             ten = _ten;

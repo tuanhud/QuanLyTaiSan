@@ -8,8 +8,8 @@ namespace QuanLyTaiSan.DataFilter
 {
     public class ChiTietTBHienThi : FilterAbstract<ChiTietTBHienThi>
     {
-        public int id { get; set; }
-        public int idTB { get; set; }
+        public Guid id { get; set; }
+        public Guid idTB { get; set; }
         public String subId { get; set; }
         public String ten { get; set; }
         public String tinhtrang { get; set; }
@@ -19,7 +19,7 @@ namespace QuanLyTaiSan.DataFilter
         public QuanLyTaiSan.Entities.CTThietBi ctthietbi { get; set; }
 
         #region Nghiệp vụ
-        public static List<ChiTietTBHienThi> getAllByPhongId(int _phongid)
+        public static List<ChiTietTBHienThi> getAllByPhongId(Guid _phongid)
         {
             //OurDBContext db = new OurDBContext();
             List<ChiTietTBHienThi> re =

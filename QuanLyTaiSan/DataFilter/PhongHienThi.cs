@@ -13,7 +13,7 @@ namespace QuanLyTaiSan.DataFilter
         {
 
         }
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
         public String mota { get; set; }
         public String tennvpt { get; set; }
@@ -22,12 +22,12 @@ namespace QuanLyTaiSan.DataFilter
          * FK Object
          */
         #region Nghiệp vụ
-        public static List<PhongHienThi> getAllByViTri(int _cosoid, int _dayid, int _tangid)
+        public static List<PhongHienThi> getAllByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
         {
             //InitDb();
             List<PhongHienThi> re =
                 (from p in db.PHONGS
-                 where(_cosoid==-1||p.vitri.coso.id==_cosoid)&&(_dayid==-1||p.vitri.day.id ==_dayid)&&(_tangid==-1||p.vitri.tang.id==_tangid)
+                 where (_cosoid == Guid.Empty || p.vitri.coso.id == _cosoid) && (_dayid == Guid.Empty || p.vitri.day.id == _dayid) && (_tangid == Guid.Empty || p.vitri.tang.id == _tangid)
                  select new PhongHienThi
                  {
                      id=p.id,

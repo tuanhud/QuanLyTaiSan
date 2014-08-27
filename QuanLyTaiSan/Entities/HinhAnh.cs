@@ -315,7 +315,7 @@ namespace QuanLyTaiSan.Entities
                 }
                 
                 //đã được load lên bởi dbContext
-                if (item.id > 0)
+                if (item.id != Guid.Empty)
                 {
                     new_list.Add(item);
                 }

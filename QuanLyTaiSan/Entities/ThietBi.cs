@@ -29,7 +29,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public int loaithietbi_id { get; set; }
+        public Guid loaithietbi_id { get; set; }
         [Required]
         [ForeignKey("loaithietbi_id")]
         public virtual LoaiThietBi loaithietbi { get; set; }

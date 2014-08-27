@@ -28,7 +28,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public int coso_id { get; set; }
+        public Guid coso_id { get; set; }
         [Required]
         [ForeignKey("coso_id")]
         public virtual CoSo coso { get; set; }
@@ -91,12 +91,12 @@ namespace QuanLyTaiSan.Entities
             {
                 return;
             }
-            //SWAP order value
-            int? order_1 = this.order == null ? this.id : this.order;
-            int? order_2 = prev.order == null ? prev.id : prev.order;
+            ////SWAP order value
+            //int? order_1 = this.order == null ? this.id : this.order;
+            //int? order_2 = prev.order == null ? prev.id : prev.order;
 
-            this.order = order_2;
-            prev.order = order_1;
+            //this.order = order_2;
+            //prev.order = order_1;
 
             this.update();
             prev.update();

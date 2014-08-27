@@ -26,7 +26,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public int vitri_id { get; set; }
+        public Guid vitri_id { get; set; }
         [Required]
         [ForeignKey("vitri_id")]
         public virtual ViTri vitri { get; set; }
@@ -37,11 +37,11 @@ namespace QuanLyTaiSan.Entities
 
         public virtual ICollection<Permission> permissions { get; set; }
 
-        public int? nhanvienpt_id { get; set; }
+        public Guid? nhanvienpt_id { get; set; }
         [ForeignKey("nhanvienpt_id")]
         public virtual NhanVienPT nhanvienpt { get; set; }
 
-        public int? quantrivien_id { get; set; }
+        public Guid? quantrivien_id { get; set; }
         [ForeignKey("quantrivien_id")]
         public virtual QuanTriVien quantrivien { get; set; }
         #endregion
@@ -56,11 +56,11 @@ namespace QuanLyTaiSan.Entities
             int count = v.Select(x => x.thietbi).Distinct().Count();
             return count;
         }
-        public static List<Phong> getPhongByViTri(int _cosoid, int _dayid, int _tangid)
+        public static List<Phong> getPhongByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
         {
             List<Phong> re =
                 (from c in db.PHONGS
-                 where ((_cosoid == -1 || c.vitri.coso.id == _cosoid) && (_dayid == -1 || c.vitri.day.id == _dayid) && (_tangid == -1 || c.vitri.tang.id == _tangid))
+                 where ((_cosoid == Guid.Empty || c.vitri.coso.id == _cosoid) && (_dayid == Guid.Empty || c.vitri.day.id == _dayid) && (_tangid == Guid.Empty || c.vitri.tang.id == _tangid))
                  select c).OrderBy(p=>p.ten).ToList();
             return re;
         }
