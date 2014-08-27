@@ -20,12 +20,12 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {
-        private int phongid = -1;
-        private int cosoid = -1;
-        private int dayid = -1;
-        private int tangid = -1;
+        private Guid phongid = Guid.Empty;
+        private Guid cosoid = Guid.Empty;
+        private Guid dayid = Guid.Empty;
+        private Guid tangid = Guid.Empty;
 
-        public delegate void SetData_phongid(int id);
+        public delegate void SetData_phongid(Guid id);
         public SetData_phongid setData_phongid = null;
 
         public delegate void FocusedRow_phong();
@@ -47,33 +47,33 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                phongid = -1;
-                cosoid = -1;
-                dayid = -1;
-                tangid = -1;
+                phongid = Guid.Empty;
+                cosoid = Guid.Empty;
+                dayid = Guid.Empty;
+                tangid = Guid.Empty;
                 if(e.Node.GetValue(2)!= null)
                 {
                     switch (e.Node.GetValue(2).ToString())
                     {
                         case "CoSo":
-                            cosoid = Convert.ToInt32(e.Node.GetValue(0));
+                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
                             break;
                         case "Dayy":
-                            dayid = Convert.ToInt32(e.Node.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
                             break;
                         case "Tang":
-                            tangid = Convert.ToInt32(e.Node.GetValue(0));
-                            dayid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                            tangid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
+                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.ParentNode.GetValue(0).ToString());
                             break;
                         case "Phong":
-                            phongid = Convert.ToInt32(e.Node.GetValue(0));
+                            phongid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
                             break;
                     }
                     if (setData_phongid != null)
                         setData_phongid(phongid);
-                    if (focusedRow_phong != null && (cosoid > 0 || dayid > 0 || tangid > 0))
+                    if (focusedRow_phong != null && (cosoid != Guid.Empty || dayid != Guid.Empty || tangid != Guid.Empty))
                         focusedRow_phong();
                 }
             }
@@ -104,7 +104,7 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public Phong getPhong()
         {
-            if (phongid != -1)
+            if (phongid != Guid.Empty)
                 return Phong.getById(phongid);
             else
                 return new Phong();
@@ -119,7 +119,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (obj != null && obj.id > 0)
+                if (obj != null && obj.id != Guid.Empty)
                 {
                     FindNode findNode = null;
                     if (obj.tang != null)
@@ -154,7 +154,7 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (obj != null && obj.id > 0)
+                if (obj != null && obj.id != Guid.Empty)
                 {
                     FindNode findNode = new FindNode(obj.id, typeof(Phong).Name);
                     treeListViTri.CollapseAll();

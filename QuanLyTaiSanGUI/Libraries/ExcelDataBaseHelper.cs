@@ -501,17 +501,17 @@ namespace QuanLyTaiSanGUI.Libraries
                                         if(row[COSO] != DBNull.Value)
                                         {
                                             objCoSo = CoSo.getAll().Where(c => c.ten.ToUpper().Equals(row[COSO].ToString().TrimEnd().TrimStart().ToUpper())).FirstOrDefault();
-                                            if (objCoSo != null && objCoSo.id > 0)
+                                            if (objCoSo != null && objCoSo.id != Guid.Empty)
                                             {
                                                 if (row[DAY] != DBNull.Value && objCoSo.days.Count > 0)
                                                 {
                                                     objDay = objCoSo.days.Where(c => c.ten.ToUpper().Equals(row[DAY].ToString().TrimEnd().TrimStart().ToUpper())).FirstOrDefault();
-                                                    if (objDay != null && objDay.id > 0)
+                                                    if (objDay != null && objDay.id != Guid.Empty)
                                                     {
                                                         if (row[TANG] != DBNull.Value && objDay.tangs.Count > 0)
                                                         {
                                                             objTang = objDay.tangs.Where(c => c.ten.ToUpper().Equals(row[TANG].ToString().TrimEnd().TrimStart().ToUpper())).FirstOrDefault();
-                                                            if (objTang != null && objTang.id > 0)
+                                                            if (objTang != null && objTang.id != Guid.Empty)
                                                             {
                                                                 objViTri.coso = objCoSo;
                                                                 objViTri.day = objDay;

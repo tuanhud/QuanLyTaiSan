@@ -42,7 +42,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             ribbonLoaiTB.Parent = null;
             loaiThietBiNULL.ten = "[Không thuộc loại nào]";
-            loaiThietBiNULL.id = -1;
+            loaiThietBiNULL.id = Guid.Empty;
             loaiThietBiNULL.parent = null;
             khoangcach = Math.Abs(imageSliderLoaiTB.Location.Y - txtTen.Location.Y);
             pointLabelTen = labelControlTen.Location;
@@ -64,7 +64,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     enableEdit(false, "");
                     SetTextGroupControl("Chi tiết", Color.Black);
                     //objLoaiThietBi = (LoaiThietBi)treeListLoaiTB.GetDataRecordByNode(e.Node);
-                    objLoaiThietBi = LoaiThietBi.getById(Convert.ToInt32(e.Node.GetValue(0)));
+                    objLoaiThietBi = LoaiThietBi.getById(QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0)));
                     setData();
                 }
             }
@@ -117,7 +117,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             { }
         }
 
-        private void reLoadAndFocused(int _id)
+        private void reLoadAndFocused(Guid _id)
         {
             try
             {
@@ -195,7 +195,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.add() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Thêm loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            int id = objLoaiThietBi.id;
+                            Guid id = objLoaiThietBi.id;
                             reLoadAndFocused(id);
                         }
                         else
@@ -209,7 +209,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.update() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Sửa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            int id = objLoaiThietBi.id;
+                            Guid id = objLoaiThietBi.id;
                             reLoadAndFocused(id);
                         }
                         else
@@ -235,10 +235,10 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 if (XtraMessageBox.Show("Bạn có chắc là muốn xóa loại thiết bị này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     bool check = true;
-                    int id = -1;
+                    Guid id = Guid.Empty;
                     if (objLoaiThietBi.parent_id != null)
                     {
-                        id = Convert.ToInt32(objLoaiThietBi.parent_id);
+                        id = QuanLyTaiSan.Libraries.GUID.From(objLoaiThietBi.parent_id);
                     }
                     if (objLoaiThietBi.loaichung)
                     {
@@ -261,7 +261,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         if (objLoaiThietBi.delete() > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Xóa loại thiết bị thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (id > -1)
+                            if (id != Guid.Empty)
                                 reLoadAndFocused(id);
                             else
                                 reLoad();
@@ -315,7 +315,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     }
                 }
                 LoaiThietBi parentLoaiThietBi = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
-                if (parentLoaiThietBi.id != -1)
+                if (parentLoaiThietBi.id != Guid.Empty)
                     objLoaiThietBi.parent = LoaiThietBi.getById(parentLoaiThietBi.id);
                 else
                 {
@@ -368,7 +368,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         public void addThietBiChaKhiEdit()
         {
-            if (objLoaiThietBi.id >= 1)
+            if (objLoaiThietBi.id != Guid.Empty)
             {
                 if (objLoaiThietBi.childs.Count > 0)
                 {
@@ -413,7 +413,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 }
             }
             LoaiThietBi cha = (LoaiThietBi)lueThuoc.GetSelectedDataRow();
-            if (cha.id != -1)
+            if (cha.id != Guid.Empty)
             {
                 if (cha.loaichung)
                 {
@@ -572,7 +572,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                         return
                             objLoaiThietBi.ten != txtTen.Text||
                             objLoaiThietBi.mota != txtMoTa.Text||
-                            objLoaiThietBi.parent_id != Convert.ToInt32(lueThuoc.EditValue);
+                            objLoaiThietBi.parent_id != QuanLyTaiSan.Libraries.GUID.From(lueThuoc.EditValue);
                     else
                         return
                             objLoaiThietBi.ten != txtTen.Text ||
@@ -626,7 +626,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
+                if (objLoaiThietBi != null && objLoaiThietBi.id != Guid.Empty)
                 {
                     objLoaiThietBi.moveUp();
                     DBInstance.commit();
@@ -643,7 +643,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         {
             try
             {
-                if (objLoaiThietBi != null && objLoaiThietBi.id > 0)
+                if (objLoaiThietBi != null && objLoaiThietBi.id != Guid.Empty)
                 {
                     objLoaiThietBi.moveDown();
                     DBInstance.commit();

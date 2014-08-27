@@ -76,7 +76,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             loadDataByPhong();
         }
 
-        public void loadDataById(int id)
+        public void loadDataById(Guid id)
         {
             objPhong = Phong.getById(id);
             loadDataByPhong();
@@ -86,7 +86,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         {
             try
             {
-                if (objPhong != null && objPhong.id > 0)
+                if (objPhong != null && objPhong.id != Guid.Empty)
                 {
                     listSuCo = objPhong.sucophongs.OrderByDescending(c => c.ngay).ToList();
                     gridControlSuCo.DataSource = listSuCo;
@@ -342,7 +342,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                         if (objSuCo.add() > 0 && DBInstance.commit() > 0)
                         {
                             DevExpress.XtraEditors.XtraMessageBox.Show("Thêm sự cố thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            int id = objSuCo.id;
+                            Guid id = objSuCo.id;
                             reLoadAndFocused(id);
                         }
                         else
@@ -362,7 +362,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                             if (objSuCo.update() > 0 && DBInstance.commit() > 0)
                             {
                                 DevExpress.XtraEditors.XtraMessageBox.Show("Sửa sự cố thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                int id = objSuCo.id;
+                                Guid id = objSuCo.id;
                                 reLoadAndFocused(id);
                             }
                             else
@@ -483,7 +483,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             return check;
         }
 
-        private void reLoadAndFocused(int _id)
+        private void reLoadAndFocused(Guid _id)
         {
             try
             {

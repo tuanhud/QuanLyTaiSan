@@ -24,5 +24,17 @@ namespace QuanLyTaiSan.Libraries
                 return Guid.Empty;
             }
         }
+
+        public static Guid From(Object value)
+        {
+            try
+            {
+                return Guid.Parse(value.ToString());
+            }
+            catch (Exception)
+            {
+                return Guid.Empty;
+            }
+        }
     }
 }

@@ -20,10 +20,10 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucComboBoxViTri : UserControl
     {
-        int idTang = -1;
-        int idCoSo = -1;
-        int idDay = -1;
-        int idPhong = -1;
+        Guid idTang = Guid.Empty;
+        Guid idCoSo = Guid.Empty;
+        Guid idDay = Guid.Empty;
+        Guid idPhong = Guid.Empty;
         bool chonDay = false;
         bool chonPhong = false;
         public ucComboBoxViTri(bool _chonDay, bool _chonPhong)
@@ -56,9 +56,9 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (!chonDay && !chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                        idCoSo = Convert.ToInt32(e.Node.GetValue(0));
-                        idTang = -1;
-                        idDay = -1;
+                        idCoSo = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                        idTang = Guid.Empty;
+                        idDay = Guid.Empty;
                         popupContainerEdit1.ClosePopup();
                     }
                 }
@@ -67,9 +67,9 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (!chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                        idCoSo = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                        idDay = Convert.ToInt32(e.Node.GetValue(0));
-                        idTang = -1;
+                        idCoSo = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
+                        idDay = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                        idTang = Guid.Empty;
                         popupContainerEdit1.ClosePopup();
                     }
                 }
@@ -78,16 +78,16 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (!chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                        idCoSo = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
-                        idDay = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                        idTang = Convert.ToInt32(e.Node.GetValue(0));
+                        idCoSo = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.ParentNode.GetValue(0).ToString());
+                        idDay = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
+                        idTang = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
                         popupContainerEdit1.ClosePopup();
                     }
                 }
                 else if (e.Node.GetValue(2).ToString().Equals(typeof(Phong).Name))
                 {
                     popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                    idPhong = Convert.ToInt32(e.Node.GetValue(0));
+                    idPhong = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0));
                     popupContainerEdit1.ClosePopup();
                 }
             }

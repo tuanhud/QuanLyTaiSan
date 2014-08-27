@@ -74,7 +74,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.loadData(listVitris);
             _ViTriHienTai = _ucTreeViTri.getVitri();
-            listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
+            listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count() == 0)
             {
@@ -92,7 +92,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             listNhanVienPT = NhanVienPT.getAll();
             NhanVienPT NhanVienPTNULL = new NhanVienPT();
             NhanVienPTNULL.hoten = "[Không có]";
-            NhanVienPTNULL.id = -1;
+            NhanVienPTNULL.id = Guid.Empty;
             listNhanVienPT.Insert(0, NhanVienPTNULL);
             searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
         }
@@ -165,7 +165,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucComboBoxViTri);
                 _ucTreeViTri.setVitri(_ViTriHienTai);
-                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
+                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
                 //listPhong = Phong.getPhongByViTri(cosoid, dayid, tangid);
                 gridControlPhong.DataSource = listPhong;
             }
@@ -200,7 +200,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 //dayid = _dayid;
                 //tangid = _tangid;
                 //listPhong = Phong.getPhongByViTri(_cosoid, _dayid, _tangid);
-                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : -1, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : -1, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : -1);
+                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
                 gridControlPhong.DataSource = listPhong;
                 switch (listPhong.Count)
                 {
@@ -286,7 +286,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objPhong.mota = txtMoTaPhong.Text;
                 if (objNhanVienPT != null)
                 {
-                    if (objNhanVienPT.id > 0)
+                    if (objNhanVienPT.id != Guid.Empty)
                     {
                         objPhong.nhanvienpt = objNhanVienPT;
                     }
@@ -406,7 +406,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
         }
 
-        private void reLoadAndFocused(int _id)
+        private void reLoadAndFocused(Guid _id)
         {
             try
             {
@@ -600,8 +600,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 if (searchLookUpEditNhanVienPT.EditValue != null)
                 {
-                    int id = Int32.Parse(searchLookUpEditNhanVienPT.EditValue.ToString());
-                    if (id != -1)
+                    Guid id = QuanLyTaiSan.Libraries.GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
+                    if (id != Guid.Empty)
                         objNhanVienPT = NhanVienPT.getById(id);
                     else
                         objNhanVienPT = null;
@@ -748,8 +748,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                             listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 || 
                             objPhong.subId != txtMaPhong.Text || 
                             objPhong.ten != txtTenPhong.Text || 
-                            objPhong.mota != txtMoTaPhong.Text || 
-                            objPhong.nhanvienpt_id != Convert.ToInt32(searchLookUpEditNhanVienPT.EditValue);
+                            objPhong.mota != txtMoTaPhong.Text ||
+                            objPhong.nhanvienpt_id != QuanLyTaiSan.Libraries.GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
                     else
                         return 
                             objPhong.hinhanhs.Except(listHinhAnhPhong).Count() > 0 ||
@@ -786,7 +786,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewPhong_DoubleClick(object sender, EventArgs e)
         {
-            if (this.ParentForm != null && objPhong != null && objPhong.id > 0)
+            if (this.ParentForm != null && objPhong != null && objPhong.id != Guid.Empty)
             {
                 frmMain frm = this.ParentForm as frmMain;
                 frm.loadDataByPhong(objPhong, "thietbi");

@@ -65,7 +65,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
             loaiThietBiNULL.ten = "[Chọn loại thiết bị]";
             loaiThietBiNULL.loaichung = false;
-            loaiThietBiNULL.id = -1;
+            loaiThietBiNULL.id = Guid.Empty;
 
             gridViewThietBi.Columns[colma.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             gridViewThietBi.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
@@ -222,7 +222,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
         }
 
-        private void reLoadAndFocused(int _id)
+        private void reLoadAndFocused(Guid _id)
         {
             try
             {

@@ -206,7 +206,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             setDataView();
         }
 
-        private void reLoadAndFocused(int _id)
+        private void reLoadAndFocused(Guid _id)
         {
             try
             {
@@ -262,7 +262,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 }
                 else if (_function.Equals("phancong"))
                 {
-                    int id = objNhanVienPT.id;
+                    Guid id = objNhanVienPT.id;
                     try
                     {
                         
@@ -338,7 +338,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             if (function.Equals("phancong"))
             {
-                int id = objNhanVienPT.id;
+                Guid id = objNhanVienPT.id;
                 editGUI("view");
                 int rowHandle = gridViewNhanVien.LocateByValue(colid.FieldName, id);
                 if (rowHandle != GridControl.InvalidRowHandle)
