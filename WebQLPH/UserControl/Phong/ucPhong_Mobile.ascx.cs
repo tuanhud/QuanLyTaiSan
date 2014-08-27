@@ -171,7 +171,7 @@ namespace WebQLPH.UserControl.Phong
                 {
                     if (objTang.day != null)
                     {
-                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1} - {2})", objTang.day.coso != null ? objTang.day.coso.ten : "[Null]", objTang.day.ten, objTang.ten);
+                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1} - {2})", objTang.day.coso != null ? objTang.day.coso.ten : "[Cơ sở]", objTang.day.ten, objTang.ten);
                     }
                     else
                     {

@@ -58,6 +58,15 @@ namespace WebQLPH.UserControl.PhongThietBi {
         protected global::System.Web.UI.WebControls.Panel Panel_DanhSachThietBi;
         
         /// <summary>
+        /// Label_DanhSachThietBiTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_DanhSachThietBiTitle;
+        
+        /// <summary>
         /// Label_DanhSachThietBi control.
         /// </summary>
         /// <remarks>

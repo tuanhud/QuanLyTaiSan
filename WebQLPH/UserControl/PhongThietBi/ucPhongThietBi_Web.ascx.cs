@@ -167,7 +167,7 @@ namespace WebQLPH.UserControl.PhongThietBi
                     tinhtrang = a.tinhtrang,
                     soluong = a.soluong,
                     url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.idTB.ToString()),
-                    urlLog = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/Popup/LogThietBi.aspx")), "id", a.idTB.ToString())
+                    urlLog = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", a.idTB.ToString())
                 }).OrderBy(item => item.tinhtrang).ToList();
                 CollectionPagerDanhSachThietBi.DataSource = bind;
                 CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;

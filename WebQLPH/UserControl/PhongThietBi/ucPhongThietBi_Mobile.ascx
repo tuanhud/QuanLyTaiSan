@@ -18,7 +18,7 @@
 <asp:Panel ID="Panel_TreeListViTri" runat="server" Visible="false">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Chọn vị trí cần xem
+            Chọn phòng cần xem
         </div>
         <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared" Font-Size="10.5pt">
             <Columns>
@@ -48,7 +48,7 @@
 <asp:Panel ID="Panel_DanhSachThietBi" runat="server" Visible="false">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Danh sách thiết bị
+            <asp:Label ID="Label_DanhSachThietBiTitle" runat="server" Text="Danh sách thiết bị"></asp:Label>
         </div>
         <% if (RepeaterDanhSachThietBi.Items.Count == 0)
            { %>

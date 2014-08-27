@@ -152,7 +152,7 @@
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Web.ascx" />
-    <Content Include="Popup\LogThietBi.aspx" />
+    <Content Include="LogThietBi.aspx" />
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx" />
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
@@ -326,11 +326,11 @@
     <Compile Include="UserControl\NhanVien\ucNhanVien_Web.ascx.designer.cs">
       <DependentUpon>ucNhanVien_Web.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Popup\LogThietBi.aspx.cs">
+    <Compile Include="LogThietBi.aspx.cs">
       <DependentUpon>LogThietBi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Popup\LogThietBi.aspx.designer.cs">
+    <Compile Include="LogThietBi.aspx.designer.cs">
       <DependentUpon>LogThietBi.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx.cs">
