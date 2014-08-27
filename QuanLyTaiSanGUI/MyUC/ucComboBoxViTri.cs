@@ -15,6 +15,7 @@ using DevExpress.XtraTreeList.Data;
 using QuanLyTaiSan.DataFilter;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -36,8 +37,6 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             chonDay = _chonDay;
             chonPhong = _chonPhong;
-            //treeListViTri.Columns[colten.FieldName].SortOrder = SortOrder.Ascending;
-            //treeListViTri.Columns[colid.FieldName].SortOrder = SortOrder.Ascending;
         }
 
         public void loadData(List<ViTriHienThi> _list)
@@ -51,52 +50,50 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (e.Node.GetValue(2).ToString().Equals(typeof(CoSo).Name))
+                if (e.Node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
                 {
                     if (!chonDay && !chonPhong)
                     {
-                        popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                        idCoSo = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                        popupContainerEdit1.Text = e.Node.GetValue(colten).ToString();
+                        idCoSo = GUID.From(e.Node.GetValue(colid));
                         idTang = Guid.Empty;
                         idDay = Guid.Empty;
                         popupContainerEdit1.ClosePopup();
                     }
                 }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Dayy).Name))
+                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
                 {
                     if (!chonPhong)
                     {
-                        popupContainerEdit1.Text = e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                        idCoSo = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
-                        idDay = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                        popupContainerEdit1.Text = e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
+                        idCoSo = GUID.From(e.Node.ParentNode.GetValue(colid));
+                        idDay = GUID.From(e.Node.GetValue(colid));
                         idTang = Guid.Empty;
                         popupContainerEdit1.ClosePopup();
                     }
                 }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Tang).Name))
+                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                 {
                     if (!chonPhong)
                     {
-                        popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(1).ToString() + " - " + e.Node.ParentNode.GetValue(1).ToString() + " - " + e.Node.GetValue(1).ToString();
-                        idCoSo = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.ParentNode.GetValue(0).ToString());
-                        idDay = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
-                        idTang = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                        popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(colten).ToString() + " - " + e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
+                        idCoSo = GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid));
+                        idDay = GUID.From(e.Node.ParentNode.GetValue(colid));
+                        idTang = GUID.From(e.Node.GetValue(colid));
                         popupContainerEdit1.ClosePopup();
                     }
                 }
-                else if (e.Node.GetValue(2).ToString().Equals(typeof(Phong).Name))
+                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
                 {
-                    popupContainerEdit1.Text = e.Node.GetValue(1).ToString();
-                    idPhong = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0));
+                    popupContainerEdit1.Text = e.Node.GetValue(colten).ToString();
+                    idPhong = GUID.From(e.Node.GetValue(colid));
                     popupContainerEdit1.ClosePopup();
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : treeListViTri_FocusedNodeChanged : " + ex.Message);
+                Debug.WriteLine(this.Name + "->treeListViTri_FocusedNodeChanged: " + ex.Message);
             }
-            finally
-            { }
         }
 
         public ViTri getViTri()
@@ -114,7 +111,7 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : getViTri : " + ex.Message);
+                Debug.WriteLine(this.Name + "->getViTri: " + ex.Message);
                 return null;
             }
             finally
@@ -130,28 +127,29 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : getPhong : " + ex.Message);
+                Debug.WriteLine(this.Name + "->getPhong: " + ex.Message);
                 return null;
             }
-            finally
-            { }
         }
 
         public void setPhong(Phong obj)
         {
             try
             {
-                FindNode findNode = null;
-                findNode = new FindNode(obj.id, typeof(Phong).Name);
-                treeListViTri.NodesIterator.DoOperation(findNode);
-                treeListViTri.FocusedNode = findNode.Node;
+                if (obj != null && !obj.id.Equals(Guid.Empty))
+                {
+                    TreeListNode node = treeListViTri.FindNodeByKeyID(obj.id);
+                    if (node != null)
+                    {
+                        treeListViTri.CollapseAll();
+                        node.Selected = true;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setPhong : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setPhong: " + ex.Message);
             }
-            finally
-            { }
         }
         
         public void setReadOnly(bool b)
@@ -168,47 +166,36 @@ namespace QuanLyTaiSanGUI.MyUC
             treeListViTri.EndUnboundLoad();
         }
 
-        //public void reLoad(List<ViTriFilter> _list)
-        //{
-        //    treeListViTri.BeginUnboundLoad();
-        //    treeListViTri.DataSource = null;
-        //    treeListViTri.DataSource = _list;
-        //    treeListViTri.EndUnboundLoad();
-        //}
-
-
         public void setViTri(ViTri obj)
         {
             try
             {
                 if (obj != null)
                 {
-                    FindNode findNode = null;
-                    if (obj.tang != null)
+                    TreeListNode node = null;
+                    if (obj.tang != null && !obj.tang.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.tang.id);
                     }
-                    else if (obj.day != null)
+                    else if (obj.day != null && !obj.day.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.day.id);
                     }
-                    else if (obj.coso != null)
+                    else if (obj.coso != null && !obj.coso.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.coso.id);
                     }
-                    if (findNode != null)
+                    if (node != null)
                     {
-                        treeListViTri.NodesIterator.DoOperation(findNode);
-                        treeListViTri.FocusedNode = findNode.Node;
+                        treeListViTri.CollapseAll();
+                        node.Selected = true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setViTri : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setViTri: " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void setTextPopupContainerEdit(String text)

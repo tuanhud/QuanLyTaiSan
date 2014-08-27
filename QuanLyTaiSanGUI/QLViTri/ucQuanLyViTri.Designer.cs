@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colid_c = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colid_p = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
             this.labelControlMoTa = new DevExpress.XtraEditors.LabelControl();
@@ -74,7 +69,9 @@
             this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -109,11 +106,9 @@
             this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.colloai,
-            this.colid_c,
-            this.colid_p});
+            this.colloai});
             this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListViTri.KeyFieldName = "id_c";
+            this.treeListViTri.KeyFieldName = "id";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.AllowQuickHideColumns = false;
@@ -123,18 +118,12 @@
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsFind.ShowCloseButton = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.treeListViTri.ParentFieldName = "id_p";
+            this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
-            this.treeListViTri.Size = new System.Drawing.Size(500, 470);
+            this.treeListViTri.Size = new System.Drawing.Size(501, 470);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
             // 
             // colten
             // 
@@ -143,24 +132,6 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
-            // 
-            // colloai
-            // 
-            this.colloai.Caption = "loai";
-            this.colloai.FieldName = "loai";
-            this.colloai.Name = "colloai";
-            // 
-            // colid_c
-            // 
-            this.colid_c.Caption = "id_c";
-            this.colid_c.FieldName = "id_c";
-            this.colid_c.Name = "colid_c";
-            // 
-            // colid_p
-            // 
-            this.colid_p.Caption = "id_p";
-            this.colid_p.FieldName = "id_p";
-            this.colid_p.Name = "colid_p";
             // 
             // groupControl1
             // 
@@ -541,6 +512,18 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // colloai
+            // 
+            this.colloai.Caption = "loai";
+            this.colloai.FieldName = "loai";
+            this.colloai.Name = "colloai";
+            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,9 +556,7 @@
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraTreeList.TreeList treeListViTri;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControlDiaChi;
@@ -588,8 +569,6 @@
         private DevExpress.XtraEditors.SimpleButton btnImage;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOK;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid_c;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid_p;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonViTri;
         private DevExpress.XtraBars.BarButtonItem barBtnThemCoSo;
         private DevExpress.XtraBars.BarButtonItem barBtnSuaCoSo;
@@ -617,5 +596,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnDown;
         private DevExpress.XtraEditors.MemoEdit txtDiaChi;
         private DevExpress.XtraEditors.LabelControl labelControlMoTa;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
     }
 }

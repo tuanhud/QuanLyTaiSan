@@ -51,24 +51,24 @@ namespace QuanLyTaiSanGUI.MyUC
                 cosoid = Guid.Empty;
                 dayid = Guid.Empty;
                 tangid = Guid.Empty;
-                if(e.Node.GetValue(2)!= null)
+                if(e.Node.GetValue(colloai)!= null)
                 {
-                    switch (e.Node.GetValue(2).ToString())
+                    switch (e.Node.GetValue(colloai).ToString())
                     {
                         case "CoSo":
-                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
                             break;
                         case "Dayy":
-                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
-                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
+                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
+                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(colid).ToString());
                             break;
                         case "Tang":
-                            tangid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
-                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(0).ToString());
-                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.ParentNode.GetValue(0).ToString());
+                            tangid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
+                            dayid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.GetValue(colid).ToString());
+                            cosoid = QuanLyTaiSan.Libraries.GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid).ToString());
                             break;
                         case "Phong":
-                            phongid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(0).ToString());
+                            phongid = QuanLyTaiSan.Libraries.GUID.From(e.Node.GetValue(colid).ToString());
                             break;
                     }
                     if (setData_phongid != null)
@@ -98,8 +98,6 @@ namespace QuanLyTaiSanGUI.MyUC
                 Debug.WriteLine(this.Name + "->getVitri: " + ex.Message);
                 return null;
             }
-            finally
-            { }
         }
 
         public Phong getPhong()
@@ -119,55 +117,52 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (obj != null && obj.id != Guid.Empty)
+                if (obj != null)
                 {
-                    FindNode findNode = null;
-                    if (obj.tang != null)
+                    TreeListNode node = null;
+                    if (obj.tang != null && !obj.tang.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.tang.id);
                     }
-                    else if (obj.day != null)
+                    else if (obj.day != null && !obj.day.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.day.id);
                     }
-                    else if (obj.coso != null)
+                    else if (obj.coso != null && !obj.coso.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.coso.id);
                     }
-                    if (findNode != null)
+                    if (node != null)
                     {
                         treeListViTri.CollapseAll();
-                        treeListViTri.NodesIterator.DoOperation(findNode);
-                        treeListViTri.FocusedNode = findNode.Node;
+                        node.Selected = true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setVitri : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setVitri : " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void setPhong(Phong obj)
         {
             try
             {
-                if (obj != null && obj.id != Guid.Empty)
+                if (obj != null && !obj.id.Equals(Guid.Empty))
                 {
-                    FindNode findNode = new FindNode(obj.id, typeof(Phong).Name);
-                    treeListViTri.CollapseAll();
-                    treeListViTri.NodesIterator.DoOperation(findNode);
-                    treeListViTri.FocusedNode = findNode.Node;
+                    TreeListNode node = treeListViTri.FindNodeByKeyID(obj.id);
+                    if (node != null)
+                    {
+                        treeListViTri.CollapseAll();
+                        node.Selected = true;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setPhong : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setPhong: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void OnFilterNode(object sender, FilterNodeEventArgs e)

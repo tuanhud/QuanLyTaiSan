@@ -12,11 +12,10 @@ namespace QuanLyTaiSan.DataFilter
         public Guid id { get; set; }
         public String ten { get; set; }
         public String loai { get; set; }
-        public String id_c { get; set; }
-        public String id_p { get; set; }
         public String mota { get; set; }
-        public long? order { get; set; }
+        public Guid parent_id { get; set; }
         public Phong phong { get; set; }
+        public long? order { get; set; }
 
         #region Nghiệp vụ
         public static List<ViTriHienThi> getAllCoSo()
@@ -29,8 +28,6 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(CoSo).Name,
-                     id_c = c.id + "-" + typeof(CoSo).Name,
-                     id_p = "",
                      mota = c.mota,
                      order = c.order
                  }).OrderBy(c => c.order).ToList();
@@ -46,9 +43,8 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(Dayy).Name,
-                     id_c = c.id + "-" + typeof(Dayy).Name,
-                     id_p = c.coso.id + "-" + typeof(CoSo).Name,
                      mota = c.mota,
+                     parent_id = c.coso.id,
                      order = c.order
                  }).OrderBy(c => c.order).ToList();
             return re;
@@ -63,9 +59,8 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(Tang).Name,
-                     id_c = c.id + "-" + typeof(Tang).Name,
-                     id_p = c.day.id + "-" + typeof(Dayy).Name,
                      mota = c.mota,
+                     parent_id = c.day.id,
                      order = c.order
                  }).OrderBy(c => c.order).ToList();
             return re;
@@ -81,9 +76,8 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(Phong).Name,
-                     id_c = c.id + "-" + typeof(Phong).Name,
-                     id_p = (c.vitri.tang != null ? c.vitri.tang.id + "-" + typeof(Tang).Name : (c.vitri.day != null ? c.vitri.day.id + "-" + typeof(Dayy).Name : (c.vitri.coso != null ? c.vitri.coso.id + "-" + typeof(CoSo).Name : ""))),
                      mota = c.mota,
+                     parent_id = (c.vitri.tang != null ? c.vitri.tang.id : (c.vitri.day != null ? c.vitri.day.id : (c.vitri.coso != null ? c.vitri.coso.id : Guid.Empty))),
                      phong = c
                  }).OrderBy(c => c.ten).ToList();
             return re;
@@ -100,9 +94,8 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(Phong).Name,
-                     id_c = typeof(Phong).Name + c.id,
-                     id_p = (c.vitri.tang != null ? c.vitri.tang.id + "-" + typeof(Tang).Name : (c.vitri.day != null ? c.vitri.day.id + "-" + typeof(Dayy).Name : (c.vitri.coso != null ? c.vitri.coso.id + "-" + typeof(CoSo).Name : ""))),
                      mota = c.mota,
+                     parent_id = (c.vitri.tang != null ? c.vitri.tang.id : (c.vitri.day != null ? c.vitri.day.id : (c.vitri.coso != null ? c.vitri.coso.id : Guid.Empty))),
                      phong = c
                  }).OrderBy(c => c.ten).ToList();
             return re;
@@ -119,9 +112,8 @@ namespace QuanLyTaiSan.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(Phong).Name,
-                     id_c = typeof(Phong).Name + c.id,
-                     id_p = (c.vitri.tang != null ? c.vitri.tang.id + "-" + typeof(Tang).Name : (c.vitri.day != null ? c.vitri.day.id + "-" + typeof(Dayy).Name : (c.vitri.coso != null ? c.vitri.coso.id + "-" + typeof(CoSo).Name : ""))),
                      mota = c.mota,
+                     parent_id = (c.vitri.tang != null ? c.vitri.tang.id : (c.vitri.day != null ? c.vitri.day.id : (c.vitri.coso != null ? c.vitri.coso.id : Guid.Empty))),
                      phong = c
                  }).OrderBy(c => c.ten).ToList();
             return re;

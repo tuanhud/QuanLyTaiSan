@@ -287,26 +287,26 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                COSOS.Find(1);
-                DAYYS.Find(1);
-                TANGS.Find(1);
-                VITRIS.Find(1);
-                PHONGS.Find(1);
-                THIETBIS.Find(1);
-                CTTHIETBIS.Find(1);
-                HINHANHS.Find(1);
-                QUANTRIVIENS.Find(1);
-                NHANVIENPTS.Find(1);
-                LOGHETHONGS.Find(1);
-                LOGSUCOPHONGS.Find(1);
-                LOGTHIETBIS.Find(1);
-                LOAITHIETBIS.Find(1);
-                SETTINGS.Find(1);
-                TINHTRANGS.Find(1);
-                PERMISSIONS.Find(1);
-                SUCOPHONGS.Find(1);
-                GROUPS.Find(1);
-                PHIEUMUONPHONGS.Find(1);
+                COSOS.Find(Guid.Empty);
+                DAYYS.Find(Guid.Empty);
+                TANGS.Find(Guid.Empty);
+                VITRIS.Find(Guid.Empty);
+                PHONGS.Find(Guid.Empty);
+                THIETBIS.Find(Guid.Empty);
+                CTTHIETBIS.Find(Guid.Empty);
+                HINHANHS.Find(Guid.Empty);
+                QUANTRIVIENS.Find(Guid.Empty);
+                NHANVIENPTS.Find(Guid.Empty);
+                LOGHETHONGS.Find(Guid.Empty);
+                LOGSUCOPHONGS.Find(Guid.Empty);
+                LOGTHIETBIS.Find(Guid.Empty);
+                LOAITHIETBIS.Find(Guid.Empty);
+                SETTINGS.Find(Guid.Empty);
+                TINHTRANGS.Find(Guid.Empty);
+                PERMISSIONS.Find(Guid.Empty);
+                SUCOPHONGS.Find(Guid.Empty);
+                GROUPS.Find(Guid.Empty);
+                PHIEUMUONPHONGS.Find(Guid.Empty);
 
                 return true;
             }
