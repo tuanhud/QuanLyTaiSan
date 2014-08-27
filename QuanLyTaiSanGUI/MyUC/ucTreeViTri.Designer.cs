@@ -31,8 +31,8 @@
             DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             styleFormatCondition1.Value1 = "Phong";
             this.treeListViTri.FormatConditions.AddRange(new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition[] {
             styleFormatCondition1});
-            this.treeListViTri.KeyFieldName = "id_c";
+            this.treeListViTri.KeyFieldName = "id";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
@@ -67,17 +67,11 @@
             this.treeListViTri.OptionsFind.ShowCloseButton = false;
             this.treeListViTri.OptionsFind.ShowFindButton = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.treeListViTri.ParentFieldName = "id_p";
+            this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.Size = new System.Drawing.Size(276, 373);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListPhong_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
             // 
             // colten
             // 
@@ -86,6 +80,12 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // ucTreeViTri
             // 
@@ -101,9 +101,9 @@
 
         #endregion
 
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         private DevExpress.XtraTreeList.TreeList treeListViTri;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
     }
 }

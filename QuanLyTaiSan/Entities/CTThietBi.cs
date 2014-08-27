@@ -27,17 +27,17 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public int phong_id { get; set; }
+        public Guid phong_id { get; set; }
         [Required]
         [ForeignKey("phong_id")]
         public virtual Phong phong { get; set; }
 
-        public int thietbi_id { get; set; }        
+        public Guid thietbi_id { get; set; }        
         [Required]
         [ForeignKey("thietbi_id")]
         public virtual ThietBi thietbi { get; set; }
 
-        public int tinhtrang_id { get; set; }
+        public Guid tinhtrang_id { get; set; }
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
@@ -179,7 +179,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="idTinhTrang"></param>
         /// <returns></returns>
-        public static List<ThietBi> listThietBiTheoTinhTrang(int idTinhTrang)
+        public static List<ThietBi> listThietBiTheoTinhTrang(Guid idTinhTrang)
         {
             return db.CTTHIETBIS.Where(ct => ct.tinhtrang.id == idTinhTrang).Select(select => select.thietbi).ToList();
         }

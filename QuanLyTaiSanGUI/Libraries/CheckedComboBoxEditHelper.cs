@@ -10,9 +10,9 @@ namespace QuanLyTaiSanGUI.Libraries
 {
     class CheckedComboBoxEditHelper
     {
-        public static List<int> getCheckedValueArray(CheckedComboBoxEdit control)
+        public static List<Guid> getCheckedValueArray(CheckedComboBoxEdit control)
         {
-            List<int> re = new List<int>();
+            List<Guid> re = new List<Guid>();
             if (control == null)
             {
                 return re;
@@ -22,7 +22,7 @@ namespace QuanLyTaiSanGUI.Libraries
             {
                 if (control.Properties.Items[i].CheckState == CheckState.Checked)
                 {
-                    re.Add(Convert.ToInt32(control.Properties.Items[i].Value));
+                    re.Add(QuanLyTaiSan.Libraries.GUID.From(control.Properties.Items[i].Value));
                 }
             }
 

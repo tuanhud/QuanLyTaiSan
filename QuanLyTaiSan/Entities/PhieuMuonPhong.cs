@@ -49,7 +49,7 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK
          */
-        public int nguoimuon_id { get; set; }       
+        public Guid nguoimuon_id { get; set; }       
         /// <summary>
         /// Người tạo phiếu
         /// </summary>
@@ -59,7 +59,7 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Người xử lý (duyệt) phiếu
         /// </summary>
-        public int? nguoiduyet_id { get; set; }
+        public Guid? nguoiduyet_id { get; set; }
         [ForeignKey("nguoiduyet_id")]
         public virtual QuanTriVien nguoiduyet { get; set; }
         [Required]

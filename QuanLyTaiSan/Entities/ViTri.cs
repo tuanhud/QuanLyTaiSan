@@ -17,18 +17,18 @@ namespace QuanLyTaiSan.Entities
         }
         #region Dinh nghia        
         
-        public int coso_id { get; set; }
+        public Guid coso_id { get; set; }
         [Index("nothing", 1, IsUnique = true)]
         [ForeignKey("coso_id")]
         [Required]
         public virtual CoSo coso { get; set; }
 
-        public int? day_id { get; set; }
+        public Guid? day_id { get; set; }
         [Index("nothing", 2, IsUnique = true)]
         [ForeignKey("day_id")]
         public virtual Dayy day { get; set; }
 
-        public int? tang_id { get; set; }
+        public Guid? tang_id { get; set; }
         [Index("nothing", 3, IsUnique = true)]
         [ForeignKey("tang_id")]
         public virtual Tang tang { get; set; }
@@ -46,17 +46,17 @@ namespace QuanLyTaiSan.Entities
         /// <param name="id3"></param>
         /// <returns></returns>
 
-        public ViTri getBy3Id(int id1, int id2, int id3)
+        public ViTri getBy3Id(Guid id1, Guid id2, Guid id3)
         {
             try
             {
                 //initDb();
                 ViTri obj = null;
-                if (id3 != -1)
+                if (id3 != Guid.Empty)
                 {
                     obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == id3).FirstOrDefault();
                 }
-                else if (id2 != -1)
+                else if (id2 != Guid.Empty)
                 {
                     obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == null).FirstOrDefault();
                 }
@@ -108,7 +108,7 @@ namespace QuanLyTaiSan.Entities
             //}
             return tmp;
         }
-        public List<ViTri> search(int coso_id, int day_id, int tang_id)
+        public List<ViTri> search(Guid coso_id, Guid day_id, Guid tang_id)
         {
             //initDb();
             List<ViTri> tmp = new List<ViTri>(); ;

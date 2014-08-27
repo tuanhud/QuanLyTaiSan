@@ -44,7 +44,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             }
         }
 
-        private void reloadAndFocused(int _id)
+        private void reloadAndFocused(Guid _id)
         {
             loadData();
             int rowHandle = gridViewTinhTrang.LocateByValue(colid.FieldName, _id);
@@ -238,7 +238,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                             if (objTinhTrang.add() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Thêm tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                int id = objTinhTrang.id;
+                                Guid id = objTinhTrang.id;
                                 reloadAndFocused(id);
                             }
                             else
@@ -251,7 +251,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                             if (objTinhTrang.update() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Sửa tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                int id = objTinhTrang.id;
+                                Guid id = objTinhTrang.id;
                                 reloadAndFocused(id);
                             }
                             else
@@ -323,7 +323,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
-                if (objTinhTrang != null && objTinhTrang.id > 0)
+                if (objTinhTrang != null && objTinhTrang.id != Guid.Empty)
                 {
                     objTinhTrang.moveUp();
                     DBInstance.commit();
@@ -340,7 +340,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
-                if (objTinhTrang != null && objTinhTrang.id > 0)
+                if (objTinhTrang != null && objTinhTrang.id != Guid.Empty)
                 {
                     objTinhTrang.moveDown();
                     DBInstance.commit();

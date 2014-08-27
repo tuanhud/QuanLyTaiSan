@@ -195,7 +195,7 @@ namespace QuanLyTaiSanGUI.HeThong
                             if (objGroup.add() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Thêm nhóm quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                int id = objGroup.id;
+                                Guid id = objGroup.id;
                                 reloadAndFocused(id);
                             }
                             else
@@ -208,7 +208,7 @@ namespace QuanLyTaiSanGUI.HeThong
                             if (objGroup.update() > 0 && DBInstance.commit() > 0)
                             {
                                 XtraMessageBox.Show("Sửa nhóm quyền thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                int id = objGroup.id;
+                                Guid id = objGroup.id;
                                 reloadAndFocused(id);
                             }
                             else
@@ -225,7 +225,7 @@ namespace QuanLyTaiSanGUI.HeThong
             }
         }
 
-        private void reloadAndFocused(int _id)
+        private void reloadAndFocused(Guid _id)
         {
             loadData();
             int rowHandle = gridViewGroup.LocateByValue(colid.FieldName, _id);

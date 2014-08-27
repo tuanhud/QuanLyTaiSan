@@ -9,8 +9,8 @@ namespace QuanLyTaiSan.DataFilter
 {
     public class ThietBiFilter:FilterAbstract<ThietBiFilter>
     {
-        public int id { get; set; }
-        public int idTB { get; set; }
+        public Guid id { get; set; }
+        public Guid idTB { get; set; }
         public String ten { get; set; }
         public String tinhtrang { get; set; }
         public int soluong { get; set; }
@@ -19,15 +19,15 @@ namespace QuanLyTaiSan.DataFilter
         public String tenday { get; set; }
         public String tentang { get; set; }
         public String tenloaithietbi { get; set; }
-        public int phong_id { get; set; }
+        public Guid phong_id { get; set; }
 
         #region Nghiệp vụ
-        public static List<ThietBiFilter> getAllBy4Id(int _phongid, int _cosoid, int _dayid, int _tangid)
+        public static List<ThietBiFilter> getAllBy4Id(Guid _phongid, Guid _cosoid, Guid _dayid, Guid _tangid)
         {
             //OurDBContext db = new OurDBContext();
             List<ThietBiFilter> re =
                 (from c in db.CTTHIETBIS
-                 where ((_phongid == -1 || c.phong.id == _phongid)&&(_cosoid==-1||c.phong.vitri.coso.id==_cosoid)&&(_dayid==-1||c.phong.vitri.day.id ==_dayid)&&(_tangid==-1||c.phong.vitri.tang.id==_tangid))
+                 where ((_phongid == Guid.Empty || c.phong.id == _phongid) && (_cosoid == Guid.Empty || c.phong.vitri.coso.id == _cosoid) && (_dayid == Guid.Empty || c.phong.vitri.day.id == _dayid) && (_tangid == Guid.Empty || c.phong.vitri.tang.id == _tangid))
                  select new ThietBiFilter
                  {
                      id = c.id,

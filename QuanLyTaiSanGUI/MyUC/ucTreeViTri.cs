@@ -15,17 +15,18 @@ using QuanLyTaiSanGUI.MyUserControl;
 using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {
-        private int phongid = -1;
-        private int cosoid = -1;
-        private int dayid = -1;
-        private int tangid = -1;
+        private Guid phongid = Guid.Empty;
+        private Guid cosoid = Guid.Empty;
+        private Guid dayid = Guid.Empty;
+        private Guid tangid = Guid.Empty;
 
-        public delegate void SetData_phongid(int id);
+        public delegate void SetData_phongid(Guid id);
         public SetData_phongid setData_phongid = null;
 
         public delegate void FocusedRow_phong();
@@ -47,33 +48,33 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                phongid = -1;
-                cosoid = -1;
-                dayid = -1;
-                tangid = -1;
-                if(e.Node.GetValue(2)!= null)
+                phongid = Guid.Empty;
+                cosoid = Guid.Empty;
+                dayid = Guid.Empty;
+                tangid = Guid.Empty;
+                if(e.Node.GetValue(colloai)!= null)
                 {
-                    switch (e.Node.GetValue(2).ToString())
+                    switch (e.Node.GetValue(colloai).ToString())
                     {
                         case "CoSo":
-                            cosoid = Convert.ToInt32(e.Node.GetValue(0));
+                            cosoid = GUID.From(e.Node.GetValue(colid));
                             break;
                         case "Dayy":
-                            dayid = Convert.ToInt32(e.Node.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
+                            dayid = GUID.From(e.Node.GetValue(colid));
+                            cosoid = GUID.From(e.Node.ParentNode.GetValue(colid));
                             break;
                         case "Tang":
-                            tangid = Convert.ToInt32(e.Node.GetValue(0));
-                            dayid = Convert.ToInt32(e.Node.ParentNode.GetValue(0));
-                            cosoid = Convert.ToInt32(e.Node.ParentNode.ParentNode.GetValue(0));
+                            tangid = GUID.From(e.Node.GetValue(colid));
+                            dayid = GUID.From(e.Node.ParentNode.GetValue(colid));
+                            cosoid = GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid));
                             break;
                         case "Phong":
-                            phongid = Convert.ToInt32(e.Node.GetValue(0));
+                            phongid = GUID.From(e.Node.GetValue(colid));
                             break;
                     }
                     if (setData_phongid != null)
                         setData_phongid(phongid);
-                    if (focusedRow_phong != null && (cosoid > 0 || dayid > 0 || tangid > 0))
+                    if (focusedRow_phong != null && (cosoid != Guid.Empty || dayid != Guid.Empty || tangid != Guid.Empty))
                         focusedRow_phong();
                 }
             }
@@ -98,13 +99,11 @@ namespace QuanLyTaiSanGUI.MyUC
                 Debug.WriteLine(this.Name + "->getVitri: " + ex.Message);
                 return null;
             }
-            finally
-            { }
         }
 
         public Phong getPhong()
         {
-            if (phongid != -1)
+            if (phongid != Guid.Empty)
                 return Phong.getById(phongid);
             else
                 return new Phong();
@@ -119,55 +118,52 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                if (obj != null && obj.id > 0)
+                if (obj != null)
                 {
-                    FindNode findNode = null;
-                    if (obj.tang != null)
+                    TreeListNode node = null;
+                    if (obj.tang != null && !obj.tang.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.tang.id, typeof(Tang).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.tang.id);
                     }
-                    else if (obj.day != null)
+                    else if (obj.day != null && !obj.day.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.day.id, typeof(Dayy).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.day.id);
                     }
-                    else if (obj.coso != null)
+                    else if (obj.coso != null && !obj.coso.id.Equals(Guid.Empty))
                     {
-                        findNode = new FindNode(obj.coso.id, typeof(CoSo).Name);
+                        node = treeListViTri.FindNodeByKeyID(obj.coso.id);
                     }
-                    if (findNode != null)
+                    if (node != null)
                     {
                         treeListViTri.CollapseAll();
-                        treeListViTri.NodesIterator.DoOperation(findNode);
-                        treeListViTri.FocusedNode = findNode.Node;
+                        node.Selected = true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setVitri : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setVitri : " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void setPhong(Phong obj)
         {
             try
             {
-                if (obj != null && obj.id > 0)
+                if (obj != null && !obj.id.Equals(Guid.Empty))
                 {
-                    FindNode findNode = new FindNode(obj.id, typeof(Phong).Name);
-                    treeListViTri.CollapseAll();
-                    treeListViTri.NodesIterator.DoOperation(findNode);
-                    treeListViTri.FocusedNode = findNode.Node;
+                    TreeListNode node = treeListViTri.FindNodeByKeyID(obj.id);
+                    if (node != null)
+                    {
+                        treeListViTri.CollapseAll();
+                        node.Selected = true;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setPhong : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setPhong: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void OnFilterNode(object sender, FilterNodeEventArgs e)

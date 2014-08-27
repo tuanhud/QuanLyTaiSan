@@ -90,6 +90,7 @@ namespace QuanLyTaiSan.Entities
             public static int clean_up_scope()
             {
                 DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
+                
                 DatabaseHelper.setup_sync_scope(
                     Global.server_database.get_connection_string(),
                     Global.sync.scope_name,
@@ -105,10 +106,9 @@ namespace QuanLyTaiSan.Entities
             {
                 try
                 {
-                    OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(),true);
-                    if (tmp != null)
+                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
                     {
-                        tmp.COSOS.Find(1);
+                        tmp.isValidModel();
                     }
                 }
                 catch (Exception ex)
@@ -135,17 +135,20 @@ namespace QuanLyTaiSan.Entities
             public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                //if (!DatabaseHelper.isExist(
-                //    Global.server_database.get_connection_string()
-                //))
-                //{
-                //    return -1;
-                //}
-                //Check model backing
-                using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
+                if (DatabaseHelper.isExist(
+                    Global.server_database.get_connection_string()
+                ))
                 {
-                    return tmp.isValidModel() ? 1 : -2;
+                    //Check model backing
+                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
+                    {
+                        if (tmp.isValidModel())
+                        {
+                            return 1;
+                        }
+                    }
                 }
+                return -2;
             }
             /// <summary>
             /// Kiểm tra CSDL đã có SYNC SCOPE
@@ -239,7 +242,7 @@ namespace QuanLyTaiSan.Entities
                     return -1;
                 }
                 //DROP Database
-                //DatabaseHelper.dropDB(Global.client_database.get_connection_string());
+
                 DatabaseHelper.drop_sync_scope(Global.client_database.get_connection_string(), Global.sync.scope_name);
                 DatabaseHelper.fetch_sync_scope(
                     Global.client_database.get_connection_string(),
@@ -264,11 +267,6 @@ namespace QuanLyTaiSan.Entities
                 {
                     return 1;
                 }
-                //Kiểm tra kết nối cho cả client và Server
-                if (Global.client_database.isReady()<0 || Global.server_database.isReady()<0)
-                {
-                    return -1;
-                }
 
                 return DatabaseHelper.start_sync(
                     Global.client_database.get_connection_string(),
@@ -287,12 +285,12 @@ namespace QuanLyTaiSan.Entities
                 {
                     return ;
                 }
+
                 try
                 {
-                    OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(),false);
-                    if (tmp != null)
+                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
                     {
-                        tmp.COSOS.Find(1);
+                        tmp.isValidModel();
                     }
                 }
                 catch (Exception ex)
@@ -319,17 +317,20 @@ namespace QuanLyTaiSan.Entities
             public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                //if (!DatabaseHelper.isExist(
-                //    Global.client_database.get_connection_string()
-                //))
-                //{
-                //    return -1;
-                //}
-                //Check model backing
-                using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
+                if (DatabaseHelper.isExist(
+                    Global.client_database.get_connection_string()
+                ))
                 {
-                    return tmp.isValidModel() ? 1 : -2;
+                    //Check model backing
+                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
+                    {
+                        if (tmp.isValidModel())
+                        {
+                            return 1;
+                        }
+                    }
                 }
+                return -2;
             }
             public static String db_host
             {
@@ -424,18 +425,20 @@ namespace QuanLyTaiSan.Entities
             public static int isReady(int TimeOut = -1)
             {
                 //Check if target database is ready
-                //if (!DatabaseHelper.isExist(
-                //    Global.working_database.get_connection_string()
-                //))
-                //{
-                //    return -1;
-                //}
-                //Check model backing
-                //Check model backing
-                using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false))
+                if (DatabaseHelper.isExist(
+                    Global.working_database.get_connection_string()
+                ))
                 {
-                    return tmp.isValidModel() ? 1 : -2;
+                    //Check model backing
+                    using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false))
+                    {
+                        if (tmp.isValidModel())
+                        {
+                            return 1;
+                        }
+                    }
                 }
+                return -2;
             }
             public static String db_host
             {

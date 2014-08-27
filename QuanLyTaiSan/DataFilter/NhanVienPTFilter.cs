@@ -15,7 +15,7 @@ namespace QuanLyTaiSan.DataFilter
 
         }
 
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String subId { get; set; }
         public String sodienthoai { get; set; }
         public String hoten { get; set; }

@@ -29,12 +29,12 @@ namespace QuanLyTaiSan.Entities
         [StringLength(255)]
         public String ten { get; set; }
 
-        public int tinhtrang_id { get; set; }
+        public Guid tinhtrang_id { get; set; }
         [Required]
         [ForeignKey("tinhtrang_id")]
         public virtual TinhTrang tinhtrang { get; set; }
 
-        public int phong_id { get; set; }
+        public Guid phong_id { get; set; }
         //[Index("nothing", 2, IsUnique = true)]
         [Required]
         [ForeignKey("phong_id")]

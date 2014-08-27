@@ -37,10 +37,15 @@ namespace QuanLyTaiSanGUI.MyUC
                 List<Phong> _list = nhanvien.phongs.ToList();
                 foreach (Phong p in _list)
                 {
-                    FindNode findNode = new FindNode(p.id, typeof(Phong).Name);
-                    treeListPhong.NodesIterator.DoOperation(findNode);
-                    treeListPhong.FocusedNode = findNode.Node;
-                    treeListPhong.SetNodeCheckState(findNode.Node, CheckState.Checked, true);
+                    if (!p.id.Equals(Guid.Empty))
+                    {
+                        TreeListNode node = treeListPhong.FindNodeByKeyID(p.id);
+                        if (node != null)
+                        {
+                            treeListPhong.SetNodeCheckState(node, CheckState.Checked, true);
+                            node.Selected = true;
+                        }
+                    }
                 }
                 if (treeListPhong.Nodes.Count > 0)
                     treeListPhong.FocusedNode = treeListPhong.Nodes[0];
@@ -61,10 +66,15 @@ namespace QuanLyTaiSanGUI.MyUC
                 List<Phong> _list = quantrivien.phongs.ToList();
                 foreach (Phong p in _list)
                 {
-                    FindNode findNode = new FindNode(p.id, typeof(Phong).Name);
-                    treeListPhong.NodesIterator.DoOperation(findNode);
-                    treeListPhong.FocusedNode = findNode.Node;
-                    treeListPhong.SetNodeCheckState(findNode.Node, CheckState.Checked, true);
+                    if (!p.id.Equals(Guid.Empty))
+                    {
+                        TreeListNode node = treeListPhong.FindNodeByKeyID(p.id);
+                        if (node != null)
+                        {
+                            treeListPhong.SetNodeCheckState(node, CheckState.Checked, true);
+                            node.Selected = true;
+                        }
+                    }
                 }
                 if (treeListPhong.Nodes.Count > 0)
                     treeListPhong.FocusedNode = treeListPhong.Nodes[0];
@@ -79,7 +89,8 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                loadListPhong(getListPhong());
+                if(loadListPhong != null)
+                    loadListPhong(getListPhong());
             }
             catch (Exception ex)
             {
@@ -90,27 +101,29 @@ namespace QuanLyTaiSanGUI.MyUC
         public List<Phong> getListPhong()
         {
             List<Phong> listPhong = new List<Phong>();
-            GetCheckedNodes op = new GetCheckedNodes("loai",typeof(Phong).Name);
-            treeListPhong.NodesIterator.DoOperation(op);
-            foreach (TreeListNode node in op.CheckedNodes)
+            List<TreeListNode> listNode = treeListPhong.GetAllCheckedNodes();
+            foreach (TreeListNode node in listNode)
             {
-                Phong obj = node.GetValue(colphong) as Phong;
-                listPhong.Add(obj);
+                if (node.GetValue(colloai).Equals(typeof(Phong).Name))
+                {
+                    Phong obj = node.GetValue(colphong) as Phong;
+                    listPhong.Add(obj);
+                }
             }
             return listPhong;
         }
 
-        public List<int> getListPhongId()
-        {
-            List<int> list = new List<int>();
-            GetCheckedNodes op = new GetCheckedNodes("loai", typeof(Phong).Name);
-            treeListPhong.NodesIterator.DoOperation(op);
-            foreach (TreeListNode node in op.CheckedNodes)
-            {
-                list.Add(Convert.ToInt32(node.GetValue(0)));
-            }
-            return list;
-        }
+        //public List<int> getListPhongId()
+        //{
+        //    List<int> list = new List<int>();
+        //    GetCheckedNodes op = new GetCheckedNodes("loai", typeof(Phong).Name);
+        //    treeListPhong.NodesIterator.DoOperation(op);
+        //    foreach (TreeListNode node in op.CheckedNodes)
+        //    {
+        //        list.Add(Convert.ToInt32(node.GetValue(0)));
+        //    }
+        //    return list;
+        //}
 
         private void OnFilterNode(object sender, FilterNodeEventArgs e)
         {

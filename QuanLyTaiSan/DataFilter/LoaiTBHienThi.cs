@@ -8,12 +8,12 @@ namespace QuanLyTaiSan.DataFilter
 {
     public class LoaiTBHienThi : FilterAbstract<LoaiTBHienThi>
     {
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
-        public int? parent_id { get; set; }
+        public Guid? parent_id { get; set; }
         public bool loaichung { get; set; }
         public String kieu_ql { get; set; }
-        public int? order { get; set; }
+        public long? order { get; set; }
 
         public static List<LoaiTBHienThi> getAll()
         {

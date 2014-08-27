@@ -34,7 +34,7 @@ namespace QuanLyTaiSan.Entities
          * FK
          */
 
-        public int group_id { get; set; }
+        public Guid group_id { get; set; }
         [Required]
         [ForeignKey("group_id")]
         public virtual Group group { get; set; }

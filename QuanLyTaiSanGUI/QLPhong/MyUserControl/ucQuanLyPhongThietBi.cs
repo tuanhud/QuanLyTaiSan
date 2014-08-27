@@ -89,7 +89,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
         }
 
-        public void setData(int _phongid)
+        public void setData(Guid _phongid)
         {
             objPhong = Phong.getById(_phongid);
             gridControlCTThietBi.DataSource = null;
@@ -100,7 +100,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void editGUI()
         {
-            if (objPhong != null && objPhong.id > 0)
+            if (objPhong != null && objPhong.id != Guid.Empty)
             {
                 groupPhong.Text = "Phòng " + objPhong.ten;
                 barButtonThemTBChung.Enabled = true;
@@ -164,7 +164,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             if (e.FocusedRowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
-                objCTThietBi = CTThietBi.getById(Convert.ToInt32(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
+                objCTThietBi = CTThietBi.getById(QuanLyTaiSan.Libraries.GUID.From(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
                 objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
@@ -379,7 +379,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             editGUI();
         }
 
-        public void reLoadCTThietBisOnlyAndFocused(int _id)
+        public void reLoadCTThietBisOnlyAndFocused(Guid _id)
         {
             reLoadCTThietBisOnly();
             int rowHandle = gridViewCTThietBi.LocateByValue(colid.FieldName, _id);
@@ -389,7 +389,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void barButtonChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int id = objCTThietBi.id;
+            Guid id = objCTThietBi.id;
             frmChuyen frm = new frmChuyen(objCTThietBi);
             frm.ShowDialog();
             reLoadCTThietBisOnlyAndFocused(id);
@@ -476,7 +476,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void gridViewlog_DoubleClick(object sender, EventArgs e)
         {
-            if (objCTThietBi != null && objCTThietBi.id > 0 && objCTThietBi.logthietbis.Count > 0)
+            if (objCTThietBi != null && objCTThietBi.id != Guid.Empty && objCTThietBi.logthietbis.Count > 0)
             {
                 frmLogThietBi frm = new frmLogThietBi(objCTThietBi.logthietbis.OrderByDescending(c => c.date_create).ToList());
                 frm.Text += " " + objCTThietBi.thietbi.ten;

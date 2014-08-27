@@ -14,12 +14,18 @@ namespace QuanLyTaiSan.Libraries
 {
     public class DatabaseHelper
     {
+        /// <summary>
+        /// becareful
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
         public static Boolean dropDB(String connectionString="")
         {
             return System.Data.Entity.Database.Delete(connectionString);
         }
         /// <summary>
-        /// Kiểm tra kết nối tới Database thông qua Connection String đưa vào
+        /// Kiểm tra kết nối tới Database thông qua Connection String đưa vào,
+        /// kiểm tra sự tồn tại
         /// </summary>
         /// <param name="connectionString"></param>
         /// <returns></returns>
@@ -54,12 +60,12 @@ namespace QuanLyTaiSan.Libraries
         }
         private static void sync_error_event_handler(object sender, DbApplyChangeFailedEventArgs e)
         {
-            Debug.WriteLine("=========ERROR==========");
+            Debug.WriteLine("=========SYNC ERROR==========");
             // display conflict type
             Debug.WriteLine(e.Conflict.Type);
             // display error message 
             Debug.WriteLine(e.Error);
-            Debug.WriteLine("=========END ERROR==========");
+            Debug.WriteLine("=========END SYNC ERROR==========");
         }
         public static int start_sync(String client_connectionString, String server_connectionString, String scope_name)
         {
@@ -203,7 +209,7 @@ namespace QuanLyTaiSan.Libraries
                 // create provisioning object based on the Scope
                 SqlSyncScopeProvisioning clientProvision = new SqlSyncScopeProvisioning(clientConn, scopeDesc);
                 
-                // starts the provisioning process
+                //starts the provisioning process
                 clientProvision.Apply();
                 return 1;
             }catch(Exception ex)
@@ -222,9 +228,9 @@ namespace QuanLyTaiSan.Libraries
         /// <param name="tracking_tables"></param>
         public static int setup_sync_scope(String connectionString, String scope_name, String[] tracking_tables)
         {
+            SqlConnection serverConn = new SqlConnection(connectionString);
             try
             {
-                SqlConnection serverConn = new SqlConnection(connectionString);
                 DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription(scope_name);
                 // get the description of the Products table from SyncDB dtabase
                 
@@ -252,11 +258,11 @@ namespace QuanLyTaiSan.Libraries
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
-                return -2;
+                return -1;
             }
             finally
             {
-               
+                serverConn.Dispose();
             }
         }
     }

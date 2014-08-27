@@ -12,7 +12,7 @@ namespace QuanLyTaiSan.DataFilter
     /// </summary>
     public class PhongFilter2 : FilterAbstract<PhongFilter2>
     {
-        public int id { get; set; }
+        public Guid id { get; set; }
         public String ten { get; set; }
         public String ten_coso { get; set; }
         public String ten_day { get; set; }

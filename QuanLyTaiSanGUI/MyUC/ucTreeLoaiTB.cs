@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSanGUI.QLPhong;
+using QuanLyTaiSan.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {
@@ -43,22 +44,19 @@ namespace QuanLyTaiSanGUI.MyUC
             try
             {
                 List<LoaiThietBi> list = new List<LoaiThietBi>();
-                GetCheckedNodes op = new GetCheckedNodes();
-                treeListLoaiTB.NodesIterator.DoOperation(op);
-                foreach (TreeListNode node in op.CheckedNodes)
+                List<TreeListNode> listNode = treeListLoaiTB.GetAllCheckedNodes();
+                foreach (TreeListNode node in listNode)
                 {
-                    LoaiThietBi obj = LoaiThietBi.getById(Convert.ToInt32(node.GetValue(0)));
+                    LoaiThietBi obj = LoaiThietBi.getById(GUID.From(node.GetValue(colid)));
                     list.Add(obj);
                 }
                 return list;
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : getListLoaiTB : " + ex.Message);
+                Debug.WriteLine(this.Name + "->getListLoaiTB: " + ex.Message);
                 return null;
             }
-            finally
-            { }
         }
 
         public void loadData(List<LoaiThietBi> _list)
@@ -76,16 +74,14 @@ namespace QuanLyTaiSanGUI.MyUC
                 {
                     obj = _loai;
                     treeListLoaiTB.CollapseAll();
-                    TreeListNode node = treeListLoaiTB.FindNodeByFieldValue("id", _loai.id);
+                    TreeListNode node = treeListLoaiTB.FindNodeByFieldValue(colid.FieldName, _loai.id);
                     treeListLoaiTB.FocusedNode = node;
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setLoai : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setLoai: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void treeListLoaiTB_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -109,10 +105,8 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : treeListLoaiTB_FocusedNodeChanged : " + ex.Message);
+                Debug.WriteLine(this.Name + "->treeListLoaiTB_FocusedNodeChanged: " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void setReadOnly(bool b)
@@ -133,7 +127,7 @@ namespace QuanLyTaiSanGUI.MyUC
 
         public LoaiThietBi getLoaiThietBi()
         {
-            if (obj.id > 0)
+            if (obj.id != Guid.Empty)
                 return LoaiThietBi.getById(obj.id);
             return null;
         }
@@ -159,10 +153,8 @@ namespace QuanLyTaiSanGUI.MyUC
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : treeListLoaiTB_AfterCheckNode : " + ex.Message);
+                Debug.WriteLine(this.Name + "->treeListLoaiTB_AfterCheckNode: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void OnFilterNode(object sender, DevExpress.XtraTreeList.FilterNodeEventArgs e)

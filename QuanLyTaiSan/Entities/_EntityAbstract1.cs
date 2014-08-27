@@ -29,7 +29,7 @@ namespace QuanLyTaiSan.Entities
         #region Định nghĩa
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public Guid id { get; set; }
         /// <summary>
         /// Optional
         /// </summary>
@@ -38,7 +38,7 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Dùng để sắp xếp, mặc định khi thêm mới thì sẽ bật trigger để tự lấy id qua
         /// </summary>
-        public int? order { get; set; }
+        public long? order { get; set; }
 
         /// <summary>
         /// Optional
@@ -79,9 +79,9 @@ namespace QuanLyTaiSan.Entities
         public virtual int add()
         {
             //Nếu đã có trong CSDL rồi
-            if (id > 0)
+            if (id != Guid.Empty)
             {
-                return id;
+                return 1;
             }
 
             try
@@ -102,7 +102,7 @@ namespace QuanLyTaiSan.Entities
         public virtual int update()
         {
             //Nếu chưa có trong CSDL
-            if (id <= 0)
+            if (id == Guid.Empty)
             {
                 return -1;
             }
@@ -123,7 +123,7 @@ namespace QuanLyTaiSan.Entities
         public virtual int delete()
         {
             //Nếu chưa có trong CSDL
-            if (id <= 0)
+            if (id == Guid.Empty)
             {
                 return -1;
             }
@@ -143,7 +143,7 @@ namespace QuanLyTaiSan.Entities
                 return -1;
             }
         }
-        public static T getById(int id)
+        public static T getById(Guid id)
         {
             try
             {
@@ -221,7 +221,7 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual T reload()
         {
-            if (id <= 0)
+            if (id == Guid.Empty)
             {
                 return (T)this;
             }
@@ -269,14 +269,14 @@ namespace QuanLyTaiSan.Entities
         {
             //DO NOT THING, JUST ACTIVATE ENTITY FRAMEWORK TO LOAD
         }
-        public static List<T> convert(int[] id_array)
+        public static List<T> convert(Guid[] id_array)
         {
             return convert(id_array.ToList());
         }
-        public static List<T> convert(List<int> id_array)
+        public static List<T> convert(List<Guid> id_array)
         {
             List<T> re = new List<T>();
-            foreach (int item in id_array)
+            foreach (Guid item in id_array)
             {
                 T tmp = getById(item);
                 if (tmp != null)
@@ -313,11 +313,11 @@ namespace QuanLyTaiSan.Entities
                 return;
             }
             //SWAP order value
-            int? order_1 = this.order == null ? this.id : this.order;
-            int? order_2 = prev.order == null ? prev.id : prev.order;
+            //int? order_1 = this.order == null ? this.id : this.order;
+            //int? order_2 = prev.order == null ? prev.id : prev.order;
 
-            this.order = order_2;
-            prev.order = order_1;
+            //this.order = order_2;
+            //prev.order = order_1;
 
             this.update();
             prev.update();
@@ -462,7 +462,7 @@ namespace QuanLyTaiSan.Entities
         public void onAfterAdded()
         {
             //AUTO ORDER
-            this.order = this.id;
+            //this.order = this.id;
 
             //LOGHETHONG
             //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)

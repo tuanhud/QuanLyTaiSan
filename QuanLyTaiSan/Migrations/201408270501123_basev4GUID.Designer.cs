@@ -7,13 +7,13 @@ namespace QuanLyTaiSan.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class basev3_22082014 : IMigrationMetadata
+    public sealed partial class basev4GUID : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(basev3_22082014));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(basev4GUID));
         
         string IMigrationMetadata.Id
         {
-            get { return "201408211701089_basev3_22082014"; }
+            get { return "201408270501123_basev4GUID"; }
         }
         
         string IMigrationMetadata.Source

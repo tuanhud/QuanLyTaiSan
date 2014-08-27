@@ -156,7 +156,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            int id = objQuanTriVien.id;
+            Guid id = objQuanTriVien.id;
             try
             {
 
@@ -189,7 +189,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
             }
         }
 
-        private void reLoadAndFocused(int _id)
+        private void reLoadAndFocused(Guid _id)
         {
             try
             {
@@ -206,7 +206,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            int id = objQuanTriVien.id;
+            Guid id = objQuanTriVien.id;
             PhanCong(false);
             int rowHandle = gridViewQuanTriVien.LocateByValue(colid.FieldName, id);
             if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
