@@ -99,7 +99,7 @@ namespace WebQLPH
             QuanTriVien _QuanTriVien = new QuanTriVien();
             _QuanTriVien = QuanTriVien.getById(id);
             if (PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
-                return "<li><a href=\"#\" onclick=\"ShowCapNhat(" + Eval("id") + "," + Eval("group_id") + ");\" data-target=\"#PopupQuanLyTaiKhoan\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-pencil\"></span>&nbsp;Cập nhật</a></li>";
+                return "<li><a href=\"#\" onclick=\"ShowCapNhat('" + Eval("id") + "','" + Eval("group_id") + "');\" data-target=\"#PopupQuanLyTaiKhoan\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-pencil\"></span>&nbsp;Cập nhật</a></li>";
             return "";
         }
 

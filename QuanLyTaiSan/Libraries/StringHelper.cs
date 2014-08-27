@@ -261,12 +261,26 @@ namespace QuanLyTaiSan.Libraries
 
         public static String ConvertRNToBR(string content)
         {
-            return content.Replace("\r\n", "<br />");
+            try
+            {
+                return content.Replace("\r\n", "<br />");
+            }
+            catch
+            {
+                return "";
+            }
         }
 
         public static String ConvertBRToRN(string content)
         {
-            return content.Replace("<br />", "\r\n");
+            try
+            {
+                return content.Replace("<br />", "\r\n");
+            }
+            catch
+            {
+                return "";
+            }
         }
 
         public static String SplitCharacter(string content, int number)
