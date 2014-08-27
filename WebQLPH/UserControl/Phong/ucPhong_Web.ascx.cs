@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.Phong
 {
     public partial class ucPhong_Web : System.Web.UI.UserControl
     {
-        public int idPhong = -1;
+        public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<QuanLyTaiSan.Entities.Phong> listPhong = new List<QuanLyTaiSan.Entities.Phong>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
@@ -50,15 +51,15 @@ namespace WebQLPH.UserControl.Phong
                             node.Focus();
                             if (Object.Equals(node.GetValue("loai").ToString(), typeof(CoSo).Name))
                             {
-                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), 1);
+                                LoadDanhSachPhong(GUID.From(node.GetValue("id")), 1);
                             }
                             else if (Object.Equals(node.GetValue("loai").ToString(), typeof(Dayy).Name))
                             {
-                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), 2);
+                                LoadDanhSachPhong(GUID.From(node.GetValue("id")), 2);
                             }
                             else if (Object.Equals(node.GetValue("loai").ToString(), typeof(Tang).Name))
                             {
-                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), 3);
+                                LoadDanhSachPhong(GUID.From(node.GetValue("id")), 3);
                             }
                             else
                                 Response.Redirect(Request.Url.AbsolutePath);
@@ -72,10 +73,10 @@ namespace WebQLPH.UserControl.Phong
                     }
                     if (Request.QueryString["id"] != null)
                     {
-                        idPhong = -1;
+                        idPhong = Guid.Empty;
                         try
                         {
-                            idPhong = Int32.Parse(Request.QueryString["id"].ToString());
+                            idPhong = GUID.From(Request.QueryString["id"]);
                         }
                         catch
                         {
@@ -166,26 +167,26 @@ namespace WebQLPH.UserControl.Phong
         {
             if (listViTriHienThi.Count > 0)
             {
-                if (ASPxTreeList_ViTri.FocusedNode != null && ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")) > 0)
+                if (ASPxTreeList_ViTri.FocusedNode != null && ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")) != Guid.Empty)
                 {
                     if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(CoSo).Name))
                     {
-                        LoadDanhSachPhong(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 1);
+                        LoadDanhSachPhong(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 1);
                     }
                     else if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Dayy).Name))
                     {
-                        LoadDanhSachPhong(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 2);
+                        LoadDanhSachPhong(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 2);
                     }
                     else if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Tang).Name))
                     {
-                        LoadDanhSachPhong(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
+                        LoadDanhSachPhong(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
                     }
                     ClearData();
                 }
             }
         }
 
-        private void LoadDanhSachPhong(int id, int type)
+        private void LoadDanhSachPhong(Guid id, int type)
         {
             switch (type)
             {

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.ViTri
 {
@@ -81,7 +82,7 @@ namespace WebQLPH.UserControl.ViTri
             LabelThongBao.Text = strError;
         }
 
-        private void LoadDataObj(int id, int type)
+        private void LoadDataObj(Guid id, int type)
         {
             switch (type)
             { 
@@ -164,19 +165,19 @@ namespace WebQLPH.UserControl.ViTri
         {
             if (listViTriHienThi.Count > 0)
             {
-                if (ASPxTreeList_ViTri.FocusedNode != null && ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")) > 0)
+                if (ASPxTreeList_ViTri.FocusedNode != null && ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")) != Guid.Empty)
                 {
                     if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(CoSo).Name))
                     {
-                        LoadDataObj(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 1);
+                        LoadDataObj(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 1);
                     }
                     else if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Dayy).Name))
                     {
-                        LoadDataObj(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 2);
+                        LoadDataObj(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 2);
                     }
                     else if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Tang).Name))
                     {
-                        LoadDataObj(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
+                        LoadDataObj(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
                     }
                 }
             }

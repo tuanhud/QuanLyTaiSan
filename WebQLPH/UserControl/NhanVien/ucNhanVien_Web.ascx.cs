@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.NhanVien
 {
@@ -12,7 +13,7 @@ namespace WebQLPH.UserControl.NhanVien
     {
         List<NhanVienPT> listNhanVienPT = null;
         NhanVienPT objNhanVienPT = null;
-        public int idNhanVien = -1;
+        public Guid idNhanVien = Guid.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,10 +34,10 @@ namespace WebQLPH.UserControl.NhanVien
 
                 if (Request.QueryString["id"] != null)
                 {
-                    idNhanVien = -1;
+                    idNhanVien = Guid.Empty;
                     try
                     {
-                        idNhanVien = Int32.Parse(Request.QueryString["id"].ToString());
+                        idNhanVien = GUID.From(Request.QueryString["id"]);
                     }
                     catch
                     {

@@ -6,16 +6,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.SuCo
 {
     public partial class ucSuCo_Web : System.Web.UI.UserControl
     {
-        public int idSuCo = -1;
+        public Guid idSuCo = Guid.Empty;
         List<SuCoPhong> listSuCoPhong = new List<SuCoPhong>();
         SuCoPhong objSuCoPhong = new SuCoPhong();
 
-        public int idPhong = -1;
+        public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
 
@@ -77,10 +78,10 @@ namespace WebQLPH.UserControl.SuCo
 
                 if (Request.QueryString["id"] != null)
                 {
-                    idSuCo = -1;
+                    idSuCo = Guid.Empty;
                     try
                     {
-                        idSuCo = Int32.Parse(Request.QueryString["id"].ToString());
+                        idSuCo = GUID.From(Request.QueryString["id"]);
                     }
                     catch
                     {
@@ -140,7 +141,7 @@ namespace WebQLPH.UserControl.SuCo
             DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
             if (node != null)
             {
-                idPhong = Convert.ToInt32(node.GetValue("id").ToString());
+                idPhong = GUID.From(node.GetValue("id"));
                 node.Focus();
                 return true;
             }

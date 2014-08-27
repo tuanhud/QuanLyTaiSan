@@ -137,7 +137,7 @@ namespace WebQLPH
             {
 
                 PhieuMuonPhong _PhieuMuonPhong = new PhieuMuonPhong();
-                _PhieuMuonPhong = PhieuMuonPhong.getById(Convert.ToInt32(HiddenFieldID.Value));
+                _PhieuMuonPhong = PhieuMuonPhong.getById(GUID.From(HiddenFieldID.Value));
                 _PhieuMuonPhong.trangthai = Convert.ToInt32(DropDownListTrangThai.SelectedValue);
                 _PhieuMuonPhong.ghichu = TextBoxGhiChu.Text;
                 QuanTriVien _QuanTriVien = new QuanTriVien();

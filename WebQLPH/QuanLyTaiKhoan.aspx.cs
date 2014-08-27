@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH
 {
@@ -45,7 +46,7 @@ namespace WebQLPH
                     {
                         if (Request["op"].Equals("xoa"))
                         {
-                            int id = Convert.ToInt32(Request["id"].ToString());
+                            Guid id = GUID.From(Request["id"]);
                             QuanTriVien _QuanTriVien = new QuanTriVien();
                             _QuanTriVien = QuanTriVien.getById(id);
 
@@ -94,7 +95,7 @@ namespace WebQLPH
 
         protected string _QuyenSuaQuanTriVien()
         {
-            int id = Convert.ToInt32(Eval("id").ToString());
+            Guid id = GUID.From(Eval("id"));
             QuanTriVien _QuanTriVien = new QuanTriVien();
             _QuanTriVien = QuanTriVien.getById(id);
             if (PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
@@ -104,7 +105,7 @@ namespace WebQLPH
 
         protected string _QuyenXoaQuanTriVien()
         {
-            int id = Convert.ToInt32(Eval("id").ToString());
+            Guid id = GUID.From(Eval("id"));
             QuanTriVien _QuanTriVien = new QuanTriVien();
             _QuanTriVien = QuanTriVien.getById(id);
             if (PermissionHelper.QuyenXoaQuanTriVien(_QuanTriVien))
@@ -127,7 +128,7 @@ namespace WebQLPH
         {
             try
             {
-                int id = Convert.ToInt32(HiddenFieldID.Value.ToString());
+                Guid id = GUID.From(HiddenFieldID.Value);
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien = QuanTriVien.getById(id);
 
@@ -140,7 +141,7 @@ namespace WebQLPH
 
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
+                _QuanTriVien.group_id = GUID.From(DropDownListNhom.SelectedValue);
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if (!TextBoxMatKhau.Text.Equals(string.Empty))
                     _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
@@ -178,7 +179,7 @@ namespace WebQLPH
                 QuanTriVien _QuanTriVien = new QuanTriVien();
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group = Group.getById(Convert.ToInt32(DropDownListNhom.SelectedValue));
+                _QuanTriVien.group = Group.getById(GUID.From(DropDownListNhom.SelectedValue));
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
                 _QuanTriVien.donvi = TextBoxKhoa.Text;

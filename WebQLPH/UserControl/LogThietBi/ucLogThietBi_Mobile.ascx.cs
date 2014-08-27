@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.LogThietBi
 {
@@ -22,10 +23,10 @@ namespace WebQLPH.UserControl.LogThietBi
         { 
             if (Request.QueryString["id"] != null)
             {
-                int id = -1;
+                Guid id = Guid.Empty;
                 try
                 {
-                    id = Int32.Parse(Request.QueryString["id"].ToString());
+                    id = GUID.From(Request.QueryString["id"]);
                 }
                 catch
                 {
@@ -44,10 +45,10 @@ namespace WebQLPH.UserControl.LogThietBi
                     {
                         if (Request.QueryString["idLog"] != null)
                         {
-                            int idLog = -1;
+                            Guid idLog = Guid.Empty;
                             try
                             {
-                                idLog = Int32.Parse(Request.QueryString["idLog"].ToString());
+                                idLog = GUID.From(Request.QueryString["idLog"]);
                             }
                             catch
                             {

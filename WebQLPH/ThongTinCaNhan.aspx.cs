@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH
 {
@@ -75,7 +76,7 @@ namespace WebQLPH
             QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
             _QuanTriVien.hoten = TextBoxHoTen.Text;
             _QuanTriVien.email = TextBoxEmail.Text;
-            _QuanTriVien.group_id = Convert.ToInt32(DropDownListNhom.SelectedValue);
+            _QuanTriVien.group_id = GUID.From(DropDownListNhom.SelectedValue);
             if (!TextBoxMatKhauMoi.Text.Equals("")) _QuanTriVien.hashPassword(TextBoxMatKhauMoi.Text);
             _QuanTriVien.donvi = TextBoxDonVi.Text;
             _QuanTriVien.mota = TextBoxGhiChu.Text;

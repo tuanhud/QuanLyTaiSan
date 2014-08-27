@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.LoaiThietBis
 {
@@ -30,9 +31,9 @@ namespace WebQLPH.UserControl.LoaiThietBis
                 {
                     try
                     {
-                        string key = Request.QueryString["key"].ToString();
+                        string key = Request.QueryString["key"];
                         if (FindNodeTreeList(key))
-                            LoadDataObj(Convert.ToInt32(key));
+                            LoadDataObj(GUID.From(key));
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
                     }
@@ -69,7 +70,7 @@ namespace WebQLPH.UserControl.LoaiThietBis
             LabelThongBao.Text = strError;
         }
 
-        private void LoadDataObj(int id)
+        private void LoadDataObj(Guid id)
         {
             objLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getById(id);
             if (objLoaiThietBi != null)
@@ -107,9 +108,9 @@ namespace WebQLPH.UserControl.LoaiThietBis
         {
             if (listLoaiThietBi.Count > 0)
             {
-                if (ASPxTreeList_LoaiThietBi.FocusedNode != null && Convert.ToInt32(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")) > 0)
+                if (ASPxTreeList_LoaiThietBi.FocusedNode != null && GUID.From(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")) != Guid.Empty)
                 {
-                    LoadDataObj(Convert.ToInt32(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")));
+                    LoadDataObj(GUID.From(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")));
                 }
             }
         }

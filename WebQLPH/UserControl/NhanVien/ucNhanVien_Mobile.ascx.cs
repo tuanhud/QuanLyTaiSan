@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.NhanVien
 {
@@ -24,10 +25,10 @@ namespace WebQLPH.UserControl.NhanVien
             {
                 if (Request.QueryString["id"] != null)
                 {
-                    int id = -1;
+                    Guid id = Guid.Empty;
                     try
                     {
-                        id = Int32.Parse(Request.QueryString["id"].ToString());
+                        id = GUID.From(Request.QueryString["id"]);
                     }
                     catch
                     {

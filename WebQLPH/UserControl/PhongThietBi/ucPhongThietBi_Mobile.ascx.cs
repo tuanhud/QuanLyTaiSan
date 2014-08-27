@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.PhongThietBi
 {
@@ -46,15 +47,15 @@ namespace WebQLPH.UserControl.PhongThietBi
                         DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                         if (node != null)
                         {
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(Convert.ToInt32(node.GetValue("id").ToString()));
+                            objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
                                 if (Request.QueryString["id"] != null)
                                 {
-                                    int id = -1;
+                                    Guid id = Guid.Empty;
                                     try
                                     {
-                                        id = Convert.ToInt32(Request.QueryString["id"].ToString());
+                                        id = GUID.From(Request.QueryString["id"]);
                                     }
                                     catch
                                     {

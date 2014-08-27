@@ -22,7 +22,7 @@
                         <div class="panel-heading">
                             Vị trí
                         </div>
-                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id_c" ParentFieldName="id_p" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback">
+                        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id" ParentFieldName="parent_id" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" EnableTheming="True" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback">
                             <Columns>
                                 <dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0">
                                 </dx:TreeListTextColumn>

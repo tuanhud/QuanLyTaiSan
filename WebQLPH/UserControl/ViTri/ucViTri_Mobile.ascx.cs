@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.ViTri
 {
@@ -43,7 +44,7 @@ namespace WebQLPH.UserControl.ViTri
                     DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                     if (node != null)
                     {
-                        int id = Convert.ToInt32(node.GetValue("id"));
+                        Guid id = GUID.From(node.GetValue("id"));
                         string type = node.GetValue("loai").ToString();
                         if (type.Equals(typeof(CoSo).Name))
                         {

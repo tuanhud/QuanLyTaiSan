@@ -26,7 +26,7 @@
                     <div class="panel-heading">
                         Vị trí
                     </div>
-                    <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" KeyFieldName="id_c" ParentFieldName="id_p" AutoGenerateColumns="False" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared">
+                    <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" KeyFieldName="id" ParentFieldName="parent_id" AutoGenerateColumns="False" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared">
                         <Columns>
                             <dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0" ShowInCustomizationForm="True">
                             </dx:TreeListTextColumn>

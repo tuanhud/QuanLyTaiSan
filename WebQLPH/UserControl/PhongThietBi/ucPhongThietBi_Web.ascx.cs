@@ -7,12 +7,13 @@ using System.Web.UI.WebControls;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
 using DevExpress.Web.ASPxEditors;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.PhongThietBi
 {
     public partial class ucPhongThietBi_Web : System.Web.UI.UserControl
     {
-        public int idThietBi = -1;
+        public Guid idThietBi = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<ChiTietTBHienThi> listThietBiCuaPhong = new List<ChiTietTBHienThi>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
@@ -48,16 +49,16 @@ namespace WebQLPH.UserControl.PhongThietBi
                         if (node != null)
                         {
                             node.Focus();
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(Convert.ToInt32(node.GetValue("id").ToString()));
+                            objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
                                 LoadDataObjPhong();
                                 if (Request.QueryString["id"] != null)
                                 {
-                                    idThietBi = -1;
+                                    idThietBi = Guid.Empty;
                                     try
                                     {
-                                        idThietBi = Convert.ToInt32(Request.QueryString["id"].ToString());
+                                        idThietBi = GUID.From(Request.QueryString["id"]);
                                     }
                                     catch
                                     {
@@ -124,7 +125,7 @@ namespace WebQLPH.UserControl.PhongThietBi
                     {
                         if (Object.Equals(ASPxTreeList_ViTri.FocusedNode.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
                         {
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(Convert.ToInt32(ASPxTreeList_ViTri.FocusedNode.GetValue("id").ToString()));
+                            objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")));
                             if (objPhong != null)
                             {
                                 LoadDataObjPhong();

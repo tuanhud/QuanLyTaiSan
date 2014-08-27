@@ -6,12 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.ThietBi
 {
     public partial class ucThietBi_Mobile : System.Web.UI.UserControl
     {
-        public int idThietBi = -1;
+        public Guid idThietBi = Guid.Empty;
         public string key = "";
         public string p1 = "Thiết bị quản lý theo số lượng";
         public string p2 = "Thiết bị quản lý theo cá thể";
@@ -56,10 +57,10 @@ namespace WebQLPH.UserControl.ThietBi
                 }
                 if (Request.QueryString["id"] != null)
                 {
-                    idThietBi = -1;
+                    idThietBi = Guid.Empty;
                     try
                     {
-                        idThietBi = Int32.Parse(Request.QueryString["id"].ToString());
+                        idThietBi = GUID.From(Request.QueryString["id"]);
                     }
                     catch
                     {

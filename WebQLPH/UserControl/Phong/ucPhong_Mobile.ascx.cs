@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
+using QuanLyTaiSan.Libraries;
 
 namespace WebQLPH.UserControl.Phong
 {
     public partial class ucPhong_Mobile : System.Web.UI.UserControl
     {
-        public int idPhong = -1;
+        public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<QuanLyTaiSan.Entities.Phong> listPhong = new List<QuanLyTaiSan.Entities.Phong>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
@@ -48,10 +49,10 @@ namespace WebQLPH.UserControl.Phong
                         {
                             if (Request.QueryString["id"] != null)
                             {
-                                idPhong = -1;
+                                idPhong = Guid.Empty;
                                 try
                                 {
-                                    idPhong = Int32.Parse(Request.QueryString["id"].ToString());
+                                    idPhong = GUID.From(Request.QueryString["id"]);
                                 }
                                 catch
                                 {
@@ -118,7 +119,7 @@ namespace WebQLPH.UserControl.Phong
                             }
                             else
                             {
-                                LoadDanhSachPhong(Convert.ToInt32(node.GetValue("id").ToString()), node.GetValue("loai").ToString());
+                                LoadDanhSachPhong(GUID.From(node.GetValue("id")), node.GetValue("loai").ToString());
                                 Panel_DanhSachPhong.Visible = true;
                             }
                         }
@@ -143,7 +144,7 @@ namespace WebQLPH.UserControl.Phong
             }
         }
 
-        private void LoadDanhSachPhong(int id, string type)
+        private void LoadDanhSachPhong(Guid id, string type)
         {
             if (type.Equals(typeof(CoSo).Name))
             {
