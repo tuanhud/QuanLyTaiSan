@@ -40,6 +40,15 @@ namespace WebQLPH.UserControl.LoaiThietBis {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
+        /// ucLoaiThietBi_BreadCrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebQLPH.UserControl.LoaiThietBi.ucLoaiThietBi_BreadCrumb ucLoaiThietBi_BreadCrumb;
+        
+        /// <summary>
         /// Panel_TreeViTri control.
         /// </summary>
         /// <remarks>
@@ -76,40 +85,40 @@ namespace WebQLPH.UserControl.LoaiThietBis {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
-        /// TextBox_Ten control.
+        /// Label_TenLoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
+        protected global::System.Web.UI.WebControls.Label Label_TenLoai;
         
         /// <summary>
-        /// TextBox_KieuQuanLy control.
+        /// Label_KieuQuanLy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_KieuQuanLy;
+        protected global::System.Web.UI.WebControls.Label Label_KieuQuanLy;
         
         /// <summary>
-        /// TextBox_Mota control.
+        /// Label_MoTa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Mota;
+        protected global::System.Web.UI.WebControls.Label Label_MoTa;
         
         /// <summary>
-        /// TextBox_Thuoc control.
+        /// Label_Thuoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
+        protected global::System.Web.UI.WebControls.Label Label_Thuoc;
         
         /// <summary>
         /// Button_Back control.

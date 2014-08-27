@@ -4,14 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
 
 namespace WebQLPH.UserControl.LoaiThietBis
 {
     public partial class ucLoaiThietBi_Web : System.Web.UI.UserControl
     {
-        List<LoaiThietBi> ListLoaiThietBi = new List<LoaiThietBi>();
-        LoaiThietBi objLoaiThietBi = null;
+        List<QuanLyTaiSan.Entities.LoaiThietBi> listLoaiThietBi = new List<QuanLyTaiSan.Entities.LoaiThietBi>();
+        QuanLyTaiSan.Entities.LoaiThietBi objLoaiThietBi = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,14 +19,33 @@ namespace WebQLPH.UserControl.LoaiThietBis
 
         public void LoadData()
         {
-            ListLoaiThietBi = LoaiThietBi.getAll();
-            if (ListLoaiThietBi.Count > 0)
+            listLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getAll();
+            if (listLoaiThietBi.Count > 0)
             {
                 Panel_Chinh.Visible = true;
-                ClearData();
-                ASPxTreeList_LoaiThietBi.DataSource = ListLoaiThietBi;
+                ASPxTreeList_LoaiThietBi.DataSource = listLoaiThietBi;
                 ASPxTreeList_LoaiThietBi.DataBind();
-                LoadFocusedNodeData();
+
+                if (Request.QueryString["key"] != null)
+                {
+                    try
+                    {
+                        string key = Request.QueryString["key"].ToString();
+                        if (FindNodeTreeList(key))
+                            LoadDataObj(Convert.ToInt32(key));
+                        else
+                            Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                        return;
+                    }
+                }
+                else
+                {
+                    LoadFocusedNodeData();
+                }
             }
             else
             {
@@ -39,10 +57,10 @@ namespace WebQLPH.UserControl.LoaiThietBis
         private void ClearData()
         {
             Label_ThongTin.Text = "Thông tin";
-            TextBox_Ten.Text = "";
-            TextBox_Thuoc.Text = "";
-            TextBox_KieuQuanLy.Text = "";
-            TextBox_Mota.Text = "";
+            Label_TenLoai.Text = "";
+            Label_Thuoc.Text = "";
+            Label_KieuQuanLy.Text = "";
+            Label_MoTa.Text = "";
         }
 
         private void SetError(string strError)
@@ -53,14 +71,14 @@ namespace WebQLPH.UserControl.LoaiThietBis
 
         private void LoadDataObj(int id)
         {
-            objLoaiThietBi = LoaiThietBi.getById(id);
+            objLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getById(id);
             if (objLoaiThietBi != null)
             {
                 Label_ThongTin.Text = string.Format("Thông tin {0}", objLoaiThietBi.ten);
-                TextBox_Ten.Text = objLoaiThietBi.ten;
-                TextBox_KieuQuanLy.Text = objLoaiThietBi.loaichung == true ? "Theo số lượng" : "Theo cá thể";
-                TextBox_Mota.Text = objLoaiThietBi.mota;
-                TextBox_Thuoc.Text = objLoaiThietBi.parent_id.Equals(null) ? "[Không thuộc loại nào]" : getParent(Convert.ToInt32(objLoaiThietBi.parent_id));
+                Session["TenLoaiThietBi"] = Label_TenLoai.Text = objLoaiThietBi.ten;
+                Label_KieuQuanLy.Text = objLoaiThietBi.loaichung == true ? "Theo số lượng" : "Theo cá thể";
+                Label_MoTa.Text = objLoaiThietBi.mota;
+                Label_Thuoc.Text = objLoaiThietBi.parent_id.Equals(null) ? "[Không thuộc loại nào]" : objLoaiThietBi.parent.ten;
             }
             else
             {
@@ -69,26 +87,41 @@ namespace WebQLPH.UserControl.LoaiThietBis
             }
         }
 
-        protected string getParent(int parent_id)
-        {
-            LoaiThietBi _objLoaiThietBi = LoaiThietBi.getById(parent_id);
-            return _objLoaiThietBi.ten;
-        }
-
         protected void ASPxTreeList_LoaiThietBi_FocusedNodeChanged(object sender, EventArgs e)
         {
             LoadFocusedNodeData();
         }
 
+        private Boolean FindNodeTreeList(string key)
+        {
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue(key);
+            if (node != null)
+            {
+                node.Focus();
+                return true;
+            }
+            return false;
+        }
+
         private void LoadFocusedNodeData()
         {
-            if (ListLoaiThietBi.Count > 0)
+            if (listLoaiThietBi.Count > 0)
             {
                 if (ASPxTreeList_LoaiThietBi.FocusedNode != null && Convert.ToInt32(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")) > 0)
                 {
                     LoadDataObj(Convert.ToInt32(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")));
                 }
             }
+        }
+
+        protected void ASPxTreeList_LoaiThietBi_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
+        {
+            string key = e.Argument.ToString();
+            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue(key);
+            if (node != null)
+                e.Result = Request.Url.AbsolutePath + "?key=" + key;
+            else
+                e.Result = Request.Url.AbsolutePath;
         }
     }
 }

@@ -48,8 +48,8 @@ namespace WebQLPH.UserControl
                 foreach (QuanLyTaiSan.Entities.ThietBi ten_thietbi in ten_thietbis)
                     Searchs.Add(new DoSearch(ten_thietbi.id, ten_thietbi.ten, "THIETBI"));
 
-                var ten_loaithietbis = LoaiThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (LoaiThietBi ten_loaithietbi in ten_loaithietbis)
+                var ten_loaithietbis = QuanLyTaiSan.Entities.LoaiThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
+                foreach (QuanLyTaiSan.Entities.LoaiThietBi ten_loaithietbi in ten_loaithietbis)
                     Searchs.Add(new DoSearch(ten_loaithietbi.id, ten_loaithietbi.ten, "LOAITHIETBI"));
             }
             catch (Exception ex)

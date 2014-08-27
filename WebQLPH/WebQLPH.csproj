@@ -148,6 +148,7 @@
     <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
+    <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
@@ -157,6 +158,7 @@
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
+    <Content Include="UserControl\SuCo\ucSuCo_BreadCrumb.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_Mobile.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_Web.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_BreadCrumb.ascx" />
@@ -298,6 +300,13 @@
     <Compile Include="ThongTinCaNhan.aspx.designer.cs">
       <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx.cs">
+      <DependentUpon>ucLoaiThietBi_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucLoaiThietBi_BreadCrumb.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx.cs">
       <DependentUpon>ucLoaiThietBi_Mobile.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -360,6 +369,13 @@
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SuCo\ucSuCo_BreadCrumb.ascx.cs">
+      <DependentUpon>ucSuCo_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SuCo\ucSuCo_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucSuCo_BreadCrumb.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\SuCo\ucSuCo_Mobile.ascx.cs">
       <DependentUpon>ucSuCo_Mobile.ascx</DependentUpon>

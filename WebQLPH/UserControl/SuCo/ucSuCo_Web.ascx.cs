@@ -19,8 +19,6 @@ namespace WebQLPH.UserControl.SuCo
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -51,26 +49,10 @@ namespace WebQLPH.UserControl.SuCo
                         }
                         if (FindNodeTreeList(key))
                         {
-                            if (Request.QueryString["pid"] != null)
+                            objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
+                            if (objPhong != null)
                             {
-                                int idPhong = -1;
-                                try
-                                {
-                                    idPhong = Int32.Parse(Request.QueryString["pid"].ToString());
-                                }
-                                catch
-                                {
-                                    Response.Redirect(Request.Url.AbsolutePath);
-                                }
-                                objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
-                                if (objPhong != null)
-                                {
-                                    LoadDataObjPhong();
-                                }
-                                else
-                                {
-                                    Response.Redirect(Request.Url.AbsolutePath);
-                                }
+                                LoadDataObjPhong();
                             }
                             else
                             {
@@ -113,11 +95,10 @@ namespace WebQLPH.UserControl.SuCo
                         PanelThongBao_SuCo.Visible = false;
                         Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_SuCo);
-                        TextBox_MaSuCo.Text = objSuCoPhong.subId;
-                        TextBox_TenSuCo.Text = objSuCoPhong.ten;
-                        //TextBox_LoaiSuCo.Text = objSuCoPhong.loaithietbi != null ? objSuCoPhong.loaithietbi.ten : "";
-                        //TextBox_NgayMua.Text = objSuCoPhong.ngaymua != null ? objSuCoPhong.ngaymua.ToString() : "";
-                        TextBox_MoTaSuCo.Text = objSuCoPhong.mota;
+                        Session["TenSuCo"] = Label_TenSuCo.Text = objSuCoPhong.ten;
+                        Label_TinhTrang.Text = objSuCoPhong.tinhtrang.value;
+                        Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();
+                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objSuCoPhong.mota);
                     }
                     else
                     {
@@ -141,7 +122,12 @@ namespace WebQLPH.UserControl.SuCo
 
         private void ClearData()
         {
+            Label_ThongTinSuCo.Text = "";
             
+            Label_TenSuCo.Text = "";
+            Label_TinhTrang.Text = "";
+            Label_NgayTao.Text = "";
+            Label_MoTa.Text = "";
         }
 
         private void LoadFocusedNodeData()
@@ -154,6 +140,7 @@ namespace WebQLPH.UserControl.SuCo
             DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
             if (node != null)
             {
+                idPhong = Convert.ToInt32(node.GetValue("id").ToString());
                 node.Focus();
                 return true;
             }
@@ -167,7 +154,7 @@ namespace WebQLPH.UserControl.SuCo
             if (node != null)
             {
                 if (Object.Equals(node.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
-                    e.Result = Request.Url.AbsolutePath + "?key=" + key + "&pid=" + node.GetValue("id").ToString();
+                    e.Result = Request.Url.AbsolutePath + "?key=" + key;
                 else
                     e.Result = "";
             }
@@ -189,6 +176,7 @@ namespace WebQLPH.UserControl.SuCo
         {
             if (objPhong != null)
             {
+                Session["TenPhong"] = objPhong.ten;
                 listSuCoPhong = objPhong.sucophongs.OrderByDescending(c => c.ngay).ToList();
                 var bind = listSuCoPhong.Select(item => new
                 {

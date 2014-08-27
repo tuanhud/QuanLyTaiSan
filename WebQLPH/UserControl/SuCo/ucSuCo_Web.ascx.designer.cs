@@ -40,6 +40,15 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
+        /// ucSuCo_BreadCrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebQLPH.UserControl.SuCo.ucSuCo_BreadCrumb ucSuCo_BreadCrumb;
+        
+        /// <summary>
         /// ASPxTreeList_ViTri control.
         /// </summary>
         /// <remarks>
@@ -121,49 +130,40 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_SuCo;
         
         /// <summary>
-        /// TextBox_MaSuCo control.
+        /// Label_TenSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MaSuCo;
+        protected global::System.Web.UI.WebControls.Label Label_TenSuCo;
         
         /// <summary>
-        /// TextBox_TenSuCo control.
+        /// Label_TinhTrang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_TenSuCo;
+        protected global::System.Web.UI.WebControls.Label Label_TinhTrang;
         
         /// <summary>
-        /// TextBox_LoaiSuCo control.
+        /// Label_NgayTao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_LoaiSuCo;
+        protected global::System.Web.UI.WebControls.Label Label_NgayTao;
         
         /// <summary>
-        /// TextBox_NgayMua control.
+        /// Label_MoTa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_NgayMua;
-        
-        /// <summary>
-        /// TextBox_MoTaSuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTaSuCo;
+        protected global::System.Web.UI.WebControls.Label Label_MoTa;
         
         /// <summary>
         /// Label_SuCo control.

@@ -130,49 +130,49 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_ThietBi;
         
         /// <summary>
-        /// TextBox_MaThietBi control.
+        /// Label_MaThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MaThietBi;
+        protected global::System.Web.UI.WebControls.Label Label_MaThietBi;
         
         /// <summary>
-        /// TextBox_TenThietBi control.
+        /// Label_TenThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_TenThietBi;
+        protected global::System.Web.UI.WebControls.Label Label_TenThietBi;
         
         /// <summary>
-        /// TextBox_LoaiThietBi control.
+        /// Label_LoaiThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_LoaiThietBi;
+        protected global::System.Web.UI.WebControls.Label Label_LoaiThietBi;
         
         /// <summary>
-        /// TextBox_NgayMua control.
+        /// Label_NgayMua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_NgayMua;
+        protected global::System.Web.UI.WebControls.Label Label_NgayMua;
         
         /// <summary>
-        /// TextBox_MoTaThietBi control.
+        /// Label_MoTa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTaThietBi;
+        protected global::System.Web.UI.WebControls.Label Label_MoTa;
         
         /// <summary>
         /// Label_ThietBi control.
