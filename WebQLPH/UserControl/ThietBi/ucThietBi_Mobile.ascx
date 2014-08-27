@@ -23,13 +23,13 @@
             <div class="panel-heading">
                 Thiết bị
             </div>
-            <dx:ASPxTreeList ID="ASPxTreeList_ThietBi" runat="server" KeyFieldName="ID" AutoGenerateColumns="False" Theme="MetropolisBlue" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ThietBi_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ThietBi_FocusedNodeChanged">
+            <dx:ASPxTreeList ID="ASPxTreeList_ThietBi" runat="server" KeyFieldName="ID" AutoGenerateColumns="False" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ThietBi_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ThietBi_FocusedNodeChanged">
                 <Columns>
                     <dx:TreeListTextColumn Caption="ID" FieldName="id" Name="colid" VisibleIndex="0" ShowInCustomizationForm="True" Visible="false"></dx:TreeListTextColumn>
                     <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="name" Name="colname" VisibleIndex="1" ShowInCustomizationForm="True">
                     </dx:TreeListTextColumn>
                 </Columns>
-                <Settings ShowTreeLines="False" SuppressOuterGridLines="true" />
+                <Settings ShowTreeLines="true" SuppressOuterGridLines="true" ShowColumnHeaders="false" />
                 <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                 <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                 <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
@@ -95,50 +95,44 @@
                 </asp:Panel>
 
                 <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
-                    <div class="center200">
-                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="200px">
-                            <Styles>
-                                <ImageArea BackColor="White"></ImageArea>
-                            </Styles>
-                        </dx:ASPxImageSlider>
-                    </div>
-                    <br />
-                    <div>
-                        <div class="row">
-                            <div class="col-lg-4">Mã thiết bị</div>
-                            <div class="col-lg-8">
-                                <asp:TextBox ID="TextBox_MaThietBi" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-lg-4">Tên thiết bị</div>
-                            <div class="col-lg-8">
-                                <asp:TextBox ID="TextBox_TenThietBi" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-lg-4">Loại thiết bị</div>
-                            <div class="col-lg-8">
-                                <asp:TextBox ID="TextBox_LoaiThietBi" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-lg-4">Ngày mua</div>
-                            <div class="col-lg-8">
-                                <asp:TextBox ID="TextBox_NgayMua" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-lg-4">Mô tả</div>
-                            <div class="col-lg-8">
-                                <asp:TextBox ID="TextBox_MoTaThietBi" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td colspan="2">
+                                <div class="center200">
+                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="200px">
+                                        <Styles>
+                                            <ImageArea BackColor="White"></ImageArea>
+                                        </Styles>
+                                    </dx:ASPxImageSlider>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 120px" class="warning">Mã thiết bị</th>
+                            <td>
+                                <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <th class="warning">Tên thiết bị</th>
+                            <td>
+                                <asp:Label ID="Label_TenThietBi" runat="server" Text="Label"></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <th class="warning">Loại thiết bị</th>
+                            <td>
+                                <asp:Label ID="Label_LoaiThietBi" runat="server" Text="Label"></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <th class="warning">Ngày mua</th>
+                            <td>
+                                <asp:Label ID="Label_NgayMua" runat="server" Text="Label"></asp:Label></td>
+                        </tr>
+                        <tr>
+                            <th class="warning">Mô tả</th>
+                            <td>
+                                <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label></td>
+                        </tr>
+                    </table>
                 </asp:Panel>
                 <asp:Label ID="Label_ThietBi" runat="server" Visible="false"></asp:Label>
             </div>

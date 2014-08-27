@@ -10,14 +10,12 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="icon" href="favicon.ico" />
-    <title></title>
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
-
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/bootstrap-datetimepicker.css" />
     <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
@@ -28,11 +26,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/docs.min.js"></script>

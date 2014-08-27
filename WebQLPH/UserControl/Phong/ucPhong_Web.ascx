@@ -40,10 +40,10 @@
                             <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                             <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                             <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
-                                FocusedNodeChanged="function(s, e) { 
-                                var key = treeList.GetFocusedNodeKey();
-                                treeList.PerformCustomDataCallback(key); 
-                            }" />                            
+                                NodeClick="function(s, e) {
+	                                var key = e.nodeKey;
+                                    treeList.PerformCustomDataCallback(key); 
+                                }" />                            
                         </dx:ASPxTreeList>
                     </div>
                     <div class="panel panel-primary">

@@ -76,11 +76,11 @@ namespace WebQLPH.UserControl.ThietBi
                         PanelThongBao_ThietBi.Visible = false;
                         Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
-                        TextBox_MaThietBi.Text = objThietBi.subId;
-                        Session["TenThietBi"] = TextBox_TenThietBi.Text = objThietBi.ten;
-                        TextBox_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
-                        TextBox_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
-                        TextBox_MoTaThietBi.Text = objThietBi.mota;
+                        Label_MaThietBi.Text = objThietBi.subId;
+                        Session["TenThietBi"] = Label_TenThietBi.Text = objThietBi.ten;
+                        Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
+                        Label_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
+                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
                     }
                     else
                     {
@@ -103,10 +103,10 @@ namespace WebQLPH.UserControl.ThietBi
             PanelThongBao_ThietBi.Visible = false;
             Label_ThongTinThietBi.Text = "Thông tin thiết bị";
             QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_ThietBi);
-            TextBox_MaThietBi.Text = "";
-            TextBox_TenThietBi.Text = "";
-            TextBox_LoaiThietBi.Text = "";
-            TextBox_MoTaThietBi.Text = "";
+            Label_MaThietBi.Text = "";
+            Label_TenThietBi.Text = "";
+            Label_LoaiThietBi.Text = "";
+            Label_MoTa.Text = "";
         }
 
         private Boolean FindNodeTreeList(string key)

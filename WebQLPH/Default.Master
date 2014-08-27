@@ -10,14 +10,12 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="icon" href="favicon.ico" />
-    <title></title>
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
-
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/bootstrap-datetimepicker.css" />
     <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
@@ -75,9 +73,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li <%if (page.Equals("THONGTINCANHAN")) Response.Write("class=\"active\""); %>><a href="ThongTinCaNhan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
-                                    <%if(QuanLyTaiSan.Libraries.PermissionHelper.QuyenMuonPhong()){%>
+                                    <%if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenMuonPhong())
+                                      {%>
                                     <li <%if (page.Equals("QUANLYMUONPHONG")) Response.Write("class=\"active\""); %>><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Quản lý mượn phòng</a></li>
-                                    <%}if(QuanLyTaiSan.Libraries.PermissionHelper.QuyenHienThiQuanTriVien()){%>
+                                    <%} if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenHienThiQuanTriVien())
+                                      {%>
                                     <li <%if (page.Equals("QUANLYTAIKHOAN")) Response.Write("class=\"active\""); %>><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Quản lý tài khoản</a></li>
                                     <%}%>
                                     <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>

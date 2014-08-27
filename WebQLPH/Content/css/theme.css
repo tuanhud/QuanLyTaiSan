@@ -86,3 +86,11 @@
     background-color: #5cb85c !important;
     color: white !important;
 }
+.dxtlControl_Aqua {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.dxtlFocusedNode_Aqua {
+    background: none repeat scroll 0% 0% #0072C6;
+    color: white;
+}

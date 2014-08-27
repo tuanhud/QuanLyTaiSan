@@ -171,7 +171,7 @@ namespace WebQLPH.UserControl.Phong
                 {
                     if (objTang.day != null)
                     {
-                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1} - {2})", objTang.day.coso != null ? objTang.day.coso.ten : "[Null]", objTang.day.ten, objTang.ten);
+                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1} - {2})", objTang.day.coso != null ? objTang.day.coso.ten : "[Cơ sở]", objTang.day.ten, objTang.ten);
                     }
                     else
                     {
@@ -207,10 +207,7 @@ namespace WebQLPH.UserControl.Phong
         protected void ButtonBack_ThongTinPhong_Click(object sender, EventArgs e)
         {
             if (!key.Equals(""))
-            {
-                string url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString();
-                Response.Redirect(url);
-            }
+				Response.Redirect(QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
             else
                 Response.Redirect(Request.Url.AbsolutePath);
         }
