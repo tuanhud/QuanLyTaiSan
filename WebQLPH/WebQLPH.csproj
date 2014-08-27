@@ -159,6 +159,7 @@
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_Mobile.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_Web.ascx" />
+    <Content Include="UserControl\ThietBi\ucThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
@@ -373,6 +374,13 @@
     </Compile>
     <Compile Include="UserControl\SuCo\ucSuCo_Web.ascx.designer.cs">
       <DependentUpon>ucSuCo_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ThietBi\ucThietBi_BreadCrumb.ascx.cs">
+      <DependentUpon>ucThietBi_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ThietBi\ucThietBi_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucThietBi_BreadCrumb.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ThietBi\ucThietBi_Mobile.ascx.cs">
       <DependentUpon>ucThietBi_Mobile.ascx</DependentUpon>

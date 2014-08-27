@@ -5,6 +5,8 @@
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
 
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
+<%@ Register Src="~/UserControl/ThietBi/ucThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucThietBi_BreadCrumb" %>
+
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -15,13 +17,7 @@
     </div>
 </asp:Panel>
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <ol class="breadcrumb">
-      <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
-      <li <%# Request.QueryString["id"] != null?"":"class=\"active\"" %>><a href="<% if (Request.QueryString["key"] != null) Response.Write("ThietBis.aspx?key=" + Request.QueryString["key"]); else Response.Write("ThietBis.aspx"); %>">Thiết bị</a></li>
-      <% if(Request.QueryString["id"] != null){ %>
-        <li><a href="<%# Request.Url.AbsoluteUri %>"><asp:Label ID="Label_TenThietBi" runat="server"></asp:Label></a></li>
-      <%} %>
-    </ol>
+    <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
     <asp:Panel ID="Panel_TreeViTri" runat="server" Visible="False">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -64,7 +60,7 @@
                 <tbody class="centered">
                     <asp:Repeater ID="RepeaterThietBi" runat="server">
                         <ItemTemplate>
-                            <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer" <%# Eval("id").ToString() == idThietBi.ToString()?" class=\"focusrow\"":"" %>>
+                            <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idThietBi.ToString()?" class=\"focusrow\"":"" %>>
                                 <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
                                 <td><%# Eval("subid") %></td>
                                 <td><%# Eval("ten") %></td>
@@ -99,8 +95,12 @@
                 </asp:Panel>
 
                 <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
-                    <div class="center">
-                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
+                    <div class="center200">
+                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="200px">
+                            <Styles>
+                                <ImageArea BackColor="White"></ImageArea>
+                            </Styles>
+                        </dx:ASPxImageSlider>
                     </div>
                     <br />
                     <div>

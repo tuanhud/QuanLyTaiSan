@@ -77,11 +77,10 @@ namespace WebQLPH.UserControl.ThietBi
                         Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
                         TextBox_MaThietBi.Text = objThietBi.subId;
-                        TextBox_TenThietBi.Text = objThietBi.ten;
+                        Session["TenThietBi"] = TextBox_TenThietBi.Text = objThietBi.ten;
                         TextBox_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
                         TextBox_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
                         TextBox_MoTaThietBi.Text = objThietBi.mota;
-                        Label_TenThietBi.Text = objThietBi.ten;
                     }
                     else
                     {
@@ -211,7 +210,13 @@ namespace WebQLPH.UserControl.ThietBi
 
         protected void Button_Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Request.Url.AbsolutePath);
+            if (!key.Equals(""))
+            {
+                string url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString();
+                Response.Redirect(url);
+            }
+            else
+                Response.Redirect(Request.Url.AbsolutePath);
         }
     }
 }
