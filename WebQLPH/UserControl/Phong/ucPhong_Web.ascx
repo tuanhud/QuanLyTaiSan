@@ -66,11 +66,11 @@
                             <tbody class="centered">
                                 <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                                     <ItemTemplate>
-                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer">
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></td>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("ten") %></td>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("subid") %></td>
-                                            <td<%# Eval("id").ToString() == idPhong.ToString()?" class=\"rowfocus\"":"" %>><%# Eval("nhanvienpt") %></td>
+                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer" <%# Eval("id").ToString() == idPhong.ToString()?" class=\"focusrow\"":"" %>>
+                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachPhong.CurrentPage - 1)*CollectionPagerDanhSachPhong.PageSize) %></td>
+                                            <td><%# Eval("ten") %></td>
+                                            <td><%# Eval("subid") %></td>
+                                            <td><%# Eval("nhanvienpt") %></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
