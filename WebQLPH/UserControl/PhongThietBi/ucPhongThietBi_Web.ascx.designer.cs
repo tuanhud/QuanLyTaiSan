@@ -76,6 +76,123 @@ namespace WebQLPH.UserControl.PhongThietBi {
         protected global::SiteUtils.CollectionPager CollectionPagerDanhSachThietBi;
         
         /// <summary>
+        /// Label_ThongTinThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
+        
+        /// <summary>
+        /// Panel_ThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_ThietBi;
+        
+        /// <summary>
+        /// ASPxImageSlider_ThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_ThietBi;
+        
+        /// <summary>
+        /// TextBox_MaThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MaThietBi;
+        
+        /// <summary>
+        /// TextBox_Ten control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
+        
+        /// <summary>
+        /// TextBox_LoaiThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_LoaiThietBi;
+        
+        /// <summary>
+        /// TextBox_KieuQuanLy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_KieuQuanLy;
+        
+        /// <summary>
+        /// TextBox_Phong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Phong;
+        
+        /// <summary>
+        /// Panel_NgayMua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_NgayMua;
+        
+        /// <summary>
+        /// TextBox_NgayMua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_NgayMua;
+        
+        /// <summary>
+        /// TextBox_NgayLap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_NgayLap;
+        
+        /// <summary>
+        /// TextBox_MoTa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTa;
+        
+        /// <summary>
+        /// Label_ThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThietBi;
+        
+        /// <summary>
         /// ASPxPopupControl_ThietBi control.
         /// </summary>
         /// <remarks>

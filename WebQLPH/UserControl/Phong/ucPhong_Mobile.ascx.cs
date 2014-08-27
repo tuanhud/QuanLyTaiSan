@@ -207,10 +207,7 @@ namespace WebQLPH.UserControl.Phong
         protected void ButtonBack_ThongTinPhong_Click(object sender, EventArgs e)
         {
             if (!key.Equals(""))
-            {
-                string url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString();
-                Response.Redirect(url);
-            }
+				Response.Redirect(QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
             else
                 Response.Redirect(Request.Url.AbsolutePath);
         }

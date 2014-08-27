@@ -17,19 +17,17 @@ namespace WebQLPH
             Default SetClassActive = this.Master as Default;
             SetClassActive.page = "PHONGTHIETBI";
 
-            //isMobile = MobileDetect.fBrowserIsMobile();
-            //if (!isMobile)
-            //{
-            //    Panel_Web.Visible = true;
-            //    _ucPhongThietBi_Web.LoadData();
-            //}
-            //else
-            //{
-            //    Panel_Mobile.Visible = true;
-            //    _ucPhongThietBi_Mobile.LoadData();
-            //}
-            Panel_Web.Visible = true;
-            _ucPhongThietBi_Web.LoadData();
+            isMobile = MobileDetect.fBrowserIsMobile();
+            if (!isMobile)
+            {
+                Panel_Web.Visible = true;
+                _ucPhongThietBi_Web.LoadData();
+            }
+            else
+            {
+                Panel_Mobile.Visible = true;
+                _ucPhongThietBi_Mobile.LoadData();
+            }
         }
     }
 }

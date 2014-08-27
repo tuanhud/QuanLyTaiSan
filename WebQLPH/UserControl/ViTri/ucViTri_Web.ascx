@@ -31,10 +31,10 @@
                             <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                             <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
-                                FocusedNodeChanged="function(s, e) { 
-                                var key = treeList.GetFocusedNodeKey();
-                                treeList.PerformCustomDataCallback(key); 
-                            }" />
+                                NodeClick="function(s, e) {
+	                                var key = e.nodeKey;
+                                    treeList.PerformCustomDataCallback(key); 
+                                }" />
                         </dx:ASPxTreeList>
                     </div>
                     <asp:Panel ID="Panel_GoogleMap" runat="server" Visible="False">
