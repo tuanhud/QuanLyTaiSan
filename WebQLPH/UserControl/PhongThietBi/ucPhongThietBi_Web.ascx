@@ -21,7 +21,7 @@
             clientPopupControl.Show();
         }
     </script>
-    <table class="table table-bordered table-striped">
+    <table class="table" style="border-top: white solid 2px">
         <tbody>
             <tr>
                 <td width="200px">

@@ -13,7 +13,7 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <table class="table table-bordered table-striped">
+    <table class="table" style="border-top: white solid 2px">
         <tbody>
             <tr>
                 <td>
@@ -60,39 +60,44 @@
                     </div>
                 </td>
 
-                <td>
+                <td width="400px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
                         </div>
                         <div class="panel-body">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td colspan="2">
-                                        <div class="center">
-                                            <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 120px" class="warning">Mã nhân viên</th>
-                                    <td>
-                                        <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 120px" class="warning">Họ tên</th>
-                                    <td>
-                                        <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 120px" class="warning">Số điện thoại</th>
-                                    <td>
-                                        <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                            </table>
+                            <asp:Panel ID="Panel_NhanVienPT" runat="server" Visible="false">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="center">
+                                                    <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 120px" class="warning">Mã nhân viên</th>
+                                            <td>
+                                                <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 120px" class="warning">Họ tên</th>
+                                            <td>
+                                                <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 120px" class="warning">Số điện thoại</th>
+                                            <td>
+                                                <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </asp:Panel>
+                            <asp:Label ID="Label_NhanVienPT" runat="server" Visible="false"></asp:Label>
                         </div>
                     </div>
 

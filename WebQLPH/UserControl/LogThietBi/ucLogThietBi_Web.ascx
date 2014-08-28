@@ -13,7 +13,7 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
-    <table class="table table-bordered table-striped">
+    <table class="table" style="border-top: white solid 2px">
         <tbody>
             <tr>
                 <td>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </td>
-                <td>
+                <td width="400px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <asp:Label ID="Label_ThongTinLog" runat="server" Text="Thông tin nhân viên"></asp:Label>
@@ -118,6 +118,7 @@
                                             <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
                                         </td>
                                     </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

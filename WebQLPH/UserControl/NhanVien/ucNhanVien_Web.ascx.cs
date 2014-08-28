@@ -47,6 +47,9 @@ namespace WebQLPH.UserControl.NhanVien
                     objNhanVienPT = NhanVienPT.getById(idNhanVien);
                     if (objNhanVienPT != null)
                     {
+                        Panel_NhanVienPT.Visible = true;
+                        Label_NhanVienPT.Visible = false;
+                        Label_NhanVienPT.Text = "";
                         Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
@@ -66,6 +69,9 @@ namespace WebQLPH.UserControl.NhanVien
                 else
                 {
                     DeleteForm();
+                    Panel_NhanVienPT.Visible = false;
+                    Label_NhanVienPT.Visible = true;
+                    Label_NhanVienPT.Text = "Chưa chọn nhân viên";
                 }
                 BindData();
                 Panel_Chinh.Visible = true;

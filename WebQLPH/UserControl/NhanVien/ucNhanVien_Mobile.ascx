@@ -19,31 +19,33 @@
         </div>
         <div class="panel-body">
             <table class="table table-bordered">
-                <tr>
-                    <td colspan="2">
-                        <div class="center200">
-                            <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 120px" class="warning">Mã nhân viên</th>
-                    <td>
-                        <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 120px" class="warning">Họ tên</th>
-                    <td>
-                        <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 120px" class="warning">Số điện thoại</th>
-                    <td>
-                        <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <div class="center200">
+                                <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Mã nhân viên</th>
+                        <td>
+                            <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Họ tên</th>
+                        <td>
+                            <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Số điện thoại</th>
+                        <td>
+                            <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>

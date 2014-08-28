@@ -115,6 +115,7 @@
                             <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
                         </td>
                     </tr>
+                </tbody>
             </table>
         </div>
     </div>

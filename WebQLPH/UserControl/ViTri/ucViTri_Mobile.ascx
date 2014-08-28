@@ -1,8 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucViTri_Mobile.ascx.cs" Inherits="WebQLPH.UserControl.ViTri.ucViTri_Mobile" %>
 
-<%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
@@ -31,39 +29,41 @@
 
         <div class="panel-body">
             <table class="table table-bordered">
-                <tr>
-                    <td colspan="2">
-                        <div class="center200">
-                            <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 120px" class="warning">Tên</th>
-                    <td>
-                        <asp:Label ID="Label_Ten" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 120px" class="warning">Thuộc</th>
-                    <td>
-                        <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
+                <tbody>
                     <tr>
-                        <th style="width: 120px" class="warning">Đia chỉ</th>
-                        <td>
-                            <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
+                        <td colspan="2">
+                            <div class="center200">
+                                <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
+                            </div>
                         </td>
                     </tr>
-                </asp:Panel>
-                <tr>
-                    <th style="width: 120px" class="warning">Mô tả</th>
-                    <td>
-                        <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
-                    </td>
-                </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Tên</th>
+                        <td>
+                            <asp:Label ID="Label_Ten" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Thuộc</th>
+                        <td>
+                            <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
+                        <tr>
+                            <th style="width: 120px" class="warning">Đia chỉ</th>
+                            <td>
+                                <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </asp:Panel>
+                    <tr>
+                        <th style="width: 120px" class="warning">Mô tả</th>
+                        <td>
+                            <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
