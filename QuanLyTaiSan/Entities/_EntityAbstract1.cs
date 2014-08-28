@@ -301,26 +301,68 @@ namespace QuanLyTaiSan.Entities
             //return tmp;
             return null;
         }
+        public virtual T prevObj()
+        {
+            try
+            {
+                T prev = null;
+                prev = db.Set<T>().Where(c => c.order < this.order).OrderByDescending(c => c.order).FirstOrDefault();
+                if (prev == null)
+                {
+                    prev = db.Set<T>().Where(c => c.date_create < this.date_create).OrderByDescending(c => c.date_create).FirstOrDefault();
+                }
+
+                return prev;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public virtual T nextObj()
+        {
+            try
+            {
+                T next = db.Set<T>().Where(c => c.order > this.order).OrderBy(c => c.order).FirstOrDefault();
+                if (next == null)
+                {
+                    next = db.Set<T>().Where(c => c.date_create > this.date_create).OrderBy(c => c.date_create).FirstOrDefault();
+                }
+
+                return next;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         /// <summary>
         /// Move object lên 1 nấc (sử dụng trường order),
         /// Tự động update
         /// </summary>
         public virtual void moveUp()
         {
-            T prev = db.Set<T>().Where(c => c.order < this.order).OrderByDescending(c => c.order).FirstOrDefault();
-            if (prev == null)
+            try
             {
-                return;
+                T prev = prevObj();
+                if (prev == null)
+                {
+                    return;
+                }
+                //SWAP order value
+                long? order_1 = this.order == null ? DateTimeHelper.toMilisec(date_create) : this.order;
+                long? order_2 = prev.order == null ? DateTimeHelper.toMilisec(prev.date_create) : prev.order;
+
+                this.order = order_2;
+                prev.order = order_1;
+
+                this.update();
+                prev.update();
             }
-            //SWAP order value
-            //int? order_1 = this.order == null ? this.id : this.order;
-            //int? order_2 = prev.order == null ? prev.id : prev.order;
-
-            //this.order = order_2;
-            //prev.order = order_1;
-
-            this.update();
-            prev.update();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         /// <summary>
@@ -329,11 +371,12 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public virtual void moveDown()
         {
-            T next = db.Set<T>().Where(c => c.order > this.order).OrderBy(c => c.order).FirstOrDefault();
+            T next = nextObj();
             if (next == null)
             {
                 return;
             }
+
             next.moveUp();
         }
         /// <summary>
@@ -452,7 +495,7 @@ namespace QuanLyTaiSan.Entities
             date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
         }
 
-        public void onAfterUpdated()
+        public virtual void onAfterUpdated()
         {
             //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
             if (needToWriteLogHeThong())
@@ -464,10 +507,10 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public void onAfterAdded()
+        public virtual void onAfterAdded()
         {
-            //AUTO ORDER
-            //this.order = this.id;
+            //AUTO ORDER (NO NEED)
+            //this.order = DateTimeHelper.toMilisec(date_create);
 
             //LOGHETHONG
             //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
@@ -487,7 +530,7 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public virtual string niceName()
         {
-            return "";
+            return typeof(T).Name + ": ID=" + this.id;
         }
     }
 }

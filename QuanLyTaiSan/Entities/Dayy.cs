@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -89,31 +90,30 @@ namespace QuanLyTaiSan.Entities
             //...
             return base.update();
         }
-        public override void moveUp()
+        public override Dayy prevObj()
         {
-            Dayy prev = db.DAYYS.Where(c => c.order < this.order && c.coso_id==this.coso_id).OrderByDescending(c => c.order).FirstOrDefault();
+            Dayy prev = null;
+            prev = db.DAYYS.Where(c => c.order < this.order && c.coso_id == coso_id).OrderByDescending(c => c.order).FirstOrDefault();
             if (prev == null)
             {
-                return;
+                prev = db.DAYYS.Where(c => c.date_create < this.date_create && c.coso_id == coso_id).OrderByDescending(c => c.date_create).FirstOrDefault();
             }
-            ////SWAP order value
-            //int? order_1 = this.order == null ? this.id : this.order;
-            //int? order_2 = prev.order == null ? prev.id : prev.order;
-
-            //this.order = order_2;
-            //prev.order = order_1;
-
-            this.update();
-            prev.update();
+            return prev;
         }
-        public override void moveDown()
+        public override Dayy nextObj()
         {
-            Dayy next = db.DAYYS.Where(c => c.order > this.order && c.coso_id == this.coso_id).OrderBy(c => c.order).FirstOrDefault();
+            Dayy next = null;
+            next = db.DAYYS.Where(c => c.order > this.order && c.coso_id == coso_id).OrderBy(c => c.order).FirstOrDefault();
             if (next == null)
             {
-                return;
+                next = db.DAYYS.Where(c => c.date_create > this.date_create && c.coso_id == coso_id).OrderBy(c => c.date_create).FirstOrDefault();
             }
-            next.moveUp();
+            return next;
+        }
+        public override void onAfterAdded()
+        {
+            this.order = DateTimeHelper.toMilisec(date_create);
+            base.onAfterAdded();
         }
         #endregion
     }
