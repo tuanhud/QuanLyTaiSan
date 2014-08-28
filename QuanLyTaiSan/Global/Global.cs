@@ -37,7 +37,7 @@ namespace QuanLyTaiSan.Entities
             /// <summary>
             /// 
             /// </summary>
-            private static int mode = 0;
+            private static int mode = -1;
             /// <summary>
             /// 0: Ghi ra Console,
             /// 1: Ghi ra File "debug.txt",
@@ -51,12 +51,26 @@ namespace QuanLyTaiSan.Entities
                     {
                         return mode;
                     }
-                    mode = Global.local_setting.debug_mode;
-                    return mode;
+                    if (Global.working_database.WEB_MODE)
+                    {
+                        return mode = 0;
+                    }
+                    else
+                    {
+                        mode = Global.local_setting.debug_mode;
+                        return mode;
+                    }
                 }
                 set
                 {
-                    mode = Global.local_setting.debug_mode = value;
+                    if (Global.working_database.WEB_MODE)
+                    {
+                        mode = 0;
+                    }
+                    else
+                    {
+                        mode = Global.local_setting.debug_mode = value;
+                    }
                 }
             }
         }
