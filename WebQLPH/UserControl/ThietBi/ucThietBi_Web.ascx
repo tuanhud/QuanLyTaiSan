@@ -20,7 +20,7 @@
     <table class="table" style="border-top: white solid 2px">
         <tbody>
             <tr>
-                <td width="200px">
+                <td style="width: 200px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Thiết bị
@@ -31,14 +31,14 @@
                                 <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="name" Name="colname" VisibleIndex="1">
                                 </dx:TreeListTextColumn>
                             </Columns>
-                            <Settings SuppressOuterGridLines="true" ShowColumnHeaders="False" />
+                            <Settings ShowColumnHeaders="False" />
                             <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                             <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                             <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
-                                FocusedNodeChanged="function(s, e) { 
-									var key = treeList.GetFocusedNodeKey();
-									treeList.PerformCustomDataCallback(key); 
-                            }" />
+                                NodeClick="function(s, e) {
+	                                var key = e.nodeKey;
+	                                treeList.PerformCustomDataCallback(key);
+                                }" />
                         </dx:ASPxTreeList>
                     </div>
                 </td>
@@ -85,7 +85,7 @@
                     </div>
                 </td>
 
-                <td width="400px">
+                <td style="width: 400px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <asp:Label ID="Label_ThongTinThietBi" runat="server" Text="Thông tin thiết bị"></asp:Label>

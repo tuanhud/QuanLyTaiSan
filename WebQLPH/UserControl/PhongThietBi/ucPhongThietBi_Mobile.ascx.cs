@@ -212,9 +212,7 @@ namespace WebQLPH.UserControl.PhongThietBi
 
                 if (listThietBiCuaPhong != null)
                 {
-                    if (listThietBiCuaPhong.Count > 0)
-                        Label_DanhSachThietBi.Text = string.Format("Danh sách thiết bị của {0}", objPhong.ten);
-                    else
+                    if (listThietBiCuaPhong.Count == 0)
                         Label_DanhSachThietBi.Text = string.Format("{0} chưa có thiết bị", objPhong.ten);
                 }
                 else

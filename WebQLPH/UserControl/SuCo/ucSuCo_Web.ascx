@@ -1,12 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucSuCo_Web.ascx.cs" Inherits="WebQLPH.UserControl.SuCo.ucSuCo_Web" %>
 
-<%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
-
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 <%@ Register Src="~/UserControl/SuCo/ucSuCo_BreadCrumb.ascx" TagPrefix="uc" TagName="ucSuCo_BreadCrumb" %>
-
+<%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -24,26 +21,9 @@
             <td style="width: 200px">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Vị trí
+                        Chọn phòng
                     </div>
-                    <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" KeyFieldName="id" ParentFieldName="parent_id" AutoGenerateColumns="False" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ViTri_FocusedNodeChanged" OnHtmlDataCellPrepared="ASPxTreeList_ViTri_HtmlDataCellPrepared">
-                        <Columns>
-                            <dx:TreeListTextColumn Caption="(Cơ sở, dãy, tầng)" FieldName="ten" Name="colten" VisibleIndex="0" ShowInCustomizationForm="True">
-                            </dx:TreeListTextColumn>
-                        </Columns>
-                        <Settings ShowTreeLines="true" ShowColumnHeaders="false" SuppressOuterGridLines="true" />
-                        <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
-                        <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
-                        <ClientSideEvents
-                            CustomDataCallback="function(s, e) {
-                                if(e.result != '')
-                                    document.location = e.result;
-                                }"
-                            FocusedNodeChanged="function(s, e) { 
-                                var key = treeList.GetFocusedNodeKey();
-                                treeList.PerformCustomDataCallback(key); 
-                            }" />
-                    </dx:ASPxTreeList>
+                    <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                 </div>
             </td>
             <td>
@@ -53,7 +33,9 @@
                     </div>
                     <% if (RepeaterSuCo.Items.Count == 0)
                        { %>
-                    <div class="panel-body">Chưa có sự cố</div>
+                    <div class="panel-body">
+                        <asp:Label ID="Label_DanhSachSuCo" runat="server" Text="Phòng chưa có sự cố"></asp:Label>
+                    </div>
                     <% }
                        else
                        { %>
@@ -90,52 +72,48 @@
                     </div>
                 </div>
             </td>
-            <td style="width: 350px">
+            <td style="width: 400px">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <asp:Label ID="Label_ThongTinSuCo" runat="server" Text="Thông tin thiết bị"></asp:Label>
+                        <asp:Label ID="Label_ThongTinSuCo" runat="server" Text="Thông tin sự cố"></asp:Label>
                     </div>
 
                     <div class="panel-body">
-                        <asp:Label ID="Label_ThongBao" runat="server" Text=""></asp:Label>
-                        <asp:Panel ID="PanelThongBao_SuCo" runat="server" Visible="False">
-                            <div>
-                                <div class="alert alert-danger" role="alert">
-                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                    <asp:Label ID="LabelThongBao_SuCo" runat="server" Text="Label"></asp:Label>
-                                </div>
-                            </div>
-                        </asp:Panel>
-
                         <asp:Panel ID="Panel_SuCo" runat="server" Visible="False">
                             <table class="table table-bordered">
-                                <tr>
-                                    <td colspan="2">
-                                        <div class="center">
-                                            <dx:ASPxImageSlider ID="ASPxImageSlider_SuCo" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="width: 120px" class="warning">Tên sự cố</th>
-                                    <td>
-                                        <asp:Label ID="Label_TenSuCo" runat="server" Text="Label"></asp:Label></td>
-                                </tr>
-                                <tr>
-                                    <th class="warning">Tình trạng</th>
-                                    <td>
-                                        <asp:Label ID="Label_TinhTrang" runat="server" Text="Label"></asp:Label></td>
-                                </tr>
-                                <tr>
-                                    <th class="warning">Ngày tạo</th>
-                                    <td>
-                                        <asp:Label ID="Label_NgayTao" runat="server" Text="Label"></asp:Label></td>
-                                </tr>
-                                <tr>
-                                    <th class="warning">Mô tả</th>
-                                    <td>
-                                        <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label></td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="center">
+                                                <dx:ASPxImageSlider ID="ASPxImageSlider_SuCo" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Tên sự cố</th>
+                                        <td>
+                                            <asp:Label ID="Label_TenSuCo" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="warning">Tình trạng</th>
+                                        <td>
+                                            <asp:Label ID="Label_TinhTrang" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="warning">Ngày tạo</th>
+                                        <td>
+                                            <asp:Label ID="Label_NgayTao" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="warning">Mô tả</th>
+                                        <td>
+                                            <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </asp:Panel>
                         <asp:Label ID="Label_SuCo" runat="server" Visible="false"></asp:Label>

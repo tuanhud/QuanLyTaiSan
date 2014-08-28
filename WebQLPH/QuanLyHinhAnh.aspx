@@ -46,7 +46,7 @@
                         LastText="Cuối" 
                         NextText="Sau" 
                         PageNumbersSeparator="" 
-                        PageSize="3" 
+                        PageSize="10" 
                         PagingMode="QueryString" 
                         QueryStringKey="Trang" 
                         ResultsFormat=""

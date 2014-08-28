@@ -16,7 +16,7 @@
     <table class="table" style="border-top: white solid 2px">
         <tbody>
             <tr>
-                <td width="300px">
+                <td style="width: 300px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Vị trí

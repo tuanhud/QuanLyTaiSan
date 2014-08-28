@@ -28,14 +28,14 @@
                     <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="name" Name="colname" VisibleIndex="1">
                     </dx:TreeListTextColumn>
                 </Columns>
-                <Settings SuppressOuterGridLines="true" ShowColumnHeaders="False" />
+                <Settings ShowColumnHeaders="False" />
                 <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                 <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                 <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
-                    FocusedNodeChanged="function(s, e) { 
-									var key = treeList.GetFocusedNodeKey();
-									treeList.PerformCustomDataCallback(key); 
-                            }" />
+                    NodeClick="function(s, e) {
+	                        var key = e.nodeKey;
+	                        treeList.PerformCustomDataCallback(key);
+                        }" />
             </dx:ASPxTreeList>
         </div>
         <div class="panel panel-primary">
@@ -98,27 +98,32 @@
                         <tr>
                             <th style="width: 120px" class="warning">Mã thiết bị</th>
                             <td>
-                                <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label></td>
+                                <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <th class="warning">Tên thiết bị</th>
                             <td>
-                                <asp:Label ID="Label_TenThietBi" runat="server" Text="Label"></asp:Label></td>
+                                <asp:Label ID="Label_TenThietBi" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <th class="warning">Loại thiết bị</th>
                             <td>
-                                <asp:Label ID="Label_LoaiThietBi" runat="server" Text="Label"></asp:Label></td>
+                                <asp:Label ID="Label_LoaiThietBi" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <th class="warning">Ngày mua</th>
                             <td>
-                                <asp:Label ID="Label_NgayMua" runat="server" Text="Label"></asp:Label></td>
+                                <asp:Label ID="Label_NgayMua" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <th class="warning">Mô tả</th>
                             <td>
-                                <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label></td>
+                                <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
