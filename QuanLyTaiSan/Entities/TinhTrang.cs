@@ -18,10 +18,26 @@ namespace QuanLyTaiSan.Entities
         public TinhTrang()
             : base()
         {
-
+            this.type = TYPE_THIETBI;
+        }
+        /// <summary>
+        /// Xem TinhTrang.TYPE_XXX de biet cac type ho tro
+        /// </summary>
+        /// <param name="type"></param>
+        public TinhTrang(int type)
+            : base()
+        {
+            this.type = type;
         }
 
         #region Dinh nghia
+        /// <summary>
+        /// Xem TinhTrang.TYPE_xxxx để biết,
+        /// TinhTrang.TYPE_THIETBI: Tinh trang cho THIETBI,
+        /// TinhTrang.TYPE_SUCOPHONG: Tinh trang cho SUCOPHONG,
+        /// TinhTrang.TYPE_TAISAN: Tinh trang cho TSCD
+        /// </summary>
+        public int? type { get; set; }
         /// <summary>
         /// Tên dành riêng (không dấu, không khoảng cách)
         /// </summary>
@@ -37,18 +53,26 @@ namespace QuanLyTaiSan.Entities
         public String value { get; set; } //vd: Hư hỏng
 
         /*
-         * FK
+         * FK PTB
          */
         public virtual ICollection<CTThietBi> ctthietbis { get; set; }
         public virtual ICollection<SuCoPhong> sucophongs { get; set; }
         public virtual ICollection<LogSuCoPhong> logsucophongs { get; set; }
         public virtual ICollection<LogThietBi> logthietbis { get; set; }
+        /*
+         * FK for QLTSCD
+         */
+        public virtual ICollection<CTTaiSan> cttaisans { get; set; }
+        public virtual ICollection<LogTaiSan> logtaisans { get; set; }
         #endregion
 
         #region Override
         protected override void init()
         {
             base.init();
+            //Mac dinh la danh cho ThietBi
+            this.type = 0;
+
             ctthietbis = new List<CTThietBi>();
             logthietbis = new List<LogThietBi>();
             sucophongs = new List<SuCoPhong>();
@@ -61,6 +85,32 @@ namespace QuanLyTaiSan.Entities
                 return -1;
             }
             return base.delete();
+        }
+        #endregion
+        #region static member
+        [NotMapped]
+        public static int TYPE_THIETBI
+        {
+            get
+            {
+                return 0;
+            }
+        }
+        [NotMapped]
+        public static int TYPE_SUCOPHONG
+        {
+            get
+            {
+                return 1;
+            }
+        }
+        [NotMapped]
+        public static int TYPE_TAISAN
+        {
+            get
+            {
+                return 2;
+            }
         }
         #endregion
     }
