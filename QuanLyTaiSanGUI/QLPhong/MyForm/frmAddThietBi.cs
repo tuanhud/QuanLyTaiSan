@@ -18,6 +18,9 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
     {
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi(true);
         Phong objPhong = new Phong();
+        TinhTrang objTinhTrang = new TinhTrang();
+        int SoLuong = 0;
+        String GhiChu = "";
         bool loaichung = true;
         bool yestoall = false;
         string text = "";
@@ -66,9 +69,6 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
             Guid id = Guid.Empty;
             try
             {
-                TinhTrang objTinhTrang = new TinhTrang();
-                int SoLuong = -1;
-                String GhiChu = "";
                 List<ThietBi> list = new List<ThietBi>();
                 list = _ucQuanLyThietBi.getListThietBi();
                 if (list != null && list.Count > 0)
@@ -81,27 +81,15 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                             {
                                 frmTinhTrangVaSoLuong frm = new frmTinhTrangVaSoLuong(loaichung);
                                 frm.Text += " " + obj.ten;
-                                switch (frm.ShowDialog())
+                                frm.setTinhTrangAndSoLuong = new frmTinhTrangVaSoLuong.SetTinhTrangAndSoLuong(setTinhTrangAndSoLuong);
+                                if (!frm.ShowDialog().Equals(System.Windows.Forms.DialogResult.No))
                                 {
-                                    case DialogResult.OK:
-                                        text = "";
-                                        id = AddObj(obj, frm.objTinhTrang, frm.SoLuong, frm.GhiChu);
+                                    text = "";
+                                    id = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
+                                    if(!yestoall) 
                                         showToolTip(text);
-                                        if (reLoadAndFocused_phong_thietbi != null && id != Guid.Empty)
-                                            reLoadAndFocused_phong_thietbi(id);
-                                        break;
-                                    case DialogResult.Yes:
-                                        yestoall = true;
-                                        show = true;
-                                        text = "";
-                                        objTinhTrang = frm.objTinhTrang;
-                                        SoLuong = frm.SoLuong;
-                                        GhiChu = frm.GhiChu;
-                                        Guid id2 = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
-                                        id = id2 != Guid.Empty ? id2 : id;
-                                        //if (id > 0)
-                                        //    _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
-                                        break;
+                                    if (reLoadAndFocused_phong_thietbi != null && id != Guid.Empty)
+                                        reLoadAndFocused_phong_thietbi(id);
                                 }
                             }
                             else
@@ -115,8 +103,6 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                                 }
                                 Guid id2 = AddObj(obj, objTinhTrang, SoLuong, GhiChu);
                                 id = id2 != Guid.Empty ? id2 : id;
-                                //if (id > 0)
-                                //    _ucQuanLyPhongThietBi.reLoadCTThietBisOnlyAndFocused(id);
                             }
                         }
                     }
@@ -142,6 +128,14 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                     yestoall = false;
                 }
             }
+        }
+
+        private void setTinhTrangAndSoLuong(TinhTrang _obj, int _sl, String _str, bool _all)
+        {
+            objTinhTrang = _obj;
+            SoLuong = _sl;
+            GhiChu = _str;
+            yestoall = _all;
         }
 
         private Guid AddObj(ThietBi objThietBi, TinhTrang objTinhTrang, int SoLuong, String GhiChu)
