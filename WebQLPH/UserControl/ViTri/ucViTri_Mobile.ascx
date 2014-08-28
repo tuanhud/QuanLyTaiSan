@@ -64,13 +64,9 @@
                         <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2">
-                        <asp:Button ID="Button_Map" CssClass="btn btn-success" runat="server" Text="Xem bản đồ" OnClick="Button_Map_Click" Width="100px" />
-                        <asp:Button ID="Button_Back" CssClass="btn btn-default" runat="server" Text="Quay lại" OnClick="Button_Back_Click" Width="100px" />
-                    </td>
-                </tr>
             </table>
         </div>
     </div>
+    <asp:Button ID="Button_Map" CssClass="btn btn-success" runat="server" Text="Xem bản đồ" OnClick="Button_Map_Click" Width="100px" />
+    <asp:Button ID="Button_Back" CssClass="btn btn-default" runat="server" Text="Quay lại" OnClick="Button_Back_Click" Width="100px" />
 </asp:Panel>

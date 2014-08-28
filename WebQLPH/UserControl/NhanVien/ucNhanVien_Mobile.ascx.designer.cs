@@ -58,31 +58,31 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_NhanVienPT;
         
         /// <summary>
-        /// TextBox_MaNhanVien control.
+        /// Label_MaNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MaNhanVien;
+        protected global::System.Web.UI.WebControls.Label Label_MaNhanVien;
         
         /// <summary>
-        /// TextBox_HoTen control.
+        /// Label_HoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_HoTen;
+        protected global::System.Web.UI.WebControls.Label Label_HoTen;
         
         /// <summary>
-        /// TextBox_SoDienThoai control.
+        /// Label_SoDienThoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_SoDienThoai;
+        protected global::System.Web.UI.WebControls.Label Label_SoDienThoai;
         
         /// <summary>
         /// RepeaterDanhSachPhong control.

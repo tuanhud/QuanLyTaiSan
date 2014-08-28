@@ -37,7 +37,6 @@ namespace WebQLPH.UserControl.LogThietBi
                 objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(id);
                 if (objThietBi != null)
                 {
-                    Panel_Chinh.Visible = true;
                     Label_LogThietBi.Text = string.Format("Log của {0}", objThietBi.ten);
                     listLogThietBi = objThietBi.logthietbis.ToList();
                     var bind = listLogThietBi.Select(a => new
@@ -55,10 +54,12 @@ namespace WebQLPH.UserControl.LogThietBi
                     RepeaterDanhSachLogThietBi.DataBind();
                     if (listLogThietBi.Count == 0)
                     {
-                        Label_DanhSachLogThietBi.Text = string.Format("Thiết bị {0} không có log", objThietBi.ten);
+                        Panel_ThongBaoLoi.Visible = true;
+                        Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objThietBi.ten);
                     }
                     else
                     {
+                        Panel_Chinh.Visible = true;
                         if (Request.QueryString["idLog"] != null)
                         {
                             idLog = Guid.Empty;
@@ -80,13 +81,13 @@ namespace WebQLPH.UserControl.LogThietBi
                         {
                             Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogThietBi.date_create).ToString("d/M/yyyy"));
                             QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objLogThietBi.hinhanhs.ToList(), ASPxImageSlider_Log);
-                            TextBox_TenThietBi.Text = objThietBi.ten;
-                            TextBox_TinhTrang.Text = objLogThietBi.tinhtrang.value;
-                            TextBox_SoLuong.Text = objLogThietBi.soluong.ToString();
-                            TextBox_Phong.Text = objLogThietBi.phong.ten;
-                            TextBox_Ngay.Text = objLogThietBi.date_create.ToString();
-                            TextBox_QuanTriVien.Text = objLogThietBi.quantrivien.hoten;
-                            TextBox_GhiChu.Text = objLogThietBi.mota;
+                            Label_TenThietBi.Text = objThietBi.ten;
+                            Label_TinhTrang.Text = objLogThietBi.tinhtrang != null ? objLogThietBi.tinhtrang.value : "[Tình trạng]";
+                            Label_SoLuong.Text = objLogThietBi.soluong.ToString();
+                            Label_Phong.Text = objLogThietBi.phong != null ? objLogThietBi.phong.ten : "[Phòng]";
+                            Label_Ngay.Text = objLogThietBi.date_create.ToString();
+                            Label_QuanTriVien.Text = objLogThietBi.quantrivien != null ? objLogThietBi.quantrivien.hoten : "[Quản trị viên]";
+                            Label_GhiChu.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objLogThietBi.mota);
                         }
                         else
                         {

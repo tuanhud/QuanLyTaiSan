@@ -42,7 +42,7 @@
                             <tbody class="centered">
                                 <asp:Repeater ID="RepeaterDanhSachLogThietBi" runat="server">
                                     <ItemTemplate>
-                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer" <%# Eval("id").ToString() == idLog.ToString()?" class=\"focusrow\"":"" %>>
+                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idLog.ToString()?" class=\"focusrow\"":"" %>>
                                             <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachLogThietBi.CurrentPage - 1)*CollectionPagerDanhSachLogThietBi.PageSize) %></td>
                                             <td><%# Eval("tinhtrang") %></td>
                                             <td><%# Eval("soluong") %></td>
@@ -67,60 +67,58 @@
                             <asp:Label ID="Label_ThongTinLog" runat="server" Text="Thông tin nhân viên"></asp:Label>
                         </div>
                         <div class="panel-body">
-                            <div class="center">
-                                <dx:ASPxImageSlider ID="ASPxImageSlider_Log" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
-                            </div>
-                            <br />
-                            <div>
-                                <div class="row">
-                                    <div class="col-lg-4">Tên thiết bị</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_TenThietBi" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4">Tình trạng</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_TinhTrang" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4">Số lượng</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_SoLuong" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4">Phòng</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_Phong" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4">Ngày</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_Ngay" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4">Người tạo</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_QuanTriVien" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4">Ghi chú</div>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="TextBox_GhiChu" CssClass="form-control" runat="server" TextMode="MultiLine" Height="60px" ReadOnly="True"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="center">
+                                                <dx:ASPxImageSlider ID="ASPxImageSlider_Log" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"></dx:ASPxImageSlider>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Tên thiết bị</th>
+                                        <td>
+                                            <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Tình trạng</th>
+                                        <td>
+                                            <asp:Label ID="Label_TinhTrang" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Số lượng</th>
+                                        <td>
+                                            <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Phòng</th>
+                                        <td>
+                                            <asp:Label ID="Label_Phong" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Ngày</th>
+                                        <td>
+                                            <asp:Label ID="Label_Ngay" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Người thực hiện</th>
+                                        <td>
+                                            <asp:Label ID="Label_QuanTriVien" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 120px" class="warning">Ghi chú</th>
+                                        <td>
+                                            <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                            </table>
                         </div>
                     </div>
                 </td>

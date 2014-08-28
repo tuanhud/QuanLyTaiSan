@@ -16,7 +16,7 @@ namespace WebQLPH.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void LoadData()
@@ -33,7 +33,6 @@ namespace WebQLPH.UserControl.NhanVien
                     catch
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
-                        return;
                     }
 
                     objNhanVienPT = NhanVienPT.getById(id);
@@ -41,9 +40,9 @@ namespace WebQLPH.UserControl.NhanVien
                     {
                         PanelThongTinNhanVienPhuTrach.Visible = true;
                         Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
-                        TextBox_MaNhanVien.Text = objNhanVienPT.subId;
-                        TextBox_HoTen.Text = objNhanVienPT.hoten;
-                        TextBox_SoDienThoai.Text = objNhanVienPT.sodienthoai;
+                        Label_MaNhanVien.Text = objNhanVienPT.subId;
+                        Label_HoTen.Text = objNhanVienPT.hoten;
+                        Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
                         CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();
                         CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
