@@ -172,6 +172,23 @@ namespace QuanLyTaiSan.Entities
 
         #endregion
 		#region Override method
+        public override string niceName()
+        {
+            String tmp = "";
+            if (tang != null)
+            {
+                tmp += tang.niceName();
+            }
+            else if(day!=null)
+            {
+                tmp += day.niceName();
+            }
+            else if (coso != null)
+            {
+                tmp += coso.niceName();
+            }
+            return tmp;
+        }
         public override int update()
         {
             //have to load all [Required] FK object first

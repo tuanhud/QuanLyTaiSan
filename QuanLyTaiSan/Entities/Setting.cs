@@ -93,5 +93,11 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
 
+        #region Override
+        public override string niceName()
+        {
+            return "Setting: (" + key + " => " + value + ")";
+        }
+        #endregion
     }
 }

@@ -76,6 +76,10 @@ namespace QuanLyTaiSan.Entities
 
         #endregion
         #region Override
+        public override string niceName()
+        {
+            return "Phòng: " + ten + ", " + vitri.niceName();
+        }
         
         protected override void init()
         {

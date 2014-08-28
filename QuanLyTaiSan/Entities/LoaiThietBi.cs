@@ -74,6 +74,11 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
         #region Override method
+        public override string niceName()
+        {
+            return "Loại thiết bị: " + ten;
+        }
+
         public override void moveUp()
         {
             LoaiThietBi prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == this.parent_id).OrderByDescending(c => c.order).FirstOrDefault();

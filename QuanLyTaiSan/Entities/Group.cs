@@ -197,6 +197,10 @@ namespace QuanLyTaiSan.Entities
         
         #endregion
         #region Override method
+        public override string niceName()
+        {
+            return "Group: " + ten;
+        }
         public override int delete()
         {
             if (quantriviens.Count > 0)

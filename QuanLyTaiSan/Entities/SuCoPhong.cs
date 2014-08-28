@@ -48,7 +48,10 @@ namespace QuanLyTaiSan.Entities
 
 
         #endregion
-
+        public override string niceName()
+        {
+            return "Sự cố: " + ten + ", " + phong.niceName();
+        }
         #region Override method
         /// <summary>
         /// Set tên, tình trạng, phòng, mô tả, ngày, hình ảnh trước khi gọi,

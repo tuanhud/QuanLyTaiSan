@@ -56,6 +56,16 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
         #region Override method
+        public override string niceName()
+        {
+            String tmp = "Nhân viên PT: ";
+            tmp += hoten;
+            if (subId != null && !subId.Equals(""))
+            {
+                tmp += "(" + subId + ")";
+            }
+            return tmp;
+        }
         protected override void init()
         {
             base.init();

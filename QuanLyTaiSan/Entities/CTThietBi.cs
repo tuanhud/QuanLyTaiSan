@@ -187,6 +187,18 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        public override string niceName()
+        {
+            try
+            {
+                return soluong + " " + thietbi.niceName() + ", " + phong.niceName() + ", " + tinhtrang.niceName();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return "ERROR";
+            }
+        }
         /// <summary>
         /// Có hỗ trợ ghi log, phát sinh tự động thietbi hay không ? dựa trên loaichung hay riêng của loaithietbi,
         /// Tự động có transaction
@@ -265,8 +277,13 @@ namespace QuanLyTaiSan.Entities
         public override int delete()
         {
             //trước khi delete phải ghi log
+            Phong backup = Phong.getById(phong.id);
             this.phong = null;
+            
             writelog();
+            
+            this.phong = backup;
+
             return base.delete();
         }
         #endregion

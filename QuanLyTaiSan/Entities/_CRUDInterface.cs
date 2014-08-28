@@ -46,6 +46,11 @@ namespace QuanLyTaiSan.Entities
         /// Order column
         /// </summary>
             void moveDown();
+        /// <summary>
+        /// Thông tin của 1 đối tượng
+        /// </summary>
+        /// <returns></returns>
+            String niceName();
 
     }
 }

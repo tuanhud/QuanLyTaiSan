@@ -84,6 +84,10 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        public override string niceName()
+        {
+            return username + " (" + hoten + ")";
+        }
         protected override void init()
         {
             base.init();

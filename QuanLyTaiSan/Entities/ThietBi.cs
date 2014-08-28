@@ -122,6 +122,15 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        public override string niceName()
+        {
+            String tmp = "Thiết bị: " + ten;
+            if (subId != null && !subId.Equals(""))
+            {
+                tmp += " (" + subId + ")";
+            }
+            return tmp;
+        }
         /// <summary>
         /// -2: Gỡ TB ra khỏi phòng trước
         /// </summary>
