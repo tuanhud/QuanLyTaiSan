@@ -49,13 +49,13 @@ namespace WebQLPH.UserControl.LoaiThietBis {
         protected global::WebQLPH.UserControl.LoaiThietBi.ucLoaiThietBi_BreadCrumb ucLoaiThietBi_BreadCrumb;
         
         /// <summary>
-        /// Panel_TreeViTri control.
+        /// Panel_TreeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_TreeViTri;
+        protected global::System.Web.UI.WebControls.Panel Panel_TreeList;
         
         /// <summary>
         /// ASPxTreeList_LoaiThietBi control.

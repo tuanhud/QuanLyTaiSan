@@ -24,7 +24,7 @@
     <table class="table" style="border-top: white solid 2px">
         <tbody>
             <tr>
-                <td width="200px">
+                <td style="width: 200px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Chọn phòng
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </td>
-                <td width="400px">
+                <td style="width: 400px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <asp:Label ID="Label_ThongTinThietBi" runat="server" Text="Thông tin thiết bị"></asp:Label>

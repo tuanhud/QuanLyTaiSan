@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </td>
-                <td width="400px">
+                <td style="width: 400px">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <asp:Label ID="Label_ThongTinPhong" runat="server" Text="Thông tin phòng"></asp:Label>

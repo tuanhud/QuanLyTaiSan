@@ -49,13 +49,22 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::WebQLPH.UserControl.SuCo.ucSuCo_BreadCrumb ucSuCo_BreadCrumb;
         
         /// <summary>
-        /// ASPxTreeList_ViTri control.
+        /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
+        protected global::WebQLPH.UserControl.ucTreeViTri _ucTreeViTri;
+        
+        /// <summary>
+        /// Label_DanhSachSuCo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_DanhSachSuCo;
         
         /// <summary>
         /// RepeaterSuCo control.
@@ -83,33 +92,6 @@ namespace WebQLPH.UserControl.SuCo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ThongTinSuCo;
-        
-        /// <summary>
-        /// Label_ThongBao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBao;
-        
-        /// <summary>
-        /// PanelThongBao_SuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao_SuCo;
-        
-        /// <summary>
-        /// LabelThongBao_SuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao_SuCo;
         
         /// <summary>
         /// Panel_SuCo control.
