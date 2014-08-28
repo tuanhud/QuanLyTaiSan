@@ -115,7 +115,14 @@ namespace WebQLPH
         }
         protected string Thumb(string Name)
         {
-            return folder_img + folder_thumb + Name;
+            string img_thumb = folder_img + folder_thumb + Name;
+            if (!File.Exists(img_thumb))
+            {
+                System.Drawing.Image bm = System.Drawing.Image.FromFile(Server.MapPath(Path.Combine(folder_img, Name)));
+                bm = ResizeBitmap((Bitmap)bm, 75, 75);
+                bm.Save(Server.MapPath(Path.Combine(folder_img + folder_thumb, Name)));
+            }
+            return img_thumb;
         }
         protected Bitmap ResizeBitmap(Bitmap b, int nWidth, int nHeight)
         {
