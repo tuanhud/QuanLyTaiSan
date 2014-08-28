@@ -27,7 +27,7 @@ namespace Web
         protected override void OnInit(EventArgs e)
         {
             //Very Important
-            Global.working_database.use_internal_config = true;
+            Global.working_database.WEB_MODE = true;
             //Global.debug.MODE = 0;
 
             if (Convert.ToString(Page.Session["Username"]) != "admin")

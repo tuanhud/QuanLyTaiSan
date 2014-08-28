@@ -12,15 +12,25 @@ namespace QuanLyTaiSan.Entities
     {
         public static void WriteLine(Object text=null)
         {
+            if (text == null)
+            {
+                return;
+            }
+
             switch (Global.debug.MODE)
             {
                 case 2:
-
                     return;
                 case 0:
                     System.Diagnostics.Debug.WriteLine(text);
                     return;
                 case 1:
+                    if (Global.working_database.WEB_MODE)
+                    {
+                        System.Diagnostics.Debug.WriteLine(text);
+                        return;
+                    }
+
                     try
                     {
                         long v = new System.IO.FileInfo(Global.debug.FILENAME).Length;//bytes
