@@ -114,6 +114,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnHuy.Location = new System.Drawing.Point(219, 164);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);

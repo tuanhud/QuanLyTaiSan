@@ -14,9 +14,10 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 {
     public partial class frmTinhTrangVaSoLuong : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
     {
-        public TinhTrang objTinhTrang = new TinhTrang();
-        public int SoLuong = -1;
-        public String GhiChu = "";
+
+        public delegate void SetTinhTrangAndSoLuong(TinhTrang _obj, int _sl, String _str, bool _all);
+        public SetTinhTrangAndSoLuong setTinhTrangAndSoLuong = null;
+
         public frmTinhTrangVaSoLuong()
         {
             InitializeComponent();
@@ -34,9 +35,9 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            objTinhTrang = lookUpEdit1.GetSelectedDataRow() as TinhTrang;
-            SoLuong = Convert.ToInt32(spinEdit1.EditValue);
-            GhiChu = txtGhiChu.Text;
+            if (setTinhTrangAndSoLuong != null)
+                setTinhTrangAndSoLuong(lookUpEdit1.GetSelectedDataRow() as TinhTrang, Convert.ToInt32(spinEdit1.EditValue), txtGhiChu.Text, false);
+            this.Close();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -46,9 +47,9 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
 
         private void btnYesToAll_Click(object sender, EventArgs e)
         {
-            objTinhTrang = lookUpEdit1.GetSelectedDataRow() as TinhTrang;
-            SoLuong = Convert.ToInt32(spinEdit1.EditValue);
-            GhiChu = txtGhiChu.Text;
+            if (setTinhTrangAndSoLuong != null)
+                setTinhTrangAndSoLuong(lookUpEdit1.GetSelectedDataRow() as TinhTrang, Convert.ToInt32(spinEdit1.EditValue), txtGhiChu.Text, true);
+            this.Close();
         }
     }
 }
