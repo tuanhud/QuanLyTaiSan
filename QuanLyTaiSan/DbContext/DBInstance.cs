@@ -26,7 +26,7 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                if (Global.working_database.use_internal_config)
+                if (Global.working_database.WEB_MODE)
                 {
                     OurDBContext tmp = HttpContext.Current.Items["db_context"] as OurDBContext;
                     if (tmp == null)

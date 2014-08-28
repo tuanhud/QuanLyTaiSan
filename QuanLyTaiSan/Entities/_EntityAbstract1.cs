@@ -344,50 +344,47 @@ namespace QuanLyTaiSan.Entities
         private Dictionary<string, string> buildLog(String action_name=null)
         {
             Dictionary<string, string> re = new Dictionary<string, string>();
-            if(Global.current_quantrivien_login!=null)
-            {
-                re.Add("uName", Global.current_quantrivien_login.username + " | " +Global.current_quantrivien_login.hoten);
-                re.Add("uID", Global.current_quantrivien_login.id.ToString());
-            }
-            if (action_name != null && !action_name.Equals(""))
-            {
-                re.Add("action", action_name);
-            }
-            re.Add("objType", typeof(T).Name);
             try
             {
-                //Hình thức ghép: username | ten | hoten
-                List<string> nicename = new List<string>();
-
-                //var ppp = this.GetType().GetProperty("username");
-                //if (ppp != null)
-                //{
-                //    nicename.Add(ppp.GetValue(this).ToString());
-                //}
-                //ppp = this.GetType().GetProperty("ten");
-                //if (ppp != null)
-                //{
-                //    nicename.Add(ppp.GetValue(this).ToString());
-                //}
-                //ppp = this.GetType().GetProperty("hoten");
-                //if (ppp != null)
-                //{
-                //    nicename.Add(ppp.GetValue(this).ToString());
-                //}
-                
-                //
-                if (nicename != null && nicename.Count>0)
+                if (Global.current_quantrivien_login != null)
                 {
-                    re.Add("objName", String.Join(" | ", nicename));
-                    nicename = null;
+                    re.Add("actor", Global.current_quantrivien_login.niceName());
                 }
-            }
-            catch (Exception)
-            {
+                else
+                {
+                    re.Add("actor", "unknown");
+                }
 
+                if (action_name != null)
+                {
+                    re.Add("action", action_name);
+                }
+                else
+                {
+                    re.Add("action", "unknown");
+                }
+                if (action_name.Equals("delete"))
+                {
+                    T tmp = db.Set<T>().AsNoTracking().Where(c => c.id == this.id).FirstOrDefault();
+                    if (tmp != null)
+                    {
+                        re.Add("obj", tmp.niceName());
+                        tmp = null;
+                    }
+                }
+                else
+                {
+                    re.Add("obj", ((T)this).niceName());
+                }
+
+                return re;
             }
-            re.Add("objID", this.id.ToString());
-            return re;
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                re.Add("State: ", "ERROR");
+                return re;
+            }
         }
         #endregion
         
@@ -400,6 +397,7 @@ namespace QuanLyTaiSan.Entities
         {
             //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
             return (
+                //PHONG~TB
                 this is CoSo
                 || this is Dayy
                 || this is Tang
@@ -414,6 +412,13 @@ namespace QuanLyTaiSan.Entities
                 || this is Setting
                 || this is SuCoPhong
                 || this is TinhTrang
+                //TSCD
+                || this is TaiSan
+                || this is CTTaiSan
+                || this is DonViTinh
+                || this is LoaiTaiSan
+                || this is ChuThe
+                || this is LoaiChuThe
                 );
         }
         /// <summary>
@@ -475,5 +480,14 @@ namespace QuanLyTaiSan.Entities
             }
         }
         #endregion
+
+        /// <summary>
+        /// Thông tin cơ bản về đối tượng
+        /// </summary>
+        /// <returns></returns>
+        public virtual string niceName()
+        {
+            return "";
+        }
     }
 }

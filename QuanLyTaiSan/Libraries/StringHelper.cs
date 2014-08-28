@@ -263,11 +263,14 @@ namespace QuanLyTaiSan.Libraries
         {
             try
             {
-                return content.Replace("\r\n", "<br />");
+                if (content.IndexOf("\r\n") != -1)
+                    return content.Replace("\r\n", "<br />");
+                else
+                    return content;
             }
             catch
             {
-                return "";
+                return content;
             }
         }
 
@@ -275,11 +278,14 @@ namespace QuanLyTaiSan.Libraries
         {
             try
             {
-                return content.Replace("<br />", "\r\n");
+                if (content.IndexOf("<br />") != -1)
+                    return content.Replace("<br />", "\r\n");
+                else
+                    return content;
             }
             catch
             {
-                return "";
+                return content;
             }
         }
 

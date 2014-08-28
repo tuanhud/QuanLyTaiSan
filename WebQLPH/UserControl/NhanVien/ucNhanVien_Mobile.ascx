@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucNhanVien_Mobile.ascx.cs" Inherits="WebQLPH.UserControl.NhanVien.ucNhanVien_Mobile" %>
 
-<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxImageSlider" tagprefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
@@ -15,36 +15,38 @@
 <asp:Panel ID="PanelThongTinNhanVienPhuTrach" runat="server" Visible="False">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <asp:Label ID="Label_ThongTin" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
         </div>
-        
         <div class="panel-body">
-            <div class="center200">
-                <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
-            </div>
-            <br />
-            <div>
-                <div class="row">
-                    <div class="col-lg-3">Mã nhân viên</div>
-                    <div class="col-lg-9">
-                        <asp:TextBox ID="TextBox_MaNhanVien" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-lg-3">Họ tên</div>
-                    <div class="col-lg-9">
-                        <asp:TextBox ID="TextBox_HoTen" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-lg-3">Số điện thoại</div>
-                    <div class="col-lg-9">
-                        <asp:TextBox ID="TextBox_SoDienThoai" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <div class="center200">
+                                <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Mã nhân viên</th>
+                        <td>
+                            <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Họ tên</th>
+                        <td>
+                            <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 120px" class="warning">Số điện thoại</th>
+                        <td>
+                            <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -52,6 +54,13 @@
         <div class="panel-heading">
             Danh sách phòng
         </div>
+
+        <% if (RepeaterDanhSachPhong.Items.Count == 0)
+           { %>
+        <div class="panel-body">Không có phòng nào</div>
+        <% }
+           else
+           {%>
         <ul class="list-group">
             <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                 <ItemTemplate>
@@ -59,10 +68,7 @@
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
-        <% if (RepeaterDanhSachPhong.Items.Count == 0)
-           { %>   
-        <div class="panel-body">Không có phòng nào</div>
-        <% } %>
+        <%} %>
     </div>
 
     <div class="leftCollectionPager">
@@ -78,6 +84,13 @@
         <div class="panel-heading">
             Danh sách nhân viên
         </div>
+
+        <% if (RepeaterQuanLyNhanVien.Items.Count == 0)
+           { %>
+        <div class="panel-body">Chưa có nhân viên</div>
+        <% }
+           else
+           {%>
         <table class="table table-bordered table-striped table-hover">
             <thead class="centered">
                 <tr>
@@ -90,7 +103,7 @@
             <tbody class="centered">
                 <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
                     <ItemTemplate>
-                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor:pointer">
+                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
                             <td><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></td>
                             <td><%# Eval("subid") %></td>
                             <td><%# Eval("hoten") %></td>
@@ -100,12 +113,9 @@
                 </asp:Repeater>
             </tbody>
         </table>
-        <% if (RepeaterQuanLyNhanVien.Items.Count == 0)
-           { %>   
-        <div class="panel-body">Chưa có nhân viên</div>
-        <% } %>
+        <%} %>
     </div>
-            
+
     <div class="leftCollectionPager">
         <div class="CollectionPager">
             <cp:CollectionPager ID="CollectionPagerQuanLyNhanVien" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">

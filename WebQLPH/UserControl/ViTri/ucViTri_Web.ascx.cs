@@ -30,8 +30,8 @@ namespace WebQLPH.UserControl.ViTri
             {
                 Panel_Chinh.Visible = true;
                 ClearData();
-                ASPxTreeList_ViTri.DataSource = listViTriHienThi;
-                ASPxTreeList_ViTri.DataBind();
+                _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
+                _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 if (Request.QueryString["key"] != null)
                 {
                     string key = "";
@@ -43,8 +43,10 @@ namespace WebQLPH.UserControl.ViTri
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
                     }
-                    if (FindNodeTreeList(key))
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+                    if (node != null)
                     {
+                        node.Focus();
                         LoadFocusedNodeData();
                     }
                     else
@@ -68,35 +70,29 @@ namespace WebQLPH.UserControl.ViTri
         {
             Label_ThongTin.Text = "Thông tin";
             QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_Object);
-            TextBox_Ten.Text = "";
-            TextBox_Thuoc.Text = "";
-            TextBox_DiaChi.Text = "";
-            TextBox_MoTa.Text = "";
+            Label_Ten.Text = "";
+            Label_Thuoc.Text = "";
+            Label_DiaChi.Text = "";
+            Label_MoTa.Text = "";
             Panel_DiaChi.Visible = false;
             Panel_GoogleMap.Visible = false;
-        }
-
-        private void SetError(string strError)
-        {
-            PanelThongBao.Visible = true;
-            LabelThongBao.Text = strError;
         }
 
         private void LoadDataObj(Guid id, int type)
         {
             switch (type)
-            { 
+            {
                 case 1:
                     objCoSo = CoSo.getById(id);
                     if (objCoSo != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objCoSo.ten);
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), ASPxImageSlider_Object);
-                        TextBox_Ten.Text = objCoSo.ten;
-                        TextBox_Thuoc.Text = "[Đại học Sài Gòn]";
+                        Label_Ten.Text = objCoSo.ten;
+                        Label_Thuoc.Text = "[Đại học Sài Gòn]";
                         Panel_DiaChi.Visible = true;
-                        TextBox_DiaChi.Text = objCoSo.diachi;
-                        TextBox_MoTa.Text = objCoSo.mota;
+                        Label_DiaChi.Text = objCoSo.diachi;
+                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objCoSo.mota);
                         if (objCoSo.diachi != null)
                         {
                             if (objCoSo.diachi.Length > 0)
@@ -113,8 +109,7 @@ namespace WebQLPH.UserControl.ViTri
                     }
                     else
                     {
-                        ClearData();
-                        SetError("Không có dữ liệu về cơ sở này");
+                        Response.Redirect(Request.Url.AbsolutePath);
                     }
                     break;
                 case 2:
@@ -123,17 +118,16 @@ namespace WebQLPH.UserControl.ViTri
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objDay.ten);
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), ASPxImageSlider_Object);
-                        TextBox_Ten.Text = objDay.ten;
-                        TextBox_Thuoc.Text = objDay.coso.ten;
+                        Label_Ten.Text = objDay.ten;
+                        Label_Thuoc.Text = objDay.coso != null ? objDay.coso.ten : "[Cơ sở]";
                         Panel_DiaChi.Visible = false;
-                        TextBox_DiaChi.Text = "";
-                        TextBox_MoTa.Text = objDay.mota;
+                        Label_DiaChi.Text = "";
+                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objDay.mota);
                         Panel_GoogleMap.Visible = false;
                     }
                     else
                     {
-                        ClearData();
-                        SetError("Không có dữ liệu về dãy này");
+                        Response.Redirect(Request.Url.AbsolutePath);
                     }
                     break;
                 case 3:
@@ -142,17 +136,30 @@ namespace WebQLPH.UserControl.ViTri
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objTang.ten);
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), ASPxImageSlider_Object);
-                        TextBox_Ten.Text = objTang.ten;
-                        TextBox_Thuoc.Text = objTang.day.coso.ten + " - " + objTang.day.ten;
+                        Label_Ten.Text = objTang.ten;
+                        if (objTang.day != null)
+                        {
+                            if (objTang.day.coso != null)
+                            {
+                                Label_Thuoc.Text = objTang.day.coso.ten + " - " + objTang.day.ten;
+                            }
+                            else
+                            {
+                                Label_Thuoc.Text = "[Cơ sở] - " + objTang.day.ten;
+                            }
+                        }
+                        else
+                        {
+                            Label_Thuoc.Text = "[Cơ sở] - [Dãy]";
+                        }
                         Panel_DiaChi.Visible = false;
-                        TextBox_DiaChi.Text = "";
-                        TextBox_MoTa.Text = objTang.mota;
+                        Label_DiaChi.Text = "";
+                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objTang.mota);
                         Panel_GoogleMap.Visible = false;
                     }
                     else
                     {
-                        ClearData();
-                        SetError("Không có dữ liệu về tầng này");
+                        Response.Redirect(Request.Url.AbsolutePath);
                     }
                     break;
                 default:
@@ -165,43 +172,22 @@ namespace WebQLPH.UserControl.ViTri
         {
             if (listViTriHienThi.Count > 0)
             {
-                if (ASPxTreeList_ViTri.FocusedNode != null && ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")) != Guid.Empty)
+                if (_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode != null && _ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("loai") != null && GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")) != Guid.Empty)
                 {
-                    if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(CoSo).Name))
+                    if (_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(CoSo).Name))
                     {
-                        LoadDataObj(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 1);
+                        LoadDataObj(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 1);
                     }
-                    else if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Dayy).Name))
+                    else if (_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Dayy).Name))
                     {
-                        LoadDataObj(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 2);
+                        LoadDataObj(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 2);
                     }
-                    else if (ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Tang).Name))
+                    else if (_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("loai").ToString().Equals(typeof(Tang).Name))
                     {
-                        LoadDataObj(GUID.From(ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
+                        LoadDataObj(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
                     }
                 }
             }
-        }
-
-        protected void ASPxTreeList_ViTri_CustomDataCallback(object sender, TreeListCustomDataCallbackEventArgs e)
-        {
-            string key = e.Argument.ToString();
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
-            if (node != null)
-                e.Result = Request.Url.AbsolutePath + "?key=" + key;
-            else
-                e.Result = Request.Url.AbsolutePath;
-        }
-
-        private Boolean FindNodeTreeList(string key)
-        {
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ViTri.FindNodeByKeyValue(key);
-            if (node != null)
-            {
-                node.Focus();
-                return true;
-            }
-            return false;
         }
     }
 }

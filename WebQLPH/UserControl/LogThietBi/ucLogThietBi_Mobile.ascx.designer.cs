@@ -103,67 +103,67 @@ namespace WebQLPH.UserControl.LogThietBi {
         protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Log;
         
         /// <summary>
-        /// TextBox_TenThietBi control.
+        /// Label_TenThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_TenThietBi;
+        protected global::System.Web.UI.WebControls.Label Label_TenThietBi;
         
         /// <summary>
-        /// TextBox_TinhTrang control.
+        /// Label_TinhTrang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_TinhTrang;
+        protected global::System.Web.UI.WebControls.Label Label_TinhTrang;
         
         /// <summary>
-        /// TextBox_SoLuong control.
+        /// Label_SoLuong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_SoLuong;
+        protected global::System.Web.UI.WebControls.Label Label_SoLuong;
         
         /// <summary>
-        /// TextBox_Phong control.
+        /// Label_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Phong;
+        protected global::System.Web.UI.WebControls.Label Label_Phong;
         
         /// <summary>
-        /// TextBox_Ngay control.
+        /// Label_Ngay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Ngay;
+        protected global::System.Web.UI.WebControls.Label Label_Ngay;
         
         /// <summary>
-        /// TextBox_QuanTriVien control.
+        /// Label_QuanTriVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_QuanTriVien;
+        protected global::System.Web.UI.WebControls.Label Label_QuanTriVien;
         
         /// <summary>
-        /// TextBox_GhiChu control.
+        /// Label_GhiChu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_GhiChu;
+        protected global::System.Web.UI.WebControls.Label Label_GhiChu;
         
         /// <summary>
         /// Button_Back control.

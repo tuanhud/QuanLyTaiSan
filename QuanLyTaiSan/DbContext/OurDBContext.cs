@@ -16,6 +16,10 @@ namespace QuanLyTaiSan.Entities
     internal class _OurDBInit : CreateDatabaseIfNotExists<OurDBContext>
     {
         private Boolean create_sample_data = false;
+        /// <summary>
+        /// Luôn luôn tạo tự động "cấu trúc CSDL"
+        /// </summary>
+        /// <param name="create_sample_data">Có tự động tạo dữ liệu mẫu hay không</param>
         public _OurDBInit(Boolean create_sample_data = false)
         {
             this.create_sample_data = create_sample_data;
@@ -156,47 +160,84 @@ namespace QuanLyTaiSan.Entities
     /// </summary>
     public class OurDBContext : DbContext
     {
+        /// <summary>
+        /// Có tự động tạo "dữ liệu mẫu" hay không ?
+        /// </summary>
         private Boolean create_sample_data = false;
+        /// <summary>
+        /// Có tự động tạo "cấu trúc CSDL" hay không ?
+        /// </summary>
+        private Boolean create_db_structure = false;
+        /// <summary>
+        /// Hàm khởi tạo mặc định sử dụng App.config
+        /// </summary>
         public OurDBContext()
             : base("Default")
         {
-            //Create sample data if indicated
-            IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(false);
-
-            //Auto create DB if not exist
+            IDatabaseInitializer<OurDBContext> initializer = null;
+            if (create_db_structure)
+            {
+                //Auto create DB Structure and Sample Data if not exist
+                initializer = new _OurDBInit(create_sample_data);
+            }
             Database.SetInitializer<OurDBContext>(initializer);
         }
-        public OurDBContext(String connection_string = "Default", Boolean create_sample_data = false)
+        /// <summary>
+        /// Hàm khởi tạo có chỉ định cụ thể DB đích
+        /// </summary>
+        /// <param name="connection_string"></param>
+        /// <param name="create_db_structure">Có tự động tạo "cấu trúc CSDL" và "dữ liệu mẫu" hay không ?</param>
+        public OurDBContext(String connection_string = "Default", Boolean create_db_structure = false, Boolean create_sample_data = false)
             : base(connection_string)
         {
+            this.create_db_structure = create_db_structure;
             this.create_sample_data = create_sample_data;
-            //Create sample data if indicated
-            IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
-
-            //Auto create DB if not exist
-            Database.SetInitializer<OurDBContext>(initializer);
+            IDatabaseInitializer<OurDBContext> initializer = null;
+            if (create_db_structure)
+            {
+                //Auto create DB if not exist
+                initializer = new _OurDBInit(create_sample_data);
+            }
+            Database.SetInitializer<OurDBContext>(initializer);            
         }
 
+        #region COMMON (SHARED)
+        public DbSet<QuanTriVien> QUANTRIVIENS { get; set; }
+        public DbSet<Group> GROUPS { get; set; }
+        public DbSet<Permission> PERMISSIONS { get; set; }
+        public DbSet<HinhAnh> HINHANHS { get; set; }
+        public DbSet<TinhTrang> TINHTRANGS { get; set; }
+        public DbSet<Setting> SETTINGS { get; set; }
+        public DbSet<LogHeThong> LOGHETHONGS { get; set; }
+        #endregion
+
+        #region QL: PHONG~THIETBI
         public DbSet<CoSo> COSOS { get; set; }
         public DbSet<Phong> PHONGS { get; set; }
         public DbSet<ThietBi> THIETBIS { get; set; }
         public DbSet<CTThietBi> CTTHIETBIS { get; set; }
-        public DbSet<HinhAnh> HINHANHS { get; set; }
-        public DbSet<Group> GROUPS { get; set; }
-        public DbSet<QuanTriVien> QUANTRIVIENS { get; set; }
-        public DbSet<Permission> PERMISSIONS { get; set; }
-        public DbSet<LogHeThong> LOGHETHONGS { get; set; }
         public DbSet<LogThietBi> LOGTHIETBIS { get; set; }
         public DbSet<SuCoPhong> SUCOPHONGS { get; set; }
         public DbSet<LogSuCoPhong> LOGSUCOPHONGS { get; set; }
-        public DbSet<TinhTrang> TINHTRANGS { get; set; }
         public DbSet<NhanVienPT> NHANVIENPTS { get; set; }
         public DbSet<Tang> TANGS { get; set; }
         public DbSet<Dayy> DAYYS { get; set; }
         public DbSet<ViTri> VITRIS { get; set; }
         public DbSet<LoaiThietBi> LOAITHIETBIS { get; set; }
-        public DbSet<Setting> SETTINGS { get; set; }
         public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
+        #endregion
+
+        #region QL: TSCD
+        public DbSet<LoaiChuThe> LOAICHUTHES { get; set; }
+        public DbSet<ChuThe> CHUTHES { get; set; }
+        public DbSet<LoaiTaiSan> LOAITAISANS { get; set; }
+        public DbSet<TaiSan> TAISANS { get; set; }
+        public DbSet<CTTaiSan> CTTAISANS { get; set; }
+        public DbSet<LogTaiSan> LOGTAISANS { get; set; }
+        public DbSet<DonViTinh> DONVITINHS { get; set; }
+        #endregion
+
+
         #region STATIC
         /// <summary>
         /// Dùng trong frm Sửa quyền
@@ -208,56 +249,66 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// for SYNC
         /// </summary>
-        
+
         public static String[] tracking_tables =
         {
             //UNDEPENDENT (bản thân không có bất kỳ FK nào)
             //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
             "__MigrationHistory",//UNDEPENDENT
 
+            //BEGIN PTB
             "COSOS",//UNDEPENDENT
-            "DAYS",
-            "TANGS",
-            "VITRIS",
+                "DAYS",
+                    "TANGS",
+                        "VITRIS",
+                            "PHONGS",
             "NHANVIENPTS",//UNDEPENDENT
-            "PHONGS",
-                    
-            "LOAITHIETBIS",
+            
             "TINHTRANGS",//UNDEPENDENT
-            "THIETBIS",
-            "CTTHIETBIS",
+            "LOAITHIETBIS",//UNDEPENDENT
+                "THIETBIS",
+                    "CTTHIETBIS",
                     
             "GROUPS",//UNDEPENDENT
-                    
+                "QUANTRIVIENS",       
             "PERMISSIONS",//UNDEPENDENT
-            "GROUP_PERMISSION",
-            "COSO_PERMISSION",
-            "DAY_PERMISSION",
-            "TANG_PERMISSION",
-            "PHONG_PERMISSION",
-
-            "QUANTRIVIENS",
-
+                "GROUP_PERMISSION",
+                "COSO_PERMISSION",
+                "DAY_PERMISSION",
+                "TANG_PERMISSION",
+                "PHONG_PERMISSION",
+            
+            "PHIEUMUONPHONGS",
             "LOGTHIETBIS",
 
-            "SUCOPHONGS",//UNDEPENDENT
-            "LOGSUCOPHONGS",
+            "SUCOPHONGS",
+                "LOGSUCOPHONGS",
                     
             "SETTINGS",//UNDEPENDENT
             "LOGHETHONGS",//UNDEPENDENT
-            "PHIEUMUONPHONGS",
+            
+            "HINHANHS",//UNDEPENDENT
+                "COSO_HINHANH",
+                "DAY_HINHANH",
+                "TANG_HINHANH",
+                "THIETBI_HINHANH",
+                "CTTHIETBI_HINHANH",
+                "LOGSUCOPHONG_HINHANH",
+                "LOGTHIETBI_HINHANH",
+                "NHANVIENPT_HINHANH",
+                "PHONG_HINHANH",
+                "SUCOPHONG_HINHANH",
+            //END PTB
 
-            "HINHANHS",
-            "COSO_HINHANH",
-            "DAY_HINHANH",
-            "TANG_HINHANH",
-            "THIETBI_HINHANH",
-            "CTTHIETBI_HINHANH",
-            "LOGSUCOPHONG_HINHANH",
-            "LOGTHIETBI_HINHANH",
-            "NHANVIENPT_HINHANH",
-            "PHONG_HINHANH",
-            "SUCOPHONG_HINHANH",
+            //BEGIN TSCD
+            "TSCD_DONVITINH",//UNDEPENTDENT
+                "TSCD_LOAITAISAN",
+                    "TSCD_TAISAN",
+            "TSCD_LOAICHUTHE",//UNDEPENDENT
+                "TSCD_CHUTHE",
+                    "TSCD_CTTAISAN",
+                    "TSCD_LOGTAISAN",
+            //END TSCD
         };
         #endregion
         #region Manual
@@ -320,34 +371,19 @@ namespace QuanLyTaiSan.Entities
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
             //CONFIG
-            //AUTO DELETE ON CASCADE
+            //DISABLE AUTO DELETE ON CASCADE
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //FORCE USE LAZY LOADING
             this.Configuration.LazyLoadingEnabled = true;
             /*
              * TPC Mapping, Inheritance
              */
-            modelBuilder.Entity<CoSo>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<Phong>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<ThietBi>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
+            #region COMMON (SHARED)
             modelBuilder.Entity<HinhAnh>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
-
             modelBuilder.Entity<QuanTriVien>().Map(x =>
             {
                 x.MapInheritedProperties();
@@ -366,6 +402,45 @@ namespace QuanLyTaiSan.Entities
             {
                 x.MapInheritedProperties();
             });
+            modelBuilder.Entity<TinhTrang>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+            modelBuilder.Entity<Setting>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+            /*
+             * n-n relationship GROUP~PERMISSION,
+             * Định nghĩa chi tiết
+             */
+            modelBuilder.Entity<Group>().
+            HasMany(c => c.permissions).
+            WithMany(p => p.groups).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("group_id");
+                    m.MapRightKey("permission_id");
+                    m.ToTable("GROUP_PERMISSION");
+                });
+            #endregion
+
+            #region QL: PHONG~THIETBI
+            modelBuilder.Entity<CoSo>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<Phong>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<ThietBi>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
 
             modelBuilder.Entity<LogThietBi>().Map(x =>
             {
@@ -373,11 +448,6 @@ namespace QuanLyTaiSan.Entities
             });
 
             modelBuilder.Entity<CTThietBi>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<TinhTrang>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
@@ -416,16 +486,11 @@ namespace QuanLyTaiSan.Entities
                 x.MapInheritedProperties();
             });
 
-
-            modelBuilder.Entity<Setting>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
             modelBuilder.Entity<PhieuMuonPhong>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
+
             /*
              * Double 1-n relationship PHIEUMUONPHONG~QUANTRIVIEN
              */
@@ -593,20 +658,63 @@ namespace QuanLyTaiSan.Entities
                     m.MapRightKey("id2");
                     m.ToTable("CTTHIETBI_HINHANH");
                 });
+            #endregion
+
+            #region QL: TSCD
+            modelBuilder.Entity<DonViTinh>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<TaiSan>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<CTTaiSan>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<LogTaiSan>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<LoaiTaiSan>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<ChuThe>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<LoaiChuThe>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
             /*
-             * n-n relationship GROUP~PERMISSION,
-             * Định nghĩa chi tiết
+             * Double 1-n relationship CHUTHE~CTTAISAN, CHUTHE~LOGTAISAN
              */
-            modelBuilder.Entity<Group>().
-            HasMany(c => c.permissions).
-            WithMany(p => p.groups).
-            Map(
-                m =>
-                {
-                    m.MapLeftKey("group_id");
-                    m.MapRightKey("permission_id");
-                    m.ToTable("GROUP_PERMISSION");
-                });
+                //CTTAISAN
+            modelBuilder.Entity<CTTaiSan>()
+            .HasRequired(a => a.chuthequanly)
+            .WithMany(b => b.cttaisan_dangquanlys);
+
+            modelBuilder.Entity<CTTaiSan>()
+            .HasRequired(a => a.chuthesudung)
+            .WithMany(b => b.cttaisan_dangsudungs);
+                //LOGTAISAN
+            modelBuilder.Entity<LogTaiSan>()
+            .HasRequired(a => a.chuthequanly)
+            .WithMany(b => b.logtaisan_dangquanlys);
+
+            modelBuilder.Entity<LogTaiSan>()
+            .HasRequired(a => a.chuthesudung)
+            .WithMany(b => b.logtaisan_dangsudungs);
+            #endregion
         }
         public override int SaveChanges()
         {

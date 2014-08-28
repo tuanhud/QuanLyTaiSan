@@ -39,6 +39,11 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 		
 		#region Override method
+        public override string niceName()
+        {
+            return "Dãy: " + ten + ", " + coso.niceName();
+        }
+
         /// <summary>
         /// -2: dính phòng, -3: dính tầng
         /// </summary>

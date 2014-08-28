@@ -31,16 +31,19 @@ namespace WebQLPH.UserControl.LoaiThietBis
                 {
                     try
                     {
-                        string key = Request.QueryString["key"];
-                        if (FindNodeTreeList(key))
-                            LoadDataObj(GUID.From(key));
+                        string key = Request.QueryString["key"].ToString();
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue(key);
+                        if (node != null)
+                        {
+                            node.Focus();
+                            LoadFocusedNodeData();
+                        }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
                     }
                     catch
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
-                        return;
                     }
                 }
                 else
@@ -53,21 +56,6 @@ namespace WebQLPH.UserControl.LoaiThietBis
                 Panel_ThongBaoLoi.Visible = true;
                 Label_ThongBaoLoi.Text = "Chưa có loại thiết bị";
             }
-        }
-
-        private void ClearData()
-        {
-            Label_ThongTin.Text = "Thông tin";
-            Label_TenLoai.Text = "";
-            Label_Thuoc.Text = "";
-            Label_KieuQuanLy.Text = "";
-            Label_MoTa.Text = "";
-        }
-
-        private void SetError(string strError)
-        {
-            PanelThongBao.Visible = true;
-            LabelThongBao.Text = strError;
         }
 
         private void LoadDataObj(Guid id)
@@ -83,25 +71,8 @@ namespace WebQLPH.UserControl.LoaiThietBis
             }
             else
             {
-                ClearData();
-                SetError("Không có dữ liệu về cơ sở này");
+                Response.Redirect(Request.Url.AbsolutePath);
             }
-        }
-
-        protected void ASPxTreeList_LoaiThietBi_FocusedNodeChanged(object sender, EventArgs e)
-        {
-            LoadFocusedNodeData();
-        }
-
-        private Boolean FindNodeTreeList(string key)
-        {
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue(key);
-            if (node != null)
-            {
-                node.Focus();
-                return true;
-            }
-            return false;
         }
 
         private void LoadFocusedNodeData()

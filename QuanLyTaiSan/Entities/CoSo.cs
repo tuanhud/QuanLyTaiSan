@@ -41,6 +41,10 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        public override string niceName()
+        {
+            return "Cơ sở: " + ten;
+        }
         protected override void init()
         {
             base.init();

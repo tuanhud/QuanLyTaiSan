@@ -17,7 +17,7 @@ namespace WebQLPH.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void LoadData()
@@ -47,11 +47,14 @@ namespace WebQLPH.UserControl.NhanVien
                     objNhanVienPT = NhanVienPT.getById(idNhanVien);
                     if (objNhanVienPT != null)
                     {
+                        Panel_NhanVienPT.Visible = true;
+                        Label_NhanVienPT.Visible = false;
+                        Label_NhanVienPT.Text = "";
                         Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
-                        TextBox_MaNhanVien.Text = objNhanVienPT.subId;
-                        TextBox_HoTen.Text = objNhanVienPT.hoten;
-                        TextBox_SoDienThoai.Text = objNhanVienPT.sodienthoai;
+                        Label_MaNhanVien.Text = objNhanVienPT.subId;
+                        Label_HoTen.Text = objNhanVienPT.hoten;
+                        Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
 
                         CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();
                         CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
@@ -66,6 +69,9 @@ namespace WebQLPH.UserControl.NhanVien
                 else
                 {
                     DeleteForm();
+                    Panel_NhanVienPT.Visible = false;
+                    Label_NhanVienPT.Visible = true;
+                    Label_NhanVienPT.Text = "Chưa chọn nhân viên";
                 }
                 BindData();
                 Panel_Chinh.Visible = true;
@@ -75,9 +81,9 @@ namespace WebQLPH.UserControl.NhanVien
         private void DeleteForm()
         {
             QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVienPT);
-            TextBox_MaNhanVien.Text = "";
-            TextBox_HoTen.Text = "";
-            TextBox_SoDienThoai.Text = "";
+            Label_MaNhanVien.Text = "";
+            Label_HoTen.Text = "";
+            Label_SoDienThoai.Text = "";
             CollectionPagerDanhSachPhong.DataSource = null;
             RepeaterDanhSachPhong.DataSource = null;
         }

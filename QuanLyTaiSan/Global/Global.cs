@@ -106,7 +106,7 @@ namespace QuanLyTaiSan.Entities
             {
                 try
                 {
-                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
+                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true, true))
                     {
                         tmp.isValidModel();
                     }
@@ -119,13 +119,13 @@ namespace QuanLyTaiSan.Entities
             public static String get_connection_string()
             {
                 return StringHelper.generateConnectionString(
-                        Global.local_setting.db_server_host,
-                        Global.local_setting.db_server_dbname,
-                        Global.local_setting.db_server_WA,
-                        Global.local_setting.db_server_username,
-                        Global.local_setting.db_server_password,
-                        Global.local_setting.db_server_port,
-                        10
+                        db_host,
+                        db_name,
+                        db_WA,
+                        db_username,
+                        db_password,
+                        db_port,
+                        5
                 );
             }
             /// <summary>
@@ -140,7 +140,7 @@ namespace QuanLyTaiSan.Entities
                 ))
                 {
                     //Check model backing
-                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
+                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), false, false))
                     {
                         if (tmp.isValidModel())
                         {
@@ -258,7 +258,7 @@ namespace QuanLyTaiSan.Entities
             public static int start_sync()
             {
                 //Kiểm tra nếu sử dụng internal config thì bỏ qua
-                if (Global.working_database.use_internal_config)
+                if (Global.working_database.WEB_MODE)
                 {
                     return 1;
                 }
@@ -288,7 +288,7 @@ namespace QuanLyTaiSan.Entities
 
                 try
                 {
-                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
+                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), true, false))
                     {
                         tmp.isValidModel();
                     }
@@ -301,13 +301,13 @@ namespace QuanLyTaiSan.Entities
             public static String get_connection_string()
             {
                 return StringHelper.generateConnectionString(
-                        Global.local_setting.db_cache_host,
-                        Global.local_setting.db_cache_dbname,
-                        Global.local_setting.db_cache_WA,
-                        Global.local_setting.db_cache_username,
-                        Global.local_setting.db_cache_password,
-                        Global.local_setting.db_cache_port,
-                        10
+                        db_host,
+                        db_name,
+                        db_WA,
+                        db_username,
+                        db_password,
+                        db_port,
+                        5
                 );
             }
             /// <summary>
@@ -321,13 +321,21 @@ namespace QuanLyTaiSan.Entities
                     Global.client_database.get_connection_string()
                 ))
                 {
-                    //Check model backing
-                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
+                    try
                     {
-                        if (tmp.isValidModel())
+                        //Check model backing
+                        using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false, false))
                         {
-                            return 1;
+                            if (tmp.isValidModel())
+                            {
+                                return 1;
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                        return -2;
                     }
                 }
                 return -2;
@@ -388,34 +396,36 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class working_database
         {
-            private static Boolean useinternalconfig = false;
             /// <summary>
-            /// Chỉ định sử dụng file Config trong Project hay là trong Global.local_setting,
-            /// WEB phải set = true trước khi gọi Entity, Winfor KHÔNG cần,
-            /// phải chỉ định connectionString tên Default trong Web.config
+            /// Mặc định là dành cho Winform
             /// </summary>
-            public static Boolean use_internal_config
+            private static Boolean _web_mode = false;
+            /// <summary>
+            /// Chế độ dành riêng cho Web ASP.NET,
+            /// phải chỉ định connectionString tên "Default" sử dụng "SQL Server Client" trong Web.config hoặc App.config
+            /// </summary>
+            public static Boolean WEB_MODE
             {
                 get
                 {
-                    return useinternalconfig;
+                    return _web_mode;
                 }
                 set
                 {
-                    useinternalconfig = value;
+                    _web_mode = value;
                 }
             }
 
             public static String get_connection_string()
             {
                 return StringHelper.generateConnectionString(
-                        Global.working_database.db_host,
-                        Global.working_database.db_name,
-                        Global.working_database.db_WA,
-                        Global.working_database.db_username,
-                        Global.working_database.db_password,
-                        Global.working_database.db_port,
-                        3
+                        db_host,
+                        db_name,
+                        db_WA,
+                        db_username,
+                        db_password,
+                        db_port,
+                        5
                 );
             }
             /// <summary>
@@ -429,13 +439,21 @@ namespace QuanLyTaiSan.Entities
                     Global.working_database.get_connection_string()
                 ))
                 {
-                    //Check model backing
-                    using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false))
+                    try
                     {
-                        if (tmp.isValidModel())
+                        //Check model backing
+                        using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false, false))
                         {
-                            return 1;
+                            if (tmp.isValidModel())
+                            {
+                                return 1;
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                        return -2;
                     }
                 }
                 return -2;
@@ -495,7 +513,7 @@ namespace QuanLyTaiSan.Entities
         public static QuanTriVien current_quantrivien_login {
             get
             {
-                if (Global.working_database.use_internal_config)
+                if (Global.working_database.WEB_MODE)
                 {
                     QuanTriVien tmp = HttpContext.Current.Items["current_quantrivien_login"] as QuanTriVien;
                     if (tmp == null)
@@ -514,7 +532,7 @@ namespace QuanLyTaiSan.Entities
             }
             set
             {
-                if (Global.working_database.use_internal_config)
+                if (Global.working_database.WEB_MODE)
                 {
                     HttpContext.Current.Items["current_quantrivien_login"] = value;
                 }
