@@ -31,15 +31,6 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
         
         /// <summary>
-        /// Panel_Chinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
-        
-        /// <summary>
         /// Panel_TreeViTri control.
         /// </summary>
         /// <remarks>
@@ -49,13 +40,13 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Panel Panel_TreeViTri;
         
         /// <summary>
-        /// ASPxTreeList_ViTri control.
+        /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
+        protected global::WebQLPH.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
         /// Panel_ThongTinObj control.
@@ -85,22 +76,22 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Object;
         
         /// <summary>
-        /// TextBox_Ten control.
+        /// Label_Ten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Ten;
+        protected global::System.Web.UI.WebControls.Label Label_Ten;
         
         /// <summary>
-        /// TextBox_Thuoc control.
+        /// Label_Thuoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Thuoc;
+        protected global::System.Web.UI.WebControls.Label Label_Thuoc;
         
         /// <summary>
         /// Panel_DiaChi control.
@@ -112,22 +103,22 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Panel Panel_DiaChi;
         
         /// <summary>
-        /// TextBox_DiaChi control.
+        /// Label_DiaChi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_DiaChi;
+        protected global::System.Web.UI.WebControls.Label Label_DiaChi;
         
         /// <summary>
-        /// TextBox_MoTa control.
+        /// Label_MoTa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_MoTa;
+        protected global::System.Web.UI.WebControls.Label Label_MoTa;
         
         /// <summary>
         /// Button_Map control.
