@@ -85,33 +85,6 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
         
         /// <summary>
-        /// Label_ThongBao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBao;
-        
-        /// <summary>
-        /// PanelThongBao_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao_ThietBi;
-        
-        /// <summary>
-        /// LabelThongBao_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao_ThietBi;
-        
-        /// <summary>
         /// Panel_ThietBi control.
         /// </summary>
         /// <remarks>

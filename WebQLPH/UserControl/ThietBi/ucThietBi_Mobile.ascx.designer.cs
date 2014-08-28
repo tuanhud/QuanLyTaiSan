@@ -49,13 +49,13 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::WebQLPH.UserControl.ThietBi.ucThietBi_BreadCrumb ucThietBi_BreadCrumb;
         
         /// <summary>
-        /// Panel_TreeViTri control.
+        /// Panel_TreeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_TreeViTri;
+        protected global::System.Web.UI.WebControls.Panel Panel_TreeList;
         
         /// <summary>
         /// ASPxTreeList_ThietBi control.
@@ -101,33 +101,6 @@ namespace WebQLPH.UserControl.ThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
-        
-        /// <summary>
-        /// PanelThongBao_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao_ThietBi;
-        
-        /// <summary>
-        /// LabelThongBao_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao_ThietBi;
-        
-        /// <summary>
-        /// Panel_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThietBi;
         
         /// <summary>
         /// ASPxImageSlider_ThietBi control.
@@ -182,15 +155,6 @@ namespace WebQLPH.UserControl.ThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MoTa;
-        
-        /// <summary>
-        /// Label_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThietBi;
         
         /// <summary>
         /// Button_Back control.

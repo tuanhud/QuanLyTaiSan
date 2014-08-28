@@ -3,10 +3,8 @@
 <%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
-
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 <%@ Register Src="~/UserControl/ThietBi/ucThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucThietBi_BreadCrumb" %>
-
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -16,26 +14,27 @@
         </div>
     </div>
 </asp:Panel>
+
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
-    <asp:Panel ID="Panel_TreeViTri" runat="server" Visible="False">
+    <asp:Panel ID="Panel_TreeList" runat="server" Visible="False">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Thiết bị
             </div>
-            <dx:ASPxTreeList ID="ASPxTreeList_ThietBi" runat="server" KeyFieldName="ID" AutoGenerateColumns="False" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ThietBi_CustomDataCallback" OnFocusedNodeChanged="ASPxTreeList_ThietBi_FocusedNodeChanged">
+            <dx:ASPxTreeList ID="ASPxTreeList_ThietBi" runat="server" KeyFieldName="ID" AutoGenerateColumns="False" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ThietBi_CustomDataCallback">
                 <Columns>
-                    <dx:TreeListTextColumn Caption="ID" FieldName="id" Name="colid" VisibleIndex="0" ShowInCustomizationForm="True" Visible="false"></dx:TreeListTextColumn>
-                    <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="name" Name="colname" VisibleIndex="1" ShowInCustomizationForm="True">
+                    <dx:TreeListTextColumn Caption="ID" FieldName="id" Name="colid" VisibleIndex="0" Visible="false"></dx:TreeListTextColumn>
+                    <dx:TreeListTextColumn Caption="(Thiết bị)" FieldName="name" Name="colname" VisibleIndex="1">
                     </dx:TreeListTextColumn>
                 </Columns>
-                <Settings ShowTreeLines="true" SuppressOuterGridLines="true" ShowColumnHeaders="false" />
+                <Settings SuppressOuterGridLines="true" ShowColumnHeaders="False" />
                 <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
                 <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
                 <ClientSideEvents CustomDataCallback="function(s, e) { document.location = e.result; }"
                     FocusedNodeChanged="function(s, e) { 
-                                var key = treeList.GetFocusedNodeKey();
-                                treeList.PerformCustomDataCallback(key); 
+									var key = treeList.GetFocusedNodeKey();
+									treeList.PerformCustomDataCallback(key); 
                             }" />
             </dx:ASPxTreeList>
         </div>
@@ -60,7 +59,7 @@
                 <tbody class="centered">
                     <asp:Repeater ID="RepeaterThietBi" runat="server">
                         <ItemTemplate>
-                            <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idThietBi.ToString()?" class=\"focusrow\"":"" %>>
+                            <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
                                 <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
                                 <td><%# Eval("subid") %></td>
                                 <td><%# Eval("ten") %></td>
@@ -78,6 +77,7 @@
             </div>
         </div>
     </asp:Panel>
+
     <asp:Panel ID="Panel_ThongTinObj" runat="server" Visible="False">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -85,24 +85,12 @@
             </div>
 
             <div class="panel-body">
-                <asp:Panel ID="PanelThongBao_ThietBi" runat="server" Visible="False">
-                    <div>
-                        <div class="alert alert-danger" role="alert">
-                            <span class="glyphicon glyphicon-exclamation-sign"></span>
-                            <asp:Label ID="LabelThongBao_ThietBi" runat="server" Text="Label"></asp:Label>
-                        </div>
-                    </div>
-                </asp:Panel>
-
-                <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
-                    <table class="table table-bordered">
+                <table class="table table-bordered">
+                    <tbody>
                         <tr>
                             <td colspan="2">
                                 <div class="center200">
-                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="200px">
-                                        <Styles>
-                                            <ImageArea BackColor="White"></ImageArea>
-                                        </Styles>
+                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px">
                                     </dx:ASPxImageSlider>
                                 </div>
                             </td>
@@ -132,9 +120,8 @@
                             <td>
                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label></td>
                         </tr>
-                    </table>
-                </asp:Panel>
-                <asp:Label ID="Label_ThietBi" runat="server" Visible="false"></asp:Label>
+                    </tbody>
+                </table>
             </div>
         </div>
         <asp:Button ID="Button_Back" CssClass="btn btn-default" runat="server" Text="Quay lại" OnClick="Button_Back_Click" Width="100px" />

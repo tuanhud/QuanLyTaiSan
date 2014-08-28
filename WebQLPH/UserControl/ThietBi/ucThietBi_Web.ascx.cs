@@ -13,11 +13,11 @@ namespace WebQLPH.UserControl.ThietBi
     public partial class ucThietBi_Web : System.Web.UI.UserControl
     {
         public Guid idThietBi = Guid.Empty;
-        public string key = "";
-        public string p1 = "Thiết bị quản lý theo số lượng";
-        public string p2 = "Thiết bị quản lý theo cá thể";
-        public string c1 = "Thiết bị đang được sử dụng";
-        public string c2 = "Thiết bị chưa được sử dụng";
+        string key = "";
+        string p1 = "Thiết bị quản lý theo số lượng";
+        string p2 = "Thiết bị quản lý theo cá thể";
+        string c1 = "Thiết bị đang được sử dụng";
+        string c2 = "Thiết bị chưa được sử dụng";
 
         List<QuanLyTaiSan.Entities.ThietBi> listThietBi = new List<QuanLyTaiSan.Entities.ThietBi>();
         QuanLyTaiSan.Entities.ThietBi objThietBi = null;
@@ -39,15 +39,18 @@ namespace WebQLPH.UserControl.ThietBi
                     try
                     {
                         key = Request.QueryString["key"].ToString();
-                        if (FindNodeTreeList(key))
-                            LoadDanhSachThietBi(Convert.ToInt32(key));
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
+                        if (node != null)
+                        {
+                            node.Focus();
+                            LoadFocusedNodeData();
+                        }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
                     }
                     catch
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
-                        return;
                     }
                 }
                 else
@@ -65,14 +68,13 @@ namespace WebQLPH.UserControl.ThietBi
                     catch
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
-                        return;
                     }
                     objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idThietBi);
                     if (objThietBi != null)
                     {
                         Panel_ThietBi.Visible = true;
                         Label_ThietBi.Visible = false;
-                        PanelThongBao_ThietBi.Visible = false;
+                        Label_ThietBi.Text = "";
                         Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
                         Label_MaThietBi.Text = objThietBi.subId;
@@ -83,14 +85,13 @@ namespace WebQLPH.UserControl.ThietBi
                     }
                     else
                     {
-                        ClearData();
-                        PanelThongBao_ThietBi.Visible = true;
-                        LabelThongBao_ThietBi.Text = "Không có thiết bị này";
+                        Response.Redirect(Request.Url.AbsolutePath);
                     }
                 }
                 else
                 {
-                    Label_ThongBao.Text = "Chưa chọn thiết bị";
+                    Label_ThietBi.Visible = true;
+                    Label_ThietBi.Text = "Chưa chọn thiết bị";
                 }
             }
             else
@@ -98,29 +99,6 @@ namespace WebQLPH.UserControl.ThietBi
                 Panel_ThongBaoLoi.Visible = true;
                 Label_ThongBaoLoi.Text = "Chưa có thiết bị";
             }
-        }
-
-        private void ClearData()
-        {
-            Panel_ThietBi.Visible = false;
-            PanelThongBao_ThietBi.Visible = false;
-            Label_ThongTinThietBi.Text = "Thông tin thiết bị";
-            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_ThietBi);
-            Label_MaThietBi.Text = "";
-            Label_TenThietBi.Text = "";
-            Label_LoaiThietBi.Text = "";
-            Label_MoTa.Text = "";
-        }
-
-        private Boolean FindNodeTreeList(string key)
-        {
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
-            if (node != null)
-            {
-                node.Focus();
-                return true;
-            }
-            return false;
         }
 
         public void CreateNode()
@@ -143,11 +121,6 @@ namespace WebQLPH.UserControl.ThietBi
             parent1.Focus();
         }
 
-        protected void ASPxTreeList_ThietBi_FocusedNodeChanged(object sender, EventArgs e)
-        {
-            LoadFocusedNodeData();
-        }
-
         private void LoadFocusedNodeData()
         {
             if (listThietBi.Count > 0)
@@ -160,7 +133,7 @@ namespace WebQLPH.UserControl.ThietBi
                     }
                     catch (Exception)
                     {
-                        
+
                     }
                 }
             }
