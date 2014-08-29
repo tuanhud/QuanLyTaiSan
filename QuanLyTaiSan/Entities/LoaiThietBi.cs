@@ -79,32 +79,27 @@ namespace QuanLyTaiSan.Entities
             return "Loại thiết bị: " + ten;
         }
 
-        public override void moveUp()
+        public override LoaiThietBi prevObj()
         {
-            LoaiThietBi prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == this.parent_id).OrderByDescending(c => c.order).FirstOrDefault();
+            LoaiThietBi prev = null;
+            prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == parent_id).OrderByDescending(c => c.order).FirstOrDefault();
             if (prev == null)
             {
-                return;
+                prev = db.LOAITHIETBIS.Where(c => c.date_create < this.date_create && c.parent_id == parent_id).OrderByDescending(c => c.date_create).FirstOrDefault();
             }
-            //SWAP order value
-            //int? order_1 = this.order == null ? this.id : this.order;
-            //int? order_2 = prev.order == null ? prev.id : prev.order;
-
-            //this.order = order_2;
-            //prev.order = order_1;
-
-            this.update();
-            prev.update();
+            return prev;
         }
-        public override void moveDown()
+        public override LoaiThietBi nextObj()
         {
-            LoaiThietBi next = db.LOAITHIETBIS.Where(c => c.order > this.order && c.parent_id == this.parent_id).OrderBy(c => c.order).FirstOrDefault();
+            LoaiThietBi next = null;
+            next = db.LOAITHIETBIS.Where(c => c.order > this.order && c.parent_id == parent_id).OrderBy(c => c.order).FirstOrDefault();
             if (next == null)
             {
-                return;
+                next = db.LOAITHIETBIS.Where(c => c.date_create > this.date_create && c.parent_id == parent_id).OrderBy(c => c.date_create).FirstOrDefault();
             }
-            next.moveUp();
+            return next;
         }
+
         public override int delete()
         {
             if (thietbis.Count > 0 || childs.Count>0)
@@ -112,6 +107,11 @@ namespace QuanLyTaiSan.Entities
                 return -1;
             }
             return base.delete();
+        }
+        public override void onAfterAdded()
+        {
+            this.order = DateTimeHelper.toMilisec(date_create);
+            base.onAfterAdded();
         }
         protected override void init()
         {

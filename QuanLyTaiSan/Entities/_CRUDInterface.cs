@@ -52,5 +52,8 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
             String niceName();
 
+            T prevObj();
+            T nextObj();
+
     }
 }
