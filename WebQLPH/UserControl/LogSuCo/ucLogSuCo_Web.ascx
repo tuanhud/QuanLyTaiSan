@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucLogThietBi_Web.ascx.cs" Inherits="WebQLPH.UserControl.LogThietBi.ucLogThietBi_Web" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucLogSuCo_Web.ascx.cs" Inherits="WebQLPH.UserControl.LogSuCo.ucLogSuCo_Web" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
@@ -19,12 +19,12 @@
                 <td>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <asp:Label ID="Label_LogThietBi" runat="server" Text="Log"></asp:Label>
+                            <asp:Label ID="Label_LogSuCo" runat="server" Text="Log"></asp:Label>
                         </div>
-                        <% if (RepeaterDanhSachLogThietBi.Items.Count == 0)
+                        <% if (RepeaterDanhSachLogSuCo.Items.Count == 0)
                            { %>
                         <div class="panel-body">
-                            <asp:Label ID="Label_DanhSachLogThietBi" runat="server"></asp:Label>
+                            <asp:Label ID="Label_DanhSachLogSuCo" runat="server"></asp:Label>
                         </div>
                         <% }
                            else
@@ -34,18 +34,16 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Tình trạng</th>
-                                    <th>Số lượng</th>
                                     <th>Phòng</th>
                                     <th>Ngày</th>
                                 </tr>
                             </thead>
                             <tbody class="centered">
-                                <asp:Repeater ID="RepeaterDanhSachLogThietBi" runat="server">
+                                <asp:Repeater ID="RepeaterDanhSachLogSuCo" runat="server">
                                     <ItemTemplate>
                                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idLog.ToString()?" class=\"focusrow\"":"" %>>
-                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachLogThietBi.CurrentPage - 1)*CollectionPagerDanhSachLogThietBi.PageSize) %></td>
+                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachLogSuCo.CurrentPage - 1)*CollectionPagerDanhSachLogSuCo.PageSize) %></td>
                                             <td><%# Eval("tinhtrang") %></td>
-                                            <td><%# Eval("soluong") %></td>
                                             <td><%# Eval("phong") %></td>
                                             <td><%# Eval("ngay") %></td>
                                         </tr>
@@ -57,7 +55,7 @@
                     </div>
                     <div class="leftCollectionPager">
                         <div class="CollectionPager">
-                            <cp:CollectionPager ID="CollectionPagerDanhSachLogThietBi" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="3" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
+                            <cp:CollectionPager ID="CollectionPagerDanhSachLogSuCo" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="3" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
                         </div>
                     </div>
                 </td>
@@ -77,9 +75,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 120px" class="warning">Tên thiết bị</th>
+                                        <th style="width: 120px" class="warning">Tên sự cố</th>
                                         <td>
-                                            <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
+                                            <asp:Label ID="Label_TenSuCo" runat="server"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -89,9 +87,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 120px" class="warning">Số lượng</th>
+                                        <th style="width: 120px" class="warning">Ngày</th>
                                         <td>
-                                            <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
+                                            <asp:Label ID="Label_Ngay" runat="server"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -101,13 +99,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 120px" class="warning">Ngày</th>
-                                        <td>
-                                            <asp:Label ID="Label_Ngay" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th style="width: 120px" class="warning">Người thực hiện</th>
+                                        <th style="width: 120px" class="warning">Quản trị viên</th>
                                         <td>
                                             <asp:Label ID="Label_QuanTriVien" runat="server"></asp:Label>
                                         </td>

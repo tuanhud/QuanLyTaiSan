@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebQLPH.UserControl.SuCo {
+namespace WebQLPH.UserControl.LogSuCo {
     
     
-    public partial class ucSuCo_Web {
+    public partial class ucLogSuCo_Web {
         
         /// <summary>
         /// Panel_ThongBaoLoi control.
@@ -40,76 +40,58 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
-        /// ucSuCo_BreadCrumb control.
+        /// Label_LogSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebQLPH.UserControl.SuCo.ucSuCo_BreadCrumb ucSuCo_BreadCrumb;
+        protected global::System.Web.UI.WebControls.Label Label_LogSuCo;
         
         /// <summary>
-        /// _ucTreeViTri control.
+        /// Label_DanhSachLogSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebQLPH.UserControl.ucTreeViTri _ucTreeViTri;
+        protected global::System.Web.UI.WebControls.Label Label_DanhSachLogSuCo;
         
         /// <summary>
-        /// Label_DanhSachSuCo control.
+        /// RepeaterDanhSachLogSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DanhSachSuCo;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachLogSuCo;
         
         /// <summary>
-        /// RepeaterSuCo control.
+        /// CollectionPagerDanhSachLogSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterSuCo;
+        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachLogSuCo;
         
         /// <summary>
-        /// CollectionPagerDanhSachSuCo control.
+        /// Label_ThongTinLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachSuCo;
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinLog;
         
         /// <summary>
-        /// Label_ThongTinSuCo control.
+        /// ASPxImageSlider_Log control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTinSuCo;
-        
-        /// <summary>
-        /// Panel_SuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_SuCo;
-        
-        /// <summary>
-        /// ASPxImageSlider_SuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_SuCo;
+        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Log;
         
         /// <summary>
         /// Label_TenSuCo control.
@@ -130,57 +112,39 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Label Label_TinhTrang;
         
         /// <summary>
-        /// Label_NgayTao control.
+        /// Label_Ngay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NgayTao;
+        protected global::System.Web.UI.WebControls.Label Label_Ngay;
         
         /// <summary>
-        /// Label_MoTa control.
+        /// Label_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_MoTa;
+        protected global::System.Web.UI.WebControls.Label Label_Phong;
         
         /// <summary>
-        /// Button_XemLog control.
+        /// Label_QuanTriVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_XemLog;
+        protected global::System.Web.UI.WebControls.Label Label_QuanTriVien;
         
         /// <summary>
-        /// Label_SuCo control.
+        /// Label_GhiChu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_SuCo;
-        
-        /// <summary>
-        /// ASPxPopupControl_SuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl ASPxPopupControl_SuCo;
-        
-        /// <summary>
-        /// PopupControlContentControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl;
+        protected global::System.Web.UI.WebControls.Label Label_GhiChu;
     }
 }

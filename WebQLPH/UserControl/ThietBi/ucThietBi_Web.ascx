@@ -99,7 +99,7 @@
                                             <td colspan="2">
                                                 <div class="center">
                                                     <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px">
-                                                    </dx:ASPxImageSlider>
+                                                    <Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
                                                 </div>
                                             </td>
                                         </tr>

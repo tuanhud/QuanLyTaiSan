@@ -78,6 +78,7 @@ namespace WebQLPH.UserControl.SuCo
                                         Label_TinhTrang.Text = objSuCoPhong.tinhtrang != null ? objSuCoPhong.tinhtrang.value : "[Tình trạng]";
                                         Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();
                                         Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objSuCoPhong.mota);
+                                        Button_XemLog.OnClientClick = string.Format("OnMoreInfoClick('{0}'); return false;", QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", idSuCo.ToString()));
                                     }
                                     else
                                     {
@@ -178,10 +179,11 @@ namespace WebQLPH.UserControl.SuCo
                 {
                     id = item.id,
                     ten = item.ten,
-                    tinhtrang = item.tinhtrang.mota,
+                    tinhtrang = item.tinhtrang.value,
                     mota = item.mota,
                     ngay = item.ngay,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString(),
+                    urlLog = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", item.id.ToString())
                 }).ToList();
                 CollectionPagerDanhSachSuCo.DataSource = bind;
                 CollectionPagerDanhSachSuCo.BindToControl = RepeaterSuCo;

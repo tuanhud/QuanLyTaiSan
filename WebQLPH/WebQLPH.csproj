@@ -106,6 +106,7 @@
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="LogSuCo.aspx" />
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -159,6 +160,8 @@
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
+    <Content Include="UserControl\LogSuCo\ucLogSuCo_Mobile.ascx" />
+    <Content Include="UserControl\LogSuCo\ucLogSuCo_Web.ascx" />
     <Content Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx" />
     <Content Include="UserControl\LogThietBi\ucLogThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_Mobile.ascx" />
@@ -190,6 +193,13 @@
     </Compile>
     <Compile Include="Check.aspx.designer.cs">
       <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogSuCo.aspx.cs">
+      <DependentUpon>LogSuCo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogSuCo.aspx.designer.cs">
+      <DependentUpon>LogSuCo.aspx</DependentUpon>
     </Compile>
     <Compile Include="DangNhap.aspx.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
@@ -331,6 +341,20 @@
     </Compile>
     <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucLoaiThietBi_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LogSuCo\ucLogSuCo_Mobile.ascx.cs">
+      <DependentUpon>ucLogSuCo_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LogSuCo\ucLogSuCo_Mobile.ascx.designer.cs">
+      <DependentUpon>ucLogSuCo_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LogSuCo\ucLogSuCo_Web.ascx.cs">
+      <DependentUpon>ucLogSuCo_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LogSuCo\ucLogSuCo_Web.ascx.designer.cs">
+      <DependentUpon>ucLogSuCo_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx.cs">
       <DependentUpon>ucLogThietBi_Mobile.ascx</DependentUpon>

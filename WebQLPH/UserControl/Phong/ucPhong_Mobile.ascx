@@ -78,7 +78,7 @@
                     <tr>
                         <td colspan="2">
                             <div class="center200">
-                                <dx:ASPxImageSlider ID="ASPxImageSlider_Phong" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
+                                <dx:ASPxImageSlider ID="ASPxImageSlider_Phong" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"><Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
                             </div>
                         </td>
                     </tr>
@@ -129,7 +129,7 @@
                         <tr>
                             <td colspan="2">
                                 <div class="center200">
-                                    <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"></dx:ASPxImageSlider>
+                                    <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px"><Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
                                 </div>
                             </td>
                         </tr>

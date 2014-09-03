@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="LogThietBi.aspx.cs" Inherits="WebQLPH.UserControl.PhongThietBi.LogThietBi" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PopupMasterPage.Master" AutoEventWireup="true" CodeBehind="LogThietBi.aspx.cs" Inherits="WebQLPH.UserControl.PhongThietBi.LogThietBi" %>
 
 <%@ Register Src="~/UserControl/LogThietBi/ucLogThietBi_Web.ascx" TagPrefix="uc" TagName="ucLogThietBi_Web" %>
 <%@ Register Src="~/UserControl/LogThietBi/ucLogThietBi_Mobile.ascx" TagPrefix="uc" TagName="ucLogThietBi_Mobile" %>

@@ -91,6 +91,10 @@
     font-size: 14px;
 }
 .dxtlFocusedNode_Aqua {
-    background: none repeat scroll 0% 0% #0072C6;
-    color: white;
+    background-color:transparent;
+    color: red;
+}
+.dxpc-headerContent {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
 }

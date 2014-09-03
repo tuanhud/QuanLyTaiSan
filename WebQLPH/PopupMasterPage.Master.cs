@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,12 @@ namespace WebQLPH
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        protected override void OnInit(EventArgs e)
+        {
+            Global.working_database.WEB_MODE = true;
+            if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
+                Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
         }
     }
 }
