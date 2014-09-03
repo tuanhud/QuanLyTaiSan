@@ -11,6 +11,13 @@ namespace WebQLPH
     public partial class Default : System.Web.UI.MasterPage
     {
         public String page = "Default";
+
+        public static string _IDSUCO = "";
+        public static string _KEYSUCO = "";
+        public static string _TENPHONG = "";
+        public static string _TENSUCO = "";
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -30,6 +37,9 @@ namespace WebQLPH
                         Response.Redirect("Default.aspx");
                     }
                 }
+
+                if (page.Equals("LOGSUCOMOBILE"))
+                    Session["page"] = "LOGSUCOMOBILE";                    
             }
             catch (Exception ex)
             {
@@ -45,7 +55,7 @@ namespace WebQLPH
 
         protected void ParentClassActive(string category)
         {
-            String[] ThuocQuanLyPhong = { "VITRI", "PHONG", "PHONGTHIETBI", "THIETBI", "LOAITHIETBI", "NHANVIEN", "SUCO" };
+            String[] ThuocQuanLyPhong = { "VITRI", "PHONG", "PHONGTHIETBI", "THIETBI", "LOAITHIETBI", "NHANVIEN", "SUCO", "LOGSUCOMOBILE" };
             String[] ThuocAdmin = { "THONGTINCANHAN", "QUANLYMUONPHONG","QUANLYTAIKHOAN" };
             String[] ThuocKhac = { "MUONPHONG", "QUANLYHINHANH" };
             string parent = "";

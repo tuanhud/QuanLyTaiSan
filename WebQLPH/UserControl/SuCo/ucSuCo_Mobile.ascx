@@ -43,19 +43,19 @@
                         <th>#</th>
                         <th>Tên sự cố</th>
                         <th>Tình trạng</th>
-                        <th>Mô tả</th>
-                        <th>Ngày</th>
+                        <th>Log</th>
                     </tr>
                 </thead>
                 <tbody class="centered">
                     <asp:Repeater ID="RepeaterSuCo" runat="server">
                         <ItemTemplate>
-                            <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
-                                <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachSuCo.CurrentPage - 1)*CollectionPagerDanhSachSuCo.PageSize) %></td>
-                                <td><%# Eval("ten") %></td>
-                                <td><%# Eval("tinhtrang") %></td>
-                                <td><%# Eval("mota") %></td>
-                                <td><%# Eval("ngay") %></td>
+                            <tr <%# Eval("id").ToString() == idSuCo.ToString()?" class=\"focusrow\"":"" %>>
+                                <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachSuCo.CurrentPage - 1)*CollectionPagerDanhSachSuCo.PageSize) %></td>
+                                <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("ten") %></td>
+                                <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("tinhtrang") %></td>
+                                <td>
+                                    <button class="btn btn-default" onclick="location.href='<%# Eval("urlLog") %>'; return false;"><span class="glyphicon glyphicon-tasks"></span></button>
+                                </td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -109,6 +109,12 @@
                             <th class="warning">Mô tả</th>
                             <td>
                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="warning">Xem log</th>
+                            <td>
+                                <asp:Button ID="Button_XemLog" runat="server" Text="Xem log" CssClass="btn btn-default" />
                             </td>
                         </tr>
                     </tbody>

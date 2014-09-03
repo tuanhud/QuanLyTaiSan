@@ -49,7 +49,7 @@
                                 <li <%if (page.Equals("THIETBI")) Response.Write("class=\"active\""); %>><a href="ThietBis.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Thiết bị</a></li>
                                 <li <%if (page.Equals("LOAITHIETBI")) Response.Write("class=\"active\""); %>><a href="LoaiThietBis.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Loại thiết bị</a></li>
                                 <li <%if (page.Equals("NHANVIEN")) Response.Write("class=\"active\""); %>><a href="NhanVien.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Nhân viên</a></li>
-                                <li <%if (page.Equals("SUCO")) Response.Write("class=\"active\""); %>><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Sự cố</a></li>
+                                <li <%if (page.Equals("SUCO") || page.Equals("LOGSUCOMOBILE")) Response.Write("class=\"active\""); %>><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Sự cố</a></li>
                             </ul>
                         </li>
                         <li class="dropdown <%ParentClassActive("Khac");%>">

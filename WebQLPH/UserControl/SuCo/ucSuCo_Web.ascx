@@ -52,7 +52,7 @@
                                 <th>#</th>
                                 <th>Tên sự cố</th>
                                 <th>Tình trạng</th>
-                                <th>Mô tả</th>
+                                <th>Ngày tạo</th>
                                 <th>Xem Log</th>
                             </tr>
                         </thead>

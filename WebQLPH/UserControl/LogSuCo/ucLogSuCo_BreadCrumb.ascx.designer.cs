@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebQLPH.UserControl.SuCo {
+namespace WebQLPH.UserControl.LogSuCo {
     
     
-    public partial class ucSuCo_BreadCrumb {
+    public partial class ucLogSuCo_BreadCrumb {
     }
 }

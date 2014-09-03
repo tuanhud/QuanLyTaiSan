@@ -11,7 +11,17 @@ namespace WebQLPH.UserControl.SuCo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Request.QueryString["id"] != null)
+                    Session["IDSUCO"] = Request.QueryString["id"];
+                if (Request.QueryString["key"] != null)
+                    Session["KEYSUCO"] = Request.QueryString["key"];
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
         }
     }
 }

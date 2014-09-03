@@ -19,12 +19,15 @@ namespace WebQLPH.UserControl.Phong
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
-            _TreeListTextColumn.VisibleIndex = 1;
-            _TreeListTextColumn.Name = "colmota";
-            _TreeListTextColumn.FieldName = "mota";
-            _TreeListTextColumn.Caption = "Mô tả";
-            _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(_TreeListTextColumn);
+            if (!IsPostBack)
+            {
+                DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
+                _TreeListTextColumn.VisibleIndex = 1;
+                _TreeListTextColumn.Name = "colmota";
+                _TreeListTextColumn.FieldName = "mota";
+                _TreeListTextColumn.Caption = "Mô tả";
+                _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(_TreeListTextColumn);
+            }
         }
 
         public void LoadData()
