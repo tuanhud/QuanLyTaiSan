@@ -106,6 +106,7 @@
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="HinhAnh.aspx" />
     <Content Include="LogSuCo.aspx" />
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="Check.aspx.designer.cs">
       <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HinhAnh.aspx.cs">
+      <DependentUpon>HinhAnh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HinhAnh.aspx.designer.cs">
+      <DependentUpon>HinhAnh.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogSuCo.aspx.cs">
       <DependentUpon>LogSuCo.aspx</DependentUpon>

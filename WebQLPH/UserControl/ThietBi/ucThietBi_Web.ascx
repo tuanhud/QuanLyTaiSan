@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucThietBi_Web.ascx.cs" Inherits="WebQLPH.UserControl.ThietBi.ucThietBi_Web" %>
 
 <%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
@@ -16,6 +17,18 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
+    <script type="text/javascript">
+        var clickCount = 0;
+        function Show(url_img) {
+            clickCount++;
+            setTimeout(function () { clickCount = 0; }, 300);
+            if (clickCount == 2) {
+                PopupControlImage.SetContentUrl(url_img);
+                PopupControlImage.Show();
+                clickCount = 0;
+            }
+        }
+    </script>
     <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
     <table class="table" style="border-top: white solid 2px">
         <tbody>
@@ -97,10 +110,15 @@
                                     <tbody>
                                         <tr>
                                             <td colspan="2">
-                                                <div class="center">
-                                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px">
-                                                    <Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
-                                                </div>
+                                                <a href="#" onclick="Show('<% Response.Write(Session["URL"]); %>');">
+                                                    <div class="center">
+                                                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px">
+                                                            <Styles>
+                                                                <PassePartout BackColor="Transparent" />
+                                                            </Styles>
+                                                        </dx:ASPxImageSlider>
+                                                    </div>
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -144,4 +162,10 @@
             </tr>
         </tbody>
     </table>
+    <dx:ASPxPopupControl ID="ASPxPopupControl" runat="server" ClientInstanceName="PopupControlImage" CloseAction="CloseButton" Height="600px" Modal="True" Width="1024px" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Hình ảnh" Theme="PlasticBlue">
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </dx:ASPxPopupControl>
 </asp:Panel>

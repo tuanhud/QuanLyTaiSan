@@ -82,6 +82,8 @@ namespace WebQLPH.UserControl.ThietBi
                         Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
                         Label_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
                         Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
+
+                        Session["URL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
                     }
                     else
                     {
