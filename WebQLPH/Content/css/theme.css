@@ -103,7 +103,16 @@
     margin: 0 auto;
     padding-bottom: 15px;
 }
-
+.image_center_mobile {
+    max-width: 200px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+.image_center_web {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
 /***PopUp Plastic***/
 .dxpcLite_PlasticBlue{
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);

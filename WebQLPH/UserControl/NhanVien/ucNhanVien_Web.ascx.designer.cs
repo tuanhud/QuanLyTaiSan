@@ -49,22 +49,22 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::WebQLPH.UserControl.NhanVien.ucNhanVien_BreadCrumb _ucNhanVien_BreadCrumb;
         
         /// <summary>
-        /// RepeaterQuanLyNhanVien control.
+        /// RepeaterDanhSachNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterQuanLyNhanVien;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachNhanVien;
         
         /// <summary>
-        /// CollectionPagerQuanLyNhanVien control.
+        /// _ucCollectionPager_DanhSachNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerQuanLyNhanVien;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachNhanVien;
         
         /// <summary>
         /// Label_ThongTin control.
@@ -85,13 +85,13 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.Panel Panel_NhanVienPT;
         
         /// <summary>
-        /// ASPxImageSlider_NhanVienPT control.
+        /// _ucASPxImageSlider_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_NhanVienPT;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider _ucASPxImageSlider_Web;
         
         /// <summary>
         /// Label_MaNhanVien control.
@@ -139,12 +139,12 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachPhong;
         
         /// <summary>
-        /// CollectionPagerDanhSachPhong control.
+        /// _ucCollectionPager_DanhSachPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachPhong;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachPhong;
     }
 }

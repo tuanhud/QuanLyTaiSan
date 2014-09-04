@@ -1,8 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucNhanVien_Mobile.ascx.cs" Inherits="WebQLPH.UserControl.NhanVien.ucNhanVien_Mobile" %>
 
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 <%@ Register Src="~/UserControl/NhanVien/ucNhanVien_BreadCrumb.ascx" TagPrefix="uc" TagName="ucNhanVien_BreadCrumb" %>
+<%@ Register Src="~/UserControl/ucASPxImageSlider_Mobile.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Mobile" %>
+<%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -22,21 +23,8 @@
                 <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
             </div>
             <div class="panel-body">
+                <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile" />
                 <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td colspan="2">
-                                <div class="center200">
-                                    <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="200px" ShowNavigationBar="False" Width="200px">
-                                        <Styles>
-                                            <PassePartout BackColor="Transparent" />
-                                        </Styles>
-                                    </dx:ASPxImageSlider>
-                                    <br />
-                                </div>
-                            </td>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td>Mã nhân viên:</td>
@@ -82,11 +70,7 @@
             <%} %>
         </div>
 
-        <div class="leftCollectionPager">
-            <div class="CollectionPager">
-                <cp:CollectionPager ID="CollectionPagerDanhSachPhong" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
-            </div>
-        </div>
+        <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachPhong" />
         <asp:Button ID="Button_Back" CssClass="btn btn-default" runat="server" Text="Quay lại" OnClick="Button_Back_Click" Width="100px" />
     </asp:Panel>
 
@@ -96,7 +80,7 @@
                 Danh sách nhân viên
             </div>
 
-            <% if (RepeaterQuanLyNhanVien.Items.Count == 0)
+            <% if (RepeaterDanhSachNhanVien.Items.Count == 0)
                { %>
             <div class="panel-body">Chưa có nhân viên</div>
             <% }
@@ -112,10 +96,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
+                    <asp:Repeater ID="RepeaterDanhSachNhanVien" runat="server">
                         <ItemTemplate>
                             <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
-                                <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></td>
+                                <td class="tdcenter"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.PageSize) %></td>
                                 <td><%# Eval("subid") %></td>
                                 <td><%# Eval("hoten") %></td>
                                 <td><%# Eval("sodienthoai") %></td>
@@ -127,11 +111,6 @@
             <%} %>
         </div>
 
-        <div class="leftCollectionPager">
-            <div class="CollectionPager">
-                <cp:CollectionPager ID="CollectionPagerQuanLyNhanVien" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Trang" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static">
-                </cp:CollectionPager>
-            </div>
-        </div>
+        <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachNhanVien" />
     </asp:Panel>
 </asp:Panel>
