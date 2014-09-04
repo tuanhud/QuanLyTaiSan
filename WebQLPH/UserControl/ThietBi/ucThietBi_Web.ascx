@@ -81,11 +81,11 @@
                                     <th>Loại thiết bị</th>
                                 </tr>
                             </thead>
-                            <tbody class="centered">
+                            <tbody>
                                 <asp:Repeater ID="RepeaterThietBi" runat="server">
                                     <ItemTemplate>
                                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idThietBi.ToString()?" class=\"focusrow\"":"" %>>
-                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
+                                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
                                             <td><%# Eval("subid") %></td>
                                             <td><%# Eval("ten") %></td>
                                             <td><%# Eval("loaithietbi") %></td>
