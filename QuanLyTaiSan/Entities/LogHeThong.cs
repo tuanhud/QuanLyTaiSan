@@ -18,8 +18,7 @@ namespace QuanLyTaiSan.Entities
         }
         #region Dinh nghia
         //PARENT DIFINITION
-        //vd: { "USER":quocdunginfo, "ACTION":DELETE_USER, "PARAM": nguoibixoa }
-        //public String mota { get; set; }
+        //vd: { "actor":quocdunginfo, "action":DELETE_USER, "object": nguoibixoa }
         #endregion
 
         #region Nghiep vu

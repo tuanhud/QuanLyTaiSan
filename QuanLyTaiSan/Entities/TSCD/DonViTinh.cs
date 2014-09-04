@@ -28,5 +28,12 @@ namespace QuanLyTaiSan.Entities
          */
         public virtual ICollection<LoaiTaiSan> loaitaisans { get; set; }
         #endregion
+
+        #region override
+        public override string niceName()
+        {
+            return ten;
+        }
+        #endregion
     }
 }

@@ -34,9 +34,9 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override
-        protected override void init()
+        public override string niceName()
         {
-            base.init();
+            return "Loại chủ thể: " + ten;
         }
         #endregion
     }

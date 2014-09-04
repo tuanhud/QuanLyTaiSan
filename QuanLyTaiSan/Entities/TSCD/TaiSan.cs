@@ -58,6 +58,10 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override
+        public override string niceName()
+        {
+            return "Tài sản: " + ten;
+        }
         protected override void init()
         {
             base.init();

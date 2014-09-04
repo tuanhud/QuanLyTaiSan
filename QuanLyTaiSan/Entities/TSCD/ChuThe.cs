@@ -68,6 +68,10 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override
+        public override string niceName()
+        {
+            return loaichuthe.ten + ": " + ten;
+        }
         protected override void init()
         {
             base.init();

