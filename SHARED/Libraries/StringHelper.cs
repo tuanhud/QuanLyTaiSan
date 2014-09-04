@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Web;
-
+using System.Web.Script.Serialization;
 namespace SHARED.Libraries
 {
     public class StringHelper
@@ -216,7 +215,7 @@ namespace SHARED.Libraries
         {
             try
             {
-                string json = "";// new JavaScriptSerializer().Serialize(input.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
+                string json = new JavaScriptSerializer().Serialize(input.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
                 return json;
             }
             catch (Exception ex)

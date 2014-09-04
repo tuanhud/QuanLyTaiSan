@@ -18,7 +18,6 @@ namespace WebQLPH
         }
         protected override void OnInit(EventArgs e)
         {
-            Global.working_database.WEB_MODE = true;
             if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
                 Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
         }

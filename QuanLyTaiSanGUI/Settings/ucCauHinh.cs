@@ -46,7 +46,7 @@ namespace QuanLyTaiSanGUI.Settings
             //IS USING DBCACHE
             checkEdit_useDBCache.Checked = Global.local_setting.use_db_cache;
             //Debug to file
-            //checkEdit_debugToFile.Checked = Global.debug.MODE == 1;
+            checkEdit_debugToFile.Checked = SHARED.Libraries.Debug.MODE == 1;
 
             /*
              * REMOTE SETTING
@@ -101,7 +101,7 @@ namespace QuanLyTaiSanGUI.Settings
             //IS USING DBCACHE
             Global.local_setting.use_db_cache = checkEdit_useDBCache.Checked;
             //debug mode
-            //Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
+            Global.local_setting.debug_mode = SHARED.Libraries.Debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
             //UPDATE LOCAL SETTING
             Global.local_setting.Save();
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 
 namespace SHARED
 {
@@ -18,6 +19,13 @@ namespace SHARED
             }
         }
 
-        public static bool WEB_MODE { get; set; }
+        //private static bool web_mode = false;
+        public static bool WEB_MODE
+        {
+            get
+            {
+                return HttpContext.Current != null;
+            }
+        }
     }
 }

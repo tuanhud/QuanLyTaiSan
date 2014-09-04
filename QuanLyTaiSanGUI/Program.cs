@@ -22,6 +22,9 @@ namespace QuanLyTaiSanGUI
             DevExpress.UserSkins.BonusSkins.Register();
             DevExpress.Skins.SkinManager.EnableFormSkins();
 
+            //PRECONFIG
+            SHARED.Libraries.Debug.MODE = QuanLyTaiSan.Global.local_setting.debug_mode;
+
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());

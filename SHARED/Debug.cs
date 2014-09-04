@@ -104,6 +104,7 @@ namespace SHARED.Libraries
                     }
                     catch (Exception ex)
                     {
+                        System.Diagnostics.Debug.WriteLine(ex.ToString());
                         return;
                     }
                 default:

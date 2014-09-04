@@ -1,5 +1,4 @@
-﻿using QuanLyTaiSan.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,7 +26,7 @@ namespace Web
         protected override void OnInit(EventArgs e)
         {
             //Very Important
-            Global.working_database.WEB_MODE = true;
+            //HARED.Global.WEB_MODE = true;
             //Global.debug.MODE = 0;
 
             if (Convert.ToString(Page.Session["Username"]) != "admin")

@@ -12,7 +12,7 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Global.working_database.WEB_MODE = true;            
+            
         }
     }
 }

@@ -236,7 +236,7 @@ namespace QuanLyTaiSan
             public static int start_sync()
             {
                 //Kiểm tra nếu sử dụng internal config thì bỏ qua
-                if (Global.working_database.WEB_MODE)
+                if (SHARED.Global.WEB_MODE)
                 {
                     return 1;
                 }
@@ -376,26 +376,6 @@ namespace QuanLyTaiSan
         /// </summary>
         public static class working_database
         {
-            /// <summary>
-            /// Mặc định là dành cho Winform
-            /// </summary>
-            private static Boolean _web_mode = false;
-            /// <summary>
-            /// Chế độ dành riêng cho Web ASP.NET,
-            /// phải chỉ định connectionString tên "Default" sử dụng "SQL Server Client" trong Web.config hoặc App.config
-            /// </summary>
-            public static Boolean WEB_MODE
-            {
-                get
-                {
-                    return _web_mode;
-                }
-                set
-                {
-                    _web_mode = value;
-                }
-            }
-
             public static String get_connection_string()
             {
                 return StringHelper.generateConnectionString(
@@ -499,7 +479,7 @@ namespace QuanLyTaiSan
         public static QuanTriVien current_quantrivien_login {
             get
             {
-                if (Global.working_database.WEB_MODE)
+                if (SHARED.Global.WEB_MODE)
                 {
                     QuanTriVien tmp = HttpContext.Current.Items["current_quantrivien_login"] as QuanTriVien;
                     if (tmp == null)
@@ -518,7 +498,7 @@ namespace QuanLyTaiSan
             }
             set
             {
-                if (Global.working_database.WEB_MODE)
+                if (SHARED.Global.WEB_MODE)
                 {
                     HttpContext.Current.Items["current_quantrivien_login"] = value;
                 }
