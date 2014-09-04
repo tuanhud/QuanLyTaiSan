@@ -29,7 +29,7 @@
     /*max-width: 300px;
     margin: 0 auto;*/
 }
-.centered tr th, .centered tr td{
+.centered tr th, .centered tr td, .tdcenter{
     text-align:center;
     vertical-align:middle !important;
 }
@@ -97,4 +97,9 @@
 .dxpc-headerContent {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
+}
+.image_center {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-bottom: 15px;
 }

@@ -40,6 +40,15 @@ namespace WebQLPH.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
+        /// _ucNhanVien_BreadCrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebQLPH.UserControl.NhanVien.ucNhanVien_BreadCrumb _ucNhanVien_BreadCrumb;
+        
+        /// <summary>
         /// RepeaterQuanLyNhanVien control.
         /// </summary>
         /// <remarks>

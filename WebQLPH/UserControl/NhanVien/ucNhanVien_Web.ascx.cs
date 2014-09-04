@@ -53,7 +53,7 @@ namespace WebQLPH.UserControl.NhanVien
                         Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
-                        Label_HoTen.Text = objNhanVienPT.hoten;
+                        _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
 
                         CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();

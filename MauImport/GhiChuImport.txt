@@ -7,3 +7,4 @@ Loại thiết bị => LoaiThietBi
 Tình trạng => TinhTrang
 Thiết bị theo số lượng => ThietBiChung
 Thiết bị theo cá thể => ThietBiRieng
+Tạo thư mục Images, bỏ ảnh vào thư mục này
