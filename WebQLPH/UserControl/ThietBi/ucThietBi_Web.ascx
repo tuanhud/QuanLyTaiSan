@@ -113,7 +113,7 @@
                         <div class="panel-body">
                             <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
                                 <div class="image_center" onclick="Show('<% Response.Write(Session["URL"]); %>');">
-                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="300px" SettingsImageArea-ImageSizeMode="FillAndCrop">
+                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="350px">
                                         <Styles>
                                             <PassePartout BackColor="Transparent" />
                                         </Styles>
