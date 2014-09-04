@@ -16,60 +16,59 @@ namespace WebQLPH.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey = "PageRoom";
         }
 
         public void LoadData()
         {
-            if (!IsPostBack)
+            _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey = "PageRoom";
+            if (Request.QueryString["id"] != null)
             {
-                if (Request.QueryString["id"] != null)
+                Guid id = Guid.Empty;
+                try
                 {
-                    Guid id = Guid.Empty;
-                    try
-                    {
-                        id = GUID.From(Request.QueryString["id"]);
-                    }
-                    catch
-                    {
-                        Response.Redirect(Request.Url.AbsolutePath);
-                    }
+                    id = GUID.From(Request.QueryString["id"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
 
-                    objNhanVienPT = NhanVienPT.getById(id);
-                    if (objNhanVienPT != null)
-                    {
-                        Panel_Chinh.Visible = true;
-                        PanelThongTinNhanVienPhuTrach.Visible = true;
-                        Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
-                        Label_MaNhanVien.Text = objNhanVienPT.subId;
-                        _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
-                        Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
-                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
-                        CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();
-                        CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
-                        RepeaterDanhSachPhong.DataSource = CollectionPagerDanhSachPhong.DataSourcePaged;
-                        RepeaterDanhSachPhong.DataBind();
-                    }
-                    else
-                    {
-                        Response.Redirect(Request.Url.AbsolutePath);
-                    }
+                objNhanVienPT = NhanVienPT.getById(id);
+                if (objNhanVienPT != null)
+                {
+                    Panel_Chinh.Visible = true;
+                    PanelThongTinNhanVienPhuTrach.Visible = true;
+                    Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
+                    Label_MaNhanVien.Text = objNhanVienPT.subId;
+                    _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
+                    Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
+                    QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
+
+                    _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = objNhanVienPT.phongs.ToList();
+                    _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
+                    RepeaterDanhSachPhong.DataSource = _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSourcePaged;
+                    RepeaterDanhSachPhong.DataBind();
                 }
                 else
                 {
-                    listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
-                    if (listNhanVienPT != null && listNhanVienPT.Count > 0)
-                    {
-                        Panel_Chinh.Visible = true;
-                        PanelDanhSachNhanVienPhuTrach.Visible = true;
-                        BindData();
-                    }
-                    else
-                    {
-                        Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = "Chưa có nhân viên";
-                        return;
-                    }
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
+                if (listNhanVienPT.Count > 0)
+                {
+                    Panel_Chinh.Visible = true;
+                    PanelDanhSachNhanVienPhuTrach.Visible = true;
+                    BindData();
+                }
+                else
+                {
+                    Panel_ThongBaoLoi.Visible = true;
+                    Label_ThongBaoLoi.Text = "Chưa có nhân viên";
+                    return;
                 }
             }
         }
@@ -84,18 +83,32 @@ namespace WebQLPH.UserControl.NhanVien
                     subid = a.subId,
                     hoten = a.hoten,
                     sodienthoai = a.sodienthoai,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { CollectionPagerDanhSachPhong.QueryStringKey })).ToString()
+                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey })).ToString()
                 }).ToList();
-                CollectionPagerQuanLyNhanVien.DataSource = list;
-                CollectionPagerQuanLyNhanVien.BindToControl = RepeaterQuanLyNhanVien;
-                RepeaterQuanLyNhanVien.DataSource = CollectionPagerQuanLyNhanVien.DataSourcePaged;
-                RepeaterQuanLyNhanVien.DataBind();
+                _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.DataSource = list;
+                _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.BindToControl = RepeaterDanhSachNhanVien;
+                RepeaterDanhSachNhanVien.DataSource = _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.DataSourcePaged;
+                RepeaterDanhSachNhanVien.DataBind();
             }
         }
 
         protected void Button_Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Request.Url.AbsolutePath);
+            if (Request.QueryString[_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey] != null)
+            {
+                int Page = 1;
+                try
+                {
+                    Page = Convert.ToInt32(Request.QueryString[_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey].ToString());
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                Response.Redirect(string.Format(Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.IndexOf(Request.Url.AbsolutePath) + Request.Url.AbsolutePath.Length) + "?{0}={1}", _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey, Page.ToString()));
+            }
+            else
+                Response.Redirect(Request.Url.AbsolutePath);
         }
     }
 }

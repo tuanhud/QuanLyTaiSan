@@ -185,6 +185,9 @@
     <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
+    <Content Include="UserControl\ucASPxImageSlider_Mobile.ascx" />
+    <Content Include="UserControl\ucASPxImageSlider_Web.ascx" />
+    <Content Include="UserControl\ucCollectionPager.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
     <Content Include="UserControl\ucTreeViTri.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
@@ -516,6 +519,27 @@
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.designer.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucASPxImageSlider_Mobile.ascx.cs">
+      <DependentUpon>ucASPxImageSlider_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucASPxImageSlider_Mobile.ascx.designer.cs">
+      <DependentUpon>ucASPxImageSlider_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucASPxImageSlider_Web.ascx.cs">
+      <DependentUpon>ucASPxImageSlider_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucASPxImageSlider_Web.ascx.designer.cs">
+      <DependentUpon>ucASPxImageSlider_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucCollectionPager.ascx.cs">
+      <DependentUpon>ucCollectionPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucCollectionPager.ascx.designer.cs">
+      <DependentUpon>ucCollectionPager.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucDangNhap.ascx.cs">
       <DependentUpon>ucDangNhap.ascx</DependentUpon>

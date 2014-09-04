@@ -5,8 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Hình ảnh</title>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <dx:ASPxImageSlider ID="ASPxImageSlider" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="100%" Height="520px">
-            
-        </dx:ASPxImageSlider>
+    <dx:ASPxImageSlider ID="ASPxImageSlider" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="100%" Height="520px">
+    </dx:ASPxImageSlider>
 </asp:Content>
