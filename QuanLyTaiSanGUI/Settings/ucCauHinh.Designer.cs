@@ -89,7 +89,9 @@
             this.btnRemoteSettingSave = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
@@ -105,8 +107,7 @@
             this.txtSmtpPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtSmtpPort = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.btn_dropClientDB = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_Server)).BeginInit();
@@ -144,7 +145,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+            this.splitContainerControl2.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpTestEmail.Properties)).BeginInit();
@@ -155,10 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
-            this.splitContainerControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -330,6 +331,7 @@
             // 
             this.panelControl_Cache.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl_Cache.Controls.Add(this.btn_dropClientDB);
             this.panelControl_Cache.Controls.Add(this.btnRemoveClientScope);
             this.panelControl_Cache.Controls.Add(this.simpleButton1);
             this.panelControl_Cache.Controls.Add(this.simpleButton_cleanUpClientScope);
@@ -775,12 +777,45 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(853, 424);
             this.xtraTabPage1.Text = "Cấu hình cục bộ (Local)";
             // 
+            // splitContainerControl2
+            // 
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            this.splitContainerControl2.Panel1.Controls.Add(this.groupControl1);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.groupControl4);
+            this.splitContainerControl2.Panel2.Controls.Add(this.simpleButton_Luu);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.splitContainerControl2.Size = new System.Drawing.Size(853, 424);
+            this.splitContainerControl2.SplitterPosition = 428;
+            this.splitContainerControl2.TabIndex = 132;
+            this.splitContainerControl2.Text = "splitContainerControl2";
+            // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.splitContainerControl1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(853, 424);
             this.xtraTabPage2.Text = "Cấu hình toàn cục (Remote)";
+            // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl3);
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl2);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl5);
+            this.splitContainerControl1.Panel2.Controls.Add(this.btnRemoteSettingSave);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(853, 424);
+            this.splitContainerControl1.SplitterPosition = 428;
+            this.splitContainerControl1.TabIndex = 134;
+            this.splitContainerControl1.Text = "splitContainerControl1";
             // 
             // groupControl5
             // 
@@ -934,38 +969,14 @@
             this.panelControl1.Size = new System.Drawing.Size(91, 452);
             this.panelControl1.TabIndex = 133;
             // 
-            // splitContainerControl1
+            // btn_dropClientDB
             // 
-            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl3);
-            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl2);
-            this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl5);
-            this.splitContainerControl1.Panel2.Controls.Add(this.btnRemoteSettingSave);
-            this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(853, 424);
-            this.splitContainerControl1.SplitterPosition = 428;
-            this.splitContainerControl1.TabIndex = 134;
-            this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // splitContainerControl2
-            // 
-            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
-            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl2.Name = "splitContainerControl2";
-            this.splitContainerControl2.Panel1.Controls.Add(this.groupControl1);
-            this.splitContainerControl2.Panel1.Text = "Panel1";
-            this.splitContainerControl2.Panel2.Controls.Add(this.groupControl4);
-            this.splitContainerControl2.Panel2.Controls.Add(this.simpleButton_Luu);
-            this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(853, 424);
-            this.splitContainerControl2.SplitterPosition = 428;
-            this.splitContainerControl2.TabIndex = 132;
-            this.splitContainerControl2.Text = "splitContainerControl2";
+            this.btn_dropClientDB.Location = new System.Drawing.Point(78, 186);
+            this.btn_dropClientDB.Name = "btn_dropClientDB";
+            this.btn_dropClientDB.Size = new System.Drawing.Size(75, 23);
+            this.btn_dropClientDB.TabIndex = 20;
+            this.btn_dropClientDB.Text = "Xóa CSDL";
+            this.btn_dropClientDB.Click += new System.EventHandler(this.btn_dropClientDB_Click);
             // 
             // ucCauHinh
             // 
@@ -1019,7 +1030,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+            this.splitContainerControl2.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
             this.groupControl5.PerformLayout();
@@ -1031,10 +1046,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSmtpPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
-            this.splitContainerControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1119,5 +1130,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private DevExpress.XtraEditors.SimpleButton btn_dropClientDB;
     }
 }

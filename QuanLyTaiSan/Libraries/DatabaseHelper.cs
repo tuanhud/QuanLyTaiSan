@@ -21,7 +21,35 @@ namespace QuanLyTaiSan.Libraries
         /// <returns></returns>
         public static Boolean dropDB(String connectionString="")
         {
-            return System.Data.Entity.Database.Delete(connectionString);
+            try
+            {
+                SqlConnectionStringBuilder pa = new SqlConnectionStringBuilder(connectionString);
+                using (SqlConnection sqlconnection = new
+        SqlConnection(connectionString))
+                {
+                    sqlconnection.Open();
+                    // if you used master db as Initial Catalog, there is no need to change database
+                    sqlconnection.ChangeDatabase("master");
+
+                    string rollbackCommand = @"ALTER DATABASE ["+pa.InitialCatalog+"] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE";
+
+                    SqlCommand deletecommand = new SqlCommand(rollbackCommand, sqlconnection);
+
+                    deletecommand.ExecuteNonQuery();
+
+                    string deleteCommand = @"DROP DATABASE [" + pa.InitialCatalog + "]";
+
+                    deletecommand = new SqlCommand(deleteCommand, sqlconnection);
+
+                    deletecommand.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
         }
         /// <summary>
         /// Kiểm tra kết nối tới Database thông qua Connection String đưa vào,

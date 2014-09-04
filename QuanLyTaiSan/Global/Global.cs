@@ -423,8 +423,10 @@ namespace QuanLyTaiSan.Entities
                     return Global.local_setting.db_cache_WA;
                 }
             }
-
-            
+            public static void dropDB()
+            {
+                DatabaseHelper.dropDB(get_connection_string());
+            }
         }
         /// <summary>
         /// Thông tin về CSDL mà ứng dụng sẽ truy xuất tới,
@@ -541,7 +543,13 @@ namespace QuanLyTaiSan.Entities
                     return Global.local_setting.use_db_cache ? Global.local_setting.db_cache_WA : Global.local_setting.db_server_WA;
                 }
             }
-
+            public static Boolean use_db_cache
+            {
+                get
+                {
+                    return Global.local_setting.use_db_cache;
+                }
+            }
         }
         
         private static QuanTriVien _current_quantrivien_login = null;

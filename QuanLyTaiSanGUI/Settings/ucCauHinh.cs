@@ -70,18 +70,17 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
         /// <summary>
-        /// Lưu lại cài đặt
-        /// 
+        /// Lưu local setting
         /// </summary>
-        /// <returns>-5: FTP Fail, -2: SERVER DB FAIL, -3: CLIENT DB FAIL </returns>
-        public int save()
+        /// <returns></returns>
+        public void save()
         {
             /*
              * LOCAL SETTING
              */
             if(checkEdit_useDBCache.Checked)
             {
-                //CACHE SERVER
+                //CACHE DB
                 Global.local_setting.db_cache_host = textEdit_CacheHost.Text;
                 Global.local_setting.db_cache_username = textEdit_CacheAccount.Text;
                 Global.local_setting.db_cache_password = textEdit_CachePass.Text;
@@ -103,32 +102,6 @@ namespace QuanLyTaiSanGUI.Settings
             Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
             //UPDATE LOCAL SETTING
             Global.local_setting.Save();
-
-            //CHECK DB CONFIG
-            if (Global.local_setting.use_db_cache)
-            {
-                if (Global.server_database.isReady()<0)
-                {
-                    //SERVER FAIL
-                    return -2;
-                }
-                if (Global.client_database.isReady()<0)
-                {
-                    //CLIENT FAIL
-                    return -3;
-                }
-            }
-            else
-            {
-                if (Global.working_database.isReady()<0)
-                {
-                    //SERVER FAIL
-                    return -2;
-                }
-            }
-
-
-            return 1;
         }
         private void checkEdit_useDBCache_CheckedChanged(object sender, EventArgs e)
         {
@@ -157,6 +130,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tạo dữ liệu...");
+            save();
             Global.server_database.prepare_db_structure();
             load_DB_State();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -166,6 +140,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tạo dữ liệu...");
+            save();
             Global.client_database.prepare_db_structure();
             load_DB_State();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -175,6 +150,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ...");
+            save();
             Global.client_database.start_sync();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
@@ -183,6 +159,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+            save();
             Global.server_database.clean_up_scope();
             load_DB_State();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -192,6 +169,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+            save();
             Global.client_database.clean_up_scope();
             load_DB_State();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -250,16 +228,43 @@ namespace QuanLyTaiSanGUI.Settings
             load_DB_State();
         }
         /// <summary>
-        /// Load trạng thái của Database
+        /// Lưu lại cài đặt
+        /// 
         /// </summary>
-        private void load_DB_State()
+        /// <returns>-5: FTP Fail, -2: SERVER DB FAIL, -3: CLIENT DB FAIL </returns>
+        private int load_DB_State()
         {
             //Load DB State Indicator
-            btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0;
-            btnRemoveClientScope.Enabled = Global.client_database.isHasScope() > 0;
-            
-            simpleButton_validateServer.Enabled = !(Global.server_database.isReady() > 0);
-            simpleButton_validateClient.Enabled = !(Global.client_database.isReady() > 0);
+            if (Global.working_database.use_db_cache)
+            {
+                int server_ready = Global.server_database.isReady();
+                int client_ready = Global.client_database.isReady();
+
+                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0;
+                simpleButton_validateServer.Enabled = !(server_ready > 0);
+
+                btnRemoveClientScope.Enabled = Global.client_database.isHasScope() > 0;
+                simpleButton_validateClient.Enabled = !(client_ready > 0);
+                if (client_ready < 0)
+                {
+                    return -3;
+                }
+                if (server_ready < 0)
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                int server_ready = Global.server_database.isReady();
+                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0;
+                simpleButton_validateServer.Enabled = !(server_ready > 0);
+                if (server_ready < 0)
+                {
+                    return -2;
+                }
+            }
+            return 1;
         }
         private void btnDebugClear_Click(object sender, EventArgs e)
         {
@@ -270,6 +275,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+            save();
             Global.server_database.drop_scope();
             load_DB_State();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -279,6 +285,7 @@ namespace QuanLyTaiSanGUI.Settings
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+            save();
             Global.client_database.drop_scope();
             load_DB_State();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -292,8 +299,8 @@ namespace QuanLyTaiSanGUI.Settings
                 //call ucSave
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-                re = save();
-                load_DB_State();
+                save();
+                re = load_DB_State();
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 if (re > 0)
                 {
@@ -470,6 +477,16 @@ namespace QuanLyTaiSanGUI.Settings
             {
                 MessageBox.Show("Gửi email bị lỗi!");
             }
+        }
+
+        private void btn_dropClientDB_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+            save();
+            Global.client_database.dropDB();
+            load_DB_State();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
     }
 }
