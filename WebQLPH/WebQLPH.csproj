@@ -103,6 +103,7 @@
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\docs.min.css" />
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
@@ -158,6 +159,8 @@
     <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
+    <Content Include="UserControl\LienHe\ucLienHe_Mobile.ascx" />
+    <Content Include="UserControl\LienHe\ucLienHe_Web.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Mobile.ascx" />
     <Content Include="UserControl\LoaiThietBi\ucLoaiThietBi_Web.ascx" />
@@ -331,6 +334,20 @@
     </Compile>
     <Compile Include="ThongTinCaNhan.aspx.designer.cs">
       <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LienHe\ucLienHe_Mobile.ascx.cs">
+      <DependentUpon>ucLienHe_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LienHe\ucLienHe_Mobile.ascx.designer.cs">
+      <DependentUpon>ucLienHe_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LienHe\ucLienHe_Web.ascx.cs">
+      <DependentUpon>ucLienHe_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LienHe\ucLienHe_Web.ascx.designer.cs">
+      <DependentUpon>ucLienHe_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\LoaiThietBi\ucLoaiThietBi_BreadCrumb.ascx.cs">
       <DependentUpon>ucLoaiThietBi_BreadCrumb.ascx</DependentUpon>

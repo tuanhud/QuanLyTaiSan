@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTaiSan.Libraries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +10,23 @@ namespace WebQLPH
 {
     public partial class LienHe : System.Web.UI.Page
     {
+        Boolean isMobile = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Default SetClassActive = this.Master as Default;
+            SetClassActive.page = "LIENHE";
+
+            isMobile = MobileDetect.fBrowserIsMobile();
+            if (!isMobile)
             {
-                // Đặt tên để set class, đặt tên in hoa
-                Default SetClassActive = this.Master as Default;
-                SetClassActive.page = "LIENHE";
+                Panel_Web.Visible = true;
+                ucLienHe_Web.LoadData();
+            }
+            else
+            {
+                Panel_Mobile.Visible = true;
+                ucLienHe_Mobile.LoadData();
             }
         }
     }

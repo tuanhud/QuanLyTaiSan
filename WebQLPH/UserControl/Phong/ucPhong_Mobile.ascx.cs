@@ -174,7 +174,7 @@ namespace WebQLPH.UserControl.Phong
                     }
                     else
                     {
-                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ([Cơ sở] - [Dãy] - {2})", objTang.ten);
+                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ([Cơ sở] - [Dãy] - {0})", objTang.ten);
                     }
                 }
                 else

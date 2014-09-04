@@ -13,6 +13,8 @@
     <asp:Panel ID="PanelThongBaoThanhCong" runat="server" Visible="False">
         <div class="row">
             <div class="alert alert-success" role="alert">
+<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                
                 <span class="glyphicon glyphicon-ok-circle"></span>
                 <asp:Label ID="LabelThongBaoThanhCong" runat="server" Text="Label"></asp:Label>
             </div>
@@ -21,6 +23,8 @@
     <asp:Panel ID="PanelThongBaoThatBai" runat="server" Visible="False">
         <div class="row">
             <div class="alert alert-danger" role="alert">
+<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                
                 <span class="glyphicon glyphicon-remove-circle"></span>
                 <asp:Label ID="LabelThongBaoThatBai" runat="server" Text="Label"></asp:Label>
             </div>

@@ -14,6 +14,7 @@
     <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/docs.min.css" rel="stylesheet" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
@@ -25,7 +26,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body role="document">
-    <form runat="server">
+    <form runat="server" class="form-horizontal" role="form">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
