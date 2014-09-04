@@ -598,9 +598,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                if (searchLookUpEditNhanVienPT.EditValue != null)
+                if (searchLookUpEditNhanVienPT.Visible == true && searchLookUpEditNhanVienPT.EditValue != null)
                 {
-                    Guid id = GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
+                    Guid id = GUID.From(searchLookUpEditNhanVienPT.EditValue);
                     if (id != Guid.Empty)
                         objNhanVienPT = NhanVienPT.getById(id);
                     else
