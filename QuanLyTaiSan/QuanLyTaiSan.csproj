@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201408280536270_TCSD_base_vBeta.Designer.cs">
       <DependentUpon>201408280536270_TCSD_base_vBeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs" />
+    <Compile Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.Designer.cs">
+      <DependentUpon>201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -163,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408280536270_TCSD_base_vBeta.resx">
       <DependentUpon>201408280536270_TCSD_base_vBeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.resx">
+      <DependentUpon>201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

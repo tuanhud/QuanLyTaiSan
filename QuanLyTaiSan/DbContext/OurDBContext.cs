@@ -711,19 +711,19 @@ namespace QuanLyTaiSan.Entities
              */
                 //CTTAISAN
             modelBuilder.Entity<CTTaiSan>()
-            .HasRequired(a => a.chuthequanly)
+            .HasOptional(a => a.chuthequanly)
             .WithMany(b => b.cttaisan_dangquanlys);
 
             modelBuilder.Entity<CTTaiSan>()
-            .HasRequired(a => a.chuthesudung)
+            .HasOptional(a => a.chuthesudung)
             .WithMany(b => b.cttaisan_dangsudungs);
                 //LOGTAISAN
             modelBuilder.Entity<LogTaiSan>()
-            .HasRequired(a => a.chuthequanly)
+            .HasOptional(a => a.chuthequanly)
             .WithMany(b => b.logtaisan_dangquanlys);
 
             modelBuilder.Entity<LogTaiSan>()
-            .HasRequired(a => a.chuthesudung)
+            .HasOptional(a => a.chuthesudung)
             .WithMany(b => b.logtaisan_dangsudungs);
             #endregion
         }
