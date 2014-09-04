@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -70,7 +71,7 @@ namespace WebQLPH.UserControl.PhongThietBi
                                     {
                                         Label_ThongTinThietBi.Text = string.Format("Thông tin {0}", objThietBi.ten);
                                         Panel_ThietBi.Visible = true;
-                                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
+                                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
                                         Label_MaThietBi.Text = objThietBi.subId;
                                         Label_TenThietBi.Text = objThietBi.ten;
                                         if (objThietBi.loaithietbi != null)
@@ -98,8 +99,8 @@ namespace WebQLPH.UserControl.PhongThietBi
                                         }
                                         Label_Phong.Text = objPhong.ten;
                                         Label_NgayLap.Text = objThietBi.ctthietbis != null ? objThietBi.ctthietbis.Where(item => item.phong_id == objPhong.id).FirstOrDefault().ngay.ToString() : "";
-                                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
-                                        Button_XemLog.OnClientClick = string.Format("OnMoreInfoClick('{0}'); return false;", QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", idThietBi.ToString()));
+                                        Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
+                                        Button_XemLog.OnClientClick = string.Format("OnMoreInfoClick('{0}'); return false;", Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", idThietBi.ToString()));
                                         Label_ThietBi.Visible = false;
                                         Label_ThietBi.Text = "";
                                     }
@@ -169,8 +170,8 @@ namespace WebQLPH.UserControl.PhongThietBi
                     ten = a.ten,
                     tinhtrang = a.tinhtrang,
                     soluong = a.soluong,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.idTB.ToString()),
-                    urlLog = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", a.idTB.ToString())
+                    url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.idTB.ToString()),
+                    urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", a.idTB.ToString())
                 }).OrderBy(item => item.tinhtrang).ToList();
                 CollectionPagerDanhSachThietBi.DataSource = bind;
                 CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;
@@ -197,7 +198,7 @@ namespace WebQLPH.UserControl.PhongThietBi
         {
             Label_ThongTinThietBi.Text = "Thông tin thiết bị";
             Panel_ThietBi.Visible = false;
-            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_ThietBi);
+            Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_ThietBi);
             Label_MaThietBi.Text = "";
             Label_TenThietBi.Text = "";
             Label_LoaiThietBi.Text = "";

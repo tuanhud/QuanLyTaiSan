@@ -1,6 +1,7 @@
 ﻿using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
 using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;

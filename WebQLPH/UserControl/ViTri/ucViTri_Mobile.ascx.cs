@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -52,12 +53,12 @@ namespace WebQLPH.UserControl.ViTri
                             {
                                 Panel_ThongTinObj.Visible = true;
                                 Label_ThongTin.Text = "Thông tin " + objCoSo.ten;
-                                QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), ASPxImageSlider_Object);
+                                Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), ASPxImageSlider_Object);
                                 Label_Ten.Text = objCoSo.ten;
                                 Label_Thuoc.Text = "[Đại học Sài Gòn]";
                                 Panel_DiaChi.Visible = true;
                                 Label_DiaChi.Text = objCoSo.diachi;
-                                Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objCoSo.mota);
+                                Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objCoSo.mota);
                                 if (objCoSo.diachi != null)
                                 {
                                     if (objCoSo.diachi.Length > 0)
@@ -82,12 +83,12 @@ namespace WebQLPH.UserControl.ViTri
                             {
                                 Panel_ThongTinObj.Visible = true;
                                 Label_ThongTin.Text = "Thông tin " + objDay.ten;
-                                QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), ASPxImageSlider_Object);
+                                Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), ASPxImageSlider_Object);
                                 Label_Ten.Text = objDay.ten;
                                 Label_Thuoc.Text = objDay.coso != null ? objDay.coso.ten : "[Cơ sở]";
                                 Panel_DiaChi.Visible = false;
                                 Label_DiaChi.Text = "";
-                                Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objDay.mota);
+                                Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objDay.mota);
                                 Button_Map.Visible = false;
                             }
                             else
@@ -102,7 +103,7 @@ namespace WebQLPH.UserControl.ViTri
                             {
                                 Panel_ThongTinObj.Visible = true;
                                 Label_ThongTin.Text = "Thông tin " + objTang.ten;
-                                QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), ASPxImageSlider_Object);
+                                Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), ASPxImageSlider_Object);
                                 Label_Ten.Text = objTang.ten;
                                 if (objTang.day != null)
                                 {
@@ -121,7 +122,7 @@ namespace WebQLPH.UserControl.ViTri
                                 }
                                 Panel_DiaChi.Visible = false;
                                 Label_DiaChi.Text = "";
-                                Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objTang.mota);
+                                Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objTang.mota);
                                 Button_Map.Visible = false;
                             }
                             else

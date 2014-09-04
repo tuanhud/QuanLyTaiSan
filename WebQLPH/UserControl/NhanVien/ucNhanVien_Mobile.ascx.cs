@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -43,7 +44,7 @@ namespace WebQLPH.UserControl.NhanVien
                     Label_MaNhanVien.Text = objNhanVienPT.subId;
                     _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                     Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
-                    QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
+                    Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
 
                     _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = objNhanVienPT.phongs.ToList();
                     _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
@@ -83,7 +84,7 @@ namespace WebQLPH.UserControl.NhanVien
                     subid = a.subId,
                     hoten = a.hoten,
                     sodienthoai = a.sodienthoai,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey })).ToString()
+                    url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey })).ToString()
                 }).ToList();
                 _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.DataSource = list;
                 _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.BindToControl = RepeaterDanhSachNhanVien;

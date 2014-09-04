@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -47,7 +48,7 @@ namespace WebQLPH.UserControl.LogSuCo
                         ghichu = a.mota,
                         quantrivien = a.quantrivien.hoten,
                         ngay = a.date_create,
-                        url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
+                        url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
                     }).OrderBy(item => item.ngay).ToList();
                     CollectionPagerDanhSachLogSuCo.DataSource = bind;
                     CollectionPagerDanhSachLogSuCo.BindToControl = RepeaterDanhSachLogSuCo;
@@ -81,13 +82,13 @@ namespace WebQLPH.UserControl.LogSuCo
                         if (objLogSuCoPhong != null)
                         {
                             Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogSuCoPhong.date_create).ToString("d/M/yyyy"));
-                            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objLogSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_Log);
+                            Libraries.ImageHelper.LoadImageWeb(objLogSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_Log);
                             Label_TenSuCo.Text = objLogSuCoPhong.sucophong.ten;
                             Label_TinhTrang.Text = objLogSuCoPhong.tinhtrang != null ? objLogSuCoPhong.tinhtrang.value : "[Tình trạng]";
                             Label_Phong.Text = objLogSuCoPhong.sucophong.phong != null ? objLogSuCoPhong.sucophong.phong.ten : "[Phòng]";
                             Label_Ngay.Text = objLogSuCoPhong.date_create.ToString();
                             Label_QuanTriVien.Text = objLogSuCoPhong.quantrivien != null ? objLogSuCoPhong.quantrivien.hoten : "[Quản trị viên]";
-                            Label_GhiChu.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objLogSuCoPhong.mota);
+                            Label_GhiChu.Text = Libraries.StringHelper.ConvertRNToBR(objLogSuCoPhong.mota);
                         }
                         else
                         {

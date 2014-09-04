@@ -211,6 +211,8 @@
     <Compile Include="HinhAnh.aspx.designer.cs">
       <DependentUpon>HinhAnh.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\ImageHelper.cs" />
+    <Compile Include="Libraries\StringHelper.cs" />
     <Compile Include="LogSuCo.aspx.cs">
       <DependentUpon>LogSuCo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

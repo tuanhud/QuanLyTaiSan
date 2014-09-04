@@ -1,6 +1,7 @@
 ﻿using DevExpress.Web.ASPxTreeList;
 using QuanLyTaiSan.Entities;
 using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,12 +77,12 @@ namespace WebQLPH.UserControl.ThietBi
                         Label_ThietBi.Visible = false;
                         Label_ThietBi.Text = "";
                         Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
-                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
+                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
                         Label_MaThietBi.Text = objThietBi.subId;
                         Session["TenThietBi"] = Label_TenThietBi.Text = objThietBi.ten;
                         Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
                         Label_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
-                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
+                        Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
 
                         Session["URL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
                     }
@@ -168,7 +169,7 @@ namespace WebQLPH.UserControl.ThietBi
                 subid = item.subId,
                 ten = item.ten,
                 loaithietbi = item.loaithietbi != null ? item.loaithietbi.ten : "",
-                url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
+                url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
             }).ToList();
             CollectionPagerDanhSachThietBi.DataSource = bind;
             CollectionPagerDanhSachThietBi.BindToControl = RepeaterThietBi;

@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -72,12 +73,12 @@ namespace WebQLPH.UserControl.SuCo
                                     {
                                         Panel_SuCo.Visible = true;
                                         Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
-                                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_SuCo);
+                                        Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_SuCo);
                                         Session["TenSuCo"] = Label_TenSuCo.Text = objSuCoPhong.ten;
                                         Label_TinhTrang.Text = objSuCoPhong.tinhtrang != null ? objSuCoPhong.tinhtrang.value : "[Tình trạng]";
                                         Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();
-                                        Label_MoTa.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objSuCoPhong.mota);
-                                        Button_XemLog.OnClientClick = string.Format("location.href='{0}'; return false;", QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", idSuCo.ToString()));
+                                        Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objSuCoPhong.mota);
+                                        Button_XemLog.OnClientClick = string.Format("location.href='{0}'; return false;", Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", idSuCo.ToString()));
                                     }
                                     else
                                     {
@@ -183,8 +184,8 @@ namespace WebQLPH.UserControl.SuCo
                     tinhtrang = item.tinhtrang.value,
                     mota = item.mota,
                     ngay = item.ngay,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString(),
-                    urlLog = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", item.id.ToString())
+                    url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString(),
+                    urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", item.id.ToString())
                 }).ToList();
                 CollectionPagerDanhSachSuCo.DataSource = bind;
                 CollectionPagerDanhSachSuCo.BindToControl = RepeaterSuCo;
@@ -213,7 +214,7 @@ namespace WebQLPH.UserControl.SuCo
         protected void ButtonBack_SuCo_Click(object sender, EventArgs e)
         {
             if (!key.Equals(""))
-                Response.Redirect(QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
+                Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
             else
                 Response.Redirect(Request.Url.AbsolutePath);
         }

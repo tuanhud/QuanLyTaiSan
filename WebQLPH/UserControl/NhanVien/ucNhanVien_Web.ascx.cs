@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -48,7 +49,7 @@ namespace WebQLPH.UserControl.NhanVien
                         Label_NhanVienPT.Visible = false;
                         Label_NhanVienPT.Text = "";
                         Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
-                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                        Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
                         _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
@@ -81,7 +82,7 @@ namespace WebQLPH.UserControl.NhanVien
 
         private void DeleteForm()
         {
-            QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+            Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web.ASPxImageSlider_Object);
             Label_MaNhanVien.Text = "";
             Label_HoTen.Text = "";
             Label_SoDienThoai.Text = "";
@@ -99,7 +100,7 @@ namespace WebQLPH.UserControl.NhanVien
                     subid = a.subId,
                     hoten = a.hoten,
                     sodienthoai = a.sodienthoai,
-                    url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey })).ToString()
+                    url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.id.ToString(), new List<string>(new string[] { _ucCollectionPager_DanhSachPhong.CollectionPager_Object.QueryStringKey })).ToString()
                 }).ToList();
                 _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.DataSource = list;
                 _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.BindToControl = RepeaterDanhSachNhanVien;

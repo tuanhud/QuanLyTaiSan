@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -163,7 +164,7 @@ namespace WebQLPH
                                 break;
                         }
                         string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.nguoiduyet.hoten, tinhtrang, _PhieuMuonPhong.mota.Replace("\r\n", "<br />"), _PhieuMuonPhong.nguoiduyet.hoten, _PhieuMuonPhong.nguoiduyet.email);
-                        EmailHelper.sendMail(to, sub, msg);
+                        //SHARED.Libraries.EmailHelper.sendMail(to, sub, msg);
                     }
                     QuanLyPhongMuon();
                 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using SHARED.Libraries;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -62,7 +63,7 @@ namespace WebQLPH.UserControl.Phong
                                 {
                                     Panel_ThongTinPhong.Visible = true;
                                     Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
-                                    QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), ASPxImageSlider_Phong);
+                                    Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), ASPxImageSlider_Phong);
                                     Label_MaPhong.Text = objPhong.subId;
                                     Label_TenPhong.Text = objPhong.ten;
                                     string strCoSo, strDay, strTang;
@@ -85,7 +86,7 @@ namespace WebQLPH.UserControl.Phong
                                     {
                                         Label_ViTriPhong.Text = "[Không rõ]";
                                     }
-                                    Label_MoTaPhong.Text = QuanLyTaiSan.Libraries.StringHelper.ConvertRNToBR(objPhong.mota);
+                                    Label_MoTaPhong.Text = Libraries.StringHelper.ConvertRNToBR(objPhong.mota);
                                     Label_NhanVienPhuTrach.Text = objPhong.nhanvienpt != null ? objPhong.nhanvienpt.hoten : "";
 
                                     if (objPhong.nhanvienpt != null)
@@ -94,7 +95,7 @@ namespace WebQLPH.UserControl.Phong
                                         Label_NhanVienPT.Visible = false;
                                         Label_NhanVienPT.Text = "";
                                         Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
-                                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
+                                        Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
                                         Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
                                         Label_HoTen.Text = objPhong.nhanvienpt.hoten;
                                         Label_SoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
@@ -105,7 +106,7 @@ namespace WebQLPH.UserControl.Phong
                                         Label_NhanVienPT.Visible = true;
                                         Label_NhanVienPT.Text = "Phòng này chưa có nhân viên phụ trách";
                                         Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
-                                        QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVienPT);
+                                        Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVienPT);
                                         Label_MaNhanVien.Text = "";
                                         Label_HoTen.Text = "";
                                         Label_SoDienThoai.Text = "";
@@ -195,7 +196,7 @@ namespace WebQLPH.UserControl.Phong
                 subid = item.subId,
                 ten = item.ten,
                 nhanvienpt = item.nhanvienpt != null ? item.nhanvienpt.hoten : "",
-                url = QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
+                url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
             }).ToList();
             CollectionPagerDanhSachPhong.DataSource = bind;
             CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
@@ -206,7 +207,7 @@ namespace WebQLPH.UserControl.Phong
         protected void ButtonBack_ThongTinPhong_Click(object sender, EventArgs e)
         {
             if (!key.Equals(""))
-                Response.Redirect(QuanLyTaiSan.Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
+                Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
             else
                 Response.Redirect(Request.Url.AbsolutePath);
         }
