@@ -595,6 +595,10 @@
       <Project>{3a9615f6-7f5b-4e10-ba63-b46b4cc00de1}</Project>
       <Name>QuanLyTaiSan</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SHARED\SHARED.csproj">
+      <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
+      <Name>SHARED</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
