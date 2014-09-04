@@ -47,10 +47,12 @@
             this.barButtonXoaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonShowListTB = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuCo = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhong_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupSuCo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.txtTenNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.lblSoDienThoai = new DevExpress.XtraEditors.LabelControl();
@@ -89,8 +91,8 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -150,7 +152,9 @@
             this.colmota,
             this.coldate_create,
             this.coldate_modified,
-            this.colnhanvienpt});
+            this.colnhanvienpt,
+            this.colvitri,
+            this.colphong});
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
@@ -185,15 +189,13 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
-            this.colten.Width = 78;
+            this.colten.Width = 379;
             // 
             // colmota
             // 
             this.colmota.Caption = "Mô tả";
             this.colmota.FieldName = "mota";
             this.colmota.Name = "colmota";
-            this.colmota.Visible = true;
-            this.colmota.VisibleIndex = 1;
             this.colmota.Width = 78;
             // 
             // coldate_create
@@ -213,11 +215,11 @@
             // colnhanvienpt
             // 
             this.colnhanvienpt.Caption = "Nhân viên phụ trách";
-            this.colnhanvienpt.FieldName = "nhanvienpt.hoten";
+            this.colnhanvienpt.FieldName = "nhanvienpt";
             this.colnhanvienpt.Name = "colnhanvienpt";
             this.colnhanvienpt.Visible = true;
             this.colnhanvienpt.VisibleIndex = 2;
-            this.colnhanvienpt.Width = 104;
+            this.colnhanvienpt.Width = 479;
             // 
             // groupControl2
             // 
@@ -307,6 +309,14 @@
             this.barBtnSuCo.Name = "barBtnSuCo";
             this.barBtnSuCo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuCo_ItemClick);
             // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Id = 45;
+            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // rbnPagePhong_Home
             // 
             this.rbnPagePhong_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -340,6 +350,13 @@
             this.rbnGroupSuCo.Name = "rbnGroupSuCo";
             this.rbnGroupSuCo.ShowCaptionButton = false;
             this.rbnGroupSuCo.Text = "Sự cố";
+            // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
             // 
             // txtTenNhanVien
             // 
@@ -691,20 +708,20 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
-            // rbnGroupImport
+            // colvitri
             // 
-            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
-            this.rbnGroupImport.Name = "rbnGroupImport";
-            this.rbnGroupImport.ShowCaptionButton = false;
-            this.rbnGroupImport.Text = "Import";
+            this.colvitri.Caption = "Vị trí";
+            this.colvitri.FieldName = "vitri";
+            this.colvitri.Name = "colvitri";
+            this.colvitri.Visible = true;
+            this.colvitri.VisibleIndex = 1;
+            this.colvitri.Width = 392;
             // 
-            // barBtnImport
+            // colphong
             // 
-            this.barBtnImport.Caption = "Import";
-            this.barBtnImport.Id = 45;
-            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
-            this.barBtnImport.Name = "barBtnImport";
-            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            this.colphong.Caption = "phong";
+            this.colphong.FieldName = "phong";
+            this.colphong.Name = "colphong";
             // 
             // ucQuanLyPhong
             // 
@@ -808,5 +825,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupSuCo;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraGrid.Columns.GridColumn colvitri;
+        private DevExpress.XtraGrid.Columns.GridColumn colphong;
     }
 }

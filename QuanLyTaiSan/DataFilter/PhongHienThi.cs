@@ -16,13 +16,14 @@ namespace QuanLyTaiSan.DataFilter
         public Guid id { get; set; }
         public String ten { get; set; }
         public String mota { get; set; }
-        public String tennvpt { get; set; }
-        public int soluongtb { get; set; }
+        public String nhanvienpt { get; set; }
+        public String vitri { get; set; }
+        public Phong phong { get; set; }
         /*
          * FK Object
          */
         #region Nghiệp vụ
-        public static List<PhongHienThi> getAllByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
+        public static List<PhongHienThi> getPhongByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
         {
             //InitDb();
             List<PhongHienThi> re =
@@ -33,8 +34,9 @@ namespace QuanLyTaiSan.DataFilter
                      id=p.id,
                      ten = p.ten,
                      mota = p.mota,
-                     tennvpt = p.nhanvienpt.hoten,
-                     soluongtb = p.ctthietbis.Count
+                     nhanvienpt = p.nhanvienpt.hoten,
+                     vitri = p.vitri.coso != null ? p.vitri.coso.ten+(p.vitri.day != null ? " - "+p.vitri.day.ten+(p.vitri.tang!= null ? " - "+p.vitri.tang.ten : "") : "") : "",
+                     phong = p
                  }).ToList();
             return re;
         }
