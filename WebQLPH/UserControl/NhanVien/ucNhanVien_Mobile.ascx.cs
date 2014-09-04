@@ -38,10 +38,11 @@ namespace WebQLPH.UserControl.NhanVien
                     objNhanVienPT = NhanVienPT.getById(id);
                     if (objNhanVienPT != null)
                     {
+                        Panel_Chinh.Visible = true;
                         PanelThongTinNhanVienPhuTrach.Visible = true;
                         Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
-                        Label_HoTen.Text = objNhanVienPT.hoten;
+                        _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
                         QuanLyTaiSan.Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
                         CollectionPagerDanhSachPhong.DataSource = objNhanVienPT.phongs.ToList();
@@ -59,6 +60,7 @@ namespace WebQLPH.UserControl.NhanVien
                     listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
                     if (listNhanVienPT != null && listNhanVienPT.Count > 0)
                     {
+                        Panel_Chinh.Visible = true;
                         PanelDanhSachNhanVienPhuTrach.Visible = true;
                         BindData();
                     }

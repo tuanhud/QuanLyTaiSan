@@ -5,6 +5,7 @@
     <li <%# Request.QueryString["id"] != null?"":"class=\"active\"" %>><a href="NhanVien.aspx<% if (Request.QueryString["Page"] != null) Response.Write("?Page=" + Request.QueryString["Page"]); %>">Nhân viên</a></li>
     <% if (Request.QueryString["id"] != null)
        { %>
-    <li><a href="<%# Request.Url.AbsoluteUri %>"><% Response.Write(Session["TenNhanVien"] != null ? Session["TenNhanVien"].ToString() : ""); %></a></li>
+    <li><a href="<%# Request.Url.AbsoluteUri %>">
+        <asp:Label ID="Label_TenNhanVien" runat="server"></asp:Label></a></li>
     <%} %>
 </ol>

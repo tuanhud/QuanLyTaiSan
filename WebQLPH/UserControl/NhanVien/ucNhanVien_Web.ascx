@@ -14,14 +14,15 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    
-    <table class="table" style="border-top: white solid 2px">
-        <tbody>
+    <table class="table">
+        <thead>
             <tr>
                 <td colspan="2">
                     <uc:ucNhanVien_BreadCrumb runat="server" ID="_ucNhanVien_BreadCrumb" />
                 </td>
             </tr>
+        </thead>
+        <tbody style="border-top: white solid 2px">
             <tr>
                 <td>
                     <div class="panel panel-primary">
@@ -44,11 +45,11 @@
                                     <th>Số điện thoại</th>
                                 </tr>
                             </thead>
-                            <tbody class="centered">
+                            <tbody>
                                 <asp:Repeater ID="RepeaterQuanLyNhanVien" runat="server">
                                     <ItemTemplate>
                                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idNhanVien.ToString()?" class=\"focusrow\"":"" %>>
-                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></td>
+                                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyNhanVien.CurrentPage - 1)*CollectionPagerQuanLyNhanVien.PageSize) %></td>
                                             <td><%# Eval("subid") %></td>
                                             <td><%# Eval("hoten") %></td>
                                             <td><%# Eval("sodienthoai") %></td>
@@ -62,7 +63,7 @@
 
                     <div class="leftCollectionPager">
                         <div class="CollectionPager">
-                            <cp:CollectionPager ID="CollectionPagerQuanLyNhanVien" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="20" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
+                            <cp:CollectionPager ID="CollectionPagerQuanLyNhanVien" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static"></cp:CollectionPager>
                         </div>
                     </div>
                 </td>
@@ -74,8 +75,8 @@
                         </div>
                         <div class="panel-body">
                             <asp:Panel ID="Panel_NhanVienPT" runat="server" Visible="false">
-                                <table class="table table-bordered">
-                                    <tbody>
+                                <table class="table table-striped">
+                                    <thead>
                                         <tr>
                                             <td colspan="2">
                                                 <div class="center">
@@ -84,23 +85,26 @@
                                                             <PassePartout BackColor="Transparent" />
                                                         </Styles>
                                                     </dx:ASPxImageSlider>
+                                                    <br />
                                                 </div>
                                             </td>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         <tr>
-                                            <th style="width: 120px" class="warning">Mã nhân viên</th>
+                                            <td>Mã nhân viên:</td>
                                             <td>
                                                 <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 120px" class="warning">Họ tên</th>
+                                            <td>Họ tên:</td>
                                             <td>
                                                 <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th style="width: 120px" class="warning">Số điện thoại</th>
+                                            <td>Số điện thoại:</td>
                                             <td>
                                                 <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
                                             </td>
