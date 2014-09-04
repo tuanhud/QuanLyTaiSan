@@ -2,6 +2,7 @@
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
+<%@ Register Src="~/UserControl/NhanVien/ucNhanVien_BreadCrumb.ascx" TagPrefix="uc" TagName="ucNhanVien_BreadCrumb" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -13,8 +14,14 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
+    
     <table class="table" style="border-top: white solid 2px">
         <tbody>
+            <tr>
+                <td colspan="2">
+                    <uc:ucNhanVien_BreadCrumb runat="server" ID="_ucNhanVien_BreadCrumb" />
+                </td>
+            </tr>
             <tr>
                 <td>
                     <div class="panel panel-primary">
@@ -72,7 +79,11 @@
                                         <tr>
                                             <td colspan="2">
                                                 <div class="center">
-                                                    <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"><Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
+                                                    <dx:ASPxImageSlider ID="ASPxImageSlider_NhanVienPT" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px">
+                                                        <Styles>
+                                                            <PassePartout BackColor="Transparent" />
+                                                        </Styles>
+                                                    </dx:ASPxImageSlider>
                                                 </div>
                                             </td>
                                         </tr>
