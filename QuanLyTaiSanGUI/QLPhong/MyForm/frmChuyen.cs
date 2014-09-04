@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.MyUC;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLPhong
 {

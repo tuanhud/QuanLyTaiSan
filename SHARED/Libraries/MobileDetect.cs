@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public class MobileDetect
     {
@@ -14,7 +14,7 @@ namespace QuanLyTaiSan.Libraries
 
         public static bool fBrowserIsMobile()
         {
-            Debug.Assert(HttpContext.Current != null);
+            System.Diagnostics.Debug.Assert(HttpContext.Current != null);
 
             if (HttpContext.Current.Request != null && HttpContext.Current.Request.ServerVariables["HTTP_USER_AGENT"] != null)
             {

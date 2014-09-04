@@ -1,5 +1,7 @@
 ﻿using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
+using SHARED;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,79 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace QuanLyTaiSan.Entities
+namespace QuanLyTaiSan
 {
     public static class Global
     {
-        public static class debug
-        {
-            public static int remove_file()
-            {
-                return FileHelper.delete(FILENAME);
-            }
-            /// <summary>
-            /// Lưu mode vào local setting
-            /// </summary>
-            /// <returns></returns>
-            public static int save()
-            {
-                Global.local_setting.Save();
-                return 1;
-            }
-            public static String FILENAME
-            {
-                get
-                {
-                    return "debug.txt";
-                }
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            private static int mode = -1;
-            /// <summary>
-            /// 0: Ghi ra Console,
-            /// 1: Ghi ra File "debug.txt",
-            /// 2: Silient
-            /// </summary>
-            public static int MODE
-            {
-                get
-                {
-                    if (mode != -1)
-                    {
-                        return mode;
-                    }
-                    if (Global.working_database.WEB_MODE)
-                    {
-                        return mode = 0;
-                    }
-                    else
-                    {
-                        mode = Global.local_setting.debug_mode;
-                        return mode;
-                    }
-                }
-                set
-                {
-                    if (Global.working_database.WEB_MODE)
-                    {
-                        mode = 0;
-                    }
-                    else
-                    {
-                        mode = Global.local_setting.debug_mode = value;
-                    }
-                }
-            }
-        }
         public static class sync
         {
             public static String scope_name
             {
                 get
                 {
-                    return "QLTSScope";
+                    return SHARED.Global.sync.scope_name;
                 }
             }
             public static String[] tracking_tables

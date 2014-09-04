@@ -13,6 +13,8 @@ using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.Xml;
 using System.Text.RegularExpressions;
+using SHARED.Libraries;
+using QuanLyTaiSan;
 
 namespace QuanLyTaiSanGUI.Settings
 {
@@ -44,7 +46,7 @@ namespace QuanLyTaiSanGUI.Settings
             //IS USING DBCACHE
             checkEdit_useDBCache.Checked = Global.local_setting.use_db_cache;
             //Debug to file
-            checkEdit_debugToFile.Checked = Global.debug.MODE == 1;
+            //checkEdit_debugToFile.Checked = Global.debug.MODE == 1;
 
             /*
              * REMOTE SETTING
@@ -99,7 +101,7 @@ namespace QuanLyTaiSanGUI.Settings
             //IS USING DBCACHE
             Global.local_setting.use_db_cache = checkEdit_useDBCache.Checked;
             //debug mode
-            Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
+            //Global.debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
             //UPDATE LOCAL SETTING
             Global.local_setting.Save();
         }
@@ -268,7 +270,7 @@ namespace QuanLyTaiSanGUI.Settings
         }
         private void btnDebugClear_Click(object sender, EventArgs e)
         {
-            Global.debug.remove_file();
+            SHARED.Libraries.Debug.remove_file();
         }
 
         private void btnRemoveServerScope_Click(object sender, EventArgs e)
@@ -355,7 +357,7 @@ namespace QuanLyTaiSanGUI.Settings
                 if (result.Count > 0)
                 {
                     string strXML = result[0].InnerText;
-                    string strXMLCauHinh = QuanLyTaiSan.Libraries.StringHelper.Decrypt(strXML, passwordMaHoa);
+                    string strXMLCauHinh = StringHelper.Decrypt(strXML, passwordMaHoa);
                     if (strXMLCauHinh != string.Empty)
                     {
                         SetThongTinCauHinh(strXMLCauHinh);
@@ -378,7 +380,7 @@ namespace QuanLyTaiSanGUI.Settings
         private void simpleButton_Export_Click(object sender, EventArgs e)
         {
             string strXML = "";
-            strXML = QuanLyTaiSan.Libraries.StringHelper.Encrypt(LayThongTinCauHinhHienTai(), passwordMaHoa);
+            strXML = StringHelper.Encrypt(LayThongTinCauHinhHienTai(), passwordMaHoa);
             SaveFileDialog _SaveFileDialog = new SaveFileDialog();
             _SaveFileDialog.Filter = "XML File|*.xml";
             _SaveFileDialog.Title = "Lưu file XML";
@@ -460,7 +462,7 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void btnSmtpSendTest_Click(object sender, EventArgs e)
         {
-            if (EmailHelper.sendMail(
+            if (SHARED.Libraries.EmailHelper.sendMail(
                 txtSmtpTestEmail.Text,
                 "Test email",
                 ServerTimeHelper.getNow().ToString(),

@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Web;
+using SHARED;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSan.Entities
 {

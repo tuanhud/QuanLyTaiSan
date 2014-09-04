@@ -33,6 +33,7 @@ using QuanLyTaiSanGUI.QLSuCo;
 using DevExpress.LookAndFeel;
 using QuanLyTaiSanGUI.MyForm;
 using QuanLyTaiSanGUI.PhanCongQTV;
+using QuanLyTaiSan;
 
 namespace QuanLyTaiSanGUI
 {

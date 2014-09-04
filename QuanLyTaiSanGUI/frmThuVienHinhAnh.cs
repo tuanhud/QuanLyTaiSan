@@ -17,6 +17,7 @@ using DevExpress.LookAndFeel;
 using System.IO;
 using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.MyForm;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI
 {

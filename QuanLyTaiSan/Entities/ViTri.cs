@@ -127,7 +127,7 @@ namespace QuanLyTaiSan.Entities
         /// <param name="day"></param>
         /// <param name="tang"></param>
         /// <returns></returns>
-        public ViTri request(CoSo coso, Dayy day, Tang tang)
+        public static ViTri request(CoSo coso, Dayy day, Tang tang)
         {
             if (coso == null && day == null && tang == null)
             {

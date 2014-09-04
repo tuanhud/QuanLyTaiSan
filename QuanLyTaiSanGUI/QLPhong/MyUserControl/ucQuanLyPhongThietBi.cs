@@ -18,6 +18,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using QuanLyTaiSanGUI.QLPhong;
 using DevExpress.XtraGrid.Localization;
 using QuanLyTaiSanGUI.QLPhong.MyForm;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -164,7 +165,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             if (e.FocusedRowHandle >= 0 && gridViewCTThietBi.GetFocusedRow() != null)
             {
-                objCTThietBi = CTThietBi.getById(QuanLyTaiSan.Libraries.GUID.From(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
+                objCTThietBi = CTThietBi.getById(GUID.From(gridViewCTThietBi.GetRowCellValue(e.FocusedRowHandle, colid)));
                 objCTThietBi = (gridViewCTThietBi.GetFocusedRow() as ChiTietTBHienThi).ctthietbi;
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);

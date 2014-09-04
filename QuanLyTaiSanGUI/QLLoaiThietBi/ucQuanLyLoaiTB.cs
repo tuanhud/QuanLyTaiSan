@@ -17,6 +17,7 @@ using DevExpress.XtraTreeList.Localization;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLLoaiThietBi
 {
@@ -239,7 +240,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                     Guid id = Guid.Empty;
                     if (objLoaiThietBi.parent_id != null)
                     {
-                        id = QuanLyTaiSan.Libraries.GUID.From(objLoaiThietBi.parent_id);
+                        id = GUID.From(objLoaiThietBi.parent_id);
                     }
                     if (objLoaiThietBi.loaichung)
                     {

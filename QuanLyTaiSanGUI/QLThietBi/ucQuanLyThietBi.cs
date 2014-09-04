@@ -15,6 +15,7 @@ using DevExpress.XtraEditors.Repository;
 using QuanLyTaiSanGUI.MyUC;
 using QuanLyTaiSan.Entities;
 using DevExpress.XtraGrid;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLThietBi
 {

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraGrid;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Entities;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.HeThong
 {

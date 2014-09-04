@@ -18,6 +18,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Localization;
 using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUserControl
 {
@@ -599,7 +600,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 if (searchLookUpEditNhanVienPT.EditValue != null)
                 {
-                    Guid id = QuanLyTaiSan.Libraries.GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
+                    Guid id = GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
                     if (id != Guid.Empty)
                         objNhanVienPT = NhanVienPT.getById(id);
                     else

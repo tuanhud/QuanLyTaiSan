@@ -1,5 +1,4 @@
-﻿using QuanLyTaiSan.Libraries;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QuanLyTaiSan.Properties;
 using System.Data.Entity;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -151,7 +151,7 @@ namespace QuanLyTaiSan.Entities
                 String abs_path =
                     Global.remote_setting.http_host.getCombinedPath(this.path);
                 //check global RAM repository
-                image = ImageHelper.CACHE.get(abs_path);
+                image = QuanLyTaiSan.Libraries.ImageHelper.CACHE.get(abs_path);
                 if(image != null)
                 {
                     return image;
@@ -163,7 +163,7 @@ namespace QuanLyTaiSan.Entities
                     //load to Object REF
                     image = ImageHelper.fromFile(getCacheDiskPath());
                     //register to CACHE repository
-                    ImageHelper.CACHE.register(abs_path, image);
+                    QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
 
                     return image;
                 }
@@ -177,13 +177,13 @@ namespace QuanLyTaiSan.Entities
                     //WRITE CACHE TO DISK
                     image.Save(getCacheDiskPath());
                     //register to CACHE
-                    ImageHelper.CACHE.register(abs_path, image);
+                    QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
                     return image;
                 }
                 else
                 {
                     //NETWORK FAIL OR URL INVALID
-                    ImageHelper.CACHE.mark_url_fail(abs_path);
+                    QuanLyTaiSan.Libraries.ImageHelper.CACHE.mark_url_fail(abs_path);
                     return image = DEFAULT_IMAGE;
                 }
             }

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using QuanLyTaiSanGUI.QLThietBi;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.MyUserControl;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLPhong.MyForm
 {

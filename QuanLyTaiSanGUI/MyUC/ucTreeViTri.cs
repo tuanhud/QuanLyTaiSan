@@ -16,6 +16,7 @@ using QuanLyTaiSanGUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
 using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {

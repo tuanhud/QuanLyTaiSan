@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public static class GUID
     {

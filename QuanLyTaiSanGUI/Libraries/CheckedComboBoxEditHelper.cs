@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace QuanLyTaiSanGUI.Libraries
             {
                 if (control.Properties.Items[i].CheckState == CheckState.Checked)
                 {
-                    re.Add(QuanLyTaiSan.Libraries.GUID.From(control.Properties.Items[i].Value));
+                    re.Add(GUID.From(control.Properties.Items[i].Value));
                 }
             }
 

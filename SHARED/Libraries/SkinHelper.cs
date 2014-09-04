@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public class SkinHelper
     {

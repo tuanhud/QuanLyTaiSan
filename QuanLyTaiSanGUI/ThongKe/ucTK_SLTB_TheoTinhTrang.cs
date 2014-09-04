@@ -13,6 +13,7 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.Libraries;
 using DevExpress.XtraBars.Ribbon;
 using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {

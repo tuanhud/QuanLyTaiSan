@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyTaiSan.Entities;
+using SHARED;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSan.Entities
 {

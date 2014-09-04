@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSan;
 
 namespace QuanLyTaiSanGUI
 {

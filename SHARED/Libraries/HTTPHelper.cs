@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Entities;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public class HTTPHelper
     {

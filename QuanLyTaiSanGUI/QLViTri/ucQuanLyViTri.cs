@@ -17,6 +17,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 {

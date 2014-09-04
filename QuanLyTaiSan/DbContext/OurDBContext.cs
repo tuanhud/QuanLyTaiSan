@@ -1,4 +1,5 @@
 ﻿using QuanLyTaiSan.Libraries;
+using SHARED;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Data.Entity.Validation;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSan.Entities
 {

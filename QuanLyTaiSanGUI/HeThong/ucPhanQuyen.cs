@@ -13,6 +13,8 @@ using QuanLyTaiSan.Libraries;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using System.Data.Entity.Validation;
+using SHARED.Libraries;
+using QuanLyTaiSan;
 
 namespace QuanLyTaiSanGUI.HeThong
 {

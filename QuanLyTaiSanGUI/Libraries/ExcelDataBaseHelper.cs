@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyTaiSan.Entities;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.Libraries
 {
@@ -431,7 +432,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                     TinhTrang obj = new TinhTrang();
                                     obj.value = row[TINHTRANG].ToString().TrimEnd().TrimStart();
                                     obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
-                                    obj.key = QuanLyTaiSan.Libraries.StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString().TrimEnd().TrimStart()).Replace(" ", String.Empty).ToUpper();
+                                    obj.key = StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString().TrimEnd().TrimStart()).Replace(" ", String.Empty).ToUpper();
                                     if (obj.add() > 0 && DBInstance.commit() > 0)
                                     {
                                         WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");

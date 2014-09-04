@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Entities;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public class FTPHelper
     {

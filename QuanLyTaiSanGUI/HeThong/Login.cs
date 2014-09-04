@@ -13,6 +13,7 @@ using System.Threading;
 using DevExpress.LookAndFeel;
 using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.MyForm;
+using QuanLyTaiSan;
 
 namespace QuanLyTaiSanGUI.HeThong
 {

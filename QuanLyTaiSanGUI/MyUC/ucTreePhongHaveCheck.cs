@@ -14,6 +14,7 @@ using QuanLyTaiSan.DataFilter;
 using QuanLyTaiSanGUI.QLNhanVien;
 using DevExpress.XtraTreeList.Localization;
 using DevExpress.XtraTreeList.Columns;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {

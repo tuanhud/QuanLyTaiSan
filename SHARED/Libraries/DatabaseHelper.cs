@@ -5,12 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using QuanLyTaiSan.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public class DatabaseHelper
     {

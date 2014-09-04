@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Entities;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLPhong.MyForm
 {

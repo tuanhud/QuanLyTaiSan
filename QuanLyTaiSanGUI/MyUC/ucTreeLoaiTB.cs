@@ -11,6 +11,7 @@ using QuanLyTaiSan.Entities;
 using DevExpress.XtraTreeList.Nodes;
 using QuanLyTaiSanGUI.QLPhong;
 using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.MyUC
 {

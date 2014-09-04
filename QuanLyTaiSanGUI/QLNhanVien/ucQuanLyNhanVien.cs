@@ -15,6 +15,7 @@ using QuanLyTaiSan.Libraries;
 using QuanLyTaiSanGUI.MyUC;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid;
+using SHARED.Libraries;
 
 namespace QuanLyTaiSanGUI.QLNhanVien
 {

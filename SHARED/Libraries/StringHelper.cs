@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
-using QuanLyTaiSan.Entities;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
-using System.Web.Script.Serialization;
 using System.Web;
 
-namespace QuanLyTaiSan.Libraries
+namespace SHARED.Libraries
 {
     public class StringHelper
     {
@@ -218,7 +216,7 @@ namespace QuanLyTaiSan.Libraries
         {
             try
             {
-                string json = new JavaScriptSerializer().Serialize(input.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
+                string json = "";// new JavaScriptSerializer().Serialize(input.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
                 return json;
             }
             catch (Exception ex)

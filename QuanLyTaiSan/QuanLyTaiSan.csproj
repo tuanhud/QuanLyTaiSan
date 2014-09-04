@@ -127,21 +127,10 @@
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Entities\_EntityAbstract3.cs" />
-    <Compile Include="Global\Debug.cs" />
-    <Compile Include="Global\Global.cs" />
-    <Compile Include="Libraries\DatabaseHelper.cs" />
-    <Compile Include="Libraries\DateTimeHelper.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Libraries\EmailHelper.cs" />
-    <Compile Include="Libraries\FileHelper.cs" />
-    <Compile Include="Libraries\FTPHelper.cs" />
-    <Compile Include="Libraries\GUID.cs" />
-    <Compile Include="Libraries\HTTPHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
-    <Compile Include="Libraries\MobileDetect.cs" />
     <Compile Include="Libraries\PermissionHelper.cs" />
-    <Compile Include="Libraries\ServerTimeHelper.cs" />
-    <Compile Include="Libraries\SkinHelper.cs" />
-    <Compile Include="Libraries\StringHelper.cs" />
     <Compile Include="Migrations\201408270501123_basev4GUID.cs" />
     <Compile Include="Migrations\201408270501123_basev4GUID.Designer.cs">
       <DependentUpon>201408270501123_basev4GUID.cs</DependentUpon>
@@ -221,6 +210,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\default_image_when_fail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SHARED\SHARED.csproj">
+      <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
+      <Name>SHARED</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

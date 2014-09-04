@@ -1,5 +1,7 @@
 ﻿using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
+using SHARED;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
