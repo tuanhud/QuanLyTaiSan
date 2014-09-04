@@ -98,3 +98,8 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
 }
+.image_center {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}

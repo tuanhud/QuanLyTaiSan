@@ -112,25 +112,17 @@
 
                         <div class="panel-body">
                             <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
+                                <div class="image_center" onclick="Show('<% Response.Write(Session["URL"]); %>');">
+                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="300px" SettingsImageArea-ImageSizeMode="FillAndCrop">
+                                        <Styles>
+                                            <PassePartout BackColor="Transparent" />
+                                        </Styles>
+                                    </dx:ASPxImageSlider>
+                                </div>
                                 <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <td colspan="2">
-                                                <a href="#" onclick="Show('<% Response.Write(Session["URL"]); %>');">
-                                                    <div class="center">
-                                                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="300px" Height="300px">
-                                                            <Styles>
-                                                                <PassePartout BackColor="Transparent" />
-                                                            </Styles>
-                                                        </dx:ASPxImageSlider>
-                                                    </div>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Mã thiết bị:</td>
+                                            <td style="width:100px;">Mã thiết bị:</td>
                                             <td>
                                                 <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label>
                                             </td>
