@@ -24,16 +24,20 @@
             setTimeout(function () { clickCount = 0; }, 300);
             if (clickCount == 2) {
                 PopupControlImage.SetContentUrl(url_img);
-                iframe = PopupControlImage.GetContentIFrame();
-                PopupControlImage.SetSize(iframe.width, iframe.height);
                 PopupControlImage.Show();
                 clickCount = 0;
             }
         }
     </script>
-    <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
-    <table class="table" style="border-top: white solid 2px">
-        <tbody>
+    <table class="table">
+        <thead>
+            <tr>
+                <td colspan="3">
+                    <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
+                </td>
+            </tr>
+        </thead>
+        <tbody style="border-top: white solid 2px">
             <tr>
                 <td style="width: 200px">
                     <div class="panel panel-primary">
@@ -126,32 +130,32 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th style="width: 120px">Mã thiết bị</th>
+                                            <td>Mã thiết bị:</td>
                                             <td>
                                                 <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Tên thiết bị</th>
+                                            <td>Tên thiết bị:</td>
                                             <td>
                                                 <asp:Label ID="Label_TenThietBi" runat="server" Text="Label"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Loại thiết bị</th>
+                                            <td>Loại thiết bị:</td>
                                             <td>
                                                 <asp:Label ID="Label_LoaiThietBi" runat="server" Text="Label"></asp:Label>
 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Ngày mua</th>
+                                            <td>Ngày mua:</td>
                                             <td>
                                                 <asp:Label ID="Label_NgayMua" runat="server" Text="Label"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Mô tả</th>
+                                            <td>Mô tả:</td>
                                             <td>
                                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
                                             </td>
@@ -166,7 +170,7 @@
             </tr>
         </tbody>
     </table>
-    <dx:ASPxPopupControl ID="ASPxPopupControl" runat="server" ClientInstanceName="PopupControlImage" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Hình ảnh" Theme="PlasticBlue" AllowResize="True" AutoUpdatePosition="True">
+    <dx:ASPxPopupControl ID="ASPxPopupControl" runat="server" ClientInstanceName="PopupControlImage" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Hình ảnh" Theme="PlasticBlue" AllowResize="True" AutoUpdatePosition="True" Width="800px" Height="600px">
         <ContentCollection>
             <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
             </dx:PopupControlContentControl>
