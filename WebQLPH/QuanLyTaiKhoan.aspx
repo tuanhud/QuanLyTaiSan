@@ -15,6 +15,7 @@
     </asp:Panel>
     <asp:Panel ID="PanelKhongPhaiQuanTriVien" runat="server" Visible="false">
         <div class="alert alert-warning alert-dismissible" role="alert">
+<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <span class="glyphicon glyphicon-info-sign"></span>
             Bạn không có quyền xem thông tin tài khoản.
         </div>
@@ -24,11 +25,14 @@
             <ContentTemplate>
                 <asp:Panel ID="PanelThanhCong" runat="server" Visible="false">
                     <div class="alert alert-success" role="alert">
+<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        
                         <asp:Label ID="LabelThongBaoThanhCong" runat="server" Text="Label"></asp:Label>
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="PanelThatBai" runat="server" Visible="false">
                     <div class="alert alert-danger" role="alert">
+<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <asp:Label ID="LabelThongBaoThatBai" runat="server" Text="Label"></asp:Label>
                     </div>
                 </asp:Panel>
