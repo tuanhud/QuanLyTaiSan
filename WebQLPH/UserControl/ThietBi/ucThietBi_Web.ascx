@@ -24,6 +24,8 @@
             setTimeout(function () { clickCount = 0; }, 300);
             if (clickCount == 2) {
                 PopupControlImage.SetContentUrl(url_img);
+                iframe = PopupControlImage.GetContentIFrame();
+                PopupControlImage.SetSize(iframe.width, iframe.height);
                 PopupControlImage.Show();
                 clickCount = 0;
             }
@@ -106,13 +108,13 @@
 
                         <div class="panel-body">
                             <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
-                                <table class="table table-bordered">
-                                    <tbody>
+                                <table class="table table-striped">
+                                    <thead>
                                         <tr>
                                             <td colspan="2">
                                                 <a href="#" onclick="Show('<% Response.Write(Session["URL"]); %>');">
                                                     <div class="center">
-                                                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px">
+                                                        <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="300px" Height="300px">
                                                             <Styles>
                                                                 <PassePartout BackColor="Transparent" />
                                                             </Styles>
@@ -121,33 +123,35 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         <tr>
-                                            <th style="width: 120px" class="warning">Mã thiết bị</th>
+                                            <th style="width: 120px">Mã thiết bị</th>
                                             <td>
                                                 <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="warning">Tên thiết bị</th>
+                                            <th>Tên thiết bị</th>
                                             <td>
                                                 <asp:Label ID="Label_TenThietBi" runat="server" Text="Label"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="warning">Loại thiết bị</th>
+                                            <th>Loại thiết bị</th>
                                             <td>
                                                 <asp:Label ID="Label_LoaiThietBi" runat="server" Text="Label"></asp:Label>
 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="warning">Ngày mua</th>
+                                            <th>Ngày mua</th>
                                             <td>
                                                 <asp:Label ID="Label_NgayMua" runat="server" Text="Label"></asp:Label>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="warning">Mô tả</th>
+                                            <th>Mô tả</th>
                                             <td>
                                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
                                             </td>
@@ -162,7 +166,7 @@
             </tr>
         </tbody>
     </table>
-    <dx:ASPxPopupControl ID="ASPxPopupControl" runat="server" ClientInstanceName="PopupControlImage" CloseAction="CloseButton" Height="600px" Modal="True" Width="1024px" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Hình ảnh" Theme="PlasticBlue">
+    <dx:ASPxPopupControl ID="ASPxPopupControl" runat="server" ClientInstanceName="PopupControlImage" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Hình ảnh" Theme="PlasticBlue" AllowResize="True" AutoUpdatePosition="True">
         <ContentCollection>
             <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
             </dx:PopupControlContentControl>
