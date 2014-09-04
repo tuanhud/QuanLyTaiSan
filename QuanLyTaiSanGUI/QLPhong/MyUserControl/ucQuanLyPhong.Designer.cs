@@ -39,6 +39,8 @@
             this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnhanvienpt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
             this.ribbonPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -91,8 +93,6 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -220,6 +220,21 @@
             this.colnhanvienpt.Visible = true;
             this.colnhanvienpt.VisibleIndex = 2;
             this.colnhanvienpt.Width = 479;
+            // 
+            // colvitri
+            // 
+            this.colvitri.Caption = "Vị trí";
+            this.colvitri.FieldName = "vitri";
+            this.colvitri.Name = "colvitri";
+            this.colvitri.Visible = true;
+            this.colvitri.VisibleIndex = 1;
+            this.colvitri.Width = 392;
+            // 
+            // colphong
+            // 
+            this.colphong.Caption = "phong";
+            this.colphong.FieldName = "phong";
+            this.colphong.Name = "colphong";
             // 
             // groupControl2
             // 
@@ -504,6 +519,8 @@
             // 
             // searchLookUpEditNhanVienPT
             // 
+            this.searchLookUpEditNhanVienPT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchLookUpEditNhanVienPT.EditValue = "";
             this.searchLookUpEditNhanVienPT.Location = new System.Drawing.Point(79, 281);
             this.searchLookUpEditNhanVienPT.MenuManager = this.ribbonPhong;
@@ -515,7 +532,7 @@
             this.searchLookUpEditNhanVienPT.Properties.NullText = "";
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
-            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(240, 20);
+            this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(255, 20);
             this.searchLookUpEditNhanVienPT.TabIndex = 5;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
@@ -707,21 +724,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
-            // 
-            // colvitri
-            // 
-            this.colvitri.Caption = "Vị trí";
-            this.colvitri.FieldName = "vitri";
-            this.colvitri.Name = "colvitri";
-            this.colvitri.Visible = true;
-            this.colvitri.VisibleIndex = 1;
-            this.colvitri.Width = 392;
-            // 
-            // colphong
-            // 
-            this.colphong.Caption = "phong";
-            this.colphong.FieldName = "phong";
-            this.colphong.Name = "colphong";
             // 
             // ucQuanLyPhong
             // 
