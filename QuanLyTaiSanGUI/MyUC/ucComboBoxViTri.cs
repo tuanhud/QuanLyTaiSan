@@ -22,10 +22,6 @@ namespace QuanLyTaiSanGUI.MyUC
 {
     public partial class ucComboBoxViTri : UserControl
     {
-        Guid idTang = Guid.Empty;
-        Guid idCoSo = Guid.Empty;
-        Guid idDay = Guid.Empty;
-        Guid idPhong = Guid.Empty;
         bool chonDay = false;
         bool chonPhong = false;
         public ucComboBoxViTri(bool _chonDay, bool _chonPhong)
@@ -56,9 +52,6 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (!chonDay && !chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.GetValue(colten).ToString();
-                        idCoSo = GUID.From(e.Node.GetValue(colid));
-                        idTang = Guid.Empty;
-                        idDay = Guid.Empty;
                         popupContainerEdit1.ClosePopup();
                     }
                 }
@@ -67,9 +60,6 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (!chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
-                        idCoSo = GUID.From(e.Node.ParentNode.GetValue(colid));
-                        idDay = GUID.From(e.Node.GetValue(colid));
-                        idTang = Guid.Empty;
                         popupContainerEdit1.ClosePopup();
                     }
                 }
@@ -78,16 +68,12 @@ namespace QuanLyTaiSanGUI.MyUC
                     if (!chonPhong)
                     {
                         popupContainerEdit1.Text = e.Node.ParentNode.ParentNode.GetValue(colten).ToString() + " - " + e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
-                        idCoSo = GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid));
-                        idDay = GUID.From(e.Node.ParentNode.GetValue(colid));
-                        idTang = GUID.From(e.Node.GetValue(colid));
                         popupContainerEdit1.ClosePopup();
                     }
                 }
                 else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
                 {
                     popupContainerEdit1.Text = e.Node.GetValue(colten).ToString();
-                    idPhong = GUID.From(e.Node.GetValue(colid));
                     popupContainerEdit1.ClosePopup();
                 }
             }
@@ -101,30 +87,52 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                ViTri objViTri = new ViTri();
-                CoSo objCoSo = CoSo.getById(idCoSo);
-                Dayy objDay = Dayy.getById(idDay);
-                Tang objTang = Tang.getById(idTang);
-                objViTri.coso = objCoSo;
-                objViTri.day = objDay;
-                objViTri.tang = objTang;
-                return objViTri;
+                TreeListNode node = treeListViTri.FocusedNode;
+                if (node != null)
+                {
+                    if (node.GetValue(colloai).Equals(typeof(CoSo).Name))
+                    {
+                        CoSo obj = CoSo.getById(GUID.From(node.GetValue(colid)));
+                        if (obj != null)
+                            return ViTri.request(obj, null, null);
+                    }
+                    else if (node.GetValue(colloai).Equals(typeof(Dayy).Name))
+                    {
+                        Dayy obj = Dayy.getById(GUID.From(node.GetValue(colid)));
+                        if (obj != null)
+                            return ViTri.request(null, obj, null);
+                    } 
+                    else if (node.GetValue(colloai).Equals(typeof(Tang).Name))
+                    {
+                        Tang obj = Tang.getById(GUID.From(node.GetValue(colid)));
+                        if (obj != null)
+                            return ViTri.request(null, null, obj);
+                    }
+                }
+                return null;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->getViTri: " + ex.Message);
                 return null;
             }
-            finally
-            { }
         }
 
         public Phong getPhong()
         {
             try
             {
-                Phong obj = Phong.getById(idPhong);
-                return obj;
+                TreeListNode node = treeListViTri.FocusedNode;
+                if (node != null)
+                {
+                    if (node.GetValue(colloai).Equals(typeof(Phong).Name))
+                    {
+                        Phong obj = node.GetValue(colphong) as Phong;
+                        if (obj != null)
+                            return obj;
+                    }
+                }
+                return null;
             }
             catch (Exception ex)
             {

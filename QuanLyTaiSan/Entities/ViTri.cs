@@ -139,11 +139,13 @@ namespace QuanLyTaiSan.Entities
                 ViTri tmp = db.VITRIS.Where(c => c.tang.id == tang.id).FirstOrDefault();
                 if (tmp == null)
                 {
-                    final.tang = tmp.tang;
-                    final.day = tmp.day;
-                    final.coso = tmp.coso;
+                    final.tang = tang;
+                    final.day = tang.day;
+                    final.coso = tang.day.coso;
+                    return final;
                 }
-                return final;
+                else
+                    return tmp;
             }
             else if(day!=null)
             {
@@ -151,10 +153,12 @@ namespace QuanLyTaiSan.Entities
                 if (tmp == null)
                 {
                     final.tang = null;
-                    final.day = tmp.day;
-                    final.coso = tmp.coso;
+                    final.day = day;
+                    final.coso = day.coso;
+                    return final;
                 }
-                return final;
+                else
+                    return tmp;
             }
             else if (coso != null)
             {
@@ -163,9 +167,11 @@ namespace QuanLyTaiSan.Entities
                 {
                     final.tang = null;
                     final.day = null;
-                    final.coso = tmp.coso;
+                    final.coso = coso;
+                    return final;
                 }
-                return final;
+                else
+                    return tmp;
             }
             return null;
         }

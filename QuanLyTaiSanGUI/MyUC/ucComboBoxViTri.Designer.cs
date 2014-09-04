@@ -35,6 +35,7 @@
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
             this.popupContainerControl1 = new DevExpress.XtraEditors.PopupContainerControl();
+            this.colphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerControl1)).BeginInit();
@@ -52,7 +53,8 @@
             this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.colloai});
+            this.colloai,
+            this.colphong});
             this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
             styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             styleFormatCondition1.Appearance.Options.UseFont = true;
@@ -114,6 +116,12 @@
             this.popupContainerControl1.Size = new System.Drawing.Size(250, 300);
             this.popupContainerControl1.TabIndex = 3;
             // 
+            // colphong
+            // 
+            this.colphong.Caption = "phong";
+            this.colphong.FieldName = "phong";
+            this.colphong.Name = "colphong";
+            // 
             // ucComboBoxViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,5 +146,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         private DevExpress.XtraEditors.PopupContainerEdit popupContainerEdit1;
         private DevExpress.XtraEditors.PopupContainerControl popupContainerControl1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colphong;
     }
 }
