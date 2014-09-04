@@ -64,7 +64,38 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
-
+        /// <summary>
+        /// Lấy tất cả đám con cháu dưới root
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="included_root_in_result"></param>
+        /// <returns></returns>
+        public List<ChuThe> getAllRecursive(ChuThe root, Boolean included_root_in_result=true)
+        {
+            List<ChuThe> tmp = new List<ChuThe>();
+            if (root != null)
+            {
+                if (included_root_in_result)
+                {
+                    tmp.Add(root);
+                }
+                if (childs != null)
+                {
+                    foreach (ChuThe item in childs)
+                    {
+                        tmp.AddRange(getAllRecursive(item));
+                    }
+                }
+            }
+            else
+            {
+                foreach (ChuThe item in ChuThe.getAll())
+                {
+                    tmp.AddRange(getAllRecursive(item));
+                }
+            }
+            return tmp;
+        }
         #endregion
 
         #region Override

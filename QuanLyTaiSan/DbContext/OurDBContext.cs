@@ -174,13 +174,18 @@ namespace QuanLyTaiSan.Entities
         public OurDBContext()
             : base("Default")
         {
-            IDatabaseInitializer<OurDBContext> initializer = null;
             if (create_db_structure)
             {
                 //Auto create DB Structure and Sample Data if not exist
-                initializer = new _OurDBInit(create_sample_data);
+                IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
+                Database.SetInitializer<OurDBContext>(initializer);
+                //FORCE CREATE TABLE if Database Existed
+                Database.Initialize(true);
             }
-            Database.SetInitializer<OurDBContext>(initializer);
+            else
+            {
+                Database.SetInitializer<OurDBContext>(null);
+            }
         }
         /// <summary>
         /// Hàm khởi tạo có chỉ định cụ thể DB đích
@@ -192,13 +197,18 @@ namespace QuanLyTaiSan.Entities
         {
             this.create_db_structure = create_db_structure;
             this.create_sample_data = create_sample_data;
-            IDatabaseInitializer<OurDBContext> initializer = null;
             if (create_db_structure)
             {
                 //Auto create DB if not exist
-                initializer = new _OurDBInit(create_sample_data);
+                IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
+                Database.SetInitializer<OurDBContext>(initializer);
+                //FORCE CREATE TABLE if Database Existed
+                Database.Initialize(true);
             }
-            Database.SetInitializer<OurDBContext>(initializer);            
+            else
+            {
+                Database.SetInitializer<OurDBContext>(null);
+            }
         }
 
         #region COMMON (SHARED)
@@ -374,6 +384,7 @@ namespace QuanLyTaiSan.Entities
             //CONFIG
             //DISABLE AUTO DELETE ON CASCADE
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
             //FORCE USE LAZY LOADING
             this.Configuration.LazyLoadingEnabled = true;
             /*

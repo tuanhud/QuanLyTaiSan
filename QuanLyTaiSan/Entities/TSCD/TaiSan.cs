@@ -54,7 +54,26 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
-
+        /// <summary>
+        /// Sửa đơn giá của tài sản
+        /// </summary>
+        /// <param name="newValue"></param>
+        /// <returns></returns>
+        public int suaDonGia(long newValue)
+        {
+            dongia = newValue;
+            return 1;
+        }
+        /// <summary>
+        /// Sủa tên tài sản
+        /// </summary>
+        /// <param name="newValue"></param>
+        /// <returns></returns>
+        public int suaTen(String newValue)
+        {
+            ten = newValue;
+            return 1;
+        }
         #endregion
 
         #region Override
