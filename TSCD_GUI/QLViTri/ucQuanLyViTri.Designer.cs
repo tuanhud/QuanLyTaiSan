@@ -44,11 +44,10 @@
             this.rbnGroupTang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
-            this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
@@ -59,6 +58,7 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -68,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlViTri)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnControlViTri
@@ -217,10 +218,11 @@
             // treeListViTri
             // 
             this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colid,
             this.colten,
-            this.colloai});
+            this.colloai,
+            this.colid});
             this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeListViTri.KeyFieldName = "id";
             this.treeListViTri.Location = new System.Drawing.Point(0, 0);
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.AllowQuickHideColumns = false;
@@ -229,16 +231,11 @@
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.Size = new System.Drawing.Size(477, 375);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
             // 
             // colten
             // 
@@ -254,11 +251,17 @@
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
             // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
             // groupControlInfo
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
-            this.groupControlInfo.Controls.Add(this.ucComboBoxViTri1);
+            this.groupControlInfo.Controls.Add(this.panelControlViTri);
             this.groupControlInfo.Controls.Add(this.btnHuy);
             this.groupControlInfo.Controls.Add(this.btnOK);
             this.groupControlInfo.Controls.Add(this.lblMoTa);
@@ -274,15 +277,6 @@
             this.groupControlInfo.Size = new System.Drawing.Size(358, 375);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
-            // 
-            // ucComboBoxViTri1
-            // 
-            this.ucComboBoxViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(43, 54);
-            this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
-            this.ucComboBoxViTri1.Size = new System.Drawing.Size(297, 20);
-            this.ucComboBoxViTri1.TabIndex = 11;
             // 
             // btnHuy
             // 
@@ -373,6 +367,16 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // panelControlViTri
+            // 
+            this.panelControlViTri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControlViTri.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlViTri.Location = new System.Drawing.Point(43, 54);
+            this.panelControlViTri.Name = "panelControlViTri";
+            this.panelControlViTri.Size = new System.Drawing.Size(297, 20);
+            this.panelControlViTri.TabIndex = 11;
+            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlViTri)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,10 +429,10 @@
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
         private DevExpress.XtraTreeList.TreeList treeListViTri;
-        private MyUserControl.ucComboBoxViTri ucComboBoxViTri1;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProviderInfo;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
+        private DevExpress.XtraEditors.PanelControl panelControlViTri;
     }
 }

@@ -31,6 +31,8 @@
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlLoaiPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewLoaiPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
@@ -42,6 +44,7 @@
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLoaiPhong)).BeginInit();
@@ -50,6 +53,7 @@
             this.groupControlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControlMain
@@ -80,8 +84,31 @@
             // 
             // gridViewLoaiPhong
             // 
+            this.gridViewLoaiPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colten,
+            this.colid});
             this.gridViewLoaiPhong.GridControl = this.gridControlLoaiPhong;
             this.gridViewLoaiPhong.Name = "gridViewLoaiPhong";
+            this.gridViewLoaiPhong.OptionsBehavior.Editable = false;
+            this.gridViewLoaiPhong.OptionsBehavior.ReadOnly = true;
+            this.gridViewLoaiPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewLoaiPhong.OptionsView.ShowGroupPanel = false;
+            this.gridViewLoaiPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewLoaiPhong_FocusedRowChanged);
+            this.gridViewLoaiPhong.DataSourceChanged += new System.EventHandler(this.gridViewLoaiPhong_DataSourceChanged);
+            // 
+            // colten
+            // 
+            this.colten.Caption = "Loại phòng";
+            this.colten.FieldName = "ten";
+            this.colten.Name = "colten";
+            this.colten.Visible = true;
+            this.colten.VisibleIndex = 0;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // groupControlInfo
             // 
@@ -113,6 +140,7 @@
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 9;
+            this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
             // 
@@ -123,6 +151,7 @@
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 8;
+            this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
             // 
@@ -133,6 +162,7 @@
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 7;
+            this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // btnClose
             // 
@@ -141,6 +171,7 @@
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnHuy
             // 
@@ -149,6 +180,7 @@
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
@@ -157,6 +189,7 @@
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // labelControl2
             // 
@@ -193,13 +226,17 @@
             this.txtMoTa.TabIndex = 1;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
-            // ucQuanLyLoaiPhong
+            // dxErrorProviderInfo
+            // 
+            this.dxErrorProviderInfo.ContainerControl = this;
+            // 
+            // frmQuanLyLoaiPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 351);
             this.Controls.Add(this.splitContainerControlMain);
-            this.Name = "ucQuanLyLoaiPhong";
+            this.Name = "frmQuanLyLoaiPhong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý loại phòng";
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
@@ -211,6 +248,7 @@
             this.groupControlInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +269,8 @@
         private DevExpress.XtraEditors.SimpleButton btnSua_r;
         private DevExpress.XtraEditors.SimpleButton btnThem_r;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
+        private DevExpress.XtraGrid.Columns.GridColumn colten;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProviderInfo;
     }
 }
