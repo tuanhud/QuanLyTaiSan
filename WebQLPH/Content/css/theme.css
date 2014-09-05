@@ -1,6 +1,7 @@
 ﻿body {
   padding-top: 70px;
   padding-bottom: 30px;
+  background: #eff7fc url(Images/bg-wall.png) repeat-x top left !important;
 }
 
 .theme-dropdown .dropdown-menu {
