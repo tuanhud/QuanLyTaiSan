@@ -70,7 +70,7 @@ namespace WebQLPH.UserControl.ViTri
         private void ClearData()
         {
             Label_ThongTin.Text = "Thông tin";
-            Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_Object);
+            Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web.ASPxImageSlider_Object);
             Label_Ten.Text = "";
             Label_Thuoc.Text = "";
             Label_DiaChi.Text = "";
@@ -88,7 +88,7 @@ namespace WebQLPH.UserControl.ViTri
                     if (objCoSo != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objCoSo.ten);
-                        Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), ASPxImageSlider_Object);
+                        Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                         Label_Ten.Text = objCoSo.ten;
                         Label_Thuoc.Text = "[Đại học Sài Gòn]";
                         Panel_DiaChi.Visible = true;
@@ -118,7 +118,7 @@ namespace WebQLPH.UserControl.ViTri
                     if (objDay != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objDay.ten);
-                        Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), ASPxImageSlider_Object);
+                        Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                         Label_Ten.Text = objDay.ten;
                         Label_Thuoc.Text = objDay.coso != null ? objDay.coso.ten : "[Cơ sở]";
                         Panel_DiaChi.Visible = false;
@@ -136,7 +136,7 @@ namespace WebQLPH.UserControl.ViTri
                     if (objTang != null)
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objTang.ten);
-                        Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), ASPxImageSlider_Object);
+                        Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                         Label_Ten.Text = objTang.ten;
                         if (objTang.day != null)
                         {

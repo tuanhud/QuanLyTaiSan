@@ -63,7 +63,7 @@ namespace WebQLPH.UserControl.Phong
                                 {
                                     Panel_ThongTinPhong.Visible = true;
                                     Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
-                                    Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), ASPxImageSlider_Phong);
+                                    Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Mobile_Phong.ASPxImageSlider_Object);
                                     Label_MaPhong.Text = objPhong.subId;
                                     Label_TenPhong.Text = objPhong.ten;
                                     string strCoSo, strDay, strTang;
@@ -95,7 +95,7 @@ namespace WebQLPH.UserControl.Phong
                                         Label_NhanVienPT.Visible = false;
                                         Label_NhanVienPT.Text = "";
                                         Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
-                                        Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), ASPxImageSlider_NhanVienPT);
+                                        Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), _ucASPxImageSlider_Mobile_NhanVienPT.ASPxImageSlider_Object);
                                         Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
                                         Label_HoTen.Text = objPhong.nhanvienpt.hoten;
                                         Label_SoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
@@ -106,7 +106,7 @@ namespace WebQLPH.UserControl.Phong
                                         Label_NhanVienPT.Visible = true;
                                         Label_NhanVienPT.Text = "Phòng này chưa có nhân viên phụ trách";
                                         Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
-                                        Libraries.ImageHelper.LoadImageWeb(null, ASPxImageSlider_NhanVienPT);
+                                        Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Mobile_NhanVienPT.ASPxImageSlider_Object);
                                         Label_MaNhanVien.Text = "";
                                         Label_HoTen.Text = "";
                                         Label_SoDienThoai.Text = "";
@@ -198,9 +198,9 @@ namespace WebQLPH.UserControl.Phong
                 nhanvienpt = item.nhanvienpt != null ? item.nhanvienpt.hoten : "",
                 url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
             }).ToList();
-            CollectionPagerDanhSachPhong.DataSource = bind;
-            CollectionPagerDanhSachPhong.BindToControl = RepeaterDanhSachPhong;
-            RepeaterDanhSachPhong.DataSource = CollectionPagerDanhSachPhong.DataSourcePaged;
+            _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = bind;
+            _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
+            RepeaterDanhSachPhong.DataSource = _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSourcePaged;
             RepeaterDanhSachPhong.DataBind();
         }
 

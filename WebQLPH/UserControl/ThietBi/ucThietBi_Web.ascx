@@ -3,8 +3,8 @@
 <%@ Register Assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
-<%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
+<%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
+<%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/ThietBi/ucThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucThietBi_BreadCrumb" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
@@ -18,18 +18,6 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <script type="text/javascript">
-        var clickCount = 0;
-        function Show(url_img) {
-            clickCount++;
-            setTimeout(function () { clickCount = 0; }, 300);
-            if (clickCount == 2) {
-                PopupControlImage.SetContentUrl(url_img);
-                PopupControlImage.Show();
-                clickCount = 0;
-            }
-        }
-    </script>
     <table class="table">
         <thead>
             <tr>
@@ -86,7 +74,7 @@
                                 <asp:Repeater ID="RepeaterThietBi" runat="server">
                                     <ItemTemplate>
                                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idThietBi.ToString()?" class=\"focusrow\"":"" %>>
-                                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachThietBi.CurrentPage - 1)*CollectionPagerDanhSachThietBi.PageSize) %></td>
+                                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachThietBi.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachThietBi.CollectionPager_Object.PageSize) %></td>
                                             <td><%# Eval("subid") %></td>
                                             <td><%# Eval("ten") %></td>
                                             <td><%# Eval("loaithietbi") %></td>
@@ -97,12 +85,7 @@
                         </table>
                         <% } %>
                     </div>
-
-                    <div class="leftCollectionPager">
-                        <div class="CollectionPager">
-                            <cp:CollectionPager ID="CollectionPagerDanhSachThietBi" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="10" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
-                        </div>
-                    </div>
+                    <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachThietBi" />
                 </td>
 
                 <td style="width: 400px">
@@ -113,13 +96,7 @@
 
                         <div class="panel-body">
                             <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">
-                                <div class="image_center" onclick="Show('<% Response.Write(Session["URL"]); %>');">
-                                    <dx:ASPxImageSlider ID="ASPxImageSlider_ThietBi" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="350px">
-                                        <Styles>
-                                            <PassePartout BackColor="Transparent" />
-                                        </Styles>
-                                    </dx:ASPxImageSlider>
-                                </div>
+                                <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
                                 <table class="table table-striped">
                                     <tbody>
                                         <tr>

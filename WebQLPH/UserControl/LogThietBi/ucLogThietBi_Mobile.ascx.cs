@@ -7,7 +7,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Libraries;
 
-
 namespace WebQLPH.UserControl.LogThietBi
 {
     public partial class ucLogThietBi_Mobile : System.Web.UI.UserControl
@@ -62,7 +61,7 @@ namespace WebQLPH.UserControl.LogThietBi
                             {
                                 Panel_ThongTinLog.Visible = true;
                                 Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogThietBi.date_create).ToString("d/M/yyyy"));
-                                Libraries.ImageHelper.LoadImageWeb(objLogThietBi.hinhanhs.ToList(), ASPxImageSlider_Log);
+                                Libraries.ImageHelper.LoadImageWeb(objLogThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_TenThietBi.Text = objThietBi.ten;
                                 Label_TinhTrang.Text = objLogThietBi.tinhtrang != null ? objLogThietBi.tinhtrang.value : "[Tình trạng]";
                                 Label_SoLuong.Text = objLogThietBi.soluong.ToString();
@@ -89,11 +88,10 @@ namespace WebQLPH.UserControl.LogThietBi
                                 ngay = a.date_create,
                                 url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
                             }).OrderBy(item => item.ngay).ToList();
-                            CollectionPagerDanhSachLogThietBi.DataSource = bind;
-                            CollectionPagerDanhSachLogThietBi.BindToControl = RepeaterDanhSachLogThietBi;
-                            RepeaterDanhSachLogThietBi.DataSource = CollectionPagerDanhSachLogThietBi.DataSourcePaged;
+                            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSource = bind;
+                            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachLogThietBi;
+                            RepeaterDanhSachLogThietBi.DataSource = _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSourcePaged;
                         }
-
                     }
                 }
                 else

@@ -67,13 +67,13 @@ namespace WebQLPH.UserControl.LogThietBi {
         protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachLogThietBi;
         
         /// <summary>
-        /// CollectionPagerDanhSachLogThietBi control.
+        /// _ucCollectionPager_DanhSachLogThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachLogThietBi;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachLogThietBi;
         
         /// <summary>
         /// Panel_ThongTinLog control.
@@ -94,13 +94,13 @@ namespace WebQLPH.UserControl.LogThietBi {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinLog;
         
         /// <summary>
-        /// ASPxImageSlider_Log control.
+        /// _ucASPxImageSlider_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Log;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider_Mobile _ucASPxImageSlider_Mobile;
         
         /// <summary>
         /// Label_TenThietBi control.

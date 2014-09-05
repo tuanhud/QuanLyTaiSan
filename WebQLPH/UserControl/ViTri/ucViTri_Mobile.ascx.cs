@@ -53,7 +53,7 @@ namespace WebQLPH.UserControl.ViTri
                             {
                                 Panel_ThongTinObj.Visible = true;
                                 Label_ThongTin.Text = "Thông tin " + objCoSo.ten;
-                                Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), ASPxImageSlider_Object);
+                                Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_Ten.Text = objCoSo.ten;
                                 Label_Thuoc.Text = "[Đại học Sài Gòn]";
                                 Panel_DiaChi.Visible = true;
@@ -83,7 +83,7 @@ namespace WebQLPH.UserControl.ViTri
                             {
                                 Panel_ThongTinObj.Visible = true;
                                 Label_ThongTin.Text = "Thông tin " + objDay.ten;
-                                Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), ASPxImageSlider_Object);
+                                Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_Ten.Text = objDay.ten;
                                 Label_Thuoc.Text = objDay.coso != null ? objDay.coso.ten : "[Cơ sở]";
                                 Panel_DiaChi.Visible = false;
@@ -103,7 +103,7 @@ namespace WebQLPH.UserControl.ViTri
                             {
                                 Panel_ThongTinObj.Visible = true;
                                 Label_ThongTin.Text = "Thông tin " + objTang.ten;
-                                Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), ASPxImageSlider_Object);
+                                Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_Ten.Text = objTang.ten;
                                 if (objTang.day != null)
                                 {

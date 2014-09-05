@@ -67,13 +67,13 @@ namespace WebQLPH.UserControl.LogSuCo {
         protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachLogSuCo;
         
         /// <summary>
-        /// CollectionPagerDanhSachLogSuCo control.
+        /// _ucCollectionPager_DanhSachLogSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachLogSuCo;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachLogSuCo;
         
         /// <summary>
         /// Label_ThongTinLog control.
@@ -85,13 +85,13 @@ namespace WebQLPH.UserControl.LogSuCo {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinLog;
         
         /// <summary>
-        /// ASPxImageSlider_Log control.
+        /// _ucASPxImageSlider_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Log;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider _ucASPxImageSlider_Web;
         
         /// <summary>
         /// Label_TenSuCo control.

@@ -76,13 +76,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachPhong;
         
         /// <summary>
-        /// CollectionPagerDanhSachPhong control.
+        /// _ucCollectionPager_DanhSachPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachPhong;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachPhong;
         
         /// <summary>
         /// ButtonBack_DanhSachPhong control.
@@ -112,13 +112,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinPhong;
         
         /// <summary>
-        /// ASPxImageSlider_Phong control.
+        /// _ucASPxImageSlider_Mobile_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Phong;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider_Mobile _ucASPxImageSlider_Mobile_Phong;
         
         /// <summary>
         /// Label_MaPhong control.
@@ -184,13 +184,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Panel Panel_NhanVienPT;
         
         /// <summary>
-        /// ASPxImageSlider_NhanVienPT control.
+        /// _ucASPxImageSlider_Mobile_NhanVienPT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_NhanVienPT;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider_Mobile _ucASPxImageSlider_Mobile_NhanVienPT;
         
         /// <summary>
         /// Label_MaNhanVien control.

@@ -1,12 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucLogSuCo_Web.ascx.cs" Inherits="WebQLPH.UserControl.LogSuCo.ucLogSuCo_Web" %>
 
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
-<%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
+<%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
+<%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
         <div class="alert alert-danger" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <span class="glyphicon glyphicon-exclamation-sign"></span>
             <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
         </div>
@@ -43,7 +43,7 @@
                                 <asp:Repeater ID="RepeaterDanhSachLogSuCo" runat="server">
                                     <ItemTemplate>
                                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idLog.ToString()?" class=\"focusrow\"":"" %>>
-                                            <td><%# Container.ItemIndex + 1 + ((CollectionPagerDanhSachLogSuCo.CurrentPage - 1)*CollectionPagerDanhSachLogSuCo.PageSize) %></td>
+                                            <td><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachLogSuCo.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachLogSuCo.CollectionPager_Object.PageSize) %></td>
                                             <td><%# Eval("tinhtrang") %></td>
                                             <td><%# Eval("phong") %></td>
                                             <td><%# Eval("ngay") %></td>
@@ -54,11 +54,7 @@
                         </table>
                         <% } %>
                     </div>
-                    <div class="leftCollectionPager">
-                        <div class="CollectionPager">
-                            <cp:CollectionPager ID="CollectionPagerDanhSachLogSuCo" runat="server" LabelText="" MaxPages="20" ShowLabel="False" BackNextDisplay="HyperLinks" BackNextLinkSeparator="" BackNextLocation="None" BackText="" EnableViewState="False" FirstText="&laquo;" LabelStyle="FONT-WEIGHT: blue;" LastText="&raquo;" NextText="" PageNumbersSeparator="" PageSize="3" PagingMode="QueryString" QueryStringKey="Page" ResultsFormat="" ResultsLocation="None" ResultsStyle="" ShowFirstLast="True" ClientIDMode="Static" SectionPadding="2"></cp:CollectionPager>
-                        </div>
-                    </div>
+                    <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachLogSuCo" />
                 </td>
                 <td style="width: 400px">
                     <div class="panel panel-primary">
@@ -66,15 +62,9 @@
                             <asp:Label ID="Label_ThongTinLog" runat="server" Text="Thông tin nhân viên"></asp:Label>
                         </div>
                         <div class="panel-body">
+                            <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
                             <table class="table table-bordered">
                                 <tbody>
-                                    <tr>
-                                        <td colspan="2">
-                                            <div class="center">
-                                                <dx:ASPxImageSlider ID="ASPxImageSlider_Log" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"><Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
-                                            </div>
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <th style="width: 120px" class="warning">Tên sự cố</th>
                                         <td>

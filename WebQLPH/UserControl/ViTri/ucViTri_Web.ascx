@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucViTri_Web.ascx.cs" Inherits="WebQLPH.UserControl.ViTri.ucViTri_Web" %>
 
-<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxImageSlider" TagPrefix="dx" %>
+<%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
@@ -57,15 +57,9 @@
                         </div>
 
                         <div class="panel-body">
+                            <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
                             <table class="table table-bordered">
                                 <tbody>
-                                    <tr>
-                                        <td colspan="2">
-                                            <div class="center">
-                                                <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" Height="300px" ShowNavigationBar="False" Width="300px"><Styles><PassePartout BackColor="Transparent" /></Styles></dx:ASPxImageSlider>
-                                            </div>
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <th style="width: 120px" class="warning">Tên</th>
                                         <td>
