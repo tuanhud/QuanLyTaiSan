@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -72,8 +71,7 @@
             this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.ucTreeListLookUpViTri1 = new QuanLyTaiSanGUI.MyUC.ucTreeListLookUpViTri();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -151,7 +149,6 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.ucTreeListLookUpViTri1);
             this.groupControl1.Controls.Add(this.txtDiaChi);
             this.groupControl1.Controls.Add(this.labelControlMoTa);
             this.groupControl1.Controls.Add(this.btnR_Sua);
@@ -527,15 +524,6 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // ucTreeListLookUpViTri1
-            // 
-            this.ucTreeListLookUpViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucTreeListLookUpViTri1.Location = new System.Drawing.Point(59, 369);
-            this.ucTreeListLookUpViTri1.Name = "ucTreeListLookUpViTri1";
-            this.ucTreeListLookUpViTri1.Size = new System.Drawing.Size(280, 20);
-            this.ucTreeListLookUpViTri1.TabIndex = 17;
-            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +598,5 @@
         private DevExpress.XtraEditors.LabelControl labelControlMoTa;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        private MyUC.ucTreeListLookUpViTri ucTreeListLookUpViTri1;
     }
 }

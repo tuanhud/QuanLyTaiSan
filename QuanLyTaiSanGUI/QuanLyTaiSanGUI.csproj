@@ -151,12 +151,6 @@
     <Compile Include="HeThong\ucLogHeThong.Designer.cs">
       <DependentUpon>ucLogHeThong.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyUC\ucTreeListLookUpViTri.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MyUC\ucTreeListLookUpViTri.Designer.cs">
-      <DependentUpon>ucTreeListLookUpViTri.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLPhong\MyForm\frmRemoveThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,9 +476,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucThemSuaXoaButton.resx">
       <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucTreeListLookUpViTri.resx">
-      <DependentUpon>ucTreeListLookUpViTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
       <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
