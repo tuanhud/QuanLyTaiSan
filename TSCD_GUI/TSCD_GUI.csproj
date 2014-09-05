@@ -54,6 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyUserControl\ucComboBoxDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxDonVi.Designer.cs">
+      <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxViTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxViTri.Designer.cs">
+      <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLDonVi\ucQuanLyDonVi.cs">
@@ -86,11 +98,23 @@
     <Compile Include="QLPhong\ucQuanLyPhong.Designer.cs">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSan.Designer.cs">
+      <DependentUpon>frmAddTaiSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLTaiSan\ucQuanLyDonVi_TaiSan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="QLTaiSan\ucQuanLyDonVi_TaiSan.Designer.cs">
       <DependentUpon>ucQuanLyDonVi_TaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLTaiSan\ucQuanLyTaiSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\ucQuanLyTaiSan.Designer.cs">
+      <DependentUpon>ucQuanLyTaiSan.cs</DependentUpon>
     </Compile>
     <Compile Include="QLViTri\ucQuanLyViTri.cs">
       <SubType>UserControl</SubType>
@@ -104,6 +128,12 @@
     <Compile Include="RibbonFormMain.Designer.cs">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MyUserControl\ucComboBoxDonVi.resx">
+      <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucComboBoxViTri.resx">
+      <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,8 +160,14 @@
     <EmbeddedResource Include="QLPhong\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmAddTaiSan.resx">
+      <DependentUpon>frmAddTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\ucQuanLyDonVi_TaiSan.resx">
       <DependentUpon>ucQuanLyDonVi_TaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\ucQuanLyTaiSan.resx">
+      <DependentUpon>ucQuanLyTaiSan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
@@ -167,7 +203,16 @@
   <ItemGroup>
     <None Include="Resources\minus_2_24.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SHARED\SHARED.csproj">
+      <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
+      <Name>SHARED</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSCD\TSCD.csproj">
+      <Project>{1790a3f3-4540-4524-b031-6a159ad400da}</Project>
+      <Name>TSCD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
