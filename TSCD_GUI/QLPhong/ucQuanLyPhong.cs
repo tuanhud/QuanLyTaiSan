@@ -15,6 +15,17 @@ namespace TSCD_GUI.QLPhong
         public ucQuanLyPhong()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            rbnControlPhong.Parent = null;
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
+        {
+            return rbnControlPhong;
         }
     }
 }

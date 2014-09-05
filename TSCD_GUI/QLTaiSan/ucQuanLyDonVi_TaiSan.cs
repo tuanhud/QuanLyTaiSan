@@ -15,6 +15,17 @@ namespace TSCD_GUI.QLTaiSan
         public ucQuanLyDonVi_TaiSan()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            rbnControlDonVi_TaiSan.Parent = null;
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
+        {
+            return rbnControlDonVi_TaiSan;
         }
     }
 }

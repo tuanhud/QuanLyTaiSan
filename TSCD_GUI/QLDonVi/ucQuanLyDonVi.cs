@@ -15,6 +15,17 @@ namespace TSCD_GUI.QLDonVi
         public ucQuanLyDonVi()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            rbnControlDonVi.Parent = null;
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
+        {
+            return rbnControlDonVi;
         }
     }
 }
