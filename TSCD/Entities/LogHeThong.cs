@@ -20,6 +20,7 @@ namespace TSCD.Entities
 
         }
         #region Dinh nghia
+        [NotMapped]
         private static OurDBContext db
         {
             get
@@ -61,7 +62,7 @@ namespace TSCD.Entities
 
         public void onBeforeAdded()
         {
-            
+            date_create = ServerTimeHelper.getNow();
         }
 
         public void onBeforeDeleted()

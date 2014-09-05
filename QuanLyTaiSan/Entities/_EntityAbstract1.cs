@@ -1,6 +1,7 @@
 ﻿using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
 using SHARED;
+using SHARED.Interface;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
@@ -457,13 +458,6 @@ namespace QuanLyTaiSan.Entities
                 || this is Setting
                 || this is SuCoPhong
                 || this is TinhTrang
-                //TSCD
-                || this is TaiSan
-                || this is CTTaiSan
-                || this is DonViTinh
-                || this is LoaiTaiSan
-                || this is ChuThe
-                || this is LoaiChuThe
                 );
         }
         /// <summary>

@@ -19,9 +19,6 @@ namespace QuanLyTaiSan.Entities
         }
         
         #region Dinh nghia
-        [Index("nothing", IsUnique = true)]
-        [Required]
-        [StringLength(255)]
         public String ten { get; set; }
         /*
          * FK

@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Data.Entity.Validation;
 using SHARED.Libraries;
+using SHARED.Interface;
 
 namespace QuanLyTaiSan.Entities
 {
@@ -239,17 +240,6 @@ namespace QuanLyTaiSan.Entities
         public DbSet<PhieuMuonPhong> PHIEUMUONPHONGS { get; set; }
         #endregion
 
-        #region QL: TSCD
-        public DbSet<LoaiChuThe> LOAICHUTHES { get; set; }
-        public DbSet<ChuThe> CHUTHES { get; set; }
-        public DbSet<LoaiTaiSan> LOAITAISANS { get; set; }
-        public DbSet<TaiSan> TAISANS { get; set; }
-        public DbSet<CTTaiSan> CTTAISANS { get; set; }
-        public DbSet<LogTaiSan> LOGTAISANS { get; set; }
-        public DbSet<DonViTinh> DONVITINHS { get; set; }
-        #endregion
-
-
         #region STATIC
         /// <summary>
         /// Dùng trong frm Sửa quyền
@@ -311,16 +301,6 @@ namespace QuanLyTaiSan.Entities
                 "PHONG_HINHANH",
                 "SUCOPHONG_HINHANH",
             //END PTB
-
-            //BEGIN TSCD
-            "TSCD_DONVITINH",//UNDEPENTDENT
-                "TSCD_LOAITAISAN",
-                    "TSCD_TAISAN",
-            "TSCD_LOAICHUTHE",//UNDEPENDENT
-                "TSCD_CHUTHE",
-                    "TSCD_CTTAISAN",
-                    "TSCD_LOGTAISAN",
-            //END TSCD
         };
         #endregion
         #region Manual
@@ -359,7 +339,7 @@ namespace QuanLyTaiSan.Entities
                 HINHANHS.Find(Guid.Empty);
                 QUANTRIVIENS.Find(Guid.Empty);
                 NHANVIENPTS.Find(Guid.Empty);
-                LOGHETHONGS.Find(Guid.Empty);
+                LOGHETHONGS.Find("", DateTime.Now);
                 LOGSUCOPHONGS.Find(Guid.Empty);
                 LOGTHIETBIS.Find(Guid.Empty);
                 LOAITHIETBIS.Find(Guid.Empty);
@@ -671,62 +651,6 @@ namespace QuanLyTaiSan.Entities
                     m.MapRightKey("id2");
                     m.ToTable("CTTHIETBI_HINHANH");
                 });
-            #endregion
-
-            #region QL: TSCD
-            modelBuilder.Entity<DonViTinh>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<TaiSan>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<CTTaiSan>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<LogTaiSan>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<LoaiTaiSan>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<ChuThe>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-
-            modelBuilder.Entity<LoaiChuThe>().Map(x =>
-            {
-                x.MapInheritedProperties();
-            });
-            /*
-             * Double 1-n relationship CHUTHE~CTTAISAN, CHUTHE~LOGTAISAN
-             */
-                //CTTAISAN
-            modelBuilder.Entity<CTTaiSan>()
-            .HasOptional(a => a.chuthequanly)
-            .WithMany(b => b.cttaisan_dangquanlys);
-
-            modelBuilder.Entity<CTTaiSan>()
-            .HasOptional(a => a.chuthesudung)
-            .WithMany(b => b.cttaisan_dangsudungs);
-                //LOGTAISAN
-            modelBuilder.Entity<LogTaiSan>()
-            .HasOptional(a => a.chuthequanly)
-            .WithMany(b => b.logtaisan_dangquanlys);
-
-            modelBuilder.Entity<LogTaiSan>()
-            .HasOptional(a => a.chuthesudung)
-            .WithMany(b => b.logtaisan_dangsudungs);
             #endregion
         }
         public override int SaveChanges()

@@ -112,16 +112,7 @@
     <Compile Include="Entities\HinhAnh.cs" />
     <Compile Include="Entities\ThietBi.cs" />
     <Compile Include="Entities\Phong.cs" />
-    <Compile Include="Entities\TSCD\ChuThe.cs" />
-    <Compile Include="Entities\TSCD\CTTaiSan.cs" />
-    <Compile Include="Entities\TSCD\DonViTinh.cs" />
-    <Compile Include="Entities\TSCD\LoaiChuThe.cs" />
-    <Compile Include="Entities\TSCD\LoaiTaiSan.cs" />
-    <Compile Include="Entities\TSCD\LogTaiSan.cs" />
-    <Compile Include="Entities\TSCD\TaiSan.cs" />
     <Compile Include="Entities\ViTri.cs" />
-    <Compile Include="Entities\_CRUDInterface.cs" />
-    <Compile Include="Entities\_EFEventRegisterInterface.cs" />
     <Compile Include="Entities\_EntityAbstract2.cs" />
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />
@@ -143,6 +134,18 @@
     <Compile Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.Designer.cs">
       <DependentUpon>201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.cs" />
+    <Compile Include="Migrations\201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.Designer.cs">
+      <DependentUpon>201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409050519422_gobo_rangbuoc_tenphong_unique.cs" />
+    <Compile Include="Migrations\201409050519422_gobo_rangbuoc_tenphong_unique.Designer.cs">
+      <DependentUpon>201409050519422_gobo_rangbuoc_tenphong_unique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.cs" />
+    <Compile Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.Designer.cs">
+      <DependentUpon>201409050526584_doi_khoachinh_LOGHETHONG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -159,6 +162,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.resx">
       <DependentUpon>201409040531083_QLTSCD_xoa_rangbuoc_ctts_logts_chuthe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.resx">
+      <DependentUpon>201409050512416_remove_QLTSCD_entities_from_QuanLyTaiSan_project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409050519422_gobo_rangbuoc_tenphong_unique.resx">
+      <DependentUpon>201409050519422_gobo_rangbuoc_tenphong_unique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.resx">
+      <DependentUpon>201409050526584_doi_khoachinh_LOGHETHONG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

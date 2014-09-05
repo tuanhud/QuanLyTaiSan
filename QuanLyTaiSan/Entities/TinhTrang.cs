@@ -62,8 +62,6 @@ namespace QuanLyTaiSan.Entities
         /*
          * FK for QLTSCD
          */
-        public virtual ICollection<CTTaiSan> cttaisans { get; set; }
-        public virtual ICollection<LogTaiSan> logtaisans { get; set; }
         #endregion
 
         #region Override
@@ -106,14 +104,6 @@ namespace QuanLyTaiSan.Entities
             get
             {
                 return 1;
-            }
-        }
-        [NotMapped]
-        public static int TYPE_TAISAN
-        {
-            get
-            {
-                return 2;
             }
         }
         #endregion
