@@ -13,6 +13,7 @@ using TSCD_GUI.QLPhong;
 using TSCD_GUI.QLDonVi;
 using TSCD_GUI.QLLoaiTaiSan;
 using TSCD_GUI.QLTaiSan;
+using TSCD.Entities;
 
 namespace TSCD_GUI
 {
@@ -24,6 +25,15 @@ namespace TSCD_GUI
         ucQuanLyLoaiTS _ucQuanLyLoaiTS = null;
         ucQuanLyTaiSan _ucQuanLyTaiSan = null;
         ucQuanLyDonVi_TaiSan _ucQuanLyDonVi_TaiSan = null;
+
+        const String rbnPageViTri = "rbnPageViTri";
+        const String rbnPagePhong = "rbnPagePhong";
+        const String rbnPageDonVi = "rbnPageDonVi";
+        const String rbnPageLoaiTS = "rbnPageLoaiTS";
+        const String rbnPageTaiSan = "rbnPageTaiSan";
+        const String rbnPageDonVi_TaiSan = "rbnPageDonVi_TaiSan";
+
+        bool drawEnd = false;
 
         public RibbonFormMain()
         {
@@ -40,12 +50,21 @@ namespace TSCD_GUI
             _ucQuanLyTaiSan = new ucQuanLyTaiSan();
             _ucQuanLyDonVi_TaiSan = new ucQuanLyDonVi_TaiSan();
 
+            _ucQuanLyViTri.Dock = DockStyle.Fill;
+            _ucQuanLyPhong.Dock = DockStyle.Fill;
+            _ucQuanLyDonVi.Dock = DockStyle.Fill;
+            _ucQuanLyLoaiTS.Dock = DockStyle.Fill;
+            _ucQuanLyTaiSan.Dock = DockStyle.Fill;
+            _ucQuanLyDonVi_TaiSan.Dock = DockStyle.Fill;
+
             addRibbonPage(_ucQuanLyViTri.getRibbonControl());
             addRibbonPage(_ucQuanLyPhong.getRibbonControl());
             addRibbonPage(_ucQuanLyDonVi.getRibbonControl());
             addRibbonPage(_ucQuanLyLoaiTS.getRibbonControl());
             addRibbonPage(_ucQuanLyTaiSan.getRibbonControl());
             addRibbonPage(_ucQuanLyDonVi_TaiSan.getRibbonControl());
+
+            drawEnd = true;
         }
 
         private void addRibbonPage(RibbonControl ribbon)
@@ -58,7 +77,41 @@ namespace TSCD_GUI
 
         private void ribbonMain_SelectedPageChanged(object sender, EventArgs e)
         {
-
+            if (drawEnd)
+            {
+                //DBInstance.reNew();
+                if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageViTri)))
+                {
+                    _ucQuanLyViTri.loadData();
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucQuanLyViTri);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhong)))
+                {
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucQuanLyPhong);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi)))
+                {
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucQuanLyDonVi);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLoaiTS)))
+                {
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucQuanLyLoaiTS);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageTaiSan)))
+                {
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucQuanLyTaiSan);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi_TaiSan)))
+                {
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucQuanLyDonVi_TaiSan);
+                }
+            }
         }
     }
 }

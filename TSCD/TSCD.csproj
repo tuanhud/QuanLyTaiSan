@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\ViTriHienThi.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\LoaiPhong.cs" />
@@ -109,6 +111,7 @@
       <DependentUpon>201409050449468_basev1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

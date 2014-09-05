@@ -42,7 +42,15 @@
     <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,11 +82,11 @@
     <Compile Include="QLDonVi\ucQuanLyDonVi.Designer.cs">
       <DependentUpon>ucQuanLyDonVi.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLLoaiTaiSan\ucQuanLyDonViTinh.cs">
+    <Compile Include="QLLoaiTaiSan\frmQuanLyDonViTinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLLoaiTaiSan\ucQuanLyDonViTinh.Designer.cs">
-      <DependentUpon>ucQuanLyDonViTinh.cs</DependentUpon>
+    <Compile Include="QLLoaiTaiSan\frmQuanLyDonViTinh.Designer.cs">
+      <DependentUpon>frmQuanLyDonViTinh.cs</DependentUpon>
     </Compile>
     <Compile Include="QLLoaiTaiSan\ucQuanLyLoaiTS.cs">
       <SubType>UserControl</SubType>
@@ -86,11 +94,11 @@
     <Compile Include="QLLoaiTaiSan\ucQuanLyLoaiTS.Designer.cs">
       <DependentUpon>ucQuanLyLoaiTS.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\ucQuanLyLoaiPhong.cs">
+    <Compile Include="QLPhong\frmQuanLyLoaiPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLPhong\ucQuanLyLoaiPhong.Designer.cs">
-      <DependentUpon>ucQuanLyLoaiPhong.cs</DependentUpon>
+    <Compile Include="QLPhong\frmQuanLyLoaiPhong.Designer.cs">
+      <DependentUpon>frmQuanLyLoaiPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="QLPhong\ucQuanLyPhong.cs">
       <SubType>UserControl</SubType>
@@ -148,14 +156,14 @@
     <EmbeddedResource Include="QLDonVi\ucQuanLyDonVi.resx">
       <DependentUpon>ucQuanLyDonVi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLLoaiTaiSan\ucQuanLyDonViTinh.resx">
-      <DependentUpon>ucQuanLyDonViTinh.cs</DependentUpon>
+    <EmbeddedResource Include="QLLoaiTaiSan\frmQuanLyDonViTinh.resx">
+      <DependentUpon>frmQuanLyDonViTinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLLoaiTaiSan\ucQuanLyLoaiTS.resx">
       <DependentUpon>ucQuanLyLoaiTS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLPhong\ucQuanLyLoaiPhong.resx">
-      <DependentUpon>ucQuanLyLoaiPhong.cs</DependentUpon>
+    <EmbeddedResource Include="QLPhong\frmQuanLyLoaiPhong.resx">
+      <DependentUpon>frmQuanLyLoaiPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLPhong\ucQuanLyPhong.resx">
       <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
@@ -175,6 +183,8 @@
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
