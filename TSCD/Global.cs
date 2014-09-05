@@ -466,7 +466,7 @@ namespace TSCD
             {
                 get
                 {
-                    return Global.local_setting.use_db_cache;
+                    return false;//Global.local_setting.use_db_cache;
                 }
             }
         }

@@ -25,7 +25,7 @@ namespace SHARED.Libraries
         /// <summary>
         /// 
         /// </summary>
-        private static int mode = -1;
+        private static int mode = 0;//-1;
         /// <summary>
         /// 0: Ghi ra Console,
         /// 1: Ghi ra File "debug.txt",

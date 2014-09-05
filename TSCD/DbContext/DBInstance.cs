@@ -28,39 +28,26 @@ namespace TSCD.Entities
         {
             get
             {
-                //if (SHARED.Global.WEB_MODE)
-                //{
-                //    OurDBContext tmp = HttpContext.Current.Items["db_context"] as OurDBContext;
-                //    if (tmp == null)
-                //    {
-                //        tmp = new OurDBContext();
-                //        HttpContext.Current.Items["db_context"] = tmp;
-                //    }
-                //    return tmp;
-                //}
-                //else
-                //{
-                    if (db == null)
-                    {
-                        db = new OurDBContext(Global.working_database.get_connection_string());
-                    }
+                if (db == null)
+                {
+                    db = new OurDBContext();//Global.working_database.get_connection_string());
+                }
 
-                    try
+                try
+                {
+                    db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                    //DB CONNECTION FAIl
+                    Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                    //Raise event
+                    if (onDBConnectionDown != null)
                     {
-                        db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                        onDBConnectionDown(new EventArgs());
                     }
-                    catch (Exception)
-                    {
-                        //DB CONNECTION FAIl
-                        Debug.WriteLine("=========DB CONNECTION FAIL==========");
-                        //Raise event
-                        if (onDBConnectionDown != null)
-                        {
-                            onDBConnectionDown(new EventArgs());
-                        }
-                    }
-                    return db;
-                //}
+                }
+                return db;
             }
         }
         /// <summary>
