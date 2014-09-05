@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <asp:Panel ID="PanelThongBao" runat="server" Visible="false">
                     <div class="alert alert-warning alert-dismissible" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <span class="glyphicon glyphicon-info-sign"></span>
                         <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
                     </div>

@@ -103,24 +103,10 @@ namespace WebQLPH.UserControl.SuCo
                     }
                     else
                     {
-                        if (Object.Equals(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
-                        {
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")));
-                            if (objPhong != null)
-                            {
-                                LoadDataObjPhong();
-                                ClearData();
-                            }
-                            else
-                            {
-                                Response.Redirect("~/");
-                            }
-                        }
-                        else
-                        {
-                            Label_DanhSachSuCo.Text = "Chưa chọn phòng";
-                            ClearData();
-                        }
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
+                        node.Focus();
+                        Label_DanhSachSuCo.Text = "Chưa chọn phòng";
+                        ClearData();
                     }
                 }
                 else

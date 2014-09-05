@@ -78,31 +78,31 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <th style="width: 120px" class="warning">Tên sự cố</th>
+                            <td>Tên sự cố:</td>
                             <td>
                                 <asp:Label ID="Label_TenSuCo" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Tình trạng</th>
+                            <td>Tình trạng:</td>
                             <td>
                                 <asp:Label ID="Label_TinhTrang" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Ngày tạo</th>
+                            <td>Ngày tạo:</td>
                             <td>
                                 <asp:Label ID="Label_NgayTao" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Mô tả</th>
+                            <td>Mô tả:</td>
                             <td>
                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Xem log</th>
+                            <td>Xem log:</td>
                             <td>
                                 <asp:Button ID="Button_XemLog" runat="server" Text="Xem log" CssClass="btn btn-default" />
                             </td>

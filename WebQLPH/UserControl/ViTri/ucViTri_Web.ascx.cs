@@ -49,6 +49,7 @@ namespace WebQLPH.UserControl.ViTri
                     {
                         node.Focus();
                         LoadFocusedNodeData();
+                        Panel_ThongTinViTri.Visible = true;
                     }
                     else
                     {
@@ -57,7 +58,10 @@ namespace WebQLPH.UserControl.ViTri
                 }
                 else
                 {
-                    LoadFocusedNodeData();
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
+                    node.Focus();
+                    Label_ChuaChon.Visible = true;
+                    Label_ChuaChon.Text = "Chưa chọn vị trí";
                 }
             }
             else

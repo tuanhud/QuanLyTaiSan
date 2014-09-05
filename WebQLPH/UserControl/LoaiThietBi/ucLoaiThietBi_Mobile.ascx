@@ -7,7 +7,7 @@
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
         <div class="alert alert-danger" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <span class="glyphicon glyphicon-exclamation-sign"></span>
             <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
         </div>
@@ -48,28 +48,28 @@
                 <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
             </div>
             <div class="panel-body">
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <th style="width: 120px" class="warning">Tên loại</th>
+                            <td style="width: 120px">Tên loại:</td>
                             <td>
                                 <asp:Label ID="Label_TenLoai" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Kiểu quản lý</th>
+                            <td>Kiểu quản lý:</td>
                             <td>
                                 <asp:Label ID="Label_KieuQuanLy" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Mô tả</th>
+                            <td>Mô tả:</td>
                             <td>
                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Thuộc</th>
+                            <td>Thuộc:</td>
                             <td>
                                 <asp:Label ID="Label_Thuoc" runat="server" Text="Label"></asp:Label>
                             </td>

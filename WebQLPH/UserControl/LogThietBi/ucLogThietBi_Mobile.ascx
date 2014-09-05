@@ -62,46 +62,46 @@
         </div>
         <div class="panel-body">
             <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile" />
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <th style="width: 120px" class="warning">Tên thiết bị</th>
+                        <td style="width: 120px">Tên thiết bị:</td>
                         <td>
                             <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Tình trạng</th>
+                        <td>Tình trạng:</td>
                         <td>
                             <asp:Label ID="Label_TinhTrang" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Số lượng</th>
+                        <td>Số lượng:</td>
                         <td>
                             <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Phòng</th>
+                        <td>Phòng:</td>
                         <td>
                             <asp:Label ID="Label_Phong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Ngày</th>
+                        <td>Ngày:</td>
                         <td>
                             <asp:Label ID="Label_Ngay" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Người thực hiện</th>
+                        <td>Người thực hiện:</td>
                         <td>
                             <asp:Label ID="Label_QuanTriVien" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Ghi chú</th>
+                        <td>Ghi chú:</td>
                         <td>
                             <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
                         </td>

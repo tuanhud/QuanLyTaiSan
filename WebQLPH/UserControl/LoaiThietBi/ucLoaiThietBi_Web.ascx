@@ -7,7 +7,7 @@
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
         <div class="alert alert-danger" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <span class="glyphicon glyphicon-exclamation-sign"></span>
             <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
         </div>
@@ -47,34 +47,37 @@
                     </div>
 
                     <div class="panel-body">
-                        <table class="table table-bordered">
-                            <tbody>
-                                <tr>
-                                    <th style="width: 120px" class="warning">Tên loại</th>
-                                    <td>
-                                        <asp:Label ID="Label_TenLoai" runat="server" Text="Label"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="warning">Kiểu quản lý</th>
-                                    <td>
-                                        <asp:Label ID="Label_KieuQuanLy" runat="server" Text="Label"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="warning">Mô tả</th>
-                                    <td>
-                                        <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="warning">Thuộc</th>
-                                    <td>
-                                        <asp:Label ID="Label_Thuoc" runat="server" Text="Label"></asp:Label>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <asp:Panel ID="Panel_ThongTinLoaiThietBi" runat="server" Visible="False">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 120px">Tên loại:</td>
+                                        <td>
+                                            <asp:Label ID="Label_TenLoai" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kiểu quản lý:</td>
+                                        <td>
+                                            <asp:Label ID="Label_KieuQuanLy" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mô tả:</td>
+                                        <td>
+                                            <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thuộc:</td>
+                                        <td>
+                                            <asp:Label ID="Label_Thuoc" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </asp:Panel>
+                        <asp:Label ID="Label_ChuaChon" runat="server" Visible="false"></asp:Label>
                     </div>
                 </div>
             </td>

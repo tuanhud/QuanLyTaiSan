@@ -56,7 +56,9 @@ namespace WebQLPH.UserControl.ThietBi
                 }
                 else
                 {
-                    LoadFocusedNodeData();
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue("");
+                    node.Focus();
+                    Label_TextDanhSachThietBi.Text = "Chưa chọn loại thiết bị";
                 }
 
                 if (Request.QueryString["id"] != null)
@@ -183,6 +185,8 @@ namespace WebQLPH.UserControl.ThietBi
             _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.BindToControl = RepeaterThietBi;
             RepeaterThietBi.DataSource = _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSourcePaged;
             RepeaterThietBi.DataBind();
+            if (RepeaterThietBi.Items.Count == 0)
+                Label_TextDanhSachThietBi.Text = "Chưa có thiết bị";
         }
 
         protected void ASPxTreeList_ThietBi_CustomDataCallback(object sender, TreeListCustomDataCallbackEventArgs e)

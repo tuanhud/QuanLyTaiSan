@@ -49,6 +49,15 @@ namespace WebQLPH.UserControl.Phong {
         protected global::WebQLPH.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
+        /// Label_TextDanhSachPhong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_TextDanhSachPhong;
+        
+        /// <summary>
         /// RepeaterDanhSachPhong control.
         /// </summary>
         /// <remarks>

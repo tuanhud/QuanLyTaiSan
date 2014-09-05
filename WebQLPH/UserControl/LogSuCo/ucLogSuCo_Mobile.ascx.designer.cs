@@ -130,15 +130,6 @@ namespace WebQLPH.UserControl.LogSuCo {
         protected global::System.Web.UI.WebControls.Label Label_TinhTrang;
         
         /// <summary>
-        /// Label_Phong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Phong;
-        
-        /// <summary>
         /// Label_Ngay control.
         /// </summary>
         /// <remarks>
@@ -146,6 +137,15 @@ namespace WebQLPH.UserControl.LogSuCo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Ngay;
+        
+        /// <summary>
+        /// Label_Phong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Phong;
         
         /// <summary>
         /// Label_QuanTriVien control.

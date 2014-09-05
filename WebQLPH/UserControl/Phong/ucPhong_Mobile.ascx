@@ -70,34 +70,34 @@
 
         <div class="panel-body">
             <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile_Phong" />
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <th style="width: 120px" class="warning">Mã phòng</th>
+                        <td style="width: 120px">Mã phòng:</td>
                         <td>
                             <asp:Label ID="Label_MaPhong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Tên phòng</th>
+                        <td>Tên phòng:</td>
                         <td>
                             <asp:Label ID="Label_TenPhong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Vị trí</th>
+                        <td>Vị trí:</td>
                         <td>
                             <asp:Label ID="Label_ViTriPhong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Mô tả</th>
+                        <td>Mô tả:</td>
                         <td>
                             <asp:Label ID="Label_MoTaPhong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Nhân viên phụ trách</th>
+                        <td>Nhân viên phụ trách:</td>
                         <td>
                             <asp:Label ID="Label_NhanVienPhuTrach" runat="server"></asp:Label>
                         </td>
@@ -115,22 +115,22 @@
         <div class="panel-body">
             <asp:Panel ID="Panel_NhanVienPT" runat="server" Visible="False">
                 <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile_NhanVienPT" />
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <th style="width: 120px" class="warning">Mã nhân viên</th>
+                            <td style="width: 120px">Mã nhân viên:</td>
                             <td>
                                 <asp:Label ID="Label_MaNhanVien" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th style="width: 120px" class="warning">Họ tên</th>
+                            <td>Họ tên:</td>
                             <td>
                                 <asp:Label ID="Label_HoTen" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th style="width: 120px" class="warning">Số điện thoại</th>
+                            <td>Số điện thoại:</td>
                             <td>
                                 <asp:Label ID="Label_SoDienThoai" runat="server"></asp:Label>
                             </td>

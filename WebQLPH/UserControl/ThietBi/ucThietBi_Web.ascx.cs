@@ -40,59 +40,62 @@ namespace WebQLPH.UserControl.ThietBi
                     try
                     {
                         key = Request.QueryString["key"].ToString();
-                        DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
-                        if (node != null)
+                    }
+                    catch
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
+                    if (node != null)
+                    {
+                        node.Focus();
+                        LoadFocusedNodeData();
+                    }
+                    else
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    if (Request.QueryString["id"] != null)
+                    {
+                        idThietBi = Guid.Empty;
+                        try
                         {
-                            node.Focus();
-                            LoadFocusedNodeData();
+                            idThietBi = GUID.From(Request.QueryString["id"]);
+                        }
+                        catch
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                        objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idThietBi);
+                        if (objThietBi != null)
+                        {
+                            Panel_ThietBi.Visible = true;
+                            Label_ThietBi.Visible = false;
+                            Label_ThietBi.Text = "";
+                            Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
+                            Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                            Label_MaThietBi.Text = objThietBi.subId;
+                            Session["TenThietBi"] = Label_TenThietBi.Text = objThietBi.ten;
+                            Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
+                            Label_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
+                            Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
+
+                            Session["URL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
                         }
                         else
+                        {
                             Response.Redirect(Request.Url.AbsolutePath);
-                    }
-                    catch
-                    {
-                        Response.Redirect(Request.Url.AbsolutePath);
-                    }
-                }
-                else
-                {
-                    LoadFocusedNodeData();
-                }
-
-                if (Request.QueryString["id"] != null)
-                {
-                    idThietBi = Guid.Empty;
-                    try
-                    {
-                        idThietBi = GUID.From(Request.QueryString["id"]);
-                    }
-                    catch
-                    {
-                        Response.Redirect(Request.Url.AbsolutePath);
-                    }
-                    objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idThietBi);
-                    if (objThietBi != null)
-                    {
-                        Panel_ThietBi.Visible = true;
-                        Label_ThietBi.Visible = false;
-                        Label_ThietBi.Text = "";
-                        Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
-                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
-                        Label_MaThietBi.Text = objThietBi.subId;
-                        Session["TenThietBi"] = Label_TenThietBi.Text = objThietBi.ten;
-                        Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
-                        Label_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
-                        Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
-
-                        Session["URL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
+                        }
                     }
                     else
                     {
-                        Response.Redirect(Request.Url.AbsolutePath);
+                        Label_ThietBi.Visible = true;
+                        Label_ThietBi.Text = "Chưa chọn thiết bị";
                     }
                 }
                 else
                 {
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue("");
+                    node.Focus();
+                    Label_TextDanhSachThietBi.Text = "Chưa chọn loại thiết bị";
                     Label_ThietBi.Visible = true;
                     Label_ThietBi.Text = "Chưa chọn thiết bị";
                 }
@@ -175,6 +178,8 @@ namespace WebQLPH.UserControl.ThietBi
             _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.BindToControl = RepeaterThietBi;
             RepeaterThietBi.DataSource = _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSourcePaged;
             RepeaterThietBi.DataBind();
+            if (RepeaterThietBi.Items.Count == 0)
+                Label_TextDanhSachThietBi.Text = "Chưa có thiết bị";
         }
 
         protected void ASPxTreeList_ThietBi_CustomDataCallback(object sender, TreeListCustomDataCallbackEventArgs e)

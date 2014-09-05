@@ -58,6 +58,15 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ThietBi;
         
         /// <summary>
+        /// Label_TextDanhSachThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_TextDanhSachThietBi;
+        
+        /// <summary>
         /// RepeaterThietBi control.
         /// </summary>
         /// <remarks>

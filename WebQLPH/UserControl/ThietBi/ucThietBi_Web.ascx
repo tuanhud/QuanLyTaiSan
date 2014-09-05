@@ -57,7 +57,7 @@
                         </div>
                         <% if (RepeaterThietBi.Items.Count == 0)
                            { %>
-                        <div class="panel-body">Chưa có thiết bị</div>
+                        <div class="panel-body"><asp:Label ID="Label_TextDanhSachThietBi" runat="server"></asp:Label></div>
                         <% }
                            else
                            { %>

@@ -78,57 +78,57 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th style="width: 120px" class="warning">Mã thiết bị</th>
+                        <td style="width: 120px">Mã thiết bị:</td>
                         <td>
                             <asp:Label ID="Label_MaThietBi" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Tên thiết bị</th>
+                        <td>Tên thiết bị:</td>
                         <td>
                             <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Loại thiết bị</th>
+                        <td>Loại thiết bị:</td>
                         <td>
                             <asp:Label ID="Label_LoaiThietBi" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Kiểu quản lý</th>
+                        <td>Kiểu quản lý:</td>
                         <td>
                             <asp:Label ID="Label_KieuQuanLy" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Thuộc phòng</th>
+                        <td>Thuộc phòng:</td>
                         <td>
                             <asp:Label ID="Label_Phong" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <asp:Panel ID="Panel_NgayMua" runat="server" Visible="False">
                         <tr>
-                            <th style="width: 120px" class="warning">Ngày mua</th>
+                            <td>Ngày mua:</td>
                             <td>
                                 <asp:Label ID="Label_NgayMua" runat="server"></asp:Label>
                             </td>
                         </tr>
                     </asp:Panel>
                     <tr>
-                        <th style="width: 120px" class="warning">Ngày lắp</th>
+                        <td>Ngày lắp:</td>
                         <td>
                             <asp:Label ID="Label_NgayLap" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Mô tả</th>
+                        <td>Mô tả:</td>
                         <td>
                             <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Xem log</th>
+                        <td>Xem log:</td>
                         <td>
                             <asp:Button ID="Button_XemLog" runat="server" Text="Xem log" CssClass="btn btn-default" />
                         </td>

@@ -76,6 +76,15 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
+        /// Panel_ThongTinViTri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_ThongTinViTri;
+        
+        /// <summary>
         /// _ucASPxImageSlider_Web control.
         /// </summary>
         /// <remarks>
@@ -128,5 +137,14 @@ namespace WebQLPH.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MoTa;
+        
+        /// <summary>
+        /// Label_ChuaChon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ChuaChon;
     }
 }

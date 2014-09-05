@@ -6,7 +6,7 @@
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
         <div class="alert alert-danger" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <span class="glyphicon glyphicon-exclamation-sign"></span>
             <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
         </div>
@@ -57,37 +57,40 @@
                         </div>
 
                         <div class="panel-body">
-                            <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <tr>
-                                        <th style="width: 120px" class="warning">Tên</th>
-                                        <td>
-                                            <asp:Label ID="Label_Ten" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th style="width: 120px" class="warning">Thuộc</th>
-                                        <td>
-                                            <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
+                            <asp:Panel ID="Panel_ThongTinViTri" runat="server" Visible="False">
+                                <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
+                                <table class="table table-striped">
+                                    <tbody>
                                         <tr>
-                                            <th style="width: 120px" class="warning">Đia chỉ</th>
+                                            <td>Tên:</td>
                                             <td>
-                                                <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
+                                                <asp:Label ID="Label_Ten" runat="server"></asp:Label>
                                             </td>
                                         </tr>
-                                    </asp:Panel>
-                                    <tr>
-                                        <th style="width: 120px" class="warning">Mô tả</th>
-                                        <td>
-                                            <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <tr>
+                                            <td>Thuộc:</td>
+                                            <td>
+                                                <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
+                                            <tr>
+                                                <td>Đia chỉ:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                        </asp:Panel>
+                                        <tr>
+                                            <td>Mô tả:</td>
+                                            <td>
+                                                <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </asp:Panel>
+                            <asp:Label ID="Label_ChuaChon" runat="server" Visible="false"></asp:Label>
                         </div>
                     </div>
                 </td>

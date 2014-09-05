@@ -38,6 +38,8 @@ namespace WebQLPH.UserControl.LoaiThietBis
                         {
                             node.Focus();
                             LoadFocusedNodeData();
+                            Panel_ThongTinLoaiThietBi.Visible = true;
+                            Label_ChuaChon.Visible = false;
                         }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
@@ -49,7 +51,10 @@ namespace WebQLPH.UserControl.LoaiThietBis
                 }
                 else
                 {
-                    LoadFocusedNodeData();
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue("");
+                    node.Focus();
+                    Label_ChuaChon.Visible = true;
+                    Label_ChuaChon.Text = "Chưa chọn loại thiết bị cần xem";
                 }
             }
             else

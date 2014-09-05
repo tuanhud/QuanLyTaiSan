@@ -67,6 +67,15 @@ namespace WebQLPH.UserControl.LoaiThietBis {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
+        /// Panel_ThongTinLoaiThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_ThongTinLoaiThietBi;
+        
+        /// <summary>
         /// Label_TenLoai control.
         /// </summary>
         /// <remarks>
@@ -101,5 +110,14 @@ namespace WebQLPH.UserControl.LoaiThietBis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Thuoc;
+        
+        /// <summary>
+        /// Label_ChuaChon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ChuaChon;
     }
 }

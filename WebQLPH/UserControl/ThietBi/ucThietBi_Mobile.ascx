@@ -45,7 +45,7 @@
             </div>
             <% if (RepeaterThietBi.Items.Count == 0)
                { %>
-            <div class="panel-body">Chưa có thiết bị</div>
+            <div class="panel-body"><asp:Label ID="Label_TextDanhSachThietBi" runat="server"></asp:Label></div>
             <% }
                else
                { %>
@@ -82,34 +82,34 @@
 
             <div class="panel-body">
                 <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile" />
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <th style="width: 120px" class="warning">Mã thiết bị</th>
+                            <td style="width: 120px">Mã thiết bị:</td>
                             <td>
                                 <asp:Label ID="Label_MaThietBi" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Tên thiết bị</th>
+                            <td>Tên thiết bị:</td>
                             <td>
                                 <asp:Label ID="Label_TenThietBi" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Loại thiết bị</th>
+                            <td>Loại thiết bị:</td>
                             <td>
                                 <asp:Label ID="Label_LoaiThietBi" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Ngày mua</th>
+                            <td>Ngày mua:</td>
                             <td>
                                 <asp:Label ID="Label_NgayMua" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <th class="warning">Mô tả</th>
+                            <td>Mô tả:</td>
                             <td>
                                 <asp:Label ID="Label_MoTa" runat="server" Text="Label"></asp:Label>
                             </td>

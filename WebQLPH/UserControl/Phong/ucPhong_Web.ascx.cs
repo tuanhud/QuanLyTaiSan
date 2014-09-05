@@ -62,85 +62,90 @@ namespace WebQLPH.UserControl.Phong
                         }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
-                    }
-                    else
-                    {
-                        LoadFocusedNodeData();
-                    }
-                    if (Request.QueryString["id"] != null)
-                    {
-                        idPhong = Guid.Empty;
-                        try
+                        if (Request.QueryString["id"] != null)
                         {
-                            idPhong = GUID.From(Request.QueryString["id"]);
-                        }
-                        catch
-                        {
-                            Response.Redirect(Request.Url.AbsolutePath);
-                        }
-
-                        objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
-                        if (objPhong != null)
-                        {
-                            Panel_Phong.Visible = true;
-                            Label_Phong.Visible = false;
-                            Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
-                            Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web_Phong.ASPxImageSlider_Object);
-                            Label_MaPhong.Text = objPhong.subId;
-                            Label_TenPhong.Text = objPhong.ten;
-                            string strCoSo, strDay, strTang;
-                            strCoSo = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten : "";
-                            strDay = objPhong.vitri.day != null ? objPhong.vitri.day.ten : "";
-                            strTang = objPhong.vitri.tang != null ? objPhong.vitri.tang.ten : "";
-                            if (!strCoSo.Equals(""))
+                            idPhong = Guid.Empty;
+                            try
                             {
-                                Label_ViTriPhong.Text += strCoSo;
-                                if (!strDay.Equals(""))
+                                idPhong = GUID.From(Request.QueryString["id"]);
+                            }
+                            catch
+                            {
+                                Response.Redirect(Request.Url.AbsolutePath);
+                            }
+
+                            objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
+                            if (objPhong != null)
+                            {
+                                Panel_Phong.Visible = true;
+                                Label_Phong.Visible = false;
+                                Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
+                                Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web_Phong.ASPxImageSlider_Object);
+                                Label_MaPhong.Text = objPhong.subId;
+                                Label_TenPhong.Text = objPhong.ten;
+                                string strCoSo, strDay, strTang;
+                                strCoSo = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten : "";
+                                strDay = objPhong.vitri.day != null ? objPhong.vitri.day.ten : "";
+                                strTang = objPhong.vitri.tang != null ? objPhong.vitri.tang.ten : "";
+                                if (!strCoSo.Equals(""))
                                 {
-                                    Label_ViTriPhong.Text += " - " + strDay;
-                                    if (!strTang.Equals(""))
+                                    Label_ViTriPhong.Text += strCoSo;
+                                    if (!strDay.Equals(""))
                                     {
-                                        Label_ViTriPhong.Text += " - " + strTang;
+                                        Label_ViTriPhong.Text += " - " + strDay;
+                                        if (!strTang.Equals(""))
+                                        {
+                                            Label_ViTriPhong.Text += " - " + strTang;
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    Label_ViTriPhong.Text = "[Không rõ]";
+                                }
+                                Label_MoTaPhong.Text = Libraries.StringHelper.ConvertRNToBR(objPhong.mota);
+                                Label_NhanVienPhuTrach.Text = objPhong.nhanvienpt != null ? objPhong.nhanvienpt.hoten : "";
+
+                                if (objPhong.nhanvienpt != null)
+                                {
+                                    Panel_NhanVienPT.Visible = true;
+                                    Label_NhanVienPT.Visible = false;
+                                    Label_NhanVienPT.Text = "";
+                                    Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
+                                    Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
+                                    Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
+                                    Label_HoTen.Text = objPhong.nhanvienpt.hoten;
+                                    Label_SoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
+                                }
+                                else
+                                {
+                                    Panel_NhanVienPT.Visible = false;
+                                    Label_NhanVienPT.Visible = true;
+                                    Label_NhanVienPT.Text = "Phòng này chưa có nhân viên phụ trách";
+                                    Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
+                                    Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
+                                    Label_MaNhanVien.Text = "";
+                                    Label_HoTen.Text = "";
+                                    Label_SoDienThoai.Text = "";
                                 }
                             }
                             else
                             {
-                                Label_ViTriPhong.Text = "[Không rõ]";
-                            }
-                            Label_MoTaPhong.Text = Libraries.StringHelper.ConvertRNToBR(objPhong.mota);
-                            Label_NhanVienPhuTrach.Text = objPhong.nhanvienpt != null ? objPhong.nhanvienpt.hoten : "";
-
-                            if (objPhong.nhanvienpt != null)
-                            {
-                                Panel_NhanVienPT.Visible = true;
-                                Label_NhanVienPT.Visible = false;
-                                Label_NhanVienPT.Text = "";
-                                Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
-                                Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
-                                Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
-                                Label_HoTen.Text = objPhong.nhanvienpt.hoten;
-                                Label_SoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;
-                            }
-                            else
-                            {
-                                Panel_NhanVienPT.Visible = false;
-                                Label_NhanVienPT.Visible = true;
-                                Label_NhanVienPT.Text = "Phòng này chưa có nhân viên phụ trách";
-                                Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
-                                Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
-                                Label_MaNhanVien.Text = "";
-                                Label_HoTen.Text = "";
-                                Label_SoDienThoai.Text = "";
+                                Response.Redirect(Request.Url.AbsolutePath);
                             }
                         }
                         else
                         {
-                            Response.Redirect(Request.Url.AbsolutePath);
+                            ClearData();
+                            Label_Phong.Visible = true;
+                            Label_Phong.Text = "Chưa chọn phòng";
                         }
                     }
                     else
                     {
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
+                        node.Focus();
+                        Label_TextDanhSachPhong.Text = "Chưa chọn vị trí";
                         ClearData();
                         Label_Phong.Visible = true;
                         Label_Phong.Text = "Chưa chọn phòng";
@@ -217,6 +222,8 @@ namespace WebQLPH.UserControl.Phong
             _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
             RepeaterDanhSachPhong.DataSource = _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSourcePaged;
             RepeaterDanhSachPhong.DataBind();
+            if (RepeaterDanhSachPhong.Items.Count == 0)
+                Label_TextDanhSachPhong.Text = "Vị trí này chưa có phòng";
         }
 
         private void ClearData()

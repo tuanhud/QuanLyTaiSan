@@ -30,30 +30,30 @@
 
         <div class="panel-body">
             <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile" />
-            <table class="table table-bordered">
+            <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <th style="width: 120px" class="warning">Tên</th>
+                        <td>Tên:</td>
                         <td>
                             <asp:Label ID="Label_Ten" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 120px" class="warning">Thuộc</th>
+                        <td>Thuộc:</td>
                         <td>
                             <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
                         <tr>
-                            <th style="width: 120px" class="warning">Đia chỉ</th>
+                            <td>Đia chỉ:</td>
                             <td>
                                 <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
                             </td>
                         </tr>
                     </asp:Panel>
                     <tr>
-                        <th style="width: 120px" class="warning">Mô tả</th>
+                        <td>Mô tả:</td>
                         <td>
                             <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
                         </td>
