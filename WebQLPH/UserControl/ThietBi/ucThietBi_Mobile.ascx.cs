@@ -77,7 +77,7 @@ namespace WebQLPH.UserControl.ThietBi
                         Panel_ThongTinObj.Visible = true;
                         Panel_TreeList.Visible = false;
                         Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
-                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
+                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                         Label_MaThietBi.Text = objThietBi.subId;
                         Session["TenThietBi"] = Label_TenThietBi.Text = objThietBi.ten;
                         Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
@@ -179,9 +179,9 @@ namespace WebQLPH.UserControl.ThietBi
                 loaithietbi = item.loaithietbi != null ? item.loaithietbi.ten : "",
                 url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
             }).ToList();
-            CollectionPagerDanhSachThietBi.DataSource = bind;
-            CollectionPagerDanhSachThietBi.BindToControl = RepeaterThietBi;
-            RepeaterThietBi.DataSource = CollectionPagerDanhSachThietBi.DataSourcePaged;
+            _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSource = bind;
+            _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.BindToControl = RepeaterThietBi;
+            RepeaterThietBi.DataSource = _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSourcePaged;
             RepeaterThietBi.DataBind();
         }
 

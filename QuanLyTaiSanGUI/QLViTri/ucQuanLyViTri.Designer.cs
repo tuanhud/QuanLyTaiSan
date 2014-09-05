@@ -30,7 +30,9 @@
         {
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
             this.labelControlMoTa = new DevExpress.XtraEditors.LabelControl();
@@ -70,8 +72,6 @@
             this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -120,10 +120,16 @@
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
-            this.treeListViTri.Size = new System.Drawing.Size(501, 470);
+            this.treeListViTri.Size = new System.Drawing.Size(500, 470);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // colten
             // 
@@ -132,6 +138,12 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
+            // 
+            // colloai
+            // 
+            this.colloai.Caption = "loai";
+            this.colloai.FieldName = "loai";
+            this.colloai.Name = "colloai";
             // 
             // groupControl1
             // 
@@ -511,18 +523,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // colloai
-            // 
-            this.colloai.Caption = "loai";
-            this.colloai.FieldName = "loai";
-            this.colloai.Name = "colloai";
             // 
             // ucQuanLyViTri
             // 

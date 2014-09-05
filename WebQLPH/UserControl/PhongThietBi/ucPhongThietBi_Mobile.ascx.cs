@@ -70,7 +70,7 @@ namespace WebQLPH.UserControl.PhongThietBi
                                     {
                                         Label_ThongTinThietBi.Text = string.Format("Thông tin {0}", objThietBi.ten);
                                         Panel_ThietBi.Visible = true;
-                                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), ASPxImageSlider_ThietBi);
+                                        Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                         Label_MaThietBi.Text = objThietBi.subId;
                                         Label_TenThietBi.Text = objThietBi.ten;
                                         if (objThietBi.loaithietbi != null)
@@ -206,9 +206,9 @@ namespace WebQLPH.UserControl.PhongThietBi
                     url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.idTB.ToString()),
                     urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", a.idTB.ToString())
                 }).OrderBy(item => item.tinhtrang).ToList();
-                CollectionPagerDanhSachThietBi.DataSource = bind;
-                CollectionPagerDanhSachThietBi.BindToControl = RepeaterDanhSachThietBi;
-                RepeaterDanhSachThietBi.DataSource = CollectionPagerDanhSachThietBi.DataSourcePaged;
+                _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSource = bind;
+                _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachThietBi;
+                RepeaterDanhSachThietBi.DataSource = _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSourcePaged;
                 RepeaterDanhSachThietBi.DataBind();
 
                 if (listThietBiCuaPhong != null)

@@ -76,13 +76,13 @@ namespace WebQLPH.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
-        /// ASPxImageSlider_Object control.
+        /// _ucASPxImageSlider_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Object;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider _ucASPxImageSlider_Web;
         
         /// <summary>
         /// Label_Ten control.

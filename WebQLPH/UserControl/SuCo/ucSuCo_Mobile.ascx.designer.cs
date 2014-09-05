@@ -103,13 +103,13 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Repeater RepeaterSuCo;
         
         /// <summary>
-        /// CollectionPagerDanhSachSuCo control.
+        /// _ucCollectionPager_DanhSachSuCo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachSuCo;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachSuCo;
         
         /// <summary>
         /// ButtonBack_DanhSachSuCo control.
@@ -139,13 +139,13 @@ namespace WebQLPH.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinSuCo;
         
         /// <summary>
-        /// ASPxImageSlider_SuCo control.
+        /// _ucASPxImageSlider_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_SuCo;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider_Mobile _ucASPxImageSlider_Mobile;
         
         /// <summary>
         /// Label_TenSuCo control.

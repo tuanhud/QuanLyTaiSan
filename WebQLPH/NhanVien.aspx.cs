@@ -14,7 +14,7 @@ namespace WebQLPH
     public partial class NhanVien : System.Web.UI.Page
     {
         Boolean isMobile = false;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Default SetClassActive = this.Master as Default;

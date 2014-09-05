@@ -49,9 +49,9 @@ namespace WebQLPH.UserControl.LogThietBi
                         ngay = a.date_create,
                         url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
                     }).OrderBy(item => item.ngay).ToList();
-                    CollectionPagerDanhSachLogThietBi.DataSource = bind;
-                    CollectionPagerDanhSachLogThietBi.BindToControl = RepeaterDanhSachLogThietBi;
-                    RepeaterDanhSachLogThietBi.DataSource = CollectionPagerDanhSachLogThietBi.DataSourcePaged;
+                    _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSource = bind;
+                    _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachLogThietBi;
+                    RepeaterDanhSachLogThietBi.DataSource = _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSourcePaged;
                     RepeaterDanhSachLogThietBi.DataBind();
                     if (listLogThietBi.Count == 0)
                     {
@@ -81,7 +81,7 @@ namespace WebQLPH.UserControl.LogThietBi
                         if (objLogThietBi != null)
                         {
                             Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogThietBi.date_create).ToString("d/M/yyyy"));
-                            Libraries.ImageHelper.LoadImageWeb(objLogThietBi.hinhanhs.ToList(), ASPxImageSlider_Log);
+                            Libraries.ImageHelper.LoadImageWeb(objLogThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                             Label_TenThietBi.Text = objThietBi.ten;
                             Label_TinhTrang.Text = objLogThietBi.tinhtrang != null ? objLogThietBi.tinhtrang.value : "[Tình trạng]";
                             Label_SoLuong.Text = objLogThietBi.soluong.ToString();

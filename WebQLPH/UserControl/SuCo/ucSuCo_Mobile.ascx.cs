@@ -73,7 +73,7 @@ namespace WebQLPH.UserControl.SuCo
                                     {
                                         Panel_SuCo.Visible = true;
                                         Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
-                                        Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_SuCo);
+                                        Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                         Session["TenSuCo"] = Label_TenSuCo.Text = objSuCoPhong.ten;
                                         Label_TinhTrang.Text = objSuCoPhong.tinhtrang != null ? objSuCoPhong.tinhtrang.value : "[Tình trạng]";
                                         Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();
@@ -187,9 +187,9 @@ namespace WebQLPH.UserControl.SuCo
                     url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString(),
                     urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogSuCo.aspx")), "id", item.id.ToString())
                 }).ToList();
-                CollectionPagerDanhSachSuCo.DataSource = bind;
-                CollectionPagerDanhSachSuCo.BindToControl = RepeaterSuCo;
-                RepeaterSuCo.DataSource = CollectionPagerDanhSachSuCo.DataSourcePaged;
+                _ucCollectionPager_DanhSachSuCo.CollectionPager_Object.DataSource = bind;
+                _ucCollectionPager_DanhSachSuCo.CollectionPager_Object.BindToControl = RepeaterSuCo;
+                RepeaterSuCo.DataSource = _ucCollectionPager_DanhSachSuCo.CollectionPager_Object.DataSourcePaged;
                 RepeaterSuCo.DataBind();
 
                 if (listSuCoPhong != null)

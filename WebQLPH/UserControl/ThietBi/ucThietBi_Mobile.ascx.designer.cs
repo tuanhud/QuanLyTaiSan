@@ -76,13 +76,13 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::System.Web.UI.WebControls.Repeater RepeaterThietBi;
         
         /// <summary>
-        /// CollectionPagerDanhSachThietBi control.
+        /// _ucCollectionPager_DanhSachThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachThietBi;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachThietBi;
         
         /// <summary>
         /// Panel_ThongTinObj control.
@@ -103,13 +103,13 @@ namespace WebQLPH.UserControl.ThietBi {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
         
         /// <summary>
-        /// ASPxImageSlider_ThietBi control.
+        /// _ucASPxImageSlider_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_ThietBi;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider_Mobile _ucASPxImageSlider_Mobile;
         
         /// <summary>
         /// Label_MaThietBi control.

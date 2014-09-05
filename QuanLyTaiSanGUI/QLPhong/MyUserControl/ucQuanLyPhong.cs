@@ -29,7 +29,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         NhanVienPT objNhanVienPT = new NhanVienPT();
 
         List<ViTriHienThi> listVitris = new List<ViTriHienThi>();
-        List<Phong> listPhong = new List<Phong>();
+        List<PhongHienThi> listPhong = new List<PhongHienThi>();
         List<NhanVienPT> listNhanVienPT = new List<NhanVienPT>();
         List<HinhAnh> listHinhAnhPhong = new List<HinhAnh>();
         List<HinhAnh> listHinhAnhNhanVien = new List<HinhAnh>();
@@ -74,7 +74,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.loadData(listVitris);
             _ViTriHienTai = _ucTreeViTri.getVitri();
-            listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
+            listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count() == 0)
             {
@@ -165,7 +165,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucComboBoxViTri);
                 _ucTreeViTri.setVitri(_ViTriHienTai);
-                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
+                listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
                 //listPhong = Phong.getPhongByViTri(cosoid, dayid, tangid);
                 gridControlPhong.DataSource = listPhong;
             }
@@ -200,7 +200,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 //dayid = _dayid;
                 //tangid = _tangid;
                 //listPhong = Phong.getPhongByViTri(_cosoid, _dayid, _tangid);
-                listPhong = Phong.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
+                listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
                 gridControlPhong.DataSource = listPhong;
                 switch (listPhong.Count)
                 {
@@ -311,7 +311,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 {
                     //int id = (gridViewPhong.GetRow(row) as Phong).id;
                     //objPhong = Phong.getById(id);
-                    objPhong = gridViewPhong.GetRow(row) as Phong;
+                    objPhong = gridViewPhong.GetRowCellValue(row, colphong) as Phong;
                     if (objPhong != null)
                     {
                         if (objPhong.nhanvienpt != null)
@@ -598,9 +598,9 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             try
             {
-                if (searchLookUpEditNhanVienPT.EditValue != null)
+                if (searchLookUpEditNhanVienPT.EditValue != null && !searchLookUpEditNhanVienPT.EditValue.Equals(-1))
                 {
-                    Guid id = GUID.From(searchLookUpEditNhanVienPT.EditValue.ToString());
+                    Guid id = GUID.From(searchLookUpEditNhanVienPT.EditValue);
                     if (id != Guid.Empty)
                         objNhanVienPT = NhanVienPT.getById(id);
                     else

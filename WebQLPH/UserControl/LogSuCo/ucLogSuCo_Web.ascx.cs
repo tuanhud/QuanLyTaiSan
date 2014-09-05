@@ -50,9 +50,9 @@ namespace WebQLPH.UserControl.LogSuCo
                         ngay = a.date_create,
                         url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
                     }).OrderBy(item => item.ngay).ToList();
-                    CollectionPagerDanhSachLogSuCo.DataSource = bind;
-                    CollectionPagerDanhSachLogSuCo.BindToControl = RepeaterDanhSachLogSuCo;
-                    RepeaterDanhSachLogSuCo.DataSource = CollectionPagerDanhSachLogSuCo.DataSourcePaged;
+                    _ucCollectionPager_DanhSachLogSuCo.CollectionPager_Object.DataSource = bind;
+                    _ucCollectionPager_DanhSachLogSuCo.CollectionPager_Object.BindToControl = RepeaterDanhSachLogSuCo;
+                    RepeaterDanhSachLogSuCo.DataSource = _ucCollectionPager_DanhSachLogSuCo.CollectionPager_Object.DataSourcePaged;
                     RepeaterDanhSachLogSuCo.DataBind();
                     if (listLogSuCoPhong.Count == 0)
                     {
@@ -82,7 +82,7 @@ namespace WebQLPH.UserControl.LogSuCo
                         if (objLogSuCoPhong != null)
                         {
                             Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogSuCoPhong.date_create).ToString("d/M/yyyy"));
-                            Libraries.ImageHelper.LoadImageWeb(objLogSuCoPhong.hinhanhs.ToList(), ASPxImageSlider_Log);
+                            Libraries.ImageHelper.LoadImageWeb(objLogSuCoPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                             Label_TenSuCo.Text = objLogSuCoPhong.sucophong.ten;
                             Label_TinhTrang.Text = objLogSuCoPhong.tinhtrang != null ? objLogSuCoPhong.tinhtrang.value : "[Tình trạng]";
                             Label_Phong.Text = objLogSuCoPhong.sucophong.phong != null ? objLogSuCoPhong.sucophong.phong.ten : "[Phòng]";

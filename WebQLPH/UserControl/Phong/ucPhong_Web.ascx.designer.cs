@@ -58,13 +58,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Repeater RepeaterDanhSachPhong;
         
         /// <summary>
-        /// CollectionPagerDanhSachPhong control.
+        /// _ucCollectionPager_DanhSachPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPagerDanhSachPhong;
+        protected global::WebQLPH.UserControl.ucCollectionPager _ucCollectionPager_DanhSachPhong;
         
         /// <summary>
         /// Label_ThongTinPhong control.
@@ -85,13 +85,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Panel Panel_Phong;
         
         /// <summary>
-        /// ASPxImageSlider_Phong control.
+        /// _ucASPxImageSlider_Web_Phong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_Phong;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider _ucASPxImageSlider_Web_Phong;
         
         /// <summary>
         /// Label_MaPhong control.
@@ -166,13 +166,13 @@ namespace WebQLPH.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Panel Panel_NhanVienPT;
         
         /// <summary>
-        /// ASPxImageSlider_NhanVienPT control.
+        /// _ucASPxImageSlider_Web_NhanVienPT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider.ASPxImageSlider ASPxImageSlider_NhanVienPT;
+        protected global::WebQLPH.UserControl.ucASPxImageSlider _ucASPxImageSlider_Web_NhanVienPT;
         
         /// <summary>
         /// Label_MaNhanVien control.
