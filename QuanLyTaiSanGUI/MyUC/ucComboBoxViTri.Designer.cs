@@ -33,9 +33,9 @@
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
             this.popupContainerControl1 = new DevExpress.XtraEditors.PopupContainerControl();
-            this.colphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerControl1)).BeginInit();
@@ -94,6 +94,12 @@
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
+            // colphong
+            // 
+            this.colphong.Caption = "phong";
+            this.colphong.FieldName = "phong";
+            this.colphong.Name = "colphong";
+            // 
             // popupContainerEdit1
             // 
             this.popupContainerEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -107,6 +113,7 @@
             this.popupContainerEdit1.Properties.UsePopupControlMinSize = true;
             this.popupContainerEdit1.Size = new System.Drawing.Size(200, 20);
             this.popupContainerEdit1.TabIndex = 2;
+            this.popupContainerEdit1.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.popupContainerEdit1_QueryPopUp);
             // 
             // popupContainerControl1
             // 
@@ -115,12 +122,6 @@
             this.popupContainerControl1.Name = "popupContainerControl1";
             this.popupContainerControl1.Size = new System.Drawing.Size(250, 300);
             this.popupContainerControl1.TabIndex = 3;
-            // 
-            // colphong
-            // 
-            this.colphong.Caption = "phong";
-            this.colphong.FieldName = "phong";
-            this.colphong.Name = "colphong";
             // 
             // ucComboBoxViTri
             // 

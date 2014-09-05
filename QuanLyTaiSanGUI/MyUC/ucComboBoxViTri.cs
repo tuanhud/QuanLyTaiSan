@@ -236,5 +236,11 @@ namespace QuanLyTaiSanGUI.MyUC
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
         }
+
+        private void popupContainerEdit1_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            popupContainerEdit1.Properties.PopupFormMinSize = new Size(popupContainerEdit1.Width, popupContainerControl1.Height);
+            popupContainerEdit1.Properties.PopupFormSize = new Size(popupContainerEdit1.Width, popupContainerControl1.Height);       
+        }
     }
 }
