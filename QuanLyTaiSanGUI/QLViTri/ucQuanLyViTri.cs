@@ -808,7 +808,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
         {
             string filterValue = treeListViTri.FindFilterText;
-            if (node.GetDisplayText(column).ToUpper().Contains(filterValue.ToUpper())) return true;
+            if (StringHelper.CoDauThanhKhongDau(node.GetDisplayText(column)).ToUpper().Contains(StringHelper.CoDauThanhKhongDau(filterValue).ToUpper())) return true;
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
