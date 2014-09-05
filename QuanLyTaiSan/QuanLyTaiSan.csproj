@@ -203,12 +203,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\default_image_when_fail.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\default-image.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\default_image_when_fail.png" />
   </ItemGroup>
   <ItemGroup>

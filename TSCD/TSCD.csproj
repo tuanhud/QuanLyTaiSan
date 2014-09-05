@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84EF1CD9-9DD3-4C1E-878A-3E6D2F8D496C}</ProjectGuid>
+    <ProjectGuid>{1790A3F3-4540-4524-B031-6A159AD400DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SHARED</RootNamespace>
-    <AssemblyName>SHARED</AssemblyName>
+    <RootNamespace>TSCD</RootNamespace>
+    <AssemblyName>TSCD</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,10 +35,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Synchronization, Version=2.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Synchronization.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Synchronization.Data.Server, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Synchronization.Data.SqlServer, Version=3.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,51 +50,64 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Debug.cs" />
+    <Compile Include="DbContext\DBInstance.cs" />
+    <Compile Include="DbContext\OurDBContext.cs" />
+    <Compile Include="Entities\LoaiPhong.cs" />
+    <Compile Include="Entities\CoSo.cs" />
+    <Compile Include="Entities\Dayy.cs" />
+    <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\LogHeThong.cs" />
+    <Compile Include="Entities\Permission.cs" />
+    <Compile Include="Entities\Phong.cs" />
+    <Compile Include="Entities\QuanTriVien.cs" />
+    <Compile Include="Entities\Setting.cs" />
+    <Compile Include="Entities\Tang.cs" />
+    <Compile Include="Entities\TinhTrang.cs" />
+    <Compile Include="Entities\DonVi.cs" />
+    <Compile Include="Entities\CTTaiSan.cs" />
+    <Compile Include="Entities\DonViTinh.cs" />
+    <Compile Include="Entities\LoaiDonVi.cs" />
+    <Compile Include="Entities\LoaiTaiSan.cs" />
+    <Compile Include="Entities\LogTaiSan.cs" />
+    <Compile Include="Entities\TaiSan.cs" />
+    <Compile Include="Entities\ViTri.cs" />
+    <Compile Include="Entities\_EntityAbstract1.cs" />
+    <Compile Include="Entities\_EntityAbstract3.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="Interface\_CRUDInterface.cs" />
-    <Compile Include="Interface\_EFEventRegisterInterface.cs" />
-    <Compile Include="Libraries\DatabaseHelper.cs" />
-    <Compile Include="Libraries\DateTimeHelper.cs" />
-    <Compile Include="Libraries\EmailHelper.cs" />
-    <Compile Include="Libraries\FileHelper.cs" />
-    <Compile Include="Libraries\FTPHelper.cs" />
-    <Compile Include="Libraries\GUID.cs" />
-    <Compile Include="Libraries\HTTPHelper.cs" />
-    <Compile Include="Libraries\ImageHelper.cs" />
-    <Compile Include="Libraries\MobileDetect.cs" />
-    <Compile Include="Libraries\PermissionHelper.cs" />
-    <Compile Include="Libraries\ServerTimeHelper.cs" />
-    <Compile Include="Libraries\SkinHelper.cs" />
-    <Compile Include="Libraries\StringHelper.cs" />
+    <Compile Include="Migrations\201409050449468_basev1.cs" />
+    <Compile Include="Migrations\201409050449468_basev1.Designer.cs">
+      <DependentUpon>201409050449468_basev1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SHARED\SHARED.csproj">
+      <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
+      <Name>SHARED</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409050449468_basev1.resx">
+      <DependentUpon>201409050449468_basev1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

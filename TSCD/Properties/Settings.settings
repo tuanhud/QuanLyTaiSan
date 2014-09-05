@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QuanLyTaiSan.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="db_server_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[HOST_NAME]</Value>
+    </Setting>
+    <Setting Name="db_server_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[USER_NAME]</Value>
+    </Setting>
+    <Setting Name="db_server_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[PASSWORD]</Value>
+    </Setting>
+    <Setting Name="db_server_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="db_cache_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[HOST_NAME]</Value>
+    </Setting>
+    <Setting Name="db_cache_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="db_cache_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="db_cache_port" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="use_db_cache" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="db_server_dbname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">QuanLyTaiSan_server</Value>
+    </Setting>
+    <Setting Name="db_cache_dbname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">QuanLyTaiSan_client</Value>
+    </Setting>
+    <Setting Name="db_server_WA" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="db_cache_WA" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="login_remember" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="login_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="login_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="debug_mode" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
