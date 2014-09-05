@@ -15,6 +15,17 @@ namespace TSCD_GUI.QLViTri
         public ucQuanLyViTri()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            rbnControlViTri.Parent = null;
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
+        {
+            return rbnControlViTri;
         }
     }
 }

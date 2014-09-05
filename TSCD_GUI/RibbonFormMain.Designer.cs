@@ -49,6 +49,7 @@
             this.rbnPageMain});
             this.ribbonMain.Size = new System.Drawing.Size(834, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
+            this.ribbonMain.SelectedPageChanged += new System.EventHandler(this.ribbonMain_SelectedPageChanged);
             // 
             // rbnPageMain
             // 

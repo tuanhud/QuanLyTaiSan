@@ -15,6 +15,17 @@ namespace TSCD_GUI.QLLoaiTaiSan
         public ucQuanLyLoaiTS()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            rbnControlLoaiTS.Parent = null;
+        }
+
+        public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
+        {
+            return rbnControlLoaiTS;
         }
     }
 }
