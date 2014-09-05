@@ -69,6 +69,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 _ucComboBoxViTri.loadData(listViTriHienThi);
                 listViTriHienThi = ViTriHienThi.getAllHaveDay();
                 _ucComboBoxViTriChonDay.loadData(listViTriHienThi);
+                ucTreeListLookUpViTri1.loadData(listViTriHienThi);
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
@@ -373,6 +374,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             ViTri objViTri = new ViTri();
                             objViTri.coso = objDay.coso;
                             _ucComboBoxViTri.setViTri(objViTri);
+                            ucTreeListLookUpViTri1.setViTri(objViTri);
                             reloadImage();
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
@@ -387,6 +389,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             objViTri.coso = objTang.day.coso;
                             objViTri.day = objTang.day;
                             _ucComboBoxViTriChonDay.setViTri(objViTri);
+                            ucTreeListLookUpViTri1.setViTri(objViTri);
                             reloadImage();
                         }
                     }

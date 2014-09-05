@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
             this.labelControlMoTa = new DevExpress.XtraEditors.LabelControl();
@@ -69,9 +72,8 @@
             this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.ucTreeListLookUpViTri1 = new QuanLyTaiSanGUI.MyUC.ucTreeListLookUpViTri();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
@@ -120,10 +122,16 @@
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
-            this.treeListViTri.Size = new System.Drawing.Size(501, 470);
+            this.treeListViTri.Size = new System.Drawing.Size(500, 470);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // colten
             // 
@@ -133,10 +141,17 @@
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
+            // colloai
+            // 
+            this.colloai.Caption = "loai";
+            this.colloai.FieldName = "loai";
+            this.colloai.Name = "colloai";
+            // 
             // groupControl1
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.ucTreeListLookUpViTri1);
             this.groupControl1.Controls.Add(this.txtDiaChi);
             this.groupControl1.Controls.Add(this.labelControlMoTa);
             this.groupControl1.Controls.Add(this.btnR_Sua);
@@ -512,17 +527,14 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // colid
+            // ucTreeListLookUpViTri1
             // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // colloai
-            // 
-            this.colloai.Caption = "loai";
-            this.colloai.FieldName = "loai";
-            this.colloai.Name = "colloai";
+            this.ucTreeListLookUpViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucTreeListLookUpViTri1.Location = new System.Drawing.Point(59, 369);
+            this.ucTreeListLookUpViTri1.Name = "ucTreeListLookUpViTri1";
+            this.ucTreeListLookUpViTri1.Size = new System.Drawing.Size(280, 20);
+            this.ucTreeListLookUpViTri1.TabIndex = 17;
             // 
             // ucQuanLyViTri
             // 
@@ -598,5 +610,6 @@
         private DevExpress.XtraEditors.LabelControl labelControlMoTa;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
+        private MyUC.ucTreeListLookUpViTri ucTreeListLookUpViTri1;
     }
 }
