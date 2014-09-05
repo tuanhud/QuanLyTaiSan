@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE72A1A2-E1AA-42DA-8922-F70FEB3AC9B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSCD_GUI</RootNamespace>
+    <AssemblyName>TSCD_GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLDonVi\ucQuanLyDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLDonVi\ucQuanLyDonVi.Designer.cs">
+      <DependentUpon>ucQuanLyDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLLoaiTaiSan\ucQuanLyDonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLLoaiTaiSan\ucQuanLyDonViTinh.Designer.cs">
+      <DependentUpon>ucQuanLyDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLLoaiTaiSan\ucQuanLyLoaiTS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLLoaiTaiSan\ucQuanLyLoaiTS.Designer.cs">
+      <DependentUpon>ucQuanLyLoaiTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhong\ucQuanLyLoaiPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPhong\ucQuanLyLoaiPhong.Designer.cs">
+      <DependentUpon>ucQuanLyLoaiPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPhong\ucQuanLyPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLPhong\ucQuanLyPhong.Designer.cs">
+      <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLTaiSan\ucQuanLyDonVi_TaiSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\ucQuanLyDonVi_TaiSan.Designer.cs">
+      <DependentUpon>ucQuanLyDonVi_TaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLViTri\ucQuanLyViTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLViTri\ucQuanLyViTri.Designer.cs">
+      <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonFormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RibbonFormMain.Designer.cs">
+      <DependentUpon>RibbonFormMain.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QLDonVi\ucQuanLyDonVi.resx">
+      <DependentUpon>ucQuanLyDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLLoaiTaiSan\ucQuanLyDonViTinh.resx">
+      <DependentUpon>ucQuanLyDonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLLoaiTaiSan\ucQuanLyLoaiTS.resx">
+      <DependentUpon>ucQuanLyLoaiTS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\ucQuanLyLoaiPhong.resx">
+      <DependentUpon>ucQuanLyLoaiPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPhong\ucQuanLyPhong.resx">
+      <DependentUpon>ucQuanLyPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\ucQuanLyDonVi_TaiSan.resx">
+      <DependentUpon>ucQuanLyDonVi_TaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
+      <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonFormMain.resx">
+      <DependentUpon>RibbonFormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_2_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil_edit_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_2_24.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
