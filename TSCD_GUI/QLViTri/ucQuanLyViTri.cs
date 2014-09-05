@@ -12,6 +12,7 @@ using TSCD.Entities;
 using SHARED.Libraries;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Columns;
+using TSCD_GUI.MyUserControl;
 
 namespace TSCD_GUI.QLViTri
 {
@@ -21,7 +22,9 @@ namespace TSCD_GUI.QLViTri
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<ViTriHienThi> listViTriCoSo = new List<ViTriHienThi>();
         List<ViTriHienThi> listViTriDay = new List<ViTriHienThi>();
-        TextEdit txt = new TextEdit();
+
+        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri();
+
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
         Tang objTang = new Tang();
@@ -39,6 +42,8 @@ namespace TSCD_GUI.QLViTri
         private void init()
         {
             rbnControlViTri.Parent = null;
+            _ucComboBoxViTri.Dock = DockStyle.Fill;
+            panelControlViTri.Controls.Add(_ucComboBoxViTri);
         }
 
         public void loadData()
@@ -47,7 +52,7 @@ namespace TSCD_GUI.QLViTri
             {
                 listViTriCoSo = ViTriHienThi.getAllCoSo();
                 listViTriDay = ViTriHienThi.getAllHaveDay();
-                ucComboBoxViTri1.loadData(listViTriDay);
+                _ucComboBoxViTri.loadData(listViTriDay);
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
@@ -73,6 +78,7 @@ namespace TSCD_GUI.QLViTri
                 if (_function.Equals("view"))
                 {
                     enableEdit(false);
+                    _ucComboBoxViTri.init(false, false);
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Chi tiết cơ sở", Color.Empty);
@@ -118,8 +124,8 @@ namespace TSCD_GUI.QLViTri
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Thêm cơ sở", Color.Red);
-                        ucComboBoxViTri1.setText("[Đại học Sài Gòn]");
-                        ucComboBoxViTri1.setReadOnly(true);
+                        _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
+                        _ucComboBoxViTri.setReadOnly(true);
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
@@ -137,8 +143,8 @@ namespace TSCD_GUI.QLViTri
                         {
                             obj.coso = objTang.day.coso;
                         }
-                        ucComboBoxViTri1.loadData(listViTriCoSo);
-                        ucComboBoxViTri1.setViTri(obj);
+                        _ucComboBoxViTri.loadData(listViTriCoSo);
+                        _ucComboBoxViTri.setViTri(obj);
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
@@ -154,8 +160,8 @@ namespace TSCD_GUI.QLViTri
                             obj.day = objTang.day;
                             obj.coso = objTang.day.coso;
                         }
-                        ucComboBoxViTri1.loadData(listViTriDay, true, false);
-                        ucComboBoxViTri1.setViTri(obj);
+                        _ucComboBoxViTri.loadData(listViTriDay, true, false);
+                        _ucComboBoxViTri.setViTri(obj);
                     }
                 }
                 else if (_function.Equals("edit"))
@@ -171,18 +177,18 @@ namespace TSCD_GUI.QLViTri
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Sửa cơ sở", Color.Red);
-                        ucComboBoxViTri1.setText("[Đại học Sài Gòn]");
-                        ucComboBoxViTri1.setReadOnly(true);
+                        _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
+                        _ucComboBoxViTri.setReadOnly(true);
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
                         SetTextGroupControl("Sửa dãy", Color.Red);
-                        ucComboBoxViTri1.loadData(listViTriCoSo);
+                        _ucComboBoxViTri.loadData(listViTriCoSo);
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
                         SetTextGroupControl("Sửa tầng", Color.Red);
-                        ucComboBoxViTri1.loadData(listViTriDay, true, false);
+                        _ucComboBoxViTri.loadData(listViTriDay, true, false);
                     }
                 }
                 else if (_function.Equals("nothing"))
@@ -198,7 +204,7 @@ namespace TSCD_GUI.QLViTri
                     barBtnThemDay.Enabled = false;
                     enableTangButton(false);
                     barBtnThemTang.Enabled = false;
-                    ucComboBoxViTri1.setText("[Đại học Sài Gòn]");
+                    _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
                     clearText();
                 }
                 function = _function;
@@ -222,7 +228,7 @@ namespace TSCD_GUI.QLViTri
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            ucComboBoxViTri1.setReadOnly(!_enable);
+            _ucComboBoxViTri.setReadOnly(!_enable);
             enableRightButton(!_enable);
             btnThem_r.Enabled = !_enable;
             working = _enable;
@@ -258,7 +264,7 @@ namespace TSCD_GUI.QLViTri
         {
             txtTen.Text = "";
             txtMoTa.Text = "";
-            ucComboBoxViTri1.setText("[Đại học Sài Gòn]");
+            _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
         }
 
 
@@ -278,6 +284,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objCoSo.ten;
                             txtMoTa.Text = objCoSo.mota;
                             node = typeof(CoSo).Name;
+                            _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
                         {
@@ -286,7 +293,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objDay.ten;
                             txtMoTa.Text = objDay.mota;
                             node = typeof(Dayy).Name;
-                            ucComboBoxViTri1.setViTri(ViTri.request(objDay.coso, null, null));
+                            _ucComboBoxViTri.setViTri(ViTri.request(objDay.coso, null, null));
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                         {
@@ -295,7 +302,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objTang.ten;
                             txtMoTa.Text = objTang.mota;
                             node = typeof(Tang).Name;
-                            ucComboBoxViTri1.setViTri(ViTri.request(null, objTang.day, null));
+                            _ucComboBoxViTri.setViTri(ViTri.request(null, objTang.day, null));
                         }
                     }
                     else
@@ -353,7 +360,7 @@ namespace TSCD_GUI.QLViTri
                     case "Dayy":
                         objDay.ten = txtTen.Text;
                         objDay.mota = txtMoTa.Text;
-                        ViTri _vitri = ucComboBoxViTri1.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
                         objDay.coso = _vitri.coso;
                         if (objDay.update() > 0 && DBInstance.commit() > 0)
                         {
@@ -368,7 +375,7 @@ namespace TSCD_GUI.QLViTri
                     case "Tang":
                         objTang.ten = txtTen.Text;
                         objTang.mota = txtMoTa.Text;
-                        ViTri _vitri2 = ucComboBoxViTri1.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTri.getViTri();
                         objTang.day = _vitri2.day;
                         if (objTang.update() > 0 && DBInstance.commit() > 0)
                         {
@@ -412,7 +419,7 @@ namespace TSCD_GUI.QLViTri
                         Dayy objDayNew = new Dayy();
                         objDayNew.ten = txtTen.Text;
                         objDayNew.mota = txtMoTa.Text;
-                        ViTri _vitri = ucComboBoxViTri1.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.getViTri();
                         objDayNew.coso = _vitri.coso;
                         if (objDayNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -428,7 +435,7 @@ namespace TSCD_GUI.QLViTri
                         Tang objTangNew = new Tang();
                         objTangNew.ten = txtTen.Text;
                         objTangNew.mota = txtMoTa.Text;
-                        ViTri _vitri2 = ucComboBoxViTri1.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTri.getViTri();
                         objTangNew.day = _vitri2.day;
                         if (objTangNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -538,6 +545,7 @@ namespace TSCD_GUI.QLViTri
         private void btnHuy_Click(object sender, EventArgs e)
         {
             dxErrorProviderInfo.ClearErrors();
+            _ucComboBoxViTri.loadData(listViTriDay);
             setDataView();
         }
 

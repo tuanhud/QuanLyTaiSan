@@ -74,6 +74,12 @@
     <Compile Include="MyUserControl\ucComboBoxViTri.Designer.cs">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControl\ucTreeViTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucTreeViTri.Designer.cs">
+      <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLDonVi\ucQuanLyDonVi.cs">
@@ -142,6 +148,10 @@
     <EmbeddedResource Include="MyUserControl\ucComboBoxViTri.resx">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucTreeViTri.resx">
+      <DependentUpon>ucTreeViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -182,7 +192,9 @@
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -88,6 +88,7 @@ namespace TSCD_GUI
                 }
                 else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhong)))
                 {
+                    _ucQuanLyPhong.loadData();
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucQuanLyPhong);
                 }

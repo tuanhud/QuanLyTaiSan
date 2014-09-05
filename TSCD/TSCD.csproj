@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\ViTriHienThi.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />
