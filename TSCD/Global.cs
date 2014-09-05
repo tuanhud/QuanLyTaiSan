@@ -507,11 +507,11 @@ namespace TSCD
                 //}
             }
         }
-        public static QLTS.Properties.Settings local_setting
+        public static Properties.Settings local_setting
         {
             get
             {
-                return QLTS.Properties.Settings.Default;
+                return Properties.Settings.Default;
             }
         }
         #region unuse
