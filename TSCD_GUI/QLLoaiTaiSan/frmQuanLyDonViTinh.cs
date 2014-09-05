@@ -8,11 +8,11 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace TSCD_GUI.QLPhong
+namespace TSCD_GUI.QLLoaiTaiSan
 {
-    public partial class ucQuanLyLoaiPhong : DevExpress.XtraEditors.XtraForm
+    public partial class frmQuanLyDonViTinh : DevExpress.XtraEditors.XtraForm
     {
-        public ucQuanLyLoaiPhong()
+        public frmQuanLyDonViTinh()
         {
             InitializeComponent();
         }
