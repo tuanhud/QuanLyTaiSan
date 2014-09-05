@@ -243,7 +243,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 if (function.Equals("edit"))
                 {
                     //objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
-
+                    objQuanTriVienFilter.quantrivien.subId = txtMaQuanTriVien.Text;
                     objQuanTriVienFilter.quantrivien.username = txtTaiKhoanQuanTriVien.Text;
                     objQuanTriVienFilter.quantrivien.date_create = (DateTime)dateCreated.EditValue;
                     objQuanTriVienFilter.quantrivien.group = lookUpEdit_group.GetSelectedDataRow() as Group;

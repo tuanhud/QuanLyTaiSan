@@ -139,7 +139,7 @@ namespace QuanLyTaiSan.Entities
                         int re = DB.SaveChanges();
                         dbTrans.Commit();                        
                         //sync when data done
-                        if (re > 0)
+                        if (re > 0 && !SHARED.Global.WEB_MODE)
                         {
                             Thread thread = new Thread(new ThreadStart(sync));
                             thread.SetApartmentState(ApartmentState.STA);

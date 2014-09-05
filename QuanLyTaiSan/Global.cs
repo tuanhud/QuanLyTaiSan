@@ -235,13 +235,8 @@ namespace QuanLyTaiSan
             /// </summary>
             public static int start_sync()
             {
-                //Kiểm tra nếu sử dụng internal config thì bỏ qua
-                if (SHARED.Global.WEB_MODE)
-                {
-                    return 1;
-                }
                 //Kiểm tra có sử dụng DBCache
-                if (!Global.local_setting.use_db_cache)
+                if (!Global.working_database.use_db_cache)
                 {
                     return 1;
                 }
@@ -467,6 +462,10 @@ namespace QuanLyTaiSan
             {
                 get
                 {
+                    if (SHARED.Global.WEB_MODE)
+                    {
+                        return false;
+                    }
                     return Global.local_setting.use_db_cache;
                 }
             }
