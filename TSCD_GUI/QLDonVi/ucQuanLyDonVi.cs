@@ -90,7 +90,6 @@ namespace TSCD_GUI.QLDonVi
                 SetTextGroupControl("Sửa đơn vị", Color.Red);
                 enableEdit(true);
                 txtTen.Focus();
-                _ucComboBoxDonVi.setID(objDonVi.id);
             }
         }
         private void SetTextGroupControl(String text, Color color)
@@ -124,7 +123,7 @@ namespace TSCD_GUI.QLDonVi
             txtMa.Text = "";
             txtTen.Text = "";
             txtMoTa.Text = "";
-            _ucComboBoxDonVi.setDonViById(Guid.Empty);
+            _ucComboBoxDonVi.setDonVi(new DonVi());
             gridLookUpLoai.EditValue = null;
         }
         private void setDataView()
@@ -148,7 +147,7 @@ namespace TSCD_GUI.QLDonVi
                             if (objDonVi.parent != null)
                                 _ucComboBoxDonVi.setDonVi(objDonVi.parent);
                             else
-                                _ucComboBoxDonVi.setDonViById(Guid.Empty);
+                                _ucComboBoxDonVi.setDonVi(new DonVi());
                         }
                         else
                         {
@@ -217,11 +216,6 @@ namespace TSCD_GUI.QLDonVi
                     check = false;
                     dxErrorProviderInfo.SetError(gridLookUpLoai, "Chưa chọn loại đơn vị");
                 }
-                if (objDonVi.Equals(_ucComboBoxDonVi.getDonVi()))
-                {
-                    check = false;
-                    //dxErrorProviderInfo.SetError(panelControlParent, "Đơn vị không thể thuộc chính mình");
-                }
                 return check;
             }
             catch (Exception ex)
@@ -260,9 +254,7 @@ namespace TSCD_GUI.QLDonVi
                     XtraMessageBox.Show("Không thể xóa đơn vị này!\r\nNguyên do: Có đơn vị thuộc đơn vị này này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if ((objDonVi.cttaisan_dangquanlys != null && objDonVi.cttaisan_dangquanlys.Count > 0)
-                || (objDonVi.cttaisan_dangsudungs != null && objDonVi.cttaisan_dangsudungs.Count > 0)
-                || (objDonVi.logtaisan_dangquanlys != null && objDonVi.logtaisan_dangquanlys.Count > 0)
-                || (objDonVi.logtaisan_dangsudungs != null && objDonVi.logtaisan_dangsudungs.Count > 0))
+                || (objDonVi.cttaisan_dangsudungs != null && objDonVi.cttaisan_dangsudungs.Count > 0))
                 {
                     XtraMessageBox.Show("Không thể xóa đơn vị này!\r\nNguyên do: Có tài sản thuộc đơn vị này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

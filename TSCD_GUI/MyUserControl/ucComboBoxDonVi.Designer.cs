@@ -28,63 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.popupContainerEditDonVi = new DevExpress.XtraEditors.PopupContainerEdit();
-            this.popupContainerControlDonVi = new DevExpress.XtraEditors.PopupContainerControl();
-            this.treeListDonVi = new DevExpress.XtraTreeList.TreeList();
+            this.treeListLookUpDonVi = new DevExpress.XtraEditors.TreeListLookUpEdit();
+            this.treeListLookUpDonViTreeList = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repositoryLookUpLoai = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerEditDonVi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerControlDonVi)).BeginInit();
-            this.popupContainerControlDonVi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListDonVi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpLoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpDonVi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpDonViTreeList)).BeginInit();
             this.SuspendLayout();
             // 
-            // popupContainerEditDonVi
+            // treeListLookUpDonVi
             // 
-            this.popupContainerEditDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.popupContainerEditDonVi.Location = new System.Drawing.Point(0, 0);
-            this.popupContainerEditDonVi.Name = "popupContainerEditDonVi";
-            this.popupContainerEditDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.treeListLookUpDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeListLookUpDonVi.Location = new System.Drawing.Point(0, 0);
+            this.treeListLookUpDonVi.Name = "treeListLookUpDonVi";
+            this.treeListLookUpDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.popupContainerEditDonVi.Properties.PopupControl = this.popupContainerControlDonVi;
-            this.popupContainerEditDonVi.Size = new System.Drawing.Size(200, 20);
-            this.popupContainerEditDonVi.TabIndex = 0;
+            this.treeListLookUpDonVi.Properties.DisplayMember = "ten";
+            this.treeListLookUpDonVi.Properties.TreeList = this.treeListLookUpDonViTreeList;
+            this.treeListLookUpDonVi.Properties.ValueMember = "id";
+            this.treeListLookUpDonVi.Size = new System.Drawing.Size(200, 20);
+            this.treeListLookUpDonVi.TabIndex = 0;
             // 
-            // popupContainerControlDonVi
+            // treeListLookUpDonViTreeList
             // 
-            this.popupContainerControlDonVi.Controls.Add(this.treeListDonVi);
-            this.popupContainerControlDonVi.Location = new System.Drawing.Point(59, 59);
-            this.popupContainerControlDonVi.Name = "popupContainerControlDonVi";
-            this.popupContainerControlDonVi.Size = new System.Drawing.Size(250, 400);
-            this.popupContainerControlDonVi.TabIndex = 1;
-            // 
-            // treeListDonVi
-            // 
-            this.treeListDonVi.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListLookUpDonViTreeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
             this.colloai});
-            this.treeListDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListDonVi.KeyFieldName = "id";
-            this.treeListDonVi.Location = new System.Drawing.Point(0, 0);
-            this.treeListDonVi.Name = "treeListDonVi";
-            this.treeListDonVi.OptionsBehavior.AllowQuickHideColumns = false;
-            this.treeListDonVi.OptionsBehavior.Editable = false;
-            this.treeListDonVi.OptionsBehavior.EnableFiltering = true;
-            this.treeListDonVi.OptionsFind.AllowFindPanel = true;
-            this.treeListDonVi.OptionsFind.AlwaysVisible = true;
-            this.treeListDonVi.OptionsFind.ShowFindButton = false;
-            this.treeListDonVi.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.treeListDonVi.ParentFieldName = "parent_id";
-            this.treeListDonVi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryLookUpLoai});
-            this.treeListDonVi.Size = new System.Drawing.Size(250, 400);
-            this.treeListDonVi.TabIndex = 0;
-            this.treeListDonVi.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListDonVi_FocusedNodeChanged);
-            this.treeListDonVi.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
+            this.treeListLookUpDonViTreeList.KeyFieldName = "id";
+            this.treeListLookUpDonViTreeList.Location = new System.Drawing.Point(0, 0);
+            this.treeListLookUpDonViTreeList.Name = "treeListLookUpDonViTreeList";
+            this.treeListLookUpDonViTreeList.OptionsBehavior.Editable = false;
+            this.treeListLookUpDonViTreeList.OptionsBehavior.EnableFiltering = true;
+            this.treeListLookUpDonViTreeList.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
+            this.treeListLookUpDonViTreeList.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeListLookUpDonViTreeList.OptionsView.ShowAutoFilterRow = true;
+            this.treeListLookUpDonViTreeList.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
+            this.treeListLookUpDonViTreeList.OptionsView.ShowIndentAsRowStyle = true;
+            this.treeListLookUpDonViTreeList.ParentFieldName = "parent_id";
+            this.treeListLookUpDonViTreeList.Size = new System.Drawing.Size(400, 200);
+            this.treeListLookUpDonViTreeList.TabIndex = 0;
             // 
             // colid
             // 
@@ -94,56 +78,44 @@
             // 
             // colten
             // 
-            this.colten.Caption = "Tên đơn vị";
+            this.colten.Caption = "Đơn vị";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
+            this.colten.OptionsColumn.ReadOnly = true;
+            this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
             // colloai
             // 
             this.colloai.Caption = "Loại đơn vị";
-            this.colloai.ColumnEdit = this.repositoryLookUpLoai;
-            this.colloai.FieldName = "loaidonvi_id";
+            this.colloai.FieldName = "loaidonvi.ten";
             this.colloai.Name = "colloai";
+            this.colloai.OptionsColumn.ReadOnly = true;
+            this.colloai.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;
-            // 
-            // repositoryLookUpLoai
-            // 
-            this.repositoryLookUpLoai.AutoHeight = false;
-            this.repositoryLookUpLoai.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryLookUpLoai.DisplayMember = "ten";
-            this.repositoryLookUpLoai.Name = "repositoryLookUpLoai";
-            this.repositoryLookUpLoai.ReadOnly = true;
-            this.repositoryLookUpLoai.ValueMember = "id";
             // 
             // ucComboBoxDonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.popupContainerControlDonVi);
-            this.Controls.Add(this.popupContainerEditDonVi);
+            this.Controls.Add(this.treeListLookUpDonVi);
             this.Name = "ucComboBoxDonVi";
             this.Size = new System.Drawing.Size(200, 20);
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerEditDonVi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerControlDonVi)).EndInit();
-            this.popupContainerControlDonVi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListDonVi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpLoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpDonVi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpDonViTreeList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PopupContainerEdit popupContainerEditDonVi;
-        private DevExpress.XtraEditors.PopupContainerControl popupContainerControlDonVi;
-        private DevExpress.XtraTreeList.TreeList treeListDonVi;
+        private DevExpress.XtraEditors.TreeListLookUpEdit treeListLookUpDonVi;
+        private DevExpress.XtraTreeList.TreeList treeListLookUpDonViTreeList;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryLookUpLoai;
+
     }
 }

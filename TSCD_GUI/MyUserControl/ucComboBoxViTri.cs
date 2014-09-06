@@ -25,48 +25,45 @@ namespace TSCD_GUI.MyUserControl
             InitializeComponent();
         }
 
+        public ucComboBoxViTri(bool _chonDay, bool _chonPhong)
+        {
+            InitializeComponent();
+            init(_chonDay, _chonPhong);
+        }
+
         public void init(bool _chonDay, bool _chonPhong)
         {
             chonDay = _chonDay;
             chonPhong = _chonPhong;
         }
 
-        public void loadData(List<ViTriHienThi> _list, bool _chonDay, bool _chonPhong)
-        {
-            init(_chonDay, _chonPhong);
-            loadData(_list);
-        }
-
         public void loadData(List<ViTriHienThi> _list)
         {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = null;
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
+            treeListLookUpViTri.Properties.DataSource = _list;
         }
 
         public ViTri getViTri()
         {
             try
             {
-                TreeListNode node = treeListViTri.FocusedNode;
+                TreeListNode node = treeListLookUpViTriTreeList.FindNodeByKeyID(treeListLookUpViTri.EditValue);
                 if (node != null)
                 {
                     if (node.GetValue(colloai).Equals(typeof(CoSo).Name))
                     {
-                        CoSo obj = CoSo.getById(GUID.From(node.GetValue(colid)));
+                        CoSo obj = CoSo.getById(GUID.From(treeListLookUpViTri.EditValue));
                         if (obj != null)
                             return ViTri.request(obj, null, null);
                     }
                     else if (node.GetValue(colloai).Equals(typeof(Dayy).Name))
                     {
-                        Dayy obj = Dayy.getById(GUID.From(node.GetValue(colid)));
+                        Dayy obj = Dayy.getById(GUID.From(treeListLookUpViTri.EditValue));
                         if (obj != null)
                             return ViTri.request(null, obj, null);
                     }
                     else if (node.GetValue(colloai).Equals(typeof(Tang).Name))
                     {
-                        Tang obj = Tang.getById(GUID.From(node.GetValue(colid)));
+                        Tang obj = Tang.getById(GUID.From(treeListLookUpViTri.EditValue));
                         if (obj != null)
                             return ViTri.request(null, null, obj);
                     }
@@ -84,17 +81,7 @@ namespace TSCD_GUI.MyUserControl
         {
             try
             {
-                TreeListNode node = treeListViTri.FocusedNode;
-                if (node != null)
-                {
-                    if (node.GetValue(colloai).Equals(typeof(Phong).Name))
-                    {
-                        Phong obj = node.GetValue(colphong) as Phong;
-                        if (obj != null)
-                            return obj;
-                    }
-                }
-                return null;
+                return Phong.getById(GUID.From(treeListLookUpViTri.EditValue));
             }
             catch (Exception ex)
             {
@@ -109,12 +96,7 @@ namespace TSCD_GUI.MyUserControl
             {
                 if (obj != null && !obj.id.Equals(Guid.Empty))
                 {
-                    TreeListNode node = treeListViTri.FindNodeByKeyID(obj.id);
-                    if (node != null)
-                    {
-                        treeListViTri.CollapseAll();
-                        node.Selected = true;
-                    }
+                    treeListLookUpViTri.EditValue = obj.id;
                 }
             }
             catch (Exception ex)
@@ -125,15 +107,7 @@ namespace TSCD_GUI.MyUserControl
 
         public void setReadOnly(bool b)
         {
-            popupContainerEditViTri.Properties.ReadOnly = b;
-        }
-
-        public void reLoad(List<ViTriHienThi> _list)
-        {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = null;
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
+            treeListLookUpViTri.Properties.ReadOnly = b;
         }
 
         public void setViTri(ViTri obj)
@@ -142,24 +116,12 @@ namespace TSCD_GUI.MyUserControl
             {
                 if (obj != null)
                 {
-                    TreeListNode node = null;
-                    if (obj.tang != null && !obj.tang.id.Equals(Guid.Empty))
-                    {
-                        node = treeListViTri.FindNodeByKeyID(obj.tang.id);
-                    }
-                    else if (obj.day != null && !obj.day.id.Equals(Guid.Empty))
-                    {
-                        node = treeListViTri.FindNodeByKeyID(obj.day.id);
-                    }
-                    else if (obj.coso != null && !obj.coso.id.Equals(Guid.Empty))
-                    {
-                        node = treeListViTri.FindNodeByKeyID(obj.coso.id);
-                    }
-                    if (node != null)
-                    {
-                        treeListViTri.CollapseAll();
-                        node.Selected = true;
-                    }
+                    if (obj.tang != null && obj.tang.id != Guid.Empty)
+                        treeListLookUpViTri.EditValue = obj.tang.id;
+                    else if (obj.day != null && obj.day.id != Guid.Empty)
+                        treeListLookUpViTri.EditValue = obj.day.id;
+                    else if (obj.coso != null && obj.coso.id != Guid.Empty)
+                        treeListLookUpViTri.EditValue = obj.coso.id;
                 }
             }
             catch (Exception ex)
@@ -168,74 +130,68 @@ namespace TSCD_GUI.MyUserControl
             }
         }
 
-        public void setText(String text)
-        {
-            popupContainerEditViTri.Text = text;
-        }
-
-        private void OnFilterNode(object sender, DevExpress.XtraTreeList.FilterNodeEventArgs e)
-        {
-            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
-                ).ToList();
-            if (filteredColumns.Count == 0) return;
-            if (string.IsNullOrEmpty(treeListViTri.FindFilterText)) return;
-            e.Handled = true;
-            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
-            e.Node.Expanded = e.Node.Visible;
-        }
-
-        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
-        {
-            string filterValue = treeListViTri.FindFilterText;
-            if (StringHelper.CoDauThanhKhongDau(node.GetDisplayText(column)).ToUpper().Contains(StringHelper.CoDauThanhKhongDau(filterValue).ToUpper())) return true;
-            foreach (TreeListNode n in node.Nodes)
-                if (IsNodeMatchFilter(n, column)) return true;
-            return false;
-        }
-
-        private void popupContainerEditViTri_QueryPopUp(object sender, CancelEventArgs e)
-        {
-            //popupContainerEditViTri.Properties.PopupFormSize = new Size(popupContainerEditViTri.Width, popupContainerControlVitri.Height);
-        }
-
-        private void treeListViTri_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        private void treeListLookUpViTri_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
             try
             {
-                if (e.Node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
+                TreeListNode node = treeListLookUpViTriTreeList.FindNodeByKeyID(e.Value);
+                if (node != null)
                 {
-                    if (!chonDay && !chonPhong)
+                    if (node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
                     {
-                        popupContainerEditViTri.Text = e.Node.GetValue(colten).ToString();
-                        popupContainerEditViTri.ClosePopup();
+                        e.DisplayText = node.GetValue(colten).ToString();
                     }
-                }
-                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
-                {
-                    if (!chonPhong)
+                    else if (node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
                     {
-                        popupContainerEditViTri.Text = e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
-                        popupContainerEditViTri.ClosePopup();
+                        e.DisplayText  = node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
                     }
-                }
-                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
-                {
-                    if (!chonPhong)
+                    else if (node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                     {
-                        popupContainerEditViTri.Text = e.Node.ParentNode.ParentNode.GetValue(colten).ToString() +
-                            " - " + e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
-                        popupContainerEditViTri.ClosePopup();
+                        e.DisplayText = node.ParentNode.ParentNode.GetValue(colten).ToString() +
+                            " - " + node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
                     }
-                }
-                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
-                {
-                    popupContainerEditViTri.Text = e.Node.GetValue(colten).ToString();
-                    popupContainerEditViTri.ClosePopup();
+                    else if (node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
+                    {
+                        e.DisplayText = node.GetValue(colten).ToString();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->treeListViTri_FocusedNodeChanged: " + ex.Message);
+                Debug.WriteLine(this.Name + "->treeListLookUpViTri_CustomDisplayText: " + ex.Message);
+            }
+        }
+
+        private void treeListLookUpViTri_QueryCloseUp(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                if (treeListLookUpViTriTreeList.FocusedNode != null)
+                {
+                    TreeListNode node = treeListLookUpViTriTreeList.FocusedNode;
+                    if (chonDay)
+                    {
+                        if (node.GetValue(colloai) != null && node.GetValue(colloai).Equals(typeof(Dayy).Name))
+                        { }
+                        else
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                    if (chonPhong)
+                    {
+                        if (node.GetValue(colloai) != null && node.GetValue(colloai).Equals(typeof(Phong).Name))
+                        { }
+                        else
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->treeListLookUpViTri_QueryCloseUp: " + ex.Message);
             }
         }
     }

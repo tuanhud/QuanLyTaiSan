@@ -22,7 +22,7 @@ namespace TSCD_GUI.QLViTri
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         TextEdit txt = new TextEdit();
         ucComboBoxViTri _ucComboBoxCoSo = new ucComboBoxViTri();
-        ucComboBoxViTri _ucComboBoxDay = new ucComboBoxViTri();
+        ucComboBoxViTri _ucComboBoxDay = new ucComboBoxViTri(true, false);
 
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
@@ -53,7 +53,7 @@ namespace TSCD_GUI.QLViTri
             try
             {
                 _ucComboBoxCoSo.loadData(ViTriHienThi.getAllCoSo());
-                _ucComboBoxDay.loadData(ViTriHienThi.getAllHaveDay(), true, false);
+                _ucComboBoxDay.loadData(ViTriHienThi.getAllHaveDay());
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
