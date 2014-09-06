@@ -72,7 +72,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
             listVitris = ViTriHienThi.getAll().ToList();
             _ucTreeViTri.loadData(listVitris);
-            _ucComboBoxViTri.loadData(listVitris);
+            _ucComboBoxViTri.DataSource = listVitris;
             _ViTriHienTai = _ucTreeViTri.getVitri();
             listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
             gridControlPhong.DataSource = listPhong;
@@ -120,7 +120,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             txtTenPhong.Text = "";
             txtMoTaPhong.Text = "";
             if (listVitris.Count > 0)
-                _ucComboBoxViTri.setViTri(_ViTriHienTai);
+                _ucComboBoxViTri.ViTri = _ViTriHienTai;
             searchLookUpEditNhanVienPT.EditValue = -1;
 
             objNhanVienPT = null;
@@ -140,7 +140,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             txtMaPhong.Properties.ReadOnly = !_enable;
             txtTenPhong.Properties.ReadOnly = !_enable;
             txtMoTaPhong.Properties.ReadOnly = !_enable;
-            _ucComboBoxViTri.setReadOnly(!_enable);
+            _ucComboBoxViTri.ReadOnly = !_enable;
             lblNhanVienPT.Visible = _enable;
             searchLookUpEditNhanVienPT.Visible = _enable;
             working = _enable;
@@ -160,7 +160,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 _ucComboBoxViTri = new ucComboBoxViTri(false, false);
-                _ucComboBoxViTri.loadData(listVitris);
+                _ucComboBoxViTri.DataSource = listVitris;
                 _ucComboBoxViTri.Dock = DockStyle.Fill;
                 panelControl1.Controls.Clear();
                 panelControl1.Controls.Add(_ucComboBoxViTri);
@@ -240,7 +240,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtMaPhong.Text = objPhong.subId;
                 txtTenPhong.Text = objPhong.ten;
                 if (objPhong.vitri != null)
-                    _ucComboBoxViTri.setViTri(objPhong.vitri);
+                    _ucComboBoxViTri.ViTri = objPhong.vitri;
                 txtMoTaPhong.Text = objPhong.mota;
 
                 listHinhAnhNhanVien = new List<HinhAnh>();
@@ -282,7 +282,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 objPhong.hinhanhs = listHinhAnhPhong;
                 objPhong.subId = txtMaPhong.Text;
                 objPhong.ten = txtTenPhong.Text;
-                objPhong.vitri = _ucComboBoxViTri.getViTri();
+                objPhong.vitri = _ucComboBoxViTri.ViTri;
                 objPhong.mota = txtMoTaPhong.Text;
                 if (objNhanVienPT != null)
                 {
@@ -486,7 +486,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 deleteData();
-                _ucComboBoxViTri.setViTri(_ViTriHienTai);
+                _ucComboBoxViTri.ViTri = _ViTriHienTai;
                 txtMaPhong.Focus();
                 enableEdit(true);
                 enableAllBarButton(false);
@@ -659,7 +659,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             try
             {
                 deleteData();
-                _ucComboBoxViTri.setViTri(_ViTriHienTai);
+                _ucComboBoxViTri.ViTri = _ViTriHienTai;
                 txtMaPhong.Focus();
                 enableEdit(true);
                 enableAllBarButton(false);

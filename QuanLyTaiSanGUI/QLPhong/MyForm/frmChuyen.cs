@@ -45,7 +45,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         public void loadData()
         {
             List<ViTriHienThi> listViTriHienThi = ViTriHienThi.getAllHavePhong();
-            _ucComboBoxViTri.loadData(listViTriHienThi);
+            _ucComboBoxViTri.DataSource = listViTriHienThi;
             List<TinhTrang> listTinhTrang = TinhTrang.getAll();
             lookUpTinhTrang.Properties.DataSource = listTinhTrang;
         }
@@ -78,13 +78,13 @@ namespace QuanLyTaiSanGUI.QLPhong
 
         private void radioBtnChuyenPhong_CheckedChanged(object sender, EventArgs e)
         {
-            _ucComboBoxViTri.setReadOnly(!radioBtnChuyenPhong.Checked);
+            _ucComboBoxViTri.ReadOnly = !radioBtnChuyenPhong.Checked;
             setTextGroup(radioBtnChuyenPhong.Checked);
         }
 
         private void radioBtnChuyenTinhTrang_CheckedChanged(object sender, EventArgs e)
         {
-            _ucComboBoxViTri.setReadOnly(radioBtnChuyenTinhTrang.Checked);
+            _ucComboBoxViTri.ReadOnly = radioBtnChuyenTinhTrang.Checked;
             setTextGroup(radioBtnChuyenTinhTrang.Checked);
         }
 
@@ -97,7 +97,7 @@ namespace QuanLyTaiSanGUI.QLPhong
                     if (radioBtnChuyenPhong.Checked)
                     {
 
-                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.getPhong(), (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0 && DBInstance.commit() > 0)
+                        if (objCTThietBi.dichuyen(_ucComboBoxViTri.Phong, (TinhTrang)lookUpTinhTrang.GetSelectedDataRow(), Convert.ToInt32(txtSoLuong.Text), txtGhiChu.Text, listHinh) > 0 && DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Chuyển phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
@@ -123,13 +123,13 @@ namespace QuanLyTaiSanGUI.QLPhong
         private Boolean CheckInput()
         {
             dxErrorProvider1.ClearErrors();
-            if (radioBtnChuyenPhong.Checked && _ucComboBoxViTri.getPhong() == null)
+            if (radioBtnChuyenPhong.Checked && _ucComboBoxViTri.Phong == null)
             {
                 XtraMessageBox.Show("Bạn chưa chọn phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
                 //dxErrorProvider1.SetError(_ucComboBoxViTri, "Bạn chưa chọn phòng");
             }
-            else if (radioBtnChuyenPhong.Checked && _ucComboBoxViTri.getPhong().Equals(objCTThietBi.phong))
+            else if (radioBtnChuyenPhong.Checked && _ucComboBoxViTri.Phong.Equals(objCTThietBi.phong))
             {
                 XtraMessageBox.Show("Phòng được chuyển đến phải khác phòng cũ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;

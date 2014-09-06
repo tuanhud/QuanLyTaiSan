@@ -153,7 +153,7 @@ namespace QuanLyTaiSanGUI.QLPhong.MyForm
                 if (obj.add() > 0 && DBInstance.commit() > 0)
                 {
                     text += "Thêm thiết bị " + objThietBi.ten + " vào phòng thành công!" + Environment.NewLine;
-                    return obj.id;
+                    return objPhong.ctthietbis.Where(c=>c.thietbi == objThietBi && c.tinhtrang == objTinhTrang).FirstOrDefault().id;
                 }
                 else
                     text += "Thêm thiết bị " + objThietBi.ten + " vào phòng không thành công!" + Environment.NewLine;

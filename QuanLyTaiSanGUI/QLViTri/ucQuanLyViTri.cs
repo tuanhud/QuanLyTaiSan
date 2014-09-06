@@ -65,10 +65,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             try
             {
-                listViTriHienThi = ViTriHienThi.getAllCoSo();
-                _ucComboBoxViTri.loadData(listViTriHienThi);
-                listViTriHienThi = ViTriHienThi.getAllHaveDay();
-                _ucComboBoxViTriChonDay.loadData(listViTriHienThi);
+                _ucComboBoxViTri.DataSource = ViTriHienThi.getAllCoSo();
+                _ucComboBoxViTriChonDay.DataSource = ViTriHienThi.getAllHaveDay();
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
@@ -192,7 +190,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         {
                             obj.coso = objTang.day.coso;
                         }
-                        _ucComboBoxViTri.setViTri(obj);
+                        _ucComboBoxViTri.ViTri = obj;
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
@@ -214,7 +212,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             obj.day = objTang.day;
                             obj.coso = objTang.day.coso;
                         }
-                        _ucComboBoxViTriChonDay.setViTri(obj);
+                        _ucComboBoxViTriChonDay.ViTri = obj;
                     }
                 }
                 else if (_function.Equals("edit"))
@@ -298,8 +296,8 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
             txtDiaChi.Properties.ReadOnly = !_enable;
-            _ucComboBoxViTri.setReadOnly(!_enable);
-            _ucComboBoxViTriChonDay.setReadOnly(!_enable);
+            _ucComboBoxViTri.ReadOnly = !_enable;
+            _ucComboBoxViTriChonDay.ReadOnly = !_enable;
             enableRightButton(!_enable);
             btnR_Them.Enabled = !_enable;
             working = _enable;
@@ -372,7 +370,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             listHinh = objDay.hinhanhs.ToList();
                             ViTri objViTri = new ViTri();
                             objViTri.coso = objDay.coso;
-                            _ucComboBoxViTri.setViTri(objViTri);
+                            _ucComboBoxViTri.ViTri = objViTri;
                             reloadImage();
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
@@ -386,7 +384,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             ViTri objViTri = new ViTri();
                             objViTri.coso = objTang.day.coso;
                             objViTri.day = objTang.day;
-                            _ucComboBoxViTriChonDay.setViTri(objViTri);
+                            _ucComboBoxViTriChonDay.ViTri = objViTri;
                             reloadImage();
                         }
                     }
@@ -452,7 +450,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "Dayy":
                         objDay.ten = txtTen.Text;
                         objDay.mota = txtMoTa.Text;
-                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.ViTri;
                         objDay.coso = _vitri.coso;
                         objDay.hinhanhs = listHinh;
                         if (objDay.update() > 0 && DBInstance.commit() > 0)
@@ -468,7 +466,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     case "Tang":
                         objTang.ten = txtTen.Text;
                         objTang.mota = txtMoTa.Text;
-                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.ViTri;
                         objTang.day = _vitri2.day;
                         objTang.hinhanhs = listHinh;
                         if (objTang.update() > 0 && DBInstance.commit() > 0)
@@ -516,7 +514,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objDayNew.ten = txtTen.Text;
                         objDayNew.mota = txtMoTa.Text;
                         objDayNew.hinhanhs = listHinh;
-                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.ViTri;
                         objDayNew.coso = _vitri.coso;
                         if (objDayNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -533,7 +531,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                         objTangNew.ten = txtTen.Text;
                         objTangNew.mota = txtMoTa.Text;
                         objTangNew.hinhanhs = listHinh;
-                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.ViTri;
                         objTangNew.day = _vitri2.day;
                         if (objTangNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -851,7 +849,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             listHinh.Except(objCoSo.hinhanhs).Count() > 0;
                     else if (type.Equals("Dayy"))
                     {
-                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxViTri.ViTri;
                         return
                             objDay.ten != txtTen.Text ||
                             objDay.mota != txtMoTa.Text ||
@@ -861,7 +859,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     }
                     else if (type.Equals("Tang"))
                     {
-                        ViTri _vitri2 = _ucComboBoxViTriChonDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxViTriChonDay.ViTri;
                         return
                             objTang.ten != txtTen.Text ||
                             objTang.mota != txtMoTa.Text ||
