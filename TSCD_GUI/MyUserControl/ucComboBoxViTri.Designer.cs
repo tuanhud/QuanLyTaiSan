@@ -28,70 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.popupContainerEditViTri = new DevExpress.XtraEditors.PopupContainerEdit();
-            this.popupContainerControlVitri = new DevExpress.XtraEditors.PopupContainerControl();
-            this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
+            this.treeListLookUpViTri = new DevExpress.XtraEditors.TreeListLookUpEdit();
+            this.treeListLookUpViTriTreeList = new DevExpress.XtraTreeList.TreeList();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colloaiphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerEditViTri.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerControlVitri)).BeginInit();
-            this.popupContainerControlVitri.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
+            this.colloaiphong = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpViTri.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpViTriTreeList)).BeginInit();
             this.SuspendLayout();
             // 
-            // popupContainerEditViTri
+            // treeListLookUpViTri
             // 
-            this.popupContainerEditViTri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.popupContainerEditViTri.Location = new System.Drawing.Point(0, 0);
-            this.popupContainerEditViTri.Name = "popupContainerEditViTri";
-            this.popupContainerEditViTri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.treeListLookUpViTri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeListLookUpViTri.Location = new System.Drawing.Point(0, 0);
+            this.treeListLookUpViTri.Name = "treeListLookUpViTri";
+            this.treeListLookUpViTri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.popupContainerEditViTri.Properties.PopupControl = this.popupContainerControlVitri;
-            this.popupContainerEditViTri.Size = new System.Drawing.Size(200, 20);
-            this.popupContainerEditViTri.TabIndex = 0;
-            this.popupContainerEditViTri.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.popupContainerEditViTri_QueryPopUp);
+            this.treeListLookUpViTri.Properties.TreeList = this.treeListLookUpViTriTreeList;
+            this.treeListLookUpViTri.Properties.ValueMember = "id";
+            this.treeListLookUpViTri.Size = new System.Drawing.Size(200, 20);
+            this.treeListLookUpViTri.TabIndex = 0;
+            this.treeListLookUpViTri.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.treeListLookUpViTri_QueryCloseUp);
+            this.treeListLookUpViTri.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.treeListLookUpViTri_CustomDisplayText);
             // 
-            // popupContainerControlVitri
+            // treeListLookUpViTriTreeList
             // 
-            this.popupContainerControlVitri.Controls.Add(this.treeListViTri);
-            this.popupContainerControlVitri.Location = new System.Drawing.Point(3, 26);
-            this.popupContainerControlVitri.Name = "popupContainerControlVitri";
-            this.popupContainerControlVitri.Size = new System.Drawing.Size(250, 400);
-            this.popupContainerControlVitri.TabIndex = 1;
-            // 
-            // treeListViTri
-            // 
-            this.treeListViTri.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListLookUpViTriTreeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.colid,
             this.colten,
             this.colloai,
-            this.colloaiphong,
             this.colphong,
-            this.colid});
-            this.treeListViTri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListViTri.KeyFieldName = "id";
-            this.treeListViTri.Location = new System.Drawing.Point(0, 0);
-            this.treeListViTri.Name = "treeListViTri";
-            this.treeListViTri.OptionsBehavior.AllowQuickHideColumns = false;
-            this.treeListViTri.OptionsBehavior.Editable = false;
-            this.treeListViTri.OptionsBehavior.EnableFiltering = true;
-            this.treeListViTri.OptionsFind.AllowFindPanel = true;
-            this.treeListViTri.OptionsFind.AlwaysVisible = true;
-            this.treeListViTri.OptionsFind.ShowFindButton = false;
-            this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(250, 400);
-            this.treeListViTri.TabIndex = 0;
-            this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
-            this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
+            this.colloaiphong});
+            this.treeListLookUpViTriTreeList.KeyFieldName = "id";
+            this.treeListLookUpViTriTreeList.Location = new System.Drawing.Point(0, 0);
+            this.treeListLookUpViTriTreeList.Name = "treeListLookUpViTriTreeList";
+            this.treeListLookUpViTriTreeList.OptionsBehavior.Editable = false;
+            this.treeListLookUpViTriTreeList.OptionsBehavior.EnableFiltering = true;
+            this.treeListLookUpViTriTreeList.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
+            this.treeListLookUpViTriTreeList.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeListLookUpViTriTreeList.OptionsView.ShowAutoFilterRow = true;
+            this.treeListLookUpViTriTreeList.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
+            this.treeListLookUpViTriTreeList.OptionsView.ShowIndentAsRowStyle = true;
+            this.treeListLookUpViTriTreeList.ParentFieldName = "parent_id";
+            this.treeListLookUpViTriTreeList.Size = new System.Drawing.Size(400, 200);
+            this.treeListLookUpViTriTreeList.TabIndex = 0;
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
             // 
             // colten
             // 
             this.colten.Caption = "Vị trí";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
+            this.colten.OptionsColumn.ReadOnly = true;
+            this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
@@ -101,49 +97,40 @@
             this.colloai.FieldName = "loai";
             this.colloai.Name = "colloai";
             // 
-            // colloaiphong
-            // 
-            this.colloaiphong.Caption = "loaiphong";
-            this.colloaiphong.FieldName = "loaiphong";
-            this.colloaiphong.Name = "colloaiphong";
-            // 
             // colphong
             // 
             this.colphong.Caption = "phong";
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
             // 
-            // colid
+            // colloaiphong
             // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
+            this.colloaiphong.Caption = "Loại phòng";
+            this.colloaiphong.FieldName = "loaiphong";
+            this.colloaiphong.Name = "colloaiphong";
             // 
             // ucComboBoxViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.popupContainerControlVitri);
-            this.Controls.Add(this.popupContainerEditViTri);
+            this.Controls.Add(this.treeListLookUpViTri);
             this.Name = "ucComboBoxViTri";
             this.Size = new System.Drawing.Size(200, 20);
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerEditViTri.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupContainerControlVitri)).EndInit();
-            this.popupContainerControlVitri.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpViTri.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpViTriTreeList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PopupContainerEdit popupContainerEditViTri;
-        private DevExpress.XtraEditors.PopupContainerControl popupContainerControlVitri;
-        private DevExpress.XtraTreeList.TreeList treeListViTri;
+        private DevExpress.XtraEditors.TreeListLookUpEdit treeListLookUpViTri;
+        private DevExpress.XtraTreeList.TreeList treeListLookUpViTriTreeList;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colloaiphong;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colphong;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colloaiphong;
+
     }
 }

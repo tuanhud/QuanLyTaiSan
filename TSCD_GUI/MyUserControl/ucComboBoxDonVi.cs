@@ -62,19 +62,6 @@ namespace TSCD_GUI.MyUserControl
         {
             try
             {
-                edit = false;
-                if (obj != null && !obj.id.Equals(Guid.Empty))
-                {
-                    findNode find = new findNode(obj.id, "id");
-                    treeListDonVi.NodesIterator.DoOperation(find);
-                    TreeListNodes n = treeListDonVi.Nodes;
-                    TreeListNode node = find.Node;
-                    if (node != null)
-                    {
-                        treeListDonVi.CollapseAll();
-                        node.Selected = true;
-                    }
-                }
             }
             catch (Exception ex)
             {
