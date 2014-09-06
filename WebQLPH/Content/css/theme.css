@@ -150,3 +150,7 @@
 .color_white {
     color: white !important;
 }
+
+.title {
+    border-bottom: solid 2px #fe8f01 !important;
+}

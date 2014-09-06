@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebQLPH.UserControl.TrangChu
+namespace WebQLPH
 {
 
 
-    public partial class ucTrangChu_Web
+    public partial class t
     {
     }
 }

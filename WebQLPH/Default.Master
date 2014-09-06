@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="WebQLPH.Default" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,7 +36,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Default.aspx"><img src="Images/ptb.png" alt="Phòng Thiết bị" class="logo" /></a>
+                    <a class="navbar-brand" href="Default.aspx">
+                        <img src="Images/ptb.png" alt="Phòng Thiết bị" class="logo" /></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

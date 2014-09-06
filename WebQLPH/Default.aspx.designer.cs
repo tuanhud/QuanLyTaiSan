@@ -13,39 +13,12 @@ namespace WebQLPH {
     public partial class Default1 {
         
         /// <summary>
-        /// Panel_Web control.
+        /// TimKiem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Web;
-        
-        /// <summary>
-        /// ucTrangChu_Web control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WebQLPH.UserControl.TrangChu.ucTrangChu_Web ucTrangChu_Web;
-        
-        /// <summary>
-        /// Panel_Mobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Mobile;
-        
-        /// <summary>
-        /// ucTrangChu_Mobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WebQLPH.UserControl.TrangChu.ucTrangChu_Mobile ucTrangChu_Mobile;
+        protected global::WebQLPH.UserControl.TimKiem TimKiem;
     }
 }

@@ -104,11 +104,49 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\docs.min.css" />
+    <Content Include="Content\css\metro\metro.css" />
+    <Content Include="Content\css\metro\metro_mobile.css" />
+    <Content Include="Content\css\metro\website.css" />
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
     <Content Include="HinhAnh.aspx" />
     <Content Include="Images\bg-wall.png" />
+    <Content Include="Images\metro\bullet.png" />
+    <Content Include="Images\metro\colour.png" />
+    <Content Include="Images\metro\cube_gallery.png" />
+    <Content Include="Images\metro\emu_slider.png" />
+    <Content Include="Images\metro\envato_sprite.png" />
+    <Content Include="Images\metro\grid_slider.png" />
+    <Content Include="Images\metro\logo.png" />
+    <Content Include="Images\metro\metro\back.png" />
+    <Content Include="Images\metro\metro\cancel.png" />
+    <Content Include="Images\metro\metro\next.png" />
+    <Content Include="Images\metro\metro\refresh.png" />
+    <Content Include="Images\metro\metro\save.png" />
+    <Content Include="Images\metro\metro\settings.png" />
+    <Content Include="Images\metro\metro_gallery.png" />
+    <Content Include="Images\metro\page_loader.gif" />
+    <Content Include="Images\metro\royal_preloader.png" />
+    <Content Include="Images\metro\royal_tab.png" />
+    <Content Include="Images\metro\sliding_menu.png" />
+    <Content Include="Images\metro\social\codecanyon2.png" />
+    <Content Include="Images\metro\social\facebook.png" />
+    <Content Include="Images\metro\social\twitter_w.png" />
+    <Content Include="Images\metro\timeline.png" />
+    <Content Include="Images\metro\wallpaper\2.jpg" />
+    <Content Include="Images\metro\widget_aboutme.png" />
+    <Content Include="Images\metro\widget_blog.png" />
+    <Content Include="Images\metro\widget_chart.png" />
+    <Content Include="Images\metro\widget_contact.png" />
+    <Content Include="Images\metro\widget_editable.png" />
+    <Content Include="Images\metro\widget_gallery.png" />
+    <Content Include="Images\metro\widget_metro_gallery.png" />
+    <Content Include="Images\metro\widget_royal_preloader.png" />
+    <Content Include="Images\metro\widget_slider.png" />
+    <Content Include="Images\metro\widget_sliding_menu.png" />
+    <Content Include="Images\metro\widget_tab.png" />
+    <Content Include="Images\metro\widget_timeline.png" />
     <Content Include="Images\ptb.png" />
     <Content Include="LogSuCo.aspx" />
     <Content Include="DangNhap.aspx" />
@@ -157,7 +195,9 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
+    <Content Include="Scripts\scriptgates.js" />
     <Content Include="SuCo.aspx" />
+    <Content Include="t.aspx" />
     <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
@@ -187,8 +227,6 @@
     <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
-    <Content Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx" />
-    <Content Include="UserControl\TrangChu\ucTrangChu_Web.ascx" />
     <Content Include="UserControl\ucASPxImageSlider_Mobile.ascx" />
     <Content Include="UserControl\ucASPxImageSlider_Web.ascx" />
     <Content Include="UserControl\ucCollectionPager.ascx" />
@@ -322,6 +360,13 @@
     </Compile>
     <Compile Include="SuCo.aspx.designer.cs">
       <DependentUpon>SuCo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="t.aspx.cs">
+      <DependentUpon>t.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="t.aspx.designer.cs">
+      <DependentUpon>t.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThietBis.aspx.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
@@ -525,20 +570,6 @@
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.designer.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx.cs">
-      <DependentUpon>ucTrangChu_Mobile.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx.designer.cs">
-      <DependentUpon>ucTrangChu_Mobile.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\TrangChu\ucTrangChu_Web.ascx.cs">
-      <DependentUpon>ucTrangChu_Web.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControl\TrangChu\ucTrangChu_Web.ascx.designer.cs">
-      <DependentUpon>ucTrangChu_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucASPxImageSlider_Mobile.ascx.cs">
       <DependentUpon>ucASPxImageSlider_Mobile.ascx</DependentUpon>
