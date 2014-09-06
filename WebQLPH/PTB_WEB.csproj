@@ -187,6 +187,8 @@
     <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
+    <Content Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx" />
+    <Content Include="UserControl\TrangChu\ucTrangChu_Web.ascx" />
     <Content Include="UserControl\ucASPxImageSlider_Mobile.ascx" />
     <Content Include="UserControl\ucASPxImageSlider_Web.ascx" />
     <Content Include="UserControl\ucCollectionPager.ascx" />
@@ -523,6 +525,20 @@
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.designer.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx.cs">
+      <DependentUpon>ucTrangChu_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx.designer.cs">
+      <DependentUpon>ucTrangChu_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Web.ascx.cs">
+      <DependentUpon>ucTrangChu_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Web.ascx.designer.cs">
+      <DependentUpon>ucTrangChu_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucASPxImageSlider_Mobile.ascx.cs">
       <DependentUpon>ucASPxImageSlider_Mobile.ascx</DependentUpon>
