@@ -10,12 +10,12 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <%--<link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="Content/css/theme.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="padding:initial">
+<body class="popupmasterbody">
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

@@ -4,7 +4,7 @@
 <%@ Register Src="~/UserControl/LienHe/ucLienHe_Mobile.ascx" TagPrefix="uc1" TagName="ucLienHe_Mobile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>.: Liên hệ :: Quản Lý Tài Sản :.</title>
+    <title>.: Liên hệ :: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel-body">

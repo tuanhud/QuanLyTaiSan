@@ -13,7 +13,7 @@
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
-    <link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <%--<link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="Content/css/docs.min.css" rel="stylesheet" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body role="document">
+<body role="document" class="masterbody">
     <form runat="server" class="form-horizontal" role="form">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Default.aspx">Quản lý phòng</a>
+                    <a class="navbar-brand" href="Default.aspx"><img src="Images/ptb.png" alt="Phòng Thiết bị" class="logo" /></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

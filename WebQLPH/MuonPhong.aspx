@@ -4,7 +4,7 @@
 <%@ Register Src="~/UserControl/ucDangNhap.ascx" TagPrefix="uc" TagName="ucDangNhap" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Biểu mẫu mượn phòng</title>
+    <title>.: Biểu mẫu mượn phòng :: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="PanelDangNhap" runat="server" Visible="false">
@@ -27,7 +27,7 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelMuonPhong" runat="server" Visible="False">
-        <div class="panel panel-info">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title"><b>ĐỀ NGHỊ VỀ VIỆC NHU CẦU SỬ DỤNG PHÒNG</b></h3>
             </div>

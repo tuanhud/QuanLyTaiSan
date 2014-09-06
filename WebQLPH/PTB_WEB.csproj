@@ -103,13 +103,13 @@
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\cerulean\bootstrap.min.css" />
     <Content Include="Content\css\docs.min.css" />
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
     <Content Include="HinhAnh.aspx" />
     <Content Include="Images\bg-wall.png" />
+    <Content Include="Images\ptb.png" />
     <Content Include="LogSuCo.aspx" />
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
@@ -187,6 +187,8 @@
     <Content Include="UserControl\ThietBi\ucThietBi_Mobile.ascx" />
     <Content Include="UserControl\ThietBi\ucThietBi_Web.ascx" />
     <Content Include="UserControl\TimKiem.ascx" />
+    <Content Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx" />
+    <Content Include="UserControl\TrangChu\ucTrangChu_Web.ascx" />
     <Content Include="UserControl\ucASPxImageSlider_Mobile.ascx" />
     <Content Include="UserControl\ucASPxImageSlider_Web.ascx" />
     <Content Include="UserControl\ucCollectionPager.ascx" />
@@ -523,6 +525,20 @@
     </Compile>
     <Compile Include="UserControl\TimKiem.ascx.designer.cs">
       <DependentUpon>TimKiem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx.cs">
+      <DependentUpon>ucTrangChu_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Mobile.ascx.designer.cs">
+      <DependentUpon>ucTrangChu_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Web.ascx.cs">
+      <DependentUpon>ucTrangChu_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TrangChu\ucTrangChu_Web.ascx.designer.cs">
+      <DependentUpon>ucTrangChu_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucASPxImageSlider_Mobile.ascx.cs">
       <DependentUpon>ucASPxImageSlider_Mobile.ascx</DependentUpon>

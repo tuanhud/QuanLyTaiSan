@@ -4,7 +4,7 @@
 <%@ Register Src="~/UserControl/NhanVien/ucNhanVien_Mobile.ascx" TagPrefix="uc" TagName="ucNhanVien_Mobile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Nhân viên phụ trách</title>
+    <title>.: Nhân viên phụ trách :: Phòng Thiết bị :.</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

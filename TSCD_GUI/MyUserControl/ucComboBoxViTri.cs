@@ -114,7 +114,6 @@ namespace TSCD_GUI.MyUserControl
                     {
                         treeListViTri.CollapseAll();
                         node.Selected = true;
-                        setText();
                     }
                 }
             }
@@ -160,7 +159,6 @@ namespace TSCD_GUI.MyUserControl
                     {
                         treeListViTri.CollapseAll();
                         node.Selected = true;
-                        setText();
                     }
                 }
             }
@@ -197,57 +195,48 @@ namespace TSCD_GUI.MyUserControl
 
         private void popupContainerEditViTri_QueryPopUp(object sender, CancelEventArgs e)
         {
-            popupContainerEditViTri.Properties.PopupFormSize = new Size(popupContainerEditViTri.Width, popupContainerControlVitri.Height);
-        }
-
-        private void setText()
-        {
-            try
-            {
-                TreeListNode node = treeListViTri.FocusedNode;
-                if (node != null)
-                {
-                    if (node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
-                    {
-                        if (!chonDay && !chonPhong)
-                        {
-                            popupContainerEditViTri.Text = node.GetValue(colten).ToString();
-                            popupContainerEditViTri.ClosePopup();
-                        }
-                    }
-                    else if (node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
-                    {
-                        if (!chonPhong)
-                        {
-                            popupContainerEditViTri.Text = node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
-                            popupContainerEditViTri.ClosePopup();
-                        }
-                    }
-                    else if (node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
-                    {
-                        if (!chonPhong)
-                        {
-                            popupContainerEditViTri.Text = node.ParentNode.ParentNode.GetValue(colten).ToString() +
-                                " - " + node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
-                            popupContainerEditViTri.ClosePopup();
-                        }
-                    }
-                    else if (node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
-                    {
-                        popupContainerEditViTri.Text = node.GetValue(colten).ToString();
-                        popupContainerEditViTri.ClosePopup();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->setText: " + ex.Message);
-            }
+            //popupContainerEditViTri.Properties.PopupFormSize = new Size(popupContainerEditViTri.Width, popupContainerControlVitri.Height);
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
-            setText();
+            try
+            {
+                if (e.Node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
+                {
+                    if (!chonDay && !chonPhong)
+                    {
+                        popupContainerEditViTri.Text = e.Node.GetValue(colten).ToString();
+                        popupContainerEditViTri.ClosePopup();
+                    }
+                }
+                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
+                {
+                    if (!chonPhong)
+                    {
+                        popupContainerEditViTri.Text = e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
+                        popupContainerEditViTri.ClosePopup();
+                    }
+                }
+                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
+                {
+                    if (!chonPhong)
+                    {
+                        popupContainerEditViTri.Text = e.Node.ParentNode.ParentNode.GetValue(colten).ToString() +
+                            " - " + e.Node.ParentNode.GetValue(colten).ToString() + " - " + e.Node.GetValue(colten).ToString();
+                        popupContainerEditViTri.ClosePopup();
+                    }
+                }
+                else if (e.Node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
+                {
+                    popupContainerEditViTri.Text = e.Node.GetValue(colten).ToString();
+                    popupContainerEditViTri.ClosePopup();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->treeListViTri_FocusedNodeChanged: " + ex.Message);
+            }
         }
     }
 }

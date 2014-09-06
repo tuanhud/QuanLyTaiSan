@@ -16,7 +16,7 @@
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <uc:ucLoaiThietBi_BreadCrumb runat="server" ID="ucLoaiThietBi_BreadCrumb" />
-    <table class="table" style="border-top: white solid 2px">
+    <table class="table largetable">
         <tr>
             <td style="width: 300px">
                 <div class="panel panel-primary">

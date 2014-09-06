@@ -3,7 +3,7 @@
 <%@ Register Src="~/UserControl/SuCo/ucSuCo_Mobile.ascx" TagPrefix="uc" TagName="ucSuCo_Mobile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Sự cố</title>
+    <title>.: Sự cố :: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel-body">

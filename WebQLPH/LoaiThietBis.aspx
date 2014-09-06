@@ -4,7 +4,7 @@
 <%@ Register Src="~/UserControl/LoaiThietBi/ucLoaiThietBi_Mobile.ascx" TagPrefix="uc1" TagName="ucLoaiThietBi_Mobile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Loại thiết bị</title>
+    <title>.: Loại thiết bị :: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="panel-body">

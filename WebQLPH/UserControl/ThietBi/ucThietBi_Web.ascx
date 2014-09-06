@@ -18,15 +18,9 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <table class="table">
-        <thead>
-            <tr>
-                <td colspan="3">
-                    <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
-                </td>
-            </tr>
-        </thead>
-        <tbody style="border-top: white solid 2px">
+    <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
+    <table class="table largetable">
+        <tbody>
             <tr>
                 <td style="width: 200px">
                     <div class="panel panel-primary">

@@ -20,10 +20,9 @@ namespace TSCD_GUI.QLViTri
     {
 
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
-        List<ViTriHienThi> listViTriCoSo = new List<ViTriHienThi>();
-        List<ViTriHienThi> listViTriDay = new List<ViTriHienThi>();
-
-        ucComboBoxViTri _ucComboBoxViTri = new ucComboBoxViTri();
+        TextEdit txt = new TextEdit();
+        ucComboBoxViTri _ucComboBoxCoSo = new ucComboBoxViTri();
+        ucComboBoxViTri _ucComboBoxDay = new ucComboBoxViTri();
 
         CoSo objCoSo = new CoSo();
         Dayy objDay = new Dayy();
@@ -42,17 +41,19 @@ namespace TSCD_GUI.QLViTri
         private void init()
         {
             rbnControlViTri.Parent = null;
-            _ucComboBoxViTri.Dock = DockStyle.Fill;
-            panelControlViTri.Controls.Add(_ucComboBoxViTri);
+            _ucComboBoxCoSo.Dock = DockStyle.Fill;
+            _ucComboBoxDay.Dock = DockStyle.Fill;
+            txt.Properties.ReadOnly = true;
+            txt.Text = "[Đại học Sài Gòn]";
+            txt.Dock = DockStyle.Fill;
         }
 
         public void loadData()
         {
             try
             {
-                listViTriCoSo = ViTriHienThi.getAllCoSo();
-                listViTriDay = ViTriHienThi.getAllHaveDay();
-                _ucComboBoxViTri.loadData(listViTriDay);
+                _ucComboBoxCoSo.loadData(ViTriHienThi.getAllCoSo());
+                _ucComboBoxDay.loadData(ViTriHienThi.getAllHaveDay(), true, false);
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
@@ -78,7 +79,6 @@ namespace TSCD_GUI.QLViTri
                 if (_function.Equals("view"))
                 {
                     enableEdit(false);
-                    _ucComboBoxViTri.init(false, false);
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Chi tiết cơ sở", Color.Empty);
@@ -88,6 +88,7 @@ namespace TSCD_GUI.QLViTri
                         barBtnThemDay.Enabled = true;
                         enableTangButton(false);
                         barBtnThemTang.Enabled = false;
+                        setPanelControlViTri(typeof(CoSo).Name);
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
@@ -98,6 +99,7 @@ namespace TSCD_GUI.QLViTri
                         barBtnThemDay.Enabled = true;
                         enableTangButton(false);
                         barBtnThemTang.Enabled = true;
+                        setPanelControlViTri(typeof(Dayy).Name);
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
@@ -108,6 +110,7 @@ namespace TSCD_GUI.QLViTri
                         barBtnThemDay.Enabled = true;
                         enableTangButton(true);
                         barBtnThemTang.Enabled = true;
+                        setPanelControlViTri(typeof(Tang).Name);
                     }
                 }
                 else if (_function.Equals("add"))
@@ -124,12 +127,12 @@ namespace TSCD_GUI.QLViTri
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Thêm cơ sở", Color.Red);
-                        _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
-                        _ucComboBoxViTri.setReadOnly(true);
+                        setPanelControlViTri(typeof(CoSo).Name);
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
                         SetTextGroupControl("Thêm dãy", Color.Red);
+                        setPanelControlViTri(typeof(Dayy).Name);
                         ViTri obj = new ViTri();
                         if (node.Equals(typeof(CoSo).Name))
                         {
@@ -143,12 +146,12 @@ namespace TSCD_GUI.QLViTri
                         {
                             obj.coso = objTang.day.coso;
                         }
-                        _ucComboBoxViTri.loadData(listViTriCoSo);
-                        _ucComboBoxViTri.setViTri(obj);
+                        _ucComboBoxCoSo.setViTri(obj);
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
                         SetTextGroupControl("Thêm tầng", Color.Red);
+                        setPanelControlViTri(typeof(Tang).Name);
                         ViTri obj = new ViTri();
                         if (node.Equals(typeof(Dayy).Name))
                         {
@@ -160,8 +163,7 @@ namespace TSCD_GUI.QLViTri
                             obj.day = objTang.day;
                             obj.coso = objTang.day.coso;
                         }
-                        _ucComboBoxViTri.loadData(listViTriDay, true, false);
-                        _ucComboBoxViTri.setViTri(obj);
+                        _ucComboBoxDay.setViTri(obj);
                     }
                 }
                 else if (_function.Equals("edit"))
@@ -177,18 +179,14 @@ namespace TSCD_GUI.QLViTri
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Sửa cơ sở", Color.Red);
-                        _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
-                        _ucComboBoxViTri.setReadOnly(true);
                     }
                     else if (_type.Equals(typeof(Dayy).Name))
                     {
                         SetTextGroupControl("Sửa dãy", Color.Red);
-                        _ucComboBoxViTri.loadData(listViTriCoSo);
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
                         SetTextGroupControl("Sửa tầng", Color.Red);
-                        _ucComboBoxViTri.loadData(listViTriDay, true, false);
                     }
                 }
                 else if (_function.Equals("nothing"))
@@ -204,7 +202,6 @@ namespace TSCD_GUI.QLViTri
                     barBtnThemDay.Enabled = false;
                     enableTangButton(false);
                     barBtnThemTang.Enabled = false;
-                    _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
                     clearText();
                 }
                 function = _function;
@@ -213,6 +210,37 @@ namespace TSCD_GUI.QLViTri
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->editGUI:" + ex.Message);
+            }
+        }
+
+        private void setPanelControlViTri(String type)
+        {
+            if (type.Equals(typeof(CoSo).Name))
+            {
+                if (panelControlViTri.Controls.Count == 0
+                    || (panelControlViTri.Controls.Count > 0 && !panelControlViTri.Controls[0].Equals(txt)))
+                {
+                    panelControlViTri.Controls.Clear();
+                    panelControlViTri.Controls.Add(txt);
+                }
+            }
+            else if (type.Equals(typeof(Dayy).Name))
+            {
+                if (panelControlViTri.Controls.Count == 0
+                    || (panelControlViTri.Controls.Count > 0 && !panelControlViTri.Controls[0].Equals(_ucComboBoxCoSo)))
+                {
+                    panelControlViTri.Controls.Clear();
+                    panelControlViTri.Controls.Add(_ucComboBoxCoSo);
+                }
+            }
+            else if (type.Equals(typeof(Tang).Name))
+            {
+                if (panelControlViTri.Controls.Count == 0
+                    || (panelControlViTri.Controls.Count > 0 && !panelControlViTri.Controls[0].Equals(_ucComboBoxDay)))
+                {
+                    panelControlViTri.Controls.Clear();
+                    panelControlViTri.Controls.Add(_ucComboBoxDay);
+                }
             }
         }
 
@@ -228,7 +256,8 @@ namespace TSCD_GUI.QLViTri
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            _ucComboBoxViTri.setReadOnly(!_enable);
+            _ucComboBoxCoSo.setReadOnly(!_enable);
+            _ucComboBoxDay.setReadOnly(!_enable);
             enableRightButton(!_enable);
             btnThem_r.Enabled = !_enable;
             working = _enable;
@@ -264,7 +293,7 @@ namespace TSCD_GUI.QLViTri
         {
             txtTen.Text = "";
             txtMoTa.Text = "";
-            _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
+            setPanelControlViTri(typeof(CoSo).Name);
         }
 
 
@@ -284,7 +313,6 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objCoSo.ten;
                             txtMoTa.Text = objCoSo.mota;
                             node = typeof(CoSo).Name;
-                            _ucComboBoxViTri.setText("[Đại học Sài Gòn]");
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
                         {
@@ -293,7 +321,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objDay.ten;
                             txtMoTa.Text = objDay.mota;
                             node = typeof(Dayy).Name;
-                            _ucComboBoxViTri.setViTri(ViTri.request(objDay.coso, null, null));
+                            _ucComboBoxCoSo.setViTri(ViTri.request(objDay.coso, null, null));
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                         {
@@ -302,7 +330,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objTang.ten;
                             txtMoTa.Text = objTang.mota;
                             node = typeof(Tang).Name;
-                            _ucComboBoxViTri.setViTri(ViTri.request(null, objTang.day, null));
+                            _ucComboBoxDay.setViTri(ViTri.request(null, objTang.day, null));
                         }
                     }
                     else
@@ -360,7 +388,7 @@ namespace TSCD_GUI.QLViTri
                     case "Dayy":
                         objDay.ten = txtTen.Text;
                         objDay.mota = txtMoTa.Text;
-                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxCoSo.getViTri();
                         objDay.coso = _vitri.coso;
                         if (objDay.update() > 0 && DBInstance.commit() > 0)
                         {
@@ -375,7 +403,7 @@ namespace TSCD_GUI.QLViTri
                     case "Tang":
                         objTang.ten = txtTen.Text;
                         objTang.mota = txtMoTa.Text;
-                        ViTri _vitri2 = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri2 = _ucComboBoxDay.getViTri();
                         objTang.day = _vitri2.day;
                         if (objTang.update() > 0 && DBInstance.commit() > 0)
                         {
@@ -419,7 +447,7 @@ namespace TSCD_GUI.QLViTri
                         Dayy objDayNew = new Dayy();
                         objDayNew.ten = txtTen.Text;
                         objDayNew.mota = txtMoTa.Text;
-                        ViTri _vitri = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri = _ucComboBoxCoSo.getViTri();
                         objDayNew.coso = _vitri.coso;
                         if (objDayNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -435,7 +463,7 @@ namespace TSCD_GUI.QLViTri
                         Tang objTangNew = new Tang();
                         objTangNew.ten = txtTen.Text;
                         objTangNew.mota = txtMoTa.Text;
-                        ViTri _vitri2 = _ucComboBoxViTri.getViTri();
+                        ViTri _vitri2 = _ucComboBoxDay.getViTri();
                         objTangNew.day = _vitri2.day;
                         if (objTangNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -545,7 +573,6 @@ namespace TSCD_GUI.QLViTri
         private void btnHuy_Click(object sender, EventArgs e)
         {
             dxErrorProviderInfo.ClearErrors();
-            _ucComboBoxViTri.loadData(listViTriDay);
             setDataView();
         }
 
