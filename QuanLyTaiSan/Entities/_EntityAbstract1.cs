@@ -412,19 +412,19 @@ namespace QuanLyTaiSan.Entities
                 //quocdunginfo fail .niceName()
                 //Gay loi validation ERROR
 
-                //if (action_name.Equals("delete"))
-                //{
-                //    T tmp = db.Set<T>().AsNoTracking().Where(c => c.id == this.id).FirstOrDefault();
-                //    if (tmp != null)
-                //    {
-                //        re.Add("obj", tmp.niceName());
-                //        tmp = null;
-                //    }
-                //}
-                //else
-                //{
-                //    re.Add("obj", this.niceName());
-                //}
+                if (action_name.Equals("delete"))
+                {
+                    T tmp = db.Set<T>().AsNoTracking().Where(c => c.id == this.id).FirstOrDefault();
+                    if (tmp != null)
+                    {
+                        re.Add("obj", tmp.niceName());
+                        tmp = null;
+                    }
+                }
+                else
+                {
+                    re.Add("obj", this.niceName());
+                }
 
                 return re;
             }
