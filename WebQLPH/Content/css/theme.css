@@ -1,7 +1,21 @@
 ﻿body {
   padding-top: 70px;
   padding-bottom: 30px;
-  background: #eff7fc url(Images/bg-wall.png) repeat-x top left !important;
+}
+
+.logo {
+    margin-top: -15px;
+}
+
+.masterbody {
+    background: #eff7fc url(Images/bg-wall.png) repeat-x top left !important;
+}
+.popupmasterbody {
+    background-color: transparent;
+    padding:initial;
+}
+.popupmasterbody .largetable {
+    border-top: transparent solid 2px !important;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -124,4 +138,15 @@
     border-radius: 6px;
     background-clip: padding-box;
     outline: none;
+}
+
+.largetable {
+    border-top: white solid 2px;
+    border-color: #bce8f1 !important;
+    border-top-color: white !important;
+    border-radius: 6px !important;
+}
+
+.color_white {
+    color: white !important;
 }

@@ -2,7 +2,7 @@
 
 <%@ Register Src="~/UserControl/ucDangNhap.ascx" TagPrefix="uc1" TagName="ucDangNhap" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Thông tin cá nhân</title>
+    <title>.: Thông tin cá nhân :: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="PanelDangNhap" runat="server" Visible="False">

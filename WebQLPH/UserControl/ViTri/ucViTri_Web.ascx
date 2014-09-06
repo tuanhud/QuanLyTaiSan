@@ -14,7 +14,7 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <table class="table" style="border-top: white solid 2px">
+    <table class="table largetable">
         <tbody>
             <tr>
                 <td style="width: 300px">

@@ -24,7 +24,7 @@
         }
     </script>
     <uc:ucSuCo_BreadCrumb runat="server" ID="ucSuCo_BreadCrumb" />
-    <table class="table" style="border-top: white solid 2px">
+    <table class="table largetable">
         <tr>
             <td style="width: 200px">
                 <div class="panel panel-primary">
