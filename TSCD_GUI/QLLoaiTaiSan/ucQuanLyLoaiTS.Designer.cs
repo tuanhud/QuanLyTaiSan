@@ -174,8 +174,6 @@
             this.treeListLoaiTS.Location = new System.Drawing.Point(0, 0);
             this.treeListLoaiTS.Name = "treeListLoaiTS";
             this.treeListLoaiTS.OptionsBehavior.Editable = false;
-            this.treeListLoaiTS.OptionsBehavior.ReadOnly = true;
-            this.treeListLoaiTS.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
             this.treeListLoaiTS.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTS.OptionsView.ShowAutoFilterRow = true;
             this.treeListLoaiTS.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;

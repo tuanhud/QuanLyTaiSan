@@ -61,8 +61,6 @@
             this.treeListLookUpDonViTreeList.Name = "treeListLookUpDonViTreeList";
             this.treeListLookUpDonViTreeList.OptionsBehavior.Editable = false;
             this.treeListLookUpDonViTreeList.OptionsBehavior.EnableFiltering = true;
-            this.treeListLookUpDonViTreeList.OptionsBehavior.ReadOnly = true;
-            this.treeListLookUpDonViTreeList.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
             this.treeListLookUpDonViTreeList.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLookUpDonViTreeList.OptionsView.ShowAutoFilterRow = true;
             this.treeListLookUpDonViTreeList.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
@@ -70,6 +68,7 @@
             this.treeListLookUpDonViTreeList.ParentFieldName = "parent_id";
             this.treeListLookUpDonViTreeList.Size = new System.Drawing.Size(400, 200);
             this.treeListLookUpDonViTreeList.TabIndex = 0;
+            this.treeListLookUpDonViTreeList.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colid
             // 

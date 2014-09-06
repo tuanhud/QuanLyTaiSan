@@ -21,41 +21,83 @@ namespace TSCD_GUI.MyUserControl
             InitializeComponent();
         }
 
-        public void loadData(List<DonVi> listDonVi, List<LoaiDonVi> listLoaiDonVi)
+        public object DataSource
         {
-            //repositoryLookUpLoai.DataSource = listLoaiDonVi;
-            treeListLookUpDonVi.Properties.DataSource = listDonVi;
+            set
+            {
+                treeListLookUpDonVi.Properties.DataSource = value;
+            }
         }
 
-        public DonVi getDonVi()
+        public DonVi DonVi
+        {
+            get
+            {
+                try
+                {
+                    return DonVi.getById(GUID.From(treeListLookUpDonVi.EditValue));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->getDonVi: " + ex.Message);
+                    return null;
+                }
+            }
+            set
+            {
+                try
+                {
+                    if (value != null)
+                        treeListLookUpDonVi.EditValue = value.id;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->setDonVi: " + ex.Message);
+                }
+            }
+        }
+
+        public bool ReadOnly
+        {
+            set
+            {
+                treeListLookUpDonVi.Properties.ReadOnly = value;
+            }
+        }
+
+        private String getValue(String s)
         {
             try
             {
-                return DonVi.getById(GUID.From(treeListLookUpDonVi.EditValue));
+                if (!String.IsNullOrEmpty(s))
+                    return s.Split(new char[] { '\'' })[1];
+                else
+                    return "";
             }
-            catch (Exception ex)
+            catch
             {
-                Debug.WriteLine(this.Name + "->getDonVi: " + ex.Message);
-                return null;
+                return "";
             }
         }
 
-        public void setDonVi(DonVi obj)
+        private void OnFilterNode(object sender, DevExpress.XtraTreeList.FilterNodeEventArgs e)
         {
-            try
-            {
-                if (obj != null)
-                    treeListLookUpDonVi.EditValue = obj.id;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->setDonVi: " + ex.Message);
-            }
+            //List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>().ToList();
+            //if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(getValue(treeListLookUpDonViTreeList.FilterPanelText))) return;
+            e.Handled = true;
+            //e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Visible = IsNodeMatchFilter(e.Node, colten);
+            e.Node.Expanded = e.Node.Visible;
         }
 
-        public void setReadOnly(bool b)
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
         {
-            treeListLookUpDonVi.Properties.ReadOnly = b;
+            string filterValue = getValue(treeListLookUpDonViTreeList.FilterPanelText);
+            if (StringHelper.CoDauThanhKhongDau(node.GetDisplayText(column).ToUpper()).Contains(StringHelper.CoDauThanhKhongDau(filterValue.ToUpper()))) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
         }
     }
 }

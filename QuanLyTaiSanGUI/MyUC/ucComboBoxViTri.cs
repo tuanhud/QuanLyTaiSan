@@ -232,20 +232,23 @@ namespace QuanLyTaiSanGUI.MyUC
         {
             try
             {
-                TreeListNode node = treeListLookUpViTriTreeList.FocusedNode;
-                if (chonDay)
+                if (treeListLookUpViTriTreeList.FocusedNode != null)
                 {
-                    if (node != null && node.GetValue(colloai) != null && node.GetValue(colloai).Equals(typeof(Dayy).Name))
-                    { }
-                    else
-                        e.Cancel = true;
-                }
-                else if (chonPhong)
-                {
-                    if (node != null && node.GetValue(colloai) != null && node.GetValue(colloai).Equals(typeof(Phong).Name))
-                    { }
-                    else
-                        e.Cancel = true;
+                    TreeListNode node = treeListLookUpViTriTreeList.FocusedNode;
+                    if (chonDay)
+                    {
+                        if (node.GetValue(colloai) != null && node.GetValue(colloai).Equals(typeof(Dayy).Name))
+                        { }
+                        else
+                            e.Cancel = true;
+                    }
+                    else if (chonPhong)
+                    {
+                        if (node.GetValue(colloai) != null && node.GetValue(colloai).Equals(typeof(Phong).Name))
+                        { }
+                        else
+                            e.Cancel = true;
+                    }
                 }
             }
             catch (Exception ex)

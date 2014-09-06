@@ -37,96 +37,106 @@ namespace TSCD_GUI.MyUserControl
             chonPhong = _chonPhong;
         }
 
-        public void loadData(List<ViTriHienThi> _list)
+        public object DataSource
         {
-            treeListLookUpViTri.Properties.DataSource = _list;
+            set
+            {
+                treeListLookUpViTri.Properties.DataSource = value;
+            }
         }
 
-        public ViTri getViTri()
+        public ViTri ViTri
         {
-            try
+            get
             {
-                TreeListNode node = treeListLookUpViTriTreeList.FindNodeByKeyID(treeListLookUpViTri.EditValue);
-                if (node != null)
+                try
                 {
-                    if (node.GetValue(colloai).Equals(typeof(CoSo).Name))
+                    TreeListNode node = treeListLookUpViTriTreeList.FindNodeByKeyID(treeListLookUpViTri.EditValue);
+                    if (node != null)
                     {
-                        CoSo obj = CoSo.getById(GUID.From(treeListLookUpViTri.EditValue));
-                        if (obj != null)
-                            return ViTri.request(obj, null, null);
+                        if (node.GetValue(colloai).Equals(typeof(CoSo).Name))
+                        {
+                            CoSo obj = CoSo.getById(GUID.From(treeListLookUpViTri.EditValue));
+                            if (obj != null)
+                                return ViTri.request(obj, null, null);
+                        }
+                        else if (node.GetValue(colloai).Equals(typeof(Dayy).Name))
+                        {
+                            Dayy obj = Dayy.getById(GUID.From(treeListLookUpViTri.EditValue));
+                            if (obj != null)
+                                return ViTri.request(null, obj, null);
+                        }
+                        else if (node.GetValue(colloai).Equals(typeof(Tang).Name))
+                        {
+                            Tang obj = Tang.getById(GUID.From(treeListLookUpViTri.EditValue));
+                            if (obj != null)
+                                return ViTri.request(null, null, obj);
+                        }
                     }
-                    else if (node.GetValue(colloai).Equals(typeof(Dayy).Name))
-                    {
-                        Dayy obj = Dayy.getById(GUID.From(treeListLookUpViTri.EditValue));
-                        if (obj != null)
-                            return ViTri.request(null, obj, null);
-                    }
-                    else if (node.GetValue(colloai).Equals(typeof(Tang).Name))
-                    {
-                        Tang obj = Tang.getById(GUID.From(treeListLookUpViTri.EditValue));
-                        if (obj != null)
-                            return ViTri.request(null, null, obj);
-                    }
+                    return null;
                 }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->getViTri: " + ex.Message);
-                return null;
-            }
-        }
-
-        public Phong getPhong()
-        {
-            try
-            {
-                return Phong.getById(GUID.From(treeListLookUpViTri.EditValue));
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->getPhong: " + ex.Message);
-                return null;
-            }
-        }
-
-        public void setPhong(Phong obj)
-        {
-            try
-            {
-                if (obj != null && !obj.id.Equals(Guid.Empty))
+                catch (Exception ex)
                 {
-                    treeListLookUpViTri.EditValue = obj.id;
+                    Debug.WriteLine(this.Name + "->getViTri: " + ex.Message);
+                    return null;
                 }
             }
-            catch (Exception ex)
+            set
             {
-                Debug.WriteLine(this.Name + "->setPhong: " + ex.Message);
-            }
-        }
-
-        public void setReadOnly(bool b)
-        {
-            treeListLookUpViTri.Properties.ReadOnly = b;
-        }
-
-        public void setViTri(ViTri obj)
-        {
-            try
-            {
-                if (obj != null)
+                try
                 {
-                    if (obj.tang != null && obj.tang.id != Guid.Empty)
-                        treeListLookUpViTri.EditValue = obj.tang.id;
-                    else if (obj.day != null && obj.day.id != Guid.Empty)
-                        treeListLookUpViTri.EditValue = obj.day.id;
-                    else if (obj.coso != null && obj.coso.id != Guid.Empty)
-                        treeListLookUpViTri.EditValue = obj.coso.id;
+                    if (value != null)
+                    {
+                        if (value.tang != null && value.tang.id != Guid.Empty)
+                            treeListLookUpViTri.EditValue = value.tang.id;
+                        else if (value.day != null && value.day.id != Guid.Empty)
+                            treeListLookUpViTri.EditValue = value.day.id;
+                        else if (value.coso != null && value.coso.id != Guid.Empty)
+                            treeListLookUpViTri.EditValue = value.coso.id;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->setViTri: " + ex.Message);
                 }
             }
-            catch (Exception ex)
+        }
+
+        public Phong Phong
+        {
+            get
             {
-                Debug.WriteLine(this.Name + "->setViTri: " + ex.Message);
+                try
+                {
+                    return Phong.getById(GUID.From(treeListLookUpViTri.EditValue));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->getPhong: " + ex.Message);
+                    return null;
+                }
+            }
+            set
+            {
+                try
+                {
+                    if (value != null && !value.id.Equals(Guid.Empty))
+                    {
+                        treeListLookUpViTri.EditValue = value.id;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->setPhong: " + ex.Message);
+                }
+            }
+        }
+
+        public bool ReadOnly
+        {
+            set
+            {
+                treeListLookUpViTri.Properties.ReadOnly = value;
             }
         }
 
@@ -193,6 +203,41 @@ namespace TSCD_GUI.MyUserControl
             {
                 Debug.WriteLine(this.Name + "->treeListLookUpViTri_QueryCloseUp: " + ex.Message);
             }
+        }
+
+        private String getValue(String s)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(s))
+                    return s.Split(new char[] { '\'' })[1];
+                else
+                    return "";
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        private void OnFilterNode(object sender, DevExpress.XtraTreeList.FilterNodeEventArgs e)
+        {
+            //List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>().ToList();
+            //if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(getValue(treeListLookUpViTriTreeList.FilterPanelText))) return;
+            e.Handled = true;
+            //e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Visible = IsNodeMatchFilter(e.Node, colten);
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = getValue(treeListLookUpViTriTreeList.FilterPanelText);
+            if (StringHelper.CoDauThanhKhongDau(node.GetDisplayText(column).ToUpper()).Contains(StringHelper.CoDauThanhKhongDau(filterValue.ToUpper()))) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
         }
     }
 }

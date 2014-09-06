@@ -52,8 +52,8 @@ namespace TSCD_GUI.QLViTri
         {
             try
             {
-                _ucComboBoxCoSo.loadData(ViTriHienThi.getAllCoSo());
-                _ucComboBoxDay.loadData(ViTriHienThi.getAllHaveDay());
+                _ucComboBoxCoSo.DataSource = ViTriHienThi.getAllCoSo();
+                _ucComboBoxDay.DataSource = ViTriHienThi.getAllHaveDay();
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
@@ -146,7 +146,7 @@ namespace TSCD_GUI.QLViTri
                         {
                             obj.coso = objTang.day.coso;
                         }
-                        _ucComboBoxCoSo.setViTri(obj);
+                        _ucComboBoxCoSo.ViTri=obj;
                     }
                     else if (_type.Equals(typeof(Tang).Name))
                     {
@@ -163,7 +163,7 @@ namespace TSCD_GUI.QLViTri
                             obj.day = objTang.day;
                             obj.coso = objTang.day.coso;
                         }
-                        _ucComboBoxDay.setViTri(obj);
+                        _ucComboBoxDay.ViTri = obj;
                     }
                 }
                 else if (_function.Equals("edit"))
@@ -256,8 +256,8 @@ namespace TSCD_GUI.QLViTri
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            _ucComboBoxCoSo.setReadOnly(!_enable);
-            _ucComboBoxDay.setReadOnly(!_enable);
+            _ucComboBoxCoSo.ReadOnly = !_enable;
+            _ucComboBoxDay.ReadOnly = !_enable;
             enableRightButton(!_enable);
             btnThem_r.Enabled = !_enable;
             working = _enable;
@@ -321,7 +321,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objDay.ten;
                             txtMoTa.Text = objDay.mota;
                             node = typeof(Dayy).Name;
-                            _ucComboBoxCoSo.setViTri(ViTri.request(objDay.coso, null, null));
+                            _ucComboBoxCoSo.ViTri = ViTri.request(objDay.coso, null, null);
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                         {
@@ -330,7 +330,7 @@ namespace TSCD_GUI.QLViTri
                             txtTen.Text = objTang.ten;
                             txtMoTa.Text = objTang.mota;
                             node = typeof(Tang).Name;
-                            _ucComboBoxDay.setViTri(ViTri.request(null, objTang.day, null));
+                            _ucComboBoxDay.ViTri = ViTri.request(null, objTang.day, null);
                         }
                     }
                     else
@@ -388,7 +388,7 @@ namespace TSCD_GUI.QLViTri
                     case "Dayy":
                         objDay.ten = txtTen.Text;
                         objDay.mota = txtMoTa.Text;
-                        ViTri _vitri = _ucComboBoxCoSo.getViTri();
+                        ViTri _vitri = _ucComboBoxCoSo.ViTri;
                         objDay.coso = _vitri.coso;
                         if (objDay.update() > 0 && DBInstance.commit() > 0)
                         {
@@ -403,7 +403,7 @@ namespace TSCD_GUI.QLViTri
                     case "Tang":
                         objTang.ten = txtTen.Text;
                         objTang.mota = txtMoTa.Text;
-                        ViTri _vitri2 = _ucComboBoxDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxDay.ViTri;
                         objTang.day = _vitri2.day;
                         if (objTang.update() > 0 && DBInstance.commit() > 0)
                         {
@@ -447,7 +447,7 @@ namespace TSCD_GUI.QLViTri
                         Dayy objDayNew = new Dayy();
                         objDayNew.ten = txtTen.Text;
                         objDayNew.mota = txtMoTa.Text;
-                        ViTri _vitri = _ucComboBoxCoSo.getViTri();
+                        ViTri _vitri = _ucComboBoxCoSo.ViTri;
                         objDayNew.coso = _vitri.coso;
                         if (objDayNew.add() > 0 && DBInstance.commit() > 0)
                         {
@@ -463,7 +463,7 @@ namespace TSCD_GUI.QLViTri
                         Tang objTangNew = new Tang();
                         objTangNew.ten = txtTen.Text;
                         objTangNew.mota = txtMoTa.Text;
-                        ViTri _vitri2 = _ucComboBoxDay.getViTri();
+                        ViTri _vitri2 = _ucComboBoxDay.ViTri;
                         objTangNew.day = _vitri2.day;
                         if (objTangNew.add() > 0 && DBInstance.commit() > 0)
                         {

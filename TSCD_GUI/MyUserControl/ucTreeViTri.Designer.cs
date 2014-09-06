@@ -47,7 +47,6 @@
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
-            this.treeListViTri.OptionsBehavior.ReadOnly = true;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsFind.ShowFindButton = false;

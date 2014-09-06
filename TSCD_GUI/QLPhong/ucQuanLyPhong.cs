@@ -53,7 +53,7 @@ namespace TSCD_GUI.QLPhong
             List<ViTriHienThi> listVitri = ViTriHienThi.getAll();
             List<ViTriHienThi> listVitri2 = new List<ViTriHienThi>(listVitri);
             _ucTreeViTri.loadData(listVitri);
-            _ucComboBoxViTri.loadData(listVitri2);
+            _ucComboBoxViTri.DataSource = listVitri2;
             loadLoaiPhong();
             _ViTriHienTai = _ucTreeViTri.getVitri();
             listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
@@ -132,7 +132,7 @@ namespace TSCD_GUI.QLPhong
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            _ucComboBoxViTri.setReadOnly(!_enable);
+            _ucComboBoxViTri.ReadOnly = !_enable;
             gridLookUpLoai.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnThem_r.Enabled = !_enable;
@@ -169,7 +169,7 @@ namespace TSCD_GUI.QLPhong
                         txtTen.Text = objPhong.ten;
                         txtMoTa.Text = objPhong.mota;
                         gridLookUpLoai.EditValue = objPhong.loaiphong_id;
-                        _ucComboBoxViTri.setViTri(objPhong.vitri);
+                        _ucComboBoxViTri.ViTri = objPhong.vitri;
                     }
                     else
                     {
@@ -196,7 +196,7 @@ namespace TSCD_GUI.QLPhong
             {
                 objPhong.ten = txtTen.Text;
                 objPhong.mota = txtMoTa.Text;
-                objPhong.vitri = _ucComboBoxViTri.getViTri();
+                objPhong.vitri = _ucComboBoxViTri.ViTri;
                 LoaiPhong obj = gridLookUpLoai.EditValue != null ? LoaiPhong.getById(GUID.From(gridLookUpLoai.EditValue)) : null;
                 objPhong.loaiphong = (obj != null && obj.id != Guid.Empty) ? obj : null;
             }

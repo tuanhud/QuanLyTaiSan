@@ -51,7 +51,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
                 LoaiTaiSanNULL.parent = null;
                 List<LoaiTaiSan> listLoaiTaiSanParent = new List<LoaiTaiSan>(listLoaiTaiSan);
                 listLoaiTaiSanParent.Insert(0, LoaiTaiSanNULL);
-                _ucComboBoxLoaiTS.loadData(listLoaiTaiSanParent);
+                _ucComboBoxLoaiTS.DataSource = listLoaiTaiSanParent;
                 if (listLoaiTaiSan.Count == 0)
                 {
                     enableButton(false);
@@ -108,7 +108,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
             checkHuuHinh.Properties.ReadOnly = !_enable;
-            _ucComboBoxLoaiTS.setReadOnly(!_enable);
+            _ucComboBoxLoaiTS.ReadOnly = !_enable;
             gridLookUpDonVi.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnThem_r.Enabled = !_enable;
@@ -127,7 +127,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
             txtMa.Text = "";
             txtTen.Text = "";
             txtMoTa.Text = "";
-            _ucComboBoxLoaiTS.setLoaiTS(new LoaiTaiSan());
+            _ucComboBoxLoaiTS.LoaiTS = new LoaiTaiSan();
             gridLookUpDonVi.EditValue = null;
         }
         private void setDataView()
@@ -149,7 +149,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
                             txtMoTa.Text = objLoaiTaiSan.mota;
                             checkHuuHinh.Checked = objLoaiTaiSan.huuhinh;
                             gridLookUpDonVi.EditValue = objLoaiTaiSan.donvitinh != null ? objLoaiTaiSan.donvitinh.id : Guid.Empty;
-                            _ucComboBoxLoaiTS.setLoaiTS(objLoaiTaiSan.parent != null ? objLoaiTaiSan.parent : new LoaiTaiSan());
+                            _ucComboBoxLoaiTS.LoaiTS = objLoaiTaiSan.parent != null ? objLoaiTaiSan.parent : new LoaiTaiSan();
                         }
                         else
                         {
@@ -185,7 +185,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
                 objLoaiTaiSan.huuhinh = checkHuuHinh.Checked;
                 DonViTinh objDonVi = gridLookUpDonVi.EditValue != null ? DonViTinh.getById(GUID.From(gridLookUpDonVi.EditValue)) : null;
                 objLoaiTaiSan.donvitinh = (objDonVi != null && objDonVi.id != Guid.Empty) ? objDonVi : null;
-                LoaiTaiSan objParent = _ucComboBoxLoaiTS.getLoaiTS();
+                LoaiTaiSan objParent = _ucComboBoxLoaiTS.LoaiTS;
                 objLoaiTaiSan.parent = (objParent != null && objParent.id != Guid.Empty) ? objParent : null;
             }
             catch (Exception ex)

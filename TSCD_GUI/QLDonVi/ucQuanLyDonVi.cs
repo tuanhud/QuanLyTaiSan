@@ -46,7 +46,7 @@ namespace TSCD_GUI.QLDonVi
                 DonViNULL.parent = null;
                 List<DonVi> listDonViParent = new List<DonVi>(listDonVi);
                 listDonViParent.Insert(0, DonViNULL);
-                _ucComboBoxDonVi.loadData(listDonViParent, listLoaiDonVi);
+                _ucComboBoxDonVi.DataSource = listDonViParent;
                 if (listDonVi.Count == 0)
                 {
                     enableButton(false);
@@ -104,7 +104,7 @@ namespace TSCD_GUI.QLDonVi
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            _ucComboBoxDonVi.setReadOnly(!_enable);
+            _ucComboBoxDonVi.ReadOnly = !_enable;
             gridLookUpLoai.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnThem_r.Enabled = !_enable;
@@ -123,7 +123,7 @@ namespace TSCD_GUI.QLDonVi
             txtMa.Text = "";
             txtTen.Text = "";
             txtMoTa.Text = "";
-            _ucComboBoxDonVi.setDonVi(new DonVi());
+            _ucComboBoxDonVi.DonVi = new DonVi();
             gridLookUpLoai.EditValue = null;
         }
         private void setDataView()
@@ -145,9 +145,9 @@ namespace TSCD_GUI.QLDonVi
                             txtMoTa.Text = objDonVi.mota;
                             gridLookUpLoai.EditValue = objDonVi.loaidonvi != null ? objDonVi.loaidonvi.id : Guid.Empty;
                             if (objDonVi.parent != null)
-                                _ucComboBoxDonVi.setDonVi(objDonVi.parent);
+                                _ucComboBoxDonVi.DonVi = objDonVi.parent;
                             else
-                                _ucComboBoxDonVi.setDonVi(new DonVi());
+                                _ucComboBoxDonVi.DonVi = new DonVi();
                         }
                         else
                         {
@@ -181,7 +181,7 @@ namespace TSCD_GUI.QLDonVi
                 objDonVi.ten = txtTen.Text;
                 objDonVi.mota = txtMoTa.Text;
                 objDonVi.loaidonvi = gridLookUpLoai.EditValue != null ? LoaiDonVi.getById(GUID.From(gridLookUpLoai.EditValue)) : null;
-                DonVi objParent = _ucComboBoxDonVi.getDonVi();
+                DonVi objParent = _ucComboBoxDonVi.DonVi;
                 objDonVi.parent = (objParent != null && objParent.id != Guid.Empty) ? objParent : null;
             }
             catch (Exception ex)
@@ -216,7 +216,7 @@ namespace TSCD_GUI.QLDonVi
                     check = false;
                     dxErrorProviderInfo.SetError(gridLookUpLoai, "Chưa chọn loại đơn vị");
                 }
-                if (function.Equals("edit") && objDonVi.Equals(_ucComboBoxDonVi.getDonVi()))
+                if (function.Equals("edit") && objDonVi.Equals(_ucComboBoxDonVi.DonVi))
                 {
                     check = false;
                     XtraMessageBox.Show("Đơn vị không thể thuộc chính nó");
