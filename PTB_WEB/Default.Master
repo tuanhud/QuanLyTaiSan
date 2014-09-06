@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="PTB_WEB.Default" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
+    <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
+    <%--<link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="Content/css/docs.min.css" rel="stylesheet" />
+    <link href="Content/css/theme.css" rel="stylesheet" />
+    <link href="Content/css/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/css/bootstrap-datetimepicker.css" />
+    <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <script src="Scripts/myjs.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body role="document" class="masterbody">
+    <form runat="server" class="form-horizontal" role="form">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="Default.aspx">
+                        <img src="Images/ptb.png" alt="Phòng Thiết bị" class="logo" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown <%ParentClassActive("QuanLyPhong");%>">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quản lý phòng <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li <%if (page.Equals("VITRI")) Response.Write("class=\"active\""); %>><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Vị trí</a></li>
+                                <li <%if (page.Equals("PHONG")) Response.Write("class=\"active\""); %>><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>
+                                <li <%if (page.Equals("PHONGTHIETBI")) Response.Write("class=\"active\""); %>><a href="PhongThietBi.aspx"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Phòng - Thiết bị</a></li>
+                                <li <%if (page.Equals("THIETBI")) Response.Write("class=\"active\""); %>><a href="ThietBis.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Thiết bị</a></li>
+                                <li <%if (page.Equals("LOAITHIETBI")) Response.Write("class=\"active\""); %>><a href="LoaiThietBis.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Loại thiết bị</a></li>
+                                <li <%if (page.Equals("NHANVIEN")) Response.Write("class=\"active\""); %>><a href="NhanVien.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;Nhân viên</a></li>
+                                <li <%if (page.Equals("SUCO") || page.Equals("LOGSUCOMOBILE")) Response.Write("class=\"active\""); %>><a href="SuCo.aspx"><span class="glyphicon glyphicon-inbox"></span>&nbsp;Sự cố</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown <%ParentClassActive("Khac");%>">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-book"></span>&nbsp;Khác <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li <%if (page.Equals("MUONPHONG")) Response.Write("class=\"active\""); %>><a href="MuonPhong.aspx"><span class="glyphicon glyphicon-edit"></span>&nbsp;Mượn phòng</a></li>
+                                <li <%if (page.Equals("QUANLYHINHANH")) Response.Write("class=\"active\""); %>><a href="QuanLyHinhAnh.aspx"><span class="glyphicon glyphicon-picture"></span>&nbsp;Quản lý hình ảnh</a></li>
+                            </ul>
+                        </li>
+                        <li <%if (page.Equals("THONGTIN")) Response.Write("class=\"active\""); %>><a href="ThongTin.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin</a></li>
+                        <li <%if (page.Equals("LIENHE")) Response.Write("class=\"active\""); %>><a href="LienHe.aspx"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Liên hệ</a></li>
+                    </ul>
+                    <asp:Panel ID="PanelDangNhap" runat="server">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li <%if (page.Equals("DANGNHAP")) Response.Write("class=\"active\""); %>><a href="DangNhap.aspx"><span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;Đăng nhập</a></li>
+                        </ul>
+                    </asp:Panel>
+                    <asp:Panel ID="PanelAdmin" runat="server" Visible="false">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown <%ParentClassActive("Admin");%>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li <%if (page.Equals("THONGTINCANHAN")) Response.Write("class=\"active\""); %>><a href="ThongTinCaNhan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
+                                    <%if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenMuonPhong())
+                                      {%>
+                                    <li <%if (page.Equals("QUANLYMUONPHONG")) Response.Write("class=\"active\""); %>><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Quản lý mượn phòng</a></li>
+                                    <%} if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenHienThiQuanTriVien())
+                                      {%>
+                                    <li <%if (page.Equals("QUANLYTAIKHOAN")) Response.Write("class=\"active\""); %>><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Quản lý tài khoản</a></li>
+                                    <%}%>
+                                    <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </asp:Panel>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="container theme-showcase" role="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+    <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/docs.min.js"></script>
+    <script src="Scripts/moment.js"></script>
+    <script src="Scripts/bootstrap-datetimepicker.js"></script>
+    <script src="Scripts/bootstrap-select.js"></script>
+    <script src="Scripts/jquery.blueimp-gallery.min.js"></script>
+    <script src="Scripts/bootstrap-image-gallery.js"></script>
+</body>
+</html>
