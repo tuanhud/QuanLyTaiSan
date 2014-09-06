@@ -216,6 +216,11 @@ namespace TSCD_GUI.QLDonVi
                     check = false;
                     dxErrorProviderInfo.SetError(gridLookUpLoai, "Chưa chọn loại đơn vị");
                 }
+                if (function.Equals("edit") && objDonVi.Equals(_ucComboBoxDonVi.getDonVi()))
+                {
+                    check = false;
+                    XtraMessageBox.Show("Đơn vị không thể thuộc chính nó");
+                }
                 return check;
             }
             catch (Exception ex)

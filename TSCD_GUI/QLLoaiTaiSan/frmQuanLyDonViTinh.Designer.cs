@@ -32,18 +32,21 @@
             this.gridControlDonViTinh = new DevExpress.XtraGrid.GridControl();
             this.gridViewDonViTinh = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
+            this.lblTen = new DevExpress.XtraEditors.LabelControl();
+            this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.lblMa = new DevExpress.XtraEditors.LabelControl();
-            this.lblTen = new DevExpress.XtraEditors.LabelControl();
-            this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDonViTinh)).BeginInit();
@@ -53,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControlMain
@@ -83,8 +87,17 @@
             // 
             // gridViewDonViTinh
             // 
+            this.gridViewDonViTinh.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.colten});
             this.gridViewDonViTinh.GridControl = this.gridControlDonViTinh;
             this.gridViewDonViTinh.Name = "gridViewDonViTinh";
+            this.gridViewDonViTinh.OptionsBehavior.Editable = false;
+            this.gridViewDonViTinh.OptionsBehavior.ReadOnly = true;
+            this.gridViewDonViTinh.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewDonViTinh.OptionsView.ShowGroupPanel = false;
+            this.gridViewDonViTinh.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewDonViTinh_FocusedRowChanged);
+            this.gridViewDonViTinh.DataSourceChanged += new System.EventHandler(this.gridViewDonViTinh_DataSourceChanged);
             // 
             // groupControlInfo
             // 
@@ -109,6 +122,57 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(203, 286);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 21;
+            this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(147, 155);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 20;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(66, 155);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 19;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // lblMoTa
+            // 
+            this.lblMoTa.Location = new System.Drawing.Point(5, 84);
+            this.lblMoTa.Name = "lblMoTa";
+            this.lblMoTa.Size = new System.Drawing.Size(31, 13);
+            this.lblMoTa.TabIndex = 18;
+            this.lblMoTa.Text = "Mô tả:";
+            // 
+            // lblTen
+            // 
+            this.lblTen.Location = new System.Drawing.Point(5, 58);
+            this.lblTen.Name = "lblTen";
+            this.lblTen.Size = new System.Drawing.Size(75, 13);
+            this.lblTen.TabIndex = 17;
+            this.lblTen.Text = "Tên đơn vị tính:";
+            // 
+            // lblMa
+            // 
+            this.lblMa.Location = new System.Drawing.Point(5, 32);
+            this.lblMa.Name = "lblMa";
+            this.lblMa.Size = new System.Drawing.Size(71, 13);
+            this.lblMa.TabIndex = 16;
+            this.lblMa.Text = "Mã đơn vị tính:";
+            // 
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -118,6 +182,7 @@
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 15;
+            this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
             // 
@@ -128,6 +193,7 @@
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 14;
+            this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
             // 
@@ -138,6 +204,7 @@
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 13;
+            this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtTen
             // 
@@ -157,54 +224,6 @@
             this.txtMa.Size = new System.Drawing.Size(188, 20);
             this.txtMa.TabIndex = 0;
             // 
-            // lblMa
-            // 
-            this.lblMa.Location = new System.Drawing.Point(5, 32);
-            this.lblMa.Name = "lblMa";
-            this.lblMa.Size = new System.Drawing.Size(71, 13);
-            this.lblMa.TabIndex = 16;
-            this.lblMa.Text = "Mã đơn vị tính:";
-            // 
-            // lblTen
-            // 
-            this.lblTen.Location = new System.Drawing.Point(5, 58);
-            this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(75, 13);
-            this.lblTen.TabIndex = 17;
-            this.lblTen.Text = "Tên đơn vị tính:";
-            // 
-            // lblMoTa
-            // 
-            this.lblMoTa.Location = new System.Drawing.Point(5, 84);
-            this.lblMoTa.Name = "lblMoTa";
-            this.lblMoTa.Size = new System.Drawing.Size(31, 13);
-            this.lblMoTa.TabIndex = 18;
-            this.lblMoTa.Text = "Mô tả:";
-            // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(66, 155);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 19;
-            this.btnOK.Text = "OK";
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Location = new System.Drawing.Point(147, 155);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 20;
-            this.btnHuy.Text = "Hủy";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(203, 286);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 21;
-            this.btnClose.Text = "Đóng";
-            // 
             // txtMoTa
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -215,13 +234,31 @@
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
-            // ucQuanLyDonViTinh
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // colten
+            // 
+            this.colten.Caption = "Tên đơn vị tính";
+            this.colten.FieldName = "ten";
+            this.colten.Name = "colten";
+            this.colten.Visible = true;
+            this.colten.VisibleIndex = 0;
+            // 
+            // dxErrorProviderInfo
+            // 
+            this.dxErrorProviderInfo.ContainerControl = this;
+            // 
+            // frmQuanLyDonViTinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 321);
             this.Controls.Add(this.splitContainerControlMain);
-            this.Name = "ucQuanLyDonViTinh";
+            this.Name = "frmQuanLyDonViTinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý đơn vị tính";
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
@@ -234,6 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +294,8 @@
         private DevExpress.XtraEditors.LabelControl lblTen;
         private DevExpress.XtraEditors.LabelControl lblMa;
         private DevExpress.XtraEditors.MemoEdit txtMoTa;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colten;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProviderInfo;
     }
 }

@@ -68,6 +68,12 @@
     <Compile Include="MyUserControl\ucComboBoxDonVi.Designer.cs">
       <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControl\ucComboBoxLoaiTS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxLoaiTS.Designer.cs">
+      <DependentUpon>ucComboBoxLoaiTS.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\ucComboBoxViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="MyUserControl\ucComboBoxDonVi.resx">
       <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucComboBoxLoaiTS.resx">
+      <DependentUpon>ucComboBoxLoaiTS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucComboBoxViTri.resx">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
