@@ -82,7 +82,7 @@ namespace PTB_WEB.UserControl.Phong
                                 Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
                                 Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web_Phong.ASPxImageSlider_Object);
                                 Label_MaPhong.Text = objPhong.subId;
-                                Label_TenPhong.Text = objPhong.ten;
+                                ucPhong_BreadCrumb.Label_TenPhong.Text = Label_TenPhong.Text = objPhong.ten;
                                 string strCoSo, strDay, strTang;
                                 strCoSo = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten : "";
                                 strDay = objPhong.vitri.day != null ? objPhong.vitri.day.ten : "";
@@ -201,6 +201,66 @@ namespace PTB_WEB.UserControl.Phong
                     break;
                 case 3:
                     LoadDanhSachPhong(listPhong.Where(phong => phong.vitri.tang_id != null).ToList().Where(phong => phong.vitri.tang_id == id).ToList());
+                    break;
+                default:
+                    Response.Redirect(Request.Url.AbsolutePath);
+                    return;
+            }
+            LoadDataObj(id, type);
+        }
+
+        private void LoadDataObj(Guid id, int type)
+        {
+            switch (type)
+            {
+                case 1:
+                    CoSo objCoSo = CoSo.getById(id);
+                    if (objCoSo != null)
+                    {
+                        ucPhong_BreadCrumb.Label_TenViTri.Text = objCoSo.ten;
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    break;
+                case 2:
+                    Dayy objDay = Dayy.getById(id);
+                    if (objDay != null)
+                    {
+                        ucPhong_BreadCrumb.Label_TenViTri.Text = string.Format("{0} ({1})", objDay.ten, objDay.coso != null ? objDay.coso.ten : "[Cơ sở]");
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    break;
+                case 3:
+                    Tang objTang = Tang.getById(id);
+                    string thuoc = string.Empty;
+                    if (objTang != null)
+                    {
+                        if (objTang.day != null)
+                        {
+                            if (objTang.day.coso != null)
+                            {
+                                thuoc = objTang.day.coso.ten + " - " + objTang.day.ten;
+                            }
+                            else
+                            {
+                                thuoc = "[Cơ sở] - " + objTang.day.ten;
+                            }
+                        }
+                        else
+                        {
+                            thuoc = "[Cơ sở] - [Dãy]";
+                        }
+                        ucPhong_BreadCrumb.Label_TenViTri.Text = string.Format("{0} ({1})", objTang.ten, thuoc);
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
                     break;
                 default:
                     Response.Redirect(Request.Url.AbsolutePath);

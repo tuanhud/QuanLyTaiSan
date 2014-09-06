@@ -10,16 +10,7 @@
 namespace PTB_WEB.UserControl.Phong {
     
     
-    public partial class ucPhong_BreadCrumb {
-        
-        /// <summary>
-        /// Label_TenViTri control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.Label Label_TenViTri;
+    public partial class ucPhongThietBi_BreadCrumb {
         
         /// <summary>
         /// Label_TenPhong control.
@@ -29,5 +20,14 @@ namespace PTB_WEB.UserControl.Phong {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.Label Label_TenPhong;
+        
+        /// <summary>
+        /// Label_TenThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.Label Label_TenThietBi;
     }
 }

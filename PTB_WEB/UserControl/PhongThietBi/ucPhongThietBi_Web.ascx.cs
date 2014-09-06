@@ -54,6 +54,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                             objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
+                                ucPhongThietBi_BreadCrumb.Label_TenPhong.Text = objPhong.ten;
                                 LoadDataObjPhong();
                                 if (Request.QueryString["id"] != null)
                                 {
@@ -73,7 +74,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                                         Panel_ThietBi.Visible = true;
                                         Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                                         Label_MaThietBi.Text = objThietBi.subId;
-                                        Label_TenThietBi.Text = objThietBi.ten;
+                                        ucPhongThietBi_BreadCrumb.Label_TenThietBi.Text = Label_TenThietBi.Text = objThietBi.ten;
                                         if (objThietBi.loaithietbi != null)
                                         {
                                             Label_LoaiThietBi.Text = objThietBi.loaithietbi.ten;

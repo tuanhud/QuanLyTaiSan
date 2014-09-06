@@ -4,6 +4,8 @@
 <%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
 <%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
+<%@ Register Src="~/UserControl/PhongThietBi/ucPhongThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucPhongThietBi_BreadCrumb" %>
+
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -16,6 +18,7 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
+    <uc:ucPhongThietBi_BreadCrumb runat="server" id="ucPhongThietBi_BreadCrumb" />
     <script type="text/javascript">
         function OnMoreInfoClick(contentUrl) {
             clientPopupControl.SetContentUrl(contentUrl);
