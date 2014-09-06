@@ -130,37 +130,44 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public static int commit()
         {
-            if (DB != null)
+            try
             {
-                using (var dbTrans = DB.Database.BeginTransaction())
+                if (DB != null)
                 {
-                    try
+                    using (var dbTrans = DB.Database.BeginTransaction())
                     {
-                        int re = DB.SaveChanges();
-                        dbTrans.Commit();                        
-                        //sync when data done
-                        if (re > 0 && !SHARED.Global.WEB_MODE)
-                        {
-                            Thread thread = new Thread(new ThreadStart(sync));
-                            thread.SetApartmentState(ApartmentState.STA);
-                            thread.Start();
-                        }
-                        return 1;
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine(ex);
                         try
                         {
-                            dbTrans.Rollback();
+                            int re = DB.SaveChanges();
+                            dbTrans.Commit();
+                            //sync when data done
+                            if (re > 0 && Global.working_database.use_db_cache && !SHARED.Global.WEB_MODE)
+                            {
+                                Thread thread = new Thread(new ThreadStart(sync));
+                                thread.SetApartmentState(ApartmentState.STA);
+                                thread.Start();
+                            }
+                            return 1;
                         }
-                        catch (Exception exx)
+                        catch (Exception ex)
                         {
-                            Debug.WriteLine(exx.ToString());
+                            Debug.WriteLine(ex);
+                            try
+                            {
+                                dbTrans.Rollback();
+                            }
+                            catch (Exception exx)
+                            {
+                                Debug.WriteLine(exx.ToString());
+                            }
+                            return -1;
                         }
-                        return -1;
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
             return -1;
         }

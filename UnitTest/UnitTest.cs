@@ -27,6 +27,7 @@ namespace UnitTest
         public void Test_DateTimeToMiliSec()
         {
             Assert.AreEqual(true, DateTimeHelper.toMilisec(new DateTime(2014,1,1,1,1,1))>0);
+            Assert.AreEqual(true, DateTimeHelper.toMilisec(new DateTime(2014, 1, 2, 1, 1, 1)) > DateTimeHelper.toMilisec(new DateTime(2014, 1, 1, 1, 1, 1)));
         }
     }
 }

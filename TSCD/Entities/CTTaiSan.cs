@@ -116,6 +116,88 @@ namespace TSCD.Entities
 
         #region Nghiệp vụ
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="quanly_moi"></param>
+        /// <param name="sudung_moi"></param>
+        /// <param name="tinhtrang_moi"></param>
+        /// <param name="vitri_moi"></param>
+        /// <param name="phong_moi"></param>
+        /// <param name="chungtu_ngay_moi"></param>
+        /// <param name="chungtu_sohieu_moi"></param>
+        /// <param name="soluong_moi"></param>
+        /// <param name="ghichu_moi"></param>
+        /// <param name="ngay_moi"></param>
+        /// <returns></returns>
+        public int chuyenDoi(DonVi quanly_moi, DonVi sudung_moi, TinhTrang tinhtrang_moi, ViTri vitri_moi, Phong phong_moi, DateTime chungtu_ngay_moi, String chungtu_sohieu_moi, int soluong_moi=-1, String ghichu_moi="", DateTime? ngay_moi=null)
+        {
+            Boolean re = true;
+            
+            //Kiem tra rang buoc ban dau
+            //So luong chuyen phai hop le
+            if (soluong_moi > this.soluong)
+            {
+                return -1;
+            }
+
+            //Chuyen toan bo
+            if (soluong_moi <= 0 || soluong_moi == this.soluong)
+            {
+                //Chi cap nhat lai Object hien tai
+                this.donviquanly = quanly_moi;
+                this.donvisudung = sudung_moi;
+                this.tinhtrang = tinhtrang_moi;
+                this.vitri = vitri_moi;
+                this.phong = phong_moi;
+                this.chungtu_ngay = chungtu_ngay_moi;
+                this.chungtu_sohieu = chungtu_sohieu_moi;
+                this.ghichu = ghichu_moi;
+                this.ngay = ngay_moi;
+
+                re = re && this.update() > 0;
+            }
+            else
+            //Chuyen 1 phan so luong
+            {
+                CTTaiSan ctts = new CTTaiSan();
+                ctts.taisan = this.taisan;
+                ctts.subId = this.subId;
+                ctts.chungtu_ngay = chungtu_ngay_moi;
+                ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                ctts.donviquanly = quanly_moi;
+                ctts.donvisudung = sudung_moi;
+                ctts.ghichu = ghichu_moi;
+                ctts.isChuyen = true;
+                ctts.isTang = true;
+                ctts.mota = this.mota;
+                ctts.ngay = ngay_moi;
+                ctts.nguongoc = "";
+                ctts.phong = phong_moi;
+                ctts.vitri = vitri_moi;
+                ctts.soluong = soluong_moi;
+                ctts.tinhtrang = tinhtrang_moi;
+
+                //add cai moi
+                re = re && ctts.add()>0;
+
+                //update cai hien tai
+                //
+                this.isTang = false;
+                this.isChuyen = true;
+                this.chungtu_ngay = chungtu_ngay_moi;
+                this.chungtu_sohieu = chungtu_sohieu_moi;
+                this.ghichu = ghichu_moi;
+                this.ngay = ngay_moi;
+                this.soluong -= soluong_moi;
+                this.nguongoc = "";
+
+                re = re && this.update()>0;
+            }
+            
+            return re?1:-1;
+        }
+
+        /// <summary>
         /// Trường tự động tính (KHÔNG lưu trong CSDL, NotMapped),
         /// thanhtien=soluong*dongia
         /// </summary>
@@ -127,9 +209,75 @@ namespace TSCD.Entities
                 return taisan.dongia * soluong;
             }
         }
+
+        private int writelog()
+        {
+            //Ghi logtaisan
+            LogTaiSan log = new LogTaiSan();
+
+            log.chungtu_ngay = chungtu_ngay;
+            log.chungtu_sohieu = chungtu_sohieu;
+            log.donviquanly = donviquanly;
+            log.donvisudung = donvisudung;
+            log.ghichu = ghichu;
+            log.isChuyen = isChuyen;
+            log.isTang = isTang;
+            log.mota = mota;
+            log.phong = phong;
+            log.quantrivien = Global.current_quantrivien_login;
+            log.soluong = soluong;
+            log.subId = subId;
+            log.taisan = taisan;
+            log.tinhtrang = tinhtrang;
+            log.vitri = vitri;
+            return log.add();
+        }
         #endregion
 
         #region Override
+        /// <summary>
+        ///    TaiSan ts = new TaiSan();
+        ///    ts.ten = "Ten ts";
+        ///    ts.dongia = 676542222;
+        ///    ts.loaitaisan = LoaiTaiSan....;
+        ///    ts.subId = "TREWWWSS$####";
+        ///    
+        ///
+        ///    CTTaiSan obj = new CTTaiSan();
+        ///    
+        ///    obj.taisan = ts;
+        ///    obj.chungtu_ngay = DateTime.Now;
+        ///    obj.chungtu_sohieu = "RT45644";
+        ///    obj.ngay = DateTime.Now;
+        ///    obj.nguongoc = "UBND Tang";
+        ///    obj.soluong = 40;
+        ///    obj.tinhtrang = TinhTrang...;
+        ///
+        ///    int re = obj.add();//ONly call add on CTTaiSan
+        ///
+        ///    re = DBInstance.commit();
+        /// </summary>
+        /// <returns></returns>
+        public override int add()
+        {
+            base.add();
+            return writelog();
+        }
+
+        public override int update()
+        {
+            base.update();
+            return writelog();
+        }
+        /// <summary>
+        /// Tạm thời Không cho xóa
+        /// </summary>
+        /// <returns></returns>
+        public override int delete()
+        {
+            return -1;
+        }
+
         protected override void init()
         {
             base.init();
