@@ -193,6 +193,7 @@
     <Content Include="LogThietBi.aspx" />
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Mobile.ascx" />
     <Content Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx" />
+    <Content Include="UserControl\PhongThietBi\ucPhongThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\Phong\ucPhong_BreadCrumb.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
@@ -456,6 +457,13 @@
     </Compile>
     <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_Web.ascx.designer.cs">
       <DependentUpon>ucPhongThietBi_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_BreadCrumb.ascx.cs">
+      <DependentUpon>ucPhongThietBi_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\PhongThietBi\ucPhongThietBi_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucPhongThietBi_BreadCrumb.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_BreadCrumb.ascx.cs">
       <DependentUpon>ucPhong_BreadCrumb.ascx</DependentUpon>

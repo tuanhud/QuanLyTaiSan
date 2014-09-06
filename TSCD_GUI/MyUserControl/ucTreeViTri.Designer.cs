@@ -47,10 +47,12 @@
             this.treeListViTri.Name = "treeListViTri";
             this.treeListViTri.OptionsBehavior.Editable = false;
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
+            this.treeListViTri.OptionsBehavior.ReadOnly = true;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsFind.ShowFindButton = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeListViTri.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
             this.treeListViTri.ParentFieldName = "parent_id";
             this.treeListViTri.Size = new System.Drawing.Size(298, 408);
             this.treeListViTri.TabIndex = 0;
@@ -68,6 +70,7 @@
             this.colten.Caption = "Vị trí";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
+            this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 

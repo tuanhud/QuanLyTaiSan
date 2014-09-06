@@ -40,6 +40,15 @@ namespace PTB_WEB.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
         
         /// <summary>
+        /// ucPhong_BreadCrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Phong.ucPhong_BreadCrumb ucPhong_BreadCrumb;
+        
+        /// <summary>
         /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>

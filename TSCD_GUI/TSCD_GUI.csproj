@@ -68,6 +68,12 @@
     <Compile Include="MyUserControl\ucComboBoxDonVi.Designer.cs">
       <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControl\ucComboBoxLoaiTS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucComboBoxLoaiTS.Designer.cs">
+      <DependentUpon>ucComboBoxLoaiTS.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\ucComboBoxViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,13 +157,15 @@
     <EmbeddedResource Include="MyUserControl\ucComboBoxDonVi.resx">
       <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucComboBoxLoaiTS.resx">
+      <DependentUpon>ucComboBoxLoaiTS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucComboBoxViTri.resx">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucTreeViTri.resx">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

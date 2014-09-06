@@ -127,15 +127,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHinhAnh.cs" />
+    <Compile Include="frmHinhAnh.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\frmSuaPermission.cs" />
+    <Compile Include="HeThong\frmSuaPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HeThong\frmSuaPermission.Designer.cs">
       <DependentUpon>frmSuaPermission.cs</DependentUpon>
     </Compile>
@@ -145,32 +151,46 @@
     <Compile Include="HeThong\ucLogHeThong.Designer.cs">
       <DependentUpon>ucLogHeThong.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyForm\frmRemoveThietBi.cs" />
+    <Compile Include="QLPhong\MyForm\frmRemoveThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmRemoveThietBi.Designer.cs">
       <DependentUpon>frmRemoveThietBi.cs</DependentUpon>
     </Compile>
     <Compile Include="_ourUcInterface.cs" />
-    <Compile Include="MyForm\frmCustom.cs" />
+    <Compile Include="MyForm\frmCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MyForm\frmCustom.Designer.cs">
       <DependentUpon>frmCustom.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmCustomXtraForm.cs" />
+    <Compile Include="MyForm\frmCustomXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MyForm\frmCustomXtraForm.Designer.cs">
       <DependentUpon>frmCustomXtraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmDoiTenHinh.cs" />
+    <Compile Include="MyForm\frmDoiTenHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MyForm\frmDoiTenHinh.Designer.cs">
       <DependentUpon>frmDoiTenHinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\frmShowImage.cs" />
+    <Compile Include="MyForm\frmShowImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MyForm\frmShowImage.Designer.cs">
       <DependentUpon>frmShowImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThuVienHinhAnh.cs" />
+    <Compile Include="frmThuVienHinhAnh.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmThuVienHinhAnh.Designer.cs">
       <DependentUpon>frmThuVienHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\Login.cs" />
+    <Compile Include="HeThong\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HeThong\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
@@ -205,7 +225,9 @@
     <Compile Include="MyUC\MyLayout.cs" />
     <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
-    <Compile Include="MyUC\ucThemSuaXoaButton.cs" />
+    <Compile Include="MyUC\ucThemSuaXoaButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="MyUC\ucThemSuaXoaButton.Designer.cs">
       <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
     </Compile>
@@ -267,19 +289,27 @@
     <Compile Include="QLNhanVien\ucQuanLyNhanVien.Designer.cs">
       <DependentUpon>ucQuanLyNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyForm\frmAddThietBi.cs" />
+    <Compile Include="QLPhong\MyForm\frmAddThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmAddThietBi.Designer.cs">
       <DependentUpon>frmAddThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyForm\frmChuyen.cs" />
+    <Compile Include="QLPhong\MyForm\frmChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmChuyen.Designer.cs">
       <DependentUpon>frmChuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyForm\frmLogThietBi.cs" />
+    <Compile Include="QLPhong\MyForm\frmLogThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmLogThietBi.Designer.cs">
       <DependentUpon>frmLogThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.cs" />
+    <Compile Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QLPhong\MyForm\frmTinhTrangVaSoLuong.Designer.cs">
       <DependentUpon>frmTinhTrangVaSoLuong.cs</DependentUpon>
     </Compile>
@@ -321,15 +351,21 @@
     <Compile Include="QLViTri\ucQuanLyViTri.Designer.cs">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.cs" />
+    <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="QLTinhTrang\ucQuanLyTinhTrang.Designer.cs">
       <DependentUpon>ucQuanLyTinhTrang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting.cs" />
+    <Compile Include="Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
@@ -357,7 +393,9 @@
     <Compile Include="Settings\ucThongTinPhanMem.Designer.cs">
       <DependentUpon>ucThongTinPhanMem.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen1.cs" />
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SplashScreen1.Designer.cs">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </Compile>
@@ -379,15 +417,21 @@
     <Compile Include="ThongKe\ucThongKeTongQuat.Designer.cs">
       <DependentUpon>ucThongKeTongQuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKe\ucTK_SLTB_TheoTinhTrang.cs" />
+    <Compile Include="ThongKe\ucTK_SLTB_TheoTinhTrang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ThongKe\ucTK_SLTB_TheoTinhTrang.Designer.cs">
       <DependentUpon>ucTK_SLTB_TheoTinhTrang.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaitForm1.cs" />
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaitForm2.cs" />
+    <Compile Include="WaitForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WaitForm2.Designer.cs">
       <DependentUpon>WaitForm2.cs</DependentUpon>
     </Compile>

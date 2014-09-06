@@ -66,6 +66,7 @@
             this.treeListLookUpViTriTreeList.Name = "treeListLookUpViTriTreeList";
             this.treeListLookUpViTriTreeList.OptionsBehavior.Editable = false;
             this.treeListLookUpViTriTreeList.OptionsBehavior.EnableFiltering = true;
+            this.treeListLookUpViTriTreeList.OptionsBehavior.ReadOnly = true;
             this.treeListLookUpViTriTreeList.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
             this.treeListLookUpViTriTreeList.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLookUpViTriTreeList.OptionsView.ShowAutoFilterRow = true;

@@ -3,6 +3,8 @@
 <%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
 <%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
+<%@ Register Src="~/UserControl/Phong/ucPhong_BreadCrumb.ascx" TagPrefix="uc" TagName="ucPhong_BreadCrumb" %>
+
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -15,6 +17,7 @@
 </asp:Panel>
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
+    <uc:ucPhong_BreadCrumb runat="server" ID="ucPhong_BreadCrumb" />
     <table class="table largetable">
         <tbody>
             <tr>
