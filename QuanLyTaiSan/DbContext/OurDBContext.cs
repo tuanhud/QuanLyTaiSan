@@ -339,7 +339,7 @@ namespace QuanLyTaiSan.Entities
                 HINHANHS.Find(Guid.Empty);
                 QUANTRIVIENS.Find(Guid.Empty);
                 NHANVIENPTS.Find(Guid.Empty);
-                LOGHETHONGS.Find("", DateTime.Now);
+                LOGHETHONGS.Find(Guid.Empty);
                 LOGSUCOPHONGS.Find(Guid.Empty);
                 LOGTHIETBIS.Find(Guid.Empty);
                 LOAITHIETBIS.Find(Guid.Empty);
@@ -696,6 +696,8 @@ namespace QuanLyTaiSan.Entities
             }
             //SaveChange lần 1
             int result = base.SaveChanges();
+
+            //List<DbEntityEntry> changedEntities2 = ChangeTracker.Entries().Where(c=>c.State != EntityState.Unchanged) .ToList();
             //After
             foreach (_EFEventRegisterInterface item in Added_Callbacks)
             {
@@ -705,7 +707,10 @@ namespace QuanLyTaiSan.Entities
             {
                 item.onAfterUpdated();
             }
+            //------------------
+            ////changedEntities2 = ChangeTracker.Entries().Where(c=>c.State!=EntityState.Unchanged).ToList();
 
+            //------------------
             result += base.SaveChanges();
             //clear RAM
             Added_Callbacks = null;

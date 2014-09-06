@@ -191,18 +191,18 @@ namespace QuanLyTaiSan.Entities
         #region Override method
         //quocdunginfo fail niceName validation ERROR
 
-        //public override string niceName()
-        //{
-        //    try
-        //    {
-        //        return soluong + " " + thietbi.niceName() + ", " + phong.niceName() + ", " + tinhtrang.niceName();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine(ex);
-        //        return "ERROR";
-        //    }
-        //}
+        public override string niceName()
+        {
+            try
+            {
+                return soluong + " " + thietbi.niceName() + ", " + phong.niceName() + ", " + tinhtrang.niceName();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return "ERROR";
+            }
+        }
         /// <summary>
         /// Có hỗ trợ ghi log, phát sinh tự động thietbi hay không ? dựa trên loaichung hay riêng của loaithietbi,
         /// Tự động có transaction

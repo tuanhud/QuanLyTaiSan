@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.Designer.cs">
       <DependentUpon>201409050526584_doi_khoachinh_LOGHETHONG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409061457028_rollback_loghethong_primarykey.cs" />
+    <Compile Include="Migrations\201409061457028_rollback_loghethong_primarykey.Designer.cs">
+      <DependentUpon>201409061457028_rollback_loghethong_primarykey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409050526584_doi_khoachinh_LOGHETHONG.resx">
       <DependentUpon>201409050526584_doi_khoachinh_LOGHETHONG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409061457028_rollback_loghethong_primarykey.resx">
+      <DependentUpon>201409061457028_rollback_loghethong_primarykey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

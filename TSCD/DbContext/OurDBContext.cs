@@ -327,7 +327,7 @@ namespace TSCD.Entities
                 
                 QUANTRIVIENS.Find(Guid.Empty);
                 
-                LOGHETHONGS.Find("", DateTime.Now);
+                LOGHETHONGS.Find(Guid.Empty);
                 
                 SETTINGS.Find(Guid.Empty);
                 TINHTRANGS.Find(Guid.Empty);
