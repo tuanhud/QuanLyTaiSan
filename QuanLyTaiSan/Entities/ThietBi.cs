@@ -171,11 +171,6 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (loaithietbi != null)
-            {
-                loaithietbi.trigger();
-            }
             
             //...
             return base.update();

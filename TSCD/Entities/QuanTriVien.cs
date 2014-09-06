@@ -85,11 +85,11 @@ namespace TSCD.Entities
         }
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (group != null)
-            {
-                group.trigger();
-            }
+            ////have to load all [Required] FK object first
+            //if (group != null)
+            //{
+            //    group.trigger();
+            //}
             
             //...
             return base.update();

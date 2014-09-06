@@ -197,20 +197,20 @@ namespace TSCD.Entities
         }
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (coso != null)
-            {
-                coso.trigger();
-            }
-			if (day != null)
-            {
-                day.trigger();
-            }
-			if (tang != null)
-            {
-                tang.trigger();
-            }
-            //...
+            ////have to load all [Required] FK object first
+            //if (coso != null)
+            //{
+            //    coso.trigger();
+            //}
+            //if (day != null)
+            //{
+            //    day.trigger();
+            //}
+            //if (tang != null)
+            //{
+            //    tang.trigger();
+            //}
+            ////...
 
             return base.update();
         }

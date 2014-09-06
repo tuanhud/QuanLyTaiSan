@@ -47,7 +47,7 @@ namespace TSCD
 
 
             CTTaiSan obj = CTTaiSan.getById(GUID.From("801C27FE-7435-E411-96A8-001F16338B1E"));
-            obj.chuyenDoi(obj.donviquanly, obj.donvisudung, TinhTrang.getById(GUID.From("C3DEB899-7435-E411-96A8-001F16338B1E")), obj.vitri, obj.phong, DateTime.Now, "KIUY87564", -1, "CHuyển hết luôn", DateTime.Now);
+            obj.chuyenDoi(obj.donviquanly, obj.donvisudung, TinhTrang.getById(GUID.From("C3DEB899-7435-E411-96A8-001F16338B1E")), obj.vitri, obj.phong, null , DateTime.Now, "54367859", -1, "CHuyển hết luôn dot 2", DateTime.Now);
 
             
             int re = DBInstance.commit();

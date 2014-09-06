@@ -64,10 +64,10 @@ namespace TSCD.Entities
         }
         public override int update()
         {
-            if (vitri != null)
-            {
-                vitri.trigger();
-            }
+            //if (vitri != null)
+            //{
+            //    vitri.trigger();
+            //}
             return base.update();
         }
         #endregion

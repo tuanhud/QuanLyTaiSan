@@ -64,7 +64,6 @@ namespace TSCD.Entities
         protected override void init()
         {
             base.init();
-
             huuhinh = true;
         }
         #endregion

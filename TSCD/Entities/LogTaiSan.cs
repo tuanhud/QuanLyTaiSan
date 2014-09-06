@@ -34,12 +34,21 @@ namespace TSCD.Entities
         [Required]
         public int soluong { get; set; }
 
+        /// <summary>
+        /// Ngày cấp, ngày có hiệu lực
+        /// </summary>
+        public DateTime? ngay { get; set; }
+
         public String chungtu_sohieu { get; set; }
         public DateTime? chungtu_ngay { get; set; }
 
         /*
          * FK
          */
+        public Guid? cttaisan_parent_id { get; set; }
+        [ForeignKey("cttaisan_parent_id")]
+        public CTTaiSan cttaisan_parent { get; set; }
+
         public Guid quantrivien_id { get; set; }
         /// <summary>
         /// Quản trị viên phát sinh log
@@ -92,7 +101,18 @@ namespace TSCD.Entities
         #endregion
 
         #region Nghiep vu
-
+        /// <summary>
+        /// Trường tự động tính (KHÔNG lưu trong CSDL, NotMapped),
+        /// thanhtien=soluong*dongia
+        /// </summary>
+        [NotMapped]
+        public long thanhtien
+        {
+            get
+            {
+                return taisan.dongia * soluong;
+            }
+        }
 
         #endregion
 

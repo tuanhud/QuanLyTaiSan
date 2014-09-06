@@ -87,15 +87,7 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            if (vitri != null)
-            {
-                vitri.trigger();
-            }
-            if (nhanvienpt != null)
-            {
-                nhanvienpt.trigger();
-            }
-
+            
             return base.update();
         }
         /// <summary>

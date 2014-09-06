@@ -45,11 +45,11 @@ namespace TSCD.Entities
         }
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (day != null)
-            {
-                day.trigger();
-            }
+            ////have to load all [Required] FK object first
+            //if (day != null)
+            //{
+            //    day.trigger();
+            //}
             
             //...
             return base.update();

@@ -258,20 +258,7 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int update()
         {
-            //have to load all [Required] FK object first
-            if (phong != null)
-            {
-                phong.trigger();
-            }
-            if (tinhtrang != null)
-            {
-                tinhtrang.trigger();
-            }
-            if (thietbi != null)
-            {
-                thietbi.trigger();
-            }
-
+            
             base.update();
             writelog();
             return 1;

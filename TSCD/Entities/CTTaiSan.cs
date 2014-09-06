@@ -129,7 +129,7 @@ namespace TSCD.Entities
         /// <param name="ghichu_moi"></param>
         /// <param name="ngay_moi"></param>
         /// <returns></returns>
-        public int chuyenDoi(DonVi quanly_moi, DonVi sudung_moi, TinhTrang tinhtrang_moi, ViTri vitri_moi, Phong phong_moi, DateTime chungtu_ngay_moi, String chungtu_sohieu_moi, int soluong_moi=-1, String ghichu_moi="", DateTime? ngay_moi=null)
+        public int chuyenDoi(DonVi quanly_moi, DonVi sudung_moi, TinhTrang tinhtrang_moi, ViTri vitri_moi, Phong phong_moi, CTTaiSan cttaisan_parent_moi, DateTime chungtu_ngay_moi, String chungtu_sohieu_moi, int soluong_moi=-1, String ghichu_moi="", DateTime? ngay_moi=null)
         {
             Boolean re = true;
             
@@ -153,7 +153,7 @@ namespace TSCD.Entities
                 this.chungtu_sohieu = chungtu_sohieu_moi;
                 this.ghichu = ghichu_moi;
                 this.ngay = ngay_moi;
-
+                this.parent = cttaisan_parent_moi;
                 re = re && this.update() > 0;
             }
             else
@@ -176,6 +176,7 @@ namespace TSCD.Entities
                 ctts.vitri = vitri_moi;
                 ctts.soluong = soluong_moi;
                 ctts.tinhtrang = tinhtrang_moi;
+                ctts.parent = cttaisan_parent_moi;
 
                 //add cai moi
                 re = re && ctts.add()>0;
@@ -230,6 +231,8 @@ namespace TSCD.Entities
             log.taisan = taisan;
             log.tinhtrang = tinhtrang;
             log.vitri = vitri;
+            log.cttaisan_parent = parent;
+
             return log.add();
         }
         #endregion
@@ -281,6 +284,10 @@ namespace TSCD.Entities
         protected override void init()
         {
             base.init();
+
+            isTang = true;
+            isChuyen = false;
+            soluong = 1;
         }
         #endregion
     }

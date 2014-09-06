@@ -73,15 +73,7 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            if (nguoimuon != null)
-            {
-                nguoimuon.trigger();
-            }
-            if (nguoiduyet != null)
-            {
-                nguoiduyet.trigger();
-            }
-
+            
             return base.update();
         }
         #endregion
