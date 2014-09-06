@@ -61,6 +61,7 @@ namespace TSCD_GUI.QLPhong
             if (listPhong.Count() == 0)
             {
                 enableButton(false);
+                gridLookUpLoai.EditValue = null;
             }
         }
 
@@ -107,6 +108,11 @@ namespace TSCD_GUI.QLPhong
                 _ViTriHienTai = _ucTreeViTri.getVitri();
                 listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
                 gridControlPhong.DataSource = listPhong;
+                if (listPhong.Count() == 0)
+                {
+                    enableButton(false);
+                    gridLookUpLoai.EditValue = null;
+                }
             }
             catch (Exception ex)
             {
@@ -126,6 +132,8 @@ namespace TSCD_GUI.QLPhong
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
+            _ucComboBoxViTri.setReadOnly(!_enable);
+            gridLookUpLoai.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnThem_r.Enabled = !_enable;
             barBtnThemPhong.Enabled = !_enable;
@@ -144,6 +152,7 @@ namespace TSCD_GUI.QLPhong
         {
             txtTen.Text = "";
             txtMoTa.Text = "";
+            gridLookUpLoai.EditValue = null;
         }
 
         private void setDataView()
@@ -226,6 +235,16 @@ namespace TSCD_GUI.QLPhong
             {
                 dxErrorProviderInfo.ClearErrors();
                 Boolean check = true;
+                if (txtTen.Text.Length == 0)
+                {
+                    dxErrorProviderInfo.SetError(txtTen, "Chưa điền tên phòng");
+                    check = false;
+                }
+                if (gridLookUpLoai.EditValue == null || GUID.From(gridLookUpLoai.EditValue) == Guid.Empty)
+                {
+                    dxErrorProviderInfo.SetError(gridLookUpLoai, "Chưa điền chọn loại phòng");
+                    check = false;
+                }
                 return check;
             }
             catch (Exception ex)
@@ -248,26 +267,26 @@ namespace TSCD_GUI.QLPhong
                             setDataObj();
                             if (objPhong.add() > 0 && DBInstance.commit() > 0)
                             {
-                                XtraMessageBox.Show("Thêm tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                XtraMessageBox.Show("Thêm phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Guid id = objPhong.id;
                                 reloadAndFocused(id);
                             }
                             else
                             {
-                                XtraMessageBox.Show("Thêm tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                XtraMessageBox.Show("Thêm phòng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             break;
                         case "edit":
                             setDataObj();
                             if (objPhong.update() > 0 && DBInstance.commit() > 0)
                             {
-                                XtraMessageBox.Show("Sửa tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                XtraMessageBox.Show("Sửa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Guid id = objPhong.id;
                                 reloadAndFocused(id);
                             }
                             else
                             {
-                                XtraMessageBox.Show("Sửa tình trạng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                XtraMessageBox.Show("Sửa phòng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             break;
                     }

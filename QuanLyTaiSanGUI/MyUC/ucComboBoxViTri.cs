@@ -239,7 +239,7 @@ namespace QuanLyTaiSanGUI.MyUC
 
         private void popupContainerEdit1_QueryPopUp(object sender, CancelEventArgs e)
         {
-            popupContainerEdit1.Properties.PopupFormSize = new Size(popupContainerEdit1.Width, popupContainerControl1.Height);       
+            //popupContainerEdit1.Properties.PopupFormSize = new Size(popupContainerEdit1.Width, popupContainerControl1.Height);       
         }
     }
 }

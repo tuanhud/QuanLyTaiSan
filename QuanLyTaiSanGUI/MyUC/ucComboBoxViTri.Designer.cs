@@ -75,7 +75,7 @@
             this.treeListViTri.OptionsFind.ShowFindButton = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(250, 300);
+            this.treeListViTri.Size = new System.Drawing.Size(250, 400);
             this.treeListViTri.TabIndex = 1;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -120,7 +120,7 @@
             this.popupContainerControl1.Controls.Add(this.treeListViTri);
             this.popupContainerControl1.Location = new System.Drawing.Point(0, 26);
             this.popupContainerControl1.Name = "popupContainerControl1";
-            this.popupContainerControl1.Size = new System.Drawing.Size(250, 300);
+            this.popupContainerControl1.Size = new System.Drawing.Size(250, 400);
             this.popupContainerControl1.TabIndex = 3;
             // 
             // ucComboBoxViTri

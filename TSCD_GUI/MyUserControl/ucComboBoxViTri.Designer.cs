@@ -59,7 +59,7 @@
             this.popupContainerControlVitri.Controls.Add(this.treeListViTri);
             this.popupContainerControlVitri.Location = new System.Drawing.Point(3, 26);
             this.popupContainerControlVitri.Name = "popupContainerControlVitri";
-            this.popupContainerControlVitri.Size = new System.Drawing.Size(300, 400);
+            this.popupContainerControlVitri.Size = new System.Drawing.Size(250, 400);
             this.popupContainerControlVitri.TabIndex = 1;
             // 
             // treeListViTri
@@ -79,9 +79,10 @@
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
+            this.treeListViTri.OptionsFind.ShowFindButton = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(300, 400);
+            this.treeListViTri.Size = new System.Drawing.Size(250, 400);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
