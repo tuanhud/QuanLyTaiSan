@@ -508,9 +508,6 @@ namespace QuanLyTaiSan.Entities
 
         public virtual void onAfterAdded()
         {
-            //AUTO ORDER (NO NEED)
-            //this.order = DateTimeHelper.toMilisec(date_create);
-
             //LOGHETHONG
             //DO NOT WRITE LOG FOR LOGHETHONG (LOOPBACK!)
             if (needToWriteLogHeThong())

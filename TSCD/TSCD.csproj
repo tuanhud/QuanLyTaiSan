@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201409060540041_them_thuoctinh_cho_LogTaiSan.Designer.cs">
       <DependentUpon>201409060540041_them_thuoctinh_cho_LogTaiSan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.cs" />
+    <Compile Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.Designer.cs">
+      <DependentUpon>201409061514123_rollback_LogHeThong_PrimaryKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409060540041_them_thuoctinh_cho_LogTaiSan.resx">
       <DependentUpon>201409060540041_them_thuoctinh_cho_LogTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.resx">
+      <DependentUpon>201409061514123_rollback_LogHeThong_PrimaryKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>

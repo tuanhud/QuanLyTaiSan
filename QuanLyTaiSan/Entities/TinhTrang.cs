@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -65,6 +66,11 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override
+        public override void onAfterAdded()
+        {
+            this.order = DateTimeHelper.toMilisec(date_create);
+            base.onAfterAdded();
+        }
         public override string niceName()
         {
             return "Tình trạng: " + value;
