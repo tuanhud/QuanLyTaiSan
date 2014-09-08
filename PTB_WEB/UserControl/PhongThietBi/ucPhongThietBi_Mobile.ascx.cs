@@ -34,6 +34,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
             {
                 if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(QuanLyTaiSan.Entities.Phong).Name)).FirstOrDefault() != null)
                 {
+                    Panel_Chinh.Visible = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)
@@ -51,6 +52,15 @@ namespace PTB_WEB.UserControl.PhongThietBi
                         DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                         if (node != null)
                         {
+                            string strViTri = "";
+                            DevExpress.Web.ASPxTreeList.TreeListNode Pnode = node.ParentNode;
+                            while (!Object.Equals(Pnode.Key, ""))
+                            {
+                                strViTri = " - " + Pnode.GetValue("ten").ToString() + strViTri;
+                                Pnode = Pnode.ParentNode;
+                            }
+                            strViTri = string.Format("({0})", strViTri.Substring(3));
+                            ucPhongThietBi_BreadCrumb.Label_TenPhong.Text = node.GetValue("ten").ToString() + " " + strViTri;
                             objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
@@ -72,7 +82,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                                         Panel_ThietBi.Visible = true;
                                         Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                         Label_MaThietBi.Text = objThietBi.subId;
-                                        Label_TenThietBi.Text = objThietBi.ten;
+                                        ucPhongThietBi_BreadCrumb.Label_TenThietBi.Text = Label_TenThietBi.Text = objThietBi.ten;
                                         if (objThietBi.loaithietbi != null)
                                         {
                                             Label_LoaiThietBi.Text = objThietBi.loaithietbi.ten;

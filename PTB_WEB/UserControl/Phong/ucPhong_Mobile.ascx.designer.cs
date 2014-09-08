@@ -31,6 +31,15 @@ namespace PTB_WEB.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
         
         /// <summary>
+        /// ucPhong_BreadCrumb1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Phong.ucPhong_BreadCrumb ucPhong_BreadCrumb1;
+        
+        /// <summary>
         /// Panel_TreeListViTri control.
         /// </summary>
         /// <remarks>
