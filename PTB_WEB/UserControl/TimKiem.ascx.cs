@@ -68,7 +68,7 @@ namespace PTB_WEB.UserControl
             {
                 case "TENNHANVIENPT":
                     name = "Tên nhân viên phụ trách";
-                    url = "/NhanVien.aspx?id=";
+                    url = "/NhanVien.aspx?Search=";
                     break;
                 case "SDTNHANVIENPT":
                     name = "Điện thoại nhân viên phụ trách";

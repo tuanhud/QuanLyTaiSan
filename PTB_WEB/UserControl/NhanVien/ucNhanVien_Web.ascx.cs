@@ -18,7 +18,7 @@ namespace PTB_WEB.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void LoadData()
@@ -27,6 +27,7 @@ namespace PTB_WEB.UserControl.NhanVien
             listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
             if (listNhanVienPT.Count > 0)
             {
+                SearchFunction();
                 Panel_Chinh.Visible = true;
                 BindData();
 
@@ -106,6 +107,36 @@ namespace PTB_WEB.UserControl.NhanVien
                 _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.BindToControl = RepeaterDanhSachNhanVien;
                 RepeaterDanhSachNhanVien.DataSource = _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.DataSourcePaged;
                 RepeaterDanhSachNhanVien.DataBind();
+            }
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                int index = listNhanVienPT.IndexOf(listNhanVienPT.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault());
+                if (index != -1)
+                {
+                    int Page = index / _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.PageSize + 1;
+                    Response.Redirect(string.Format("{0}?id={1}&Page={2}", Request.Url.AbsolutePath, SearchID.ToString(), Page.ToString()));
+                }
+                else
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }
