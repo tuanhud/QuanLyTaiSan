@@ -223,6 +223,20 @@ namespace TSCD.Entities
         /// <returns></returns>
         public virtual T reload()
         {
+            //if (id != Guid.Empty)
+            //{
+            //    try
+            //    {
+            //       db.Entry(this).Reload();
+            //       return (T)this;
+            //    }
+            //    catch (Exception)
+            //    {
+            //        return db.Set<T>().Find(id);
+            //    }
+            //}
+            //return (T)this;
+
             if (id == Guid.Empty)
             {
                 return (T)this;
@@ -230,11 +244,11 @@ namespace TSCD.Entities
 
             try
             {
-                if (db.Entry(this).State == EntityState.Detached)
-                {
-                    db.Set<T>().Attach((T)this);
-                    return (T)this;
-                }
+                //if (db.Entry(this).State == EntityState.Detached)
+                //{
+                db.Set<T>().Attach((T)this);
+                //return (T)this;
+                //}
                 return (T)this;
             }
             catch (Exception)
