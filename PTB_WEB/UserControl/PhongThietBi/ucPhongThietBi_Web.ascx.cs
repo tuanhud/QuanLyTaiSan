@@ -54,7 +54,15 @@ namespace PTB_WEB.UserControl.PhongThietBi
                             objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
-                                ucPhongThietBi_BreadCrumb.Label_TenPhong.Text = objPhong.ten;
+                                string strViTri = "";
+                                DevExpress.Web.ASPxTreeList.TreeListNode Pnode = node.ParentNode;
+                                while (!Object.Equals(Pnode.Key, ""))
+                                {
+                                    strViTri = " - " + Pnode.GetValue("ten").ToString() + strViTri;
+                                    Pnode = Pnode.ParentNode;
+                                }
+                                strViTri = string.Format("({0})", strViTri.Substring(3));
+                                ucPhongThietBi_BreadCrumb.Label_TenPhong.Text = objPhong.ten + " " + strViTri;
                                 LoadDataObjPhong();
                                 if (Request.QueryString["id"] != null)
                                 {

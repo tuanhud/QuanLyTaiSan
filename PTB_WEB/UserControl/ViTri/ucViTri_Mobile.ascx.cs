@@ -28,6 +28,7 @@ namespace PTB_WEB.UserControl.ViTri
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
+                Panel_Chinh.Visible = true;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 if (Request.QueryString["key"] != null)
@@ -55,6 +56,7 @@ namespace PTB_WEB.UserControl.ViTri
                                 Label_ThongTin.Text = "Thông tin " + objCoSo.ten;
                                 Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_Ten.Text = objCoSo.ten;
+                                ucViTri_BreadCrumb.Label_TenViTri.Text = Label_Ten.Text = objCoSo.ten;
                                 Label_Thuoc.Text = "[Đại học Sài Gòn]";
                                 Panel_DiaChi.Visible = true;
                                 Label_DiaChi.Text = objCoSo.diachi;
@@ -86,6 +88,7 @@ namespace PTB_WEB.UserControl.ViTri
                                 Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_Ten.Text = objDay.ten;
                                 Label_Thuoc.Text = objDay.coso != null ? objDay.coso.ten : "[Cơ sở]";
+                                ucViTri_BreadCrumb.Label_TenViTri.Text = string.Format("{0} ({1})", Label_Ten.Text, Label_Thuoc.Text);
                                 Panel_DiaChi.Visible = false;
                                 Label_DiaChi.Text = "";
                                 Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objDay.mota);
@@ -120,6 +123,7 @@ namespace PTB_WEB.UserControl.ViTri
                                 {
                                     Label_Thuoc.Text = "[Cơ sở] - [Dãy]";
                                 }
+                                ucViTri_BreadCrumb.Label_TenViTri.Text = string.Format("{0} ({1})", Label_Ten.Text, Label_Thuoc.Text);
                                 Panel_DiaChi.Visible = false;
                                 Label_DiaChi.Text = "";
                                 Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objTang.mota);

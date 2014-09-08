@@ -31,6 +31,7 @@ namespace PTB_WEB.UserControl.Phong
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count > 0)
                 {
+                    Panel_Chinh.Visible = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)
@@ -47,6 +48,15 @@ namespace PTB_WEB.UserControl.Phong
                         DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                         if (node != null)
                         {
+                            string strViTri = "";
+                            DevExpress.Web.ASPxTreeList.TreeListNode Pnode = node.ParentNode;
+                            while (!Object.Equals(Pnode.Key, ""))
+                            {
+                                strViTri = " - " + Pnode.GetValue("ten").ToString() + strViTri;
+                                Pnode = Pnode.ParentNode;
+                            }
+                            strViTri = string.Format("({0})", strViTri.Substring(3));
+                            ucPhong_BreadCrumb.Label_TenViTri.Text = node.GetValue("ten").ToString() + " " + strViTri;
                             if (Request.QueryString["id"] != null)
                             {
                                 Guid idPhong = Guid.Empty;
@@ -61,6 +71,7 @@ namespace PTB_WEB.UserControl.Phong
                                 objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
                                 if (objPhong != null)
                                 {
+                                    ucPhong_BreadCrumb.Label_TenPhong.Text = objPhong.ten;
                                     Panel_ThongTinPhong.Visible = true;
                                     Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
                                     Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Mobile_Phong.ASPxImageSlider_Object);
