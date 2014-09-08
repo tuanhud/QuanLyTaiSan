@@ -72,23 +72,23 @@ namespace PTB_WEB.UserControl
                     break;
                 case "SDTNHANVIENPT":
                     name = "Điện thoại nhân viên phụ trách";
-                    url = "/NhanVien.aspx?id=";
+                    url = "/NhanVien.aspx?Search=";
                     break;
                 case "COSO":
                     name = "Cơ sở";
-                    url = "/ViTri.aspx?type=CoSo&id=";
+                    url = "/ViTri.aspx?Search=";
                     break;
                 case "DAY":
                     name = "Dãy";
-                    url = "/ViTri.aspx?type=Dayy&id=";
+                    url = "/ViTri.aspx?Search=";
                     break;
                 case "TANG":
                     name = "Tầng";
-                    url = "/ViTri.aspx?type=Tang&id=";
+                    url = "/ViTri.aspx?Search=";
                     break;
                 case "PHONG":
                     name = "Phòng";
-                    url = "/Phong.aspx?id=";
+                    url = "/Phong.aspx?Search=";
                     break;
                 case "THIETBI":
                     name = "Thiết bị";

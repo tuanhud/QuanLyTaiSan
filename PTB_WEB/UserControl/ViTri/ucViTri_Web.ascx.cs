@@ -32,10 +32,11 @@ namespace PTB_WEB.UserControl.ViTri
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
-                Panel_Chinh.Visible = true;
-                ClearData();
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                SearchFunction();
+                Panel_Chinh.Visible = true;
+                ClearData();
                 if (Request.QueryString["key"] != null)
                 {
                     string key = "";
@@ -200,6 +201,35 @@ namespace PTB_WEB.UserControl.ViTri
                         LoadDataObj(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")), 3);
                     }
                 }
+            }
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), SearchID.ToString())).FirstOrDefault();
+                if (node != null)
+                {
+                    Response.Redirect(string.Format("{0}?key={1}", Request.Url.AbsolutePath, node.Key.ToString()));
+                }
+                else
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }

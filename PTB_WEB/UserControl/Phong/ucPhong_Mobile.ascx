@@ -29,7 +29,7 @@
     <asp:Panel ID="Panel_DanhSachPhong" runat="server" Visible="false">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <asp:Label ID="Label_DanhSachPhong" runat="server" Text="Danh sách phòng"></asp:Label>
+                Danh sách phòng
             </div>
             <% if (RepeaterDanhSachPhong.Items.Count == 0)
                { %>

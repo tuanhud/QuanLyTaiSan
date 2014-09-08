@@ -31,9 +31,10 @@ namespace PTB_WEB.UserControl.Phong
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count > 0)
                 {
-                    Panel_Chinh.Visible = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                    SearchFunction();
+                    Panel_Chinh.Visible = true;
                     if (Request.QueryString["key"] != null)
                     {
                         key = "";
@@ -159,38 +160,38 @@ namespace PTB_WEB.UserControl.Phong
         {
             if (type.Equals(typeof(CoSo).Name))
             {
-                CoSo objCoso = CoSo.getById(id);
-                if (objCoso != null)
-                    Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0})", objCoso.ten);
-                else
-                    Response.Redirect(Request.Url.AbsolutePath);
+                //CoSo objCoso = CoSo.getById(id);
+                //if (objCoso != null)
+                //    Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0})", objCoso.ten);
+                //else
+                //    Response.Redirect(Request.Url.AbsolutePath);
                 LoadDanhSachPhong(listPhong.Where(phong => phong.vitri.coso_id != null).ToList().Where(phong => phong.vitri.coso_id == id).ToList());
             }
             else if (type.Equals(typeof(Dayy).Name))
             {
-                Dayy objDay = Dayy.getById(id);
-                if (objDay != null)
-                    Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1})", objDay.coso != null ? objDay.coso.ten : "[Cơ sở]", objDay.ten);
-                else
-                    Response.Redirect(Request.Url.AbsolutePath);
+                //Dayy objDay = Dayy.getById(id);
+                //if (objDay != null)
+                //    Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1})", objDay.coso != null ? objDay.coso.ten : "[Cơ sở]", objDay.ten);
+                //else
+                //    Response.Redirect(Request.Url.AbsolutePath);
                 LoadDanhSachPhong(listPhong.Where(phong => phong.vitri.day_id != null).ToList().Where(phong => phong.vitri.day_id == id).ToList());
             }
             else if (type.Equals(typeof(Tang).Name))
             {
-                Tang objTang = Tang.getById(id);
-                if (objTang != null)
-                {
-                    if (objTang.day != null)
-                    {
-                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1} - {2})", objTang.day.coso != null ? objTang.day.coso.ten : "[Cơ sở]", objTang.day.ten, objTang.ten);
-                    }
-                    else
-                    {
-                        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ([Cơ sở] - [Dãy] - {0})", objTang.ten);
-                    }
-                }
-                else
-                    Response.Redirect(Request.Url.AbsolutePath);
+                //Tang objTang = Tang.getById(id);
+                //if (objTang != null)
+                //{
+                //    if (objTang.day != null)
+                //    {
+                //        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ({0} - {1} - {2})", objTang.day.coso != null ? objTang.day.coso.ten : "[Cơ sở]", objTang.day.ten, objTang.ten);
+                //    }
+                //    else
+                //    {
+                //        Label_DanhSachPhong.Text = string.Format("Danh sách phòng ([Cơ sở] - [Dãy] - {0})", objTang.ten);
+                //    }
+                //}
+                //else
+                //    Response.Redirect(Request.Url.AbsolutePath);
                 LoadDanhSachPhong(listPhong.Where(phong => phong.vitri.tang_id != null).ToList().Where(phong => phong.vitri.tang_id == id).ToList());
             }
             else
@@ -226,6 +227,100 @@ namespace PTB_WEB.UserControl.Phong
         protected void ButtonBack_DanhSachPhong_Click(object sender, EventArgs e)
         {
             Response.Redirect(Request.Url.AbsolutePath);
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                QuanLyTaiSan.Entities.Phong PhongSearch = listPhong.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
+                if (PhongSearch != null)
+                {
+                    Guid nodeGuid = Guid.Empty;
+                    int type = 0;
+                    if (PhongSearch.vitri != null)
+                    {
+                        if (PhongSearch.vitri.tang != null)
+                        {
+                            nodeGuid = PhongSearch.vitri.tang.id;
+                            type = 3;
+                        }
+                        else if (PhongSearch.vitri.day != null)
+                        {
+                            nodeGuid = PhongSearch.vitri.day.id;
+                            type = 2;
+                        }
+                        else if (PhongSearch.vitri.coso != null)
+                        {
+                            nodeGuid = PhongSearch.vitri.coso.id;
+                            type = 1;
+                        }
+                        else
+                            Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    else
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), nodeGuid.ToString())).FirstOrDefault();
+                    if (node != null)
+                    {
+                        int Page = SearchPage(nodeGuid, PhongSearch.id, type);
+                        if (Page != -1)
+                        {
+                            Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), PhongSearch.id.ToString(), Page.ToString()));
+                        }
+                        else
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                    Response.Redirect(Request.Url.AbsolutePath);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private int SearchPage(Guid GuidViTri, Guid GuidPhong, int type)
+        {
+            int Page = -1;
+            List<QuanLyTaiSan.Entities.Phong> listTemp = new List<QuanLyTaiSan.Entities.Phong>();
+            switch (type)
+            {
+                case 1:
+                    listTemp = listPhong.Where(phong => phong.vitri.coso_id != null).ToList().Where(phong => phong.vitri.coso_id == GuidViTri).ToList();
+                    break;
+                case 2:
+                    listTemp = listPhong.Where(phong => phong.vitri.day_id != null).ToList().Where(phong => phong.vitri.day_id == GuidViTri).ToList();
+                    break;
+                case 3:
+                    listTemp = listPhong.Where(phong => phong.vitri.tang_id != null).ToList().Where(phong => phong.vitri.tang_id == GuidViTri).ToList();
+                    break;
+                default:
+                    Response.Redirect(Request.Url.AbsolutePath);
+                    break;
+            }
+            int index = listTemp.IndexOf(listTemp.Where(item => Object.Equals(item.id, GuidPhong)).FirstOrDefault());
+            if (index != -1)
+            {
+                Page = index / _ucCollectionPager_DanhSachPhong.CollectionPager_Object.PageSize + 1;
+            }
+            return Page;
         }
     }
 }

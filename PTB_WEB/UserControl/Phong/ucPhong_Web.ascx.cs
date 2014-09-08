@@ -39,9 +39,10 @@ namespace PTB_WEB.UserControl.Phong
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count > 0)
                 {
-                    Panel_Chinh.Visible = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                    SearchFunction();
+                    Panel_Chinh.Visible = true;
                     if (Request.QueryString["key"] != null)
                     {
                         string key = "";
@@ -305,6 +306,100 @@ namespace PTB_WEB.UserControl.Phong
             Label_MaNhanVien.Text = "";
             Label_HoTen.Text = "";
             Label_SoDienThoai.Text = "";
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                QuanLyTaiSan.Entities.Phong PhongSearch = listPhong.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
+                if (PhongSearch != null)
+                {
+                    Guid nodeGuid = Guid.Empty;
+                    int type = 0;
+                    if (PhongSearch.vitri != null)
+                    {
+                        if (PhongSearch.vitri.tang != null)
+                        {
+                            nodeGuid = PhongSearch.vitri.tang.id;
+                            type = 3;
+                        }
+                        else if (PhongSearch.vitri.day != null)
+                        {
+                            nodeGuid = PhongSearch.vitri.day.id;
+                            type = 2;
+                        }
+                        else if (PhongSearch.vitri.coso != null)
+                        {
+                            nodeGuid = PhongSearch.vitri.coso.id;
+                            type = 1;
+                        }
+                        else
+                            Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    else
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), nodeGuid.ToString())).FirstOrDefault();
+                    if (node != null)
+                    {
+                        int Page = SearchPage(nodeGuid, PhongSearch.id, type);
+                        if (Page != -1)
+                        {
+                            Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), PhongSearch.id.ToString(), Page.ToString()));
+                        }
+                        else
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                    Response.Redirect(Request.Url.AbsolutePath);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private int SearchPage(Guid GuidViTri, Guid GuidPhong, int type)
+        {
+            int Page = -1;
+            List<QuanLyTaiSan.Entities.Phong> listTemp = new List<QuanLyTaiSan.Entities.Phong>();
+            switch (type)
+            {
+                case 1:
+                    listTemp = listPhong.Where(phong => phong.vitri.coso_id != null).ToList().Where(phong => phong.vitri.coso_id == GuidViTri).ToList();
+                    break;
+                case 2:
+                    listTemp = listPhong.Where(phong => phong.vitri.day_id != null).ToList().Where(phong => phong.vitri.day_id == GuidViTri).ToList();
+                    break;
+                case 3:
+                    listTemp = listPhong.Where(phong => phong.vitri.tang_id != null).ToList().Where(phong => phong.vitri.tang_id == GuidViTri).ToList();
+                    break;
+                default:
+                    Response.Redirect(Request.Url.AbsolutePath);
+                    break;
+            }
+            int index = listTemp.IndexOf(listTemp.Where(item => Object.Equals(item.id, GuidPhong)).FirstOrDefault());
+            if (index != -1)
+            {
+                Page = index / _ucCollectionPager_DanhSachPhong.CollectionPager_Object.PageSize + 1;
+            }
+            return Page;
         }
     }
 }

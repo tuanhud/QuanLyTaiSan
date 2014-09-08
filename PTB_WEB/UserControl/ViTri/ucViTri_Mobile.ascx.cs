@@ -28,9 +28,10 @@ namespace PTB_WEB.UserControl.ViTri
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
-                Panel_Chinh.Visible = true;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                SearchFunction();
+                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     string key = "";
@@ -174,6 +175,35 @@ namespace PTB_WEB.UserControl.ViTri
         protected void Button_Back_Click(object sender, EventArgs e)
         {
             Response.Redirect(Request.Url.AbsolutePath);
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), SearchID.ToString())).FirstOrDefault();
+                if (node != null)
+                {
+                    Response.Redirect(string.Format("{0}?key={1}", Request.Url.AbsolutePath, node.Key.ToString()));
+                }
+                else
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
