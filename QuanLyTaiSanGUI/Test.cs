@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
+using QuanLyTaiSanGUI.Report;
+using DevExpress.XtraReports.UI;
+using DevExpress.LookAndFeel;
 
 namespace QuanLyTaiSanGUI
 {
@@ -25,61 +28,17 @@ namespace QuanLyTaiSanGUI
         public Test()
         {
             InitializeComponent();
+            SHARED.Global.USE_APP_CONFIG = true;
 
-            
-
-            //Global.working_database.use_internal_config = true;
-
-            //QuanTriVien obj = QuanTriVien.getByUserName("admin");
-            ////List<Permission> pp = obj.group.permissions.ToList();
-            
-            //Boolean re = obj.reload().canEdit<CoSo>(CoSo.getById(7));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-            //re = obj.reload().canEdit<CoSo>(CoSo.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(1));
-            //re = obj.reload().canEdit<Phong>(Phong.getById(3));
-            //re = obj.reload().canEdit<Tang>(Tang.getById(1));
-
-            button1.Enabled = false;
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    NhanVienPT obj = new NhanVienPT();
+            //    obj.hoten = "Hoten " + i;
+            //    obj.mota = "Mo ta " + i;
+            //    obj.sodienthoai = "SĐT " + i;
+            //    obj.add();
+            //}
+            //DBInstance.commit();
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
@@ -95,7 +54,17 @@ namespace QuanLyTaiSanGUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CoSo t = CoSo.getQuery().FirstOrDefault();
+
+            XtraReport1 report = new XtraReport1();
+            report.DataSource = NhanVienPT.getAll();
+            //// Add bounded labels to the Detail band of the report. 
+            report.AddBoundLabel("id", new Rectangle(100, 20, 100, 30));
+            report.AddBoundLabel("hoten", new Rectangle(200, 20, 100, 30));
+            report.AddBoundLabel("sodienthoai", new Rectangle(300, 20, 100, 30));
+
+            ReportPrintTool printTool = new ReportPrintTool(report);
+            
+            printTool.ShowRibbonPreview();
         }
 
         private void button1_EnabledChanged(object sender, EventArgs e)

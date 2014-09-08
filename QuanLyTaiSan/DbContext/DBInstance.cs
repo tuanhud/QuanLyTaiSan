@@ -42,7 +42,14 @@ namespace QuanLyTaiSan.Entities
                 {
                     if (db == null)
                     {
-                        db = new OurDBContext(Global.working_database.get_connection_string());
+                        if (SHARED.Global.USE_APP_CONFIG)
+                        {
+                            db = new OurDBContext();
+                        }
+                        else
+                        {
+                            db = new OurDBContext(Global.working_database.get_connection_string());
+                        }
                     }
 
                     try

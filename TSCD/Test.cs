@@ -22,9 +22,14 @@ namespace TSCD
         {
             Global.current_quantrivien_login = QuanTriVien.getByUserName("admin");
 
+            List<DonVi> m = DonVi.getById(GUID.From("fe3d2bdd-2b37-e411-9a23-001f16338b1e")).getAllChildsRecursive();
 
+
+            List<CTTaiSan> tmp =  DonVi.getById(GUID.From("fe3d2bdd-2b37-e411-9a23-001f16338b1e")).getAllCTTaiSanRecursive().ToList();
+
+            Debug.WriteLine(tmp.Count);
             //LoaiTaiSan lts = new LoaiTaiSan();
-            //lts.ten = "Loai 1";
+            //lts.ten = "Loai3";
             //lts.sonamsudung = 5;
             //lts.phantramhaomon = 20;
 
@@ -33,10 +38,10 @@ namespace TSCD
             //ts.dongia = 676542222;
             //ts.loaitaisan = lts;
             //ts.subId = "TREWWWSS$####";
-            
+
 
             //CTTaiSan obj = new CTTaiSan();
-            
+
             //obj.taisan = ts;
             //obj.chungtu_ngay = DateTime.Now;
             //obj.chungtu_sohieu = "RT45644";
@@ -45,12 +50,13 @@ namespace TSCD
             //obj.soluong = 40;
             //obj.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
 
+            //obj.add();
 
-            CTTaiSan obj = CTTaiSan.getById(GUID.From("801C27FE-7435-E411-96A8-001F16338B1E"));
-            obj.chuyenDoi(obj.donviquanly, obj.donvisudung, TinhTrang.getById(GUID.From("C3DEB899-7435-E411-96A8-001F16338B1E")), obj.vitri, obj.phong, null , DateTime.Now, "54367859", -1, "CHuyển hết luôn dot 2", DateTime.Now);
+            ////CTTaiSan obj = CTTaiSan.getById(GUID.From("801C27FE-7435-E411-96A8-001F16338B1E"));
+            ////obj.chuyenDoi(obj.donviquanly, obj.donvisudung, TinhTrang.getById(GUID.From("C3DEB899-7435-E411-96A8-001F16338B1E")), obj.vitri, obj.phong, null , DateTime.Now, "54367859", -1, "CHuyển hết luôn dot 2", DateTime.Now);
 
             
-            int re = DBInstance.commit();
+            //int re = DBInstance.commit();
 
         }
     }

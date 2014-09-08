@@ -27,5 +27,18 @@ namespace SHARED
                 return HttpContext.Current != null;
             }
         }
+        //private static bool web_mode = false;
+        private static Boolean use_app_config = false;
+        public static bool USE_APP_CONFIG
+        {
+            get
+            {
+                return use_app_config;
+            }
+            set
+            {
+                use_app_config = value;
+            }
+        }
     }
 }

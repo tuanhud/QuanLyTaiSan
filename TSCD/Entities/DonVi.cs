@@ -49,6 +49,7 @@ namespace TSCD.Entities
         public virtual ICollection<DonVi> childs { get; set; }
 
         public virtual ICollection<Permission> permissions { get; set; }
+
         /// <summary>
         /// DS CT tài sản mà đơn vị này đống vai trò là đơn vị quản lý
         /// </summary>
@@ -65,34 +66,45 @@ namespace TSCD.Entities
         #endregion
 
         #region Nghiệp vụ
+
         /// <summary>
-        /// Lấy tất cả đám con cháu dưới root
+        /// Gộp CTTaiSan đang quản lý và đang sử dụng lại
+        /// </summary>
+        [NotMapped]
+        public List<CTTaiSan> cttaisans
+        {
+            get
+            {
+                return cttaisan_dangquanlys.Concat(cttaisan_dangsudungs).ToList();
+            }
+        }
+        /// <summary>
+        /// Lấy tất cả đám con cháu CTTaiSan thuộc về Đơn vị này
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<CTTaiSan> getAllCTTaiSanRecursive()
+        {
+            List<Guid> tmp = this.getAllChildsRecursive(true).Select(c=>c.id).ToList();
+            return CTTaiSan.getQuery().Where(c => (c.donviquanly != null && tmp.Contains(c.donviquanly.id)) || (c.donvisudung != null && tmp.Contains(c.donvisudung.id)));
+        }
+        /// <summary>
+        /// Lấy tất cả đám con cháu Đơn vị dưới root
         /// </summary>
         /// <param name="root"></param>
         /// <param name="included_root_in_result"></param>
         /// <returns></returns>
-        public List<DonVi> getAllRecursive(DonVi root, Boolean included_root_in_result=true)
+        public List<DonVi> getAllChildsRecursive(Boolean included_root_in_result=true)
         {
             List<DonVi> tmp = new List<DonVi>();
-            if (root != null)
+            if (included_root_in_result)
             {
-                if (included_root_in_result)
-                {
-                    tmp.Add(root);
-                }
-                if (childs != null)
-                {
-                    foreach (DonVi item in childs)
-                    {
-                        tmp.AddRange(getAllRecursive(item));
-                    }
-                }
+                tmp.Add(this);
             }
-            else
+            if (childs != null)
             {
-                foreach (DonVi item in DonVi.getAll())
+                foreach (DonVi item in childs)
                 {
-                    tmp.AddRange(getAllRecursive(item));
+                    tmp.AddRange(item.getAllChildsRecursive(included_root_in_result));
                 }
             }
             return tmp;
