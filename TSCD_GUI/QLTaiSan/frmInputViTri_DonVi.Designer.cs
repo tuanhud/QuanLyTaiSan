@@ -81,6 +81,11 @@
             // 
             this.txtSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSoLuong.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.txtSoLuong.Location = new System.Drawing.Point(93, 64);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -292,6 +297,7 @@
             this.Controls.Add(this.txtSoLuong);
             this.MinimumSize = new System.Drawing.Size(470, 345);
             this.Name = "frmInputViTri_DonVi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập thông tin";
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();

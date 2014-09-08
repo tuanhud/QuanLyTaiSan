@@ -17,20 +17,17 @@ namespace TSCD_GUI.QLTaiSan
         public frmInputViTri_DonVi()
         {
             InitializeComponent();
-            loadData();
         }
 
-        public frmInputViTri_DonVi(DonVi obj, int soLuong)
+        public void setData(DonVi obj, int soLuong)
         {
-            InitializeComponent();
-            loadData();
             ucComboBoxDonVi1.DonVi = obj;
             ucComboBoxDonVi2.DonVi = obj;
             txtSoLuong.Properties.MinValue = 1;
             txtSoLuong.Properties.MaxValue = soLuong;
         }
 
-        private void loadData()
+        public void loadData()
         {
             List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
             ucComboBoxDonVi1.DataSource = list;

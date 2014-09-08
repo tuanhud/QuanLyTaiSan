@@ -69,5 +69,27 @@ namespace TSCD_GUI.QLTaiSan
                 frm.ShowDialog();
             }
         }
+
+        private void bandedGridViewTaiSan_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
+        {
+            TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+            e.IsEmpty = c.childs == 0;
+        }
+
+        private void bandedGridViewTaiSan_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
+        {
+            e.RelationCount = 1;
+        }
+
+        private void bandedGridViewTaiSan_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
+        {
+            e.RelationName = "Tài sản kèm theo";
+        }
+
+        private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
+        {
+            TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+            e.ChildList = TaiSanHienThi.getAllByParentId(c.id);
+        }
     }
 }

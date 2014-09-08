@@ -25,12 +25,13 @@ namespace TSCD.DataFilter
         public String vitri { get; set; }
         public String dvquanly { get; set; }
         public String dvsudung { get; set; }
+        public int childs { get; set; }
 
         public static List<TaiSanHienThi> getAllNoDonVi()
         {
             List<TaiSanHienThi> re =
                 (from ct in db.CTTAISANS
-                 where (ct.donviquanly == null && ct.donvisudung == null)
+                 where (ct.donviquanly == null && ct.donvisudung == null && ct.parent == null)
                  select new TaiSanHienThi
                  {
                     id = ct.id,
@@ -46,6 +47,7 @@ namespace TSCD.DataFilter
                     nguongoc = ct.nguongoc,
                     tinhtrang = ct.tinhtrang.value,
                     ghichu = ct.mota,
+                    childs = ct.childs.Count,
                  }).ToList();
             return re;
         }
@@ -56,7 +58,7 @@ namespace TSCD.DataFilter
                 return null;
             List<TaiSanHienThi> re =
                 (from ct in db.CTTAISANS
-                 where (ct.donviquanly.id == obj.id || ct.donvisudung.id == obj.id )
+                 where (ct.donviquanly.id == obj.id || ct.donvisudung.id == obj.id && ct.parent == null)
                  select new TaiSanHienThi
                  {
                      id = ct.id,
@@ -72,11 +74,71 @@ namespace TSCD.DataFilter
                      nguongoc = ct.nguongoc,
                      tinhtrang = ct.tinhtrang.value,
                      ghichu = ct.mota,
+                     childs = ct.childs.Count,
                      phong = ct.phong != null ? ct.phong.ten : "",
                      vitri = ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " + 
                      ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "",
                      dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                      dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+                 }).ToList();
+            return re;
+        }
+
+        public static List<TaiSanHienThi> getAllByParentIDForDonVi(Guid id)
+        {
+            if (id == Guid.Empty)
+                return null;
+            List<TaiSanHienThi> re =
+                (from ct in db.CTTAISANS
+                 where (ct.parent.id == id)
+                 select new TaiSanHienThi
+                 {
+                     id = ct.id,
+                     ngayghi = ct.ngay,
+                     sohieu_ct = ct.chungtu_sohieu,
+                     ngay_ct = ct.chungtu_ngay,
+                     ten = ct.taisan.ten,
+                     loaits = ct.taisan.loaitaisan.ten,
+                     donvitinh = ct.taisan.loaitaisan.donvitinh.ten,
+                     soluong = ct.soluong,
+                     dongia = ct.taisan.dongia,
+                     thanhtien = ct.soluong * ct.taisan.dongia,
+                     nguongoc = ct.nguongoc,
+                     tinhtrang = ct.tinhtrang.value,
+                     ghichu = ct.mota,
+                     childs = ct.childs.Count,
+                     phong = ct.phong != null ? ct.phong.ten : "",
+                     vitri = ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
+                     ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "",
+                     dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
+                     dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+                 }).ToList();
+            return re;
+        }
+
+        public static List<TaiSanHienThi> getAllByParentId(Guid id)
+        {
+            if (id == Guid.Empty)
+                return null;
+            List<TaiSanHienThi> re =
+                (from ct in db.CTTAISANS
+                 where (ct.parent.id == id)
+                 select new TaiSanHienThi
+                 {
+                     id = ct.id,
+                     ngayghi = ct.ngay,
+                     sohieu_ct = ct.chungtu_sohieu,
+                     ngay_ct = ct.chungtu_ngay,
+                     ten = ct.taisan.ten,
+                     loaits = ct.taisan.loaitaisan.ten,
+                     donvitinh = ct.taisan.loaitaisan.donvitinh.ten,
+                     soluong = ct.soluong,
+                     dongia = ct.taisan.dongia,
+                     thanhtien = ct.soluong * ct.taisan.dongia,
+                     nguongoc = ct.nguongoc,
+                     tinhtrang = ct.tinhtrang.value,
+                     ghichu = ct.mota,
+                     childs = ct.childs.Count,
                  }).ToList();
             return re;
         }

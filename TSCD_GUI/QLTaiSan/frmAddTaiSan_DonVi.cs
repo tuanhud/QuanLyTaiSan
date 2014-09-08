@@ -17,11 +17,13 @@ namespace TSCD_GUI.QLTaiSan
         DonVi objDonVi = null;
         public delegate void ReloadAndFocused(Guid id);
         public ReloadAndFocused reloadAndFocused = null;
+        frmInputViTri_DonVi frm = new frmInputViTri_DonVi();
 
         public frmAddTaiSan_DonVi()
         {
             InitializeComponent();
             loadData();
+            init();
         }
 
         public frmAddTaiSan_DonVi(DonVi obj)
@@ -29,11 +31,18 @@ namespace TSCD_GUI.QLTaiSan
             InitializeComponent();
             loadData();
             objDonVi = obj;
+            init();
+        }
+
+        private void init()
+        {
+            frm.add = new frmInputViTri_DonVi.Add(add);
         }
 
         private void loadData()
         {
             ucQuanLyTaiSan1.loadData();
+            frm.loadData();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -41,8 +50,7 @@ namespace TSCD_GUI.QLTaiSan
             CTTaiSan obj = ucQuanLyTaiSan1.CTTaiSan;
             if (obj != null)
             {
-                frmInputViTri_DonVi frm = new frmInputViTri_DonVi(objDonVi, obj.soluong);
-                frm.add = new frmInputViTri_DonVi.Add(add);
+                frm .setData(objDonVi, obj.soluong);
                 frm.ShowDialog();
             }
         }

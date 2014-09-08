@@ -13,7 +13,7 @@ namespace TSCD.DataFilter
         public String loai { get; set; }
         public String loaiphong { get; set; }
         public Guid parent_id { get; set; }
-        public Phong phong { get; set; }
+        public virtual Phong phong { get; set; }
         public long? order { get; set; }
 
         #region Nghiệp vụ

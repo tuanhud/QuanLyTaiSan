@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucQuanLyTaiSan1 = new TSCD_GUI.QLTaiSan.ucQuanLyTaiSan();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.ucQuanLyTaiSan1 = new TSCD_GUI.QLTaiSan.ucQuanLyTaiSan();
             this.SuspendLayout();
-            // 
-            // ucQuanLyTaiSan1
-            // 
-            this.ucQuanLyTaiSan1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucQuanLyTaiSan1.Location = new System.Drawing.Point(0, 0);
-            this.ucQuanLyTaiSan1.Name = "ucQuanLyTaiSan1";
-            this.ucQuanLyTaiSan1.Size = new System.Drawing.Size(809, 397);
-            this.ucQuanLyTaiSan1.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -58,6 +50,14 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Đóng";
             // 
+            // ucQuanLyTaiSan1
+            // 
+            this.ucQuanLyTaiSan1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucQuanLyTaiSan1.Location = new System.Drawing.Point(0, 0);
+            this.ucQuanLyTaiSan1.Name = "ucQuanLyTaiSan1";
+            this.ucQuanLyTaiSan1.Size = new System.Drawing.Size(809, 397);
+            this.ucQuanLyTaiSan1.TabIndex = 0;
+            // 
             // frmAddTaiSan_DonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -67,6 +67,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ucQuanLyTaiSan1);
             this.Name = "frmAddTaiSan_DonVi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddTaiSan_DonVi";
             this.ResumeLayout(false);
 
