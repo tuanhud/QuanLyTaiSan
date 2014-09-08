@@ -29,7 +29,10 @@ namespace SHARED.Libraries
         {
             try
             {
-                return Guid.Parse(value.ToString());
+                if (value != null)
+                    return Guid.Parse(value.ToString());
+                else
+                    return Guid.Empty;
             }
             catch (Exception)
             {

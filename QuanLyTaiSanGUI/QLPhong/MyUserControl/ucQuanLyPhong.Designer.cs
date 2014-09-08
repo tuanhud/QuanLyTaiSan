@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -92,7 +91,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -187,6 +186,7 @@
             this.colten.Caption = "Tên phòng";
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
+            this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             this.colten.Width = 379;
@@ -217,6 +217,7 @@
             this.colnhanvienpt.Caption = "Nhân viên phụ trách";
             this.colnhanvienpt.FieldName = "nhanvienpt";
             this.colnhanvienpt.Name = "colnhanvienpt";
+            this.colnhanvienpt.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colnhanvienpt.Visible = true;
             this.colnhanvienpt.VisibleIndex = 2;
             this.colnhanvienpt.Width = 479;
@@ -226,6 +227,7 @@
             this.colvitri.Caption = "Vị trí";
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
+            this.colvitri.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colvitri.Visible = true;
             this.colvitri.VisibleIndex = 1;
             this.colvitri.Width = 392;

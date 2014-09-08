@@ -52,10 +52,10 @@ namespace TSCD_GUI.QLPhong
             editGUI("view");
             List<ViTriHienThi> listVitri = ViTriHienThi.getAll();
             List<ViTriHienThi> listVitri2 = new List<ViTriHienThi>(listVitri);
-            _ucTreeViTri.loadData(listVitri);
+            _ucTreeViTri.DataSource = listVitri;
             _ucComboBoxViTri.DataSource = listVitri2;
             loadLoaiPhong();
-            _ViTriHienTai = _ucTreeViTri.getVitri();
+            _ViTriHienTai = _ucTreeViTri.Vitri;
             listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
             gridControlPhong.DataSource = listPhong;
             if (listPhong.Count() == 0)
@@ -105,7 +105,7 @@ namespace TSCD_GUI.QLPhong
         {
             try
             {
-                _ViTriHienTai = _ucTreeViTri.getVitri();
+                _ViTriHienTai = _ucTreeViTri.Vitri;
                 listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
                 gridControlPhong.DataSource = listPhong;
                 if (listPhong.Count() == 0)
@@ -242,7 +242,7 @@ namespace TSCD_GUI.QLPhong
                 }
                 if (gridLookUpLoai.EditValue == null || GUID.From(gridLookUpLoai.EditValue) == Guid.Empty)
                 {
-                    dxErrorProviderInfo.SetError(gridLookUpLoai, "Chưa điền chọn loại phòng");
+                    dxErrorProviderInfo.SetError(gridLookUpLoai, "Chưa chọn loại phòng");
                     check = false;
                 }
                 return check;

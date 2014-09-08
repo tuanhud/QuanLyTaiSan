@@ -25,7 +25,6 @@ namespace TSCD_GUI.QLLoaiTaiSan
         {
             InitializeComponent();
             init();
-            loadData();
         }
         private void init()
         {

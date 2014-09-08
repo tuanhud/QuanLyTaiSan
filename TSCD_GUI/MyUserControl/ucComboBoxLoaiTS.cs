@@ -16,6 +16,10 @@ namespace TSCD_GUI.MyUserControl
 {
     public partial class ucComboBoxLoaiTS : DevExpress.XtraEditors.XtraUserControl
     {
+
+        public delegate void EditValueChanged();
+        public EditValueChanged editValueChanged = null;
+
         public ucComboBoxLoaiTS()
         {
             InitializeComponent();
@@ -35,7 +39,10 @@ namespace TSCD_GUI.MyUserControl
             {
                 try
                 {
-                    return LoaiTaiSan.getById(GUID.From(treeListLookUpLoaiTS.EditValue));
+                    if (treeListLookUpLoaiTS.EditValue != null)
+                        return LoaiTaiSan.getById(GUID.From(treeListLookUpLoaiTS.EditValue));
+                    else
+                        return null;
                 }
                 catch (Exception ex)
                 {
@@ -98,6 +105,12 @@ namespace TSCD_GUI.MyUserControl
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
+        }
+
+        private void treeListLookUpLoaiTS_EditValueChanged(object sender, EventArgs e)
+        {
+            if (editValueChanged != null)
+                editValueChanged();
         }
     }
 }

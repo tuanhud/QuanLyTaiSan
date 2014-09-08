@@ -80,6 +80,12 @@
     <Compile Include="MyUserControl\ucComboBoxViTri.Designer.cs">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControl\ucTreeDonVi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucTreeDonVi.Designer.cs">
+      <DependentUpon>ucTreeDonVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\ucTreeViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +136,18 @@
     <Compile Include="QLTaiSan\frmAddTaiSan.Designer.cs">
       <DependentUpon>frmAddTaiSan.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSan_DonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSan_DonVi.Designer.cs">
+      <DependentUpon>frmAddTaiSan_DonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLTaiSan\frmInputViTri_DonVi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmInputViTri_DonVi.Designer.cs">
+      <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLTaiSan\ucQuanLyDonVi_TaiSan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucComboBoxViTri.resx">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucTreeDonVi.resx">
+      <DependentUpon>ucTreeDonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucTreeViTri.resx">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
@@ -197,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmAddTaiSan.resx">
       <DependentUpon>frmAddTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmAddTaiSan_DonVi.resx">
+      <DependentUpon>frmAddTaiSan_DonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmInputViTri_DonVi.resx">
+      <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\ucQuanLyDonVi_TaiSan.resx">
       <DependentUpon>ucQuanLyDonVi_TaiSan.cs</DependentUpon>

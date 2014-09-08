@@ -100,16 +100,19 @@ namespace TSCD_GUI
                 }
                 else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLoaiTS)))
                 {
+                    _ucQuanLyLoaiTS.loadData();
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucQuanLyLoaiTS);
                 }
                 else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageTaiSan)))
                 {
+                    _ucQuanLyTaiSan.loadData();
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucQuanLyTaiSan);
                 }
                 else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi_TaiSan)))
                 {
+                    _ucQuanLyDonVi_TaiSan.loadData();
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucQuanLyDonVi_TaiSan);
                 }

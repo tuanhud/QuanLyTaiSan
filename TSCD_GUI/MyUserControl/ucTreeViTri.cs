@@ -18,10 +18,6 @@ namespace TSCD_GUI.MyUserControl
 {
     public partial class ucTreeViTri : DevExpress.XtraEditors.XtraUserControl
     {
-        private Guid phongid = Guid.Empty;
-        private Guid cosoid = Guid.Empty;
-        private Guid dayid = Guid.Empty;
-        private Guid tangid = Guid.Empty;
 
         public delegate void FocusedRow_phong();
         public FocusedRow_phong focusedRow_phong = null;
@@ -31,45 +27,22 @@ namespace TSCD_GUI.MyUserControl
             InitializeComponent();
         }
 
-        public void loadData(List<ViTriHienThi> _list)
+        public Object DataSource
         {
-            treeListViTri.BeginUnboundLoad();
-            treeListViTri.DataSource = null;
-            treeListViTri.DataSource = _list;
-            treeListViTri.EndUnboundLoad();
+            set
+            {
+                treeListViTri.BeginUnboundLoad();
+                treeListViTri.DataSource = value;
+                treeListViTri.EndUnboundLoad();
+            }
         }
 
         private void treeListViTri_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
             try
             {
-                phongid = Guid.Empty;
-                cosoid = Guid.Empty;
-                dayid = Guid.Empty;
-                tangid = Guid.Empty;
-                if (e.Node.GetValue(colloai) != null)
-                {
-                    switch (e.Node.GetValue(colloai).ToString())
-                    {
-                        case "CoSo":
-                            cosoid = GUID.From(e.Node.GetValue(colid));
-                            break;
-                        case "Dayy":
-                            dayid = GUID.From(e.Node.GetValue(colid));
-                            cosoid = GUID.From(e.Node.ParentNode.GetValue(colid));
-                            break;
-                        case "Tang":
-                            tangid = GUID.From(e.Node.GetValue(colid));
-                            dayid = GUID.From(e.Node.ParentNode.GetValue(colid));
-                            cosoid = GUID.From(e.Node.ParentNode.ParentNode.GetValue(colid));
-                            break;
-                        case "Phong":
-                            phongid = GUID.From(e.Node.GetValue(colid));
-                            break;
-                    }
-                    if (focusedRow_phong != null && (cosoid != Guid.Empty || dayid != Guid.Empty || tangid != Guid.Empty))
-                        focusedRow_phong();
-                }
+                if (focusedRow_phong != null)
+                    focusedRow_phong();
             }
             catch (Exception ex)
             {
@@ -77,86 +50,78 @@ namespace TSCD_GUI.MyUserControl
             }
         }
 
-        public ViTri getVitri()
+        public ViTri Vitri
         {
-            try
+            get
             {
-                ViTri obj = new ViTri();
-                obj.coso = CoSo.getById(cosoid);
-                obj.day = Dayy.getById(dayid);
-                obj.tang = Tang.getById(tangid);
-                return obj;
+                try
+                {
+                    TreeListNode node = treeListViTri.FocusedNode;
+                    if (node != null && node.GetValue(colloai) != null && node.GetValue(colid) != null)
+                    {
+                        if (node.GetValue(colloai).Equals(typeof(CoSo).Name))
+                        {
+                            CoSo obj = CoSo.getById(GUID.From(node.GetValue(colid)));
+                            if (obj != null)
+                                return ViTri.request(obj, null, null);
+                        }
+                        else if (node.GetValue(colloai).Equals(typeof(Dayy).Name))
+                        {
+                            Dayy obj = Dayy.getById(GUID.From(node.GetValue(colid)));
+                            if (obj != null)
+                                return ViTri.request(null, obj, null);
+                        }
+                        else if (node.GetValue(colloai).Equals(typeof(Tang).Name))
+                        {
+                            Tang obj = Tang.getById(GUID.From(node.GetValue(colid)));
+                            if (obj != null)
+                                return ViTri.request(null, null, obj);
+                        }
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->getVitri: " + ex.Message);
+                    return null;
+                }
             }
-            catch (Exception ex)
+            set
             {
-                Debug.WriteLine(this.Name + "->getVitri: " + ex.Message);
-                return null;
+                try
+                {
+                    if (value != null)
+                    {
+                        TreeListNode node = null;
+                        if (value.tang != null && !value.tang.id.Equals(Guid.Empty))
+                        {
+                            node = treeListViTri.FindNodeByKeyID(value.tang.id);
+                        }
+                        else if (value.day != null && !value.day.id.Equals(Guid.Empty))
+                        {
+                            node = treeListViTri.FindNodeByKeyID(value.day.id);
+                        }
+                        else if (value.coso != null && !value.coso.id.Equals(Guid.Empty))
+                        {
+                            node = treeListViTri.FindNodeByKeyID(value.coso.id);
+                        }
+                        if (node != null)
+                        {
+                            treeListViTri.CollapseAll();
+                            node.Selected = true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->setVitri : " + ex.Message);
+                }
             }
-        }
-
-        public Phong getPhong()
-        {
-            if (phongid != Guid.Empty)
-                return Phong.getById(phongid);
-            else
-                return new Phong();
         }
 
         public TreeList getTreeList()
         {
             return treeListViTri;
-        }
-
-        public void setVitri(ViTri obj)
-        {
-            try
-            {
-                if (obj != null)
-                {
-                    TreeListNode node = null;
-                    if (obj.tang != null && !obj.tang.id.Equals(Guid.Empty))
-                    {
-                        node = treeListViTri.FindNodeByKeyID(obj.tang.id);
-                    }
-                    else if (obj.day != null && !obj.day.id.Equals(Guid.Empty))
-                    {
-                        node = treeListViTri.FindNodeByKeyID(obj.day.id);
-                    }
-                    else if (obj.coso != null && !obj.coso.id.Equals(Guid.Empty))
-                    {
-                        node = treeListViTri.FindNodeByKeyID(obj.coso.id);
-                    }
-                    if (node != null)
-                    {
-                        treeListViTri.CollapseAll();
-                        node.Selected = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->setVitri : " + ex.Message);
-            }
-        }
-
-        public void setPhong(Phong obj)
-        {
-            try
-            {
-                if (obj != null && !obj.id.Equals(Guid.Empty))
-                {
-                    TreeListNode node = treeListViTri.FindNodeByKeyID(obj.id);
-                    if (node != null)
-                    {
-                        treeListViTri.CollapseAll();
-                        node.Selected = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->setPhong: " + ex.Message);
-            }
         }
 
         private void OnFilterNode(object sender, FilterNodeEventArgs e)

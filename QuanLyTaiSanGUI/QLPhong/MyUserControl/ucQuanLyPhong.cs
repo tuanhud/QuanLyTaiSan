@@ -56,9 +56,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             ribbonPhong.Parent = null;
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucComboBoxViTri);
-            gridViewPhong.Columns[colten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            gridViewPhong.Columns[colmota.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            gridViewPhong.Columns[colnhanvienpt.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
             //save layout
             layout.save(gridViewPhong);
