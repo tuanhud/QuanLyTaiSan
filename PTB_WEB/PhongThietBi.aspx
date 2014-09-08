@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/UserControl/PhongThietBi/ucPhongThietBi_Web.ascx" TagPrefix="uc" TagName="ucPhongThietBi_Web" %>
 <%@ Register Src="~/UserControl/PhongThietBi/ucPhongThietBi_Mobile.ascx" TagPrefix="uc" TagName="ucPhongThietBi_Mobile" %>
+<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Thiết bị từng phòng :: Phòng Thiết bị :.</title>
@@ -16,4 +17,5 @@
             <uc:ucPhongThietBi_Mobile runat="server" ID="_ucPhongThietBi_Mobile" />
         </asp:Panel>
     </div>
+    <uc:ucFooter runat="server" id="ucFooter" />
 </asp:Content>

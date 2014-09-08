@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/UserControl/Phong/ucPhong_Web.ascx" TagPrefix="uc" TagName="ucPhong_Web" %>
 <%@ Register Src="~/UserControl/Phong/ucPhong_Mobile.ascx" TagPrefix="uc" TagName="ucPhong_Mobile" %>
+<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Phòng :: Phòng Thiết bị :.</title>
@@ -16,4 +17,5 @@
             <uc:ucPhong_Mobile runat="server" ID="_ucPhong_Mobile" />
         </asp:Panel>
     </div>
+    <uc:ucFooter runat="server" id="ucFooter" />
 </asp:Content>

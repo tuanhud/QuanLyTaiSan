@@ -32,7 +32,7 @@
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                 </td>
                 <td class="border_right">
-                    <h3 class="title_green">Danh sách thiết bị </h3>
+                    <h3 class="title_green fix">Danh sách thiết bị </h3>
                     <% if (RepeaterDanhSachThietBi.Items.Count == 0)
                        { %>
                     <div class="panel-body">
@@ -71,7 +71,7 @@
                     <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachThietBi" />
                 </td>
                 <td style="width: 400px">
-                    <h3 class="title_blue">
+                    <h3 class="title_blue fix">
                         <asp:Label ID="Label_ThongTinThietBi" runat="server" Text="Thông tin thiết bị"></asp:Label>
                     </h3>
                     <asp:Panel ID="Panel_ThietBi" runat="server" Visible="False">

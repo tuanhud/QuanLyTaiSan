@@ -47,5 +47,14 @@ namespace PTB_WEB {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.NhanVien.ucNhanVien_Mobile _ucNhanVien_Mobile;
+        
+        /// <summary>
+        /// ucFooter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.ucFooter ucFooter;
     }
 }

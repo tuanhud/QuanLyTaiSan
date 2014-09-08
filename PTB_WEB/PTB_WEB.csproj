@@ -109,6 +109,7 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
     <Content Include="HinhAnh.aspx" />
+    <Content Include="Images\bg-footer.png" />
     <Content Include="Images\bg-wall.png" />
     <Content Include="Images\CollapseAllIcon.png" />
     <Content Include="Images\ExpandAllIcon.png" />
@@ -219,6 +220,7 @@
     <Content Include="UserControl\ucASPxImageSlider_Web.ascx" />
     <Content Include="UserControl\ucCollectionPager.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
+    <Content Include="UserControl\ucFooter.ascx" />
     <Content Include="UserControl\ucTreeViTri.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_BreadCrumb.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
@@ -574,6 +576,13 @@
     </Compile>
     <Compile Include="UserControl\ucDangNhap.ascx.designer.cs">
       <DependentUpon>ucDangNhap.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucFooter.ascx.cs">
+      <DependentUpon>ucFooter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucFooter.ascx.designer.cs">
+      <DependentUpon>ucFooter.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucTreeViTri.ascx.cs">
       <DependentUpon>ucTreeViTri.ascx</DependentUpon>

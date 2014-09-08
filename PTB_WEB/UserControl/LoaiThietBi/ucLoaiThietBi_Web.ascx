@@ -24,7 +24,7 @@
                 <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
             </td>
             <td>
-                <h3 class="title_green">
+                <h3 class="title_green fix">
                     <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
                 <asp:Panel ID="Panel_ThongTinLoaiThietBi" runat="server" Visible="False">
                     <table class="table table-striped">

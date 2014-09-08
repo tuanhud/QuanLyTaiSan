@@ -23,7 +23,7 @@
             <tr>
                 <td>
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
-                    <h3 class="title_blue_maps">Danh sách phòng</h3>
+                    <h3 class="title_blue">Danh sách phòng</h3>
                     <% if (RepeaterDanhSachPhong.Items.Count == 0)
                        { %>
                     <div class="panel-body">
@@ -58,7 +58,7 @@
                     <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachPhong" />
                 </td>
                 <td style="width: 400px">
-                    <h3 class="title_green">
+                    <h3 class="title_green fix">
                         <asp:Label ID="Label_ThongTinPhong" runat="server" Text="Thông tin phòng"></asp:Label>
                     </h3>
                     <asp:Panel ID="Panel_Phong" runat="server" Visible="False">
@@ -99,7 +99,7 @@
                         </table>
                     </asp:Panel>
                     <asp:Label ID="Label_Phong" runat="server" Visible="false"></asp:Label>
-                    <h3 class="title_green2">
+                    <h3 class="title_green">
                         <asp:Label ID="Label_ThongTinNhanVien" runat="server" Text="Thông tin nhân viên"></asp:Label>
                     </h3>
                     <asp:Panel ID="Panel_NhanVienPT" runat="server" Visible="False">

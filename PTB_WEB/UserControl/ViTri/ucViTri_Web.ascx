@@ -23,7 +23,7 @@
                 <td style="width: 300px" class="border_right">
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                     <asp:Panel ID="Panel_GoogleMap" runat="server" Visible="False">
-                        <h3 class="title_blue_maps">Bản đồ<span class="glyphicon glyphicon-new-window pull-right" style="cursor: pointer" data-toggle="modal" data-target="#myModal" onclick="return false;"></span></h3>
+                        <h3 class="title_blue">Bản đồ<span class="glyphicon glyphicon-new-window pull-right" style="cursor: pointer" data-toggle="modal" data-target="#myModal" onclick="return false;"></span></h3>
                         <iframe id="Iframe_GoogleMap" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -45,7 +45,7 @@
                     </asp:Panel>
                 </td>
                 <td>
-                    <h3 class="title_green"><asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
+                    <h3 class="title_green fix"><asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
                     <asp:Panel ID="Panel_ThongTinViTri" runat="server" Visible="False">
                         <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
                         <table class="table table-striped">

@@ -23,8 +23,12 @@ namespace PTB_WEB.UserControl.SuCo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _ucTreeViTri.ASPxTreeList_ViTri.CustomDataCallback += new DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventHandler(this.ASPxTreeList_ViTri_CustomDataCallback);
-            _ucTreeViTri.ASPxTreeList_ViTri.HtmlDataCellPrepared += new DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventHandler(this.ASPxTreeList_ViTri_HtmlDataCellPrepared);
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.ASPxTreeList_ViTri.CustomDataCallback += new DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventHandler(this.ASPxTreeList_ViTri_CustomDataCallback);
+                _ucTreeViTri.ASPxTreeList_ViTri.HtmlDataCellPrepared += new DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventHandler(this.ASPxTreeList_ViTri_HtmlDataCellPrepared);
+                _ucTreeViTri.Label_TenViTri.Text = "Chọn phòng";
+            }
         }
 
         public void LoadData()
@@ -75,6 +79,7 @@ namespace PTB_WEB.UserControl.SuCo
                                         Label_SuCo.Text = "";
                                         Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
                                         Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                                        _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=SUCOPHONG", HttpContext.Current.Request.Url.Authority, objSuCoPhong.id);
                                         Session["TenSuCo"] = Label_TenSuCo.Text = objSuCoPhong.ten;
                                         Label_TinhTrang.Text = objSuCoPhong.tinhtrang != null ? objSuCoPhong.tinhtrang.value : "[Tình trạng]";
                                         Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();

@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/UserControl/NhanVien/ucNhanVien_Web.ascx" TagPrefix="uc" TagName="ucNhanVien_Web" %>
 <%@ Register Src="~/UserControl/NhanVien/ucNhanVien_Mobile.ascx" TagPrefix="uc" TagName="ucNhanVien_Mobile" %>
+<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Nhân viên phụ trách :: Phòng Thiết bị :.</title>
@@ -16,4 +17,5 @@
             <uc:ucNhanVien_Mobile runat="server" ID="_ucNhanVien_Mobile" />
         </asp:Panel>
     </div>
+    <uc:ucFooter runat="server" id="ucFooter" />
 </asp:Content>

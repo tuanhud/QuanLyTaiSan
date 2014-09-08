@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/UserControl/ViTri/ucViTri_Web.ascx" TagPrefix="uc" TagName="ucViTri_Web" %>
 <%@ Register Src="~/UserControl/ViTri/ucViTri_Mobile.ascx" TagPrefix="uc" TagName="ucViTri_Mobile" %>
+<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Vị trí :: Phòng Thiết bị :.</title>
@@ -16,4 +17,5 @@
             <uc:ucViTri_Mobile runat="server" ID="_ucViTri_Mobile" />
         </asp:Panel>
     </div>
+    <uc:ucFooter runat="server" id="ucFooter" />
 </asp:Content>

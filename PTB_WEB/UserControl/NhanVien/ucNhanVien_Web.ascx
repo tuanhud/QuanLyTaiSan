@@ -19,15 +19,11 @@
     <table class="table largetable">
         <tbody>
             <tr>
-                <td>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Danh sách nhân viên
-                        </div>
-
+                <td class="border_right">
+                    <h3 class="title_green fix">Danh sách nhân viên</h3>
                         <% if (RepeaterDanhSachNhanVien.Items.Count == 0)
                            { %>
-                        <div class="panel-body">Chưa có nhân viên</div>
+                        Chưa có nhân viên
                         <% }
                            else
                            {%>
@@ -54,17 +50,10 @@
                             </tbody>
                         </table>
                         <%} %>
-                    </div>
-
                     <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachNhanVien" />
                 </td>
-
                 <td style="width: 400px">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
-                        </div>
-                        <div class="panel-body">
+                    <h3 class="title_blue fix"><asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
                             <asp:Panel ID="Panel_NhanVienPT" runat="server" Visible="false">
                                 <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
                                 <table class="table table-striped">
@@ -91,17 +80,10 @@
                                 </table>
                             </asp:Panel>
                             <asp:Label ID="Label_NhanVienPT" runat="server" Visible="false"></asp:Label>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Danh sách phòng
-                        </div>
-
+                    <h3 class="title_blue">Danh sách phòng</h3>
                         <% if (RepeaterDanhSachPhong.Items.Count == 0)
                            { %>
-                        <div class="panel-body">Không có phòng nào</div>
+                        Không có phòng nào
                         <% }
                            else
                            {%>
@@ -113,8 +95,6 @@
                             </asp:Repeater>
                         </ul>
                         <%} %>
-                    </div>
-
                     <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachPhong" />
                 </td>
             </tr>

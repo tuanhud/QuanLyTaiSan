@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="SuCo.aspx.cs" Inherits="PTB_WEB.SuCo" %>
 <%@ Register Src="~/UserControl/SuCo/ucSuCo_Web.ascx" TagPrefix="uc" TagName="ucSuCo_Web" %>
 <%@ Register Src="~/UserControl/SuCo/ucSuCo_Mobile.ascx" TagPrefix="uc" TagName="ucSuCo_Mobile" %>
+<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Sự cố :: Phòng Thiết bị :.</title>
@@ -14,4 +15,5 @@
             <uc:ucSuCo_Mobile runat="server" id="ucSuCo_Mobile" />
         </asp:Panel>
     </div>
+    <uc:ucFooter runat="server" id="ucFooter" />
 </asp:Content>
