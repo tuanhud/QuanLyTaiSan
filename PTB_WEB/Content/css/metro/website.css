@@ -12,10 +12,10 @@ Metro Settings
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 100% 100%;
-    background-image: url('../images/metro/settings.png');
+    background-image: url('/Images/metro/settings.png');
 }
 body.open #settings {
-    background-image: url('../images/metro/cancel.png');
+    background-image: url('/Images/metro/cancel.png');
 }
 header {
     position: fixed;
@@ -96,7 +96,7 @@ body.open header {
     font-size: 0.8em;
 }
 #theme_picker div.default {
-    background: url('../images/colour.png');
+    background: url('/Images/metro/colour.png');
 }
 #theme_picker div.blue {
     background-color: #0097AA;
@@ -177,7 +177,7 @@ div.preview_button {
 a.demo,
 a.download {
     display: inline-block;
-    background-image: url('../images/envato_sprite.png');
+    background-image: url('/Images/metro/envato_sprite.png');
     background-repeat: no-repeat;
     background-color: #222222;
     padding: 8px 12px 8px 36px;

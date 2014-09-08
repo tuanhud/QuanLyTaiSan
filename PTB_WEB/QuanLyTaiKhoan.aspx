@@ -56,11 +56,11 @@
                                 <th>CÔNG CỤ</th>
                             </tr>
                         </thead>
-                        <tbody class="centered">
+                        <tbody>
                             <asp:Repeater ID="RepeaterQuanLyTaiKhoan" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td><%# Container.ItemIndex + 1 %></td>
+                                        <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyTaiKhoan.CurrentPage - 1) * CollectionPagerQuanLyTaiKhoan.PageSize) %></td>
                                         <td id="hoten<%#Eval("id")%>"><%# Eval("hoten") %></td>
                                         <td id="email<%#Eval("id")%>"><%# Eval("email") %></td>
                                         <td id="username<%#Eval("id")%>"><%# Eval("username") %></td>

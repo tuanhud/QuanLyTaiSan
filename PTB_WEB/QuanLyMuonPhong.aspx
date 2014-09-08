@@ -49,11 +49,11 @@
                                             <th><i>Người duyệt</i></th>
                                         </tr>
                                     </thead>
-                                    <tbody class="centered">
+                                    <tbody>
                                         <asp:Repeater ID="RepeaterQuanLyPhongBanMuon" runat="server">
                                             <ItemTemplate>
                                                 <tr>
-                                                    <td><%# Container.ItemIndex + 1 %></td>
+                                                    <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyPhongBanMuon.CurrentPage - 1) * CollectionPagerQuanLyPhongBanMuon.PageSize) %></td>
                                                     <td><%# NgayTao() %></td>
                                                     <td><%# Eval("donvi") %></td>
                                                     <td><%# NgayMuon() %></td>
@@ -110,11 +110,11 @@
                                             <th><i>Người duyệt</i></th>
                                         </tr>
                                     </thead>
-                                    <tbody class="centered">
+                                    <tbody>
                                         <asp:Repeater ID="RepeaterQuanLyMuonPhong" runat="server">
                                             <ItemTemplate>
                                                 <tr>
-                                                    <td><%# Container.ItemIndex + 1 %></td>
+                                                    <td class="tdcenter"><%# Container.ItemIndex + 1 + ((CollectionPagerQuanLyMuonPhong.CurrentPage - 1) * CollectionPagerQuanLyMuonPhong.PageSize) %></td>
                                                     <td><%# NgayTao() %></td>
                                                     <td><%# Eval("donvi") %></td>
                                                     <td><%# NgayMuon() %></td>

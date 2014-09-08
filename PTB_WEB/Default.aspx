@@ -135,7 +135,8 @@
         </div>
         <div class="row">
             <div class="widget_container full">
-                <%if(Session["UserName"] == null){ %>
+                <%if (Session["UserName"] == null)
+                  { %>
                 <div class="widget widget2x2 widget_darkblue animation unloaded">
                     <a href="DangNhap.aspx">
                         <div class="widget_content">
@@ -145,7 +146,9 @@
                         </div>
                     </a>
                 </div>
-                <%}else{ %>
+                <%}
+                  else
+                  { %>
                 <div class="widget widget4x2 widget_blue animation unloaded">
                     <a href="ThongTinCaNhan.aspx">
                         <div class="widget_content">
@@ -185,6 +188,16 @@
                 <%} %>
             </div>
         </div>
-
+    </div>
+    <div id="widget_preview">
+        <div id="widget_sidebar">
+            <div>
+                <div class="cancel"><span>Đóng</span></div>
+                <div class="refresh"><span>Tải lại</span></div>
+                <div class="download"><span>Tải về</span></div>
+                <div class="back"><span>Trang trước</span></div>
+                <div class="next"><span>Trang kế</span></div>
+            </div>
+        </div>
     </div>
 </asp:Content>

@@ -31,7 +31,7 @@
                         <% }
                            else
                            {%>
-                        <table class="table table-bordered table-striped table-hover">
+                        <table class="table table-bordered table-striped table-hover valign_middle">
                             <thead class="centered">
                                 <tr>
                                     <th>#</th>
