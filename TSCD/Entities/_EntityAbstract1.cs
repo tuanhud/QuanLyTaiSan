@@ -270,7 +270,7 @@ namespace TSCD.Entities
                     {
                         //for any other error
                         Debug.WriteLine(exx.ToString());
-                        return null;
+                        return (T)this;
                     }
                 }
             }
