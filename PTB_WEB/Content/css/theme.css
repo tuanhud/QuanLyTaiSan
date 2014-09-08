@@ -107,7 +107,8 @@
 }
 .dxtlFocusedNode_Aqua {
     background-color:transparent;
-    color: red;
+    color: #fe8f01;
+    font-weight:bold;
 }
 .dxpc-headerContent {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -153,4 +154,31 @@
 
 .title {
     border-bottom: solid 2px #fe8f01 !important;
+}
+.title_orange {
+    border-bottom: solid 2px #fe8f01;
+    color: #fe8f01;
+    margin-top: 0px;
+    padding-bottom:10px;
+}
+.title_green {
+    border-bottom: solid 2px #1abc9c;
+    color: #1abc9c;
+    margin-top: 0px;
+    padding-bottom:10px;
+}
+.title_blue_maps {
+    border-bottom: solid 2px blue;
+    color: blue;
+    padding-bottom: 10px;
+}
+.valign_middle tr td {
+    vertical-align:middle !important;
+}
+.border_right {
+    border-right: solid 2px #EFF7FC !important;
+}
+
+#UpdateProgress {
+    float:right;
 }

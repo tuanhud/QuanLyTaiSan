@@ -49,13 +49,13 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         protected global::PTB_WEB.UserControl.LoaiThietBi.ucLoaiThietBi_BreadCrumb ucLoaiThietBi_BreadCrumb;
         
         /// <summary>
-        /// ASPxTreeList_LoaiThietBi control.
+        /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_LoaiThietBi;
+        protected global::PTB_WEB.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
         /// Label_ThongTin control.

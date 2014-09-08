@@ -21,7 +21,10 @@ namespace PTB_WEB.UserControl.ViTri
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
+            }
         }
 
         public void LoadData()
@@ -93,6 +96,7 @@ namespace PTB_WEB.UserControl.ViTri
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objCoSo.ten);
                         Libraries.ImageHelper.LoadImageWeb(objCoSo.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                        Session["POPUPURL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=COSO", HttpContext.Current.Request.Url.Authority, objCoSo.id);
                         ucViTri_BreadCrumb.Label_TenViTri.Text = Label_Ten.Text = objCoSo.ten;
                         Label_Thuoc.Text = "[Đại học Sài Gòn]";
                         Panel_DiaChi.Visible = true;
@@ -123,6 +127,7 @@ namespace PTB_WEB.UserControl.ViTri
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objDay.ten);
                         Libraries.ImageHelper.LoadImageWeb(objDay.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                        Session["POPUPURL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=DAY", HttpContext.Current.Request.Url.Authority, objDay.id);
                         Label_Ten.Text = objDay.ten;
                         Label_Thuoc.Text = objDay.coso != null ? objDay.coso.ten : "[Cơ sở]";
                         ucViTri_BreadCrumb.Label_TenViTri.Text = string.Format("{0} ({1})", Label_Ten.Text, Label_Thuoc.Text);
@@ -142,6 +147,7 @@ namespace PTB_WEB.UserControl.ViTri
                     {
                         Label_ThongTin.Text = string.Format("Thông tin {0}", objTang.ten);
                         Libraries.ImageHelper.LoadImageWeb(objTang.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                        Session["POPUPURL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=TANG", HttpContext.Current.Request.Url.Authority, objTang.id);
                         Label_Ten.Text = objTang.ten;
                         if (objTang.day != null)
                         {

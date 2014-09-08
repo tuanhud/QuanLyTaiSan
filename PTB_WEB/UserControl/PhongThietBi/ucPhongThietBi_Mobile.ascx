@@ -36,7 +36,7 @@
         <% }
            else
            { %>
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover valign_middle">
             <thead class="centered">
                 <tr>
                     <th>#</th>
@@ -46,11 +46,11 @@
                     <th>Xem Log</th>
                 </tr>
             </thead>
-            <tbody class="centered">
+            <tbody>
                 <asp:Repeater ID="RepeaterDanhSachThietBi" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachThietBi.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachThietBi.CollectionPager_Object.PageSize) %></td>
+                            <td class="tdcenter" onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachThietBi.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachThietBi.CollectionPager_Object.PageSize) %></td>
                             <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("ten") %></td>
                             <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("tinhtrang") %></td>
                             <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("soluong") %></td>

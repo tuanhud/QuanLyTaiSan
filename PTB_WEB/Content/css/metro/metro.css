@@ -72,7 +72,7 @@ textarea, input, select {
     left: 0px;
 }
 #widget_preview.loading {
-    background: url('../images/page_loader.gif') no-repeat scroll 50% 50%;
+    background: url('/Images/page_loader.gif') no-repeat scroll 50% 50%;
 }
 #widget_preview > div.dot {
     position: absolute;
@@ -119,19 +119,19 @@ textarea, input, select {
     background-color: rgba(255, 255, 255, 0.1);
 }
 #widget_sidebar > div > div.cancel {
-    background-image: url('../images/metro/cancel.png');
+    background-image: url('/Images/metro/cancel.png');
 }
 #widget_sidebar > div > div.download {
-    background-image: url('../images/metro/save.png');
+    background-image: url('/Images/metro/save.png');
 }
 #widget_sidebar > div > div.back {
-    background-image: url('../images/metro/back.png');
+    background-image: url('/Images/metro/back.png');
 }
 #widget_sidebar > div > div.next {
-    background-image: url('../images/metro/next.png');
+    background-image: url('/Images/metro/next.png');
 }
 #widget_sidebar > div > div.refresh {
-    background-image: url('../images/metro/refresh.png');
+    background-image: url('/Images/metro/refresh.png');
 }
 #widget_sidebar > div > div > span {
     font-size: 0.7em;
@@ -544,7 +544,7 @@ Page Content
             box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 #widget_preview li {
-    background: url('../images/bullet.png') no-repeat 10px 50%;
+    background: url('/Images/metro/bullet.png') no-repeat 10px 50%;
     padding: 10px 10px 10px 45px;
     background-color: #EEEEEE;
     border-top: 1px solid #FFFFFF;

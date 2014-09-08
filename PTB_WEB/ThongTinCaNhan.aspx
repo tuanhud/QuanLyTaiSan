@@ -117,7 +117,9 @@
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;Thông tin cá nhân
-                    <asp:LinkButton ID="LinkButtonEditThongTinCaNhan" runat="server" OnClick="LinkButtonEditThongTinCaNhan_Click"><span class="glyphicon glyphicon glyphicon-pencil right"></span></asp:LinkButton></h3>
+                    <asp:LinkButton ID="LinkButtonEditThongTinCaNhan" runat="server" OnClick="LinkButtonEditThongTinCaNhan_Click"><span class="glyphicon glyphicon glyphicon-pencil right"></span></asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButtonEditThongTinCaNhan_Click"><span class="glyphicon glyphicon glyphicon-pencil right"></span></asp:LinkButton>
+                </h3>
             </div>
             <div class="panel-body">
                 <div class="col-lg-12">

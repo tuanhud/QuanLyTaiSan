@@ -27,7 +27,7 @@
         <% }
            else
            { %>
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover valign_middle">
             <thead class="centered">
                 <tr>
                     <th>#</th>
@@ -36,11 +36,11 @@
                     <th>Ngày</th>
                 </tr>
             </thead>
-            <tbody class="centered">
+            <tbody>
                 <asp:Repeater ID="RepeaterDanhSachLogSuCo" runat="server">
                     <ItemTemplate>
                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
-                            <td><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachSuCo.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachSuCo.CollectionPager_Object.PageSize) %></td>
+                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachSuCo.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachSuCo.CollectionPager_Object.PageSize) %></td>
                             <td><%# Eval("tinhtrang") %></td>
                             <td><%# Eval("phong") %></td>
                             <td><%# Eval("ngay") %></td>

@@ -24,5 +24,15 @@ namespace PTB_WEB.UserControl
             else
                 e.Result = Request.Url.AbsolutePath;
         }
+
+        protected void LinkButton_Expand_Click(object sender, EventArgs e)
+        {
+            ASPxTreeList_ViTri.ExpandAll();
+        }
+
+        protected void LinkButton_Collapse_Click(object sender, EventArgs e)
+        {
+            ASPxTreeList_ViTri.CollapseAll();
+        }
     }
 }

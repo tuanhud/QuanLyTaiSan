@@ -34,7 +34,7 @@
         <% }
            else
            { %>
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover valign_middle">
             <thead class="centered">
                 <tr>
                     <th>#</th>
@@ -43,11 +43,11 @@
                     <th>Nhân viên phụ trách</th>
                 </tr>
             </thead>
-            <tbody class="centered">
+            <tbody>
                 <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                     <ItemTemplate>
                         <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
-                            <td><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachPhong.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachPhong.CollectionPager_Object.PageSize) %></td>
+                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachPhong.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachPhong.CollectionPager_Object.PageSize) %></td>
                             <td><%# Eval("ten") %></td>
                             <td><%# Eval("subid") %></td>
                             <td><%# Eval("nhanvienpt") %></td>
