@@ -28,6 +28,7 @@ namespace PTB_WEB.UserControl.Phong
                 _TreeListTextColumn.FieldName = "mota";
                 _TreeListTextColumn.Caption = "Mô tả";
                 _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(_TreeListTextColumn);
+                _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
             }
         }
 
@@ -82,6 +83,7 @@ namespace PTB_WEB.UserControl.Phong
                                 Label_Phong.Visible = false;
                                 Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
                                 Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web_Phong.ASPxImageSlider_Object);
+                                _ucASPxImageSlider_Web_Phong.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=PHONG", HttpContext.Current.Request.Url.Authority, objPhong.id);
                                 Label_MaPhong.Text = objPhong.subId;
                                 ucPhong_BreadCrumb.Label_TenPhong.Text = Label_TenPhong.Text = objPhong.ten;
                                 string strCoSo, strDay, strTang;
@@ -114,6 +116,7 @@ namespace PTB_WEB.UserControl.Phong
                                     Label_NhanVienPT.Text = "";
                                     Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
                                     Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
+                                    _ucASPxImageSlider_Web_NhanVienPT.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=NHANVIEN", HttpContext.Current.Request.Url.Authority, objPhong.nhanvienpt_id);
                                     Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
                                     Label_HoTen.Text = objPhong.nhanvienpt.hoten;
                                     Label_SoDienThoai.Text = objPhong.nhanvienpt.sodienthoai;

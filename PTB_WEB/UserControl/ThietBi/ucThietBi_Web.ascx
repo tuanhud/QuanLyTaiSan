@@ -6,6 +6,8 @@
 <%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
 <%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/ThietBi/ucThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucThietBi_BreadCrumb" %>
+<%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
+
 
 <asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
     <div class="row">
@@ -22,8 +24,9 @@
     <table class="table largetable">
         <tbody>
             <tr>
-                <td style="width: 200px">
-                    <div class="panel panel-primary">
+                <td style="width: 300px" class="border_right">
+                    <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
+<%--                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             Thiết bị
                         </div>
@@ -42,7 +45,7 @@
 	                                treeList.PerformCustomDataCallback(key);
                                 }" />
                         </dx:ASPxTreeList>
-                    </div>
+                    </div>--%>
                 </td>
                 <td>
                     <div class="panel panel-primary">

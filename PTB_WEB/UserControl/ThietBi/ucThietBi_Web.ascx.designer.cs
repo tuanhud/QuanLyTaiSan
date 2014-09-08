@@ -49,13 +49,13 @@ namespace PTB_WEB.UserControl.ThietBi {
         protected global::PTB_WEB.UserControl.ThietBi.ucThietBi_BreadCrumb ucThietBi_BreadCrumb;
         
         /// <summary>
-        /// ASPxTreeList_ThietBi control.
+        /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ThietBi;
+        protected global::PTB_WEB.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
         /// Label_TextDanhSachThietBi control.

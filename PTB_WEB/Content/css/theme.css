@@ -16,6 +16,7 @@
 }
 .popupmasterbody .largetable {
     border-top: transparent solid 2px !important;
+    background-color: white;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -166,6 +167,17 @@
     color: #1abc9c;
     margin-top: 0px;
     padding-bottom:10px;
+}
+.title_green2 {
+    border-bottom: solid 2px #1abc9c;
+    color: #1abc9c;
+    padding-bottom:10px;
+}
+.title_blue {
+    border-bottom: solid 2px blue;
+    color: blue;
+    margin-top: 0px;
+    padding-bottom: 10px;
 }
 .title_blue_maps {
     border-bottom: solid 2px blue;

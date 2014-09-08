@@ -25,7 +25,10 @@ namespace PTB_WEB.UserControl.ThietBi
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.Label_TenViTri.Text = "Thiết bị";
+            }
         }
 
         public void LoadData()
@@ -45,7 +48,7 @@ namespace PTB_WEB.UserControl.ThietBi
                     {
                         Response.Redirect(Request.Url.AbsolutePath);
                     }
-                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                     if (node != null)
                     {
                         node.Focus();
@@ -72,13 +75,12 @@ namespace PTB_WEB.UserControl.ThietBi
                             Label_ThietBi.Text = "";
                             Label_ThongTinThietBi.Text = "Thông tin " + objThietBi.ten;
                             Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                            _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
                             Label_MaThietBi.Text = objThietBi.subId;
                             Session["TenThietBi"] = Label_TenThietBi.Text = objThietBi.ten;
                             Label_LoaiThietBi.Text = objThietBi.loaithietbi != null ? objThietBi.loaithietbi.ten : "";
                             Label_NgayMua.Text = objThietBi.ngaymua != null ? objThietBi.ngaymua.ToString() : "";
                             Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
-
-                            Session["URL"] = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
                         }
                         else
                         {
@@ -93,7 +95,7 @@ namespace PTB_WEB.UserControl.ThietBi
                 }
                 else
                 {
-                    DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue("");
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
                     node.Focus();
                     Label_TextDanhSachThietBi.Text = "Chưa chọn loại thiết bị";
                     Label_ThietBi.Visible = true;
@@ -109,33 +111,24 @@ namespace PTB_WEB.UserControl.ThietBi
 
         public void CreateNode()
         {
-            TreeListNode parent1 = ASPxTreeList_ThietBi.AppendNode(1);
-            parent1.SetValue("id", 1);
-            parent1.SetValue("name", p1);
-
-            TreeListNode parent2 = ASPxTreeList_ThietBi.AppendNode(2);
-            parent2.SetValue("id", 2);
-            parent2.SetValue("name", p2);
-
-            TreeListNode child1 = ASPxTreeList_ThietBi.AppendNode(3, parent2);
-            child1.SetValue("id", 3);
-            child1.SetValue("name", c1);
-
-            TreeListNode child2 = ASPxTreeList_ThietBi.AppendNode(4, parent2);
-            child2.SetValue("id", 4);
-            child2.SetValue("name", c2);
-            parent1.Focus();
+            List<Libraries.DrawTreeHelper.TreeThietBi> ListTreeThietBi = new List<Libraries.DrawTreeHelper.TreeThietBi>();
+            ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("1", p1, null));
+            ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("2", p2, null));
+            ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("3", c1, "2"));
+            ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("4", c2, "2"));
+            _ucTreeViTri.ASPxTreeList_ViTri.DataSource = ListTreeThietBi;
+            _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
         }
 
         private void LoadFocusedNodeData()
         {
             if (listThietBi.Count > 0)
             {
-                if (ASPxTreeList_ThietBi.FocusedNode != null && ASPxTreeList_ThietBi.FocusedNode.GetValue("id") != null)
+                if (_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode != null && _ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id") != null)
                 {
                     try
                     {
-                        LoadDanhSachThietBi(Convert.ToInt32(ASPxTreeList_ThietBi.FocusedNode.GetValue("id").ToString()));
+                        LoadDanhSachThietBi(Convert.ToInt32(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id").ToString()));
                     }
                     catch (Exception)
                     {
@@ -180,16 +173,6 @@ namespace PTB_WEB.UserControl.ThietBi
             RepeaterThietBi.DataBind();
             if (RepeaterThietBi.Items.Count == 0)
                 Label_TextDanhSachThietBi.Text = "Chưa có thiết bị";
-        }
-
-        protected void ASPxTreeList_ThietBi_CustomDataCallback(object sender, TreeListCustomDataCallbackEventArgs e)
-        {
-            string key = e.Argument.ToString();
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_ThietBi.FindNodeByKeyValue(key);
-            if (node != null)
-                e.Result = Request.Url.AbsolutePath + "?key=" + key;
-            else
-                e.Result = Request.Url.AbsolutePath;
         }
     }
 }

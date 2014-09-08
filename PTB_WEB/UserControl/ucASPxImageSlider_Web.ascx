@@ -18,7 +18,7 @@
     }
 </script>
 
-<div class="image_center_web" <% if (!(ASPxImageSlider_Object.Items.ToList().Count == 1 && Object.Equals(ASPxImageSlider_Object.Items[0].ImageUrl, "~/Images/NoImage.jpg"))) { Response.Write(Session["POPUPURL"] != null ? string.Format("onclick=\"Show('{0}');\"", Session["POPUPURL"].ToString()) : ""); } %>>
+<div class="image_center_web" <% if (!(ASPxImageSlider_Object.Items.ToList().Count == 1 && Object.Equals(ASPxImageSlider_Object.Items[0].ImageUrl, "~/Images/NoImage.jpg"))) { Response.Write(urlHinhAnh != "" ? string.Format("onclick=\"Show('{0}');\"", urlHinhAnh) : ""); } %>>
     <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="350px">
         <Items>
             <dx:ImageSliderItem ImageUrl="~/Images/NoImage.jpg" Name="Không có ảnh">

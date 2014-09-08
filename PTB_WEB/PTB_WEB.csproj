@@ -242,6 +242,7 @@
     <Compile Include="HinhAnh.aspx.designer.cs">
       <DependentUpon>HinhAnh.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\DrawTreeHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\StringHelper.cs" />
     <Compile Include="LogSuCo.aspx.cs">

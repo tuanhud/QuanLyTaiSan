@@ -17,102 +17,96 @@
     <table class="table largetable">
         <tbody>
             <tr>
-                <td>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <asp:Label ID="Label_LogThietBi" runat="server" Text="Log"></asp:Label>
-                        </div>
-                        <% if (RepeaterDanhSachLogThietBi.Items.Count == 0)
-                           { %>
-                        <div class="panel-body">
-                            <asp:Label ID="Label_DanhSachLogThietBi" runat="server"></asp:Label>
-                        </div>
-                        <% }
-                           else
-                           { %>
-                        <table class="table table-bordered table-striped table-hover valign_middle">
-                            <thead class="centered">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Tình trạng</th>
-                                    <th>Số lượng</th>
-                                    <th>Phòng</th>
-                                    <th>Ngày</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <asp:Repeater ID="RepeaterDanhSachLogThietBi" runat="server">
-                                    <ItemTemplate>
-                                        <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idLog.ToString()?" class=\"focusrow\"":"" %>>
-                                            <td class="tdcenter"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.PageSize) %></td>
-                                            <td><%# Eval("tinhtrang") %></td>
-                                            <td><%# Eval("soluong") %></td>
-                                            <td><%# Eval("phong") %></td>
-                                            <td><%# Eval("ngay") %></td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </tbody>
-                        </table>
-                        <% } %>
+                <td class="border_right">
+                    <h3 class="title_green">
+                        <asp:Label ID="Label_LogThietBi" runat="server" Text="Log"></asp:Label>
+                    </h3>
+                    <% if (RepeaterDanhSachLogThietBi.Items.Count == 0)
+                       { %>
+                    <div class="panel-body">
+                        <asp:Label ID="Label_DanhSachLogThietBi" runat="server"></asp:Label>
                     </div>
+                    <% }
+                       else
+                       { %>
+                    <table class="table table-bordered table-striped table-hover valign_middle">
+                        <thead class="centered">
+                            <tr>
+                                <th>#</th>
+                                <th>Tình trạng</th>
+                                <th>Số lượng</th>
+                                <th>Phòng</th>
+                                <th>Ngày</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater ID="RepeaterDanhSachLogThietBi" runat="server">
+                                <ItemTemplate>
+                                    <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idLog.ToString()?" class=\"focusrow\"":"" %>>
+                                        <td class="tdcenter"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.PageSize) %></td>
+                                        <td><%# Eval("tinhtrang") %></td>
+                                        <td><%# Eval("soluong") %></td>
+                                        <td><%# Eval("phong") %></td>
+                                        <td><%# Eval("ngay") %></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                    </table>
+                    <% } %>
                     <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachLogThietBi" />
                 </td>
                 <td style="width: 400px">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <asp:Label ID="Label_ThongTinLog" runat="server" Text="Thông tin nhân viên"></asp:Label>
-                        </div>
-                        <div class="panel-body">
-                            <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <td style="width: 120px">Tên thiết bị:</td>
-                                        <td>
-                                            <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tình trạng:</td>
-                                        <td>
-                                            <asp:Label ID="Label_TinhTrang" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số lượng:</td>
-                                        <td>
-                                            <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phòng:</td>
-                                        <td>
-                                            <asp:Label ID="Label_Phong" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ngày:</td>
-                                        <td>
-                                            <asp:Label ID="Label_Ngay" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Người thực hiện:</td>
-                                        <td>
-                                            <asp:Label ID="Label_QuanTriVien" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ghi chú:</td>
-                                        <td>
-                                            <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <h3 class="title_blue">
+                        <asp:Label ID="Label_ThongTinLog" runat="server" Text="Thông tin log"></asp:Label>
+                    </h3>
+                    <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td style="width: 120px">Tên thiết bị:</td>
+                                <td>
+                                    <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tình trạng:</td>
+                                <td>
+                                    <asp:Label ID="Label_TinhTrang" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Số lượng:</td>
+                                <td>
+                                    <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Phòng:</td>
+                                <td>
+                                    <asp:Label ID="Label_Phong" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ngày:</td>
+                                <td>
+                                    <asp:Label ID="Label_Ngay" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Người thực hiện:</td>
+                                <td>
+                                    <asp:Label ID="Label_QuanTriVien" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ghi chú:</td>
+                                <td>
+                                    <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
         </tbody>

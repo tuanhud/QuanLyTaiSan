@@ -10,6 +10,7 @@ namespace PTB_WEB.UserControl
 {
     public partial class ucASPxImageSlider : System.Web.UI.UserControl
     {
+        public string urlHinhAnh = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
