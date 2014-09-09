@@ -15,10 +15,10 @@ namespace PTB_WEB.UserControl.ThietBi
     {
         public Guid idThietBi = Guid.Empty;
         string key = "";
-        string p1 = "Thiết bị quản lý theo số lượng";
-        string p2 = "Thiết bị quản lý theo cá thể";
-        string c1 = "Thiết bị đang được sử dụng";
-        string c2 = "Thiết bị chưa được sử dụng";
+        string p1 = "Quản lý theo số lượng";
+        string p2 = "Quản lý theo cá thể";
+        string c1 = "Đang được sử dụng";
+        string c2 = "Chưa được sử dụng";
 
         List<QuanLyTaiSan.Entities.ThietBi> listThietBi = new List<QuanLyTaiSan.Entities.ThietBi>();
         QuanLyTaiSan.Entities.ThietBi objThietBi = null;

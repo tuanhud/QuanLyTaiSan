@@ -13,7 +13,7 @@
     <table class="table largetable">
         <tbody>
             <tr>
-                <td style="width: 300px" class="border_right">
+                <td style="width: 210px" class="border_right">
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                     <asp:Panel ID="Panel_GoogleMap" runat="server" Visible="False">
                         <h3 class="title_blue">Bản đồ<span class="glyphicon glyphicon-new-window pull-right" style="cursor: pointer" data-toggle="modal" data-target="#myModal" onclick="return false;"></span></h3>

@@ -9,13 +9,11 @@
     <title>.: Loại thiết bị :: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="panel-body">
-        <asp:Panel ID="Panel_Web" runat="server" Visible="false">
-            <uc1:ucLoaiThietBi_Web runat="server" id="ucLoaiThietBi_Web" />
-        </asp:Panel>
-        <asp:Panel ID="Panel_Mobile" runat="server" Visible="false">
-            <uc1:ucLoaiThietBi_Mobile runat="server" id="ucLoaiThietBi_Mobile" />
-        </asp:Panel>
-    </div>
-    <uc:ucFooter runat="server" id="ucFooter" />
+    <asp:Panel ID="Panel_Web" runat="server" Visible="false">
+        <uc1:ucLoaiThietBi_Web runat="server" ID="ucLoaiThietBi_Web" />
+    </asp:Panel>
+    <asp:Panel ID="Panel_Mobile" runat="server" Visible="false">
+        <uc1:ucLoaiThietBi_Mobile runat="server" ID="ucLoaiThietBi_Mobile" />
+    </asp:Panel>
+    <uc:ucFooter runat="server" ID="ucFooter" />
 </asp:Content>
