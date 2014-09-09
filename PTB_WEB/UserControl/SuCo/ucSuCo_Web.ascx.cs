@@ -123,7 +123,7 @@ namespace PTB_WEB.UserControl.SuCo
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có vị trí";
+                Label_ThongBaoLoi.Text = "Chưa có sự cố";
             }
         }
 
