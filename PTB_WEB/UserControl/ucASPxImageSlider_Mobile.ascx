@@ -4,10 +4,6 @@
 
 <div class="image_center_mobile">
     <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="200px" Height="200px">
-        <Items>
-            <dx:ImageSliderItem ImageUrl="~/Images/NoImage.jpg" Name="Không có ảnh">
-            </dx:ImageSliderItem>
-        </Items>
         <Styles>
             <PassePartout BackColor="Transparent" />
         </Styles>

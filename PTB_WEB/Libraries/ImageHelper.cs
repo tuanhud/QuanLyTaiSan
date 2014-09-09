@@ -16,6 +16,7 @@ namespace PTB_WEB.Libraries
                 {
                     foreach (QuanLyTaiSan.Entities.HinhAnh hinhanh in listHinhAnh)
                     {
+                        _ASPxImageSlider.Visible = true;
                         DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
                         item.ImageUrl = hinhanh.getImageURL();
                         if (hinhanh.mota != null)
@@ -32,18 +33,12 @@ namespace PTB_WEB.Libraries
                 }
                 else
                 {
-                    DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                    item.ImageUrl = "~/Images/NoImage.jpg";
-                    item.Text = "Không có ảnh";
-                    _ASPxImageSlider.Items.Add(item);
+                    _ASPxImageSlider.Visible = false;
                 }
             }
             else
             {
-                DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();
-                item.ImageUrl = "~/Images/NoImage.jpg";
-                item.Text = "Không có ảnh";
-                _ASPxImageSlider.Items.Add(item);
+                _ASPxImageSlider.Visible = false;
             }
         }
     }

@@ -146,7 +146,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Images\loading.gif" />
-    <Content Include="Images\NoImage.jpg" />
     <Content Include="LienHe.aspx" />
     <Content Include="LoaiThietBis.aspx" />
     <Content Include="MuonPhong.aspx" />
