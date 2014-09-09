@@ -92,11 +92,11 @@ namespace PTB_WEB.UserControl
                     break;
                 case "THIETBI":
                     name = "Thiết bị";
-                    url = "/ThietBis.aspx?id=";
+                    url = "/ThietBis.aspx?Search=";
                     break;
                 case "LOAITHIETBI":
                     name = "Loại thiết bị";
-                    url = "/LoaiThietBis.aspx?id=";
+                    url = "/LoaiThietBis.aspx?Search=";
                     break;
             }
             if (loai.Equals("name"))

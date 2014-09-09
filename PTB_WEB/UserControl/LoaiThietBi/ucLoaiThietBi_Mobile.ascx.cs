@@ -25,10 +25,10 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             listLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getAll();
             if (listLoaiThietBi.Count > 0)
             {
-                Panel_Chinh.Visible = true;
                 ASPxTreeList_LoaiThietBi.DataSource = listLoaiThietBi;
                 ASPxTreeList_LoaiThietBi.DataBind();
-
+                SearchFunction();
+                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     try
@@ -102,6 +102,35 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                 e.Result = Request.Url.AbsolutePath + "?key=" + key;
             else
                 e.Result = Request.Url.AbsolutePath;
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), SearchID.ToString())).FirstOrDefault();
+                if (node != null)
+                {
+                    Response.Redirect(string.Format("{0}?key={1}", Request.Url.AbsolutePath, node.Key.ToString()));
+                }
+                else
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

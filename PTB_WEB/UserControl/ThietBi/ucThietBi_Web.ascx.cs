@@ -36,8 +36,9 @@ namespace PTB_WEB.UserControl.ThietBi
             listThietBi = QuanLyTaiSan.Entities.ThietBi.getAll();
             if (listThietBi.Count > 0)
             {
-                Panel_Chinh.Visible = true;
                 CreateNode();
+                SearchFunction();
+                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     try
@@ -104,8 +105,8 @@ namespace PTB_WEB.UserControl.ThietBi
             }
             else
             {
-                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
-                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có thiết bị";
+                Panel_ThongBaoLoi.Visible = true;
+                Label_ThongBaoLoi.Text = "Chưa có thiết bị";
             }
         }
 
@@ -173,6 +174,91 @@ namespace PTB_WEB.UserControl.ThietBi
             RepeaterThietBi.DataBind();
             if (RepeaterThietBi.Items.Count == 0)
                 Label_TextDanhSachThietBi.Text = "Chưa có thiết bị";
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                QuanLyTaiSan.Entities.ThietBi ThietBiSearch = listThietBi.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
+                if (ThietBiSearch != null)
+                {
+                    if (ThietBiSearch.loaithietbi != null)
+                    {
+                        int key = 0;
+                        if (ThietBiSearch.loaithietbi.loaichung)
+                            key = 1;
+                        else
+                        {
+                            if (ThietBiSearch.ctthietbis != null)
+                            {
+                                if (ThietBiSearch.ctthietbis.Count > 0)
+                                {
+                                    key = 3;
+                                }
+                                else
+                                {
+                                    key = 4;
+                                }
+                            }
+                        }
+                        int Page = SearchPage(ThietBiSearch.id, key);
+                        if (Page != -1)
+                        {
+                            Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, key.ToString(), ThietBiSearch.id.ToString(), Page.ToString()));
+                        }
+                        else
+                            Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private int SearchPage(Guid GuidThietBiSearch, int key)
+        {
+            int Page = -1;
+            List<QuanLyTaiSan.Entities.ThietBi> list = null;
+            switch (key)
+            {
+                case 1:
+                    list = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
+                    break;
+                case 3:
+                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
+                    break;
+                case 4:
+                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
+                    break;
+                default:
+                    return -1;
+            }
+            int index = list.IndexOf(list.Where(item => Object.Equals(item.id, GuidThietBiSearch)).FirstOrDefault());
+            if (index != -1)
+            {
+                Page = index / _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.PageSize + 1;
+            }
+            return Page;
         }
     }
 }
