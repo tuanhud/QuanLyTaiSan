@@ -85,6 +85,12 @@
     <Compile Include="DataFilter\LoaiTBHienThi.cs" />
     <Compile Include="DataFilter\NhanVienPTFilter.cs" />
     <Compile Include="DataFilter\PhongFilter2.cs" />
+    <Compile Include="DataFilter\SearchFilter\CoSoSF.cs" />
+    <Compile Include="DataFilter\SearchFilter\DayySF.cs" />
+    <Compile Include="DataFilter\SearchFilter\NhanVienPTSF.cs" />
+    <Compile Include="DataFilter\SearchFilter\PhongSF.cs" />
+    <Compile Include="DataFilter\SearchFilter\TangSF.cs" />
+    <Compile Include="DataFilter\SearchFilter\_SearchFilterAbstract.cs" />
     <Compile Include="DataFilter\TangFilter.cs" />
     <Compile Include="DataFilter\ThietBiHienThi.cs" />
     <Compile Include="DataFilter\TKSLThietBiFilter.cs" />
