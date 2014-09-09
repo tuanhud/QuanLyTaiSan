@@ -234,5 +234,21 @@ namespace TSCD_GUI.QLTaiSan
             }
         }
 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (bandedGridViewTaiSan.GetFocusedRowCellValue(colid) != null && GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid)) != Guid.Empty)
+            {
+                frmAddTaiSanKemTheo frm = new frmAddTaiSanKemTheo(CTTaiSan.getById(GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid))));
+                frm.reloadAndFocused = new frmAddTaiSanKemTheo.ReloadAndFocused(reload);
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnAddExist_Click(object sender, EventArgs e)
+        {
+            frmAddTaiSanExist frm = new frmAddTaiSanExist(listCTTaiSan);
+            frm.ShowDialog();
+        }
+
     }
 }

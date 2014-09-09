@@ -31,7 +31,7 @@ namespace TSCD.DataFilter
         {
             List<TaiSanHienThi> re =
                 (from ct in db.CTTAISANS
-                 where (ct.donviquanly == null && ct.donvisudung == null && ct.parent == null)
+                 where (ct.donviquanly == null && ct.donvisudung == null)
                  select new TaiSanHienThi
                  {
                     id = ct.id,
@@ -58,7 +58,7 @@ namespace TSCD.DataFilter
                 return null;
             List<TaiSanHienThi> re =
                 (from ct in db.CTTAISANS
-                 where (ct.donviquanly.id == obj.id || ct.donvisudung.id == obj.id && ct.parent == null)
+                 where (ct.donviquanly.id == obj.id || ct.donvisudung.id == obj.id)
                  select new TaiSanHienThi
                  {
                      id = ct.id,

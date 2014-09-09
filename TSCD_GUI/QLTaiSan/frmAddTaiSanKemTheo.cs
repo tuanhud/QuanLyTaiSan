@@ -176,7 +176,7 @@ namespace TSCD_GUI.QLTaiSan
 
             int re = objCTTaiSan.update();//ONly call add on CTTaiSan
 
-            re = DBInstance.commit();
+            //re = DBInstance.commit();
             if (re > 0)
             {
                 XtraMessageBox.Show("Pass");

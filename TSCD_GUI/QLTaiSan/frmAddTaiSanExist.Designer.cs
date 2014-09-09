@@ -50,8 +50,13 @@
             this.coldvsudung = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colghichu = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
+            this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
+            this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlTaiSan
@@ -59,10 +64,10 @@
             this.gridControlTaiSan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlTaiSan.Location = new System.Drawing.Point(12, 36);
+            this.gridControlTaiSan.Location = new System.Drawing.Point(12, 39);
             this.gridControlTaiSan.MainView = this.bandedGridViewTaiSan;
             this.gridControlTaiSan.Name = "gridControlTaiSan";
-            this.gridControlTaiSan.Size = new System.Drawing.Size(699, 368);
+            this.gridControlTaiSan.Size = new System.Drawing.Size(813, 365);
             this.gridControlTaiSan.TabIndex = 39;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridViewTaiSan});
@@ -292,16 +297,53 @@
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(59, 13);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 40;
+            // 
+            // ucComboBoxLoaiTS1
+            // 
+            this.ucComboBoxLoaiTS1.LoaiTS = null;
+            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(219, 12);
+            this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
+            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(200, 20);
+            this.ucComboBoxLoaiTS1.TabIndex = 41;
+            // 
+            // ucComboBoxDonVi1
+            // 
+            this.ucComboBoxDonVi1.DonVi = null;
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(447, 13);
+            this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
+            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
+            this.ucComboBoxDonVi1.TabIndex = 42;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(750, 9);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 43;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
             // frmAddTaiSanExist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 464);
+            this.ClientSize = new System.Drawing.Size(837, 464);
+            this.Controls.Add(this.btnTim);
+            this.Controls.Add(this.ucComboBoxDonVi1);
+            this.Controls.Add(this.ucComboBoxLoaiTS1);
+            this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.gridControlTaiSan);
             this.Name = "frmAddTaiSanExist";
             this.Text = "frmAddTaiSanExist";
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,5 +372,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldvsudung;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colghichu;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private MyUserControl.ucComboBoxLoaiTS ucComboBoxLoaiTS1;
+        private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;
+        private DevExpress.XtraEditors.SimpleButton btnTim;
     }
 }

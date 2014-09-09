@@ -412,6 +412,7 @@
             this.btnSua.Size = new System.Drawing.Size(59, 23);
             this.btnSua.TabIndex = 34;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -430,6 +431,7 @@
             this.btnAddExist.Size = new System.Drawing.Size(59, 23);
             this.btnAddExist.TabIndex = 37;
             this.btnAddExist.Text = "CSDL";
+            this.btnAddExist.Click += new System.EventHandler(this.btnAddExist_Click);
             // 
             // btnAddNew
             // 
