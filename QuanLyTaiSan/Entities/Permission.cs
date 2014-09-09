@@ -213,7 +213,7 @@ namespace QuanLyTaiSan.Entities
                     else
                     {
                         tmp += "Cơ sở {";
-                        tmp +=String.Join(", ", cosos.Select(c => c.ten+" [ID="+c.id+"]"));
+                        tmp +=String.Join(", ", cosos.Select(c => c.niceName()));//c.ten+" [ID="+c.id+"]"));
                         tmp += "} ";
                     }
                     goto done;
@@ -236,14 +236,14 @@ namespace QuanLyTaiSan.Entities
                 //Tầng
                 if (key.ToUpper().Equals("TANG"))
                 {
-                    if (days.Count == 0)
+                    if (tangs.Count == 0)
                     {
                         tmp += "tất cả Tầng ";
                     }
                     else
                     {
                         tmp += "Tầng {";
-                        tmp += String.Join(", ", days.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += String.Join(", ", tangs.Select(c => c.ten + "[ID=" + c.id + "]"));
                         tmp += "} ";
                     }
                     goto done;
@@ -251,7 +251,7 @@ namespace QuanLyTaiSan.Entities
                 //Phòng
                 if (key.ToUpper().Equals("PHONG"))
                 {
-                    if (days.Count == 0)
+                    if (phongs.Count == 0)
                     {
                         tmp += "tất cả Phòng ";
                     }
