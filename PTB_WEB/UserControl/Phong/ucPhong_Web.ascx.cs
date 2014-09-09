@@ -23,11 +23,6 @@ namespace PTB_WEB.UserControl.Phong
             if (!IsPostBack)
             {
                 DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
-                //_TreeListTextColumn.VisibleIndex = 1;
-                //_TreeListTextColumn.Name = "colmota";
-                //_TreeListTextColumn.FieldName = "mota";
-                //_TreeListTextColumn.Caption = "Mô tả";
-                //_ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(_TreeListTextColumn);
                 _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
             }
         }
@@ -114,7 +109,6 @@ namespace PTB_WEB.UserControl.Phong
                                     Panel_NhanVienPT.Visible = true;
                                     Label_NhanVienPT.Visible = false;
                                     Label_NhanVienPT.Text = "";
-                                    Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
                                     Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
                                     _ucASPxImageSlider_Web_NhanVienPT.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=NHANVIEN", HttpContext.Current.Request.Url.Authority, objPhong.nhanvienpt_id);
                                     Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
@@ -126,7 +120,6 @@ namespace PTB_WEB.UserControl.Phong
                                     Panel_NhanVienPT.Visible = false;
                                     Label_NhanVienPT.Visible = true;
                                     Label_NhanVienPT.Text = "Phòng này chưa có nhân viên phụ trách";
-                                    Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
                                     Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
                                     Label_MaNhanVien.Text = "";
                                     Label_HoTen.Text = "";
@@ -304,7 +297,6 @@ namespace PTB_WEB.UserControl.Phong
             Panel_NhanVienPT.Visible = false;
             Label_NhanVienPT.Visible = true;
             Label_NhanVienPT.Text = "Không có dữ liệu";
-            Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
             Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Web_NhanVienPT.ASPxImageSlider_Object);
             Label_MaNhanVien.Text = "";
             Label_HoTen.Text = "";

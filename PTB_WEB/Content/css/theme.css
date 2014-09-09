@@ -1,6 +1,5 @@
 ﻿body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .logo {
@@ -9,6 +8,11 @@
 
 .masterbody {
     background: #eff7fc url(Images/bg-wall.png) repeat-x top left !important;
+}
+.navbar {
+    border-radius: 0px 0px 0px 0px !important;
+    margin-bottom: 1px !important;
+    border: none !important;
 }
 .popupmasterbody {
     background-color: transparent;
@@ -189,12 +193,10 @@
     text-align: center;
     color: #FFF;
     padding: 20px;
-    margin: 14.5px;
-    margin-top: -33px;
-    border-radius: 0px 0px 6px 6px;
+    margin-top: -18px !important;
 }
 .breadcrumb {
-    border-radius: 6px 6px 0px 0px !important;
+    border-radius: 0px 0px 0px 0px !important;
 }
 
 /*Tìm kiếm*/

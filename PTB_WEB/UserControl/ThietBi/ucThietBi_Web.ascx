@@ -18,7 +18,7 @@
     <table class="table largetable">
         <tbody>
             <tr>
-                <td style="width: 300px" class="border_right">
+                <td style="width: 210px" class="border_right">
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                 </td>
                 <td class="border_right">

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dateNgayGhi = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
             this.txtSoHieu_CT = new DevExpress.XtraEditors.TextEdit();
@@ -58,7 +57,7 @@
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.lblTSKemTheo = new DevExpress.XtraEditors.LabelControl();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
@@ -502,7 +501,7 @@
             this.colngayghi.AppearanceHeader.Options.UseTextOptions = true;
             this.colngayghi.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colngayghi.Caption = "Ngày, tháng ghi sổ";
-            this.colngayghi.FieldName = "ngay";
+            this.colngayghi.FieldName = "ngayghi";
             this.colngayghi.Name = "colngayghi";
             this.colngayghi.Visible = true;
             this.colngayghi.Width = 87;
@@ -523,7 +522,7 @@
             this.colsohieuct.AppearanceHeader.Options.UseTextOptions = true;
             this.colsohieuct.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colsohieuct.Caption = "Số hiệu";
-            this.colsohieuct.FieldName = "chungtu_sohieu";
+            this.colsohieuct.FieldName = "sohieu_ct";
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
             this.colsohieuct.Width = 85;
@@ -533,7 +532,7 @@
             this.colngayct.AppearanceHeader.Options.UseTextOptions = true;
             this.colngayct.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colngayct.Caption = "Ngày tháng";
-            this.colngayct.FieldName = "chungtu_ngay";
+            this.colngayct.FieldName = "ngay_ct";
             this.colngayct.Name = "colngayct";
             this.colngayct.Visible = true;
             this.colngayct.Width = 90;
@@ -562,7 +561,7 @@
             this.colten.AppearanceHeader.Options.UseTextOptions = true;
             this.colten.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colten.Caption = "Tên TSCĐ";
-            this.colten.FieldName = "taisan.ten";
+            this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.Width = 128;
@@ -572,7 +571,7 @@
             this.coldonvitinh.AppearanceHeader.Options.UseTextOptions = true;
             this.coldonvitinh.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.coldonvitinh.Caption = "Đơn vị tính";
-            this.coldonvitinh.FieldName = "taisan.loaitaisan.donvitinh.ten";
+            this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.Visible = true;
             this.coldonvitinh.Width = 36;
@@ -592,7 +591,7 @@
             this.coldongia.AppearanceHeader.Options.UseTextOptions = true;
             this.coldongia.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.coldongia.Caption = "Đơn giá";
-            this.coldongia.FieldName = "taisan.dongia";
+            this.coldongia.FieldName = "dongia";
             this.coldongia.Name = "coldongia";
             this.coldongia.Visible = true;
             this.coldongia.Width = 46;
@@ -622,7 +621,7 @@
             this.colloai.AppearanceHeader.Options.UseTextOptions = true;
             this.colloai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colloai.Caption = "Loại tài sản";
-            this.colloai.FieldName = "taisan.loaitaisan.ten";
+            this.colloai.FieldName = "loaits";
             this.colloai.Name = "colloai";
             this.colloai.Width = 63;
             // 
@@ -631,7 +630,7 @@
             this.coltinhtrang.AppearanceHeader.Options.UseTextOptions = true;
             this.coltinhtrang.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.coltinhtrang.Caption = "Tình trạng";
-            this.coltinhtrang.FieldName = "tinhtrang.value";
+            this.coltinhtrang.FieldName = "tinhtrang";
             this.coltinhtrang.Name = "coltinhtrang";
             this.coltinhtrang.Visible = true;
             this.coltinhtrang.Width = 71;
@@ -639,7 +638,7 @@
             // colphong
             // 
             this.colphong.Caption = "Phòng";
-            this.colphong.FieldName = "phong.ten";
+            this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
             this.colphong.Visible = true;
             // 
@@ -653,14 +652,14 @@
             // coldvquanly
             // 
             this.coldvquanly.Caption = "Đơn vị quản lý";
-            this.coldvquanly.FieldName = "donviquanly.ten";
+            this.coldvquanly.FieldName = "dvquanly";
             this.coldvquanly.Name = "coldvquanly";
             this.coldvquanly.Visible = true;
             // 
             // coldvsudung
             // 
             this.coldvsudung.Caption = "Đơn vị sử dụng";
-            this.coldvsudung.FieldName = "donvisudung.ten";
+            this.coldvsudung.FieldName = "dvsudung";
             this.coldvsudung.Name = "coldvsudung";
             this.coldvsudung.Visible = true;
             // 

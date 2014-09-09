@@ -9,13 +9,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="panel-body">
-        <asp:Panel ID="Panel_Web" runat="server" Visible="false">
-            <uc:ucPhongThietBi_Web runat="server" ID="_ucPhongThietBi_Web" />
-        </asp:Panel>
-        <asp:Panel ID="Panel_Mobile" runat="server" Visible="false">
-            <uc:ucPhongThietBi_Mobile runat="server" ID="_ucPhongThietBi_Mobile" />
-        </asp:Panel>
-    </div>
-    <uc:ucFooter runat="server" id="ucFooter" />
+    <asp:Panel ID="Panel_Web" runat="server" Visible="false">
+        <uc:ucPhongThietBi_Web runat="server" ID="_ucPhongThietBi_Web" />
+    </asp:Panel>
+    <asp:Panel ID="Panel_Mobile" runat="server" Visible="false">
+        <uc:ucPhongThietBi_Mobile runat="server" ID="_ucPhongThietBi_Mobile" />
+    </asp:Panel>
+    <uc:ucFooter runat="server" ID="ucFooter" />
 </asp:Content>
