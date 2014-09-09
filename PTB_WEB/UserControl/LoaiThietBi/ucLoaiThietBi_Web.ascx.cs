@@ -27,10 +27,10 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             listLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getAll();
             if (listLoaiThietBi.Count > 0)
             {
-                Panel_Chinh.Visible = true;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiThietBi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
-
+                SearchFunction();
+                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     try
@@ -62,8 +62,8 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             }
             else
             {
-                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
-                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có loại thiết bị";
+                Panel_ThongBaoLoi.Visible = true;
+                Label_ThongBaoLoi.Text = "Chưa có loại thiết bị";
             }
         }
 
@@ -92,6 +92,35 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                 {
                     LoadDataObj(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")));
                 }
+            }
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), SearchID.ToString())).FirstOrDefault();
+                if (node != null)
+                {
+                    Response.Redirect(string.Format("{0}?key={1}", Request.Url.AbsolutePath, node.Key.ToString()));
+                }
+                else
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }
