@@ -80,7 +80,8 @@ namespace PTB_WEB.UserControl.SuCo
                                         Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
                                         Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                                         _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=SUCOPHONG", HttpContext.Current.Request.Url.Authority, objSuCoPhong.id);
-                                        Session["TenSuCo"] = Label_TenSuCo.Text = objSuCoPhong.ten;
+                                        string strViTri = Libraries.StringHelper.StringViTriPhong(objPhong);
+                                        Session["TenSuCo"] = Label_TenSuCo.Text = !Object.Equals(strViTri, "") ? objSuCoPhong.ten + " " + strViTri : objSuCoPhong.ten;
                                         Label_TinhTrang.Text = objSuCoPhong.tinhtrang != null ? objSuCoPhong.tinhtrang.value : "[Tình trạng]";
                                         Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();
                                         Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objSuCoPhong.mota);
