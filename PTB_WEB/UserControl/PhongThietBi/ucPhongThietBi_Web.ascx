@@ -28,9 +28,7 @@
                     <h3 class="title_green fix">Danh sách thiết bị </h3>
                     <% if (RepeaterDanhSachThietBi.Items.Count == 0)
                        { %>
-                    <div class="panel-body">
                         <asp:Label ID="Label_DanhSachThietBi" runat="server"></asp:Label>
-                    </div>
                     <% }
                        else
                        { %>

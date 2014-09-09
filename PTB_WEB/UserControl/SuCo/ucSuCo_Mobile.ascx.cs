@@ -144,7 +144,8 @@ namespace PTB_WEB.UserControl.SuCo
         {
             if (objPhong != null)
             {
-                Session["TenPhong"] = objPhong.ten;
+                string strViTri = Libraries.StringHelper.StringViTriPhong(objPhong);
+                Session["TenPhong"] = !Object.Equals(strViTri, "") ? objPhong.ten + " " + strViTri : objPhong.ten;
                 if (objPhong.vitri != null)
                 {
                     if (objPhong.vitri.coso != null)

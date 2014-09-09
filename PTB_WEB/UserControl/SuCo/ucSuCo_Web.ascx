@@ -26,9 +26,7 @@
                 <h3 class="title_green fix">Danh sách sự cố</h3>
                 <% if (RepeaterSuCo.Items.Count == 0)
                    { %>
-                <div class="panel-body">
                     <asp:Label ID="Label_DanhSachSuCo" runat="server" Text="Phòng chưa có sự cố"></asp:Label>
-                </div>
                 <% }
                    else
                    { %>

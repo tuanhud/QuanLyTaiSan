@@ -196,3 +196,37 @@
 .breadcrumb {
     border-radius: 6px 6px 0px 0px !important;
 }
+
+/*Tìm kiếm*/
+.SearchPopup {
+    min-width: 100%;
+}
+.dxnb-header {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    border-bottom: solid 2px #fe8f01 !important;
+}
+.dxnb-headerCollapsed {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 18px;
+    border: solid 2px #fe8f01 !important;
+    background-color:transparent !important;
+}
+.dxnb-headerCollapsed a {
+    text-decoration: none !important;
+}
+.dxnb-ghtext {
+    color: #fe8f01 !important;
+    font-weight:bold;
+}
+.dxnb-item{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 16px !important;
+    padding: 5px 0px 5px 20px !important;
+}
+.NoResultsPanel {
+    
+}
+.dxnb-item a:hover {
+    
+}

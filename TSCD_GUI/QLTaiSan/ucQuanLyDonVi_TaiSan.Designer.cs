@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.rbnControlDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTaiSan = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnIn = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupIn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupDonVi = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainerDonVi = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
@@ -62,8 +65,27 @@
             this.coldvsudung = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colghichu = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.rbnGroupIn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnIn = new DevExpress.XtraBars.BarButtonItem();
+            this.bandedGridViewTSKemTheo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colngayghi2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colsohieu_ct2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colngay_ct2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colten2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coldonvitinh2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colsoluong2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coldongia2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colthanhtien2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colnguongoc2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colloai2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coltinhtrang2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colphong2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colvitri2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coldvquanly2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coldvsudung2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colghichu2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colid2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi_TaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -73,6 +95,7 @@
             this.groupControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTSKemTheo)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnControlDonVi_TaiSan
@@ -113,6 +136,13 @@
             this.barBtnXoaTaiSan.Id = 3;
             this.barBtnXoaTaiSan.Name = "barBtnXoaTaiSan";
             // 
+            // barBtnIn
+            // 
+            this.barBtnIn.Caption = "In";
+            this.barBtnIn.Id = 4;
+            this.barBtnIn.Name = "barBtnIn";
+            this.barBtnIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIn_ItemClick);
+            // 
             // rbnPageDonVi_TaiSan
             // 
             this.rbnPageDonVi_TaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -129,6 +159,13 @@
             this.rbnGroupTaiSan.Name = "rbnGroupTaiSan";
             this.rbnGroupTaiSan.ShowCaptionButton = false;
             this.rbnGroupTaiSan.Text = "Tài sản";
+            // 
+            // rbnGroupIn
+            // 
+            this.rbnGroupIn.ItemLinks.Add(this.barBtnIn);
+            this.rbnGroupIn.Name = "rbnGroupIn";
+            this.rbnGroupIn.ShowCaptionButton = false;
+            this.rbnGroupIn.Text = "In";
             // 
             // navBarControlLeft
             // 
@@ -194,13 +231,18 @@
             // gridControlTaiSan
             // 
             this.gridControlTaiSan.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.LevelTemplate = this.bandedGridViewTSKemTheo;
+            gridLevelNode1.RelationName = "Tài sản kèm theo";
+            this.gridControlTaiSan.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControlTaiSan.Location = new System.Drawing.Point(2, 24);
             this.gridControlTaiSan.MainView = this.bandedGridViewTaiSan;
             this.gridControlTaiSan.Name = "gridControlTaiSan";
             this.gridControlTaiSan.Size = new System.Drawing.Size(670, 356);
             this.gridControlTaiSan.TabIndex = 2;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.bandedGridViewTaiSan});
+            this.bandedGridViewTaiSan,
+            this.bandedGridViewTSKemTheo});
             // 
             // bandedGridViewTaiSan
             // 
@@ -235,6 +277,10 @@
             this.bandedGridViewTaiSan.OptionsView.ShowGroupPanel = false;
             this.bandedGridViewTaiSan.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.bandedGridViewTaiSan.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.bandedGridViewTaiSan_MasterRowEmpty);
+            this.bandedGridViewTaiSan.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.bandedGridViewTaiSan_MasterRowGetChildList);
+            this.bandedGridViewTaiSan.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.bandedGridViewTaiSan_MasterRowGetRelationName);
+            this.bandedGridViewTaiSan.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.bandedGridViewTaiSan_MasterRowGetRelationCount);
             // 
             // gridBandngay
             // 
@@ -426,19 +472,229 @@
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             // 
-            // rbnGroupIn
+            // bandedGridViewTSKemTheo
             // 
-            this.rbnGroupIn.ItemLinks.Add(this.barBtnIn);
-            this.rbnGroupIn.Name = "rbnGroupIn";
-            this.rbnGroupIn.ShowCaptionButton = false;
-            this.rbnGroupIn.Text = "In";
+            this.bandedGridViewTSKemTheo.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1,
+            this.gridBand2,
+            this.gridBand3});
+            this.bandedGridViewTSKemTheo.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.colngayghi2,
+            this.colsohieu_ct2,
+            this.colngay_ct2,
+            this.colten2,
+            this.colloai2,
+            this.coldonvitinh2,
+            this.colsoluong2,
+            this.coldongia2,
+            this.colthanhtien2,
+            this.coltinhtrang2,
+            this.colnguongoc2,
+            this.colghichu2,
+            this.colid2,
+            this.colphong2,
+            this.colvitri2,
+            this.coldvquanly2,
+            this.coldvsudung2});
+            this.bandedGridViewTSKemTheo.GridControl = this.gridControlTaiSan;
+            this.bandedGridViewTSKemTheo.GroupCount = 1;
+            this.bandedGridViewTSKemTheo.Name = "bandedGridViewTSKemTheo";
+            this.bandedGridViewTSKemTheo.OptionsBehavior.Editable = false;
+            this.bandedGridViewTSKemTheo.OptionsBehavior.ReadOnly = true;
+            this.bandedGridViewTSKemTheo.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.bandedGridViewTSKemTheo.OptionsView.ShowGroupPanel = false;
+            this.bandedGridViewTSKemTheo.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai2, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // barBtnIn
+            // gridBand1
             // 
-            this.barBtnIn.Caption = "In";
-            this.barBtnIn.Id = 4;
-            this.barBtnIn.Name = "barBtnIn";
-            this.barBtnIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIn_ItemClick);
+            this.gridBand1.Columns.Add(this.colngayghi2);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 87;
+            // 
+            // colngayghi2
+            // 
+            this.colngayghi2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colngayghi2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colngayghi2.Caption = "Ngày, tháng ghi sổ";
+            this.colngayghi2.FieldName = "ngayghi";
+            this.colngayghi2.Name = "colngayghi2";
+            this.colngayghi2.Visible = true;
+            this.colngayghi2.Width = 87;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand2.Caption = "Chứng từ";
+            this.gridBand2.Columns.Add(this.colsohieu_ct2);
+            this.gridBand2.Columns.Add(this.colngay_ct2);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.VisibleIndex = 1;
+            this.gridBand2.Width = 175;
+            // 
+            // colsohieu_ct2
+            // 
+            this.colsohieu_ct2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colsohieu_ct2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colsohieu_ct2.Caption = "Số hiệu";
+            this.colsohieu_ct2.FieldName = "sohieu_ct";
+            this.colsohieu_ct2.Name = "colsohieu_ct2";
+            this.colsohieu_ct2.Visible = true;
+            this.colsohieu_ct2.Width = 85;
+            // 
+            // colngay_ct2
+            // 
+            this.colngay_ct2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colngay_ct2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colngay_ct2.Caption = "Ngày tháng";
+            this.colngay_ct2.FieldName = "ngay_ct";
+            this.colngay_ct2.Name = "colngay_ct2";
+            this.colngay_ct2.Visible = true;
+            this.colngay_ct2.Width = 90;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.Columns.Add(this.colten2);
+            this.gridBand3.Columns.Add(this.coldonvitinh2);
+            this.gridBand3.Columns.Add(this.colsoluong2);
+            this.gridBand3.Columns.Add(this.coldongia2);
+            this.gridBand3.Columns.Add(this.colthanhtien2);
+            this.gridBand3.Columns.Add(this.colnguongoc2);
+            this.gridBand3.Columns.Add(this.colloai2);
+            this.gridBand3.Columns.Add(this.coltinhtrang2);
+            this.gridBand3.Columns.Add(this.colphong2);
+            this.gridBand3.Columns.Add(this.colvitri2);
+            this.gridBand3.Columns.Add(this.coldvquanly2);
+            this.gridBand3.Columns.Add(this.coldvsudung2);
+            this.gridBand3.Columns.Add(this.colghichu2);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.VisibleIndex = 2;
+            this.gridBand3.Width = 815;
+            // 
+            // colten2
+            // 
+            this.colten2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colten2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colten2.Caption = "Tên TSCĐ";
+            this.colten2.FieldName = "ten";
+            this.colten2.Name = "colten2";
+            this.colten2.Visible = true;
+            this.colten2.Width = 128;
+            // 
+            // coldonvitinh2
+            // 
+            this.coldonvitinh2.AppearanceHeader.Options.UseTextOptions = true;
+            this.coldonvitinh2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.coldonvitinh2.Caption = "Đơn vị tính";
+            this.coldonvitinh2.FieldName = "donvitinh";
+            this.coldonvitinh2.Name = "coldonvitinh2";
+            this.coldonvitinh2.Visible = true;
+            this.coldonvitinh2.Width = 36;
+            // 
+            // colsoluong2
+            // 
+            this.colsoluong2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colsoluong2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colsoluong2.Caption = "Số lượng";
+            this.colsoluong2.FieldName = "soluong";
+            this.colsoluong2.Name = "colsoluong2";
+            this.colsoluong2.Visible = true;
+            this.colsoluong2.Width = 41;
+            // 
+            // coldongia2
+            // 
+            this.coldongia2.AppearanceHeader.Options.UseTextOptions = true;
+            this.coldongia2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.coldongia2.Caption = "Đơn giá";
+            this.coldongia2.FieldName = "dongia";
+            this.coldongia2.Name = "coldongia2";
+            this.coldongia2.Visible = true;
+            this.coldongia2.Width = 46;
+            // 
+            // colthanhtien2
+            // 
+            this.colthanhtien2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colthanhtien2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colthanhtien2.Caption = "Thành tiền";
+            this.colthanhtien2.FieldName = "thanhtien";
+            this.colthanhtien2.Name = "colthanhtien2";
+            this.colthanhtien2.Visible = true;
+            this.colthanhtien2.Width = 50;
+            // 
+            // colnguongoc2
+            // 
+            this.colnguongoc2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colnguongoc2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colnguongoc2.Caption = "Nguồn gốc";
+            this.colnguongoc2.FieldName = "nguongoc";
+            this.colnguongoc2.Name = "colnguongoc2";
+            this.colnguongoc2.Visible = true;
+            this.colnguongoc2.Width = 58;
+            // 
+            // colloai2
+            // 
+            this.colloai2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colloai2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colloai2.Caption = "Loại tài sản";
+            this.colloai2.FieldName = "loaits";
+            this.colloai2.Name = "colloai2";
+            this.colloai2.Width = 63;
+            // 
+            // coltinhtrang2
+            // 
+            this.coltinhtrang2.AppearanceHeader.Options.UseTextOptions = true;
+            this.coltinhtrang2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.coltinhtrang2.Caption = "Tình trạng";
+            this.coltinhtrang2.FieldName = "tinhtrang";
+            this.coltinhtrang2.Name = "coltinhtrang2";
+            this.coltinhtrang2.Visible = true;
+            this.coltinhtrang2.Width = 71;
+            // 
+            // colphong2
+            // 
+            this.colphong2.Caption = "Phòng";
+            this.colphong2.FieldName = "phong";
+            this.colphong2.Name = "colphong2";
+            this.colphong2.Visible = true;
+            // 
+            // colvitri2
+            // 
+            this.colvitri2.Caption = "Vị trí";
+            this.colvitri2.FieldName = "vitri";
+            this.colvitri2.Name = "colvitri2";
+            this.colvitri2.Visible = true;
+            // 
+            // coldvquanly2
+            // 
+            this.coldvquanly2.Caption = "Đơn vị quản lý";
+            this.coldvquanly2.FieldName = "dvquanly";
+            this.coldvquanly2.Name = "coldvquanly2";
+            this.coldvquanly2.Visible = true;
+            // 
+            // coldvsudung2
+            // 
+            this.coldvsudung2.Caption = "Đơn vị sử dụng";
+            this.coldvsudung2.FieldName = "dvsudung";
+            this.coldvsudung2.Name = "coldvsudung2";
+            this.coldvsudung2.Visible = true;
+            // 
+            // colghichu2
+            // 
+            this.colghichu2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colghichu2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colghichu2.Caption = "Ghi chú";
+            this.colghichu2.FieldName = "ghichu";
+            this.colghichu2.Name = "colghichu2";
+            this.colghichu2.Visible = true;
+            this.colghichu2.Width = 85;
+            // 
+            // colid2
+            // 
+            this.colid2.Caption = "id";
+            this.colid2.FieldName = "id";
+            this.colid2.Name = "colid2";
             // 
             // ucQuanLyDonVi_TaiSan
             // 
@@ -458,6 +714,7 @@
             this.groupControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTSKemTheo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,5 +758,26 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandtaisan;
         private DevExpress.XtraBars.BarButtonItem barBtnIn;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupIn;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridViewTSKemTheo;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngayghi2;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colsohieu_ct2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngay_ct2;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colten2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldonvitinh2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colsoluong2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldongia2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colthanhtien2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colnguongoc2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colloai2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coltinhtrang2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colphong2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colvitri2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldvquanly2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldvsudung2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colghichu2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid2;
     }
 }

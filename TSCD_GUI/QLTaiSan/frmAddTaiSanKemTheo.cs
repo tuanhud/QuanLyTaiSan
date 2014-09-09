@@ -12,13 +12,13 @@ using SHARED.Libraries;
 
 namespace TSCD_GUI.QLTaiSan
 {
-    public partial class frmAddTaiSan : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddTaiSanKemTheo : DevExpress.XtraEditors.XtraForm
     {
-        List<CTTaiSan> listCTTaiSan = new List<CTTaiSan>();
         CTTaiSan objCTTaiSan = null;
+        List<CTTaiSan> listCTTaiSan = null;
         bool isEdit = false;
 
-        public frmAddTaiSan(CTTaiSan _obj)
+        public frmAddTaiSanKemTheo(CTTaiSan _obj)
         {
             InitializeComponent();
             loadData();
@@ -26,6 +26,13 @@ namespace TSCD_GUI.QLTaiSan
             isEdit = true;
             init();
             setData(_obj);
+        }
+
+        public frmAddTaiSanKemTheo(List<CTTaiSan> _list)
+        {
+            InitializeComponent();
+            loadData();
+            listCTTaiSan = _list;
         }
 
         public delegate void ReloadAndFocused(Guid id);
@@ -36,7 +43,7 @@ namespace TSCD_GUI.QLTaiSan
             ucComboBoxLoaiTS1.editValueChanged = new MyUserControl.ucComboBoxLoaiTS.EditValueChanged(setDonViTinh);
         }
 
-        public frmAddTaiSan()
+        public frmAddTaiSanKemTheo()
         {
             InitializeComponent();
             loadData();
@@ -72,11 +79,18 @@ namespace TSCD_GUI.QLTaiSan
                 {
                     Guid id;
                     if (isEdit)
+                    {
                         id = edit();
+                        if (id != Guid.Empty && reloadAndFocused != null)
+                            reloadAndFocused(id);
+                    }
                     else
-                        id = add();
-                    if (id != Guid.Empty && reloadAndFocused != null)
-                        reloadAndFocused(id);
+                    {
+                        add();
+                        if (reloadAndFocused != null)
+                            reloadAndFocused(Guid.Empty);
+                    }
+                    this.Close();
                 }
             }
             catch
@@ -124,7 +138,7 @@ namespace TSCD_GUI.QLTaiSan
             }
         }
 
-        private Guid add()
+        private void add()
         {
             TaiSan ts = new TaiSan();
             ts.ten = txtTen.Text;
@@ -143,20 +157,8 @@ namespace TSCD_GUI.QLTaiSan
             obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);
             obj.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
             obj.mota = txtGhiChu.Text;
-            obj.childs = listCTTaiSan;
-            int re = obj.add();//ONly call add on CTTaiSan
 
-            re = DBInstance.commit();
-            if (re > 0)
-            {
-                XtraMessageBox.Show("Pass");
-                return obj.id;
-            }
-            else
-            {
-                XtraMessageBox.Show("Fail");
-                return Guid.Empty;
-            }
+            listCTTaiSan.Add(obj);//ONly call add on CTTaiSan
         }
 
         private Guid edit()
@@ -210,24 +212,5 @@ namespace TSCD_GUI.QLTaiSan
         {
             lbltxtDonViTinh.Text = ucComboBoxLoaiTS1.LoaiTS.donvitinh.ten;
         }
-
-        private void btnAddNew_Click(object sender, EventArgs e)
-        {
-            frmAddTaiSanKemTheo frm = new frmAddTaiSanKemTheo(listCTTaiSan);
-            frm.reloadAndFocused = new frmAddTaiSanKemTheo.ReloadAndFocused(reload);
-            frm.ShowDialog();
-        }
-
-        private void reload(Guid _id)
-        {
-            gridControlTaiSan.DataSource = listCTTaiSan;
-            if (_id != Guid.Empty)
-            {
-                int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
-                if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                    bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
-            }
-        }
-
     }
 }

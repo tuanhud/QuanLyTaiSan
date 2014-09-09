@@ -175,37 +175,6 @@ namespace PTB_WEB.UserControl.PhongThietBi
         {
             if (objPhong != null)
             {
-                if (objPhong.vitri != null)
-                {
-                    if (objPhong.vitri.coso != null)
-                    {
-                        Label_DanhSachThietBiTitle.Text = string.Format("Danh sách thiết bị phòng {0} ({1}", objPhong.ten, objPhong.vitri.coso.ten);
-                        if (objPhong.vitri.day != null)
-                        {
-                            Label_DanhSachThietBiTitle.Text += string.Format(" - {0}", objPhong.vitri.day.ten);
-                            if (objPhong.vitri.tang != null)
-                            {
-                                Label_DanhSachThietBiTitle.Text += string.Format(" - {0})", objPhong.vitri.tang.ten);
-                            }
-                            else
-                            {
-                                Label_DanhSachThietBiTitle.Text += ")";
-                            }
-                        }
-                        else
-                        {
-                            Label_DanhSachThietBiTitle.Text += ")";
-                        }
-                    }
-                    else
-                    {
-                        Label_DanhSachThietBiTitle.Text = string.Format("Danh sách thiết bị phòng {0}", objPhong.ten);
-                    }
-                }
-                else
-                {
-                    Label_DanhSachThietBiTitle.Text = string.Format("Danh sách thiết bị phòng {0}", objPhong.ten);
-                }
                 listThietBiCuaPhong = ChiTietTBHienThi.getAllByPhongId(objPhong.id);
                 var bind = listThietBiCuaPhong.Select(a => new
                 {
