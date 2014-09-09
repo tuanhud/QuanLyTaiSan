@@ -35,7 +35,10 @@
                         <div class="tab-pane active" id="danhsach">
                             <% if (RepeaterDanhSachPhong.Items.Count == 0)
                                { %>
-                            <asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
+                            </div>
                             <% }
                                else
                                { %>
