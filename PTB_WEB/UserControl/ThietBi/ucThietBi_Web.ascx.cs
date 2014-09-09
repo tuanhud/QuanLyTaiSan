@@ -105,8 +105,8 @@ namespace PTB_WEB.UserControl.ThietBi
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có thiết bị";
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có thiết bị";
             }
         }
 
