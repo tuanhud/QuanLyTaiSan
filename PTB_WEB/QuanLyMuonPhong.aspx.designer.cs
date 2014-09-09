@@ -13,15 +13,6 @@ namespace PTB_WEB {
     public partial class QuanLyMuonPhong {
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
         /// PanelDangNhap control.
         /// </summary>
         /// <remarks>
@@ -65,15 +56,6 @@ namespace PTB_WEB {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelQuanLyPhongBanMuon;
-        
-        /// <summary>
-        /// UpdatePanelQuanLyPhongBanMuon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelQuanLyPhongBanMuon;
         
         /// <summary>
         /// RepeaterQuanLyPhongBanMuon control.
