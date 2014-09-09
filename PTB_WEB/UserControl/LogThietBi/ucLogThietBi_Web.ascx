@@ -18,7 +18,7 @@
         <tbody>
             <tr>
                 <td class="border_right">
-                    <h3 class="title_green">
+                    <h3 class="title_green fix">
                         <asp:Label ID="Label_LogThietBi" runat="server" Text="Log"></asp:Label>
                     </h3>
                     <% if (RepeaterDanhSachLogThietBi.Items.Count == 0)
@@ -57,7 +57,7 @@
                     <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachLogThietBi" />
                 </td>
                 <td style="width: 400px">
-                    <h3 class="title_blue">
+                    <h3 class="title_blue fix">
                         <asp:Label ID="Label_ThongTinLog" runat="server" Text="Thông tin log"></asp:Label>
                     </h3>
                     <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />

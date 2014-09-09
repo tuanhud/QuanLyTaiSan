@@ -76,8 +76,8 @@ namespace PTB_WEB.UserControl.NhanVien
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có nhân viên";
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có nhân viên";
             }
         }
 

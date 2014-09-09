@@ -147,14 +147,14 @@ namespace PTB_WEB.UserControl.PhongThietBi
                 }
                 else
                 {
-                    Panel_ThongBaoLoi.Visible = true;
-                    Label_ThongBaoLoi.Text = "Chưa có phòng";
+                    ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                    ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có vị trí";
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có vị trí";
             }
         }
 

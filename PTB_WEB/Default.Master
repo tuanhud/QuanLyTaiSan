@@ -94,8 +94,7 @@
         <div class="container theme-showcase" role="main">
             <asp:ScriptManager ID="ScriptManager" runat="server" />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-
+            </asp:ContentPlaceHolder>       
         </div>
     </form>
     <!-- /container -->

@@ -4,7 +4,7 @@
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <asp:UpdatePanel ID="UpdatePanel" runat="server">
     <ContentTemplate>
-        <h3 class="title_orange">
+        <h3 class="title_orange fix">
             <asp:Label ID="Label_TenViTri" runat="server"></asp:Label>
             <asp:UpdateProgress runat="server" ID="UpdateProgress" AssociatedUpdatePanelID="UpdatePanel" DisplayAfter="0" DynamicLayout="false" ClientIDMode="Static">
                 <ProgressTemplate>

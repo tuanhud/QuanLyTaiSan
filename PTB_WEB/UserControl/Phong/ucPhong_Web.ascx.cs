@@ -23,11 +23,11 @@ namespace PTB_WEB.UserControl.Phong
             if (!IsPostBack)
             {
                 DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
-                _TreeListTextColumn.VisibleIndex = 1;
-                _TreeListTextColumn.Name = "colmota";
-                _TreeListTextColumn.FieldName = "mota";
-                _TreeListTextColumn.Caption = "Mô tả";
-                _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(_TreeListTextColumn);
+                //_TreeListTextColumn.VisibleIndex = 1;
+                //_TreeListTextColumn.Name = "colmota";
+                //_TreeListTextColumn.FieldName = "mota";
+                //_TreeListTextColumn.Caption = "Mô tả";
+                //_ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(_TreeListTextColumn);
                 _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
             }
         }
@@ -157,14 +157,14 @@ namespace PTB_WEB.UserControl.Phong
                 }
                 else
                 {
-                    Panel_ThongBaoLoi.Visible = true;
-                    Label_ThongBaoLoi.Text = "Chưa có phòng";
+                    ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                    ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có phòng";
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
             }
         }
 

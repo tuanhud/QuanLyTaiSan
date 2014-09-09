@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="row">
-            <h3 class="title">Phòng Thiết bị</h3>
+            <h3 class="title_orange fix">Phòng Thiết bị</h3>
         </div>
         <div class="row">
             <div class="widget_container full">
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="row">
-            <h3 class="title">Khác</h3>
+            <h3 class="title_green fix">Khác</h3>
         </div>
         <div class="row">
             <div class="widget_container full">
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="row">
-            <h3 class="title">Bảng điều khiển</h3>
+            <h3 class="title_blue fix">Bảng điều khiển</h3>
         </div>
         <div class="row">
             <div class="widget_container full">
