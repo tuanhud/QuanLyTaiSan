@@ -35,15 +35,18 @@ namespace PTB_WEB.UserControl
 
                 var ten_days = Dayy.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
                 foreach (Dayy ten_day in ten_days)
-                    Searchs.Add(new DoSearch(ten_day.id, ten_day.ten, "DAY"));
+                    Searchs.Add(new DoSearch(ten_day.id, string.Format("{0} ({1})", ten_day.ten, ten_day.coso != null ? ten_day.coso.ten : "[Cơ sở]"), "DAY"));
 
                 var ten_tangs = Tang.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
                 foreach (Tang ten_tang in ten_tangs)
-                    Searchs.Add(new DoSearch(ten_tang.id, ten_tang.ten, "TANG"));
+                    Searchs.Add(new DoSearch(ten_tang.id, string.Format("{0} ({1} - {2})", ten_tang.ten, ten_tang.day != null ? ten_tang.day.coso != null ? ten_tang.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", ten_tang.day != null ? ten_tang.day.ten : "[Dãy]"), "TANG"));
 
                 var ten_phongs = QuanLyTaiSan.Entities.Phong.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
                 foreach (QuanLyTaiSan.Entities.Phong ten_phong in ten_phongs)
-                    Searchs.Add(new DoSearch(ten_phong.id, ten_phong.ten, "PHONG"));
+                {
+                    string strViTri = Libraries.StringHelper.StringViTriPhong(ten_phong);
+                    Searchs.Add(new DoSearch(ten_phong.id, string.Format("{0}{1}", ten_phong.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "PHONG"));
+                }
 
                 var ten_thietbis = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
                 foreach (QuanLyTaiSan.Entities.ThietBi ten_thietbi in ten_thietbis)

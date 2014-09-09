@@ -67,7 +67,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             if (objLoaiThietBi != null)
             {
                 Label_ThongTin.Text = string.Format("Thông tin {0}", objLoaiThietBi.ten);
-                Session["TenLoaiThietBi"] = Label_TenLoai.Text = objLoaiThietBi.ten;
+                ucLoaiThietBi_BreadCrumb.Label_TenLoaiThietBi.Text = Label_TenLoai.Text = objLoaiThietBi.ten;
                 Label_KieuQuanLy.Text = objLoaiThietBi.loaichung == true ? "Theo số lượng" : "Theo cá thể";
                 Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objLoaiThietBi.mota);
                 Label_Thuoc.Text = objLoaiThietBi.parent_id.Equals(null) ? "[Không thuộc loại nào]" : objLoaiThietBi.parent.ten;

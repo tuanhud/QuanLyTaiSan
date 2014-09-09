@@ -8,7 +8,7 @@
     <li><a href="PhongThietBi.aspx?key=<% Response.Write(Request.QueryString["key"].ToString()); %>">
         <asp:Label ID="Label_TenPhong" runat="server"></asp:Label></a></li>
     <% } %>
-    <% if (Request.QueryString["id"] != null)
+    <% if (Request.QueryString["id"] != null && Request.QueryString["key"] != null)
        { %>
     <li><a href="PhongThietBi.aspx?key=<% Response.Write(Request.QueryString["key"].ToString()); %>&id=<% Response.Write(Request.QueryString["id"].ToString()); %>">
         <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label></a></li>

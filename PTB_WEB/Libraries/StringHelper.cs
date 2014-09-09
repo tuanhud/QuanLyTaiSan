@@ -80,5 +80,34 @@ namespace PTB_WEB.Libraries
             str += ct[number] + "...";
             return str;
         }
+
+        public static String StringViTriPhong(QuanLyTaiSan.Entities.Phong objPhong)
+        {
+            String strViTri = "";
+            if (objPhong.vitri != null)
+            {
+                if (objPhong.vitri.coso != null)
+                {
+                    strViTri = string.Format("({0}", objPhong.vitri.coso.ten);
+                    if (objPhong.vitri.day != null)
+                    {
+                        strViTri += string.Format(" - {0}", objPhong.vitri.day.ten);
+                        if (objPhong.vitri.tang != null)
+                        {
+                            strViTri += string.Format(" - {0})", objPhong.vitri.tang.ten);
+                        }
+                        else
+                        {
+                            strViTri += ")";
+                        }
+                    }
+                    else
+                    {
+                        strViTri += ")";
+                    }
+                }
+            }
+            return strViTri;
+        }
     }
 }
