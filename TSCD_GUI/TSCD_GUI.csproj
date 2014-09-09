@@ -136,6 +136,18 @@
     <Compile Include="QLTaiSan\frmAddTaiSan.Designer.cs">
       <DependentUpon>frmAddTaiSan.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSanExist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSanExist.Designer.cs">
+      <DependentUpon>frmAddTaiSanExist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSanKemTheo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmAddTaiSanKemTheo.Designer.cs">
+      <DependentUpon>frmAddTaiSanKemTheo.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLTaiSan\frmAddTaiSan_DonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +230,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmAddTaiSan.resx">
       <DependentUpon>frmAddTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmAddTaiSanExist.resx">
+      <DependentUpon>frmAddTaiSanExist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmAddTaiSanKemTheo.resx">
+      <DependentUpon>frmAddTaiSanKemTheo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmAddTaiSan_DonVi.resx">
       <DependentUpon>frmAddTaiSan_DonVi.cs</DependentUpon>

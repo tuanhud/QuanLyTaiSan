@@ -42,8 +42,8 @@
             this.coldongia2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colthanhtien2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coltinhtrang2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colghichu2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colnguongoc2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colghichu2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colloai2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colid2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridControlTaiSan = new DevExpress.XtraGrid.GridControl();
@@ -105,6 +105,7 @@
             this.bandedGridViewTSKemTheo.OptionsBehavior.Editable = false;
             this.bandedGridViewTSKemTheo.OptionsBehavior.ReadOnly = true;
             this.bandedGridViewTSKemTheo.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.bandedGridViewTSKemTheo.OptionsView.ShowGroupPanel = false;
             this.bandedGridViewTSKemTheo.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai2, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
@@ -221,15 +222,6 @@
             this.coltinhtrang2.Name = "coltinhtrang2";
             this.coltinhtrang2.Visible = true;
             // 
-            // colghichu2
-            // 
-            this.colghichu2.AppearanceHeader.Options.UseTextOptions = true;
-            this.colghichu2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colghichu2.Caption = "Ghi chú";
-            this.colghichu2.FieldName = "ghichu";
-            this.colghichu2.Name = "colghichu2";
-            this.colghichu2.Visible = true;
-            // 
             // colnguongoc2
             // 
             this.colnguongoc2.AppearanceHeader.Options.UseTextOptions = true;
@@ -238,6 +230,15 @@
             this.colnguongoc2.FieldName = "nguongoc";
             this.colnguongoc2.Name = "colnguongoc2";
             this.colnguongoc2.Visible = true;
+            // 
+            // colghichu2
+            // 
+            this.colghichu2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colghichu2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colghichu2.Caption = "Ghi chú";
+            this.colghichu2.FieldName = "ghichu";
+            this.colghichu2.Name = "colghichu2";
+            this.colghichu2.Visible = true;
             // 
             // colloai2
             // 
