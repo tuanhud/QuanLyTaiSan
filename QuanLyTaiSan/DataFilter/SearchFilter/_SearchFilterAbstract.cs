@@ -8,6 +8,7 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
 {
     public abstract class _SearchFilterAbstract<T>:FilterAbstract<T>
     {
+        public Boolean enable_filter_input = true;
         public T obj { get; set; }
         private List<String> _match_field = new List<String> { };
         public List<String> match_field
@@ -18,22 +19,17 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
             }
         }
 
-        private String _master_key = "";
-        public String master_key
+        protected static String input_filter(String key_word="", Boolean enable_input_filter=true)
         {
-            get
+            key_word = key_word == null ? "" : key_word.ToLower();
+            if (enable_input_filter)
             {
-                return _master_key;
+                return StringHelper.CoDauThanhKhongDau(key_word);
             }
-            set
+            else
             {
-                _master_key = input_filter(value);
+                return key_word;
             }
-        }
-
-        protected static String input_filter(String key_word="")
-        {
-            return StringHelper.CoDauThanhKhongDau(key_word == null?"":key_word.ToLower());
         }
     }
 }
