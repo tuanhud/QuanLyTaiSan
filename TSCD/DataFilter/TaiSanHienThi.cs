@@ -76,8 +76,8 @@ namespace TSCD.DataFilter
                      ghichu = ct.mota,
                      childs = ct.childs.Count,
                      phong = ct.phong != null ? ct.phong.ten : "",
-                     vitri = ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " + 
-                     ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "",
+                     vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
+                        ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                      dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                      dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
                  }).ToList();
@@ -108,8 +108,8 @@ namespace TSCD.DataFilter
                      ghichu = ct.mota,
                      childs = ct.childs.Count,
                      phong = ct.phong != null ? ct.phong.ten : "",
-                     vitri = ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
-                     ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "",
+                     vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
+                        ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                      dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                      dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
                  }).ToList();
@@ -140,6 +140,36 @@ namespace TSCD.DataFilter
                      ghichu = ct.mota,
                      childs = ct.childs.Count,
                  }).ToList();
+            return re;
+        }
+
+        public static List<TaiSanHienThi> Convert(List<CTTaiSan> list)
+        {
+            if (list == null || list.Count == 0)
+                return null;
+            List<TaiSanHienThi> re =
+            list.Select(ct => new TaiSanHienThi 
+            {
+                id = ct.id,
+                ngayghi = ct.ngay,
+                sohieu_ct = ct.chungtu_sohieu,
+                ngay_ct = ct.chungtu_ngay,
+                ten = ct.taisan.ten,
+                loaits = ct.taisan.loaitaisan.ten,
+                donvitinh = ct.taisan.loaitaisan.donvitinh.ten,
+                soluong = ct.soluong,
+                dongia = ct.taisan.dongia,
+                thanhtien = ct.soluong * ct.taisan.dongia,
+                nguongoc = ct.nguongoc,
+                tinhtrang = ct.tinhtrang.value,
+                ghichu = ct.mota,
+                //childs = ct.childs != null ? ct.childs.Count : 0,
+                phong = ct.phong != null ? ct.phong.ten : "",
+                vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
+                ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
+                dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
+                dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+            }).ToList();
             return re;
         }
     }

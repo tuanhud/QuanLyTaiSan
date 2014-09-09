@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TSCD.Entities;
 using SHARED.Libraries;
+using TSCD.DataFilter;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -62,6 +63,8 @@ namespace TSCD_GUI.QLTaiSan
             lookUpTinhTrang.EditValue = obj.tinhtrang_id;
             txtNguonGoc.Text = obj.nguongoc;
             txtGhiChu.Text = obj.mota;
+            listCTTaiSan = obj.childs.ToList();
+            gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -172,7 +175,7 @@ namespace TSCD_GUI.QLTaiSan
             objCTTaiSan.soluong = Convert.ToInt32(txtSoLuong.EditValue);
             objCTTaiSan.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
             objCTTaiSan.mota = txtGhiChu.Text;
-
+            objCTTaiSan.childs = listCTTaiSan;
             int re = objCTTaiSan.update();//ONly call add on CTTaiSan
 
             re = DBInstance.commit();
@@ -220,7 +223,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void reload(Guid _id)
         {
-            gridControlTaiSan.DataSource = listCTTaiSan;
+            
+            gridControlTaiSan.DataSource = null;
+            gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
             if (_id != Guid.Empty)
             {
                 int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);

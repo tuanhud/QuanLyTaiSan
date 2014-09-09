@@ -157,7 +157,6 @@ namespace TSCD_GUI.QLTaiSan
             obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);
             obj.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
             obj.mota = txtGhiChu.Text;
-
             listCTTaiSan.Add(obj);//ONly call add on CTTaiSan
         }
 
