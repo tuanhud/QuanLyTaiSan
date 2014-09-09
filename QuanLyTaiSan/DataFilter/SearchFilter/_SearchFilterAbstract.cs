@@ -22,6 +22,8 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
         protected static String input_filter(String key_word="", Boolean enable_input_filter=true)
         {
             key_word = key_word == null ? "" : key_word.ToLower();
+            key_word = StringHelper.thayDoiKyTuDacBiet(key_word, "");
+
             if (enable_input_filter)
             {
                 return StringHelper.CoDauThanhKhongDau(key_word);

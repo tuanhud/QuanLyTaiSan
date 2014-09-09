@@ -105,6 +105,17 @@ namespace SHARED.Libraries
             string temp = s.Normalize(NormalizationForm.FormD);
             return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
+        public static String thayDoiKyTuDacBiet(string input = "", string replace = " ")
+        {
+            string re = input;
+            char[] special = { '-', '_', '.', ',', '!', '?', '#', '@', '$', '~', '`', '^', '%', '&', '*', '(', ')', '+', '=', ';', ':', '\'', '"', '[', ']', '{', '}', '|', '\\' };
+            foreach (var item in special)
+            {
+                re = re.Replace(item.ToString(), replace);
+            }
+            return re;
+        }
+
         /// <summary>
         /// Lọc ký tự đặc biệt. Chỉ còn Chữ, Số _ - </summary>
         public static string LocKyTuDacBiet(string s)
