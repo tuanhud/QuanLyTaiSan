@@ -74,8 +74,7 @@ namespace PTB_WEB.UserControl.SuCo
                                         Panel_SuCo.Visible = true;
                                         Label_ThongTinSuCo.Text = "Thông tin " + objSuCoPhong.ten;
                                         Libraries.ImageHelper.LoadImageWeb(objSuCoPhong.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
-                                        string strViTri = Libraries.StringHelper.StringViTriPhong(objPhong);
-                                        Session["TenSuCo"] = Label_TenSuCo.Text = !Object.Equals(strViTri, "") ? objSuCoPhong.ten + " " + strViTri : objSuCoPhong.ten;
+                                        Session["TenSuCo"] = Label_TenSuCo.Text = objSuCoPhong.ten;
                                         Label_TinhTrang.Text = objSuCoPhong.tinhtrang != null ? objSuCoPhong.tinhtrang.value : "[Tình trạng]";
                                         Label_NgayTao.Text = ((DateTime)objSuCoPhong.date_create).ToString();
                                         Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objSuCoPhong.mota);
@@ -145,7 +144,8 @@ namespace PTB_WEB.UserControl.SuCo
         {
             if (objPhong != null)
             {
-                Session["TenPhong"] = objPhong.ten;
+                string strViTri = Libraries.StringHelper.StringViTriPhong(objPhong);
+                Session["TenPhong"] = !Object.Equals(strViTri, "") ? objPhong.ten + " " + strViTri : objPhong.ten;
                 if (objPhong.vitri != null)
                 {
                     if (objPhong.vitri.coso != null)
