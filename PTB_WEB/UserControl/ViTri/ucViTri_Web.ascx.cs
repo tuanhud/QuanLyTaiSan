@@ -70,8 +70,8 @@ namespace PTB_WEB.UserControl.ViTri
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có vị trí";
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có vị trí";
             }
         }
 

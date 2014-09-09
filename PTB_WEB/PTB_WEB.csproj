@@ -221,6 +221,7 @@
     <Content Include="UserControl\ucCollectionPager.ascx" />
     <Content Include="UserControl\ucDangNhap.ascx" />
     <Content Include="UserControl\ucFooter.ascx" />
+    <Content Include="UserControl\ucThongBaoLoi.ascx" />
     <Content Include="UserControl\ucTreeViTri.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_BreadCrumb.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
@@ -583,6 +584,13 @@
     </Compile>
     <Compile Include="UserControl\ucFooter.ascx.designer.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucThongBaoLoi.ascx.cs">
+      <DependentUpon>ucThongBaoLoi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucThongBaoLoi.ascx.designer.cs">
+      <DependentUpon>ucThongBaoLoi.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucTreeViTri.ascx.cs">
       <DependentUpon>ucTreeViTri.ascx</DependentUpon>

@@ -3,19 +3,12 @@
 <%@ Register Src="~/UserControl/NhanVien/ucNhanVien_BreadCrumb.ascx" TagPrefix="uc" TagName="ucNhanVien_BreadCrumb" %>
 <%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
 <%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
+<%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
 
-<asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
-    <div class="row">
-        <div class="alert alert-danger" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
-        </div>
-    </div>
-</asp:Panel>
+<uc:ucNhanVien_BreadCrumb runat="server" ID="_ucNhanVien_BreadCrumb" />
+<uc:ucThongBaoLoi runat="server" id="ucThongBaoLoi" />
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <uc:ucNhanVien_BreadCrumb runat="server" ID="_ucNhanVien_BreadCrumb" />
     <table class="table largetable">
         <tbody>
             <tr>

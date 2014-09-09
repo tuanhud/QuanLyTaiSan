@@ -4,31 +4,23 @@
 <%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 <%@ Register Src="~/UserControl/Phong/ucPhong_BreadCrumb.ascx" TagPrefix="uc" TagName="ucPhong_BreadCrumb" %>
+<%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
 
 
-<asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
-    <div class="row">
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
-        </div>
-    </div>
-</asp:Panel>
+<uc:ucPhong_BreadCrumb runat="server" ID="ucPhong_BreadCrumb" />
+<uc:ucThongBaoLoi runat="server" id="ucThongBaoLoi" />
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="false">
-    <uc:ucPhong_BreadCrumb runat="server" ID="ucPhong_BreadCrumb" />
     <table class="table largetable">
         <tbody>
             <tr>
-                <td>
+                <td style="width: 300px" class="border_right">
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
-                    <h3 class="title_blue">Danh sách phòng</h3>
+                </td>
+                <td class="border_right">
+                    <h3 class="title_blue fix">Danh sách phòng</h3>
                     <% if (RepeaterDanhSachPhong.Items.Count == 0)
-                       { %>
-                    <div class="panel-body">
-                        <asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
-                    </div>
+                       { %><asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
                     <% }
                        else
                        { %>

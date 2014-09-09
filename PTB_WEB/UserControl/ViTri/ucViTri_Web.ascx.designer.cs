@@ -13,22 +13,22 @@ namespace PTB_WEB.UserControl.ViTri {
     public partial class ucViTri_Web {
         
         /// <summary>
-        /// Panel_ThongBaoLoi control.
+        /// ucViTri_BreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ViTri.ucViTri_BreadCrumb ucViTri_BreadCrumb;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// ucThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
         /// Panel_Chinh control.
@@ -38,15 +38,6 @@ namespace PTB_WEB.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
-        
-        /// <summary>
-        /// ucViTri_BreadCrumb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PTB_WEB.UserControl.ViTri.ucViTri_BreadCrumb ucViTri_BreadCrumb;
         
         /// <summary>
         /// _ucTreeViTri control.

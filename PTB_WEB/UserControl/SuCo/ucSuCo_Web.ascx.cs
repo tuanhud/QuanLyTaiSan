@@ -116,14 +116,15 @@ namespace PTB_WEB.UserControl.SuCo
                 }
                 else
                 {
-                    Panel_ThongBaoLoi.Visible = true;
-                    Label_ThongBaoLoi.Text = "Chưa có phòng";
+
+                    ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                    ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có sự cố";
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có sự cố";
             }
         }
 

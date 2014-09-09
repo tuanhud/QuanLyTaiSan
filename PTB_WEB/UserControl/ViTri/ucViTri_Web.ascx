@@ -3,20 +3,13 @@
 <%@ Register Src="~/UserControl/ucASPxImageSlider_Web.ascx" TagPrefix="uc" TagName="ucASPxImageSlider_Web" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 <%@ Register Src="~/UserControl/ViTri/ucViTri_BreadCrumb.ascx" TagPrefix="uc" TagName="ucViTri_BreadCrumb" %>
+<%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
 
 
-<asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
-    <div class="row">
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
-        </div>
-    </div>
-</asp:Panel>
+<uc:ucViTri_BreadCrumb runat="server" ID="ucViTri_BreadCrumb" />
+<uc:ucThongBaoLoi runat="server" id="ucThongBaoLoi" />
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <uc:ucViTri_BreadCrumb runat="server" ID="ucViTri_BreadCrumb" />
     <table class="table largetable">
         <tbody>
             <tr>
@@ -45,7 +38,8 @@
                     </asp:Panel>
                 </td>
                 <td>
-                    <h3 class="title_green fix"><asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
+                    <h3 class="title_green fix">
+                        <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
                     <asp:Panel ID="Panel_ThongTinViTri" runat="server" Visible="False">
                         <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
                         <table class="table table-striped">

@@ -5,16 +5,10 @@
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
 <%@ Register Src="~/UserControl/SuCo/ucSuCo_BreadCrumb.ascx" TagPrefix="uc" TagName="ucSuCo_BreadCrumb" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
+<%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
 
-<asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
-    <div class="row">
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
-        </div>
-    </div>
-</asp:Panel>
+<uc:ucSuCo_BreadCrumb runat="server" ID="ucSuCo_BreadCrumb" />
+<uc:ucThongBaoLoi runat="server" id="ucThongBaoLoi" />
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <script type="text/javascript">
@@ -23,7 +17,6 @@
             clientPopupControl.Show();
         }
     </script>
-    <uc:ucSuCo_BreadCrumb runat="server" ID="ucSuCo_BreadCrumb" />
     <table class="table largetable">
         <tr>
             <td style="width: 300px" class="border_right">

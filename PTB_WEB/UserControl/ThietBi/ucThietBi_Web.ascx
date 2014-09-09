@@ -7,20 +7,14 @@
 <%@ Register Src="~/UserControl/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/ThietBi/ucThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucThietBi_BreadCrumb" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
+<%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
 
 
-<asp:Panel ID="Panel_ThongBaoLoi" runat="server" Visible="False">
-    <div class="row">
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <span class="glyphicon glyphicon-exclamation-sign"></span>
-            <asp:Label ID="Label_ThongBaoLoi" runat="server" Text="Label"></asp:Label>
-        </div>
-    </div>
-</asp:Panel>
+<uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
+<uc:ucThongBaoLoi runat="server" id="ucThongBaoLoi" />
+
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
     <table class="table largetable">
         <tbody>
             <tr>
@@ -29,10 +23,8 @@
                 </td>
                 <td class="border_right">
                     <h3 class="title_green fix">Danh sách thiết bị</h3>
-                    <% if (RepeaterThietBi.Items.Count == 0)
-                       { %>
-                    <div class="panel-body">
-                        <asp:Label ID="Label_TextDanhSachThietBi" runat="server"></asp:Label></div>
+                    <% if (RepeaterThietBi.Items.Count == 0){ %>
+                        <asp:Label ID="Label_TextDanhSachThietBi" runat="server"></asp:Label>
                     <% }
                        else
                        { %>
