@@ -70,5 +70,10 @@ namespace TSCD_GUI.QLTaiSan
             }
             return true;
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

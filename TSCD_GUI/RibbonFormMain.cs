@@ -79,6 +79,8 @@ namespace TSCD_GUI
         {
             if (drawEnd)
             {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                 //DBInstance.reNew();
                 if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageViTri)))
                 {
@@ -116,6 +118,7 @@ namespace TSCD_GUI
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucQuanLyDonVi_TaiSan);
                 }
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
         }
     }

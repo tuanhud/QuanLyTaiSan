@@ -15,9 +15,13 @@ namespace TSCD_GUI.QLTaiSan
 {
     public partial class frmAddTaiSan : DevExpress.XtraEditors.XtraForm
     {
+        List<TinhTrang> listTinhTrang = null;
+        List<LoaiTaiSan> listLoaiTaiSan = null;
         List<CTTaiSan> listCTTaiSan = new List<CTTaiSan>();
         CTTaiSan objCTTaiSan = null;
+        List<CTTaiSan> listCTTaiSan2 = new List<CTTaiSan>();
         bool isEdit = false;
+        bool isChild = false;
 
         public frmAddTaiSan(CTTaiSan _obj)
         {
@@ -27,6 +31,25 @@ namespace TSCD_GUI.QLTaiSan
             isEdit = true;
             init();
             setData(_obj);
+        }
+
+        public frmAddTaiSan(CTTaiSan _obj, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
+        {
+            InitializeComponent();
+            loadData(_listTinhTrang, _listLoaiTaiSan);
+            objCTTaiSan = _obj;
+            isEdit = true;
+            isChild = true;
+            init();
+            setData(_obj);
+        }
+
+        public frmAddTaiSan(List<CTTaiSan> _list, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
+        {
+            InitializeComponent();
+            loadData(_listTinhTrang, _listLoaiTaiSan);
+            listCTTaiSan2 = _list;
+            isChild = true;
         }
 
         public delegate void ReloadAndFocused(Guid id);
@@ -46,8 +69,18 @@ namespace TSCD_GUI.QLTaiSan
 
         private void loadData()
         {
-            lookUpTinhTrang.Properties.DataSource = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
-            ucComboBoxLoaiTS1.DataSource = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+            listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+            lookUpTinhTrang.Properties.DataSource = listTinhTrang;
+            listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+            ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+        }
+
+        private void loadData(List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
+        {
+            listTinhTrang = _listTinhTrang;
+            lookUpTinhTrang.Properties.DataSource = listTinhTrang;
+            listLoaiTaiSan = _listLoaiTaiSan;
+            ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
         }
 
         private void setData(CTTaiSan obj)
@@ -78,8 +111,9 @@ namespace TSCD_GUI.QLTaiSan
                         id = edit();
                     else
                         id = add();
-                    if (id != Guid.Empty && reloadAndFocused != null)
+                    if (reloadAndFocused != null)
                         reloadAndFocused(id);
+                    this.Close();
                 }
             }
             catch
@@ -147,17 +181,24 @@ namespace TSCD_GUI.QLTaiSan
             obj.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
             obj.mota = txtGhiChu.Text;
             obj.childs = listCTTaiSan;
-            int re = obj.add();//ONly call add on CTTaiSan
-
-            re = DBInstance.commit();
-            if (re > 0)
+            if (!isChild)
             {
-                XtraMessageBox.Show("Pass");
-                return obj.id;
+                int re = obj.add();//ONly call add on CTTaiSan
+                re = DBInstance.commit();
+                if (re > 0)
+                {
+                    XtraMessageBox.Show("Pass");
+                    return obj.id;
+                }
+                else
+                {
+                    XtraMessageBox.Show("Fail");
+                    return Guid.Empty;
+                }
             }
             else
             {
-                XtraMessageBox.Show("Fail");
+                listCTTaiSan2.Add(obj);
                 return Guid.Empty;
             }
         }
@@ -177,8 +218,8 @@ namespace TSCD_GUI.QLTaiSan
             objCTTaiSan.mota = txtGhiChu.Text;
             objCTTaiSan.childs = listCTTaiSan;
             int re = objCTTaiSan.update();//ONly call add on CTTaiSan
-
-            re = DBInstance.commit();
+            if(!isChild)
+                re = DBInstance.commit();
             if (re > 0)
             {
                 XtraMessageBox.Show("Pass");
@@ -216,8 +257,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            frmAddTaiSanKemTheo frm = new frmAddTaiSanKemTheo(listCTTaiSan);
-            frm.reloadAndFocused = new frmAddTaiSanKemTheo.ReloadAndFocused(reload);
+            frmAddTaiSan frm = new frmAddTaiSan(listCTTaiSan, listTinhTrang, listLoaiTaiSan);
+            frm.reloadAndFocused = new ReloadAndFocused(reload);
+            frm.Text = "Thêm tài sản kèm theo";
             frm.ShowDialog();
         }
 
@@ -238,8 +280,9 @@ namespace TSCD_GUI.QLTaiSan
         {
             if (bandedGridViewTaiSan.GetFocusedRowCellValue(colid) != null && GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid)) != Guid.Empty)
             {
-                frmAddTaiSanKemTheo frm = new frmAddTaiSanKemTheo(CTTaiSan.getById(GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid))));
-                frm.reloadAndFocused = new frmAddTaiSanKemTheo.ReloadAndFocused(reload);
+                frmAddTaiSan frm = new frmAddTaiSan(CTTaiSan.getById(GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid))), listTinhTrang, listLoaiTaiSan);
+                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reload);
+                frm.Text = "Sửa tài sản kèm theo";
                 frm.ShowDialog();
             }
         }
@@ -247,7 +290,13 @@ namespace TSCD_GUI.QLTaiSan
         private void btnAddExist_Click(object sender, EventArgs e)
         {
             frmAddTaiSanExist frm = new frmAddTaiSanExist(listCTTaiSan);
+            frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reload);
             frm.ShowDialog();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

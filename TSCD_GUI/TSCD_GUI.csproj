@@ -142,12 +142,6 @@
     <Compile Include="QLTaiSan\frmAddTaiSanExist.Designer.cs">
       <DependentUpon>frmAddTaiSanExist.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLTaiSan\frmAddTaiSanKemTheo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QLTaiSan\frmAddTaiSanKemTheo.Designer.cs">
-      <DependentUpon>frmAddTaiSanKemTheo.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLTaiSan\frmAddTaiSan_DonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +177,12 @@
     </Compile>
     <Compile Include="RibbonFormMain.Designer.cs">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitFormLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitFormLoad.Designer.cs">
+      <DependentUpon>WaitFormLoad.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MyUserControl\ucComboBoxDonVi.resx">
       <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
@@ -234,9 +234,6 @@
     <EmbeddedResource Include="QLTaiSan\frmAddTaiSanExist.resx">
       <DependentUpon>frmAddTaiSanExist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLTaiSan\frmAddTaiSanKemTheo.resx">
-      <DependentUpon>frmAddTaiSanKemTheo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmAddTaiSan_DonVi.resx">
       <DependentUpon>frmAddTaiSan_DonVi.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitFormLoad.resx">
+      <DependentUpon>WaitFormLoad.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>

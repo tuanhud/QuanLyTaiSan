@@ -84,5 +84,10 @@ namespace TSCD_GUI.QLTaiSan
                 return Guid.Empty;
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

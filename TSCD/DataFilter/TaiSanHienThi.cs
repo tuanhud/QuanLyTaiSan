@@ -25,7 +25,7 @@ namespace TSCD.DataFilter
         public String vitri { get; set; }
         public String dvquanly { get; set; }
         public String dvsudung { get; set; }
-        public int childs { get; set; }
+        public ICollection<CTTaiSan> childs { get; set; }
 
         public static List<TaiSanHienThi> getAllNoDonVi()
         {
@@ -47,7 +47,7 @@ namespace TSCD.DataFilter
                     nguongoc = ct.nguongoc,
                     tinhtrang = ct.tinhtrang.value,
                     ghichu = ct.mota,
-                    childs = ct.childs.Count,
+                    childs = ct.childs,
                  }).ToList();
             return re;
         }
@@ -74,7 +74,7 @@ namespace TSCD.DataFilter
                      nguongoc = ct.nguongoc,
                      tinhtrang = ct.tinhtrang.value,
                      ghichu = ct.mota,
-                     childs = ct.childs.Count,
+                     childs = ct.childs,
                      phong = ct.phong != null ? ct.phong.ten : "",
                      vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
                         ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
@@ -106,7 +106,7 @@ namespace TSCD.DataFilter
                      nguongoc = ct.nguongoc,
                      tinhtrang = ct.tinhtrang.value,
                      ghichu = ct.mota,
-                     childs = ct.childs.Count,
+                     childs = ct.childs,
                      phong = ct.phong != null ? ct.phong.ten : "",
                      vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
                         ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
@@ -138,7 +138,7 @@ namespace TSCD.DataFilter
                      nguongoc = ct.nguongoc,
                      tinhtrang = ct.tinhtrang.value,
                      ghichu = ct.mota,
-                     childs = ct.childs.Count,
+                     childs = ct.childs,
                  }).ToList();
             return re;
         }
@@ -163,7 +163,7 @@ namespace TSCD.DataFilter
                 nguongoc = ct.nguongoc,
                 tinhtrang = ct.tinhtrang.value,
                 ghichu = ct.mota,
-                //childs = ct.childs != null ? ct.childs.Count : 0,
+                childs = ct.childs,
                 phong = ct.phong != null ? ct.phong.ten : "",
                 vitri = ct.vitri != null ? (ct.vitri.coso != null ? ct.vitri.coso.ten + (ct.vitri.day != null ? " - " +
                 ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
