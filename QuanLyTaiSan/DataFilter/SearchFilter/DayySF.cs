@@ -19,18 +19,15 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
         {
             var re = new List<DayySF>();
             IEnumerable<DayySF> query;
-            if (!StringHelper.CoDauThanhKhongDau(key_work).Equals(key_work))
+            Boolean search_codau = StringHelper.isCoDau(key_work);
+            //Đang search có dấu
+            key_work = input_filter(key_work, !search_codau);
+            if (key_work.Length < 3)
             {
-                //Đang search có dấu
-                key_work = input_filter(key_work, false);
-                query = Dayy.getAll().Select(c => new DayySF(false) { obj = c, ten = c.ten });
+                return new List<DayySF>();
             }
-            else
-            {
-                //Đang search không dấu
-                key_work = input_filter(key_work, true);
-                query = Dayy.getAll().Select(c => new DayySF(true) { obj = c, ten = c.ten });
-            }
+            query = Dayy.getAll().Select(c => new DayySF(!search_codau) { obj = c, ten = c.ten });
+            
 
             Boolean once_match = false;
             foreach (var item in query)

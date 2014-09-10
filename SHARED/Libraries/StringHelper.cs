@@ -105,6 +105,13 @@ namespace SHARED.Libraries
             string temp = s.Normalize(NormalizationForm.FormD);
             return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
+        /// <summary>
+        /// Loc bo cac ky tu dac biet ra khoi chuoi,
+        /// { '-', '_', '.', ',', '!', '?', '#', '@', '$', '~', '`', '^', '%', '&', '*', '(', ')', '+', '=', ';', ':', '\'', '"', '[', ']', '{', '}', '|', '\\' };
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="replace"></param>
+        /// <returns></returns>
         public static String thayDoiKyTuDacBiet(string input = "", string replace = " ")
         {
             string re = input;
@@ -307,6 +314,11 @@ namespace SHARED.Libraries
             }
             str += ct[number] + "...";
             return str;
+        }
+
+        public static bool isCoDau(string key_work="")
+        {
+            return !CoDauThanhKhongDau(key_work).Equals(key_work);
         }
     }
 }

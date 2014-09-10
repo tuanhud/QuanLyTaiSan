@@ -34,18 +34,14 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
         {
             var re = new List<NhanVienPTSF>();
             IEnumerable<NhanVienPTSF> query;
-            if (!StringHelper.CoDauThanhKhongDau(key_work).Equals(key_work))
+            Boolean search_codau = StringHelper.isCoDau(key_work);
+            //Đang search có dấu
+            key_work = input_filter(key_work, !search_codau);
+            if (key_work.Length < 3)
             {
-                //Đang search có dấu
-                key_work = input_filter(key_work,false);
-                query = NhanVienPT.getAll().Select(c => new NhanVienPTSF(false) { obj = c, hoten = c.hoten, sodienthoai = c.sodienthoai, subId = c.subId });
+                return new List<NhanVienPTSF>();
             }
-            else
-            {
-                //Đang search không dấu
-                key_work = input_filter(key_work,true);
-                query = NhanVienPT.getAll().Select(c => new NhanVienPTSF(true) { obj = c, hoten = c.hoten, sodienthoai = c.sodienthoai, subId = c.subId });
-            }
+            query = NhanVienPT.getAll().Select(c => new NhanVienPTSF(!search_codau) { obj = c, hoten = c.hoten, sodienthoai = c.sodienthoai, subId = c.subId });
             
             Boolean once_match = false;
             foreach (var item in query)

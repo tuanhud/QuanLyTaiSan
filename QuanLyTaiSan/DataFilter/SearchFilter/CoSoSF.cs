@@ -19,18 +19,15 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
         {
             var re = new List<CoSoSF>();
             IEnumerable<CoSoSF> query;
-            if (!StringHelper.CoDauThanhKhongDau(key_work).Equals(key_work))
+            Boolean search_codau = StringHelper.isCoDau(key_work);
+            //Đang search có dấu
+            key_work = input_filter(key_work, !search_codau);
+            if (key_work.Length < 3)
             {
-                //Đang search có dấu
-                key_work = input_filter(key_work, false);
-                query = CoSo.getAll().Select(c => new CoSoSF(false) { obj = c, ten = c.ten });
+                return new List<CoSoSF>();
             }
-            else
-            {
-                //Đang search không dấu
-                key_work = input_filter(key_work, true);
-                query = CoSo.getAll().Select(c => new CoSoSF(true) { obj = c, ten = c.ten });
-            }
+            query = CoSo.getAll().Select(c => new CoSoSF(!search_codau) { obj = c, ten = c.ten });
+            
 
             Boolean once_match = false;
             foreach (var item in query)
