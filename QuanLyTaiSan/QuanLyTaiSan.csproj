@@ -85,6 +85,7 @@
     <Compile Include="DataFilter\LoaiTBHienThi.cs" />
     <Compile Include="DataFilter\NhanVienPTFilter.cs" />
     <Compile Include="DataFilter\PhongFilter2.cs" />
+    <Compile Include="DataFilter\SearchFilter\SuCoPhongSF.cs" />
     <Compile Include="DataFilter\SearchFilter\LoaiThietBiSF.cs" />
     <Compile Include="DataFilter\SearchFilter\ThietBiSF.cs" />
     <Compile Include="DataFilter\SearchFilter\CoSoSF.cs" />
