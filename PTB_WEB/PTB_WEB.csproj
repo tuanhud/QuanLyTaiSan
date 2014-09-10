@@ -141,6 +141,7 @@
     <Content Include="Images\ptb.png" />
     <Content Include="Images\thongtinphanmem.png" />
     <Content Include="Images\thongtinwebsite.png" />
+    <Content Include="Images\timkiem.png" />
     <Content Include="LogSuCo.aspx" />
     <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />

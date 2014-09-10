@@ -38,6 +38,12 @@
                     </asp:Panel>
                 </td>
                 <td>
+                    <%if(Request.QueryString["key"] == null){ %>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <asp:Label ID="Label_ChuaChon" runat="server" Visible="false"></asp:Label>
+                    </div>
+                    <%}else{ %>
                     <h3 class="title_green fix">
                         <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></h3>
                     <asp:Panel ID="Panel_ThongTinViTri" runat="server" Visible="False">
@@ -73,7 +79,7 @@
                             </tbody>
                         </table>
                     </asp:Panel>
-                    <asp:Label ID="Label_ChuaChon" runat="server" Visible="false"></asp:Label>
+                    <%} %>
                 </td>
             </tr>
         </tbody>

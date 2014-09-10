@@ -232,3 +232,39 @@
 .dxnb-item a:hover {
     
 }
+.timkiem {
+    margin: 0px !important;
+    color: #ffffff !important;
+    background-color: #428bca;
+}
+.fixpanel {
+    background-color: white;
+    padding: 25px !important;
+}
+#TbSearch {
+    background: url("/Images/timkiem.png") no-repeat scroll right center white;
+}
+
+#myTab {
+    margin-top: -10px !important;
+    border-bottom: solid 2px blue;
+    margin-bottom: 18px;
+}
+#myTab a:hover{
+    background-color: #e7e7e7 !important;
+    color: blue !important;
+}
+#myTab .active a{
+    background-color: #e7e7e7 !important;
+    color: blue !important;
+}
+#myTab a{
+    color: blue !important;
+    font-size: 22px;
+    border: none;
+    text-align: left !important;
+    border-bottom: solid 1px blue;
+    border-radius: 0px !important;
+    padding-bottom: 5px !important;
+    cursor: pointer;
+}
