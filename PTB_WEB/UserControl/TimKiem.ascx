@@ -3,7 +3,7 @@
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <script src="../Scripts/custom.js"></script>
-<dx:ASPxTextBox ID="TbSearch" runat="server" CssClass="form-control" Native="True" ClientInstanceName="SearchBox" AutoCompleteType="Disabled">
+<dx:ASPxTextBox ID="TbSearch" runat="server" CssClass="form-control" Native="True" ClientIDMode="Static" ClientInstanceName="SearchBox" AutoCompleteType="Disabled" placeholder="Nhập nội dung cần tìm">
     <ClientSideEvents KeyUp="DXDemo.Search.onSearchBoxKeyPress" KeyDown="DXDemo.Search.onSearchBoxKeyDown" GotFocus="DXDemo.Search.onSearchBoxGotFocus" />
 </dx:ASPxTextBox>
 <div id="SearchPanel" style="margin-top:33px">

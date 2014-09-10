@@ -67,6 +67,15 @@ namespace PTB_WEB.UserControl.ViTri {
         protected global::System.Web.UI.WebControls.Label Label_Script;
         
         /// <summary>
+        /// Label_ChuaChon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ChuaChon;
+        
+        /// <summary>
         /// Label_ThongTin control.
         /// </summary>
         /// <remarks>
@@ -137,14 +146,5 @@ namespace PTB_WEB.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MoTa;
-        
-        /// <summary>
-        /// Label_ChuaChon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ChuaChon;
     }
 }

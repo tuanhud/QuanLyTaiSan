@@ -1,22 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PTB_WEB.Default1" %>
 
 <%@ Register Src="~/UserControl/TimKiem.ascx" TagPrefix="uc" TagName="TimKiem" %>
+<%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Phòng Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="panel-body">
-        <link rel="stylesheet" type="text/css" href="Content/css/metro/metro.css" />
-        <link rel="stylesheet" type="text/css" href="Content/css/metro/metro_mobile.css" media="screen and (max-height: 500px), screen and (orientation:portrait)" />
-        <link rel="stylesheet" type="text/css" href="Content/css/metro/website.css" />
-        <script type="text/javascript" src="Scripts/scriptgates.js"></script>
-        <div class="row">
-            <div class="input-group col-lg-3 pull-right">
-                <uc:TimKiem runat="server" ID="TimKiem" />
-                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-            </div>
+    <link rel="stylesheet" type="text/css" href="Content/css/metro/metro.css" />
+    <link rel="stylesheet" type="text/css" href="Content/css/metro/metro_mobile.css" media="screen and (max-height: 500px), screen and (orientation:portrait)" />
+    <link rel="stylesheet" type="text/css" href="Content/css/metro/website.css" />
+    <script type="text/javascript" src="Scripts/scriptgates.js"></script>
+    <div class="row timkiem">
+        <div class="input-group col-lg-3 pull-right">
+            <uc:TimKiem runat="server" ID="TimKiem" />
         </div>
+    </div>
+    <div class="panel-body fixpanel">
         <div class="row">
             <h3 class="title_orange fix">Phòng Thiết bị</h3>
         </div>
@@ -189,4 +190,5 @@
             </div>
         </div>
     </div>
+    <uc:ucFooter runat="server" ID="ucFooter" />
 </asp:Content>

@@ -18,6 +18,15 @@
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                 </td>
                 <td>
+                    <% if (RepeaterDanhSachPhong.Items.Count == 0)
+                       { %>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
+                    </div>
+                    <% }
+                       else
+                       { %>
                     <ul class="nav nav-tabs" role="tablist" id="myTab">
                         <li class="active"><a href="#danhsach" role="tab" data-toggle="tab">Danh sách phòng</a></li>
                         <%if (Request.QueryString["id"] != null)
@@ -33,15 +42,6 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="danhsach">
-                            <% if (RepeaterDanhSachPhong.Items.Count == 0)
-                               { %>
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
-                            </div>
-                            <% }
-                               else
-                               { %>
                             <table class="table table-bordered table-striped table-hover valign_middle">
                                 <thead class="centered">
                                     <tr>
@@ -64,13 +64,12 @@
                                     </asp:Repeater>
                                 </tbody>
                             </table>
-                            <% } %>
                             <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachPhong" />
                         </div>
                         <div class="tab-pane" id="thongtin">
-                            <table class="table">
+                            <table class="table largetable" style="height:auto">
                                 <tr>
-                                    <td>
+                                    <td style="width: 50%">
                                         <h3 class="title_green fix">Thông tin phòng</h3>
                                         <asp:Panel ID="Panel_Phong" runat="server" Visible="False">
                                             <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web_Phong" />
@@ -144,6 +143,7 @@
                             </table>
                         </div>
                     </div>
+                    <% } %>
                 </td>
             </tr>
         </tbody>
