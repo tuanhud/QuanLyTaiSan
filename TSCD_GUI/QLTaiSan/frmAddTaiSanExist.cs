@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using TSCD.DataFilter;
 using TSCD.Entities;
 using SHARED.Libraries;
+using DevExpress.XtraGrid.Views.BandedGrid;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -44,9 +45,10 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if(bandedGridViewTaiSan.GetFocusedRowCellValue(colid) != null)
+            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+            if (view.GetFocusedRow() != null)
             {
-                CTTaiSan obj = CTTaiSan.getById(GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid)));
+                CTTaiSan obj = (view.GetFocusedRow() as TaiSanHienThi).obj;
                 listCTTaiSan.Add(obj);
                 if (reloadAndFocused != null)
                     reloadAndFocused(obj.id);
@@ -73,7 +75,7 @@ namespace TSCD_GUI.QLTaiSan
         private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-            e.ChildList = TaiSanHienThi.getAllByParentId(c.id);
+            e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
         }
     }
 }

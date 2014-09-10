@@ -12,7 +12,7 @@ namespace TSCD.DataFilter
         public String ten { get; set; }
         public String loai { get; set; }
         public String vitri { get; set; }
-        public virtual Phong phong { get; set; }
+        public Phong phong { get; set; }
 
         public static List<PhongHienThi> getPhongByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
         {

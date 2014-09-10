@@ -23,7 +23,7 @@ namespace TSCD_GUI.QLTaiSan
         bool isEdit = false;
         bool isChild = false;
 
-        public frmAddTaiSan(CTTaiSan _obj)
+        public frmAddTaiSan(CTTaiSan _obj, bool isDonVi = false)
         {
             InitializeComponent();
             loadData();
@@ -31,6 +31,11 @@ namespace TSCD_GUI.QLTaiSan
             isEdit = true;
             init();
             setData(_obj);
+            if (isDonVi)
+            {
+                txtSoLuong.Properties.ReadOnly = true;
+                lookUpTinhTrang.Properties.ReadOnly = true;
+            }
         }
 
         public frmAddTaiSan(CTTaiSan _obj, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
@@ -278,9 +283,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (bandedGridViewTaiSan.GetFocusedRowCellValue(colid) != null && GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid)) != Guid.Empty)
+            if (bandedGridViewTaiSan.GetFocusedRow() != null)
             {
-                frmAddTaiSan frm = new frmAddTaiSan(CTTaiSan.getById(GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid))), listTinhTrang, listLoaiTaiSan);
+                frmAddTaiSan frm = new frmAddTaiSan((bandedGridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj, listTinhTrang, listLoaiTaiSan);
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reload);
                 frm.Text = "Sửa tài sản kèm theo";
                 frm.ShowDialog();

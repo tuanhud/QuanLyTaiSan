@@ -26,6 +26,7 @@ namespace TSCD.DataFilter
         public String dvquanly { get; set; }
         public String dvsudung { get; set; }
         public ICollection<CTTaiSan> childs { get; set; }
+        public CTTaiSan obj { get; set; }
 
         public static List<TaiSanHienThi> getAllNoDonVi()
         {
@@ -48,6 +49,7 @@ namespace TSCD.DataFilter
                     tinhtrang = ct.tinhtrang.value,
                     ghichu = ct.mota,
                     childs = ct.childs,
+                    obj = ct,
                  }).ToList();
             return re;
         }
@@ -80,6 +82,7 @@ namespace TSCD.DataFilter
                         ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                      dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                      dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+                     obj = ct,
                  }).ToList();
             return re;
         }
@@ -112,6 +115,7 @@ namespace TSCD.DataFilter
                         ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                      dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                      dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+                     obj = ct,
                  }).ToList();
             return re;
         }
@@ -139,6 +143,7 @@ namespace TSCD.DataFilter
                      tinhtrang = ct.tinhtrang.value,
                      ghichu = ct.mota,
                      childs = ct.childs,
+                     obj = ct,
                  }).ToList();
             return re;
         }
@@ -169,6 +174,7 @@ namespace TSCD.DataFilter
                 ct.vitri.day.ten + (ct.vitri.tang != null ? " - " + ct.vitri.tang.ten : "") : "") : "") : "",
                 dvquanly = ct.donviquanly != null ? ct.donviquanly.ten : "",
                 dvsudung = ct.donvisudung != null ? ct.donvisudung.ten : "",
+                obj = ct,
             }).ToList();
             return re;
         }

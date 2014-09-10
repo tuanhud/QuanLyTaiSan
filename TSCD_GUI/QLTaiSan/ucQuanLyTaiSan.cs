@@ -44,7 +44,11 @@ namespace TSCD_GUI.QLTaiSan
         {
             get
             {
-                return CTTaiSan.getById(GUID.From(bandedGridViewTaiSan.GetFocusedRowCellValue(colid)));
+                BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+                if (view.GetFocusedRow() != null)
+                    return (view.GetFocusedRow() as TaiSanHienThi).obj;
+                else
+                    return null;
             }
         }
 
@@ -70,9 +74,9 @@ namespace TSCD_GUI.QLTaiSan
         private void barBtnSuaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRowCellValue(colid) != null)
+            if (view.GetFocusedRow() != null)
             {
-                frmAddTaiSan frm = new frmAddTaiSan(CTTaiSan.getById(GUID.From(view.GetFocusedRowCellValue(colid))));
+                frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }

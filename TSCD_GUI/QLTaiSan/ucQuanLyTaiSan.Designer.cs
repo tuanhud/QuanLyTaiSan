@@ -245,7 +245,7 @@
             this.colloai2.AppearanceHeader.Options.UseTextOptions = true;
             this.colloai2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colloai2.Caption = "Loại tài sản";
-            this.colloai2.FieldName = "loai";
+            this.colloai2.FieldName = "loaits";
             this.colloai2.Name = "colloai2";
             // 
             // colid2
