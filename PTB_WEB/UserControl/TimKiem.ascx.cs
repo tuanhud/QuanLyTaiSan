@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using QuanLyTaiSan.DataFilter.SearchFilter;
 
 namespace PTB_WEB.UserControl
 {
@@ -21,40 +22,63 @@ namespace PTB_WEB.UserControl
             List<DoSearch> Searchs = new List<DoSearch>();
             try
             {
-                var ten_nhanvienpts = NhanVienPT.getQuery().Where(c => c.hoten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (NhanVienPT ten_nhanvienpt in ten_nhanvienpts)
-                    Searchs.Add(new DoSearch(ten_nhanvienpt.id, ten_nhanvienpt.hoten, "TENNHANVIENPT"));
-
-                var sdt_nhanvienpts = NhanVienPT.getQuery().Where(c => c.sodienthoai.Contains(request)).Take(5).ToList();
-                foreach (NhanVienPT sdt_nhanvienpt in sdt_nhanvienpts)
-                    Searchs.Add(new DoSearch(sdt_nhanvienpt.id, sdt_nhanvienpt.sodienthoai, "SDTNHANVIENPT"));
-
-                var ten_cosos = CoSo.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (CoSo ten_coso in ten_cosos)
-                    Searchs.Add(new DoSearch(ten_coso.id, ten_coso.ten, "COSO"));
-
-                var ten_days = Dayy.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (Dayy ten_day in ten_days)
-                    Searchs.Add(new DoSearch(ten_day.id, string.Format("{0} ({1})", ten_day.ten, ten_day.coso != null ? ten_day.coso.ten : "[Cơ sở]"), "DAY"));
-
-                var ten_tangs = Tang.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (Tang ten_tang in ten_tangs)
-                    Searchs.Add(new DoSearch(ten_tang.id, string.Format("{0} ({1} - {2})", ten_tang.ten, ten_tang.day != null ? ten_tang.day.coso != null ? ten_tang.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", ten_tang.day != null ? ten_tang.day.ten : "[Dãy]"), "TANG"));
-
-                var ten_phongs = QuanLyTaiSan.Entities.Phong.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (QuanLyTaiSan.Entities.Phong ten_phong in ten_phongs)
+                List<NhanVienPTSF> ListNhanVienPTSFs = NhanVienPTSF.search(request);
+                foreach (NhanVienPTSF ListNhanVienPTSF in ListNhanVienPTSFs)
                 {
-                    string strViTri = Libraries.StringHelper.StringViTriPhong(ten_phong);
-                    Searchs.Add(new DoSearch(ten_phong.id, string.Format("{0}{1}", ten_phong.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "PHONG"));
+                    if (ListNhanVienPTSF.match_field.FirstOrDefault().Equals("hoten"))
+                        Searchs.Add(new DoSearch(ListNhanVienPTSF.obj.id, ListNhanVienPTSF.obj.hoten, "TENNHANVIENPT"));
+                    else if (ListNhanVienPTSF.match_field.FirstOrDefault().Equals("sodienthoai"))
+                        Searchs.Add(new DoSearch(ListNhanVienPTSF.obj.id, ListNhanVienPTSF.obj.sodienthoai, "SDTNHANVIENPT"));                        
+                    else
+                        Searchs.Add(new DoSearch(ListNhanVienPTSF.obj.id, ListNhanVienPTSF.obj.subId, "MANHANVIENPT"));
+                }
+
+                List<CoSoSF> ListCoSoSFs = CoSoSF.search(request);
+                foreach (CoSoSF ListCoSoSF in ListCoSoSFs)
+                {
+                    if (ListCoSoSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(ListCoSoSF.obj.id, ListCoSoSF.obj.ten, "TENCOSO"));
+                    else
+                        Searchs.Add(new DoSearch(ListCoSoSF.obj.id, ListCoSoSF.obj.subId, "MACOSO"));
+                }
+
+                List<DayySF> ListDayySFs = DayySF.search(request);
+                foreach (DayySF ListDayySF in ListDayySFs)
+                {
+                    if (ListDayySF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(ListDayySF.obj.id, string.Format("{0} ({1})", ListDayySF.obj.ten, ListDayySF.obj.coso != null ? ListDayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
+                    else
+                        Searchs.Add(new DoSearch(ListDayySF.obj.id, string.Format("{0} ({1})", ListDayySF.obj.subId, ListDayySF.obj.coso != null ? ListDayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
+                }
+
+                List<TangSF> ListTangSFs = TangSF.search(request);
+                foreach (TangSF ListTangSF in ListTangSFs)
+                {
+                    if (ListTangSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(ListTangSF.obj.id, string.Format("{0} ({1} - {2})", ListTangSF.obj.ten, ListTangSF.obj.day != null ? ListTangSF.obj.day.coso != null ? ListTangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", ListTangSF.obj.day != null ? ListTangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
+                    else
+                        Searchs.Add(new DoSearch(ListTangSF.obj.id, string.Format("{0} ({1} - {2})", ListTangSF.obj.subId, ListTangSF.obj.day != null ? ListTangSF.obj.day.coso != null ? ListTangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", ListTangSF.obj.day != null ? ListTangSF.obj.day.ten : "[Dãy]"), "MATANG"));
+                }
+
+                List<PhongSF> ListPhongSFs = PhongSF.search(request);
+                foreach (PhongSF ListPhongSF in ListPhongSFs)
+                {
+                    string strViTri = Libraries.StringHelper.StringViTriPhong(ListPhongSF.obj);
+                    if (ListPhongSF.match_field.FirstOrDefault().Equals("ten"))
+                    {
+                        Searchs.Add(new DoSearch(ListPhongSF.obj.id, string.Format("{0}{1}", ListPhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
+                    }
+                    else
+                        Searchs.Add(new DoSearch(ListPhongSF.obj.id, string.Format("{0}{1}", ListPhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
                 }
 
                 var ten_thietbis = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
                 foreach (QuanLyTaiSan.Entities.ThietBi ten_thietbi in ten_thietbis)
-                    Searchs.Add(new DoSearch(ten_thietbi.id, ten_thietbi.ten, "THIETBI"));
+                    Searchs.Add(new DoSearch(ten_thietbi.id, ten_thietbi.ten, "TENTHIETBI"));
 
                 var ten_loaithietbis = QuanLyTaiSan.Entities.LoaiThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
                 foreach (QuanLyTaiSan.Entities.LoaiThietBi ten_loaithietbi in ten_loaithietbis)
-                    Searchs.Add(new DoSearch(ten_loaithietbi.id, ten_loaithietbi.ten, "LOAITHIETBI"));
+                    Searchs.Add(new DoSearch(ten_loaithietbi.id, ten_loaithietbi.ten, "TENLOAITHIETBI"));
             }
             catch (Exception ex)
             {
@@ -69,6 +93,10 @@ namespace PTB_WEB.UserControl
             string url = string.Empty;
             switch (value)
             {
+                case "MANHANVIENPT":
+                    name = "Mã nhân viên phụ trách";
+                    url = "/NhanVien.aspx?Search=";
+                    break;
                 case "TENNHANVIENPT":
                     name = "Tên nhân viên phụ trách";
                     url = "/NhanVien.aspx?Search=";
@@ -77,28 +105,52 @@ namespace PTB_WEB.UserControl
                     name = "Điện thoại nhân viên phụ trách";
                     url = "/NhanVien.aspx?Search=";
                     break;
-                case "COSO":
-                    name = "Cơ sở";
+                case "MACOSO":
+                    name = "Mã cơ sở";
                     url = "/ViTri.aspx?Search=";
                     break;
-                case "DAY":
-                    name = "Dãy";
+                case "TENCOSO":
+                    name = "Tên cơ sở";
                     url = "/ViTri.aspx?Search=";
                     break;
-                case "TANG":
-                    name = "Tầng";
+                case "MADAY":
+                    name = "Mã dãy";
                     url = "/ViTri.aspx?Search=";
                     break;
-                case "PHONG":
-                    name = "Phòng";
+                case "TENDAY":
+                    name = "Tên dãy";
+                    url = "/ViTri.aspx?Search=";
+                    break;
+                case "MATANG":
+                    name = "Mã tầng";
+                    url = "/ViTri.aspx?Search=";
+                    break;
+                case "TENTANG":
+                    name = "Tên tầng";
+                    url = "/ViTri.aspx?Search=";
+                    break;
+                case "MAPHONG":
+                    name = "Mã phòng";
                     url = "/Phong.aspx?Search=";
                     break;
-                case "THIETBI":
-                    name = "Thiết bị";
+                case "TENPHONG":
+                    name = "Tên phòng";
+                    url = "/Phong.aspx?Search=";
+                    break;
+                case "MATHIETBI":
+                    name = "Mã thiết bị";
                     url = "/ThietBis.aspx?Search=";
                     break;
-                case "LOAITHIETBI":
-                    name = "Loại thiết bị";
+                case "TENTHIETBI":
+                    name = "Tên thiết bị";
+                    url = "/ThietBis.aspx?Search=";
+                    break;
+                case "MALOAITHIETBI":
+                    name = "Mã loại thiết bị";
+                    url = "/LoaiThietBis.aspx?Search=";
+                    break;
+                case "TENLOAITHIETBI":
+                    name = "Tên loại thiết bị";
                     url = "/LoaiThietBis.aspx?Search=";
                     break;
             }

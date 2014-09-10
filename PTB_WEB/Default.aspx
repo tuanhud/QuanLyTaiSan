@@ -189,15 +189,4 @@
             </div>
         </div>
     </div>
-    <div id="widget_preview">
-        <div id="widget_sidebar">
-            <div>
-                <div class="cancel"><span>Đóng</span></div>
-                <div class="refresh"><span>Tải lại</span></div>
-                <div class="download"><span>Tải về</span></div>
-                <div class="back"><span>Trang trước</span></div>
-                <div class="next"><span>Trang kế</span></div>
-            </div>
-        </div>
-    </div>
 </asp:Content>
