@@ -26,10 +26,10 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
         }
 
         private String _sodienthoai = "";
-        public String sodienthoai { get { return _sodienthoai; } set { _sodienthoai = input_filter(value); } }
+        public String sodienthoai { get { return _sodienthoai; } set { _sodienthoai = input_filter(value, enable_filter_input); } }
 
         private String _subId = "";
-        public String subId { get { return _subId; } set { _subId = input_filter(value); } }
+        public String subId { get { return _subId; } set { _subId = input_filter(value, enable_filter_input); } }
         public static List<NhanVienPTSF> search(String key_work)
         {
             var re = new List<NhanVienPTSF>();
@@ -37,7 +37,7 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
             Boolean search_codau = StringHelper.isCoDau(key_work);
             //Đang search có dấu
             key_work = input_filter(key_work, !search_codau);
-            if (key_work.Length < 3)
+            if (key_work.Length == 0)
             {
                 return new List<NhanVienPTSF>();
             }

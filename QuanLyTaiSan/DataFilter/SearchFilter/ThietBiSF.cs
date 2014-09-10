@@ -14,7 +14,7 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
             this.enable_filter_input = enable_filter_input;
         }
         private String _ten = "";
-        public String ten { get { return _ten; } set { _ten = input_filter(value); } }
+        public String ten { get { return _ten; } set { _ten = input_filter(value, enable_filter_input); } }
         public static List<ThietBiSF> search(String key_work)
         {
             var re = new List<ThietBiSF>();
@@ -22,7 +22,7 @@ namespace QuanLyTaiSan.DataFilter.SearchFilter
             Boolean search_codau = StringHelper.isCoDau(key_work);
             //Đang search có dấu
             key_work = input_filter(key_work, !search_codau);
-            if (key_work.Length < 3)
+            if (key_work.Length == 0)
             {
                 return new List<ThietBiSF>();
             }
