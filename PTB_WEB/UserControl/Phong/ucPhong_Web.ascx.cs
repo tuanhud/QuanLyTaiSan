@@ -16,7 +16,7 @@ namespace PTB_WEB.UserControl.Phong
         public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<QuanLyTaiSan.Entities.Phong> listPhong = new List<QuanLyTaiSan.Entities.Phong>();
-        QuanLyTaiSan.Entities.Phong objPhong = null;
+        public QuanLyTaiSan.Entities.Phong objPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -9,15 +9,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
+using System.Net;
+using System.Text;
 
 namespace PTB_WEB.UserControl.ViTri
 {
     public partial class ucViTri_Web : System.Web.UI.UserControl
     {
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
-        CoSo objCoSo = null;
+        public CoSo objCoSo = null;
         Dayy objDay = null;
         Tang objTang = null;
+        public string strSrc = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -86,7 +89,6 @@ namespace PTB_WEB.UserControl.ViTri
             Panel_DiaChi.Visible = false;
             Panel_GoogleMap.Visible = false;
         }
-
         private void LoadDataObj(Guid id, int type)
         {
             switch (type)
@@ -108,8 +110,7 @@ namespace PTB_WEB.UserControl.ViTri
                             if (objCoSo.diachi.Length > 0)
                             {
                                 Panel_GoogleMap.Visible = true;
-                                string strSrc = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
-                                Label_Script.Text = string.Format("<script>document.getElementById(\"Iframe_GoogleMap\").src = \"{0}\";document.getElementById(\"Iframe_Popup\").src = \"{1}\";</script>", strSrc, strSrc);
+                                strSrc = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
                             }
                             else
                                 Panel_GoogleMap.Visible = false;

@@ -85,6 +85,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                                         Label_ThongTinThietBi.Text = string.Format("Thông tin {0}", objThietBi.ten);
                                         Panel_ThietBi.Visible = true;
                                         Libraries.ImageHelper.LoadImageWeb(objThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
+                                        _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=THIETBI", HttpContext.Current.Request.Url.Authority, objThietBi.id);
                                         Label_MaThietBi.Text = objThietBi.subId;
                                         ucPhongThietBi_BreadCrumb.Label_TenThietBi.Text = Label_TenThietBi.Text = objThietBi.ten;
                                         if (objThietBi.loaithietbi != null)

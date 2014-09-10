@@ -49,24 +49,6 @@ namespace PTB_WEB.UserControl.ViTri {
         protected global::PTB_WEB.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
-        /// Panel_GoogleMap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_GoogleMap;
-        
-        /// <summary>
-        /// Label_Script control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Script;
-        
-        /// <summary>
         /// Label_ChuaChon control.
         /// </summary>
         /// <remarks>
@@ -146,5 +128,50 @@ namespace PTB_WEB.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MoTa;
+        
+        /// <summary>
+        /// Panel_GoogleMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_GoogleMap;
+        
+        /// <summary>
+        /// Label_Script control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Script;
+        
+        /// <summary>
+        /// lp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLoadingPanel.ASPxLoadingPanel lp;
+        
+        /// <summary>
+        /// ASPxPopupControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl ASPxPopupControl;
+        
+        /// <summary>
+        /// PopupControlContentControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl;
     }
 }

@@ -188,6 +188,7 @@
     <Content Include="Scripts\myjs.js" />
     <Content Include="Scripts\scriptgates.js" />
     <Content Include="SuCo.aspx" />
+    <Content Include="t.aspx" />
     <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
@@ -353,6 +354,13 @@
     </Compile>
     <Compile Include="SuCo.aspx.designer.cs">
       <DependentUpon>SuCo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="t.aspx.cs">
+      <DependentUpon>t.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="t.aspx.designer.cs">
+      <DependentUpon>t.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThietBis.aspx.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>
@@ -637,7 +645,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuanLyTaiSan\QuanLyTaiSan.csproj">
       <Project>{3a9615f6-7f5b-4e10-ba63-b46b4cc00de1}</Project>

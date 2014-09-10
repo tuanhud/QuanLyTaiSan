@@ -58,6 +58,15 @@ namespace PTB_WEB.UserControl.PhongThietBi {
         protected global::System.Web.UI.WebControls.Label Label_DanhSachThietBi;
         
         /// <summary>
+        /// Label_ThongTinThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
+        
+        /// <summary>
         /// RepeaterDanhSachThietBi control.
         /// </summary>
         /// <remarks>
@@ -74,15 +83,6 @@ namespace PTB_WEB.UserControl.PhongThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.ucCollectionPager _ucCollectionPager_DanhSachThietBi;
-        
-        /// <summary>
-        /// Label_ThongTinThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
         
         /// <summary>
         /// Panel_ThietBi control.
