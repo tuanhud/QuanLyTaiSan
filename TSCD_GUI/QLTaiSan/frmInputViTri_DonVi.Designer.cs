@@ -50,6 +50,8 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxViTri2 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
+            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).BeginInit();
@@ -57,13 +59,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtGhiChu
             // 
             this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGhiChu.Location = new System.Drawing.Point(94, 194);
+            this.txtGhiChu.Location = new System.Drawing.Point(94, 221);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(346, 75);
             this.txtGhiChu.TabIndex = 4;
@@ -97,7 +100,7 @@
             // 
             // lblPhong
             // 
-            this.lblPhong.Location = new System.Drawing.Point(10, 92);
+            this.lblPhong.Location = new System.Drawing.Point(10, 119);
             this.lblPhong.Name = "lblPhong";
             this.lblPhong.Size = new System.Drawing.Size(34, 13);
             this.lblPhong.TabIndex = 7;
@@ -105,7 +108,7 @@
             // 
             // lblViTri
             // 
-            this.lblViTri.Location = new System.Drawing.Point(10, 118);
+            this.lblViTri.Location = new System.Drawing.Point(10, 145);
             this.lblViTri.Name = "lblViTri";
             this.lblViTri.Size = new System.Drawing.Size(25, 13);
             this.lblViTri.TabIndex = 8;
@@ -113,7 +116,7 @@
             // 
             // lblDonViQL
             // 
-            this.lblDonViQL.Location = new System.Drawing.Point(10, 145);
+            this.lblDonViQL.Location = new System.Drawing.Point(10, 172);
             this.lblDonViQL.Name = "lblDonViQL";
             this.lblDonViQL.Size = new System.Drawing.Size(73, 13);
             this.lblDonViQL.TabIndex = 9;
@@ -121,7 +124,7 @@
             // 
             // lblDonViSD
             // 
-            this.lblDonViSD.Location = new System.Drawing.Point(10, 171);
+            this.lblDonViSD.Location = new System.Drawing.Point(10, 198);
             this.lblDonViSD.Name = "lblDonViSD";
             this.lblDonViSD.Size = new System.Drawing.Size(77, 13);
             this.lblDonViSD.TabIndex = 10;
@@ -129,7 +132,7 @@
             // 
             // lblGhiChu
             // 
-            this.lblGhiChu.Location = new System.Drawing.Point(10, 197);
+            this.lblGhiChu.Location = new System.Drawing.Point(10, 224);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(39, 13);
             this.lblGhiChu.TabIndex = 11;
@@ -138,7 +141,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnOK.Location = new System.Drawing.Point(147, 275);
+            this.btnOK.Location = new System.Drawing.Point(147, 302);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 12;
@@ -148,7 +151,7 @@
             // btnHuy
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnHuy.Location = new System.Drawing.Point(228, 275);
+            this.btnHuy.Location = new System.Drawing.Point(228, 302);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 13;
@@ -232,7 +235,7 @@
             this.ucComboBoxDonVi2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxDonVi2.DonVi = null;
-            this.ucComboBoxDonVi2.Location = new System.Drawing.Point(94, 168);
+            this.ucComboBoxDonVi2.Location = new System.Drawing.Point(94, 195);
             this.ucComboBoxDonVi2.Name = "ucComboBoxDonVi2";
             this.ucComboBoxDonVi2.Size = new System.Drawing.Size(346, 20);
             this.ucComboBoxDonVi2.TabIndex = 3;
@@ -242,7 +245,7 @@
             this.ucComboBoxDonVi1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxDonVi1.DonVi = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(93, 142);
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(93, 169);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(346, 20);
             this.ucComboBoxDonVi1.TabIndex = 2;
@@ -251,7 +254,7 @@
             // 
             this.ucComboBoxViTri2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucComboBoxViTri2.Location = new System.Drawing.Point(93, 116);
+            this.ucComboBoxViTri2.Location = new System.Drawing.Point(93, 143);
             this.ucComboBoxViTri2.Name = "ucComboBoxViTri2";
             this.ucComboBoxViTri2.Phong = null;
             this.ucComboBoxViTri2.Size = new System.Drawing.Size(346, 20);
@@ -262,18 +265,43 @@
             // 
             this.ucComboBoxViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(93, 90);
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(93, 117);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(346, 20);
             this.ucComboBoxViTri1.TabIndex = 0;
             this.ucComboBoxViTri1.ViTri = null;
             // 
+            // lblTinhTrang
+            // 
+            this.lblTinhTrang.Location = new System.Drawing.Point(10, 94);
+            this.lblTinhTrang.Name = "lblTinhTrang";
+            this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
+            this.lblTinhTrang.TabIndex = 33;
+            this.lblTinhTrang.Text = "Tình trạng:";
+            // 
+            // lookUpTinhTrang
+            // 
+            this.lookUpTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lookUpTinhTrang.Location = new System.Drawing.Point(94, 91);
+            this.lookUpTinhTrang.Name = "lookUpTinhTrang";
+            this.lookUpTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpTinhTrang.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("value", "Tình trạng")});
+            this.lookUpTinhTrang.Properties.DisplayMember = "value";
+            this.lookUpTinhTrang.Properties.ValueMember = "id";
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(345, 20);
+            this.lookUpTinhTrang.TabIndex = 34;
+            // 
             // frmInputViTri_DonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 307);
+            this.ClientSize = new System.Drawing.Size(454, 334);
+            this.Controls.Add(this.lookUpTinhTrang);
+            this.Controls.Add(this.lblTinhTrang);
             this.Controls.Add(this.lblChungTu);
             this.Controls.Add(this.lblNgay_CT);
             this.Controls.Add(this.lblSoHieu_CT);
@@ -307,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,5 +365,7 @@
         private DevExpress.XtraEditors.TextEdit txtSoHieu_CT;
         private DevExpress.XtraEditors.DateEdit dateNgay_CT;
         private DevExpress.XtraEditors.DateEdit dateNgayGhi;
+        private DevExpress.XtraEditors.LabelControl lblTinhTrang;
+        private DevExpress.XtraEditors.LookUpEdit lookUpTinhTrang;
     }
 }

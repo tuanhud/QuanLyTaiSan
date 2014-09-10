@@ -85,26 +85,26 @@ namespace TSCD_GUI.QLTaiSan
         private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-            e.ChildList = TaiSanHienThi.getAllByParentIDForDonVi(c.id);
+            e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
         }
 
         private void barBtnChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRowCellValue(colid) != null)
+            if (view.GetFocusedRow() != null)
             {
-                //frmInputViTri_DonVi frm = new frmInputViTri_DonVi(CTTaiSan.getById(GUID.From(view.GetFocusedRowCellValue(colid))));
-                //frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-                //frm.ShowDialog();
+                frmInputViTri_DonVi frm = new frmInputViTri_DonVi((view.GetFocusedRow() as TaiSanHienThi).obj);
+                frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
             }
         }
 
         private void barBtnSuaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRowCellValue(colid) != null)
+            if (view.GetFocusedRow() != null)
             {
-                frmAddTaiSan frm = new frmAddTaiSan(CTTaiSan.getById(GUID.From(view.GetFocusedRowCellValue(colid))));
+                frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj, true);
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
