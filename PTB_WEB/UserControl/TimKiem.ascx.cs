@@ -22,63 +22,82 @@ namespace PTB_WEB.UserControl
             List<DoSearch> Searchs = new List<DoSearch>();
             try
             {
-                List<NhanVienPTSF> ListNhanVienPTSFs = NhanVienPTSF.search(request);
-                foreach (NhanVienPTSF ListNhanVienPTSF in ListNhanVienPTSFs)
+                List<CoSoSF> ListCoSoSF = CoSoSF.search(request);
+                foreach (CoSoSF _CoSoSF in ListCoSoSF)
                 {
-                    if (ListNhanVienPTSF.match_field.FirstOrDefault().Equals("hoten"))
-                        Searchs.Add(new DoSearch(ListNhanVienPTSF.obj.id, ListNhanVienPTSF.obj.hoten, "TENNHANVIENPT"));
-                    else if (ListNhanVienPTSF.match_field.FirstOrDefault().Equals("sodienthoai"))
-                        Searchs.Add(new DoSearch(ListNhanVienPTSF.obj.id, ListNhanVienPTSF.obj.sodienthoai, "SDTNHANVIENPT"));                        
+                    if (_CoSoSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.ten, "TENCOSO"));
                     else
-                        Searchs.Add(new DoSearch(ListNhanVienPTSF.obj.id, ListNhanVienPTSF.obj.subId, "MANHANVIENPT"));
+                        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.subId, "MACOSO"));
                 }
 
-                List<CoSoSF> ListCoSoSFs = CoSoSF.search(request);
-                foreach (CoSoSF ListCoSoSF in ListCoSoSFs)
+                List<DayySF> ListDayySF = DayySF.search(request);
+                foreach (DayySF _DayySF in ListDayySF)
                 {
-                    if (ListCoSoSF.match_field.FirstOrDefault().Equals("ten"))
-                        Searchs.Add(new DoSearch(ListCoSoSF.obj.id, ListCoSoSF.obj.ten, "TENCOSO"));
+                    if (_DayySF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.ten, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
                     else
-                        Searchs.Add(new DoSearch(ListCoSoSF.obj.id, ListCoSoSF.obj.subId, "MACOSO"));
+                        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.subId, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
                 }
 
-                List<DayySF> ListDayySFs = DayySF.search(request);
-                foreach (DayySF ListDayySF in ListDayySFs)
+                List<TangSF> ListTangSF = TangSF.search(request);
+                foreach (TangSF _TangSF in ListTangSF)
                 {
-                    if (ListDayySF.match_field.FirstOrDefault().Equals("ten"))
-                        Searchs.Add(new DoSearch(ListDayySF.obj.id, string.Format("{0} ({1})", ListDayySF.obj.ten, ListDayySF.obj.coso != null ? ListDayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
+                    if (_TangSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.ten, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
                     else
-                        Searchs.Add(new DoSearch(ListDayySF.obj.id, string.Format("{0} ({1})", ListDayySF.obj.subId, ListDayySF.obj.coso != null ? ListDayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
+                        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.subId, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "MATANG"));
                 }
 
-                List<TangSF> ListTangSFs = TangSF.search(request);
-                foreach (TangSF ListTangSF in ListTangSFs)
+                List<PhongSF> ListPhongSF = PhongSF.search(request);
+                foreach (PhongSF _PhongSF in ListPhongSF)
                 {
-                    if (ListTangSF.match_field.FirstOrDefault().Equals("ten"))
-                        Searchs.Add(new DoSearch(ListTangSF.obj.id, string.Format("{0} ({1} - {2})", ListTangSF.obj.ten, ListTangSF.obj.day != null ? ListTangSF.obj.day.coso != null ? ListTangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", ListTangSF.obj.day != null ? ListTangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
-                    else
-                        Searchs.Add(new DoSearch(ListTangSF.obj.id, string.Format("{0} ({1} - {2})", ListTangSF.obj.subId, ListTangSF.obj.day != null ? ListTangSF.obj.day.coso != null ? ListTangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", ListTangSF.obj.day != null ? ListTangSF.obj.day.ten : "[Dãy]"), "MATANG"));
-                }
-
-                List<PhongSF> ListPhongSFs = PhongSF.search(request);
-                foreach (PhongSF ListPhongSF in ListPhongSFs)
-                {
-                    string strViTri = Libraries.StringHelper.StringViTriPhong(ListPhongSF.obj);
-                    if (ListPhongSF.match_field.FirstOrDefault().Equals("ten"))
+                    string strViTri = Libraries.StringHelper.StringViTriPhong(_PhongSF.obj);
+                    if (_PhongSF.match_field.FirstOrDefault().Equals("ten"))
                     {
-                        Searchs.Add(new DoSearch(ListPhongSF.obj.id, string.Format("{0}{1}", ListPhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
+                        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
                     }
                     else
-                        Searchs.Add(new DoSearch(ListPhongSF.obj.id, string.Format("{0}{1}", ListPhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
+                        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
                 }
 
-                var ten_thietbis = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (QuanLyTaiSan.Entities.ThietBi ten_thietbi in ten_thietbis)
-                    Searchs.Add(new DoSearch(ten_thietbi.id, ten_thietbi.ten, "TENTHIETBI"));
+                List<ThietBiSF> ListThietBiSF = ThietBiSF.search(request);
+                foreach (ThietBiSF _ThietBiSF in ListThietBiSF)
+                {
+                    if (_ThietBiSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_ThietBiSF.obj.id, _ThietBiSF.obj.ten, "TENTHIETBI"));
+                    else
+                        Searchs.Add(new DoSearch(_ThietBiSF.obj.id, _ThietBiSF.obj.subId, "MATHIETBI"));
+                }
 
-                var ten_loaithietbis = QuanLyTaiSan.Entities.LoaiThietBi.getQuery().Where(c => c.ten.ToUpper().Contains(request)).Take(5).ToList();
-                foreach (QuanLyTaiSan.Entities.LoaiThietBi ten_loaithietbi in ten_loaithietbis)
-                    Searchs.Add(new DoSearch(ten_loaithietbi.id, ten_loaithietbi.ten, "TENLOAITHIETBI"));
+                List<LoaiThietBiSF> ListLoaiThietBiSF = LoaiThietBiSF.search(request);
+                foreach (LoaiThietBiSF _LoaiThietBiSF in ListLoaiThietBiSF)
+                {
+                    if (_LoaiThietBiSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_LoaiThietBiSF.obj.id, _LoaiThietBiSF.obj.ten, "TENLOAITHIETBI"));
+                    else
+                        Searchs.Add(new DoSearch(_LoaiThietBiSF.obj.id, _LoaiThietBiSF.obj.subId, "MALOAITHIETBI"));
+                }
+
+                List<NhanVienPTSF> ListNhanVienPTSF = NhanVienPTSF.search(request);
+                foreach (NhanVienPTSF _NhanVienPTSF in ListNhanVienPTSF)
+                {
+                    if (_NhanVienPTSF.match_field.FirstOrDefault().Equals("hoten"))
+                        Searchs.Add(new DoSearch(_NhanVienPTSF.obj.id, _NhanVienPTSF.obj.hoten, "TENNHANVIENPT"));
+                    else if (_NhanVienPTSF.match_field.FirstOrDefault().Equals("sodienthoai"))
+                        Searchs.Add(new DoSearch(_NhanVienPTSF.obj.id, _NhanVienPTSF.obj.sodienthoai, "SDTNHANVIENPT"));
+                    else
+                        Searchs.Add(new DoSearch(_NhanVienPTSF.obj.id, _NhanVienPTSF.obj.subId, "MANHANVIENPT"));
+                }
+
+                List<SuCoPhongSF> ListSuCoPhongSF = SuCoPhongSF.search(request);
+                foreach (SuCoPhongSF _SuCoPhongSF in ListSuCoPhongSF)
+                {
+                    if (_SuCoPhongSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_SuCoPhongSF.obj.id, _SuCoPhongSF.obj.ten, "TENSUCO"));
+                    else
+                        Searchs.Add(new DoSearch(_SuCoPhongSF.obj.id, _SuCoPhongSF.obj.mota, "MOTASUCO"));
+                }
             }
             catch (Exception ex)
             {
@@ -93,18 +112,6 @@ namespace PTB_WEB.UserControl
             string url = string.Empty;
             switch (value)
             {
-                case "MANHANVIENPT":
-                    name = "Mã nhân viên phụ trách";
-                    url = "/NhanVien.aspx?Search=";
-                    break;
-                case "TENNHANVIENPT":
-                    name = "Tên nhân viên phụ trách";
-                    url = "/NhanVien.aspx?Search=";
-                    break;
-                case "SDTNHANVIENPT":
-                    name = "Điện thoại nhân viên phụ trách";
-                    url = "/NhanVien.aspx?Search=";
-                    break;
                 case "MACOSO":
                     name = "Mã cơ sở";
                     url = "/ViTri.aspx?Search=";
@@ -152,6 +159,26 @@ namespace PTB_WEB.UserControl
                 case "TENLOAITHIETBI":
                     name = "Tên loại thiết bị";
                     url = "/LoaiThietBis.aspx?Search=";
+                    break;
+                case "MANHANVIENPT":
+                    name = "Mã nhân viên phụ trách";
+                    url = "/NhanVien.aspx?Search=";
+                    break;
+                case "TENNHANVIENPT":
+                    name = "Tên nhân viên phụ trách";
+                    url = "/NhanVien.aspx?Search=";
+                    break;
+                case "SDTNHANVIENPT":
+                    name = "Điện thoại nhân viên phụ trách";
+                    url = "/NhanVien.aspx?Search=";
+                    break;
+                case "MOTASUCO":
+                    name = "Mô tả sự cố";
+                    url = "/SuCo.aspx?Search=";
+                    break;
+                case "TENSUCO":
+                    name = "Tên sự cố";
+                    url = "/SuCo.aspx?Search=";
                     break;
             }
             if (loai.Equals("name"))

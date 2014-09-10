@@ -14,27 +14,7 @@
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <script type="text/javascript">
-        var showPopup = true;
-        var iframe;
-
-        function OnPopupInit(s, e) {
-            iframe = PopupControlMaps.GetContentIFrame();
-            /* the "load" event is fired when the content has been already loaded */
-            ASPxClientUtils.AttachEventToElement(iframe, 'load', OnContentLoaded);
-        }
-
-        function OnPopupShown(s, e) {
-            if (showPopup)
-                lp.ShowInElement(iframe);
-        }
-
-        function OnContentLoaded(e) {
-            showPopup = false;
-            lp.Hide();
-        }
-
         function ShowMap(url_maps) {
-            showPopup = true;
             PopupControlMaps.SetContentUrl(url_maps);
             PopupControlMaps.Show();
         }
@@ -115,7 +95,7 @@
         </tbody>
     </table>
     <dx:ASPxLoadingPanel ID="lp" runat="server" ClientInstanceName="lp" Theme="Moderno"></dx:ASPxLoadingPanel>
-    <dx:ASPxPopupControl ID="ASPxPopupControl" runat="server" ClientInstanceName="PopupControlMaps" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Bản đồ" Theme="PlasticBlue" AllowResize="True" AutoUpdatePosition="True" Width="800px" Height="600px">
+    <dx:ASPxPopupControl ID="ASPxPopupControlMaps" runat="server" ClientInstanceName="PopupControlMaps" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Bản đồ" Theme="PlasticBlue" AllowResize="True" AutoUpdatePosition="True" Width="800px" Height="600px">
         <ClientSideEvents Init="OnPopupInit" Shown="OnPopupShown" />
         <ContentCollection>
             <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
