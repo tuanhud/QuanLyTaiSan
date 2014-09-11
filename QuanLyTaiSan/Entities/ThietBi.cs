@@ -140,7 +140,7 @@ namespace QuanLyTaiSan.Entities
         public override int delete()
         {
             //Nếu thiết bị đó có nằm trong phòng nào đó với SL >0 thì chặn xóa
-            if (ctthietbis.Where(c => c.soluong > 0).FirstOrDefault() != null)
+            if (ctthietbis.Where(c => c.soluong > 0).Count() > 0)
             {
                 return -2;
             }

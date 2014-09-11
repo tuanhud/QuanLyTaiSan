@@ -117,7 +117,7 @@ namespace QuanLyTaiSan.Entities
         public override int delete()
         {
             //Nếu trong phòng vẫn còn ít nhất 1 TB với SL >0 thì không thể xóa
-            if (ctthietbis.Where(c => c.soluong > 0).FirstOrDefault() != null)
+            if (ctthietbis.Where(c => c.soluong > 0).Count() > 0)
             {
                 return -2;
             }

@@ -37,8 +37,7 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 //may throw Exception
-                Setting tmp = db.SETTINGS.FirstOrDefault(c => c.key.ToUpper().Equals(this.key.ToUpper()));
-                if (tmp != null)
+                if (db.SETTINGS.Where(c => c.key.ToUpper().Equals(this.key.ToUpper())).Count()>0)
                 {
                     return update();
                 }

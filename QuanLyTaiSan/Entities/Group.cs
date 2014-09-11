@@ -48,7 +48,7 @@ namespace QuanLyTaiSan.Entities
             String obj_type = "";
             //Xét quyền từ cao đến thấp (từ ưu tiên cao hơn xuống ưu tiên thấp hơn)
             //Quyền ROOT
-            if (permissions.Where(c => c.key.ToUpper().Equals("ROOT")).FirstOrDefault() != null)
+            if (permissions.Where(c => c.key.ToUpper().Equals("ROOT")).Count() > 0)
             {
                 goto done;
             }
@@ -74,7 +74,7 @@ namespace QuanLyTaiSan.Entities
                                 ||
                                 c.cosos.Select(t=>t.id).Contains(obj.id)
                             )
-                        ).FirstOrDefault() != null;
+                        ).Count() > 0;
             }
             else if(__obj is Dayy)
             {
@@ -101,7 +101,7 @@ namespace QuanLyTaiSan.Entities
                                 ||
                                 c.days.Select(t => t.id).Contains(obj.id)
                             )
-                        ).FirstOrDefault()!=null;
+                        ).Count() > 0;
             }
             else if (__obj is Tang)
             {
@@ -135,7 +135,7 @@ namespace QuanLyTaiSan.Entities
                                 ||
                                 c.tangs.Select(t => t.id).Contains(obj.id)
                             )
-                        ).FirstOrDefault() != null;
+                        ).Count() > 0;
             }
             else if (__obj is Phong)
             {
@@ -176,7 +176,7 @@ namespace QuanLyTaiSan.Entities
                                 ||
                                 c.phongs.Select(t => t.id).Contains(obj.id)
                             )
-                        ).FirstOrDefault() != null;
+                        ).Count() > 0;
             }
             //final 
             done:

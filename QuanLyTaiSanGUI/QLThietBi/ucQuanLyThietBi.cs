@@ -95,7 +95,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 
                 //_ucQuanLyThietBi_Control.FocusedNode(loaiChung ? 0 : 1);
 
-                listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
+                listLoaiThietBi = LoaiThietBi.getQuery().Where(c => c.loaichung == loaiChung).ToList();//.getTheoLoai(loaiChung);
                 listLoaiThietBi.Insert(0, loaiThietBiNULL);
 
                 editGUIforView();
@@ -122,7 +122,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 if(loadLeft)
                     _ucQuanLyThietBi_Control.FocusedNode(_state);
 
-                listLoaiThietBi = LoaiThietBi.getTheoLoai(loaiChung);
+                listLoaiThietBi = LoaiThietBi.getQuery().Where(c=>c.loaichung == loaiChung).ToList();//getTheoLoai(loaiChung);
                 listLoaiThietBi.Insert(0, loaiThietBiNULL);
 
                 editGUIforView();

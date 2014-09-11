@@ -66,7 +66,7 @@ namespace QuanLyTaiSan.Entities
         public override int delete()
         {
             //Nếu có ít nhất 1 phòng sử dụng vị trí chứa CS này thì KHÔNG cho xóa
-            if (vitris.Where(c => c.phongs.Count > 0).FirstOrDefault() != null)
+            if (vitris.Where(c => c.phongs.Count > 0).Count() > 0)
             {
                 return -2;
             }
