@@ -76,8 +76,10 @@
             this.barBtnThemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTaiSan = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
@@ -92,8 +94,6 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTSKemTheo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).BeginInit();
@@ -616,6 +616,13 @@
             this.barBtnXoaTaiSan.Id = 3;
             this.barBtnXoaTaiSan.Name = "barBtnXoaTaiSan";
             // 
+            // barBtnTinhTrang
+            // 
+            this.barBtnTinhTrang.Caption = "Tình trạng";
+            this.barBtnTinhTrang.Id = 5;
+            this.barBtnTinhTrang.Name = "barBtnTinhTrang";
+            this.barBtnTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTinhTrang_ItemClick);
+            // 
             // rbnPageTaiSan
             // 
             this.rbnPageTaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -632,6 +639,13 @@
             this.rbnGroupTaiSan.Name = "rbnGroupTaiSan";
             this.rbnGroupTaiSan.ShowCaptionButton = false;
             this.rbnGroupTaiSan.Text = "Tài sản";
+            // 
+            // rbnGroupTinhTrang
+            // 
+            this.rbnGroupTinhTrang.ItemLinks.Add(this.barBtnTinhTrang);
+            this.rbnGroupTinhTrang.Name = "rbnGroupTinhTrang";
+            this.rbnGroupTinhTrang.ShowCaptionButton = false;
+            this.rbnGroupTinhTrang.Text = "Tình trạng";
             // 
             // groupControlMain
             // 
@@ -772,20 +786,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 49;
-            // 
-            // rbnGroupTinhTrang
-            // 
-            this.rbnGroupTinhTrang.ItemLinks.Add(this.barBtnTinhTrang);
-            this.rbnGroupTinhTrang.Name = "rbnGroupTinhTrang";
-            this.rbnGroupTinhTrang.ShowCaptionButton = false;
-            this.rbnGroupTinhTrang.Text = "Tình trạng";
-            // 
-            // barBtnTinhTrang
-            // 
-            this.barBtnTinhTrang.Caption = "Tình trạng";
-            this.barBtnTinhTrang.Id = 5;
-            this.barBtnTinhTrang.Name = "barBtnTinhTrang";
-            this.barBtnTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTinhTrang_ItemClick);
             // 
             // ucQuanLyTaiSan
             // 

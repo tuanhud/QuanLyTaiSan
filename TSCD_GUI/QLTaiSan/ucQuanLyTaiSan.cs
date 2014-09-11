@@ -65,6 +65,7 @@ namespace TSCD_GUI.QLTaiSan
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 DonVi DVSD = ucComboBoxDonVi2.DonVi;
                 gridControlTaiSan.DataSource = TaiSanHienThi.Convert(new List<CTTaiSan>(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD)));
+                bandedGridViewTaiSan.ExpandAllGroups();
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
