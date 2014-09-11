@@ -27,6 +27,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
             if (!IsPostBack)
             {
                 _ucTreeViTri.Label_TenViTri.Text = "Chọn phòng";
+                _ucCollectionPager_DanhSachThietBi.ShowPanelPage(PanelChangePage);
             }
         }
 

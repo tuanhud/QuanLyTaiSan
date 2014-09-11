@@ -50,9 +50,9 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="danhsach">
                             <table class="table table-bordered table-striped table-hover valign_middle">
-                                <thead class="centered">
+                                <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="tdcenter">#</th>
                                         <th>Tên phòng</th>
                                         <th>Mô tả</th>
                                         <th>Nhân viên phụ trách</th>

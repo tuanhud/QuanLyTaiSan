@@ -47,16 +47,23 @@
                         </script>
                         <%} %>
                     </ul>
+                    <asp:Panel ID="PanelChangePage" runat="server" Visible="false">
+                        <script>
+                            $(function () {
+                                $('#myTab a:first').tab('show')
+                            })
+                        </script>
+                    </asp:Panel>
                     <div class="tab-content">
                         <div class="tab-pane active" id="danhsach">
                             <table class="table table-bordered table-striped table-hover valign_middle">
-                                <thead class="centered">
+                                <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="tdcenter">#</th>
                                         <th>Tên</th>
                                         <th>Tình trạng</th>
                                         <th>Số lượng</th>
-                                        <th>Log</th>
+                                        <th class="tdcenter">Log</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,7 +74,7 @@
                                                 <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("ten") %></td>
                                                 <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("tinhtrang") %></td>
                                                 <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("soluong") %></td>
-                                                <td>
+                                                <td class="tdcenter">
                                                     <button class="btn btn-default" onclick="OnMoreInfoClick('<%# Eval("urlLog") %>'); return false;"><span class="glyphicon glyphicon-tasks"></span></button>
                                                 </td>
                                             </tr>

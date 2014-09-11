@@ -67,6 +67,15 @@ namespace PTB_WEB.UserControl.PhongThietBi {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinThietBi;
         
         /// <summary>
+        /// PanelChangePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelChangePage;
+        
+        /// <summary>
         /// RepeaterDanhSachThietBi control.
         /// </summary>
         /// <remarks>

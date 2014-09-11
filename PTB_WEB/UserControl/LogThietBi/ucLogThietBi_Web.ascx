@@ -30,12 +30,12 @@
                        else
                        { %>
                     <table class="table table-bordered table-striped table-hover valign_middle">
-                        <thead class="centered">
+                        <thead>
                             <tr>
-                                <th>#</th>
+                                <th class="tdcenter">#</th>
                                 <th>Tình trạng</th>
                                 <th>Số lượng</th>
-                                <th>Phòng</th>
+                                <th class="tdcenter">Phòng</th>
                                 <th>Ngày</th>
                             </tr>
                         </thead>

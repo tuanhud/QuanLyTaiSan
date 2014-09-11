@@ -53,6 +53,9 @@ namespace PTB_WEB
 
         protected void LinkButtonEditThongTinCaNhan_Click(object sender, EventArgs e)
         {
+            PanelThongBaoThanhCong.Visible = false;
+            PanelThongBaoThatBai.Visible = false;
+
             PanelEditThongTinCaNhan.Visible = true;
             PanelThongTinCaNhan.Visible = false;
 

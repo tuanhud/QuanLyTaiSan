@@ -53,10 +53,20 @@ namespace PTB_WEB
                     TextBoxKhoa.Focus();
                     return;
                 }
-                if (Convert.ToDateTime(TextBoxNgayMuon.Text) < DateTime.Now.Date)
+                try
+                {
+                    if (Convert.ToDateTime(TextBoxNgayMuon.Text) < DateTime.Now.Date)
+                    {
+                        PanelThongBaoMuonPhong.Visible = true;
+                        LabelThongBaoMuonPhong.Text = "Ngày mượn phòng phải lớn hơn hoặc trùng với ngày hiện tại";
+                        TextBoxNgayMuon.Focus();
+                        return;
+                    }
+                }
+                catch (Exception)
                 {
                     PanelThongBaoMuonPhong.Visible = true;
-                    LabelThongBaoMuonPhong.Text = "Ngày mượn phòng phải lớn hơn hoặc trùng với ngày hiện tại";
+                    LabelThongBaoMuonPhong.Text = "Ngày mượn phòng không đúng định dạng";
                     TextBoxNgayMuon.Focus();
                     return;
                 }
