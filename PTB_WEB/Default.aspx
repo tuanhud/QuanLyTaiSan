@@ -2,6 +2,12 @@
 
 <%@ Register Src="~/UserControl/TimKiem.ascx" TagPrefix="uc" TagName="TimKiem" %>
 <%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
+<%@ Register Src="~/UserControl/Search/ucTimKiem_Mobile.ascx" TagPrefix="uc" TagName="ucTimKiem_Mobile" %>
+<%@ Register Src="~/UserControl/Search/ucTimKiem_Web.ascx" TagPrefix="uc" TagName="ucTimKiem_Web" %>
+
+
+
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -12,11 +18,12 @@
     <link rel="stylesheet" type="text/css" href="Content/css/metro/metro_mobile.css" media="screen and (max-height: 500px), screen and (orientation:portrait)" />
     <link rel="stylesheet" type="text/css" href="Content/css/metro/website.css" />
     <script type="text/javascript" src="Scripts/scriptgates.js"></script>
-    <div class="row timkiem">
-        <div class="input-group col-lg-3 pull-right">
-            <uc:TimKiem runat="server" ID="TimKiem" />
-        </div>
-    </div>
+
+    <%if(isMobile){%>
+    <uc:ucTimKiem_Mobile runat="server" id="ucTimKiem_Mobile" />
+    <%}else{%>
+    <uc:ucTimKiem_Web runat="server" id="ucTimKiem_Web" />
+    <%}%>
     <div class="panel-body fixpanel">
         <div class="row">
             <h3 class="title_orange fix">Phòng Thiết bị</h3>

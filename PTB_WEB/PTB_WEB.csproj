@@ -105,6 +105,7 @@
     <Content Include="Content\css\metro\metro.css" />
     <Content Include="Content\css\metro\metro_mobile.css" />
     <Content Include="Content\css\metro\website.css" />
+    <Content Include="Content\css\pace.css" />
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
@@ -186,6 +187,7 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\myjs.js" />
+    <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\scriptgates.js" />
     <Content Include="SuCo.aspx" />
     <Content Include="ThietBis.aspx" />
@@ -209,6 +211,8 @@
     <Content Include="UserControl\Phong\ucPhong_BreadCrumb.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
+    <Content Include="UserControl\Search\ucTimKiem_Mobile.ascx" />
+    <Content Include="UserControl\Search\ucTimKiem_Web.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_BreadCrumb.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_Mobile.ascx" />
     <Content Include="UserControl\SuCo\ucSuCo_Web.ascx" />
@@ -500,6 +504,20 @@
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Search\ucTimKiem_Mobile.ascx.cs">
+      <DependentUpon>ucTimKiem_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Search\ucTimKiem_Mobile.ascx.designer.cs">
+      <DependentUpon>ucTimKiem_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Search\ucTimKiem_Web.ascx.cs">
+      <DependentUpon>ucTimKiem_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Search\ucTimKiem_Web.ascx.designer.cs">
+      <DependentUpon>ucTimKiem_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\SuCo\ucSuCo_BreadCrumb.ascx.cs">
       <DependentUpon>ucSuCo_BreadCrumb.ascx</DependentUpon>

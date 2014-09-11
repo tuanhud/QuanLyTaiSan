@@ -268,3 +268,12 @@
     padding-bottom: 5px !important;
     cursor: pointer;
 }
+.dropdown-menu li a {
+    padding: 10px !important;
+}
+.rowmobile {
+    margin:0px !important;
+}
+.rowmobile #TbSearch {
+    background: white !important;
+}
