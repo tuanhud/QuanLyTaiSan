@@ -168,6 +168,12 @@
     <Compile Include="Report\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKe\XtraReport_Template.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKe\XtraReport_Template.Designer.cs">
+      <DependentUpon>XtraReport_Template.cs</DependentUpon>
+    </Compile>
     <Compile Include="_ourUcInterface.cs" />
     <Compile Include="MyForm\frmCustom.cs">
       <SubType>Form</SubType>
@@ -590,6 +596,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\ucTK_SLTB_TheoTinhTrang.resx">
       <DependentUpon>ucTK_SLTB_TheoTinhTrang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\XtraReport_Template.resx">
+      <DependentUpon>XtraReport_Template.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
