@@ -85,21 +85,29 @@ namespace QuanLyTaiSan.Entities
             this.logthietbis = new List<LogThietBi>();
             this.sucophongs = new List<SuCoPhong>();
         }
+        public override void onBeforeUpdated()
+        {
+            if (quantrivien != null)
+            {
+                quantrivien.trigger();
+            }
+            if (nhanvienpt != null)
+            {
+                nhanvienpt.trigger();
+            }
+            //nếu không trigger vitri thì khi phân công phòng cho nhanvienpt
+            //khi lưu thì objPhong sẽ Modified tuy nhiên khi gọi SaveChanges thì lại báo thiếu field vitri
+            //Chưa biết rõ nguyên nhân
+            //tuy nhiên hiện tại chưa lỗi
+            if (vitri != null)
+            {
+                vitri.trigger();
+            }
+
+            base.onBeforeUpdated();
+        }
         public override int update()
         {
-            //if (vitri != null)
-            //{
-            //    vitri.trigger();
-            //}
-            //if (quantrivien != null)
-            //{
-            //    quantrivien.trigger();
-            //}
-            //if (nhanvienpt != null)
-            //{
-            //    nhanvienpt.trigger();
-            //}
-
             return base.update();
         }
         /// <summary>

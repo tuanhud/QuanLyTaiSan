@@ -694,11 +694,9 @@ namespace QuanLyTaiSan.Entities
                     }
                 }
             }
-            //SaveChange lần 1
+            //---SaveChange lần 1
             int result = base.SaveChanges();
-
-            //List<DbEntityEntry> changedEntities2 = ChangeTracker.Entries().Where(c=>c.State != EntityState.Unchanged) .ToList();
-            //After
+            //Raise event
             foreach (_EFEventRegisterInterface item in Added_Callbacks)
             {
                 item.onAfterAdded();
@@ -707,25 +705,18 @@ namespace QuanLyTaiSan.Entities
             {
                 item.onAfterUpdated();
             }
-            //------------------
-            ////changedEntities2 = ChangeTracker.Entries().Where(c=>c.State!=EntityState.Unchanged).ToList();
-
-            //------------------
-            result += base.SaveChanges();
+            //---SaveChange lần 2
+            changedEntities = ChangeTracker.Entries().Where(c => c.State == EntityState.Added || c.State == EntityState.Modified || c.State == EntityState.Deleted);
+            //Nếu có ít nhất 1 sự thay đổi trong ChangeTracker thì gọi lại SaveChanges
+            foreach (var item in changedEntities)
+            {
+                result += this.SaveChanges();
+                break;
+            }
             //clear RAM
             Added_Callbacks = null;
             Modified_Callbacks = null;
             changedEntities = null;
-
-            //Auto Sync
-            //if (need_to_sync)
-            //{
-            //    //call sync for insert Confliction in new background thread
-            //    Thread thread = new Thread(new ThreadStart(sync));
-            //    thread.SetApartmentState(ApartmentState.STA);
-            //    thread.Start();
-            //}
-           
             return result;
         }
         protected override bool ShouldValidateEntity(DbEntityEntry entityEntry)
@@ -739,37 +730,37 @@ namespace QuanLyTaiSan.Entities
         }
         protected override DbEntityValidationResult ValidateEntity(DbEntityEntry entityEntry, IDictionary<object, object> items)
         {
-            //Khai báo Validation
-            List<DbValidationError> list = new List<DbValidationError>();
-            ////Kiểm tra CoSo
-            //if (entityEntry.Entity is CoSo && entityEntry.State == EntityState.Deleted)
+            ////Khai báo Validation
+            //List<DbValidationError> list = new List<DbValidationError>();
+            //////Kiểm tra CoSo
+            ////if (entityEntry.Entity is CoSo && entityEntry.State == EntityState.Deleted)
+            ////{
+            ////    CoSo tmp = (CoSo)entityEntry.Entity;
+            ////    CoSo tmp2 = this.COSOS.AsNoTracking().Where(c => c.id == tmp.id).FirstOrDefault();
+            ////    //check Dãy
+            ////    if(tmp2.days.Count>0)
+            ////    {
+            ////        list.Add(new DbValidationError("error", "Cơ sở có chứa dãy"));
+            ////        return new DbEntityValidationResult(entityEntry, list);
+            ////    }
+            ////    //check Phòng
+            ////    if (tmp2.vitris.Where(c=>c.phongs.Count>0).FirstOrDefault()!=null)
+            ////    {
+            ////        list.Add(new DbValidationError("error", "Cơ sở có chứa phòng"));
+            ////        return new DbEntityValidationResult(entityEntry, list);
+            ////    }
+            ////}
+            ////Kiểm tra QuanTriVien
+            //if (entityEntry.Entity is QuanTriVien && entityEntry.State == EntityState.Added)
             //{
-            //    CoSo tmp = (CoSo)entityEntry.Entity;
-            //    CoSo tmp2 = this.COSOS.AsNoTracking().Where(c => c.id == tmp.id).FirstOrDefault();
-            //    //check Dãy
-            //    if(tmp2.days.Count>0)
+            //    QuanTriVien tmp = (QuanTriVien)entityEntry.Entity;
+            //    if (this.QUANTRIVIENS.Where(c => c.username.ToUpper().Equals(tmp.username.ToUpper())).FirstOrDefault() != null)
             //    {
-            //        list.Add(new DbValidationError("error", "Cơ sở có chứa dãy"));
-            //        return new DbEntityValidationResult(entityEntry, list);
-            //    }
-            //    //check Phòng
-            //    if (tmp2.vitris.Where(c=>c.phongs.Count>0).FirstOrDefault()!=null)
-            //    {
-            //        list.Add(new DbValidationError("error", "Cơ sở có chứa phòng"));
+            //        list.Add(new DbValidationError("username", "Tên đăng nhập đã có"));
+
             //        return new DbEntityValidationResult(entityEntry, list);
             //    }
             //}
-            //Kiểm tra QuanTriVien
-            if (entityEntry.Entity is QuanTriVien && entityEntry.State == EntityState.Added)
-            {
-                QuanTriVien tmp = (QuanTriVien)entityEntry.Entity;
-                if (this.QUANTRIVIENS.Where(c => c.username.ToUpper().Equals(tmp.username.ToUpper())).FirstOrDefault() != null)
-                {
-                    list.Add(new DbValidationError("username", "Tên đăng nhập đã có"));
-
-                    return new DbEntityValidationResult(entityEntry, list);
-                }
-            }
             return base.ValidateEntity(entityEntry, items);
         }
         #endregion

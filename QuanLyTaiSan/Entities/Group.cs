@@ -32,7 +32,13 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
-        public bool canEdit<T>(T __obj) where T:_EntityAbstract1<T>
+        /// <summary>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="__obj"></param>
+        /// <param name="require_baoham">Bắt buộc recursive_to_child == true</param>
+        /// <returns></returns>
+        public bool canEdit<T>(T __obj, Boolean require_baoham = false) where T:_EntityAbstract1<T>
         {
             Boolean re = false;
             if (__obj == null)
@@ -57,6 +63,8 @@ namespace QuanLyTaiSan.Entities
                     c =>
                         c.allow_or_deny==true
                         &&
+                        !require_baoham || (require_baoham && c.recursive_to_child)
+                        &&
                         c.key.ToUpper().Equals(obj_type)
                         &&
                         c.can_edit == true
@@ -74,7 +82,7 @@ namespace QuanLyTaiSan.Entities
                 var obj = __obj as Dayy;
                 
                 //Quyền edit CS chứa dãy này
-                re = canEdit<CoSo>(obj.coso);
+                re = canEdit<CoSo>(obj.coso, true);
                 if (re)
                 {
                     goto done;
@@ -83,6 +91,8 @@ namespace QuanLyTaiSan.Entities
                 re = permissions.Where(
                     c =>
                         c.key.ToUpper().Equals(obj_type)
+                        &&
+                        !require_baoham || (require_baoham && c.recursive_to_child)
                         &&
                         c.can_edit == true
                         &&
@@ -100,13 +110,13 @@ namespace QuanLyTaiSan.Entities
                 //Quyền ROOT
 
                 //Quyền edit CS chứa dãy chứa tầng này
-                re = canEdit<CoSo>(obj.day.coso);
+                re = canEdit<CoSo>(obj.day.coso, true);
                 if (re)
                 {
                     goto done;
                 }
                 //Quyền edit dãy chưa tầng này
-                re = canEdit<Dayy>(obj.day);
+                re = canEdit<Dayy>(obj.day, true);
                 if (re)
                 {
                     goto done;
@@ -115,6 +125,8 @@ namespace QuanLyTaiSan.Entities
                 re = permissions.Where(
                     c =>
                         c.key.ToUpper().Equals(obj_type)
+                        &&
+                        !require_baoham || (require_baoham && c.recursive_to_child)
                         &&
                         c.can_edit == true
                         &&
@@ -132,19 +144,19 @@ namespace QuanLyTaiSan.Entities
                 //Quyền ROOT
 
                 //Quyền edit CS chứa phòng này
-                re = canEdit<CoSo>(obj.vitri.coso);
+                re = canEdit<CoSo>(obj.vitri.coso, true);
                 if (re)
                 {
                     goto done;
                 }
                 //Quyền edit dãy chứa phòng này
-                re = canEdit<Dayy>(obj.vitri.day);
+                re = canEdit<Dayy>(obj.vitri.day, true);
                 if (re)
                 {
                     goto done;
                 }
                 //Quyền edit tầng chứa phòng này
-                re = canEdit<Tang>(obj.vitri.tang);
+                re = canEdit<Tang>(obj.vitri.tang, true);
                 if (re)
                 {
                     goto done;
@@ -154,6 +166,8 @@ namespace QuanLyTaiSan.Entities
                 re = permissions.Where(
                     c =>
                         c.key.ToUpper().Equals(obj_type)
+                        &&
+                        !require_baoham || (require_baoham && c.recursive_to_child)
                         &&
                         c.can_edit == true
                         &&
@@ -169,17 +183,17 @@ namespace QuanLyTaiSan.Entities
                 return re;
         }
 
-        public bool canView<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canView<T>(T obj, Boolean require_baoham = false) where T : _EntityAbstract1<T>
         {
             return true;
             throw new NotImplementedException();
         }
-        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canDelete<T>(T obj, Boolean require_baoham = false) where T : _EntityAbstract1<T>
         {
             return true;
             throw new NotImplementedException();
         }
-        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        public bool canAdd<T>(Boolean require_baoham = false) where T : _EntityAbstract1<T>
         {
             return true;
             throw new NotImplementedException();

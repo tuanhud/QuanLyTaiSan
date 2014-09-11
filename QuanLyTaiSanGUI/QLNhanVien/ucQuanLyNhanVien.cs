@@ -266,19 +266,21 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     Guid id = objNhanVienPT.id;
                     try
                     {
-                        //Quan hệ 0 - n nên không thể gán list
-                        List<Phong> listToRemove = objNhanVienPT.phongs.Except(listPhong).ToList();
-                        List<Phong> listToAdd = listPhong.Except(objNhanVienPT.phongs).ToList();
-                        foreach (Phong objToRemove in listToRemove)
-                        {
-                            objToRemove.nhanvienpt = null;
-                            objToRemove.update();
-                        }
-                        foreach (Phong objToAdd in listToAdd)
-                        {
-                            objToAdd.nhanvienpt = objNhanVienPT;
-                            objToAdd.update();
-                        }
+                        objNhanVienPT.phongs.Clear();
+                        objNhanVienPT.phongs = listPhong;
+                        ////Quan hệ 0 - n nên không thể gán list
+                        //List<Phong> listToRemove = objNhanVienPT.phongs.Except(listPhong).ToList();
+                        //List<Phong> listToAdd = listPhong.Except(objNhanVienPT.phongs).ToList();
+                        //foreach (Phong objToRemove in listToRemove)
+                        //{
+                        //    objToRemove.nhanvienpt = null;
+                        //    objToRemove.update();
+                        //}
+                        //foreach (Phong objToAdd in listToAdd)
+                        //{
+                        //    objToAdd.nhanvienpt = objNhanVienPT;
+                        //    objToAdd.update();
+                        //}
                         if (DBInstance.commit() > 0)
                         {
                             XtraMessageBox.Show("Phân công nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

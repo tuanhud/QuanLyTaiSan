@@ -484,7 +484,7 @@ namespace TSCD.Entities
             if (needToWriteLogHeThong())
             {
                 LogHeThong log = new LogHeThong();
-                log.onBeforeAdded();
+                //log.onBeforeAdded();
                 //quocdunginfo fail (conflict with write log hethong)
                 log.mota = StringHelper.toJSON(buildLog("delete"));
                 log.add();
@@ -512,7 +512,7 @@ namespace TSCD.Entities
             if (needToWriteLogHeThong())
             {
                 LogHeThong log = new LogHeThong();
-                log.onBeforeAdded();//MANUAL MODE
+                //log.onBeforeAdded();//MANUAL MODE
                 log.mota = StringHelper.toJSON(buildLog("edit"));
                 log.add();
             }
@@ -528,7 +528,7 @@ namespace TSCD.Entities
             if (needToWriteLogHeThong())
             {
                 LogHeThong log = new LogHeThong();
-                log.onBeforeAdded();//MANUAL MODE
+                //log.onBeforeAdded();//MANUAL MODE
                 log.mota = StringHelper.toJSON(buildLog("add"));
                 log.add();
             }

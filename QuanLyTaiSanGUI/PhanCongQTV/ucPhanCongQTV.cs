@@ -160,19 +160,20 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
             Guid id = objQuanTriVien.id;
             try
             {
-
-                //Quan hệ 0 - n nên không thể gán list
-                List<Phong> listToRemove = objQuanTriVien.phongs.ToList();
-                foreach (Phong objToRemove in listToRemove)
-                {
-                    objToRemove.quantrivien = null;
-                    objToRemove.update();
-                }
-                foreach (Phong objToAdd in listPhong)
-                {
-                    objToAdd.quantrivien = objQuanTriVien;
-                    objToAdd.update();
-                }
+                objQuanTriVien.phongs.Clear();
+                objQuanTriVien.phongs = listPhong;
+                ////Quan hệ 0 - n nên không thể gán list
+                //List<Phong> listToRemove = objQuanTriVien.phongs.ToList();
+                //foreach (Phong objToRemove in listToRemove)
+                //{
+                //    objToRemove.quantrivien = null;
+                //    objToRemove.update();
+                //}
+                //foreach (Phong objToAdd in listPhong)
+                //{
+                //    objToAdd.quantrivien = objQuanTriVien;
+                //    objToAdd.update();
+                //}
                 if (DBInstance.commit() > 0)
                 {
                     DevExpress.XtraEditors.XtraMessageBox.Show("Phân công quản trị viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

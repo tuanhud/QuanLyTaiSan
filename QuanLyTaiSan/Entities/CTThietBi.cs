@@ -152,6 +152,9 @@ namespace QuanLyTaiSan.Entities
             logtb.tinhtrang = this.tinhtrang;
             logtb.hinhanhs = hinhanhs;
             logtb.quantrivien = Global.current_quantrivien_login;
+            
+            //call manual because of 2nd SaveChanges
+            //logtb.onBeforeAdded();
             return logtb.add();
         }
         /// <summary>
@@ -189,6 +192,33 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        public override void onAfterAdded()
+        {
+            writelog();
+            base.onAfterAdded();
+        }
+        public override void onAfterUpdated()
+        {
+            writelog();
+            base.onAfterUpdated();
+        }
+        public override void onBeforeUpdated()
+        {
+            if (phong != null)
+            {
+                phong.trigger();
+            }
+            if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+            if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+
+            base.onBeforeUpdated();
+        }
         //quocdunginfo fail niceName validation ERROR
 
         public override string niceName()
@@ -248,7 +278,6 @@ namespace QuanLyTaiSan.Entities
             else
             {
                 base.add();
-                writelog();
             }
             return 1;
         }
@@ -260,9 +289,7 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int update()
         {
-            
             base.update();
-            writelog();
             return 1;
         }
         public override int delete()
@@ -274,7 +301,6 @@ namespace QuanLyTaiSan.Entities
             writelog();
             
             this.phong = backup;
-
             return base.delete();
         }
         #endregion
