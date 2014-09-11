@@ -146,6 +146,10 @@ namespace QuanLyTaiSan.Entities
                 return -1;
             }
         }
+        public static T getById(Object id)
+        {
+            return getById(GUID.From(id));
+        }
         public static T getById(Guid id)
         {
             try

@@ -128,9 +128,7 @@ namespace PTB_WEB
         {
             try
             {
-                Guid id = GUID.From(HiddenFieldID.Value);
-                QuanTriVien _QuanTriVien = new QuanTriVien();
-                _QuanTriVien = QuanTriVien.getById(id);
+                QuanTriVien _QuanTriVien = QuanTriVien.getById(HiddenFieldID.Value);
 
                 if (!PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
                 {
@@ -141,7 +139,7 @@ namespace PTB_WEB
 
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group_id = GUID.From(DropDownListNhom.SelectedValue);
+                _QuanTriVien.group = Group.getById(DropDownListNhom.SelectedValue.ToString());// GUID.From(DropDownListNhom.SelectedValue);
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if (!TextBoxMatKhau.Text.Equals(string.Empty))
                     _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
