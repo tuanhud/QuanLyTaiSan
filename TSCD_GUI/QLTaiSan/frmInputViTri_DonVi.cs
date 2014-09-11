@@ -35,39 +35,60 @@ namespace TSCD_GUI.QLTaiSan
 
         public void setData(CTTaiSan _objCTTaiSan, DonVi _objDonVi)
         {
-            objCTTaiSan = _objCTTaiSan;
-            lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
-            ucComboBoxDonVi1.DonVi = _objDonVi;
-            ucComboBoxDonVi2.DonVi = _objDonVi;
-            txtSoLuong.Properties.MinValue = 1;
-            txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
-            txtSoLuong.EditValue = objCTTaiSan.soluong;
+            try
+            {
+                objCTTaiSan = _objCTTaiSan;
+                lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
+                ucComboBoxDonVi1.DonVi = _objDonVi;
+                ucComboBoxDonVi2.DonVi = _objDonVi;
+                txtSoLuong.Properties.MinValue = 1;
+                txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
+                txtSoLuong.EditValue = objCTTaiSan.soluong;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setData:" + ex.Message);
+            }
         }
 
         private void setData()
         {
-            dateNgayGhi.EditValue = objCTTaiSan.ngay;
-            dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
-            txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
-            lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
-            ucComboBoxViTri1.Phong = objCTTaiSan.phong;
-            ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
-            ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
-            ucComboBoxDonVi2.DonVi = objCTTaiSan.donvisudung;
-            txtSoLuong.Properties.MinValue = 1;
-            txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
-            txtSoLuong.EditValue = objCTTaiSan.soluong;
+            try
+            {
+                dateNgayGhi.EditValue = objCTTaiSan.ngay;
+                dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
+                txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
+                lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
+                ucComboBoxViTri1.Phong = objCTTaiSan.phong;
+                ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
+                ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
+                ucComboBoxDonVi2.DonVi = objCTTaiSan.donvisudung;
+                txtSoLuong.Properties.MinValue = 1;
+                txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
+                txtSoLuong.EditValue = objCTTaiSan.soluong;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setData:" + ex.Message);
+            }
         }
 
         public void loadData()
         {
-            List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-            ucComboBoxDonVi1.DataSource = list;
-            ucComboBoxDonVi2.DataSource = list;
-            ucComboBoxViTri1.init(false, true);
-            ucComboBoxViTri1.DataSource = ViTriHienThi.getAllHavePhong();
-            ucComboBoxViTri2.DataSource = ViTriHienThi.getAll();
-            lookUpTinhTrang.Properties.DataSource = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+            try
+            {
+                List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                ucComboBoxDonVi1.DataSource = list;
+                ucComboBoxDonVi2.DataSource = list;
+                ucComboBoxViTri1.init(false, true);
+                ucComboBoxViTri1.DataSource = ViTriHienThi.getAllHavePhong();
+                ucComboBoxViTri2.DataSource = ViTriHienThi.getAll();
+                lookUpTinhTrang.Properties.DataSource = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setData:" + ex.Message);
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -103,7 +124,7 @@ namespace TSCD_GUI.QLTaiSan
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->setDataView: " + ex.Message);
+                Debug.WriteLine(this.Name + "->btnOK_Click: " + ex.Message);
             }
         }
 
