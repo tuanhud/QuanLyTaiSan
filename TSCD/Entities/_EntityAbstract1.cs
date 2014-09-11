@@ -227,6 +227,15 @@ namespace TSCD.Entities
         /// <returns></returns>
         public virtual T reload()
         {
+            try
+            {
+                return db.Set<T>().Find(this.id);
+            }
+            catch (Exception)
+            {
+                return (T)this;
+            }
+
             //if (id != Guid.Empty)
             //{
             //    try
@@ -241,43 +250,43 @@ namespace TSCD.Entities
             //}
             //return (T)this;
 
-            if (id == Guid.Empty)
-            {
-                return (T)this;
-            }
+            //if (id == Guid.Empty)
+            //{
+            //    return (T)this;
+            //}
 
-            try
-            {
-                //if (db.Entry(this).State == EntityState.Detached)
-                //{
-                db.Set<T>().Attach((T)this);
-                //return (T)this;
-                //}
-                return (T)this;
-            }
-            catch (Exception)
-            {
-                try
-                {
-                    db.Entry(this).Reload();
-                    return (T)this;
-                }
-                catch (Exception)
-                {
-                    try
-                    {
-                        //Case 1: Multi db context tracking
-                        //Case 2: Object not loaded before
-                        return db.Set<T>().Find(this.id);
-                    }
-                    catch (Exception exx)
-                    {
-                        //for any other error
-                        Debug.WriteLine(exx.ToString());
-                        return (T)this;
-                    }
-                }
-            }
+            //try
+            //{
+            //    //if (db.Entry(this).State == EntityState.Detached)
+            //    //{
+            //    db.Set<T>().Attach((T)this);
+            //    //return (T)this;
+            //    //}
+            //    return (T)this;
+            //}
+            //catch (Exception)
+            //{
+            //    try
+            //    {
+            //        db.Entry(this).Reload();
+            //        return (T)this;
+            //    }
+            //    catch (Exception)
+            //    {
+            //        try
+            //        {
+            //            //Case 1: Multi db context tracking
+            //            //Case 2: Object not loaded before
+            //            return db.Set<T>().Find(this.id);
+            //        }
+            //        catch (Exception exx)
+            //        {
+            //            //for any other error
+            //            Debug.WriteLine(exx.ToString());
+            //            return (T)this;
+            //        }
+            //    }
+            //}
         }
         /// <summary>
         /// Force to load object because of Lazy Loading,
