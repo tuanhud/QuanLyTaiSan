@@ -43,13 +43,18 @@ namespace TSCD_GUI.QLTaiSan
         public frmAddTaiSanExist(List<CTTaiSan> list)
         {
             InitializeComponent();
+            loadData();
             listCTTaiSan = list;
         }
 
         private void loadData()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             ucQuanLyTaiSan1.loadData();
-            frm.loadData();
+            if(!isTaiSan)
+                frm.loadData();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
