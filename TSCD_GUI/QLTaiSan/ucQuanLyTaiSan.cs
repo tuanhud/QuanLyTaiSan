@@ -44,23 +44,38 @@ namespace TSCD_GUI.QLTaiSan
         {
             get
             {
-                BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-                if (view.GetFocusedRow() != null)
-                    return (view.GetFocusedRow() as TaiSanHienThi).obj;
-                else
+                try
+                {
+                    BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+                    if (view.GetFocusedRow() != null)
+                        return (view.GetFocusedRow() as TaiSanHienThi).obj;
+                    else
+                        return null;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->getCTTaiSan:" + ex.Message);
                     return null;
+                }
             }
         }
 
 
         private void reloadAndFocused(Guid _id)
         {
-            loadData();
-            if (_id != Guid.Empty)
+            try
             {
-                int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
-                if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                    bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                loadData();
+                if (_id != Guid.Empty)
+                {
+                    int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
+                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                        bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reloadAndFocused:" + ex.Message);
             }
         }
 
@@ -84,8 +99,15 @@ namespace TSCD_GUI.QLTaiSan
 
         private void bandedGridViewTaiSan_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
         {
-            TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-            e.IsEmpty = c.childs == null || c.childs.Count == 0;
+            try
+            {
+                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                e.IsEmpty = c.childs == null || c.childs.Count == 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowEmpty:" + ex.Message);
+            }
         }
 
         private void bandedGridViewTaiSan_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
@@ -100,8 +122,30 @@ namespace TSCD_GUI.QLTaiSan
 
         private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
-            TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-            e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
+            try
+            {
+                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowGetChildList:" + ex.Message);
+            }
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+                gridControlTaiSan.DataSource = TaiSanHienThi.getAllNoDonVi();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnTim_Click:" + ex.Message);
+            }
         }
     }
 }
