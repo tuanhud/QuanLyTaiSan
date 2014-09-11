@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.rbnControlPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -49,6 +48,7 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblViTri = new DevExpress.XtraEditors.LabelControl();
             this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             this.btnLoaiPhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -64,8 +64,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.lblViTri = new DevExpress.XtraEditors.LabelControl();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -289,6 +288,14 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // lblViTri
+            // 
+            this.lblViTri.Location = new System.Drawing.Point(5, 85);
+            this.lblViTri.Name = "lblViTri";
+            this.lblViTri.Size = new System.Drawing.Size(25, 13);
+            this.lblViTri.TabIndex = 16;
+            this.lblViTri.Text = "Vị trí:";
+            // 
             // panelControlViTri
             // 
             this.panelControlViTri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -302,11 +309,12 @@
             // btnLoaiPhong
             // 
             this.btnLoaiPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiPhong.Location = new System.Drawing.Point(240, 54);
+            this.btnLoaiPhong.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnLoaiPhong.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnLoaiPhong.Location = new System.Drawing.Point(266, 54);
             this.btnLoaiPhong.Name = "btnLoaiPhong";
-            this.btnLoaiPhong.Size = new System.Drawing.Size(46, 23);
+            this.btnLoaiPhong.Size = new System.Drawing.Size(23, 23);
             this.btnLoaiPhong.TabIndex = 14;
-            this.btnLoaiPhong.Text = "+";
             // 
             // btnHuy
             // 
@@ -363,7 +371,7 @@
             this.gridLookUpLoai.Properties.NullText = "[Chưa chọn loại phòng]";
             this.gridLookUpLoai.Properties.ValueMember = "id";
             this.gridLookUpLoai.Properties.View = this.gridLookUpLoaiView;
-            this.gridLookUpLoai.Size = new System.Drawing.Size(169, 20);
+            this.gridLookUpLoai.Size = new System.Drawing.Size(192, 20);
             this.gridLookUpLoai.TabIndex = 8;
             // 
             // gridLookUpLoaiView
@@ -440,14 +448,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // lblViTri
-            // 
-            this.lblViTri.Location = new System.Drawing.Point(5, 85);
-            this.lblViTri.Name = "lblViTri";
-            this.lblViTri.Size = new System.Drawing.Size(25, 13);
-            this.lblViTri.TabIndex = 16;
-            this.lblViTri.Text = "Vị trí:";
             // 
             // ucQuanLyPhong
             // 

@@ -38,7 +38,15 @@
             this.rbnGroupDonViTinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTS = new DevExpress.XtraTreeList.TreeList();
+            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.coldonvitinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colhuuhinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
+            this.checkHuuHinh = new DevExpress.XtraEditors.CheckEdit();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnDonViTinh = new DevExpress.XtraEditors.SimpleButton();
             this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
             this.lblThuoc = new DevExpress.XtraEditors.LabelControl();
@@ -47,37 +55,29 @@
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.gridLookUpDonVi = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpDonViView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid_g = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colten_g = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.checkHuuHinh = new DevExpress.XtraEditors.CheckEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
-            this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.coldonvitinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colhuuhinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colid_g = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colten_g = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkHuuHinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpDonVi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpDonViView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkHuuHinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnControlLoaiTS
@@ -182,6 +182,39 @@
             this.treeListLoaiTS.TabIndex = 0;
             this.treeListLoaiTS.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTS_FocusedNodeChanged);
             // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // colten
+            // 
+            this.colten.Caption = "Loại tài sản";
+            this.colten.FieldName = "ten";
+            this.colten.Name = "colten";
+            this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
+            this.colten.Visible = true;
+            this.colten.VisibleIndex = 0;
+            // 
+            // coldonvitinh
+            // 
+            this.coldonvitinh.Caption = "donvitinh";
+            this.coldonvitinh.FieldName = "donvitinh.ten";
+            this.coldonvitinh.Name = "coldonvitinh";
+            this.coldonvitinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
+            this.coldonvitinh.Visible = true;
+            this.coldonvitinh.VisibleIndex = 1;
+            // 
+            // colhuuhinh
+            // 
+            this.colhuuhinh.Caption = "Loại tài sản hữu hình";
+            this.colhuuhinh.FieldName = "huuhinh";
+            this.colhuuhinh.Name = "colhuuhinh";
+            this.colhuuhinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
+            this.colhuuhinh.Visible = true;
+            this.colhuuhinh.VisibleIndex = 2;
+            // 
             // groupControlInfo
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,13 +243,51 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // panelControlParent
+            // 
+            this.panelControlParent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControlParent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlParent.Location = new System.Drawing.Point(88, 132);
+            this.panelControlParent.Name = "panelControlParent";
+            this.panelControlParent.Size = new System.Drawing.Size(268, 20);
+            this.panelControlParent.TabIndex = 27;
+            // 
+            // checkHuuHinh
+            // 
+            this.checkHuuHinh.Location = new System.Drawing.Point(88, 107);
+            this.checkHuuHinh.MenuManager = this.rbnControlLoaiTS;
+            this.checkHuuHinh.Name = "checkHuuHinh";
+            this.checkHuuHinh.Properties.Caption = "Loại tài sản hữu hình";
+            this.checkHuuHinh.Size = new System.Drawing.Size(268, 19);
+            this.checkHuuHinh.TabIndex = 26;
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(169, 247);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 25;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(88, 247);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 24;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // btnDonViTinh
             // 
-            this.btnDonViTinh.Location = new System.Drawing.Point(287, 78);
+            this.btnDonViTinh.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnDonViTinh.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnDonViTinh.Location = new System.Drawing.Point(333, 77);
             this.btnDonViTinh.Name = "btnDonViTinh";
-            this.btnDonViTinh.Size = new System.Drawing.Size(69, 23);
+            this.btnDonViTinh.Size = new System.Drawing.Size(23, 23);
             this.btnDonViTinh.TabIndex = 22;
-            this.btnDonViTinh.Text = "+";
             this.btnDonViTinh.Click += new System.EventHandler(this.btnDonViTinh_Click);
             // 
             // lblMoTa
@@ -271,7 +342,7 @@
             this.gridLookUpDonVi.Properties.DisplayMember = "ten";
             this.gridLookUpDonVi.Properties.ValueMember = "id";
             this.gridLookUpDonVi.Properties.View = this.gridLookUpDonViView;
-            this.gridLookUpDonVi.Size = new System.Drawing.Size(193, 20);
+            this.gridLookUpDonVi.Size = new System.Drawing.Size(239, 20);
             this.gridLookUpDonVi.TabIndex = 15;
             // 
             // gridLookUpDonViView
@@ -285,6 +356,20 @@
             this.gridLookUpDonViView.OptionsBehavior.ReadOnly = true;
             this.gridLookUpDonViView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpDonViView.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid_g
+            // 
+            this.colid_g.Caption = "id";
+            this.colid_g.FieldName = "id";
+            this.colid_g.Name = "colid_g";
+            // 
+            // colten_g
+            // 
+            this.colten_g.Caption = "Đơn vị tính";
+            this.colten_g.FieldName = "ten";
+            this.colten_g.Name = "colten_g";
+            this.colten_g.Visible = true;
+            this.colten_g.VisibleIndex = 0;
             // 
             // txtTen
             // 
@@ -350,93 +435,9 @@
             this.txtMoTa.TabIndex = 16;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(88, 247);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 24;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Location = new System.Drawing.Point(169, 247);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 25;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // checkHuuHinh
-            // 
-            this.checkHuuHinh.Location = new System.Drawing.Point(88, 107);
-            this.checkHuuHinh.MenuManager = this.rbnControlLoaiTS;
-            this.checkHuuHinh.Name = "checkHuuHinh";
-            this.checkHuuHinh.Properties.Caption = "Loại tài sản hữu hình";
-            this.checkHuuHinh.Size = new System.Drawing.Size(268, 19);
-            this.checkHuuHinh.TabIndex = 26;
-            // 
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // panelControlParent
-            // 
-            this.panelControlParent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControlParent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlParent.Location = new System.Drawing.Point(88, 132);
-            this.panelControlParent.Name = "panelControlParent";
-            this.panelControlParent.Size = new System.Drawing.Size(268, 20);
-            this.panelControlParent.TabIndex = 27;
-            // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // colten
-            // 
-            this.colten.Caption = "Loại tài sản";
-            this.colten.FieldName = "ten";
-            this.colten.Name = "colten";
-            this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
-            this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
-            // 
-            // coldonvitinh
-            // 
-            this.coldonvitinh.Caption = "donvitinh";
-            this.coldonvitinh.FieldName = "donvitinh.ten";
-            this.coldonvitinh.Name = "coldonvitinh";
-            this.coldonvitinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
-            this.coldonvitinh.Visible = true;
-            this.coldonvitinh.VisibleIndex = 1;
-            // 
-            // colhuuhinh
-            // 
-            this.colhuuhinh.Caption = "Loại tài sản hữu hình";
-            this.colhuuhinh.FieldName = "huuhinh";
-            this.colhuuhinh.Name = "colhuuhinh";
-            this.colhuuhinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
-            this.colhuuhinh.Visible = true;
-            this.colhuuhinh.VisibleIndex = 2;
-            // 
-            // colid_g
-            // 
-            this.colid_g.Caption = "id";
-            this.colid_g.FieldName = "id";
-            this.colid_g.Name = "colid_g";
-            // 
-            // colten_g
-            // 
-            this.colten_g.Caption = "Đơn vị tính";
-            this.colten_g.FieldName = "ten";
-            this.colten_g.Name = "colten_g";
-            this.colten_g.Visible = true;
-            this.colten_g.VisibleIndex = 0;
             // 
             // ucQuanLyLoaiTS
             // 
@@ -453,14 +454,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkHuuHinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpDonVi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpDonViView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkHuuHinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

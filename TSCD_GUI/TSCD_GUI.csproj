@@ -148,6 +148,12 @@
     <Compile Include="QLTaiSan\frmInputViTri_DonVi.Designer.cs">
       <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTaiSan\frmQuanLyTinhTrang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmQuanLyTinhTrang.Designer.cs">
+      <DependentUpon>frmQuanLyTinhTrang.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLTaiSan\ucQuanLyDonVi_TaiSan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     <EmbeddedResource Include="QLTaiSan\frmInputViTri_DonVi.resx">
       <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmQuanLyTinhTrang.resx">
+      <DependentUpon>frmQuanLyTinhTrang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\ucQuanLyDonVi_TaiSan.resx">
       <DependentUpon>ucQuanLyDonVi_TaiSan.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +296,9 @@
       <Project>{1790a3f3-4540-4524-b031-6a159ad400da}</Project>
       <Name>TSCD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

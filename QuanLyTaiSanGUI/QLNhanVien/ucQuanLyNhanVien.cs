@@ -373,11 +373,11 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             //    errorProvider1.SetError(txtSodt, "Số điện thoại từ 9-15 kí tự");
             //    check = false;
             //}
-            if (!IsNumber(txtSodt.Text))
-            {
-                dxErrorProvider1.SetError(txtSodt, "Số điện thoại không hợp lệ");
-                check = false;
-            }
+            //if (!IsNumber(txtSodt.Text))
+            //{
+            //    dxErrorProvider1.SetError(txtSodt, "Số điện thoại không hợp lệ");
+            //    check = false;
+            //}
             //if (txtSodt.Text.Length == 0)
             //{
             //    dxErrorProvider1.SetError(txtSodt, "Chưa điền số điện thoại");

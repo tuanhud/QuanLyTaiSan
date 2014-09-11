@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.rbnControlDonVi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemDonVi = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaDonVi = new DevExpress.XtraBars.BarButtonItem();
@@ -44,6 +43,7 @@
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repositoryLookUpLoai = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
             this.btnLoaiDonVi = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
@@ -57,13 +57,12 @@
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.gridLookUpLoai = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpLoaiView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid_g = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colten_g = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.colid_g = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colten_g = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -71,13 +70,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryLookUpLoai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpLoaiView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnControlDonVi
@@ -246,14 +245,25 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // panelControlParent
+            // 
+            this.panelControlParent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControlParent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlParent.Location = new System.Drawing.Point(67, 108);
+            this.panelControlParent.Name = "panelControlParent";
+            this.panelControlParent.Size = new System.Drawing.Size(299, 20);
+            this.panelControlParent.TabIndex = 17;
+            // 
             // btnLoaiDonVi
             // 
             this.btnLoaiDonVi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiDonVi.Location = new System.Drawing.Point(300, 80);
+            this.btnLoaiDonVi.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnLoaiDonVi.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnLoaiDonVi.Location = new System.Drawing.Point(343, 80);
             this.btnLoaiDonVi.Name = "btnLoaiDonVi";
-            this.btnLoaiDonVi.Size = new System.Drawing.Size(66, 23);
+            this.btnLoaiDonVi.Size = new System.Drawing.Size(23, 23);
             this.btnLoaiDonVi.TabIndex = 16;
-            this.btnLoaiDonVi.Text = "+";
             this.btnLoaiDonVi.Click += new System.EventHandler(this.btnLoaiDonVi_Click);
             // 
             // btnHuy
@@ -361,7 +371,7 @@
             this.gridLookUpLoai.Properties.NullText = "[Chưa chọn loại đơn vị]";
             this.gridLookUpLoai.Properties.ValueMember = "id";
             this.gridLookUpLoai.Properties.View = this.gridLookUpLoaiView;
-            this.gridLookUpLoai.Size = new System.Drawing.Size(227, 20);
+            this.gridLookUpLoai.Size = new System.Drawing.Size(270, 20);
             this.gridLookUpLoai.TabIndex = 3;
             // 
             // gridLookUpLoaiView
@@ -375,6 +385,20 @@
             this.gridLookUpLoaiView.OptionsBehavior.ReadOnly = true;
             this.gridLookUpLoaiView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpLoaiView.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid_g
+            // 
+            this.colid_g.Caption = "id";
+            this.colid_g.FieldName = "id";
+            this.colid_g.Name = "colid_g";
+            // 
+            // colten_g
+            // 
+            this.colten_g.Caption = "Tên loại đơn vị";
+            this.colten_g.FieldName = "ten";
+            this.colten_g.Name = "colten_g";
+            this.colten_g.Visible = true;
+            this.colten_g.VisibleIndex = 0;
             // 
             // txtTen
             // 
@@ -411,30 +435,6 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
-            // colid_g
-            // 
-            this.colid_g.Caption = "id";
-            this.colid_g.FieldName = "id";
-            this.colid_g.Name = "colid_g";
-            // 
-            // colten_g
-            // 
-            this.colten_g.Caption = "Tên loại đơn vị";
-            this.colten_g.FieldName = "ten";
-            this.colten_g.Name = "colten_g";
-            this.colten_g.Visible = true;
-            this.colten_g.VisibleIndex = 0;
-            // 
-            // panelControlParent
-            // 
-            this.panelControlParent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControlParent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlParent.Location = new System.Drawing.Point(67, 108);
-            this.panelControlParent.Name = "panelControlParent";
-            this.panelControlParent.Size = new System.Drawing.Size(299, 20);
-            this.panelControlParent.TabIndex = 17;
-            // 
             // ucQuanLyDonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,13 +451,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpLoaiView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
