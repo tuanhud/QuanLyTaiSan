@@ -10,7 +10,7 @@ namespace QuanLyTaiSan.DataFilter
     /// <summary>
     /// Suwr dujng trong frmSuaPermission
     /// </summary>
-    public class PhongFilter2 : FilterAbstract<PhongFilter2>
+    public class PhongFilter2 : _FilterAbstract<PhongFilter2>
     {
         public Guid id { get; set; }
         public String ten { get; set; }

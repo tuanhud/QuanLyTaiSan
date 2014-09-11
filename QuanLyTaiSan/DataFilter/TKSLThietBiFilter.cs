@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class TKSLThietBiFilter: FilterAbstract<TKSLThietBiFilter>
+    public class TKSLThietBiFilter: _FilterAbstract<TKSLThietBiFilter>
     {
         public Guid idcttb { get; set; }
         /// <summary>

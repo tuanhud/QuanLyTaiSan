@@ -22,6 +22,8 @@ namespace TSCD_GUI.QLTaiSan
         List<CTTaiSan> listCTTaiSan2 = new List<CTTaiSan>();
         bool isEdit = false;
         bool isChild = false;
+        public delegate void ReloadAndFocused(Guid id);
+        public ReloadAndFocused reloadAndFocused = null;
 
         public frmAddTaiSan(CTTaiSan _obj, bool isDonVi = false)
         {
@@ -57,9 +59,6 @@ namespace TSCD_GUI.QLTaiSan
             isChild = true;
         }
 
-        public delegate void ReloadAndFocused(Guid id);
-        public ReloadAndFocused reloadAndFocused = null;
-
         private void init()
         {
             ucComboBoxLoaiTS1.editValueChanged = new MyUserControl.ucComboBoxLoaiTS.EditValueChanged(setDonViTinh);
@@ -74,35 +73,56 @@ namespace TSCD_GUI.QLTaiSan
 
         private void loadData()
         {
-            listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
-            lookUpTinhTrang.Properties.DataSource = listTinhTrang;
-            listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-            ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+            try
+            {
+                listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+                lookUpTinhTrang.Properties.DataSource = listTinhTrang;
+                listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
+            }
         }
 
         private void loadData(List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
         {
-            listTinhTrang = _listTinhTrang;
-            lookUpTinhTrang.Properties.DataSource = listTinhTrang;
-            listLoaiTaiSan = _listLoaiTaiSan;
-            ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+            try
+            {
+                listTinhTrang = _listTinhTrang;
+                lookUpTinhTrang.Properties.DataSource = listTinhTrang;
+                listLoaiTaiSan = _listLoaiTaiSan;
+                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
+            }
         }
 
         private void setData(CTTaiSan obj)
         {
-            dateNgayGhi.EditValue = obj.ngay;
-            txtSoHieu_CT.Text = obj.chungtu_sohieu;
-            dateNgay_CT.EditValue = obj.chungtu_ngay;
-            txtMa.Text = obj.taisan.subId;
-            txtTen.Text = obj.taisan.ten;
-            ucComboBoxLoaiTS1.LoaiTS = obj.taisan.loaitaisan;
-            txtSoLuong.EditValue = obj.soluong;
-            txtDonGia.EditValue = obj.taisan.dongia;
-            lookUpTinhTrang.EditValue = obj.tinhtrang_id;
-            txtNguonGoc.Text = obj.nguongoc;
-            txtGhiChu.Text = obj.mota;
-            listCTTaiSan = obj.childs.ToList();
-            gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
+            try
+            {
+                dateNgayGhi.EditValue = obj.ngay;
+                txtSoHieu_CT.Text = obj.chungtu_sohieu;
+                dateNgay_CT.EditValue = obj.chungtu_ngay;
+                txtMa.Text = obj.taisan.subId;
+                txtTen.Text = obj.taisan.ten;
+                ucComboBoxLoaiTS1.LoaiTS = obj.taisan.loaitaisan;
+                txtSoLuong.EditValue = obj.soluong;
+                txtDonGia.EditValue = obj.taisan.dongia;
+                lookUpTinhTrang.EditValue = obj.tinhtrang_id;
+                txtNguonGoc.Text = obj.nguongoc;
+                txtGhiChu.Text = obj.mota;
+                listCTTaiSan = obj.childs.ToList();
+                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setData:" + ex.Message);
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -113,16 +133,18 @@ namespace TSCD_GUI.QLTaiSan
                 {
                     Guid id;
                     if (isEdit)
-                        id = edit();
+                        id = editObj();
                     else
-                        id = add();
+                        id = addObj();
                     if (reloadAndFocused != null)
                         reloadAndFocused(id);
                     this.Close();
                 }
             }
-            catch
-            { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnOK_Click:" + ex.Message);
+            }
         }
 
         private Boolean checkInput()
@@ -166,34 +188,79 @@ namespace TSCD_GUI.QLTaiSan
             }
         }
 
-        private Guid add()
+        private Guid addObj()
         {
-            TaiSan ts = new TaiSan();
-            ts.ten = txtTen.Text;
-            ts.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
-            ts.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
-            ts.subId = txtMa.Text;
-
-
-            CTTaiSan obj = new CTTaiSan();
-
-            obj.taisan = ts;
-            obj.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-            obj.chungtu_sohieu = txtSoHieu_CT.Text;
-            obj.ngay = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
-            obj.nguongoc = txtNguonGoc.Text;
-            obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);
-            obj.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
-            obj.mota = txtGhiChu.Text;
-            obj.childs = listCTTaiSan;
-            if (!isChild)
+            try
             {
-                int re = obj.add();//ONly call add on CTTaiSan
-                re = DBInstance.commit();
+                TaiSan ts = new TaiSan();
+                ts.ten = txtTen.Text;
+                ts.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
+                ts.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
+                ts.subId = txtMa.Text;
+
+
+                CTTaiSan obj = new CTTaiSan();
+
+                obj.taisan = ts;
+                obj.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                obj.chungtu_sohieu = txtSoHieu_CT.Text;
+                obj.ngay = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
+                obj.nguongoc = txtNguonGoc.Text;
+                obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);
+                obj.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
+                obj.mota = txtGhiChu.Text;
+                obj.childs = listCTTaiSan;
+                if (!isChild)
+                {
+                    int re = obj.add();//ONly call add on CTTaiSan
+                    re = DBInstance.commit();
+                    if (re > 0)
+                    {
+                        XtraMessageBox.Show("Pass");
+                        return obj.id;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Fail");
+                        return Guid.Empty;
+                    }
+                }
+                else
+                {
+                    listCTTaiSan2.Add(obj);
+                    return Guid.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->addObj:" + ex.Message);
+                return Guid.Empty;
+            }
+        }
+
+        private Guid editObj()
+        {
+            try
+            {
+                objCTTaiSan.taisan.ten = txtTen.Text;
+                objCTTaiSan.taisan.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
+                objCTTaiSan.taisan.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
+                objCTTaiSan.taisan.subId = txtMa.Text;
+                objCTTaiSan.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                objCTTaiSan.chungtu_sohieu = txtSoHieu_CT.Text;
+                objCTTaiSan.ngay = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
+                objCTTaiSan.nguongoc = txtNguonGoc.Text;
+                objCTTaiSan.soluong = Convert.ToInt32(txtSoLuong.EditValue);
+                objCTTaiSan.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
+                objCTTaiSan.mota = txtGhiChu.Text;
+                objCTTaiSan.childs = listCTTaiSan;
+                int re = objCTTaiSan.update();//ONly call add on CTTaiSan
+                if (!isChild)
+                    re = DBInstance.commit();
                 if (re > 0)
                 {
                     XtraMessageBox.Show("Pass");
-                    return obj.id;
+                    return objCTTaiSan.id;
                 }
                 else
                 {
@@ -201,38 +268,9 @@ namespace TSCD_GUI.QLTaiSan
                     return Guid.Empty;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                listCTTaiSan2.Add(obj);
-                return Guid.Empty;
-            }
-        }
-
-        private Guid edit()
-        {
-            objCTTaiSan.taisan.ten = txtTen.Text;
-            objCTTaiSan.taisan.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
-            objCTTaiSan.taisan.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
-            objCTTaiSan.taisan.subId = txtMa.Text;
-            objCTTaiSan.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-            objCTTaiSan.chungtu_sohieu = txtSoHieu_CT.Text;
-            objCTTaiSan.ngay = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
-            objCTTaiSan.nguongoc = txtNguonGoc.Text;
-            objCTTaiSan.soluong = Convert.ToInt32(txtSoLuong.EditValue);
-            objCTTaiSan.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
-            objCTTaiSan.mota = txtGhiChu.Text;
-            objCTTaiSan.childs = listCTTaiSan;
-            int re = objCTTaiSan.update();//ONly call add on CTTaiSan
-            if(!isChild)
-                re = DBInstance.commit();
-            if (re > 0)
-            {
-                XtraMessageBox.Show("Pass");
-                return objCTTaiSan.id;
-            }
-            else
-            {
-                XtraMessageBox.Show("Fail");
+                Debug.WriteLine(this.Name + "->editObj:" + ex.Message);
                 return Guid.Empty;
             }
         }
@@ -270,14 +308,20 @@ namespace TSCD_GUI.QLTaiSan
 
         private void reload(Guid _id)
         {
-            
-            gridControlTaiSan.DataSource = null;
-            gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
-            if (_id != Guid.Empty)
+            try
             {
-                int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
-                if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                    bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                gridControlTaiSan.DataSource = null;
+                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
+                if (_id != Guid.Empty)
+                {
+                    int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
+                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                        bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reload:" + ex.Message);
             }
         }
 

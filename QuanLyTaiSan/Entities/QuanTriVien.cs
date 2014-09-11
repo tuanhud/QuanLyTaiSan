@@ -55,6 +55,17 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Hàm nghiệp vụ
+        /// <summary>
+        /// Kiểm tra obj hiện tại được phép sử dụng this.username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        private Boolean canUseUserName()
+        {
+            //Kiểm tra trùng này nọ các thứ
+            return db.QUANTRIVIENS.Where(c => (c.id != this.id) && (c.username.ToUpper().Equals(this.username.ToUpper()))).Count<QuanTriVien>() == 0;
+        }
+
         public bool canView<T>(T obj) where T : _EntityAbstract1<T>
         {
             return group.canView<T>((T)obj);
@@ -97,18 +108,30 @@ namespace QuanLyTaiSan.Entities
             phieudamuons = new List<PhieuMuonPhong>();
             phieudaduyets = new List<PhieuMuonPhong>();
         }
+        /// <summary>
+        /// -7: trùng username đã có
+        /// </summary>
+        /// <returns></returns>
         public override int update()
         {
-            
-            //...
+            if (!canUseUserName())
+            {
+                return -7;
+            }
+
             return base.update();
         }
         /// <summary>
-        /// Trước khi add phải gọi hashPassword trước
+        /// Trước khi add phải gọi hashPassword trước,
         /// </summary>
-        /// <returns></returns>
+        /// <returns>-7: trùng username đã có</returns>
         public override int add()
         {
+            //Kiểm tra trùng này nọ các thứ
+            if (!canUseUserName())
+            {
+                return -7;
+            }
             return base.add();
         }
         #endregion

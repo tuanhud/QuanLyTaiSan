@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class PhongHienThi:FilterAbstract<PhongHienThi>
+    public class PhongHienThi:_FilterAbstract<PhongHienThi>
     {
         public PhongHienThi():base()
         {

@@ -55,8 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\_FilterAbstract.cs" />
     <Compile Include="DataFilter\PhongHienThi.cs" />
+    <Compile Include="DataFilter\SearchFilter\CTTaiSanSF.cs" />
+    <Compile Include="DataFilter\SearchFilter\_SearchFilterAbstract.cs" />
     <Compile Include="DataFilter\TaiSanHienThi.cs" />
     <Compile Include="DataFilter\ViTriHienThi.cs" />
     <Compile Include="DbContext\DBInstance.cs" />

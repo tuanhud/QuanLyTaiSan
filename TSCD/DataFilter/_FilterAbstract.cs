@@ -1,15 +1,14 @@
-﻿using QuanLyTaiSan.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using TSCD.Entities;
 
-namespace QuanLyTaiSan.DataFilter
+namespace TSCD.DataFilter
 {
-    public abstract class FilterAbstract<T>
+    public abstract class _FilterAbstract<T>
     {
-        public FilterAbstract()
+        public _FilterAbstract()
         {
 
         }

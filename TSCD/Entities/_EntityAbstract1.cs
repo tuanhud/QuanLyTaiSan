@@ -145,6 +145,10 @@ namespace TSCD.Entities
                 return -1;
             }
         }
+        public static T getById(Object guid)
+        {
+            return getById(GUID.From(guid));
+        }
         public static T getById(Guid id)
         {
             try
@@ -223,6 +227,15 @@ namespace TSCD.Entities
         /// <returns></returns>
         public virtual T reload()
         {
+            try
+            {
+                return db.Set<T>().Find(this.id);
+            }
+            catch (Exception)
+            {
+                return (T)this;
+            }
+
             //if (id != Guid.Empty)
             //{
             //    try
@@ -237,43 +250,43 @@ namespace TSCD.Entities
             //}
             //return (T)this;
 
-            if (id == Guid.Empty)
-            {
-                return (T)this;
-            }
+            //if (id == Guid.Empty)
+            //{
+            //    return (T)this;
+            //}
 
-            try
-            {
-                //if (db.Entry(this).State == EntityState.Detached)
-                //{
-                db.Set<T>().Attach((T)this);
-                //return (T)this;
-                //}
-                return (T)this;
-            }
-            catch (Exception)
-            {
-                try
-                {
-                    db.Entry(this).Reload();
-                    return (T)this;
-                }
-                catch (Exception)
-                {
-                    try
-                    {
-                        //Case 1: Multi db context tracking
-                        //Case 2: Object not loaded before
-                        return db.Set<T>().Find(this.id);
-                    }
-                    catch (Exception exx)
-                    {
-                        //for any other error
-                        Debug.WriteLine(exx.ToString());
-                        return (T)this;
-                    }
-                }
-            }
+            //try
+            //{
+            //    //if (db.Entry(this).State == EntityState.Detached)
+            //    //{
+            //    db.Set<T>().Attach((T)this);
+            //    //return (T)this;
+            //    //}
+            //    return (T)this;
+            //}
+            //catch (Exception)
+            //{
+            //    try
+            //    {
+            //        db.Entry(this).Reload();
+            //        return (T)this;
+            //    }
+            //    catch (Exception)
+            //    {
+            //        try
+            //        {
+            //            //Case 1: Multi db context tracking
+            //            //Case 2: Object not loaded before
+            //            return db.Set<T>().Find(this.id);
+            //        }
+            //        catch (Exception exx)
+            //        {
+            //            //for any other error
+            //            Debug.WriteLine(exx.ToString());
+            //            return (T)this;
+            //        }
+            //    }
+            //}
         }
         /// <summary>
         /// Force to load object because of Lazy Loading,
@@ -484,7 +497,7 @@ namespace TSCD.Entities
             if (needToWriteLogHeThong())
             {
                 LogHeThong log = new LogHeThong();
-                log.onBeforeAdded();
+                //log.onBeforeAdded();
                 //quocdunginfo fail (conflict with write log hethong)
                 log.mota = StringHelper.toJSON(buildLog("delete"));
                 log.add();
@@ -512,7 +525,7 @@ namespace TSCD.Entities
             if (needToWriteLogHeThong())
             {
                 LogHeThong log = new LogHeThong();
-                log.onBeforeAdded();//MANUAL MODE
+                //log.onBeforeAdded();//MANUAL MODE
                 log.mota = StringHelper.toJSON(buildLog("edit"));
                 log.add();
             }
@@ -528,7 +541,7 @@ namespace TSCD.Entities
             if (needToWriteLogHeThong())
             {
                 LogHeThong log = new LogHeThong();
-                log.onBeforeAdded();//MANUAL MODE
+                //log.onBeforeAdded();//MANUAL MODE
                 log.mota = StringHelper.toJSON(buildLog("add"));
                 log.add();
             }

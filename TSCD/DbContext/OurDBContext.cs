@@ -549,9 +549,9 @@ namespace TSCD.Entities
                     }
                 }
             }
-            //SaveChange lần 1
+            //---SaveChange lần 1
             int result = base.SaveChanges();
-            //After
+            //Raise event
             foreach (_EFEventRegisterInterface item in Added_Callbacks)
             {
                 item.onAfterAdded();
@@ -560,13 +560,18 @@ namespace TSCD.Entities
             {
                 item.onAfterUpdated();
             }
-
-            result += base.SaveChanges();
+            //---SaveChange lần 2
+            changedEntities = ChangeTracker.Entries().Where(c => c.State == EntityState.Added || c.State == EntityState.Modified || c.State == EntityState.Deleted);
+            //Nếu có ít nhất 1 sự thay đổi trong ChangeTracker thì gọi lại SaveChanges
+            foreach (var item in changedEntities)
+            {
+                result += this.SaveChanges();
+                break;
+            }
             //clear RAM
             Added_Callbacks = null;
             Modified_Callbacks = null;
             changedEntities = null;
-
             return result;
         }
         protected override bool ShouldValidateEntity(DbEntityEntry entityEntry)

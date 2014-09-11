@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class TangFilter : FilterAbstract<TangFilter>
+    public class TangFilter : _FilterAbstract<TangFilter>
     {
         public Guid id { get; set; }
         public String ten { get; set; }

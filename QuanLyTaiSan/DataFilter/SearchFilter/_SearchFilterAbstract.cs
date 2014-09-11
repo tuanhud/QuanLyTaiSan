@@ -6,7 +6,7 @@ using System.Text;
 
 namespace QuanLyTaiSan.DataFilter.SearchFilter
 {
-    public abstract class _SearchFilterAbstract<T>:FilterAbstract<T>
+    public abstract class _SearchFilterAbstract<T>:_FilterAbstract<T>
     {
         public Boolean enable_filter_input = true;
         public T obj { get; set; }

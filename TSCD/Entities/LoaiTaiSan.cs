@@ -53,6 +53,28 @@ namespace TSCD.Entities
         #endregion
 
         #region Nghiệp vụ
+        /// <summary>
+        /// Lấy tất cả đám con cháu Đơn vị dưới root
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="included_root_in_result"></param>
+        /// <returns></returns>
+        public List<LoaiTaiSan> getAllChildsRecursive(Boolean included_root_in_result = true)
+        {
+            List<LoaiTaiSan> tmp = new List<LoaiTaiSan>();
+            if (included_root_in_result)
+            {
+                tmp.Add(this);
+            }
+            if (childs != null)
+            {
+                foreach (LoaiTaiSan item in childs)
+                {
+                    tmp.AddRange(item.getAllChildsRecursive(included_root_in_result));
+                }
+            }
+            return tmp;
+        }
 
         #endregion
 

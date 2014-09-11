@@ -13,6 +13,8 @@ using System.Web.Script.Serialization;
 using QuanLyTaiSanGUI.Report;
 using DevExpress.XtraReports.UI;
 using DevExpress.LookAndFeel;
+using SHARED.Libraries;
+using QuanLyTaiSan.DataFilter.SearchFilter;
 
 namespace QuanLyTaiSanGUI
 {
@@ -39,6 +41,8 @@ namespace QuanLyTaiSanGUI
             //    obj.add();
             //}
             //DBInstance.commit();
+
+            var re = NhanVienPTSF.search("123.4");
         }
 
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
@@ -56,11 +60,10 @@ namespace QuanLyTaiSanGUI
         {
 
             XtraReport1 report = new XtraReport1();
-            report.DataSource = NhanVienPT.getAll();
             //// Add bounded labels to the Detail band of the report. 
-            report.AddBoundLabel("id", new Rectangle(100, 20, 100, 30));
-            report.AddBoundLabel("hoten", new Rectangle(200, 20, 100, 30));
-            report.AddBoundLabel("sodienthoai", new Rectangle(300, 20, 100, 30));
+            report._bindData();
+            report._group();
+            report.DataSource = NhanVienPT.getAll();
 
             ReportPrintTool printTool = new ReportPrintTool(report);
             

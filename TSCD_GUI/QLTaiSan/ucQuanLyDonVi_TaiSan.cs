@@ -30,23 +30,45 @@ namespace TSCD_GUI.QLTaiSan
 
         public void loadData()
         {
-            ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-            reloadData();
+            try
+            {
+                ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                reloadData();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
+            }
         }
 
         private void reloadAndFocused(Guid _id)
         {
-            reloadData();
-            int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
-            if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+            try
+            {
+                reloadData();
+                int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
+                if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                    bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reloadAndFocused: " + ex.Message);
+            }
         }
 
         public void reloadData()
         {
-            DonVi obj = ucTreeDonVi1.DonVi;
-            //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
-            gridControlTaiSan.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive().ToList());
+            try
+            {
+                DonVi obj = ucTreeDonVi1.DonVi;
+                //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
+                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive().ToList());
+                bandedGridViewTaiSan.ExpandAllGroups();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->reloadData: " + ex.Message);
+            }
         }
 
         public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
@@ -56,8 +78,8 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddTaiSan_DonVi frm = new frmAddTaiSan_DonVi(ucTreeDonVi1.DonVi);
-            frm.reloadAndFocused = new frmAddTaiSan_DonVi.ReloadAndFocused(reloadAndFocused);
+            frmAddTaiSanExist frm = new frmAddTaiSanExist(ucTreeDonVi1.DonVi);
+            frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
             frm.ShowDialog();
         }
 
@@ -68,8 +90,15 @@ namespace TSCD_GUI.QLTaiSan
 
         private void bandedGridViewTaiSan_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
         {
-            TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-            e.IsEmpty = c.childs == null || c.childs.Count == 0;
+            try
+            {
+                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                e.IsEmpty = c.childs == null || c.childs.Count == 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowEmpty: " + ex.Message);
+            }
         }
 
         private void bandedGridViewTaiSan_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
@@ -84,8 +113,15 @@ namespace TSCD_GUI.QLTaiSan
 
         private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
-            TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-            e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
+            try
+            {
+                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowGetChildList: " + ex.Message);
+            }
         }
 
         private void barBtnChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

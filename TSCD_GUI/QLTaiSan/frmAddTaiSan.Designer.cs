@@ -352,20 +352,22 @@
             // btnLoaiTS
             // 
             this.btnLoaiTS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiTS.Location = new System.Drawing.Point(368, 143);
+            this.btnLoaiTS.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnLoaiTS.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnLoaiTS.Location = new System.Drawing.Point(368, 144);
             this.btnLoaiTS.Name = "btnLoaiTS";
-            this.btnLoaiTS.Size = new System.Drawing.Size(59, 23);
+            this.btnLoaiTS.Size = new System.Drawing.Size(23, 23);
             this.btnLoaiTS.TabIndex = 28;
-            this.btnLoaiTS.Text = "+";
             // 
             // btnTinhTrang
             // 
             this.btnTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTinhTrang.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnTinhTrang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnTinhTrang.Location = new System.Drawing.Point(368, 246);
             this.btnTinhTrang.Name = "btnTinhTrang";
-            this.btnTinhTrang.Size = new System.Drawing.Size(59, 23);
+            this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
             this.btnTinhTrang.TabIndex = 29;
-            this.btnTinhTrang.Text = "+";
             // 
             // lblMa
             // 

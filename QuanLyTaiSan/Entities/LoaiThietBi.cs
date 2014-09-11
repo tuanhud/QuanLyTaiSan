@@ -39,6 +39,10 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<LoaiThietBi> childs { get; set; }
         #endregion
         #region Nghiep vu
+        /// <summary>
+        /// Lấy tất cả Loại thiết bị trực thuộc dưới ROOT (parent==null)
+        /// </summary>
+        /// <returns></returns>
         public static List<LoaiThietBi> getAllParent()
         {
             try
@@ -57,23 +61,23 @@ namespace QuanLyTaiSan.Entities
             }
         }
 
-        public static List<LoaiThietBi> getTheoLoai(Boolean loai)
-        {
-            try
-            {
-                List<LoaiThietBi> objs = db.Set<LoaiThietBi>().Where(c => c.loaichung == loai).ToList();
-                return objs;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-                return new List<LoaiThietBi>();
-            }
-            finally
-            {
+        //public static List<LoaiThietBi> getTheoLoai(Boolean loai)
+        //{
+        //    try
+        //    {
+        //        List<LoaiThietBi> objs = db.Set<LoaiThietBi>().Where(c => c.loaichung == loai).ToList();
+        //        return objs;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine(ex.ToString());
+        //        return new List<LoaiThietBi>();
+        //    }
+        //    finally
+        //    {
 
-            }
-        }
+        //    }
+        //}
         #endregion
         #region Override method
         public override string niceName()

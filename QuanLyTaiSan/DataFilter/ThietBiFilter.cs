@@ -7,7 +7,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class ThietBiFilter:FilterAbstract<ThietBiFilter>
+    public class ThietBiFilter:_FilterAbstract<ThietBiFilter>
     {
         public Guid id { get; set; }
         public Guid idTB { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class ChiTietTBHienThi : FilterAbstract<ChiTietTBHienThi>
+    public class ChiTietTBHienThi : _FilterAbstract<ChiTietTBHienThi>
     {
         public Guid id { get; set; }
         public Guid idTB { get; set; }

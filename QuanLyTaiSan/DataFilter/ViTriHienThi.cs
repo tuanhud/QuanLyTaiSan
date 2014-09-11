@@ -7,7 +7,7 @@ using QuanLyTaiSan.Entities;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class ViTriHienThi : FilterAbstract<ViTriHienThi>
+    public class ViTriHienThi : _FilterAbstract<ViTriHienThi>
     {
         public Guid id { get; set; }
         public String ten { get; set; }

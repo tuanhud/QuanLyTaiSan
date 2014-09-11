@@ -38,88 +38,89 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<Phong> phongs { get; set; }
         #endregion
         #region Nghiệp vụ
-        /// <summary>
-        /// Hàm dùng tạm để test du liệu
-        /// </summary>
-        /// <param name="id1"></param>
-        /// <param name="id2"></param>
-        /// <param name="id3"></param>
-        /// <returns></returns>
+        ///// <summary>
+        ///// Hàm dùng tạm để test du liệu
+        ///// </summary>
+        ///// <param name="id1"></param>
+        ///// <param name="id2"></param>
+        ///// <param name="id3"></param>
+        ///// <returns></returns>
 
-        public ViTri getBy3Id(Guid id1, Guid id2, Guid id3)
-        {
-            try
-            {
-                //initDb();
-                ViTri obj = null;
-                if (id3 != Guid.Empty)
-                {
-                    obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == id3).FirstOrDefault();
-                }
-                else if (id2 != Guid.Empty)
-                {
-                    obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == null).FirstOrDefault();
-                }
-                else
-                {
-                    obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == null && c.tang.id == null).FirstOrDefault();
-                }
-                //if (obj != null)
-                //{
-                //    obj.DB = db;
-                //}
-                return obj;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-            finally
-            {
+        //public ViTri getBy3Id(Guid id1, Guid id2, Guid id3)
+        //{
+        //    try
+        //    {
+        //        //initDb();
+        //        ViTri obj = null;
+        //        if (id3 != Guid.Empty)
+        //        {
+        //            obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == id3).FirstOrDefault();
+        //        }
+        //        else if (id2 != Guid.Empty)
+        //        {
+        //            obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == id2 && c.tang.id == null).FirstOrDefault();
+        //        }
+        //        else
+        //        {
+        //            obj = db.Set<ViTri>().Where(c => c.coso.id == id1 && c.day.id == null && c.tang.id == null).FirstOrDefault();
+        //        }
+        //        //if (obj != null)
+        //        //{
+        //        //    obj.DB = db;
+        //        //}
+        //        return obj;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //    finally
+        //    {
 
-            }
-        }
-        public List<ViTri> search(CoSo coso, Dayy day, Tang tang)
-        {
-            //initDb();
-            List<ViTri> tmp = new List<ViTri>(); ;
-            if(coso==null && day==null && tang==null)
-            {
-                tmp = db.VITRIS.Where(c => c.coso==null && c.day==null && c.tang==null).ToList();
-            }
-            else if(coso!=null && day==null && tang==null)
-            {
-                tmp = db.VITRIS.Where(c => c.coso.id==coso.id && c.day==null && c.tang==null).ToList();
-            }
-            else if (coso != null && day != null && tang == null)
-            {
-                tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id == day.id && c.tang == null).ToList();
-            }
-            else if (coso != null && day != null && tang != null)
-            {
-                tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id == day.id && c.tang.id == tang.id).ToList();
-            }
-            //if (tmp != null)
-            //{
-            //    foreach (ViTri item in tmp)
-            //    {
-            //        item.DB = db;
-            //    }
-            //}
-            return tmp;
-        }
-        public List<ViTri> search(Guid coso_id, Guid day_id, Guid tang_id)
-        {
-            //initDb();
-            List<ViTri> tmp = new List<ViTri>(); ;
-            //CoSo coso = new CoSo();
-            coso = CoSo.getById(coso_id);
-            //Dayy day = new Dayy();
-            day = Dayy.getById(day_id);
-            //Tang tang = new Tang();
-            tang = Tang.getById(tang_id);
-            return search(coso, day, tang);
-        }
+        //    }
+        //}
+        //public List<ViTri> search(CoSo coso, Dayy day, Tang tang)
+        //{
+        //    //initDb();
+        //    List<ViTri> tmp = new List<ViTri>(); ;
+        //    if(coso==null && day==null && tang==null)
+        //    {
+        //        tmp = db.VITRIS.Where(c => c.coso==null && c.day==null && c.tang==null).ToList();
+        //    }
+        //    else if(coso!=null && day==null && tang==null)
+        //    {
+        //        tmp = db.VITRIS.Where(c => c.coso.id==coso.id && c.day==null && c.tang==null).ToList();
+        //    }
+        //    else if (coso != null && day != null && tang == null)
+        //    {
+        //        tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id == day.id && c.tang == null).ToList();
+        //    }
+        //    else if (coso != null && day != null && tang != null)
+        //    {
+        //        tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id == day.id && c.tang.id == tang.id).ToList();
+        //    }
+        //    //if (tmp != null)
+        //    //{
+        //    //    foreach (ViTri item in tmp)
+        //    //    {
+        //    //        item.DB = db;
+        //    //    }
+        //    //}
+        //    return tmp;
+        //}
+        //public List<ViTri> search(Guid coso_id, Guid day_id, Guid tang_id)
+        //{
+        //    //initDb();
+        //    List<ViTri> tmp = new List<ViTri>(); ;
+        //    //CoSo coso = new CoSo();
+        //    coso = CoSo.getById(coso_id);
+        //    //Dayy day = new Dayy();
+        //    day = Dayy.getById(day_id);
+        //    //Tang tang = new Tang();
+        //    tang = Tang.getById(tang_id);
+        //    return search(coso, day, tang);
+        //}
+
         /// <summary>
         /// Trả về 
         /// </summary>
@@ -197,8 +198,7 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            
-            return base.update();
+            return -1;
         }
         /// <summary>
         /// -2: Có phòng sử dụng vị trí

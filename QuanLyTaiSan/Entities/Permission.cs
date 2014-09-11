@@ -78,7 +78,7 @@ namespace QuanLyTaiSan.Entities
             {
                 return false;
             }
-            return obj.permissions.Where(c => c.key.ToUpper().Equals(this.key.ToUpper())).FirstOrDefault() != null;
+            return obj.permissions.Where(c => c.key.ToUpper().Equals(this.key.ToUpper())).Count() > 0;
         }
 
         public List<T> getObjList<T>()
