@@ -93,8 +93,8 @@ namespace TSCD_GUI.QLTaiSan
             BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
             if (view.GetFocusedRow() != null)
             {
-                frmInputViTri_DonVi frm = new frmInputViTri_DonVi((view.GetFocusedRow() as TaiSanHienThi).obj);
-                frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
+                frmAddTaiSanExist frm = new frmAddTaiSanExist((view.GetFocusedRow() as TaiSanHienThi).obj);
+                frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
         }
