@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace QuanLyTaiSan.DataFilter
 {
     [Table("Search")]
-    public class DoSearch : FilterAbstract<DoSearch>
+    public class DoSearch : _FilterAbstract<DoSearch>
     {
         public DoSearch()
             : base()

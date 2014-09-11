@@ -81,7 +81,7 @@
   <ItemGroup>
     <Compile Include="DataFilter\ChiTietTBHienThi.cs" />
     <Compile Include="DataFilter\DayyFilter.cs" />
-    <Compile Include="DataFilter\FilterAbstract.cs" />
+    <Compile Include="DataFilter\_FilterAbstract.cs" />
     <Compile Include="DataFilter\LoaiTBHienThi.cs" />
     <Compile Include="DataFilter\NhanVienPTFilter.cs" />
     <Compile Include="DataFilter\PhongFilter2.cs" />

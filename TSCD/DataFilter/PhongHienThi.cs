@@ -6,7 +6,7 @@ using TSCD.Entities;
 
 namespace TSCD.DataFilter
 {
-    public class PhongHienThi : FilterAbstract<PhongHienThi>
+    public class PhongHienThi : _FilterAbstract<PhongHienThi>
     {
         public Guid id { get; set; }
         public String ten { get; set; }

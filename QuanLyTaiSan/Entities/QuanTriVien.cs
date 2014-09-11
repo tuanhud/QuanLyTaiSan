@@ -99,8 +99,8 @@ namespace QuanLyTaiSan.Entities
         }
         public override int update()
         {
-            
-            //...
+            //Kiểm tra trùng này nọ các thứ
+
             return base.update();
         }
         /// <summary>
@@ -109,6 +109,8 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int add()
         {
+            //Kiểm tra trùng này nọ các thứ
+
             return base.add();
         }
         #endregion

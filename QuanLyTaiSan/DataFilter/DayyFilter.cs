@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class DayyFilter:FilterAbstract<DayyFilter>
+    public class DayyFilter:_FilterAbstract<DayyFilter>
     {
         public Guid id { get; set; }
         public String ten { get; set; }

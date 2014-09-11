@@ -6,7 +6,7 @@ using TSCD.Entities;
 
 namespace TSCD.DataFilter
 {
-    public class TaiSanHienThi : FilterAbstract<TaiSanHienThi>
+    public class TaiSanHienThi : _FilterAbstract<TaiSanHienThi>
     {
         public Guid id { get; set; }
         public DateTime? ngayghi { get; set; }

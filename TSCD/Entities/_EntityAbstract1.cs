@@ -145,6 +145,10 @@ namespace TSCD.Entities
                 return -1;
             }
         }
+        public static T getById(String guid)
+        {
+            return getById(GUID.From(guid));
+        }
         public static T getById(Guid id)
         {
             try

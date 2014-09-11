@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyTaiSan.DataFilter
 {
-    public class NhanVienPTFilter : FilterAbstract<NhanVienPTFilter>
+    public class NhanVienPTFilter : _FilterAbstract<NhanVienPTFilter>
     {
         public NhanVienPTFilter()
             : base()
