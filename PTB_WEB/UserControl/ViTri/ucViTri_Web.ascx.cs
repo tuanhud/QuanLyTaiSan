@@ -11,6 +11,7 @@ using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.Libraries;
 using System.Net;
 using System.Text;
+using DevExpress.Web.ASPxEditors;
 
 namespace PTB_WEB.UserControl.ViTri
 {
@@ -87,7 +88,6 @@ namespace PTB_WEB.UserControl.ViTri
             Label_DiaChi.Text = "";
             Label_MoTa.Text = "";
             Panel_DiaChi.Visible = false;
-            Panel_GoogleMap.Visible = false;
         }
         private void LoadDataObj(Guid id, int type)
         {
@@ -109,14 +109,12 @@ namespace PTB_WEB.UserControl.ViTri
                         {
                             if (objCoSo.diachi.Length > 0)
                             {
-                                Panel_GoogleMap.Visible = true;
                                 strSrc = @"https://www.google.com/maps/embed/v1/place?key=AIzaSyB2ryXlc0dNmczXS7O6E5htyRpkR4zvmVo&q=" + objCoSo.diachi;
+                                popup.HeaderText = string.Format("Bản đồ {0}", objCoSo.ten);
+                                LinkButtonBanDo.Text = popup.HeaderText;
+                                LinkButtonBanDo.OnClientClick = string.Format("_ShowMaps('{0}'); return false;", strSrc);
                             }
-                            else
-                                Panel_GoogleMap.Visible = false;
                         }
-                        else
-                            Panel_GoogleMap.Visible = false;
                     }
                     else
                     {
@@ -136,7 +134,6 @@ namespace PTB_WEB.UserControl.ViTri
                         Panel_DiaChi.Visible = false;
                         Label_DiaChi.Text = "";
                         Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objDay.mota);
-                        Panel_GoogleMap.Visible = false;
                     }
                     else
                     {
@@ -170,7 +167,6 @@ namespace PTB_WEB.UserControl.ViTri
                         Panel_DiaChi.Visible = false;
                         Label_DiaChi.Text = "";
                         Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objTang.mota);
-                        Panel_GoogleMap.Visible = false;
                     }
                     else
                     {
@@ -232,6 +228,15 @@ namespace PTB_WEB.UserControl.ViTri
             {
                 return;
             }
+        }
+
+        protected void lnkButton_Init(object sender, EventArgs e)
+        {
+            ASPxButton btn = (ASPxButton)sender;
+
+            btn.CssFilePath = string.Empty;
+            btn.CssPostfix = string.Empty;
+            btn.SpriteCssFilePath = string.Empty;
         }
     }
 }

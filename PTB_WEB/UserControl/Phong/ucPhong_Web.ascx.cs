@@ -24,6 +24,7 @@ namespace PTB_WEB.UserControl.Phong
             {
                 DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
                 _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
+                _ucCollectionPager_DanhSachPhong.ShowPanelPage(PanelChangePage);
             }
         }
 

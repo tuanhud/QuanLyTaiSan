@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucViTri_Web.ascx.cs" Inherits="PTB_WEB.UserControl.ViTri.ucViTri_Web" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxLoadingPanel" TagPrefix="dx" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
@@ -13,12 +14,6 @@
 <uc:ucThongBaoLoi runat="server" ID="ucThongBaoLoi" />
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
-    <script type="text/javascript">
-        function ShowMap(url_maps) {
-            PopupControlMaps.SetContentUrl(url_maps);
-            PopupControlMaps.Show();
-        }
-    </script>
     <table class="table largetable">
         <tbody>
             <tr>
@@ -35,71 +30,53 @@
                     <%}
                       else
                       { %>
-                    <ul class="nav nav-tabs" role="tablist" id="myTab">
-                        <li class="active"><a href="#thongtin" role="tab" data-toggle="tab"><asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></a></li>
-                        <%try
-                          {
-                              if (objCoSo.diachi != null)
-                              { %>
-                        <li><a href="#bando" role="tab" data-toggle="tab">Bản đồ&nbsp;<span class="glyphicon glyphicon-new-window pull-right" style="cursor: pointer" onclick="ShowMap('<%Response.Write(strSrc);%>')"></span></a></li>
-                        <%}
-                          }
-                          catch (Exception) { } %>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="thongtin">
-                            <asp:Panel ID="Panel_ThongTinViTri" runat="server" Visible="False">
-                                <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>Tên:</td>
-                                            <td>
-                                                <asp:Label ID="Label_Ten" runat="server"></asp:Label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thuộc:</td>
-                                            <td>
-                                                <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
-                                            </td>
-                                        </tr>
-                                        <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
-                                            <tr>
-                                                <td>Đia chỉ:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                        </asp:Panel>
-                                        <tr>
-                                            <td>Mô tả:</td>
-                                            <td>
-                                                <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </asp:Panel>
-                        </div>
-                        <div class="tab-pane" id="bando">
-                            <asp:Panel ID="Panel_GoogleMap" runat="server" Visible="False">                                
-                                <iframe id="Iframe_GoogleMap" width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
-                                <asp:Label ID="Label_Script" runat="server"></asp:Label>
-                            </asp:Panel>
-                        </div>
-                    </div>
+                    <h3 class="title_green fix">
+                        <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
+                        <%if (!strSrc.Equals(string.Empty))
+                          { %>
+                        <asp:LinkButton ID="LinkButtonBanDo" CssClass="pull-right" runat="server">Bản đồ</asp:LinkButton>
+                        <%} %>
+                    </h3>
+                    <asp:Panel ID="Panel_ThongTinViTri" runat="server" Visible="False">
+                        <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web" />
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>Tên:</td>
+                                    <td>
+                                        <asp:Label ID="Label_Ten" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Thuộc:</td>
+                                    <td>
+                                        <asp:Label ID="Label_Thuoc" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <asp:Panel ID="Panel_DiaChi" runat="server" Visible="False">
+                                    <tr>
+                                        <td>Đia chỉ:</td>
+                                        <td>
+                                            <asp:Label ID="Label_DiaChi" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </asp:Panel>
+                                <tr>
+                                    <td>Mô tả:</td>
+                                    <td>
+                                        <asp:Label ID="Label_MoTa" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </asp:Panel>
                     <%} %>
                 </td>
             </tr>
         </tbody>
     </table>
-    <dx:ASPxLoadingPanel ID="lp" runat="server" ClientInstanceName="lp" Theme="Moderno"></dx:ASPxLoadingPanel>
-    <dx:ASPxPopupControl ID="ASPxPopupControlMaps" runat="server" ClientInstanceName="PopupControlMaps" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Bản đồ" Theme="PlasticBlue" AllowResize="True" AutoUpdatePosition="True" Width="800px" Height="600px">
+    <dx:ASPxLoadingPanel ID="lp" runat="server" Theme="Moderno" ClientInstanceName="lp"></dx:ASPxLoadingPanel>
+    <dx:ASPxPopupControl ID="popup" runat="server" ClientInstanceName="popup" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Bản đồ" Theme="PlasticBlue" AllowResize="True" AllowDragging="true" AutoUpdatePosition="True" Width="800px" Height="600px" ContentUrl="javascript:void(0);">
         <ClientSideEvents Init="OnPopupInit" Shown="OnPopupShown" />
-        <ContentCollection>
-            <dx:PopupControlContentControl ID="PopupControlContentControl" runat="server">
-            </dx:PopupControlContentControl>
-        </ContentCollection>
     </dx:ASPxPopupControl>
 </asp:Panel>

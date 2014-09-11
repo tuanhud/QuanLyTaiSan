@@ -19,7 +19,7 @@ namespace QuanLyTaiSan.Entities
         #region Event 
         public delegate void DBConnectionChanged(EventArgs e);
         public static event DBConnectionChanged onDBConnectionDown;
-        public static event DBConnectionChanged onDBConnectionUp;
+        //public static event DBConnectionChanged onDBConnectionUp;
 
         #endregion
 

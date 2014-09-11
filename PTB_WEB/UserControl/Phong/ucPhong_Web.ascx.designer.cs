@@ -67,6 +67,15 @@ namespace PTB_WEB.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label Label_ThongTinPhong;
         
         /// <summary>
+        /// PanelChangePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelChangePage;
+        
+        /// <summary>
         /// RepeaterDanhSachPhong control.
         /// </summary>
         /// <remarks>
@@ -157,15 +166,6 @@ namespace PTB_WEB.UserControl.Phong {
         protected global::System.Web.UI.WebControls.Label Label_NhanVienPT;
         
         /// <summary>
-        /// Label_Phong control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Phong;
-        
-        /// <summary>
         /// Panel_NhanVienPT control.
         /// </summary>
         /// <remarks>
@@ -173,6 +173,15 @@ namespace PTB_WEB.UserControl.Phong {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel_NhanVienPT;
+        
+        /// <summary>
+        /// Label_Phong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Phong;
         
         /// <summary>
         /// _ucASPxImageSlider_Web_NhanVienPT control.

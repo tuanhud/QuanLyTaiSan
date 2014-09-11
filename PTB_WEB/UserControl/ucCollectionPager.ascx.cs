@@ -12,7 +12,38 @@ namespace PTB_WEB.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        public void ShowPanelPage(Panel _panel)
+        {
+            try
+            {
+                if (Request.QueryString["page"] != null)
+                {
+                    if (Session["page"] != null)
+                    {
+                        if (!Session["page"].Equals(Request.QueryString["page"]))
+                        {
+                            _panel.Visible = true;
+                        }
+                        else
+                        {
+                            _panel.Visible = false;
+                        }
+                    }
+
+                    Session["page"] = Request.QueryString["page"];
+                }
+                else
+                {
+                    Session["page"] = 1;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

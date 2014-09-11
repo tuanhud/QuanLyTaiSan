@@ -60,7 +60,7 @@ namespace SHARED.Libraries
                     return new Bitmap(img);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -123,7 +123,7 @@ namespace SHARED.Libraries
                 response.Close();
                 return 1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1;
             }

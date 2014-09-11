@@ -21,6 +21,7 @@ namespace PTB_WEB
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {
+                DevExpress.Web.ASPxClasses.ASPxWebControl.RegisterBaseScript(this);
                 Panel_Web.Visible = true;
                 _ucViTri_Web.LoadData();
             }

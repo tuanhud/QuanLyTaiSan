@@ -188,7 +188,6 @@
     <Content Include="Scripts\myjs.js" />
     <Content Include="Scripts\scriptgates.js" />
     <Content Include="SuCo.aspx" />
-    <Content Include="t.aspx" />
     <Content Include="ThietBis.aspx" />
     <Content Include="ThongTin.aspx" />
     <Content Include="ThongTinCaNhan.aspx" />
@@ -354,13 +353,6 @@
     </Compile>
     <Compile Include="SuCo.aspx.designer.cs">
       <DependentUpon>SuCo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="t.aspx.cs">
-      <DependentUpon>t.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="t.aspx.designer.cs">
-      <DependentUpon>t.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThietBis.aspx.cs">
       <DependentUpon>ThietBis.aspx</DependentUpon>

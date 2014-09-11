@@ -18,19 +18,19 @@
                     <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                 </td>
                 <td>
-                    <% if (RepeaterDanhSachPhong.Items.Count == 0)
-                       { %>
+                    <%if (RepeaterDanhSachPhong.Items.Count == 0)
+                      {%>
                     <div class="alert alert-warning alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <asp:Label ID="Label_TextDanhSachPhong" runat="server"></asp:Label>
                     </div>
-                    <% }
-                       else
-                       { %>
+                    <%}
+                      else
+                      {%>
                     <ul class="nav nav-tabs" role="tablist" id="myTab">
                         <li class="active"><a href="#danhsach" role="tab" data-toggle="tab">Danh sách phòng</a></li>
                         <%if (Request.QueryString["id"] != null)
-                          { %>
+                          {%>
                         <li><a href="#thongtin" role="tab" data-toggle="tab">
                             <asp:Label ID="Label_ThongTinPhong" runat="server" Text="Thông tin phòng"></asp:Label></a></li>
                         <script>
@@ -38,8 +38,15 @@
                                 $('#myTab a:last').tab('show')
                             })
                         </script>
-                        <%} %>
+                        <%}%>
                     </ul>
+                    <asp:Panel ID="PanelChangePage" runat="server" Visible="false">
+                        <script>
+                            $(function () {
+                                $('#myTab a:first').tab('show')
+                            })
+                        </script>
+                    </asp:Panel>
                     <div class="tab-content">
                         <div class="tab-pane active" id="danhsach">
                             <table class="table table-bordered table-striped table-hover valign_middle">
@@ -66,8 +73,10 @@
                             </table>
                             <uc:ucCollectionPager runat="server" ID="_ucCollectionPager_DanhSachPhong" />
                         </div>
+                        <%if (Request.QueryString["id"] != null)
+                          {%>
                         <div class="tab-pane" id="thongtin">
-                            <table class="table largetable" style="height:auto">
+                            <table class="table largetable" style="height: auto">
                                 <tr>
                                     <td style="width: 50%">
                                         <h3 class="title_green fix">Thông tin phòng</h3>
@@ -110,15 +119,18 @@
                                         </asp:Panel>
                                     </td>
                                     <td>
-                                        <%if(objPhong.nhanvienpt == null){ %>
+                                        <%if (objPhong.nhanvienpt == null)
+                                          {%>
                                         <div class="alert alert-warning alert-dismissible" role="alert">
                                             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                             <asp:Label ID="Label_NhanVienPT" runat="server" Visible="false"></asp:Label>
                                         </div>
-                                        <%}else{ %>
-                                        <asp:Label ID="Label_Phong" runat="server" Visible="false"></asp:Label>
-                                        <h3 class="title_green fix">Thông tin nhân viên</h3>
+                                        <%}
+                                          else
+                                          {%>
                                         <asp:Panel ID="Panel_NhanVienPT" runat="server" Visible="False">
+                                            <asp:Label ID="Label_Phong" runat="server" Visible="false"></asp:Label>
+                                            <h3 class="title_green fix">Thông tin nhân viên</h3>
                                             <uc:ucASPxImageSlider_Web runat="server" ID="_ucASPxImageSlider_Web_NhanVienPT" />
                                             <table class="table table-striped">
                                                 <tbody>
@@ -143,13 +155,14 @@
                                                 </tbody>
                                             </table>
                                         </asp:Panel>
-                                        <%} %>
+                                        <%}%>
                                     </td>
                                 </tr>
                             </table>
                         </div>
+                        <%}%>
                     </div>
-                    <% } %>
+                    <%}%>
                 </td>
             </tr>
         </tbody>

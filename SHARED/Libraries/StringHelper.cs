@@ -236,7 +236,7 @@ namespace SHARED.Libraries
                 string json = new JavaScriptSerializer().Serialize(input.ToDictionary(item => item.Key.ToString(), item => item.Value.ToString()));
                 return json;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "";
             }
