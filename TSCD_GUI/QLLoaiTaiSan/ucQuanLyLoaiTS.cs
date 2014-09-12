@@ -10,6 +10,8 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using SHARED.Libraries;
 using TSCD_GUI.MyUserControl;
+using TSCD.DataFilter;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace TSCD_GUI.QLLoaiTaiSan
 {
@@ -42,7 +44,7 @@ namespace TSCD_GUI.QLLoaiTaiSan
             {
                 editGUI("view");
                 listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-                treeListLoaiTS.DataSource = listLoaiTaiSan;
+                treeListLoaiTS.DataSource = LoaiTSHienThi.Convert(listLoaiTaiSan);
                 loadDonViTinh();
                 LoaiTaiSan LoaiTaiSanNULL = new LoaiTaiSan();
                 LoaiTaiSanNULL.id = Guid.Empty;
@@ -63,13 +65,20 @@ namespace TSCD_GUI.QLLoaiTaiSan
         }
         private void loadDonViTinh()
         {
-            listDonViTinh = DonViTinh.getQuery().OrderBy(c => c.ten).ToList();
-            DonViTinh DonViTinhNULL = new DonViTinh();
-            DonViTinhNULL.id = Guid.Empty;
-            DonViTinhNULL.ten = "[Không có đơn vị tính]";
-            listDonViTinh.Insert(0, DonViTinhNULL);
-            gridLookUpDonVi.Properties.DataSource = listDonViTinh;
-            //repositoryLookUpDonVi.DataSource = listDonViTinh;
+            try
+            {
+                listDonViTinh = DonViTinh.getQuery().OrderBy(c => c.ten).ToList();
+                DonViTinh DonViTinhNULL = new DonViTinh();
+                DonViTinhNULL.id = Guid.Empty;
+                DonViTinhNULL.ten = "[Không có đơn vị tính]";
+                listDonViTinh.Insert(0, DonViTinhNULL);
+                gridLookUpDonVi.Properties.DataSource = listDonViTinh;
+                //repositoryLookUpDonVi.DataSource = listDonViTinh;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
+            }
         }
         private void editGUI(String _type)
         {
@@ -138,9 +147,10 @@ namespace TSCD_GUI.QLLoaiTaiSan
                     editGUI("view");
                 if (treeListLoaiTS.Nodes.Count > 0)
                 {
-                    if (treeListLoaiTS.FocusedNode != null && treeListLoaiTS.GetDataRecordByNode(treeListLoaiTS.FocusedNode) != null)
+                    TreeListNode node = treeListLoaiTS.FocusedNode;
+                    if (node != null && node.GetValue(colobj) != null)
                     {
-                        objLoaiTaiSan = treeListLoaiTS.GetDataRecordByNode(treeListLoaiTS.FocusedNode) as LoaiTaiSan;
+                        objLoaiTaiSan = node.GetValue(colobj) as LoaiTaiSan;
                         if (objLoaiTaiSan != null)
                         {
                             txtMa.Text = objLoaiTaiSan.subId;
@@ -341,6 +351,21 @@ namespace TSCD_GUI.QLLoaiTaiSan
         {
             dxErrorProviderInfo.ClearErrors();
             setDataView();
+        }
+
+        private void barBtnThemLoaiTS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void barBtnSuaLoaiTS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void barBtnXoaLoaiTS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
         }
     }
 }

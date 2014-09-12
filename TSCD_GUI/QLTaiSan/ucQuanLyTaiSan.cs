@@ -182,5 +182,28 @@ namespace TSCD_GUI.QLTaiSan
             frmQuanLyTinhTrang frm = new frmQuanLyTinhTrang();
             frm.ShowDialog();
         }
+
+        private void btnThem_r_Click(object sender, EventArgs e)
+        {
+            frmAddTaiSan frm = new frmAddTaiSan();
+            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+            frm.ShowDialog();
+        }
+
+        private void btnSua_r_Click(object sender, EventArgs e)
+        {
+            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+            if (view.GetFocusedRow() != null)
+            {
+                frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
+                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnXoa_r_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

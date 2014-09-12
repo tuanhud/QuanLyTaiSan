@@ -358,6 +358,7 @@
             this.btnLoaiTS.Name = "btnLoaiTS";
             this.btnLoaiTS.Size = new System.Drawing.Size(23, 23);
             this.btnLoaiTS.TabIndex = 28;
+            this.btnLoaiTS.Click += new System.EventHandler(this.btnLoaiTS_Click);
             // 
             // btnTinhTrang
             // 
@@ -368,6 +369,7 @@
             this.btnTinhTrang.Name = "btnTinhTrang";
             this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
             this.btnTinhTrang.TabIndex = 29;
+            this.btnTinhTrang.Click += new System.EventHandler(this.btnTinhTrang_Click);
             // 
             // lblMa
             // 

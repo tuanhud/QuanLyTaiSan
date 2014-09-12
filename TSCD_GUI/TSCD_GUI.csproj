@@ -148,6 +148,12 @@
     <Compile Include="QLTaiSan\frmInputViTri_DonVi.Designer.cs">
       <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTaiSan\frmQuanLyLoaiTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmQuanLyLoaiTS.Designer.cs">
+      <DependentUpon>frmQuanLyLoaiTS.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLTaiSan\frmQuanLyTinhTrang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmInputViTri_DonVi.resx">
       <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmQuanLyLoaiTS.resx">
+      <DependentUpon>frmQuanLyLoaiTS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmQuanLyTinhTrang.resx">
       <DependentUpon>frmQuanLyTinhTrang.cs</DependentUpon>
