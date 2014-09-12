@@ -17,6 +17,19 @@ namespace PTB_WEB.Libraries
             return new Uri(uriBuilder.ToString());
         }
 
+        public static Uri AddParameter(Uri url, List<string> listParamName, List<string> listParamValue)
+        {
+            var uriBuilder = new UriBuilder(url);
+            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            for (int i = 0; i < listParamName.Count; i++)
+            {
+                query.Remove(listParamName.ElementAt(i));
+                query[listParamName.ElementAt(i)] = listParamValue.ElementAt(i);
+            }
+            uriBuilder.Query = query.ToString();
+            return new Uri(uriBuilder.ToString());
+        }
+
         public static Uri AddParameter(Uri url, string paramName, string paramValue, List<string> listRemove)
         {
             var uriBuilder = new UriBuilder(url);

@@ -21,6 +21,8 @@
                     <h3 class="title_green fix">
                         <asp:Label ID="Label_LogThietBi" runat="server" Text="Log"></asp:Label>
                     </h3>
+                    <asp:HyperLink ID="HyperLinkXemLogTheoThietBi" CssClass="pull-right" runat="server">Log theo Thiết bị</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLinkXemLogTheoPhong" CssClass="pull-right" runat="server" Visible="false">Log theo phòng</asp:HyperLink>
                     <% if (RepeaterDanhSachLogThietBi.Items.Count == 0)
                        { %>
                     <div class="panel-body">

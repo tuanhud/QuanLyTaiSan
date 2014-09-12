@@ -49,6 +49,24 @@ namespace PTB_WEB.UserControl.LogThietBi {
         protected global::System.Web.UI.WebControls.Label Label_LogThietBi;
         
         /// <summary>
+        /// HyperLinkXemLogTheoThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkXemLogTheoThietBi;
+        
+        /// <summary>
+        /// HyperLinkXemLogTheoPhong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkXemLogTheoPhong;
+        
+        /// <summary>
         /// Label_DanhSachLogThietBi control.
         /// </summary>
         /// <remarks>
