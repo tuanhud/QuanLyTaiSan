@@ -28,6 +28,7 @@ namespace PTB_WEB.UserControl.ThietBi
             if (!IsPostBack)
             {
                 _ucTreeViTri.Label_TenViTri.Text = "Thiết bị";
+                _ucCollectionPager_DanhSachThietBi.ShowPanelPage(PanelChangePage);
             }
         }
 

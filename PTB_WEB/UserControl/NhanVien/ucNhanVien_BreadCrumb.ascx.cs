@@ -10,9 +10,10 @@ namespace PTB_WEB.UserControl.NhanVien
 {
     public partial class ucNhanVien_BreadCrumb : System.Web.UI.UserControl
     {
+        public bool isMobile = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            isMobile = SHARED.Libraries.MobileDetect.fBrowserIsMobile();
         }
     }
 }

@@ -126,8 +126,8 @@ namespace PTB_WEB.UserControl.LogThietBi
             HyperLinkXemLogTheoThietBi.Visible = false;
             HyperLinkXemLogTheoPhong.Visible = true;
 
-            Label_LogThietBi.Text = string.Format("Log của <b>{0}</b>", objThietBi.ten);
-            HyperLinkXemLogTheoPhong.Text = string.Format("Log TB phòng <b>{0}</b>", objPhong.ten);
+            Label_LogThietBi.Text = string.Format("Log thiết bị <b>{0}</b>", objThietBi.ten);
+            HyperLinkXemLogTheoPhong.Text = string.Format("Xem Log thiết bị <b>{0}</b> phòng <b>{1}</b>", objThietBi.ten, objPhong.ten);
             listLogThietBi = objThietBi.logthietbis.ToList();
             var bind = listLogThietBi.Select(a => new
             {
@@ -149,7 +149,9 @@ namespace PTB_WEB.UserControl.LogThietBi
             HyperLinkXemLogTheoThietBi.Visible = true;
             HyperLinkXemLogTheoPhong.Visible = false;
 
-            Label_LogThietBi.Text = string.Format("Log thiết bị phòng <b>{0}</b>", objPhong.ten);
+            Label_LogThietBi.Text = string.Format("Log thiết bị <b>{0}</b> phòng <b>{1}</b>", objThietBi.ten, objPhong.ten);
+            HyperLinkXemLogTheoThietBi.Text = string.Format("Xem Log thiết bị <b>{0}</b>", objThietBi.ten);
+
             listLogThietBi = objThietBi.logthietbis.Where(c => c.phong == objPhong).ToList();
             var bind = listLogThietBi.Select(a => new
             {

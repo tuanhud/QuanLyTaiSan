@@ -13,12 +13,13 @@ namespace PTB_WEB.UserControl.NhanVien
     public partial class ucNhanVien_Web : System.Web.UI.UserControl
     {
         List<NhanVienPT> listNhanVienPT = null;
-        NhanVienPT objNhanVienPT = null;
+        public NhanVienPT objNhanVienPT = null;
         public Guid idNhanVien = Guid.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _ucCollectionPager_DanhSachNhanVien.ShowPanelPage(PanelChangePage);
+            SearchFunction();
         }
 
         public void LoadData()
@@ -27,7 +28,6 @@ namespace PTB_WEB.UserControl.NhanVien
             listNhanVienPT = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
             if (listNhanVienPT.Count > 0)
             {
-                SearchFunction();
                 Panel_Chinh.Visible = true;
                 BindData();
 
@@ -49,14 +49,23 @@ namespace PTB_WEB.UserControl.NhanVien
                         Panel_NhanVienPT.Visible = true;
                         Label_NhanVienPT.Visible = false;
                         Label_NhanVienPT.Text = "";
-                        Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
+                        Label_ThongTin.Text = String.Format("Thông tin nhân viên <b>{0}</b>", objNhanVienPT.hoten);
                         Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Web.ASPxImageSlider_Object);
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
                         _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
                         _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=NHANVIEN", HttpContext.Current.Request.Url.Authority, objNhanVienPT.id);
+                        
+                        List<QuanLyTaiSan.Entities.Phong> ListPhong = objNhanVienPT.phongs.ToList();
+                        
+                        var list = ListPhong.Select(a => new
+                        {
+                            id = a.id,
+                            ten = string.Format("{0}{1}", a.ten, !Object.Equals(getVitri(a), "") ? " " + getVitri(a) : ""),
+                            url =  string.Format("http://{0}/Phong.aspx?Search={1}", HttpContext.Current.Request.Url.Authority, a.id.ToString())
+                        }).ToList();
 
-                        _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = objNhanVienPT.phongs.ToList();
+                        _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = list;
                         _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
                         RepeaterDanhSachPhong.DataSource = _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSourcePaged;
                         RepeaterDanhSachPhong.DataBind();
@@ -79,6 +88,11 @@ namespace PTB_WEB.UserControl.NhanVien
                 ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có nhân viên";
             }
+        }
+
+        public string getVitri(QuanLyTaiSan.Entities.Phong _objPhong)
+        {
+            return Libraries.StringHelper.StringViTriPhong(_objPhong);
         }
 
         private void DeleteForm()

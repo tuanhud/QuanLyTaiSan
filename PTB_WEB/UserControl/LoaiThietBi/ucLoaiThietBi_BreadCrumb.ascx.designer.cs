@@ -20,5 +20,14 @@ namespace PTB_WEB.UserControl.LoaiThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.Label Label_TenLoaiThietBi;
+        
+        /// <summary>
+        /// TimKiem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.TimKiem TimKiem;
     }
 }

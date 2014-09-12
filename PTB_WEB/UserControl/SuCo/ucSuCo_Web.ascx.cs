@@ -20,6 +20,7 @@ namespace PTB_WEB.UserControl.SuCo
         public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
+        List<QuanLyTaiSan.Entities.Phong> listPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +28,8 @@ namespace PTB_WEB.UserControl.SuCo
             _ucTreeViTri.ASPxTreeList_ViTri.HtmlDataCellPrepared += new DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventHandler(this.ASPxTreeList_ViTri_HtmlDataCellPrepared);
             if (!IsPostBack)
             {
-                _ucTreeViTri.Label_TenViTri.Text = "Chọn phòng";
+                _ucTreeViTri.Label_TenViTri.Text = "Ch.phòng";
+                _ucCollectionPager_DanhSachSuCo.ShowPanelPage(PanelChangePage);
             }
         }
 
@@ -41,6 +43,7 @@ namespace PTB_WEB.UserControl.SuCo
                     Panel_Chinh.Visible = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                    SearchFunction();
                     if (Request.QueryString["key"] != null)
                     {
                         string key = "";
@@ -196,6 +199,64 @@ namespace PTB_WEB.UserControl.SuCo
             {
                 Response.Redirect(Request.Url.AbsolutePath);
             }
+        }
+        
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                    objSuCoPhong = QuanLyTaiSan.Entities.SuCoPhong.getById(SearchID);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                QuanLyTaiSan.Entities.Phong PhongSearch = objSuCoPhong.phong;
+                if (PhongSearch != null)
+                {
+                    Guid nodeGuid = PhongSearch.id;
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), nodeGuid.ToString())).FirstOrDefault();
+                    if (node != null)
+                    {
+                        int Page = SearchPage(nodeGuid, SearchID);
+                        if (Page != -1)
+                        {
+                            Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), SearchID.ToString(), Page.ToString()));
+                        }
+                        else
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                    Response.Redirect(Request.Url.AbsolutePath);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private int SearchPage(Guid GuidPhong, Guid GuidSuCoPhong)
+        {
+            int Page = -1;
+            objPhong = QuanLyTaiSan.Entities.Phong.getById(GuidPhong);
+            listSuCoPhong = objPhong.sucophongs.ToList();
+            int index = listSuCoPhong.IndexOf(listSuCoPhong.Where(item => Object.Equals(item.id, GuidSuCoPhong)).FirstOrDefault());
+            if (index != -1)
+            {
+                Page = index / _ucCollectionPager_DanhSachSuCo.CollectionPager_Object.PageSize + 1;
+            }
+            return Page;
         }
     }
 }

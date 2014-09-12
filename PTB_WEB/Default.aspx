@@ -4,12 +4,6 @@
 <%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 <%@ Register Src="~/UserControl/Search/ucTimKiem_Mobile.ascx" TagPrefix="uc" TagName="ucTimKiem_Mobile" %>
 <%@ Register Src="~/UserControl/Search/ucTimKiem_Web.ascx" TagPrefix="uc" TagName="ucTimKiem_Web" %>
-
-
-
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Phòng Thiết bị :.</title>
 </asp:Content>

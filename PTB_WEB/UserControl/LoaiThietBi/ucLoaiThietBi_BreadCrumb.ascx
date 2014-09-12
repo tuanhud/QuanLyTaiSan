@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucLoaiThietBi_BreadCrumb.ascx.cs" Inherits="PTB_WEB.UserControl.LoaiThietBi.ucLoaiThietBi_BreadCrumb" %>
+<%@ Register Src="~/UserControl/TimKiem.ascx" TagPrefix="uc" TagName="TimKiem" %>
 <ol class="breadcrumb">
     <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
     <li><a href="LoaiThietBis.aspx">Loại thiết bị</a></li>
@@ -8,4 +9,12 @@
         <asp:Label ID="Label_TenLoaiThietBi" runat="server"></asp:Label>
     </a></li>
     <%} %>
+    <%if (!isMobile)
+      {%>
+    <span>
+        <li class="pull-right rowfix input-group col-lg-3">
+            <uc:TimKiem runat="server" ID="TimKiem" />
+        </li>
+    </span>
+    <%}%>
 </ol>

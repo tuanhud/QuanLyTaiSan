@@ -10,9 +10,10 @@ namespace PTB_WEB.UserControl.Phong
 {
     public partial class ucPhong_BreadCrumb : System.Web.UI.UserControl
     {
+        public Boolean isMobile = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            isMobile = SHARED.Libraries.MobileDetect.fBrowserIsMobile();
         }
     }
 }

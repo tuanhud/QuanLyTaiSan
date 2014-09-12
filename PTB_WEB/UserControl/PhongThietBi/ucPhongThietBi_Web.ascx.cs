@@ -26,7 +26,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
             _ucTreeViTri.ASPxTreeList_ViTri.HtmlDataCellPrepared += new DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventHandler(this.ASPxTreeList_ViTri_HtmlDataCellPrepared);
             if (!IsPostBack)
             {
-                _ucTreeViTri.Label_TenViTri.Text = "Chọn phòng";
+                _ucTreeViTri.Label_TenViTri.Text = "Ch.phòng";
                 _ucCollectionPager_DanhSachThietBi.ShowPanelPage(PanelChangePage);
             }
         }
@@ -115,7 +115,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                                         Label_Phong.Text = objPhong.ten;
                                         Label_NgayLap.Text = objThietBi.ctthietbis != null ? objThietBi.ctthietbis.Where(item => item.phong_id == objPhong.id).FirstOrDefault().ngay.ToString() : "";
                                         Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
-                                        Button_XemLog.OnClientClick = string.Format("OnMoreInfoClick('{0}'); return false;", Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", idThietBi.ToString()));
+                                        Button_XemLog.OnClientClick = string.Format("OnMoreInfoClick('{0}'); return false;", Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), new List<string>(new string[] { "id", "idp" }), new List<string>(new string[] { idThietBi.ToString(), objPhong.id.ToString() })));
                                         Label_ThietBi.Visible = false;
                                         Label_ThietBi.Text = "";
                                     }

@@ -147,7 +147,7 @@
 }
 
 .largetable {
-    margin-top: -18px;
+    margin-top: -19px;
     border-top: white solid 2px;
     border-color: #bce8f1 !important;
     border-top-color: white !important;
@@ -243,6 +243,9 @@
 }
 #TbSearch {
     background: url("/Images/timkiem.png") no-repeat scroll right center white;
+    min-height: 36px;
+    min-width: 285px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 #myTab {
@@ -276,4 +279,8 @@
 }
 .rowmobile #TbSearch {
     background: white !important;
+}
+.rowfix {
+    margin-right: -15px !important;
+    margin-top: -8px !important;
 }
