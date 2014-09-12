@@ -77,17 +77,19 @@
             this.barBtnSuaTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnIn = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnChuyen = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupIn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupDonVi = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainerDonVi = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.ucTreeDonVi1 = new TSCD_GUI.MyUserControl.ucTreeDonVi();
             this.treeListDonVi = new DevExpress.XtraTreeList.TreeList();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
-            this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnChuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnGroupLog = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnLog = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTSKemTheo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).BeginInit();
@@ -577,9 +579,10 @@
             this.barBtnSuaTaiSan,
             this.barBtnXoaTaiSan,
             this.barBtnIn,
-            this.barBtnChuyen});
+            this.barBtnChuyen,
+            this.barBtnLog});
             this.rbnControlDonVi_TaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlDonVi_TaiSan.MaxItemId = 6;
+            this.rbnControlDonVi_TaiSan.MaxItemId = 7;
             this.rbnControlDonVi_TaiSan.Name = "rbnControlDonVi_TaiSan";
             this.rbnControlDonVi_TaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageDonVi_TaiSan});
@@ -615,12 +618,20 @@
             this.barBtnIn.Name = "barBtnIn";
             this.barBtnIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIn_ItemClick);
             // 
+            // barBtnChuyen
+            // 
+            this.barBtnChuyen.Caption = "Chuyển";
+            this.barBtnChuyen.Id = 5;
+            this.barBtnChuyen.Name = "barBtnChuyen";
+            this.barBtnChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyen_ItemClick);
+            // 
             // rbnPageDonVi_TaiSan
             // 
             this.rbnPageDonVi_TaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupTaiSan,
             this.rbnGroupIn,
-            this.rbnGroupChuyen});
+            this.rbnGroupChuyen,
+            this.rbnGroupLog});
             this.rbnPageDonVi_TaiSan.Name = "rbnPageDonVi_TaiSan";
             this.rbnPageDonVi_TaiSan.Text = "Đơn vị - Tài sản";
             // 
@@ -639,6 +650,13 @@
             this.rbnGroupIn.Name = "rbnGroupIn";
             this.rbnGroupIn.ShowCaptionButton = false;
             this.rbnGroupIn.Text = "In";
+            // 
+            // rbnGroupChuyen
+            // 
+            this.rbnGroupChuyen.ItemLinks.Add(this.barBtnChuyen);
+            this.rbnGroupChuyen.Name = "rbnGroupChuyen";
+            this.rbnGroupChuyen.ShowCaptionButton = false;
+            this.rbnGroupChuyen.Text = "Chuyển";
             // 
             // navBarControlLeft
             // 
@@ -701,19 +719,19 @@
             this.groupControlMain.TabIndex = 5;
             this.groupControlMain.Text = "Tài sản";
             // 
-            // rbnGroupChuyen
+            // rbnGroupLog
             // 
-            this.rbnGroupChuyen.ItemLinks.Add(this.barBtnChuyen);
-            this.rbnGroupChuyen.Name = "rbnGroupChuyen";
-            this.rbnGroupChuyen.ShowCaptionButton = false;
-            this.rbnGroupChuyen.Text = "Chuyển";
+            this.rbnGroupLog.ItemLinks.Add(this.barBtnLog);
+            this.rbnGroupLog.Name = "rbnGroupLog";
+            this.rbnGroupLog.ShowCaptionButton = false;
+            this.rbnGroupLog.Text = "Log";
             // 
-            // barBtnChuyen
+            // barBtnLog
             // 
-            this.barBtnChuyen.Caption = "Chuyển";
-            this.barBtnChuyen.Id = 5;
-            this.barBtnChuyen.Name = "barBtnChuyen";
-            this.barBtnChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyen_ItemClick);
+            this.barBtnLog.Caption = "Log";
+            this.barBtnLog.Id = 6;
+            this.barBtnLog.Name = "barBtnLog";
+            this.barBtnLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLog_ItemClick);
             // 
             // ucQuanLyDonVi_TaiSan
             // 
@@ -800,5 +818,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid2;
         private DevExpress.XtraBars.BarButtonItem barBtnChuyen;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupChuyen;
+        private DevExpress.XtraBars.BarButtonItem barBtnLog;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLog;
     }
 }

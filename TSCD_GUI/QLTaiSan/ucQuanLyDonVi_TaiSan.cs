@@ -145,5 +145,15 @@ namespace TSCD_GUI.QLTaiSan
                 frm.ShowDialog();
             }
         }
+
+        private void barBtnLog_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+            if (view.GetFocusedRow() != null)
+            {
+                frmLogTaiSan frm = new frmLogTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
+                frm.ShowDialog();
+            }
+        }
     }
 }
