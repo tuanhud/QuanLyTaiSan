@@ -69,21 +69,21 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<Group> groups { get; set; }
         #endregion
         #region Nghiep vu
-        /*
-         * Manual method
-         */
-        public Boolean isInGroup(Group obj)
+        public static bool canEdit<T>(T obj) where T: _EntityAbstract1<T>
         {
-            if(obj==null || obj.permissions==null)
-            {
-                return false;
-            }
-            return obj.permissions.Where(c => c.key.ToUpper().Equals(this.key.ToUpper())).Count() > 0;
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canEdit<T>(obj);
         }
-
-        public List<T> getObjList<T>()
+        public static bool canView<T>(T obj) where T : _EntityAbstract1<T>
         {
-            return null;
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canView<T>(obj);
+        }
+        public static bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canDelete<T>(obj);
+        }
+        public static bool canAdd<T>() where T : _EntityAbstract1<T>
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canAdd<T>();
         }
         #endregion
 
@@ -204,98 +204,70 @@ namespace QuanLyTaiSan.Entities
                 tmp += "trên ";
                 
                 //Cơ sở
-                if (key.ToUpper().Equals("COSO"))
+                if (key.ToUpper().Equals(CoSo.USNAME))
                 {
                     if (cosos.Count == 0)
                     {
-                        tmp += "tất cả Cơ sở ";
+                        tmp += "tất cả " + CoSo.VNNAME + " ";
                     }
                     else
                     {
-                        tmp += "Cơ sở {";
+                        tmp += CoSo.VNNAME+ " {";
                         tmp +=String.Join(", ", cosos.Select(c => c.niceName()));//c.ten+" [ID="+c.id+"]"));
                         tmp += "} ";
                     }
                     goto done;
                 }
                 //Dãy
-                if (key.ToUpper().Equals("DAY"))
+                if (key.ToUpper().Equals(Dayy.USNAME))
                 {
                     if (days.Count == 0)
                     {
-                        tmp += "tất cả Dãy ";
+                        tmp += "tất cả " + Dayy.VNNAME +" ";
                     }
                     else
                     {
-                        tmp += "Dãy {";
-                        tmp += String.Join(", ", days.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += Dayy.VNNAME + " {";
+                        tmp += String.Join(", ", days.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
                 }
                 //Tầng
-                if (key.ToUpper().Equals("TANG"))
+                if (key.ToUpper().Equals(Tang.USNAME))
                 {
                     if (tangs.Count == 0)
                     {
-                        tmp += "tất cả Tầng ";
+                        tmp += "tất cả "+Tang.VNNAME+" ";
                     }
                     else
                     {
-                        tmp += "Tầng {";
-                        tmp += String.Join(", ", tangs.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += Tang.VNNAME+" {";
+                        tmp += String.Join(", ", tangs.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
                 }
                 //Phòng
-                if (key.ToUpper().Equals("PHONG"))
+                if (key.ToUpper().Equals(Phong.USNAME))
                 {
                     if (phongs.Count == 0)
                     {
-                        tmp += "tất cả Phòng ";
+                        tmp += "tất cả "+Phong.VNNAME+" ";
                     }
                     else
                     {
-                        tmp += "Phòng {";
-                        tmp += String.Join(", ", phongs.Select(c => c.ten + "[ID=" + c.id + "]"));
+                        tmp += Phong.VNNAME+" {";
+                        tmp += String.Join(", ", phongs.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
                 }
-                //
-                if (key.ToUpper().Equals("THIETBI"))
-                {
-                    tmp += "tất cả Thiết bị ";
-                }
-                //
-                if (key.ToUpper().Equals("QUANTRIVIEN"))
-                {
-                    tmp += "tất cả Quản trị viên ";
-                }
-                //
-                if (key.ToUpper().Equals("NHANVIENPT"))
-                {
-                    tmp += "tất cả Nhân viên phụ trách ";
-                }
-                //
-                if (key.ToUpper().Equals("LOAITHIETBI"))
-                {
-                    tmp += "tất cả Loại thiết bị ";
-                }
-                //
-                if (key.ToUpper().Equals("SUCOPHONG"))
-                {
-                    tmp += "tất cả Sự cố phòng ";
-                }
-                //
-                if (key.ToUpper().Equals("GROUP"))
-                {
-                    tmp += "tất cả Group ";
-                }
-                //finish
+                tmp += " "+key+" ";
+                return tmp;
+                //finish for CoSo, Dayy, Tang, Phong
                 done:
-                    tmp += recursive_to_child && !stand_alone ? "(và tất cả các đối tượng con cháu)" : "";
+                    tmp += recursive_to_child && !stand_alone ? " (và tất cả các đối tượng con cháu)" : "";
                     return tmp;
             }
         }

@@ -32,7 +32,7 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
-        private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String permission = "view")
+        private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String action = "view")
         {
             Boolean re = false;
             if (__obj == null)
@@ -55,30 +55,30 @@ namespace QuanLyTaiSan.Entities
                     c =>
                         c.allow_or_deny == true
                         &&
-                        !require_baoham || (require_baoham && c.recursive_to_child)
+                        (!require_baoham || (require_baoham && c.recursive_to_child))
                         &&
                         c.key.ToUpper().Equals(CoSo.USNAME)
                         &&
                         (
-                            permission.Equals("edit") && c.can_edit == true
-                            || permission.Equals("view") && c.can_view == true
-                            || permission.Equals("add") && c.can_add == true
-                            || permission.Equals("delete") && c.can_delete == true
+                            action.Equals("edit") && c.can_edit == true
+                            || action.Equals("view") && c.can_view == true
+                            || action.Equals("add") && c.can_add == true
+                            || action.Equals("delete") && c.can_delete == true
                         )
                         &&
-                            (
-                                c.cosos.Count == 0
-                                ||
-                                c.cosos.Select(t => t.id).Contains(obj.id)
-                            )
-                        ).Count() > 0;
+                        (
+                            c.cosos.Count == 0
+                            ||
+                            c.cosos.Select(t => t.id).Contains(obj.id)
+                        )
+                    ).Count() > 0;
             }
             else if (__obj is Dayy)
             {
                 var obj = __obj as Dayy;
 
                 //Quyền edit CS chứa dãy này
-                re = requestPermission<CoSo>((__obj as Dayy).coso,require_baoham, permission);
+                re = requestPermission<CoSo>((__obj as Dayy).coso, true, action);
                 if (re)
                 {
                     goto done;
@@ -88,13 +88,13 @@ namespace QuanLyTaiSan.Entities
                     c =>
                         c.key.ToUpper().Equals(Dayy.USNAME)
                         &&
-                        !require_baoham || (require_baoham && c.recursive_to_child)
+                        (!require_baoham || (require_baoham && c.recursive_to_child))
                         &&
                         (
-                            permission.Equals("edit") && c.can_edit == true
-                            || permission.Equals("view") && c.can_view == true
-                            || permission.Equals("add") && c.can_add == true
-                            || permission.Equals("delete") && c.can_delete == true
+                            action.Equals("edit") && c.can_edit == true
+                            || action.Equals("view") && c.can_view == true
+                            || action.Equals("add") && c.can_add == true
+                            || action.Equals("delete") && c.can_delete == true
                         )
                         &&
                             (
@@ -110,13 +110,13 @@ namespace QuanLyTaiSan.Entities
                 //Quyền ROOT
 
                 //Quyền edit CS chứa dãy chứa tầng này
-                re = requestPermission<CoSo>((__obj as Tang).day.coso, require_baoham, permission);
+                re = requestPermission<CoSo>((__obj as Tang).day.coso, true, action);
                 if (re)
                 {
                     goto done;
                 }
                 //Quyền edit dãy chưa tầng này
-                re = requestPermission<Dayy>((__obj as Tang).day, require_baoham, permission);
+                re = requestPermission<Dayy>((__obj as Tang).day, true, action);
                 if (re)
                 {
                     goto done;
@@ -126,13 +126,13 @@ namespace QuanLyTaiSan.Entities
                     c =>
                         c.key.ToUpper().Equals(Tang.USNAME)
                         &&
-                        !require_baoham || (require_baoham && c.recursive_to_child)
+                        (!require_baoham || (require_baoham && c.recursive_to_child))
                         &&
                         (
-                            permission.Equals("edit") && c.can_edit == true
-                            || permission.Equals("view") && c.can_view == true
-                            || permission.Equals("add") && c.can_add == true
-                            || permission.Equals("delete") && c.can_delete == true
+                            action.Equals("edit") && c.can_edit == true
+                            || action.Equals("view") && c.can_view == true
+                            || action.Equals("add") && c.can_add == true
+                            || action.Equals("delete") && c.can_delete == true
                         )
                         &&
                             (
@@ -148,21 +148,21 @@ namespace QuanLyTaiSan.Entities
                 //Quyền ROOT
 
                 //Quyền edit CS chứa phòng này
-                re = requestPermission<CoSo>((__obj as Phong).vitri.coso, require_baoham, permission);
+                re = requestPermission<CoSo>((__obj as Phong).vitri.coso, true, action);
                 if (re)
                 {
                     goto done;
                 }
                 //Quyền edit dãy chứa phòng này
 
-                re = requestPermission<Dayy>((__obj as Phong).vitri.day, require_baoham, permission);
+                re = requestPermission<Dayy>((__obj as Phong).vitri.day, true, action);
                 if (re)
                 {
                     goto done;
                 }
 
                 //Quyền edit tầng chứa phòng này
-                re = requestPermission<Tang>((__obj as Phong).vitri.tang, require_baoham, permission);
+                re = requestPermission<Tang>((__obj as Phong).vitri.tang, true, action);
                 if (re)
                 {
                     goto done;
@@ -173,13 +173,13 @@ namespace QuanLyTaiSan.Entities
                     c =>
                         c.key.ToUpper().Equals(Phong.USNAME)
                         &&
-                        !require_baoham || (require_baoham && c.recursive_to_child)
+                        (!require_baoham || (require_baoham && c.recursive_to_child))
                         &&
                         (
-                            permission.Equals("edit") && c.can_edit == true
-                            || permission.Equals("view") && c.can_view == true
-                            || permission.Equals("add") && c.can_add == true
-                            || permission.Equals("delete") && c.can_delete == true
+                            action.Equals("edit") && c.can_edit == true
+                            || action.Equals("view") && c.can_view == true
+                            || action.Equals("add") && c.can_add == true
+                            || action.Equals("delete") && c.can_delete == true
                         )
                         &&
                             (
@@ -189,6 +189,8 @@ namespace QuanLyTaiSan.Entities
                             )
                         ).Count() > 0;
             }
+        //quocdunginfo, xu ly cac class khác: ThietBi,...
+        //...
         //final 
         done:
             return re;
@@ -262,7 +264,14 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public bool canDo(string stand_alone_permission)
         {
-            return true;
+            return permissions.Where(
+                c=>
+                    c.key.ToUpper().Equals(stand_alone_permission.ToUpper())
+                    &&
+                    c.allow_or_deny == true
+                    &&
+                    c.stand_alone == true
+                ).Count() > 0;
         }
         
         #endregion
