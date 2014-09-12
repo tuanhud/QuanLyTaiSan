@@ -31,14 +31,14 @@
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.myColumnStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.myGroupStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.myRowStyle = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -62,53 +62,6 @@
             this.xrLabel1});
             this.TopMargin.Name = "TopMargin";
             // 
-            // BottomMargin
-            // 
-            this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel4,
-            this.xrLabel3});
-            this.BottomMargin.Name = "BottomMargin";
-            // 
-            // myColumnStyle
-            // 
-            this.myColumnStyle.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.myColumnStyle.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.myColumnStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myColumnStyle.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myColumnStyle.Name = "myColumnStyle";
-            this.myColumnStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // myGroupStyle
-            // 
-            this.myGroupStyle.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.myGroupStyle.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.myGroupStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myGroupStyle.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myGroupStyle.Name = "myGroupStyle";
-            this.myGroupStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // myRowStyle
-            // 
-            this.myRowStyle.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.myRowStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myRowStyle.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myRowStyle.Name = "myRowStyle";
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 27.70834F);
-            this.xrLabel1.Multiline = true;
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(261.4583F, 40.70833F);
-            this.xrLabel1.Text = "ỦY BAN NHÂN DÂN THÀNH PHỐ HCM\r\nTRƯỜNG ĐẠI HỌC SÁI GÒN";
-            // 
             // xrLabel2
             // 
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(210.4167F, 68.41667F);
@@ -117,6 +70,31 @@
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(261.4583F, 30.70834F);
             this.xrLabel2.Text = "BÁO CÁO QUẢN LÍ TÀI SẢN";
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 27.70834F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(261.4583F, 40.70833F);
+            this.xrLabel1.Text = "ỦY BAN NHÂN DÂN THÀNH PHỐ HCM\r\nTRƯỜNG ĐẠI HỌC SÁI GÒN";
+            // 
+            // BottomMargin
+            // 
+            this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel4,
+            this.xrLabel3});
+            this.BottomMargin.Name = "BottomMargin";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(486.4584F, 30.29165F);
+            this.xrLabel4.Multiline = true;
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(163.5417F, 40.70833F);
+            this.xrLabel4.Text = "Người lập\r\n(Kí, ghi rõ họ tên)\r\n";
             // 
             // xrLabel3
             // 
@@ -127,14 +105,45 @@
             this.xrLabel3.SizeF = new System.Drawing.SizeF(163.5417F, 30.29166F);
             this.xrLabel3.Text = "Ngày    tháng    năm";
             // 
-            // xrLabel4
+            // myColumnStyle
             // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(486.4584F, 30.29165F);
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(163.5417F, 40.70833F);
-            this.xrLabel4.Text = "Người lập\r\n(Kí, ghi rõ họ tên)\r\n";
+            this.myColumnStyle.BackColor = System.Drawing.Color.SkyBlue;
+            this.myColumnStyle.BorderColor = System.Drawing.Color.SkyBlue;
+            this.myColumnStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.myColumnStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.myColumnStyle.BorderWidth = 0.5F;
+            this.myColumnStyle.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myColumnStyle.ForeColor = System.Drawing.Color.White;
+            this.myColumnStyle.Name = "myColumnStyle";
+            this.myColumnStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // myGroupStyle
+            // 
+            this.myGroupStyle.BackColor = System.Drawing.Color.Black;
+            this.myGroupStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.myGroupStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.myGroupStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.myGroupStyle.BorderWidth = 0.5F;
+            this.myGroupStyle.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myGroupStyle.ForeColor = System.Drawing.Color.White;
+            this.myGroupStyle.Name = "myGroupStyle";
+            this.myGroupStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // myRowStyle
+            // 
+            this.myRowStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.myRowStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.myRowStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.myRowStyle.BorderWidth = 0.5F;
+            this.myRowStyle.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myRowStyle.Name = "myRowStyle";
+            this.myRowStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // XtraReport_Template
             // 

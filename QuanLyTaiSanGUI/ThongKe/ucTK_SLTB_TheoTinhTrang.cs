@@ -91,19 +91,39 @@ namespace QuanLyTaiSanGUI.ThongKe
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             //View
-            XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, true);
-            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
-            printTool.ShowPreviewDialog();
+            if (comboBoxEdit1.SelectedIndex == 0)
+            {
+                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, true);
+                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
+                printTool.ShowPreviewDialog();
+            }
+            else
+            {
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
+                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_XtraGrid);
+                printTool.ShowPreviewDialog();
+            }
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             //design
-            XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, true);
-            ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
-            designTool.ShowDesignerDialog();
-            ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
-            printTool.ShowPreviewDialog();
+            if (comboBoxEdit1.SelectedIndex == 0)
+            {
+                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, true);
+                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
+                designTool.ShowDesignerDialog();
+                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                printTool.ShowPreviewDialog();
+            }
+            else
+            {
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
+                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_XtraGrid);
+                designTool.ShowDesignerDialog();
+                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                printTool.ShowPreviewDialog();
+            }
         }
 
         private DataSet FillDatasetFromGrid()

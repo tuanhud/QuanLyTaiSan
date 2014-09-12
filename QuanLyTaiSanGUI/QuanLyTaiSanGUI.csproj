@@ -174,6 +174,12 @@
     <Compile Include="ThongKe\XtraReport_Template.Designer.cs">
       <DependentUpon>XtraReport_Template.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKe\XtraReport_XtraGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKe\XtraReport_XtraGrid.Designer.cs">
+      <DependentUpon>XtraReport_XtraGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="_ourUcInterface.cs" />
     <Compile Include="MyForm\frmCustom.cs">
       <SubType>Form</SubType>
@@ -599,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\XtraReport_Template.resx">
       <DependentUpon>XtraReport_Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\XtraReport_XtraGrid.resx">
+      <DependentUpon>XtraReport_XtraGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
