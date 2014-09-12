@@ -64,6 +64,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // Load dữ liệu
         public void loadData()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             //load layout
             layout.load(gridViewPhong);
 
@@ -92,6 +94,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             NhanVienPTNULL.id = Guid.Empty;
             listNhanVienPT.Insert(0, NhanVienPTNULL);
             searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         //Mở tắt bar
@@ -154,6 +157,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // Reload dữ liệu
         public void reLoad()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 _ucComboBoxViTri = new ucComboBoxViTri(false, false);
@@ -170,6 +175,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 System.Console.WriteLine(this.Name + ": " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         //Khi thêm mới cơ sở -> phòng thì load treelist bên trái + reload dữ liệu ucQuanLyPhong
@@ -190,6 +196,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //FocusedRowChanged in TreePhong
         public void FocusedRowChangedTreePhong()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 _ViTriHienTai = _ucTreeViTri.getVitri();
@@ -217,6 +225,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 System.Console.WriteLine(this.Name + " : FocusedRowChangedTreePhong : " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void setData()

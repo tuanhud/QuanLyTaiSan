@@ -87,6 +87,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         public void loadData(bool _loaichung)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 layout.load(gridViewThietBi);
@@ -106,10 +108,13 @@ namespace QuanLyTaiSanGUI.QLThietBi
             {
                 Debug.WriteLine(this.Name + "=>loadData: " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         public void loadData(int _state, bool loadLeft=false)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 layout.load(gridViewThietBi);
@@ -133,6 +138,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             {
                 Debug.WriteLine(this.Name + "=>loadData: " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void editGUIforView()
