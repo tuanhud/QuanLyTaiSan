@@ -24,6 +24,12 @@ namespace TSCD_GUI.QLTaiSan
         bool isChild = false;
         public delegate void ReloadAndFocused(Guid id);
         public ReloadAndFocused reloadAndFocused = null;
+        public delegate void ReLoadAndSetValueTinhTrang(List<TinhTrang> list);
+        public ReLoadAndSetValueTinhTrang reLoadAndSetValueTinhTrang = null;
+        public delegate void ReLoadAndSetValueLoaiTS(List<LoaiTaiSan> list);
+        public ReLoadAndSetValueLoaiTS reLoadAndSetValueLoaiTS = null;
+        LoaiTaiSan objLoaiTS = null;
+        object id = null;
 
         public frmAddTaiSan(CTTaiSan _obj, bool isDonVi = false)
         {
@@ -73,31 +79,73 @@ namespace TSCD_GUI.QLTaiSan
 
         private void loadData()
         {
+            loadDataTinhTrang();
+            loadDataLoaiTS();
+        }
+
+        private void loadDataTinhTrang()
+        {
             try
             {
                 listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
                 lookUpTinhTrang.Properties.DataSource = listTinhTrang;
-                listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+                if (reLoadAndSetValueTinhTrang != null)
+                    reLoadAndSetValueTinhTrang(listTinhTrang);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
+                Debug.WriteLine(this.Name + "->loadDataTinhTrang:" + ex.Message);
+            }
+        }
+
+        private void loadDataLoaiTS()
+        {
+            try
+            {
+                listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+                if (reLoadAndSetValueLoaiTS != null)
+                    reLoadAndSetValueLoaiTS(listLoaiTaiSan);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadDataLoaiTS:" + ex.Message);
             }
         }
 
         private void loadData(List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
         {
+            loadDataTinhTrang(_listTinhTrang);
+            loadDataLoaiTS(_listLoaiTaiSan);
+        }
+
+        private void loadDataTinhTrang(List<TinhTrang> _listTinhTrang, bool reload = false)
+        {
             try
             {
                 listTinhTrang = _listTinhTrang;
                 lookUpTinhTrang.Properties.DataSource = listTinhTrang;
-                listLoaiTaiSan = _listLoaiTaiSan;
-                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+                if (reload && reLoadAndSetValueTinhTrang != null)
+                    reLoadAndSetValueTinhTrang(listTinhTrang);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(this.Name + "->loadData:" + ex.Message);
+                Debug.WriteLine(this.Name + "->loadDataTinhTrang:" + ex.Message);
+            }
+        }
+
+        private void loadDataLoaiTS(List<LoaiTaiSan> _listLoaiTaiSan, bool reload = false)
+        {
+            try
+            {
+                listLoaiTaiSan = _listLoaiTaiSan;
+                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+                if (reload && reLoadAndSetValueLoaiTS != null)
+                    reLoadAndSetValueLoaiTS(listLoaiTaiSan);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadDataLoaiTS:" + ex.Message);
             }
         }
 
@@ -300,8 +348,12 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            id = lookUpTinhTrang.EditValue;
+            objLoaiTS = ucComboBoxLoaiTS1.LoaiTS;
             frmAddTaiSan frm = new frmAddTaiSan(listCTTaiSan, listTinhTrang, listLoaiTaiSan);
             frm.reloadAndFocused = new ReloadAndFocused(reload);
+            frm.reLoadAndSetValueLoaiTS = new ReLoadAndSetValueLoaiTS(reloadLoaiTS);
+            frm.reLoadAndSetValueTinhTrang = new ReLoadAndSetValueTinhTrang(reloadTinhTrang);
             frm.Text = "Thêm tài sản kèm theo";
             frm.ShowDialog();
         }
@@ -346,6 +398,32 @@ namespace TSCD_GUI.QLTaiSan
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLoaiTS_Click(object sender, EventArgs e)
+        {
+            frmQuanLyLoaiTS frm = new frmQuanLyLoaiTS();
+            frm.ShowDialog();
+            loadDataLoaiTS();
+        }
+
+        private void btnTinhTrang_Click(object sender, EventArgs e)
+        {
+            frmQuanLyTinhTrang frm = new frmQuanLyTinhTrang();
+            frm.ShowDialog();
+            loadDataTinhTrang();
+        }
+
+        private void reloadTinhTrang(List<TinhTrang> list)
+        {
+            loadDataTinhTrang(list, true);
+            lookUpTinhTrang.EditValue = id;
+        }
+
+        private void reloadLoaiTS(List<LoaiTaiSan> list)
+        {
+            loadDataLoaiTS(list, true);
+            ucComboBoxLoaiTS1.LoaiTS = objLoaiTS;
         }
 
     }

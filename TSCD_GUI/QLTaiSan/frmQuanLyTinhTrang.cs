@@ -157,7 +157,7 @@ namespace TSCD_GUI.QLTaiSan
         {
             try
             {
-                if (objTinhTrang.cttaisans != null || objTinhTrang.cttaisans.Count > 0)
+                if (objTinhTrang.cttaisans != null && objTinhTrang.cttaisans.Count > 0)
                 {
                     XtraMessageBox.Show("Không thể xóa tình trạng này!\r\nNguyên do: Có các tài sản thuộc tình trạng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

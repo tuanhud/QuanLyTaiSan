@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlTinhTrang = new DevExpress.XtraGrid.GridControl();
             this.gridViewTinhTrang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
@@ -43,8 +45,7 @@
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
@@ -95,6 +96,8 @@
             this.gridViewTinhTrang.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewTinhTrang.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewTinhTrang.OptionsView.ShowGroupPanel = false;
+            this.gridViewTinhTrang.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewTinhTrang_FocusedRowChanged);
+            this.gridViewTinhTrang.DataSourceChanged += new System.EventHandler(this.gridViewTinhTrang_DataSourceChanged);
             // 
             // colid
             // 
@@ -130,6 +133,16 @@
             this.groupControlInfo.Size = new System.Drawing.Size(332, 381);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(242, 346);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 16;
+            this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnXoa_r
             // 
@@ -224,16 +237,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(242, 346);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 16;
-            this.btnClose.Text = "Đóng";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmQuanLyTinhTrang
             // 

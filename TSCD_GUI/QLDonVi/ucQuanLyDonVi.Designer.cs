@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rbnControlDonVi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemDonVi = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaDonVi = new DevExpress.XtraBars.BarButtonItem();
@@ -62,7 +63,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -101,6 +102,7 @@
             this.barBtnThemDonVi.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
             this.barBtnThemDonVi.Id = 1;
             this.barBtnThemDonVi.Name = "barBtnThemDonVi";
+            this.barBtnThemDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemDonVi_ItemClick);
             // 
             // barBtnSuaDonVi
             // 
@@ -108,6 +110,7 @@
             this.barBtnSuaDonVi.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
             this.barBtnSuaDonVi.Id = 2;
             this.barBtnSuaDonVi.Name = "barBtnSuaDonVi";
+            this.barBtnSuaDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaDonVi_ItemClick);
             // 
             // barBtnXoaDonVi
             // 
@@ -115,12 +118,14 @@
             this.barBtnXoaDonVi.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
             this.barBtnXoaDonVi.Id = 3;
             this.barBtnXoaDonVi.Name = "barBtnXoaDonVi";
+            this.barBtnXoaDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaDonVi_ItemClick);
             // 
             // barBtnLoaiDonVi
             // 
             this.barBtnLoaiDonVi.Caption = "Loại đơn vị";
             this.barBtnLoaiDonVi.Id = 4;
             this.barBtnLoaiDonVi.Name = "barBtnLoaiDonVi";
+            this.barBtnLoaiDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLoaiDonVi_ItemClick);
             // 
             // rbnPageDonVi
             // 

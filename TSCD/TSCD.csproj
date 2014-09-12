@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataFilter\LoaiTSHienThi.cs" />
     <Compile Include="DataFilter\_FilterAbstract.cs" />
     <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\SearchFilter\CTTaiSanSF.cs" />

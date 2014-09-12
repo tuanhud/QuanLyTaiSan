@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -63,7 +64,8 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.colobj = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -102,6 +104,7 @@
             this.barBtnThemLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
             this.barBtnThemLoaiTS.Id = 1;
             this.barBtnThemLoaiTS.Name = "barBtnThemLoaiTS";
+            this.barBtnThemLoaiTS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemLoaiTS_ItemClick);
             // 
             // barBtnSuaLoaiTS
             // 
@@ -109,6 +112,7 @@
             this.barBtnSuaLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
             this.barBtnSuaLoaiTS.Id = 2;
             this.barBtnSuaLoaiTS.Name = "barBtnSuaLoaiTS";
+            this.barBtnSuaLoaiTS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaLoaiTS_ItemClick);
             // 
             // barBtnXoaLoaiTS
             // 
@@ -116,12 +120,14 @@
             this.barBtnXoaLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
             this.barBtnXoaLoaiTS.Id = 3;
             this.barBtnXoaLoaiTS.Name = "barBtnXoaLoaiTS";
+            this.barBtnXoaLoaiTS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaLoaiTS_ItemClick);
             // 
             // barBtnDonViTinh
             // 
             this.barBtnDonViTinh.Caption = "Đơn vị tính";
             this.barBtnDonViTinh.Id = 4;
             this.barBtnDonViTinh.Name = "barBtnDonViTinh";
+            this.barBtnDonViTinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDonViTinh_ItemClick);
             // 
             // rbnPageLoaiTS
             // 
@@ -168,7 +174,8 @@
             this.colid,
             this.colten,
             this.coldonvitinh,
-            this.colhuuhinh});
+            this.colhuuhinh,
+            this.colobj});
             this.treeListLoaiTS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListLoaiTS.KeyFieldName = "id";
             this.treeListLoaiTS.Location = new System.Drawing.Point(0, 0);
@@ -200,7 +207,7 @@
             // coldonvitinh
             // 
             this.coldonvitinh.Caption = "donvitinh";
-            this.coldonvitinh.FieldName = "donvitinh.ten";
+            this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.coldonvitinh.Visible = true;
@@ -439,6 +446,12 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // colobj
+            // 
+            this.colobj.Caption = "obj";
+            this.colobj.FieldName = "obj";
+            this.colobj.Name = "colobj";
+            // 
             // ucQuanLyLoaiTS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,5 +518,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colhuuhinh;
         private DevExpress.XtraGrid.Columns.GridColumn colid_g;
         private DevExpress.XtraGrid.Columns.GridColumn colten_g;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colobj;
     }
 }

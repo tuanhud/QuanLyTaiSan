@@ -335,5 +335,27 @@ namespace TSCD_GUI.QLPhong
             frm.ShowDialog();
             loadLoaiPhong();
         }
+
+        private void btnLoaiPhong_Click(object sender, EventArgs e)
+        {
+            frmQuanLyLoaiPhong frm = new frmQuanLyLoaiPhong();
+            frm.ShowDialog();
+            loadLoaiPhong();
+        }
+
+        private void barBtnThemPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void barBtnSuaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void barBtnXoaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
     }
 }

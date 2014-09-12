@@ -357,5 +357,27 @@ namespace TSCD_GUI.QLDonVi
             frm.ShowDialog();
             loadLoaiDonVi();
         }
+
+        private void barBtnThemDonVi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("add");
+        }
+
+        private void barBtnSuaDonVi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            editGUI("edit");
+        }
+
+        private void barBtnXoaDonVi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteObj();
+        }
+
+        private void barBtnLoaiDonVi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuanLyLoaiDV frm = new frmQuanLyLoaiDV();
+            frm.ShowDialog();
+            loadLoaiDonVi();
+        }
     }
 }

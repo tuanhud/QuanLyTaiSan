@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rbnControlViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -48,6 +49,7 @@
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
@@ -57,18 +59,17 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
-            this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlViTri)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnControlViTri
@@ -278,6 +279,16 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // panelControlViTri
+            // 
+            this.panelControlViTri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControlViTri.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlViTri.Location = new System.Drawing.Point(43, 54);
+            this.panelControlViTri.Name = "panelControlViTri";
+            this.panelControlViTri.Size = new System.Drawing.Size(297, 20);
+            this.panelControlViTri.TabIndex = 11;
+            // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(168, 169);
@@ -331,6 +342,7 @@
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 2;
+            this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
             // 
@@ -341,6 +353,7 @@
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 1;
+            this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
             // 
@@ -351,6 +364,7 @@
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 0;
+            this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtMoTa
             // 
@@ -367,16 +381,6 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
-            // panelControlViTri
-            // 
-            this.panelControlViTri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControlViTri.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlViTri.Location = new System.Drawing.Point(43, 54);
-            this.panelControlViTri.Name = "panelControlViTri";
-            this.panelControlViTri.Size = new System.Drawing.Size(297, 20);
-            this.panelControlViTri.TabIndex = 11;
-            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,10 +396,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControlViTri)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlViTri)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

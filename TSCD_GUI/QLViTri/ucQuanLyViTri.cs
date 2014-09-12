@@ -676,5 +676,23 @@ namespace TSCD_GUI.QLViTri
         {
             deleteObj(typeof(Tang).Name);
         }
+
+        private void btnThem_r_Click(object sender, EventArgs e)
+        {
+            if (function.Equals("nothing"))
+                editGUI("add", typeof(CoSo).Name);
+            else
+                editGUI("add", node);
+        }
+
+        private void btnSua_r_Click(object sender, EventArgs e)
+        {
+            editGUI("edit", node);
+        }
+
+        private void btnXoa_r_Click(object sender, EventArgs e)
+        {
+            deleteObj(node);
+        }
     }
 }

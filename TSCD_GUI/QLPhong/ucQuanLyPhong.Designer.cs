@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rbnControlPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -64,7 +65,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -104,6 +105,7 @@
             this.barBtnThemPhong.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
             this.barBtnThemPhong.Id = 1;
             this.barBtnThemPhong.Name = "barBtnThemPhong";
+            this.barBtnThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemPhong_ItemClick);
             // 
             // barBtnSuaPhong
             // 
@@ -111,6 +113,7 @@
             this.barBtnSuaPhong.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
             this.barBtnSuaPhong.Id = 2;
             this.barBtnSuaPhong.Name = "barBtnSuaPhong";
+            this.barBtnSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaPhong_ItemClick);
             // 
             // barBtnXoaPhong
             // 
@@ -118,6 +121,7 @@
             this.barBtnXoaPhong.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
             this.barBtnXoaPhong.Id = 3;
             this.barBtnXoaPhong.Name = "barBtnXoaPhong";
+            this.barBtnXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaPhong_ItemClick);
             // 
             // barBtnLoaiPhong
             // 
@@ -315,6 +319,7 @@
             this.btnLoaiPhong.Name = "btnLoaiPhong";
             this.btnLoaiPhong.Size = new System.Drawing.Size(23, 23);
             this.btnLoaiPhong.TabIndex = 14;
+            this.btnLoaiPhong.Click += new System.EventHandler(this.btnLoaiPhong_Click);
             // 
             // btnHuy
             // 

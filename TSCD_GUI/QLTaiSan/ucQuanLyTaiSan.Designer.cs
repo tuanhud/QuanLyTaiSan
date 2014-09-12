@@ -672,6 +672,7 @@
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 7;
+            this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
             // 
@@ -682,6 +683,7 @@
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 6;
+            this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
             // 
@@ -692,6 +694,7 @@
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 5;
+            this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // panelControlTimKiem
             // 
