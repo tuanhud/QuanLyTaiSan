@@ -114,6 +114,7 @@
     <Content Include="Images\bg-wall.png" />
     <Content Include="Images\CollapseAllIcon.png" />
     <Content Include="Images\ExpandAllIcon.png" />
+    <Content Include="Images\load.gif" />
     <Content Include="Images\metro\back.png" />
     <Content Include="Images\metro\bullet.png" />
     <Content Include="Images\metro\cancel.png" />

@@ -39,6 +39,8 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl_condition = new DevExpress.XtraEditors.GroupControl();
             this.panelLoaiTB = new DevExpress.XtraEditors.PanelControl();
@@ -59,8 +61,7 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -77,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -190,6 +192,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.comboBoxEdit1);
             this.groupControl1.Controls.Add(this.simpleButton2);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.btnPrint);
@@ -199,6 +202,24 @@
             this.groupControl1.Size = new System.Drawing.Size(350, 76);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Tác vụ";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(150, 24);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(42, 27);
+            this.simpleButton2.TabIndex = 5;
+            this.simpleButton2.Text = "Design";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(78, 24);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(42, 27);
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "View";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnPrint
             // 
@@ -415,23 +436,19 @@
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Thống kê";
             // 
-            // simpleButton1
+            // comboBoxEdit1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(78, 24);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(42, 27);
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "View";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(150, 24);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(42, 27);
-            this.simpleButton2.TabIndex = 5;
-            this.simpleButton2.Text = "Design";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.comboBoxEdit1.EditValue = "Report v1";
+            this.comboBoxEdit1.Location = new System.Drawing.Point(215, 28);
+            this.comboBoxEdit1.MenuManager = this.ribbonThongKe;
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "Report v1",
+            "Report v2"});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxEdit1.TabIndex = 15;
             // 
             // ucTK_SLTB_TheoTinhTrang
             // 
@@ -458,6 +475,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,5 +516,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

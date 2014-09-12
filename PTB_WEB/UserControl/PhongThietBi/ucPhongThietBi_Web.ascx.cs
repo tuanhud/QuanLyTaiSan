@@ -172,7 +172,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                     tinhtrang = a.tinhtrang,
                     soluong = a.soluong,
                     url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.idTB.ToString()),
-                    urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", a.idTB.ToString())
+                    urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), new List<string>(new string[] { "id", "idp" }), new List<string>(new string[] { a.idTB.ToString(), objPhong.id.ToString() }))
                 }).OrderBy(item => item.tinhtrang).ToList();
                 _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSource = bind;
                 _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachThietBi;

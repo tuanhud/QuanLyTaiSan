@@ -66,16 +66,34 @@ namespace TSCD_GUI.QLTaiSan
                 {
                     if (isTaiSan)
                     {
-                        frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadData);
-                        frm.setData(obj, objDonVi);
-                        frm.ShowDialog();
+                        if (obj.donviquanly == null || obj.donvisudung == null)
+                        {
+                            frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadData);
+                            frm.setData(obj, objDonVi);
+                            frm.ShowDialog();
+                        }
+                        else
+                            XtraMessageBox.Show("Tài sản này có đơn vị quản lý hoặc sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        listCTTaiSan.Add(obj);
-                        if (reloadAndFocused != null)
-                            reloadAndFocused(obj.id);
-                        this.Close();
+                        if (obj.parent != null)
+                        {
+                            if (XtraMessageBox.Show("Tài sản này đã được kèm theo một tài sản khác, bạn có chắc chắn muốn tiếp tục?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            {
+                                listCTTaiSan.Add(obj);
+                                if (reloadAndFocused != null)
+                                    reloadAndFocused(obj.id);
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            listCTTaiSan.Add(obj);
+                            if (reloadAndFocused != null)
+                                reloadAndFocused(obj.id);
+                            this.Close();
+                        }
                     }
                 }
             }

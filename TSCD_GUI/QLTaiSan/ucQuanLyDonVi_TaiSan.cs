@@ -58,6 +58,8 @@ namespace TSCD_GUI.QLTaiSan
 
         public void reloadData()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 DonVi obj = ucTreeDonVi1.DonVi;
@@ -69,6 +71,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 Debug.WriteLine(this.Name + "->reloadData: " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
@@ -142,6 +145,16 @@ namespace TSCD_GUI.QLTaiSan
             {
                 frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj, true);
                 frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
+        }
+
+        private void barBtnLog_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+            if (view.GetFocusedRow() != null)
+            {
+                frmLogTaiSan frm = new frmLogTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
                 frm.ShowDialog();
             }
         }
