@@ -58,6 +58,8 @@ namespace TSCD_GUI.QLTaiSan
 
         public void reloadData()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 DonVi obj = ucTreeDonVi1.DonVi;
@@ -69,6 +71,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 Debug.WriteLine(this.Name + "->reloadData: " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
