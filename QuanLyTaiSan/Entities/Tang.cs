@@ -36,9 +36,16 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<Permission> permissions { get; set; }
 		#endregion
 		#region Override method
+        public static new string VNNAME
+        {
+            get
+            {
+                return "TẦNG";
+            }
+        }
         public override string niceName()
         {
-            return "Tầng: " + ten + ", " + day.niceName();
+            return VNNAME + ": " + ten + ", " + day.niceName();
         }
         protected override void init()
         {

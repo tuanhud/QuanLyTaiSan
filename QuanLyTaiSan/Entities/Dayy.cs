@@ -41,9 +41,23 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 		
 		#region Override method
+        public static new string USNAME
+        {
+            get
+            {
+                return "DAY";
+            }
+        }
+        public static new string VNNAME
+        {
+            get
+            {
+                return "DÃY";
+            }
+        }
         public override string niceName()
         {
-            return "Dãy: " + ten + ", " + coso.niceName();
+            return VNNAME + ": " + ten + ", " + coso.niceName();
         }
 
         /// <summary>

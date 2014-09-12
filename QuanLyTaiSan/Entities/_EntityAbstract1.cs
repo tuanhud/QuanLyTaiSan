@@ -461,6 +461,31 @@ namespace QuanLyTaiSan.Entities
                 return re;
             }
         }
+
+        /// <summary>
+        /// Thông tin cơ bản về đối tượng
+        /// </summary>
+        /// <returns></returns>
+        public virtual string niceName()
+        {
+            return typeof(T).Name + ": ID=" + this.id;
+        }
+        [NotMapped]
+        public static string USNAME
+        {
+            get
+            {
+                return typeof(T).Name.ToUpper();
+            }
+        }
+
+        public static string VNNAME
+        {
+            get
+            {
+                return USNAME;
+            }
+        }
         #endregion
         
         #region Event register
@@ -546,13 +571,5 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
 
-        /// <summary>
-        /// Thông tin cơ bản về đối tượng
-        /// </summary>
-        /// <returns></returns>
-        public virtual string niceName()
-        {
-            return typeof(T).Name + ": ID=" + this.id;
-        }
     }
 }

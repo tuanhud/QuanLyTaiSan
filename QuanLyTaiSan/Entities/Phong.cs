@@ -73,9 +73,16 @@ namespace QuanLyTaiSan.Entities
 
         #endregion
         #region Override
+        public static new string VNNAME
+        {
+            get
+            {
+                return "PHÒNG";
+            }
+        }
         public override string niceName()
         {
-            return "Phòng: " + ten + ", " + vitri.niceName();
+            return VNNAME + ": " + ten + ", " + vitri.niceName();
         }
         
         protected override void init()

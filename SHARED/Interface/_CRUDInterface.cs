@@ -47,7 +47,7 @@ namespace SHARED.Interface
         /// </summary>
             void moveDown();
         /// <summary>
-        /// Thông tin của 1 đối tượng
+        /// Thông tin cơ bản của 1 đối tượng
         /// </summary>
         /// <returns></returns>
             String niceName();

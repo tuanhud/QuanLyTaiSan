@@ -111,7 +111,7 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                return OurDBContext.entity_list;
+                return OurDBContext.permission_entity_list;
             }
         }
         public static String[] STAND_ALONE_LIST = {

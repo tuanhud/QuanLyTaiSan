@@ -99,13 +99,11 @@ namespace QuanLyTaiSanGUI.HeThong
             //Nếu trong ds hiện tại có quyền cấu hình y chang
             Permission tmp = input.Where(
                 c =>
-                    c.key.ToUpper().Equals("COSO")
+                    c.key.ToUpper().Equals(CoSo.USNAME)
                     &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     &&
                     c.can_edit == checkEdit_quyenSua.Checked
                     &&
@@ -122,10 +120,9 @@ namespace QuanLyTaiSanGUI.HeThong
             if (tmp == null)
             {
                 tmp = new Permission();
-                tmp.key = "COSO";
+                tmp.key = CoSo.USNAME;
                 tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
                 tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_add = checkEdit_quyenThem.Checked;
                 tmp.can_edit = checkEdit_quyenSua.Checked;
                 tmp.can_delete = checkEdit_quyenXoa.Checked;
                 tmp.can_view = checkEdit_quyenXem.Checked;
@@ -230,7 +227,6 @@ namespace QuanLyTaiSanGUI.HeThong
             //var tmp = sender as CheckEdit;
             Boolean tmp = (sender as CheckEdit).Checked;
             checkEdit_quyenXem.Checked =
-            checkEdit_quyenThem.Checked =
             checkEdit_quyenXoa.Checked =
             checkEdit_quyenSua.Checked = tmp;
         }
@@ -238,15 +234,14 @@ namespace QuanLyTaiSanGUI.HeThong
         private void btnThemQuyenDay_Click(object sender, EventArgs e)
         {
             //Nếu trong ds hiện tại có quyền cấu hình y chang
+
             Permission tmp = input.Where(
                 c =>
-                    c.key.ToUpper().Equals("DAY")
+                    c.key.ToUpper().Equals(Dayy.USNAME)
                     &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     &&
                     c.can_edit == checkEdit_quyenSua.Checked
                     &&
@@ -254,7 +249,7 @@ namespace QuanLyTaiSanGUI.HeThong
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
                     ).FirstOrDefault();
-            Dayy dangChon = gridView_Day.GetFocusedRow() as Dayy;
+            Dayy dangChon = (gridView_Day.GetFocusedRow() as DayyFilter).day;
             if (dangChon == null)
             {
                 return;
@@ -263,10 +258,9 @@ namespace QuanLyTaiSanGUI.HeThong
             if (tmp == null)
             {
                 tmp = new Permission();
-                tmp.key = "DAY";
+                tmp.key = Dayy.USNAME;
                 tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
                 tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_add = checkEdit_quyenThem.Checked;
                 tmp.can_edit = checkEdit_quyenSua.Checked;
                 tmp.can_delete = checkEdit_quyenXoa.Checked;
                 tmp.can_view = checkEdit_quyenXem.Checked;
@@ -298,13 +292,11 @@ namespace QuanLyTaiSanGUI.HeThong
             //Nếu trong ds hiện tại có quyền cấu hình y chang
             Permission tmp = input.Where(
                 c =>
-                    c.key.ToUpper().Equals("TANG")
+                    c.key.ToUpper().Equals(Tang.USNAME)
                     &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     &&
                     c.can_edit == checkEdit_quyenSua.Checked
                     &&
@@ -312,7 +304,7 @@ namespace QuanLyTaiSanGUI.HeThong
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
                     ).FirstOrDefault();
-            Tang dangChon = gridView_Tang.GetFocusedRow() as Tang;
+            Tang dangChon = (gridView_Tang.GetFocusedRow() as TangFilter).tang;
             if (dangChon == null)
             {
                 return;
@@ -321,10 +313,9 @@ namespace QuanLyTaiSanGUI.HeThong
             if (tmp == null)
             {
                 tmp = new Permission();
-                tmp.key = "TANG";
+                tmp.key = Tang.USNAME;
                 tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
                 tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_add = checkEdit_quyenThem.Checked;
                 tmp.can_edit = checkEdit_quyenSua.Checked;
                 tmp.can_delete = checkEdit_quyenXoa.Checked;
                 tmp.can_view = checkEdit_quyenXem.Checked;
@@ -356,13 +347,11 @@ namespace QuanLyTaiSanGUI.HeThong
             //Nếu trong ds hiện tại có quyền cấu hình y chang
             Permission tmp = input.Where(
                 c =>
-                    c.key.ToUpper().Equals("PHONG")
+                    c.key.ToUpper().Equals(Phong.USNAME)
                     &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     &&
                     c.can_edit == checkEdit_quyenSua.Checked
                     &&
@@ -370,7 +359,7 @@ namespace QuanLyTaiSanGUI.HeThong
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
                     ).FirstOrDefault();
-            Phong dangChon = gridView_Phong.GetFocusedRow() as Phong;
+            Phong dangChon = (gridView_Phong.GetFocusedRow() as PhongFilter2).phong;
             if (dangChon == null)
             {
                 return;
@@ -379,10 +368,9 @@ namespace QuanLyTaiSanGUI.HeThong
             if (tmp == null)
             {
                 tmp = new Permission();
-                tmp.key = "PHONG";
+                tmp.key = Phong.USNAME;
                 tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
                 tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_add = checkEdit_quyenThem.Checked;
                 tmp.can_edit = checkEdit_quyenSua.Checked;
                 tmp.can_delete = checkEdit_quyenXoa.Checked;
                 tmp.can_view = checkEdit_quyenXem.Checked;

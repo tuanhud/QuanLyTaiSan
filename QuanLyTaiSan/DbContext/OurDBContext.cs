@@ -244,9 +244,9 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Dùng trong frm Sửa quyền
         /// </summary>
-        public static String[] entity_list =
+        public static String[] permission_entity_list =
         {
-            "COSO", "DAY", "TANG", "NHANVIENPT", "QUANTRIVIEN", "SUCOPHONG", "PHONG", "THIETBI", "LOAITHIETBI", "GROUP", "TINHTRANG"
+            CoSo.USNAME, Dayy.USNAME, Tang.USNAME, NhanVienPT.USNAME, QuanTriVien.USNAME, SuCoPhong.USNAME, Phong.USNAME, ThietBi.USNAME, LoaiThietBi.USNAME, Group.USNAME, TinhTrang.USNAME
         };
         /// <summary>
         /// for SYNC

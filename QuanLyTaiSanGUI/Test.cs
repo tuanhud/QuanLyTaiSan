@@ -73,7 +73,6 @@ namespace QuanLyTaiSanGUI
         private void button1_EnabledChanged(object sender, EventArgs e)
         {
             Button tmp = sender as Button;
-            tmp.Enabled = false && tmp.Enabled;
         }
     }
 }

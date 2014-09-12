@@ -41,7 +41,6 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.checkEdit_quyenXoa = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenXem = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit_quyenThem = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenSua = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenFull = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenDeny = new DevExpress.XtraEditors.CheckEdit();
@@ -105,7 +104,6 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).BeginInit();
@@ -231,7 +229,6 @@
             // 
             this.groupControl2.Controls.Add(this.checkEdit_quyenXoa);
             this.groupControl2.Controls.Add(this.checkEdit_quyenXem);
-            this.groupControl2.Controls.Add(this.checkEdit_quyenThem);
             this.groupControl2.Controls.Add(this.checkEdit_quyenSua);
             this.groupControl2.Controls.Add(this.checkEdit_quyenFull);
             this.groupControl2.Controls.Add(this.checkEdit_quyenDeny);
@@ -244,7 +241,7 @@
             // 
             // checkEdit_quyenXoa
             // 
-            this.checkEdit_quyenXoa.Location = new System.Drawing.Point(26, 162);
+            this.checkEdit_quyenXoa.Location = new System.Drawing.Point(26, 133);
             this.checkEdit_quyenXoa.Name = "checkEdit_quyenXoa";
             this.checkEdit_quyenXoa.Properties.Caption = "Xóa";
             this.checkEdit_quyenXoa.Size = new System.Drawing.Size(56, 19);
@@ -258,17 +255,9 @@
             this.checkEdit_quyenXem.Size = new System.Drawing.Size(54, 19);
             this.checkEdit_quyenXem.TabIndex = 5;
             // 
-            // checkEdit_quyenThem
-            // 
-            this.checkEdit_quyenThem.Location = new System.Drawing.Point(26, 104);
-            this.checkEdit_quyenThem.Name = "checkEdit_quyenThem";
-            this.checkEdit_quyenThem.Properties.Caption = "Thêm";
-            this.checkEdit_quyenThem.Size = new System.Drawing.Size(59, 19);
-            this.checkEdit_quyenThem.TabIndex = 4;
-            // 
             // checkEdit_quyenSua
             // 
-            this.checkEdit_quyenSua.Location = new System.Drawing.Point(26, 133);
+            this.checkEdit_quyenSua.Location = new System.Drawing.Point(26, 104);
             this.checkEdit_quyenSua.Name = "checkEdit_quyenSua";
             this.checkEdit_quyenSua.Properties.Caption = "Sửa";
             this.checkEdit_quyenSua.Size = new System.Drawing.Size(52, 19);
@@ -285,7 +274,7 @@
             // 
             // checkEdit_quyenDeny
             // 
-            this.checkEdit_quyenDeny.Location = new System.Drawing.Point(5, 191);
+            this.checkEdit_quyenDeny.Location = new System.Drawing.Point(5, 162);
             this.checkEdit_quyenDeny.Name = "checkEdit_quyenDeny";
             this.checkEdit_quyenDeny.Properties.Caption = "Cấm";
             this.checkEdit_quyenDeny.Size = new System.Drawing.Size(59, 19);
@@ -743,7 +732,6 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenSua.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenFull.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).EndInit();
@@ -835,7 +823,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenXoa;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenXem;
-        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenThem;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenSua;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenFull;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenDeny;

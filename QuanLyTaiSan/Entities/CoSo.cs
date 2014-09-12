@@ -44,6 +44,13 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override method
+        public static new string VNNAME
+        {
+            get
+            {
+                return "CƠ SỞ";
+            }
+        }
         public override void onAfterAdded()
         {
             this.order = DateTimeHelper.toMilisec(date_create);
@@ -51,7 +58,7 @@ namespace QuanLyTaiSan.Entities
         }
         public override string niceName()
         {
-            return "Cơ sở: " + ten;
+            return VNNAME + ": " + ten;
         }
         protected override void init()
         {

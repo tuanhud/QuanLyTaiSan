@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Data.Entity.Validation;
-using SHARED.Libraries;
 using SHARED.Interface;
 
 namespace TSCD.Entities
