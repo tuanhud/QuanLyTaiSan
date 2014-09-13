@@ -113,8 +113,6 @@ namespace QuanLyTaiSanGUI.HeThong
                     c.can_delete == checkEdit_quyenXoa.Checked
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
             ).FirstOrDefault();
             CoSo dangChon = gridView_CoSo.GetFocusedRow() as CoSo;
             if (dangChon == null)
@@ -124,7 +122,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = Permission.request(false, CoSo.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked, checkEdit_quyenThem.Checked);
+                tmp = Permission.request(false, CoSo.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
                 
                 //add object list to tmp
                 tmp.cosos.Add(dangChon);
@@ -217,7 +215,6 @@ namespace QuanLyTaiSanGUI.HeThong
             Boolean tmp = (sender as CheckEdit).Checked;
             checkEdit_quyenXem.Checked =
             checkEdit_quyenXoa.Checked =
-            checkEdit_quyenThem.Checked =
             checkEdit_quyenSua.Checked = tmp;
         }
 
@@ -240,8 +237,6 @@ namespace QuanLyTaiSanGUI.HeThong
                     c.can_delete == checkEdit_quyenXoa.Checked
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     ).FirstOrDefault();
             Dayy dangChon = (gridView_Day.GetFocusedRow() as DayyFilter).day;
             if (dangChon == null)
@@ -251,7 +246,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = Permission.request(false, Dayy.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked, checkEdit_quyenThem.Checked);
+                tmp = Permission.request(false, Dayy.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
 
                 //add object list to tmp
                 tmp.days.Add(dangChon);
@@ -292,8 +287,6 @@ namespace QuanLyTaiSanGUI.HeThong
                     c.can_delete == checkEdit_quyenXoa.Checked
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     ).FirstOrDefault();
             Tang dangChon = (gridView_Tang.GetFocusedRow() as TangFilter).tang;
             if (dangChon == null)
@@ -303,7 +296,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = Permission.request(false, Tang.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked, checkEdit_quyenThem.Checked);
+                tmp = Permission.request(false, Tang.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
 
                 //add object list to tmp
                 tmp.tangs.Add(dangChon);
@@ -344,8 +337,6 @@ namespace QuanLyTaiSanGUI.HeThong
                     c.can_delete == checkEdit_quyenXoa.Checked
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
-                    &&
-                    c.can_add == checkEdit_quyenThem.Checked
                     ).FirstOrDefault();
             Phong dangChon = (gridView_Phong.GetFocusedRow() as PhongFilter2).phong;
             if (dangChon == null)
@@ -355,7 +346,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = Permission.request(false, Phong.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked, checkEdit_quyenThem.Checked);
+                tmp = Permission.request(false, Phong.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
 
                 //add object list to tmp
                 tmp.phongs.Add(dangChon);

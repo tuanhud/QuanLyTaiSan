@@ -31,6 +31,7 @@
             this.xtraTabControl_quyenCoDinh = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage_quyenCoDinh = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl_quyenCoDinh = new DevExpress.XtraEditors.GroupControl();
+            this.listBoxControl_quyenCoDinh = new DevExpress.XtraEditors.ListBoxControl();
             this.btnThemQuyenCoDinh = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage_quyenObject = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -69,6 +70,7 @@
             this.btnThemQuyenPhong = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage_quyenHangMuc = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit_quyenBaoHam2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenXoa2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenXem2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenThem2 = new DevExpress.XtraEditors.CheckEdit();
@@ -86,14 +88,12 @@
             this.repositoryMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit_quyenBaoHam2 = new DevExpress.XtraEditors.CheckEdit();
-            this.listBoxControl_quyenCoDinh = new DevExpress.XtraEditors.ListBoxControl();
-            this.checkEdit_quyenThem = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl_quyenCoDinh)).BeginInit();
             this.xtraTabControl_quyenCoDinh.SuspendLayout();
             this.xtraTabPage_quyenCoDinh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_quyenCoDinh)).BeginInit();
             this.groupControl_quyenCoDinh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenCoDinh)).BeginInit();
             this.xtraTabPage_quyenObject.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -120,6 +120,7 @@
             this.xtraTabPage_quyenHangMuc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem2.Properties)).BeginInit();
@@ -132,9 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_DSQuyen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_DSQuyen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryMemo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenCoDinh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl_quyenCoDinh
@@ -166,6 +164,13 @@
             this.groupControl_quyenCoDinh.TabIndex = 3;
             this.groupControl_quyenCoDinh.Text = "Quyền cố định";
             // 
+            // listBoxControl_quyenCoDinh
+            // 
+            this.listBoxControl_quyenCoDinh.Location = new System.Drawing.Point(5, 24);
+            this.listBoxControl_quyenCoDinh.Name = "listBoxControl_quyenCoDinh";
+            this.listBoxControl_quyenCoDinh.Size = new System.Drawing.Size(287, 253);
+            this.listBoxControl_quyenCoDinh.TabIndex = 12;
+            // 
             // btnThemQuyenCoDinh
             // 
             this.btnThemQuyenCoDinh.Location = new System.Drawing.Point(304, 24);
@@ -185,7 +190,6 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.checkEdit_quyenThem);
             this.groupControl2.Controls.Add(this.checkEdit_quyenXoa);
             this.groupControl2.Controls.Add(this.checkEdit_quyenXem);
             this.groupControl2.Controls.Add(this.checkEdit_quyenSua);
@@ -200,7 +204,7 @@
             // 
             // checkEdit_quyenXoa
             // 
-            this.checkEdit_quyenXoa.Location = new System.Drawing.Point(26, 160);
+            this.checkEdit_quyenXoa.Location = new System.Drawing.Point(26, 135);
             this.checkEdit_quyenXoa.Name = "checkEdit_quyenXoa";
             this.checkEdit_quyenXoa.Properties.Caption = "Xóa";
             this.checkEdit_quyenXoa.Size = new System.Drawing.Size(56, 19);
@@ -216,7 +220,7 @@
             // 
             // checkEdit_quyenSua
             // 
-            this.checkEdit_quyenSua.Location = new System.Drawing.Point(26, 131);
+            this.checkEdit_quyenSua.Location = new System.Drawing.Point(26, 106);
             this.checkEdit_quyenSua.Name = "checkEdit_quyenSua";
             this.checkEdit_quyenSua.Properties.Caption = "Sửa";
             this.checkEdit_quyenSua.Size = new System.Drawing.Size(52, 19);
@@ -233,7 +237,7 @@
             // 
             // checkEdit_quyenDeny
             // 
-            this.checkEdit_quyenDeny.Location = new System.Drawing.Point(5, 185);
+            this.checkEdit_quyenDeny.Location = new System.Drawing.Point(5, 160);
             this.checkEdit_quyenDeny.Name = "checkEdit_quyenDeny";
             this.checkEdit_quyenDeny.Properties.Caption = "Cấm";
             this.checkEdit_quyenDeny.Size = new System.Drawing.Size(59, 19);
@@ -519,6 +523,14 @@
             this.groupControl3.TabIndex = 12;
             this.groupControl3.Text = "Tùy chọn quyền";
             // 
+            // checkEdit_quyenBaoHam2
+            // 
+            this.checkEdit_quyenBaoHam2.Location = new System.Drawing.Point(5, 27);
+            this.checkEdit_quyenBaoHam2.Name = "checkEdit_quyenBaoHam2";
+            this.checkEdit_quyenBaoHam2.Properties.Caption = "Quyền bao hàm";
+            this.checkEdit_quyenBaoHam2.Size = new System.Drawing.Size(115, 19);
+            this.checkEdit_quyenBaoHam2.TabIndex = 7;
+            // 
             // checkEdit_quyenXoa2
             // 
             this.checkEdit_quyenXoa2.Location = new System.Drawing.Point(26, 163);
@@ -667,29 +679,6 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // checkEdit_quyenBaoHam2
-            // 
-            this.checkEdit_quyenBaoHam2.Location = new System.Drawing.Point(5, 27);
-            this.checkEdit_quyenBaoHam2.Name = "checkEdit_quyenBaoHam2";
-            this.checkEdit_quyenBaoHam2.Properties.Caption = "Quyền bao hàm";
-            this.checkEdit_quyenBaoHam2.Size = new System.Drawing.Size(115, 19);
-            this.checkEdit_quyenBaoHam2.TabIndex = 7;
-            // 
-            // listBoxControl_quyenCoDinh
-            // 
-            this.listBoxControl_quyenCoDinh.Location = new System.Drawing.Point(5, 24);
-            this.listBoxControl_quyenCoDinh.Name = "listBoxControl_quyenCoDinh";
-            this.listBoxControl_quyenCoDinh.Size = new System.Drawing.Size(287, 253);
-            this.listBoxControl_quyenCoDinh.TabIndex = 12;
-            // 
-            // checkEdit_quyenThem
-            // 
-            this.checkEdit_quyenThem.Location = new System.Drawing.Point(26, 103);
-            this.checkEdit_quyenThem.Name = "checkEdit_quyenThem";
-            this.checkEdit_quyenThem.Properties.Caption = "Thêm";
-            this.checkEdit_quyenThem.Size = new System.Drawing.Size(59, 19);
-            this.checkEdit_quyenThem.TabIndex = 7;
-            // 
             // frmSuaPermission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -707,6 +696,7 @@
             this.xtraTabPage_quyenCoDinh.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_quyenCoDinh)).EndInit();
             this.groupControl_quyenCoDinh.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenCoDinh)).EndInit();
             this.xtraTabPage_quyenObject.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
@@ -733,6 +723,7 @@
             this.xtraTabPage_quyenHangMuc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXem2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem2.Properties)).EndInit();
@@ -745,9 +736,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_DSQuyen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_DSQuyen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryMemo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenCoDinh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenThem.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -814,7 +802,6 @@
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenDeny2;
         private DevExpress.XtraEditors.CheckEdit checkEdit_quyenBaoHam2;
         private DevExpress.XtraEditors.ListBoxControl listBoxControl_quyenCoDinh;
-        private DevExpress.XtraEditors.CheckEdit checkEdit_quyenThem;
 
     }
 }
