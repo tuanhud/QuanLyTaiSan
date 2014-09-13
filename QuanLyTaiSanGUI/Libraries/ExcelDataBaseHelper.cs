@@ -65,43 +65,43 @@ namespace QuanLyTaiSanGUI.Libraries
                         {
                             if (row[TENNHANVIEN] != DBNull.Value)
                             {
-                                if (NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[TENNHANVIEN].ToString().TrimEnd().TrimStart().ToUpper()) == null)
+                                if (NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[TENNHANVIEN].ToString().Trim().ToUpper()) == null)
                                 {
                                     try
                                     {
                                         NhanVienPT obj = new NhanVienPT();
-                                        obj.subId = row[MANHANVIEN] != DBNull.Value ? row[MANHANVIEN].ToString().TrimEnd().TrimStart() : null;
-                                        obj.hoten = row[TENNHANVIEN].ToString().TrimEnd().TrimStart();
-                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
-                                        obj.sodienthoai = row[SODIENTHOAI].ToString().TrimEnd().TrimStart();
+                                        obj.subId = row[MANHANVIEN] != DBNull.Value ? row[MANHANVIEN].ToString().Trim() : null;
+                                        obj.hoten = row[TENNHANVIEN].ToString().Trim();
+                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                        obj.sodienthoai = row[SODIENTHOAI].ToString().Trim();
                                         if (row[HINHANH] != DBNull.Value)
                                         {
-                                            String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                            String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                             obj.hinhanhs = AddImage(fileName, file_names);
                                         }
                                         if (obj.add() > 0 && DBInstance.commit() > 0)
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                         }
                                     }
                                     catch(Exception ex)
                                     {
                                         Debug.WriteLine("ExcelDataBaseHelper : ImportNhanVien : " + ex.Message);
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                 }
                             }
                             else
                             {
-                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
                             }
                         }
                     }
@@ -123,7 +123,7 @@ namespace QuanLyTaiSanGUI.Libraries
                 foreach (String name in file_names)
                 {
                     HinhAnh objHinh = new HinhAnh();
-                    String file_name = name.TrimStart().TrimEnd();
+                    String file_name = name.Trim();
                     String fPath = System.IO.Path.GetDirectoryName(fileName) + "\\Images\\" + file_name;
                     if (System.IO.File.Exists(fPath))
                     {
@@ -172,126 +172,126 @@ namespace QuanLyTaiSanGUI.Libraries
                             {
                                 if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] != DBNull.Value)
                                 {
-                                    CoSo objCoSo = CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().TrimEnd().TrimStart().ToUpper()));
+                                    CoSo objCoSo = CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().Trim().ToUpper()));
                                     if (objCoSo != null)
                                     {
-                                        Dayy objDay = objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().TrimEnd().TrimStart().ToUpper()));
+                                        Dayy objDay = objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().Trim().ToUpper()));
                                         if (objDay != null)
                                         {
-                                            if (objDay.tangs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[TANG].ToString().TrimEnd().TrimStart().ToUpper())) == null)
+                                            if (objDay.tangs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[TANG].ToString().Trim().ToUpper())) == null)
                                             {
                                                 Tang obj = new Tang();
-                                                obj.subId = row[MATANG] != DBNull.Value ? row[MATANG].ToString().TrimEnd().TrimStart() : null;
-                                                obj.ten = row[TANG].ToString().TrimEnd().TrimStart();
-                                                obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
+                                                obj.subId = row[MATANG] != DBNull.Value ? row[MATANG].ToString().Trim() : null;
+                                                obj.ten = row[TANG].ToString().Trim();
+                                                obj.mota = row[MOTA].ToString().Trim();
                                                 obj.day = objDay;
-                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
                                                 if (row[HINHANH] != DBNull.Value)
                                                 {
-                                                    String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                                    String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                                     obj.hinhanhs = AddImage(fileName, file_names);
                                                 }
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                 }
                                                 else
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                                 }
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                             }
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có dãy)");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có dãy)");
                                         }
                                     }
                                     else
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có cơ sở)");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có cơ sở)");
                                     }
 
                                 }
                                 else if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] == DBNull.Value)
                                 {
-                                    CoSo objCoSo = CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().TrimEnd().TrimStart().ToUpper()));
+                                    CoSo objCoSo = CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().Trim().ToUpper()));
                                     if (objCoSo != null)
                                     {
-                                        if (objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().TrimEnd().TrimStart().ToUpper())) == null)
+                                        if (objCoSo.days.FirstOrDefault(c => c.ten.ToUpper().Equals(row[DAY].ToString().Trim().ToUpper())) == null)
                                         {
                                             Dayy obj = new Dayy();
-                                            obj.subId = row[MADAY] != DBNull.Value ? row[MADAY].ToString().TrimEnd().TrimStart() : null;
-                                            obj.ten = row[DAY].ToString().TrimEnd().TrimStart();
-                                            obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
+                                            obj.subId = row[MADAY] != DBNull.Value ? row[MADAY].ToString().Trim() : null;
+                                            obj.ten = row[DAY].ToString().Trim();
+                                            obj.mota = row[MOTA].ToString().Trim();
                                             obj.coso = objCoSo;
-                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
                                             if (row[HINHANH] != DBNull.Value)
                                             {
-                                                String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                                String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                                 obj.hinhanhs = AddImage(fileName, file_names);
                                             }
                                             if (obj.add() > 0 && DBInstance.commit() > 0)
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                             }
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                         }
                                     }
                                     else
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có cơ sở)");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có cơ sở)");
                                     }
 
                                 }
                                 else if (row[COSO] != DBNull.Value && row[DAY] == DBNull.Value && row[TANG] == DBNull.Value)
                                 {
-                                    if (CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().TrimEnd().TrimStart().ToUpper())) == null)
+                                    if (CoSo.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[COSO].ToString().Trim().ToUpper())) == null)
                                     {
                                         CoSo obj = new CoSo();
-                                        obj.subId = row[MACOSO] != DBNull.Value ? row[MACOSO].ToString().TrimEnd().TrimStart() : null;
-                                        obj.ten = row[COSO].ToString().TrimEnd().TrimStart();
-                                        obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
-                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                        obj.subId = row[MACOSO] != DBNull.Value ? row[MACOSO].ToString().Trim() : null;
+                                        obj.ten = row[COSO].ToString().Trim();
+                                        obj.mota = row[MOTA].ToString().Trim();
+                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
                                         if (row[HINHANH] != DBNull.Value)
                                         {
-                                            String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                            String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                             obj.hinhanhs = AddImage(fileName, file_names);
                                         }
                                         if (obj.add() > 0 && DBInstance.commit() > 0)
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                         }
                                     }
                                     else
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
                                 }
                             }
                         }
                         catch (Exception ex)
                         {
                             Debug.WriteLine("ExcelDataBaseHelper->ImportViTri: " + ex.Message);
-                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                         }
                     }
                 }
@@ -327,75 +327,75 @@ namespace QuanLyTaiSanGUI.Libraries
                             {
                                 if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] != DBNull.Value && row[LOAICHUNG] != DBNull.Value)
                                 {
-                                    LoaiThietBi objParent = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[PARENT].ToString().TrimEnd().TrimStart().ToUpper()));
+                                    LoaiThietBi objParent = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[PARENT].ToString().Trim().ToUpper()));
                                     if (objParent != null)
                                     {
-                                        if (objParent.childs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().TrimEnd().TrimStart().ToUpper())) == null)
+                                        if (objParent.childs.FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().Trim().ToUpper())) == null)
                                         {
                                             if (objParent.loaichung.Equals(Convert.ToBoolean(row[LOAICHUNG])))
                                             {
                                                 LoaiThietBi obj = new LoaiThietBi();
-                                                obj.ten = row[LOAITHIETBI].ToString().TrimEnd().TrimStart();
-                                                obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
+                                                obj.ten = row[LOAITHIETBI].ToString().Trim();
+                                                obj.mota = row[MOTA].ToString().Trim();
                                                 obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
-                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
                                                 obj.parent = objParent;
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                 }
                                                 else
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                                 }
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Kiểu quản lý của loại cha và loại con khác nhau)");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Kiểu quản lý của loại cha và loại con khác nhau)");
                                             }
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                         }
                                     }
                                     else
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có loại thiết bị cha)");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại thiết bị cha)");
                                     }
 
                                 }
                                 else if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] == DBNull.Value && row[LOAICHUNG] != DBNull.Value)
                                 {
-                                    if (LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().TrimEnd().TrimStart().ToUpper())) == null)
+                                    if (LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper().Equals(row[LOAITHIETBI].ToString().Trim().ToUpper())) == null)
                                     {
                                         LoaiThietBi obj = new LoaiThietBi();
-                                        obj.ten = row[LOAITHIETBI].ToString().TrimEnd().TrimStart();
-                                        obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
+                                        obj.ten = row[LOAITHIETBI].ToString().Trim();
+                                        obj.mota = row[MOTA].ToString().Trim();
                                         obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
                                         if (obj.add() > 0 && DBInstance.commit() > 0)
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                         }
                                     }
                                     else
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
                                 }
                             }
                         }
                         catch (Exception ex)
                         {
-                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                             Debug.WriteLine("ExcelDataBaseHelper->ImportLoaiThietBi : " + ex.Message);
                         }
                     }
@@ -427,30 +427,30 @@ namespace QuanLyTaiSanGUI.Libraries
                         {
                             if (row[TINHTRANG] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
-                                if (TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper().Equals(row[TINHTRANG].ToString().TrimEnd().TrimStart().ToUpper())) == null)
+                                if (TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper().Equals(row[TINHTRANG].ToString().Trim().ToUpper())) == null)
                                 {
                                     TinhTrang obj = new TinhTrang();
-                                    obj.value = row[TINHTRANG].ToString().TrimEnd().TrimStart();
-                                    obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
-                                    obj.key = StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString().TrimEnd().TrimStart()).Replace(" ", String.Empty).ToUpper();
+                                    obj.value = row[TINHTRANG].ToString().Trim();
+                                    obj.mota = row[MOTA].ToString().Trim();
+                                    obj.key = StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString().Trim()).Replace(" ", String.Empty).ToUpper();
                                     if (obj.add() > 0 && DBInstance.commit() > 0)
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                     }
                                     else
                                     {
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                 }
                             }
                         }
                         catch (Exception ex)
                         {
-                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                             Debug.WriteLine("ExcelDataBaseHelper->ImportTinhTrang : " + ex.Message);
                         }
                     }
@@ -491,7 +491,7 @@ namespace QuanLyTaiSanGUI.Libraries
                         {
                             if (row[TENPHONG] != DBNull.Value)
                             {
-                                if (Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[TENPHONG].ToString().TrimEnd().TrimStart().ToUpper()) == null)
+                                if (Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[TENPHONG].ToString().Trim().ToUpper()) == null)
                                 {
                                     try
                                     {
@@ -501,17 +501,17 @@ namespace QuanLyTaiSanGUI.Libraries
                                         Tang objTang = new Tang();
                                         if(row[COSO] != DBNull.Value)
                                         {
-                                            objCoSo = CoSo.getAll().Where(c => c.ten.ToUpper().Equals(row[COSO].ToString().TrimEnd().TrimStart().ToUpper())).FirstOrDefault();
+                                            objCoSo = CoSo.getAll().Where(c => c.ten.ToUpper().Equals(row[COSO].ToString().Trim().ToUpper())).FirstOrDefault();
                                             if (objCoSo != null && objCoSo.id != Guid.Empty)
                                             {
                                                 if (row[DAY] != DBNull.Value && objCoSo.days.Count > 0)
                                                 {
-                                                    objDay = objCoSo.days.Where(c => c.ten.ToUpper().Equals(row[DAY].ToString().TrimEnd().TrimStart().ToUpper())).FirstOrDefault();
+                                                    objDay = objCoSo.days.Where(c => c.ten.ToUpper().Equals(row[DAY].ToString().Trim().ToUpper())).FirstOrDefault();
                                                     if (objDay != null && objDay.id != Guid.Empty)
                                                     {
                                                         if (row[TANG] != DBNull.Value && objDay.tangs.Count > 0)
                                                         {
-                                                            objTang = objDay.tangs.Where(c => c.ten.ToUpper().Equals(row[TANG].ToString().TrimEnd().TrimStart().ToUpper())).FirstOrDefault();
+                                                            objTang = objDay.tangs.Where(c => c.ten.ToUpper().Equals(row[TANG].ToString().Trim().ToUpper())).FirstOrDefault();
                                                             if (objTang != null && objTang.id != Guid.Empty)
                                                             {
                                                                 objViTri.coso = objCoSo;
@@ -521,7 +521,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                             }
                                                             else
                                                             {
-                                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có tầng)");
+                                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tầng)");
                                                             }
                                                         }
                                                         else if (row[TANG] == DBNull.Value)
@@ -533,12 +533,12 @@ namespace QuanLyTaiSanGUI.Libraries
                                                         }
                                                         else
                                                         {
-                                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có tầng)");
+                                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tầng)");
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có dãy)");
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có dãy)");
                                                     }
                                                 }
                                                 else if (row[DAY] == DBNull.Value)
@@ -550,83 +550,83 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 }
                                                 else
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có dãy)");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có dãy)");
                                                 }
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có cơ sở)");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có cơ sở)");
                                             }
                                         }
 
                                         if (ok)
                                         {
                                             Phong obj = new Phong();
-                                            obj.subId = row[MAPHONG] != DBNull.Value ? row[MAPHONG].ToString().TrimEnd().TrimStart() : null;
+                                            obj.subId = row[MAPHONG] != DBNull.Value ? row[MAPHONG].ToString().Trim() : null;
                                             obj.vitri = objViTri;
-                                            obj.ten = row[TENPHONG].ToString().TrimEnd().TrimStart();
-                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
-                                            obj.mota = row[MOTA].ToString().TrimEnd().TrimStart();
+                                            obj.ten = row[TENPHONG].ToString().Trim();
+                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                            obj.mota = row[MOTA].ToString().Trim();
                                             if (row[HINHANH] != DBNull.Value)
                                             {
-                                                String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                                String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                                 obj.hinhanhs = AddImage(fileName, file_names);
                                             }
 
                                             if(row[NHANVIENPT] != DBNull.Value)
                                             {
-                                                if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().TrimEnd().TrimStart().ToUpper()).Count() == 1)
+                                                if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().Trim().ToUpper()).Count() == 1)
                                                 {
-                                                    obj.nhanvienpt = NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().TrimEnd().TrimStart().ToUpper());
+                                                    obj.nhanvienpt = NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().Trim().ToUpper());
                                                 }
-                                                else if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().TrimEnd().TrimStart().ToUpper()).Count() > 1)
+                                                else if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().Trim().ToUpper()).Count() > 1)
                                                 {
                                                     if (row[MANHANVIEN] != DBNull.Value)
                                                     {
-                                                        if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().TrimEnd().TrimStart().ToUpper() && c.subId.ToUpper() == row[MANHANVIEN].ToString().TrimEnd().TrimStart().ToUpper()).Count() == 1)
+                                                        if (NhanVienPT.getAll().Where(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().Trim().ToUpper() && c.subId.ToUpper() == row[MANHANVIEN].ToString().Trim().ToUpper()).Count() == 1)
                                                         {
-                                                            obj.nhanvienpt = NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().TrimEnd().TrimStart().ToUpper() && c.subId.ToUpper() == row[MANHANVIEN].ToString().TrimEnd().TrimStart().ToUpper());
+                                                            obj.nhanvienpt = NhanVienPT.getAll().FirstOrDefault(c => c.hoten.ToUpper() == row[NHANVIENPT].ToString().Trim().ToUpper() && c.subId.ToUpper() == row[MANHANVIEN].ToString().Trim().ToUpper());
                                                         }
                                                         else
                                                         {
-                                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass - Error (Mã nhân viên không đúng)");
+                                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass - Error (Mã nhân viên không đúng)");
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass - Error (Nhân viên trùng tên nhưng không có mã)");
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass - Error (Nhân viên trùng tên nhưng không có mã)");
                                                     }
                                                 }
                                             }
 
                                             if (obj.add() > 0 && DBInstance.commit() > 0)
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                             }
                                         }
                                         else
                                         {
-                                            //WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Vị trí lỗi)");
+                                            //WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Vị trí lỗi)");
                                         }
                                     }
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine("ExcelDataBaseHelper->ImportPhong: " + ex.Message);
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Exist");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
                                 }
                             }
                             else
                             {
-                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
                             }
                         }
                     }
@@ -664,40 +664,40 @@ namespace QuanLyTaiSanGUI.Libraries
                             bool ok = false;
                             if (row[LOAITB] != DBNull.Value && row[PHONG] != DBNull.Value && row[TINHTRANG] != DBNull.Value && row[SOLUONG] != DBNull.Value)
                             {
-                                LoaiThietBi objLoai = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().TrimEnd().TrimStart().ToUpper());
+                                LoaiThietBi objLoai = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().Trim().ToUpper());
                                 if (objLoai != null)
                                 {
                                     try
                                     {
                                         TinhTrang objTinhTrang = new TinhTrang();
-                                        Phong objPhong = Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[PHONG].ToString().TrimEnd().TrimStart().ToUpper());
+                                        Phong objPhong = Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[PHONG].ToString().Trim().ToUpper());
                                         if (objPhong != null)
                                         {
-                                            objTinhTrang = TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper() == row[TINHTRANG].ToString().TrimEnd().TrimStart().ToUpper());
+                                            objTinhTrang = TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper() == row[TINHTRANG].ToString().Trim().ToUpper());
                                             if (objTinhTrang != null)
                                             {
                                                 ok = true;
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có tình trạng)");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tình trạng)");
                                             }
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có phòng)");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
                                         }
                                         if (ok)
                                         {
-                                            if (objLoai.thietbis.FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().TrimEnd().TrimStart().ToUpper()) == null)
+                                            if (objLoai.thietbis.FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().Trim().ToUpper()) == null)
                                             {
                                                 ThietBi objThietBi = new ThietBi();
-                                                objThietBi.ten = row[LOAITB].ToString().TrimEnd().TrimStart();
+                                                objThietBi.ten = row[LOAITB].ToString().Trim();
                                                 objThietBi.loaithietbi = objLoai;
-                                                objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                                objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
                                                 if (row[HINHANH] != DBNull.Value)
                                                 {
-                                                    String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                                    String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                                     objThietBi.hinhanhs = AddImage(fileName, file_names);
                                                 }
                                                 if (objThietBi.add() > 0 && DBInstance.commit() > 0)
@@ -706,40 +706,40 @@ namespace QuanLyTaiSanGUI.Libraries
                                                     obj.thietbi = objThietBi;
                                                     obj.phong = objPhong;
                                                     obj.tinhtrang = objTinhTrang;
-                                                    obj.soluong = Convert.ToInt32(row[SOLUONG].ToString().TrimEnd().TrimStart());
+                                                    obj.soluong = Convert.ToInt32(row[SOLUONG].ToString().Trim());
                                                     obj.mota = "Import";
-                                                    obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                                    obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().Trim()) : DateTime.Now;
                                                     if (obj.add() > 0 && DBInstance.commit() > 0)
                                                     {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                     }
                                                     else
                                                     {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Lỗi khi thêm thiết bị)");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Lỗi khi thêm thiết bị)");
                                                 }
                                             }
                                             else
                                             {
-                                                ThietBi objThietBi = objLoai.thietbis.FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().TrimEnd().TrimStart().ToUpper());
+                                                ThietBi objThietBi = objLoai.thietbis.FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().Trim().ToUpper());
                                                 CTThietBi obj = new CTThietBi();
                                                 obj.thietbi = objThietBi;
                                                 obj.phong = objPhong;
                                                 obj.tinhtrang = objTinhTrang;
-                                                obj.soluong = Convert.ToInt32(row[SOLUONG].ToString().TrimEnd().TrimStart());
+                                                obj.soluong = Convert.ToInt32(row[SOLUONG].ToString().Trim());
                                                 obj.mota = "Import";
-                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().Trim()) : DateTime.Now;
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                 }
                                                 else
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                                 }
                                             }
                                         }
@@ -747,17 +747,17 @@ namespace QuanLyTaiSanGUI.Libraries
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine("ExcelDataBaseHelper->ImportThietBiChung: " + ex.Message);
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có loại thiết bị)");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại thiết bị)");
                                 }
                             }
                             else
                             {
-                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
                             }
                         }
                     }
@@ -798,41 +798,41 @@ namespace QuanLyTaiSanGUI.Libraries
                             bool ok = false;
                             if (row[TENTB] != DBNull.Value && row[LOAITB] != DBNull.Value && row[PHONG] != DBNull.Value && row[TINHTRANG] != DBNull.Value)
                             {
-                                LoaiThietBi objLoai = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().TrimEnd().TrimStart().ToUpper());
+                                LoaiThietBi objLoai = LoaiThietBi.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[LOAITB].ToString().Trim().ToUpper());
                                 if (objLoai != null)
                                 {
                                     try
                                     {
                                         TinhTrang objTinhTrang = new TinhTrang();
-                                        Phong objPhong = Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[PHONG].ToString().TrimEnd().TrimStart().ToUpper());
+                                        Phong objPhong = Phong.getAll().FirstOrDefault(c => c.ten.ToUpper() == row[PHONG].ToString().Trim().ToUpper());
                                         if (objPhong != null)
                                         {
-                                            objTinhTrang = TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper() == row[TINHTRANG].ToString().TrimEnd().TrimStart().ToUpper());
+                                            objTinhTrang = TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper() == row[TINHTRANG].ToString().Trim().ToUpper());
                                             if (objTinhTrang != null)
                                             {
                                                 ok = true;
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có tình trạng)");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tình trạng)");
                                             }
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có phòng)");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
                                         }
                                         if (ok)
                                         {
                                             ThietBi objThietBi = new ThietBi();
-                                            objThietBi.subId = row[MATB] != DBNull.Value ? row[MATB].ToString().TrimEnd().TrimStart() : null;
-                                            objThietBi.ten = row[TENTB].ToString().TrimEnd().TrimStart();
+                                            objThietBi.subId = row[MATB] != DBNull.Value ? row[MATB].ToString().Trim() : null;
+                                            objThietBi.ten = row[TENTB].ToString().Trim();
                                             objThietBi.loaithietbi = objLoai;
-                                            objThietBi.mota = row[MOTA].ToString().TrimEnd().TrimStart();
-                                            objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().TrimEnd().TrimStart()) : DateTime.Now;
-                                            objThietBi.ngaymua = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYMUA].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                            objThietBi.mota = row[MOTA].ToString().Trim();
+                                            objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                            objThietBi.ngaymua = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYMUA].ToString().Trim()) : DateTime.Now;
                                             if (row[HINHANH] != DBNull.Value)
                                             {
-                                                String[] file_names = row[HINHANH].ToString().TrimEnd().TrimStart().Split(',');
+                                                String[] file_names = row[HINHANH].ToString().Trim().Split(',');
                                                 objThietBi.hinhanhs = AddImage(fileName, file_names);
                                             }
                                             if (objThietBi.add() > 0 && DBInstance.commit() > 0)
@@ -843,19 +843,19 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.tinhtrang = objTinhTrang;
                                                 obj.soluong = 1;
                                                 obj.mota = "Import";
-                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().TrimEnd().TrimStart()) : DateTime.Now;
+                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().Trim()) : DateTime.Now;
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Pass");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                 }
                                                 else
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                                 }
                                             }
                                             else
                                             {
-                                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Lỗi khi thêm thiết bị)");
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Lỗi khi thêm thiết bị)");
                                             }
                                         }
                                         
@@ -863,17 +863,17 @@ namespace QuanLyTaiSanGUI.Libraries
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine("ExcelDataBaseHelper->ImportThietBiChung: " + ex.Message);
-                                        WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                     }
                                 }
                                 else
                                 {
-                                    WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không có loại thiết bị)");
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại thiết bị)");
                                 }
                             }
                             else
                             {
-                                WriteFile(fileName, sheet, row[STT].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
                             }
                         }
                     }

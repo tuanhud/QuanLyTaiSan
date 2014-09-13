@@ -64,7 +64,7 @@ namespace TSCD_GUI.QLTaiSan
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 DonVi DVSD = ucComboBoxDonVi2.DonVi;
-                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(new List<CTTaiSan>(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD)));
+                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
                 bandedGridViewTaiSan.ExpandAllGroups();
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }

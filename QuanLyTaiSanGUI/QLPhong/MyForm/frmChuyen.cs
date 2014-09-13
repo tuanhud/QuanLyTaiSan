@@ -32,6 +32,7 @@ namespace QuanLyTaiSanGUI.QLPhong
             _ucComboBoxViTri.Dock = DockStyle.Fill;
             panelControl1.Controls.Add(_ucComboBoxViTri);
             listHinh = new List<HinhAnh>();
+            _ucComboBoxViTri.ReadOnly = true;
         }
 
         public frmChuyen(CTThietBi obj)

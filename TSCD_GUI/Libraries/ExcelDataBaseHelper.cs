@@ -9,7 +9,6 @@ namespace TSCD_GUI.Libraries
 {
     public class ExcelDataBaseHelper
     {
-        static DonViTinh objDonViTinh = new DonViTinh();
         public static System.Data.DataTable OpenFile(String fileName, String sheet)
         {
             //var fullFileName = string.Format("{0}\\{1}", System.IO.Directory.GetCurrentDirectory(), fileName);
@@ -48,7 +47,6 @@ namespace TSCD_GUI.Libraries
         {
             try
             {
-                objDonViTinh.ten = "";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int SUBID = 0;
                 const int TEN = 2;
@@ -73,31 +71,35 @@ namespace TSCD_GUI.Libraries
                                     try
                                     {
                                         TaiSan obj = new TaiSan();
-                                        obj.subId = row[SUBID].ToString().TrimEnd().TrimStart();
-                                        obj.ten = row[TEN].ToString().TrimEnd().TrimStart();
-                                        obj.dongia = long.Parse(row[DONGIA].ToString().TrimEnd().TrimStart());
+                                        obj.subId = row[SUBID].ToString().Trim();
+                                        obj.ten = row[TEN].ToString().Trim();
+                                        String str = row[DONGIA].ToString().Trim().Replace(" ","");
+                                        long dongia = long.Parse(str);
+                                        obj.dongia = dongia;
                                         obj.loaitaisan = objLoaiTS;
                                         CTTaiSan objCTTaiSan = new CTTaiSan();
-                                        objLoaiTS.taisans.Add(obj);
-                                        if (objLoaiTS.add() > 0 && DBInstance.commit() > 0)
+                                        objCTTaiSan.taisan = obj;
+                                        objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
+                                        objCTTaiSan.soluong = 1;
+                                        if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
                                         {
-                                            WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Pass");
+                                            WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Pass");
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Error");
+                                            WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Error");
                                         }
                                     }
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine("ExcelDataBaseHelper : ImportTaiSan : " + ex.Message);
-                                        WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Error");
                                     }
                                 }
                             }
                             else
                             {
-                                WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Error (Không đủ thông tin)");
                             }
                         }
                     }
@@ -115,15 +117,16 @@ namespace TSCD_GUI.Libraries
         {
             try
             {
-                String ten = _ten.TrimEnd().TrimStart();
+                String ten = _ten.Trim();
                 ten = ten.Replace("- ", "");
                 LoaiTaiSan obj = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten.ToUpper())).FirstOrDefault();
                 if (obj == null)
                 {
                     obj = new LoaiTaiSan();
                     obj.ten = ten;
-                    obj.donvitinh = objDonViTinh;
-                    if (DBInstance.commit() > 0)
+                    obj.huuhinh = true;
+                    obj.donvitinh = DonViTinh.getQuery().FirstOrDefault();
+                    if (obj.add() > 0 && DBInstance.commit() > 0)
                         return obj;
                     else return null;
                 }
@@ -137,27 +140,27 @@ namespace TSCD_GUI.Libraries
 
         private static void WriteFile(String fileName, String sheet, String stt, String text)
         {
-            try
-            {
-                if (!stt.Equals(""))
-                {
-                    //Ghi file Excel
-                    using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
-                    {
-                        System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
-                        string sql = null;
-                        MyConnection.Open();
-                        myCommand.Connection = MyConnection;
-                        sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
-                        myCommand.CommandText = sql;
-                        myCommand.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("ExcelDataBaseHelper->WriteFile : " + ex.Message);
-            }
+            //try
+            //{
+            //    if (!stt.Equals(""))
+            //    {
+            //        //Ghi file Excel
+            //        using (System.Data.OleDb.OleDbConnection MyConnection = new System.Data.OleDb.OleDbConnection(GetConnectionString(fileName)))
+            //        {
+            //            System.Data.OleDb.OleDbCommand myCommand = new System.Data.OleDb.OleDbCommand();
+            //            string sql = null;
+            //            MyConnection.Open();
+            //            myCommand.Connection = MyConnection;
+            //            sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
+            //            myCommand.CommandText = sql;
+            //            myCommand.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine("ExcelDataBaseHelper->WriteFile : " + ex.Message);
+            //}
         }
     }
 }
