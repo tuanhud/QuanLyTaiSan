@@ -52,7 +52,7 @@ namespace PTB_WEB
         {
             //Global.working_database.WEB_MODE = true;
             if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-                Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
+                QuanLyTaiSan.Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
         }
 
         protected void ParentClassActive(string category)

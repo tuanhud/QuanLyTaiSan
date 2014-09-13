@@ -77,7 +77,7 @@ namespace PTB_WEB.UserControl
                     }
                     Session["Username"] = Username;
                     _QuanTriVien = QuanTriVien.getByUserName(Username);
-                    Global.current_quantrivien_login = _QuanTriVien;
+                    QuanLyTaiSan.Global.current_quantrivien_login = _QuanTriVien;
                     Session["HoTen"] = _QuanTriVien.hoten;
                     Response.Redirect(Request.RawUrl);
                 }

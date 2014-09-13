@@ -109,6 +109,7 @@
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="Global.asax" />
     <Content Include="HinhAnh.aspx" />
     <Content Include="Images\bg-footer.png" />
     <Content Include="Images\bg-wall.png" />
@@ -173,6 +174,7 @@
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="PopupMasterPage.Master" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\dsesgu.edu.vn.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -242,6 +244,9 @@
     </Compile>
     <Compile Include="Check.aspx.designer.cs">
       <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HinhAnh.aspx.cs">
       <DependentUpon>HinhAnh.aspx</DependentUpon>

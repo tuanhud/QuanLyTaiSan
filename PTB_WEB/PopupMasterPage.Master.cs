@@ -19,7 +19,7 @@ namespace PTB_WEB
         protected override void OnInit(EventArgs e)
         {
             if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-                Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
+               QuanLyTaiSan.Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
         }
     }
 }
