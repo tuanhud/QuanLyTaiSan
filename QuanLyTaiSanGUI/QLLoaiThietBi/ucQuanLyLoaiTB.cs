@@ -99,6 +99,13 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 txtTen.Focus();
         }
 
+        private void checkPermission()
+        {
+            barButtonThemLoaiTB.Enabled = btnR_Them.Enabled = Permission.canAdd<LoaiThietBi>();
+            barButtonSuaLoaiTB.Enabled = btnR_Sua.Enabled = barBtnUp.Enabled = barBtnDown.Enabled = Permission.canEdit<LoaiThietBi>(null);
+            barButtonXoaLoaiTB.Enabled = btnR_Xoa.Enabled = Permission.canDelete<LoaiThietBi>(null);
+        }
+
         public void reLoad()
         {
             try
@@ -110,6 +117,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
                 lueThuoc.Properties.DataSource = listLoaiThietBiCha;
                 checkSuaXoa();
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -176,6 +184,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 }
                 else
                     beforeAdd();
+                checkPermission();
             }
             catch (Exception ex)
             {

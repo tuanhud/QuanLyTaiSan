@@ -37,6 +37,9 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         int khoangcach = -1;
         Point pointLabelMota, pointTxtMota, pointBtnOK, pointBtnHuy;
         public Boolean working = false;
+        bool canAddCoSo = false;
+        bool canAddDay = false;
+        bool canAddTang = false;
 
         public ucQuanLyViTri()
         {
@@ -65,12 +68,16 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
         {
             try
             {
+                canAddCoSo = Permission.canAdd<CoSo>();
+                canAddDay = Permission.canAdd<Dayy>();
+                canAddTang = Permission.canAdd<Tang>();
                 _ucComboBoxViTri.DataSource = ViTriHienThi.getAllCoSo();
                 _ucComboBoxViTriChonDay.DataSource = ViTriHienThi.getAllHaveDay();
                 listViTriHienThi = ViTriHienThi.getAll();
                 if (listViTriHienThi.Count == 0)
                 {
                     editGUI("nothing", "");
+                    editGUI2("nothing", "");
                 }
                 treeListViTri.DataSource = listViTriHienThi;
             }
@@ -106,17 +113,17 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 if (_function.Equals("view"))
                 {
-                    enableEdit(false);
+                    enableEdit(false, true);
                     if (_type.Equals(typeof(CoSo).Name))
                     {
                         SetTextGroupControl("Chi tiết cơ sở", Color.Empty);
                         showDiaChi(true);
-                        enableCoSoButton(true);
-                        barBtnThemCoSo.Enabled = true;
-                        enableDayButton(false);
-                        barBtnThemDay.Enabled = true;
-                        enableTangButton(false);
-                        barBtnThemTang.Enabled = false;
+                        //enableCoSoButton(true);
+                        //barBtnThemCoSo.Enabled = true;
+                        //enableDayButton(false);
+                        //barBtnThemDay.Enabled = true;
+                        //enableTangButton(false);
+                        //barBtnThemTang.Enabled = false;
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(txt);
                     }
@@ -124,12 +131,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     {
                         SetTextGroupControl("Chi tiết dãy", Color.Empty);
                         showDiaChi(false);
-                        enableCoSoButton(false);
-                        barBtnThemCoSo.Enabled = true;
-                        enableDayButton(true);
-                        barBtnThemDay.Enabled = true;
-                        enableTangButton(false);
-                        barBtnThemTang.Enabled = true;
+                        //enableCoSoButton(false);
+                        //barBtnThemCoSo.Enabled = true;
+                        //enableDayButton(true);
+                        //barBtnThemDay.Enabled = true;
+                        //enableTangButton(false);
+                        //barBtnThemTang.Enabled = true;
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucComboBoxViTri);
                     }
@@ -137,12 +144,12 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     {
                         SetTextGroupControl("Chi tiết tầng", Color.Empty);
                         showDiaChi(false);
-                        enableCoSoButton(false);
-                        barBtnThemCoSo.Enabled = true;
-                        enableDayButton(false);
-                        barBtnThemDay.Enabled = true;
-                        enableTangButton(true);
-                        barBtnThemTang.Enabled = true;
+                        //enableCoSoButton(false);
+                        //barBtnThemCoSo.Enabled = true;
+                        //enableDayButton(false);
+                        //barBtnThemDay.Enabled = true;
+                        //enableTangButton(true);
+                        //barBtnThemTang.Enabled = true;
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucComboBoxViTriChonDay);
                     }
@@ -259,16 +266,16 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 else if (_function.Equals("nothing"))
                 {
                     node = typeof(CoSo).Name;
-                    enableEdit(false);
+                    enableEdit(false, true);
                     SetTextGroupControl("Chi tiết", Color.Empty);
-                    enableRightButton(false);
-                    btnR_Them.Enabled = true;
-                    enableCoSoButton(false);
-                    barBtnThemCoSo.Enabled = true;
-                    enableDayButton(false);
-                    barBtnThemDay.Enabled = false;
-                    enableTangButton(false);
-                    barBtnThemTang.Enabled = false;
+                    //enableRightButton(false);
+                    //btnR_Them.Enabled = true;
+                    //enableCoSoButton(false);
+                    //barBtnThemCoSo.Enabled = true;
+                    //enableDayButton(false);
+                    //barBtnThemDay.Enabled = false;
+                    //enableTangButton(false);
+                    //barBtnThemTang.Enabled = false;
                     panelControl1.Controls.Clear();
                     panelControl1.Controls.Add(txt);
                     clearText();
@@ -282,13 +289,66 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             }
         }
 
+        private void editGUI2(String _function, String _type)
+        {
+            try
+            {
+                if (_function.Equals("view"))
+                {
+                    enableEdit2(false);
+                    if (_type.Equals(typeof(CoSo).Name))
+                    {
+                        enableCoSoButton(true);
+                        barBtnThemCoSo.Enabled = true && canAddCoSo;
+                        enableDayButton(false);
+                        barBtnThemDay.Enabled = true && canAddDay;
+                        enableTangButton(false);
+                        barBtnThemTang.Enabled = false;
+                    }
+                    else if (_type.Equals(typeof(Dayy).Name))
+                    {
+                        enableCoSoButton(false);
+                        barBtnThemCoSo.Enabled = true && canAddCoSo;
+                        enableDayButton(true);
+                        barBtnThemDay.Enabled = true && canAddDay;
+                        enableTangButton(false);
+                        barBtnThemTang.Enabled = true && canAddTang;
+                    }
+                    else if (_type.Equals(typeof(Tang).Name))
+                    {
+                        enableCoSoButton(false);
+                        barBtnThemCoSo.Enabled = true && canAddCoSo;
+                        enableDayButton(false);
+                        barBtnThemDay.Enabled = true && canAddDay;
+                        enableTangButton(true);
+                        barBtnThemTang.Enabled = true && canAddTang;
+                    }
+                }
+                else if (_function.Equals("nothing"))
+                {
+                    enableRightButton(false);
+                    btnR_Them.Enabled = true && checkPermission("add");
+                    enableCoSoButton(false);
+                    barBtnThemCoSo.Enabled = true && canAddCoSo;
+                    enableDayButton(false);
+                    barBtnThemDay.Enabled = false;
+                    enableTangButton(false);
+                    barBtnThemTang.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->editGUI2:" + ex.Message);
+            }
+        }
+
         private void SetTextGroupControl(String text, Color color)
         {
             groupControl1.Text = text;
             groupControl1.AppearanceCaption.ForeColor = color;
         }
 
-        private void enableEdit(bool _enable)
+        private void enableEdit(bool _enable, bool _view = false)
         {
             btnOK.Visible = _enable;
             btnHuy.Visible = _enable;
@@ -298,36 +358,46 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             txtDiaChi.Properties.ReadOnly = !_enable;
             _ucComboBoxViTri.ReadOnly = !_enable;
             _ucComboBoxViTriChonDay.ReadOnly = !_enable;
-            enableRightButton(!_enable);
-            btnR_Them.Enabled = !_enable;
+            if (!_view)
+            {
+                enableRightButton(!_enable);
+                btnR_Them.Enabled = !_enable && checkPermission("add");
+            }
             working = _enable;
+        }
+
+        private void enableEdit2(bool _enable)
+        {
+            enableRightButton(!_enable);
+            btnR_Them.Enabled = !_enable && checkPermission("add");
         }
 
         private void enableRightButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
-            btnR_Sua.Enabled = _enable;
-            btnR_Xoa.Enabled = _enable;
-            barBtnDown.Enabled = _enable;
-            barBtnUp.Enabled = _enable;
+            bool canEdit = checkPermission("edit");
+            btnR_Sua.Enabled = _enable && canEdit;
+            btnR_Xoa.Enabled = _enable && checkPermission("delete");
+            barBtnDown.Enabled = _enable && canEdit;
+            barBtnUp.Enabled = _enable && canEdit;
         }
 
         private void enableCoSoButton(bool _enable)
         {
-            barBtnSuaCoSo.Enabled = _enable;
-            barBtnXoaCoSo.Enabled = _enable;
+            barBtnSuaCoSo.Enabled = _enable && Permission.canEdit<CoSo>(objCoSo);
+            barBtnXoaCoSo.Enabled = _enable && Permission.canDelete<CoSo>(objCoSo);
         }
 
         private void enableDayButton(bool _enable)
         {
-            barBtnSuaDay.Enabled = _enable;
-            barBtnXoaDay.Enabled = _enable;
+            barBtnSuaDay.Enabled = _enable && Permission.canEdit<Dayy>(objDay);
+            barBtnXoaDay.Enabled = _enable && Permission.canDelete<Dayy>(objDay);
         }
 
         private void enableTangButton(bool _enable)
         {
-            barBtnSuaTang.Enabled = _enable;
-            barBtnXoaTang.Enabled = _enable;
+            barBtnSuaTang.Enabled = _enable && Permission.canEdit<Tang>(objTang);
+            barBtnXoaTang.Enabled = _enable && Permission.canDelete<Tang>(objTang);
         }
 
         private void clearText()
@@ -339,6 +409,53 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             imageSlider1.Images.Clear();
         }
 
+        private bool checkPermission(String type)
+        {
+            if (node.Equals(typeof(CoSo).Name))
+            {
+                switch (type)
+                {
+                    case "add":
+                        return canAddCoSo;
+                    case "edit":
+                        return Permission.canEdit<CoSo>(objCoSo);
+                    case "delete":
+                        return Permission.canDelete<CoSo>(objCoSo);
+                    default:
+                        return false;
+                }
+            }
+            else if (node.Equals(typeof(Dayy).Name))
+            {
+                switch (type)
+                {
+                    case "add":
+                        return canAddDay;
+                    case "edit":
+                        return Permission.canEdit<Dayy>(objDay);
+                    case "delete":
+                        return Permission.canDelete<Dayy>(objDay);
+                    default:
+                        return false;
+                }
+            }
+            else if (node.Equals(typeof(Tang).Name))
+            {
+                switch (type)
+                {
+                    case "add":
+                        return canAddTang;
+                    case "edit":
+                        return Permission.canEdit<Tang>(objTang);
+                    case "delete":
+                        return Permission.canDelete<Tang>(objTang);
+                    default:
+                        return false;
+                }
+            }
+            else
+                return false;
+        }
         
         private void setDataView()
         {
@@ -359,6 +476,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             node = typeof(CoSo).Name;
                             listHinh = objCoSo.hinhanhs.ToList();
                             reloadImage();
+                            editGUI2("view", typeof(CoSo).Name);
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
                         {
@@ -372,6 +490,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             objViTri.coso = objDay.coso;
                             _ucComboBoxViTri.ViTri = objViTri;
                             reloadImage();
+                            editGUI2("view", typeof(Dayy).Name);
                         }
                         else if (treeListViTri.FocusedNode.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
                         {
@@ -386,16 +505,19 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                             objViTri.day = objTang.day;
                             _ucComboBoxViTriChonDay.ViTri = objViTri;
                             reloadImage();
+                            editGUI2("view", typeof(Tang).Name);
                         }
                     }
                     else
                     {
                         editGUI("nothing","");
+                        editGUI2("nothing", "");
                     }
                 }
                 else
                 {
                     editGUI("nothing", "");
+                    editGUI2("nothing", "");
                 }
             }
             catch (Exception ex)

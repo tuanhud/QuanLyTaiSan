@@ -64,7 +64,7 @@ namespace TSCD_GUI.QLTaiSan
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 DonVi DVSD = ucComboBoxDonVi2.DonVi;
-                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(new List<CTTaiSan>(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD)));
+                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
                 bandedGridViewTaiSan.ExpandAllGroups();
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
@@ -204,6 +204,29 @@ namespace TSCD_GUI.QLTaiSan
         private void btnXoa_r_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+            open.Title = "Chọn tập tin để Import";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportTaiSan(open.FileName, "Import"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+
+            }
         }
     }
 }

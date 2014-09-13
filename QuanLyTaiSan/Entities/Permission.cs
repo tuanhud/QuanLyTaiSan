@@ -23,8 +23,7 @@ namespace QuanLyTaiSan.Entities
         public String key { get; set; }
 
         /// <summary>
-        /// Quyền cố định,
-        /// vd: CONFIG, ROOT
+        /// true: fixed || cat_wide, false: object_combined
         /// </summary>
         public Boolean stand_alone { get; set; }
         /// <summary>
@@ -69,19 +68,67 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<Group> groups { get; set; }
         #endregion
         #region Nghiep vu
-        public static bool canEdit<T>(T obj) where T: _EntityAbstract1<T>
+        /// <summary>
+        /// Chỉ có stand_alone Permission là mới tái sử dụng được object trong CSDL
+        /// </summary>
+        /// <param name="fixed_permission"></param>
+        /// <returns></returns>
+        public static Permission request(String fixed_permission = "")
+        {
+            if (fixed_permission == null || fixed_permission.Equals(""))
+            {
+                return null;
+            }
+            Permission tmp = db.PERMISSIONS.Where(c =>
+                Permission.STAND_ALONE_LIST.Contains(fixed_permission.ToUpper())
+                &&
+                c.allow_or_deny
+                &&
+                c.stand_alone
+                &&
+                c.key.ToUpper().Equals(fixed_permission.ToUpper())
+            ).FirstOrDefault();
+            if (tmp == null)
+            {
+                tmp = new Permission();
+                tmp.key = fixed_permission.ToUpper();
+                tmp.stand_alone = true;
+                tmp.recursive_to_child = true;
+                tmp.allow_or_deny = true;
+            }
+            return tmp;
+        }
+        public static Permission request(Boolean stand_alone=false, String key="",  Boolean allow_or_deny=false, Boolean recursive_to_child=false, Boolean can_view=false, Boolean can_edit=false, Boolean can_delete=false, Boolean can_add=false)
+        {
+            if (key == null || key.Equals(""))
+            {
+                return null;
+            }
+            Permission tmp = new Permission();
+            tmp.key = key.ToUpper();
+            tmp.stand_alone = stand_alone;
+            tmp.recursive_to_child = recursive_to_child;
+            tmp.allow_or_deny = allow_or_deny;
+            tmp.can_add = can_add;
+            tmp.can_delete = can_delete;
+            tmp.can_edit = can_edit;
+            tmp.can_view = can_view;
+            return tmp;
+        }
+
+        public static bool canEdit<T>(T obj) where T: _EntityAbstract1<T>, new()
         {
             return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canEdit<T>(obj);
         }
-        public static bool canView<T>(T obj) where T : _EntityAbstract1<T>
+        public static bool canView<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canView<T>(obj);
         }
-        public static bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        public static bool canDelete<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canDelete<T>(obj);
         }
-        public static bool canAdd<T>() where T : _EntityAbstract1<T>
+        public static bool canAdd<T>() where T : _EntityAbstract1<T>, new()
         {
             return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canAdd<T>();
         }
@@ -115,11 +162,12 @@ namespace QuanLyTaiSan.Entities
             }
         }
         public static String[] STAND_ALONE_LIST = {
-            "WEB_MUONPHONG",//
+            "WEB_MUONPHONG",
             "WEB_QLMUONPHONG",
             "CLIENT_CONFIG",
             "SERVER_CONFIG",
-            "ROOT"//version 1.1
+            "ROOT"
+            //additional follow here
         };
         /// <summary>
         /// Sử dụng tính năng mượn phòng (tạo yêu cầu) trên WEB
@@ -176,9 +224,34 @@ namespace QuanLyTaiSan.Entities
                 return STAND_ALONE_LIST[4];
             }
         }
+
+        [NotMapped]
+        public static int __TYPE_FIXED
+        {
+            get
+            {
+                return 0;
+            }
+        }
+        [NotMapped]
+        public static int __TYPE_OBJ_COMBINED
+        {
+            get
+            {
+                return 1;
+            }
+        }
+        [NotMapped]
+        public static int __TYPE_CAT_WIDE
+        {
+            get
+            {
+                return 2;
+            }
+        }
         #endregion
 
-        #region NotMapped
+        #region Extended member
 
         /// <summary>
         /// Hiển thị thông tin chi tiết về quyền này cho người dùng dễ hiểu
@@ -191,11 +264,11 @@ namespace QuanLyTaiSan.Entities
                 String tmp = "";
                 tmp += allow_or_deny ? "Cho phép: " : "Cấm: ";
                 //Quyền cố định
-                if (stand_alone)
-                {
-                    tmp += mota;
-                    goto done;
-                }
+                //if (stand_alone)
+                //{
+                //    tmp += mota;
+                //    goto done;
+                //}
                 tmp += can_view ? "Xem, " : "";
                 tmp += can_add ? "Thêm, " : "";
                 tmp += can_edit ? "Sửa, " : "";

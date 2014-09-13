@@ -35,7 +35,7 @@ namespace QuanLyTaiSanGUI.HeThong
             listBoxControl_quyenHangMuc.DataSource = Permission.ENTITY_LIST;
 
             //load ds quyền cố định
-            gridControl_quyenCoDinh.DataSource = Permission.getQuery().Where(c => c.stand_alone == true).ToList();
+            listBoxControl_quyenCoDinh.DataSource = Permission.STAND_ALONE_LIST;
 
             //load ds quyền hiện có
             gridControl_DSQuyen.DataSource = input;
@@ -64,7 +64,8 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void btnThemQuyenCoDinh_Click(object sender, EventArgs e)
         {
-            Permission tmp = (Permission)gridView_quyenCoDinh.GetFocusedRow();
+            String key = (string)listBoxControl_quyenCoDinh.SelectedValue;
+            Permission tmp = Permission.request(key);
             //xét đã có trong list hiện tại
             if (input.Where(c => c.key.ToUpper().Equals(tmp.key.ToUpper())).FirstOrDefault() != null)
             {
@@ -101,6 +102,8 @@ namespace QuanLyTaiSanGUI.HeThong
                 c =>
                     c.key.ToUpper().Equals(CoSo.USNAME)
                     &&
+                    c.stand_alone == false
+                    &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
@@ -110,7 +113,7 @@ namespace QuanLyTaiSanGUI.HeThong
                     c.can_delete == checkEdit_quyenXoa.Checked
                     &&
                     c.can_view == checkEdit_quyenXem.Checked
-                    ).FirstOrDefault();
+            ).FirstOrDefault();
             CoSo dangChon = gridView_CoSo.GetFocusedRow() as CoSo;
             if (dangChon == null)
             {
@@ -119,14 +122,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = new Permission();
-                tmp.key = CoSo.USNAME;
-                tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
-                tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_edit = checkEdit_quyenSua.Checked;
-                tmp.can_delete = checkEdit_quyenXoa.Checked;
-                tmp.can_view = checkEdit_quyenXem.Checked;
-                tmp.stand_alone = false;
+                tmp = Permission.request(false, CoSo.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
                 
                 //add object list to tmp
                 tmp.cosos.Add(dangChon);
@@ -179,9 +175,9 @@ namespace QuanLyTaiSanGUI.HeThong
                 c =>
                     c.key.ToUpper().Equals(hangmuc)
                     &&
-                    c.stand_alone == false
-                    //&&
-                    //c.recursive_to_child == checkEdit_quyenBaoHam2.Checked
+                    c.stand_alone == true
+                    &&
+                    c.recursive_to_child == checkEdit_quyenBaoHam2.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny2.Checked
                     &&
@@ -195,16 +191,7 @@ namespace QuanLyTaiSanGUI.HeThong
             ).FirstOrDefault();
             if (tmp == null)
             {
-                //build
-                tmp = new Permission();
-                tmp.stand_alone = false;
-                tmp.recursive_to_child = true;
-                tmp.allow_or_deny = !checkEdit_quyenDeny2.Checked;
-                tmp.can_add = checkEdit_quyenThem2.Checked;
-                tmp.can_edit = checkEdit_quyenSua2.Checked;
-                tmp.can_delete = checkEdit_quyenXoa2.Checked;
-                tmp.can_view = checkEdit_quyenXem2.Checked;
-                tmp.key = hangmuc;
+                tmp = Permission.request(true, hangmuc, !checkEdit_quyenDeny2.Checked, checkEdit_quyenBaoHam2.Checked, checkEdit_quyenXem2.Checked, checkEdit_quyenSua2.Checked, checkEdit_quyenXoa2.Checked, checkEdit_quyenThem2.Checked);
 
                 input.Add(tmp);
 
@@ -239,6 +226,8 @@ namespace QuanLyTaiSanGUI.HeThong
                 c =>
                     c.key.ToUpper().Equals(Dayy.USNAME)
                     &&
+                    c.stand_alone == false
+                    &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
@@ -257,14 +246,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = new Permission();
-                tmp.key = Dayy.USNAME;
-                tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
-                tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_edit = checkEdit_quyenSua.Checked;
-                tmp.can_delete = checkEdit_quyenXoa.Checked;
-                tmp.can_view = checkEdit_quyenXem.Checked;
-                tmp.stand_alone = false;
+                tmp = Permission.request(false, Dayy.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
 
                 //add object list to tmp
                 tmp.days.Add(dangChon);
@@ -294,6 +276,8 @@ namespace QuanLyTaiSanGUI.HeThong
                 c =>
                     c.key.ToUpper().Equals(Tang.USNAME)
                     &&
+                    c.stand_alone == false
+                    &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
@@ -312,14 +296,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = new Permission();
-                tmp.key = Tang.USNAME;
-                tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
-                tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_edit = checkEdit_quyenSua.Checked;
-                tmp.can_delete = checkEdit_quyenXoa.Checked;
-                tmp.can_view = checkEdit_quyenXem.Checked;
-                tmp.stand_alone = false;
+                tmp = Permission.request(false, Tang.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
 
                 //add object list to tmp
                 tmp.tangs.Add(dangChon);
@@ -349,6 +326,8 @@ namespace QuanLyTaiSanGUI.HeThong
                 c =>
                     c.key.ToUpper().Equals(Phong.USNAME)
                     &&
+                    c.stand_alone == false
+                    &&
                     c.recursive_to_child == checkEdit_quyenBaoHam.Checked
                     &&
                     c.allow_or_deny == !checkEdit_quyenDeny.Checked
@@ -367,14 +346,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
             if (tmp == null)
             {
-                tmp = new Permission();
-                tmp.key = Phong.USNAME;
-                tmp.recursive_to_child = checkEdit_quyenBaoHam.Checked;
-                tmp.allow_or_deny = !checkEdit_quyenDeny.Checked;
-                tmp.can_edit = checkEdit_quyenSua.Checked;
-                tmp.can_delete = checkEdit_quyenXoa.Checked;
-                tmp.can_view = checkEdit_quyenXem.Checked;
-                tmp.stand_alone = false;
+                tmp = Permission.request(false, Phong.USNAME, !checkEdit_quyenDeny.Checked, checkEdit_quyenBaoHam.Checked, checkEdit_quyenXem.Checked, checkEdit_quyenSua.Checked, checkEdit_quyenXoa.Checked);
 
                 //add object list to tmp
                 tmp.phongs.Add(dangChon);

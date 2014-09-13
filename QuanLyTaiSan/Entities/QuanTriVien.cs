@@ -66,19 +66,19 @@ namespace QuanLyTaiSan.Entities
             return db.QUANTRIVIENS.Where(c => (c.id != this.id) && (c.username.ToUpper().Equals(this.username.ToUpper()))).Count<QuanTriVien>() == 0;
         }
 
-        public bool canView<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canView<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return group.canView<T>((T)obj);
         }
-        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return group.canDelete<T>((T)obj);
         }
-        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        public bool canAdd<T>() where T : _EntityAbstract1<T>, new()
         {
             return group.canAdd<T>();
         }
-        public Boolean canEdit<T>(T obj) where T:_EntityAbstract1<T>
+        public Boolean canEdit<T>(T obj) where T:_EntityAbstract1<T>, new()
         {
             return group.canEdit<T>((T)obj);
         }

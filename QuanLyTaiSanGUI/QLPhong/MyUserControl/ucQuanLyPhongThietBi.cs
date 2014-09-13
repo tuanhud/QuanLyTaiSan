@@ -31,7 +31,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         //ucTreeViTri _ucTreeViTri = new ucTreeViTri("QLPhongThietBi");
         ucTreeViTri _ucTreeViTri = new ucTreeViTri();
         ucTreeLoaiTB _ucTreeLoaiTB = new ucTreeLoaiTB();
-        public bool working = false;
+        bool working = false;
         MyLayout layout = new MyLayout();
 
         public ucQuanLyPhongThietBi()
@@ -94,21 +94,29 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-            objPhong = Phong.getById(_phongid);
-            gridControlCTThietBi.DataSource = null;
-            listCTThietBis = ChiTietTBHienThi.getAllByPhongId(_phongid);
-            gridControlCTThietBi.DataSource = listCTThietBis;
-            editGUI();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            try
+            {
+                objPhong = Phong.getById(_phongid);
+                gridControlCTThietBi.DataSource = null;
+                listCTThietBis = ChiTietTBHienThi.getAllByPhongId(_phongid);
+                gridControlCTThietBi.DataSource = listCTThietBis;
+                editGUI();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
+            catch
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
 
         private void editGUI()
         {
             if (objPhong != null && objPhong.id != Guid.Empty)
             {
+                bool canEdit = Permission.canEdit<Phong>(objPhong);
                 groupPhong.Text = "Phòng " + objPhong.ten;
-                barButtonThemTBChung.Enabled = true;
-                barButtonThemTBRieng.Enabled = true;
+                barButtonThemTBChung.Enabled = true && canEdit;
+                barButtonThemTBRieng.Enabled = true && canEdit;
             }
             else
             {
@@ -118,12 +126,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             if (listCTThietBis.Count > 0)
             {
+                bool canEdit = Permission.canEdit<Phong>(objPhong);
                 panelControl1.Visible = true;
-                barButtonSua.Enabled = true;
-                barButtonXoa.Enabled = true;
-                barButtonChuyen.Enabled = true;
-                btnR_Sua.Enabled = true;
-                btnR_Xoa.Enabled = true;
+                barButtonSua.Enabled = true && canEdit;
+                barButtonXoa.Enabled = true && canEdit;
+                barButtonChuyen.Enabled = true && canEdit;
+                btnR_Sua.Enabled = true && canEdit;
+                btnR_Xoa.Enabled = true && canEdit;
             }
             else
             {
@@ -147,7 +156,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             dateMua.EditValue = "";
             imageSlider1.Images.Clear();
             gridControlLog.DataSource = null;
-
         }
 
         public RibbonControl getRibbon()

@@ -103,6 +103,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 editGUIforView();
 
                 reLoad();
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -133,6 +134,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 editGUIforView();
 
                 reLoad();
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -179,6 +181,13 @@ namespace QuanLyTaiSanGUI.QLThietBi
             {
                 Debug.WriteLine(this.Name + "=>editGUIforView: " + ex.Message);
             }
+        }
+
+        private void checkPermission()
+        {
+            barButtonThemThietBi.Enabled = btnR_Them.Enabled = Permission.canAdd<ThietBi>();
+            barButtonSuaThietBi.Enabled = btnR_Sua.Enabled = Permission.canEdit<ThietBi>(null);
+            barButtonXoaThietBi.Enabled = btnR_Xoa.Enabled = Permission.canDelete<ThietBi>(null);
         }
 
         private void reLoad()
@@ -364,6 +373,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 }
                 else
                     deleteData();
+                checkPermission();
             }
             catch (Exception ex)
             {

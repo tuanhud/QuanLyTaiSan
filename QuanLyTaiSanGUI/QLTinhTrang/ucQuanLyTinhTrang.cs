@@ -20,6 +20,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         TinhTrang objTinhTrang = new TinhTrang();
         String function = "";
         bool working = false;
+        bool canAdd = false;
 
         public ucQuanLyTinhTrang()
         {
@@ -31,6 +32,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         {
             try
             {
+                canAdd = Permission.canAdd<TinhTrang>();
                 editGUI("view");
                 listTinhTrang = TinhTrang.getQuery().OrderBy(c=>c.order).ToList();
                 if (listTinhTrang.Count == 0)
@@ -38,6 +40,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     enableButton(false);
                 }
                 gridControlTinhTrang.DataSource = listTinhTrang;
+                editGUI2("view");
             }
             catch (Exception ex)
             {
@@ -59,7 +62,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             if (_type.Equals("view"))
             {
                 SetTextGroupControl("Chi tiết", Color.Empty);
-                enableEdit(false);
+                enableEdit(false, true);
             }
             else if (_type.Equals("add"))
             {
@@ -76,33 +79,46 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             }
         }
 
+        private void editGUI2(String _type)
+        {
+            if (_type.Equals("view"))
+            {
+                enableEdit(false);
+            }
+        }
+
         private void SetTextGroupControl(String text, Color color)
         {
             groupControl1.Text = text;
             groupControl1.AppearanceCaption.ForeColor = color;
         }
 
-        private void enableEdit(bool _enable)
+        private void enableEdit(bool _enable, bool _view = false)
         {
             btnOk.Visible = _enable;
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            enableButton(!_enable);
-            btnR_Them.Enabled = !_enable;
-            barButtonThemTinhTrang.Enabled = !_enable;
+            if (!_view)
+            {
+                enableButton(!_enable);
+                btnR_Them.Enabled = !_enable && canAdd;
+                barButtonThemTinhTrang.Enabled = !_enable && canAdd;
+            }
             working = _enable;
         }
 
         private void enableButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
-            barButtonSuaTinhTrang.Enabled = _enable;
-            barButtonXoaTinhTrang.Enabled = _enable;
-            barBtnUp.Enabled = _enable;
-            barBtnDown.Enabled = _enable;
-            btnR_Sua.Enabled = _enable;
-            btnR_Xoa.Enabled = _enable;
+            bool canEdit = Permission.canEdit<TinhTrang>(null);
+            bool canDelete = Permission.canDelete<TinhTrang>(null);
+            barButtonSuaTinhTrang.Enabled = _enable && canEdit;
+            barButtonXoaTinhTrang.Enabled = _enable && canDelete;
+            barBtnUp.Enabled = _enable && canEdit;
+            barBtnDown.Enabled = _enable && canEdit;
+            btnR_Sua.Enabled = _enable && canEdit;
+            btnR_Xoa.Enabled = _enable && canDelete;
         }
 
         private void clearText()
@@ -138,6 +154,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     clearText();
                     objTinhTrang = new TinhTrang();
                 }
+                editGUI2("view");
             }
             catch (Exception ex)
             {

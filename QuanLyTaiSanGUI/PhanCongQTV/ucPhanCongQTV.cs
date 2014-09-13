@@ -54,11 +54,17 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                 {
                     barBtnPhanCong.Enabled = false;
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
+        }
+
+        private void checkPermission()
+        {
+            barBtnPhanCong.Enabled = Permission.canEdit<QuanTriVien>(null);
         }
 
         public void PhanCong(bool _bool)
@@ -132,6 +138,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                     clearText();
                     objQuanTriVien = new QuanTriVien();
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {

@@ -32,46 +32,101 @@ namespace QuanLyTaiSan.Entities
         public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
-        private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String action = "view")
+        private bool hasROOTAccess()
         {
-            Boolean re = false;
-            if (__obj == null)
-            {
-                goto done;
-            }
+            return permissions.Where(c => c.key.ToUpper().Equals(Permission._ROOT.ToUpper())).Count() > 0;
+        }
+        private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String action = "view") where T: new()
+        {
             //Xét quyền từ cao đến thấp (từ ưu tiên cao hơn xuống ưu tiên thấp hơn)
             //Quyền ROOT
-            if (permissions.Where(c => c.key.ToUpper().Equals("ROOT")).Count() > 0)
+            if (hasROOTAccess())
             {
-                goto done;
+                return true;
             }
-            //Quyền trên Object hoặc Fixed
+            Boolean re = false;
+            Boolean needed_release_memory = false;   
+            IEnumerable<Permission> query = permissions;
+            
+            /*
+             * Xét quyền deny
+             */
+            //...
+            /*
+             * Xét quyền allow
+             */
+            //root common criteria
+            query = query.Where(
+                    c => c.allow_or_deny
+                    &&
+                    (
+                        (action.Equals("edit") && c.can_edit)
+                        ||
+                        (action.Equals("view") && c.can_view)
+                        ||
+                        (action.Equals("delete") && c.can_delete)
+                    )
+            );
+            //đang xét quyền cat_wide
+            if (__obj == null)
+            {
+                //Type type = typeof(T).GetType();
+                ////common criteria
+                query = query.Where(
+                    c =>
+                        c.stand_alone
+                );
+
+                //if (type == typeof(CoSo).GetType())
+                //{
+                //    query = query.Where(c=>c.key.ToUpper().Equals(CoSo.USNAME));
+                //}
+                //else if (type == typeof(Dayy).GetType())
+                //{
+                //    query = query.Where(c => c.key.ToUpper().Equals(Dayy.USNAME));
+                //}
+                //else if (type == typeof(Tang).GetType())
+                //{
+                //    query = query.Where(c => c.key.ToUpper().Equals(Tang.USNAME));
+                //}
+                //else if (type == typeof(Phong).GetType())
+                //{
+                //    query = query.Where(c => c.key.ToUpper().Equals(Phong.USNAME));
+                //}
+                ////for other object
+
+
+                //re = query.Count() > 0;
+                ////final
+                //goto done;
+                __obj = new T();
+                needed_release_memory = true;
+                //override require_baoham
+                require_baoham = false;
+            }
+            //đang xét quyền object_combined
+            //common criteria
+            query = query.Where(
+                c=>
+                    (!require_baoham || (require_baoham && c.recursive_to_child))
+            );
+
+            //specific object type
             if (__obj is CoSo)
             {
                 var obj = __obj as CoSo;
 
                 //Quyền Edit trên mọi Cơ sở hoặc trên CS này
-                re = permissions.Where(
+                re = query.Where(
                     c =>
-                        c.allow_or_deny == true
-                        &&
-                        (!require_baoham || (require_baoham && c.recursive_to_child))
-                        &&
                         c.key.ToUpper().Equals(CoSo.USNAME)
                         &&
                         (
-                            action.Equals("edit") && c.can_edit == true
-                            || action.Equals("view") && c.can_view == true
-                            || action.Equals("add") && c.can_add == true
-                            || action.Equals("delete") && c.can_delete == true
-                        )
-                        &&
-                        (
-                            c.cosos.Count == 0
+                            c.stand_alone
                             ||
-                            c.cosos.Select(t => t.id).Contains(obj.id)
+                            (!c.stand_alone && c.cosos.Count > 0 && c.cosos.Select(m=>m.id).Contains(obj.id))
                         )
-                    ).Count() > 0;
+                ).Count() > 0;
             }
             else if (__obj is Dayy)
             {
@@ -84,25 +139,16 @@ namespace QuanLyTaiSan.Entities
                     goto done;
                 }
                 //Quyền edit dãy này
-                re = permissions.Where(
+                re = query.Where(
                     c =>
                         c.key.ToUpper().Equals(Dayy.USNAME)
                         &&
-                        (!require_baoham || (require_baoham && c.recursive_to_child))
-                        &&
                         (
-                            action.Equals("edit") && c.can_edit == true
-                            || action.Equals("view") && c.can_view == true
-                            || action.Equals("add") && c.can_add == true
-                            || action.Equals("delete") && c.can_delete == true
+                            c.stand_alone
+                            ||    
+                            (!c.stand_alone && c.days.Count > 0 && c.days.Select(m => m.id).Contains(obj.id))
                         )
-                        &&
-                            (
-                                c.days.Count == 0
-                                ||
-                                c.days.Select(t => t.id).Contains(obj.id)
-                            )
-                        ).Count() > 0;
+                ).Count() > 0;
             }
             else if (__obj is Tang)
             {
@@ -122,25 +168,16 @@ namespace QuanLyTaiSan.Entities
                     goto done;
                 }
                 //Quyền edit tầng này
-                re = permissions.Where(
+                re = query.Where(
                     c =>
                         c.key.ToUpper().Equals(Tang.USNAME)
                         &&
-                        (!require_baoham || (require_baoham && c.recursive_to_child))
-                        &&
                         (
-                            action.Equals("edit") && c.can_edit == true
-                            || action.Equals("view") && c.can_view == true
-                            || action.Equals("add") && c.can_add == true
-                            || action.Equals("delete") && c.can_delete == true
+                            c.stand_alone
+                            ||
+                            (!c.stand_alone && c.tangs.Count > 0 && c.tangs.Select(m => m.id).Contains(obj.id))
                         )
-                        &&
-                            (
-                                c.tangs.Count == 0
-                                ||
-                                c.tangs.Select(t => t.id).Contains(obj.id)
-                            )
-                        ).Count() > 0;
+                ).Count() > 0;
             }
             else if (__obj is Phong)
             {
@@ -169,30 +206,26 @@ namespace QuanLyTaiSan.Entities
                 }
 
                 //Quyền edit phòng này
-                re = permissions.Where(
+                re = query.Where(
                     c =>
                         c.key.ToUpper().Equals(Phong.USNAME)
                         &&
-                        (!require_baoham || (require_baoham && c.recursive_to_child))
-                        &&
                         (
-                            action.Equals("edit") && c.can_edit == true
-                            || action.Equals("view") && c.can_view == true
-                            || action.Equals("add") && c.can_add == true
-                            || action.Equals("delete") && c.can_delete == true
+                            c.stand_alone
+                            ||
+                            (!c.stand_alone && c.phongs.Count > 0 && c.phongs.Select(m => m.id).Contains(obj.id))
                         )
-                        &&
-                            (
-                                c.phongs.Count == 0
-                                ||
-                                c.phongs.Select(t => t.id).Contains(obj.id)
-                            )
-                        ).Count() > 0;
+                ).Count() > 0;
             }
         //quocdunginfo, xu ly cac class khác: ThietBi,...
         //...
         //final 
         done:
+            //release memory if needed
+            if (needed_release_memory)
+            {
+                __obj = default(T);
+            }
             return re;
         }
         /// <summary>
@@ -201,59 +234,93 @@ namespace QuanLyTaiSan.Entities
         /// <param name="__obj"></param>
         /// <param name="require_baoham">Bắt buộc recursive_to_child == true</param>
         /// <returns></returns>
-        public bool canEdit<T>(T __obj, Boolean require_baoham = false) where T:_EntityAbstract1<T>
+        public bool canEdit<T>(T __obj) where T:_EntityAbstract1<T>,new()
         {
-            return requestPermission<T>(__obj, require_baoham, "edit");
+            return requestPermission<T>(__obj, false, "edit");
         }
 
-        public bool canView<T>(T __obj, Boolean require_baoham = false) where T : _EntityAbstract1<T>
+        public bool canView<T>(T __obj) where T : _EntityAbstract1<T>, new()
         {
-            return requestPermission<T>(__obj, require_baoham, "view");
+            return requestPermission<T>(__obj, false, "view");
         }
-        public bool canDelete<T>(T __obj, Boolean require_baoham = false) where T : _EntityAbstract1<T>
+        public bool canDelete<T>(T __obj) where T : _EntityAbstract1<T>, new()
         {
-            return requestPermission<T>(__obj, require_baoham, "delete");
+            return requestPermission<T>(__obj, false, "delete");
         }
-        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        public bool canAdd<T>(Boolean require_baoham=false) where T : _EntityAbstract1<T>, new()
         {
-            Type t = typeof(T).GetType();
+            //ROOT check
+            if (hasROOTAccess())
+            {
+                return true;
+            }
+            Type t = typeof(T);
             Boolean re = false;
-            if (t==typeof(CoSo).GetType())
+            
+            //common
+            IEnumerable<Permission> query = permissions;
+            query = query.Where(
+                c=>
+                    c.stand_alone
+                    &&
+                    c.can_add
+                    &&
+                    (!require_baoham || (require_baoham && c.recursive_to_child))
+            );
+            //get USNAME
+            String tmp = "";
+            if (t==typeof(CoSo))
             {
-                re = permissions.Where(
-                    c =>
-                        c.key.ToUpper().Equals(CoSo.USNAME)
-                        &&
-                        c.can_add == true
-                    ).Count() > 0;
+                tmp = CoSo.USNAME;
             }
-            else if (t == typeof(Dayy).GetType())
+            else if (t == typeof(Dayy))
             {
-                re = permissions.Where(
-                    c =>
-                        c.key.ToUpper().Equals(Dayy.USNAME)
-                        &&
-                        c.can_add == true
-                    ).Count() > 0;
+                re = canAdd<CoSo>(true);
+                if (re)
+                {
+                    goto done;
+                }
+                tmp = Dayy.USNAME;
             }
-            else if (t == typeof(Tang).GetType())
+            else if (t == typeof(Tang))
             {
-                re = permissions.Where(
-                    c =>
-                        c.key.ToUpper().Equals(Tang.USNAME)
-                        &&
-                        c.can_add == true
-                    ).Count() > 0;
+                re = canAdd<CoSo>(true);
+                if (re)
+                {
+                    goto done;
+                }
+                re = canAdd<Dayy>(true);
+                if (re)
+                {
+                    goto done;
+                }
+                tmp = Tang.USNAME;
             }
-            else if (t == typeof(Phong).GetType())
+            else if (t == typeof(Phong))
             {
-                re = permissions.Where(
-                    c =>
-                        c.key.ToUpper().Equals(Phong.USNAME)
-                        &&
-                        c.can_add == true
-                    ).Count() > 0;
+                re = canAdd<CoSo>(true);
+                if (re)
+                {
+                    goto done;
+                }
+                re = canAdd<Dayy>(true);
+                if (re)
+                {
+                    goto done;
+                }
+                re = canAdd<Tang>(true);
+                if (re)
+                {
+                    goto done;
+                }
+                tmp = Phong.USNAME;
             }
+            //check usname vs key
+            re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(tmp.ToUpper())
+                    ).Count() > 0;
+            done:
             return re;
         }
         /// <summary>
@@ -264,14 +331,19 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public bool canDo(string stand_alone_permission)
         {
+            if (hasROOTAccess())
+            {
+                return true;
+            }
+
             return permissions.Where(
                 c=>
                     c.key.ToUpper().Equals(stand_alone_permission.ToUpper())
                     &&
-                    c.allow_or_deny == true
+                    c.allow_or_deny
                     &&
-                    c.stand_alone == true
-                ).Count() > 0;
+                    c.stand_alone
+            ).Count() > 0;
         }
         
         #endregion
