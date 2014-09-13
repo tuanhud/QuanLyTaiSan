@@ -115,7 +115,6 @@ namespace QuanLyTaiSan.Entities
             if (__obj is CoSo)
             {
                 var obj = __obj as CoSo;
-
                 //Quyền Edit trên mọi Cơ sở hoặc trên CS này
                 re = query.Where(
                     c =>
@@ -133,7 +132,7 @@ namespace QuanLyTaiSan.Entities
                 var obj = __obj as Dayy;
 
                 //Quyền edit CS chứa dãy này
-                re = requestPermission<CoSo>((__obj as Dayy).coso, true, action);
+                re = requestPermission<CoSo>(obj.coso, true, action);
                 if (re)
                 {
                     goto done;
@@ -154,15 +153,18 @@ namespace QuanLyTaiSan.Entities
             {
                 var obj = __obj as Tang;
                 //Quyền ROOT
-
-                //Quyền edit CS chứa dãy chứa tầng này
-                re = requestPermission<CoSo>((__obj as Tang).day.coso, true, action);
-                if (re)
+                if (obj.day != null)
                 {
-                    goto done;
+                    //Quyền edit CS chứa dãy chứa tầng này
+                    re = requestPermission<CoSo>(obj.day.coso, true, action);
+                    if (re)
+                    {
+                        goto done;
+                    }
                 }
+                
                 //Quyền edit dãy chưa tầng này
-                re = requestPermission<Dayy>((__obj as Tang).day, true, action);
+                re = requestPermission<Dayy>(obj.day, true, action);
                 if (re)
                 {
                     goto done;
@@ -183,26 +185,27 @@ namespace QuanLyTaiSan.Entities
             {
                 var obj = __obj as Phong;
                 //Quyền ROOT
-
-                //Quyền edit CS chứa phòng này
-                re = requestPermission<CoSo>((__obj as Phong).vitri.coso, true, action);
-                if (re)
+                if (obj.vitri != null)
                 {
-                    goto done;
-                }
-                //Quyền edit dãy chứa phòng này
+                    //Quyền edit CS chứa phòng này
+                    re = requestPermission<CoSo>(obj.vitri.coso, true, action);
+                    if (re)
+                    {
+                        goto done;
+                    }
+                    //Quyền edit dãy chứa phòng này
 
-                re = requestPermission<Dayy>((__obj as Phong).vitri.day, true, action);
-                if (re)
-                {
-                    goto done;
-                }
-
-                //Quyền edit tầng chứa phòng này
-                re = requestPermission<Tang>((__obj as Phong).vitri.tang, true, action);
-                if (re)
-                {
-                    goto done;
+                    re = requestPermission<Dayy>(obj.vitri.day, true, action);
+                    if (re)
+                    {
+                        goto done;
+                    }
+                    //Quyền edit tầng chứa phòng này
+                    re = requestPermission<Tang>(obj.vitri.tang, true, action);
+                    if (re)
+                    {
+                        goto done;
+                    }
                 }
 
                 //Quyền edit phòng này
@@ -216,7 +219,104 @@ namespace QuanLyTaiSan.Entities
                             (!c.stand_alone && c.phongs.Count > 0 && c.phongs.Select(m => m.id).Contains(obj.id))
                         )
                 ).Count() > 0;
+        }
+        else if (__obj is LoaiThietBi)
+        {
+            //Quyền edit LTB này
+            re = query.Where(
+                c =>
+                    c.key.ToUpper().Equals(LoaiThietBi.USNAME)
+                    &&
+                    (
+                        c.stand_alone
+                    )
+            ).Count() > 0;
+        }
+            else if (__obj is NhanVienPT)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(NhanVienPT.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
             }
+            else if (__obj is SuCoPhong)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(SuCoPhong.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
+            }
+            else if (__obj is ThietBi)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(ThietBi.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
+            }
+            else if (__obj is Group)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(Group.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
+            }
+            else if (__obj is QuanTriVien)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(QuanTriVien.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
+            }
+            else if (__obj is PhieuMuonPhong)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(PhieuMuonPhong.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
+            }
+            else if (__obj is TinhTrang)
+            {
+                //Quyền edit LTB này
+                re = query.Where(
+                    c =>
+                        c.key.ToUpper().Equals(TinhTrang.USNAME)
+                        &&
+                        (
+                            c.stand_alone
+                        )
+                ).Count() > 0;
+            }
+
         //quocdunginfo, xu ly cac class khác: ThietBi,...
         //...
         //final 
@@ -314,6 +414,38 @@ namespace QuanLyTaiSan.Entities
                     goto done;
                 }
                 tmp = Phong.USNAME;
+            }
+            else if (t == typeof(LoaiThietBi))
+            {
+                tmp = LoaiThietBi.USNAME;
+            }
+            else if (t == typeof(NhanVienPT))
+            {
+                tmp = NhanVienPT.USNAME;
+            }
+            else if (t == typeof(SuCoPhong))
+            {
+                tmp = SuCoPhong.USNAME;
+            }
+            else if (t == typeof(ThietBi))
+            {
+                tmp = ThietBi.USNAME;
+            }
+            else if (t == typeof(Group))
+            {
+                tmp = Group.USNAME;
+            }
+            else if (t == typeof(QuanTriVien))
+            {
+                tmp = QuanTriVien.USNAME;
+            }
+            else if (t == typeof(PhieuMuonPhong))
+            {
+                tmp = PhieuMuonPhong.USNAME;
+            }
+            else if (t == typeof(TinhTrang))
+            {
+                tmp = TinhTrang.USNAME;
             }
             //check usname vs key
             re = query.Where(

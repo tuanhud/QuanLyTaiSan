@@ -132,6 +132,10 @@ namespace QuanLyTaiSan.Entities
         {
             return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canAdd<T>();
         }
+        public static bool canDo(String fixed_permission = "")
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canDo(fixed_permission);
+        }
         #endregion
 
         #region Override
