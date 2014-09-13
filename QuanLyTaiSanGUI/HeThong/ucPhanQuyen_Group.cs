@@ -85,6 +85,7 @@ namespace QuanLyTaiSanGUI.HeThong
             txtKey.Text = "";
             txtTen.Text = "";
             txtMoTa.Text = "";
+            listBoxQuyen.DataSource = null;
         }
 
         public GridControl getLeftControl()
