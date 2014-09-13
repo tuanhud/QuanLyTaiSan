@@ -62,6 +62,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     enableButton(false);
                     barBtnThemNhanVien.Enabled = true;
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -71,7 +72,12 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             { }
         }
 
-
+        private void checkPermission()
+        {
+            barBtnThemNhanVien.Enabled = btnR_Them.Enabled = Permission.canAdd<NhanVienPT>();
+            barBtnSuaNhanVien.Enabled = barBtnPhanCong.Enabled = btnR_Sua.Enabled = Permission.canEdit<NhanVienPT>(null);
+            barBtnXoaNhanVien.Enabled = btnR_Xoa.Enabled = Permission.canDelete<NhanVienPT>(null);
+        }
 
         private void editGUI(String _type)
         {
@@ -193,6 +199,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     clearText();
                     objNhanVienPT = new NhanVienPT();
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {

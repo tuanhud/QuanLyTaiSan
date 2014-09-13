@@ -102,6 +102,15 @@ namespace QuanLyTaiSanGUI.MyUserControl
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
+        private void checkPermission()
+        {
+            barButtonChuyen.Enabled = barButtonThemTBChung.Enabled = barButtonThemTBRieng.Enabled
+                = barButtonSua.Enabled = btnR_Sua.Enabled
+                = barButtonXoa.Enabled = btnR_Xoa.Enabled = Permission.canEdit<Phong>(objPhong);
+            //barButtonSua.Enabled = btnR_Sua.Enabled = Permission.canEdit<ThietBi>(objCTThietBi.thietbi);
+            //barButtonXoa.Enabled = btnR_Xoa.Enabled = Permission.canDelete<ThietBi>(objCTThietBi.thietbi);
+        }
+
         private void editGUI()
         {
             if (objPhong != null && objPhong.id != Guid.Empty)
@@ -135,6 +144,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 panelControl1.Visible = false;
                 clearGroupChiTiet();
             }
+            checkPermission();
         }
 
         private void clearGroupChiTiet()
@@ -173,6 +183,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
+            checkPermission();
         }
 
         private void gridViewCTThietBi_RowClick(object sender, RowClickEventArgs e)
@@ -184,6 +195,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
+            checkPermission();
         }
 
         private void setThongTinThietBi(CTThietBi _obj)
@@ -439,6 +451,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 if (objCTThietBi != null)
                     setThongTinThietBi(objCTThietBi);
             }
+            checkPermission();
         }
 
         public bool checkworking()

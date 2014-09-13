@@ -95,6 +95,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             listNhanVienPT.Insert(0, NhanVienPTNULL);
             searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            checkPermission();
         }
 
         //Mở tắt bar
@@ -152,6 +153,13 @@ namespace QuanLyTaiSanGUI.MyUserControl
             //btnR_Xoa.Enabled = !_enable;
             if (_enable)
                 txtTenPhong.Focus();
+        }
+
+        private void checkPermission()
+        {
+            barButtonThemPhong.Enabled = btnR_Them.Enabled = Permission.canAdd<Phong>();
+            barButtonSuaPhong.Enabled = btnR_Sua.Enabled = Permission.canEdit<Phong>(objPhong);
+            barButtonXoaPhong.Enabled = btnR_Xoa.Enabled = Permission.canDelete<Phong>(objPhong);
         }
 
         // Reload dữ liệu
@@ -220,6 +228,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         enableBar(true);
                         break;
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -550,6 +559,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void gridViewPhong_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             getThongTinPhong(false);
+            checkPermission();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

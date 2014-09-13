@@ -38,6 +38,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     enableButton(false);
                 }
                 gridControlTinhTrang.DataSource = listTinhTrang;
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -74,6 +75,13 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 enableEdit(true);
                 txtTen.Focus();
             }
+        }
+
+        private void checkPermission()
+        {
+            barButtonThemTinhTrang.Enabled = btnR_Them.Enabled = Permission.canAdd<TinhTrang>();
+            barButtonSuaTinhTrang.Enabled = btnR_Sua.Enabled = barBtnUp.Enabled = barBtnDown.Enabled = Permission.canEdit<TinhTrang>(null);
+            barButtonXoaTinhTrang.Enabled = btnR_Xoa.Enabled = Permission.canDelete<TinhTrang>(null);
         }
 
         private void SetTextGroupControl(String text, Color color)
@@ -138,6 +146,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                     clearText();
                     objTinhTrang = new TinhTrang();
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {

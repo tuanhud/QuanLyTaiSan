@@ -73,6 +73,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                     editGUI("nothing", "");
                 }
                 treeListViTri.DataSource = listViTriHienThi;
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -339,6 +340,30 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             imageSlider1.Images.Clear();
         }
 
+        private void checkPermission()
+        {
+            barBtnThemCoSo.Enabled = Permission.canAdd<CoSo>();
+            barBtnThemDay.Enabled = Permission.canAdd<Dayy>();
+            barBtnThemTang.Enabled = Permission.canAdd<Tang>();
+            if (node.Equals(typeof(CoSo).Name))
+            {
+                btnR_Them.Enabled = Permission.canAdd<CoSo>();
+                btnR_Sua.Enabled = barBtnSuaCoSo.Enabled = barBtnUp.Enabled = barBtnDown.Enabled = Permission.canEdit<CoSo>(objCoSo);
+                btnR_Xoa.Enabled = barBtnXoaCoSo.Enabled = Permission.canDelete<CoSo>(objCoSo);
+            }
+            else if (node.Equals(typeof(Dayy).Name))
+            {
+                btnR_Them.Enabled = Permission.canAdd<Dayy>();
+                btnR_Sua.Enabled = barBtnSuaDay.Enabled = barBtnUp.Enabled = barBtnDown.Enabled = Permission.canEdit<Dayy>(objDay);
+                btnR_Xoa.Enabled = barBtnXoaDay.Enabled = Permission.canDelete<Dayy>(objDay);
+            }
+            else if (node.Equals(typeof(Tang).Name))
+            {
+                btnR_Them.Enabled = Permission.canAdd<Tang>();
+                btnR_Sua.Enabled = barBtnSuaTang.Enabled = barBtnUp.Enabled = barBtnDown.Enabled = Permission.canEdit<Tang>(objTang);
+                btnR_Xoa.Enabled = barBtnXoaTang.Enabled = Permission.canDelete<Tang>(objTang);
+            }
+        }
         
         private void setDataView()
         {
@@ -397,6 +422,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
                 {
                     editGUI("nothing", "");
                 }
+                checkPermission();
             }
             catch (Exception ex)
             {
@@ -824,7 +850,10 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
 
         private void btnR_Them_Click(object sender, EventArgs e)
         {
-            editGUI("add", node);
+            if (function.Equals("nothing"))
+                editGUI("add", typeof(CoSo).Name);
+            else
+                editGUI("add", node);
         }
         public bool checkworking()
         {
