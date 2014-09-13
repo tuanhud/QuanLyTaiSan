@@ -131,7 +131,7 @@ namespace QuanLyTaiSanGUI.HeThong
             txtMatKhauQuanTriVien.Text = "";
             txtXacNhanMK.Text = "";
             dateCreated.DateTime = DateTime.Now;
-            //lookUpEdit_group
+            lookUpEdit_group.Properties.DataSource = null;
             memoEdit_mota.Text = "";
         }
 
