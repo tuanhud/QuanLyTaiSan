@@ -108,6 +108,27 @@ namespace QuanLyTaiSan.Entities
             phieudamuons = new List<PhieuMuonPhong>();
             phieudaduyets = new List<PhieuMuonPhong>();
         }
+        public override void onBeforeDeleted()
+        {
+            if (isRoot())
+            {
+                throw new Exception("Không thể xóa tài khoản \"root\"");
+            }
+            base.onBeforeDeleted();
+        }
+
+        private bool isRoot()
+        {
+            return username.ToLower().Equals("root");
+        }
+        public override int delete()
+        {
+            if (isRoot())
+            {
+                return -1;
+            }
+            return base.delete();
+        }
         /// <summary>
         /// -7: trùng username đã có
         /// </summary>
@@ -133,6 +154,23 @@ namespace QuanLyTaiSan.Entities
                 return -7;
             }
             return base.add();
+        }
+        public static new IQueryable<QuanTriVien> getQuery()
+        {
+            try
+            {
+                db.QUANTRIVIENS.AsQueryable().FirstOrDefault();
+                //Ẩn ROOT
+                return db.QUANTRIVIENS.Where(c=>!c.username.ToLower().Equals("root")).AsQueryable();
+            }
+            catch (Exception)
+            {
+                return new List<QuanTriVien>().AsQueryable();
+            }
+        }
+        public static new List<QuanTriVien> getAll()
+        {
+            return db.QUANTRIVIENS.Where(c => !c.username.ToLower().Equals("root")).ToList();
         }
         #endregion
     }

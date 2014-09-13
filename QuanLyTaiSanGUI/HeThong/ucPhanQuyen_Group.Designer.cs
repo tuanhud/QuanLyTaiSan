@@ -38,6 +38,7 @@
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnPhanQuyen = new DevExpress.XtraEditors.SimpleButton();
             this.listBoxQuyen = new DevExpress.XtraEditors.ListBoxControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -49,7 +50,6 @@
             this.txtKey = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.btnPhanQuyen = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGroup)).BeginInit();
@@ -88,7 +88,7 @@
             this.gridControlGroup.Location = new System.Drawing.Point(0, 0);
             this.gridControlGroup.MainView = this.gridViewGroup;
             this.gridControlGroup.Name = "gridControlGroup";
-            this.gridControlGroup.Size = new System.Drawing.Size(387, 492);
+            this.gridControlGroup.Size = new System.Drawing.Size(386, 492);
             this.gridControlGroup.TabIndex = 0;
             this.gridControlGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGroup});
@@ -161,6 +161,17 @@
             this.groupControl2.Size = new System.Drawing.Size(320, 290);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Quyền";
+            // 
+            // btnPhanQuyen
+            // 
+            this.btnPhanQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPhanQuyen.Location = new System.Drawing.Point(240, 0);
+            this.btnPhanQuyen.Name = "btnPhanQuyen";
+            this.btnPhanQuyen.Size = new System.Drawing.Size(75, 23);
+            this.btnPhanQuyen.TabIndex = 1;
+            this.btnPhanQuyen.Text = "Phân quyền";
+            this.btnPhanQuyen.ToolTip = "Chỉ có thể phân quyền cho Group\r\nkhác Group người đang đang nhập";
+            this.btnPhanQuyen.Click += new System.EventHandler(this.btnPhanQuyen_Click);
             // 
             // listBoxQuyen
             // 
@@ -266,16 +277,6 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // btnPhanQuyen
-            // 
-            this.btnPhanQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPhanQuyen.Location = new System.Drawing.Point(240, 0);
-            this.btnPhanQuyen.Name = "btnPhanQuyen";
-            this.btnPhanQuyen.Size = new System.Drawing.Size(75, 23);
-            this.btnPhanQuyen.TabIndex = 1;
-            this.btnPhanQuyen.Text = "Phân quyền";
-            this.btnPhanQuyen.Click += new System.EventHandler(this.btnPhanQuyen_Click);
             // 
             // ucPhanQuyen_Group
             // 

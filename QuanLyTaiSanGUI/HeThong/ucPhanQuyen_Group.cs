@@ -11,6 +11,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Entities;
 using SHARED.Libraries;
+using QuanLyTaiSan;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
@@ -51,6 +52,7 @@ namespace QuanLyTaiSanGUI.HeThong
                 SetTextGroupControl("Thêm nhóm quyền", Color.Red);
                 enableEdit(true);
                 clearText();
+                clearPermission();
                 txtTen.Focus();
             }
             else if (_type.Equals("edit"))
@@ -59,6 +61,11 @@ namespace QuanLyTaiSanGUI.HeThong
                 enableEdit(true);
                 txtTen.Focus();
             }
+        }
+
+        private void clearPermission()
+        {
+            listBoxQuyen.DataSource = null;
         }
 
         private void SetTextGroupControl(String text, Color color)
@@ -72,6 +79,8 @@ namespace QuanLyTaiSanGUI.HeThong
             btnOK.Visible = _enable;
             btnHuy.Visible = _enable;
             btnPhanQuyen.Visible = _enable;
+            //Không được phân quyền cho Group của mình
+            btnPhanQuyen.Enabled = (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
             txtKey.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;

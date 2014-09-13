@@ -170,7 +170,7 @@ namespace QuanLyTaiSan.Entities
             "WEB_QLMUONPHONG",
             "CLIENT_CONFIG",
             "SERVER_CONFIG",
-            "ROOT"
+            "SUPER_ADMIN"
             //additional follow here
         };
         /// <summary>
@@ -221,36 +221,11 @@ namespace QuanLyTaiSan.Entities
         /// Quyền ROOT
         /// </summary>
         [NotMapped]
-        public static String _ROOT
+        public static String _SUPER_ADMIN
         {
             get
             {
                 return STAND_ALONE_LIST[4];
-            }
-        }
-
-        [NotMapped]
-        public static int __TYPE_FIXED
-        {
-            get
-            {
-                return 0;
-            }
-        }
-        [NotMapped]
-        public static int __TYPE_OBJ_COMBINED
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        [NotMapped]
-        public static int __TYPE_CAT_WIDE
-        {
-            get
-            {
-                return 2;
             }
         }
         #endregion

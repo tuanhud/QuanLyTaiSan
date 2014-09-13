@@ -57,10 +57,7 @@ namespace PTB_WEB.UserControl
                     return;
                 }
 
-                QuanTriVien _QuanTriVien = new QuanTriVien();
-                _QuanTriVien.username = Username;
-                _QuanTriVien.hashPassword(Password);
-                Boolean KiemTraDangNhap = _QuanTriVien.checkLoginByUserName();
+                Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserName(Username,Password);
 
                 if (KiemTraDangNhap)
                 {
@@ -76,7 +73,7 @@ namespace PTB_WEB.UserControl
                         CheckBoxNhoDangNhap.Checked = false;
                     }
                     Session["Username"] = Username;
-                    _QuanTriVien = QuanTriVien.getByUserName(Username);
+                    QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
                     QuanLyTaiSan.Global.current_quantrivien_login = _QuanTriVien;
                     Session["HoTen"] = _QuanTriVien.hoten;
                     Response.Redirect(Request.RawUrl);

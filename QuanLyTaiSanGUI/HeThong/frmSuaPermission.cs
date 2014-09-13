@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSan.DataFilter;
+using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
-    public partial class frmSuaPermission : DevExpress.XtraEditors.XtraForm
+    public partial class frmSuaPermission : frmCustomXtraForm
     {
         private List<Permission> input = null;
         public frmSuaPermission()

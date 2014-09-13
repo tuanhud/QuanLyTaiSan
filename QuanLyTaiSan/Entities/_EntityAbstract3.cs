@@ -36,7 +36,7 @@ namespace QuanLyTaiSan.Entities
         protected Boolean hashed = true;
         /// <summary>
         /// id, password hashed phải đưa vào trước </summary>
-        public Boolean checkLoginById()
+        public static Boolean checkLoginById(Guid id, String raw_pass)
         {
             //select doi tuong len
             T obj = getById(id);
@@ -45,29 +45,11 @@ namespace QuanLyTaiSan.Entities
             {
                 return false;
             }
-            //hash password
-            if (hashed)
-            {
-                if (password.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    this.id = obj.id;
-                    return true;
-                }
-            }
-            else
-            {
-                String hash = StringHelper.SHA1_Salt(password);
-                if (hash.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return StringHelper.SHA1_Salt(raw_pass).ToUpper().Equals(obj.password.ToUpper());
         }
         /// <summary>
         /// username phải đưa vào trước, password đưa vào qua hàm hashPassword </summary>
-        public Boolean checkLoginByUserName()
+        public static Boolean checkLoginByUserName(String username, String raw_pass)
         {
             //select doi tuong len
             T obj = getByUserName(username);
@@ -76,24 +58,7 @@ namespace QuanLyTaiSan.Entities
             {
                 return false;
             }
-            //hash password
-            if (hashed)
-            {
-                if (password.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    this.id = obj.id;
-                    return true;
-                }
-            }
-            else
-            {
-                String hash = StringHelper.SHA1_Salt(password);
-                if (hash.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return StringHelper.SHA1_Salt(raw_pass).ToUpper().Equals(obj.password.ToUpper());
         }
 
         public static Boolean isUsernameExist(String username)

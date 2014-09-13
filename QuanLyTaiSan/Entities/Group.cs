@@ -34,7 +34,7 @@ namespace QuanLyTaiSan.Entities
         #region Nghiệp vụ
         private bool hasROOTAccess()
         {
-            return permissions.Where(c => c.key.ToUpper().Equals(Permission._ROOT.ToUpper())).Count() > 0;
+            return permissions.Where(c => c.key.ToUpper().Equals(Permission._SUPER_ADMIN.ToUpper())).Count() > 0;
         }
         private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String action = "view") where T: new()
         {
@@ -484,8 +484,35 @@ namespace QuanLyTaiSan.Entities
         {
             return "Group: " + ten;
         }
+        public override void onBeforeDeleted()
+        {
+            //Group tmp = db.GROUPS.AsNoTracking().Where(c => c.id == this.id).FirstOrDefault();
+            if(isRoot())
+            {
+                throw new Exception("Không thể xóa group \"root\"");
+            }
+            base.onBeforeDeleted();
+        }
+        public override int update()
+        {
+            if (isRoot())
+            {
+                return -1;
+            }
+            return base.update();
+        }
+
+        private bool isRoot()
+        {
+            return ten.ToLower().Equals("root");
+        }
         public override int delete()
         {
+            //Không thể xóa group root
+            if (isRoot())
+            {
+                return -1;
+            }
             if (quantriviens.Count > 0)
             {
                 return -1;
@@ -497,6 +524,23 @@ namespace QuanLyTaiSan.Entities
             base.init();
             this.permissions = new List<Permission>();
             this.quantriviens = new List<QuanTriVien>();
+        }
+        public static new IQueryable<Group> getQuery()
+        {
+            try
+            {
+                db.GROUPS.AsQueryable().FirstOrDefault();
+                //Ẩn ROOT
+                return db.GROUPS.Where(c => !c.ten.ToLower().Equals("root")).AsQueryable();
+            }
+            catch (Exception)
+            {
+                return new List<Group>().AsQueryable();
+            }
+        }
+        public static new List<Group> getAll()
+        {
+            return db.GROUPS.Where(c => !c.ten.ToLower().Equals("root")).ToList();
         }
         #endregion
 

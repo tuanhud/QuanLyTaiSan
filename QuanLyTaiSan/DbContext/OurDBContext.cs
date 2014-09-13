@@ -66,11 +66,11 @@ namespace QuanLyTaiSan.Entities
             //GROUP
             Group gp = new Group();
             gp.mota = mota;
-            gp.key = "admin";
+            gp.key = "root";
             gp.subId = gp.key;
             gp.ten = gp.key;
             gp.date_create = gp.date_modified = now;
-            gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._ROOT)).FirstOrDefault());
+            gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._SUPER_ADMIN)).FirstOrDefault());
             //ADD
             if (
                 context.GROUPS.Where(c => c.ten.ToUpper().Equals(gp.ten)).FirstOrDefault() == null
@@ -81,9 +81,9 @@ namespace QuanLyTaiSan.Entities
 
             //QUANTRIVIEN
             QuanTriVien qtv = new QuanTriVien();
-            qtv.username = "admin";
-            qtv.hashPassword(qtv.username);
-            qtv.hoten = "Quản trị viên cấp cao";
+            qtv.username = "root";
+            qtv.hashPassword(qtv.username);//hashPassword("root") => "2B1ED923B31D1B0990A28C932565156D11F9F7D9"
+            qtv.hoten = "root";
             qtv.mota = mota;
             qtv.subId = qtv.username;
             qtv.date_create = qtv.date_modified = now;

@@ -37,8 +37,8 @@
             this.backstageViewClientControlCapNhatPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewClientControlThongTinPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewItemSeparator2 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.backstageViewTabItemCauHinh = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.backstageViewItemSeparator6 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
@@ -161,19 +161,19 @@
             this.backstageViewClientControl3.Size = new System.Drawing.Size(440, 529);
             this.backstageViewClientControl3.TabIndex = 8;
             // 
-            // backstageViewClientControl2
-            // 
-            this.backstageViewClientControl2.Location = new System.Drawing.Point(201, 0);
-            this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-            this.backstageViewClientControl2.Size = new System.Drawing.Size(440, 529);
-            this.backstageViewClientControl2.TabIndex = 6;
-            // 
             // backstageViewClientControl1
             // 
             this.backstageViewClientControl1.Location = new System.Drawing.Point(201, 0);
             this.backstageViewClientControl1.Name = "backstageViewClientControl1";
             this.backstageViewClientControl1.Size = new System.Drawing.Size(440, 529);
             this.backstageViewClientControl1.TabIndex = 5;
+            // 
+            // backstageViewClientControl2
+            // 
+            this.backstageViewClientControl2.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControl2.Name = "backstageViewClientControl2";
+            this.backstageViewClientControl2.Size = new System.Drawing.Size(440, 529);
+            this.backstageViewClientControl2.TabIndex = 6;
             // 
             // backstageViewItemSeparator2
             // 
@@ -275,6 +275,7 @@
             this.barStaticUser.ItemAppearance.Normal.Options.UseFont = true;
             this.barStaticUser.Name = "barStaticUser";
             this.barStaticUser.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barStaticUser_ItemClick);
             // 
             // barStaticConnection
             // 

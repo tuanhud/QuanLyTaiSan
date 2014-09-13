@@ -108,7 +108,7 @@
             this.gridControlPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhanQuyen.MainView = this.gridViewPhanQuyen;
             this.gridControlPhanQuyen.Name = "gridControlPhanQuyen";
-            this.gridControlPhanQuyen.Size = new System.Drawing.Size(506, 490);
+            this.gridControlPhanQuyen.Size = new System.Drawing.Size(505, 490);
             this.gridControlPhanQuyen.TabIndex = 0;
             this.gridControlPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhanQuyen});
@@ -380,6 +380,7 @@
             this.lookUpEdit_group.Properties.ValueMember = "id";
             this.lookUpEdit_group.Size = new System.Drawing.Size(252, 20);
             this.lookUpEdit_group.TabIndex = 30;
+            this.lookUpEdit_group.ToolTip = "Chỉ có thể đổi Group cho tài khoản\r\nkhác tài khoản đang đăng nhập";
             // 
             // btnHuy
             // 

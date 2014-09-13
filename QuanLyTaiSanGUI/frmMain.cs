@@ -535,5 +535,11 @@ namespace QuanLyTaiSanGUI
 
             }
         }
+
+        private void barStaticUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DoiMatKhau frm = new DoiMatKhau();
+            frm.ShowDialog();
+        }
     }
 }

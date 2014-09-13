@@ -42,15 +42,11 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void button_ok_Click(object sender, EventArgs e)
         {
-            QuanTriVien obj = new QuanTriVien();
-            obj.username = textEdit_username.Text;
-            obj.hashPassword(textEdit_password.Text);
-            
-            Boolean re = obj.checkLoginByUserName();
+            Boolean re = QuanTriVien.checkLoginByUserName(textEdit_username.Text, textEdit_password.Text);
             if (re)
             {
                 //set global var
-                Global.current_quantrivien_login = obj;
+                Global.current_quantrivien_login = QuanTriVien.getByUserName(textEdit_username.Text);
 
                 labelControl_msg.Text = "Đăng nhập thành công!";
                 this.show_frm_main();
