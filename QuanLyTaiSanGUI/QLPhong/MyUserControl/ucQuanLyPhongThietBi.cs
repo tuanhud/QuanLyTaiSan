@@ -94,12 +94,19 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-            objPhong = Phong.getById(_phongid);
-            gridControlCTThietBi.DataSource = null;
-            listCTThietBis = ChiTietTBHienThi.getAllByPhongId(_phongid);
-            gridControlCTThietBi.DataSource = listCTThietBis;
-            editGUI();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            try
+            {
+                objPhong = Phong.getById(_phongid);
+                gridControlCTThietBi.DataSource = null;
+                listCTThietBis = ChiTietTBHienThi.getAllByPhongId(_phongid);
+                gridControlCTThietBi.DataSource = listCTThietBis;
+                editGUI();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
+            catch
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
 
         private void editGUI()
