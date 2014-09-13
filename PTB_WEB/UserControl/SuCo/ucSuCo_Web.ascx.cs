@@ -20,7 +20,7 @@ namespace PTB_WEB.UserControl.SuCo
         public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         QuanLyTaiSan.Entities.Phong objPhong = null;
-        List<QuanLyTaiSan.Entities.Phong> listPhong = null;
+        //List<QuanLyTaiSan.Entities.Phong> listPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {

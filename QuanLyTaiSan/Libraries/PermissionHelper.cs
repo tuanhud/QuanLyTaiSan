@@ -10,12 +10,12 @@ namespace QuanLyTaiSan.Libraries
     {
         public static bool QuyenMuonPhong()
         {
-            return true;
-            //return Global.current_quantrivien_login.canDo(Permission._WEB_MUONPHUONG);
+            return Global.current_quantrivien_login.canDo(Permission._WEB_MUONPHUONG);
         }
 
         public static bool QuyenQuanLyMuonPhong()
         {
+            //return Permission.can
             return Global.current_quantrivien_login.canDo(Permission._WEB_QLMUONPHUONG);
         }
 
@@ -38,6 +38,11 @@ namespace QuanLyTaiSan.Libraries
         public static bool QuyenXoaQuanTriVien(QuanTriVien _QuanTriVien)
         {
             return Global.current_quantrivien_login.canDelete<QuanTriVien>(_QuanTriVien);
+        }
+
+        public static bool QuyenConfigEmailTemplate()
+        {
+            return true;
         }
     }
 }

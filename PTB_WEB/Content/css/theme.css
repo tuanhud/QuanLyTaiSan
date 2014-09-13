@@ -284,3 +284,27 @@
     margin-right: -15px !important;
     margin-top: -8px !important;
 }
+
+fieldset {
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 90%;
+    line-height: 1.4em;
+    padding: 5px;
+    margin: 0 0 15px 2px;
+    width: 186px;
+}
+legend {
+    color: #333;
+    font-weight: bold;
+}
+#leftcolumn ul {
+    margin-left: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+#leftcolumn li {
+    padding-left: 18px;
+    background: url('http://skfox.com/jqExamples/images/list.png') no-repeat 0% .5em;
+    cursor: pointer;
+}
