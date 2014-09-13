@@ -71,8 +71,8 @@ namespace TSCD_GUI.Libraries
                                     try
                                     {
                                         TaiSan obj = new TaiSan();
-                                        obj.subId = row[SUBID].ToString().TrimEnd().TrimStart();
-                                        obj.ten = row[TEN].ToString().TrimEnd().TrimStart();
+                                        obj.subId = row[SUBID].ToString().Trim();
+                                        obj.ten = row[TEN].ToString().Trim();
                                         String str = row[DONGIA].ToString().Trim().Replace(" ","");
                                         long dongia = long.Parse(str);
                                         obj.dongia = dongia;
@@ -83,23 +83,23 @@ namespace TSCD_GUI.Libraries
                                         objCTTaiSan.soluong = 1;
                                         if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
                                         {
-                                            WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Pass");
+                                            WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Pass");
                                         }
                                         else
                                         {
-                                            WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Error");
+                                            WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Error");
                                         }
                                     }
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine("ExcelDataBaseHelper : ImportTaiSan : " + ex.Message);
-                                        WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Error");
+                                        WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Error");
                                     }
                                 }
                             }
                             else
                             {
-                                WriteFile(fileName, sheet, row[SUBID].ToString().TrimEnd().TrimStart(), "Error (Không đủ thông tin)");
+                                WriteFile(fileName, sheet, row[SUBID].ToString().Trim(), "Error (Không đủ thông tin)");
                             }
                         }
                     }
@@ -117,7 +117,7 @@ namespace TSCD_GUI.Libraries
         {
             try
             {
-                String ten = _ten.TrimEnd().TrimStart();
+                String ten = _ten.Trim();
                 ten = ten.Replace("- ", "");
                 LoaiTaiSan obj = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten.ToUpper())).FirstOrDefault();
                 if (obj == null)

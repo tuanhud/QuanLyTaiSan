@@ -40,6 +40,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
         public bool working = false;
         MyLayout layout = new MyLayout();
 
+        bool canAdd = false;
+
         public delegate void LoadDataByPhong(Phong obj, String str);
         public LoadDataByPhong loadDataByPhong = null;
 
@@ -68,7 +70,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             //load layout
             layout.load(gridViewPhong);
-
+            canAdd = Permission.canAdd<Phong>();
             listVitris = ViTriHienThi.getAll().ToList();
             _ucTreeViTri.loadData(listVitris);
             _ucComboBoxViTri.DataSource = listVitris;
@@ -95,16 +97,17 @@ namespace QuanLyTaiSanGUI.MyUserControl
             listNhanVienPT.Insert(0, NhanVienPTNULL);
             searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
-            checkPermission();
         }
 
         //Mở tắt bar
         public void enableBar(bool _enable)
         {
-            barButtonSuaPhong.Enabled = _enable;
-            barButtonXoaPhong.Enabled = _enable;
-            btnR_Sua.Enabled = _enable;
-            btnR_Xoa.Enabled = _enable;
+            bool canEdit = Permission.canEdit<Phong>(objPhong);
+            bool canDelete = Permission.canDelete<Phong>(objPhong);
+            barButtonSuaPhong.Enabled = _enable && canEdit;
+            barButtonXoaPhong.Enabled = _enable && canDelete;
+            btnR_Sua.Enabled = _enable && canEdit;
+            btnR_Xoa.Enabled = _enable && canDelete;
             rbnGroupThietBi.Enabled = _enable;
             rbnGroupSuCo.Enabled = _enable;
         }
@@ -153,13 +156,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             //btnR_Xoa.Enabled = !_enable;
             if (_enable)
                 txtTenPhong.Focus();
-        }
-
-        private void checkPermission()
-        {
-            barButtonThemPhong.Enabled = btnR_Them.Enabled = Permission.canAdd<Phong>();
-            barButtonSuaPhong.Enabled = btnR_Sua.Enabled = Permission.canEdit<Phong>(objPhong);
-            barButtonXoaPhong.Enabled = btnR_Xoa.Enabled = Permission.canDelete<Phong>(objPhong);
         }
 
         // Reload dữ liệu
@@ -228,7 +224,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
                         enableBar(true);
                         break;
                 }
-                checkPermission();
             }
             catch (Exception ex)
             {
@@ -350,7 +345,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 enableBar(false);
             }
             rbnGroupPhong.Enabled = true;
-            btnR_Them.Enabled = true;
+            barButtonThemPhong.Enabled = true && canAdd;
+            btnR_Them.Enabled = true && canAdd;
             enableEdit(false);
             function = "";
         }
@@ -559,7 +555,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
         private void gridViewPhong_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             getThongTinPhong(false);
-            checkPermission();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -727,24 +722,27 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 if (listPhong.Count > 0)
                 {
                     rbnGroupPhong.Enabled = _enable;
+                    barButtonThemPhong.Enabled = _enable && canAdd;
                     rbnGroupThietBi.Enabled = _enable;
-                    btnR_Them.Enabled = _enable;
-                    btnR_Sua.Enabled = _enable;
-                    btnR_Xoa.Enabled = _enable;
+                    btnR_Them.Enabled = _enable && canAdd;
+                    btnR_Sua.Enabled = _enable && Permission.canEdit<Phong>(objPhong);
+                    btnR_Xoa.Enabled = _enable && Permission.canDelete<Phong>(objPhong);
                 }
                 else
                 {
                     rbnGroupPhong.Enabled = _enable;
-                    btnR_Them.Enabled = _enable;
+                    barButtonThemPhong.Enabled = _enable && canAdd;
+                    btnR_Them.Enabled = _enable && canAdd;
                 }
             }
             else
             {
                 rbnGroupPhong.Enabled = _enable;
+                barButtonThemPhong.Enabled = _enable && canAdd;
                 rbnGroupThietBi.Enabled = _enable;
-                btnR_Them.Enabled = _enable;
-                btnR_Sua.Enabled = _enable;
-                btnR_Xoa.Enabled = _enable;
+                btnR_Them.Enabled = _enable && canAdd;
+                btnR_Sua.Enabled = _enable && Permission.canEdit<Phong>(objPhong);
+                btnR_Xoa.Enabled = _enable && Permission.canDelete<Phong>(objPhong);
             }
         }
 
