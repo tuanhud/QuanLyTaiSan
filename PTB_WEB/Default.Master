@@ -83,6 +83,9 @@
                                         <%} if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenHienThiQuanTriVien())
                                           {%>
                                         <li <%if (page.Equals("QUANLYTAIKHOAN")) Response.Write("class=\"active\""); %>><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Quản lý tài khoản</a></li>
+                                        <%} if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenConfigEmailTemplate())
+                                          {%>
+                                        <li <%if (page.Equals("SETTING")) Response.Write("class=\"active\""); %>><a href="Setting.aspx"><span class="glyphicon glyphicon-cog"></span>&nbsp;Thiết lập</a></li>
                                         <%}%>
                                         <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>
                                     </ul>

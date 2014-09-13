@@ -58,7 +58,7 @@ namespace PTB_WEB
         protected void ParentClassActive(string category)
         {
             String[] ThuocQuanLyPhong = { "VITRI", "PHONG", "PHONGTHIETBI", "THIETBI", "LOAITHIETBI", "NHANVIEN", "SUCO", "LOGSUCOMOBILE" };
-            String[] ThuocAdmin = { "THONGTINCANHAN", "QUANLYMUONPHONG","QUANLYTAIKHOAN" };
+            String[] ThuocAdmin = { "THONGTINCANHAN", "QUANLYMUONPHONG","QUANLYTAIKHOAN","SETTING" };
             String[] ThuocKhac = { "MUONPHONG", "QUANLYHINHANH" };
             string parent = "";
 

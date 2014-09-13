@@ -13,6 +13,7 @@ namespace PTB_WEB
     public partial class QuanLyMuonPhong : System.Web.UI.Page
     {
         List<PhieuMuonPhong> ListPhieuMuonPhong = null;
+        public string tinhtrang = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.CacheControl = "no-cache";
@@ -150,7 +151,6 @@ namespace PTB_WEB
                     {
                         string to = _PhieuMuonPhong.nguoiduyet.email;
                         string sub = "[Thông Báo] V/v mượn phòng ngày " + Convert.ToDateTime(_PhieuMuonPhong.date_create).ToString("d/M/yyyy");
-                        string tinhtrang = string.Empty;
                         switch (_PhieuMuonPhong.trangthai)
                         {
                             case -1:
@@ -163,7 +163,7 @@ namespace PTB_WEB
                                 tinhtrang = "đã được chấp nhận";
                                 break;
                         }
-                        string msg = string.Format("<p><b>Chào {0}</b></p><p>Phiếu mượn phòng của bạn {1}</p><p>Ghi chú từ người duyệt:</p><p>{2}</p><p>Người duyệt: <b>{3}</b></p><p>Mọi thắc mắc xin liên hệ qua mail: {4}</p>", _PhieuMuonPhong.nguoiduyet.hoten, tinhtrang, _PhieuMuonPhong.ghichu.Replace("\r\n", "<br />"), _PhieuMuonPhong.nguoiduyet.hoten, _PhieuMuonPhong.nguoiduyet.email);
+                        string msg = PTB_WEB.Libraries.StringHelper.MailContent(_PhieuMuonPhong, tinhtrang);
                         QuanLyTaiSan.Libraries.EmailHelper.sendMail(to, sub, msg);
                     }
                     QuanLyPhongMuon();

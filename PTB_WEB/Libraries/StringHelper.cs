@@ -122,5 +122,23 @@ namespace PTB_WEB.Libraries
             }
             return strViTri;
         }
+
+        public static String MailContent(QuanLyTaiSan.Entities.PhieuMuonPhong objPhieuMuonPhong, string tinhtrang)
+        {
+            string Mail_Content = QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TEMPLATE;
+            Mail_Content = Mail_Content.Replace("{HoTenNguoiDuyet}", objPhieuMuonPhong.nguoiduyet.hoten);
+            Mail_Content = Mail_Content.Replace("{EmailNguoiDuyet}", objPhieuMuonPhong.nguoiduyet.email);
+            Mail_Content = Mail_Content.Replace("{HoTenNguoiNhan}", objPhieuMuonPhong.nguoimuon.hoten);
+            Mail_Content = Mail_Content.Replace("{EmailNguoiNhan}", objPhieuMuonPhong.nguoimuon.hoten);
+            Mail_Content = Mail_Content.Replace("{ThongTinPhieuMuon}", PhieuMuonPhongContent(objPhieuMuonPhong));
+            Mail_Content = Mail_Content.Replace("{TinhTrang}", tinhtrang);
+            Mail_Content = Mail_Content.Replace("{GhiChu}", PTB_WEB.Libraries.StringHelper.ConvertRNToBR(objPhieuMuonPhong.ghichu));
+            return Mail_Content;
+        }
+
+        public static String PhieuMuonPhongContent(QuanLyTaiSan.Entities.PhieuMuonPhong objPhieuMuonPhong)
+        {
+            return String.Format("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><td>Ng&agrave;y tạo:</td><td><strong>{0}</strong></td></tr><tr><td>Ng&agrave;y mượn:</td><td><strong>{1}</strong></td></tr><tr><td>Thời gian mượn:</td><td><strong>Từ {2} đến {3}</strong></td></tr><tr><td>Số lượng ph&ograve;ng mượn:</td><td><strong>{4}</strong></td></tr><tr><td>Số lượng sinh vi&ecirc;n/ ph&ograve;ng:</td><td><strong>{5}</strong></td></tr><tr><td>Lớp mượn:</td><td><strong>{6}</strong></td></tr><tr><td>L&yacute; do sử dụng:</td><td><strong>{7}</strong></td></tr></tbody></table>", Convert.ToDateTime(objPhieuMuonPhong.date_create).ToString("d/M/yyyy HH\\hmm"), Convert.ToDateTime(objPhieuMuonPhong.ngaymuon).ToString("d/M/yyyy"), Convert.ToDateTime(objPhieuMuonPhong.ngaymuon).ToString("HH\\hmm"), Convert.ToDateTime(objPhieuMuonPhong.ngaytra).ToString("HH\\hmm"), objPhieuMuonPhong.sophong, objPhieuMuonPhong.soluongsv, objPhieuMuonPhong.lop, PTB_WEB.Libraries.StringHelper.ConvertRNToBR(objPhieuMuonPhong.mota));
+        }
     }
 }

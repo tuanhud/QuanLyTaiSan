@@ -519,6 +519,46 @@ namespace QuanLyTaiSan
         /// </summary>
         public static class remote_setting
         {
+            public static class email_template
+            {
+                private static String default_template = null;
+                public static String DEFAULT_TEMPLATE
+                {
+                    get
+                    {
+                        if (default_template == null)
+                        {
+                            default_template = Setting.getValue("email_template_default");
+                        }
+                        return default_template;
+                    }
+                    set
+                    {
+                        default_template = value;
+                    }
+                }
+                public static int save()
+                {
+                    Boolean re = true;
+                    Setting obj = Setting.getByKey("email_template_default");
+                    obj.value = default_template;
+                    re = re && obj.addOrUpdate() > 0;
+
+                    re = re && DBInstance.commit() > 0;
+
+                    if (re)
+                    {
+                        reload();
+                    }
+                    return re ? 1 : -1;
+                }
+
+                private static void reload()
+                {
+                    default_template = null;
+                }
+
+            }
             public static class smtp_config
             {
                 public static int save()
