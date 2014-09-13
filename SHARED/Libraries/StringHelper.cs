@@ -153,7 +153,7 @@ namespace SHARED.Libraries
             return Name;
         }
 
-        public Boolean IsNumber(String str)
+        public static Boolean IsNumber(String str)
         {
             int num;
             if (int.TryParse(str, out num))
