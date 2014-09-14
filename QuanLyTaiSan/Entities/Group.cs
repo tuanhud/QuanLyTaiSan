@@ -34,7 +34,7 @@ namespace QuanLyTaiSan.Entities
         #region Nghiệp vụ
         private bool hasROOTAccess()
         {
-            return permissions.Where(c => c.key.ToUpper().Equals(Permission._SUPER_ADMIN.ToUpper())).Count() > 0;
+            return isRoot() || permissions.Where(c => c.key.ToUpper().Equals(Permission._SUPER_ADMIN.ToUpper())).Count() > 0;
         }
         private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String action = "view") where T: new()
         {

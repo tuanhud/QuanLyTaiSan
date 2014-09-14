@@ -65,6 +65,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void clearPermission()
         {
+            listPermission.Clear();
             listBoxQuyen.DataSource = null;
         }
 
@@ -127,6 +128,7 @@ namespace QuanLyTaiSanGUI.HeThong
                         txtTen.Text = objGroup.ten;
                         txtMoTa.Text = objGroup.mota;
                         listBoxQuyen.DataSource = objGroup.permissions.ToList();
+                        listPermission = objGroup.permissions.ToList();
                     }
                     else
                     {
