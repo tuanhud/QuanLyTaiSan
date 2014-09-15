@@ -21,6 +21,10 @@ namespace PTB_WEB.UserControl.ViTri
         protected void Page_Load(object sender, EventArgs e)
         {
             _ucTreeViTri.NotFocusOnCreated();
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
+            }
         }
 
         public void LoadData()
@@ -153,7 +157,7 @@ namespace PTB_WEB.UserControl.ViTri
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có vị trí";
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có vị trí";
             }
         }
 
@@ -170,11 +174,6 @@ namespace PTB_WEB.UserControl.ViTri
                     }
                 }
             }
-        }
-
-        protected void Button_Back_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.Url.AbsolutePath);
         }
 
         private void SearchFunction()

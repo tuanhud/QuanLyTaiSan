@@ -13,10 +13,13 @@
     <link rel="stylesheet" type="text/css" href="Content/css/metro/website.css" />
     <script type="text/javascript" src="Scripts/scriptgates.js"></script>
 
-    <%if(isMobile){%>
-    <uc:ucTimKiem_Mobile runat="server" id="ucTimKiem_Mobile" />
-    <%}else{%>
-    <uc:ucTimKiem_Web runat="server" id="ucTimKiem_Web" />
+    <%if (isMobile)
+      {%>
+    <uc:ucTimKiem_Mobile runat="server" ID="ucTimKiem_Mobile" />
+    <%}
+      else
+      {%>
+    <uc:ucTimKiem_Web runat="server" ID="ucTimKiem_Web" />
     <%}%>
     <div class="panel-body fixpanel">
         <div class="row">

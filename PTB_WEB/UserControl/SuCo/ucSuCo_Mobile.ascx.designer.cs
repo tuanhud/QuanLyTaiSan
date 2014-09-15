@@ -22,13 +22,13 @@ namespace PTB_WEB.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// ucThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
         /// Panel_Chinh control.
@@ -112,15 +112,6 @@ namespace PTB_WEB.UserControl.SuCo {
         protected global::PTB_WEB.UserControl.ucCollectionPager _ucCollectionPager_DanhSachSuCo;
         
         /// <summary>
-        /// ButtonBack_DanhSachSuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBack_DanhSachSuCo;
-        
-        /// <summary>
         /// Panel_SuCo control.
         /// </summary>
         /// <remarks>
@@ -191,14 +182,5 @@ namespace PTB_WEB.UserControl.SuCo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_XemLog;
-        
-        /// <summary>
-        /// ButtonBack_SuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBack_SuCo;
     }
 }

@@ -24,6 +24,10 @@ namespace PTB_WEB.UserControl.SuCo
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.Label_TenViTri.Text = "Chọn phòng";
+            }
             _ucTreeViTri.NotFocusOnCreated();
             _ucTreeViTri.ASPxTreeList_ViTri.CustomDataCallback += new DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventHandler(this.ASPxTreeList_ViTri_CustomDataCallback);
             _ucTreeViTri.ASPxTreeList_ViTri.HtmlDataCellPrepared += new DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventHandler(this.ASPxTreeList_ViTri_HtmlDataCellPrepared);
@@ -109,13 +113,13 @@ namespace PTB_WEB.UserControl.SuCo
                 else
                 {
                     Panel_ThongBaoLoi.Visible = true;
-                    Label_ThongBaoLoi.Text = "Chưa có phòng";
+                    ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có vị trí";
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có vị trí";
             }
         }
 
@@ -205,19 +209,6 @@ namespace PTB_WEB.UserControl.SuCo
             {
                 Response.Redirect(Request.Url.AbsolutePath);
             }
-        }
-
-        protected void ButtonBack_DanhSachSuCo_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.Url.AbsolutePath);
-        }
-
-        protected void ButtonBack_SuCo_Click(object sender, EventArgs e)
-        {
-            if (!key.Equals(""))
-                Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
-            else
-                Response.Redirect(Request.Url.AbsolutePath);
         }
     }
 }

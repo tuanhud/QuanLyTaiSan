@@ -22,13 +22,13 @@ namespace PTB_WEB.UserControl.PhongThietBi {
         protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// ucThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
         /// Panel_Chinh control.
@@ -101,15 +101,6 @@ namespace PTB_WEB.UserControl.PhongThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.ucCollectionPager _ucCollectionPager_DanhSachThietBi;
-        
-        /// <summary>
-        /// ButtonBack_DanhSachThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBack_DanhSachThietBi;
         
         /// <summary>
         /// Panel_ThietBi control.
@@ -227,14 +218,5 @@ namespace PTB_WEB.UserControl.PhongThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_XemLog;
-        
-        /// <summary>
-        /// ButtonBack_ThietBi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBack_ThietBi;
     }
 }
