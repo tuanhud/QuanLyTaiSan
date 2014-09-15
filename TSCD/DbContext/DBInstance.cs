@@ -107,6 +107,7 @@ namespace TSCD.Entities
                             try
                             {
                                 dbTrans.Rollback();
+                                DB.reloadAllFail();
                             }
                             catch (Exception exx)
                             {

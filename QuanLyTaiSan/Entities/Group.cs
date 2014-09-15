@@ -375,44 +375,44 @@ namespace QuanLyTaiSan.Entities
             }
             else if (t == typeof(Dayy))
             {
-                re = canAdd<CoSo>(true);
-                if (re)
-                {
-                    goto done;
-                }
+                //re = canAdd<CoSo>(true);
+                //if (re)
+                //{
+                //    goto done;
+                //}
                 tmp = Dayy.USNAME;
             }
             else if (t == typeof(Tang))
             {
-                re = canAdd<CoSo>(true);
-                if (re)
-                {
-                    goto done;
-                }
-                re = canAdd<Dayy>(true);
-                if (re)
-                {
-                    goto done;
-                }
+                //re = canAdd<CoSo>(true);
+                //if (re)
+                //{
+                //    goto done;
+                //}
+                //re = canAdd<Dayy>(true);
+                //if (re)
+                //{
+                //    goto done;
+                //}
                 tmp = Tang.USNAME;
             }
             else if (t == typeof(Phong))
             {
-                re = canAdd<CoSo>(true);
-                if (re)
-                {
-                    goto done;
-                }
-                re = canAdd<Dayy>(true);
-                if (re)
-                {
-                    goto done;
-                }
-                re = canAdd<Tang>(true);
-                if (re)
-                {
-                    goto done;
-                }
+                //re = canAdd<CoSo>(true);
+                //if (re)
+                //{
+                //    goto done;
+                //}
+                //re = canAdd<Dayy>(true);
+                //if (re)
+                //{
+                //    goto done;
+                //}
+                //re = canAdd<Tang>(true);
+                //if (re)
+                //{
+                //    goto done;
+                //}
                 tmp = Phong.USNAME;
             }
             else if (t == typeof(LoaiThietBi))
@@ -452,7 +452,7 @@ namespace QuanLyTaiSan.Entities
                     c =>
                         c.key.ToUpper().Equals(tmp.ToUpper())
                     ).Count() > 0;
-            done:
+            //done:
             return re;
         }
         /// <summary>

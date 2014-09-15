@@ -765,5 +765,22 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
 
+        /// <summary>
+        /// reload tất cả entity bị fail do validation ERROR
+        /// </summary>
+        internal void reloadAllFail()
+        {
+            try{
+                var error_list = this.GetValidationErrors().Select(c => c.Entry);
+                foreach (var item in error_list)
+                {
+                    //reload
+                    this.Entry(item.Entity).Reload();
+                }
+            }catch(Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
     }
 }

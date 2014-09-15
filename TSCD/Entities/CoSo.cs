@@ -42,9 +42,16 @@ namespace TSCD.Entities
             this.order = DateTimeHelper.toMilisec(date_create);
             base.onAfterAdded();
         }
+        public static new String VNNAME
+        {
+            get
+            {
+                return "CƠ SỞ";
+            }
+        }
         public override string niceName()
         {
-            return "Cơ sở: " + ten;
+            return VNNAME+ " " + ten;
         }
         protected override void init()
         {

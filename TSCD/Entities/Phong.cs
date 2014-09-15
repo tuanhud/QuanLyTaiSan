@@ -58,9 +58,16 @@ namespace TSCD.Entities
 
         #endregion
         #region Override
+        public static new String VNNAME
+        {
+            get
+            {
+                return "PHÒNG";
+            }
+        }
         public override string niceName()
         {
-            return "Phòng: " + ten + ", " + vitri.niceName();
+            return VNNAME + ": " + ten + ", " + vitri.niceName();
         }
         public override int update()
         {

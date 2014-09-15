@@ -11,6 +11,7 @@
     <AssemblyName>QuanLyTaiSanGUI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -144,11 +144,11 @@
     <Compile Include="frmHinhAnh.Designer.cs">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\DoiMatKhau.cs">
+    <Compile Include="HeThong\SuaThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HeThong\DoiMatKhau.Designer.cs">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    <Compile Include="HeThong\SuaThongTinCaNhan.Designer.cs">
+      <DependentUpon>SuaThongTinCaNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="HeThong\frmSuaPermission.cs">
       <SubType>Form</SubType>
@@ -470,8 +470,8 @@
     <EmbeddedResource Include="frmHinhAnh.resx">
       <DependentUpon>frmHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HeThong\DoiMatKhau.resx">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    <EmbeddedResource Include="HeThong\SuaThongTinCaNhan.resx">
+      <DependentUpon>SuaThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\frmSuaPermission.resx">
       <DependentUpon>frmSuaPermission.cs</DependentUpon>

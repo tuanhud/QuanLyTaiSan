@@ -66,22 +66,7 @@ namespace TSCD.Entities
         public virtual ICollection<Group> groups { get; set; }
         #endregion
         #region Nghiep vu
-        /*
-         * Manual method
-         */
-        public Boolean isInGroup(Group obj)
-        {
-            if(obj==null || obj.permissions==null)
-            {
-                return false;
-            }
-            return obj.permissions.Where(c => c.key.ToUpper().Equals(this.key.ToUpper())).FirstOrDefault() != null;
-        }
 
-        public List<T> getObjList<T>()
-        {
-            return null;
-        }
         #endregion
 
         #region Override
@@ -104,34 +89,10 @@ namespace TSCD.Entities
             }
         }
         public static String[] STAND_ALONE_LIST = {
-            "WEB_MUONPHONG",//
-            "WEB_QLMUONPHONG",
             "CLIENT_CONFIG",
             "SERVER_CONFIG",
-            "ROOT"//version 1.1
+            "SUPER_ADMIN"//version 1.1
         };
-        /// <summary>
-        /// Sử dụng tính năng mượn phòng (tạo yêu cầu) trên WEB
-        /// </summary>
-        [NotMapped]
-        public static String _WEB_MUONPHUONG
-        {
-            get
-            {
-                return STAND_ALONE_LIST[0];
-            }
-        }
-        /// <summary>
-        /// Sử dụng tính năng quản lý phiếu mượn phòng trên WEB
-        /// </summary>
-        [NotMapped]
-        public static String _WEB_QLMUONPHUONG
-        {
-            get
-            {
-                return STAND_ALONE_LIST[1];
-            }
-        }
         /// <summary>
         /// Quyền cấu máy client
         /// </summary>
@@ -140,7 +101,7 @@ namespace TSCD.Entities
         {
             get
             {
-                return STAND_ALONE_LIST[2];
+                return STAND_ALONE_LIST[0];
             }
         }
         /// <summary>
@@ -151,18 +112,18 @@ namespace TSCD.Entities
         {
             get
             {
-                return STAND_ALONE_LIST[3];
+                return STAND_ALONE_LIST[1];
             }
         }
         /// <summary>
         /// Quyền ROOT
         /// </summary>
         [NotMapped]
-        public static String _ROOT
+        public static String _SUPER_ADMIN
         {
             get
             {
-                return STAND_ALONE_LIST[4];
+                return STAND_ALONE_LIST[2];
             }
         }
         #endregion
@@ -177,52 +138,7 @@ namespace TSCD.Entities
         {
             get
             {
-                String tmp = "";
-                tmp += allow_or_deny ? "Cho phép: " : "Cấm: ";
-                //Quyền cố định
-                if (stand_alone)
-                {
-                    tmp += mota;
-                    goto done;
-                }
-                tmp += can_view ? "Xem, " : "";
-                tmp += can_add ? "Thêm, " : "";
-                tmp += can_edit ? "Sửa, " : "";
-                tmp += can_delete ? "Xóa, " : "";
-
-                tmp += "trên ";
-
-                //Đơn vị
-                if (key.ToUpper().Equals("DONVI"))
-                {
-                    if (donvis.Count == 0)
-                    {
-                        tmp += "tất cả Đơn vị ";
-                    }
-                    else
-                    {
-                        tmp += "Đơn vị {";
-                        tmp += String.Join(", ", donvis.Select(c => c.ten + " [ID=" + c.id + "]"));
-                        tmp += "} ";
-                    }
-                    goto done;
-                }
-                
-                //
-                if (key.ToUpper().Equals("QUANTRIVIEN"))
-                {
-                    tmp += "tất cả Quản trị viên ";
-                }
-                
-                //
-                if (key.ToUpper().Equals("GROUP"))
-                {
-                    tmp += "tất cả Group ";
-                }
-                //finish
-                done:
-                    tmp += recursive_to_child && !stand_alone ? "(và tất cả các đối tượng con cháu)" : "";
-                    return tmp;
+                return "";
             }
         }
 
