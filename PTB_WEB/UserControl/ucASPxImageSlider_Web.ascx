@@ -19,7 +19,7 @@
 </script>
 
 <div class="image_center_web" <% if (ASPxImageSlider_Object.Items.ToList().Count > 0) { Response.Write(urlHinhAnh != "" ? string.Format("onclick=\"Show('{0}');\"", urlHinhAnh) : ""); } %>>
-    <dx:ASPxImageSlider ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="350px">
+    <dx:ASPxImageSlider Theme="Moderno" ID="ASPxImageSlider_Object" runat="server" BinaryImageCacheFolder="~\Thumb\" ShowNavigationBar="False" Width="350px" Height="350px">
         <Styles>
             <PassePartout BackColor="Transparent" />
         </Styles>
