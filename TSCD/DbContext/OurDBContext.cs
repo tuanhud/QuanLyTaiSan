@@ -37,7 +37,6 @@ namespace TSCD.Entities
                 return;
             }
             //DATETIME
-            DateTime now = DateTime.Now;
             String mota = "Hệ thống tự động tạo";
 
             //PERMISSION
@@ -65,11 +64,11 @@ namespace TSCD.Entities
             //GROUP
             Group gp = new Group();
             gp.mota = mota;
-            gp.key = "admin";
+            gp.key = "root";
             gp.subId = gp.key;
             gp.ten = gp.key;
-            gp.date_create = gp.date_modified = now;
-            gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._ROOT)).FirstOrDefault());
+            gp.date_create = gp.date_modified = ServerTimeHelper.getNow();
+            gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._SUPER_ADMIN)).FirstOrDefault());
             //ADD
             if (
                 context.GROUPS.Where(c => c.ten.ToUpper().Equals(gp.ten)).FirstOrDefault() == null
@@ -80,12 +79,12 @@ namespace TSCD.Entities
 
             //QUANTRIVIEN
             QuanTriVien qtv = new QuanTriVien();
-            qtv.username = "admin";
+            qtv.username = "root";
             qtv.hashPassword(qtv.username);
-            qtv.hoten = "Quản trị viên cấp cao";
+            qtv.hoten = qtv.username;
             qtv.mota = mota;
             qtv.subId = qtv.username;
-            qtv.date_create = qtv.date_modified = now;
+            qtv.date_create = qtv.date_modified = ServerTimeHelper.getNow();
             qtv.group = gp;
             //ADD
             if (
@@ -99,7 +98,7 @@ namespace TSCD.Entities
             List<TinhTrang> tinhtrangs = new List<TinhTrang>();
 
             TinhTrang tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "dangsudung";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -108,7 +107,7 @@ namespace TSCD.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "khongsudung";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -117,7 +116,7 @@ namespace TSCD.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "bihu";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -126,7 +125,7 @@ namespace TSCD.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "khac";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -135,7 +134,7 @@ namespace TSCD.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "dangsua";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -618,6 +617,25 @@ namespace TSCD.Entities
             return base.ValidateEntity(entityEntry, items);
         }
         #endregion
+        /// <summary>
+        /// reload tất cả entity bị fail do validation ERROR
+        /// </summary>
+        internal void reloadAllFail()
+        {
+            try
+            {
+                var error_list = this.GetValidationErrors().Select(c => c.Entry);
+                foreach (var item in error_list)
+                {
+                    //reload
+                    this.Entry(item.Entity).Reload();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
 
     }
 }

@@ -14,9 +14,9 @@ using QuanLyTaiSanGUI.MyForm;
 
 namespace QuanLyTaiSanGUI.HeThong
 {
-    public partial class DoiMatKhau : frmCustomXtraForm
+    public partial class SuaThongTinCaNhan : frmCustomXtraForm
     {
-        public DoiMatKhau()
+        public SuaThongTinCaNhan()
         {
             InitializeComponent();
         }
@@ -47,7 +47,7 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkEdit1.Checked)
+            if (checkEdit_showpass.Checked)
             {
                 textEdit_newpass.Properties.PasswordChar =
                 textEdit_newpass_confirm.Properties.PasswordChar =

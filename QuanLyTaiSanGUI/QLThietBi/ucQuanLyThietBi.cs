@@ -33,7 +33,10 @@ namespace QuanLyTaiSanGUI.QLThietBi
         Boolean loaiChung = true;
         Point pointLabelMota, pointTxtMota, pointLabelLoai, pointPanelLoai;
         bool working = false;
-        bool add = false;
+        bool isAdd = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
         int state = 0;
 
         MyLayout layout = new MyLayout();
@@ -47,7 +50,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
         public ucQuanLyThietBi(bool _add)
         {
             InitializeComponent();
-            add = _add;
+            isAdd = _add;
             gridViewThietBi.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             gridViewThietBi.OptionsSelection.MultiSelect = true;
             init();
@@ -91,19 +94,15 @@ namespace QuanLyTaiSanGUI.QLThietBi
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
+                checkPermission();
                 layout.load(gridViewThietBi);
 
                 loaiChung = _loaichung;
-                
                 //_ucQuanLyThietBi_Control.FocusedNode(loaiChung ? 0 : 1);
-
                 listLoaiThietBi = LoaiThietBi.getQuery().Where(c => c.loaichung == loaiChung).ToList();//.getTheoLoai(loaiChung);
                 listLoaiThietBi.Insert(0, loaiThietBiNULL);
-
                 editGUIforView();
-
                 reLoad();
-                checkPermission();
             }
             catch (Exception ex)
             {
@@ -118,23 +117,19 @@ namespace QuanLyTaiSanGUI.QLThietBi
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
+                checkPermission();
                 layout.load(gridViewThietBi);
                 state = _state;
                 if(_state == 0)
                     loaiChung = true;
                 else
                     loaiChung = false;
-                
                 if(loadLeft)
                     _ucQuanLyThietBi_Control.FocusedNode(_state);
-
                 listLoaiThietBi = LoaiThietBi.getQuery().Where(c=>c.loaichung == loaiChung).ToList();//getTheoLoai(loaiChung);
                 listLoaiThietBi.Insert(0, loaiThietBiNULL);
-
                 editGUIforView();
-
                 reLoad();
-                checkPermission();
             }
             catch (Exception ex)
             {
@@ -185,9 +180,9 @@ namespace QuanLyTaiSanGUI.QLThietBi
 
         private void checkPermission()
         {
-            barButtonThemThietBi.Enabled = btnR_Them.Enabled = Permission.canAdd<ThietBi>();
-            barButtonSuaThietBi.Enabled = btnR_Sua.Enabled = Permission.canEdit<ThietBi>(null);
-            barButtonXoaThietBi.Enabled = btnR_Xoa.Enabled = Permission.canDelete<ThietBi>(null);
+            canAdd = Permission.canAdd<ThietBi>();
+            canEdit = Permission.canEdit<ThietBi>(null);
+            canDelete = Permission.canDelete<ThietBi>(null);
         }
 
         private void reLoad()
@@ -200,7 +195,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 _ucTreeLoaiTB.setReadOnly(true);
                 panelControlLoaiThietBi.Controls.Clear();
                 panelControlLoaiThietBi.Controls.Add(_ucTreeLoaiTB);
-                if (add && !loaiChung)
+                if (isAdd && !loaiChung)
                 {
                     listThietBi = ThietBi.getAllByTypeLoaiNoPhong(loaiChung);
                 }
@@ -226,15 +221,15 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 }
                 else
                 {
-                    btnR_Sua.Enabled = true;
-                    btnR_Xoa.Enabled = true;
-                    barButtonSuaThietBi.Enabled = true;
-                    barButtonXoaThietBi.Enabled = true;
+                    btnR_Sua.Enabled = true && canEdit;
+                    btnR_Xoa.Enabled = true && canDelete;
+                    barButtonSuaThietBi.Enabled = true && canEdit;
+                    barButtonXoaThietBi.Enabled = true && canDelete;
                 }
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : reLoad : " + ex.Message);
+                Debug.WriteLine(this.Name + " : reLoad : " + ex.Message);
             }
         }
 
@@ -254,10 +249,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
+                Debug.WriteLine(this.Name + " : reLoadAndFocused : " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void setTextGroupControl(String text, Color color)
@@ -289,7 +282,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : deleteData : " + ex.Message);
+                Debug.WriteLine(this.Name + " : deleteData : " + ex.Message);
             }
         }
 
@@ -373,11 +366,10 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 }
                 else
                     deleteData();
-                checkPermission();
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setData : " + ex.Message);
+                Debug.WriteLine(this.Name + " : setData : " + ex.Message);
             }
         }
 
@@ -406,7 +398,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setDataObj : " + ex.Message);
+                Debug.WriteLine(this.Name + " : setDataObj : " + ex.Message);
             }
         }
 
@@ -496,7 +488,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : CRUD : " + ex.Message);
+                Debug.WriteLine(this.Name + " : CRUD : " + ex.Message);
             }
         }
 
@@ -563,68 +555,6 @@ namespace QuanLyTaiSanGUI.QLThietBi
             return check;
         }
 
-        private void gridViewThietBi_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
-        {
-            /*
-            int[] indexCacRow = gridViewThietBi.GetSelectedRows();
-            int row = 0;
-            if (indexCacRow.Count() > 0)
-            {
-                int rowThietBis = 0;
-                for (int i = 0; i < indexCacRow.Count(); i++)
-                {
-                    if (indexCacRow[i] >= 0)
-                    {
-                        rowThietBis++;
-                        row = indexCacRow[i];
-                    }
-                    if (rowThietBis >= 2)
-                        break;
-                }
-                if (rowThietBis == 1)
-                {
-                    //objThietBi = ThietBi.getById((gridViewThietBi.GetRow(row) as ThietBiHienThi).id);
-                    objThietBi = gridViewThietBi.GetRow(row) as ThietBi;
-                    enableEdit(false);
-                    function = "";
-                    setData();
-                    //barButtonSuaThietBi.Enabled = true;
-                    //barButtonXoaThietBi.Enabled = true;
-                    //btnR_Sua.Enabled = true;
-                    //btnR_Xoa.Enabled = true;
-                    enableAllBarButton(true);
-                }
-                else if (rowThietBis == 0)
-                {
-                    deleteData();
-                    //barButtonSuaThietBi.Enabled = false;
-                    //barButtonXoaThietBi.Enabled = false;
-                    //btnR_Sua.Enabled = false;
-                    //btnR_Xoa.Enabled = false;
-                    enableAllBarButton(true);
-                }
-                else
-                {
-                    deleteData();
-                    //barButtonSuaThietBi.Enabled = false;
-                    //barButtonXoaThietBi.Enabled = true;
-                    //btnR_Sua.Enabled = false;
-                    //btnR_Xoa.Enabled = true;
-                    enableAllBarButton(true);
-                }
-            }
-            else
-            {
-                //barButtonSuaThietBi.Enabled = false;
-                //barButtonXoaThietBi.Enabled = false;
-                //btnR_Sua.Enabled = false;
-                //btnR_Xoa.Enabled = false;
-                enableAllBarButton(true);
-                deleteData();
-            }
-             */
-        }
-
         private void btnImage_Click(object sender, EventArgs e)
         {
             try
@@ -644,7 +574,7 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : btnImage_Click : " + ex.Message);
+                Debug.WriteLine(this.Name + " : btnImage_Click : " + ex.Message);
             }
         }
 
@@ -801,40 +731,40 @@ namespace QuanLyTaiSanGUI.QLThietBi
                 if (indexCacRow.Count() > 0)
                 {
                     rbnGroupThietBi.Enabled = _enable;
-                    barButtonThemThietBi.Enabled = _enable;
-                    barButtonXoaThietBi.Enabled = _enable;
+                    barButtonThemThietBi.Enabled = _enable && canAdd;
+                    barButtonXoaThietBi.Enabled = _enable && canDelete;
 
-                    btnR_Them.Enabled = _enable;
-                    btnR_Xoa.Enabled = _enable;
+                    btnR_Them.Enabled = _enable && canAdd;
+                    btnR_Xoa.Enabled = _enable && canDelete;
                     if (indexCacRow.Count() > 1)
                     {
-                        barButtonSuaThietBi.Enabled = !_enable;
-                        btnR_Sua.Enabled = !_enable;
+                        barButtonSuaThietBi.Enabled = !_enable && canDelete;
+                        btnR_Sua.Enabled = !_enable && canEdit;
                     }
                     else
                     {
-                        barButtonSuaThietBi.Enabled = _enable;
-                        btnR_Sua.Enabled = _enable;
+                        barButtonSuaThietBi.Enabled = _enable && canEdit;
+                        btnR_Sua.Enabled = _enable && canEdit;
                     }
                 }
                 else
                 {
                     rbnGroupThietBi.Enabled = _enable;
-                    barButtonThemThietBi.Enabled = _enable;
-                    barButtonSuaThietBi.Enabled = !_enable;
-                    barButtonXoaThietBi.Enabled = !_enable;
+                    barButtonThemThietBi.Enabled = _enable && canAdd;
+                    barButtonSuaThietBi.Enabled = !_enable && canEdit;
+                    barButtonXoaThietBi.Enabled = !_enable && canDelete;
 
-                    btnR_Them.Enabled = _enable;
-                    btnR_Sua.Enabled = !_enable;
-                    btnR_Xoa.Enabled = !_enable;
+                    btnR_Them.Enabled = _enable && canAdd;
+                    btnR_Sua.Enabled = !_enable && canEdit;
+                    btnR_Xoa.Enabled = !_enable && canDelete;
                 }
             }
             else
             {
                 rbnGroupThietBi.Enabled = _enable;
-                btnR_Them.Enabled = _enable;
-                btnR_Sua.Enabled = _enable;
-                btnR_Xoa.Enabled = _enable;
+                btnR_Them.Enabled = _enable && canAdd;
+                btnR_Sua.Enabled = _enable && canEdit;
+                btnR_Xoa.Enabled = _enable && canDelete;
             }
         }
 
@@ -857,10 +787,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : gridViewThietBi_FocusedRowChanged : " + ex.Message);
+                Debug.WriteLine(this.Name + " : gridViewThietBi_FocusedRowChanged : " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void gridViewThietBi_DataSourceChanged(object sender, EventArgs e)
@@ -882,10 +810,8 @@ namespace QuanLyTaiSanGUI.QLThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : gridViewThietBi_FocusedRowChanged : " + ex.Message);
+                Debug.WriteLine(this.Name + " : gridViewThietBi_FocusedRowChanged : " + ex.Message);
             }
-            finally
-            { }
         }
 
         public bool checkworking()

@@ -195,24 +195,13 @@ namespace TSCD.Entities
             }
             return tmp;
         }
+        /// <summary>
+        /// Không cho sửa vị trí
+        /// </summary>
+        /// <returns></returns>
         public override int update()
         {
-            ////have to load all [Required] FK object first
-            //if (coso != null)
-            //{
-            //    coso.trigger();
-            //}
-            //if (day != null)
-            //{
-            //    day.trigger();
-            //}
-            //if (tang != null)
-            //{
-            //    tang.trigger();
-            //}
-            ////...
-
-            return base.update();
+            return -1;
         }
         /// <summary>
         /// -2: Có phòng sử dụng vị trí

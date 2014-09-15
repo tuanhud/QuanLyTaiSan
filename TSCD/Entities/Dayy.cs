@@ -40,9 +40,16 @@ namespace TSCD.Entities
 		#endregion
 		
 		#region Override method
+        public static new String VNNAME
+        {
+            get
+            {
+                return "DÃY";
+            }
+        }
         public override string niceName()
         {
-            return "Dãy: " + ten + ", " + coso.niceName();
+            return VNNAME + ": " + ten + ", " + coso.niceName();
         }
 
         /// <summary>

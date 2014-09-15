@@ -30,9 +30,16 @@ namespace TSCD.Entities
         #endregion
 
         #region override
+        public static new String VNNAME
+        {
+            get
+            {
+                return "ĐƠN VỊ TÍNH";
+            }
+        }
         public override string niceName()
         {
-            return ten;
+            return VNNAME+": " + ten;
         }
         #endregion
     }

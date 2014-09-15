@@ -161,7 +161,10 @@ namespace QuanLyTaiSan.Entities
                             Debug.WriteLine(ex);
                             try
                             {
+                                //rollback transaction
                                 dbTrans.Rollback();
+                                //discard all changed made fail
+                                DB.reloadAllFail();
                             }
                             catch (Exception exx)
                             {

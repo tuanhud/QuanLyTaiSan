@@ -49,19 +49,29 @@ namespace TSCD_GUI.QLPhong
 
         public void loadData()
         {
-            editGUI("view");
-            List<ViTriHienThi> listVitri = ViTriHienThi.getAll();
-            List<ViTriHienThi> listVitri2 = new List<ViTriHienThi>(listVitri);
-            _ucTreeViTri.DataSource = listVitri;
-            _ucComboBoxViTri.DataSource = listVitri2;
-            loadLoaiPhong();
-            _ViTriHienTai = _ucTreeViTri.Vitri;
-            listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
-            gridControlPhong.DataSource = listPhong;
-            if (listPhong.Count() == 0)
+            try
             {
-                enableButton(false);
-                gridLookUpLoai.EditValue = null;
+                editGUI("view");
+                List<ViTriHienThi> listVitri = ViTriHienThi.getAll();
+                List<ViTriHienThi> listVitri2 = new List<ViTriHienThi>(listVitri);
+                _ucTreeViTri.DataSource = listVitri;
+                _ucComboBoxViTri.DataSource = listVitri2;
+                loadLoaiPhong();
+                _ViTriHienTai = _ucTreeViTri.Vitri;
+                if (_ViTriHienTai != null)
+                    listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
+                else
+                    listPhong = null;
+                gridControlPhong.DataSource = listPhong;
+                if (listPhong == null || listPhong.Count() == 0)
+                {
+                    enableButton(false);
+                    gridLookUpLoai.EditValue = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
         }
 

@@ -101,12 +101,12 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 listCTThietBis = ChiTietTBHienThi.getAllByPhongId(_phongid);
                 gridControlCTThietBi.DataSource = listCTThietBis;
                 editGUI();
-                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
-            catch
+            catch (Exception ex)
             {
-                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                Debug.WriteLine(this.Name + "->setData:" + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void editGUI()

@@ -64,7 +64,10 @@ namespace TSCD_GUI.QLTaiSan
             {
                 DonVi obj = ucTreeDonVi1.DonVi;
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
-                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive().ToList());
+                if (obj != null)
+                    gridControlTaiSan.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive().ToList());
+                else
+                    gridControlTaiSan.DataSource = null;
                 bandedGridViewTaiSan.ExpandAllGroups();
             }
             catch (Exception ex)

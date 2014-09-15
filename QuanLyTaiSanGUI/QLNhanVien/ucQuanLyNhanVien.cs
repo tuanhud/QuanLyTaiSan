@@ -28,6 +28,9 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         String function = "";
         Boolean working = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
 
         MyLayout layout = new MyLayout();
 
@@ -53,6 +56,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         {
             try
             {
+                checkPermission();
                 editGUI("view");
                 layout.load(gridViewNhanVien);
                 NhanVienPTs = NhanVienPT.getQuery().OrderBy(c=>c.hoten).ToList();
@@ -62,21 +66,25 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                     enableButton(false);
                     barBtnThemNhanVien.Enabled = true;
                 }
-                checkPermission();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void checkPermission()
         {
-            barBtnThemNhanVien.Enabled = btnR_Them.Enabled = Permission.canAdd<NhanVienPT>();
-            barBtnSuaNhanVien.Enabled = barBtnPhanCong.Enabled = btnR_Sua.Enabled = Permission.canEdit<NhanVienPT>(null);
-            barBtnXoaNhanVien.Enabled = btnR_Xoa.Enabled = Permission.canDelete<NhanVienPT>(null);
+            try
+            {
+                canAdd = Permission.canAdd<NhanVienPT>();
+                canEdit = Permission.canEdit<NhanVienPT>(null);
+                canDelete = Permission.canDelete<NhanVienPT>(null);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
+            }
         }
 
         private void editGUI(String _type)
@@ -89,7 +97,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 }
                 SetTextGroupControl("Chi tiết", Color.Empty);
                 enableEdit(false);
-                barBtnThemNhanVien.Enabled = true;
+                barBtnThemNhanVien.Enabled = true && canAdd;
             }
             else if (_type.Equals("add"))
             {
@@ -140,20 +148,20 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             txtTen.Properties.ReadOnly = !_enable;
             txtSodt.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
-            barBtnThemNhanVien.Enabled = !_enable;
-            btnR_Them.Enabled = !_enable;
+            barBtnThemNhanVien.Enabled = !_enable && canAdd;
+            btnR_Them.Enabled = !_enable && canAdd;
             working = _enable;
         }
 
         private void enableButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
-            btnR_Sua.Enabled = _enable;
-            btnR_Xoa.Enabled = _enable;
-            barBtnSuaNhanVien.Enabled = _enable;
-            barBtnXoaNhanVien.Enabled = _enable;
+            btnR_Sua.Enabled = _enable && canEdit;
+            btnR_Xoa.Enabled = _enable && canDelete;
+            barBtnSuaNhanVien.Enabled = _enable && canEdit;
+            barBtnXoaNhanVien.Enabled = _enable && canDelete;
             //rbnGroupNhanVien.Enabled = _enable;
-            rbnGroupNhanVienPhong.Enabled = _enable;
+            rbnGroupNhanVienPhong.Enabled = _enable && canEdit;
         }
 
         private void clearText()
@@ -195,11 +203,10 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 else
                 {
                     enableButton(false);
-                    barBtnThemNhanVien.Enabled = true;
+                    barBtnThemNhanVien.Enabled = true && canAdd;
                     clearText();
                     objNhanVienPT = new NhanVienPT();
                 }
-                checkPermission();
             }
             catch (Exception ex)
             {

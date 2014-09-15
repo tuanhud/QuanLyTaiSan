@@ -34,9 +34,16 @@ namespace TSCD.Entities
         #endregion
 
         #region Override
+        public static new String VNNAME
+        {
+            get
+            {
+                return "LOẠI ĐƠN VỊ";
+            }
+        }
         public override string niceName()
         {
-            return "Loại đơn vị: " + ten;
+            return VNNAME + ": " + ten;
         }
         #endregion
     }

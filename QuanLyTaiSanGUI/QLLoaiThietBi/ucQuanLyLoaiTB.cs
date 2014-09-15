@@ -33,6 +33,9 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
         bool working = false;
         Point pointLabelTen, pointTxtTen, pointLabelMota, pointTxtMota, pointLabelLoai, pointPanelLoai, pointBtnOk, pointBtnHuy;
         int khoangcach;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
 
         public ucQuanLyLoaiTB()
         {
@@ -72,10 +75,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : treeListLoaiTB_FocusedNodeChanged : " + ex.Message);
+                Debug.WriteLine(this.Name + " : treeListLoaiTB_FocusedNodeChanged : " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void enableEdit(bool _enable, String _function)
@@ -90,10 +91,13 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             working = _enable;
             //
             rbnGroupLoaiTB.Enabled = !_enable;
+            barButtonThemLoaiTB.Enabled = !_enable && canAdd;
             rbnGroupOrder.Enabled = !_enable;
-            btnR_Them.Enabled = !_enable;
-            btnR_Sua.Enabled = !_enable;
-            btnR_Xoa.Enabled = !_enable;
+            barBtnUp.Enabled = !_enable && canEdit;
+            barBtnDown.Enabled = !_enable && canEdit;
+            btnR_Them.Enabled = !_enable && canAdd;
+            btnR_Sua.Enabled = !_enable && canEdit;
+            btnR_Xoa.Enabled = !_enable && canDelete;
             btnImage.Visible = _enable && ceTBsoluonglon.Checked;
             if (_enable)
                 txtTen.Focus();
@@ -101,15 +105,23 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         private void checkPermission()
         {
-            barButtonThemLoaiTB.Enabled = btnR_Them.Enabled = Permission.canAdd<LoaiThietBi>();
-            barButtonSuaLoaiTB.Enabled = btnR_Sua.Enabled = barBtnUp.Enabled = barBtnDown.Enabled = Permission.canEdit<LoaiThietBi>(null);
-            barButtonXoaLoaiTB.Enabled = btnR_Xoa.Enabled = Permission.canDelete<LoaiThietBi>(null);
+            try
+            {
+                canAdd = Permission.canAdd<LoaiThietBi>();
+                canEdit = Permission.canEdit<LoaiThietBi>(null);
+                canDelete = Permission.canDelete<LoaiThietBi>(null);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
+            }
         }
 
         public void reLoad()
         {
             try
             {
+                checkPermission();
                 enableEdit(false, "");
                 loaiThietBis = LoaiTBHienThi.getAll();
                 treeListLoaiTB.DataSource = loaiThietBis;
@@ -117,14 +129,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 listLoaiThietBiCha.Insert(0, loaiThietBiNULL);
                 lueThuoc.Properties.DataSource = listLoaiThietBiCha;
                 checkSuaXoa();
-                checkPermission();
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : reLoad : " + ex.Message);
+                Debug.WriteLine(this.Name + " : reLoad : " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void reLoadAndFocused(Guid _id)
@@ -184,14 +193,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
                 }
                 else
                     beforeAdd();
-                checkPermission();
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setData : " + ex.Message);
+                Debug.WriteLine(this.Name + " : setData : " + ex.Message);
             }
-            finally
-            { }
         }
 
         private void CRU()
@@ -233,10 +239,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : CRU : " + ex.Message);
+                Debug.WriteLine(this.Name + " : CRU : " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void deleteObj()
@@ -342,10 +346,8 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setDataObj : " + ex.Message);
+                Debug.WriteLine(this.Name + " : setDataObj : " + ex.Message);
             }
-            finally
-            { }
         }
 
         public void SetTextGroupControl(String text, Color color)
@@ -514,11 +516,11 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
 
         public void enableSuaXoa(Boolean enable)
         {
-            barButtonSuaLoaiTB.Enabled = enable;
-            barButtonXoaLoaiTB.Enabled = enable;
-            rbnGroupOrder.Enabled = enable;
-            btnR_Sua.Enabled = enable;
-            btnR_Xoa.Enabled = enable;
+            barButtonSuaLoaiTB.Enabled = enable && canEdit;
+            barButtonXoaLoaiTB.Enabled = enable && canDelete;
+            rbnGroupOrder.Enabled = enable && canEdit;
+            btnR_Sua.Enabled = enable && canEdit;
+            btnR_Xoa.Enabled = enable && canDelete;
         }
 
         public RibbonControl getRibbon()

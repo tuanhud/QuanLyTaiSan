@@ -102,9 +102,16 @@ namespace TSCD.Entities
         
         #endregion
         #region Override method
+        public static new String VNNAME
+        {
+            get
+            {
+                return "GROUP";
+            }
+        }
         public override string niceName()
         {
-            return "Group: " + ten;
+            return VNNAME + ": " + ten;
         }
         public override int delete()
         {

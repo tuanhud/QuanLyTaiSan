@@ -96,9 +96,16 @@ namespace TSCD.Entities
         #endregion
 
         #region Override
+        public static new String VNNAME
+        {
+            get
+            {
+                return "SETTING";
+            }
+        }
         public override string niceName()
         {
-            return "Setting: (" + key + " => " + value + ")";
+            return VNNAME + ": (" + key + " => " + value + ")";
         }
         #endregion
     }

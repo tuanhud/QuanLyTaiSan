@@ -395,7 +395,6 @@
             this.gridViewThietBi.OptionsView.ShowAutoFilterRow = true;
             this.gridViewThietBi.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewThietBi.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewThietBi_RowClick);
-            this.gridViewThietBi.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridViewThietBi_SelectionChanged);
             this.gridViewThietBi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewThietBi_FocusedRowChanged);
             this.gridViewThietBi.DataSourceChanged += new System.EventHandler(this.gridViewThietBi_DataSourceChanged);
             // 

@@ -66,7 +66,7 @@
             gp.subId = gp.key;
             gp.ten = gp.key;
             gp.date_create = gp.date_modified = now;
-            gp.permissions.Add(pers.Where(c => c.key.ToUpper().Equals(Permission._ROOT)).FirstOrDefault());
+            gp.permissions.Add(pers.Where(c => c.key.ToUpper().Equals(Permission._SUPER_ADMIN)).FirstOrDefault());
             //ADD
             if (
                 context.GROUPS.Where(c => c.ten.ToUpper().Equals(gp.ten)).FirstOrDefault() == null

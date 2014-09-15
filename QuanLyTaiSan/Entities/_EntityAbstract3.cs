@@ -14,7 +14,6 @@ namespace QuanLyTaiSan.Entities
     public abstract class _EntityAbstract3<T>: _EntityAbstract1<T> /* ,_CRUDInterface<T>*/ where T : _EntityAbstract3<T>
     {
         #region Định nghĩa thuộc tính
-        [Required(ErrorMessage = "Họ tên không được trống")]
         public String hoten { get; set; }
 
         [Index(IsUnique = true)]
