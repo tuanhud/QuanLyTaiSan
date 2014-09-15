@@ -615,9 +615,6 @@
     <EmbeddedResource Include="ThongKe\XtraReport_Template.resx">
       <DependentUpon>XtraReport_Template.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKe\XtraReport_Template.vi-VN.resx">
-      <DependentUpon>XtraReport_Template.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\XtraReport_XtraGrid.resx">
       <DependentUpon>XtraReport_XtraGrid.cs</DependentUpon>
     </EmbeddedResource>

@@ -39,13 +39,14 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.comboBoxEdit_Report = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.checkEdit_Landscape = new DevExpress.XtraEditors.CheckEdit();
             this.ribbonThongKe = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.comboBoxEdit_Report = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton_Design = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_View = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
@@ -63,15 +64,15 @@
             this.dateEdit_from = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
-            this.checkEdit_Landscape = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_Report.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_Landscape.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_Report.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_condition)).BeginInit();
             this.groupControl_condition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).BeginInit();
@@ -81,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_Landscape.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -136,7 +136,7 @@
             this.gridColumn3.FieldName = "tencoso";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.VisibleIndex = 0;
             this.gridColumn3.Width = 116;
             // 
             // gridColumn4
@@ -145,7 +145,7 @@
             this.gridColumn4.FieldName = "tenday";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.VisibleIndex = 1;
             this.gridColumn4.Width = 78;
             // 
             // gridColumn5
@@ -154,7 +154,7 @@
             this.gridColumn5.FieldName = "tentang";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 2;
             this.gridColumn5.Width = 77;
             // 
             // gridColumn6
@@ -163,7 +163,7 @@
             this.gridColumn6.FieldName = "tenphong";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 83;
             // 
             // gridColumn7
@@ -181,7 +181,7 @@
             this.gridColumn8.FieldName = "tenltb";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.VisibleIndex = 4;
             this.gridColumn8.Width = 153;
             // 
             // gridColumn2
@@ -190,7 +190,7 @@
             this.gridColumn2.FieldName = "soluong";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.VisibleIndex = 6;
             this.gridColumn2.Width = 50;
             // 
             // groupControl1
@@ -207,19 +207,14 @@
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Tác vụ";
             // 
-            // comboBoxEdit_Report
+            // checkEdit_Landscape
             // 
-            this.comboBoxEdit_Report.EditValue = "Report v1";
-            this.comboBoxEdit_Report.Location = new System.Drawing.Point(154, 28);
-            this.comboBoxEdit_Report.MenuManager = this.ribbonThongKe;
-            this.comboBoxEdit_Report.Name = "comboBoxEdit_Report";
-            this.comboBoxEdit_Report.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit_Report.Properties.Items.AddRange(new object[] {
-            "Report v1",
-            "Report v2"});
-            this.comboBoxEdit_Report.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxEdit_Report.TabIndex = 15;
+            this.checkEdit_Landscape.Location = new System.Drawing.Point(260, 28);
+            this.checkEdit_Landscape.MenuManager = this.ribbonThongKe;
+            this.checkEdit_Landscape.Name = "checkEdit_Landscape";
+            this.checkEdit_Landscape.Properties.Caption = "Landscape";
+            this.checkEdit_Landscape.Size = new System.Drawing.Size(75, 19);
+            this.checkEdit_Landscape.TabIndex = 15;
             // 
             // ribbonThongKe
             // 
@@ -274,6 +269,20 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Thống kê";
+            // 
+            // comboBoxEdit_Report
+            // 
+            this.comboBoxEdit_Report.EditValue = "Report v1";
+            this.comboBoxEdit_Report.Location = new System.Drawing.Point(154, 28);
+            this.comboBoxEdit_Report.MenuManager = this.ribbonThongKe;
+            this.comboBoxEdit_Report.Name = "comboBoxEdit_Report";
+            this.comboBoxEdit_Report.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_Report.Properties.Items.AddRange(new object[] {
+            "Report v1",
+            "Report v2"});
+            this.comboBoxEdit_Report.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxEdit_Report.TabIndex = 15;
             // 
             // simpleButton_Design
             // 
@@ -454,15 +463,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Chọn ngày:";
             // 
-            // checkEdit_Landscape
-            // 
-            this.checkEdit_Landscape.Location = new System.Drawing.Point(260, 28);
-            this.checkEdit_Landscape.MenuManager = this.ribbonThongKe;
-            this.checkEdit_Landscape.Name = "checkEdit_Landscape";
-            this.checkEdit_Landscape.Properties.Caption = "Landscape";
-            this.checkEdit_Landscape.Size = new System.Drawing.Size(75, 19);
-            this.checkEdit_Landscape.TabIndex = 15;
-            // 
             // ucTK_SLTB_TheoTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,8 +477,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_Report.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_Landscape.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_Report.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_condition)).EndInit();
             this.groupControl_condition.ResumeLayout(false);
             this.groupControl_condition.PerformLayout();
@@ -489,7 +490,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_Landscape.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
