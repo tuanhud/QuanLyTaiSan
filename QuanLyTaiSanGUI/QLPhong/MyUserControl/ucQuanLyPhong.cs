@@ -177,7 +177,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                Debug.WriteLine(this.Name + "->reLoad: " + ex.Message);
             }
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
@@ -193,7 +193,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + ": " + ex.Message);
+                Debug.WriteLine(this.Name + "->reLoadAll: " + ex.Message);
             }
         }
 
