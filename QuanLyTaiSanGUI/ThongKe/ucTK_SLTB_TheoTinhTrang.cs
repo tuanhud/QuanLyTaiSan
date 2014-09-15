@@ -22,7 +22,7 @@ namespace QuanLyTaiSanGUI.ThongKe
     public partial class ucTK_SLTB_TheoTinhTrang : DevExpress.XtraEditors.XtraUserControl, _ourUcInterface
     {
         QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
-        List<TKSLThietBiFilter> list_tk = new List<TKSLThietBiFilter>();
+        //List<TKSLThietBiFilter> list_tk = new List<TKSLThietBiFilter>();
 
         public ucTK_SLTB_TheoTinhTrang()
         {
@@ -30,6 +30,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             ribbonThongKe.Parent = null;
             loadData();
         }
+
         public void loadData()
         {
             checkedComboBoxEdit_tinhTrang.Properties.DataSource =
@@ -54,6 +55,7 @@ namespace QuanLyTaiSanGUI.ThongKe
         {
             return ribbonThongKe;
         }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             gridControl1.ShowPrintPreview();
@@ -77,7 +79,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             List<Guid> list_tinhtrang = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_tinhTrang);
             List<Guid> list_ltb = ucTreeLoaiTB2.getListLoaiTB().Select(x => x.id).ToList();
 
-            list_tk = TKSLThietBiFilter.getAll(list_coso, list_ltb, list_tinhtrang, from, to, -1, 1);
+            List<TKSLThietBiFilter> list_tk = TKSLThietBiFilter.getAll(list_coso, list_ltb, list_tinhtrang, from, to, -1, 1);
 
             gridControl1.DataSource = list_tk;
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -86,44 +88,6 @@ namespace QuanLyTaiSanGUI.ThongKe
         public void reLoad()
         {
             throw new NotImplementedException();
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            //View
-            if (comboBoxEdit1.SelectedIndex == 0)
-            {
-                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, true);
-                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
-                printTool.ShowPreviewDialog();
-            }
-            else
-            {
-                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
-                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_XtraGrid);
-                printTool.ShowPreviewDialog();
-            }
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            //design
-            if (comboBoxEdit1.SelectedIndex == 0)
-            {
-                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, true);
-                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
-                designTool.ShowDesignerDialog();
-                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
-                printTool.ShowPreviewDialog();
-            }
-            else
-            {
-                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
-                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_XtraGrid);
-                designTool.ShowDesignerDialog();
-                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
-                printTool.ShowPreviewDialog();
-            }
         }
 
         private DataSet FillDatasetFromGrid()
@@ -166,6 +130,68 @@ namespace QuanLyTaiSanGUI.ThongKe
             //}
             _DataSet.Tables.Add(_DataTable);
             return _DataSet;
+        }
+
+        private void simpleButton_View_Click(object sender, EventArgs e)
+        {
+            //View
+            if (comboBoxEdit_Report.SelectedIndex == 0)
+            {
+                splashScreenManager_Report.ShowWaitForm();
+                splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, checkEdit_Landscape.Checked);
+                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
+
+                splashScreenManager_Report.CloseWaitForm();
+                printTool.ShowPreviewDialog();
+            }
+            else
+            {
+                splashScreenManager_Report.ShowWaitForm();
+                splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
+                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_XtraGrid);
+
+                splashScreenManager_Report.CloseWaitForm();
+                printTool.ShowPreviewDialog();
+            }
+        }
+
+        private void simpleButton_Design_Click(object sender, EventArgs e)
+        {
+            //design
+            if (comboBoxEdit_Report.SelectedIndex == 0)
+            {
+                splashScreenManager_Report.ShowWaitForm();
+                splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, checkEdit_Landscape.Checked);
+                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
+
+                splashScreenManager_Report.CloseWaitForm();
+                designTool.ShowDesignerDialog();
+                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                printTool.ShowPreviewDialog();
+            }
+            else
+            {
+                splashScreenManager_Report.ShowWaitForm();
+                splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
+                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_XtraGrid);
+
+                splashScreenManager_Report.CloseWaitForm();
+                designTool.ShowDesignerDialog();
+                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                printTool.ShowPreviewDialog();
+            }
         }
     }
 }
