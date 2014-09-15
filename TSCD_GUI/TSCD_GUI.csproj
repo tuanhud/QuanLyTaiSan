@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -62,7 +63,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeThong\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Libraries\ExcelDataBaseHelper.cs" />
+    <Compile Include="MyForm\frmCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmCustom.Designer.cs">
+      <DependentUpon>frmCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmCustomXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmCustomXtraForm.Designer.cs">
+      <DependentUpon>frmCustomXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\ucComboBoxDonVi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,12 +210,37 @@
     <Compile Include="RibbonFormMain.Designer.cs">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ucCauHinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucCauHinh.Designer.cs">
+      <DependentUpon>ucCauHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreenForm.Designer.cs">
+      <DependentUpon>SplashScreenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitFormLoad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WaitFormLoad.Designer.cs">
       <DependentUpon>WaitFormLoad.cs</DependentUpon>
     </Compile>
+    <Compile Include="_ourUcInterface.cs" />
+    <EmbeddedResource Include="HeThong\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmCustom.resx">
+      <DependentUpon>frmCustom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucComboBoxDonVi.resx">
       <DependentUpon>ucComboBoxDonVi.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +256,7 @@
     <EmbeddedResource Include="MyUserControl\ucTreeViTri.resx">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -270,6 +315,16 @@
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucCauHinh.resx">
+      <DependentUpon>ucCauHinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreenForm.resx">
+      <DependentUpon>SplashScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WaitFormLoad.resx">
       <DependentUpon>WaitFormLoad.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +372,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\login.ico" />
+    <Content Include="Resources\login.png" />
+    <None Include="Resources\logophanmem.png" />
+    <None Include="Resources\login1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
