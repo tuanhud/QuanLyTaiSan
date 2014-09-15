@@ -39,8 +39,15 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit_Report = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.ribbonThongKe = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.simpleButton_Design = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_View = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl_condition = new DevExpress.XtraEditors.GroupControl();
             this.panelLoaiTB = new DevExpress.XtraEditors.PanelControl();
@@ -55,19 +62,16 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dateEdit_from = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.ribbonThongKe = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.rbnPageThongKe_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+            this.checkEdit_Landscape = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_Report.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_condition)).BeginInit();
             this.groupControl_condition.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelLoaiTB)).BeginInit();
@@ -77,8 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_Landscape.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -192,9 +195,10 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.comboBoxEdit1);
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.checkEdit_Landscape);
+            this.groupControl1.Controls.Add(this.comboBoxEdit_Report);
+            this.groupControl1.Controls.Add(this.simpleButton_Design);
+            this.groupControl1.Controls.Add(this.simpleButton_View);
             this.groupControl1.Controls.Add(this.btnPrint);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 397);
@@ -203,23 +207,91 @@
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Tác vụ";
             // 
-            // simpleButton2
+            // comboBoxEdit_Report
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(150, 24);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(42, 27);
-            this.simpleButton2.TabIndex = 5;
-            this.simpleButton2.Text = "Design";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.comboBoxEdit_Report.EditValue = "Report v1";
+            this.comboBoxEdit_Report.Location = new System.Drawing.Point(154, 28);
+            this.comboBoxEdit_Report.MenuManager = this.ribbonThongKe;
+            this.comboBoxEdit_Report.Name = "comboBoxEdit_Report";
+            this.comboBoxEdit_Report.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit_Report.Properties.Items.AddRange(new object[] {
+            "Report v1",
+            "Report v2"});
+            this.comboBoxEdit_Report.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxEdit_Report.TabIndex = 15;
             // 
-            // simpleButton1
+            // ribbonThongKe
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(78, 24);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(42, 27);
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "View";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.ribbonThongKe.ExpandCollapseItem.Id = 0;
+            this.ribbonThongKe.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonThongKe.ExpandCollapseItem,
+            this.barButtonItem1,
+            this.barButtonItem2,
+            this.barButtonItem3});
+            this.ribbonThongKe.Location = new System.Drawing.Point(0, 0);
+            this.ribbonThongKe.MaxItemId = 4;
+            this.ribbonThongKe.Name = "ribbonThongKe";
+            this.ribbonThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rbnPageThongKe_Home});
+            this.ribbonThongKe.Size = new System.Drawing.Size(850, 145);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItem1.Caption = "Thống kê";
+            this.barButtonItem1.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Thống kê";
+            this.barButtonItem2.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.barButtonItem2.Id = 2;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Thống kê";
+            this.barButtonItem3.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.barButtonItem3.Id = 3;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // rbnPageThongKe_Home
+            // 
+            this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.rbnPageThongKe_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
+            this.rbnPageThongKe_Home.Text = "Thống kê";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Thống kê";
+            // 
+            // simpleButton_Design
+            // 
+            this.simpleButton_Design.Location = new System.Drawing.Point(106, 24);
+            this.simpleButton_Design.Name = "simpleButton_Design";
+            this.simpleButton_Design.Size = new System.Drawing.Size(42, 27);
+            this.simpleButton_Design.TabIndex = 5;
+            this.simpleButton_Design.Text = "Design";
+            this.simpleButton_Design.Click += new System.EventHandler(this.simpleButton_Design_Click);
+            // 
+            // simpleButton_View
+            // 
+            this.simpleButton_View.Location = new System.Drawing.Point(58, 24);
+            this.simpleButton_View.Name = "simpleButton_View";
+            this.simpleButton_View.Size = new System.Drawing.Size(42, 27);
+            this.simpleButton_View.TabIndex = 5;
+            this.simpleButton_View.Text = "View";
+            this.simpleButton_View.Click += new System.EventHandler(this.simpleButton_View_Click);
             // 
             // btnPrint
             // 
@@ -382,73 +454,14 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Chọn ngày:";
             // 
-            // ribbonThongKe
+            // checkEdit_Landscape
             // 
-            this.ribbonThongKe.ExpandCollapseItem.Id = 0;
-            this.ribbonThongKe.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonThongKe.ExpandCollapseItem,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3});
-            this.ribbonThongKe.Location = new System.Drawing.Point(0, 0);
-            this.ribbonThongKe.MaxItemId = 4;
-            this.ribbonThongKe.Name = "ribbonThongKe";
-            this.ribbonThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.rbnPageThongKe_Home});
-            this.ribbonThongKe.Size = new System.Drawing.Size(850, 145);
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem1.Caption = "Thống kê";
-            this.barButtonItem1.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Thống kê";
-            this.barButtonItem2.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
-            this.barButtonItem2.Id = 2;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Thống kê";
-            this.barButtonItem3.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
-            this.barButtonItem3.Id = 3;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // rbnPageThongKe_Home
-            // 
-            this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.rbnPageThongKe_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
-            this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
-            this.rbnPageThongKe_Home.Text = "Thống kê";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Thống kê";
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.EditValue = "Report v1";
-            this.comboBoxEdit1.Location = new System.Drawing.Point(215, 28);
-            this.comboBoxEdit1.MenuManager = this.ribbonThongKe;
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "Report v1",
-            "Report v2"});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxEdit1.TabIndex = 15;
+            this.checkEdit_Landscape.Location = new System.Drawing.Point(260, 28);
+            this.checkEdit_Landscape.MenuManager = this.ribbonThongKe;
+            this.checkEdit_Landscape.Name = "checkEdit_Landscape";
+            this.checkEdit_Landscape.Properties.Caption = "Landscape";
+            this.checkEdit_Landscape.Size = new System.Drawing.Size(75, 19);
+            this.checkEdit_Landscape.TabIndex = 15;
             // 
             // ucTK_SLTB_TheoTinhTrang
             // 
@@ -464,6 +477,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_Report.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl_condition)).EndInit();
             this.groupControl_condition.ResumeLayout(false);
             this.groupControl_condition.PerformLayout();
@@ -474,8 +489,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_to.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_from.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonThongKe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit_Landscape.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,8 +528,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Design;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_View;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit_Report;
+        private DevExpress.XtraEditors.CheckEdit checkEdit_Landscape;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
     }
 }

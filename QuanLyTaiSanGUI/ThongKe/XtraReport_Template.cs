@@ -25,7 +25,6 @@ namespace QuanLyTaiSanGUI.ThongKe
             public string FieldName { get; set; }
             public int VisibleIndex { get; set; }
             public Boolean IsNumber { get; set; }
-            public int SUM { get; set; }
         }
 
         public XtraReport_Template()
@@ -39,10 +38,11 @@ namespace QuanLyTaiSanGUI.ThongKe
             InitXtraReport(GridData, GridViewVictim);
         }
 
-        public XtraReport_Template(DataSet GridData, GridView GridViewVictim, Boolean FixGroupCaption)
+        public XtraReport_Template(DataSet GridData, GridView GridViewVictim, Boolean Landscape)
         {
             InitializeComponent();
             NumberOfFieldGroup = GridViewVictim.GroupCount;
+            this.Landscape = Landscape;
             if (GridViewVictim.GroupCount > 0)
             {
                 int add = (PageSize.Width - (Margins.Left + Margins.Right)) / GridViewVictim.GroupCount;
@@ -54,27 +54,24 @@ namespace QuanLyTaiSanGUI.ThongKe
                         WidthAdd = add;
                 }
             }
-            if (FixGroupCaption)
+            if (GridData.Tables[0] != null)
             {
-                if (GridData.Tables[0] != null)
+                if (GridViewVictim.GroupCount > 0)
                 {
-                    if (GridViewVictim.GroupCount > 0)
+                    for (int i = 0; i < GridViewVictim.Columns.Count; i++)
                     {
-                        for (int i = 0; i < GridViewVictim.Columns.Count; i++)
+                        if (!(GridViewVictim.Columns[i].Visible && GridViewVictim.Columns[i].GroupIndex < 0))
                         {
-                            if (!(GridViewVictim.Columns[i].Visible && GridViewVictim.Columns[i].GroupIndex < 0))
+                            foreach (DataColumn column in GridData.Tables[0].Columns)
                             {
-                                foreach (DataColumn column in GridData.Tables[0].Columns)
+                                if (Object.Equals(column.ColumnName, GridViewVictim.Columns[i].FieldName))
                                 {
-                                    if (Object.Equals(column.ColumnName, GridViewVictim.Columns[i].FieldName))
+                                    foreach (DataRow row in GridData.Tables[0].Rows)
                                     {
-                                        foreach (DataRow row in GridData.Tables[0].Rows)
-                                        {
-                                            string strGroup = string.Format("{0}: {1}", GridViewVictim.Columns[i].Caption, row[column.ColumnName]);
-                                            row[column.ColumnName] = strGroup;
-                                            if (MaxLength < strGroup.Length)
-                                                MaxLength = strGroup.Length;
-                                        }
+                                        string strGroup = string.Format("{0}: {1}", GridViewVictim.Columns[i].Caption, row[column.ColumnName]);
+                                        row[column.ColumnName] = strGroup;
+                                        if (MaxLength < strGroup.Length)
+                                            MaxLength = strGroup.Length;
                                     }
                                 }
                             }
@@ -261,11 +258,11 @@ namespace QuanLyTaiSanGUI.ThongKe
                         if (SHARED.Libraries.StringHelper.IsNumber(GridViewVictim.GetRowCellValue(0, GridViewVictim.Columns[i]).ToString()))
                         {
                             _structColumn.IsNumber = true;
-                            _structColumn.SUM = 0;
-                            for (int j = 0; j < GridViewVictim.DataRowCount; j++)
-                            {
-                                _structColumn.SUM += Convert.ToInt32(GridViewVictim.GetRowCellValue(j, GridViewVictim.Columns[i]).ToString());
-                            }
+                            //_structColumn.SUM = 0;
+                            //for (int j = 0; j < GridViewVictim.DataRowCount; j++)
+                            //{
+                            //    _structColumn.SUM += Convert.ToInt32(GridViewVictim.GetRowCellValue(j, GridViewVictim.Columns[i]).ToString());
+                            //}
                         }
                     }
                     listColumn.Add(_structColumn);
@@ -310,7 +307,7 @@ namespace QuanLyTaiSanGUI.ThongKe
 
                     GroupHeaderBand _GroupHeaderBand = new GroupHeaderBand();
                     _GroupHeaderBand.Height = 25;
-                    _GroupHeaderBand.RepeatEveryPage = true;
+                    //_GroupHeaderBand.RepeatEveryPage = true;
 
                     XRTableCell XRTableCell_GroupText = new XRTableCell();
                     XRTableCell_GroupText.DataBindings.Add("Text", this.DataSource, GridViewVictim.GroupedColumns[i].FieldName);
@@ -427,13 +424,11 @@ namespace QuanLyTaiSanGUI.ThongKe
 
                 if (listColumn[i].IsNumber)
                 {
-                    //XRTableCell_SumTemp.DataBindings.Add("Text", this.DataSource, listColumn[i].FieldName);
-                    //XRTableCell_SumTemp.Summary.IgnoreNullValues = true;
-                    //XRTableCell_SumTemp.Summary.Func = SummaryFunc.Sum;
-                    //XRTableCell_SumTemp.Summary.Running = SummaryRunning.Group;
-                    //XRTableCell_SumTemp.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    XRTableCell_SumTemp.DataBindings.Add("Text", this.DataSource, listColumn[i].FieldName);
+                    XRTableCell_SumTemp.Summary.IgnoreNullValues = true;
+                    XRTableCell_SumTemp.Summary.Func = SummaryFunc.Sum;
+                    XRTableCell_SumTemp.Summary.Running = SummaryRunning.Report;
                     XRTableCell_SumTemp.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-                    XRTableCell_SumTemp.Text = listColumn[i].SUM.ToString();
                 }
                 else
                 {
