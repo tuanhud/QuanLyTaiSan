@@ -70,7 +70,7 @@ namespace TSCD.Entities
                 //}
                 return obj;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
