@@ -18,8 +18,17 @@ namespace PTB_WEB.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _ucCollectionPager_DanhSachNhanVien.ShowPanelPage(PanelChangePage);
-            SearchFunction();
+            try
+            {
+                _ucCollectionPager_DanhSachNhanVien.ShowPanelPage(PanelChangePage);
+                SearchFunction();
+                if (Convert.ToString(Page.Session["ShowInfo"]) == "1")
+                {
+                    PanelChangePage.Visible = false;
+                    Session["ShowInfo"] = null;
+                }
+            }
+            catch (Exception) { };
         }
 
         public void LoadData()
@@ -141,6 +150,7 @@ namespace PTB_WEB.UserControl.NhanVien
                 if (index != -1)
                 {
                     int Page = index / _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.PageSize + 1;
+                    Session["ShowInfo"] = "1";
                     Response.Redirect(string.Format("{0}?id={1}&Page={2}", Request.Url.AbsolutePath, SearchID.ToString(), Page.ToString()));
                 }
                 else

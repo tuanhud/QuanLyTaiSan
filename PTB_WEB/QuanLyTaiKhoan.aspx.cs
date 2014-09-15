@@ -50,7 +50,7 @@ namespace PTB_WEB
                             QuanTriVien _QuanTriVien = new QuanTriVien();
                             _QuanTriVien = QuanTriVien.getById(id);
 
-                            if (!PermissionHelper.QuyenXoaQuanTriVien(_QuanTriVien))
+                            if (!PermissionHelper.QuyenXoaQuanTriVien())
                             {
                                 PanelThatBai.Visible = true;
                                 LabelThongBaoThatBai.Text = "Bạn không có quyền xóa tài khoản này";
@@ -98,7 +98,7 @@ namespace PTB_WEB
             Guid id = GUID.From(Eval("id"));
             QuanTriVien _QuanTriVien = new QuanTriVien();
             _QuanTriVien = QuanTriVien.getById(id);
-            if (PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
+            if (PermissionHelper.QuyenSuaQuanTriVien())
                 return "<li><a href=\"#\" onclick=\"ShowCapNhat('" + Eval("id") + "','" + Eval("group_id") + "');\" data-target=\"#PopupQuanLyTaiKhoan\" data-toggle=\"modal\"><span class=\"glyphicon glyphicon-pencil\"></span>&nbsp;Cập nhật</a></li>";
             return "";
         }
@@ -108,7 +108,7 @@ namespace PTB_WEB
             Guid id = GUID.From(Eval("id"));
             QuanTriVien _QuanTriVien = new QuanTriVien();
             _QuanTriVien = QuanTriVien.getById(id);
-            if (PermissionHelper.QuyenXoaQuanTriVien(_QuanTriVien))
+            if (PermissionHelper.QuyenXoaQuanTriVien())
                 return "<li><a href=\"?op=xoa&id=" + Eval("id") + "\" onclick=\"return confirm('Bạn chắc chắn muốn xóa tài khoản " + Eval("username") + "?');\"><span class=\"glyphicon glyphicon-remove\"></span>&nbsp;Xóa</a></li>";
             return "";
         }
@@ -130,7 +130,7 @@ namespace PTB_WEB
             {
                 QuanTriVien _QuanTriVien = QuanTriVien.getById(HiddenFieldID.Value);
 
-                if (!PermissionHelper.QuyenSuaQuanTriVien(_QuanTriVien))
+                if (!PermissionHelper.QuyenSuaQuanTriVien())
                 {
                     PanelThatBai.Visible = true;
                     LabelThongBaoThatBai.Text = "Bạn không có quyền sửa tài khoản này";
@@ -139,7 +139,11 @@ namespace PTB_WEB
 
                 _QuanTriVien.hoten = TextBoxHoTen.Text;
                 _QuanTriVien.email = TextBoxEmail.Text;
-                _QuanTriVien.group = Group.getById(DropDownListNhom.SelectedValue.ToString());// GUID.From(DropDownListNhom.SelectedValue);
+
+                QuanTriVien _QuanTriVienDangNhap = QuanTriVien.getByUserName(Session["UserName"].ToString());
+                if(!_QuanTriVienDangNhap.id.Equals(_QuanTriVien.id))
+                    _QuanTriVien.group = Group.getById(DropDownListNhom.SelectedValue.ToString());
+
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if (!TextBoxMatKhau.Text.Equals(string.Empty))
                     _QuanTriVien.hashPassword(TextBoxMatKhau.Text);

@@ -45,9 +45,9 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="danhsach">
                             <table class="table table-bordered table-striped table-hover valign_middle">
-                                <thead class="centered">
+                                <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="tdcenter">#</th>
                                         <th>Mã nhân viên</th>
                                         <th>Họ tên</th>
                                         <th>Số điện thoại</th>

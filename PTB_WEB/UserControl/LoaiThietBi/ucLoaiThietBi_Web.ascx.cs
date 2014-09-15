@@ -42,7 +42,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                             node.Focus();
                             LoadFocusedNodeData();
                             Panel_ThongTinLoaiThietBi.Visible = true;
-                            Label_ChuaChon.Visible = false;
+                            ucWarning.Visible = false;
                         }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
@@ -56,8 +56,8 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                 {
                     DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
                     node.Focus();
-                    Label_ChuaChon.Visible = true;
-                    Label_ChuaChon.Text = "Chưa chọn loại thiết bị cần xem";
+                    ucWarning.Visible = true;
+                    ucWarning.LabelInfo.Text = "Chưa chọn loại thiết bị cần xem";
                 }
             }
             else

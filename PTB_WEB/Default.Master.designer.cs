@@ -49,6 +49,15 @@ namespace PTB_WEB {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserName;
         
         /// <summary>
+        /// HiddenFieldUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldUserName;
+        
+        /// <summary>
         /// ScriptManager control.
         /// </summary>
         /// <remarks>

@@ -74,7 +74,7 @@
                         <asp:Panel ID="PanelAdmin" runat="server" Visible="false">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown <%ParentClassActive("Admin");%>">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><span class="caret"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><asp:HiddenField ID="HiddenFieldUserName" ClientIDMode="Static" runat="server" /><span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li <%if (page.Equals("THONGTINCANHAN")) Response.Write("class=\"active\""); %>><a href="ThongTinCaNhan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
                                         <%if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenMuonPhong())

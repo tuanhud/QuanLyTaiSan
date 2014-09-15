@@ -5,9 +5,11 @@
 <%@ Register Src="~/UserControl/LoaiThietBi/ucLoaiThietBi_BreadCrumb.ascx" TagPrefix="uc" TagName="ucLoaiThietBi_BreadCrumb" %>
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 <%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
+<%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
+
 
 <uc:ucLoaiThietBi_BreadCrumb runat="server" ID="ucLoaiThietBi_BreadCrumb" />
-<uc:ucThongBaoLoi runat="server" id="ucThongBaoLoi" />
+<uc:ucThongBaoLoi runat="server" ID="ucThongBaoLoi" />
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <table class="table largetable">
@@ -16,10 +18,11 @@
                 <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
             </td>
             <td>
-                <h3 class="title_green fix">
-                    <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
-                </h3>
+                <uc:ucWarning runat="server" ID="ucWarning" Visible="false" />
                 <asp:Panel ID="Panel_ThongTinLoaiThietBi" runat="server" Visible="False">
+                    <h3 class="title_green fix">
+                        <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
+                    </h3>
                     <table class="table table-striped">
                         <tbody>
                             <tr>
@@ -49,7 +52,6 @@
                         </tbody>
                     </table>
                 </asp:Panel>
-                <asp:Label ID="Label_ChuaChon" runat="server" Visible="false"></asp:Label>
             </td>
         </tr>
     </table>

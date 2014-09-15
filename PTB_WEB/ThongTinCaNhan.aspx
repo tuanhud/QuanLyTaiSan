@@ -67,7 +67,7 @@
                                             Nhóm:
                                         </div>
                                         <div class="col-lg-8">
-                                            <asp:DropDownList ID="DropDownListNhom" runat="server" DataValueField="id" DataTextField="ten" CssClass="form-control"></asp:DropDownList>
+                                            <asp:DropDownList ID="DropDownListNhom" runat="server" DataValueField="id" DataTextField="ten" CssClass="form-control" Enabled="false"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <br />

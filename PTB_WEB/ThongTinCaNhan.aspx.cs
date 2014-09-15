@@ -79,7 +79,6 @@ namespace PTB_WEB
             QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Convert.ToString(Session["UserName"]));
             _QuanTriVien.hoten = TextBoxHoTen.Text;
             _QuanTriVien.email = TextBoxEmail.Text;
-            _QuanTriVien.group = Group.getById(DropDownListNhom.SelectedValue);// GUID.From(DropDownListNhom.SelectedValue);
             if (!TextBoxMatKhauMoi.Text.Equals("")) _QuanTriVien.hashPassword(TextBoxMatKhauMoi.Text);
             _QuanTriVien.donvi = TextBoxDonVi.Text;
             _QuanTriVien.mota = TextBoxGhiChu.Text;

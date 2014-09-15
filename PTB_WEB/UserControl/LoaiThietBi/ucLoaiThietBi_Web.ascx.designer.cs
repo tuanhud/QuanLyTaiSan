@@ -49,13 +49,13 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         protected global::PTB_WEB.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
-        /// Label_ThongTin control.
+        /// ucWarning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTin;
+        protected global::PTB_WEB.UserControl.Alert.ucWarning ucWarning;
         
         /// <summary>
         /// Panel_ThongTinLoaiThietBi control.
@@ -65,6 +65,15 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel_ThongTinLoaiThietBi;
+        
+        /// <summary>
+        /// Label_ThongTin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
         /// Label_TenLoai control.
@@ -101,14 +110,5 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Thuoc;
-        
-        /// <summary>
-        /// Label_ChuaChon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ChuaChon;
     }
 }

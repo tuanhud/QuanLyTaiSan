@@ -29,6 +29,7 @@ namespace PTB_WEB
                     PanelDangNhap.Visible = false;
                     PanelAdmin.Visible = true;
                     UserName.InnerText = Session["HoTen"].ToString();
+                    HiddenFieldUserName.Value = Session["UserName"].ToString();
                 }
                 
                 if (!string.IsNullOrWhiteSpace(Page.Request["op"]))

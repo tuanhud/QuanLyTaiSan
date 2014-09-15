@@ -10,39 +10,47 @@ namespace QuanLyTaiSan.Libraries
     {
         public static bool QuyenMuonPhong()
         {
-            return Global.current_quantrivien_login.canDo(Permission._WEB_MUONPHUONG);
+            return Permission.canDo(Permission._WEB_MUONPHUONG);
         }
 
         public static bool QuyenQuanLyMuonPhong()
         {
-            //return Permission.can
-            return Global.current_quantrivien_login.canDo(Permission._WEB_QLMUONPHUONG);
+            return Permission.canDo(Permission._WEB_QLMUONPHUONG);
         }
 
         public static bool QuyenHienThiQuanTriVien()
         {
-            return true;
+            return Permission.canView<QuanTriVien>(null);
         }
 
         public static bool QuyenThemQuanTriVien()
         {
-            return Global.current_quantrivien_login.canAdd<QuanTriVien>();
+            return Permission.canAdd<QuanTriVien>();
         }
 
-        public static bool QuyenSuaQuanTriVien(QuanTriVien _QuanTriVien)
+        public static bool QuyenSuaQuanTriVien()
         {
-            return true;
-            //return Global.current_quantrivien_login.canEdit<QuanTriVien>(_QuanTriVien);
+            return Permission.canEdit<QuanTriVien>(null);
         }
 
-        public static bool QuyenXoaQuanTriVien(QuanTriVien _QuanTriVien)
+        public static bool QuyenXoaQuanTriVien()
         {
-            return Global.current_quantrivien_login.canDelete<QuanTriVien>(_QuanTriVien);
+            return Permission.canDelete<QuanTriVien>(null);
         }
 
         public static bool QuyenConfigEmailTemplate()
         {
-            return true;
+            return Permission.canDo(Permission._SERVER_CONFIG);
+        }
+
+        public static bool QuyenThemHinhAnh()
+        {
+            return Permission.canAdd<HinhAnh>();
+        }
+
+        public static bool QuyenXoaHinhAnh()
+        {
+            return Permission.canDelete<HinhAnh>(null);
         }
     }
 }

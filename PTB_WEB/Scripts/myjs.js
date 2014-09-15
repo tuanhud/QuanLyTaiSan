@@ -149,10 +149,16 @@ function ShowCapNhat(id, nhom) {
     $("#rownhaplaimatkhau").hide();
 
     var hoten = $("#hoten" + id).html();
+    var taikhoandangnhap = $("#HiddenFieldUserName").val();
     var email = $("#email" + id).html();
     taikhoan = $("#username" + id).html();
     var khoa = $("#khoa" + id).html();
     var mota = $("#mota" + id).html().replace(/<br>/g, "\r\n");
+
+    if (taikhoan == taikhoandangnhap)
+        document.getElementById("DropDownListNhom").disabled = true;
+    else
+        document.getElementById("DropDownListNhom").disabled = false;
 
     $("#myModalLabel").html("Chỉnh sửa tài khoản " + taikhoan);
 
