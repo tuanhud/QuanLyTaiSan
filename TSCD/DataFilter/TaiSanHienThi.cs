@@ -149,7 +149,7 @@ namespace TSCD.DataFilter
             return re;
         }
 
-        public static List<TaiSanHienThi> Convert(List<CTTaiSan> list)
+        public static List<TaiSanHienThi> Convert(ICollection<CTTaiSan> list)
         {
             try
             {
@@ -203,7 +203,7 @@ namespace TSCD.DataFilter
                     ngay_ct = ct.chungtu_ngay,
                     ten = ct.taisan.ten,
                     loaits = ct.taisan.loaitaisan.ten,
-                    donvitinh = ct.taisan.loaitaisan.donvitinh.ten,
+                    donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
                     soluong = ct.soluong,
                     dongia = ct.taisan.dongia,
                     thanhtien = ct.soluong * ct.taisan.dongia,

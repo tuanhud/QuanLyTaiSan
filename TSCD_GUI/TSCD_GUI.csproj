@@ -100,6 +100,12 @@
     <Compile Include="MyUserControl\ucComboBoxViTri.Designer.cs">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyUserControl\ucGridControlTaiSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\ucGridControlTaiSan.Designer.cs">
+      <DependentUpon>ucGridControlTaiSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\ucTreeDonVi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucComboBoxViTri.resx">
       <DependentUpon>ucComboBoxViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\ucGridControlTaiSan.resx">
+      <DependentUpon>ucGridControlTaiSan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUserControl\ucTreeDonVi.resx">
       <DependentUpon>ucTreeDonVi.cs</DependentUpon>

@@ -27,7 +27,7 @@ namespace TSCD.DataFilter
                 {
                     id = ct.id,
                     ten = ct.ten,
-                    donvitinh = ct.donvitinh.ten,
+                    donvitinh = ct.donvitinh != null ? ct.donvitinh.ten : "",
                     huuhinh = ct.huuhinh,
                     parent_id = ct.parent_id,
                     obj = ct,

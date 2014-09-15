@@ -56,22 +56,22 @@ namespace TSCD_GUI.QLTaiSan
 
         public void Search()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
-                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
-                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                 String ten = checkTen.Checked ? txtTen.Text : null;
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 DonVi DVSD = ucComboBoxDonVi2.DonVi;
-                gridControlTaiSan.DataSource = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
-                bandedGridViewTaiSan.ExpandAllGroups();
-                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                ucGridControlTaiSan1.DataSource = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
+                ucGridControlTaiSan1.ExpandAllGroups();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->Search:" + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         public DevExpress.XtraBars.Ribbon.RibbonControl getRibbonControl()
@@ -85,11 +85,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 try
                 {
-                    BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-                    if (view.GetFocusedRow() != null)
-                        return (view.GetFocusedRow() as TaiSanHienThi).obj;
-                    else
-                        return null;
+                    return ucGridControlTaiSan1.CTTaiSan;
                 }
                 catch (Exception ex)
                 {
@@ -105,12 +101,7 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 Search();
-                if (_id != Guid.Empty)
-                {
-                    int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
-                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
-                }
+                ucGridControlTaiSan1.reloadAndFocused(_id);
             }
             catch (Exception ex)
             {
@@ -127,49 +118,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnSuaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRow() != null)
-            {
-                frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
-                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-                frm.ShowDialog();
-            }
-        }
-
-        private void bandedGridViewTaiSan_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
-        {
-            try
-            {
-                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-                e.IsEmpty = c.childs == null || c.childs.Count == 0;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowEmpty:" + ex.Message);
-            }
-        }
-
-        private void bandedGridViewTaiSan_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
-        {
-            e.RelationCount = 1;
-        }
-
-        private void bandedGridViewTaiSan_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
-        {
-            e.RelationName = "Tài sản kèm theo";
-        }
-
-        private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
-        {
-            try
-            {
-                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-                e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowGetChildList:" + ex.Message);
-            }
+            frmAddTaiSan frm = new frmAddTaiSan(ucGridControlTaiSan1.CTTaiSan);
+            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+            frm.ShowDialog();
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -192,13 +143,9 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnSua_r_Click(object sender, EventArgs e)
         {
-            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRow() != null)
-            {
-                frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
-                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-                frm.ShowDialog();
-            }
+            frmAddTaiSan frm = new frmAddTaiSan(ucGridControlTaiSan1.CTTaiSan);
+            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+            frm.ShowDialog();
         }
 
         private void btnXoa_r_Click(object sender, EventArgs e)

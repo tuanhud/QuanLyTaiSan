@@ -46,9 +46,7 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 reloadData();
-                int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
-                if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                    bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                ucGridControlTaiSan1.reloadAndFocused(_id);
             }
             catch (Exception ex)
             {
@@ -65,10 +63,10 @@ namespace TSCD_GUI.QLTaiSan
                 DonVi obj = ucTreeDonVi1.DonVi;
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
                 if (obj != null)
-                    gridControlTaiSan.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive().ToList());
+                    ucGridControlTaiSan1.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
                 else
-                    gridControlTaiSan.DataSource = null;
-                bandedGridViewTaiSan.ExpandAllGroups();
+                    ucGridControlTaiSan1.DataSource = null;
+                ucGridControlTaiSan1.ExpandAllGroups();
             }
             catch (Exception ex)
             {
@@ -91,74 +89,49 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bandedGridViewTaiSan.ShowRibbonPrintPreview();
-        }
-
-        private void bandedGridViewTaiSan_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
-        {
-            try
-            {
-                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-                e.IsEmpty = c.childs == null || c.childs.Count == 0;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowEmpty: " + ex.Message);
-            }
-        }
-
-        private void bandedGridViewTaiSan_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
-        {
-            e.RelationCount = 1;
-        }
-
-        private void bandedGridViewTaiSan_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
-        {
-            e.RelationName = "Tài sản kèm theo";
-        }
-
-        private void bandedGridViewTaiSan_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
-        {
-            try
-            {
-                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
-                e.ChildList = TaiSanHienThi.Convert(new List<CTTaiSan>(c.childs));
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowGetChildList: " + ex.Message);
-            }
+            //bandedGridViewTaiSan.ShowRibbonPrintPreview();
         }
 
         private void barBtnChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRow() != null)
-            {
-                frmInputViTri_DonVi frm = new frmInputViTri_DonVi((view.GetFocusedRow() as TaiSanHienThi).obj);
-                frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
-                frm.ShowDialog();
-            }
+            frmInputViTri_DonVi frm = new frmInputViTri_DonVi(ucGridControlTaiSan1.CTTaiSan);
+            frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
+            frm.ShowDialog();
         }
 
         private void barBtnSuaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRow() != null)
-            {
-                frmAddTaiSan frm = new frmAddTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj, true);
-                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-                frm.ShowDialog();
-            }
+            frmAddTaiSan frm = new frmAddTaiSan(ucGridControlTaiSan1.CTTaiSan, true);
+            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+            frm.ShowDialog();
         }
 
         private void barBtnLog_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
-            if (view.GetFocusedRow() != null)
+            frmLogTaiSan frm = new frmLogTaiSan(ucGridControlTaiSan1.CTTaiSan);
+            frm.ShowDialog();
+        }
+
+        private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+            open.Title = "Chọn tập tin để Import";
+            if (open.ShowDialog() == DialogResult.OK)
             {
-                frmLogTaiSan frm = new frmLogTaiSan((view.GetFocusedRow() as TaiSanHienThi).obj);
-                frm.ShowDialog();
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportDonVi(open.FileName, "DonVi", "TaiSan"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+
             }
         }
     }
