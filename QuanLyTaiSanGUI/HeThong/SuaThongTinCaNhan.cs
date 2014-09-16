@@ -25,18 +25,47 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             if (Global.current_quantrivien_login == null)
             {
-                return;
+                this.Close();
             }
-            if (QuanTriVien.checkLoginById(Global.current_quantrivien_login.id, textEdit_oldpass.Text) && textEdit_newpass.Text.Equals(textEdit_newpass_confirm.Text))
+            //cap nhat mat khau
+            if (!textEdit_oldpass.Text.Equals("") || !textEdit_newpass.Text.Equals("") || !textEdit_newpass_confirm.Text.Equals(""))
             {
-                Global.current_quantrivien_login.hashPassword(textEdit_newpass.Text);
-                if (Global.current_quantrivien_login.update() > 0 && DBInstance.commit() > 0)
+                if (QuanTriVien.checkLoginById(Global.current_quantrivien_login.id, textEdit_oldpass.Text))
                 {
-                    this.Close();
+                    if (textEdit_newpass.Text.Equals("") || textEdit_newpass_confirm.Text.Equals(""))
+                    {
+                        XtraMessageBox.Show("Mật khẩu không được để trống!");
+                        return;
+                    }
+                    else
+                    {
+                        if (textEdit_newpass.Text.Equals(textEdit_newpass_confirm.Text))
+                        {
+                            Global.current_quantrivien_login.hashPassword(textEdit_newpass.Text);
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Mật khẩu không khớp!");
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("Sai mật khẩu cũ!");
                     return;
                 }
             }
-            MessageBox.Show("KHÔNG thành công!");
+            //cap nhat thuoc tinh don le
+            Global.current_quantrivien_login.mota = memoEdit_mota.Text;
+            Global.current_quantrivien_login.hoten = textEdit_hoten.Text;
+            Global.current_quantrivien_login.email = textEdit_email.Text;
+            if (Global.current_quantrivien_login.update() > 0 && DBInstance.commit() > 0)
+            {
+                this.Close();
+                return;
+            }
+            XtraMessageBox.Show("KHÔNG thành công!");
 
         }
 
@@ -61,6 +90,19 @@ namespace QuanLyTaiSanGUI.HeThong
                 textEdit_oldpass.Properties.PasswordChar =
                 '●';
             }
+        }
+
+        private void SuaThongTinCaNhan_Load(object sender, EventArgs e)
+        {
+            if (Global.current_quantrivien_login == null)
+            {
+                this.Close();
+            }
+            this.Text += " ["+Global.current_quantrivien_login.niceName()+"]";
+
+            textEdit_email.Text = Global.current_quantrivien_login.email;
+            textEdit_hoten.Text = Global.current_quantrivien_login.hoten;
+            memoEdit_mota.Text = Global.current_quantrivien_login.mota;
         }
     }
 }
