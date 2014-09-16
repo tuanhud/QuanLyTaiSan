@@ -22,13 +22,13 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// ucThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
         /// Panel_Chinh control.
@@ -58,13 +58,13 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         protected global::System.Web.UI.WebControls.Panel Panel_TreeList;
         
         /// <summary>
-        /// ASPxTreeList_LoaiThietBi control.
+        /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_LoaiThietBi;
+        protected global::PTB_WEB.UserControl.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
         /// Panel_ThongTinObj control.
@@ -119,14 +119,5 @@ namespace PTB_WEB.UserControl.LoaiThietBis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Thuoc;
-        
-        /// <summary>
-        /// Button_Back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Back;
     }
 }

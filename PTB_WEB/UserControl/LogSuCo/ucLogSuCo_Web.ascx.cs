@@ -57,7 +57,7 @@ namespace PTB_WEB.UserControl.LogSuCo
                     if (listLogSuCoPhong.Count == 0)
                     {
                         Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objSuCoPhong.ten);
+                        ucThongBaoLoi.Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objSuCoPhong.ten);
                     }
                     else
                     {
@@ -105,7 +105,7 @@ namespace PTB_WEB.UserControl.LogSuCo
                     else
                     {
                         Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = "Không có thiết bị này";
+                        ucThongBaoLoi.Label_ThongBaoLoi.Text = "Không có thiết bị này";
                     }
                 }
             }

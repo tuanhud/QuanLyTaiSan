@@ -13,6 +13,15 @@ namespace PTB_WEB.UserControl.LoaiThietBi {
     public partial class ucLoaiThietBi_BreadCrumb {
         
         /// <summary>
+        /// _ucTimKiem_Mobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Search.ucTimKiem_Mobile _ucTimKiem_Mobile;
+        
+        /// <summary>
         /// Label_TenLoaiThietBi control.
         /// </summary>
         /// <remarks>

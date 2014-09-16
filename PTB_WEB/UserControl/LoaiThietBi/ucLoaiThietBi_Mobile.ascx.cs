@@ -25,8 +25,8 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             listLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getAll();
             if (listLoaiThietBi.Count > 0)
             {
-                ASPxTreeList_LoaiThietBi.DataSource = listLoaiThietBi;
-                ASPxTreeList_LoaiThietBi.DataBind();
+                _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiThietBi;
+                _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();
                 Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
@@ -34,7 +34,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                     try
                     {
                         key = Request.QueryString["key"].ToString();
-                        DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue(key);
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                         if (node != null)
                         {
                             node.Focus();
@@ -57,7 +57,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có loại thiết bị";
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có loại thiết bị";
             }
         }
 
@@ -82,9 +82,9 @@ namespace PTB_WEB.UserControl.LoaiThietBis
         {
             if (listLoaiThietBi.Count > 0)
             {
-                if (ASPxTreeList_LoaiThietBi.FocusedNode != null && GUID.From(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")) != Guid.Empty)
+                if (_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode != null && GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")) != Guid.Empty)
                 {
-                    LoadDataObj(GUID.From(ASPxTreeList_LoaiThietBi.FocusedNode.GetValue("id")));
+                    LoadDataObj(GUID.From(_ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")));
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
         protected void ASPxTreeList_LoaiThietBi_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
         {
             string key = e.Argument.ToString();
-            DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.FindNodeByKeyValue(key);
+            DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
             if (node != null)
                 e.Result = Request.Url.AbsolutePath + "?key=" + key;
             else
@@ -117,7 +117,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                 {
                     Response.Redirect(Request.Url.AbsolutePath);
                 }
-                DevExpress.Web.ASPxTreeList.TreeListNode node = ASPxTreeList_LoaiThietBi.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), SearchID.ToString())).FirstOrDefault();
+                DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), SearchID.ToString())).FirstOrDefault();
                 if (node != null)
                 {
                     Response.Redirect(string.Format("{0}?key={1}", Request.Url.AbsolutePath, node.Key.ToString()));

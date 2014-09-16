@@ -31,6 +31,24 @@ namespace PTB_WEB.UserControl.LogThietBi {
         protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
+        /// Panel_Chinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
+        
+        /// <summary>
+        /// _ucLogThietBi_BreadCrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.LogThietBi.ucLogThietBi_BreadCrumb _ucLogThietBi_BreadCrumb;
+        
+        /// <summary>
         /// Panel_DanhSachLog control.
         /// </summary>
         /// <remarks>

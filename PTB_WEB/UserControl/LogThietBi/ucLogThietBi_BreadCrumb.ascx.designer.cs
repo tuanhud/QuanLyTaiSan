@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PTB_WEB.UserControl.LogSuCo {
+namespace PTB_WEB.UserControl.LogThietBi {
     
     
-    public partial class ucLogSuCo_BreadCrumb {
+    public partial class ucLogThietBi_BreadCrumb {
         
         /// <summary>
         /// _ucTimKiem_Mobile control.
@@ -22,21 +22,21 @@ namespace PTB_WEB.UserControl.LogSuCo {
         protected global::PTB_WEB.UserControl.Search.ucTimKiem_Mobile _ucTimKiem_Mobile;
         
         /// <summary>
-        /// Label_TenSuCo1 control.
+        /// Label_TenThietBi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label Label_TenSuCo1;
+        public global::System.Web.UI.WebControls.Label Label_TenThietBi;
         
         /// <summary>
-        /// Label_TenSuCo2 control.
+        /// Label_LogNgay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label Label_TenSuCo2;
+        public global::System.Web.UI.WebControls.Label Label_LogNgay;
     }
 }
