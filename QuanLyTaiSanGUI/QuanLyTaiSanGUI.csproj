@@ -174,6 +174,12 @@
     <Compile Include="Report\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\ucCauHinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucCauHinh.Designer.cs">
+      <DependentUpon>ucCauHinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongKe\XtraReport_Template.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -398,12 +404,6 @@
     </Compile>
     <Compile Include="Settings\ucCapNhatPhanMem.Designer.cs">
       <DependentUpon>ucCapNhatPhanMem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\ucCauHinh.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Settings\ucCauHinh.Designer.cs">
-      <DependentUpon>ucCauHinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\ucGiaoDienvaNgonNgu.cs">
       <SubType>UserControl</SubType>

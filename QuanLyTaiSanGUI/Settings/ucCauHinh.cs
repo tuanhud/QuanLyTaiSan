@@ -7,24 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
-using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.Xml;
 using System.Text.RegularExpressions;
 using SHARED.Libraries;
 using QuanLyTaiSan;
+using QuanLyTaiSan.Entities;
+using DevExpress.XtraEditors;
 
 namespace QuanLyTaiSanGUI.Settings
 {
-    public partial class ucCauHinh : UserControl,_ourUcInterface
+    public partial class ucCauHinh : UserControl
     {
         private bool can_init_server = false;
         private bool can_config_server = false;
         public ucCauHinh()
         {
             InitializeComponent();
+            //register event handler
+            viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.btnSaveLocal_Click);
+            //Client
+            viewCauHinhLocal._btnClientCleanUp.Click += new EventHandler(this.btnClientCleanUp_Click);
+            viewCauHinhLocal._btnClientRemoveScope.Click += new EventHandler(this.btnClientRemoveScope_Click);
+            viewCauHinhLocal._btnClientValidate.Click += new EventHandler(this.btnClientValidate_Click
+                );
+            viewCauHinhLocal._btnClientDropDB.Click += new EventHandler(this.btnClientDropDB_Click);
+            //Server
+            viewCauHinhLocal._btnServerCleanUp.Click += new EventHandler(this.btnServerCleanUp_Click);
+            viewCauHinhLocal._btnServerRemoveScope.Click += new EventHandler(this.btnServerRemoveScope_Click);
+            viewCauHinhLocal._btnServerValidate.Click += new EventHandler(this.btnServerValidate_Click);
+            //Sync
+            viewCauHinhLocal._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
+
         }
         public void load_data()
         {
@@ -32,25 +46,25 @@ namespace QuanLyTaiSanGUI.Settings
              * LOCAL SETTING
              */
             //CACHE SERVER
-            textEdit_CacheHost.Text = Global.local_setting.db_cache_host;
-            textEdit_CacheAccount.Text = Global.local_setting.db_cache_username;
-            textEdit_CachePass.Text = Global.local_setting.db_cache_password;
-            textEdit_CachePort.Text = Global.local_setting.db_cache_port;
-            checkEdit_CacheWA.Checked = Global.local_setting.db_cache_WA;
-            textEdit_CacheDBName.Text = Global.local_setting.db_cache_dbname;
+            viewCauHinhLocal._txtClientHost.Text = Global.local_setting.db_cache_host;
+            viewCauHinhLocal._txtClientUsername.Text = Global.local_setting.db_cache_username;
+            viewCauHinhLocal._txtClientPassword.Text = Global.local_setting.db_cache_password;
+            viewCauHinhLocal._txtClientPort.Text = Global.local_setting.db_cache_port;
+            viewCauHinhLocal._cbClientWA.Checked = Global.local_setting.db_cache_WA;
+            viewCauHinhLocal._txtClientDBName.Text = Global.local_setting.db_cache_dbname;
             //MAIN SERVER
-            txtAddressDatabase.Text = Global.local_setting.db_server_host;
-            txtUsernameDatabase.Text = Global.local_setting.db_server_username;
-            txtPasswordDatabase.Text = Global.local_setting.db_server_password;
-            txtPortDatabase.Text = Global.local_setting.db_server_port;
-            checkEdit_ServerWA.Checked = Global.local_setting.db_server_WA;
-            textEdit_ServerDBName.Text = Global.local_setting.db_server_dbname;
+            viewCauHinhLocal._txtServerHost.Text = Global.local_setting.db_server_host;
+            viewCauHinhLocal._txtServerUsername.Text = Global.local_setting.db_server_username;
+            viewCauHinhLocal._txtServerPassword.Text = Global.local_setting.db_server_password;
+            viewCauHinhLocal._txtServerPort.Text = Global.local_setting.db_server_port;
+            viewCauHinhLocal._cbServerWA.Checked = Global.local_setting.db_server_WA;
+            viewCauHinhLocal._txtServerDBName.Text = Global.local_setting.db_server_dbname;
             //IS USING DBCACHE
-            checkEdit_useDBCache.Checked = Global.local_setting.use_db_cache;
+            viewCauHinhLocal._cbUseDBCache.Checked = Global.local_setting.use_db_cache;
             //Debug to file
-            checkEdit_debugToFile.Checked = SHARED.Libraries.Debug.MODE == 1;
-            checkEdit_autoSync.Checked = Global.local_setting.sync_auto;
-            textEdit_sync_second.Text = Global.local_setting.sync_time_second.ToString();
+            viewCauHinhLocal._cbDebugToFile.Checked = SHARED.Libraries.Debug.MODE == 1;
+            viewCauHinhLocal._cbAutoSync.Checked = Global.local_setting.sync_auto;
+            viewCauHinhLocal._txtSyncSecond.Text = Global.local_setting.sync_time_second.ToString();
             /*
              * REMOTE SETTING
              */
@@ -78,7 +92,7 @@ namespace QuanLyTaiSanGUI.Settings
             can_init_server = Global.current_quantrivien_login == null || can_config_server;
 
             //simpleButton_validateServer.Enabled = can_init_server;
-            btnRemoveServerScope.Enabled = simpleButton_cleanUpServerScope.Enabled = can_config_server;
+            viewCauHinhLocal._btnServerCleanUp.Enabled = viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
             btnRemoteSettingSave.Enabled = can_config_server;
         }
         /// <summary>
@@ -90,59 +104,37 @@ namespace QuanLyTaiSanGUI.Settings
             /*
              * LOCAL SETTING
              */
-            if(checkEdit_useDBCache.Checked)
+            if(viewCauHinhLocal._cbUseDBCache.Checked)
             {
                 //CACHE DB
-                Global.local_setting.db_cache_host = textEdit_CacheHost.Text;
-                Global.local_setting.db_cache_username = textEdit_CacheAccount.Text;
-                Global.local_setting.db_cache_password = textEdit_CachePass.Text;
-                Global.local_setting.db_cache_port = textEdit_CachePort.Text;
-                Global.local_setting.db_cache_dbname = textEdit_CacheDBName.Text;
-                Global.local_setting.db_cache_WA = checkEdit_CacheWA.Checked;
+                Global.local_setting.db_cache_host = viewCauHinhLocal._txtClientHost.Text;
+                Global.local_setting.db_cache_username = viewCauHinhLocal._txtClientUsername.Text;
+                Global.local_setting.db_cache_password = viewCauHinhLocal._txtClientPassword.Text;
+                Global.local_setting.db_cache_port = viewCauHinhLocal._txtClientPort.Text;
+                Global.local_setting.db_cache_dbname = viewCauHinhLocal._txtServerDBName.Text;
+                Global.local_setting.db_cache_WA = viewCauHinhLocal._cbClientWA.Checked;
             }
             //MAIN SERVER
-            Global.local_setting.db_server_host = txtAddressDatabase.Text;
-            Global.local_setting.db_server_username = txtUsernameDatabase.Text;
-            Global.local_setting.db_server_password = txtPasswordDatabase.Text;
-            Global.local_setting.db_server_port = txtPortDatabase.Text;
-            Global.local_setting.db_server_dbname = textEdit_ServerDBName.Text;
-            Global.local_setting.db_server_WA = checkEdit_ServerWA.Checked;
+            Global.local_setting.db_server_host = viewCauHinhLocal._txtServerHost.Text;
+            Global.local_setting.db_server_username = viewCauHinhLocal._txtServerUsername.Text;
+            Global.local_setting.db_server_password = viewCauHinhLocal._txtServerPassword.Text;
+            Global.local_setting.db_server_port = viewCauHinhLocal._txtServerPort.Text;
+            Global.local_setting.db_server_dbname = viewCauHinhLocal._txtServerDBName.Text;
+            Global.local_setting.db_server_WA = viewCauHinhLocal._cbServerWA.Checked;
 
             //IS USING DBCACHE
-            Global.local_setting.use_db_cache = checkEdit_useDBCache.Checked;
+            Global.local_setting.use_db_cache = viewCauHinhLocal._cbUseDBCache.Checked;
             //debug mode
-            Global.local_setting.debug_mode = SHARED.Libraries.Debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
+            Global.local_setting.debug_mode = SHARED.Libraries.Debug.MODE = viewCauHinhLocal._cbDebugToFile.Checked ? 1 : 0;
 
-            Global.local_setting.sync_auto = checkEdit_autoSync.Checked;
-            int sync_time = StringHelper.toInt(textEdit_sync_second.Text);
+            Global.local_setting.sync_auto = viewCauHinhLocal._cbAutoSync.Checked;
+            int sync_time = StringHelper.toInt(viewCauHinhLocal._txtSyncSecond.Text);
             Global.local_setting.sync_time_second = sync_time <=0?20:sync_time;
             //UPDATE LOCAL SETTING
             Global.local_setting.Save();
         }
-        private void checkEdit_useDBCache_CheckedChanged(object sender, EventArgs e)
-        {
-            panelControl_Cache.Enabled = checkEdit_useDBCache.Checked;
-        }
 
-        private void checkEdit_ServerWA_CheckedChanged(object sender, EventArgs e)
-        {
-            txtUsernameDatabase.Enabled = !checkEdit_ServerWA.Checked;
-            txtPasswordDatabase.Enabled = !checkEdit_ServerWA.Checked;
-        }
-
-        private void checkEdit_CacheWA_CheckedChanged(object sender, EventArgs e)
-        {
-            textEdit_CacheAccount.Enabled = !checkEdit_CacheWA.Checked;
-            textEdit_CachePass.Enabled = !checkEdit_CacheWA.Checked;
-        }
-
-        private void checkEdit_ServerWA_CheckedChanged_1(object sender, EventArgs e)
-        {
-            txtUsernameDatabase.Enabled = !checkEdit_ServerWA.Checked;
-            txtPasswordDatabase.Enabled = !checkEdit_ServerWA.Checked;
-        }
-
-        private void simpleButton_validateServer_Click(object sender, EventArgs e)
+        private void btnServerValidate_Click(object sender, EventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tạo dữ liệu...");
@@ -152,7 +144,7 @@ namespace QuanLyTaiSanGUI.Settings
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
-        private void simpleButton_validateClient_Click(object sender, EventArgs e)
+        private void btnClientValidate_Click(object sender, EventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tạo dữ liệu...");
@@ -162,7 +154,7 @@ namespace QuanLyTaiSanGUI.Settings
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void btnStartSync_Click(object sender, EventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ...");
@@ -171,7 +163,7 @@ namespace QuanLyTaiSanGUI.Settings
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
-        private void simpleButton_cleanUpServerScope_Click(object sender, EventArgs e)
+        private void btnServerCleanUp_Click(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -184,7 +176,7 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
 
-        private void simpleButton_cleanUpClientScope_Click(object sender, EventArgs e)
+        private void btnClientCleanUp_Click(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -262,12 +254,12 @@ namespace QuanLyTaiSanGUI.Settings
                 int server_ready = Global.server_database.isReady();
                 int client_ready = Global.client_database.isReady();
 
-                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
-                simpleButton_cleanUpServerScope.Enabled = can_config_server;
-                simpleButton_validateServer.Enabled = !(server_ready > 0) && can_init_server;
+                viewCauHinhLocal._btnServerRemoveScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
+                viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
+                viewCauHinhLocal._btnServerValidate.Enabled = !(server_ready > 0) && can_init_server;
 
-                btnRemoveClientScope.Enabled = Global.client_database.isHasScope() > 0;
-                simpleButton_validateClient.Enabled = !(client_ready > 0);
+                viewCauHinhLocal._btnClientRemoveScope.Enabled = Global.client_database.isHasScope() > 0;
+                viewCauHinhLocal._btnClientValidate.Enabled = !(client_ready > 0);
                 if (client_ready < 0)
                 {
                     return -3;
@@ -280,9 +272,9 @@ namespace QuanLyTaiSanGUI.Settings
             else
             {
                 int server_ready = Global.server_database.isReady();
-                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
-                simpleButton_cleanUpServerScope.Enabled = can_config_server;
-                simpleButton_validateServer.Enabled = !(server_ready > 0) && can_init_server;
+                viewCauHinhLocal._btnServerRemoveScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
+                viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
+                viewCauHinhLocal._btnServerValidate .Enabled = !(server_ready > 0) && can_init_server;
                 if (server_ready < 0)
                 {
                     return -2;
@@ -290,12 +282,8 @@ namespace QuanLyTaiSanGUI.Settings
             }
             return 1;
         }
-        private void btnDebugClear_Click(object sender, EventArgs e)
-        {
-            SHARED.Libraries.Debug.remove_file();
-        }
 
-        private void btnRemoveServerScope_Click(object sender, EventArgs e)
+        private void btnServerRemoveScope_Click(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -308,7 +296,7 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
 
-        private void btnRemoveClientScope_Click(object sender, EventArgs e)
+        private void btnClientRemoveScope_Click(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -321,7 +309,7 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
 
-        private void simpleButton_Luu_Click(object sender, EventArgs e)
+        private void btnSaveLocal_Click(object sender, EventArgs e)
         {
             int re = 1;
             //if (_ucCauHinh != null)
@@ -430,6 +418,17 @@ namespace QuanLyTaiSanGUI.Settings
             XmlNode node = xml.DocumentElement.SelectSingleNode("/Controls");
             DevExpress.XtraEditors.CheckEdit _CheckEdit = null;
             DevExpress.XtraEditors.TextEdit _TextEdit = null;
+            //viewCauHinhLocal Controls
+            foreach (XmlNode nodechild in node)
+            {
+                _CheckEdit = this.viewCauHinhLocal.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.CheckEdit;
+                if (_CheckEdit != null)
+                    _CheckEdit.Checked = Int32.Parse(nodechild.InnerText) > 0 ? true : false;
+                _TextEdit = this.viewCauHinhLocal.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.TextEdit;
+                if (_TextEdit != null)
+                    _TextEdit.Text = nodechild.InnerText;
+            }
+            //this Controls
             foreach (XmlNode nodechild in node)
             {
                 _CheckEdit = this.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.CheckEdit;
@@ -445,21 +444,24 @@ namespace QuanLyTaiSanGUI.Settings
         {
             String str = "";
             var XML = new XElement("Controls",
-                new XElement(checkEdit_useDBCache.Name, (checkEdit_useDBCache.Checked ? 1 : 0).ToString()),
-                new XElement(txtAddressDatabase.Name, txtAddressDatabase.Text),
-                new XElement(txtPortDatabase.Name, txtPortDatabase.Text),
-                new XElement(checkEdit_ServerWA.Name, (checkEdit_ServerWA.Checked ? 1 : 0).ToString()),
-                new XElement(txtUsernameDatabase.Name, txtUsernameDatabase.Text),
-                new XElement(txtPasswordDatabase.Name, txtPasswordDatabase.Text),
-                new XElement(textEdit_ServerDBName.Name, textEdit_ServerDBName.Text),
+                new XElement(viewCauHinhLocal._cbUseDBCache.Name, (viewCauHinhLocal._cbUseDBCache.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtServerHost.Name, viewCauHinhLocal._txtServerHost.Text),
+                new XElement(viewCauHinhLocal._txtServerPort.Name, viewCauHinhLocal._txtServerPort.Text),
+                new XElement(viewCauHinhLocal._cbServerWA.Name, (viewCauHinhLocal._cbServerWA.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtServerUsername.Name, viewCauHinhLocal._txtServerUsername.Text),
+                new XElement(viewCauHinhLocal._txtServerPassword.Name, viewCauHinhLocal._txtServerPassword.Text),
+                new XElement(viewCauHinhLocal._txtServerDBName.Name, viewCauHinhLocal._txtServerDBName.Text),
 
-                new XElement(textEdit_CacheHost.Name, textEdit_CacheHost.Text),
-                new XElement(textEdit_CachePort.Name, textEdit_CachePort.Text),
-                new XElement(checkEdit_CacheWA.Name, (checkEdit_CacheWA.Checked ? 1 : 0).ToString()),
-                new XElement(textEdit_CacheAccount.Name, textEdit_CacheAccount.Text),
-                new XElement(textEdit_CachePass.Name, textEdit_CachePass.Text),
-                new XElement(textEdit_CacheDBName.Name, textEdit_CacheDBName.Text),
-                new XElement(checkEdit_debugToFile.Name, (checkEdit_debugToFile.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtClientHost.Name, viewCauHinhLocal._txtClientHost.Text),
+                new XElement(viewCauHinhLocal._txtClientPort.Name, viewCauHinhLocal._txtClientPort.Text),
+                new XElement(viewCauHinhLocal._cbClientWA.Name, (viewCauHinhLocal._cbClientWA.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtClientUsername.Name, viewCauHinhLocal._txtClientUsername.Text),
+                new XElement(viewCauHinhLocal._txtClientPassword.Name, viewCauHinhLocal._txtClientPassword.Text),
+                new XElement(viewCauHinhLocal._txtClientDBName.Name, viewCauHinhLocal._txtClientDBName.Text),
+                new XElement(viewCauHinhLocal._cbDebugToFile.Name, (viewCauHinhLocal._cbDebugToFile.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtSyncSecond.Name, viewCauHinhLocal._txtSyncSecond.Text),
+                new XElement(viewCauHinhLocal._cbAutoSync.Name, (viewCauHinhLocal._cbAutoSync.Checked ? 1 : 0).ToString()),
+
 
                 new XElement(txtAddressFTP.Name, txtAddressFTP.Text),
                 new XElement(txtPortFTP.Name, txtPortFTP.Text),
@@ -483,10 +485,6 @@ namespace QuanLyTaiSanGUI.Settings
         {
             throw new NotImplementedException();
         }
-        private void saveLocalSetting()
-        {
-
-        }
 
         private void btnSmtpSendTest_Click(object sender, EventArgs e)
         {
@@ -509,7 +507,7 @@ namespace QuanLyTaiSanGUI.Settings
             }
         }
 
-        private void btn_dropClientDB_Click(object sender, EventArgs e)
+        private void btnClientDropDB_Click(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -520,11 +518,6 @@ namespace QuanLyTaiSanGUI.Settings
                 load_DB_State();
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
-        }
-
-        private void checkEdit_autoSync_CheckedChanged(object sender, EventArgs e)
-        {
-            textEdit_sync_second.Enabled = (sender as CheckEdit).Checked;
         }
     }
 }
