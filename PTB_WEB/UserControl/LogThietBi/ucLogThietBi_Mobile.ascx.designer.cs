@@ -22,13 +22,13 @@ namespace PTB_WEB.UserControl.LogThietBi {
         protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// ucThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
         /// Panel_DanhSachLog control.
@@ -47,6 +47,24 @@ namespace PTB_WEB.UserControl.LogThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_LogThietBi;
+        
+        /// <summary>
+        /// HyperLinkXemLogTheoThietBi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkXemLogTheoThietBi;
+        
+        /// <summary>
+        /// HyperLinkXemLogTheoPhong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkXemLogTheoPhong;
         
         /// <summary>
         /// Label_DanhSachLogThietBi control.
@@ -164,14 +182,5 @@ namespace PTB_WEB.UserControl.LogThietBi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_GhiChu;
-        
-        /// <summary>
-        /// Button_Back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Back;
     }
 }

@@ -13,35 +13,57 @@ namespace PTB_WEB.UserControl.LogThietBi
     {
         QuanLyTaiSan.Entities.ThietBi objThietBi = null;
         List<QuanLyTaiSan.Entities.LogThietBi> listLogThietBi = new List<QuanLyTaiSan.Entities.LogThietBi>();
+        public Guid idLog = Guid.Empty;
         QuanLyTaiSan.Entities.LogThietBi objLogThietBi = null;
+        QuanLyTaiSan.Entities.Phong objPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public void LoadData()
         {
+            HyperLinkXemLogTheoPhong.NavigateUrl = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "type", "phong").ToString(); ;
+            HyperLinkXemLogTheoThietBi.NavigateUrl = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "type", "thietbi").ToString();
+
             if (Request.QueryString["id"] != null)
             {
                 Guid id = Guid.Empty;
+                Guid idp = Guid.Empty;
                 try
                 {
                     id = GUID.From(Request.QueryString["id"]);
+                    idp = GUID.From(Request.QueryString["idp"]);
                 }
                 catch
                 {
                     Response.Redirect("~/");
                 }
                 objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(id);
+                objPhong = QuanLyTaiSan.Entities.Phong.getById(idp);
                 if (objThietBi != null)
                 {
-                    listLogThietBi = objThietBi.logthietbis.ToList();
-                    RepeaterDanhSachLogThietBi.DataBind();
+                    try
+                    {
+                        if (Request.QueryString["type"] == "thietbi")
+                        {
+                            XemLogTheoThietBi();
+                        }
+                        else
+                        {
+                            XemLogTheoPhong();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Response.Redirect("~/");
+                    }
+
                     if (listLogThietBi.Count == 0)
                     {
                         Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objThietBi.ten);
+                        ucThongBaoLoi.Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objThietBi.ten);
                     }
                     else
                     {
@@ -79,18 +101,18 @@ namespace PTB_WEB.UserControl.LogThietBi
                         {
                             Panel_DanhSachLog.Visible = true;
                             Label_LogThietBi.Text = string.Format("Log của {0}", objThietBi.ten);
-                            var bind = listLogThietBi.Select(a => new
-                            {
-                                id = a.id,
-                                tinhtrang = a.tinhtrang.value,
-                                soluong = a.soluong,
-                                phong = a.phong.ten,
-                                ngay = a.date_create,
-                                url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
-                            }).OrderBy(item => item.ngay).ToList();
-                            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSource = bind;
-                            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachLogThietBi;
-                            RepeaterDanhSachLogThietBi.DataSource = _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSourcePaged;
+                            //var bind = listLogThietBi.Select(a => new
+                            //{
+                            //    id = a.id,
+                            //    tinhtrang = a.tinhtrang.value,
+                            //    soluong = a.soluong,
+                            //    phong = a.phong.ten,
+                            //    ngay = a.date_create,
+                            //    url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
+                            //}).OrderBy(item => item.ngay).ToList();
+                            //_ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSource = bind;
+                            //_ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachLogThietBi;
+                            //RepeaterDanhSachLogThietBi.DataSource = _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSourcePaged;
                         }
                     }
                 }
@@ -103,7 +125,7 @@ namespace PTB_WEB.UserControl.LogThietBi
                     else
                     {
                         Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = "Không có thiết bị này";
+                        ucThongBaoLoi.Label_ThongBaoLoi.Text = "Không có thiết bị này";
                     }
                 }
             }
@@ -113,9 +135,56 @@ namespace PTB_WEB.UserControl.LogThietBi
             }
         }
 
-        protected void Button_Back_Click(object sender, EventArgs e)
+        //protected void Button_Back_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect(Libraries.StringHelper.RemoveParameter(new Uri(Request.Url.AbsoluteUri), new List<string>(new string[] { "idLog" })).ToString());
+        //}
+
+        public void XemLogTheoThietBi()
         {
-            Response.Redirect(Libraries.StringHelper.RemoveParameter(new Uri(Request.Url.AbsoluteUri), new List<string>(new string[] { "idLog" })).ToString());
+            HyperLinkXemLogTheoThietBi.Visible = false;
+            HyperLinkXemLogTheoPhong.Visible = true;
+
+            Label_LogThietBi.Text = string.Format("Log thiết bị <b>{0}</b>", objThietBi.ten);
+            HyperLinkXemLogTheoPhong.Text = string.Format("Xem Log thiết bị <b>{0}</b> phòng <b>{1}</b>", objThietBi.ten, objPhong.ten);
+            listLogThietBi = objThietBi.logthietbis.ToList();
+            var bind = listLogThietBi.Select(a => new
+            {
+                id = a.id,
+                tinhtrang = a.tinhtrang.value,
+                soluong = a.soluong,
+                phong = a.phong.ten,
+                ngay = a.date_create,
+                url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
+            }).OrderBy(item => item.ngay).ToList();
+            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSource = bind;
+            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachLogThietBi;
+            RepeaterDanhSachLogThietBi.DataSource = _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSourcePaged;
+            RepeaterDanhSachLogThietBi.DataBind();
+        }
+
+        public void XemLogTheoPhong()
+        {
+            HyperLinkXemLogTheoThietBi.Visible = true;
+            HyperLinkXemLogTheoPhong.Visible = false;
+
+            Label_LogThietBi.Text = string.Format("Log thiết bị <b>{0}</b> phòng <b>{1}</b>", objThietBi.ten, objPhong.ten);
+            HyperLinkXemLogTheoThietBi.Text = string.Format("Xem Log thiết bị <b>{0}</b>", objThietBi.ten);
+
+            listLogThietBi = objThietBi.logthietbis.Where(c => c.phong == objPhong).ToList();
+            var bind = listLogThietBi.Select(a => new
+            {
+                id = a.id,
+                tinhtrang = a.tinhtrang.value,
+                soluong = a.soluong,
+                phong = a.phong.ten,
+                ngay = a.date_create,
+                url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "idLog", a.id.ToString())
+            }).OrderBy(item => item.ngay).ToList();
+            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSource = bind;
+            _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachLogThietBi;
+            RepeaterDanhSachLogThietBi.DataSource = _ucCollectionPager_DanhSachLogThietBi.CollectionPager_Object.DataSourcePaged;
+            RepeaterDanhSachLogThietBi.DataBind();
         }
     }
 }

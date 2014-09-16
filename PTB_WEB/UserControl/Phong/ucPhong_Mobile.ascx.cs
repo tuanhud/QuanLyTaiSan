@@ -20,6 +20,10 @@ namespace PTB_WEB.UserControl.Phong
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.Label_TenViTri.Text = "Chọn vị trí cần xem";
+            }
             _ucTreeViTri.NotFocusOnCreated();
         }
 
@@ -56,8 +60,13 @@ namespace PTB_WEB.UserControl.Phong
                                 strViTri = " - " + Pnode.GetValue("ten").ToString() + strViTri;
                                 Pnode = Pnode.ParentNode;
                             }
-                            strViTri = string.Format("({0})", strViTri.Substring(3));
-                            ucPhong_BreadCrumb.Label_TenViTri.Text = node.GetValue("ten").ToString() + " " + strViTri;
+                            if (!Object.Equals(strViTri, ""))
+                            {
+                                strViTri = string.Format("({0})", strViTri.Substring(3));
+                                ucPhong_BreadCrumb.Label_TenViTri.Text = node.GetValue("ten").ToString() + " " + strViTri;
+                            }
+                            else
+                                ucPhong_BreadCrumb.Label_TenViTri.Text = node.GetValue("ten").ToString();
                             if (Request.QueryString["id"] != null)
                             {
                                 Guid idPhong = Guid.Empty;
@@ -74,7 +83,6 @@ namespace PTB_WEB.UserControl.Phong
                                 {
                                     ucPhong_BreadCrumb.Label_TenPhong.Text = objPhong.ten;
                                     Panel_ThongTinPhong.Visible = true;
-                                    Label_ThongTinPhong.Text = "Thông tin " + objPhong.ten;
                                     Libraries.ImageHelper.LoadImageWeb(objPhong.hinhanhs.ToList(), _ucASPxImageSlider_Mobile_Phong.ASPxImageSlider_Object);
                                     Label_MaPhong.Text = objPhong.subId;
                                     Label_TenPhong.Text = objPhong.ten;
@@ -106,7 +114,6 @@ namespace PTB_WEB.UserControl.Phong
                                         Panel_NhanVienPT.Visible = true;
                                         Label_NhanVienPT.Visible = false;
                                         Label_NhanVienPT.Text = "";
-                                        Label_ThongTinNhanVien.Text = "Thông tin " + objPhong.nhanvienpt.hoten;
                                         Libraries.ImageHelper.LoadImageWeb(objPhong.nhanvienpt.hinhanhs.ToList(), _ucASPxImageSlider_Mobile_NhanVienPT.ASPxImageSlider_Object);
                                         Label_MaNhanVien.Text = objPhong.nhanvienpt.subId;
                                         Label_HoTen.Text = objPhong.nhanvienpt.hoten;
@@ -117,7 +124,6 @@ namespace PTB_WEB.UserControl.Phong
                                         Panel_NhanVienPT.Visible = false;
                                         Label_NhanVienPT.Visible = true;
                                         Label_NhanVienPT.Text = "Phòng này chưa có nhân viên phụ trách";
-                                        Label_ThongTinNhanVien.Text = "Thông tin nhân viên";
                                         Libraries.ImageHelper.LoadImageWeb(null, _ucASPxImageSlider_Mobile_NhanVienPT.ASPxImageSlider_Object);
                                         Label_MaNhanVien.Text = "";
                                         Label_HoTen.Text = "";
@@ -146,13 +152,13 @@ namespace PTB_WEB.UserControl.Phong
                 else
                 {
                     Panel_ThongBaoLoi.Visible = true;
-                    Label_ThongBaoLoi.Text = "Chưa có phòng";
+                    ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có phòng";
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
             }
         }
 
@@ -216,18 +222,18 @@ namespace PTB_WEB.UserControl.Phong
             RepeaterDanhSachPhong.DataBind();
         }
 
-        protected void ButtonBack_ThongTinPhong_Click(object sender, EventArgs e)
-        {
-            if (!key.Equals(""))
-                Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
-            else
-                Response.Redirect(Request.Url.AbsolutePath);
-        }
+        //protected void ButtonBack_ThongTinPhong_Click(object sender, EventArgs e)
+        //{
+        //    if (!key.Equals(""))
+        //        Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
+        //    else
+        //        Response.Redirect(Request.Url.AbsolutePath);
+        //}
 
-        protected void ButtonBack_DanhSachPhong_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.Url.AbsolutePath);
-        }
+        //protected void ButtonBack_DanhSachPhong_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect(Request.Url.AbsolutePath);
+        //}
 
         private void SearchFunction()
         {

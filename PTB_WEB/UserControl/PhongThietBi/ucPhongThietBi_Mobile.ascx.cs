@@ -187,7 +187,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                     tinhtrang = a.tinhtrang,
                     soluong = a.soluong,
                     url = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", a.idTB.ToString()),
-                    urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", a.idTB.ToString())
+                    urlLog = Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), new List<string>(new string[] { "id", "idp" }), new List<string>(new string[] { a.idTB.ToString(), objPhong.id.ToString() }))
                 }).OrderBy(item => item.tinhtrang).ToList();
                 _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.DataSource = bind;
                 _ucCollectionPager_DanhSachThietBi.CollectionPager_Object.BindToControl = RepeaterDanhSachThietBi;
@@ -208,17 +208,17 @@ namespace PTB_WEB.UserControl.PhongThietBi
             }
         }
 
-        protected void ButtonBack_DanhSachThietBi_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.Url.AbsolutePath);
-        }
+        //protected void ButtonBack_DanhSachThietBi_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect(Request.Url.AbsolutePath);
+        //}
 
-        protected void ButtonBack_ThietBi_Click(object sender, EventArgs e)
-        {
-            if (!key.Equals(""))
-                Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
-            else
-                Response.Redirect(Request.Url.AbsolutePath);
-        }
+        //protected void ButtonBack_ThietBi_Click(object sender, EventArgs e)
+        //{
+        //    if (!key.Equals(""))
+        //        Response.Redirect(Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "key", key, new List<string>(new string[] { "id" })).ToString());
+        //    else
+        //        Response.Redirect(Request.Url.AbsolutePath);
+        //}
     }
 }

@@ -17,6 +17,7 @@ namespace PTB_WEB.UserControl.LogThietBi
         public Guid idLog = Guid.Empty;
         QuanLyTaiSan.Entities.LogThietBi objLogThietBi = null;
         QuanLyTaiSan.Entities.Phong objPhong = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             

@@ -22,13 +22,13 @@ namespace PTB_WEB.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
         
         /// <summary>
-        /// Label_ThongBaoLoi control.
+        /// ucThongBaoLoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
         /// Panel_Chinh control.
@@ -56,15 +56,6 @@ namespace PTB_WEB.UserControl.NhanVien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelThongTinNhanVienPhuTrach;
-        
-        /// <summary>
-        /// Label_ThongTin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
         /// _ucASPxImageSlider_Mobile control.
@@ -119,15 +110,6 @@ namespace PTB_WEB.UserControl.NhanVien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.ucCollectionPager _ucCollectionPager_DanhSachPhong;
-        
-        /// <summary>
-        /// Button_Back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Back;
         
         /// <summary>
         /// PanelDanhSachNhanVienPhuTrach control.

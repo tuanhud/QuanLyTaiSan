@@ -44,7 +44,6 @@ namespace PTB_WEB.UserControl.NhanVien
                     {
                         Panel_Chinh.Visible = true;
                         PanelThongTinNhanVienPhuTrach.Visible = true;
-                        Label_ThongTin.Text = String.Format("Thông tin {0}", objNhanVienPT.hoten);
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
                         _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
@@ -70,8 +69,7 @@ namespace PTB_WEB.UserControl.NhanVien
             else
             {
                 Panel_ThongBaoLoi.Visible = true;
-                Label_ThongBaoLoi.Text = "Chưa có nhân viên";
-                return;
+                ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có nhân viên";
             }
         }
 
@@ -94,24 +92,24 @@ namespace PTB_WEB.UserControl.NhanVien
             }
         }
 
-        protected void Button_Back_Click(object sender, EventArgs e)
-        {
-            if (Request.QueryString[_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey] != null)
-            {
-                int Page = 1;
-                try
-                {
-                    Page = Convert.ToInt32(Request.QueryString[_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey].ToString());
-                }
-                catch
-                {
-                    Response.Redirect(Request.Url.AbsolutePath);
-                }
-                Response.Redirect(string.Format(Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.IndexOf(Request.Url.AbsolutePath) + Request.Url.AbsolutePath.Length) + "?{0}={1}", _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey, Page.ToString()));
-            }
-            else
-                Response.Redirect(Request.Url.AbsolutePath);
-        }
+        //protected void Button_Back_Click(object sender, EventArgs e)
+        //{
+        //    if (Request.QueryString[_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey] != null)
+        //    {
+        //        int Page = 1;
+        //        try
+        //        {
+        //            Page = Convert.ToInt32(Request.QueryString[_ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey].ToString());
+        //        }
+        //        catch
+        //        {
+        //            Response.Redirect(Request.Url.AbsolutePath);
+        //        }
+        //        Response.Redirect(string.Format(Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.IndexOf(Request.Url.AbsolutePath) + Request.Url.AbsolutePath.Length) + "?{0}={1}", _ucCollectionPager_DanhSachNhanVien.CollectionPager_Object.QueryStringKey, Page.ToString()));
+        //    }
+        //    else
+        //        Response.Redirect(Request.Url.AbsolutePath);
+        //}
 
         private void SearchFunction()
         {

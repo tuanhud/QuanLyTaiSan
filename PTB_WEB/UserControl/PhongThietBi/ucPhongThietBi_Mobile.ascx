@@ -16,7 +16,7 @@
         <table class="table largetable">
             <tbody>
                 <tr>
-                    <td style="width: 210px" class="border_right">
+                    <td>
                         <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
                     </td>
                 </tr>

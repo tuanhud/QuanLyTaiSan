@@ -30,5 +30,18 @@ namespace PTB_WEB.UserControl.PhongThietBi
                 _ucLogThietBi_Mobile.LoadData();
             }
         }
+
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            isMobile = MobileDetect.fBrowserIsMobile();
+            if (!isMobile)
+                MasterPageFile = "~/PopupMasterPage.master";
+            else
+            {
+                MasterPageFile = "~/Default.master";
+                Default SetClassActive = this.Master as Default;
+                SetClassActive.page = "LOGTHIETBIMOBILE";
+            }
+        }
     }
 }
