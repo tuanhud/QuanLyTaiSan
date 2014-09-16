@@ -39,10 +39,10 @@
             // marqueeProgressBarControl1
             // 
             this.marqueeProgressBarControl1.EditValue = 0;
-            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(23, 231);
+            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(12, 225);
             this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
             this.marqueeProgressBarControl1.Properties.MarqueeAnimationSpeed = 40;
-            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(562, 12);
+            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(636, 18);
             this.marqueeProgressBarControl1.TabIndex = 5;
             // 
             // labelControl1
@@ -56,7 +56,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(23, 206);
+            this.labelControl2.Location = new System.Drawing.Point(12, 206);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(270, 13);
             this.labelControl2.TabIndex = 7;
@@ -72,14 +72,14 @@
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
-            this.pictureEdit2.Size = new System.Drawing.Size(573, 121);
+            this.pictureEdit2.Size = new System.Drawing.Size(636, 121);
             this.pictureEdit2.TabIndex = 9;
             // 
             // SplashScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 331);
+            this.ClientSize = new System.Drawing.Size(660, 331);
             this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);

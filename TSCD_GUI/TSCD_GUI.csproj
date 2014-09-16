@@ -222,11 +222,29 @@
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\ucCapNhatPhanMem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucCapNhatPhanMem.Designer.cs">
+      <DependentUpon>ucCapNhatPhanMem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\ucCauHinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Settings\ucCauHinh.Designer.cs">
       <DependentUpon>ucCauHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ucGiaoDienvaNgonNgu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucGiaoDienvaNgonNgu.Designer.cs">
+      <DependentUpon>ucGiaoDienvaNgonNgu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ucThongTinPhanMem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ucThongTinPhanMem.Designer.cs">
+      <DependentUpon>ucThongTinPhanMem.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreenForm.cs">
       <SubType>Form</SubType>
@@ -327,9 +345,18 @@
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucCapNhatPhanMem.resx">
+      <DependentUpon>ucCapNhatPhanMem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\ucCauHinh.resx">
       <DependentUpon>ucCauHinh.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucGiaoDienvaNgonNgu.resx">
+      <DependentUpon>ucGiaoDienvaNgonNgu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ucThongTinPhanMem.resx">
+      <DependentUpon>ucThongTinPhanMem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
@@ -383,6 +410,8 @@
     <None Include="Resources\plus_24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\thongtinphanmem.png" />
+    <None Include="Resources\backgroundthongtinphanmem.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\logophanmem.png" />
