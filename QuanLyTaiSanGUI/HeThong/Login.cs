@@ -22,16 +22,20 @@ namespace QuanLyTaiSanGUI.HeThong
         public Login()
         {
             InitializeComponent();
-            labelControl_msg.Text = String.Empty;
+            //register event
+            viewLogin1.btnOK.Click += new EventHandler(this.btnOK_Click);
+            viewLogin1.btnThoat.Click += new EventHandler(this.btnThoat_Click);
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            checkEdit_remember.Checked = Global.local_setting.login_remember;
+            //preset value
+            viewLogin1.groupBox_Title.Text = "Quản lý phòng thiết bị";
+            viewLogin1.cbRemember.Checked = Global.local_setting.login_remember;
             if (Global.local_setting.login_remember)
             {
-                textEdit_username.Text = Global.local_setting.login_username;
-                textEdit_password.Text = Global.local_setting.login_password;
+                viewLogin1.txtUsername.Text = Global.local_setting.login_username;
+                viewLogin1.txtPassword.Text = Global.local_setting.login_password;
             }
             //Trước khi login phải sync CSDL
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
@@ -40,51 +44,20 @@ namespace QuanLyTaiSanGUI.HeThong
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
-        private void button_ok_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            Boolean re = QuanTriVien.checkLoginByUserName(textEdit_username.Text, textEdit_password.Text);
+            Boolean re = QuanTriVien.checkLoginByUserName(viewLogin1.txtUsername.Text, viewLogin1.txtPassword.Text);
             if (re)
             {
                 //set global var
-                Global.current_quantrivien_login = QuanTriVien.getByUserName(textEdit_username.Text);
+                Global.current_quantrivien_login = QuanTriVien.getByUserName(viewLogin1.txtUsername.Text);
 
-                labelControl_msg.Text = "Đăng nhập thành công!";
+                viewLogin1.txtMessage.Text = "Đăng nhập thành công!";
                 this.show_frm_main();
             }
             else
             {
-                labelControl_msg.Text = "Sai tài khoản hoặc mật khẩu!";
-            }
-        }
-
-        private void textEdit_username_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
-        private void textEdit_password_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit_password_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void textEdit_username_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_ok.PerformClick();
-            }
-        }
-
-        private void textEdit_password_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_ok.PerformClick();
+                viewLogin1.txtMessage.Text = "Sai tài khoản hoặc mật khẩu!";
             }
         }
 
@@ -111,23 +84,24 @@ namespace QuanLyTaiSanGUI.HeThong
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Global.local_setting.login_remember = checkEdit_remember.Checked;
+            Global.local_setting.login_remember = viewLogin1.cbRemember.Checked;
             if (Global.local_setting.login_remember)
             {
-                Global.local_setting.login_username = textEdit_username.Text;
-                Global.local_setting.login_password = textEdit_password.Text;
+                Global.local_setting.login_username = viewLogin1.txtUsername.Text;
+                Global.local_setting.login_password = viewLogin1.txtPassword.Text;
+            }
+            else
+            {
+                Global.local_setting.login_username = "";
+                Global.local_setting.login_password = "";
             }
             Global.local_setting.Save();
         }
 
-        private void checkEdit_remember_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            Close();
         }
     }
 }

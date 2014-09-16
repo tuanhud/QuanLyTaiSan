@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TSCD;
 
 namespace TSCD_GUI.MyForm
 {
@@ -17,7 +18,7 @@ namespace TSCD_GUI.MyForm
         public frmCustom()
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SkinName = Properties.Settings.Default["ApplicationSkinName"].ToString();
+            UserLookAndFeel.Default.SkinName = Global.local_setting.ApplicationSkinName;
         }
     }
 }

@@ -55,6 +55,7 @@ namespace TSCD.Entities
         /// Quyền thêm
         /// </summary>
         public Boolean can_add { get; set; }
+
         /*
          * FK
          */
@@ -143,6 +144,13 @@ namespace TSCD.Entities
         }
 
         #endregion
-        
+
+
+
+
+        public static bool canDo(string p)
+        {
+            return true;
+        }
     }
 }

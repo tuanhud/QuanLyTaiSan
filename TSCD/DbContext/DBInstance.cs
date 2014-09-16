@@ -30,7 +30,7 @@ namespace TSCD.Entities
             {
                 if (db == null)
                 {
-                    db = new OurDBContext();//Global.working_database.get_connection_string());
+                    db = new OurDBContext(Global.working_database.get_connection_string());
                 }
 
                 try
