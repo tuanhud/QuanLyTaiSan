@@ -35,14 +35,16 @@ namespace PTB_WEB.UserControl.LogSuCo
                     Response.Redirect("~/");
                 }
                 objSuCoPhong = QuanLyTaiSan.Entities.SuCoPhong.getById(id);
+
                 if (objSuCoPhong != null)
                 {
+                    ucLogSuCo_BreadCrumb.Label_TenSuCo1.Text = objSuCoPhong.ten;
                     listSuCoPhong = objSuCoPhong.logsucophongs.ToList();
                     RepeaterDanhSachLogSuCo.DataBind();
                     if (listSuCoPhong.Count == 0)
                     {
                         Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objSuCoPhong.ten);
+                        ucThongBaoLoi.Label_ThongBaoLoi.Text = string.Format("Sự cố {0} không có log", objSuCoPhong.ten);
                     }
                     else
                     {
@@ -60,7 +62,9 @@ namespace PTB_WEB.UserControl.LogSuCo
                             objLogSuCoPhong = listSuCoPhong.Where(item => item.id == idLog).FirstOrDefault();
                             if (objLogSuCoPhong != null)
                             {
+                                Panel_Chinh.Visible = true;
                                 Panel_ThongTinLog.Visible = true;
+                                ucLogSuCo_BreadCrumb.Label_TenSuCo2.Text = "Log ngày " + ((DateTime)objLogSuCoPhong.date_create).ToString("d/M/yyyy");
                                 Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogSuCoPhong.date_create).ToString("d/M/yyyy"));
                                 Libraries.ImageHelper.LoadImageWeb(objLogSuCoPhong.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_TenSuCo.Text = objLogSuCoPhong.sucophong.ten;
@@ -77,6 +81,7 @@ namespace PTB_WEB.UserControl.LogSuCo
                         }
                         else
                         {
+                            Panel_Chinh.Visible = true;
                             Panel_DanhSachLog.Visible = true;
                             Label_LogSuCo.Text = string.Format("Log của {0}", objSuCoPhong.ten);
                             var bind = listSuCoPhong.Select(a => new
@@ -104,7 +109,7 @@ namespace PTB_WEB.UserControl.LogSuCo
                     else
                     {
                         Panel_ThongBaoLoi.Visible = true;
-                        Label_ThongBaoLoi.Text = "Không có sự cố này";
+                        ucThongBaoLoi.Label_ThongBaoLoi.Text = "Không có sự cố này";
                     }
                 }
             }
@@ -114,9 +119,9 @@ namespace PTB_WEB.UserControl.LogSuCo
             }
         }
 
-        protected void Button_Back_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Libraries.StringHelper.RemoveParameter(new Uri(Request.Url.AbsoluteUri), new List<string>(new string[] { "idLog" })).ToString());
-        }
+        //protected void Button_Back_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect(Libraries.StringHelper.RemoveParameter(new Uri(Request.Url.AbsoluteUri), new List<string>(new string[] { "idLog" })).ToString());
+        //}
     }
 }

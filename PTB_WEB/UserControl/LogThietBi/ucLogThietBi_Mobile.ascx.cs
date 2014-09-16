@@ -19,7 +19,7 @@ namespace PTB_WEB.UserControl.LogThietBi
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void LoadData()
@@ -27,7 +27,7 @@ namespace PTB_WEB.UserControl.LogThietBi
             HyperLinkXemLogTheoPhong.NavigateUrl = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "type", "phong").ToString(); ;
             HyperLinkXemLogTheoThietBi.NavigateUrl = Libraries.StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "type", "thietbi").ToString();
 
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["id"] != null && Request.QueryString["idp"] != null)
             {
                 Guid id = Guid.Empty;
                 Guid idp = Guid.Empty;
@@ -81,7 +81,10 @@ namespace PTB_WEB.UserControl.LogThietBi
                             objLogThietBi = listLogThietBi.Where(item => item.id == idLog).FirstOrDefault();
                             if (objLogThietBi != null)
                             {
+                                Panel_Chinh.Visible = true;
                                 Panel_ThongTinLog.Visible = true;
+                                _ucLogThietBi_BreadCrumb.Label_TenThietBi.Text = objThietBi.ten;
+                                _ucLogThietBi_BreadCrumb.Label_LogNgay.Text = ((DateTime)objLogThietBi.date_create).ToString("d/M/yyyy");
                                 Label_ThongTinLog.Text = string.Format("Thông tin log ngày {0}", ((DateTime)objLogThietBi.date_create).ToString("d/M/yyyy"));
                                 Libraries.ImageHelper.LoadImageWeb(objLogThietBi.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
                                 Label_TenThietBi.Text = objThietBi.ten;
@@ -99,7 +102,9 @@ namespace PTB_WEB.UserControl.LogThietBi
                         }
                         else
                         {
+                            Panel_Chinh.Visible = true;
                             Panel_DanhSachLog.Visible = true;
+                            _ucLogThietBi_BreadCrumb.Label_TenThietBi.Text = objThietBi.ten;
                             Label_LogThietBi.Text = string.Format("Log của {0}", objThietBi.ten);
                             //var bind = listLogThietBi.Select(a => new
                             //{

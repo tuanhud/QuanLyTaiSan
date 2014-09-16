@@ -55,7 +55,7 @@
                                             <td class="tdcenter" onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachSuCo.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachSuCo.CollectionPager_Object.PageSize) %></td>
                                             <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("ten") %></td>
                                             <td onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer"><%# Eval("tinhtrang") %></td>
-                                            <td>
+                                            <td class="tdcenter">
                                                 <button class="btn btn-default" onclick="location.href='<%# Eval("urlLog") %>'; return false;"><span class="glyphicon glyphicon-tasks"></span></button>
                                             </td>
                                         </tr>
@@ -79,7 +79,7 @@
                             <asp:Label ID="Label_ThongTinSuCo" runat="server" Text="Thông tin sự cố"></asp:Label>
                         </h3>
                         <uc:ucASPxImageSlider_Mobile runat="server" ID="_ucASPxImageSlider_Mobile" />
-                        <table class="table table-bordered">
+                        <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td>Tên sự cố:</td>
@@ -106,8 +106,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Xem log:</td>
-                                    <td>
+                                    <td colspan="2" class="tdcenter">
                                         <asp:Button ID="Button_XemLog" runat="server" Text="Xem log" CssClass="btn btn-default" />
                                     </td>
                                 </tr>

@@ -572,6 +572,7 @@
     <Content Include="UserControl\LogSuCo\ucLogSuCo_Mobile.ascx" />
     <Content Include="UserControl\LogSuCo\ucLogSuCo_Web.ascx" />
     <Content Include="UserControl\LogSuCo\ucLogSuCo_BreadCrumb.ascx" />
+    <Content Include="UserControl\LogThietBi\ucLogThietBi_BreadCrumb.ascx" />
     <Content Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx" />
     <Content Include="UserControl\LogThietBi\ucLogThietBi_Web.ascx" />
     <Content Include="UserControl\NhanVien\ucNhanVien_BreadCrumb.ascx" />
@@ -831,6 +832,13 @@
     </Compile>
     <Compile Include="UserControl\LogSuCo\ucLogSuCo_BreadCrumb.ascx.designer.cs">
       <DependentUpon>ucLogSuCo_BreadCrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LogThietBi\ucLogThietBi_BreadCrumb.ascx.cs">
+      <DependentUpon>ucLogThietBi_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LogThietBi\ucLogThietBi_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucLogThietBi_BreadCrumb.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\LogThietBi\ucLogThietBi_Mobile.ascx.cs">
       <DependentUpon>ucLogThietBi_Mobile.ascx</DependentUpon>

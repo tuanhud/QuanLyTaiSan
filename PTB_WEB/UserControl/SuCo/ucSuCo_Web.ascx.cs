@@ -200,7 +200,7 @@ namespace PTB_WEB.UserControl.SuCo
                 Response.Redirect(Request.Url.AbsolutePath);
             }
         }
-        
+
         private void SearchFunction()
         {
             if (Request.QueryString["Search"] != null)
