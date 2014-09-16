@@ -31,39 +31,39 @@
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.SplashScreenForm), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RibbonFormMain));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.backstageViewControl = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+            this.backstageViewClientControlCaiDatCauHinh = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewClientControlGiaoDienVaNgonNgu = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewClientControlCapNhatPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewClientControlThongTinPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewClientControlKhoiDongLai = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewClientControlThoat = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+            this.backstageViewTabItemCaiDatCauHinh = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.backstageViewTabItemGiaoDienVaNgonNgu = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewItemSeparator2 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.backstageViewTabItemCapNhatPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewItemSeparator3 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.backstageViewTabItemThongTinPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewItemSeparator4 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.backstageViewTabItemKhoiDongLai = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewItemSeparator5 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.backstageViewTabItemThoat = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewItemSeparator6 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.rbnPageMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupMain = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
-            this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
-            this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewClientControl4 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewClientControl5 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewClientControl6 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewClientControl7 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemCaiDatCauHinh = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.backstageViewItemSeparator2 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemGiaoDienVaNgonNgu = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-            this.backstageViewItemSeparator3 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemCapNhatPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.backstageViewItemSeparator4 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemThongTinPhanMem = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.backstageViewItemSeparator5 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemImportAll = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.backstageViewItemSeparator6 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemKhoiDongLai = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.backstageViewItemSeparator7 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.backstageViewTabItemThoat = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+            this.backstageViewTabItem7 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
+            this.backstageViewControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
-            this.backstageViewControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonMain
             // 
+            this.ribbonMain.ApplicationButtonDropDownControl = this.backstageViewControl;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonMain.ExpandCollapseItem});
@@ -72,9 +72,159 @@
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageMain});
-            this.ribbonMain.Size = new System.Drawing.Size(834, 147);
+            this.ribbonMain.Size = new System.Drawing.Size(834, 144);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
             this.ribbonMain.SelectedPageChanged += new System.EventHandler(this.ribbonMain_SelectedPageChanged);
+            // 
+            // backstageViewControl
+            // 
+            this.backstageViewControl.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
+            this.backstageViewControl.Controls.Add(this.backstageViewClientControlCaiDatCauHinh);
+            this.backstageViewControl.Controls.Add(this.backstageViewClientControlGiaoDienVaNgonNgu);
+            this.backstageViewControl.Controls.Add(this.backstageViewClientControlCapNhatPhanMem);
+            this.backstageViewControl.Controls.Add(this.backstageViewClientControlThongTinPhanMem);
+            this.backstageViewControl.Controls.Add(this.backstageViewClientControlKhoiDongLai);
+            this.backstageViewControl.Controls.Add(this.backstageViewClientControlThoat);
+            this.backstageViewControl.Items.Add(this.backstageViewTabItemCaiDatCauHinh);
+            this.backstageViewControl.Items.Add(this.backstageViewItemSeparator1);
+            this.backstageViewControl.Items.Add(this.backstageViewTabItemGiaoDienVaNgonNgu);
+            this.backstageViewControl.Items.Add(this.backstageViewItemSeparator2);
+            this.backstageViewControl.Items.Add(this.backstageViewTabItemCapNhatPhanMem);
+            this.backstageViewControl.Items.Add(this.backstageViewItemSeparator3);
+            this.backstageViewControl.Items.Add(this.backstageViewTabItemThongTinPhanMem);
+            this.backstageViewControl.Items.Add(this.backstageViewItemSeparator4);
+            this.backstageViewControl.Items.Add(this.backstageViewTabItemKhoiDongLai);
+            this.backstageViewControl.Items.Add(this.backstageViewItemSeparator5);
+            this.backstageViewControl.Items.Add(this.backstageViewTabItemThoat);
+            this.backstageViewControl.Items.Add(this.backstageViewItemSeparator6);
+            this.backstageViewControl.Location = new System.Drawing.Point(399, 54);
+            this.backstageViewControl.Name = "backstageViewControl";
+            this.backstageViewControl.Ribbon = this.ribbonMain;
+            this.backstageViewControl.SelectedTab = this.backstageViewTabItemGiaoDienVaNgonNgu;
+            this.backstageViewControl.SelectedTabIndex = 2;
+            this.backstageViewControl.Size = new System.Drawing.Size(435, 443);
+            this.backstageViewControl.TabIndex = 5;
+            this.backstageViewControl.Hidden += new System.EventHandler(this.backstageViewControl_Hidden);
+            // 
+            // backstageViewClientControlCaiDatCauHinh
+            // 
+            this.backstageViewClientControlCaiDatCauHinh.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlCaiDatCauHinh.Name = "backstageViewClientControlCaiDatCauHinh";
+            this.backstageViewClientControlCaiDatCauHinh.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlCaiDatCauHinh.TabIndex = 0;
+            // 
+            // backstageViewClientControlGiaoDienVaNgonNgu
+            // 
+            this.backstageViewClientControlGiaoDienVaNgonNgu.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlGiaoDienVaNgonNgu.Name = "backstageViewClientControlGiaoDienVaNgonNgu";
+            this.backstageViewClientControlGiaoDienVaNgonNgu.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlGiaoDienVaNgonNgu.TabIndex = 1;
+            // 
+            // backstageViewClientControlCapNhatPhanMem
+            // 
+            this.backstageViewClientControlCapNhatPhanMem.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlCapNhatPhanMem.Name = "backstageViewClientControlCapNhatPhanMem";
+            this.backstageViewClientControlCapNhatPhanMem.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlCapNhatPhanMem.TabIndex = 2;
+            // 
+            // backstageViewClientControlThongTinPhanMem
+            // 
+            this.backstageViewClientControlThongTinPhanMem.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlThongTinPhanMem.Name = "backstageViewClientControlThongTinPhanMem";
+            this.backstageViewClientControlThongTinPhanMem.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlThongTinPhanMem.TabIndex = 3;
+            // 
+            // backstageViewClientControlKhoiDongLai
+            // 
+            this.backstageViewClientControlKhoiDongLai.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlKhoiDongLai.Name = "backstageViewClientControlKhoiDongLai";
+            this.backstageViewClientControlKhoiDongLai.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlKhoiDongLai.TabIndex = 4;
+            // 
+            // backstageViewClientControlThoat
+            // 
+            this.backstageViewClientControlThoat.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlThoat.Name = "backstageViewClientControlThoat";
+            this.backstageViewClientControlThoat.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlThoat.TabIndex = 5;
+            // 
+            // backstageViewTabItemCaiDatCauHinh
+            // 
+            this.backstageViewTabItemCaiDatCauHinh.Caption = "Cài đặt cấu hình";
+            this.backstageViewTabItemCaiDatCauHinh.ContentControl = this.backstageViewClientControlCaiDatCauHinh;
+            this.backstageViewTabItemCaiDatCauHinh.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemCaiDatCauHinh.Glyph")));
+            this.backstageViewTabItemCaiDatCauHinh.Name = "backstageViewTabItemCaiDatCauHinh";
+            this.backstageViewTabItemCaiDatCauHinh.Selected = false;
+            this.backstageViewTabItemCaiDatCauHinh.SelectedChanged += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemCaiDatCauHinh_SelectedChanged);
+            // 
+            // backstageViewItemSeparator1
+            // 
+            this.backstageViewItemSeparator1.Name = "backstageViewItemSeparator1";
+            // 
+            // backstageViewTabItemGiaoDienVaNgonNgu
+            // 
+            this.backstageViewTabItemGiaoDienVaNgonNgu.Caption = "Giao diện và Ngôn ngữ";
+            this.backstageViewTabItemGiaoDienVaNgonNgu.ContentControl = this.backstageViewClientControlGiaoDienVaNgonNgu;
+            this.backstageViewTabItemGiaoDienVaNgonNgu.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemGiaoDienVaNgonNgu.Glyph")));
+            this.backstageViewTabItemGiaoDienVaNgonNgu.Name = "backstageViewTabItemGiaoDienVaNgonNgu";
+            this.backstageViewTabItemGiaoDienVaNgonNgu.Selected = true;
+            this.backstageViewTabItemGiaoDienVaNgonNgu.SelectedChanged += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemGiaoDienVaNgonNgu_SelectedChanged);
+            // 
+            // backstageViewItemSeparator2
+            // 
+            this.backstageViewItemSeparator2.Name = "backstageViewItemSeparator2";
+            // 
+            // backstageViewTabItemCapNhatPhanMem
+            // 
+            this.backstageViewTabItemCapNhatPhanMem.Caption = "Cập nhật phần mềm";
+            this.backstageViewTabItemCapNhatPhanMem.ContentControl = this.backstageViewClientControlCapNhatPhanMem;
+            this.backstageViewTabItemCapNhatPhanMem.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemCapNhatPhanMem.Glyph")));
+            this.backstageViewTabItemCapNhatPhanMem.Name = "backstageViewTabItemCapNhatPhanMem";
+            this.backstageViewTabItemCapNhatPhanMem.Selected = false;
+            this.backstageViewTabItemCapNhatPhanMem.SelectedChanged += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemCapNhatPhanMem_SelectedChanged);
+            // 
+            // backstageViewItemSeparator3
+            // 
+            this.backstageViewItemSeparator3.Name = "backstageViewItemSeparator3";
+            // 
+            // backstageViewTabItemThongTinPhanMem
+            // 
+            this.backstageViewTabItemThongTinPhanMem.Caption = "Thông tin phần mềm";
+            this.backstageViewTabItemThongTinPhanMem.ContentControl = this.backstageViewClientControlThongTinPhanMem;
+            this.backstageViewTabItemThongTinPhanMem.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemThongTinPhanMem.Glyph")));
+            this.backstageViewTabItemThongTinPhanMem.Name = "backstageViewTabItemThongTinPhanMem";
+            this.backstageViewTabItemThongTinPhanMem.Selected = false;
+            this.backstageViewTabItemThongTinPhanMem.SelectedChanged += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemThongTinPhanMem_SelectedChanged);
+            // 
+            // backstageViewItemSeparator4
+            // 
+            this.backstageViewItemSeparator4.Name = "backstageViewItemSeparator4";
+            // 
+            // backstageViewTabItemKhoiDongLai
+            // 
+            this.backstageViewTabItemKhoiDongLai.Caption = "Khởi động lại";
+            this.backstageViewTabItemKhoiDongLai.ContentControl = this.backstageViewClientControlKhoiDongLai;
+            this.backstageViewTabItemKhoiDongLai.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemKhoiDongLai.Glyph")));
+            this.backstageViewTabItemKhoiDongLai.Name = "backstageViewTabItemKhoiDongLai";
+            this.backstageViewTabItemKhoiDongLai.Selected = false;
+            this.backstageViewTabItemKhoiDongLai.ItemPressed += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemKhoiDongLai_ItemPressed);
+            // 
+            // backstageViewItemSeparator5
+            // 
+            this.backstageViewItemSeparator5.Name = "backstageViewItemSeparator5";
+            // 
+            // backstageViewTabItemThoat
+            // 
+            this.backstageViewTabItemThoat.Caption = "Thoát";
+            this.backstageViewTabItemThoat.ContentControl = this.backstageViewClientControlThoat;
+            this.backstageViewTabItemThoat.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemThoat.Glyph")));
+            this.backstageViewTabItemThoat.Name = "backstageViewTabItemThoat";
+            this.backstageViewTabItemThoat.Selected = false;
+            this.backstageViewTabItemThoat.ItemPressed += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewTabItemThoat_ItemPressed);
+            // 
+            // backstageViewItemSeparator6
+            // 
+            this.backstageViewItemSeparator6.Name = "backstageViewItemSeparator6";
             // 
             // rbnPageMain
             // 
@@ -91,201 +241,50 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 497);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 489);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMain;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(834, 23);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(834, 31);
             // 
             // panelControlMain
             // 
             this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlMain.Location = new System.Drawing.Point(0, 147);
+            this.panelControlMain.Location = new System.Drawing.Point(0, 144);
             this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(834, 350);
+            this.panelControlMain.Size = new System.Drawing.Size(834, 345);
             this.panelControlMain.TabIndex = 2;
-            // 
-            // backstageViewControl1
-            // 
-            this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl2);
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl3);
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl4);
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl5);
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl6);
-            this.backstageViewControl1.Controls.Add(this.backstageViewClientControl7);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator1);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemCaiDatCauHinh);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator2);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemGiaoDienVaNgonNgu);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator3);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemCapNhatPhanMem);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator4);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemThongTinPhanMem);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator5);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemImportAll);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator6);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemKhoiDongLai);
-            this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator7);
-            this.backstageViewControl1.Items.Add(this.backstageViewTabItemThoat);
-            this.backstageViewControl1.Location = new System.Drawing.Point(337, 55);
-            this.backstageViewControl1.Name = "backstageViewControl1";
-            this.backstageViewControl1.SelectedTab = this.backstageViewTabItemCaiDatCauHinh;
-            this.backstageViewControl1.SelectedTabIndex = 1;
-            this.backstageViewControl1.Size = new System.Drawing.Size(494, 442);
-            this.backstageViewControl1.TabIndex = 0;
-            this.backstageViewControl1.Text = "backstageViewControl1";
-            // 
-            // backstageViewClientControl1
-            // 
-            this.backstageViewClientControl1.Location = new System.Drawing.Point(203, 0);
-            this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-            this.backstageViewClientControl1.Size = new System.Drawing.Size(291, 442);
-            this.backstageViewClientControl1.TabIndex = 0;
-            // 
-            // backstageViewClientControl4
-            // 
-            this.backstageViewClientControl4.Location = new System.Drawing.Point(203, 0);
-            this.backstageViewClientControl4.Name = "backstageViewClientControl4";
-            this.backstageViewClientControl4.Size = new System.Drawing.Size(237, 442);
-            this.backstageViewClientControl4.TabIndex = 3;
-            // 
-            // backstageViewClientControl5
-            // 
-            this.backstageViewClientControl5.Location = new System.Drawing.Point(203, 0);
-            this.backstageViewClientControl5.Name = "backstageViewClientControl5";
-            this.backstageViewClientControl5.Size = new System.Drawing.Size(237, 442);
-            this.backstageViewClientControl5.TabIndex = 4;
-            // 
-            // backstageViewClientControl6
-            // 
-            this.backstageViewClientControl6.Location = new System.Drawing.Point(203, 0);
-            this.backstageViewClientControl6.Name = "backstageViewClientControl6";
-            this.backstageViewClientControl6.Size = new System.Drawing.Size(237, 442);
-            this.backstageViewClientControl6.TabIndex = 5;
             // 
             // backstageViewClientControl7
             // 
-            this.backstageViewClientControl7.Location = new System.Drawing.Point(203, 0);
+            this.backstageViewClientControl7.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControl7.Name = "backstageViewClientControl7";
-            this.backstageViewClientControl7.Size = new System.Drawing.Size(237, 442);
+            this.backstageViewClientControl7.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControl7.TabIndex = 6;
             // 
-            // backstageViewClientControl3
+            // backstageViewTabItem7
             // 
-            this.backstageViewClientControl3.Location = new System.Drawing.Point(203, 0);
-            this.backstageViewClientControl3.Name = "backstageViewClientControl3";
-            this.backstageViewClientControl3.Size = new System.Drawing.Size(237, 442);
-            this.backstageViewClientControl3.TabIndex = 2;
-            // 
-            // backstageViewItemSeparator1
-            // 
-            this.backstageViewItemSeparator1.Name = "backstageViewItemSeparator1";
-            // 
-            // backstageViewTabItemCaiDatCauHinh
-            // 
-            this.backstageViewTabItemCaiDatCauHinh.Caption = "Cài đặt cấu hình";
-            this.backstageViewTabItemCaiDatCauHinh.ContentControl = this.backstageViewClientControl1;
-            this.backstageViewTabItemCaiDatCauHinh.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemCaiDatCauHinh.Glyph")));
-            this.backstageViewTabItemCaiDatCauHinh.Name = "backstageViewTabItemCaiDatCauHinh";
-            this.backstageViewTabItemCaiDatCauHinh.Selected = true;
-            // 
-            // backstageViewItemSeparator2
-            // 
-            this.backstageViewItemSeparator2.Name = "backstageViewItemSeparator2";
-            // 
-            // backstageViewTabItemGiaoDienVaNgonNgu
-            // 
-            this.backstageViewTabItemGiaoDienVaNgonNgu.Caption = "Giao diện và Ngôn ngữ";
-            this.backstageViewTabItemGiaoDienVaNgonNgu.ContentControl = this.backstageViewClientControl2;
-            this.backstageViewTabItemGiaoDienVaNgonNgu.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemGiaoDienVaNgonNgu.Glyph")));
-            this.backstageViewTabItemGiaoDienVaNgonNgu.Name = "backstageViewTabItemGiaoDienVaNgonNgu";
-            this.backstageViewTabItemGiaoDienVaNgonNgu.Selected = false;
-            // 
-            // backstageViewClientControl2
-            // 
-            this.backstageViewClientControl2.Location = new System.Drawing.Point(203, 0);
-            this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-            this.backstageViewClientControl2.Size = new System.Drawing.Size(237, 442);
-            this.backstageViewClientControl2.TabIndex = 1;
-            // 
-            // backstageViewItemSeparator3
-            // 
-            this.backstageViewItemSeparator3.Name = "backstageViewItemSeparator3";
-            // 
-            // backstageViewTabItemCapNhatPhanMem
-            // 
-            this.backstageViewTabItemCapNhatPhanMem.Caption = "Cập nhật phần mềm";
-            this.backstageViewTabItemCapNhatPhanMem.ContentControl = this.backstageViewClientControl3;
-            this.backstageViewTabItemCapNhatPhanMem.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemCapNhatPhanMem.Glyph")));
-            this.backstageViewTabItemCapNhatPhanMem.Name = "backstageViewTabItemCapNhatPhanMem";
-            this.backstageViewTabItemCapNhatPhanMem.Selected = false;
-            // 
-            // backstageViewItemSeparator4
-            // 
-            this.backstageViewItemSeparator4.Name = "backstageViewItemSeparator4";
-            // 
-            // backstageViewTabItemThongTinPhanMem
-            // 
-            this.backstageViewTabItemThongTinPhanMem.Caption = "Thông tin phần mềm";
-            this.backstageViewTabItemThongTinPhanMem.ContentControl = this.backstageViewClientControl4;
-            this.backstageViewTabItemThongTinPhanMem.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemThongTinPhanMem.Glyph")));
-            this.backstageViewTabItemThongTinPhanMem.Name = "backstageViewTabItemThongTinPhanMem";
-            this.backstageViewTabItemThongTinPhanMem.Selected = false;
-            // 
-            // backstageViewItemSeparator5
-            // 
-            this.backstageViewItemSeparator5.Name = "backstageViewItemSeparator5";
-            // 
-            // backstageViewTabItemImportAll
-            // 
-            this.backstageViewTabItemImportAll.Caption = "Import All";
-            this.backstageViewTabItemImportAll.ContentControl = this.backstageViewClientControl5;
-            this.backstageViewTabItemImportAll.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemImportAll.Glyph")));
-            this.backstageViewTabItemImportAll.Name = "backstageViewTabItemImportAll";
-            this.backstageViewTabItemImportAll.Selected = false;
-            // 
-            // backstageViewItemSeparator6
-            // 
-            this.backstageViewItemSeparator6.Name = "backstageViewItemSeparator6";
-            // 
-            // backstageViewTabItemKhoiDongLai
-            // 
-            this.backstageViewTabItemKhoiDongLai.Caption = "Khởi động lại";
-            this.backstageViewTabItemKhoiDongLai.ContentControl = this.backstageViewClientControl6;
-            this.backstageViewTabItemKhoiDongLai.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemKhoiDongLai.Glyph")));
-            this.backstageViewTabItemKhoiDongLai.Name = "backstageViewTabItemKhoiDongLai";
-            this.backstageViewTabItemKhoiDongLai.Selected = false;
-            // 
-            // backstageViewItemSeparator7
-            // 
-            this.backstageViewItemSeparator7.Name = "backstageViewItemSeparator7";
-            // 
-            // backstageViewTabItemThoat
-            // 
-            this.backstageViewTabItemThoat.Caption = "Thoát";
-            this.backstageViewTabItemThoat.ContentControl = this.backstageViewClientControl7;
-            this.backstageViewTabItemThoat.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItemThoat.Glyph")));
-            this.backstageViewTabItemThoat.Name = "backstageViewTabItemThoat";
-            this.backstageViewTabItemThoat.Selected = false;
+            this.backstageViewTabItem7.Caption = "backstageViewTabItem7";
+            this.backstageViewTabItem7.ContentControl = this.backstageViewClientControl7;
+            this.backstageViewTabItem7.Name = "backstageViewTabItem7";
+            this.backstageViewTabItem7.Selected = false;
             // 
             // RibbonFormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 520);
-            this.Controls.Add(this.backstageViewControl1);
+            this.Controls.Add(this.backstageViewControl);
             this.Controls.Add(this.panelControlMain);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMain);
             this.Name = "RibbonFormMain";
             this.Ribbon = this.ribbonMain;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "RibbonFormMain";
+            this.Text = "Quản lý Tài sản cố định";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
+            this.backstageViewControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).EndInit();
-            this.backstageViewControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,27 +297,26 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupMain;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraEditors.PanelControl panelControlMain;
-        private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl1;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl3;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl4;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControlCaiDatCauHinh;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControlGiaoDienVaNgonNgu;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControlCapNhatPhanMem;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControlThongTinPhanMem;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControlKhoiDongLai;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControlThoat;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemCaiDatCauHinh;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator2;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator1;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemGiaoDienVaNgonNgu;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator3;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator2;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemCapNhatPhanMem;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator4;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator3;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemThongTinPhanMem;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator5;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl5;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl6;
-        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl7;
-        private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemImportAll;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator6;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator4;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemKhoiDongLai;
-        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator7;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItemThoat;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator5;
+        private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator6;
+        private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl7;
+        private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem7;
     }
 }

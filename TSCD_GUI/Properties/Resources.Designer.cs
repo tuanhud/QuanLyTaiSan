@@ -63,6 +63,16 @@ namespace TSCD_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backgroundthongtinphanmem {
+            get {
+                object obj = ResourceManager.GetObject("backgroundthongtinphanmem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap login {
             get {
                 object obj = ResourceManager.GetObject("login", resourceCulture);
@@ -146,6 +156,16 @@ namespace TSCD_GUI.Properties {
         internal static System.Drawing.Bitmap plus_24 {
             get {
                 object obj = ResourceManager.GetObject("plus_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thongtinphanmem {
+            get {
+                object obj = ResourceManager.GetObject("thongtinphanmem", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
