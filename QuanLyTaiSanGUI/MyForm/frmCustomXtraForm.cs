@@ -1,5 +1,6 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.XtraEditors;
+using QuanLyTaiSan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace QuanLyTaiSanGUI.MyForm
         public frmCustomXtraForm()
         {
             InitializeComponent();
-            UserLookAndFeel.Default.SkinName = Properties.Settings.Default["ApplicationSkinName"].ToString();
+            UserLookAndFeel.Default.SkinName = Global.local_setting.ApplicationSkinName;
         }
     }
 }

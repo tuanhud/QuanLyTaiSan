@@ -25,6 +25,57 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiep vu
+        private static Dictionary<string, string> buildLog(String action_name = null, String message="")
+        {
+            Dictionary<string, string> re = new Dictionary<string, string>();
+            try
+            {
+                if (Global.current_quantrivien_login != null)
+                {
+                    re.Add("actor", Global.current_quantrivien_login.niceName());
+                }
+                else
+                {
+                    re.Add("actor", "unknown");
+                }
+
+                if (action_name != null)
+                {
+                    re.Add("action", action_name);
+                }
+                else
+                {
+                    re.Add("action", "unknown");
+                }
+                re.Add("message", message);
+                return re;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                re.Add("State: ", "ERROR");
+                return re;
+            }
+        }
+        /// <summary>
+        /// Auto commit
+        /// </summary>
+        /// <param name="message"></param>
+        public static void write(String message="")
+        {
+            try
+            {
+                LogHeThong tmp = new LogHeThong();
+                tmp.onBeforeAdded();
+                tmp.mota = StringHelper.toJSON(buildLog("execute", message));
+                tmp.add();
+                DBInstance.commit();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
         public static List<LogHeThong> getAllByDK(DateTime? tuNgay, DateTime? denNgay, int gioiHan)
         {
             List<LogHeThong> re =
