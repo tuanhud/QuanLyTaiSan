@@ -118,7 +118,7 @@
             this.groupBox1.Size = new System.Drawing.Size(330, 149);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Quản lý phòng học";
+            this.groupBox1.Text = "Quản lý Tài sản cố định";
             // 
             // pictureEdit1
             // 
