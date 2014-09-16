@@ -68,6 +68,7 @@ namespace QuanLyTaiSanGUI
             InitializeComponent();
             init();
             DBInstance.onDBConnectionDown += new DBInstance.DBConnectionChanged(this.rotmang);
+            DatabaseHelper.autoSyncInNewThread();
         }
 
         private void rotmang(EventArgs e)

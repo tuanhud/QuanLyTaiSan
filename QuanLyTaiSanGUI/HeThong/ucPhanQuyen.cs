@@ -102,7 +102,7 @@ namespace QuanLyTaiSanGUI.HeThong
             txtXacNhanMK.Properties.ReadOnly = !_enable;
             dateCreated.Properties.ReadOnly = !_enable;
             //Không thể tự mình đổi group
-            lookUpEdit_group.Properties.ReadOnly = !_enable || (Global.current_quantrivien_login!=null && Global.current_quantrivien_login.id==objQuanTriVienFilter.quantrivien.id);
+            lookUpEdit_group.Properties.ReadOnly = !_enable || (Global.current_quantrivien_login != null && objQuanTriVienFilter!=null && objQuanTriVienFilter.quantrivien!=null && Global.current_quantrivien_login.id == objQuanTriVienFilter.quantrivien.id && !function.Equals("add"));
             memoEdit_mota.Properties.ReadOnly = !_enable;
             barButtonThemQTV.Enabled = !_enable;
             enableButton(!_enable);
@@ -233,6 +233,8 @@ namespace QuanLyTaiSanGUI.HeThong
             {
                 splitContainerControl1.Panel1.Controls.Add(gridControlPhanQuyen);
                 splitContainerControl1.Panel2.Controls.Add(groupControl1);
+                reLoad();
+                gridViewPhanQuyen.ExpandAllGroups();
                 editGUI("view");
             }
             return true;

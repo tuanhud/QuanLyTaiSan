@@ -20,6 +20,8 @@ namespace QuanLyTaiSanGUI.Settings
 {
     public partial class ucCauHinh : UserControl,_ourUcInterface
     {
+        private bool can_init_server = false;
+        private bool can_config_server = false;
         public ucCauHinh()
         {
             InitializeComponent();
@@ -47,7 +49,8 @@ namespace QuanLyTaiSanGUI.Settings
             checkEdit_useDBCache.Checked = Global.local_setting.use_db_cache;
             //Debug to file
             checkEdit_debugToFile.Checked = SHARED.Libraries.Debug.MODE == 1;
-
+            checkEdit_autoSync.Checked = Global.local_setting.sync_auto;
+            textEdit_sync_second.Text = Global.local_setting.sync_time_second.ToString();
             /*
              * REMOTE SETTING
              */
@@ -70,6 +73,13 @@ namespace QuanLyTaiSanGUI.Settings
                 txtSmtpUsername.Text = Global.remote_setting.smtp_config.SMTP_USERNAME;
                 cbSmtpUseSSL.Checked = Global.remote_setting.smtp_config.SMTP_USESSL;
             }
+            //disable some function base on current context and user
+            can_config_server = Permission.canDo(Permission._SERVER_CONFIG);
+            can_init_server = Global.current_quantrivien_login == null || can_config_server;
+
+            //simpleButton_validateServer.Enabled = can_init_server;
+            btnRemoveServerScope.Enabled = simpleButton_cleanUpServerScope.Enabled = can_config_server;
+            btnRemoteSettingSave.Enabled = can_config_server;
         }
         /// <summary>
         /// Lưu local setting
@@ -102,6 +112,10 @@ namespace QuanLyTaiSanGUI.Settings
             Global.local_setting.use_db_cache = checkEdit_useDBCache.Checked;
             //debug mode
             Global.local_setting.debug_mode = SHARED.Libraries.Debug.MODE = checkEdit_debugToFile.Checked ? 1 : 0;
+
+            Global.local_setting.sync_auto = checkEdit_autoSync.Checked;
+            int sync_time = StringHelper.toInt(textEdit_sync_second.Text);
+            Global.local_setting.sync_time_second = sync_time <=0?20:sync_time;
             //UPDATE LOCAL SETTING
             Global.local_setting.Save();
         }
@@ -159,22 +173,28 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void simpleButton_cleanUpServerScope_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-            save();
-            Global.server_database.clean_up_scope();
-            load_DB_State();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                save();
+                Global.server_database.clean_up_scope();
+                load_DB_State();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
 
         private void simpleButton_cleanUpClientScope_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-            save();
-            Global.client_database.clean_up_scope();
-            load_DB_State();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                save();
+                Global.client_database.clean_up_scope();
+                load_DB_State();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
 
         private void btnRemoteSettingSave_Click(object sender, EventArgs e)
@@ -226,7 +246,7 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void ucCauHinh_Load(object sender, EventArgs e)
         {
-            txtAddressDatabase.Focus();
+            //txtAddressDatabase.Focus();
             load_DB_State();
         }
         /// <summary>
@@ -242,8 +262,9 @@ namespace QuanLyTaiSanGUI.Settings
                 int server_ready = Global.server_database.isReady();
                 int client_ready = Global.client_database.isReady();
 
-                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0;
-                simpleButton_validateServer.Enabled = !(server_ready > 0);
+                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
+                simpleButton_cleanUpServerScope.Enabled = can_config_server;
+                simpleButton_validateServer.Enabled = !(server_ready > 0) && can_init_server;
 
                 btnRemoveClientScope.Enabled = Global.client_database.isHasScope() > 0;
                 simpleButton_validateClient.Enabled = !(client_ready > 0);
@@ -259,8 +280,9 @@ namespace QuanLyTaiSanGUI.Settings
             else
             {
                 int server_ready = Global.server_database.isReady();
-                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0;
-                simpleButton_validateServer.Enabled = !(server_ready > 0);
+                btnRemoveServerScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
+                simpleButton_cleanUpServerScope.Enabled = can_config_server;
+                simpleButton_validateServer.Enabled = !(server_ready > 0) && can_init_server;
                 if (server_ready < 0)
                 {
                     return -2;
@@ -275,22 +297,28 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void btnRemoveServerScope_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-            save();
-            Global.server_database.drop_scope();
-            load_DB_State();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                save();
+                Global.server_database.drop_scope();
+                load_DB_State();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
 
         private void btnRemoveClientScope_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-            save();
-            Global.client_database.drop_scope();
-            load_DB_State();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                save();
+                Global.client_database.drop_scope();
+                load_DB_State();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
 
         private void simpleButton_Luu_Click(object sender, EventArgs e)
@@ -483,12 +511,20 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void btn_dropClientDB_Click(object sender, EventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
-            save();
-            Global.client_database.dropDB();
-            load_DB_State();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                save();
+                Global.client_database.dropDB();
+                load_DB_State();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
+        }
+
+        private void checkEdit_autoSync_CheckedChanged(object sender, EventArgs e)
+        {
+            textEdit_sync_second.Enabled = (sender as CheckEdit).Checked;
         }
     }
 }

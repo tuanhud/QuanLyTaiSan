@@ -53,5 +53,14 @@
     <Setting Name="debug_mode" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="sync_auto" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ApplicationSkinName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Office 2007 Blue</Value>
+    </Setting>
+    <Setting Name="sync_time_second" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

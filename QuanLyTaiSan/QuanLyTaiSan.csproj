@@ -128,6 +128,7 @@
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Entities\_EntityAbstract3.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\EmailHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />
     <Compile Include="Libraries\PermissionHelper.cs" />

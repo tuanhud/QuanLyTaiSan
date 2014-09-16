@@ -57,7 +57,8 @@
             this.textEdit_newpass.Name = "textEdit_newpass";
             this.textEdit_newpass.Properties.PasswordChar = '●';
             this.textEdit_newpass.Size = new System.Drawing.Size(185, 20);
-            this.textEdit_newpass.TabIndex = 0;
+            this.textEdit_newpass.TabIndex = 30;
+            this.textEdit_newpass.ToolTip = "Để trống nếu không muốn đổi mật khẩu";
             // 
             // textEdit_newpass_confirm
             // 
@@ -65,7 +66,8 @@
             this.textEdit_newpass_confirm.Name = "textEdit_newpass_confirm";
             this.textEdit_newpass_confirm.Properties.PasswordChar = '●';
             this.textEdit_newpass_confirm.Size = new System.Drawing.Size(185, 20);
-            this.textEdit_newpass_confirm.TabIndex = 1;
+            this.textEdit_newpass_confirm.TabIndex = 40;
+            this.textEdit_newpass_confirm.ToolTip = "Để trống nếu không muốn đổi mật khẩu";
             // 
             // textEdit_oldpass
             // 
@@ -73,7 +75,8 @@
             this.textEdit_oldpass.Name = "textEdit_oldpass";
             this.textEdit_oldpass.Properties.PasswordChar = '●';
             this.textEdit_oldpass.Size = new System.Drawing.Size(185, 20);
-            this.textEdit_oldpass.TabIndex = 2;
+            this.textEdit_oldpass.TabIndex = 20;
+            this.textEdit_oldpass.ToolTip = "Để trống nếu không muốn đổi mật khẩu";
             // 
             // label1
             // 
@@ -107,7 +110,7 @@
             this.btnOK.Location = new System.Drawing.Point(483, 164);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 6;
+            this.btnOK.TabIndex = 70;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -117,7 +120,7 @@
             this.checkEdit_showpass.Name = "checkEdit_showpass";
             this.checkEdit_showpass.Properties.Caption = "Hiện mật khẩu";
             this.checkEdit_showpass.Size = new System.Drawing.Size(124, 19);
-            this.checkEdit_showpass.TabIndex = 7;
+            this.checkEdit_showpass.TabIndex = 60;
             this.checkEdit_showpass.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // textEdit_hoten
@@ -125,7 +128,7 @@
             this.textEdit_hoten.Location = new System.Drawing.Point(93, 13);
             this.textEdit_hoten.Name = "textEdit_hoten";
             this.textEdit_hoten.Size = new System.Drawing.Size(185, 20);
-            this.textEdit_hoten.TabIndex = 8;
+            this.textEdit_hoten.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -153,7 +156,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(307, 16);
+            this.label4.Location = new System.Drawing.Point(312, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 12;
@@ -164,7 +167,7 @@
             this.memoEdit_mota.Location = new System.Drawing.Point(356, 12);
             this.memoEdit_mota.Name = "memoEdit_mota";
             this.memoEdit_mota.Size = new System.Drawing.Size(202, 144);
-            this.memoEdit_mota.TabIndex = 13;
+            this.memoEdit_mota.TabIndex = 50;
             this.memoEdit_mota.UseOptimizedRendering = true;
             // 
             // SuaThongTinCaNhan
@@ -190,6 +193,7 @@
             this.MinimumSize = new System.Drawing.Size(586, 236);
             this.Name = "SuaThongTinCaNhan";
             this.Text = "Sửa thông tin cá nhân";
+            this.Load += new System.EventHandler(this.SuaThongTinCaNhan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_newpass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_newpass_confirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_oldpass.Properties)).EndInit();

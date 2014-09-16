@@ -93,7 +93,7 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
-            UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default["ApplicationSkinName"].ToString());
+            UserLookAndFeel.Default.SetSkinStyle(Global.local_setting.ApplicationSkinName);
             DevExpress.XtraSplashScreen.SplashScreenManager.RegisterUserSkins(typeof(DevExpress.UserSkins.BonusSkins).Assembly);
             DevExpress.Skins.SkinManager.EnableFormSkins();            
 

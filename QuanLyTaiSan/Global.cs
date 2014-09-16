@@ -1,5 +1,4 @@
 ﻿using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
 using SHARED;
 using SHARED.Libraries;
 using System;
@@ -32,7 +31,7 @@ namespace QuanLyTaiSan
                 }
             }
         }
-        
+
         /// <summary>
         /// SERVER DB
         /// </summary>
@@ -45,14 +44,18 @@ namespace QuanLyTaiSan
             public static int clean_up_scope()
             {
                 DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
-                
-                DatabaseHelper.setup_sync_scope(
+
+                int re = DatabaseHelper.setup_sync_scope(
                     Global.server_database.get_connection_string(),
                     Global.sync.scope_name,
                     Global.sync.tracking_tables
                 );
+                if (re > 0)
+                {
+                    LogHeThong.write("clean up server scope: "+get_connection_string());
+                }
 
-                return 1;
+                return re;
             }
             /// <summary>
             /// Có hỗ trợ tự động tạo cấu trúc CSDL nếu chưa có
@@ -113,7 +116,7 @@ namespace QuanLyTaiSan
             {
                 int tmp = 0;
                 //kiểm tra CSDL sẵn sàng để sync
-                return tmp = DatabaseHelper.isHasScope(Global.server_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
+                return tmp = DatabaseHelper.isHasScope(Global.server_database.get_connection_string(), Global.sync.scope_name, Global.sync.tracking_tables);
             }
             public static String db_host
             {
@@ -163,7 +166,13 @@ namespace QuanLyTaiSan
 
             public static int drop_scope()
             {
-                return DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
+                int re = DatabaseHelper.drop_sync_scope(Global.server_database.get_connection_string(), Global.sync.scope_name);
+                if (re > 0)
+                {
+                    LogHeThong.write("remove server sync scope: " + get_connection_string());
+                }
+
+                return re;
             }
         }
         /// <summary>
@@ -202,7 +211,7 @@ namespace QuanLyTaiSan
             public static int isHasScope()
             {
                 //kiểm tra CSDL sẵn sàng để sync
-                return DatabaseHelper.isHasScope(Global.client_database.get_connection_string(),Global.sync.scope_name,Global.sync.tracking_tables);
+                return DatabaseHelper.isHasScope(Global.client_database.get_connection_string(), Global.sync.scope_name, Global.sync.tracking_tables);
             }
             public static int drop_scope()
             {
@@ -256,7 +265,7 @@ namespace QuanLyTaiSan
                 //Kiểm tra có sử dụng DBCache
                 if (!Global.local_setting.use_db_cache)
                 {
-                    return ;
+                    return;
                 }
 
                 try
@@ -470,12 +479,13 @@ namespace QuanLyTaiSan
                 }
             }
         }
-        
+
         private static QuanTriVien _current_quantrivien_login = null;
         /// <summary>
         /// Dành cho Winform (Quản trị viên sử dụng pâần mềm quản lý)
         /// </summary>
-        public static QuanTriVien current_quantrivien_login {
+        public static QuanTriVien current_quantrivien_login
+        {
             get
             {
                 if (SHARED.Global.WEB_MODE)
@@ -577,7 +587,7 @@ namespace QuanLyTaiSan
                     re = re && obj.addOrUpdate() > 0;
 
                     obj = Setting.getByKey("smtp_port");
-                    obj.value = smtp_port==null?"0":smtp_port.ToString();
+                    obj.value = smtp_port == null ? "0" : smtp_port.ToString();
                     re = re && obj.addOrUpdate() > 0;
 
                     obj = Setting.getByKey("smtp_usessl");
@@ -714,19 +724,19 @@ namespace QuanLyTaiSan
                     Boolean re = true;
                     Setting obj = Setting.getByKey("ftp_image_host");
                     obj.value = host_name;
-                    re = re && obj.addOrUpdate()>0;
+                    re = re && obj.addOrUpdate() > 0;
 
                     obj = Setting.getByKey("ftp_image_username");
                     obj.value = user_name;
-                    re = re && obj.addOrUpdate()>0;
+                    re = re && obj.addOrUpdate() > 0;
 
                     obj = Setting.getByKey("ftp_image_password");
                     obj.value = pass_word;
-                    re = re && obj.addOrUpdate()>0;
+                    re = re && obj.addOrUpdate() > 0;
 
                     obj = Setting.getByKey("ftp_image_prepath");
                     obj.value = pre_path;
-                    re = re && obj.addOrUpdate()>0;
+                    re = re && obj.addOrUpdate() > 0;
 
                     obj = Setting.getByKey("ftp_image_port");
                     obj.value = port;
@@ -738,7 +748,7 @@ namespace QuanLyTaiSan
                     {
                         reload();
                     }
-                    return re?1:-1;
+                    return re ? 1 : -1;
                 }
                 private static String port = null;
                 /// <summary>
@@ -761,7 +771,7 @@ namespace QuanLyTaiSan
                     }
                 }
 
-                private static String host_name=null;
+                private static String host_name = null;
                 /// <summary>
                 /// vd: ftp://example.com
                 /// </summary>
@@ -842,7 +852,8 @@ namespace QuanLyTaiSan
                 /// <summary>
                 /// Kiểm tra thông tin FTP đã được load đầy đủ
                 /// </summary>
-                public static Boolean IS_READY {
+                public static Boolean IS_READY
+                {
                     get
                     {
                         //force to get all
@@ -853,7 +864,7 @@ namespace QuanLyTaiSan
             }
             public static class http_host
             {
-                public static String getCombinedPath(String relativePath="")
+                public static String getCombinedPath(String relativePath = "")
                 {
                     String tmp = "";
                     tmp += Global.remote_setting.http_host.HOST_NAME;

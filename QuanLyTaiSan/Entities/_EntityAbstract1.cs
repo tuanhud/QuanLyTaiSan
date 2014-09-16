@@ -413,7 +413,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         /// <param name="action_name"></param>
         /// <returns></returns>
-        private Dictionary<string, string> buildLog(String action_name=null)
+        protected Dictionary<string, string> buildLog(String action_name=null)
         {
             Dictionary<string, string> re = new Dictionary<string, string>();
             try

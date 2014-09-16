@@ -14,6 +14,8 @@ using TSCD_GUI.QLDonVi;
 using TSCD_GUI.QLLoaiTaiSan;
 using TSCD_GUI.QLTaiSan;
 using TSCD.Entities;
+using TSCD_GUI.Settings;
+using DevExpress.XtraEditors;
 
 namespace TSCD_GUI
 {
@@ -32,6 +34,11 @@ namespace TSCD_GUI
         const String rbnPageLoaiTS = "rbnPageLoaiTS";
         const String rbnPageTaiSan = "rbnPageTaiSan";
         const String rbnPageDonVi_TaiSan = "rbnPageDonVi_TaiSan";
+
+        ucCauHinh _ucCauHinh = null;
+        ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
+        ucCapNhatPhanMem _ucCapNhatPhanMem = null;
+        ucThongTinPhanMem _ucThongTinPhanMem = null;
 
         bool drawEnd = false;
 
@@ -65,6 +72,9 @@ namespace TSCD_GUI
             addRibbonPage(_ucQuanLyDonVi_TaiSan.getRibbonControl());
 
             drawEnd = true;
+
+            backstageViewControl.SelectedTabIndex = 6;
+            ThongTinPhanMem();
         }
 
         private void addRibbonPage(RibbonControl ribbon)
@@ -120,6 +130,62 @@ namespace TSCD_GUI
                 }
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
+        }
+
+        private void backstageViewTabItemCaiDatCauHinh_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+            if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
+            _ucCauHinh.load_data();
+            _ucCauHinh.Dock = DockStyle.Fill;
+            backstageViewClientControlCaiDatCauHinh.Controls.Add(_ucCauHinh);
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+        }
+
+        private void backstageViewTabItemGiaoDienVaNgonNgu_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            if (_ucGiaoDienvaNgonNgu == null) _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
+            _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
+            backstageViewClientControlGiaoDienVaNgonNgu.Controls.Add(_ucGiaoDienvaNgonNgu);
+        }
+
+        private void backstageViewTabItemCapNhatPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            if (_ucCapNhatPhanMem == null) _ucCapNhatPhanMem = new ucCapNhatPhanMem();
+            _ucCapNhatPhanMem.Dock = DockStyle.Fill;
+            backstageViewClientControlCapNhatPhanMem.Controls.Add(_ucCapNhatPhanMem);
+        }
+
+        private void backstageViewTabItemThongTinPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
+        {
+            ThongTinPhanMem();
+        }
+
+        private void ThongTinPhanMem()
+        {
+            if (_ucThongTinPhanMem == null) _ucThongTinPhanMem = new ucThongTinPhanMem();
+            _ucThongTinPhanMem.Dock = DockStyle.Fill;
+            backstageViewClientControlThongTinPhanMem.Controls.Add(_ucThongTinPhanMem);
+        }
+
+        private void backstageViewTabItemKhoiDongLai_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
+            Application.Restart();
+            Application.ExitThread();
+        }
+
+        private void backstageViewTabItemThoat_ItemPressed(object sender, BackstageViewItemEventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Application.Exit();
+            else
+                backstageViewControl.Ribbon.HideApplicationButtonContentControl();
+        }
+
+        private void backstageViewControl_Hidden(object sender, EventArgs e)
+        {
+            backstageViewTabItemThongTinPhanMem.Selected = true;
         }
     }
 }

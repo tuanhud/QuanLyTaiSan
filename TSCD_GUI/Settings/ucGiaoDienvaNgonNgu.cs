@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSan;
 
-namespace QuanLyTaiSanGUI.Settings
+namespace TSCD_GUI.Settings
 {
     public partial class ucGiaoDienvaNgonNgu : UserControl, _ourUcInterface
     {
-        string GiaoDien = Global.local_setting.ApplicationSkinName;
+        string GiaoDien = Properties.Settings.Default["ApplicationSkinName"].ToString();
         GalleryItem _item = null;
         bool Changed = false;
         public ucGiaoDienvaNgonNgu()
@@ -34,15 +33,15 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void simpleButtonLuuGiaoDien_Click(object sender, EventArgs e)
         {
-            Global.local_setting.ApplicationSkinName = GiaoDien;
-            Global.local_setting.Save();
+            Properties.Settings.Default["ApplicationSkinName"] = GiaoDien;
+            Properties.Settings.Default.Save();
             _item = galleryControlGiaoDien.Gallery.GetItemByCaption(GiaoDien);
             XtraMessageBox.Show("Đã lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void simpleButtonHuyGiaoDien_Click(object sender, EventArgs e)
         {
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Global.local_setting.ApplicationSkinName;
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Properties.Settings.Default["ApplicationSkinName"].ToString();
             galleryControlGiaoDien.Gallery.SetItemCheck(_item, true);
             Changed = false;
         }
