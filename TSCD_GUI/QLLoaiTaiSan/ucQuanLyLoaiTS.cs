@@ -367,5 +367,37 @@ namespace TSCD_GUI.QLLoaiTaiSan
         {
             deleteObj();
         }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        (objLoaiTaiSan.subId == null && !txtMa.Text.Equals("")) || 
+                        (objLoaiTaiSan.subId != null && objLoaiTaiSan.subId != txtMa.Text) ||
+                        objLoaiTaiSan.ten != txtTen.Text ||
+                        (objLoaiTaiSan.mota == null && !txtMoTa.Text.Equals("")) ||
+                        (objLoaiTaiSan.mota != null && objLoaiTaiSan.mota != txtMoTa.Text) ||
+                        objLoaiTaiSan.huuhinh != checkHuuHinh.Checked ||
+                        objLoaiTaiSan.donvitinh_id != GUID.From(gridLookUpDonVi.EditValue);
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtMa.Text.Equals("") ||
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("") ||
+                        gridLookUpDonVi.EditValue != null;
+                }
+                else
+                    return working;
+            }
+            catch
+            {
+                return true;
+            }
+        }
     }
 }

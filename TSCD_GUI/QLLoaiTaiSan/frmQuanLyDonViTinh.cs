@@ -271,7 +271,42 @@ namespace TSCD_GUI.QLLoaiTaiSan
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (checkworking())
+            {
+                if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn đóng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    this.Close();
+            }
+            else
+                this.Close();
+        }
+
+        private bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        (objDonViTinh.subId == null && !txtMa.Text.Equals("")) ||
+                        (objDonViTinh.subId != null && objDonViTinh.subId != txtMa.Text) ||
+                        objDonViTinh.ten != txtTen.Text ||
+                        (objDonViTinh.mota == null && !txtMoTa.Text.Equals("")) ||
+                        (objDonViTinh.mota != null && objDonViTinh.mota != txtMoTa.Text);
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtMa.Text.Equals("") ||
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("");
+                }
+                else
+                    return working;
+            }
+            catch
+            {
+                return true;
+            }
         }
     }
 }
