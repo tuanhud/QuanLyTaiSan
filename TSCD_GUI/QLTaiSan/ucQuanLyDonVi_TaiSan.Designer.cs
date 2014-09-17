@@ -185,9 +185,9 @@
             this.navBarGroupDonVi});
             this.navBarControlLeft.Location = new System.Drawing.Point(0, 142);
             this.navBarControlLeft.Name = "navBarControlLeft";
-            this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 187;
+            this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 307;
             this.navBarControlLeft.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControlLeft.Size = new System.Drawing.Size(187, 382);
+            this.navBarControlLeft.Size = new System.Drawing.Size(307, 382);
             this.navBarControlLeft.TabIndex = 1;
             this.navBarControlLeft.Text = "navBarControl1";
             // 
@@ -205,7 +205,7 @@
             this.navBarGroupControlContainerDonVi.Controls.Add(this.ucTreeDonVi1);
             this.navBarGroupControlContainerDonVi.Controls.Add(this.treeListDonVi);
             this.navBarGroupControlContainerDonVi.Name = "navBarGroupControlContainerDonVi";
-            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(187, 279);
+            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(305, 290);
             this.navBarGroupControlContainerDonVi.TabIndex = 0;
             // 
             // ucTreeDonVi1
@@ -214,7 +214,7 @@
             this.ucTreeDonVi1.DonVi = null;
             this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
             this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(187, 279);
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(305, 290);
             this.ucTreeDonVi1.TabIndex = 1;
             // 
             // treeListDonVi
@@ -222,7 +222,7 @@
             this.treeListDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListDonVi.Location = new System.Drawing.Point(0, 0);
             this.treeListDonVi.Name = "treeListDonVi";
-            this.treeListDonVi.Size = new System.Drawing.Size(187, 279);
+            this.treeListDonVi.Size = new System.Drawing.Size(305, 290);
             this.treeListDonVi.TabIndex = 0;
             // 
             // groupControlMain
@@ -231,9 +231,9 @@
             this.groupControlMain.AppearanceCaption.Options.UseFont = true;
             this.groupControlMain.Controls.Add(this.ucGridControlTaiSan1);
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControlMain.Location = new System.Drawing.Point(187, 142);
+            this.groupControlMain.Location = new System.Drawing.Point(307, 142);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(674, 382);
+            this.groupControlMain.Size = new System.Drawing.Size(554, 382);
             this.groupControlMain.TabIndex = 5;
             this.groupControlMain.Text = "Tài sản";
             // 
@@ -242,7 +242,7 @@
             this.ucGridControlTaiSan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 24);
             this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
-            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(670, 356);
+            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 356);
             this.ucGridControlTaiSan1.TabIndex = 0;
             // 
             // ucQuanLyDonVi_TaiSan

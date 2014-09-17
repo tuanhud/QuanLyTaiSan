@@ -62,7 +62,7 @@ namespace PTB_WEB.UserControl.LogThietBi
 
                     if (listLogThietBi.Count == 0)
                     {
-                        Panel_ThongBaoLoi.Visible = true;
+                        ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                         ucThongBaoLoi.Label_ThongBaoLoi.Text = string.Format("Thiết bị {0} không có log", objThietBi.ten);
                     }
                     else
@@ -81,7 +81,6 @@ namespace PTB_WEB.UserControl.LogThietBi
                             objLogThietBi = listLogThietBi.Where(item => item.id == idLog).FirstOrDefault();
                             if (objLogThietBi != null)
                             {
-                                Panel_Chinh.Visible = true;
                                 Panel_ThongTinLog.Visible = true;
                                 _ucLogThietBi_BreadCrumb.Label_TenThietBi.Text = objThietBi.ten;
                                 _ucLogThietBi_BreadCrumb.Label_LogNgay.Text = ((DateTime)objLogThietBi.date_create).ToString("d/M/yyyy");
@@ -102,7 +101,6 @@ namespace PTB_WEB.UserControl.LogThietBi
                         }
                         else
                         {
-                            Panel_Chinh.Visible = true;
                             Panel_DanhSachLog.Visible = true;
                             _ucLogThietBi_BreadCrumb.Label_TenThietBi.Text = objThietBi.ten;
                             Label_LogThietBi.Text = string.Format("Log của {0}", objThietBi.ten);
@@ -129,7 +127,7 @@ namespace PTB_WEB.UserControl.LogThietBi
                     }
                     else
                     {
-                        Panel_ThongBaoLoi.Visible = true;
+                        ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                         ucThongBaoLoi.Label_ThongBaoLoi.Text = "Không có thiết bị này";
                     }
                 }

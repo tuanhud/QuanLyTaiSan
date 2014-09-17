@@ -261,9 +261,9 @@
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltxtDonViTinh.Location = new System.Drawing.Point(368, 175);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
-            this.lbltxtDonViTinh.Size = new System.Drawing.Size(47, 13);
+            this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 24;
-            this.lbltxtDonViTinh.Text = "DonViTinh";
+            this.lbltxtDonViTinh.Text = "[Đơn vị tính]";
             // 
             // lblChungTu
             // 
@@ -287,6 +287,7 @@
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Size = new System.Drawing.Size(283, 20);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.EditValueChanged += new System.EventHandler(this.txtSoLuong_EditValueChanged);
@@ -305,6 +306,7 @@
             this.txtDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDonGia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtDonGia.Properties.Mask.EditMask = "N00";
             this.txtDonGia.Size = new System.Drawing.Size(283, 20);
             this.txtDonGia.TabIndex = 6;
             this.txtDonGia.EditValueChanged += new System.EventHandler(this.txtDonGia_EditValueChanged);

@@ -66,7 +66,7 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr>
-                                <td style="width: 120px">Tên thiết bị:</td>
+                                <td>Tên thiết bị:</td>
                                 <td>
                                     <asp:Label ID="Label_TenThietBi" runat="server"></asp:Label>
                                 </td>

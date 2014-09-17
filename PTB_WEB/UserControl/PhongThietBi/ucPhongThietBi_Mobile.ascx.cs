@@ -38,7 +38,6 @@ namespace PTB_WEB.UserControl.PhongThietBi
             {
                 if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(QuanLyTaiSan.Entities.Phong).Name)).FirstOrDefault() != null)
                 {
-                    Panel_Chinh.Visible = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)
@@ -113,7 +112,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                                         Label_Phong.Text = objPhong.ten;
                                         Label_NgayLap.Text = objThietBi.ctthietbis != null ? objThietBi.ctthietbis.Where(item => item.phong_id == objPhong.id).FirstOrDefault().ngay.ToString() : "";
                                         Label_MoTa.Text = Libraries.StringHelper.ConvertRNToBR(objThietBi.mota);
-                                        Button_XemLog.OnClientClick = string.Format("location.href='{0}'; return false;", Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), "id", idThietBi.ToString()));
+                                        Button_XemLog.OnClientClick = string.Format("location.href='{0}'; return false;", Libraries.StringHelper.AddParameter(new Uri("http://" + Request.Url.Authority + "/" + ResolveClientUrl("~/LogThietBi.aspx")), new List<string>(new string[] { "id", "idp" }), new List<string>(new string[] { idThietBi.ToString(), objPhong.id.ToString() })));
                                     }
                                     else
                                     {
@@ -143,13 +142,13 @@ namespace PTB_WEB.UserControl.PhongThietBi
                 }
                 else
                 {
-                    Panel_ThongBaoLoi.Visible = true;
+                    ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                     ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có vị trí";
             }
         }

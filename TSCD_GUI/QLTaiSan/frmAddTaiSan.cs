@@ -39,11 +39,11 @@ namespace TSCD_GUI.QLTaiSan
             isEdit = true;
             init();
             setData(_obj);
-            if (isDonVi)
-            {
+            //if (isDonVi)
+            //{
                 txtSoLuong.Properties.ReadOnly = true;
                 lookUpTinhTrang.Properties.ReadOnly = true;
-            }
+            //}
         }
 
         public frmAddTaiSan(CTTaiSan _obj, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)

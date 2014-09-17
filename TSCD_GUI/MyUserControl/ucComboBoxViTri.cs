@@ -220,6 +220,14 @@ namespace TSCD_GUI.MyUserControl
             }
         }
 
+        public String NullText
+        {
+            set
+            {
+                treeListLookUpViTri.Properties.NullText = value;
+            }
+        }
+
         private void OnFilterNode(object sender, DevExpress.XtraTreeList.FilterNodeEventArgs e)
         {
             //List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>().ToList();

@@ -49,6 +49,8 @@ namespace TSCD_GUI.QLPhong
 
         public void loadData()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 editGUI("view");
@@ -73,6 +75,7 @@ namespace TSCD_GUI.QLPhong
             {
                 Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void loadLoaiPhong()
@@ -366,6 +369,34 @@ namespace TSCD_GUI.QLPhong
         private void barBtnXoaPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             deleteObj();
+        }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        objPhong.ten != txtTen.Text ||
+                        (objPhong.mota == null && !txtMoTa.Text.Equals("")) ||
+                        (objPhong.mota != null && objPhong.mota != txtMoTa.Text) ||
+                        objPhong.loaiphong_id != GUID.From(gridLookUpLoai.EditValue);
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("") ||
+                        gridLookUpLoai.EditValue != null;
+                }
+                else
+                    return working;
+            }
+            catch
+            {
+                return true;
+            }
         }
     }
 }

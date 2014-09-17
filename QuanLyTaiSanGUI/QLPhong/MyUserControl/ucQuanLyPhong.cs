@@ -68,34 +68,41 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-            //load layout
-            layout.load(gridViewPhong);
-            canAdd = Permission.canAdd<Phong>();
-            listVitris = ViTriHienThi.getAll().ToList();
-            _ucTreeViTri.loadData(listVitris);
-            _ucComboBoxViTri.DataSource = listVitris;
-            _ViTriHienTai = _ucTreeViTri.getVitri();
-            listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
-            gridControlPhong.DataSource = listPhong;
-            if (listPhong.Count() == 0)
+            try
             {
-                deleteData();
-                enableEdit(false);
-                enableBar(false);
-            }
-            else
-            {
-                getThongTinPhong(true);
-                enableEdit(false);
-                enableBar(true);
-            }
+                //load layout
+                layout.load(gridViewPhong);
+                canAdd = Permission.canAdd<Phong>();
+                listVitris = ViTriHienThi.getAll().ToList();
+                _ucTreeViTri.loadData(listVitris);
+                _ucComboBoxViTri.DataSource = listVitris;
+                _ViTriHienTai = _ucTreeViTri.getVitri();
+                listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
+                gridControlPhong.DataSource = listPhong;
+                if (listPhong.Count() == 0)
+                {
+                    deleteData();
+                    enableEdit(false);
+                    enableBar(false);
+                }
+                else
+                {
+                    getThongTinPhong(true);
+                    enableEdit(false);
+                    enableBar(true);
+                }
 
-            listNhanVienPT = NhanVienPT.getAll();
-            NhanVienPT NhanVienPTNULL = new NhanVienPT();
-            NhanVienPTNULL.hoten = "[Không có]";
-            NhanVienPTNULL.id = Guid.Empty;
-            listNhanVienPT.Insert(0, NhanVienPTNULL);
-            searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
+                listNhanVienPT = NhanVienPT.getAll();
+                NhanVienPT NhanVienPTNULL = new NhanVienPT();
+                NhanVienPTNULL.hoten = "[Không có]";
+                NhanVienPTNULL.id = Guid.Empty;
+                listNhanVienPT.Insert(0, NhanVienPTNULL);
+                searchLookUpEditNhanVienPT.Properties.DataSource = listNhanVienPT;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
+            }
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 

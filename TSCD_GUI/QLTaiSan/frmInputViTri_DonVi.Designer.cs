@@ -94,6 +94,7 @@
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.txtSoLuong.Size = new System.Drawing.Size(262, 20);
             this.txtSoLuong.TabIndex = 6;
@@ -163,9 +164,9 @@
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltxtDonViTinh.Location = new System.Drawing.Point(361, 67);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
-            this.lbltxtDonViTinh.Size = new System.Drawing.Size(47, 13);
+            this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 14;
-            this.lbltxtDonViTinh.Text = "DonViTinh";
+            this.lbltxtDonViTinh.Text = "[Đơn vị tính]";
             // 
             // lblChungTu
             // 

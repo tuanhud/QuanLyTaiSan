@@ -694,5 +694,50 @@ namespace TSCD_GUI.QLViTri
         {
             deleteObj(node);
         }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("add"))
+                {
+                    return
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("");
+                }
+                else if (function.Equals("edit"))
+                {
+                    if (type.Equals("CoSo"))
+                        return
+                            objCoSo.ten != txtTen.Text ||
+                            objCoSo.mota != txtMoTa.Text;
+                    else if (type.Equals("Dayy"))
+                    {
+                        ViTri _vitri = _ucComboBoxCoSo.ViTri;
+                        return
+                            objDay.ten != txtTen.Text ||
+                            objDay.mota != txtMoTa.Text ||
+                            objDay.coso != _vitri.coso;
+                    }
+                    else if (type.Equals("Tang"))
+                    {
+                        ViTri _vitri = _ucComboBoxDay.ViTri;
+                        return
+                            objTang.ten != txtTen.Text ||
+                            objTang.mota != txtMoTa.Text ||
+                            objTang.day != _vitri.day;
+                    }
+                    else
+                        return true;
+                }
+                else
+                    return working;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
+                return true;
+            }
+        }
     }
 }

@@ -54,7 +54,7 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr>
-                                <td style="width: 120px">Tên sự cố:</td>
+                                <td>Tên sự cố:</td>
                                 <td>
                                     <asp:Label ID="Label_TenSuCo" runat="server"></asp:Label>
                                 </td>

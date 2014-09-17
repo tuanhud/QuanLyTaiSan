@@ -28,6 +28,8 @@ namespace TSCD_GUI.QLTaiSan
         public frmInputViTri_DonVi(CTTaiSan _objCTTaiSan)
         {
             InitializeComponent();
+            ucComboBoxViTri1.NullText = "[Chưa chọn phòng]";
+            ucComboBoxViTri2.NullText = "[Chưa chọn vi trí]";
             objCTTaiSan = _objCTTaiSan;
             loadData();
             setData();
