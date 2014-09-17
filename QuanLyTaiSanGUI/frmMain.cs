@@ -73,14 +73,20 @@ namespace QuanLyTaiSanGUI
 
         private void rotmang(EventArgs e)
         {
-            showConnection("Rớt mạng", false);
+            showConnection("Mất kết nối CSDL", false);
         }
 
         private void init()
         {
             //Hiện tên người dùng
-            if (Global.current_quantrivien_login != null && Global.current_quantrivien_login.hoten!=null)
-                barStaticUser.Caption = Global.current_quantrivien_login.hoten;
+            if (Global.current_quantrivien_login != null)
+            {
+                if (Global.current_quantrivien_login.hoten != null)
+                    barStaticUser.Caption = Global.current_quantrivien_login.hoten;
+                else
+                    barStaticUser.Caption = "[Unknown]";
+            }
+                
 
             //Việt hóa
             DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();

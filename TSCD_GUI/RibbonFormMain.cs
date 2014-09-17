@@ -134,32 +134,44 @@ namespace TSCD_GUI
 
         private void backstageViewTabItemCaiDatCauHinh_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-            if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
-            _ucCauHinh.load_data();
-            _ucCauHinh.Dock = DockStyle.Fill;
-            backstageViewClientControlCaiDatCauHinh.Controls.Add(_ucCauHinh);
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+            if (backstageViewClientControlCaiDatCauHinh.Visible)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+                if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
+                _ucCauHinh.load_data();
+                _ucCauHinh.Dock = DockStyle.Fill;
+                backstageViewClientControlCaiDatCauHinh.Controls.Add(_ucCauHinh);
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+            }
         }
 
         private void backstageViewTabItemGiaoDienVaNgonNgu_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            if (_ucGiaoDienvaNgonNgu == null) _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
-            _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
-            backstageViewClientControlGiaoDienVaNgonNgu.Controls.Add(_ucGiaoDienvaNgonNgu);
+            if (backstageViewClientControlGiaoDienVaNgonNgu.Visible)
+            {
+                if (_ucGiaoDienvaNgonNgu == null) _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
+                _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
+                backstageViewClientControlGiaoDienVaNgonNgu.Controls.Add(_ucGiaoDienvaNgonNgu);
+            }
         }
 
         private void backstageViewTabItemCapNhatPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            if (_ucCapNhatPhanMem == null) _ucCapNhatPhanMem = new ucCapNhatPhanMem();
-            _ucCapNhatPhanMem.Dock = DockStyle.Fill;
-            backstageViewClientControlCapNhatPhanMem.Controls.Add(_ucCapNhatPhanMem);
+            if (backstageViewClientControlCapNhatPhanMem.Visible)
+            {
+                if (_ucCapNhatPhanMem == null) _ucCapNhatPhanMem = new ucCapNhatPhanMem();
+                _ucCapNhatPhanMem.Dock = DockStyle.Fill;
+                backstageViewClientControlCapNhatPhanMem.Controls.Add(_ucCapNhatPhanMem);
+            }
         }
 
         private void backstageViewTabItemThongTinPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            ThongTinPhanMem();
+            if (backstageViewClientControlThongTinPhanMem.Visible)
+            {
+                ThongTinPhanMem();
+            }
         }
 
         private void ThongTinPhanMem()
@@ -186,6 +198,32 @@ namespace TSCD_GUI
         private void backstageViewControl_Hidden(object sender, EventArgs e)
         {
             backstageViewTabItemThongTinPhanMem.Selected = true;
+        }
+
+        private void ribbonMain_SelectedPageChanging(object sender, RibbonPageChangingEventArgs e)
+        {
+            try
+            {
+                if (drawEnd)
+                {
+                    bool working = false;
+                    if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageViTri)))
+                    {
+                        working = _ucQuanLyViTri.checkworking();
+                    }
+                    if (working)
+                    {
+                        if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn chuyển sang chức năng khác?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(this.Name + "->ribbonMain_SelectedPageChanging: " + ex.Message);
+            }
         }
     }
 }
