@@ -121,9 +121,9 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.panelControl_Server);
             this.groupControl1.Controls.Add(this.panelControl_Client);
             this.groupControl1.Controls.Add(this.cbUseDBCache);
+            this.groupControl1.Controls.Add(this.panelControl_Server);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
@@ -297,16 +297,17 @@
             this.panelControl_Client.Controls.Add(this.labelControl9);
             this.panelControl_Client.Controls.Add(this.txtClientPassword);
             this.panelControl_Client.Controls.Add(this.txtClientPort);
+            this.panelControl_Client.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl_Client.Enabled = false;
-            this.panelControl_Client.Location = new System.Drawing.Point(3, 191);
+            this.panelControl_Client.Location = new System.Drawing.Point(2, 188);
             this.panelControl_Client.Name = "panelControl_Client";
-            this.panelControl_Client.Size = new System.Drawing.Size(416, 168);
+            this.panelControl_Client.Size = new System.Drawing.Size(416, 174);
             this.panelControl_Client.TabIndex = 17;
             // 
             // btnClientDropDB
             // 
             this.btnClientDropDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClientDropDB.Location = new System.Drawing.Point(311, 102);
+            this.btnClientDropDB.Location = new System.Drawing.Point(311, 108);
             this.btnClientDropDB.Name = "btnClientDropDB";
             this.btnClientDropDB.Size = new System.Drawing.Size(89, 23);
             this.btnClientDropDB.TabIndex = 20;
@@ -504,7 +505,7 @@
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(373, 93);
+            this.groupControl4.Size = new System.Drawing.Size(374, 93);
             this.groupControl4.TabIndex = 134;
             this.groupControl4.Text = "Dành cho nhà phát triển";
             // 
