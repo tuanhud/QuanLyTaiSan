@@ -257,22 +257,23 @@ namespace QuanLyTaiSan.Entities
             //UNDEPENDENT (bản thân không có bất kỳ FK nào)
             //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
             "__MigrationHistory",//UNDEPENDENT
-
+            "SETTINGS",//UNDEPENDENT
+            "LOGHETHONGS",//UNDEPENDENT
+            "GROUPS",//UNDEPENDENT
+                "QUANTRIVIENS",
+            "NHANVIENPTS",//UNDEPENDENT
+            "TINHTRANGS",//UNDEPENDENT
             //BEGIN PTB
             "COSOS",//UNDEPENDENT
                 "DAYS",
                     "TANGS",
                         "VITRIS",
                             "PHONGS",
-            "NHANVIENPTS",//UNDEPENDENT
-            
-            "TINHTRANGS",//UNDEPENDENT
             "LOAITHIETBIS",//UNDEPENDENT
                 "THIETBIS",
                     "CTTHIETBIS",
                     
-            "GROUPS",//UNDEPENDENT
-                "QUANTRIVIENS",       
+                
             "PERMISSIONS",//UNDEPENDENT
                 "GROUP_PERMISSION",
                 "COSO_PERMISSION",
@@ -285,9 +286,6 @@ namespace QuanLyTaiSan.Entities
 
             "SUCOPHONGS",
                 "LOGSUCOPHONGS",
-                    
-            "SETTINGS",//UNDEPENDENT
-            "LOGHETHONGS",//UNDEPENDENT
             
             "HINHANHS",//UNDEPENDENT
                 "COSO_HINHANH",

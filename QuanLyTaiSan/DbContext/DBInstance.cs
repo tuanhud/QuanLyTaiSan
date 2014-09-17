@@ -17,61 +17,73 @@ namespace QuanLyTaiSan.Entities
     public class DBInstance
     {
         #region Event 
+        private static Boolean dbConnectionON = false;
         public delegate void DBConnectionChanged(EventArgs e);
         public static event DBConnectionChanged onDBConnectionDown;
         public static event DBConnectionChanged onDBConnectionUp;
 
         #endregion
-
+        /// <summary>
+        /// winform only
+        /// </summary>
         private static OurDBContext db = null;
-        public static OurDBContext DB
+        internal static OurDBContext DB
         {
             get
             {
-                if (SHARED.Global.WEB_MODE)
+                try
                 {
-                    OurDBContext tmp = HttpContext.Current.Items["db_context"] as OurDBContext;
-                    if (tmp == null)
+                    if (SHARED.Global.WEB_MODE)
                     {
-                        tmp = new OurDBContext();
-                        HttpContext.Current.Items["db_context"] = tmp;
+                        OurDBContext tmp = HttpContext.Current.Items["db_context"] as OurDBContext;
+                        if (tmp == null)
+                        {
+                            tmp = new OurDBContext();
+                            HttpContext.Current.Items["db_context"] = tmp;
+                        }
+                        return tmp;
                     }
-                    return tmp;
-                }
-                else
-                {
-                    if (db == null)
+                    else
                     {
-                        if (SHARED.Global.USE_APP_CONFIG)
+                        if (db == null)
                         {
-                            db = new OurDBContext();
+                            if (SHARED.Global.USE_APP_CONFIG)
+                            {
+                                db = new OurDBContext();
+                            }
+                            else
+                            {
+                                db = new OurDBContext(Global.working_database.get_connection_string());
+                            }
                         }
-                        else
-                        {
-                            db = new OurDBContext(Global.working_database.get_connection_string());
-                        }
-                    }
 
-                    try
-                    {
-                        db.Set<CoSo>().AsQueryable().FirstOrDefault();
-                        //Raise event
-                        if (onDBConnectionUp != null)
+                        try
                         {
-                            onDBConnectionUp(new EventArgs());
+                            db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                            //Raise event
+                            if (!dbConnectionON && onDBConnectionUp != null)
+                            {
+                                onDBConnectionUp(new EventArgs());
+                            }
+                            dbConnectionON = true;
                         }
-                    }
-                    catch (Exception)
-                    {
-                        //DB CONNECTION FAIl
-                        Debug.WriteLine("=========DB CONNECTION FAIL==========");
-                        //Raise event
-                        if (onDBConnectionDown != null)
+                        catch (Exception)
                         {
-                            onDBConnectionDown(new EventArgs());
+                            //DB CONNECTION FAIL
+                            Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                            //Raise event
+                            if (dbConnectionON && onDBConnectionDown != null)
+                            {
+                                onDBConnectionDown(new EventArgs());
+                            }
+                            dbConnectionON = false;
                         }
+                        return db;
                     }
-                    return db;
+                }catch(Exception t)
+                {
+                    Debug.WriteLine(t);
+                    return new OurDBContext();
                 }
             }
         }
@@ -118,7 +130,7 @@ namespace QuanLyTaiSan.Entities
                             int re = DB.SaveChanges();
                             dbTrans.Commit();
                             //sync when data done
-                            if (re > 0 && Global.working_database.use_db_cache && !SHARED.Global.WEB_MODE)
+                            if (re > 0 && !SHARED.Global.WEB_MODE && Global.working_database.use_db_cache)
                             {
                                 Thread thread = new Thread(new ThreadStart(sync));
                                 thread.SetApartmentState(ApartmentState.STA);
@@ -144,12 +156,13 @@ namespace QuanLyTaiSan.Entities
                         }
                     }
                 }
+                return -1;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+                return -1;
             }
-            return -1;
         }
     }
 }

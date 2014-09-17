@@ -32,7 +32,6 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhanQuyen = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhanQuyen = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhoten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colusername = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -116,12 +115,11 @@
             // gridViewPhanQuyen
             // 
             this.gridViewPhanQuyen.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colid,
-            this.colhoten,
             this.colusername,
+            this.colhoten,
+            this.colten_group,
             this.coldate_create,
-            this.coldate_modified,
-            this.colten_group});
+            this.coldate_modified});
             this.gridViewPhanQuyen.GridControl = this.gridControlPhanQuyen;
             this.gridViewPhanQuyen.GroupCount = 1;
             this.gridViewPhanQuyen.Name = "gridViewPhanQuyen";
@@ -134,14 +132,6 @@
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colten_group, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridViewPhanQuyen.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhanQuyen_FocusedRowChanged);
             // 
-            // colid
-            // 
-            this.colid.Caption = "ID";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            this.colid.Visible = true;
-            this.colid.VisibleIndex = 0;
-            // 
             // colhoten
             // 
             this.colhoten.Caption = "Họ tên";
@@ -149,6 +139,7 @@
             this.colhoten.Name = "colhoten";
             this.colhoten.Visible = true;
             this.colhoten.VisibleIndex = 1;
+            this.colhoten.Width = 182;
             // 
             // colusername
             // 
@@ -156,7 +147,8 @@
             this.colusername.FieldName = "username";
             this.colusername.Name = "colusername";
             this.colusername.Visible = true;
-            this.colusername.VisibleIndex = 2;
+            this.colusername.VisibleIndex = 0;
+            this.colusername.Width = 149;
             // 
             // coldate_create
             // 
@@ -164,7 +156,8 @@
             this.coldate_create.FieldName = "date_create";
             this.coldate_create.Name = "coldate_create";
             this.coldate_create.Visible = true;
-            this.coldate_create.VisibleIndex = 3;
+            this.coldate_create.VisibleIndex = 2;
+            this.coldate_create.Width = 182;
             // 
             // coldate_modified
             // 
@@ -172,11 +165,12 @@
             this.coldate_modified.FieldName = "date_modified";
             this.coldate_modified.Name = "coldate_modified";
             this.coldate_modified.Visible = true;
-            this.coldate_modified.VisibleIndex = 4;
+            this.coldate_modified.VisibleIndex = 3;
+            this.coldate_modified.Width = 183;
             // 
             // colten_group
             // 
-            this.colten_group.Caption = "Nhóm quản trị";
+            this.colten_group.Caption = "Nhóm quyền";
             this.colten_group.FieldName = "ten_group";
             this.colten_group.Name = "colten_group";
             this.colten_group.Visible = true;
@@ -523,7 +517,6 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl gridControlPhanQuyen;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewPhanQuyen;
-        private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colhoten;
         private DevExpress.XtraGrid.Columns.GridColumn colusername;
         private DevExpress.XtraGrid.Columns.GridColumn coldate_create;

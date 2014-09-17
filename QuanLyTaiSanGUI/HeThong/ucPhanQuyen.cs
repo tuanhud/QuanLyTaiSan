@@ -21,7 +21,7 @@ namespace QuanLyTaiSanGUI.HeThong
     public partial class ucPhanQuyen : UserControl, _ourUcInterface
     {
         private List<QuanTriVienFilter> listobjQuanTriVienFilter = null;
-        private QuanTriVienFilter objQuanTriVienFilter = null;
+        private QuanTriVien objQuanTriVien = null;
         private ucPhanQuyen_Control _ucPhanQuyen_Control = new ucPhanQuyen_Control();
         private ucPhanQuyen_Group _ucPhanQuyen_Group = new ucPhanQuyen_Group();
         private String function = "";
@@ -65,18 +65,12 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             try
             {
-                ////reload old object, discard changes
-                //if (objQuanTriVienFilter != null && objQuanTriVienFilter.quantrivien != null)
-                //{
-                //    objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
-                //}
-
                 if (gridViewPhanQuyen.GetFocusedRow() != null)
                 {
                     groupControl1.Text = "Thông tin";
-                    objQuanTriVienFilter = (QuanTriVienFilter)gridViewPhanQuyen.GetFocusedRow();
+                    objQuanTriVien = ((QuanTriVienFilter)gridViewPhanQuyen.GetFocusedRow()).quantrivien;
                     //Truyen qua cho View Thong Tin
-                    setThongTinChiTiet(objQuanTriVienFilter.quantrivien);
+                    setThongTinChiTiet(objQuanTriVien);
                 }
             }
             catch (Exception ex)
@@ -125,7 +119,7 @@ namespace QuanLyTaiSanGUI.HeThong
             txtXacNhanMK.Properties.ReadOnly = !_enable;
             dateCreated.Properties.ReadOnly = !_enable;
             //Không thể tự mình đổi group
-            lookUpEdit_group.Properties.ReadOnly = !_enable || (Global.current_quantrivien_login != null && objQuanTriVienFilter!=null && objQuanTriVienFilter.quantrivien!=null && Global.current_quantrivien_login.id == objQuanTriVienFilter.quantrivien.id && !function.Equals("add"));
+            lookUpEdit_group.Properties.ReadOnly = !_enable || (Global.current_quantrivien_login != null && objQuanTriVien!=null && objQuanTriVien!=null && Global.current_quantrivien_login.id == objQuanTriVien.id && !function.Equals("add"));
             memoEdit_mota.Properties.ReadOnly = !_enable;
             barButtonThemQTV.Enabled = !_enable && canAdd;
             enableButton(!_enable);
@@ -200,9 +194,9 @@ namespace QuanLyTaiSanGUI.HeThong
                 gridControlPhanQuyen.DataSource = listobjQuanTriVienFilter = QuanTriVienFilter.getAll();
                 gridViewPhanQuyen.ExpandAllGroups();
                 reloadGroup();
-                if (objQuanTriVienFilter != null)
+                if (objQuanTriVien != null)
                 {
-                    setThongTinChiTiet(objQuanTriVienFilter.quantrivien);
+                    setThongTinChiTiet(objQuanTriVien);
                 }
             }
             catch (Exception ex)
@@ -268,15 +262,33 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             try
             {
+                //lear previos error
+                dxErrorProvider1.ClearErrors();
+                //load to object
+                if (function.Equals("add"))
+                {
+                    objQuanTriVien = new QuanTriVien();
+                }
+                objQuanTriVien.subId = txtMaQuanTriVien.Text;
+                objQuanTriVien.username = txtTaiKhoanQuanTriVien.Text;
+                if (objQuanTriVien.username.Equals(""))
+                {
+                    dxErrorProvider1.SetError(txtTaiKhoanQuanTriVien, "Tài khoản không được rỗng");
+                    return;
+                }
+                objQuanTriVien.date_create = (DateTime)dateCreated.EditValue;
+                objQuanTriVien.group = lookUpEdit_group.GetSelectedDataRow() as Group;
+                objQuanTriVien.hoten = txtTenQuanTriVien.Text;
+                if (objQuanTriVien.hoten.Equals(""))
+                {
+                    dxErrorProvider1.SetError(txtTenQuanTriVien, "Họ tên không được rỗng");
+                    return;
+                }
+                objQuanTriVien.mota = memoEdit_mota.Text;
+                
+                //call function
                 if (function.Equals("edit"))
                 {
-                    //objQuanTriVienFilter.quantrivien = objQuanTriVienFilter.quantrivien.reload();
-                    objQuanTriVienFilter.quantrivien.subId = txtMaQuanTriVien.Text;
-                    objQuanTriVienFilter.quantrivien.username = txtTaiKhoanQuanTriVien.Text;
-                    objQuanTriVienFilter.quantrivien.date_create = (DateTime)dateCreated.EditValue;
-                    objQuanTriVienFilter.quantrivien.group = lookUpEdit_group.GetSelectedDataRow() as Group;
-                    objQuanTriVienFilter.quantrivien.hoten = txtTenQuanTriVien.Text;
-                    objQuanTriVienFilter.quantrivien.mota = memoEdit_mota.Text;
                     //try to change pass first
                     if (
                         txtMatKhauQuanTriVien.Text.Equals("")
@@ -294,76 +306,55 @@ namespace QuanLyTaiSanGUI.HeThong
                     }
                     else
                     {
-                        objQuanTriVienFilter.quantrivien.changePassword(txtMatKhauQuanTriVien.Text);
+                        objQuanTriVien.changePassword(txtMatKhauQuanTriVien.Text);
                     }
 
                     //call update
-                    int re = objQuanTriVienFilter.quantrivien.update();
+                    int re = objQuanTriVien.update();
                     if (re > 0)
                     {
                         if (DBInstance.commit() > 0)
                         {
-                            MessageBox.Show("Sửa thành công!");
+                            XtraMessageBox.Show("Sửa thành công!");
+                            dxErrorProvider1.ClearErrors();
                             reLoad();
                             return;
                         }
                     }
-                    MessageBox.Show("Sửa KHÔNG thành công!");
-                    showValidationError();
+                    else if (re == -7)
+                    {
+                        dxErrorProvider1.SetError(txtTaiKhoanQuanTriVien,"Trùng tài khoản đã có");
+                        return;
+                    }
+                    XtraMessageBox.Show("Sửa KHÔNG thành công!");
                     return;
                 }
                 else if (function.Equals("add"))
                 {
-                    QuanTriVien obj = new QuanTriVien();
-                    obj.date_create = (DateTime)dateCreated.EditValue;
-                    obj.group = lookUpEdit_group.GetSelectedDataRow() as Group;
-                    obj.hoten = txtTenQuanTriVien.Text;
-                    obj.mota = memoEdit_mota.Text;
-                    obj.subId = txtMaQuanTriVien.Text;
-                    obj.username = txtTaiKhoanQuanTriVien.Text;
-                    if (!txtMatKhauQuanTriVien.Text.Equals(txtXacNhanMK.Text))
-                    {
-                        dxErrorProvider1.SetError(txtMatKhauQuanTriVien, "Mật khẩu không khớp!");
-                        dxErrorProvider1.SetError(txtXacNhanMK, "Mật khẩu không khớp!");
-                        return;
-                    }
-                    obj.hashPassword(txtMatKhauQuanTriVien.Text);
-                    int re = obj.add();
+                    objQuanTriVien.hashPassword(txtMatKhauQuanTriVien.Text);
+                    int re = objQuanTriVien.add();
                     if (re > 0)
                     {
                         if (DBInstance.commit() > 0)
                         {
-                            MessageBox.Show("Thêm thành công!");
+                            XtraMessageBox.Show("Thêm thành công!");
                             //reload
                             reLoad();
                             return;
                         }
                     }
-                    MessageBox.Show("Có lỗi xảy ra!");
-                    showValidationError();
+                    else if (re == -7)
+                    {
+                        dxErrorProvider1.SetError(txtTaiKhoanQuanTriVien, "Trùng tài khoản đã có");
+                        return;
+                    }
+                    XtraMessageBox.Show("Có lỗi xảy ra!");
                     return;
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->btnOK_Click: " + ex.Message);
-            }
-        }
-        /// <summary>
-        /// hiển thị thông báo lỗi
-        /// </summary>
-        private void showValidationError()
-        {
-            foreach (var item in DBInstance.DB.ERRORs)
-            {
-                if (item.PropertyName.Equals("username"))
-                {
-                    dxErrorProvider1.SetError(txtTaiKhoanQuanTriVien,item.ErrorMessage);
-                }
-                if (item.PropertyName.Equals("hoten"))
-                {
-                    dxErrorProvider1.SetError(txtTenQuanTriVien, item.ErrorMessage);
-                }
             }
         }
         private void barButtonSuaQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -374,7 +365,7 @@ namespace QuanLyTaiSanGUI.HeThong
         private void btnHuy_Click(object sender, EventArgs e)
         {
             //enableEdit(false, "");
-            setThongTinChiTiet(objQuanTriVienFilter.quantrivien);
+            setThongTinChiTiet(objQuanTriVien);
         }
 
         private void barButtonThemQTV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -388,13 +379,13 @@ namespace QuanLyTaiSanGUI.HeThong
             {
                 return;
             }
-            if (Global.current_quantrivien_login.id == objQuanTriVienFilter.quantrivien.id)
+            if (Global.current_quantrivien_login.id == objQuanTriVien.id)
             {
                 MessageBox.Show("Không thể xóa bản thân!");
                 return;
             }
 
-            int re = objQuanTriVienFilter.quantrivien.delete();
+            int re = objQuanTriVien.delete();
             if (re > 0)
             {
                 if (DBInstance.commit() > 0)
@@ -432,11 +423,11 @@ namespace QuanLyTaiSanGUI.HeThong
                     if (function.Equals("edit"))
                     {
                         return
-                            objQuanTriVienFilter.quantrivien.subId != txtMaQuanTriVien.Text ||
-                            objQuanTriVienFilter.quantrivien.hoten != txtTenQuanTriVien.Text ||
-                            objQuanTriVienFilter.quantrivien.username != txtTaiKhoanQuanTriVien.Text ||
-                            (!txtMatKhauQuanTriVien.Text.Equals("") && objQuanTriVienFilter.quantrivien.password != txtMatKhauQuanTriVien.Text) ||
-                            objQuanTriVienFilter.quantrivien.mota != memoEdit_mota.Text;
+                            objQuanTriVien.subId != txtMaQuanTriVien.Text ||
+                            objQuanTriVien.hoten != txtTenQuanTriVien.Text ||
+                            objQuanTriVien.username != txtTaiKhoanQuanTriVien.Text ||
+                            (!txtMatKhauQuanTriVien.Text.Equals("") && objQuanTriVien.password != txtMatKhauQuanTriVien.Text) ||
+                            objQuanTriVien.mota != memoEdit_mota.Text;
                     }
                     else if (function.Equals("add"))
                     {

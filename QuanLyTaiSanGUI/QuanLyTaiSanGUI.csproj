@@ -247,13 +247,6 @@
     <Compile Include="HeThong\ucPhanQuyen_Group.Designer.cs">
       <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\ucSettingInterface.cs" />
-    <Compile Include="HeThong\ucThongTinQuanTriVien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HeThong\ucThongTinQuanTriVien.Designer.cs">
-      <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="Libraries\CheckedComboBoxEditHelper.cs" />
     <Compile Include="Libraries\ExcelDataBaseHelper.cs" />
     <Compile Include="MyUC\MyGridLocalizer.cs" />
@@ -497,9 +490,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen_Group.resx">
       <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HeThong\ucThongTinQuanTriVien.resx">
-      <DependentUpon>ucThongTinQuanTriVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucThemSuaXoaButton.resx">
       <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>

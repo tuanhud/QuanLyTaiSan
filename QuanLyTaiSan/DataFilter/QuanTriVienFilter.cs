@@ -29,22 +29,6 @@ namespace QuanLyTaiSan.DataFilter
         #region Nghiệp vụ
         public static List<QuanTriVienFilter> getAll()
         {
-            //InitDb();
-            //List<QuanTriVienFilter> re =
-            //    (from e in db.QUANTRIVIENS
-            //    join t in db.GROUPS on e.@group equals t
-            //    select new QuanTriVienFilter
-            //    {
-            //        id = e.id,
-            //        hoten = e.hoten,
-            //        username = e.username,
-            //        date_create = (DateTime)e.date_create == null ? DateTime.Now : (DateTime)e.date_create,
-            //        date_modified = (DateTime)e.date_modified == null ? DateTime.Now : (DateTime)e.date_modified,
-            //        ten_group = t==null?"":t.ten,
-            //        @group = t,
-            //        quantrivien = e
-            //    }).ToList();
-
             List<QuanTriVienFilter> re = QuanTriVien.getQuery().Select(
                 c =>
                  new QuanTriVienFilter

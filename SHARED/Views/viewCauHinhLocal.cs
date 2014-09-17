@@ -224,7 +224,7 @@ namespace SHARED.Views
 
         private void cbUseDBCache_CheckedChanged(object sender, EventArgs e)
         {
-            panelControl_Client.Enabled = (sender as CheckEdit).Checked;
+            panelControl_Client.Enabled = groupControl_sync.Enabled = (sender as CheckEdit).Checked;
         }
 
         private void cbAutoSync_CheckedChanged(object sender, EventArgs e)
