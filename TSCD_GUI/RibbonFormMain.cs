@@ -211,6 +211,18 @@ namespace TSCD_GUI
                     {
                         working = _ucQuanLyViTri.checkworking();
                     }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhong)))
+                    {
+                        working = _ucQuanLyPhong.checkworking();
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi)))
+                    {
+                        working = _ucQuanLyDonVi.checkworking();
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLoaiTS)))
+                    {
+                        working = _ucQuanLyLoaiTS.checkworking();
+                    }
                     if (working)
                     {
                         if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn chuyển sang chức năng khác?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)

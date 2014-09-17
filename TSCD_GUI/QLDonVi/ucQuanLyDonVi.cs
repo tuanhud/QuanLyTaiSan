@@ -379,5 +379,36 @@ namespace TSCD_GUI.QLDonVi
             frm.ShowDialog();
             loadLoaiDonVi();
         }
+
+        public bool checkworking()
+        {
+            try
+            {
+                if (function.Equals("edit"))
+                {
+                    return
+                        (objDonVi.subId == null && !txtMa.Text.Equals("")) ||
+                        (objDonVi.subId != null && objDonVi.subId != txtMa.Text) ||
+                        objDonVi.ten != txtTen.Text ||
+                        (objDonVi.mota == null && !txtMoTa.Text.Equals("")) ||
+                        (objDonVi.mota != null && objDonVi.mota != txtMoTa.Text) ||
+                        objDonVi.loaidonvi_id != GUID.From(gridLookUpLoai.EditValue);
+                }
+                else if (function.Equals("add"))
+                {
+                    return
+                        !txtMa.Text.Equals("") ||
+                        !txtTen.Text.Equals("") ||
+                        !txtMoTa.Text.Equals("") ||
+                        gridLookUpLoai.EditValue != null;
+                }
+                else
+                    return working;
+            }
+            catch
+            {
+                return true;
+            }
+        }
     }
 }

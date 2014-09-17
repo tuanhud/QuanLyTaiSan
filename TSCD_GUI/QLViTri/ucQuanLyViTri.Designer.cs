@@ -60,6 +60,7 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.lblThuoc = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -233,7 +234,7 @@
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(477, 375);
+            this.treeListViTri.Size = new System.Drawing.Size(478, 375);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -262,6 +263,7 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
+            this.groupControlInfo.Controls.Add(this.lblThuoc);
             this.groupControlInfo.Controls.Add(this.panelControlViTri);
             this.groupControlInfo.Controls.Add(this.btnHuy);
             this.groupControlInfo.Controls.Add(this.btnOK);
@@ -381,6 +383,14 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // lblThuoc
+            // 
+            this.lblThuoc.Location = new System.Drawing.Point(6, 57);
+            this.lblThuoc.Name = "lblThuoc";
+            this.lblThuoc.Size = new System.Drawing.Size(33, 13);
+            this.lblThuoc.TabIndex = 12;
+            this.lblThuoc.Text = "Thuộc:";
+            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,5 +448,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colloai;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraEditors.PanelControl panelControlViTri;
+        private DevExpress.XtraEditors.LabelControl lblThuoc;
     }
 }
