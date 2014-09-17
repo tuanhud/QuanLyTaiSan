@@ -171,7 +171,7 @@
             // 
             this.xtraTabPage_quyenCoDinh.Controls.Add(this.panelControl6);
             this.xtraTabPage_quyenCoDinh.Name = "xtraTabPage_quyenCoDinh";
-            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(753, 294);
+            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(754, 297);
             this.xtraTabPage_quyenCoDinh.Text = "Quyền cố định";
             // 
             // panelControl6
@@ -181,7 +181,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(753, 294);
+            this.panelControl6.Size = new System.Drawing.Size(754, 297);
             this.panelControl6.TabIndex = 0;
             // 
             // listBoxControl_quyenCoDinh
@@ -189,7 +189,7 @@
             this.listBoxControl_quyenCoDinh.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBoxControl_quyenCoDinh.Location = new System.Drawing.Point(2, 2);
             this.listBoxControl_quyenCoDinh.Name = "listBoxControl_quyenCoDinh";
-            this.listBoxControl_quyenCoDinh.Size = new System.Drawing.Size(296, 290);
+            this.listBoxControl_quyenCoDinh.Size = new System.Drawing.Size(296, 293);
             this.listBoxControl_quyenCoDinh.TabIndex = 14;
             // 
             // btnThemQuyenCoDinh
@@ -206,7 +206,7 @@
             this.xtraTabPage_quyenObject.Controls.Add(this.xtraTabControl_doiTuongCuThe);
             this.xtraTabPage_quyenObject.Controls.Add(this.groupControl2);
             this.xtraTabPage_quyenObject.Name = "xtraTabPage_quyenObject";
-            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(753, 294);
+            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(754, 297);
             this.xtraTabPage_quyenObject.Text = "Quyền trên đối tượng cụ thể";
             // 
             // xtraTabControl_doiTuongCuThe
@@ -215,7 +215,7 @@
             this.xtraTabControl_doiTuongCuThe.Location = new System.Drawing.Point(134, 0);
             this.xtraTabControl_doiTuongCuThe.Name = "xtraTabControl_doiTuongCuThe";
             this.xtraTabControl_doiTuongCuThe.SelectedTabPage = this.xtraTabPage_CoSo;
-            this.xtraTabControl_doiTuongCuThe.Size = new System.Drawing.Size(619, 294);
+            this.xtraTabControl_doiTuongCuThe.Size = new System.Drawing.Size(620, 297);
             this.xtraTabControl_doiTuongCuThe.TabIndex = 8;
             this.xtraTabControl_doiTuongCuThe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_CoSo,
@@ -228,7 +228,7 @@
             this.xtraTabPage_CoSo.Controls.Add(this.gridControl_CoSo);
             this.xtraTabPage_CoSo.Controls.Add(this.panelControl1);
             this.xtraTabPage_CoSo.Name = "xtraTabPage_CoSo";
-            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(613, 266);
+            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(615, 272);
             this.xtraTabPage_CoSo.Text = "Cơ sở";
             // 
             // gridControl_CoSo
@@ -237,7 +237,7 @@
             this.gridControl_CoSo.Location = new System.Drawing.Point(0, 0);
             this.gridControl_CoSo.MainView = this.gridView_CoSo;
             this.gridControl_CoSo.Name = "gridControl_CoSo";
-            this.gridControl_CoSo.Size = new System.Drawing.Size(527, 266);
+            this.gridControl_CoSo.Size = new System.Drawing.Size(529, 272);
             this.gridControl_CoSo.TabIndex = 0;
             this.gridControl_CoSo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_CoSo});
@@ -248,6 +248,9 @@
             this.ten});
             this.gridView_CoSo.GridControl = this.gridControl_CoSo;
             this.gridView_CoSo.Name = "gridView_CoSo";
+            this.gridView_CoSo.OptionsBehavior.Editable = false;
+            this.gridView_CoSo.OptionsBehavior.ReadOnly = true;
+            this.gridView_CoSo.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
             // ten
             // 
@@ -261,9 +264,9 @@
             // 
             this.panelControl1.Controls.Add(this.btnThemQuyenCoSo);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl1.Location = new System.Drawing.Point(527, 0);
+            this.panelControl1.Location = new System.Drawing.Point(529, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(86, 266);
+            this.panelControl1.Size = new System.Drawing.Size(86, 272);
             this.panelControl1.TabIndex = 8;
             // 
             // btnThemQuyenCoSo
@@ -280,7 +283,7 @@
             this.xtraTabPage_Day.Controls.Add(this.gridControl_Day);
             this.xtraTabPage_Day.Controls.Add(this.panelControl2);
             this.xtraTabPage_Day.Name = "xtraTabPage_Day";
-            this.xtraTabPage_Day.Size = new System.Drawing.Size(613, 266);
+            this.xtraTabPage_Day.Size = new System.Drawing.Size(615, 272);
             this.xtraTabPage_Day.Text = "Dãy";
             // 
             // gridControl_Day
@@ -289,7 +292,7 @@
             this.gridControl_Day.Location = new System.Drawing.Point(0, 0);
             this.gridControl_Day.MainView = this.gridView_Day;
             this.gridControl_Day.Name = "gridControl_Day";
-            this.gridControl_Day.Size = new System.Drawing.Size(527, 266);
+            this.gridControl_Day.Size = new System.Drawing.Size(529, 272);
             this.gridControl_Day.TabIndex = 8;
             this.gridControl_Day.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Day});
@@ -302,6 +305,10 @@
             this.gridView_Day.GridControl = this.gridControl_Day;
             this.gridView_Day.GroupCount = 1;
             this.gridView_Day.Name = "gridView_Day";
+            this.gridView_Day.OptionsBehavior.Editable = false;
+            this.gridView_Day.OptionsBehavior.ReadOnly = true;
+            this.gridView_Day.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView_Day.OptionsView.ShowGroupPanel = false;
             this.gridView_Day.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn5, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
@@ -325,9 +332,9 @@
             // 
             this.panelControl2.Controls.Add(this.btnThemQuyenDay);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl2.Location = new System.Drawing.Point(527, 0);
+            this.panelControl2.Location = new System.Drawing.Point(529, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(86, 266);
+            this.panelControl2.Size = new System.Drawing.Size(86, 272);
             this.panelControl2.TabIndex = 10;
             // 
             // btnThemQuyenDay
@@ -344,7 +351,7 @@
             this.xtraTabPage_Tầng.Controls.Add(this.gridControl_Tang);
             this.xtraTabPage_Tầng.Controls.Add(this.panelControl3);
             this.xtraTabPage_Tầng.Name = "xtraTabPage_Tầng";
-            this.xtraTabPage_Tầng.Size = new System.Drawing.Size(613, 266);
+            this.xtraTabPage_Tầng.Size = new System.Drawing.Size(615, 272);
             this.xtraTabPage_Tầng.Text = "Tầng";
             // 
             // gridControl_Tang
@@ -353,7 +360,7 @@
             this.gridControl_Tang.Location = new System.Drawing.Point(0, 0);
             this.gridControl_Tang.MainView = this.gridView_Tang;
             this.gridControl_Tang.Name = "gridControl_Tang";
-            this.gridControl_Tang.Size = new System.Drawing.Size(527, 266);
+            this.gridControl_Tang.Size = new System.Drawing.Size(529, 272);
             this.gridControl_Tang.TabIndex = 8;
             this.gridControl_Tang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Tang});
@@ -367,6 +374,10 @@
             this.gridView_Tang.GridControl = this.gridControl_Tang;
             this.gridView_Tang.GroupCount = 2;
             this.gridView_Tang.Name = "gridView_Tang";
+            this.gridView_Tang.OptionsBehavior.Editable = false;
+            this.gridView_Tang.OptionsBehavior.ReadOnly = true;
+            this.gridView_Tang.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView_Tang.OptionsView.ShowGroupPanel = false;
             this.gridView_Tang.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn10, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn9, DevExpress.Data.ColumnSortOrder.Ascending)});
@@ -399,9 +410,9 @@
             // 
             this.panelControl3.Controls.Add(this.btnThemQuyenTang);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl3.Location = new System.Drawing.Point(527, 0);
+            this.panelControl3.Location = new System.Drawing.Point(529, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(86, 266);
+            this.panelControl3.Size = new System.Drawing.Size(86, 272);
             this.panelControl3.TabIndex = 10;
             // 
             // btnThemQuyenTang
@@ -418,7 +429,7 @@
             this.xtraTabPage_Phong.Controls.Add(this.gridControl_Phong);
             this.xtraTabPage_Phong.Controls.Add(this.panelControl4);
             this.xtraTabPage_Phong.Name = "xtraTabPage_Phong";
-            this.xtraTabPage_Phong.Size = new System.Drawing.Size(613, 266);
+            this.xtraTabPage_Phong.Size = new System.Drawing.Size(615, 272);
             this.xtraTabPage_Phong.Text = "Phòng";
             // 
             // gridControl_Phong
@@ -427,7 +438,7 @@
             this.gridControl_Phong.Location = new System.Drawing.Point(0, 0);
             this.gridControl_Phong.MainView = this.gridView_Phong;
             this.gridControl_Phong.Name = "gridControl_Phong";
-            this.gridControl_Phong.Size = new System.Drawing.Size(527, 266);
+            this.gridControl_Phong.Size = new System.Drawing.Size(529, 272);
             this.gridControl_Phong.TabIndex = 8;
             this.gridControl_Phong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Phong});
@@ -442,6 +453,10 @@
             this.gridView_Phong.GridControl = this.gridControl_Phong;
             this.gridView_Phong.GroupCount = 3;
             this.gridView_Phong.Name = "gridView_Phong";
+            this.gridView_Phong.OptionsBehavior.Editable = false;
+            this.gridView_Phong.OptionsBehavior.ReadOnly = true;
+            this.gridView_Phong.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView_Phong.OptionsView.ShowGroupPanel = false;
             this.gridView_Phong.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn7, DevExpress.Data.ColumnSortOrder.Ascending),
@@ -484,9 +499,9 @@
             // 
             this.panelControl4.Controls.Add(this.btnThemQuyenPhong);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl4.Location = new System.Drawing.Point(527, 0);
+            this.panelControl4.Location = new System.Drawing.Point(529, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(86, 266);
+            this.panelControl4.Size = new System.Drawing.Size(86, 272);
             this.panelControl4.TabIndex = 10;
             // 
             // btnThemQuyenPhong
@@ -509,7 +524,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(134, 294);
+            this.groupControl2.Size = new System.Drawing.Size(134, 297);
             this.groupControl2.TabIndex = 9;
             this.groupControl2.Text = "Tùy chọn quyền";
             // 
@@ -568,7 +583,7 @@
             this.xtraTabPage_quyenHangMuc.Controls.Add(this.panelControl5);
             this.xtraTabPage_quyenHangMuc.Controls.Add(this.groupControl3);
             this.xtraTabPage_quyenHangMuc.Name = "xtraTabPage_quyenHangMuc";
-            this.xtraTabPage_quyenHangMuc.Size = new System.Drawing.Size(753, 294);
+            this.xtraTabPage_quyenHangMuc.Size = new System.Drawing.Size(754, 297);
             this.xtraTabPage_quyenHangMuc.Text = "Quyền trên hạng mục";
             // 
             // listBoxControl_quyenHangMuc
@@ -576,16 +591,16 @@
             this.listBoxControl_quyenHangMuc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxControl_quyenHangMuc.Location = new System.Drawing.Point(134, 0);
             this.listBoxControl_quyenHangMuc.Name = "listBoxControl_quyenHangMuc";
-            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(297, 294);
+            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(298, 297);
             this.listBoxControl_quyenHangMuc.TabIndex = 11;
             // 
             // panelControl5
             // 
             this.panelControl5.Controls.Add(this.btnThemQuyenHangMuc);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl5.Location = new System.Drawing.Point(431, 0);
+            this.panelControl5.Location = new System.Drawing.Point(432, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(322, 294);
+            this.panelControl5.Size = new System.Drawing.Size(322, 297);
             this.panelControl5.TabIndex = 13;
             // 
             // btnThemQuyenHangMuc
@@ -608,7 +623,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(134, 294);
+            this.groupControl3.Size = new System.Drawing.Size(134, 297);
             this.groupControl3.TabIndex = 12;
             this.groupControl3.Text = "Tùy chọn quyền";
             // 
@@ -734,6 +749,9 @@
             this.gridColumn11});
             this.gridView_DSQuyen.GridControl = this.gridControl_DSQuyen;
             this.gridView_DSQuyen.Name = "gridView_DSQuyen";
+            this.gridView_DSQuyen.OptionsBehavior.Editable = false;
+            this.gridView_DSQuyen.OptionsBehavior.ReadOnly = true;
+            this.gridView_DSQuyen.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView_DSQuyen.OptionsView.RowAutoHeight = true;
             // 
             // gridColumn1

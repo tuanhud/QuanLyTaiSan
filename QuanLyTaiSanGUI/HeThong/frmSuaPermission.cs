@@ -46,9 +46,11 @@ namespace QuanLyTaiSanGUI.HeThong
 
             //load ds day
             gridControl_Day.DataSource = DayyFilter.getAll();
+            gridView_Day.ExpandAllGroups();
 
             //load ds tang
             gridControl_Tang.DataSource = TangFilter.getAll();
+            gridView_Tang.ExpandAllGroups();
 
             //load ds phong
             gridControl_Phong.DataSource = PhongFilter2.getAll();
