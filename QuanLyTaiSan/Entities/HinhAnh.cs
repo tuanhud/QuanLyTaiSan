@@ -256,7 +256,7 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                return "thumb150_";
+                return "Thumb/";// "thumb150_";
             }
         }
         /// <summary>
