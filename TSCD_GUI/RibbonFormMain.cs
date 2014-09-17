@@ -139,7 +139,7 @@ namespace TSCD_GUI
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                 if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
-                _ucCauHinh.load_data();
+                _ucCauHinh.reLoad();
                 _ucCauHinh.Dock = DockStyle.Fill;
                 backstageViewClientControlCaiDatCauHinh.Controls.Add(_ucCauHinh);
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();

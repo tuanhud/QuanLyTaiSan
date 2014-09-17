@@ -192,6 +192,7 @@
             this.MaximumSize = new System.Drawing.Size(586, 236);
             this.MinimumSize = new System.Drawing.Size(586, 236);
             this.Name = "SuaThongTinCaNhan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin cá nhân";
             this.Load += new System.EventHandler(this.SuaThongTinCaNhan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_newpass.Properties)).EndInit();

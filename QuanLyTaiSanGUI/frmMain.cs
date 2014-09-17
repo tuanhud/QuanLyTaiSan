@@ -82,9 +82,9 @@ namespace QuanLyTaiSanGUI
             if (Global.current_quantrivien_login != null)
             {
                 if (Global.current_quantrivien_login.hoten != null)
-                    barStaticUser.Caption = Global.current_quantrivien_login.hoten;
+                    barBtnUser.Caption = Global.current_quantrivien_login.hoten;
                 else
-                    barStaticUser.Caption = "[Unknown]";
+                    barBtnUser.Caption = "[Unknown]";
             }
                 
 
@@ -555,7 +555,7 @@ namespace QuanLyTaiSanGUI
             }
         }
 
-        private void barStaticUser_ItemClick(object sender, ItemClickEventArgs e)
+        private void barBtnUser_ItemClick(object sender, ItemClickEventArgs e)
         {
             SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
             frm.ShowDialog();

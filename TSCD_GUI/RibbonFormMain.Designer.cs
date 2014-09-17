@@ -64,7 +64,6 @@
             // ribbonMain
             // 
             this.ribbonMain.ApplicationButtonDropDownControl = this.backstageViewControl;
-            this.ribbonMain.AutoHideEmptyItems = true;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonMain.ExpandCollapseItem});
