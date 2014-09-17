@@ -63,16 +63,16 @@
             this.txtClientPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtClientPort = new DevExpress.XtraEditors.TextEdit();
             this.cbUseDBCache = new DevExpress.XtraEditors.CheckEdit();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSyncSecond = new DevExpress.XtraEditors.TextEdit();
             this.cbAutoSync = new DevExpress.XtraEditors.CheckEdit();
+            this.txtSyncSecond = new DevExpress.XtraEditors.TextEdit();
             this.btnStartSync = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.btnImageCacheClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
             this.cbDebugToFile = new DevExpress.XtraEditors.CheckEdit();
             this.btnSaveLocal = new DevExpress.XtraEditors.SimpleButton();
-            this.btnImageCacheClear = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -94,13 +94,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUseDBCache.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSyncSecond.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbAutoSync.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSyncSecond.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbDebugToFile.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -148,7 +148,7 @@
             this.panelControl_Server.Controls.Add(this.labelControl2);
             this.panelControl_Server.Controls.Add(this.labelControl1);
             this.panelControl_Server.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl_Server.Location = new System.Drawing.Point(2, 189);
+            this.panelControl_Server.Location = new System.Drawing.Point(2, 21);
             this.panelControl_Server.Name = "panelControl_Server";
             this.panelControl_Server.Size = new System.Drawing.Size(416, 167);
             this.panelControl_Server.TabIndex = 18;
@@ -297,9 +297,8 @@
             this.panelControl_Client.Controls.Add(this.labelControl9);
             this.panelControl_Client.Controls.Add(this.txtClientPassword);
             this.panelControl_Client.Controls.Add(this.txtClientPort);
-            this.panelControl_Client.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl_Client.Enabled = false;
-            this.panelControl_Client.Location = new System.Drawing.Point(2, 21);
+            this.panelControl_Client.Location = new System.Drawing.Point(3, 191);
             this.panelControl_Client.Name = "panelControl_Client";
             this.panelControl_Client.Size = new System.Drawing.Size(416, 168);
             this.panelControl_Client.TabIndex = 17;
@@ -450,6 +449,18 @@
             this.cbUseDBCache.TabIndex = 0;
             this.cbUseDBCache.CheckedChanged += new System.EventHandler(this.cbUseDBCache_CheckedChanged);
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.labelControl25);
+            this.groupControl2.Controls.Add(this.cbAutoSync);
+            this.groupControl2.Controls.Add(this.txtSyncSecond);
+            this.groupControl2.Controls.Add(this.btnStartSync);
+            this.groupControl2.Location = new System.Drawing.Point(1, 99);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(367, 89);
+            this.groupControl2.TabIndex = 136;
+            this.groupControl2.Text = "Đồng bộ CSDL";
+            // 
             // labelControl25
             // 
             this.labelControl25.Location = new System.Drawing.Point(276, 30);
@@ -457,14 +468,6 @@
             this.labelControl25.Size = new System.Drawing.Size(28, 13);
             this.labelControl25.TabIndex = 21;
             this.labelControl25.Text = "(giây)";
-            // 
-            // txtSyncSecond
-            // 
-            this.txtSyncSecond.EditValue = 30;
-            this.txtSyncSecond.Location = new System.Drawing.Point(220, 26);
-            this.txtSyncSecond.Name = "txtSyncSecond";
-            this.txtSyncSecond.Size = new System.Drawing.Size(51, 20);
-            this.txtSyncSecond.TabIndex = 20;
             // 
             // cbAutoSync
             // 
@@ -474,6 +477,14 @@
             this.cbAutoSync.Size = new System.Drawing.Size(211, 19);
             this.cbAutoSync.TabIndex = 12;
             this.cbAutoSync.CheckedChanged += new System.EventHandler(this.cbAutoSync_CheckedChanged);
+            // 
+            // txtSyncSecond
+            // 
+            this.txtSyncSecond.EditValue = 30;
+            this.txtSyncSecond.Location = new System.Drawing.Point(220, 26);
+            this.txtSyncSecond.Name = "txtSyncSecond";
+            this.txtSyncSecond.Size = new System.Drawing.Size(51, 20);
+            this.txtSyncSecond.TabIndex = 20;
             // 
             // btnStartSync
             // 
@@ -496,6 +507,16 @@
             this.groupControl4.Size = new System.Drawing.Size(373, 93);
             this.groupControl4.TabIndex = 134;
             this.groupControl4.Text = "Dành cho nhà phát triển";
+            // 
+            // btnImageCacheClear
+            // 
+            this.btnImageCacheClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImageCacheClear.Image = ((System.Drawing.Image)(resources.GetObject("btnImageCacheClear.Image")));
+            this.btnImageCacheClear.Location = new System.Drawing.Point(246, 65);
+            this.btnImageCacheClear.Name = "btnImageCacheClear";
+            this.btnImageCacheClear.Size = new System.Drawing.Size(122, 23);
+            this.btnImageCacheClear.TabIndex = 31;
+            this.btnImageCacheClear.Text = "Xóa hình ảnh tạm";
             // 
             // btnDebugClear
             // 
@@ -525,28 +546,6 @@
             this.btnSaveLocal.Size = new System.Drawing.Size(175, 23);
             this.btnSaveLocal.TabIndex = 133;
             this.btnSaveLocal.Text = "Cập nhật cho máy cá nhân";
-            // 
-            // btnImageCacheClear
-            // 
-            this.btnImageCacheClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImageCacheClear.Image = ((System.Drawing.Image)(resources.GetObject("btnImageCacheClear.Image")));
-            this.btnImageCacheClear.Location = new System.Drawing.Point(246, 65);
-            this.btnImageCacheClear.Name = "btnImageCacheClear";
-            this.btnImageCacheClear.Size = new System.Drawing.Size(122, 23);
-            this.btnImageCacheClear.TabIndex = 31;
-            this.btnImageCacheClear.Text = "Xóa hình ảnh tạm";
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.labelControl25);
-            this.groupControl2.Controls.Add(this.cbAutoSync);
-            this.groupControl2.Controls.Add(this.txtSyncSecond);
-            this.groupControl2.Controls.Add(this.btnStartSync);
-            this.groupControl2.Location = new System.Drawing.Point(1, 99);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(367, 89);
-            this.groupControl2.TabIndex = 136;
-            this.groupControl2.Text = "Đồng bộ CSDL";
             // 
             // viewCauHinhLocal
             // 
@@ -578,14 +577,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUseDBCache.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSyncSecond.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAutoSync.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
-            this.groupControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbDebugToFile.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAutoSync.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSyncSecond.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbDebugToFile.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
