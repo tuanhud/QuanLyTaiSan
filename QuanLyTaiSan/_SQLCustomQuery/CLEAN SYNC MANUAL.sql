@@ -1,12 +1,3 @@
-/*=====================REMOVE ALL PROCEDURES===================*/
-DECLARE @sql VARCHAR(MAX)='';
-
-SELECT @sql=@sql+'drop procedure ['+name +'];' FROM sys.objects 
-WHERE type = 'p' AND  is_ms_shipped = 0
-
-exec(@sql);
-
-
 /***********REMOVE ALL TRIGGERS OF ALL TABLES*/
 DECLARE @SQLCmd nvarchar(1000) 
 DECLARE @Trig varchar(500)
@@ -59,9 +50,37 @@ close cmds;
 deallocate cmds
 
 /***********3 special tables**************/
-DROP TABLE [dbo].[schema_info]
+DROP TABLE [schema_info]
 GO
-DROP TABLE [dbo].[scope_config]
+DROP TABLE [scope_config]
 GO
-DROP TABLE [dbo].[scope_info]
+DROP TABLE [scope_info]
 GO
+----------------- FOR SURE
+declare @n char(1)
+set @n = char(10)
+
+declare @stmt nvarchar(max)
+
+-- procedures
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop procedure [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.procedures
+
+-- functions
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop function [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.objects
+where type in ( 'FN', 'IF', 'TF' )
+
+-- views
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop view [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.views
+
+-- user defined types
+select @stmt = isnull( @stmt + @n, '' ) +
+    'drop type [' + schema_name(schema_id) + '].[' + name + ']'
+from sys.types
+where is_user_defined = 1
+exec sp_executesql @stmt

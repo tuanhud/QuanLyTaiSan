@@ -249,7 +249,7 @@ namespace QuanLyTaiSan.Entities
             CoSo.USNAME, Dayy.USNAME, Tang.USNAME, NhanVienPT.USNAME, QuanTriVien.USNAME, SuCoPhong.USNAME, Phong.USNAME, ThietBi.USNAME, LoaiThietBi.USNAME, Group.USNAME, TinhTrang.USNAME, HinhAnh.USNAME
         };
         /// <summary>
-        /// for SYNC
+        /// for SYNC, mỗi lần đổi cấu trúc là phải set up SCOPE lại
         /// </summary>
 
         public static String[] tracking_tables =
@@ -258,7 +258,6 @@ namespace QuanLyTaiSan.Entities
             //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
             "__MigrationHistory",//UNDEPENDENT
             "SETTINGS",//UNDEPENDENT
-            "LOGHETHONGS",//UNDEPENDENT
             "GROUPS",//UNDEPENDENT
                 "QUANTRIVIENS",
             "NHANVIENPTS",//UNDEPENDENT
@@ -272,7 +271,6 @@ namespace QuanLyTaiSan.Entities
             "LOAITHIETBIS",//UNDEPENDENT
                 "THIETBIS",
                     "CTTHIETBIS",
-                    
                 
             "PERMISSIONS",//UNDEPENDENT
                 "GROUP_PERMISSION",
@@ -298,6 +296,8 @@ namespace QuanLyTaiSan.Entities
                 "NHANVIENPT_HINHANH",
                 "PHONG_HINHANH",
                 "SUCOPHONG_HINHANH",
+
+            "LOGHETHONGS",//UNDEPENDENT
             //END PTB
         };
         #endregion
