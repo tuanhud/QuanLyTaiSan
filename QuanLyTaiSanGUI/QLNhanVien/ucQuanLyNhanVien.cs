@@ -31,6 +31,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
         bool canAdd = false;
         bool canEdit = false;
         bool canDelete = false;
+        bool canPhanCong = false;
 
         MyLayout layout = new MyLayout();
 
@@ -80,6 +81,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
                 canAdd = Permission.canAdd<NhanVienPT>();
                 canEdit = Permission.canEdit<NhanVienPT>(null);
                 canDelete = Permission.canDelete<NhanVienPT>(null);
+                canPhanCong = Permission.canEdit<Phong>(null);
             }
             catch (Exception ex)
             {
@@ -161,7 +163,7 @@ namespace QuanLyTaiSanGUI.QLNhanVien
             barBtnSuaNhanVien.Enabled = _enable && canEdit;
             barBtnXoaNhanVien.Enabled = _enable && canDelete;
             //rbnGroupNhanVien.Enabled = _enable;
-            rbnGroupNhanVienPhong.Enabled = _enable && canEdit;
+            rbnGroupNhanVienPhong.Enabled = _enable && canPhanCong;
         }
 
         private void clearText()
