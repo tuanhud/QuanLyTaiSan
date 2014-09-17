@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -130,51 +131,59 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public static ViTri request(CoSo coso, Dayy day, Tang tang)
         {
-            if (coso == null && day == null && tang == null)
+            try
             {
+                if (coso == null && day == null && tang == null)
+                {
+                    return null;
+                }
+                ViTri final = new ViTri();
+                if (tang != null)
+                {
+                    ViTri tmp = db.VITRIS.Where(c => c.tang.id == tang.id).FirstOrDefault();
+                    if (tmp == null)
+                    {
+                        final.tang = tang;
+                        final.day = tang.day;
+                        final.coso = tang.day.coso;
+                        return final;
+                    }
+                    else
+                        return tmp;
+                }
+                else if (day != null)
+                {
+                    ViTri tmp = db.VITRIS.Where(c => c.day.id == day.id && c.tang.id == null).FirstOrDefault();
+                    if (tmp == null)
+                    {
+                        final.tang = null;
+                        final.day = day;
+                        final.coso = day.coso;
+                        return final;
+                    }
+                    else
+                        return tmp;
+                }
+                else if (coso != null)
+                {
+                    ViTri tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id == null && c.tang.id == null).FirstOrDefault();
+                    if (tmp == null)
+                    {
+                        final.tang = null;
+                        final.day = null;
+                        final.coso = coso;
+                        return final;
+                    }
+                    else
+                        return tmp;
+                }
                 return null;
             }
-            ViTri final = new ViTri();
-            if (tang != null)
+            catch (Exception e)
             {
-                ViTri tmp = db.VITRIS.Where(c => c.tang.id == tang.id).FirstOrDefault();
-                if (tmp == null)
-                {
-                    final.tang = tang;
-                    final.day = tang.day;
-                    final.coso = tang.day.coso;
-                    return final;
-                }
-                else
-                    return tmp;
+                Debug.WriteLine(e);
+                return null;
             }
-            else if(day!=null)
-            {
-                ViTri tmp = db.VITRIS.Where(c => c.day.id == day.id && c.tang.id==null).FirstOrDefault();
-                if (tmp == null)
-                {
-                    final.tang = null;
-                    final.day = day;
-                    final.coso = day.coso;
-                    return final;
-                }
-                else
-                    return tmp;
-            }
-            else if (coso != null)
-            {
-                ViTri tmp = db.VITRIS.Where(c => c.coso.id == coso.id && c.day.id==null && c.tang.id == null).FirstOrDefault();
-                if (tmp == null)
-                {
-                    final.tang = null;
-                    final.day = null;
-                    final.coso = coso;
-                    return final;
-                }
-                else
-                    return tmp;
-            }
-            return null;
         }
 
         #endregion

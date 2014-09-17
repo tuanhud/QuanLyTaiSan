@@ -66,27 +66,35 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int delete()
         {
-            //Nếu có ít nhất 1 phòng sử dụng vị trí chứa dãy này thì KHÔNG cho xóa
-            if (vitris.Where(c => c.phongs.Count > 0).Count() > 0)
+            try
             {
-                return -2;
-            }
-            //Kiểm tra có tầng KHÔNG cho xóa
-            if (tangs.Count>0)
-            {
-                return -3;
-            }
-            //======================================================
-            //Xóa tất cả vị trí liên quan
-            if (vitris != null)
-            {
-                while (vitris.Count > 0)
+                //Nếu có ít nhất 1 phòng sử dụng vị trí chứa dãy này thì KHÔNG cho xóa
+                if (vitris.Where(c => c.phongs.Count > 0).Count() > 0)
                 {
-                    vitris.FirstOrDefault().delete();
+                    return -2;
                 }
-            }
+                //Kiểm tra có tầng KHÔNG cho xóa
+                if (tangs.Count > 0)
+                {
+                    return -3;
+                }
+                //======================================================
+                //Xóa tất cả vị trí liên quan
+                if (vitris != null)
+                {
+                    while (vitris.Count > 0)
+                    {
+                        vitris.FirstOrDefault().delete();
+                    }
+                }
 
-            return base.delete();
+                return base.delete();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         protected override void init()
         {
@@ -94,31 +102,41 @@ namespace QuanLyTaiSan.Entities
             vitris = new List<ViTri>();
             tangs = new List<Tang>();
         }
-        public override int update()
-        {
-            
-            //...
-            return base.update();
-        }
         public override Dayy prevObj()
         {
-            Dayy prev = null;
-            prev = db.DAYYS.Where(c => c.order < this.order && c.coso_id == coso_id).OrderByDescending(c => c.order).FirstOrDefault();
-            if (prev == null)
+            try
             {
-                prev = db.DAYYS.Where(c => c.date_create < this.date_create && c.coso_id == coso_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                Dayy prev = null;
+                prev = db.DAYYS.Where(c => c.order < this.order && c.coso_id == coso_id).OrderByDescending(c => c.order).FirstOrDefault();
+                if (prev == null)
+                {
+                    prev = db.DAYYS.Where(c => c.date_create < this.date_create && c.coso_id == coso_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                }
+                return prev;
             }
-            return prev;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
         }
         public override Dayy nextObj()
         {
-            Dayy next = null;
-            next = db.DAYYS.Where(c => c.order > this.order && c.coso_id == coso_id).OrderBy(c => c.order).FirstOrDefault();
-            if (next == null)
+            try
             {
-                next = db.DAYYS.Where(c => c.date_create > this.date_create && c.coso_id == coso_id).OrderBy(c => c.date_create).FirstOrDefault();
+                Dayy next = null;
+                next = db.DAYYS.Where(c => c.order > this.order && c.coso_id == coso_id).OrderBy(c => c.order).FirstOrDefault();
+                if (next == null)
+                {
+                    next = db.DAYYS.Where(c => c.date_create > this.date_create && c.coso_id == coso_id).OrderBy(c => c.date_create).FirstOrDefault();
+                }
+                return next;
             }
-            return next;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
         }
         public override void onAfterAdded()
         {

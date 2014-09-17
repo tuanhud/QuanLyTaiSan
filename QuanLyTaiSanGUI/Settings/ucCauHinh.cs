@@ -41,7 +41,20 @@ namespace QuanLyTaiSanGUI.Settings
             viewCauHinhLocal._btnServerValidate.Click += new EventHandler(this.btnServerValidate_Click);
             //Sync
             viewCauHinhLocal._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
+            //Developer
+            viewCauHinhLocal._btnImageCacheClear.Click += new EventHandler(this.btnImageCacheClear);
 
+        }
+
+        private void btnImageCacheClear(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                FileHelper.clearFolder(HinhAnh.CACHE_PATH);
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
         }
         /// <summary>
         /// Tải các casu hình lên

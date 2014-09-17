@@ -60,50 +60,55 @@ namespace QuanLyTaiSan.Entities
 
             }
         }
-
-        //public static List<LoaiThietBi> getTheoLoai(Boolean loai)
-        //{
-        //    try
-        //    {
-        //        List<LoaiThietBi> objs = db.Set<LoaiThietBi>().Where(c => c.loaichung == loai).ToList();
-        //        return objs;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine(ex.ToString());
-        //        return new List<LoaiThietBi>();
-        //    }
-        //    finally
-        //    {
-
-        //    }
-        //}
         #endregion
         #region Override method
+        public static new String VNNAME
+        {
+            get
+            {
+                return "LOẠI THIẾT BỊ";
+            }
+        }
         public override string niceName()
         {
-            return "Loại thiết bị: " + ten;
+            return VNNAME + ": " + ten;
         }
 
         public override LoaiThietBi prevObj()
         {
-            LoaiThietBi prev = null;
-            prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == parent_id).OrderByDescending(c => c.order).FirstOrDefault();
-            if (prev == null)
+            try
             {
-                prev = db.LOAITHIETBIS.Where(c => c.date_create < this.date_create && c.parent_id == parent_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                LoaiThietBi prev = null;
+                prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == parent_id).OrderByDescending(c => c.order).FirstOrDefault();
+                if (prev == null)
+                {
+                    prev = db.LOAITHIETBIS.Where(c => c.date_create < this.date_create && c.parent_id == parent_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                }
+                return prev;
             }
-            return prev;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
         }
         public override LoaiThietBi nextObj()
         {
-            LoaiThietBi next = null;
-            next = db.LOAITHIETBIS.Where(c => c.order > this.order && c.parent_id == parent_id).OrderBy(c => c.order).FirstOrDefault();
-            if (next == null)
+            try
             {
-                next = db.LOAITHIETBIS.Where(c => c.date_create > this.date_create && c.parent_id == parent_id).OrderBy(c => c.date_create).FirstOrDefault();
+                LoaiThietBi next = null;
+                next = db.LOAITHIETBIS.Where(c => c.order > this.order && c.parent_id == parent_id).OrderBy(c => c.order).FirstOrDefault();
+                if (next == null)
+                {
+                    next = db.LOAITHIETBIS.Where(c => c.date_create > this.date_create && c.parent_id == parent_id).OrderBy(c => c.date_create).FirstOrDefault();
+                }
+                return next;
             }
-            return next;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
         }
 
         public override int delete()

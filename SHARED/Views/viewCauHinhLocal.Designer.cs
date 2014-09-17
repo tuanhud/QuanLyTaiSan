@@ -63,7 +63,6 @@
             this.txtClientPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtClientPort = new DevExpress.XtraEditors.TextEdit();
             this.cbUseDBCache = new DevExpress.XtraEditors.CheckEdit();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.txtSyncSecond = new DevExpress.XtraEditors.TextEdit();
             this.cbAutoSync = new DevExpress.XtraEditors.CheckEdit();
@@ -72,6 +71,8 @@
             this.btnDebugClear = new DevExpress.XtraEditors.SimpleButton();
             this.cbDebugToFile = new DevExpress.XtraEditors.CheckEdit();
             this.btnSaveLocal = new DevExpress.XtraEditors.SimpleButton();
+            this.btnImageCacheClear = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -93,13 +94,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUseDBCache.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSyncSecond.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAutoSync.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbDebugToFile.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -109,12 +110,12 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl4);
             this.splitContainerControl1.Panel2.Controls.Add(this.btnSaveLocal);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(798, 427);
-            this.splitContainerControl1.SplitterPosition = 428;
+            this.splitContainerControl1.Size = new System.Drawing.Size(798, 365);
+            this.splitContainerControl1.SplitterPosition = 420;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -126,14 +127,12 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(428, 372);
+            this.groupControl1.Size = new System.Drawing.Size(420, 362);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Cấu hình Cơ sở dữ liệu";
             // 
             // panelControl_Server
             // 
-            this.panelControl_Server.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl_Server.Controls.Add(this.btnServerRemoveScope);
             this.panelControl_Server.Controls.Add(this.cbServerWA);
             this.panelControl_Server.Controls.Add(this.btnServerCleanUp);
@@ -148,7 +147,8 @@
             this.panelControl_Server.Controls.Add(this.labelControl3);
             this.panelControl_Server.Controls.Add(this.labelControl2);
             this.panelControl_Server.Controls.Add(this.labelControl1);
-            this.panelControl_Server.Location = new System.Drawing.Point(6, 24);
+            this.panelControl_Server.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl_Server.Location = new System.Drawing.Point(2, 189);
             this.panelControl_Server.Name = "panelControl_Server";
             this.panelControl_Server.Size = new System.Drawing.Size(416, 167);
             this.panelControl_Server.TabIndex = 18;
@@ -282,8 +282,6 @@
             // 
             // panelControl_Client
             // 
-            this.panelControl_Client.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl_Client.Controls.Add(this.btnClientDropDB);
             this.panelControl_Client.Controls.Add(this.btnClientRemoveScope);
             this.panelControl_Client.Controls.Add(this.btnClientCleanUp);
@@ -299,8 +297,9 @@
             this.panelControl_Client.Controls.Add(this.labelControl9);
             this.panelControl_Client.Controls.Add(this.txtClientPassword);
             this.panelControl_Client.Controls.Add(this.txtClientPort);
+            this.panelControl_Client.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl_Client.Enabled = false;
-            this.panelControl_Client.Location = new System.Drawing.Point(6, 197);
+            this.panelControl_Client.Location = new System.Drawing.Point(2, 21);
             this.panelControl_Client.Name = "panelControl_Client";
             this.panelControl_Client.Size = new System.Drawing.Size(416, 168);
             this.panelControl_Client.TabIndex = 17;
@@ -444,28 +443,16 @@
             // cbUseDBCache
             // 
             this.cbUseDBCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbUseDBCache.Location = new System.Drawing.Point(266, 1);
+            this.cbUseDBCache.Location = new System.Drawing.Point(258, 1);
             this.cbUseDBCache.Name = "cbUseDBCache";
             this.cbUseDBCache.Properties.Caption = "Sử dụng Cơ sở dữ liệu Client";
             this.cbUseDBCache.Size = new System.Drawing.Size(159, 19);
             this.cbUseDBCache.TabIndex = 0;
             this.cbUseDBCache.CheckedChanged += new System.EventHandler(this.cbUseDBCache_CheckedChanged);
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.labelControl25);
-            this.panelControl2.Controls.Add(this.txtSyncSecond);
-            this.panelControl2.Controls.Add(this.cbAutoSync);
-            this.panelControl2.Controls.Add(this.btnStartSync);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 100);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(365, 74);
-            this.panelControl2.TabIndex = 135;
-            // 
             // labelControl25
             // 
-            this.labelControl25.Location = new System.Drawing.Point(278, 10);
+            this.labelControl25.Location = new System.Drawing.Point(276, 30);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(28, 13);
             this.labelControl25.TabIndex = 21;
@@ -474,17 +461,17 @@
             // txtSyncSecond
             // 
             this.txtSyncSecond.EditValue = 30;
-            this.txtSyncSecond.Location = new System.Drawing.Point(220, 6);
+            this.txtSyncSecond.Location = new System.Drawing.Point(220, 26);
             this.txtSyncSecond.Name = "txtSyncSecond";
             this.txtSyncSecond.Size = new System.Drawing.Size(51, 20);
             this.txtSyncSecond.TabIndex = 20;
             // 
             // cbAutoSync
             // 
-            this.cbAutoSync.Location = new System.Drawing.Point(11, 6);
+            this.cbAutoSync.Location = new System.Drawing.Point(9, 26);
             this.cbAutoSync.Name = "cbAutoSync";
             this.cbAutoSync.Properties.Caption = "Tự động đồng bộ khi ở chế độ chờ mỗi";
-            this.cbAutoSync.Size = new System.Drawing.Size(214, 19);
+            this.cbAutoSync.Size = new System.Drawing.Size(211, 19);
             this.cbAutoSync.TabIndex = 12;
             this.cbAutoSync.CheckedChanged += new System.EventHandler(this.cbAutoSync_CheckedChanged);
             // 
@@ -492,20 +479,21 @@
             // 
             this.btnStartSync.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnStartSync.Image = ((System.Drawing.Image)(resources.GetObject("btnStartSync.Image")));
-            this.btnStartSync.Location = new System.Drawing.Point(13, 40);
+            this.btnStartSync.Location = new System.Drawing.Point(11, 56);
             this.btnStartSync.Name = "btnStartSync";
-            this.btnStartSync.Size = new System.Drawing.Size(125, 23);
+            this.btnStartSync.Size = new System.Drawing.Size(117, 23);
             this.btnStartSync.TabIndex = 19;
             this.btnStartSync.Text = "Đồng bộ dữ liệu";
             // 
             // groupControl4
             // 
+            this.groupControl4.Controls.Add(this.btnImageCacheClear);
             this.groupControl4.Controls.Add(this.btnDebugClear);
             this.groupControl4.Controls.Add(this.cbDebugToFile);
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(365, 100);
+            this.groupControl4.Size = new System.Drawing.Size(373, 93);
             this.groupControl4.TabIndex = 134;
             this.groupControl4.Text = "Dành cho nhà phát triển";
             // 
@@ -513,7 +501,7 @@
             // 
             this.btnDebugClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDebugClear.Image = ((System.Drawing.Image)(resources.GetObject("btnDebugClear.Image")));
-            this.btnDebugClear.Location = new System.Drawing.Point(252, 67);
+            this.btnDebugClear.Location = new System.Drawing.Point(260, 25);
             this.btnDebugClear.Name = "btnDebugClear";
             this.btnDebugClear.Size = new System.Drawing.Size(108, 23);
             this.btnDebugClear.TabIndex = 30;
@@ -532,19 +520,41 @@
             // 
             this.btnSaveLocal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveLocal.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveLocal.Image")));
-            this.btnSaveLocal.Location = new System.Drawing.Point(185, 194);
+            this.btnSaveLocal.Location = new System.Drawing.Point(193, 199);
             this.btnSaveLocal.Name = "btnSaveLocal";
             this.btnSaveLocal.Size = new System.Drawing.Size(175, 23);
             this.btnSaveLocal.TabIndex = 133;
             this.btnSaveLocal.Text = "Cập nhật cho máy cá nhân";
             // 
-            // viewCauHinh
+            // btnImageCacheClear
+            // 
+            this.btnImageCacheClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImageCacheClear.Image = ((System.Drawing.Image)(resources.GetObject("btnImageCacheClear.Image")));
+            this.btnImageCacheClear.Location = new System.Drawing.Point(246, 65);
+            this.btnImageCacheClear.Name = "btnImageCacheClear";
+            this.btnImageCacheClear.Size = new System.Drawing.Size(122, 23);
+            this.btnImageCacheClear.TabIndex = 31;
+            this.btnImageCacheClear.Text = "Xóa hình ảnh tạm";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.labelControl25);
+            this.groupControl2.Controls.Add(this.cbAutoSync);
+            this.groupControl2.Controls.Add(this.txtSyncSecond);
+            this.groupControl2.Controls.Add(this.btnStartSync);
+            this.groupControl2.Location = new System.Drawing.Point(1, 99);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(367, 89);
+            this.groupControl2.TabIndex = 136;
+            this.groupControl2.Text = "Đồng bộ CSDL";
+            // 
+            // viewCauHinhLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
-            this.Name = "viewCauHinh";
-            this.Size = new System.Drawing.Size(798, 427);
+            this.Name = "viewCauHinhLocal";
+            this.Size = new System.Drawing.Size(798, 365);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -568,14 +578,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClientPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUseDBCache.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSyncSecond.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAutoSync.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbDebugToFile.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -616,7 +626,6 @@
         private DevExpress.XtraEditors.TextEdit txtClientPassword;
         private DevExpress.XtraEditors.TextEdit txtClientPort;
         private DevExpress.XtraEditors.CheckEdit cbUseDBCache;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl25;
         private DevExpress.XtraEditors.TextEdit txtSyncSecond;
         private DevExpress.XtraEditors.CheckEdit cbAutoSync;
@@ -625,6 +634,8 @@
         private DevExpress.XtraEditors.SimpleButton btnDebugClear;
         private DevExpress.XtraEditors.CheckEdit cbDebugToFile;
         private DevExpress.XtraEditors.SimpleButton btnSaveLocal;
+        private DevExpress.XtraEditors.SimpleButton btnImageCacheClear;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
 
     }
 }

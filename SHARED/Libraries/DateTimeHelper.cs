@@ -9,15 +9,31 @@ namespace SHARED.Libraries
     {
         public static long toMilisec(DateTime? value)
         {
-            if (value == null)
+            try
             {
+                if (value == null)
+                {
+                    return 0;
+                }
+                return ((DateTime)value).Ticks;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
                 return 0;
             }
-            return ((DateTime)value).Ticks;
         }
         public static long toMilisec(DateTime value)
         {
-            return value.Ticks;
+            try
+            {
+                return value.Ticks;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return 0;
+            }
         }
     }
 }

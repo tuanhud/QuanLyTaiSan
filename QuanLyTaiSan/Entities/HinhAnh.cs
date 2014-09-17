@@ -45,34 +45,27 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Nghiệp vụ
+        /// <summary>
+        /// get by field PATH
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static HinhAnh getByPath(string path)
         {
-            if (path == null)
+            try
             {
+                if (path == null)
+                {
+                    return null;
+                }
+                return db.HINHANHS.Where(c => c.path.ToUpper().Equals(path.ToUpper())).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
                 return null;
             }
-            return db.HINHANHS.Where(c => c.path.ToUpper().Equals(path.ToUpper())).FirstOrDefault();
         }
-        ///// <summary>
-        ///// Clone ListHinh ra list khác, xóa khóa ngoại, chỉ giữa lại các thuộc tính cần thiết,
-        ///// Can tim phuong an thiet ke khac huu hieu hon viec override static method
-        ///// </summary>
-        ///// <param name="list"></param>
-        ///// <returns></returns>
-        //public static List<HinhAnh> clone(ICollection<HinhAnh> list)
-        //{
-        //    if (list == null || list.Count <= 0)
-        //    {
-        //        return new List<HinhAnh>();
-        //    }
-        //    List<HinhAnh> tmp = new List<HinhAnh>();
-        //    foreach (HinhAnh item in list)
-        //    {
-        //        HinhAnh neww = item.clone();
-        //        tmp.Add(neww);
-        //    }
-        //    return tmp;
-        //}
         
         /// <summary>
         /// Hình ảnh mặc định khi không có mạng hoặc hình bị fail
@@ -82,7 +75,15 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                return Resources.default_image_when_fail;
+                try
+                {
+                    return Resources.default_image_when_fail;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    return null;
+                }
             }
         }
         /// <summary>
@@ -97,26 +98,24 @@ namespace QuanLyTaiSan.Entities
             }
         }
         /// <summary>
-        /// Lay tat ca cac hinh cua tat ca CoSo
-        /// </summary>
-        /// <returns></returns>
-        public List<HinhAnh> getAllCoSo()
-        {
-            //List<HinhAnh> list = db.HINHANHS.Where(c => c.coso != null).ToList();
-            //return list;
-            return new List<HinhAnh>();
-        }
-        /// <summary>
-        /// Kiểm tra hình ảnh có trên Disk
+        /// Kiểm tra hình ảnh hiện tại có trên Disk
         /// </summary>
         /// <returns></returns>
         private Boolean isCacheDiskExist()
         {
-            //TU dong tao Folder cached neu chua co
-            FileHelper.createFolderIfNotExist(
-                Path.Combine(FileHelper.localPath(),CACHE_PATH)
-                );
-            return FileHelper.isExist(getCacheDiskPath());
+            try
+            {
+                //TU dong tao Folder cached neu chua co
+                FileHelper.createFolderIfNotExist(
+                    Path.Combine(FileHelper.localPath(), CACHE_PATH)
+                    );
+                return FileHelper.isExist(getCacheDiskPath());
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
         }
         /// <summary>
         /// Generate local path của hình hiện tại
@@ -124,7 +123,15 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         private String getCacheDiskPath()
         {
-            return Path.Combine(FileHelper.localPath(), HinhAnh.CACHE_PATH, path);
+            try
+            {
+                return Path.Combine(FileHelper.localPath(), HinhAnh.CACHE_PATH, path);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return "";
+            }
         }
         
         protected Bitmap image=null;
@@ -141,50 +148,58 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                //CACHE
-                //check inner cached first
-                if (image != null)
+                try
                 {
-                    return image;
-                }
-                //build abs path
-                String abs_path =
-                    Global.remote_setting.http_host.getCombinedPath(this.path);
-                //check global RAM repository
-                image = QuanLyTaiSan.Libraries.ImageHelper.CACHE.get(abs_path);
-                if(image != null)
-                {
-                    return image;
-                }
-                
-                //check folder cache
-                if (isCacheDiskExist())
-                {
-                    //load to Object REF
-                    image = ImageHelper.fromFile(getCacheDiskPath());
-                    //register to CACHE repository
-                    QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
+                    //CACHE
+                    //check inner cached first
+                    if (image != null)
+                    {
+                        return image;
+                    }
+                    //build abs path
+                    String abs_path =
+                        Global.remote_setting.http_host.getCombinedPath(this.path);
+                    //check global RAM repository
+                    image = QuanLyTaiSan.Libraries.ImageHelper.CACHE.get(abs_path);
+                    if (image != null)
+                    {
+                        return image;
+                    }
 
-                    return image;
-                }
+                    //check folder cache
+                    if (isCacheDiskExist())
+                    {
+                        //load to Object REF
+                        image = ImageHelper.fromFile(getCacheDiskPath());
+                        //register to CACHE repository
+                        QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
 
-                //get image from INternet via HTTP Helper
-                image = HTTPHelper.getImage(abs_path);
+                        return image;
+                    }
 
-                if (image != null)
-                {
-                    //IMAGE GET FROM NETWORK OK
-                    //WRITE CACHE TO DISK
-                    image.Save(getCacheDiskPath());
-                    //register to CACHE
-                    QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
-                    return image;
+                    //get image from INternet via HTTP Helper
+                    image = HTTPHelper.getImage(abs_path);
+
+                    if (image != null)
+                    {
+                        //IMAGE GET FROM NETWORK OK
+                        //WRITE CACHE TO DISK
+                        image.Save(getCacheDiskPath());
+                        //register to CACHE
+                        QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
+                        return image;
+                    }
+                    else
+                    {
+                        //NETWORK FAIL OR URL INVALID
+                        QuanLyTaiSan.Libraries.ImageHelper.CACHE.mark_url_fail(abs_path);
+                        return image = DEFAULT_IMAGE;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    //NETWORK FAIL OR URL INVALID
-                    QuanLyTaiSan.Libraries.ImageHelper.CACHE.mark_url_fail(abs_path);
-                    return image = DEFAULT_IMAGE;
+                    Debug.WriteLine(e);
+                    return null;
                 }
             }
             set
@@ -193,6 +208,9 @@ namespace QuanLyTaiSan.Entities
             }
         }
         protected String file_name = null;
+        /// <summary>
+        /// set file name trước khi upload
+        /// </summary>
         [NotMapped]
         public String FILE_NAME {
             get
@@ -208,6 +226,9 @@ namespace QuanLyTaiSan.Entities
 
         
         protected int max_size = -1;
+        /// <summary>
+        /// set maxsize trước khi upload
+        /// </summary>
         [NotMapped]
         public int MAX_SIZE {
             get
@@ -221,6 +242,9 @@ namespace QuanLyTaiSan.Entities
         }
         
         protected static String cache_path = "ImageCache";
+        /// <summary>
+        /// Thư mục cache hình (relative) ./ImageCache
+        /// </summary>
         [NotMapped]
         public static String CACHE_PATH
         {
@@ -245,8 +269,15 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static List<HinhAnh> getAllHinhAnhDangDung()
         {
-            //to List se loai bo tracking
-            return db.HINHANHS.ToList();//.Where(c=>c.path!=null).GroupBy(h => h.path).Select(s => s.FirstOrDefault()).ToList();
+            try
+            {
+                return db.HINHANHS.ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<HinhAnh>();
+            }
         }
         /// <summary>
         /// Kiểm tra this.path (sau khi chạy qua hàm lọc tên) đã có trong CSDL hay chưa
@@ -257,35 +288,43 @@ namespace QuanLyTaiSan.Entities
         /// <returns>-5: IMAGE, FILE_NAME FAIL, </returns>
         public int upload(Boolean ghide=false)
         {
-            if (image == null || file_name.Equals(""))
+            try
             {
-                return -5;
-            }
-            //resize hinh neu co
-            if (max_size > 0)
-            {
-                image = ImageHelper.ScaleBySize(image,max_size);
-            }
-            
-            String relative_path = StringHelper.CoDauThanhKhongDau(file_name) + ".JPEG";
-            this.path = relative_path;
-            //Kiểm tra trùng tên hình, không cho upload nữa nếu CHƯA BẬT GHI ĐÈ
-            if (!ghide && db.HINHANHS.Where(c=>c.path.ToUpper().Equals(this.path.ToUpper())).Count()>0)
-            {
-                return 1;
-            }
-            
-            //prepare upload
-            String abs_path =
-                Global.remote_setting.ftp_host.getCombinedPath(this.path);
+                if (image == null || file_name.Equals(""))
+                {
+                    return -5;
+                }
+                //resize hinh neu co
+                if (max_size > 0)
+                {
+                    image = ImageHelper.ScaleBySize(image, max_size);
+                }
 
-            //upload hinh
-            return FTPHelper.uploadImage(
-                image,
-                abs_path,
-                Global.remote_setting.ftp_host.USER_NAME,
-                Global.remote_setting.ftp_host.PASS_WORD
-            );
+                String relative_path = StringHelper.CoDauThanhKhongDau(file_name) + ".JPEG";
+                this.path = relative_path;
+                //Kiểm tra trùng tên hình, không cho upload nữa nếu CHƯA BẬT GHI ĐÈ
+                if (!ghide && db.HINHANHS.Where(c => c.path.ToUpper().Equals(this.path.ToUpper())).Count() > 0)
+                {
+                    return 1;
+                }
+
+                //prepare upload
+                String abs_path =
+                    Global.remote_setting.ftp_host.getCombinedPath(this.path);
+
+                //upload hinh
+                return FTPHelper.uploadImage(
+                    image,
+                    abs_path,
+                    Global.remote_setting.ftp_host.USER_NAME,
+                    Global.remote_setting.ftp_host.PASS_WORD
+                );
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         /// <summary>
         /// Chuyển list HinhAnh sang dạng chuẩn,
@@ -298,44 +337,52 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public static List<HinhAnh> validate(List<HinhAnh> list)
         {
-            //Kiểm duyệt và load lại list hình ảnh
-            List<HinhAnh> new_list = new List<HinhAnh>();
-            foreach (HinhAnh item in list)
+            try
             {
-                //null check
-                if (item == null)
+                //Kiểm duyệt và load lại list hình ảnh
+                List<HinhAnh> new_list = new List<HinhAnh>();
+                foreach (HinhAnh item in list)
                 {
-                    continue;
-                }
-                //trùng path
-                if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).Count() > 0)
-                {
-                    db.Entry(item).State = EntityState.Detached;
-                    continue;
-                }
-                
-                //đã được load lên bởi dbContext
-                if (item.id != Guid.Empty)
-                {
-                    new_list.Add(item);
-                }
-                else
-                {
-                    HinhAnh tmp = HinhAnh.getByPath(item.path);
-                    if (tmp != null)
+                    //null check
+                    if (item == null)
+                    {
+                        continue;
+                    }
+                    //trùng path
+                    if (new_list.Where(c => c.path.ToUpper().Equals(item.path.ToUpper())).Count() > 0)
                     {
                         db.Entry(item).State = EntityState.Detached;
-                        new_list.Add(tmp);
+                        continue;
+                    }
+
+                    //đã được load lên bởi dbContext
+                    if (item.id != Guid.Empty)
+                    {
+                        new_list.Add(item);
                     }
                     else
                     {
-                        db.Entry(item).State = EntityState.Added;
-                        new_list.Add(item);
-                        continue;
+                        HinhAnh tmp = HinhAnh.getByPath(item.path);
+                        if (tmp != null)
+                        {
+                            db.Entry(item).State = EntityState.Detached;
+                            new_list.Add(tmp);
+                        }
+                        else
+                        {
+                            db.Entry(item).State = EntityState.Added;
+                            new_list.Add(item);
+                            continue;
+                        }
                     }
                 }
+                return new_list;
             }
-            return new_list;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<HinhAnh>();
+            }
         }
         #endregion
 

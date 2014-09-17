@@ -52,49 +52,67 @@ namespace QuanLyTaiSan.Entities
             base.init();
             this.vitris = new List<ViTri>();
         }
-        public override int update()
-        {
-            
-            //...
-            return base.update();
-        }
         public override int delete()
         {
-            //Nếu có ít nhất 1 phòng sử dụng vị trí chứa tầng này thì KHÔNG cho xóa
-            if (vitris.Where(c => c.phongs.Count > 0).Count()>0)
+            try
             {
-                return -2;
-            }
-            //Xóa tất cả vị trí liên quan
-            if (vitris != null)
-            {
-                while (vitris.Count > 0)
+                //Nếu có ít nhất 1 phòng sử dụng vị trí chứa tầng này thì KHÔNG cho xóa
+                if (vitris.Where(c => c.phongs.Count > 0).Count() > 0)
                 {
-                    vitris.FirstOrDefault().delete();
+                    return -2;
                 }
-            }
+                //Xóa tất cả vị trí liên quan
+                if (vitris != null)
+                {
+                    while (vitris.Count > 0)
+                    {
+                        vitris.FirstOrDefault().delete();
+                    }
+                }
 
-            return base.delete();
+                return base.delete();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         public override Tang prevObj()
         {
-            Tang prev = null;
-            prev = db.TANGS.Where(c => c.order < this.order && c.day_id == day_id).OrderByDescending(c => c.order).FirstOrDefault();
-            if (prev == null)
+            try
             {
-                prev = db.TANGS.Where(c => c.date_create < this.date_create && c.day_id == day_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                Tang prev = null;
+                prev = db.TANGS.Where(c => c.order < this.order && c.day_id == day_id).OrderByDescending(c => c.order).FirstOrDefault();
+                if (prev == null)
+                {
+                    prev = db.TANGS.Where(c => c.date_create < this.date_create && c.day_id == day_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                }
+                return prev;
             }
-            return prev;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
         }
         public override Tang nextObj()
         {
-            Tang next = null;
-            next = db.TANGS.Where(c => c.order > this.order && c.day_id == day_id).OrderBy(c => c.order).FirstOrDefault();
-            if (next == null)
+            try
             {
-                next = db.TANGS.Where(c => c.date_create > this.date_create && c.day_id == day_id).OrderBy(c => c.date_create).FirstOrDefault();
+                Tang next = null;
+                next = db.TANGS.Where(c => c.order > this.order && c.day_id == day_id).OrderBy(c => c.order).FirstOrDefault();
+                if (next == null)
+                {
+                    next = db.TANGS.Where(c => c.date_create > this.date_create && c.day_id == day_id).OrderBy(c => c.date_create).FirstOrDefault();
+                }
+                return next;
             }
-            return next;
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
         }
         public override void onAfterAdded()
         {

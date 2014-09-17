@@ -1,4 +1,5 @@
 ﻿using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,8 +63,16 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         private Boolean canUseUserName()
         {
-            //Kiểm tra trùng này nọ các thứ
-            return db.QUANTRIVIENS.Where(c => (c.id != this.id) && (c.username.ToUpper().Equals(this.username.ToUpper()))).Count<QuanTriVien>() == 0;
+            try
+            {
+                //Kiểm tra trùng này nọ các thứ
+                return db.QUANTRIVIENS.Where(c => (c.id != this.id) && (c.username.ToUpper().Equals(this.username.ToUpper()))).Count() == 0;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
         }
 
         public bool canView<T>(T obj) where T : _EntityAbstract1<T>, new()
@@ -119,7 +128,7 @@ namespace QuanLyTaiSan.Entities
 
         private bool isRoot()
         {
-            return username.ToLower().Equals("root");
+            return username!=null && username.ToLower().Equals("root");
         }
         public override int delete()
         {
@@ -155,22 +164,40 @@ namespace QuanLyTaiSan.Entities
             }
             return base.add();
         }
+        /// <summary>
+        /// Ho tro query
+        /// </summary>
+        /// <returns></returns>
         public static new IQueryable<QuanTriVien> getQuery()
         {
             try
             {
+                //validate
                 db.QUANTRIVIENS.AsQueryable().FirstOrDefault();
                 //Ẩn ROOT
                 return db.QUANTRIVIENS.Where(c=>!c.username.ToLower().Equals("root")).AsQueryable();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
                 return new List<QuanTriVien>().AsQueryable();
             }
         }
+        /// <summary>
+        /// Ho tro day du lieu len san
+        /// </summary>
+        /// <returns></returns>
         public static new List<QuanTriVien> getAll()
         {
-            return db.QUANTRIVIENS.Where(c => !c.username.ToLower().Equals("root")).ToList();
+            try
+            {
+                return db.QUANTRIVIENS.Where(c => !c.username.ToLower().Equals("root")).ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<QuanTriVien>();
+            }
         }
         #endregion
     }
