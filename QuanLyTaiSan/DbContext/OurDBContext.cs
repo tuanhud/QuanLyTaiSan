@@ -246,7 +246,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         public static String[] permission_entity_list =
         {
-            CoSo.USNAME, Dayy.USNAME, Tang.USNAME, NhanVienPT.USNAME, QuanTriVien.USNAME, SuCoPhong.USNAME, Phong.USNAME, ThietBi.USNAME, LoaiThietBi.USNAME, Group.USNAME, TinhTrang.USNAME
+            CoSo.USNAME, Dayy.USNAME, Tang.USNAME, NhanVienPT.USNAME, QuanTriVien.USNAME, SuCoPhong.USNAME, Phong.USNAME, ThietBi.USNAME, LoaiThietBi.USNAME, Group.USNAME, TinhTrang.USNAME, HinhAnh.USNAME
         };
         /// <summary>
         /// for SYNC

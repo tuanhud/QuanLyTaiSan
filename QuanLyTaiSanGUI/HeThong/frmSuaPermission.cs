@@ -46,9 +46,11 @@ namespace QuanLyTaiSanGUI.HeThong
 
             //load ds day
             gridControl_Day.DataSource = DayyFilter.getAll();
+            gridView_Day.ExpandAllGroups();
 
             //load ds tang
             gridControl_Tang.DataSource = TangFilter.getAll();
+            gridView_Tang.ExpandAllGroups();
 
             //load ds phong
             gridControl_Phong.DataSource = PhongFilter2.getAll();
@@ -178,8 +180,6 @@ namespace QuanLyTaiSanGUI.HeThong
                     &&
                     c.stand_alone == true
                     &&
-                    c.recursive_to_child == checkEdit_quyenBaoHam2.Checked
-                    &&
                     c.allow_or_deny == !checkEdit_quyenDeny2.Checked
                     &&
                     c.can_add == checkEdit_quyenThem2.Checked
@@ -192,7 +192,7 @@ namespace QuanLyTaiSanGUI.HeThong
             ).FirstOrDefault();
             if (tmp == null)
             {
-                tmp = Permission.request(true, hangmuc, !checkEdit_quyenDeny2.Checked, checkEdit_quyenBaoHam2.Checked, checkEdit_quyenXem2.Checked, checkEdit_quyenSua2.Checked, checkEdit_quyenXoa2.Checked, checkEdit_quyenThem2.Checked);
+                tmp = Permission.request(true, hangmuc, !checkEdit_quyenDeny2.Checked, true, checkEdit_quyenXem2.Checked, checkEdit_quyenSua2.Checked, checkEdit_quyenXoa2.Checked, checkEdit_quyenThem2.Checked);
 
                 input.Add(tmp);
 

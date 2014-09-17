@@ -20,7 +20,8 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
         List<QuanTriVien> QuanTriViens = new List<QuanTriVien>();
         List<Phong> listPhong = new List<Phong>();
         QuanTriVien objQuanTriVien = new QuanTriVien();
-        public Boolean working = false;
+        Boolean working = false;
+        bool canPhanCong = false;
 
         MyUC.MyLayout layout = new MyUC.MyLayout();
 
@@ -46,6 +47,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
         {
             try
             {
+                checkPermission();
                 PhanCong(false);
                 layout.load(gridViewQuanTriVien);
                 QuanTriViens = QuanTriVien.getQuery().OrderBy(c=>c.hoten).ToList();
@@ -54,7 +56,6 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                 {
                     barBtnPhanCong.Enabled = false;
                 }
-                checkPermission();
             }
             catch (Exception ex)
             {
@@ -64,7 +65,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
 
         private void checkPermission()
         {
-            barBtnPhanCong.Enabled = Permission.canEdit<QuanTriVien>(null);
+            canPhanCong = Permission.canEdit<Phong>(null);
         }
 
         public void PhanCong(bool _bool)
@@ -85,7 +86,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                 working = _bool;
                 btnOK.Visible = _bool;
                 btnHuy.Visible = _bool;
-                barBtnPhanCong.Enabled = !_bool;
+                barBtnPhanCong.Enabled = !_bool && canPhanCong;
             }
             catch (Exception ex)
             {

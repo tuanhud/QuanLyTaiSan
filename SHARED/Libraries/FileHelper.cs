@@ -40,20 +40,49 @@ namespace SHARED.Libraries
         /// <summary>
         /// Xoa file
         /// </summary>
-        /// <param name="FILENAME"></param>
+        /// <param name="file_path"></param>
         /// <returns></returns>
-        public static int delete(string FILENAME)
+        public static int delete(string file_path)
         {
             try
             {
                 // Try to delete the file.
-                File.Delete(FILENAME);
+                File.Delete(file_path);
                 return 1;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
                 // We could not delete the file.
+                return -1;
+            }
+        }
+        /// <summary>
+        /// Xóa mọi thứ trong thư mục này, nhưng không xóa thư mục này
+        /// </summary>
+        /// <param name="folder_path"></param>
+        /// <returns></returns>
+        public static int clearFolder(string folder_path)
+        {
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(folder_path);
+
+                foreach (FileInfo fi in dir.GetFiles())
+                {
+                    fi.Delete();
+                }
+
+                foreach (DirectoryInfo di in dir.GetDirectories())
+                {
+                    clearFolder(di.FullName);
+                    di.Delete();
+                }
+                return 1;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
                 return -1;
             }
         }

@@ -66,20 +66,51 @@ namespace QuanLyTaiSan.Entities
         #endregion
 
         #region Override
+        public static List<TinhTrang> getAllForTHIETBI()
+        {
+            try
+            {
+                return db.TINHTRANGS.Where(c =>c.type ==null || c.type == TinhTrang.TYPE_THIETBI).ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<TinhTrang>();
+            }
+        }
+        public static List<TinhTrang> getAllForSUCOPHONG()
+        {
+            try
+            {
+                return db.TINHTRANGS.Where(c => c.type == TinhTrang.TYPE_SUCOPHONG).ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<TinhTrang>();
+            }
+        }
         public override void onAfterAdded()
         {
             this.order = DateTimeHelper.toMilisec(date_create);
             base.onAfterAdded();
         }
+        public static new String VNNAME
+        {
+            get
+            {
+                return "TÌNH TRẠNG";
+            }
+        }
         public override string niceName()
         {
-            return "Tình trạng: " + value;
+            return VNNAME + ": " + value;
         }
         protected override void init()
         {
             base.init();
             //Mac dinh la danh cho ThietBi
-            this.type = 0;
+            this.type = TinhTrang.TYPE_THIETBI;
 
             ctthietbis = new List<CTThietBi>();
             logthietbis = new List<LogThietBi>();

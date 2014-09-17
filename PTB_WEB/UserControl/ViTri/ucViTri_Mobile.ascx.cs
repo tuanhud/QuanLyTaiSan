@@ -35,7 +35,6 @@ namespace PTB_WEB.UserControl.ViTri
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();
-                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     string key = "";
@@ -156,7 +155,7 @@ namespace PTB_WEB.UserControl.ViTri
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có vị trí";
             }
         }

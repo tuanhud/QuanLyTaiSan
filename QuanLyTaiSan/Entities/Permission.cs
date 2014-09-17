@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -75,28 +76,36 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public static Permission request(String fixed_permission = "")
         {
-            if (fixed_permission == null || fixed_permission.Equals(""))
+            try
             {
+                if (fixed_permission == null || fixed_permission.Equals(""))
+                {
+                    return null;
+                }
+                Permission tmp = db.PERMISSIONS.Where(c =>
+                    Permission.STAND_ALONE_LIST.Contains(fixed_permission.ToUpper())
+                    &&
+                    c.allow_or_deny
+                    &&
+                    c.stand_alone
+                    &&
+                    c.key.ToUpper().Equals(fixed_permission.ToUpper())
+                ).FirstOrDefault();
+                if (tmp == null)
+                {
+                    tmp = new Permission();
+                    tmp.key = fixed_permission.ToUpper();
+                    tmp.stand_alone = true;
+                    tmp.recursive_to_child = true;
+                    tmp.allow_or_deny = true;
+                }
+                return tmp;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
                 return null;
             }
-            Permission tmp = db.PERMISSIONS.Where(c =>
-                Permission.STAND_ALONE_LIST.Contains(fixed_permission.ToUpper())
-                &&
-                c.allow_or_deny
-                &&
-                c.stand_alone
-                &&
-                c.key.ToUpper().Equals(fixed_permission.ToUpper())
-            ).FirstOrDefault();
-            if (tmp == null)
-            {
-                tmp = new Permission();
-                tmp.key = fixed_permission.ToUpper();
-                tmp.stand_alone = true;
-                tmp.recursive_to_child = true;
-                tmp.allow_or_deny = true;
-            }
-            return tmp;
         }
         public static Permission request(Boolean stand_alone=false, String key="",  Boolean allow_or_deny=false, Boolean recursive_to_child=false, Boolean can_view=false, Boolean can_edit=false, Boolean can_delete=false, Boolean can_add=false)
         {
@@ -170,7 +179,8 @@ namespace QuanLyTaiSan.Entities
             "WEB_QLMUONPHONG",
             "CLIENT_CONFIG",
             "SERVER_CONFIG",
-            "SUPER_ADMIN"
+            "SUPER_ADMIN",
+            "THONGKE_INBAOCAO"
             //additional follow here
         };
         /// <summary>
@@ -226,6 +236,17 @@ namespace QuanLyTaiSan.Entities
             get
             {
                 return STAND_ALONE_LIST[4];
+            }
+        }
+        /// <summary>
+        /// Quyền ROOT
+        /// </summary>
+        [NotMapped]
+        public static String _THONGKE_INBAOCAO
+        {
+            get
+            {
+                return STAND_ALONE_LIST[5];
             }
         }
         #endregion

@@ -19,6 +19,9 @@ namespace QuanLyTaiSanGUI.Settings
 {
     public partial class ucCauHinh : UserControl
     {
+        //Ket qua tra ve cho frm Setting neu can thiet
+        public bool _passed = false;
+
         private bool can_init_server = false;
         private bool can_config_server = false;
         public ucCauHinh()
@@ -38,9 +41,25 @@ namespace QuanLyTaiSanGUI.Settings
             viewCauHinhLocal._btnServerValidate.Click += new EventHandler(this.btnServerValidate_Click);
             //Sync
             viewCauHinhLocal._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
+            //Developer
+            viewCauHinhLocal._btnImageCacheClear.Click += new EventHandler(this.btnImageCacheClear);
 
         }
-        public void load_data()
+
+        private void btnImageCacheClear(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                FileHelper.clearFolder(HinhAnh.CACHE_PATH);
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
+        }
+        /// <summary>
+        /// Tải các casu hình lên
+        /// </summary>
+        private void load_data()
         {
             /*
              * LOCAL SETTING
@@ -99,7 +118,7 @@ namespace QuanLyTaiSanGUI.Settings
         /// Lưu local setting
         /// </summary>
         /// <returns></returns>
-        public void save()
+        private void save()
         {
             /*
              * LOCAL SETTING
@@ -111,7 +130,7 @@ namespace QuanLyTaiSanGUI.Settings
                 Global.local_setting.db_cache_username = viewCauHinhLocal._txtClientUsername.Text;
                 Global.local_setting.db_cache_password = viewCauHinhLocal._txtClientPassword.Text;
                 Global.local_setting.db_cache_port = viewCauHinhLocal._txtClientPort.Text;
-                Global.local_setting.db_cache_dbname = viewCauHinhLocal._txtServerDBName.Text;
+                Global.local_setting.db_cache_dbname = viewCauHinhLocal._txtClientDBName.Text;
                 Global.local_setting.db_cache_WA = viewCauHinhLocal._cbClientWA.Checked;
             }
             //MAIN SERVER
@@ -238,12 +257,10 @@ namespace QuanLyTaiSanGUI.Settings
 
         private void ucCauHinh_Load(object sender, EventArgs e)
         {
-            //txtAddressDatabase.Focus();
-            load_DB_State();
+            //Không nên đặt các hàm load dữ liệu tự động trong UC
         }
         /// <summary>
-        /// Lưu lại cài đặt
-        /// 
+        /// Hiển thị các bút ứng với State hiện tại của cấu hình
         /// </summary>
         /// <returns>-5: FTP Fail, -2: SERVER DB FAIL, -3: CLIENT DB FAIL </returns>
         private int load_DB_State()
@@ -323,18 +340,15 @@ namespace QuanLyTaiSanGUI.Settings
                 if (re > 0)
                 {
                     XtraMessageBox.Show("Lưu cài đặt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (this.ParentForm.Name.Equals("Setting"))
-                    {
-                        Setting _Setting = new Setting();
-                        _Setting.KiemtraKetnoiDatabase();
-                    }
+                    //set result
+                    _passed = true;
                     return;
                 }
-                else if (re == -5)
-                {
-                    XtraMessageBox.Show("Lỗi cài đặt FTP!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //else if (re == -5)
+                //{
+                //    XtraMessageBox.Show("Lỗi cài đặt FTP!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
                 else if (re == -2)
                 {
                     XtraMessageBox.Show("Lỗi cài đặt Database Server!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -481,9 +495,13 @@ namespace QuanLyTaiSanGUI.Settings
             return str;
         }
 
+        /// <summary>
+        /// Làm mới lại dữ liệu
+        /// </summary>
         public void reLoad()
         {
-            throw new NotImplementedException();
+            load_data();
+            load_DB_State();
         }
 
         private void btnSmtpSendTest_Click(object sender, EventArgs e)

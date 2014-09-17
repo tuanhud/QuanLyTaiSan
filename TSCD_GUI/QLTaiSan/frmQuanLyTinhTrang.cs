@@ -328,7 +328,18 @@ namespace TSCD_GUI.QLTaiSan
             }
         }
 
-        public bool checkworking()
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (checkworking())
+            {
+                if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn đóng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    this.Close();
+            }
+            else
+                this.Close();
+        }
+
+        private bool checkworking()
         {
             try
             {
@@ -336,7 +347,8 @@ namespace TSCD_GUI.QLTaiSan
                 {
                     return
                         objTinhTrang.value != txtTen.Text ||
-                        objTinhTrang.mota != txtMoTa.Text;
+                        (objTinhTrang.mota == null && !txtMoTa.Text.Equals("")) ||
+                        (objTinhTrang.mota != null && objTinhTrang.mota != txtMoTa.Text);
                 }
                 else if (function.Equals("add"))
                 {
@@ -345,20 +357,12 @@ namespace TSCD_GUI.QLTaiSan
                         !txtMoTa.Text.Equals("");
                 }
                 else
-                {
                     return working;
-                }
             }
-            catch (Exception ex)
+            catch
             {
-                Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
                 return true;
             }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

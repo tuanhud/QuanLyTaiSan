@@ -1,4 +1,5 @@
 ﻿using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,33 +44,6 @@ namespace QuanLyTaiSan.Entities
         public virtual QuanTriVien quantrivien { get; set; }
         #endregion
         #region Nghiep vu
-        
-        public int countThietBi()
-        {
-            IQueryable<CTThietBi> v = (from cttb in db.CTTHIETBIS
-                                       join ph in db.PHONGS on cttb.phong equals ph
-                                       where ph.id == this.id
-                                       select cttb);
-            int count = v.Select(x => x.thietbi).Distinct().Count();
-            return count;
-        }
-        public static List<Phong> getPhongByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)
-        {
-            List<Phong> re =
-                (from c in db.PHONGS
-                 where ((_cosoid == Guid.Empty || c.vitri.coso.id == _cosoid) && (_dayid == Guid.Empty || c.vitri.day.id == _dayid) && (_tangid == Guid.Empty || c.vitri.tang.id == _tangid))
-                 select c).OrderBy(p=>p.ten).ToList();
-            return re;
-        }
-
-        public List<Phong> getPhongByViTri(ViTri obj)
-        {
-            List<Phong> re =
-                (from c in db.PHONGS
-                 where (c.vitri == obj)
-                 select c).OrderBy(p => p.ten).ToList();
-            return re;
-        }
 
         #endregion
         #region Override
@@ -123,35 +97,43 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int delete()
         {
-            //Nếu trong phòng vẫn còn ít nhất 1 TB với SL >0 thì không thể xóa
-            if (ctthietbis.Where(c => c.soluong > 0).Count() > 0)
+            try
             {
-                return -2;
-            }
-            //Nếu trong phòng còn sự cố
-            if (sucophongs.Count>0)
-            {
-                return -3;
-            }
-            //======================================================
-            //được quyền xóa tất cả
-            if (ctthietbis != null)
-            {
-                while (ctthietbis.Count > 0)
+                //Nếu trong phòng vẫn còn ít nhất 1 TB với SL >0 thì không thể xóa
+                if (ctthietbis.Where(c => c.soluong > 0).Count() > 0)
                 {
-                    ctthietbis.FirstOrDefault().delete();
+                    return -2;
                 }
-            }
-            //xóa log luôn, do khi xóa CTTB thì KHÔNG xóa LOG, nên nhiệm vụ được giao cho xóa TB
-            if (logthietbis != null)
-            {
-                while (logthietbis.Count > 0)
+                //Nếu trong phòng còn sự cố
+                if (sucophongs.Count > 0)
                 {
-                    logthietbis.FirstOrDefault().delete();
+                    return -3;
                 }
-            }
+                //======================================================
+                //được quyền xóa tất cả
+                if (ctthietbis != null)
+                {
+                    while (ctthietbis.Count > 0)
+                    {
+                        ctthietbis.FirstOrDefault().delete();
+                    }
+                }
+                //xóa log luôn, do khi xóa CTTB thì KHÔNG xóa LOG, nên nhiệm vụ được giao cho xóa TB
+                if (logthietbis != null)
+                {
+                    while (logthietbis.Count > 0)
+                    {
+                        logthietbis.FirstOrDefault().delete();
+                    }
+                }
 
-            return base.delete();
+                return base.delete();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         #endregion
     }

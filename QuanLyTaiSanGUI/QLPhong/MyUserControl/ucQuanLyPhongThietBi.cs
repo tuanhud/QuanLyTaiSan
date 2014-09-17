@@ -113,10 +113,11 @@ namespace QuanLyTaiSanGUI.MyUserControl
         {
             if (objPhong != null && objPhong.id != Guid.Empty)
             {
-                bool canEdit = Permission.canEdit<Phong>(objPhong);
+                bool canAdd_Delete = Permission.canEdit<Phong>(objPhong);
+                bool canEdit = Permission.canEdit<Phong>(objPhong) && Permission.canEdit<ThietBi>(null);
                 groupPhong.Text = "Phòng " + objPhong.ten;
-                barButtonThemTBChung.Enabled = true && canEdit;
-                barButtonThemTBRieng.Enabled = true && canEdit;
+                barButtonThemTBChung.Enabled = true && canAdd_Delete;
+                barButtonThemTBRieng.Enabled = true && canAdd_Delete;
             }
             else
             {
@@ -126,13 +127,14 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             if (listCTThietBis.Count > 0)
             {
-                bool canEdit = Permission.canEdit<Phong>(objPhong);
+                bool canAdd_Delete = Permission.canEdit<Phong>(objPhong);
+                bool canEdit = Permission.canEdit<Phong>(objPhong) && Permission.canEdit<ThietBi>(null);
                 panelControl1.Visible = true;
                 barButtonSua.Enabled = true && canEdit;
-                barButtonXoa.Enabled = true && canEdit;
-                barButtonChuyen.Enabled = true && canEdit;
+                barButtonXoa.Enabled = true && canAdd_Delete;
+                barButtonChuyen.Enabled = true && canAdd_Delete;
                 btnR_Sua.Enabled = true && canEdit;
-                btnR_Xoa.Enabled = true && canEdit;
+                btnR_Xoa.Enabled = true && canAdd_Delete;
             }
             else
             {

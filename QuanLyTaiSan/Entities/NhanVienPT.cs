@@ -45,15 +45,6 @@ namespace QuanLyTaiSan.Entities
             }
             return hinhanhs.FirstOrDefault().getImageURL();
         }
-        public static List<NhanVienPT> getAllByViTri(Guid _phongid, Guid _cosoid, Guid _dayid, Guid _tangid)
-        {
-            List<NhanVienPT> re =
-                (from nv in db.NHANVIENPTS
-                 join p in db.PHONGS on nv equals p.nhanvienpt
-                 where ((_phongid == Guid.Empty || p.id == _phongid) && (_cosoid == Guid.Empty || p.vitri.coso.id == _cosoid) && (_dayid == Guid.Empty || p.vitri.day.id == _dayid) && (_tangid == Guid.Empty || p.vitri.tang.id == _tangid))
-                 select nv).Distinct().ToList();
-            return re;
-        }
         #endregion
         #region Override method
         public override string niceName()

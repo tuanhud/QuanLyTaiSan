@@ -1,4 +1,5 @@
 ﻿using QuanLyTaiSan.Libraries;
+using SHARED.Libraries;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,9 +49,17 @@ namespace QuanLyTaiSan.Entities
 
 
         #endregion
+        public static new String VNNAME
+        {
+            get
+            {
+                return "SỰ CỐ";
+            }
+        }
+
         public override string niceName()
         {
-            return "Sự cố: " + ten + ", " + phong.niceName();
+            return VNNAME + ": " + ten + ", " + phong.niceName();
         }
         #region Override method
         /// <summary>
@@ -68,14 +77,22 @@ namespace QuanLyTaiSan.Entities
         }
         protected int writelog()
         {
-            LogSuCoPhong obj = new LogSuCoPhong();
-            obj.hinhanhs = hinhanhs;
-            obj.mota = this.mota;
-            obj.sucophong = this;
-            obj.quantrivien = Global.current_quantrivien_login;
-            obj.tinhtrang = this.tinhtrang;
-            
-            return obj.add();
+            try
+            {
+                LogSuCoPhong obj = new LogSuCoPhong();
+                obj.hinhanhs = hinhanhs;
+                obj.mota = this.mota;
+                obj.sucophong = this;
+                obj.quantrivien = Global.current_quantrivien_login;
+                obj.tinhtrang = this.tinhtrang;
+
+                return obj.add();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         /// <summary>
         /// Có hỗ trợ ghi log
@@ -97,14 +114,22 @@ namespace QuanLyTaiSan.Entities
         }
         public override int delete()
         {
-            if (logsucophongs != null)
+            try
             {
-                while (logsucophongs.Count > 0)
+                if (logsucophongs != null)
                 {
-                    logsucophongs.FirstOrDefault().delete();
+                    while (logsucophongs.Count > 0)
+                    {
+                        logsucophongs.FirstOrDefault().delete();
+                    }
                 }
+                return base.delete();
             }
-            return base.delete();
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         #endregion
     }

@@ -38,7 +38,6 @@ namespace PTB_WEB.UserControl.ThietBi
             {
                 CreateNode();
                 SearchFunction();
-                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     try
@@ -102,7 +101,7 @@ namespace PTB_WEB.UserControl.ThietBi
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có thiết bị";
             }
         }

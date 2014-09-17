@@ -30,16 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
             this.panelControlHienThiCauHinh = new DevExpress.XtraEditors.PanelControl();
+            this.ucCauHinh1 = new TSCD_GUI.Settings.ucCauHinh();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienThiCauHinh)).BeginInit();
+            this.panelControlHienThiCauHinh.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControlHienThiCauHinh
             // 
+            this.panelControlHienThiCauHinh.Controls.Add(this.ucCauHinh1);
             this.panelControlHienThiCauHinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlHienThiCauHinh.Location = new System.Drawing.Point(0, 0);
             this.panelControlHienThiCauHinh.Name = "panelControlHienThiCauHinh";
             this.panelControlHienThiCauHinh.Size = new System.Drawing.Size(884, 452);
             this.panelControlHienThiCauHinh.TabIndex = 0;
+            // 
+            // ucCauHinh1
+            // 
+            this.ucCauHinh1.AutoSize = true;
+            this.ucCauHinh1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCauHinh1.Location = new System.Drawing.Point(2, 2);
+            this.ucCauHinh1.MinimumSize = new System.Drawing.Size(600, 411);
+            this.ucCauHinh1.Name = "ucCauHinh1";
+            this.ucCauHinh1.Size = new System.Drawing.Size(880, 448);
+            this.ucCauHinh1.TabIndex = 0;
             // 
             // Setting
             // 
@@ -52,8 +65,10 @@
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cài đặt cấu hình";
-            this.Load += new System.EventHandler(this.Setting_Load);
+            this.Shown += new System.EventHandler(this.Setting_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienThiCauHinh)).EndInit();
+            this.panelControlHienThiCauHinh.ResumeLayout(false);
+            this.panelControlHienThiCauHinh.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -61,5 +76,6 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControlHienThiCauHinh;
+        private Settings.ucCauHinh ucCauHinh1;
     }
 }

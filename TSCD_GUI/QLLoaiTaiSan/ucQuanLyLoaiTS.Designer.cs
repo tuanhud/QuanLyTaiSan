@@ -43,6 +43,7 @@
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.coldonvitinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colhuuhinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colobj = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
             this.checkHuuHinh = new DevExpress.XtraEditors.CheckEdit();
@@ -65,7 +66,6 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.colobj = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -181,11 +181,12 @@
             this.treeListLoaiTS.Location = new System.Drawing.Point(0, 0);
             this.treeListLoaiTS.Name = "treeListLoaiTS";
             this.treeListLoaiTS.OptionsBehavior.Editable = false;
+            this.treeListLoaiTS.OptionsBehavior.EnableFiltering = true;
             this.treeListLoaiTS.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTS.OptionsView.ShowAutoFilterRow = true;
             this.treeListLoaiTS.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
             this.treeListLoaiTS.ParentFieldName = "parent_id";
-            this.treeListLoaiTS.Size = new System.Drawing.Size(473, 370);
+            this.treeListLoaiTS.Size = new System.Drawing.Size(474, 370);
             this.treeListLoaiTS.TabIndex = 0;
             this.treeListLoaiTS.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTS_FocusedNodeChanged);
             // 
@@ -221,6 +222,12 @@
             this.colhuuhinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.colhuuhinh.Visible = true;
             this.colhuuhinh.VisibleIndex = 2;
+            // 
+            // colobj
+            // 
+            this.colobj.Caption = "obj";
+            this.colobj.FieldName = "obj";
+            this.colobj.Name = "colobj";
             // 
             // groupControlInfo
             // 
@@ -445,12 +452,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // colobj
-            // 
-            this.colobj.Caption = "obj";
-            this.colobj.FieldName = "obj";
-            this.colobj.Name = "colobj";
             // 
             // ucQuanLyLoaiTS
             // 

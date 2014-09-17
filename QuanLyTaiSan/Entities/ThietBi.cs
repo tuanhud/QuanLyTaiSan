@@ -41,34 +41,34 @@ namespace QuanLyTaiSan.Entities
 		#endregion
 
         #region Nghiep vu
-        /// <summary>
-        /// dựa trên loaichung hay riêng của loại tb mà trả về object ThietBi phù hợp để CTTB gán khi add
-        /// </summary>
-        /// <param name="loai"></param>
-        /// <returns></returns>
-        public static ThietBi request(LoaiThietBi loai)
-        {
-            if (loai == null)
-            {
-                return new ThietBi();
-            }
+        ///// <summary>
+        ///// dựa trên loaichung hay riêng của loại tb mà trả về object ThietBi phù hợp để CTTB gán khi add
+        ///// </summary>
+        ///// <param name="loai"></param>
+        ///// <returns></returns>
+        //public static ThietBi request(LoaiThietBi loai)
+        //{
+        //    if (loai == null)
+        //    {
+        //        return new ThietBi();
+        //    }
 
-            ThietBi tmp = null;
-            if (loai.loaichung)
-            {
-                //select thietbi đã có sẵn để tái sử dụng
-                tmp = db.THIETBIS.Where(c=>c.loaithietbi_id==loai.id).FirstOrDefault();
-                if (tmp != null)
-                {
-                    return tmp;
-                }
-            }
+        //    ThietBi tmp = null;
+        //    if (loai.loaichung)
+        //    {
+        //        //select thietbi đã có sẵn để tái sử dụng
+        //        tmp = db.THIETBIS.Where(c=>c.loaithietbi_id==loai.id).FirstOrDefault();
+        //        if (tmp != null)
+        //        {
+        //            return tmp;
+        //        }
+        //    }
 
-            tmp=new ThietBi();
-            tmp.loaithietbi = loai;
+        //    tmp=new ThietBi();
+        //    tmp.loaithietbi = loai;
             
-            return tmp;
-        }
+        //    return tmp;
+        //}
 
         public static List<ThietBi> getAllByTypeLoai(bool _loaichung)
         {
@@ -80,10 +80,6 @@ namespace QuanLyTaiSan.Entities
             {
                 Debug.WriteLine(ex.ToString());
                 return new List<ThietBi>();
-            }
-            finally
-            {
-
             }
         }
 
@@ -98,10 +94,6 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(ex.ToString());
                 return new List<ThietBi>();
             }
-            finally
-            {
-
-            }
         }
 
         public static List<ThietBi> getAllByTypeLoaiHavePhong(bool _loaichung)
@@ -115,18 +107,21 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(ex.ToString());
                 return new List<ThietBi>();
             }
-            finally
-            {
-
-            }
         }
         
         #endregion
 
         #region Override method
+        public static new String VNNAME
+        {
+            get
+            {
+                return "THIẾT BỊ";
+            }
+        }
         public override string niceName()
         {
-            String tmp = "Thiết bị: " + ten;
+            String tmp = VNNAME + ": " + ten;
             if (subId != null && !subId.Equals(""))
             {
                 tmp += " (" + subId + ")";
@@ -139,41 +134,42 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int delete()
         {
-            //Nếu thiết bị đó có nằm trong phòng nào đó với SL >0 thì chặn xóa
-            if (ctthietbis.Where(c => c.soluong > 0).Count() > 0)
+            try
             {
-                return -2;
-            }
+                //Nếu thiết bị đó có nằm trong phòng nào đó với SL >0 thì chặn xóa
+                if (ctthietbis.Where(c => c.soluong > 0).Count() > 0)
+                {
+                    return -2;
+                }
 
-            //được quyền xóa tất cả
-            if (ctthietbis != null)
-            {
-                while (ctthietbis.Count > 0)
+                //được quyền xóa tất cả
+                if (ctthietbis != null)
                 {
-                    ctthietbis.FirstOrDefault().delete();
+                    while (ctthietbis.Count > 0)
+                    {
+                        ctthietbis.FirstOrDefault().delete();
+                    }
                 }
-            }
-            //xóa log luôn, do khi xóa CTTB thì KHÔNG xóa LOG, nên nhiệm vụ được giao cho xóa TB
-            if (logthietbis != null)
-            {
-                while (logthietbis.Count > 0)
+                //xóa log luôn, do khi xóa CTTB thì KHÔNG xóa LOG, nên nhiệm vụ được giao cho xóa TB
+                if (logthietbis != null)
                 {
-                    logthietbis.FirstOrDefault().delete();
+                    while (logthietbis.Count > 0)
+                    {
+                        logthietbis.FirstOrDefault().delete();
+                    }
                 }
+                return base.delete();
             }
-            return base.delete();
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         public override void onBeforeAdded()
         {
             ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
-
             base.onBeforeAdded();
-        }
-        public override int update()
-        {
-            
-            //...
-            return base.update();
         }
         protected override void init()
         {
@@ -187,14 +183,22 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int add()
         {
-            //check ràng buộc nghiệp vụ, hạn chế thêm mới nếu là loại chung
-            ThietBi tmp = db.THIETBIS.Where(c => c.loaithietbi_id == loaithietbi.id && c.loaithietbi.loaichung == true).FirstOrDefault();
-            if (tmp != null)
+            try
             {
-                this.id = tmp.id;
-                return 1;
+                //check ràng buộc nghiệp vụ, hạn chế thêm mới nếu là loại chung
+                ThietBi tmp = db.THIETBIS.Where(c => c.loaithietbi_id == loaithietbi.id && c.loaithietbi.loaichung == true).FirstOrDefault();
+                if (tmp != null)
+                {
+                    this.id = tmp.id;
+                    return 1;
+                }
+                return base.add();
             }
-            return base.add();
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return -1;
+            }
         }
         #endregion
     }

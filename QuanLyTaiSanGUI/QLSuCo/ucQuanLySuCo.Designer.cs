@@ -299,6 +299,7 @@
             this.rbnGroupSuCo.ItemLinks.Add(this.barBtnSua);
             this.rbnGroupSuCo.ItemLinks.Add(this.barBtnXoa);
             this.rbnGroupSuCo.Name = "rbnGroupSuCo";
+            this.rbnGroupSuCo.ShowCaptionButton = false;
             this.rbnGroupSuCo.Text = "Sự cố";
             // 
             // splitContainerControl1

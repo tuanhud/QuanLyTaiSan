@@ -19,7 +19,7 @@ namespace TSCD.Entities
         #region Event 
         public delegate void DBConnectionChanged(EventArgs e);
         public static event DBConnectionChanged onDBConnectionDown;
-        //public static event DBConnectionChanged onDBConnectionUp;
+        public static event DBConnectionChanged onDBConnectionUp;
 
         #endregion
 
@@ -30,12 +30,24 @@ namespace TSCD.Entities
             {
                 if (db == null)
                 {
-                    db = new OurDBContext(Global.working_database.get_connection_string());
+                    if (SHARED.Global.USE_APP_CONFIG)
+                    {
+                        db = new OurDBContext();
+                    }
+                    else
+                    {
+                        db = new OurDBContext(Global.working_database.get_connection_string());
+                    }
                 }
 
                 try
                 {
                     db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                    //Raise event
+                    if (onDBConnectionUp != null)
+                    {
+                        onDBConnectionUp(new EventArgs());
+                    }
                 }
                 catch (Exception)
                 {

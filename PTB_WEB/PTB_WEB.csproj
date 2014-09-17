@@ -606,7 +606,9 @@
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Web.ascx" />
     <Content Include="ViTri.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>

@@ -127,6 +127,6 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private SHARED.Views.viewCauHinhLocal viewCauHinhLocal1;
+        public SHARED.Views.viewCauHinhLocal viewCauHinhLocal1;
     }
 }

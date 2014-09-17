@@ -9,10 +9,8 @@
 <%@ Register Src="~/UserControl/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 <%@ Register Src="~/UserControl/ucThongBaoLoi.ascx" TagPrefix="uc" TagName="ucThongBaoLoi" %>
 
-
 <uc:ucThietBi_BreadCrumb runat="server" ID="ucThietBi_BreadCrumb" />
 <uc:ucThongBaoLoi runat="server" ID="ucThongBaoLoi" />
-
 
 <asp:Panel ID="Panel_Chinh" runat="server" Visible="False">
     <table class="table largetable">

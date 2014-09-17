@@ -18,6 +18,13 @@ namespace SHARED.Views
             InitializeComponent();
         }
         #region View Provider
+        public SimpleButton _btnImageCacheClear
+        {
+            get
+            {
+                return btnImageCacheClear;
+            }
+        }
         public CheckEdit _cbDebugToFile
         {
             get
