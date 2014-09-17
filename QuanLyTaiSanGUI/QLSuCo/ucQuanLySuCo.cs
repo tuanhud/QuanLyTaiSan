@@ -63,21 +63,28 @@ namespace QuanLyTaiSanGUI.QLSuCo
 
         public void loadData(Phong obj = null)
         {
-            layout.load(gridViewSuCo);
-            List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
-            _ucTreeViTri.loadData(listViTri);
-            List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
-            lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
-            if (obj == null)
+            try
             {
-                objPhong = _ucTreeViTri.getPhong();
+                layout.load(gridViewSuCo);
+                List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
+                _ucTreeViTri.loadData(listViTri);
+                List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+                lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
+                if (obj == null)
+                {
+                    objPhong = _ucTreeViTri.getPhong();
+                }
+                else
+                {
+                    objPhong = obj;
+                    _ucTreeViTri.setPhong(objPhong);
+                }
+                loadDataByPhong();
             }
-            else
+            catch (Exception ex)
             {
-                objPhong = obj;
-                _ucTreeViTri.setPhong(objPhong);
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
-            loadDataByPhong();
         }
 
         private void checkPermission()

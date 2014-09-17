@@ -68,12 +68,18 @@ namespace QuanLyTaiSanGUI
             InitializeComponent();
             init();
             DBInstance.onDBConnectionDown += new DBInstance.DBConnectionChanged(this.rotmang);
+            DBInstance.onDBConnectionUp += new DBInstance.DBConnectionChanged(this.comang);
             DatabaseHelper.autoSyncInNewThread();
         }
 
         private void rotmang(EventArgs e)
         {
             showConnection("Mất kết nối CSDL", false);
+        }
+
+        private void comang(EventArgs e)
+        {
+            showConnection("Có kết nối CSDL", true);
         }
 
         private void init()
@@ -168,13 +174,13 @@ namespace QuanLyTaiSanGUI
 
         private void ribbonMain_SelectedPageChanged(object sender, EventArgs e)
         {
-            try
+            if (drawEnd)
             {
-                if (drawEnd)
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+                try
                 {
                     DBInstance.reNew();
-                    DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                     if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageViTri_Home")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
@@ -271,15 +277,13 @@ namespace QuanLyTaiSanGUI
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucLogHeThong);
                     }
-                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(this.Name + ": ribbonMain_SelectedPageChanged :" + ex.Message);
+                }
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(this.Name + ": ribbonMain_SelectedPageChanged :" + ex.Message);
-            }
-            finally
-            { }
         }
 
         private void loadDataByPhong(Phong obj, String type)
