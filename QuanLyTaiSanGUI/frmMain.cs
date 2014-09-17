@@ -365,7 +365,7 @@ namespace QuanLyTaiSanGUI
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
-            _ucCauHinh.load_data();
+            _ucCauHinh.reLoad();
             _ucCauHinh.Dock = DockStyle.Fill;
             backstageViewClientControlCauHinh.Controls.Add(_ucCauHinh);
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
