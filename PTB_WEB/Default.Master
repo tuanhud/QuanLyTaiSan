@@ -22,8 +22,8 @@
     <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.11.1.min.js"></script>
     <script src="Scripts/myjs.js"></script>
-    <script src="Scripts/pace.min.js"></script>
-    <link href="Content/css/pace.css" rel="stylesheet" />
+    <%--<script src="Scripts/pace.min.js"></script>
+    <link href="Content/css/pace.css" rel="stylesheet" />--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

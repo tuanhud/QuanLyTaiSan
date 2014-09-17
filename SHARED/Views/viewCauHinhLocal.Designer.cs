@@ -121,12 +121,12 @@
             // 
             // groupControl_database
             // 
-            this.groupControl_database.Controls.Add(this.panelControl_Server);
             this.groupControl_database.Controls.Add(this.panelControl_Client);
             this.groupControl_database.Controls.Add(this.cbUseDBCache);
+            this.groupControl_database.Controls.Add(this.panelControl_Server);
             this.groupControl_database.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl_database.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_database.Name = "groupControl_database";
+            this.groupControl_database.Name = "groupControl1";
             this.groupControl_database.Size = new System.Drawing.Size(420, 362);
             this.groupControl_database.TabIndex = 1;
             this.groupControl_database.Text = "Cấu hình Cơ sở dữ liệu";
@@ -297,16 +297,17 @@
             this.panelControl_Client.Controls.Add(this.labelControl9);
             this.panelControl_Client.Controls.Add(this.txtClientPassword);
             this.panelControl_Client.Controls.Add(this.txtClientPort);
+            this.panelControl_Client.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl_Client.Enabled = false;
-            this.panelControl_Client.Location = new System.Drawing.Point(3, 191);
+            this.panelControl_Client.Location = new System.Drawing.Point(2, 188);
             this.panelControl_Client.Name = "panelControl_Client";
-            this.panelControl_Client.Size = new System.Drawing.Size(416, 168);
+            this.panelControl_Client.Size = new System.Drawing.Size(416, 174);
             this.panelControl_Client.TabIndex = 17;
             // 
             // btnClientDropDB
             // 
             this.btnClientDropDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClientDropDB.Location = new System.Drawing.Point(311, 102);
+            this.btnClientDropDB.Location = new System.Drawing.Point(311, 108);
             this.btnClientDropDB.Name = "btnClientDropDB";
             this.btnClientDropDB.Size = new System.Drawing.Size(89, 23);
             this.btnClientDropDB.TabIndex = 20;
@@ -505,8 +506,8 @@
             this.groupControl_developer.Controls.Add(this.cbDebugToFile);
             this.groupControl_developer.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl_developer.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_developer.Name = "groupControl_developer";
-            this.groupControl_developer.Size = new System.Drawing.Size(373, 93);
+            this.groupControl_developer.Name = "groupControl4";
+            this.groupControl_developer.Size = new System.Drawing.Size(374, 93);
             this.groupControl_developer.TabIndex = 134;
             this.groupControl_developer.Text = "Dành cho nhà phát triển";
             // 

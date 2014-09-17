@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.SyncFramework</id>
+    <version>2.1.0.2</version>
+    <title>Microsoft Sync Framework Redistributable</title>
+    <authors>Darrell Tunnell</authors>
+    <owners>Darrell Tunnell</owners>
+    <projectUrl>http://www.microsoft.com/en-gb/download/details.aspx?id=19502</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Installs the core MS Sync Framework redistributables (Synchronization-v2.1-x86-ENU.msi and Synchronization-v2.1-x64-ENU.msi) if they aren't allready installed, and then adds a reference for the 'Microsoft.Synchronization' assembly to your project. The msi distributables are obtained from here: http://www.microsoft.com/en-gb/download/details.aspx?id=19502</description>
+    <summary>Installs the core development dependencies for the Microsoft Sync Framework. Adds a reference to your project for the 'Microsoft.Synchronization' assembly.</summary>
+    <releaseNotes>This Version: Corrected some package metadata.
+    Previous Versions: Fixed issue with incorrect msi installation detection.</releaseNotes>
+    <language>en-gb</language>
+    <tags>Sync Framework SyncFramework Microsoft MicrosoftSync MicrosoftSyncFramework Redistributable SyncFx MS</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.Synchronization" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

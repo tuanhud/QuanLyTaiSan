@@ -31,6 +31,7 @@ function KiemTraDoiMatKhauTruocKhiLuu() {
 function ShowThemMoi() {
     taikhoan = "";
     document.getElementById("DropDownListNhom").value = 1;
+    document.getElementById("DropDownListNhom").disabled = false;
     $("#ThongBao").hide();
     $("#ButtonLuu").hide();
     $("#thongbaomatkhau").hide();
@@ -154,7 +155,6 @@ function ShowCapNhat(id, nhom) {
     taikhoan = $("#username" + id).html();
     var khoa = $("#khoa" + id).html();
     var mota = $("#mota" + id).html().replace(/<br>/g, "\r\n");
-
     if (taikhoan == taikhoandangnhap)
         document.getElementById("DropDownListNhom").disabled = true;
     else

@@ -3,6 +3,12 @@
 <%@ Register Src="~/UserControl/ucDangNhap.ascx" TagPrefix="uc" TagName="ucDangNhap" %>
 <%@ Register TagPrefix="cp" Namespace="SiteUtils" Assembly="CollectionPager" %>
 <%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
+<%@ Register Src="~/UserControl/Alert/ucSuccess.ascx" TagPrefix="uc" TagName="ucSuccess" %>
+<%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
+<%@ Register Src="~/UserControl/Alert/ucDanger.ascx" TagPrefix="uc" TagName="ucDanger" %>
+
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Quản lý mượn phòng :: Phòng Thiết bị :.</title>
@@ -21,6 +27,9 @@
                             <uc:ucDangNhap runat="server" ID="ucDangNhap" />
                         </div>
                     </asp:Panel>
+                    <uc:ucSuccess runat="server" ID="ucSuccess" Visible="false" />
+                    <uc:ucWarning runat="server" ID="ucWarning" Visible="false"/>
+                    <uc:ucDanger runat="server" ID="ucDanger" Visible="false" />
                     <asp:Panel ID="PanelQuanLyPhongMuon" runat="server" Visible="False">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" id="myTab">
@@ -43,7 +52,7 @@
                                                     <th colspan="2">SỐ LƯỢNG</th>
                                                     <th rowspan="2">LỚP</th>
                                                     <th rowspan="2">LÝ DO SỬ DỤNG</th>
-                                                    <th colspan="3">XỬ LÝ</th>
+                                                    <th colspan="4">XỬ LÝ</th>
                                                 </tr>
                                                 <tr>
                                                     <th><i>Từ</i></th>
@@ -112,6 +121,7 @@
                                                             <th><i>Duyệt</i></th>
                                                             <th><i>Ghi chú</i></th>
                                                             <th><i>Người duyệt</i></th>
+                                                            <th><i>Xóa</i></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -131,6 +141,7 @@
                                                                     <td><%# Duyet() %></td>
                                                                     <td id='GhiChu<%#Eval("id")%>'><%# Eval("ghichu") %></td>
                                                                     <td><%# Eval("nguoiduyet.hoten") %></td>
+                                                                    <td><%#XoaPhieuMuonPhong()%></td>
                                                                 </tr>
                                                             </ItemTemplate>
                                                         </asp:Repeater>
