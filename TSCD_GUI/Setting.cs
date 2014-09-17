@@ -20,44 +20,38 @@ namespace TSCD_GUI
 {
     public partial class Setting : frmCustomXtraForm
     {
+
         /// <summary>
         /// Sẽ tự động mở Login lên sau khi Close()
         /// </summary>
+        private bool _passed = false;
 
-        private ucCauHinh _ucCauHinh = null;
         public Setting()
         {
             InitializeComponent();
-        }
-
-        private void Setting_Load(object sender, EventArgs e)
-        {
-            KiemtraKetnoiDatabase();
-        }
-
-        public void KiemtraKetnoiDatabase()
-        {
-            //Check kết nối tới CSDL nếu OK thì gọi Close
-            if (Global.working_database.isReady() > 0)
+            //Check kết nối tới CSDL nếu OK thì gọi login ngay lập tức
+            _passed = Global.working_database.isReady() > 0;
+            if (_passed)
             {
                 this.show_frm_login();
             }
             else
             {
-                HienThiCauHinh();
+                //register event
+                ucCauHinh1.viewCauHinhLocal1._btnSaveLocal.Click += new EventHandler(this.checkPoint);
+                //load uc data
+                ucCauHinh1.reLoad();
             }
         }
 
-        public void HienThiCauHinh()
+        private void checkPoint(object sender, EventArgs e)
         {
-            panelControlHienThiCauHinh.Controls.Clear();
-            if (_ucCauHinh == null)
+            _passed = ucCauHinh1._passed;
+            //Kiem tra ket noi toi CSDL working de show form login len
+            if (_passed)
             {
-                _ucCauHinh = new ucCauHinh();
-                _ucCauHinh.load_data();
-            }            
-            _ucCauHinh.Dock = DockStyle.Fill;
-            panelControlHienThiCauHinh.Controls.Add(_ucCauHinh);
+                this.show_frm_login();
+            }
         }
 
         /// <summary>
@@ -66,18 +60,34 @@ namespace TSCD_GUI
         #region show from login in new thread
         private void ThreadProc()
         {
-            DevExpress.UserSkins.BonusSkins.Register();
-            Application.EnableVisualStyles();
-            DevExpress.Skins.SkinManager.EnableFormSkins();
+            //DevExpress.UserSkins.BonusSkins.Register();
+            //Application.EnableVisualStyles();
+            //DevExpress.Skins.SkinManager.EnableFormSkins();
             Application.Run(new Login());
         }
         private void show_frm_login()
         {
-            Thread thread = new Thread(new ThreadStart(ThreadProc));
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-            Application.Exit();
+            try
+            {
+                Thread thread = new Thread(new ThreadStart(ThreadProc));
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+                Application.Exit();
+            }
+            catch (Exception) { }
         }
         #endregion
+
+        private void Setting_Shown(object sender, EventArgs e)
+        {
+            if (_passed)
+            {
+                try
+                {
+                    this.Close();
+                }
+                catch (Exception) { }
+            }
+        }
     }
 }

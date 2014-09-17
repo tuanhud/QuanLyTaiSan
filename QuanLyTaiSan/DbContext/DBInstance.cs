@@ -19,7 +19,7 @@ namespace QuanLyTaiSan.Entities
         #region Event 
         public delegate void DBConnectionChanged(EventArgs e);
         public static event DBConnectionChanged onDBConnectionDown;
-        //public static event DBConnectionChanged onDBConnectionUp;
+        public static event DBConnectionChanged onDBConnectionUp;
 
         #endregion
 
@@ -55,6 +55,11 @@ namespace QuanLyTaiSan.Entities
                     try
                     {
                         db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                        //Raise event
+                        if (onDBConnectionUp != null)
+                        {
+                            onDBConnectionUp(new EventArgs());
+                        }
                     }
                     catch (Exception)
                     {
@@ -68,41 +73,6 @@ namespace QuanLyTaiSan.Entities
                     }
                     return db;
                 }
-
-
-
-
-                //OLD=========================
-
-                //if (db == null)
-                //{
-                //    //Dành cho ASP.NET
-                //    if (Global.working_database.use_internal_config)
-                //    {
-                //        db = new OurDBContext();
-                //    }
-                //    //Dành cho Winform
-                //    else
-                //    {
-                //        //by default, point to working database
-                //        db = new OurDBContext(Global.working_database.get_connection_string());
-                //    }
-                //}
-                //try
-                //{
-                //    db.Set<CoSo>().AsQueryable().FirstOrDefault();
-                //}
-                //catch (Exception)
-                //{
-                //    //DB CONNECTION FAIl
-                //    Debug.WriteLine("=========DB CONNECTION FAIL==========");
-                //    //Raise event
-                //    if (onDBConnectionDown != null)
-                //    {
-                //        onDBConnectionDown(new EventArgs());
-                //    }
-                //}
-                //return db;
             }
         }
         /// <summary>
