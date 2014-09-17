@@ -164,9 +164,9 @@
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltxtDonViTinh.Location = new System.Drawing.Point(361, 67);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
-            this.lbltxtDonViTinh.Size = new System.Drawing.Size(47, 13);
+            this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 14;
-            this.lbltxtDonViTinh.Text = "DonViTinh";
+            this.lbltxtDonViTinh.Text = "[Đơn vị tính]";
             // 
             // lblChungTu
             // 
