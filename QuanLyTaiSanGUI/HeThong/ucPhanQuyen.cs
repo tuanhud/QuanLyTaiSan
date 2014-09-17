@@ -27,6 +27,12 @@ namespace QuanLyTaiSanGUI.HeThong
         private String function = "";
         private bool working = false;
         private bool show = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
+        bool canAdd_Group = false;
+        bool canEdit_Group = false;
+        bool canDelete_Group = false;
 
         public ucPhanQuyen()
         {
@@ -35,7 +41,24 @@ namespace QuanLyTaiSanGUI.HeThong
             _ucPhanQuyen_Control.Parent = this;
             rbnGroupGroup.Visible = false;
             _ucPhanQuyen_Group.EnableButton2 = new ucPhanQuyen_Group.enableButton2(enableButton2);
-            reLoad();
+            //reLoad();
+        }
+
+        private void checkPermission()
+        {
+            try
+            {
+                canAdd = Permission.canAdd<QuanTriVien>();
+                canEdit = Permission.canEdit<QuanTriVien>(null);
+                canDelete = Permission.canDelete<QuanTriVien>(null);
+                canAdd_Group = Permission.canAdd<Group>();
+                canEdit_Group = Permission.canEdit<Group>(null);
+                canDelete_Group = Permission.canDelete<Group>(null);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
+            }
         }
 
         private void gridViewPhanQuyen_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -104,7 +127,7 @@ namespace QuanLyTaiSanGUI.HeThong
             //Không thể tự mình đổi group
             lookUpEdit_group.Properties.ReadOnly = !_enable || (Global.current_quantrivien_login != null && objQuanTriVienFilter!=null && objQuanTriVienFilter.quantrivien!=null && Global.current_quantrivien_login.id == objQuanTriVienFilter.quantrivien.id && !function.Equals("add"));
             memoEdit_mota.Properties.ReadOnly = !_enable;
-            barButtonThemQTV.Enabled = !_enable;
+            barButtonThemQTV.Enabled = !_enable && canAdd;
             enableButton(!_enable);
             working = _enable;
         }
@@ -112,16 +135,16 @@ namespace QuanLyTaiSanGUI.HeThong
         private void enableButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
-            barButtonSuaQTV.Enabled = _enable;
-            barButtonXoaQTV.Enabled = _enable;
+            barButtonSuaQTV.Enabled = _enable && canEdit;
+            barButtonXoaQTV.Enabled = _enable && canDelete;
         }
 
         private void enableButton2(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
-            barBtnThemGroup.Enabled = _enable;
-            barBtnSuaGroup.Enabled = _enable;
-            barBtnXoaGroup.Enabled = _enable;
+            barBtnThemGroup.Enabled = _enable && canAdd_Group;
+            barBtnSuaGroup.Enabled = _enable && canEdit_Group;
+            barBtnXoaGroup.Enabled = _enable && canDelete_Group;
         }
 
         private void clearText()
@@ -172,6 +195,7 @@ namespace QuanLyTaiSanGUI.HeThong
         {
             try
             {
+                checkPermission();
                 gridControlPhanQuyen.DataSource = null;
                 gridControlPhanQuyen.DataSource = listobjQuanTriVienFilter = QuanTriVienFilter.getAll();
                 gridViewPhanQuyen.ExpandAllGroups();

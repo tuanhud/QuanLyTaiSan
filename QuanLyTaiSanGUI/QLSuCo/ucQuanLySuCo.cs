@@ -22,6 +22,9 @@ namespace QuanLyTaiSanGUI.QLSuCo
         Phong objPhong = new Phong();
         String function = "";
         bool working = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
         QuanLyTaiSanGUI.MyUC.MyLayout layout = new QuanLyTaiSanGUI.MyUC.MyLayout();
 
         public ucQuanLySuCo()
@@ -77,6 +80,20 @@ namespace QuanLyTaiSanGUI.QLSuCo
             loadDataByPhong();
         }
 
+        private void checkPermission()
+        {
+            try
+            {
+                canAdd = Permission.canAdd<SuCoPhong>() && Permission.canEdit<Phong>(objPhong);
+                canEdit = Permission.canEdit<SuCoPhong>(null) && Permission.canEdit<Phong>(objPhong);
+                canDelete = Permission.canDelete<SuCoPhong>(null) && Permission.canEdit<Phong>(objPhong);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
+            }
+        }
+
         public void loadDataById(Guid id)
         {
             objPhong = Phong.getById(id);
@@ -87,12 +104,13 @@ namespace QuanLyTaiSanGUI.QLSuCo
         {
             try
             {
+                checkPermission();
                 if (objPhong != null && objPhong.id != Guid.Empty)
                 {
                     listSuCo = objPhong.sucophongs.OrderByDescending(c => c.ngay).ToList();
                     gridControlSuCo.DataSource = listSuCo;
-                    barBtnThem.Enabled = true;
-                    btnR_Them.Enabled = true;
+                    barBtnThem.Enabled = true && canAdd;
+                    btnR_Them.Enabled = true && canAdd;
                 }
                 else
                 {
@@ -159,18 +177,18 @@ namespace QuanLyTaiSanGUI.QLSuCo
             lookUpEditTinhTrang.Properties.ReadOnly = !_enable;
             dateEdit1.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
-            barBtnThem.Enabled = !_enable;
-            btnR_Them.Enabled = !_enable;
+            barBtnThem.Enabled = !_enable && canAdd;
+            btnR_Them.Enabled = !_enable && canAdd;
             working = _enable;
         }
 
         private void enableButton(bool _enable)
         {
             //btnR_Them.Enabled = _enable;
-            btnR_Sua.Enabled = _enable;
-            btnR_Xoa.Enabled = _enable;
-            barBtnSua.Enabled = _enable;
-            barBtnXoa.Enabled = _enable;
+            btnR_Sua.Enabled = _enable && canEdit;
+            btnR_Xoa.Enabled = _enable && canDelete;
+            barBtnSua.Enabled = _enable && canEdit;
+            barBtnXoa.Enabled = _enable && canDelete;
         }
 
         private void clearText()
@@ -192,16 +210,6 @@ namespace QuanLyTaiSanGUI.QLSuCo
             {
                 //errorProvider1.Clear();
                 clearText();
-                if (isLog)
-                {
-                    //if (!function.Equals("onlyview"))
-                        editGUI("onlyview");
-                }
-                else
-                {
-                    //if (!function.Equals("view"))
-                        editGUI("view");
-                }
                 if (gridViewSuCo.RowCount > 0)
                 {
                     if (gridViewSuCo.FocusedRowHandle > -1 && gridViewSuCo.GetFocusedRow() != null)
@@ -244,6 +252,16 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 {
                     enableButton(false);
                     objSuCo = new SuCoPhong();
+                }
+                if (isLog)
+                {
+                    //if (!function.Equals("onlyview"))
+                    editGUI("onlyview");
+                }
+                else
+                {
+                    //if (!function.Equals("view"))
+                    editGUI("view");
                 }
             }
             catch (Exception ex)
