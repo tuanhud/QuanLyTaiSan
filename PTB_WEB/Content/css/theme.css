@@ -54,6 +54,10 @@
     vertical-align:middle !important;
 }
 
+.centered2 tr th, .centered2 tr td, .tdcenter{
+    vertical-align:middle !important;
+}
+
 .CollectionPager {
   padding-left: 0;
   margin: 20px 0;
@@ -179,6 +183,7 @@
 .valign_middle tr td {
     vertical-align:middle !important;
 }
+
 .border_right {
     border-right: solid 2px #EFF7FC !important;
 }
@@ -307,4 +312,7 @@ legend {
     padding-left: 18px;
     background: url('http://skfox.com/jqExamples/images/list.png') no-repeat 0% .5em;
     cursor: pointer;
+}
+.noboder tr, .noboder td{
+    border:none !important;
 }

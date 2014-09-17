@@ -49,17 +49,17 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><b>DANH SÁCH TÀI KHOẢN GIẢNG VIÊN MƯỢN PHÒNG</b></h3>
                             </div>
-                            <table class="table table-bordered table-striped">
-                                <thead class="centered">
+                            <table class="table table-bordered table-striped valign_middle">
+                                <thead>
                                     <tr>
-                                        <th>STT</th>
+                                        <th class="tdcenter">STT</th>
                                         <th>HỌ TÊN</th>
                                         <th>EMAIL</th>
                                         <th>TÀI KHOẢN</th>
                                         <th>KHOA</th>
                                         <th>NGÀY TẠO</th>
                                         <th>MÔ TẢ</th>
-                                        <th>CÔNG CỤ</th>
+                                        <th class="tdcenter">CÔNG CỤ</th>
                                     </tr>
                                 </thead>
                                 <tbody>

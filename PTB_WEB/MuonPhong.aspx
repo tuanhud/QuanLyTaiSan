@@ -57,7 +57,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Ngày mượn</label>
                                 <div class="col-sm-3">
-                                    <div class='input-group date' id='datetimepickerNgayMuon' data-date-format="DD/MM/YYYY">
+                                    <div class='input-group date' id='datetimepickerNgayMuon'>
                                         <asp:TextBox ID="TextBoxNgayMuon" CssClass="form-control" runat="server"></asp:TextBox>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                         </span>

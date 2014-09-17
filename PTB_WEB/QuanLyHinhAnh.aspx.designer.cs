@@ -13,6 +13,60 @@ namespace PTB_WEB {
     public partial class QuanLyHinhAnh {
         
         /// <summary>
+        /// PanelDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
+        
+        /// <summary>
+        /// ucDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.ucDangNhap ucDangNhap;
+        
+        /// <summary>
+        /// ucSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Alert.ucSuccess ucSuccess;
+        
+        /// <summary>
+        /// ucWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Alert.ucWarning ucWarning;
+        
+        /// <summary>
+        /// ucDanger control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Alert.ucDanger ucDanger;
+        
+        /// <summary>
+        /// PanelQuanLyHinhAnh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelQuanLyHinhAnh;
+        
+        /// <summary>
         /// PanelThongBao control.
         /// </summary>
         /// <remarks>

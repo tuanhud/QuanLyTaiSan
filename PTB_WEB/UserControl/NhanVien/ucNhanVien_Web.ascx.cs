@@ -18,17 +18,20 @@ namespace PTB_WEB.UserControl.NhanVien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                _ucCollectionPager_DanhSachNhanVien.ShowPanelPage(PanelChangePage);
-                SearchFunction();
-                if (Convert.ToString(Page.Session["ShowInfo"]) == "1")
+                try
                 {
-                    PanelChangePage.Visible = false;
-                    Session["ShowInfo"] = null;
+                    _ucCollectionPager_DanhSachNhanVien.ShowPanelPage(PanelChangePage);
+                    SearchFunction();
+                    if (Convert.ToString(Page.Session["ShowInfo"]) == "1")
+                    {
+                        PanelChangePage.Visible = false;
+                        Session["ShowInfo"] = null;
+                    }
                 }
+                catch (Exception) { };
             }
-            catch (Exception) { };
         }
 
         public void LoadData()
@@ -64,14 +67,14 @@ namespace PTB_WEB.UserControl.NhanVien
                         _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
                         _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=NHANVIEN", HttpContext.Current.Request.Url.Authority, objNhanVienPT.id);
-                        
+
                         List<QuanLyTaiSan.Entities.Phong> ListPhong = objNhanVienPT.phongs.ToList();
-                        
+
                         var list = ListPhong.Select(a => new
                         {
                             id = a.id,
                             ten = string.Format("{0}{1}", a.ten, !Object.Equals(getVitri(a), "") ? " " + getVitri(a) : ""),
-                            url =  string.Format("http://{0}/Phong.aspx?Search={1}", HttpContext.Current.Request.Url.Authority, a.id.ToString())
+                            url = string.Format("http://{0}/Phong.aspx?Search={1}", HttpContext.Current.Request.Url.Authority, a.id.ToString())
                         }).ToList();
 
                         _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = list;

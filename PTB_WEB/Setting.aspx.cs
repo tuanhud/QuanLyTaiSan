@@ -33,7 +33,8 @@ namespace PTB_WEB
                         {
                             PanelThongTin.Visible = true;
                             QuanLyTaiSan.Entities.QuanTriVien _QuanTriVien = QuanLyTaiSan.Entities.QuanTriVien.getByUserName(Session["Username"].ToString());
-                            TextBoxMailTemplate.Text = QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TEMPLATE;
+                            TextBoxMailTieuDe.Text = QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TITLE_TEMPLATE;
+                            TextBoxMailNoiDung.Text = QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_CONTENT_TEMPLATE;
                         }
                     }
                 }
@@ -47,7 +48,8 @@ namespace PTB_WEB
         protected void ButtonSaveMailTemplate_Click(object sender, EventArgs e)
         {
             SetAlertVisible();
-            QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TEMPLATE = TextBoxMailTemplate.Text;
+            QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TITLE_TEMPLATE = TextBoxMailTieuDe.Text;
+            QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_CONTENT_TEMPLATE = TextBoxMailNoiDung.Text;
             if (QuanLyTaiSan.Global.remote_setting.email_template.save() > 0 && QuanLyTaiSan.Entities.DBInstance.commit() > 0)
             {
                 ucSuccess.LabelInfo.Text = "Lưu mẫu gửi mail thành công";

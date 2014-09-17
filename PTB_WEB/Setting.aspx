@@ -22,7 +22,7 @@
             <tr runat="server" visible="false" id="DangNhap">
                 <td>
                     <div class="center">
-                        <uc:ucDangNhap runat="server" ID="ucDangNhap"/>
+                        <uc:ucDangNhap runat="server" ID="ucDangNhap" />
                     </div>
                 </td>
             </tr>
@@ -40,30 +40,40 @@
                 <tr>
                     <td style="width: 210px" class="border_right">
                         <h3 class="title_orange fix">Biến dữ liệu</h3>
-                        <%--<ul>
-                        <li><a href="#">{HoTenNguoiDuyet}</a></li>
-                        <li>{EmailNguoiDuyet}</li>
-                        <li>{HoTenNguoiNhan}</li>
-                        <li>{EmailNguoiNhan}</li>
-                        <li>{TinhTrang}</li>
-                        <li>{GhiChu}</li>
-                    </ul>--%>
-
                         <p class="bg-success draggable">{HoTenNguoiDuyet}</p>
                         <p class="bg-success draggable">{EmailNguoiDuyet}</p>
                         <p class="bg-success draggable">{HoTenNguoiNhan}</p>
                         <p class="bg-success draggable">{EmailNguoiNhan}</p>
+                        <p class="bg-success draggable">{NgayTao}</p>
                         <p class="bg-success draggable">{ThongTinPhieuMuon}</p>
                         <p class="bg-success draggable">{TinhTrang}</p>
                         <p class="bg-success draggable">{GhiChu}</p>
                     </td>
                     <td>
                         <h3 class="title_blue fix">Mẫu gửi mail</h3>
-                        <asp:TextBox CssClass="form-control" ID="TextBoxMailTemplate" ClientIDMode="Static" runat="server" TextMode="MultiLine"></asp:TextBox><br />
-                        <script>
-                            CKEDITOR.replace('TextBoxMailTemplate');
-                        </script>
-                        <asp:Button ID="ButtonSaveMailTemplate" runat="server" Text="Lưu cấu hình" CssClass="btn btn-success" OnClick="ButtonSaveMailTemplate_Click" />
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Tiêu đề</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox CssClass="form-control" ID="TextBoxMailTieuDe" ClientIDMode="Static" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Nội dung</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox CssClass="form-control" ID="TextBoxMailNoiDung" ClientIDMode="Static" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                    <script>
+                                        CKEDITOR.replace('TextBoxMailNoiDung');
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <asp:Button ID="ButtonSaveMailTemplate" runat="server" Text="Lưu cấu hình" CssClass="btn btn-success" OnClick="ButtonSaveMailTemplate_Click" />
+                                </div>
+                            </div>
+                        </div>
+
                     </td>
                 </tr>
             </asp:Panel>

@@ -31,6 +31,33 @@ namespace PTB_WEB {
         protected global::PTB_WEB.UserControl.ucDangNhap ucDangNhap;
         
         /// <summary>
+        /// ucSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Alert.ucSuccess ucSuccess;
+        
+        /// <summary>
+        /// ucWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Alert.ucWarning ucWarning;
+        
+        /// <summary>
+        /// ucDanger control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PTB_WEB.UserControl.Alert.ucDanger ucDanger;
+        
+        /// <summary>
         /// PanelQuanLyPhongMuon control.
         /// </summary>
         /// <remarks>

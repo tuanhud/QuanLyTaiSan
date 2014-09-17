@@ -444,6 +444,7 @@
     <Content Include="Images\bg-footer.png" />
     <Content Include="Images\bg-wall.png" />
     <Content Include="Images\CollapseAllIcon.png" />
+    <Content Include="Images\DeleteRed.png" />
     <Content Include="Images\ExpandAllIcon.png" />
     <Content Include="Images\load.gif" />
     <Content Include="Images\metro\back.png" />
@@ -1073,9 +1074,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuanLyTaiSan\QuanLyTaiSan.csproj">

@@ -34,10 +34,33 @@ namespace PTB_WEB
                     {
                         PanelQuanLyPhongMuon.Visible = true;
                         QuanLyPhongMuon();
+
+                        if (Page.Request.QueryString["op"] != null)
+                        {
+                            if (Page.Request.QueryString["op"].Equals("xoa"))
+                            {
+                                Guid ID_PMP = GUID.From(Page.Request.QueryString["id"]);
+                                PhieuMuonPhong _PhieuMuonPhong = PhieuMuonPhong.getById(ID_PMP);
+                                HideAllAlert();
+                                if (_PhieuMuonPhong.delete() > 0 && DBInstance.commit() > 0)
+                                {
+                                    ucSuccess.LabelInfo.Text = "Đã xóa phiếu mượn phòng này";
+                                    ucSuccess.Visible = true;
+                                    Response.Redirect("QuanLyMuonPhong.aspx");
+                                }
+                                else
+                                {
+                                    ucWarning.LabelInfo.Text = "Có lỗi xảy ra trong khi xóa. Vui lòng kiểm tra lại.";
+                                    ucWarning.Visible = true;
+                                }
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
+                    ucDanger.LabelInfo.Text = "Có lỗi xảy ra. Vui lòng tải lại trang.";
+                    ucDanger.Visible = true;
                     Console.WriteLine(ex);
                 }
             }
@@ -147,10 +170,14 @@ namespace PTB_WEB
                 _PhieuMuonPhong.nguoiduyet = _QuanTriVien;
                 if (_PhieuMuonPhong.update() > 0 && DBInstance.commit() > 0)
                 {
+                    HideAllAlert();
+                    ucSuccess.LabelInfo.Text = "Duyệt phòng thành công. ";
+                    ucSuccess.Visible = true;
+
                     if (CheckBoxGuiMailThongBao.Checked == true)
                     {
                         string to = _PhieuMuonPhong.nguoiduyet.email;
-                        string sub = "[Thông Báo] V/v mượn phòng ngày " + Convert.ToDateTime(_PhieuMuonPhong.date_create).ToString("d/M/yyyy");
+                        string sub = PTB_WEB.Libraries.StringHelper.TitleContent(_PhieuMuonPhong);
                         switch (_PhieuMuonPhong.trangthai)
                         {
                             case -1:
@@ -164,19 +191,40 @@ namespace PTB_WEB
                                 break;
                         }
                         string msg = PTB_WEB.Libraries.StringHelper.MailContent(_PhieuMuonPhong, tinhtrang);
-                        QuanLyTaiSan.Libraries.EmailHelper.sendMail(to, sub, msg);
+                        if (QuanLyTaiSan.Libraries.EmailHelper.sendMail(to, sub, msg) > 0)
+                        {
+                            HideAllAlert();
+                            ucSuccess.LabelInfo.Text += "Đã gửi mail thông báo đến giảng viên mượn phòng";
+                            ucSuccess.Visible = true;
+                        }
+                        else
+                        {
+                            HideAllAlert();
+                            ucWarning.LabelInfo.Text = "Đã xảy ra lỗi. Mail không gửi được đến giảng viên mượn phòng";
+                            ucWarning.Visible = true;
+                        }
                     }
                     QuanLyPhongMuon();
-                }
-                else
-                {
-
                 }
             }
             catch (Exception ex)
             {
+                HideAllAlert();
+                ucDanger.LabelInfo.Text = "Có lỗi xảy ra trong khi duyệt. Vui lòng kiểm tra lại";
+                ucDanger.Visible = true;
                 Console.Write(ex);
             }
         }
+
+        private void HideAllAlert()
+        {
+            ucDanger.Visible = ucWarning.Visible = ucSuccess.Visible = false;
+        }
+
+        protected String XoaPhieuMuonPhong()
+        {
+            return "<a href=\"?op=xoa&id=" + Eval("id") + "\" onclick=\"return confirm('Bạn chắc chắn muốn phiếu mượn phòng này ?');\"><img src=\"/Images/DeleteRed.png\" alt=\"Xóa\" /></a>";
+        }
+
     }
 }

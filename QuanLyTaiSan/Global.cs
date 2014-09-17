@@ -531,27 +531,48 @@ namespace QuanLyTaiSan
         {
             public static class email_template
             {
-                private static String default_template = null;
-                public static String DEFAULT_TEMPLATE
+                private static String default_title_template = null;
+                private static String default_content_template = null;
+
+                public static String DEFAULT_TITLE_TEMPLATE
                 {
                     get
                     {
-                        if (default_template == null)
+                        if (default_title_template == null)
                         {
-                            default_template = Setting.getValue("email_template_default");
+                            default_title_template = Setting.getValue("default_title_template");
                         }
-                        return default_template;
+                        return default_title_template;
                     }
                     set
                     {
-                        default_template = value;
+                        default_title_template = value;
+                    }
+                }
+                public static String DEFAULT_CONTENT_TEMPLATE
+                {
+                    get
+                    {
+                        if (default_content_template == null)
+                        {
+                            default_content_template = Setting.getValue("default_content_template");
+                        }
+                        return default_content_template;
+                    }
+                    set
+                    {
+                        default_content_template = value;
                     }
                 }
                 public static int save()
                 {
                     Boolean re = true;
-                    Setting obj = Setting.getByKey("email_template_default");
-                    obj.value = default_template;
+                    Setting obj = Setting.getByKey("default_title_template");
+                    obj.value = default_title_template;
+                    re = re && obj.addOrUpdate() > 0;
+
+                    obj = Setting.getByKey("default_content_template");
+                    obj.value = default_content_template;
                     re = re && obj.addOrUpdate() > 0;
 
                     re = re && DBInstance.commit() > 0;
@@ -565,7 +586,7 @@ namespace QuanLyTaiSan
 
                 private static void reload()
                 {
-                    default_template = null;
+                    default_content_template = null;
                 }
 
             }

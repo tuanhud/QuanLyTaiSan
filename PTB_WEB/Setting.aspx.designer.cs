@@ -85,13 +85,22 @@ namespace PTB_WEB {
         protected global::PTB_WEB.UserControl.Alert.ucWarning ucWarning;
         
         /// <summary>
-        /// TextBoxMailTemplate control.
+        /// TextBoxMailTieuDe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxMailTemplate;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMailTieuDe;
+        
+        /// <summary>
+        /// TextBoxMailNoiDung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMailNoiDung;
         
         /// <summary>
         /// ButtonSaveMailTemplate control.

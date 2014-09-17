@@ -17,19 +17,22 @@ namespace PTB_WEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Default SetClassActive = this.Master as Default;
-            SetClassActive.page = "NHANVIEN";
+            if (!IsPostBack)
+            {
+                Default SetClassActive = this.Master as Default;
+                SetClassActive.page = "NHANVIEN";
 
-            isMobile = MobileDetect.fBrowserIsMobile();
-            if (!isMobile)
-            {
-                Panel_Web.Visible = true;
-                _ucNhanVien_Web.LoadData();
-            }
-            else
-            {
-                Panel_Mobile.Visible = true;
-                _ucNhanVien_Mobile.LoadData();
+                isMobile = MobileDetect.fBrowserIsMobile();
+                if (!isMobile)
+                {
+                    Panel_Web.Visible = true;
+                    _ucNhanVien_Web.LoadData();
+                }
+                else
+                {
+                    Panel_Mobile.Visible = true;
+                    _ucNhanVien_Mobile.LoadData();
+                }
             }
         }
     }

@@ -26,9 +26,23 @@ namespace PTB_WEB
                 Default SetClassActive = this.Master as Default;
                 SetClassActive.page = "QUANLYHINHANH";
 
-                CreateFolder(folder_img);
-                CreateFolder(folder_img + folder_thumb);
-                ListImage();
+                if (Convert.ToString(Session["Username"]).Equals(String.Empty))
+                    PanelDangNhap.Visible = true;
+                else
+                {
+                    if (PermissionHelper.QuyenThemHinhAnh())
+                    {
+                        PanelQuanLyHinhAnh.Visible = true;
+                        CreateFolder(folder_img);
+                        CreateFolder(folder_img + folder_thumb);
+                        ListImage();
+                    }
+                    else
+                    {
+                        ucWarning.LabelInfo.Text = "Bạn không có quyền tải lên hình ảnh";
+                        ucWarning.Visible = true;
+                    }                    
+                }
             }
         }
 
