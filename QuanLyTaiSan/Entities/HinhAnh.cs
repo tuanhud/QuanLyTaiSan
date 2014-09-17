@@ -136,6 +136,14 @@ namespace QuanLyTaiSan.Entities
         
         protected Bitmap image=null;
         /// <summary>
+        /// Trả về URL tuyệt đối của Hình ảnh THUMB
+        /// </summary>
+        /// <returns></returns>
+        public String getImageThumbURL()
+        {
+            return Global.remote_setting.http_host.getCombinedPath(THUMB_PREFIX + path);
+        }
+        /// <summary>
         /// Trả về URL tuyệt đối của Hình ảnh
         /// </summary>
         /// <returns></returns>
@@ -240,8 +248,17 @@ namespace QuanLyTaiSan.Entities
                 this.max_size = value;
             }
         }
-        
-        protected static String cache_path = "ImageCache";
+        /// <summary>
+        /// prefix ten file THUMB 100px cho WEB
+        /// </summary>
+        [NotMapped]
+        public static String THUMB_PREFIX
+        {
+            get
+            {
+                return "thumb150_";
+            }
+        }
         /// <summary>
         /// Thư mục cache hình (relative) ./ImageCache
         /// </summary>
@@ -250,7 +267,7 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
-                return cache_path;
+                return "ImageCache";
             }
         }
         /// <summary>
@@ -313,6 +330,19 @@ namespace QuanLyTaiSan.Entities
                     Global.remote_setting.ftp_host.getCombinedPath(this.path);
 
                 //upload hinh
+                FTPHelper.uploadImage(
+                    image,
+                    abs_path,
+                    Global.remote_setting.ftp_host.USER_NAME,
+                    Global.remote_setting.ftp_host.PASS_WORD
+                );
+                //upload thumb len
+                //100x100px
+                //Step1: prepare thumb path
+                abs_path = Global.remote_setting.ftp_host.getCombinedPath(THUMB_PREFIX + this.path);
+                //Step2: resize
+                image = ImageHelper.ScaleBySize(image, 150);
+                //Step 3: upload
                 return FTPHelper.uploadImage(
                     image,
                     abs_path,
