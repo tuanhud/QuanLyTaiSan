@@ -38,7 +38,6 @@ namespace PTB_WEB.UserControl.Phong
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     SearchFunction();
-                    Panel_Chinh.Visible = true;
                     if (Request.QueryString["key"] != null)
                     {
                         key = "";
@@ -151,13 +150,13 @@ namespace PTB_WEB.UserControl.Phong
                 }
                 else
                 {
-                    Panel_ThongBaoLoi.Visible = true;
+                    ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                     ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
                 }
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có phòng";
             }
         }

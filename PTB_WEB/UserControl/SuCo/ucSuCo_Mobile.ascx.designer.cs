@@ -13,13 +13,13 @@ namespace PTB_WEB.UserControl.SuCo {
     public partial class ucSuCo_Mobile {
         
         /// <summary>
-        /// Panel_ThongBaoLoi control.
+        /// ucSuCo_BreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.SuCo.ucSuCo_BreadCrumb ucSuCo_BreadCrumb;
         
         /// <summary>
         /// ucThongBaoLoi control.
@@ -29,24 +29,6 @@ namespace PTB_WEB.UserControl.SuCo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
-        
-        /// <summary>
-        /// Panel_Chinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
-        
-        /// <summary>
-        /// ucSuCo_BreadCrumb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PTB_WEB.UserControl.SuCo.ucSuCo_BreadCrumb ucSuCo_BreadCrumb;
         
         /// <summary>
         /// Panel_TreeViTri control.
@@ -76,15 +58,6 @@ namespace PTB_WEB.UserControl.SuCo {
         protected global::System.Web.UI.WebControls.Panel Panel_DanhSachSuCo;
         
         /// <summary>
-        /// Label_DanhSachSuCoTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DanhSachSuCoTitle;
-        
-        /// <summary>
         /// Label_DanhSachSuCo control.
         /// </summary>
         /// <remarks>
@@ -92,6 +65,15 @@ namespace PTB_WEB.UserControl.SuCo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_DanhSachSuCo;
+        
+        /// <summary>
+        /// Label_DanhSachSuCoTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_DanhSachSuCoTitle;
         
         /// <summary>
         /// RepeaterSuCo control.

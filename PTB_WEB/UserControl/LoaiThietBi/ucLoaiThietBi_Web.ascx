@@ -26,7 +26,7 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr>
-                                <td style="width: 120px">Tên loại:</td>
+                                <td>Tên loại:</td>
                                 <td>
                                     <asp:Label ID="Label_TenLoai" runat="server" Text="Label"></asp:Label>
                                 </td>

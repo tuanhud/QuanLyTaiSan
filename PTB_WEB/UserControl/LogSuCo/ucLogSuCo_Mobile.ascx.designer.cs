@@ -13,13 +13,13 @@ namespace PTB_WEB.UserControl.LogSuCo {
     public partial class ucLogSuCo_Mobile {
         
         /// <summary>
-        /// Panel_ThongBaoLoi control.
+        /// ucLogSuCo_BreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.LogSuCo.ucLogSuCo_BreadCrumb ucLogSuCo_BreadCrumb;
         
         /// <summary>
         /// ucThongBaoLoi control.
@@ -31,24 +31,6 @@ namespace PTB_WEB.UserControl.LogSuCo {
         protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
         
         /// <summary>
-        /// Panel_Chinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
-        
-        /// <summary>
-        /// ucLogSuCo_BreadCrumb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PTB_WEB.UserControl.LogSuCo.ucLogSuCo_BreadCrumb ucLogSuCo_BreadCrumb;
-        
-        /// <summary>
         /// Panel_DanhSachLog control.
         /// </summary>
         /// <remarks>
@@ -58,15 +40,6 @@ namespace PTB_WEB.UserControl.LogSuCo {
         protected global::System.Web.UI.WebControls.Panel Panel_DanhSachLog;
         
         /// <summary>
-        /// Label_LogSuCo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_LogSuCo;
-        
-        /// <summary>
         /// Label_DanhSachLogSuCo control.
         /// </summary>
         /// <remarks>
@@ -74,6 +47,15 @@ namespace PTB_WEB.UserControl.LogSuCo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_DanhSachLogSuCo;
+        
+        /// <summary>
+        /// Label_LogSuCo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_LogSuCo;
         
         /// <summary>
         /// RepeaterDanhSachLogSuCo control.

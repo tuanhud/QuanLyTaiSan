@@ -17,7 +17,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _ucTreeViTri.NotFocusOnCreated();
         }
 
         public void LoadData()
@@ -28,7 +28,6 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiThietBi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();
-                Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
                     try
@@ -56,7 +55,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có loại thiết bị";
             }
         }

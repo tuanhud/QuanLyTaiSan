@@ -42,14 +42,22 @@ namespace PTB_WEB.UserControl.NhanVien
                     objNhanVienPT = NhanVienPT.getById(id);
                     if (objNhanVienPT != null)
                     {
-                        Panel_Chinh.Visible = true;
                         PanelThongTinNhanVienPhuTrach.Visible = true;
                         Label_MaNhanVien.Text = objNhanVienPT.subId;
                         _ucNhanVien_BreadCrumb.Label_TenNhanVien.Text = Label_HoTen.Text = objNhanVienPT.hoten;
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
                         Libraries.ImageHelper.LoadImageWeb(objNhanVienPT.hinhanhs.ToList(), _ucASPxImageSlider_Mobile.ASPxImageSlider_Object);
 
-                        _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = objNhanVienPT.phongs.ToList();
+                        List<QuanLyTaiSan.Entities.Phong> ListPhong = objNhanVienPT.phongs.ToList();
+
+                        var list = ListPhong.Select(a => new
+                        {
+                            id = a.id,
+                            ten = string.Format("{0}{1}", a.ten, !Object.Equals(getVitri(a), "") ? " " + getVitri(a) : ""),
+                            url = string.Format("http://{0}/Phong.aspx?Search={1}", HttpContext.Current.Request.Url.Authority, a.id.ToString())
+                        }).ToList();
+
+                        _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = list;
                         _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
                         RepeaterDanhSachPhong.DataSource = _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSourcePaged;
                         RepeaterDanhSachPhong.DataBind();
@@ -61,14 +69,13 @@ namespace PTB_WEB.UserControl.NhanVien
                 }
                 else
                 {
-                    Panel_Chinh.Visible = true;
                     PanelDanhSachNhanVienPhuTrach.Visible = true;
                     BindData();
                 }
             }
             else
             {
-                Panel_ThongBaoLoi.Visible = true;
+                ucThongBaoLoi.Panel_ThongBaoLoi.Visible = true;
                 ucThongBaoLoi.Label_ThongBaoLoi.Text = "Chưa có nhân viên";
             }
         }
@@ -110,6 +117,11 @@ namespace PTB_WEB.UserControl.NhanVien
         //    else
         //        Response.Redirect(Request.Url.AbsolutePath);
         //}
+
+        public string getVitri(QuanLyTaiSan.Entities.Phong _objPhong)
+        {
+            return Libraries.StringHelper.StringViTriPhong(_objPhong);
+        }
 
         private void SearchFunction()
         {

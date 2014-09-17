@@ -13,13 +13,13 @@ namespace PTB_WEB.UserControl.NhanVien {
     public partial class ucNhanVien_Mobile {
         
         /// <summary>
-        /// Panel_ThongBaoLoi control.
+        /// _ucNhanVien_BreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_ThongBaoLoi;
+        protected global::PTB_WEB.UserControl.NhanVien.ucNhanVien_BreadCrumb _ucNhanVien_BreadCrumb;
         
         /// <summary>
         /// ucThongBaoLoi control.
@@ -29,24 +29,6 @@ namespace PTB_WEB.UserControl.NhanVien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.ucThongBaoLoi ucThongBaoLoi;
-        
-        /// <summary>
-        /// Panel_Chinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Chinh;
-        
-        /// <summary>
-        /// _ucNhanVien_BreadCrumb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PTB_WEB.UserControl.NhanVien.ucNhanVien_BreadCrumb _ucNhanVien_BreadCrumb;
         
         /// <summary>
         /// PanelThongTinNhanVienPhuTrach control.
