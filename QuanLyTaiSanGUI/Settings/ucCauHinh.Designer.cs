@@ -604,6 +604,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private SHARED.Views.viewCauHinhLocal viewCauHinhLocal;
+        public SHARED.Views.viewCauHinhLocal viewCauHinhLocal;
     }
 }

@@ -21,6 +21,7 @@ namespace TSCD_GUI.Settings
 {
     public partial class ucCauHinh : UserControl,_ourUcInterface
     {
+        public bool _passed = false;
         private bool can_init_server = false;
         private bool can_config_server = false;
         public ucCauHinh()
@@ -42,7 +43,7 @@ namespace TSCD_GUI.Settings
             viewCauHinhLocal1._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
 
         }
-        public void load_data()
+        private void load_data()
         {
             /*
              * LOCAL SETTING
@@ -80,7 +81,7 @@ namespace TSCD_GUI.Settings
         /// Lưu local setting
         /// </summary>
         /// <returns></returns>
-        public void save()
+        private void save()
         {
             /*
              * LOCAL SETTING
@@ -92,7 +93,7 @@ namespace TSCD_GUI.Settings
                 Global.local_setting.db_cache_username = viewCauHinhLocal1._txtClientUsername.Text;
                 Global.local_setting.db_cache_password = viewCauHinhLocal1._txtClientPassword.Text;
                 Global.local_setting.db_cache_port = viewCauHinhLocal1._txtClientPort.Text;
-                Global.local_setting.db_cache_dbname = viewCauHinhLocal1._txtServerDBName.Text;
+                Global.local_setting.db_cache_dbname = viewCauHinhLocal1._txtClientDBName.Text;
                 Global.local_setting.db_cache_WA = viewCauHinhLocal1._cbClientWA.Checked;
             }
             //MAIN SERVER
@@ -174,7 +175,7 @@ namespace TSCD_GUI.Settings
         private void ucCauHinh_Load(object sender, EventArgs e)
         {
             //txtAddressDatabase.Focus();
-            load_DB_State();
+            //load_DB_State();
         }
         /// <summary>
         /// Lưu lại cài đặt
@@ -258,18 +259,14 @@ namespace TSCD_GUI.Settings
                 if (re > 0)
                 {
                     XtraMessageBox.Show("Lưu cài đặt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (this.ParentForm.Name.Equals("Setting"))
-                    {
-                        Setting _Setting = new Setting();
-                        _Setting.KiemtraKetnoiDatabase();
-                    }
+                    _passed = true;
                     return;
                 }
-                else if (re == -5)
-                {
-                    XtraMessageBox.Show("Lỗi cài đặt FTP!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //else if (re == -5)
+                //{
+                //    XtraMessageBox.Show("Lỗi cài đặt FTP!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
                 else if (re == -2)
                 {
                     XtraMessageBox.Show("Lỗi cài đặt Database Server!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -394,7 +391,8 @@ namespace TSCD_GUI.Settings
 
         public void reLoad()
         {
-            throw new NotImplementedException();
+            load_data();
+            load_DB_State();
         }
 
         private void btnClientDropDB_Click(object sender, EventArgs e)
