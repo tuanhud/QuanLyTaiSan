@@ -362,32 +362,44 @@ namespace QuanLyTaiSanGUI
 
         private void backstageViewTabItemCauHinh_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-            if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
-            _ucCauHinh.load_data();
-            _ucCauHinh.Dock = DockStyle.Fill;
-            backstageViewClientControlCauHinh.Controls.Add(_ucCauHinh);
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+            if(backstageViewClientControlCauHinh.Visible)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+                if (_ucCauHinh == null) _ucCauHinh = new ucCauHinh();
+                _ucCauHinh.load_data();
+                _ucCauHinh.Dock = DockStyle.Fill;
+                backstageViewClientControlCauHinh.Controls.Add(_ucCauHinh);
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+            }
         }
 
         private void backstageViewTabItemGiaoDienvaNgonNgu_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            if (_ucGiaoDienvaNgonNgu == null) _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
-            _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
-            backstageViewClientControlGiaoDienvaNgonNgu.Controls.Add(_ucGiaoDienvaNgonNgu);
+            if (backstageViewClientControlGiaoDienvaNgonNgu.Visible)
+            {
+                if (_ucGiaoDienvaNgonNgu == null) _ucGiaoDienvaNgonNgu = new ucGiaoDienvaNgonNgu();
+                _ucGiaoDienvaNgonNgu.Dock = DockStyle.Fill;
+                backstageViewClientControlGiaoDienvaNgonNgu.Controls.Add(_ucGiaoDienvaNgonNgu);
+            }
         }
 
         private void backstageViewTabItemCapNhatPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            if (_ucCapNhatPhanMem == null) _ucCapNhatPhanMem = new ucCapNhatPhanMem();
-            _ucCapNhatPhanMem.Dock = DockStyle.Fill;
-            backstageViewClientControlCapNhatPhanMem.Controls.Add(_ucCapNhatPhanMem);
+            if (backstageViewClientControlCapNhatPhanMem.Visible)
+            {
+                if (_ucCapNhatPhanMem == null) _ucCapNhatPhanMem = new ucCapNhatPhanMem();
+                _ucCapNhatPhanMem.Dock = DockStyle.Fill;
+                backstageViewClientControlCapNhatPhanMem.Controls.Add(_ucCapNhatPhanMem);
+            }
         }
 
         private void backstageViewTabItemThongTinPhanMem_SelectedChanged(object sender, BackstageViewItemEventArgs e)
         {
-            ThongTinPhanMem();
+            if (backstageViewClientControlThongTinPhanMem.Visible)
+            {
+                ThongTinPhanMem();
+            }
         }
 
         private void backstageViewControl1_Hidden(object sender, EventArgs e)
