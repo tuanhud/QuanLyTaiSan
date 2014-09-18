@@ -119,6 +119,15 @@ namespace QuanLyTaiSan.Entities
             this.order = DateTimeHelper.toMilisec(date_create);
             base.onAfterAdded();
         }
+        public override void doTrigger()
+        {
+            if (day != null)
+            {
+                day.trigger();
+            }
+            base.doTrigger();
+        }
+
         #endregion
     }
 }

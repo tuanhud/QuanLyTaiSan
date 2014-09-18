@@ -55,6 +55,26 @@ namespace QuanLyTaiSan.Entities
         {
             return -1;
         }
+        public override void doTrigger()
+        {
+            if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+            if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+            if (phong != null)
+            {
+                phong.trigger();
+            }
+            if (quantrivien != null)
+            {
+                quantrivien.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

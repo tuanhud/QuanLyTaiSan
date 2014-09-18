@@ -62,6 +62,18 @@ namespace QuanLyTaiSan.Entities
             return VNNAME + ": " + ten + ", " + phong.niceName();
         }
         #region Override method
+        public override void doTrigger()
+        {
+            if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+            if (phong != null)
+            {
+                phong.trigger();
+            }
+            base.doTrigger();
+        }
         /// <summary>
         /// Set tên, tình trạng, phòng, mô tả, ngày, hình ảnh trước khi gọi,
         /// Có hỗ trợ ghi log
@@ -100,7 +112,6 @@ namespace QuanLyTaiSan.Entities
         /// <returns></returns>
         public override int update()
         {
-            
             //add
             base.update();
             //write log

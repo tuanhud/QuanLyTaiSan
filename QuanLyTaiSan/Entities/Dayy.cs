@@ -143,6 +143,14 @@ namespace QuanLyTaiSan.Entities
             this.order = DateTimeHelper.toMilisec(date_create);
             base.onAfterAdded();
         }
+        public override void doTrigger()
+        {
+            if (coso != null)
+            {
+                coso.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

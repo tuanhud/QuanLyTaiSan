@@ -557,6 +557,7 @@ namespace QuanLyTaiSan.Entities
         public virtual void onBeforeUpdated()
         {
             date_modified = ServerTimeHelper.getNow();
+            doTrigger();
         }
         /// <summary>
         /// Chạy nghiệp vụ trước khi được thêm vào CSDL
@@ -565,6 +566,7 @@ namespace QuanLyTaiSan.Entities
         {
             //time
             date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
+            doTrigger();
         }
 
         public virtual void onAfterUpdated()
@@ -593,5 +595,11 @@ namespace QuanLyTaiSan.Entities
         }
         #endregion
 
+
+
+        public virtual void doTrigger()
+        {
+            //OVERRIDE IN SUB-CLASS
+        }
     }
 }

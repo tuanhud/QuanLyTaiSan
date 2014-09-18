@@ -331,6 +331,23 @@ namespace QuanLyTaiSan.Entities
                 return -1;
             }
         }
+
+        public override void doTrigger()
+        {
+            if (phong != null)
+            {
+                phong.trigger();
+            }
+            if (thietbi != null)
+            {
+                thietbi.trigger();
+            }
+            if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }
