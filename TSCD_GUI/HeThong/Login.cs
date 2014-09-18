@@ -25,6 +25,32 @@ namespace TSCD_GUI.HeThong
             //register event
             viewLogin1.btnOK.Click += new EventHandler(this.btnOK_Click);
             viewLogin1.btnThoat.Click += new EventHandler(this.btnThoat_Click);
+            viewLogin1.btnSync.Click += new EventHandler(this.btnSync_Click);
+            viewLogin1.btnResetLocalSetting.Click += new EventHandler(this.btnResetLocalSetting_Click);
+        }
+        private void btnResetLocalSetting_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Xác nhận!", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    Global.local_setting.Reset();
+                    Global.local_setting.Save();
+                    XtraMessageBox.Show("Thoát và chạy lại để có hiệu lức!");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
+        private void btnSync_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ CSDL...");
+            Global.client_database.start_sync();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -37,11 +63,6 @@ namespace TSCD_GUI.HeThong
                 viewLogin1.txtUsername.Text = Global.local_setting.login_username;
                 viewLogin1.txtPassword.Text = Global.local_setting.login_password;
             }
-            //Trước khi login phải sync CSDL
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ CSDL...");
-            Global.client_database.start_sync();
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

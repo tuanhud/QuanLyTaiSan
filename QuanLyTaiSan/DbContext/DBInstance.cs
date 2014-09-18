@@ -107,7 +107,7 @@ namespace QuanLyTaiSan.Entities
         /// </summary>
         private static void sync()
         {
-            Debug.WriteLine("======Location: DBInstance======");
+            Debug.WriteLine("======Location: DBInstance.commit======");
             Debug.WriteLine("======Start sync when insert, in new Thread======");
             Global.client_database.start_sync();
             Debug.WriteLine("======End sync when insert, in new Thread======");

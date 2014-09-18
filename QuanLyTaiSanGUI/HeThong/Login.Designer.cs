@@ -44,7 +44,7 @@
             // 
             this.viewLogin1.Location = new System.Drawing.Point(4, 3);
             this.viewLogin1.Name = "viewLogin1";
-            this.viewLogin1.Size = new System.Drawing.Size(337, 155);
+            this.viewLogin1.Size = new System.Drawing.Size(337, 182);
             this.viewLogin1.TabIndex = 0;
             // 
             // Login
@@ -52,7 +52,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(342, 161);
+            this.ClientSize = new System.Drawing.Size(338, 183);
             this.Controls.Add(this.viewLogin1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -39,6 +39,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.cbRemember = new DevExpress.XtraEditors.CheckEdit();
+            this.btnSync = new DevExpress.XtraEditors.SimpleButton();
+            this.btnResetLocalSetting = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox_Title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
@@ -59,7 +61,7 @@
             this.groupBox_Title.Controls.Add(this.cbRemember);
             this.groupBox_Title.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_Title.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox_Title.Location = new System.Drawing.Point(3, 3);
+            this.groupBox_Title.Location = new System.Drawing.Point(3, 30);
             this.groupBox_Title.Name = "groupBox_Title";
             this.groupBox_Title.Size = new System.Drawing.Size(330, 149);
             this.groupBox_Title.TabIndex = 10;
@@ -151,13 +153,33 @@
             this.cbRemember.Size = new System.Drawing.Size(182, 19);
             this.cbRemember.TabIndex = 4;
             // 
+            // btnSync
+            // 
+            this.btnSync.Location = new System.Drawing.Point(4, 4);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(75, 23);
+            this.btnSync.TabIndex = 11;
+            this.btnSync.TabStop = false;
+            this.btnSync.Text = "Đồng bộ";
+            // 
+            // btnResetLocalSetting
+            // 
+            this.btnResetLocalSetting.Location = new System.Drawing.Point(105, 4);
+            this.btnResetLocalSetting.Name = "btnResetLocalSetting";
+            this.btnResetLocalSetting.Size = new System.Drawing.Size(91, 23);
+            this.btnResetLocalSetting.TabIndex = 12;
+            this.btnResetLocalSetting.TabStop = false;
+            this.btnResetLocalSetting.Text = "Reset cấu hình";
+            // 
             // viewLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnResetLocalSetting);
+            this.Controls.Add(this.btnSync);
             this.Controls.Add(this.groupBox_Title);
             this.Name = "viewLogin";
-            this.Size = new System.Drawing.Size(337, 155);
+            this.Size = new System.Drawing.Size(337, 182);
             this.Load += new System.EventHandler(this.viewLogin_Load);
             this.groupBox_Title.ResumeLayout(false);
             this.groupBox_Title.PerformLayout();
@@ -181,5 +203,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         public DevExpress.XtraEditors.TextEdit txtPassword;
         public DevExpress.XtraEditors.CheckEdit cbRemember;
+        public DevExpress.XtraEditors.SimpleButton btnSync;
+        public DevExpress.XtraEditors.SimpleButton btnResetLocalSetting;
     }
 }

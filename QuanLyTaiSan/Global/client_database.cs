@@ -86,12 +86,12 @@ namespace QuanLyTaiSan
                     {
                         return 1;
                     }
-
-                    return DatabaseHelper.start_sync(
+                    int re = DatabaseHelper.start_sync(
                         Global.client_database.get_connection_string(),
                         Global.server_database.get_connection_string(),
                         Global.sync.scope_name
                     );
+                    return re;
                 }
                 catch (Exception ex)
                 {
