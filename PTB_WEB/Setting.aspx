@@ -40,14 +40,15 @@
                 <tr>
                     <td style="width: 210px" class="border_right">
                         <h3 class="title_orange fix">Biến dữ liệu</h3>
-                        <p class="bg-success draggable">{HoTenNguoiDuyet}</p>
-                        <p class="bg-success draggable">{EmailNguoiDuyet}</p>
-                        <p class="bg-success draggable">{HoTenNguoiNhan}</p>
-                        <p class="bg-success draggable">{EmailNguoiNhan}</p>
-                        <p class="bg-success draggable">{NgayTao}</p>
-                        <p class="bg-success draggable">{ThongTinPhieuMuon}</p>
-                        <p class="bg-success draggable">{TinhTrang}</p>
-                        <p class="bg-success draggable">{GhiChu}</p>
+                        <i>Đặt con trỏ vào vị trí cần chèn sau đó click vào biến dữ liệu</i>
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{HoTenNguoiDuyet}')">{HoTenNguoiDuyet}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{EmailNguoiDuyet}')">{EmailNguoiDuyet}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{HoTenNguoiNhan}')">{HoTenNguoiNhan}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{EmailNguoiNhan}')">{EmailNguoiNhan}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{NgayTao}')">{NgayTao}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{ThongTinPhieuMuon}')">{ThongTinPhieuMuon}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{TinhTrang}')">{TinhTrang}</label><br />
+                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{GhiChu}')">{GhiChu}</label><br />
                     </td>
                     <td>
                         <h3 class="title_blue fix">Mẫu gửi mail</h3>
@@ -55,7 +56,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tiêu đề</label>
                                 <div class="col-sm-10">
-                                    <asp:TextBox CssClass="form-control" ID="TextBoxMailTieuDe" ClientIDMode="Static" runat="server"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBoxMailTieuDe" ClientIDMode="Static" runat="server" onfocus="TextBoxMailTieuDe_Focus();"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">

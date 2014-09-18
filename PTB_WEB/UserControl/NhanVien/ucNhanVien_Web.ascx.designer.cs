@@ -49,15 +49,6 @@ namespace PTB_WEB.UserControl.NhanVien {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
-        /// PanelChangePage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelChangePage;
-        
-        /// <summary>
         /// RepeaterDanhSachNhanVien control.
         /// </summary>
         /// <remarks>
@@ -146,5 +137,14 @@ namespace PTB_WEB.UserControl.NhanVien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PTB_WEB.UserControl.ucCollectionPager _ucCollectionPager_DanhSachPhong;
+        
+        /// <summary>
+        /// PanelChangePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelChangePage;
     }
 }
