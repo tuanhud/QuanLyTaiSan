@@ -99,20 +99,20 @@ namespace TSCD.Entities
         public override Dayy prevObj()
         {
             Dayy prev = null;
-            prev = db.DAYYS.Where(c => c.order < this.order && c.coso_id == coso_id).OrderByDescending(c => c.order).FirstOrDefault();
+            prev = db.DAYYS.Where(c => c.order <= this.order && c.id!=this.id && c.coso_id == coso_id).OrderByDescending(c => c.order).FirstOrDefault();
             if (prev == null)
             {
-                prev = db.DAYYS.Where(c => c.date_create < this.date_create && c.coso_id == coso_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                prev = db.DAYYS.Where(c => c.date_create <= this.date_create && c.id!=this.id && c.coso_id == coso_id).OrderByDescending(c => c.date_create).FirstOrDefault();
             }
             return prev;
         }
         public override Dayy nextObj()
         {
             Dayy next = null;
-            next = db.DAYYS.Where(c => c.order > this.order && c.coso_id == coso_id).OrderBy(c => c.order).FirstOrDefault();
+            next = db.DAYYS.Where(c => c.order >= this.order && c.id!=this.id && c.coso_id == coso_id).OrderBy(c => c.order).FirstOrDefault();
             if (next == null)
             {
-                next = db.DAYYS.Where(c => c.date_create > this.date_create && c.coso_id == coso_id).OrderBy(c => c.date_create).FirstOrDefault();
+                next = db.DAYYS.Where(c => c.date_create >= this.date_create && c.id != this.id  && c.coso_id == coso_id).OrderBy(c => c.date_create).FirstOrDefault();
             }
             return next;
         }

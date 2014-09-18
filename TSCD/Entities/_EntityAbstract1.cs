@@ -335,10 +335,10 @@ namespace TSCD.Entities
             try
             {
                 T prev = null;
-                prev = db.Set<T>().Where(c => c.order < this.order).OrderByDescending(c => c.order).FirstOrDefault();
+                prev = db.Set<T>().Where(c => c.order <= this.order && c.id!=this.id).OrderByDescending(c => c.order).FirstOrDefault();
                 if (prev == null)
                 {
-                    prev = db.Set<T>().Where(c => c.date_create < this.date_create).OrderByDescending(c => c.date_create).FirstOrDefault();
+                    prev = db.Set<T>().Where(c => c.date_create <= this.date_create && c.id!=this.id).OrderByDescending(c => c.date_create).FirstOrDefault();
                 }
 
                 return prev;
@@ -352,10 +352,10 @@ namespace TSCD.Entities
         {
             try
             {
-                T next = db.Set<T>().Where(c => c.order > this.order).OrderBy(c => c.order).FirstOrDefault();
+                T next = db.Set<T>().Where(c => c.order >= this.order && c.id!=this.id).OrderBy(c => c.order).FirstOrDefault();
                 if (next == null)
                 {
-                    next = db.Set<T>().Where(c => c.date_create > this.date_create).OrderBy(c => c.date_create).FirstOrDefault();
+                    next = db.Set<T>().Where(c => c.date_create >= this.date_create && c.id != this.id ).OrderBy(c => c.date_create).FirstOrDefault();
                 }
 
                 return next;

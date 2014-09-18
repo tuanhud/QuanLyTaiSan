@@ -73,16 +73,15 @@ namespace QuanLyTaiSan.Entities
         {
             return VNNAME + ": " + ten;
         }
-
         public override LoaiThietBi prevObj()
         {
             try
             {
                 LoaiThietBi prev = null;
-                prev = db.LOAITHIETBIS.Where(c => c.order < this.order && c.parent_id == parent_id).OrderByDescending(c => c.order).FirstOrDefault();
+                prev = db.LOAITHIETBIS.Where(c => c.order <= this.order && c.id!=this.id && c.parent_id == parent_id).OrderByDescending(c => c.order).FirstOrDefault();
                 if (prev == null)
                 {
-                    prev = db.LOAITHIETBIS.Where(c => c.date_create < this.date_create && c.parent_id == parent_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                    prev = db.LOAITHIETBIS.Where(c => c.date_create <= this.date_create && c.id!=this.id && c.parent_id == parent_id).OrderByDescending(c => c.date_create).FirstOrDefault();
                 }
                 return prev;
             }
@@ -97,10 +96,10 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 LoaiThietBi next = null;
-                next = db.LOAITHIETBIS.Where(c => c.order > this.order && c.parent_id == parent_id).OrderBy(c => c.order).FirstOrDefault();
+                next = db.LOAITHIETBIS.Where(c => c.order >= this.order && c.id!=this.id && c.parent_id == parent_id).OrderBy(c => c.order).FirstOrDefault();
                 if (next == null)
                 {
-                    next = db.LOAITHIETBIS.Where(c => c.date_create > this.date_create && c.parent_id == parent_id).OrderBy(c => c.date_create).FirstOrDefault();
+                    next = db.LOAITHIETBIS.Where(c => c.date_create >= this.date_create && c.id != this.id  && c.parent_id == parent_id).OrderBy(c => c.date_create).FirstOrDefault();
                 }
                 return next;
             }

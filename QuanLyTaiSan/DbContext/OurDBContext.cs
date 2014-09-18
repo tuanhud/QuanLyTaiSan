@@ -38,7 +38,6 @@ namespace QuanLyTaiSan.Entities
                 return;
             }
             //DATETIME
-            DateTime now = DateTime.Now;
             String mota = "Hệ thống tự động tạo";
 
             //PERMISSION
@@ -69,7 +68,7 @@ namespace QuanLyTaiSan.Entities
             gp.key = "root";
             gp.subId = gp.key;
             gp.ten = gp.key;
-            gp.date_create = gp.date_modified = now;
+            gp.date_create = gp.date_modified = ServerTimeHelper.getNow();
             gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._SUPER_ADMIN)).FirstOrDefault());
             //ADD
             if (
@@ -86,7 +85,7 @@ namespace QuanLyTaiSan.Entities
             qtv.hoten = "root";
             qtv.mota = mota;
             qtv.subId = qtv.username;
-            qtv.date_create = qtv.date_modified = now;
+            qtv.date_create = qtv.date_modified = ServerTimeHelper.getNow();
             qtv.group = gp;
             //ADD
             if (
@@ -100,7 +99,7 @@ namespace QuanLyTaiSan.Entities
             List<TinhTrang> tinhtrangs = new List<TinhTrang>();
 
             TinhTrang tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "dangsudung";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -109,7 +108,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "khongsudung";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -118,7 +117,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "bihu";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -127,7 +126,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "khac";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;
@@ -136,7 +135,7 @@ namespace QuanLyTaiSan.Entities
             tinhtrangs.Add(tinhtrang);
 
             tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = now;
+            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
             tinhtrang.key = "dangsua";
             tinhtrang.mota = mota;
             tinhtrang.subId = tinhtrang.key;

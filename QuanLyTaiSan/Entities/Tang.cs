@@ -83,10 +83,10 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 Tang prev = null;
-                prev = db.TANGS.Where(c => c.order < this.order && c.day_id == day_id).OrderByDescending(c => c.order).FirstOrDefault();
+                prev = db.TANGS.Where(c => c.order <= this.order && c.id!=this.id && c.day_id == day_id).OrderByDescending(c => c.order).FirstOrDefault();
                 if (prev == null)
                 {
-                    prev = db.TANGS.Where(c => c.date_create < this.date_create && c.day_id == day_id).OrderByDescending(c => c.date_create).FirstOrDefault();
+                    prev = db.TANGS.Where(c => c.date_create <= this.date_create && c.id!=this.id && c.day_id == day_id).OrderByDescending(c => c.date_create).FirstOrDefault();
                 }
                 return prev;
             }
@@ -101,10 +101,10 @@ namespace QuanLyTaiSan.Entities
             try
             {
                 Tang next = null;
-                next = db.TANGS.Where(c => c.order > this.order && c.day_id == day_id).OrderBy(c => c.order).FirstOrDefault();
+                next = db.TANGS.Where(c => c.order >= this.order && c.id!=this.id && c.day_id == day_id).OrderBy(c => c.order).FirstOrDefault();
                 if (next == null)
                 {
-                    next = db.TANGS.Where(c => c.date_create > this.date_create && c.day_id == day_id).OrderBy(c => c.date_create).FirstOrDefault();
+                    next = db.TANGS.Where(c => c.date_create >= this.date_create && c.id != this.id  && c.day_id == day_id).OrderBy(c => c.date_create).FirstOrDefault();
                 }
                 return next;
             }
