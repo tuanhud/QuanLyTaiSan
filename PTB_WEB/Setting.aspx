@@ -13,6 +13,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TextBoxMailTieuDe').click(function () {
+                _TextBoxMailTieuDe_Focus = 1;
+            });
+
+            CKEDITOR.instances['TextBoxMailNoiDung'].on('contentDom', function () {
+                this.document.on('click', function (event) {
+                    TextBoxMailTieuDe_Focus = 0;
+                });
+            });
+        });
+    </script>
     <ol class="breadcrumb">
         <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
         <li><a href="Setting.aspx">Cài đặt</a></li>

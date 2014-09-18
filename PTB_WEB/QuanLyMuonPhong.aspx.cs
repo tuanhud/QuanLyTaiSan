@@ -206,6 +206,12 @@ namespace PTB_WEB
                     }
                     QuanLyPhongMuon();
                 }
+                else
+                {
+                    HideAllAlert();
+                    ucDanger.LabelInfo.Text = "Có lỗi xảy ra trong khi duyệt. Vui lòng kiểm tra lại";
+                    ucDanger.Visible = true;
+                }
             }
             catch (Exception ex)
             {

@@ -29,7 +29,6 @@ namespace PTB_WEB.UserControl.SuCo
             if (!IsPostBack)
             {
                 _ucTreeViTri.Label_TenViTri.Text = "Ch.phòng";
-                _ucCollectionPager_DanhSachSuCo.ShowPanelPage(PanelChangePage);
             }
         }
 
@@ -44,6 +43,15 @@ namespace PTB_WEB.UserControl.SuCo
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     SearchFunction();
+                    if (Convert.ToString(Page.Session["ShowInfo"]) == "1")
+                    {
+                        PanelChangePage.Visible = false;
+                        Session["ShowInfo"] = null;
+                    }
+                    else
+                    {
+                        _ucCollectionPager_DanhSachSuCo.ShowPanelPage(PanelChangePage);
+                    }
                     if (Request.QueryString["key"] != null)
                     {
                         string key = "";
@@ -225,6 +233,7 @@ namespace PTB_WEB.UserControl.SuCo
                         int Page = SearchPage(nodeGuid, SearchID);
                         if (Page != -1)
                         {
+                            Session["ShowInfo"] = "1";
                             Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), SearchID.ToString(), Page.ToString()));
                         }
                         else

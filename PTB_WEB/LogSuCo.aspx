@@ -8,9 +8,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="Panel_Web" runat="server" Visible="false">
-        <uc:ucLogSuCo_Web runat="server" ID="_ucLogSuCo_Web" />
-    </asp:Panel>
+    <div class="panel-body">
+        <asp:Panel ID="Panel_Web" runat="server" Visible="false">
+            <uc:ucLogSuCo_Web runat="server" ID="_ucLogSuCo_Web" />
+        </asp:Panel>
+    </div>
     <asp:Panel ID="Panel_Mobile" runat="server" Visible="false">
         <uc:ucLogSuCo_Mobile runat="server" ID="_ucLogSuCo_Mobile" />
     </asp:Panel>

@@ -39,6 +39,11 @@ namespace PTB_WEB.UserControl.ThietBi
             {
                 CreateNode();
                 SearchFunction();
+                if (Convert.ToString(Page.Session["ShowInfo"]) == "1")
+                {
+                    PanelChangePage.Visible = false;
+                    Session["ShowInfo"] = null;
+                }
                 Panel_Chinh.Visible = true;
                 if (Request.QueryString["key"] != null)
                 {
@@ -215,6 +220,7 @@ namespace PTB_WEB.UserControl.ThietBi
                         int Page = SearchPage(ThietBiSearch.id, key);
                         if (Page != -1)
                         {
+                            Session["ShowInfo"] = "1";
                             Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, key.ToString(), ThietBiSearch.id.ToString(), Page.ToString()));
                         }
                         else

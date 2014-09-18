@@ -73,7 +73,6 @@ function checktaikhoan(loai) {
 }
 
 $(document).ready(function () {
-
     $('#TextBoxTaiKhoan').keyup(function () {
         if ($("#TextBoxTaiKhoan").val() != "") {
             checktaikhoan(taikhoan);
@@ -95,6 +94,7 @@ $(document).ready(function () {
         event.stopPropagation();
     });
 });
+
 function ThemMoi() {
     if ($("#TextBoxHoTen").val() == "") {
         alert("Tên tài khoản không được rỗng");
@@ -205,7 +205,7 @@ function CapNhat() {
 }
 
 function TextBoxMailTieuDe_Focus() {
-    _TextBoxMailTieuDe_Focus = 1;
+    //_TextBoxMailTieuDe_Focus = 1;
 }
 
 function insertIntoCkeditor(str) {

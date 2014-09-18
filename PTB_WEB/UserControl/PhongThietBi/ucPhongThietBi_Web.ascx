@@ -47,13 +47,6 @@
                         </script>
                         <%} %>
                     </ul>
-                    <asp:Panel ID="PanelChangePage" runat="server" Visible="false">
-                        <script>
-                            $(function () {
-                                $('#myTab a:first').tab('show')
-                            })
-                        </script>
-                    </asp:Panel>
                     <div class="tab-content">
                         <div class="tab-pane active" id="danhsach">
                             <table class="table table-bordered table-striped table-hover valign_middle">
@@ -161,4 +154,11 @@
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
+    <asp:Panel ID="PanelChangePage" runat="server" Visible="false">
+        <script>
+            $(function () {
+                setTimeout(function () { $('#myTab a:first').tab('show') }, 200);
+            })
+        </script>
+    </asp:Panel>
 </asp:Panel>

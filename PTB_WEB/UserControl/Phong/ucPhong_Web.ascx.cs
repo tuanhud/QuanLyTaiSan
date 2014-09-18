@@ -24,7 +24,6 @@ namespace PTB_WEB.UserControl.Phong
             {
                 DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
                 _ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
-                _ucCollectionPager_DanhSachPhong.ShowPanelPage(PanelChangePage);
             }
         }
 
@@ -39,6 +38,15 @@ namespace PTB_WEB.UserControl.Phong
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     SearchFunction();
+                    if (Convert.ToString(Page.Session["ShowInfo"]) == "1")
+                    {
+                        PanelChangePage.Visible = false;
+                        Session["ShowInfo"] = null;
+                    }
+                    else
+                    {
+                        _ucCollectionPager_DanhSachPhong.ShowPanelPage(PanelChangePage);
+                    }
                     Panel_Chinh.Visible = true;
                     if (Request.QueryString["key"] != null)
                     {
@@ -350,6 +358,7 @@ namespace PTB_WEB.UserControl.Phong
                         int Page = SearchPage(nodeGuid, PhongSearch.id, type);
                         if (Page != -1)
                         {
+                            Session["ShowInfo"] = "1";
                             Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), PhongSearch.id.ToString(), Page.ToString()));
                         }
                         else
