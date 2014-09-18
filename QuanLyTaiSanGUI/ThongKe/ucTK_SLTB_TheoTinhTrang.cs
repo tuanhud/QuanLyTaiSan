@@ -161,7 +161,7 @@ namespace QuanLyTaiSanGUI.ThongKe
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1, checkEdit_Landscape.Checked);
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_XtraGrid);
 
                 splashScreenManager_Report.CloseWaitForm();
@@ -192,7 +192,7 @@ namespace QuanLyTaiSanGUI.ThongKe
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1);
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1, checkEdit_Landscape.Checked);
                 ReportDesignTool designTool = new ReportDesignTool(_XtraReport_XtraGrid);
 
                 splashScreenManager_Report.CloseWaitForm();

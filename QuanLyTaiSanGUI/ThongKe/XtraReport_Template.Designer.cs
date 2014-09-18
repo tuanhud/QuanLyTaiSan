@@ -39,13 +39,13 @@
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_BanGiamHieu = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_KeToanTruong = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrPageInfo_CurrentDay = new DevExpress.XtraReports.UI.XRPageInfo();
             this.mySumTableStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_Title = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -127,28 +127,28 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel5,
-            this.xrLabel4,
+            this.xrLabel_BanGiamHieu,
+            this.xrLabel_KeToanTruong,
             this.xrLabel2,
-            this.xrPageInfo2});
+            this.xrPageInfo_CurrentDay});
             resources.ApplyResources(this.ReportFooter, "ReportFooter");
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // xrLabel5
+            // xrLabel_BanGiamHieu
             // 
-            resources.ApplyResources(this.xrLabel5, "xrLabel5");
-            this.xrLabel5.Multiline = true;
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.StylePriority.UseTextAlignment = false;
+            resources.ApplyResources(this.xrLabel_BanGiamHieu, "xrLabel_BanGiamHieu");
+            this.xrLabel_BanGiamHieu.Multiline = true;
+            this.xrLabel_BanGiamHieu.Name = "xrLabel_BanGiamHieu";
+            this.xrLabel_BanGiamHieu.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_BanGiamHieu.StylePriority.UseTextAlignment = false;
             // 
-            // xrLabel4
+            // xrLabel_KeToanTruong
             // 
-            resources.ApplyResources(this.xrLabel4, "xrLabel4");
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.StylePriority.UseTextAlignment = false;
+            resources.ApplyResources(this.xrLabel_KeToanTruong, "xrLabel_KeToanTruong");
+            this.xrLabel_KeToanTruong.Multiline = true;
+            this.xrLabel_KeToanTruong.Name = "xrLabel_KeToanTruong";
+            this.xrLabel_KeToanTruong.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_KeToanTruong.StylePriority.UseTextAlignment = false;
             // 
             // xrLabel2
             // 
@@ -158,13 +158,13 @@
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             // 
-            // xrPageInfo2
+            // xrPageInfo_CurrentDay
             // 
-            resources.ApplyResources(this.xrPageInfo2, "xrPageInfo2");
-            this.xrPageInfo2.Name = "xrPageInfo2";
-            this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo2.StylePriority.UseTextAlignment = false;
+            resources.ApplyResources(this.xrPageInfo_CurrentDay, "xrPageInfo_CurrentDay");
+            this.xrPageInfo_CurrentDay.Name = "xrPageInfo_CurrentDay";
+            this.xrPageInfo_CurrentDay.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo_CurrentDay.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.xrPageInfo_CurrentDay.StylePriority.UseTextAlignment = false;
             // 
             // mySumTableStyle
             // 
@@ -181,19 +181,19 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel3,
+            this.xrLabel_Title,
             this.xrLabel1});
             resources.ApplyResources(this.ReportHeader, "ReportHeader");
             this.ReportHeader.Name = "ReportHeader";
             // 
-            // xrLabel3
+            // xrLabel_Title
             // 
-            resources.ApplyResources(this.xrLabel3, "xrLabel3");
-            this.xrLabel3.Multiline = true;
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.StylePriority.UseTextAlignment = false;
+            resources.ApplyResources(this.xrLabel_Title, "xrLabel_Title");
+            this.xrLabel_Title.Multiline = true;
+            this.xrLabel_Title.Name = "xrLabel_Title";
+            this.xrLabel_Title.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_Title.StylePriority.UseFont = false;
+            this.xrLabel_Title.StylePriority.UseTextAlignment = false;
             // 
             // xrLabel1
             // 
@@ -238,12 +238,12 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRControlStyle mySumTableStyle;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_BanGiamHieu;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_KeToanTruong;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo_CurrentDay;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_Title;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
     }
 }
