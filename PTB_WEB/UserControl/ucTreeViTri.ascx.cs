@@ -34,5 +34,16 @@ namespace PTB_WEB.UserControl
         {
             ASPxTreeList_ViTri.CollapseAll();
         }
+
+        public void FocusAndExpandToNode(DevExpress.Web.ASPxTreeList.TreeListNode node)
+        {
+            node.Focus();
+            node.Expanded = true;
+            while (node.ParentNode != null)
+            {
+                node = node.ParentNode;
+                node.Expanded = true;
+            }
+        }
     }
 }

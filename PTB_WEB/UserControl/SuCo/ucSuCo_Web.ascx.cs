@@ -66,7 +66,7 @@ namespace PTB_WEB.UserControl.SuCo
                         DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                         if (node != null)
                         {
-                            node.Focus();
+                            _ucTreeViTri.FocusAndExpandToNode(node);
                             objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {

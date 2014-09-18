@@ -39,7 +39,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
                         DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                         if (node != null)
                         {
-                            node.Focus();
+                            _ucTreeViTri.FocusAndExpandToNode(node);
                             LoadFocusedNodeData();
                             Panel_ThongTinLoaiThietBi.Visible = true;
                             ucWarning.Visible = false;

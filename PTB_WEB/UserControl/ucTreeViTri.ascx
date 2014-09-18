@@ -13,25 +13,24 @@
             </asp:UpdateProgress>
             <asp:LinkButton ID="LinkButton_Expand" runat="server" ToolTip="Expand All" OnClick="LinkButton_Expand_Click"><span class="pull-right" style="cursor: pointer;"><img src="/Images/ExpandAllIcon.png" alt="Expand All" /></span></asp:LinkButton>
             <asp:LinkButton ID="LinkButton_Collapse" runat="server" ToolTip="Collapse All" OnClick="LinkButton_Collapse_Click"><span class="pull-right" style="cursor: pointer"><img src="/Images/CollapseAllIcon.png" alt="Collapse All" style="padding-right:10px;" /></span></asp:LinkButton>
-        </h3>
-        <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" KeyFieldName="id" ParentFieldName="parent_id" Theme="Aqua" ClientInstanceName="treeList" Width="100%" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback">
-            <Columns>
-                <dx:TreeListTextColumn Caption="Tên" Name="colten" VisibleIndex="0" FieldName="ten">
-                </dx:TreeListTextColumn>
-            </Columns>
-            <Settings ShowColumnHeaders="False" />
-            <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
-            <SettingsCookies Enabled="True" StoreExpandedNodes="True" StorePaging="True" />
-            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
-            <ClientSideEvents
-                CustomDataCallback="function(s, e) {
+            <h3></h3>
+            <dx:ASPxTreeList ID="ASPxTreeList_ViTri" runat="server" AutoGenerateColumns="False" ClientInstanceName="treeList" KeyFieldName="id" OnCustomDataCallback="ASPxTreeList_ViTri_CustomDataCallback" ParentFieldName="parent_id" Theme="Aqua" Width="100%">
+                <Columns>
+                    <dx:TreeListTextColumn Caption="Tên" FieldName="ten" Name="colten" VisibleIndex="0">
+                    </dx:TreeListTextColumn>
+                </Columns>
+                <Settings ShowColumnHeaders="False" />
+                <SettingsBehavior AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" />
+                <SettingsCookies StoreExpandedNodes="True" StorePaging="True" />
+                <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                <ClientSideEvents CustomDataCallback="function(s, e) {
                                 if(e.result != '')
                                     document.location = e.result;
-                                }"
-                NodeClick="function(s, e) {
+                                }" NodeClick="function(s, e) {
 	                var key = e.nodeKey;
 	                treeList.PerformCustomDataCallback(key);
                 }" />
-        </dx:ASPxTreeList>
+            </dx:ASPxTreeList>
+        </h3>
     </ContentTemplate>
 </asp:UpdatePanel>

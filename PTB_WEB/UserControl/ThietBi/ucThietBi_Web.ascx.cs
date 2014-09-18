@@ -58,7 +58,7 @@ namespace PTB_WEB.UserControl.ThietBi
                     DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
                     if (node != null)
                     {
-                        node.Focus();
+                        _ucTreeViTri.FocusAndExpandToNode(node);
                         LoadFocusedNodeData();
                     }
                     else
