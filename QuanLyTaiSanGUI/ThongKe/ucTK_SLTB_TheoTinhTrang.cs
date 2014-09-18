@@ -16,6 +16,7 @@ using QuanLyTaiSan.Libraries;
 using SHARED.Libraries;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Columns;
+using QuanLyTaiSanGUI.MyUC;
 
 namespace QuanLyTaiSanGUI.ThongKe
 {
@@ -23,11 +24,13 @@ namespace QuanLyTaiSanGUI.ThongKe
     {
         QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
         //List<TKSLThietBiFilter> list_tk = new List<TKSLThietBiFilter>();
+        MyLayout layout = new MyLayout();
 
         public ucTK_SLTB_TheoTinhTrang()
         {
             InitializeComponent();
             ribbonThongKe.Parent = null;
+            layout.save(gridView1);
             loadData();
         }
 
@@ -49,6 +52,11 @@ namespace QuanLyTaiSanGUI.ThongKe
             dateEdit_to.EditValue = ServerTimeHelper.getNow();
 
             gridControl1.DataSource = null;
+
+            //checkPermission
+            btnOK.Enabled = btnPrint.Enabled = simpleButton_View.Enabled = simpleButton_Design.Enabled = Permission.canDo(Permission._THONGKE_INBAOCAO);
+
+            layout.load(gridView1);
         }
 
         public RibbonControl getRibbon()

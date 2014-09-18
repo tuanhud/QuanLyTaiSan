@@ -25,6 +25,12 @@ namespace QuanLyTaiSanGUI.HeThong
             ribbonLogHeThong.Parent = null;
         }
 
+        public void loadData()
+        {
+            barBtnViewLog.Enabled = Permission.canView<LogHeThong>(null);
+            gridControlLogHeThong.DataSource = null;
+        }
+
         public DevExpress.XtraBars.Ribbon.RibbonControl getRibbon()
         {
             return ribbonLogHeThong;

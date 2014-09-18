@@ -36,10 +36,7 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
             ribbonPhanCongQTV.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             _ucTreePhongHaveCheck.loadListPhong = new MyUC.ucTreePhongHaveCheck.LoadListPhong(LoadListPhong);
-            //gridViewQuanTriVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             listBoxPhong.SortOrder = SortOrder.Ascending;
-            gridViewQuanTriVien.Columns[colhoten.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            gridViewQuanTriVien.Columns[colsodienthoai.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             layout.save(gridViewQuanTriVien);
         }
 

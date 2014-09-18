@@ -11,6 +11,7 @@ using QuanLyTaiSan.Entities;
 using DevExpress.XtraEditors;
 using QuanLyTaiSan.Libraries;
 using SHARED.Libraries;
+using QuanLyTaiSanGUI.MyUC;
 
 namespace QuanLyTaiSanGUI.QLTinhTrang
 {
@@ -23,11 +24,13 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
         bool canAdd = false;
         bool canEdit = false;
         bool canDelete = false;
+        MyLayout layout = new MyLayout();
 
         public ucQuanLyTinhTrang()
         {
             InitializeComponent();
             ribbonTinhTrang.Parent = null;
+            layout.save(gridViewTinhTrang);
         }
 
         public void loadData()
@@ -35,6 +38,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             try
             {
                 checkPermission();
+                layout.load(gridViewTinhTrang);
                 editGUI("view");
                 listTinhTrang = TinhTrang.getQuery().OrderBy(c=>c.order).ToList();
                 if (listTinhTrang.Count == 0)

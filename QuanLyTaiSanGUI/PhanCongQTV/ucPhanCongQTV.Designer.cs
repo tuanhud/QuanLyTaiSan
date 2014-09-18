@@ -45,6 +45,7 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.listBoxPhong = new DevExpress.XtraEditors.ListBoxControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
@@ -53,9 +54,8 @@
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.ribbonPhanCongQTV = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtMota = new DevExpress.XtraEditors.MemoEdit();
+            this.ribbonPhanCongQTV = new DevExpress.XtraBars.Ribbon.RibbonControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlQuanTriVien)).BeginInit();
@@ -68,8 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhanCongQTV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMota.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhanCongQTV)).BeginInit();
             this.SuspendLayout();
             // 
             // rbnPagePhanCongQTV_Home
@@ -117,7 +117,7 @@
             this.gridControlQuanTriVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlQuanTriVien.MainView = this.gridViewQuanTriVien;
             this.gridControlQuanTriVien.Name = "gridControlQuanTriVien";
-            this.gridControlQuanTriVien.Size = new System.Drawing.Size(510, 508);
+            this.gridControlQuanTriVien.Size = new System.Drawing.Size(509, 508);
             this.gridControlQuanTriVien.TabIndex = 0;
             this.gridControlQuanTriVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQuanTriVien});
@@ -156,6 +156,7 @@
             this.colsubId.Caption = "Mã nhân viên";
             this.colsubId.FieldName = "subId";
             this.colsubId.Name = "colsubId";
+            this.colsubId.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colsubId.Visible = true;
             this.colsubId.VisibleIndex = 0;
             // 
@@ -164,6 +165,7 @@
             this.colhoten.Caption = "Họ tên";
             this.colhoten.FieldName = "hoten";
             this.colhoten.Name = "colhoten";
+            this.colhoten.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colhoten.Visible = true;
             this.colhoten.VisibleIndex = 1;
             // 
@@ -172,6 +174,7 @@
             this.colsodienthoai.Caption = "Tên tài khoản";
             this.colsodienthoai.FieldName = "username";
             this.colsodienthoai.Name = "colsodienthoai";
+            this.colsodienthoai.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colsodienthoai.Visible = true;
             this.colsodienthoai.VisibleIndex = 2;
             // 
@@ -232,6 +235,14 @@
             this.groupControl1.Size = new System.Drawing.Size(350, 204);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chi tiết";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 111);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(31, 13);
+            this.labelControl1.TabIndex = 14;
+            this.labelControl1.Text = "Mô tả:";
             // 
             // btnHuy
             // 
@@ -307,6 +318,17 @@
             this.txtMa.Size = new System.Drawing.Size(253, 20);
             this.txtMa.TabIndex = 1;
             // 
+            // txtMota
+            // 
+            this.txtMota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMota.Location = new System.Drawing.Point(83, 108);
+            this.txtMota.Name = "txtMota";
+            this.txtMota.Properties.ReadOnly = true;
+            this.txtMota.Size = new System.Drawing.Size(253, 61);
+            this.txtMota.TabIndex = 13;
+            this.txtMota.UseOptimizedRendering = true;
+            // 
             // ribbonPhanCongQTV
             // 
             this.ribbonPhanCongQTV.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
@@ -320,25 +342,6 @@
             this.ribbonPhanCongQTV.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhanCongQTV_Home});
             this.ribbonPhanCongQTV.Size = new System.Drawing.Size(864, 145);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 111);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(31, 13);
-            this.labelControl1.TabIndex = 14;
-            this.labelControl1.Text = "Mô tả:";
-            // 
-            // txtMota
-            // 
-            this.txtMota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMota.Location = new System.Drawing.Point(83, 108);
-            this.txtMota.Name = "txtMota";
-            this.txtMota.Properties.ReadOnly = true;
-            this.txtMota.Size = new System.Drawing.Size(253, 61);
-            this.txtMota.TabIndex = 13;
-            this.txtMota.UseOptimizedRendering = true;
             // 
             // ucPhanCongQTV
             // 
@@ -361,8 +364,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhanCongQTV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMota.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonPhanCongQTV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

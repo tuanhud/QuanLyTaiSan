@@ -73,9 +73,9 @@
             this.checkEdit_quyenDeny = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenBaoHam = new DevExpress.XtraEditors.CheckEdit();
             this.xtraTabPage_quyenHangMuc = new DevExpress.XtraTab.XtraTabPage();
-            this.listBoxControl_quyenHangMuc = new DevExpress.XtraEditors.ListBoxControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.btnThemQuyenHangMuc = new DevExpress.XtraEditors.SimpleButton();
+            this.listBoxControl_quyenHangMuc = new DevExpress.XtraEditors.ListBoxControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.checkEdit_quyenXoa2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenXem2 = new DevExpress.XtraEditors.CheckEdit();
@@ -132,9 +132,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam.Properties)).BeginInit();
             this.xtraTabPage_quyenHangMuc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenHangMuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenHangMuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa2.Properties)).BeginInit();
@@ -586,14 +586,6 @@
             this.xtraTabPage_quyenHangMuc.Size = new System.Drawing.Size(753, 294);
             this.xtraTabPage_quyenHangMuc.Text = "Quyền trên hạng mục";
             // 
-            // listBoxControl_quyenHangMuc
-            // 
-            this.listBoxControl_quyenHangMuc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listBoxControl_quyenHangMuc.Location = new System.Drawing.Point(134, 0);
-            this.listBoxControl_quyenHangMuc.Name = "listBoxControl_quyenHangMuc";
-            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(177, 294);
-            this.listBoxControl_quyenHangMuc.TabIndex = 11;
-            // 
             // panelControl5
             // 
             this.panelControl5.Controls.Add(this.btnThemQuyenHangMuc);
@@ -611,6 +603,14 @@
             this.btnThemQuyenHangMuc.TabIndex = 10;
             this.btnThemQuyenHangMuc.Text = "Cấp quyền";
             this.btnThemQuyenHangMuc.Click += new System.EventHandler(this.btnThemQuyenHangMuc_Click);
+            // 
+            // listBoxControl_quyenHangMuc
+            // 
+            this.listBoxControl_quyenHangMuc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxControl_quyenHangMuc.Location = new System.Drawing.Point(134, 0);
+            this.listBoxControl_quyenHangMuc.Name = "listBoxControl_quyenHangMuc";
+            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(177, 294);
+            this.listBoxControl_quyenHangMuc.TabIndex = 11;
             // 
             // groupControl3
             // 
@@ -680,7 +680,7 @@
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnOK.Location = new System.Drawing.Point(679, 233);
+            this.btnOK.Location = new System.Drawing.Point(595, 231);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -690,7 +690,7 @@
             // btnHuy
             // 
             this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHuy.Location = new System.Drawing.Point(583, 233);
+            this.btnHuy.Location = new System.Drawing.Point(676, 231);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 9;
@@ -834,9 +834,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenDeny.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenBaoHam.Properties)).EndInit();
             this.xtraTabPage_quyenHangMuc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenHangMuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl_quyenHangMuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit_quyenXoa2.Properties)).EndInit();

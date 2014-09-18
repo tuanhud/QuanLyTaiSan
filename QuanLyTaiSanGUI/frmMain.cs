@@ -274,6 +274,7 @@ namespace QuanLyTaiSanGUI
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageLogHeThong")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucLogHeThong.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucLogHeThong);
                     }
