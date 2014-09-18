@@ -27,6 +27,10 @@ namespace QuanLyTaiSanGUI
         
         public Setting()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang khởi chạy...");
+
+
             InitializeComponent();
             //Check kết nối tới CSDL nếu OK thì gọi login ngay lập tức
             _passed = Global.working_database.isReady() > 0;
@@ -39,8 +43,11 @@ namespace QuanLyTaiSanGUI
                 //register event
                 ucCauHinh1.viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.checkPoint);
                 //load uc data
+                //Gây chậm khi cấu hình sai nên phải dùng waitform
                 ucCauHinh1.reLoad();
             }
+
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void checkPoint(object sender, EventArgs e)
@@ -59,9 +66,9 @@ namespace QuanLyTaiSanGUI
         #region show from login in new thread
         private void ThreadProc()
         {
-            //DevExpress.UserSkins.BonusSkins.Register();
-            //Application.EnableVisualStyles();
-            //DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.UserSkins.BonusSkins.Register();
+            Application.EnableVisualStyles();
+            DevExpress.Skins.SkinManager.EnableFormSkins();
             Application.Run(new Login());
         }
         private void show_frm_login()
