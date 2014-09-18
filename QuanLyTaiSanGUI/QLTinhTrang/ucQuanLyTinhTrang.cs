@@ -214,6 +214,10 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 {
                     XtraMessageBox.Show("Không thể xóa tình trạng này!\r\nNguyên do: Có các thiết bị thuộc tình trạng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else if (objTinhTrang.sucophongs.Count > 0 || objTinhTrang.logsucophongs.Count > 0)
+                {
+                    XtraMessageBox.Show("Không thể xóa tình trạng này!\r\nNguyên do: Có các sự cố phòng thuộc tình trạng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
                     if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tình trạng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)

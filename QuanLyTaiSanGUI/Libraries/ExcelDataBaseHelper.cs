@@ -77,7 +77,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                         NhanVienPT obj = new NhanVienPT();
                                         obj.subId = row[MANHANVIEN] != DBNull.Value ? row[MANHANVIEN].ToString().Trim() : null;
                                         obj.hoten = row[TENNHANVIEN].ToString().Trim();
-                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                         obj.sodienthoai = row[SODIENTHOAI].ToString().Trim();
                                         if (row[HINHANH] != DBNull.Value)
                                         {
@@ -195,7 +195,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.ten = row[TANG].ToString().Trim();
                                                 obj.mota = row[MOTA].ToString().Trim();
                                                 obj.day = objDay;
-                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                                 if (row[HINHANH] != DBNull.Value)
                                                 {
                                                     String[] file_names = row[HINHANH].ToString().Trim().Split(',');
@@ -238,7 +238,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                             obj.ten = row[DAY].ToString().Trim();
                                             obj.mota = row[MOTA].ToString().Trim();
                                             obj.coso = objCoSo;
-                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                             if (row[HINHANH] != DBNull.Value)
                                             {
                                                 String[] file_names = row[HINHANH].ToString().Trim().Split(',');
@@ -272,7 +272,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                         obj.subId = row[MACOSO] != DBNull.Value ? row[MACOSO].ToString().Trim() : null;
                                         obj.ten = row[COSO].ToString().Trim();
                                         obj.mota = row[MOTA].ToString().Trim();
-                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                        obj.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                         if (row[HINHANH] != DBNull.Value)
                                         {
                                             String[] file_names = row[HINHANH].ToString().Trim().Split(',');
@@ -353,7 +353,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.ten = row[LOAITHIETBI].ToString().Trim();
                                                 obj.mota = row[MOTA].ToString().Trim();
                                                 obj.loaichung = Convert.ToBoolean(row[LOAICHUNG]);
-                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                                obj.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                                 obj.parent = objParent;
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
@@ -452,6 +452,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                     TinhTrang obj = new TinhTrang();
                                     obj.value = row[TINHTRANG].ToString().Trim();
                                     obj.mota = row[MOTA].ToString().Trim();
+                                    obj.type = TinhTrang.TYPE_THIETBI;
                                     obj.key = StringHelper.CoDauThanhKhongDau(row[TINHTRANG].ToString().Trim()).Replace(" ", String.Empty).ToUpper();
                                     if (obj.add() > 0 && DBInstance.commit() > 0)
                                     {
@@ -590,7 +591,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                             obj.subId = row[MAPHONG] != DBNull.Value ? row[MAPHONG].ToString().Trim() : null;
                                             obj.vitri = objViTri;
                                             obj.ten = row[TENPHONG].ToString().Trim();
-                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                            obj.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                             obj.mota = row[MOTA].ToString().Trim();
                                             if (row[HINHANH] != DBNull.Value)
                                             {
@@ -724,7 +725,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 ThietBi objThietBi = new ThietBi();
                                                 objThietBi.ten = row[LOAITB].ToString().Trim();
                                                 objThietBi.loaithietbi = objLoai;
-                                                objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
+                                                objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
                                                 if (row[HINHANH] != DBNull.Value)
                                                 {
                                                     String[] file_names = row[HINHANH].ToString().Trim().Split(',');
@@ -738,7 +739,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                     obj.tinhtrang = objTinhTrang;
                                                     obj.soluong = Convert.ToInt32(row[SOLUONG].ToString().Trim());
                                                     obj.mota = "Import";
-                                                    obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().Trim()) : DateTime.Now;
+                                                    obj.ngay = row[NGAYLAP] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYLAP]) : DateTime.Now;
                                                     if (obj.add() > 0 && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
@@ -762,7 +763,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.tinhtrang = objTinhTrang;
                                                 obj.soluong = Convert.ToInt32(row[SOLUONG].ToString().Trim());
                                                 obj.mota = "Import";
-                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().Trim()) : DateTime.Now;
+                                                obj.ngay = row[NGAYLAP] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYLAP]) : DateTime.Now;
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
@@ -863,8 +864,8 @@ namespace QuanLyTaiSanGUI.Libraries
                                             objThietBi.ten = row[TENTB].ToString().Trim();
                                             objThietBi.loaithietbi = objLoai;
                                             objThietBi.mota = row[MOTA].ToString().Trim();
-                                            objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYTAO].ToString().Trim()) : DateTime.Now;
-                                            objThietBi.ngaymua = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYMUA].ToString().Trim()) : DateTime.Now;
+                                            objThietBi.date_create = row[NGAYTAO] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYTAO]) : DateTime.Now;
+                                            objThietBi.ngaymua = row[NGAYMUA] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYMUA]) : DateTime.Now;
                                             if (row[HINHANH] != DBNull.Value)
                                             {
                                                 String[] file_names = row[HINHANH].ToString().Trim().Split(',');
@@ -878,7 +879,7 @@ namespace QuanLyTaiSanGUI.Libraries
                                                 obj.tinhtrang = objTinhTrang;
                                                 obj.soluong = 1;
                                                 obj.mota = "Import";
-                                                obj.ngay = row[NGAYTAO] != DBNull.Value ? DateTime.Parse(row[NGAYLAP].ToString().Trim()) : DateTime.Now;
+                                                obj.ngay = row[NGAYLAP] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAYLAP]) : DateTime.Now;
                                                 if (obj.add() > 0 && DBInstance.commit() > 0)
                                                 {
                                                     WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
