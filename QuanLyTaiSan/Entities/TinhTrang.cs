@@ -42,14 +42,12 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Tên dành riêng (không dấu, không khoảng cách)
         /// </summary>
-        [Index(IsUnique = true)]
-        [StringLength(100)]
+        [StringLength(255)]
         public String key { get; set; } //vd:huhong
         /// <summary>
         /// Tên tiếng việt đầy đủ
         /// </summary>
         [Required]
-        [Index(IsUnique = true)]
         [StringLength(255)]
         public String value { get; set; } //vd: Hư hỏng
 

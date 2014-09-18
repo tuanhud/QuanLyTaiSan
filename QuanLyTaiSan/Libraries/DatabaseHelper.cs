@@ -17,8 +17,7 @@ namespace QuanLyTaiSan.Libraries
         {
             try
             {
-                if (Global.working_database.use_db_cache && Global.local_setting.sync_auto)
-                {
+                if (Global.working_database.use_db_cache && Global.local_setting.sync_auto){
                     aTimer = new System.Timers.Timer(Global.local_setting.sync_time_second * 1000);
                     aTimer.Elapsed += new System.Timers.ElapsedEventHandler(RunThis);
                     aTimer.AutoReset = true;
