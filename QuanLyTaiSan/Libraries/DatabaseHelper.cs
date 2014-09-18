@@ -10,12 +10,14 @@ namespace QuanLyTaiSan.Libraries
     public static class DatabaseHelper
     {
         private static System.Timers.Timer aTimer = null;
-        //call one time
+        /// <summary>
+        /// winform only (call when start main form)
+        /// </summary>
         public static void autoSyncInNewThread()
         {
             try
             {
-                if (Global.local_setting.sync_auto)
+                if (Global.working_database.use_db_cache && Global.local_setting.sync_auto)
                 {
                     aTimer = new System.Timers.Timer(Global.local_setting.sync_time_second * 1000);
                     aTimer.Elapsed += new System.Timers.ElapsedEventHandler(RunThis);
