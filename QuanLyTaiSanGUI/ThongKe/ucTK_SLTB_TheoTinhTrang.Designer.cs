@@ -49,7 +49,6 @@
             this.comboBoxEdit_Report = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton_Design = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_View = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl_condition = new DevExpress.XtraEditors.GroupControl();
             this.panelLoaiTB = new DevExpress.XtraEditors.PanelControl();
             this.checkedComboBoxEdit_coso = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -113,6 +112,18 @@
             // 
             // gridView1
             // 
+            this.gridView1.AppearancePrint.FooterPanel.BackColor = System.Drawing.Color.OliveDrab;
+            this.gridView1.AppearancePrint.FooterPanel.ForeColor = System.Drawing.Color.White;
+            this.gridView1.AppearancePrint.FooterPanel.Options.UseBackColor = true;
+            this.gridView1.AppearancePrint.FooterPanel.Options.UseForeColor = true;
+            this.gridView1.AppearancePrint.GroupFooter.BackColor = System.Drawing.Color.White;
+            this.gridView1.AppearancePrint.GroupFooter.Options.UseBackColor = true;
+            this.gridView1.AppearancePrint.GroupRow.BackColor = System.Drawing.Color.Black;
+            this.gridView1.AppearancePrint.GroupRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.AppearancePrint.GroupRow.Options.UseBackColor = true;
+            this.gridView1.AppearancePrint.GroupRow.Options.UseForeColor = true;
+            this.gridView1.AppearancePrint.HeaderPanel.BackColor = System.Drawing.Color.White;
+            this.gridView1.AppearancePrint.HeaderPanel.Options.UseBackColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn3,
             this.gridColumn4,
@@ -122,9 +133,6 @@
             this.gridColumn8,
             this.gridColumn2});
             this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "soluong", null, "(TC: {0})"),
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "soluong", null, "[Rows: {0}]")});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.ReadOnly = true;
@@ -199,7 +207,6 @@
             this.groupControl1.Controls.Add(this.comboBoxEdit_Report);
             this.groupControl1.Controls.Add(this.simpleButton_Design);
             this.groupControl1.Controls.Add(this.simpleButton_View);
-            this.groupControl1.Controls.Add(this.btnPrint);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 397);
             this.groupControl1.Name = "groupControl1";
@@ -209,7 +216,7 @@
             // 
             // checkEdit_Landscape
             // 
-            this.checkEdit_Landscape.Location = new System.Drawing.Point(260, 28);
+            this.checkEdit_Landscape.Location = new System.Drawing.Point(212, 28);
             this.checkEdit_Landscape.MenuManager = this.ribbonThongKe;
             this.checkEdit_Landscape.Name = "checkEdit_Landscape";
             this.checkEdit_Landscape.Properties.Caption = "Landscape";
@@ -273,7 +280,7 @@
             // comboBoxEdit_Report
             // 
             this.comboBoxEdit_Report.EditValue = "Report v1";
-            this.comboBoxEdit_Report.Location = new System.Drawing.Point(154, 28);
+            this.comboBoxEdit_Report.Location = new System.Drawing.Point(106, 28);
             this.comboBoxEdit_Report.MenuManager = this.ribbonThongKe;
             this.comboBoxEdit_Report.Name = "comboBoxEdit_Report";
             this.comboBoxEdit_Report.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -286,7 +293,7 @@
             // 
             // simpleButton_Design
             // 
-            this.simpleButton_Design.Location = new System.Drawing.Point(106, 24);
+            this.simpleButton_Design.Location = new System.Drawing.Point(58, 24);
             this.simpleButton_Design.Name = "simpleButton_Design";
             this.simpleButton_Design.Size = new System.Drawing.Size(42, 27);
             this.simpleButton_Design.TabIndex = 5;
@@ -295,21 +302,12 @@
             // 
             // simpleButton_View
             // 
-            this.simpleButton_View.Location = new System.Drawing.Point(58, 24);
+            this.simpleButton_View.Location = new System.Drawing.Point(10, 24);
             this.simpleButton_View.Name = "simpleButton_View";
             this.simpleButton_View.Size = new System.Drawing.Size(42, 27);
             this.simpleButton_View.TabIndex = 5;
             this.simpleButton_View.Text = "View";
             this.simpleButton_View.Click += new System.EventHandler(this.simpleButton_View_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(10, 24);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(42, 27);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "In";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // groupControl_condition
             // 
@@ -513,7 +511,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_tinhTrang;
         private DevExpress.XtraEditors.LabelControl labelControl5;
