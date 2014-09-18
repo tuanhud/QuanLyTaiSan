@@ -131,37 +131,8 @@
   <data name="PageHeader.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
     <value>TopLeft</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 14.25pt</value>
-  </data>
-  <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>9.999974, 130.2083</value>
-  </data>
-  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>630, 29.62497</value>
-  </data>
-  <data name="xrLabel3.Text" xml:space="preserve">
-    <value>Báo Cáo Thống Kê Quản Lý Phòng - Ban Cơ Sở Hạ Tầng</value>
-  </data>
-  <data name="xrLabel3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>0, 48.95833</value>
-  </data>
-  <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>267.0834, 49.54168</value>
-  </data>
-  <data name="xrLabel1.Text" xml:space="preserve">
-    <value>ỦY BAN NHÂN DÂN TP. HỒ CHÍ MINH
-TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
-  </data>
-  <data name="xrLabel1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
-    <value>MiddleCenter</value>
-  </data>
   <data name="TopMargin.HeightF" type="System.Single, mscorlib">
-    <value>191.6667</value>
+    <value>46.875</value>
   </data>
   <data name="BottomMargin.HeightF" type="System.Single, mscorlib">
     <value>11.5</value>
@@ -172,6 +143,7 @@ TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
   <data name="xrPageInfo1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>9.999974, 10.00001</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xrPageInfo1.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>116.625, 23</value>
   </data>
@@ -230,7 +202,38 @@ TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
     <value>MiddleRight</value>
   </data>
   <data name="ReportFooter.HeightF" type="System.Single, mscorlib">
-    <value>224.541687</value>
+    <value>295.375</value>
+  </data>
+  <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 14.25pt</value>
+  </data>
+  <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
+    <value>9.999974, 95.41661</value>
+  </data>
+  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>630, 29.62497</value>
+  </data>
+  <data name="xrLabel3.Text" xml:space="preserve">
+    <value>Báo Cáo Thống Kê Quản Lý Phòng - Ban Cơ Sở Hạ Tầng</value>
+  </data>
+  <data name="xrLabel3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
+    <value>0, 10.0000067</value>
+  </data>
+  <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>267.0834, 49.54168</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>ỦY BAN NHÂN DÂN TP. HỒ CHÍ MINH
+TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
+  </data>
+  <data name="xrLabel1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="ReportHeader.HeightF" type="System.Single, mscorlib">
+    <value>147.916672</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -239,6 +242,6 @@ TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
     <value>Verdana, 9.75pt</value>
   </data>
   <data name="$this.Margins" type="System.Drawing.Printing.Margins, System.Drawing">
-    <value>100, 100, 192, 12</value>
+    <value>100, 100, 47, 12</value>
   </data>
 </root>
