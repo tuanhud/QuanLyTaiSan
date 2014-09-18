@@ -127,7 +127,8 @@ namespace TSCD.Entities
         {
             //UNDEPENDENT (bản thân không có bất kỳ FK nào)
             //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
-            "__MigrationHistory",//UNDEPENDENT
+            //----------------DO NOT TRACK __MigrationHistory
+            //"__MigrationHistory",//UNDEPENDENT
 
             //BEGIN PTB
             "LOAIPHONGS",//UNDEPENDENT

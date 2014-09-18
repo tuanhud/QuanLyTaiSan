@@ -124,7 +124,9 @@ namespace QuanLyTaiSan.Entities
         {
             //UNDEPENDENT (bản thân không có bất kỳ FK nào)
             //TABLES HAVE TO BE IN RIGHT ORDER FOR FK CONSTRAIN
-            "__MigrationHistory",//UNDEPENDENT
+            
+            //---DO NOT TRACK __MigrationHistory because of init state on 2 side client-server
+            //"__MigrationHistory",//UNDEPENDENT
             "SETTINGS",//UNDEPENDENT
             "GROUPS",//UNDEPENDENT
                 "QUANTRIVIENS",
