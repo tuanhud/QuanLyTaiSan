@@ -219,9 +219,6 @@ QuanLyTaiSan/App.config
 QuanLyTaiSan/Properties/licenses.licx
 QuanLyTaiSanGUI/Properties/licenses.licx
 QuanLyTaiSan/Properties/licenses.licx
-QuanLyTaiSan/WebQLPH/ImageUpload
 FileSetup/
 *.licx
-WebQLPH/Web.config
-WebQLPH/Web.config
 MauImport/quanlytaisan
