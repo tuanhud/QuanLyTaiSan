@@ -203,22 +203,25 @@ namespace QuanLyTaiSanGUI.MyUC
                 if (e.Value != null && treeListLookUpViTriTreeList.Nodes.Count > 0)
                 {
                     TreeListNode node = treeListLookUpViTriTreeList.FindNodeByKeyID(e.Value);
-                    if (node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
+                    if (node != null)
                     {
-                        e.DisplayText = node.GetValue(colten).ToString();
-                    }
-                    else if (node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
-                    {
-                        e.DisplayText = node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
-                    }
-                    else if (node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
-                    {
-                        e.DisplayText = node.ParentNode.ParentNode.GetValue(colten).ToString() + " - " +
-                            node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
-                    }
-                    else if (node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
-                    {
-                        e.DisplayText = node.GetValue(colten).ToString();
+                        if (node.GetValue(colloai).ToString().Equals(typeof(CoSo).Name))
+                        {
+                            e.DisplayText = node.GetValue(colten).ToString();
+                        }
+                        else if (node.GetValue(colloai).ToString().Equals(typeof(Dayy).Name))
+                        {
+                            e.DisplayText = node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
+                        }
+                        else if (node.GetValue(colloai).ToString().Equals(typeof(Tang).Name))
+                        {
+                            e.DisplayText = node.ParentNode.ParentNode.GetValue(colten).ToString() + " - " +
+                                node.ParentNode.GetValue(colten).ToString() + " - " + node.GetValue(colten).ToString();
+                        }
+                        else if (node.GetValue(colloai).ToString().Equals(typeof(Phong).Name))
+                        {
+                            e.DisplayText = node.GetValue(colten).ToString();
+                        }
                     }
                 }
             }

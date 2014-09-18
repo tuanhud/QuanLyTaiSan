@@ -64,8 +64,8 @@ namespace QuanLyTaiSanGUI.Libraries
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         line++;
-                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Nhân viên... " +
-                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import Nhân viên... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                         if (!row[PASS].Equals("Pass"))
                         {
                             if (row[TENNHANVIEN] != DBNull.Value)
@@ -176,8 +176,8 @@ namespace QuanLyTaiSanGUI.Libraries
                         try
                         {
                             line++;
-                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Vị trí... " +
-                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import Vị trí... " +
+                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                             if (row[COSO] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] != DBNull.Value)
@@ -336,8 +336,8 @@ namespace QuanLyTaiSanGUI.Libraries
                         try
                         {
                             line++;
-                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Loại thiết bị... " +
-                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import Loại TB... " +
+                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                             if (row[LOAITHIETBI] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] != DBNull.Value && row[LOAICHUNG] != DBNull.Value)
@@ -443,8 +443,8 @@ namespace QuanLyTaiSanGUI.Libraries
                         try
                         {
                             line++;
-                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Tình trạng... " +
-                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import Tình trạng... " +
+                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                             if (row[TINHTRANG] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper().Equals(row[TINHTRANG].ToString().Trim().ToUpper())) == null)
@@ -509,8 +509,8 @@ namespace QuanLyTaiSanGUI.Libraries
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         line++;
-                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Phòng... " +
-                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import Phòng... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                         bool ok = false;
                         if (!row[PASS].Equals("Pass"))
                         {
@@ -687,8 +687,8 @@ namespace QuanLyTaiSanGUI.Libraries
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         line++;
-                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import TB theo SL... " +
-                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import TB theo SL... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                         if (!row[PASS].Equals("Pass"))
                         {
                             bool ok = false;
@@ -826,8 +826,8 @@ namespace QuanLyTaiSanGUI.Libraries
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         line++;
-                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import TB theo CT... " +
-                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import TB theo CT... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.0}", (line * 1.0 / lines) * 100) + "%");
                         if (!row[PASS].Equals("Pass"))
                         {
                             bool ok = false;
