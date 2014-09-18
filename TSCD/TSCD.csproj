@@ -85,7 +85,12 @@
     <Compile Include="Entities\ViTri.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Entities\_EntityAbstract3.cs" />
-    <Compile Include="Global.cs" />
+    <Compile Include="Global\client_database.cs" />
+    <Compile Include="Global\Global.cs" />
+    <Compile Include="Global\remote_setting.cs" />
+    <Compile Include="Global\server_database.cs" />
+    <Compile Include="Global\sync.cs" />
+    <Compile Include="Global\working_database.cs" />
     <Compile Include="Migrations\201409050449468_basev1.cs" />
     <Compile Include="Migrations\201409050449468_basev1.Designer.cs">
       <DependentUpon>201409050449468_basev1.cs</DependentUpon>

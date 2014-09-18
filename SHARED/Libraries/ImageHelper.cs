@@ -27,7 +27,7 @@ namespace SHARED.Libraries
             return stream.ToArray();
         }
         /// <summary>
-        /// Thu nhỏ 1 hình
+        /// Thu nhỏ 1 hình, khong lam anh huong input
         /// </summary>
         /// <param name="imgPhoto"></param>
         /// <param name="max_size">pixel, ex: 400 có nghĩa là chiều dài và chiều rộng của hình bị scale luôn nhỏ hơn 400</param>
@@ -36,11 +36,10 @@ namespace SHARED.Libraries
         {
             try
             {
-                Bitmap imgPhoto = new Bitmap(input);
-                int logoSize = max_size;
+                int wrap_size = max_size;
 
-                float sourceWidth = imgPhoto.Width;
-                float sourceHeight = imgPhoto.Height;
+                float sourceWidth = input.Width;
+                float sourceHeight = input.Height;
                 float destHeight = 0;
                 float destWidth = 0;
                 int sourceX = 0;
@@ -51,23 +50,23 @@ namespace SHARED.Libraries
                 //landscape
                 if (sourceWidth >= sourceHeight)
                 {
-                    destWidth = logoSize;
+                    destWidth = wrap_size;
                     destHeight = (float)(sourceHeight * destWidth / sourceWidth);
                 }
                 else
                 {
-                    destHeight = logoSize;
+                    destHeight = wrap_size;
                     destWidth = (float)(sourceWidth * destHeight / sourceHeight);
                 }
 
                 Bitmap bmPhoto = new Bitmap((int)destWidth, (int)destHeight,
                                             PixelFormat.Format32bppPArgb);
-                bmPhoto.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
+                bmPhoto.SetResolution(input.HorizontalResolution, input.VerticalResolution);
 
                 Graphics grPhoto = Graphics.FromImage(bmPhoto);
                 grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-                grPhoto.DrawImage(imgPhoto,
+                grPhoto.DrawImage(input,
                     new Rectangle(destX, destY, (int)destWidth, (int)destHeight),
                     new Rectangle(sourceX, sourceY, (int)sourceWidth, (int)sourceHeight),
                     GraphicsUnit.Pixel);

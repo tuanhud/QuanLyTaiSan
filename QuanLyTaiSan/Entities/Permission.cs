@@ -261,14 +261,9 @@ namespace QuanLyTaiSan.Entities
         {
             get
             {
+                String delimiter = " | ";
                 String tmp = "";
                 tmp += allow_or_deny ? "Cho phép: " : "Cấm: ";
-                //Quyền cố định
-                //if (stand_alone)
-                //{
-                //    tmp += mota;
-                //    goto done;
-                //}
                 tmp += can_view ? "Xem, " : "";
                 tmp += can_add ? "Thêm, " : "";
                 tmp += can_edit ? "Sửa, " : "";
@@ -286,7 +281,7 @@ namespace QuanLyTaiSan.Entities
                     else
                     {
                         tmp += CoSo.VNNAME+ " {";
-                        tmp +=String.Join(", ", cosos.Select(c => c.niceName()));//c.ten+" [ID="+c.id+"]"));
+                        tmp +=String.Join(delimiter, cosos.Select(c => c.niceName()));//c.ten+" [ID="+c.id+"]"));
                         tmp += "} ";
                     }
                     goto done;
@@ -301,7 +296,7 @@ namespace QuanLyTaiSan.Entities
                     else
                     {
                         tmp += Dayy.VNNAME + " {";
-                        tmp += String.Join(", ", days.Select(c => c.niceName()));
+                        tmp += String.Join(delimiter, days.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
@@ -316,7 +311,7 @@ namespace QuanLyTaiSan.Entities
                     else
                     {
                         tmp += Tang.VNNAME+" {";
-                        tmp += String.Join(", ", tangs.Select(c => c.niceName()));
+                        tmp += String.Join(delimiter, tangs.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
@@ -331,16 +326,15 @@ namespace QuanLyTaiSan.Entities
                     else
                     {
                         tmp += Phong.VNNAME+" {";
-                        tmp += String.Join(", ", phongs.Select(c => c.niceName()));
+                        tmp += String.Join(delimiter, phongs.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
                 }
                 tmp += " "+key+" ";
                 return tmp;
-                //finish for CoSo, Dayy, Tang, Phong
                 done:
-                    tmp += recursive_to_child && !stand_alone ? " (và tất cả các đối tượng con cháu)" : "";
+                tmp += recursive_to_child && !stand_alone ? " (và tất cả các đối tượng trực thuộc)" : "";
                     return tmp;
             }
         }

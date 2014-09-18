@@ -127,7 +127,12 @@
     <Compile Include="DbContext\OurDBContext.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
     <Compile Include="Entities\_EntityAbstract3.cs" />
-    <Compile Include="Global.cs" />
+    <Compile Include="Global\client_database.cs" />
+    <Compile Include="Global\Global.cs" />
+    <Compile Include="Global\remote_setting.cs" />
+    <Compile Include="Global\server_database.cs" />
+    <Compile Include="Global\sync.cs" />
+    <Compile Include="Global\working_database.cs" />
     <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Libraries\EmailHelper.cs" />
     <Compile Include="Libraries\ImageHelper.cs" />

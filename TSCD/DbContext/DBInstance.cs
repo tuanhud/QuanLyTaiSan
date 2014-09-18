@@ -14,7 +14,7 @@ using SHARED.Libraries;
 
 namespace TSCD.Entities
 {
-    public class DBInstance
+    public static class DBInstance
     {
         #region Event 
         public delegate void DBConnectionChanged(EventArgs e);
@@ -139,7 +139,7 @@ namespace TSCD.Entities
         /// <summary>
         /// Tao du lieu mau neu chua co
         /// </summary>
-        public static void forceSeed()
+        internal static void forceSeed()
         {
             try
             {

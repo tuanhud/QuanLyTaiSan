@@ -168,7 +168,7 @@ namespace QuanLyTaiSan.Entities
         /// <summary>
         /// Tao du lieu mau neu chua co
         /// </summary>
-        public static void forceSeed()
+        internal static void forceSeed()
         {
             try
             {

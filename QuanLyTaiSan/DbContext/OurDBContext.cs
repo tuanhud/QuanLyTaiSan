@@ -110,11 +110,11 @@ namespace QuanLyTaiSan.Entities
 
         #region STATIC
         /// <summary>
-        /// Dùng trong frm Sửa quyền
+        /// Dùng trong frm Sửa quyền, thuws tujw k quan trong
         /// </summary>
         public static String[] permission_entity_list =
         {
-            CoSo.USNAME, Dayy.USNAME, Tang.USNAME, NhanVienPT.USNAME, QuanTriVien.USNAME, SuCoPhong.USNAME, Phong.USNAME, ThietBi.USNAME, LoaiThietBi.USNAME, Group.USNAME, TinhTrang.USNAME, HinhAnh.USNAME
+            CoSo.USNAME, Dayy.USNAME, Tang.USNAME, Phong.USNAME, ThietBi.USNAME, LoaiThietBi.USNAME, NhanVienPT.USNAME, QuanTriVien.USNAME, Group.USNAME, TinhTrang.USNAME, SuCoPhong.USNAME, HinhAnh.USNAME, LogHeThong.USNAME
         };
         /// <summary>
         /// for SYNC, mỗi lần đổi cấu trúc là phải set up SCOPE lại
