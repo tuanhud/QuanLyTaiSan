@@ -176,6 +176,12 @@
     <Compile Include="QLPhong\MyForm\frmRemoveThietBi.Designer.cs">
       <DependentUpon>frmRemoveThietBi.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTinhTrang\ucQuanLyTinhTrang_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLTinhTrang\ucQuanLyTinhTrang_Control.Designer.cs">
+      <DependentUpon>ucQuanLyTinhTrang_Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -520,6 +526,7 @@
     <EmbeddedResource Include="PhanCongQTV\ucPhanCongQTV.resx">
       <DependentUpon>ucPhanCongQTV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
       <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
@@ -560,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLThietBi\ucQuanLyThietBi_Control.resx">
       <DependentUpon>ucQuanLyThietBi_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTinhTrang\ucQuanLyTinhTrang_Control.resx">
+      <DependentUpon>ucQuanLyTinhTrang_Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>

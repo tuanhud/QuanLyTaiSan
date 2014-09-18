@@ -47,7 +47,7 @@ namespace QuanLyTaiSanGUI.QLPhong
         {
             List<ViTriHienThi> listViTriHienThi = ViTriHienThi.getAllHavePhong();
             _ucComboBoxViTri.DataSource = listViTriHienThi;
-            List<TinhTrang> listTinhTrang = TinhTrang.getAll();
+            List<TinhTrang> listTinhTrang = TinhTrang.getAllForTHIETBI();
             lookUpTinhTrang.Properties.DataSource = listTinhTrang;
         }
 

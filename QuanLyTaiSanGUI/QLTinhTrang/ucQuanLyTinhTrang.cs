@@ -18,19 +18,40 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
     public partial class ucQuanLyTinhTrang : DevExpress.XtraEditors.XtraUserControl, _ourUcInterface
     {
         List<TinhTrang> listTinhTrang = new List<TinhTrang>();
+        ucQuanLyTinhTrang_Control _ucQuanLyTinhTrang_Control = new ucQuanLyTinhTrang_Control();
         TinhTrang objTinhTrang = new TinhTrang();
         String function = "";
         bool working = false;
         bool canAdd = false;
         bool canEdit = false;
         bool canDelete = false;
+        bool isThietBi = true;
         MyLayout layout = new MyLayout();
 
         public ucQuanLyTinhTrang()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
             ribbonTinhTrang.Parent = null;
             layout.save(gridViewTinhTrang);
+            _ucQuanLyTinhTrang_Control.Parent = this;
+            _ucQuanLyTinhTrang_Control.loadData = new ucQuanLyTinhTrang_Control.LoadData(loadData);
+
+        }
+
+        public PanelControl getControl()
+        {
+            return _ucQuanLyTinhTrang_Control.getControl();
+        }
+
+        public void loadData(bool _isThietBi)
+        {
+            isThietBi = _isThietBi;
+            loadData();
         }
 
         public void loadData()
@@ -40,7 +61,10 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
                 checkPermission();
                 layout.load(gridViewTinhTrang);
                 editGUI("view");
-                listTinhTrang = TinhTrang.getQuery().OrderBy(c=>c.order).ToList();
+                if(isThietBi)
+                    listTinhTrang = TinhTrang.getAllForTHIETBI();
+                else
+                    listTinhTrang = TinhTrang.getAllForSUCOPHONG();
                 if (listTinhTrang.Count == 0)
                 {
                     enableButton(false);
@@ -173,6 +197,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             {
                 objTinhTrang.value = txtTen.Text;
                 objTinhTrang.mota = txtMoTa.Text;
+                objTinhTrang.type = isThietBi ? TinhTrang.TYPE_THIETBI : TinhTrang.TYPE_SUCOPHONG;
                 objTinhTrang.key = StringHelper.CoDauThanhKhongDau(txtTen.Text).Replace(" ", String.Empty).ToUpper();
             }
             catch (Exception ex)
