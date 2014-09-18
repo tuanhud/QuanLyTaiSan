@@ -54,7 +54,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             gridControl1.DataSource = null;
 
             //checkPermission
-            btnOK.Enabled = btnPrint.Enabled = simpleButton_View.Enabled = simpleButton_Design.Enabled = Permission.canDo(Permission._THONGKE_INBAOCAO);
+            btnOK.Enabled = /*btnPrint.Enabled =*/ simpleButton_View.Enabled = simpleButton_Design.Enabled = Permission.canDo(Permission._THONGKE_INBAOCAO);
 
             layout.load(gridView1);
         }
@@ -64,10 +64,10 @@ namespace QuanLyTaiSanGUI.ThongKe
             return ribbonThongKe;
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            gridControl1.ShowPrintPreview();
-        }
+        //private void btnPrint_Click(object sender, EventArgs e)
+        //{
+        //    gridControl1.ShowPrintPreview();
+        //}
 
         private void btnOK_Click(object sender, EventArgs e)
         {

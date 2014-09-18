@@ -39,16 +39,16 @@
             // marqueeProgressBarControl1
             // 
             this.marqueeProgressBarControl1.EditValue = 0;
-            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(23, 231);
+            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(12, 231);
             this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
             this.marqueeProgressBarControl1.Properties.MarqueeAnimationSpeed = 40;
-            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(562, 12);
+            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(573, 12);
             this.marqueeProgressBarControl1.TabIndex = 5;
             // 
             // labelControl1
             // 
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl1.Location = new System.Drawing.Point(23, 286);
+            this.labelControl1.Location = new System.Drawing.Point(12, 287);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(114, 13);
             this.labelControl1.TabIndex = 6;
@@ -56,7 +56,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(23, 206);
+            this.labelControl2.Location = new System.Drawing.Point(12, 203);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(270, 13);
             this.labelControl2.TabIndex = 7;
