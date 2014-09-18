@@ -37,7 +37,6 @@
             // 
             // panelPhanQuyen_Control
             // 
-            this.panelPhanQuyen_Control.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelPhanQuyen_Control.Controls.Add(this.checkBtnGroup);
             this.panelPhanQuyen_Control.Controls.Add(this.checkBtnQTV);
             this.panelPhanQuyen_Control.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -70,7 +70,7 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                return db.TINHTRANGS.Where(c =>c.type ==null || c.type == TinhTrang.TYPE_THIETBI).ToList();
+                return db.TINHTRANGS.Where(c =>c.type ==null || c.type == TinhTrang.TYPE_THIETBI).OrderBy(c=>c.order).ToList();
             }
             catch (Exception e)
             {
@@ -82,7 +82,7 @@ namespace QuanLyTaiSan.Entities
         {
             try
             {
-                return db.TINHTRANGS.Where(c => c.type == TinhTrang.TYPE_SUCOPHONG).ToList();
+                return db.TINHTRANGS.Where(c => c.type == TinhTrang.TYPE_SUCOPHONG).OrderBy(c => c.order).ToList();
             }
             catch (Exception e)
             {

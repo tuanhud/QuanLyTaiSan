@@ -68,7 +68,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
                 layout.load(gridViewSuCo);
                 List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
                 _ucTreeViTri.loadData(listViTri);
-                List<TinhTrang> listTinhTrang = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
+                List<TinhTrang> listTinhTrang = TinhTrang.getAllForSUCOPHONG();
                 lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;
                 if (obj == null)
                 {

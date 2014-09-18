@@ -267,7 +267,8 @@ namespace QuanLyTaiSanGUI
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageTinhTrang_Home")))
                     {
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                        _ucQuanLyTinhTrang.loadData();
+                        navBarGroupQLPhong.ControlContainer.Controls.Add(_ucQuanLyTinhTrang.getControl());
+                        _ucQuanLyTinhTrang.loadData(true);
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyTinhTrang);
                     }
