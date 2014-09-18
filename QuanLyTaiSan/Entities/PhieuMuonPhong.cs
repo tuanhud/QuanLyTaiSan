@@ -76,6 +76,18 @@ namespace QuanLyTaiSan.Entities
             
             return base.update();
         }
+        public override void onBeforeUpdated()
+        {
+            if (nguoiduyet != null)
+            {
+                nguoiduyet.trigger();
+            }
+            if (nguoimuon != null)
+            {
+                nguoimuon.trigger();
+            }
+            base.onBeforeUpdated();
+        }
         #endregion
     }
 }
