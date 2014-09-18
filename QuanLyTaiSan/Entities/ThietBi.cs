@@ -119,6 +119,14 @@ namespace QuanLyTaiSan.Entities
                 return "THIẾT BỊ";
             }
         }
+        public override void doTrigger()
+        {
+            if (loaithietbi != null)
+            {
+                loaithietbi.trigger();
+            }
+            base.doTrigger();
+        }
         public override string niceName()
         {
             String tmp = VNNAME + ": " + ten;

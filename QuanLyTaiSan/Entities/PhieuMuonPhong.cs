@@ -71,10 +71,29 @@ namespace QuanLyTaiSan.Entities
             base.init();
             trangthai = 0;
         }
-        public override int update()
+        public override void doTrigger()
         {
-            
-            return base.update();
+            if (nguoiduyet != null)
+            {
+                nguoiduyet.trigger();
+            }
+            if (nguoimuon != null)
+            {
+                nguoimuon.trigger();
+            }
+            base.doTrigger();
+        }
+        public override void onBeforeUpdated()
+        {
+            if (nguoiduyet != null)
+            {
+                nguoiduyet.trigger();
+            }
+            if (nguoimuon != null)
+            {
+                nguoimuon.trigger();
+            }
+            base.onBeforeUpdated();
         }
         #endregion
     }

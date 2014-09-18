@@ -108,6 +108,14 @@ namespace QuanLyTaiSan.Entities
         {
             return username + " (" + hoten + ")";
         }
+        public override void doTrigger()
+        {
+            if (group != null)
+            {
+                group.trigger();
+            }
+            base.doTrigger();
+        }
         protected override void init()
         {
             base.init();

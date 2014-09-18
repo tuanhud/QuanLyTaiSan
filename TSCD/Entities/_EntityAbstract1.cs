@@ -572,5 +572,11 @@ namespace TSCD.Entities
                 return USNAME;
             }
         }
+
+
+        public virtual void doTrigger()
+        {
+            
+        }
     }
 }

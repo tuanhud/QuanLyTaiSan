@@ -221,6 +221,22 @@ namespace QuanLyTaiSan.Entities
             }
             return base.delete();
         }
+        public override void doTrigger()
+        {
+            if (coso != null)
+            {
+                coso.trigger();
+            }
+            if (tang != null)
+            {
+                tang.trigger();
+            }
+            if (day != null)
+            {
+                day.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

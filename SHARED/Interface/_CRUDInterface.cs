@@ -33,6 +33,10 @@ namespace SHARED.Interface
         /// </summary>
             void trigger();
         /// <summary>
+        /// Force load all fk object
+        /// </summary>
+            void doTrigger();
+        /// <summary>
         /// Clone object ra object khác,
         /// giữ nguyên khóa ngoại
         /// </summary>

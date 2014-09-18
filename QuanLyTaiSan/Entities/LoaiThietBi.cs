@@ -129,10 +129,13 @@ namespace QuanLyTaiSan.Entities
             this.childs = new List<LoaiThietBi>();
             this.thietbis = new List<ThietBi>();
         }
-        public override int update()
+        public override void doTrigger()
         {
-            
-            return base.update();
+            if (parent != null)
+            {
+                parent.trigger();
+            }
+            base.doTrigger();
         }
         #endregion
     }

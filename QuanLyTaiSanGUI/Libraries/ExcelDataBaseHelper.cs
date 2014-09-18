@@ -48,6 +48,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int MANHANVIEN = 1;
@@ -59,8 +60,12 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Nhân viên... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                         if (!row[PASS].Equals("Pass"))
                         {
                             if (row[TENNHANVIEN] != DBNull.Value)
@@ -149,6 +154,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int MACOSO = 1;
@@ -164,10 +170,14 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         try
                         {
+                            line++;
+                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Vị trí... " +
+                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                             if (row[COSO] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (row[COSO] != DBNull.Value && row[DAY] != DBNull.Value && row[TANG] != DBNull.Value)
@@ -308,6 +318,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int LOAITHIETBI = 1;
@@ -319,10 +330,14 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         try
                         {
+                            line++;
+                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Loại thiết bị... " +
+                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                             if (row[LOAITHIETBI] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (row[LOAITHIETBI] != DBNull.Value && row[PARENT] != DBNull.Value && row[LOAICHUNG] != DBNull.Value)
@@ -413,6 +428,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int TINHTRANG = 1;
@@ -421,10 +437,14 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
                         try
                         {
+                            line++;
+                            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Tình trạng... " +
+                                String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                             if (row[TINHTRANG] != DBNull.Value && !row[PASS].Equals("Pass"))
                             {
                                 if (TinhTrang.getAll().FirstOrDefault(c => c.value.ToUpper().Equals(row[TINHTRANG].ToString().Trim().ToUpper())) == null)
@@ -468,6 +488,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int MAPHONG = 1;
@@ -484,8 +505,12 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import Phòng... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                         bool ok = false;
                         if (!row[PASS].Equals("Pass"))
                         {
@@ -644,6 +669,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int LOAITB = 1;
@@ -657,8 +683,12 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import TB theo SL... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                         if (!row[PASS].Equals("Pass"))
                         {
                             bool ok = false;
@@ -775,6 +805,7 @@ namespace QuanLyTaiSanGUI.Libraries
         {
             try
             {
+                int line = 0;
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int MATB = 1;
@@ -791,8 +822,12 @@ namespace QuanLyTaiSanGUI.Libraries
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
+                    int lines = dt.Rows.Count;
                     foreach (System.Data.DataRow row in dt.Rows)
                     {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import TB theo CT... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                         if (!row[PASS].Equals("Pass"))
                         {
                             bool ok = false;
@@ -900,9 +935,12 @@ namespace QuanLyTaiSanGUI.Libraries
                         string sql = null;
                         MyConnection.Open();
                         myCommand.Connection = MyConnection;
-                        sql = String.Format("Update [{0}$] set Pass = '{1}' where STT = {2}", sheet, text, stt);
+                        sql = String.Format("Update [{0}$] set Pass = @pass where STT = @stt", sheet);
                         myCommand.CommandText = sql;
+                        myCommand.Parameters.AddWithValue("@pass", text);
+                        myCommand.Parameters.AddWithValue("@stt", stt);
                         myCommand.ExecuteNonQuery();
+
                     }
                 }
             }
