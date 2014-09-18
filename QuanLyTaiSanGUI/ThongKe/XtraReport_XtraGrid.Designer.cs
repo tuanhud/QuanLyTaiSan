@@ -35,13 +35,13 @@
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrPageInfo_CurrentDay = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_KeToanTruong = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_BanGiamHieu = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_Title = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -92,23 +92,23 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrPageInfo2,
+            this.xrPageInfo_CurrentDay,
             this.xrLabel2,
-            this.xrLabel4,
-            this.xrLabel5});
+            this.xrLabel_KeToanTruong,
+            this.xrLabel_BanGiamHieu});
             this.ReportFooter.HeightF = 298.9583F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // xrPageInfo2
+            // xrPageInfo_CurrentDay
             // 
-            this.xrPageInfo2.Format = "{0:\"TP HCM, ngày\" dd \"tháng\" MM \"năm\" yyyy}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(372.8312F, 48.12495F);
-            this.xrPageInfo2.Name = "xrPageInfo2";
-            this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(277.1688F, 23F);
-            this.xrPageInfo2.StylePriority.UseTextAlignment = false;
-            this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrPageInfo_CurrentDay.Format = "{0:\"TP HCM, ngày\" dd \"tháng\" MM \"năm\" yyyy}";
+            this.xrPageInfo_CurrentDay.LocationFloat = new DevExpress.Utils.PointFloat(372.8312F, 48.12495F);
+            this.xrPageInfo_CurrentDay.Name = "xrPageInfo_CurrentDay";
+            this.xrPageInfo_CurrentDay.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo_CurrentDay.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.xrPageInfo_CurrentDay.SizeF = new System.Drawing.SizeF(277.1688F, 23F);
+            this.xrPageInfo_CurrentDay.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo_CurrentDay.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel2
             // 
@@ -121,33 +121,33 @@
             this.xrLabel2.Text = "NGƯỜI LẬP BIỂU\r\n(Ký, ghi rõ họ tên)";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
-            // xrLabel4
+            // xrLabel_KeToanTruong
             // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(221.875F, 81.49999F);
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(200.0854F, 49.54168F);
-            this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "KẾ TOÁN TRƯỞNG\r\n(Ký, ghi rõ họ tên)";
-            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel_KeToanTruong.LocationFloat = new DevExpress.Utils.PointFloat(221.875F, 81.49999F);
+            this.xrLabel_KeToanTruong.Multiline = true;
+            this.xrLabel_KeToanTruong.Name = "xrLabel_KeToanTruong";
+            this.xrLabel_KeToanTruong.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_KeToanTruong.SizeF = new System.Drawing.SizeF(200.0854F, 49.54168F);
+            this.xrLabel_KeToanTruong.StylePriority.UseTextAlignment = false;
+            this.xrLabel_KeToanTruong.Text = "KẾ TOÁN TRƯỞNG\r\n(Ký, ghi rõ họ tên)";
+            this.xrLabel_KeToanTruong.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
-            // xrLabel5
+            // xrLabel_BanGiamHieu
             // 
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(449.9146F, 81.49999F);
-            this.xrLabel5.Multiline = true;
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(200.0854F, 49.54168F);
-            this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "BAN GIÁM HIỆU\r\n(Ký, ghi rõ họ tên)";
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel_BanGiamHieu.LocationFloat = new DevExpress.Utils.PointFloat(449.9146F, 81.49999F);
+            this.xrLabel_BanGiamHieu.Multiline = true;
+            this.xrLabel_BanGiamHieu.Name = "xrLabel_BanGiamHieu";
+            this.xrLabel_BanGiamHieu.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_BanGiamHieu.SizeF = new System.Drawing.SizeF(200.0854F, 49.54168F);
+            this.xrLabel_BanGiamHieu.StylePriority.UseTextAlignment = false;
+            this.xrLabel_BanGiamHieu.Text = "BAN GIÁM HIỆU\r\n(Ký, ghi rõ họ tên)";
+            this.xrLabel_BanGiamHieu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel1,
-            this.xrLabel3});
+            this.xrLabel_Title});
             this.ReportHeader.HeightF = 147.9166F;
             this.ReportHeader.Name = "ReportHeader";
             // 
@@ -162,18 +162,18 @@
             this.xrLabel1.Text = "ỦY BAN NHÂN DÂN TP. HỒ CHÍ MINH\r\nTRƯỜNG ĐẠI HỌC SÀI GÒN";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrLabel3
+            // xrLabel_Title
             // 
-            this.xrLabel3.Font = new System.Drawing.Font("Verdana", 14.25F);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(9.99999F, 95.41661F);
-            this.xrLabel3.Multiline = true;
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(630F, 29.62497F);
-            this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "Báo Cáo Thống Kê Quản Lý Phòng - Ban Cơ Sở Hạ Tầng";
-            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel_Title.Font = new System.Drawing.Font("Verdana", 14.25F);
+            this.xrLabel_Title.LocationFloat = new DevExpress.Utils.PointFloat(9.99999F, 95.41661F);
+            this.xrLabel_Title.Multiline = true;
+            this.xrLabel_Title.Name = "xrLabel_Title";
+            this.xrLabel_Title.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_Title.SizeF = new System.Drawing.SizeF(630F, 29.62497F);
+            this.xrLabel_Title.StylePriority.UseFont = false;
+            this.xrLabel_Title.StylePriority.UseTextAlignment = false;
+            this.xrLabel_Title.Text = "Báo Cáo Thống Kê Quản Lý Phòng - Ban Cơ Sở Hạ Tầng";
+            this.xrLabel_Title.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // XtraReport_XtraGrid
             // 
@@ -201,12 +201,12 @@
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
-        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo_CurrentDay;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_KeToanTruong;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_BanGiamHieu;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_Title;
     }
 }

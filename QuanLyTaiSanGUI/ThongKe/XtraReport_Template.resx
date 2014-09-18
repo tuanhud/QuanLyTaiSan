@@ -150,30 +150,30 @@
   <data name="PageFooter.HeightF" type="System.Single, mscorlib">
     <value>42.70833</value>
   </data>
-  <data name="xrLabel5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
+  <data name="xrLabel_BanGiamHieu.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>449.9146, 81.49999</value>
   </data>
-  <data name="xrLabel5.SizeF" type="System.Drawing.SizeF, System.Drawing">
+  <data name="xrLabel_BanGiamHieu.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>200.0854, 49.54168</value>
   </data>
-  <data name="xrLabel5.Text" xml:space="preserve">
+  <data name="xrLabel_BanGiamHieu.Text" xml:space="preserve">
     <value>BAN GIÁM HIỆU
 (Ký, ghi rõ họ tên)</value>
   </data>
-  <data name="xrLabel5.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
+  <data name="xrLabel_BanGiamHieu.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
     <value>TopCenter</value>
   </data>
-  <data name="xrLabel4.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
+  <data name="xrLabel_KeToanTruong.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>225, 81.49999</value>
   </data>
-  <data name="xrLabel4.SizeF" type="System.Drawing.SizeF, System.Drawing">
+  <data name="xrLabel_KeToanTruong.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>200.0854, 49.54168</value>
   </data>
-  <data name="xrLabel4.Text" xml:space="preserve">
+  <data name="xrLabel_KeToanTruong.Text" xml:space="preserve">
     <value>KẾ TOÁN TRƯỞNG
 (Ký, ghi rõ họ tên)</value>
   </data>
-  <data name="xrLabel4.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
+  <data name="xrLabel_KeToanTruong.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
     <value>TopCenter</value>
   </data>
   <data name="xrLabel2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
@@ -189,34 +189,34 @@
   <data name="xrLabel2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
     <value>TopCenter</value>
   </data>
-  <data name="xrPageInfo2.Format" xml:space="preserve">
+  <data name="xrPageInfo_CurrentDay.Format" xml:space="preserve">
     <value>{0:"TP HCM, ngày" dd "tháng" MM "năm" yyyy}</value>
   </data>
-  <data name="xrPageInfo2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
+  <data name="xrPageInfo_CurrentDay.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>372.8312, 48.12495</value>
   </data>
-  <data name="xrPageInfo2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+  <data name="xrPageInfo_CurrentDay.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>277.1688, 23</value>
   </data>
-  <data name="xrPageInfo2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
+  <data name="xrPageInfo_CurrentDay.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
     <value>MiddleRight</value>
   </data>
   <data name="ReportFooter.HeightF" type="System.Single, mscorlib">
     <value>295.375</value>
   </data>
-  <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="xrLabel_Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 14.25pt</value>
   </data>
-  <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
+  <data name="xrLabel_Title.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>9.999974, 95.41661</value>
   </data>
-  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+  <data name="xrLabel_Title.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>630, 29.62497</value>
   </data>
-  <data name="xrLabel3.Text" xml:space="preserve">
+  <data name="xrLabel_Title.Text" xml:space="preserve">
     <value>Báo Cáo Thống Kê Quản Lý Phòng - Ban Cơ Sở Hạ Tầng</value>
   </data>
-  <data name="xrLabel3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
+  <data name="xrLabel_Title.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v13.2">
     <value>MiddleCenter</value>
   </data>
   <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">

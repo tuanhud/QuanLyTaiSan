@@ -43,6 +43,7 @@ namespace QuanLyTaiSanGUI.ThongKe
             InitializeComponent();
             NumberOfFieldGroup = GridViewVictim.GroupCount;
             this.Landscape = Landscape;
+            SetPositionXRLabel();
             if (GridViewVictim.GroupCount > 0)
             {
                 int add = (PageSize.Width - (Margins.Left + Margins.Right)) / GridViewVictim.GroupCount;
@@ -446,6 +447,16 @@ namespace QuanLyTaiSanGUI.ThongKe
             Bands[BandKind.ReportFooter].Controls.Add(XRTable_Sum);
             //this.Bands.Add(PageFooterBand_Sum);
 
+        }
+
+        private void SetPositionXRLabel()
+        {
+            int pageWidth = (PageWidth - (Margins.Left + Margins.Right));
+
+            xrLabel_Title.LocationF = new DevExpress.Utils.PointFloat((float)((pageWidth - (int)Math.Ceiling(xrLabel_Title.WidthF)) * 1.0 / 2), xrLabel_Title.LocationF.Y);
+            xrPageInfo_CurrentDay.LocationF = new DevExpress.Utils.PointFloat((float)(pageWidth - (int)Math.Ceiling(xrPageInfo_CurrentDay.WidthF)), xrPageInfo_CurrentDay.LocationF.Y);
+            xrLabel_BanGiamHieu.LocationF = new DevExpress.Utils.PointFloat((float)(pageWidth - (int)Math.Ceiling(xrLabel_BanGiamHieu.WidthF)), xrLabel_BanGiamHieu.LocationF.Y);
+            xrLabel_KeToanTruong.LocationF = new DevExpress.Utils.PointFloat((float)((pageWidth - (int)Math.Ceiling(xrLabel_KeToanTruong.WidthF)) * 1.0 / 2), xrLabel_KeToanTruong.LocationF.Y);
         }
     }
 }
