@@ -7,7 +7,6 @@
 <%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
 <%@ Register Src="~/UserControl/ucDangNhap.ascx" TagPrefix="uc" TagName="ucDangNhap" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Cài đặt hệ thống :: Phòng Thiết bị :.</title>
 </asp:Content>
@@ -21,7 +20,7 @@
 
             CKEDITOR.instances['TextBoxMailNoiDung'].on('contentDom', function () {
                 this.document.on('click', function (event) {
-                    TextBoxMailTieuDe_Focus = 0;
+                    _TextBoxMailTieuDe_Focus = 0;
                 });
             });
         });
@@ -54,27 +53,31 @@
                     <td style="width: 210px" class="border_right">
                         <h3 class="title_orange fix">Biến dữ liệu</h3>
                         <i>Đặt con trỏ vào vị trí cần chèn sau đó click vào biến dữ liệu</i>
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{HoTenNguoiDuyet}')">{HoTenNguoiDuyet}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{EmailNguoiDuyet}')">{EmailNguoiDuyet}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{HoTenNguoiNhan}')">{HoTenNguoiNhan}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{EmailNguoiNhan}')">{EmailNguoiNhan}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{NgayTao}')">{NgayTao}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{ThongTinPhieuMuon}')">{ThongTinPhieuMuon}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{TinhTrang}')">{TinhTrang}</label><br />
-                        <label class="alert-success" style="cursor:pointer" onclick="insertIntoCkeditor('{GhiChu}')">{GhiChu}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{HoTenNguoiDuyet}')">{HoTenNguoiDuyet}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{EmailNguoiDuyet}')">{EmailNguoiDuyet}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{HoTenNguoiNhan}')">{HoTenNguoiNhan}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{EmailNguoiNhan}')">{EmailNguoiNhan}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{NgayTao}')">{NgayTao}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{ThongTinPhieuMuon}')">{ThongTinPhieuMuon}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{TinhTrang}')">{TinhTrang}</label><br />
+                        <label class="alert-success" style="cursor: pointer" onclick="insertIntoCkeditor('{GhiChu}')">{GhiChu}</label><br />
                     </td>
                     <td>
                         <h3 class="title_blue fix">Mẫu gửi mail</h3>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tiêu đề</label>
-                                <div class="col-sm-10">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
                                     <asp:TextBox CssClass="form-control" ID="TextBoxMailTieuDe" ClientIDMode="Static" runat="server" onfocus="TextBoxMailTieuDe_Focus();"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Nội dung</label>
-                                <div class="col-sm-10">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
                                     <asp:TextBox CssClass="form-control" ID="TextBoxMailNoiDung" ClientIDMode="Static" runat="server" TextMode="MultiLine"></asp:TextBox>
                                     <script>
                                         CKEDITOR.replace('TextBoxMailNoiDung');
@@ -82,12 +85,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
+                                <div class="col-sm-2 control-label">
                                     <asp:Button ID="ButtonSaveMailTemplate" runat="server" Text="Lưu cấu hình" CssClass="btn btn-success" OnClick="ButtonSaveMailTemplate_Click" />
                                 </div>
                             </div>
                         </div>
-
                     </td>
                 </tr>
             </asp:Panel>
