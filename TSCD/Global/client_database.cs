@@ -79,17 +79,25 @@ namespace TSCD
             /// </summary>
             public static int start_sync()
             {
-                //Kiểm tra có sử dụng DBCache
-                if (!Global.working_database.use_db_cache)
+                try
                 {
-                    return 1;
-                }
+                    //Kiểm tra có sử dụng DBCache
+                    if (!Global.working_database.use_db_cache)
+                    {
+                        return 1;
+                    }
 
-                return DatabaseHelper.start_sync(
-                    Global.client_database.get_connection_string(),
-                    Global.server_database.get_connection_string(),
-                    Global.sync.scope_name
-                );
+                    return DatabaseHelper.start_sync(
+                        Global.client_database.get_connection_string(),
+                        Global.server_database.get_connection_string(),
+                        Global.sync.scope_name
+                        );
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    return -1;
+                }
 
             }
             /// <summary>

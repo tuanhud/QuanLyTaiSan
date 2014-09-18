@@ -164,46 +164,5 @@ namespace QuanLyTaiSan.Entities
                 return -1;
             }
         }
-
-        /// <summary>
-        /// Tao du lieu mau neu chua co
-        /// </summary>
-        internal static void forceSeed()
-        {
-            try
-            {
-                //DATETIME
-                String mota = "Hệ thống tự động tạo";
-//GROUP
-                if (Group.getQuery().Where(c => c.ten.ToLower().Equals("root")).Count() <= 0)
-                {
-                    Group gp = new Group();
-                    gp.mota = mota;
-                    gp.ten = "root";
-                    gp.subId = gp.ten;
-                    gp.key = gp.ten;
-
-                    if (QuanTriVien.getQuery().Where(c => c.username.ToLower().Equals("root")).Count() <= 0)
-                    {
-                        //QUANTRIVIEN
-                        QuanTriVien qtv = new QuanTriVien();
-                        qtv.username = "root";
-                        qtv.hashPassword(qtv.username); //hashPassword("root") => "2B1ED923B31D1B0990A28C932565156D11F9F7D9"
-                        qtv.hoten = "root";
-                        qtv.mota = mota;
-                        qtv.subId = qtv.username;
-                        qtv.group = gp;
-                        qtv.add();
-                    }
-                }
-                
-                //final commit
-                commit();
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
-        }
     }
 }

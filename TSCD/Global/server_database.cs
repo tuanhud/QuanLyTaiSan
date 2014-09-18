@@ -44,8 +44,8 @@ namespace TSCD
                     using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
                     {
                         tmp.isValidModel();
+                        tmp.forceSeed();
                     }
-                    DBInstance.forceSeed();
                 }
                 catch (Exception ex)
                 {

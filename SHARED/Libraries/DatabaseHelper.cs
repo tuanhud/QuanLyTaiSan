@@ -85,15 +85,41 @@ namespace SHARED.Libraries
                 return false;
             }
         }
-        private static void sync_error_event_handler(object sender, DbApplyChangeFailedEventArgs e)
+        private static void sync_error_event_handler_local(object sender, DbApplyChangeFailedEventArgs e)
         {
-            Debug.WriteLine("=========SYNC ERROR==========");
-            // display conflict type
-            Debug.WriteLine(e.Conflict.Type);
-            // display error message 
-            Debug.WriteLine(e.Error);
-            Debug.WriteLine("=========END SYNC ERROR==========");
+            String msg = e != null && e.Conflict != null && e.Conflict.Type!=null ? e.Conflict.Type.ToString():"e.Confict.Type==null";
+            msg += " | ";
+            msg += e != null && e.Error != null ? e.Error.ToString() : "e.Error==null";
+
+            throw new Exception("Sync fail");
+            //Debug.WriteLine("=========SYNC ERROR==========");
+            //// display conflict type
+            //Debug.WriteLine(e.Conflict.Type);
+            //// display error message 
+            //Debug.WriteLine(e.Error);
+            //Debug.WriteLine("=========END SYNC ERROR==========");
         }
+        private static void sync_error_event_handler_remote(object sender, DbApplyChangeFailedEventArgs e)
+        {
+            String msg = e != null && e.Conflict != null && e.Conflict.Type!=null ? e.Conflict.Type.ToString():"e.Confict.Type==null";
+            msg += " | ";
+            msg += e != null && e.Error != null ? e.Error.ToString() : "e.Error==null";
+
+            throw new Exception("Sync fail");
+            //// display conflict type
+            //Debug.WriteLine(e.Conflict.Type);
+            //// display error message 
+            //Debug.WriteLine(e.Error);
+            //Debug.WriteLine("=========END SYNC ERROR==========");
+        }
+
+        /// <summary>
+        /// Through Execption when fail
+        /// </summary>
+        /// <param name="client_connectionString"></param>
+        /// <param name="server_connectionString"></param>
+        /// <param name="scope_name"></param>
+        /// <returns></returns>
         public static int start_sync(String client_connectionString, String server_connectionString, String scope_name)
         {
             SqlConnection clientConn = new SqlConnection(client_connectionString);
@@ -117,13 +143,16 @@ namespace SHARED.Libraries
                 syncOrchestrator.Direction = SyncDirectionOrder.UploadAndDownload;
                 
                 // subscribe for errors that occur when applying changes to the client
+
+                //((SqlSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed +=
+                //    new EventHandler<DbApplyChangeFailedEventArgs>(sync_error_event_handler_local);
+
+                //((SqlSyncProvider)syncOrchestrator.RemoteProvider).ApplyChangeFailed +=
+                //    new EventHandler<DbApplyChangeFailedEventArgs>(sync_error_event_handler_remote);
                 
-                ((SqlSyncProvider)syncOrchestrator.LocalProvider).ApplyChangeFailed +=
-                    new EventHandler<DbApplyChangeFailedEventArgs>(sync_error_event_handler);
 
                 // execute the synchronization process
                 SyncOperationStatistics syncStats = syncOrchestrator.Synchronize();
-
                 // print statistics
                 Debug.WriteLine("=========SYNC SUMMARY==========");
                 Debug.WriteLine("Start Time: " + syncStats.SyncStartTime);

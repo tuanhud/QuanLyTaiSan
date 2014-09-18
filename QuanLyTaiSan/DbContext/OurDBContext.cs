@@ -648,5 +648,47 @@ namespace QuanLyTaiSan.Entities
                 Debug.WriteLine(e);
             }
         }
+        /// <summary>
+        /// Tạo Group và QuanTriVien mau
+        /// </summary>
+        internal void forceSeed()
+        {
+            try
+            {
+                //DATETIME
+                String mota = "Hệ thống tự động tạo";
+                //GROUP
+                if (this.GROUPS.Where(c => c.ten.ToLower().Equals("root")).Count() <= 0)
+                {
+                    Group gp = new Group();
+                    gp.mota = mota;
+                    gp.date_create = gp.date_modified = ServerTimeHelper.getNow();
+                    gp.ten = "root";
+                    gp.subId = gp.ten;
+                    gp.key = gp.ten;
+
+                    if (this.QUANTRIVIENS.Where(c => c.username.ToLower().Equals("root")).Count() <= 0)
+                    {
+                        //QUANTRIVIEN
+                        QuanTriVien qtv = new QuanTriVien();
+                        qtv.date_create = qtv.date_modified = ServerTimeHelper.getNow();
+                        qtv.username = "root";
+                        qtv.hashPassword(qtv.username); //hashPassword("root") => "2B1ED923B31D1B0990A28C932565156D11F9F7D9"
+                        qtv.hoten = "root";
+                        qtv.mota = mota;
+                        qtv.subId = qtv.username;
+                        qtv.group = gp;
+                        this.QUANTRIVIENS.Add(qtv);
+                    }
+                }
+
+                //final commit
+                SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
     }
 }
