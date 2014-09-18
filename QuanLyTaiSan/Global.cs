@@ -64,10 +64,11 @@ namespace QuanLyTaiSan
             {
                 try
                 {
-                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true, true))
+                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), true))
                     {
                         tmp.isValidModel();
                     }
+                    DBInstance.forceSeed();
                 }
                 catch (Exception ex)
                 {
@@ -98,7 +99,7 @@ namespace QuanLyTaiSan
                 ))
                 {
                     //Check model backing
-                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), false, false))
+                    using (OurDBContext tmp = new OurDBContext(Global.server_database.get_connection_string(), false))
                     {
                         if (tmp.isValidModel())
                         {
@@ -270,7 +271,7 @@ namespace QuanLyTaiSan
 
                 try
                 {
-                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), true, false))
+                    using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), true))
                     {
                         tmp.isValidModel();
                     }
@@ -306,7 +307,7 @@ namespace QuanLyTaiSan
                     try
                     {
                         //Check model backing
-                        using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false, false))
+                        using (OurDBContext tmp = new OurDBContext(Global.client_database.get_connection_string(), false))
                         {
                             if (tmp.isValidModel())
                             {
@@ -406,7 +407,7 @@ namespace QuanLyTaiSan
                     try
                     {
                         //Check model backing
-                        using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false, false))
+                        using (OurDBContext tmp = new OurDBContext(Global.working_database.get_connection_string(), false))
                         {
                             if (tmp.isValidModel())
                             {

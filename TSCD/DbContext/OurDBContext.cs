@@ -15,156 +15,13 @@ using SHARED.Interface;
 
 namespace TSCD.Entities
 {
-    internal class _OurDBInit : CreateDatabaseIfNotExists<OurDBContext>
-    {
-        private Boolean create_sample_data = false;
-        /// <summary>
-        /// Luôn luôn tạo tự động "cấu trúc CSDL"
-        /// </summary>
-        /// <param name="create_sample_data">Có tự động tạo dữ liệu mẫu hay không</param>
-        public _OurDBInit(Boolean create_sample_data = false)
-        {
-            this.create_sample_data = create_sample_data;
-        }
-        protected override void Seed(OurDBContext context)
-        {
-            /*
-             * Create Sample Data here
-             */
-            if (!create_sample_data)
-            {
-                base.Seed(context);
-                return;
-            }
-            //DATETIME
-            String mota = "Hệ thống tự động tạo";
-
-            //PERMISSION
-            List<Permission> pers = new List<Permission>();
-            Permission per = null;
-            foreach (String item in Permission.STAND_ALONE_LIST)
-            {
-                per = new Permission();
-                per.stand_alone = true;
-                per.allow_or_deny = true;
-                per.key = item;
-
-                if (
-                    context.PERMISSIONS.Where(
-                    c =>
-                        c.key.ToUpper().Equals(item.ToUpper())
-                    ).FirstOrDefault() == null
-                )
-                {
-                    pers.Add(per);
-                    context.PERMISSIONS.Add(per);
-                }
-            }
-
-            //GROUP
-            Group gp = new Group();
-            gp.mota = mota;
-            gp.key = "root";
-            gp.subId = gp.key;
-            gp.ten = gp.key;
-            gp.date_create = gp.date_modified = ServerTimeHelper.getNow();
-            gp.permissions.Add(pers.Where(c=>c.key.ToUpper().Equals(Permission._SUPER_ADMIN)).FirstOrDefault());
-            //ADD
-            if (
-                context.GROUPS.Where(c => c.ten.ToUpper().Equals(gp.ten)).FirstOrDefault() == null
-                )
-            {
-                context.GROUPS.Add(gp);
-            }
-
-            //QUANTRIVIEN
-            QuanTriVien qtv = new QuanTriVien();
-            qtv.username = "root";
-            qtv.hashPassword(qtv.username);
-            qtv.hoten = qtv.username;
-            qtv.mota = mota;
-            qtv.subId = qtv.username;
-            qtv.date_create = qtv.date_modified = ServerTimeHelper.getNow();
-            qtv.group = gp;
-            //ADD
-            if (
-                context.QUANTRIVIENS.Where(c => c.username.ToUpper().Equals(qtv.username)).FirstOrDefault() == null
-                )
-            {
-                context.QUANTRIVIENS.Add(qtv);
-            }
-
-            //TINHTRANG
-            List<TinhTrang> tinhtrangs = new List<TinhTrang>();
-
-            TinhTrang tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
-            tinhtrang.key = "dangsudung";
-            tinhtrang.mota = mota;
-            tinhtrang.subId = tinhtrang.key;
-            tinhtrang.value = "Đang sử dụng";
-            //ADD
-            tinhtrangs.Add(tinhtrang);
-
-            tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
-            tinhtrang.key = "khongsudung";
-            tinhtrang.mota = mota;
-            tinhtrang.subId = tinhtrang.key;
-            tinhtrang.value = "Không sử dụng";
-            //ADD
-            tinhtrangs.Add(tinhtrang);
-
-            tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
-            tinhtrang.key = "bihu";
-            tinhtrang.mota = mota;
-            tinhtrang.subId = tinhtrang.key;
-            tinhtrang.value = "Bị hư";
-            //ADD
-            tinhtrangs.Add(tinhtrang);
-
-            tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
-            tinhtrang.key = "khac";
-            tinhtrang.mota = mota;
-            tinhtrang.subId = tinhtrang.key;
-            tinhtrang.value = "Khác";
-            //ADD
-            tinhtrangs.Add(tinhtrang);
-
-            tinhtrang = new TinhTrang();
-            tinhtrang.date_create = tinhtrang.date_modified = ServerTimeHelper.getNow();
-            tinhtrang.key = "dangsua";
-            tinhtrang.mota = mota;
-            tinhtrang.subId = tinhtrang.key;
-            tinhtrang.value = "Đang sửa";
-            //ADD
-            tinhtrangs.Add(tinhtrang);
-            //LIST ADD
-            foreach (TinhTrang item in tinhtrangs)
-            {
-                if (context.TINHTRANGS.Where(c => c.value.ToUpper().Equals(item.value.ToUpper())).FirstOrDefault() == null)
-                {
-                    context.TINHTRANGS.Add(item);
-                }
-            }
-
-            //call parent
-            base.Seed(context);
-        }
-
-    }
+    
     /// <summary>
     /// Lúc gán kiểu obj.hinhanhs = list;
     /// là lúc Entity State bị đổi
     /// </summary>
     public class OurDBContext : DbContext
     {
-        /// <summary>
-        /// Có tự động tạo "dữ liệu mẫu" hay không ?
-        /// </summary>
-        private Boolean create_sample_data = false;
         /// <summary>
         /// Có tự động tạo "cấu trúc CSDL" hay không ?
         /// </summary>
@@ -175,40 +32,53 @@ namespace TSCD.Entities
         public OurDBContext()
             : base("Default")
         {
-            if (create_db_structure)
+            try
             {
-                //Auto create DB Structure and Sample Data if not exist
-                IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
-                Database.SetInitializer<OurDBContext>(initializer);
-                //FORCE CREATE TABLE if Database Existed
-                Database.Initialize(true);
+                if (create_db_structure)
+                {
+                    //Auto create DB Structure 
+                    Database.SetInitializer<OurDBContext>(new CreateDatabaseIfNotExists<OurDBContext>());
+                    //FORCE CREATE TABLE if Database Existed
+                    Database.Initialize(true);
+                }
+                else
+                {
+                    Database.SetInitializer<OurDBContext>(null);
+                }
             }
-            else
+            catch (Exception e)
             {
-                Database.SetInitializer<OurDBContext>(null);
+                Debug.WriteLine(e);
             }
         }
+
         /// <summary>
         /// Hàm khởi tạo có chỉ định cụ thể DB đích
         /// </summary>
         /// <param name="connection_string"></param>
         /// <param name="create_db_structure">Có tự động tạo "cấu trúc CSDL" và "dữ liệu mẫu" hay không ?</param>
-        public OurDBContext(String connection_string = "Default", Boolean create_db_structure = false, Boolean create_sample_data = false)
+        public OurDBContext(String connection_string = "Default", Boolean create_db_structure = false)
             : base(connection_string)
         {
-            this.create_db_structure = create_db_structure;
-            this.create_sample_data = create_sample_data;
-            if (create_db_structure)
+            try
             {
-                //Auto create DB if not exist
-                IDatabaseInitializer<OurDBContext> initializer = new _OurDBInit(create_sample_data);
-                Database.SetInitializer<OurDBContext>(initializer);
-                //FORCE CREATE TABLE if Database Existed
-                Database.Initialize(true);
+                this.create_db_structure = create_db_structure;
+                if (create_db_structure)
+                {
+                    //Auto create DB Structure
+                    Database.SetInitializer<OurDBContext>(new CreateDatabaseIfNotExists<OurDBContext>());
+                    //FORCE CREATE TABLE if Database Existed
+                    //May through Exeption but FINE
+                    Database.Initialize(true);
+                }
+                else
+                {
+                    Database.SetInitializer<OurDBContext>(null);
+                }
             }
-            else
+            catch (Exception e)
             {
-                Database.SetInitializer<OurDBContext>(null);
+                Debug.WriteLine(e);
             }
         }
 
@@ -512,7 +382,7 @@ namespace TSCD.Entities
             //nếu không kiểm tra để bỏ qua thì lớp Entity sẽ được callback,
             //LogHeThong sẽ được tạo ra, sẽ gọi new DB tren Global.working_database...
             //khi đó sẽ tự động tạo CSDL cho CLIENT luôn và log hệ thống sẽ bị ghi ở CSDL khác với Server
-            if (create_sample_data == true)
+            if (create_db_structure == true)
             {
                 return base.SaveChanges();
             }

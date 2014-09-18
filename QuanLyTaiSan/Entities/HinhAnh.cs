@@ -336,19 +336,23 @@ namespace QuanLyTaiSan.Entities
                     Global.remote_setting.ftp_host.USER_NAME,
                     Global.remote_setting.ftp_host.PASS_WORD
                 );
+                //--------------------------------------------------
                 //upload thumb len
                 //100x100px
                 //Step1: prepare thumb path
                 abs_path = Global.remote_setting.ftp_host.getCombinedPath(THUMB_PREFIX + this.path);
                 //Step2: resize
-                image = ImageHelper.ScaleBySize(image, 150);
+                Bitmap thumb_image = ImageHelper.ScaleBySize(image, 150);
                 //Step 3: upload
-                return FTPHelper.uploadImage(
-                    image,
+                int re = FTPHelper.uploadImage(
+                    thumb_image,
                     abs_path,
                     Global.remote_setting.ftp_host.USER_NAME,
                     Global.remote_setting.ftp_host.PASS_WORD
                 );
+                thumb_image.Dispose();
+                thumb_image = null;
+                return re;
             }
             catch (Exception e)
             {

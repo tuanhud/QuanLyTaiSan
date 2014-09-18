@@ -32,10 +32,11 @@ namespace SHARED.Libraries
         /// <param name="imgPhoto"></param>
         /// <param name="max_size">pixel, ex: 400 có nghĩa là chiều dài và chiều rộng của hình bị scale luôn nhỏ hơn 400</param>
         /// <returns></returns>
-        public static Bitmap ScaleBySize(Bitmap imgPhoto, int max_size)
+        public static Bitmap ScaleBySize(Bitmap input, int max_size)
         {
             try
             {
+                Bitmap imgPhoto = new Bitmap(input);
                 int logoSize = max_size;
 
                 float sourceWidth = imgPhoto.Width;
