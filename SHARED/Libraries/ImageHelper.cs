@@ -81,9 +81,26 @@ namespace SHARED.Libraries
                 return null;
             }
         }
+        /// <summary>
+        /// Winform only
+        /// </summary>
+        /// <param name="abs_path"></param>
+        /// <returns></returns>
         public static Bitmap fromFile(String abs_path)
         {
-            return new Bitmap(abs_path);
+            try
+            {
+                Bitmap re;
+                using (var tmp = new Bitmap(abs_path))
+                {
+                    re = new Bitmap(tmp);
+                }
+                return re;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }
