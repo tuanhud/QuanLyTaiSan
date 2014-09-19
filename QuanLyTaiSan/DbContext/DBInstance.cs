@@ -102,15 +102,19 @@ namespace QuanLyTaiSan.Entities
             
             db = DB;
         }
+        private static Object sync_lock = new Object();
         /// <summary>
         /// Đồng bộ CSDL lên Server
         /// </summary>
         private static void sync()
         {
-            Debug.WriteLine("======Location: DBInstance.commit======");
-            Debug.WriteLine("======Start sync when insert, in new Thread======");
-            Global.client_database.start_sync();
-            Debug.WriteLine("======End sync when insert, in new Thread======");
+            lock (sync_lock)
+            {
+                Debug.WriteLine("======Location: DBInstance.commit======");
+                Debug.WriteLine("======Start sync when insert, in new Thread======");
+                Global.client_database.start_sync();
+                Debug.WriteLine("======End sync when insert, in new Thread======");
+            }
         }
         /// <summary>
         /// > 0: OK,
