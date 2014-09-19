@@ -26,7 +26,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
             _ucTreeViTri.ASPxTreeList_ViTri.HtmlDataCellPrepared += new DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventHandler(this.ASPxTreeList_ViTri_HtmlDataCellPrepared);
             if (!IsPostBack)
             {
-                _ucTreeViTri.Label_TenViTri.Text = "Ch.phòng";
+                _ucTreeViTri.Label_TenViTri.Text = "Phòng";
                 _ucCollectionPager_DanhSachThietBi.ShowPanelPage(PanelChangePage);
             }
         }
