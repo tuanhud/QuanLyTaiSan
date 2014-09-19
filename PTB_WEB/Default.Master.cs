@@ -19,7 +19,6 @@ namespace PTB_WEB
         public static string _TENPHONG = "";
         public static string _TENSUCO = "";
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -49,6 +48,7 @@ namespace PTB_WEB
                 Console.Write(ex);
             }
         }
+
         protected override void OnInit(EventArgs e)
         {
             //Global.working_database.WEB_MODE = true;
