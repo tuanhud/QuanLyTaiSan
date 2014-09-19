@@ -430,13 +430,15 @@ namespace TSCD.Entities
                 item.onAfterUpdated();
             }
             //---SaveChange lần 2
-            changedEntities = ChangeTracker.Entries().Where(c => c.State == EntityState.Added || c.State == EntityState.Modified || c.State == EntityState.Deleted);
-            //Nếu có ít nhất 1 sự thay đổi trong ChangeTracker thì gọi lại SaveChanges
-            foreach (var item in changedEntities)
-            {
-                result += this.SaveChanges();
-                break;
-            }
+            //changedEntities = ChangeTracker.Entries().Where(c => c.State == EntityState.Added || c.State == EntityState.Modified || c.State == EntityState.Deleted);
+            ////Nếu có ít nhất 1 sự thay đổi trong ChangeTracker thì gọi lại SaveChanges
+            //foreach (var item in changedEntities)
+            //{
+            //    result += this.SaveChanges();
+            //    break;
+            //}
+
+            result += base.SaveChanges();
             //clear RAM
             Added_Callbacks = null;
             Modified_Callbacks = null;
