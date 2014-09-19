@@ -162,6 +162,8 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang phân công...");
             Guid id = objQuanTriVien.id;
             try
             {
@@ -181,17 +183,20 @@ namespace QuanLyTaiSanGUI.PhanCongQTV
                 //}
                 if (DBInstance.commit() > 0)
                 {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     DevExpress.XtraEditors.XtraMessageBox.Show("Phân công quản trị viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     PhanCong(false);
                     reLoadAndFocused(id);
                 }
                 else
                 {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     DevExpress.XtraEditors.XtraMessageBox.Show("Phân công quản trị viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 Debug.WriteLine(this.Name + "->btnOK_Click: " + ex.Message);
             }
         }

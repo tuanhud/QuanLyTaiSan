@@ -241,6 +241,8 @@ namespace QuanLyTaiSanGUI.MyUserControl
 
         private void setData()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 setTextGroupControl("Chi thiết phòng", Color.Empty);
@@ -261,6 +263,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 txtMoTaPhong.Text = objPhong.mota;
 
                 listHinhAnhNhanVien = new List<HinhAnh>();
+                xtraTabNhanVien.SelectedTabPage = xtraTabNhanVienPT;
                 if (objPhong.nhanvienpt != null)
                 {
                     searchLookUpEditNhanVienPT.EditValue = objPhong.nhanvienpt.id;
@@ -284,12 +287,25 @@ namespace QuanLyTaiSanGUI.MyUserControl
                     txtTenNhanVien.Text = "";
                     txtSoDienThoai.Text = "";
                 }
+                if (objPhong.quantrivien != null)
+                {
+                    txtTenQTV.Text = objPhong.quantrivien.hoten;
+                    txtUserQTV.Text = objPhong.quantrivien.username;
+                    txtEmailQTV.Text = objPhong.quantrivien.email;
+                }
+                else
+                {
+                    txtTenQTV.Text = "";
+                    txtUserQTV.Text = "";
+                    txtEmailQTV.Text = "";
+                }
                 reloadImageNhanVienPT();
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setData : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setData: " + ex.Message);
             }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void setDataObj()
@@ -313,7 +329,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(this.Name + " : setDataObj : " + ex.Message);
+                Debug.WriteLine(this.Name + "->setDataObj: " + ex.Message);
             }
         }
 

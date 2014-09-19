@@ -48,9 +48,9 @@
             // checkBtnGroup
             // 
             this.checkBtnGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBtnGroup.Location = new System.Drawing.Point(0, 23);
+            this.checkBtnGroup.Location = new System.Drawing.Point(2, 25);
             this.checkBtnGroup.Name = "checkBtnGroup";
-            this.checkBtnGroup.Size = new System.Drawing.Size(255, 23);
+            this.checkBtnGroup.Size = new System.Drawing.Size(251, 23);
             this.checkBtnGroup.TabIndex = 2;
             this.checkBtnGroup.Text = "Nhóm quyền";
             this.checkBtnGroup.CheckedChanged += new System.EventHandler(this.checkBtnGroup_CheckedChanged);
@@ -58,9 +58,9 @@
             // checkBtnQTV
             // 
             this.checkBtnQTV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBtnQTV.Location = new System.Drawing.Point(0, 0);
+            this.checkBtnQTV.Location = new System.Drawing.Point(2, 2);
             this.checkBtnQTV.Name = "checkBtnQTV";
-            this.checkBtnQTV.Size = new System.Drawing.Size(255, 23);
+            this.checkBtnQTV.Size = new System.Drawing.Size(251, 23);
             this.checkBtnQTV.TabIndex = 3;
             this.checkBtnQTV.Text = "Quản trị viên";
             this.checkBtnQTV.CheckedChanged += new System.EventHandler(this.checkBtnQTV_CheckedChanged);

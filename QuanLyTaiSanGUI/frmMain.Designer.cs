@@ -56,6 +56,8 @@
             this.barStaticConnection = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticConnectionT = new DevExpress.XtraBars.BarStaticItem();
             this.barBtnUser = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSync = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticSeparator = new DevExpress.XtraBars.BarStaticItem();
             this.rbnPageNothing = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
@@ -80,9 +82,11 @@
             this.ribbonMain.ExpandCollapseItem,
             this.barStaticConnection,
             this.barStaticConnectionT,
-            this.barBtnUser});
+            this.barBtnUser,
+            this.barBtnSync,
+            this.barStaticSeparator});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 9;
+            this.ribbonMain.MaxItemId = 11;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageNothing});
@@ -299,6 +303,28 @@
             this.barBtnUser.Name = "barBtnUser";
             this.barBtnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUser_ItemClick);
             // 
+            // barBtnSync
+            // 
+            this.barBtnSync.Caption = "Đồng bộ CSDL";
+            this.barBtnSync.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnSync.Glyph")));
+            this.barBtnSync.Id = 9;
+            this.barBtnSync.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barBtnSync.ItemAppearance.Hovered.Options.UseFont = true;
+            this.barBtnSync.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barBtnSync.ItemAppearance.Normal.Options.UseFont = true;
+            this.barBtnSync.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barBtnSync.ItemAppearance.Pressed.Options.UseFont = true;
+            this.barBtnSync.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnSync.LargeGlyph")));
+            this.barBtnSync.Name = "barBtnSync";
+            this.barBtnSync.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSync_ItemClick);
+            // 
+            // barStaticSeparator
+            // 
+            this.barStaticSeparator.Caption = "|";
+            this.barStaticSeparator.Id = 10;
+            this.barStaticSeparator.Name = "barStaticSeparator";
+            this.barStaticSeparator.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // rbnPageNothing
             // 
             this.rbnPageNothing.Name = "rbnPageNothing";
@@ -310,6 +336,8 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticConnectionT);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticConnection);
             this.ribbonStatusBar.ItemLinks.Add(this.barBtnUser);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticSeparator);
+            this.ribbonStatusBar.ItemLinks.Add(this.barBtnSync);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 676);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMain;
@@ -420,6 +448,8 @@
         private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator3;
         private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabImportAll;
         private DevExpress.XtraBars.BarButtonItem barBtnUser;
+        private DevExpress.XtraBars.BarButtonItem barBtnSync;
+        private DevExpress.XtraBars.BarStaticItem barStaticSeparator;
         
     }
 }

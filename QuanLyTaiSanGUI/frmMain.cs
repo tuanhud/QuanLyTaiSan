@@ -566,5 +566,13 @@ namespace QuanLyTaiSanGUI
             SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
             frm.ShowDialog();
         }
+
+        private void barBtnSync_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang đồng bộ CSDL...");
+            Global.client_database.start_sync();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+        }
     }
 }
