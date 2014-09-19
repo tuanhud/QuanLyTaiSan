@@ -66,8 +66,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
         // Load dữ liệu
         public void loadData()
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
-            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
                 //load layout
@@ -103,7 +101,6 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
             }
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         //Mở tắt bar
