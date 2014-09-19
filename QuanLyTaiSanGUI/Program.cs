@@ -1,6 +1,7 @@
 ﻿using DevExpress.LookAndFeel;
 using QuanLyTaiSan.Entities;
 using QuanLyTaiSanGUI.HeThong;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +37,9 @@ namespace QuanLyTaiSanGUI
                 //Application.Run(new frmMain());
                 //Application.Run(new SplashScreen1());
            }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Fatal ERROR 'Application.Run(new Setting());'");
+                MessageBox.Show("Fatal ERROR 'Application.Run(new Setting());'\r\n"+ex.ToString());
             }
         }
     }
