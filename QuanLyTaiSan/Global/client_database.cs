@@ -98,6 +98,8 @@ namespace QuanLyTaiSan
                     Debug.WriteLine(ex);
                     return -1;
                 }
+                
+
             }
             /// <summary>
             /// Tự động tạo cấu trúc CSDL nếu chưa có
