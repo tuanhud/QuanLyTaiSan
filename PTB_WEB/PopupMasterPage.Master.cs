@@ -1,5 +1,5 @@
-﻿using QuanLyTaiSan;
-using QuanLyTaiSan.Entities;
+﻿using PTB;
+using PTB.Entities;
 using System;
 using SHARED.Libraries;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace PTB_WEB
         protected override void OnInit(EventArgs e)
         {
             if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-               QuanLyTaiSan.Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
+               PTB.Global.current_quantrivien_login = QuanTriVien.getByUserName(Session["UserName"].ToString());
         }
     }
 }

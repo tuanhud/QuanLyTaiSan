@@ -1,10 +1,10 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyTaiSan.Libraries
+namespace PTB.Libraries
 {
     public class PermissionHelper
     {

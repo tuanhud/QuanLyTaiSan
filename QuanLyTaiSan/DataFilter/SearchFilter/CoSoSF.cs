@@ -1,11 +1,11 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyTaiSan.DataFilter.SearchFilter
+namespace PTB.DataFilter.SearchFilter
 {
     public class CoSoSF : _SearchFilterAbstract<CoSo>
     {

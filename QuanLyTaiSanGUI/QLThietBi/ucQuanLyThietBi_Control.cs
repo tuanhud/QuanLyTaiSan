@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI.QLThietBi
+namespace PTB_GUI.QLThietBi
 {
     public partial class ucQuanLyThietBi_Control : UserControl
     {

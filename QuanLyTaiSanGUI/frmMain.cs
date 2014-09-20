@@ -8,34 +8,34 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-using QuanLyTaiSanGUI.MyUserControl;
+using PTB_GUI.MyUserControl;
 using DevExpress.XtraGrid.Columns;
-using QuanLyTaiSanGUI.QLPhong;
-using QuanLyTaiSanGUI.QLViTri.MyUserControl;
-using QuanLyTaiSanGUI.QLNhanVien;
-using QuanLyTaiSanGUI.MyUC;
-using QuanLyTaiSanGUI.QLLoaiThietBi;
-using QuanLyTaiSanGUI.ThongKe;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSanGUI.HeThong;
+using PTB_GUI.QLPhong;
+using PTB_GUI.QLViTri.MyUserControl;
+using PTB_GUI.QLNhanVien;
+using PTB_GUI.MyUC;
+using PTB_GUI.QLLoaiThietBi;
+using PTB_GUI.ThongKe;
+using PTB.Entities;
+using PTB.DataFilter;
+using PTB_GUI.HeThong;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSanGUI.ThongKe.ChiTiet;
-using QuanLyTaiSanGUI.QLThietBi;
+using PTB_GUI.ThongKe.ChiTiet;
+using PTB_GUI.QLThietBi;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraTreeList.Localization;
 using DevExpress.XtraEditors.Controls;
-using QuanLyTaiSan.Libraries;
-using QuanLyTaiSanGUI.Settings;
-using QuanLyTaiSanGUI.QLTinhTrang;
-using QuanLyTaiSanGUI.QLSuCo;
+using PTB.Libraries;
+using PTB_GUI.Settings;
+using PTB_GUI.QLTinhTrang;
+using PTB_GUI.QLSuCo;
 using DevExpress.LookAndFeel;
-using QuanLyTaiSanGUI.MyForm;
-using QuanLyTaiSanGUI.PhanCongQTV;
-using QuanLyTaiSan;
+using PTB_GUI.MyForm;
+using PTB_GUI.PhanCongQTV;
+using PTB;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class frmMain : frmCustom  //RibbonForm
     {
@@ -469,7 +469,7 @@ namespace QuanLyTaiSanGUI
                 //vitri
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportViTri(open.FileName, "ViTri"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportViTri(open.FileName, "ViTri"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -482,7 +482,7 @@ namespace QuanLyTaiSanGUI
                 //nhanvien
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportNhanVien(open.FileName, "NhanVienPT"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportNhanVien(open.FileName, "NhanVienPT"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -495,7 +495,7 @@ namespace QuanLyTaiSanGUI
                 //phong
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -508,7 +508,7 @@ namespace QuanLyTaiSanGUI
                 //loaitb
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportLoaiThietBi(open.FileName, "LoaiThietBi"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportLoaiThietBi(open.FileName, "LoaiThietBi"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -521,7 +521,7 @@ namespace QuanLyTaiSanGUI
                 //tinhtrang
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportTinhTrang(open.FileName, "TinhTrang"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportTinhTrang(open.FileName, "TinhTrang"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -534,7 +534,7 @@ namespace QuanLyTaiSanGUI
                 //tb chung
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -547,7 +547,7 @@ namespace QuanLyTaiSanGUI
                 //tb rieng
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");

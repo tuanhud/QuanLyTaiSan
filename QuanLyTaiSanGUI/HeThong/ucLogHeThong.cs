@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 
-namespace QuanLyTaiSanGUI.HeThong
+namespace PTB_GUI.HeThong
 {
     public partial class ucLogHeThong : UserControl
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class frmShowImage : DevExpress.XtraEditors.XtraForm
     {
@@ -17,18 +17,18 @@ namespace QuanLyTaiSanGUI
         {
             InitializeComponent();
         }
-        public frmShowImage(List<QuanLyTaiSan.Entities.HinhAnh> listHinh)
+        public frmShowImage(List<PTB.Entities.HinhAnh> listHinh)
         {
             InitializeComponent();
             loadImage(listHinh);
         }
 
-        private void loadImage(List<QuanLyTaiSan.Entities.HinhAnh> listHinh)
+        private void loadImage(List<PTB.Entities.HinhAnh> listHinh)
         {
             try
             {
                 imageSlider1.Images.Clear();
-                foreach (QuanLyTaiSan.Entities.HinhAnh h in listHinh)
+                foreach (PTB.Entities.HinhAnh h in listHinh)
                 {
                     imageSlider1.Images.Add(h.getImage());
                 }

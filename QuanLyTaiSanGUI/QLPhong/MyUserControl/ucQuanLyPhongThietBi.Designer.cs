@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.MyUserControl
+﻿namespace PTB_GUI.MyUserControl
 {
     partial class ucQuanLyPhongThietBi
     {
@@ -110,7 +110,7 @@
             // 
             // ribbonPhongThietBi
             // 
-            this.ribbonPhongThietBi.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonPhongThietBi.ApplicationIcon = global::PTB_GUI.Properties.Resources.Logo;
             this.ribbonPhongThietBi.ExpandCollapseItem.Id = 0;
             this.ribbonPhongThietBi.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonPhongThietBi.ExpandCollapseItem,
@@ -132,14 +132,14 @@
             // 
             this.barButtonThemTBChung.Caption = "Thêm thiết bị theo số lượng";
             this.barButtonThemTBChung.Id = 42;
-            this.barButtonThemTBChung.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.add1;
+            this.barButtonThemTBChung.LargeGlyph = global::PTB_GUI.Properties.Resources.add1;
             this.barButtonThemTBChung.Name = "barButtonThemTBChung";
             this.barButtonThemTBChung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTB_ItemClick);
             // 
             // barButtonSua
             // 
             this.barButtonSua.Caption = "Sửa thiết bị";
-            this.barButtonSua.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSua.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
             this.barButtonSua.Id = 43;
             this.barButtonSua.Name = "barButtonSua";
             this.barButtonSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaTB_ItemClick);
@@ -147,7 +147,7 @@
             // barButtonXoa
             // 
             this.barButtonXoa.Caption = "Loại bỏ TB";
-            this.barButtonXoa.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoa.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
             this.barButtonXoa.Id = 44;
             this.barButtonXoa.Name = "barButtonXoa";
             this.barButtonXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaTB_ItemClick);
@@ -156,7 +156,7 @@
             // 
             this.barButtonChuyen.Caption = "Chuyển";
             this.barButtonChuyen.Id = 46;
-            this.barButtonChuyen.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.right_icon;
+            this.barButtonChuyen.LargeGlyph = global::PTB_GUI.Properties.Resources.right_icon;
             this.barButtonChuyen.Name = "barButtonChuyen";
             this.barButtonChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonChuyen_ItemClick);
             // 
@@ -164,7 +164,7 @@
             // 
             this.barButtonThemTBRieng.Caption = "Thêm thiết bị theo cá thể";
             this.barButtonThemTBRieng.Id = 47;
-            this.barButtonThemTBRieng.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.add2;
+            this.barButtonThemTBRieng.LargeGlyph = global::PTB_GUI.Properties.Resources.add2;
             this.barButtonThemTBRieng.Name = "barButtonThemTBRieng";
             this.barButtonThemTBRieng.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTBRieng_ItemClick);
             // 
@@ -172,7 +172,7 @@
             // 
             this.barBtnImportSL.Caption = "Import TB theo SL";
             this.barBtnImportSL.Id = 48;
-            this.barBtnImportSL.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImportSL.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
             this.barBtnImportSL.Name = "barBtnImportSL";
             this.barBtnImportSL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportSL_ItemClick);
             // 
@@ -180,7 +180,7 @@
             // 
             this.barBtnImportCT.Caption = "Import TB theo CT";
             this.barBtnImportCT.Id = 49;
-            this.barBtnImportCT.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImportCT.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
             this.barBtnImportCT.Name = "barBtnImportCT";
             this.barBtnImportCT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportCT_ItemClick);
             // 
@@ -190,7 +190,7 @@
             this.rbnPageThietBi,
             this.rbnPageChuyen,
             this.rbnPageImport});
-            this.rbnPagePhongThietbi_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phong_thietbi;
+            this.rbnPagePhongThietbi_Home.Image = global::PTB_GUI.Properties.Resources.phong_thietbi;
             this.rbnPagePhongThietbi_Home.Name = "rbnPagePhongThietbi_Home";
             this.rbnPagePhongThietbi_Home.Text = "Phòng - Thiết bị";
             // 
@@ -465,7 +465,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(290, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -476,7 +476,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(316, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";

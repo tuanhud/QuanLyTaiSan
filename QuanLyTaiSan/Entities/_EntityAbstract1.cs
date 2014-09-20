@@ -1,5 +1,5 @@
-﻿using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+﻿using PTB.Entities;
+using PTB.Libraries;
 using SHARED;
 using SHARED.Interface;
 using SHARED.Libraries;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     /// <summary>
     /// Định nghĩa cơ bản mà mọi Entity phải có

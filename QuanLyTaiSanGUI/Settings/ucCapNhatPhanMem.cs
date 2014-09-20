@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSanGUI.Settings
+namespace PTB_GUI.Settings
 {
     public partial class ucCapNhatPhanMem : UserControl, _ourUcInterface
     {

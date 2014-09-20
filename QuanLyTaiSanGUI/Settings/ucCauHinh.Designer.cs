@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.Settings
+﻿namespace PTB_GUI.Settings
 {
     partial class ucCauHinh
     {

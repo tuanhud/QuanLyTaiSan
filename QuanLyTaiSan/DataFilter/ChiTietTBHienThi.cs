@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.DataFilter
+namespace PTB.DataFilter
 {
     public class ChiTietTBHienThi : _FilterAbstract<ChiTietTBHienThi>
     {
@@ -16,7 +16,7 @@ namespace QuanLyTaiSan.DataFilter
         public int soluong { get; set; }
         public String tenloai { get; set; }
         public String kieuQL { get; set; }
-        public QuanLyTaiSan.Entities.CTThietBi ctthietbi { get; set; }
+        public PTB.Entities.CTThietBi ctthietbi { get; set; }
 
         #region Nghiệp vụ
         public static List<ChiTietTBHienThi> getAllByPhongId(Guid _phongid)

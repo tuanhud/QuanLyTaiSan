@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.MyUC
+﻿namespace PTB_GUI.MyUC
 {
     partial class ucThemSuaXoaButton
     {
@@ -36,7 +36,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(30, 3);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -47,7 +47,7 @@
             // btnR_Them
             // 
             this.btnR_Them.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_2_24;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Them.Location = new System.Drawing.Point(3, 3);
             this.btnR_Them.Name = "btnR_Them";
@@ -58,7 +58,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(56, 3);
             this.btnR_Xoa.Name = "btnR_Xoa";

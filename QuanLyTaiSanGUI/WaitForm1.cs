@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraWaitForm;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class WaitForm1 : WaitForm
     {

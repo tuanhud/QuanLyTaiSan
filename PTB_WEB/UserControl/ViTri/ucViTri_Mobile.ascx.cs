@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.DataFilter;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.ViTri
 {

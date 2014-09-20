@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 
-namespace QuanLyTaiSan.DataFilter
+namespace PTB.DataFilter
 {
     public class ViTriHienThi : _FilterAbstract<ViTriHienThi>
     {

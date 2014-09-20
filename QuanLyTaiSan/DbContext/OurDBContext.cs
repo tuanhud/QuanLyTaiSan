@@ -1,11 +1,11 @@
-﻿using QuanLyTaiSan.Libraries;
+﻿using PTB.Libraries;
 using SHARED;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,7 +14,7 @@ using System.Data.Entity.Validation;
 using SHARED.Libraries;
 using SHARED.Interface;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     /// <summary>
     /// Lúc gán kiểu obj.hinhanhs = list;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     public delegate void MyEventHandler(object sender, EventArgs e);
     public partial class ucThemSuaXoaButton : DevExpress.XtraEditors.XtraUserControl

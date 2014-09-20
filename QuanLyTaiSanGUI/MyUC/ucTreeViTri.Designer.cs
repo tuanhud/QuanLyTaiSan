@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.MyUC
+﻿namespace PTB_GUI.MyUC
 {
     partial class ucTreeViTri
     {

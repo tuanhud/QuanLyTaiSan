@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI
+﻿namespace PTB_GUI
 {
     partial class frmHinhAnh
     {
@@ -36,7 +36,7 @@
             this.btnImageSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnImageUpload = new DevExpress.XtraEditors.SimpleButton();
             this.btnImageDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true);
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PTB_GUI.WaitForm1), true, true);
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnThuVienAnh = new DevExpress.XtraEditors.SimpleButton();

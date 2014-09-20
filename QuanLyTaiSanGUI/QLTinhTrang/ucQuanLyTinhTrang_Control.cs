@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI.QLTinhTrang
+namespace PTB_GUI.QLTinhTrang
 {
     public partial class ucQuanLyTinhTrang_Control : DevExpress.XtraEditors.XtraUserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.QLPhong
+﻿namespace PTB_GUI.QLPhong
 {
     partial class frmChuyen
     {

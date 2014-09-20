@@ -1,11 +1,11 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSan
+namespace PTB
 {
     static class Program
     {

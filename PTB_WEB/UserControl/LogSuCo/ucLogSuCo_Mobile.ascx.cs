@@ -5,16 +5,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 
 
 namespace PTB_WEB.UserControl.LogSuCo
 {
     public partial class ucLogSuCo_Mobile : System.Web.UI.UserControl
     {
-        QuanLyTaiSan.Entities.SuCoPhong objSuCoPhong = null;
-        List<QuanLyTaiSan.Entities.LogSuCoPhong> listSuCoPhong = new List<QuanLyTaiSan.Entities.LogSuCoPhong>();
-        QuanLyTaiSan.Entities.LogSuCoPhong objLogSuCoPhong = null;
+        PTB.Entities.SuCoPhong objSuCoPhong = null;
+        List<PTB.Entities.LogSuCoPhong> listSuCoPhong = new List<PTB.Entities.LogSuCoPhong>();
+        PTB.Entities.LogSuCoPhong objLogSuCoPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace PTB_WEB.UserControl.LogSuCo
                 {
                     Response.Redirect("~/");
                 }
-                objSuCoPhong = QuanLyTaiSan.Entities.SuCoPhong.getById(id);
+                objSuCoPhong = PTB.Entities.SuCoPhong.getById(id);
 
                 if (objSuCoPhong != null)
                 {

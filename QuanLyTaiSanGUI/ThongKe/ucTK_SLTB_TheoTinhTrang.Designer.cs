@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.ThongKe
+﻿namespace PTB_GUI.ThongKe
 {
     partial class ucTK_SLTB_TheoTinhTrang
     {
@@ -62,7 +62,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dateEdit_from = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+            this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PTB_GUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -242,21 +242,21 @@
             // 
             this.barButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItem1.Caption = "Thống kê";
-            this.barButtonItem1.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.barButtonItem1.Glyph = global::PTB_GUI.Properties.Resources.thongke;
             this.barButtonItem1.Id = 1;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Thống kê";
-            this.barButtonItem2.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.barButtonItem2.Glyph = global::PTB_GUI.Properties.Resources.thongke;
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
             // barButtonItem3
             // 
             this.barButtonItem3.Caption = "Thống kê";
-            this.barButtonItem3.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.barButtonItem3.Glyph = global::PTB_GUI.Properties.Resources.thongke;
             this.barButtonItem3.Id = 3;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
@@ -264,7 +264,7 @@
             // 
             this.rbnPageThongKe_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
-            this.rbnPageThongKe_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thongke;
+            this.rbnPageThongKe_Home.Image = global::PTB_GUI.Properties.Resources.thongke;
             this.rbnPageThongKe_Home.Name = "rbnPageThongKe_Home";
             this.rbnPageThongKe_Home.Text = "Thống kê";
             // 

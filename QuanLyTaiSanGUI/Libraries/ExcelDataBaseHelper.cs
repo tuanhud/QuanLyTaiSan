@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.Libraries
+namespace PTB_GUI.Libraries
 {
     public class ExcelDataBaseHelper
     {

@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.HeThong
+﻿namespace PTB_GUI.HeThong
 {
     partial class ucLogHeThong
     {
@@ -138,7 +138,7 @@
             // 
             this.barBtnViewLog.Caption = "Xem Log";
             this.barBtnViewLog.Id = 4;
-            this.barBtnViewLog.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.log_icon_32;
+            this.barBtnViewLog.LargeGlyph = global::PTB_GUI.Properties.Resources.log_icon_32;
             this.barBtnViewLog.Name = "barBtnViewLog";
             this.barBtnViewLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnViewLog_ItemClick);
             // 
@@ -146,7 +146,7 @@
             // 
             this.rbnPageLogHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLogHeThong});
-            this.rbnPageLogHeThong.Image = global::QuanLyTaiSanGUI.Properties.Resources.log_icon_16;
+            this.rbnPageLogHeThong.Image = global::PTB_GUI.Properties.Resources.log_icon_16;
             this.rbnPageLogHeThong.Name = "rbnPageLogHeThong";
             this.rbnPageLogHeThong.Text = "Log hệ thống";
             // 

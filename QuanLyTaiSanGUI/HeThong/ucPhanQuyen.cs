@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.DataFilter;
+using PTB.Libraries;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using System.Data.Entity.Validation;
 using SHARED.Libraries;
-using QuanLyTaiSan;
+using PTB;
 
-namespace QuanLyTaiSanGUI.HeThong
+namespace PTB_GUI.HeThong
 {
     public partial class ucPhanQuyen : UserControl, _ourUcInterface
     {

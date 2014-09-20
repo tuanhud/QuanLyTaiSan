@@ -1,14 +1,14 @@
-﻿namespace QuanLyTaiSan.Migrations
+﻿namespace PTB.Migrations
 {
-    using QuanLyTaiSan.Entities;
-    using QuanLyTaiSan.Libraries;
+    using PTB.Entities;
+    using PTB.Libraries;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QuanLyTaiSan.Entities.OurDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PTB.Entities.OurDBContext>
     {
         public Configuration()
         {

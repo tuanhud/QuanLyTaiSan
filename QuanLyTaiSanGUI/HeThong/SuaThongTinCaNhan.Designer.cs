@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.HeThong
+﻿namespace PTB_GUI.HeThong
 {
     partial class SuaThongTinCaNhan
     {

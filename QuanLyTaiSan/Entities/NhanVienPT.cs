@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("NHANVIENPTS")]
     public class NhanVienPT : _EntityAbstract2<NhanVienPT>

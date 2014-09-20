@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI
+﻿namespace PTB_GUI
 {
     partial class Setting
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
             this.panelControlHienThiCauHinh = new DevExpress.XtraEditors.PanelControl();
-            this.ucCauHinh1 = new QuanLyTaiSanGUI.Settings.ucCauHinh();
+            this.ucCauHinh1 = new PTB_GUI.Settings.ucCauHinh();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienThiCauHinh)).BeginInit();
             this.panelControlHienThiCauHinh.SuspendLayout();
             this.SuspendLayout();

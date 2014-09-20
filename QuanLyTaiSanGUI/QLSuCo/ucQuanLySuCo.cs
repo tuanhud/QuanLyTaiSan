@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLSuCo
+namespace PTB_GUI.QLSuCo
 {
     public partial class ucQuanLySuCo : UserControl, _ourUcInterface
     {
         //QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri("QLSuCoPhong");
-        QuanLyTaiSanGUI.MyUC.ucTreeViTri _ucTreeViTri = new QuanLyTaiSanGUI.MyUC.ucTreeViTri();
+        PTB_GUI.MyUC.ucTreeViTri _ucTreeViTri = new PTB_GUI.MyUC.ucTreeViTri();
         List<HinhAnh> listHinhs = new List<HinhAnh>();
         List<SuCoPhong> listSuCo = new List<SuCoPhong>();
         SuCoPhong objSuCo = new SuCoPhong();
@@ -25,7 +25,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
         bool canAdd = false;
         bool canEdit = false;
         bool canDelete = false;
-        QuanLyTaiSanGUI.MyUC.MyLayout layout = new QuanLyTaiSanGUI.MyUC.MyLayout();
+        PTB_GUI.MyUC.MyLayout layout = new PTB_GUI.MyUC.MyLayout();
 
         public ucQuanLySuCo()
         {
@@ -47,7 +47,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             gridViewLogSuCo.Columns[collqtvien.FieldName].OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
 
             //_ucTreeViTri.Parent = this;
-            _ucTreeViTri.setData_phongid = new QuanLyTaiSanGUI.MyUC.ucTreeViTri.SetData_phongid(loadDataById);
+            _ucTreeViTri.setData_phongid = new PTB_GUI.MyUC.ucTreeViTri.SetData_phongid(loadDataById);
             layout.save(gridViewSuCo);
         }
 
@@ -66,7 +66,7 @@ namespace QuanLyTaiSanGUI.QLSuCo
             try
             {
                 layout.load(gridViewSuCo);
-                List<QuanLyTaiSan.DataFilter.ViTriHienThi> listViTri = QuanLyTaiSan.DataFilter.ViTriHienThi.getAllHavePhong();
+                List<PTB.DataFilter.ViTriHienThi> listViTri = PTB.DataFilter.ViTriHienThi.getAllHavePhong();
                 _ucTreeViTri.loadData(listViTri);
                 List<TinhTrang> listTinhTrang = TinhTrang.getAllForSUCOPHONG();
                 lookUpEditTinhTrang.Properties.DataSource = listTinhTrang;

@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Libraries;
+﻿using PTB.Libraries;
 using SHARED.Libraries;
 using System;
 using System.Collections;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     /*
      * Không thể đặt tên là Day vì trùng class Day của Winform

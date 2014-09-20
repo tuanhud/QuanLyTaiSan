@@ -1,4 +1,4 @@
-namespace QuanLyTaiSan.Migrations
+namespace PTB.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

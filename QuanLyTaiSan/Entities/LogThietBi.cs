@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     /*
      * Log thiet bi, phuc vu thong ke

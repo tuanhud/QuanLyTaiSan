@@ -3,10 +3,10 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan;
+using PTB.Entities;
+using PTB;
 
-namespace QuanLyTaiSanGUI.Report
+namespace PTB_GUI.Report
 {
     public partial class XtraReport1 : DevExpress.XtraReports.UI.XtraReport
     {

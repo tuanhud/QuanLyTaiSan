@@ -8,21 +8,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.Libraries;
+using PTB.DataFilter;
+using PTB.Entities;
+using PTB_GUI.Libraries;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 using SHARED.Libraries;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Columns;
-using QuanLyTaiSanGUI.MyUC;
+using PTB_GUI.MyUC;
 
-namespace QuanLyTaiSanGUI.ThongKe
+namespace PTB_GUI.ThongKe
 {
     public partial class ucTK_SLTB_TheoTinhTrang : DevExpress.XtraEditors.XtraUserControl, _ourUcInterface
     {
-        QuanLyTaiSanGUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
+        PTB_GUI.MyUC.ucTreeLoaiTB ucTreeLoaiTB2 = new MyUC.ucTreeLoaiTB(true);
         //List<TKSLThietBiFilter> list_tk = new List<TKSLThietBiFilter>();
         MyLayout layout = new MyLayout();
 

@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.PhanCongQTV
+﻿namespace PTB_GUI.PhanCongQTV
 {
     partial class ucPhanCongQTV
     {
@@ -76,7 +76,7 @@
             // 
             this.rbnPagePhanCongQTV_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupPhanCong});
-            this.rbnPagePhanCongQTV_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.nhanvien;
+            this.rbnPagePhanCongQTV_Home.Image = global::PTB_GUI.Properties.Resources.nhanvien;
             this.rbnPagePhanCongQTV_Home.Name = "rbnPagePhanCongQTV_Home";
             this.rbnPagePhanCongQTV_Home.Text = "Phân công QTV";
             // 
@@ -331,7 +331,7 @@
             // 
             // ribbonPhanCongQTV
             // 
-            this.ribbonPhanCongQTV.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonPhanCongQTV.ApplicationIcon = global::PTB_GUI.Properties.Resources.Logo;
             this.ribbonPhanCongQTV.ExpandCollapseItem.Id = 0;
             this.ribbonPhanCongQTV.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonPhanCongQTV.ExpandCollapseItem,

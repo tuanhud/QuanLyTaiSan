@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.HeThong
+﻿namespace PTB_GUI.HeThong
 {
     partial class ucPhanQuyen
     {
@@ -244,7 +244,7 @@
             // barButtonThemQTV
             // 
             this.barButtonThemQTV.Caption = "Thêm quản trị viên";
-            this.barButtonThemQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemQTV.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
             this.barButtonThemQTV.Id = 1;
             this.barButtonThemQTV.Name = "barButtonThemQTV";
             this.barButtonThemQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemQTV_ItemClick);
@@ -252,7 +252,7 @@
             // barButtonSuaQTV
             // 
             this.barButtonSuaQTV.Caption = "Sửa quản trị viên";
-            this.barButtonSuaQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaQTV.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
             this.barButtonSuaQTV.Id = 2;
             this.barButtonSuaQTV.Name = "barButtonSuaQTV";
             this.barButtonSuaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaQTV_ItemClick);
@@ -260,7 +260,7 @@
             // barButtonXoaQTV
             // 
             this.barButtonXoaQTV.Caption = "Xóa quản trị viên";
-            this.barButtonXoaQTV.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoaQTV.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
             this.barButtonXoaQTV.Id = 3;
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
             this.barButtonXoaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaQTV_ItemClick);
@@ -268,7 +268,7 @@
             // barBtnThemGroup
             // 
             this.barBtnThemGroup.Caption = "Thêm nhóm quyền";
-            this.barBtnThemGroup.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barBtnThemGroup.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
             this.barBtnThemGroup.Id = 4;
             this.barBtnThemGroup.Name = "barBtnThemGroup";
             this.barBtnThemGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemGroup_ItemClick);
@@ -276,7 +276,7 @@
             // barBtnSuaGroup
             // 
             this.barBtnSuaGroup.Caption = "Sửa nhóm quyền";
-            this.barBtnSuaGroup.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaGroup.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
             this.barBtnSuaGroup.Id = 5;
             this.barBtnSuaGroup.Name = "barBtnSuaGroup";
             this.barBtnSuaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaGroup_ItemClick);
@@ -284,7 +284,7 @@
             // barBtnXoaGroup
             // 
             this.barBtnXoaGroup.Caption = "Xóa nhóm quyền";
-            this.barBtnXoaGroup.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barBtnXoaGroup.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
             this.barBtnXoaGroup.Id = 6;
             this.barBtnXoaGroup.Name = "barBtnXoaGroup";
             this.barBtnXoaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaGroup_ItemClick);
@@ -294,7 +294,7 @@
             this.rbnPagePhanQuyen_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupQTV,
             this.rbnGroupGroup});
-            this.rbnPagePhanQuyen_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.phanquyen;
+            this.rbnPagePhanQuyen_Home.Image = global::PTB_GUI.Properties.Resources.phanquyen;
             this.rbnPagePhanQuyen_Home.Name = "rbnPagePhanQuyen_Home";
             this.rbnPagePhanQuyen_Home.Text = "Phân quyền";
             // 

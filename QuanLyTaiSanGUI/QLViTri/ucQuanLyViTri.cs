@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
-using QuanLyTaiSanGUI.MyUC;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Libraries;
+using PTB_GUI.MyUC;
+using PTB.Entities;
+using PTB.DataFilter;
+using PTB.Libraries;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
+namespace PTB_GUI.QLViTri.MyUserControl
 {
     public partial class ucQuanLyViTri : UserControl,_ourUcInterface
     {
@@ -1011,7 +1011,7 @@ namespace QuanLyTaiSanGUI.QLViTri.MyUserControl
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportViTri(open.FileName, "ViTri"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportViTri(open.FileName, "ViTri"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");

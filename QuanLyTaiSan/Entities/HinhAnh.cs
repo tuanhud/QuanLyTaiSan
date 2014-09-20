@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyTaiSan.Properties;
+using PTB.Properties;
 using System.Data.Entity;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("HINHANHS")]
     public class HinhAnh : _EntityAbstract1<HinhAnh>
@@ -168,7 +168,7 @@ namespace QuanLyTaiSan.Entities
                     String abs_path =
                         Global.remote_setting.http_host.getCombinedPath(this.path);
                     //check global RAM repository
-                    image = QuanLyTaiSan.Libraries.ImageHelper.CACHE.get(abs_path);
+                    image = PTB.Libraries.ImageHelper.CACHE.get(abs_path);
                     if (image != null)
                     {
                         return image;
@@ -180,7 +180,7 @@ namespace QuanLyTaiSan.Entities
                         //load to Object REF
                         image = ImageHelper.fromFile(getCacheDiskPath());
                         //register to CACHE repository
-                        QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
+                        PTB.Libraries.ImageHelper.CACHE.register(abs_path, image);
 
                         return image;
                     }
@@ -194,13 +194,13 @@ namespace QuanLyTaiSan.Entities
                         //WRITE CACHE TO DISK
                         image.Save(getCacheDiskPath());
                         //register to CACHE
-                        QuanLyTaiSan.Libraries.ImageHelper.CACHE.register(abs_path, image);
+                        PTB.Libraries.ImageHelper.CACHE.register(abs_path, image);
                         return image;
                     }
                     else
                     {
                         //NETWORK FAIL OR URL INVALID
-                        QuanLyTaiSan.Libraries.ImageHelper.CACHE.mark_url_fail(abs_path);
+                        PTB.Libraries.ImageHelper.CACHE.mark_url_fail(abs_path);
                         return image = DEFAULT_IMAGE;
                     }
                 }

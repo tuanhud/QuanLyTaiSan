@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
+using PTB.Entities;
+using PTB.DataFilter;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.PhanCongQTV
+namespace PTB_GUI.PhanCongQTV
 {
     public partial class ucPhanCongQTV : UserControl,_ourUcInterface
     {

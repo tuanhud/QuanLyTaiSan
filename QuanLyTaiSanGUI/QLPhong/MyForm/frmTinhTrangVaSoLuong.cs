@@ -8,11 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 
-namespace QuanLyTaiSanGUI.QLPhong.MyForm
+namespace PTB_GUI.QLPhong.MyForm
 {
-    public partial class frmTinhTrangVaSoLuong : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
+    public partial class frmTinhTrangVaSoLuong : PTB_GUI.MyForm.frmCustomXtraForm
     {
 
         public delegate void SetTinhTrangAndSoLuong(TinhTrang _obj, int _sl, String _str, bool _all);

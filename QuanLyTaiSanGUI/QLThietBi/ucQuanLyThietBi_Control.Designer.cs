@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.QLThietBi
+﻿namespace PTB_GUI.QLThietBi
 {
     partial class ucQuanLyThietBi_Control
     {

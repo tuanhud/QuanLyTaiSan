@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Localization;
-using QuanLyTaiSanGUI.MyUC;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Libraries;
+using PTB_GUI.MyUC;
+using PTB.DataFilter;
+using PTB.Libraries;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLLoaiThietBi
+namespace PTB_GUI.QLLoaiThietBi
 {
     public partial class ucQuanLyLoaiTB : UserControl,_ourUcInterface
     {
@@ -619,7 +619,7 @@ namespace QuanLyTaiSanGUI.QLLoaiThietBi
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportLoaiThietBi(open.FileName, "LoaiThietBi"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportLoaiThietBi(open.FileName, "LoaiThietBi"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");

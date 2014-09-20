@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace QuanLyTaiSanGUI.ThongKe
+namespace PTB_GUI.ThongKe
 {
     public partial class XtraReport_XtraGrid : DevExpress.XtraReports.UI.XtraReport
     {

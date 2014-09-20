@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI
+﻿namespace PTB_GUI
 {
     partial class Test
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.ucThemSuaXoaButton1 = new QuanLyTaiSanGUI.MyUC.ucThemSuaXoaButton();
+            this.ucThemSuaXoaButton1 = new PTB_GUI.MyUC.ucThemSuaXoaButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.ucThemSuaXoaButton1.Name = "ucThemSuaXoaButton1";
             this.ucThemSuaXoaButton1.Size = new System.Drawing.Size(84, 32);
             this.ucThemSuaXoaButton1.TabIndex = 0;
-            this.ucThemSuaXoaButton1.ButtonThemClick += new QuanLyTaiSanGUI.MyUC.MyEventHandler(this.ucThemSuaXoaButton1_ButtonThemClick);
+            this.ucThemSuaXoaButton1.ButtonThemClick += new PTB_GUI.MyUC.MyEventHandler(this.ucThemSuaXoaButton1_ButtonThemClick);
             // 
             // label1
             // 

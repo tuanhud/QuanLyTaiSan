@@ -1,17 +1,17 @@
-﻿using QuanLyTaiSan.Libraries;
+﻿using PTB.Libraries;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SHARED;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("LOAITHIETBIS")]
     public class LoaiThietBi : _EntityAbstract1<LoaiThietBi>

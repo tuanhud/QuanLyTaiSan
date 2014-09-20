@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.QLTinhTrang
+﻿namespace PTB_GUI.QLTinhTrang
 {
     partial class ucQuanLyTinhTrang_Control
     {

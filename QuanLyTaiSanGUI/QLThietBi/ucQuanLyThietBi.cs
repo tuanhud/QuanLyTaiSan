@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.DataFilter;
+using PTB.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraEditors.Repository;
-using QuanLyTaiSanGUI.MyUC;
-using QuanLyTaiSan.Entities;
+using PTB_GUI.MyUC;
+using PTB.Entities;
 using DevExpress.XtraGrid;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLThietBi
+namespace PTB_GUI.QLThietBi
 {
     public partial class ucQuanLyThietBi : UserControl,_ourUcInterface
     {

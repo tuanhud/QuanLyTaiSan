@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.DataFilter;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.PhongThietBi
 {
@@ -16,8 +16,8 @@ namespace PTB_WEB.UserControl.PhongThietBi
         public Guid idThietBi = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         List<ChiTietTBHienThi> listThietBiCuaPhong = new List<ChiTietTBHienThi>();
-        QuanLyTaiSan.Entities.Phong objPhong = null;
-        QuanLyTaiSan.Entities.ThietBi objThietBi = null;
+        PTB.Entities.Phong objPhong = null;
+        PTB.Entities.ThietBi objThietBi = null;
         string key = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
             listViTriHienThi = ViTriHienThi.getAllHavePhong();
             if (listViTriHienThi.Count > 0)
             {
-                if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(QuanLyTaiSan.Entities.Phong).Name)).FirstOrDefault() != null)
+                if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(PTB.Entities.Phong).Name)).FirstOrDefault() != null)
                 {
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
@@ -64,7 +64,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                             }
                             strViTri = string.Format("({0})", strViTri.Substring(3));
                             ucPhongThietBi_BreadCrumb.Label_TenPhong.Text = node.GetValue("ten").ToString() + " " + strViTri;
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
+                            objPhong = PTB.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
                                 if (Request.QueryString["id"] != null)
@@ -78,7 +78,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                                     {
                                         Response.Redirect(Request.Url.AbsolutePath);
                                     }
-                                    objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idThietBi);
+                                    objThietBi = PTB.Entities.ThietBi.getById(idThietBi);
                                     if (objThietBi != null)
                                     {
                                         Label_ThongTinThietBi.Text = string.Format("Thông tin {0}", objThietBi.ten);
@@ -155,7 +155,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
 
         private void ASPxTreeList_ViTri_HtmlDataCellPrepared(object sender, DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventArgs e)
         {
-            if (Object.Equals(e.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+            if (Object.Equals(e.GetValue("loai"), typeof(PTB.Entities.Phong).Name))
                 e.Cell.Font.Bold = true;
         }
 
@@ -165,7 +165,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
             DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
             if (node != null)
             {
-                if (Object.Equals(node.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+                if (Object.Equals(node.GetValue("loai"), typeof(PTB.Entities.Phong).Name))
                     e.Result = Request.Url.AbsolutePath + "?key=" + key;
                 else
                     e.Result = "";

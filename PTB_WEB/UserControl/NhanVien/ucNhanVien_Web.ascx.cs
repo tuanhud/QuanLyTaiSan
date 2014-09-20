@@ -5,8 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.NhanVien
 {
@@ -68,7 +68,7 @@ namespace PTB_WEB.UserControl.NhanVien
                         Label_SoDienThoai.Text = objNhanVienPT.sodienthoai;
                         _ucASPxImageSlider_Web.urlHinhAnh = string.Format("http://{0}/HinhAnh.aspx?id={1}&type=NHANVIEN", HttpContext.Current.Request.Url.Authority, objNhanVienPT.id);
 
-                        List<QuanLyTaiSan.Entities.Phong> ListPhong = objNhanVienPT.phongs.ToList();
+                        List<PTB.Entities.Phong> ListPhong = objNhanVienPT.phongs.ToList();
 
                         var list = ListPhong.Select(a => new
                         {
@@ -102,7 +102,7 @@ namespace PTB_WEB.UserControl.NhanVien
             }
         }
 
-        public string getVitri(QuanLyTaiSan.Entities.Phong _objPhong)
+        public string getVitri(PTB.Entities.Phong _objPhong)
         {
             return Libraries.StringHelper.StringViTriPhong(_objPhong);
         }

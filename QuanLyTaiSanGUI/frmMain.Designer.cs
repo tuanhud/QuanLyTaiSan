@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI
+﻿namespace PTB_GUI
 {
     partial class frmMain
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QuanLyTaiSanGUI.SplashScreen1), true, true);
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PTB_GUI.SplashScreen1), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
@@ -75,7 +75,7 @@
             // ribbonMain
             // 
             this.ribbonMain.ApplicationButtonDropDownControl = this.backstageViewControl1;
-            this.ribbonMain.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonMain.ApplicationIcon = global::PTB_GUI.Properties.Resources.Logo;
             this.ribbonMain.AutoSizeItems = true;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -274,8 +274,8 @@
             // barStaticConnection
             // 
             this.barStaticConnection.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticConnection.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.check;
-            this.barStaticConnection.GlyphDisabled = global::QuanLyTaiSanGUI.Properties.Resources.close_delete;
+            this.barStaticConnection.Glyph = global::PTB_GUI.Properties.Resources.check;
+            this.barStaticConnection.GlyphDisabled = global::PTB_GUI.Properties.Resources.close_delete;
             this.barStaticConnection.Id = 3;
             this.barStaticConnection.Name = "barStaticConnection";
             this.barStaticConnection.TextAlignment = System.Drawing.StringAlignment.Near;
@@ -368,7 +368,7 @@
             this.navBarGroupQLPhong.GroupClientHeight = 80;
             this.navBarGroupQLPhong.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navBarGroupQLPhong.Name = "navBarGroupQLPhong";
-            this.navBarGroupQLPhong.SmallImage = global::QuanLyTaiSanGUI.Properties.Resources.phong1;
+            this.navBarGroupQLPhong.SmallImage = global::PTB_GUI.Properties.Resources.phong1;
             // 
             // navBarGroupControlContainer1
             // 

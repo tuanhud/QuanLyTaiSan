@@ -8,15 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using System.Threading;
 using DevExpress.LookAndFeel;
-using QuanLyTaiSan.Libraries;
-using QuanLyTaiSanGUI.MyForm;
-using QuanLyTaiSan;
+using PTB.Libraries;
+using PTB_GUI.MyForm;
+using PTB;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.HeThong
+namespace PTB_GUI.HeThong
 {
     public partial class Login : frmCustomXtraForm
     {

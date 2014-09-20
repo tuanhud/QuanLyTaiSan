@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using System.Net;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -15,11 +15,11 @@ using DevExpress.XtraBars.Ribbon.ViewInfo;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.LookAndFeel;
 using System.IO;
-using QuanLyTaiSan.Libraries;
-using QuanLyTaiSanGUI.MyForm;
+using PTB.Libraries;
+using PTB_GUI.MyForm;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class frmHinhAnh : frmCustomXtraForm
     {

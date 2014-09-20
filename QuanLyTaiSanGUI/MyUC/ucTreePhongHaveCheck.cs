@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using DevExpress.XtraTreeList.Nodes;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSanGUI.QLNhanVien;
+using PTB.DataFilter;
+using PTB_GUI.QLNhanVien;
 using DevExpress.XtraTreeList.Localization;
 using DevExpress.XtraTreeList.Columns;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     public partial class ucTreePhongHaveCheck : UserControl
     {

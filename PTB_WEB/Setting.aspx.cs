@@ -24,7 +24,7 @@ namespace PTB_WEB
                         DangNhap.Visible = true;
                     else
                     {
-                        if (!QuanLyTaiSan.Libraries.PermissionHelper.QuyenConfigEmailTemplate())
+                        if (!PTB.Libraries.PermissionHelper.QuyenConfigEmailTemplate())
                         {
                             _ucWarning.Visible = true;
                             _ucWarning.LabelInfo.Text = "Bạn không được phép chỉnh sửa cài đặt";
@@ -32,9 +32,9 @@ namespace PTB_WEB
                         else
                         {
                             PanelThongTin.Visible = true;
-                            QuanLyTaiSan.Entities.QuanTriVien _QuanTriVien = QuanLyTaiSan.Entities.QuanTriVien.getByUserName(Session["Username"].ToString());
-                            TextBoxMailTieuDe.Text = QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TITLE_TEMPLATE;
-                            TextBoxMailNoiDung.Text = QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_CONTENT_TEMPLATE;
+                            PTB.Entities.QuanTriVien _QuanTriVien = PTB.Entities.QuanTriVien.getByUserName(Session["Username"].ToString());
+                            TextBoxMailTieuDe.Text = PTB.Global.remote_setting.email_template.DEFAULT_TITLE_TEMPLATE;
+                            TextBoxMailNoiDung.Text = PTB.Global.remote_setting.email_template.DEFAULT_CONTENT_TEMPLATE;
                         }
                     }
                 }
@@ -48,9 +48,9 @@ namespace PTB_WEB
         protected void ButtonSaveMailTemplate_Click(object sender, EventArgs e)
         {
             SetAlertVisible();
-            QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_TITLE_TEMPLATE = TextBoxMailTieuDe.Text;
-            QuanLyTaiSan.Global.remote_setting.email_template.DEFAULT_CONTENT_TEMPLATE = TextBoxMailNoiDung.Text;
-            if (QuanLyTaiSan.Global.remote_setting.email_template.save() > 0 && QuanLyTaiSan.Entities.DBInstance.commit() > 0)
+            PTB.Global.remote_setting.email_template.DEFAULT_TITLE_TEMPLATE = TextBoxMailTieuDe.Text;
+            PTB.Global.remote_setting.email_template.DEFAULT_CONTENT_TEMPLATE = TextBoxMailNoiDung.Text;
+            if (PTB.Global.remote_setting.email_template.save() > 0 && PTB.Entities.DBInstance.commit() > 0)
             {
                 ucSuccess.LabelInfo.Text = "Lưu mẫu gửi mail thành công";
                 ucSuccess.Visible = true;

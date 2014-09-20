@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.QLThietBi
+﻿namespace PTB_GUI.QLThietBi
 {
     partial class ucQuanLyThietBi
     {
@@ -252,7 +252,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(290, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -263,7 +263,7 @@
             // btnR_Them
             // 
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_2_24;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Them.Location = new System.Drawing.Point(264, 0);
             this.btnR_Them.Name = "btnR_Them";
@@ -274,7 +274,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(316, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
@@ -311,7 +311,7 @@
             // 
             // ribbonThietBi
             // 
-            this.ribbonThietBi.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonThietBi.ApplicationIcon = global::PTB_GUI.Properties.Resources.Logo;
             this.ribbonThietBi.ExpandCollapseItem.Id = 0;
             this.ribbonThietBi.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonThietBi.ExpandCollapseItem,
@@ -328,7 +328,7 @@
             // barButtonThemThietBi
             // 
             this.barButtonThemThietBi.Caption = "Thêm thiết bị";
-            this.barButtonThemThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemThietBi.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
             this.barButtonThemThietBi.Id = 39;
             this.barButtonThemThietBi.Name = "barButtonThemThietBi";
             this.barButtonThemThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemThietBi_ItemClick);
@@ -336,7 +336,7 @@
             // barButtonSuaThietBi
             // 
             this.barButtonSuaThietBi.Caption = "Sửa thiết bị";
-            this.barButtonSuaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaThietBi.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
             this.barButtonSuaThietBi.Id = 40;
             this.barButtonSuaThietBi.Name = "barButtonSuaThietBi";
             this.barButtonSuaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaThietBi_ItemClick);
@@ -344,7 +344,7 @@
             // barButtonXoaThietBi
             // 
             this.barButtonXoaThietBi.Caption = "Xóa thiết bị";
-            this.barButtonXoaThietBi.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoaThietBi.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
             this.barButtonXoaThietBi.Id = 41;
             this.barButtonXoaThietBi.Name = "barButtonXoaThietBi";
             this.barButtonXoaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaThietBi_ItemClick);
@@ -353,7 +353,7 @@
             // 
             this.rbnPageThietBi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupThietBi});
-            this.rbnPageThietBi_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.thietbi;
+            this.rbnPageThietBi_Home.Image = global::PTB_GUI.Properties.Resources.thietbi;
             this.rbnPageThietBi_Home.Name = "rbnPageThietBi_Home";
             this.rbnPageThietBi_Home.Text = "Thiết bị";
             // 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     /// <summary>
     /// Mỗi UC của từng TAB đều phải có các hàm sau

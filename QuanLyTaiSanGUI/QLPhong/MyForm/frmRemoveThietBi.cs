@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI.QLPhong.MyForm
+namespace PTB_GUI.QLPhong.MyForm
 {
-    public partial class frmRemoveThietBi : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
+    public partial class frmRemoveThietBi : PTB_GUI.MyForm.frmCustomXtraForm
     {
         public String mota = "";
         public frmRemoveThietBi()

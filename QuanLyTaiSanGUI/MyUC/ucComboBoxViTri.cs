@@ -7,18 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Nodes.Operations;
 using DevExpress.XtraTreeList.Data;
-using QuanLyTaiSan.DataFilter;
+using PTB.DataFilter;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     public partial class ucComboBoxViTri : UserControl
     {

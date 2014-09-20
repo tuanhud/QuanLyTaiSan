@@ -1,6 +1,6 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSan;
+using PTB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSanGUI.MyForm
+namespace PTB_GUI.MyForm
 {
     public partial class frmCustom : RibbonForm
     {

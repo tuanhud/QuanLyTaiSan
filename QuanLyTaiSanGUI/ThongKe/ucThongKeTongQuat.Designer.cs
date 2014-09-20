@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.ThongKe
+﻿namespace PTB_GUI.ThongKe
 {
     partial class ucThongKeTongQuat
     {

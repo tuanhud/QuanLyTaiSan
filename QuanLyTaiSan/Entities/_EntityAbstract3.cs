@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Libraries;
+﻿using PTB.Libraries;
 using SHARED;
 using SHARED.Libraries;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     public abstract class _EntityAbstract3<T>: _EntityAbstract1<T> /* ,_CRUDInterface<T>*/ where T : _EntityAbstract3<T>
     {

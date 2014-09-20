@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.QLLoaiThietBi
+﻿namespace PTB_GUI.QLLoaiThietBi
 {
     partial class ucQuanLyLoaiTB
     {
@@ -194,7 +194,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(286, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -213,7 +213,7 @@
             // btnR_Them
             // 
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_2_24;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Them.Location = new System.Drawing.Point(260, 0);
             this.btnR_Them.Name = "btnR_Them";
@@ -235,7 +235,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(312, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
@@ -334,7 +334,7 @@
             // 
             // ribbonLoaiTB
             // 
-            this.ribbonLoaiTB.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonLoaiTB.ApplicationIcon = global::PTB_GUI.Properties.Resources.Logo;
             this.ribbonLoaiTB.ExpandCollapseItem.Id = 0;
             this.ribbonLoaiTB.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonLoaiTB.ExpandCollapseItem,
@@ -354,7 +354,7 @@
             // barButtonThemLoaiTB
             // 
             this.barButtonThemLoaiTB.Caption = "Thêm loại thiết bị";
-            this.barButtonThemLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemLoaiTB.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
             this.barButtonThemLoaiTB.Id = 39;
             this.barButtonThemLoaiTB.Name = "barButtonThemLoaiTB";
             this.barButtonThemLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemLoaiTB_ItemClick);
@@ -362,7 +362,7 @@
             // barButtonSuaLoaiTB
             // 
             this.barButtonSuaLoaiTB.Caption = "Sửa loại thiết bị";
-            this.barButtonSuaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaLoaiTB.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
             this.barButtonSuaLoaiTB.Id = 40;
             this.barButtonSuaLoaiTB.Name = "barButtonSuaLoaiTB";
             this.barButtonSuaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaLoaiTB_ItemClick);
@@ -370,7 +370,7 @@
             // barButtonXoaLoaiTB
             // 
             this.barButtonXoaLoaiTB.Caption = "Xóa loại thiết bị";
-            this.barButtonXoaLoaiTB.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoaLoaiTB.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
             this.barButtonXoaLoaiTB.Id = 41;
             this.barButtonXoaLoaiTB.Name = "barButtonXoaLoaiTB";
             this.barButtonXoaLoaiTB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaLoaiTB_ItemClick);
@@ -379,14 +379,14 @@
             // 
             this.barBtnImport.Caption = "Import";
             this.barBtnImport.Id = 42;
-            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImport.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
             // barBtnUp
             // 
             this.barBtnUp.Caption = "Lên";
-            this.barBtnUp.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_up;
+            this.barBtnUp.Glyph = global::PTB_GUI.Properties.Resources.arrow_up;
             this.barBtnUp.Id = 43;
             this.barBtnUp.Name = "barBtnUp";
             this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
@@ -394,7 +394,7 @@
             // barBtnDown
             // 
             this.barBtnDown.Caption = "Xuống";
-            this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
+            this.barBtnDown.Glyph = global::PTB_GUI.Properties.Resources.arrow_down;
             this.barBtnDown.Id = 44;
             this.barBtnDown.Name = "barBtnDown";
             this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
@@ -405,7 +405,7 @@
             this.rbnGroupLoaiTB,
             this.rbnGroupImport,
             this.rbnGroupOrder});
-            this.rbnPageLoaiTB_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.chair_icon;
+            this.rbnPageLoaiTB_Home.Image = global::PTB_GUI.Properties.Resources.chair_icon;
             this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
             this.rbnPageLoaiTB_Home.Text = "Loại thiết bị";
             // 

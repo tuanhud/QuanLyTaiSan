@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSanGUI.Libraries
+namespace PTB_GUI.Libraries
 {
     class CheckedComboBoxEditHelper
     {

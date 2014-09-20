@@ -8,14 +8,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSanGUI.QLThietBi;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.MyUserControl;
+using PTB_GUI.QLThietBi;
+using PTB.Entities;
+using PTB_GUI.MyUserControl;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLPhong.MyForm
+namespace PTB_GUI.QLPhong.MyForm
 {
-    public partial class frmAddThietBi : QuanLyTaiSanGUI.MyForm.frmCustomXtraForm
+    public partial class frmAddThietBi : PTB_GUI.MyForm.frmCustomXtraForm
     {
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi(true);
         Phong objPhong = new Phong();

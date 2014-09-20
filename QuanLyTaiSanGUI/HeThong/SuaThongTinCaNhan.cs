@@ -8,11 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.MyForm;
+using PTB;
+using PTB.Entities;
+using PTB_GUI.MyForm;
 
-namespace QuanLyTaiSanGUI.HeThong
+namespace PTB_GUI.HeThong
 {
     public partial class SuaThongTinCaNhan : frmCustomXtraForm
     {

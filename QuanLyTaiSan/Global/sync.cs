@@ -1,10 +1,10 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyTaiSan
+namespace PTB
 {
     public static partial class Global
     {

@@ -7,13 +7,13 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 using SHARED.Libraries;
-using QuanLyTaiSanGUI.MyUC;
+using PTB_GUI.MyUC;
 
-namespace QuanLyTaiSanGUI.QLTinhTrang
+namespace PTB_GUI.QLTinhTrang
 {
     public partial class ucQuanLyTinhTrang : DevExpress.XtraEditors.XtraUserControl, _ourUcInterface
     {
@@ -448,7 +448,7 @@ namespace QuanLyTaiSanGUI.QLTinhTrang
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportTinhTrang(open.FileName, "TinhTrang"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportTinhTrang(open.FileName, "TinhTrang"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");

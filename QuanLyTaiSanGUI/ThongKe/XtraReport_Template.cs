@@ -10,7 +10,7 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 
-namespace QuanLyTaiSanGUI.ThongKe
+namespace PTB_GUI.ThongKe
 {
     public partial class XtraReport_Template : DevExpress.XtraReports.UI.XtraReport
     {

@@ -5,17 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+using PTB.DataFilter;
+using PTB.Entities;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.Phong
 {
     public partial class ucPhong_Mobile : System.Web.UI.UserControl
     {
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
-        List<QuanLyTaiSan.Entities.Phong> listPhong = new List<QuanLyTaiSan.Entities.Phong>();
-        QuanLyTaiSan.Entities.Phong objPhong = null;
+        List<PTB.Entities.Phong> listPhong = new List<PTB.Entities.Phong>();
+        PTB.Entities.Phong objPhong = null;
         string key = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace PTB_WEB.UserControl.Phong
 
         public void LoadData()
         {
-            listPhong = QuanLyTaiSan.Entities.Phong.getAll();
+            listPhong = PTB.Entities.Phong.getAll();
             if (listPhong.Count > 0)
             {
                 listViTriHienThi = ViTriHienThi.getAll();
@@ -77,7 +77,7 @@ namespace PTB_WEB.UserControl.Phong
                                 {
                                     Response.Redirect(Request.Url.AbsolutePath);
                                 }
-                                objPhong = QuanLyTaiSan.Entities.Phong.getById(idPhong);
+                                objPhong = PTB.Entities.Phong.getById(idPhong);
                                 if (objPhong != null)
                                 {
                                     ucPhong_BreadCrumb.Label_TenPhong.Text = objPhong.ten;
@@ -205,7 +205,7 @@ namespace PTB_WEB.UserControl.Phong
             }
         }
 
-        private void LoadDanhSachPhong(List<QuanLyTaiSan.Entities.Phong> list)
+        private void LoadDanhSachPhong(List<PTB.Entities.Phong> list)
         {
             var bind = list.Select(item => new
             {
@@ -247,7 +247,7 @@ namespace PTB_WEB.UserControl.Phong
                 {
                     Response.Redirect(Request.Url.AbsolutePath);
                 }
-                QuanLyTaiSan.Entities.Phong PhongSearch = listPhong.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
+                PTB.Entities.Phong PhongSearch = listPhong.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
                 if (PhongSearch != null)
                 {
                     Guid nodeGuid = Guid.Empty;
@@ -304,7 +304,7 @@ namespace PTB_WEB.UserControl.Phong
         private int SearchPage(Guid GuidViTri, Guid GuidPhong, int type)
         {
             int Page = -1;
-            List<QuanLyTaiSan.Entities.Phong> listTemp = new List<QuanLyTaiSan.Entities.Phong>();
+            List<PTB.Entities.Phong> listTemp = new List<PTB.Entities.Phong>();
             switch (type)
             {
                 case 1:

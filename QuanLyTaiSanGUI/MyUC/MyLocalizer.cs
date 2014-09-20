@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     class MyLocalizer : DevExpress.XtraEditors.Controls.Localizer
     {

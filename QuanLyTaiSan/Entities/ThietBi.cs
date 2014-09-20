@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Libraries;
+﻿using PTB.Libraries;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using SHARED;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("THIETBIS")]
     public class ThietBi:_EntityAbstract2<ThietBi>

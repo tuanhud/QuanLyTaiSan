@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI
+﻿namespace PTB_GUI
 {
     partial class WaitForm2
     {

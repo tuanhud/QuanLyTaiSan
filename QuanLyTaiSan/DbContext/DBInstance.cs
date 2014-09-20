@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +12,7 @@ using System.Web;
 using SHARED;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     public static class DBInstance
     {

@@ -5,8 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.Libraries;
 
 namespace PTB_WEB
 {
@@ -191,7 +191,7 @@ namespace PTB_WEB
                                 break;
                         }
                         string msg = PTB_WEB.Libraries.StringHelper.MailContent(_PhieuMuonPhong, tinhtrang);
-                        if (QuanLyTaiSan.Libraries.EmailHelper.sendMail(to, sub, msg) > 0)
+                        if (PTB.Libraries.EmailHelper.sendMail(to, sub, msg) > 0)
                         {
                             HideAllAlert();
                             ucSuccess.LabelInfo.Text += "Đã gửi mail thông báo đến giảng viên mượn phòng";

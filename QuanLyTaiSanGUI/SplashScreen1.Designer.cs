@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI
+﻿namespace PTB_GUI
 {
     partial class SplashScreen1
     {
@@ -64,7 +64,7 @@
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::QuanLyTaiSanGUI.Properties.Resources.logophanmem;
+            this.pictureEdit2.EditValue = global::PTB_GUI.Properties.Resources.logophanmem;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;

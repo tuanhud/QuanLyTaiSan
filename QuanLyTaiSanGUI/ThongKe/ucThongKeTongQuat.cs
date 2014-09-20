@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSanGUI.ThongKe
+namespace PTB_GUI.ThongKe
 {
     public partial class ucThongKeTongQuat : UserControl, _ourUcInterface
     {

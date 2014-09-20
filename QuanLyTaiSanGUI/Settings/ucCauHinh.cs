@@ -11,11 +11,11 @@ using System.Xml.Linq;
 using System.Xml;
 using System.Text.RegularExpressions;
 using SHARED.Libraries;
-using QuanLyTaiSan;
-using QuanLyTaiSan.Entities;
+using PTB;
+using PTB.Entities;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI.Settings
+namespace PTB_GUI.Settings
 {
     public partial class ucCauHinh : UserControl
     {

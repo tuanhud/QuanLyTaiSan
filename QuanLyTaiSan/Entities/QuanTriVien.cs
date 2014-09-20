@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Libraries;
+﻿using PTB.Libraries;
 using SHARED.Libraries;
 using System;
 using System.Collections;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("QUANTRIVIENS")]
     public class QuanTriVien : _EntityAbstract3<QuanTriVien>

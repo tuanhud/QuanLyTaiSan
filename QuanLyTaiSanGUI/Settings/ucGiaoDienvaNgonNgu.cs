@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSan;
+using PTB;
 
-namespace QuanLyTaiSanGUI.Settings
+namespace PTB_GUI.Settings
 {
     public partial class ucGiaoDienvaNgonNgu : UserControl, _ourUcInterface
     {

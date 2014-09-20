@@ -1,12 +1,12 @@
-﻿using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+﻿using PTB.Entities;
+using PTB.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.DataFilter
+namespace PTB.DataFilter
 {
     public class TKSLThietBiFilter: _FilterAbstract<TKSLThietBiFilter>
     {

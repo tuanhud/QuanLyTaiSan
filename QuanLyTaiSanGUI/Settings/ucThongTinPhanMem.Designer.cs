@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.Settings
+﻿namespace PTB_GUI.Settings
 {
     partial class ucThongTinPhanMem
     {
@@ -199,8 +199,8 @@
             // 
             this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureEdit1.BackgroundImage = global::QuanLyTaiSanGUI.Properties.Resources.backgroundthongtinphanmem;
-            this.pictureEdit1.EditValue = global::QuanLyTaiSanGUI.Properties.Resources.thongtinphanmem;
+            this.pictureEdit1.BackgroundImage = global::PTB_GUI.Properties.Resources.backgroundthongtinphanmem;
+            this.pictureEdit1.EditValue = global::PTB_GUI.Properties.Resources.thongtinphanmem;
             this.pictureEdit1.Location = new System.Drawing.Point(6, 21);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;

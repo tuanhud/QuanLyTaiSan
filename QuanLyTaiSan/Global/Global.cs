@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using SHARED;
 using SHARED.Libraries;
 using System;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace QuanLyTaiSan
+namespace PTB
 {
     public static partial class Global
     {

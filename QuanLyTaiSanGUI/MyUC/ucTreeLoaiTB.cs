@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using DevExpress.XtraTreeList.Nodes;
-using QuanLyTaiSanGUI.QLPhong;
-using QuanLyTaiSan.Libraries;
+using PTB_GUI.QLPhong;
+using PTB.Libraries;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     public partial class ucTreeLoaiTB : UserControl
     {

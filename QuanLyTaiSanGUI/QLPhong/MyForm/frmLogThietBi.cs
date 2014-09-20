@@ -8,10 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLPhong.MyForm
+namespace PTB_GUI.QLPhong.MyForm
 {
     public partial class frmLogThietBi : DevExpress.XtraEditors.XtraForm
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     public class MyTreeListLocalizer : DevExpress.XtraTreeList.Localization.TreeListLocalizer
     {

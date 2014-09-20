@@ -5,17 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.LogSuCo
 {
     public partial class ucLogSuCo_Web : System.Web.UI.UserControl
     {
-        QuanLyTaiSan.Entities.SuCoPhong objSuCoPhong = null;
-        List<QuanLyTaiSan.Entities.LogSuCoPhong> listLogSuCoPhong = new List<QuanLyTaiSan.Entities.LogSuCoPhong>();
+        PTB.Entities.SuCoPhong objSuCoPhong = null;
+        List<PTB.Entities.LogSuCoPhong> listLogSuCoPhong = new List<PTB.Entities.LogSuCoPhong>();
         public Guid idLog = Guid.Empty;
-        QuanLyTaiSan.Entities.LogSuCoPhong objLogSuCoPhong = null;
+        PTB.Entities.LogSuCoPhong objLogSuCoPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace PTB_WEB.UserControl.LogSuCo
                 {
                     Response.Redirect("~/");
                 }
-                objSuCoPhong = QuanLyTaiSan.Entities.SuCoPhong.getById(id);
+                objSuCoPhong = PTB.Entities.SuCoPhong.getById(id);
                 if (objSuCoPhong != null)
                 {
                     Label_LogSuCo.Text = string.Format("Log của {0}", objSuCoPhong.ten);

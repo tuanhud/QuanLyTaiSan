@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraSplashScreen;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class SplashScreen1 : SplashScreen
     {

@@ -7,14 +7,14 @@ namespace PTB_WEB.Libraries
 {
     public class ImageHelper
     {
-        public static void LoadImageWeb(List<QuanLyTaiSan.Entities.HinhAnh> listHinhAnh, DevExpress.Web.ASPxImageSlider.ASPxImageSlider _ASPxImageSlider)
+        public static void LoadImageWeb(List<PTB.Entities.HinhAnh> listHinhAnh, DevExpress.Web.ASPxImageSlider.ASPxImageSlider _ASPxImageSlider)
         {
             _ASPxImageSlider.Items.Clear();
             if (listHinhAnh != null)
             {
                 if (listHinhAnh.Count > 0)
                 {
-                    foreach (QuanLyTaiSan.Entities.HinhAnh hinhanh in listHinhAnh)
+                    foreach (PTB.Entities.HinhAnh hinhanh in listHinhAnh)
                     {
                         _ASPxImageSlider.Visible = true;
                         DevExpress.Web.ASPxImageSlider.ImageSliderItem item = new DevExpress.Web.ASPxImageSlider.ImageSliderItem();

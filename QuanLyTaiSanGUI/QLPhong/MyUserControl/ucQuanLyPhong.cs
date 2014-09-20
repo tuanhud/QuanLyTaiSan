@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
+using PTB.Entities;
+using PTB.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSanGUI.MyUC;
+using PTB_GUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Localization;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.MyUserControl
+namespace PTB_GUI.MyUserControl
 {
     public partial class ucQuanLyPhong : UserControl, _ourUcInterface
     {
@@ -842,7 +842,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
                 //if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
                 //if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
                 {

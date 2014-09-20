@@ -5,14 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.LoaiThietBis
 {
     public partial class ucLoaiThietBi_Mobile : System.Web.UI.UserControl
     {
-        List<QuanLyTaiSan.Entities.LoaiThietBi> listLoaiThietBi = new List<QuanLyTaiSan.Entities.LoaiThietBi>();
-        QuanLyTaiSan.Entities.LoaiThietBi objLoaiThietBi = null;
+        List<PTB.Entities.LoaiThietBi> listLoaiThietBi = new List<PTB.Entities.LoaiThietBi>();
+        PTB.Entities.LoaiThietBi objLoaiThietBi = null;
         string key = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
 
         public void LoadData()
         {
-            listLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getAll();
+            listLoaiThietBi = PTB.Entities.LoaiThietBi.getAll();
             if (listLoaiThietBi.Count > 0)
             {
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiThietBi;
@@ -62,7 +62,7 @@ namespace PTB_WEB.UserControl.LoaiThietBis
 
         private void LoadDataObj(Guid id)
         {
-            objLoaiThietBi = QuanLyTaiSan.Entities.LoaiThietBi.getById(id);
+            objLoaiThietBi = PTB.Entities.LoaiThietBi.getById(id);
             if (objLoaiThietBi != null)
             {
                 Label_ThongTin.Text = string.Format("Thông tin {0}", objLoaiThietBi.ten);

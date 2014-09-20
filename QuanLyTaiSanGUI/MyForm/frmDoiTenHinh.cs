@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI.MyForm
+namespace PTB_GUI.MyForm
 {
     public partial class frmDoiTenHinh : DevExpress.XtraEditors.XtraForm
     {
@@ -29,7 +29,7 @@ namespace QuanLyTaiSanGUI.MyForm
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (QuanLyTaiSan.Entities.HinhAnh.getQuery().Where(h => h.path == (txtName.Text + lblext.Text + ".JPEG")).Count() == 0)
+            if (PTB.Entities.HinhAnh.getQuery().Where(h => h.path == (txtName.Text + lblext.Text + ".JPEG")).Count() == 0)
             {
                 name = txtName.Text + lblext.Text;
                 this.Close();

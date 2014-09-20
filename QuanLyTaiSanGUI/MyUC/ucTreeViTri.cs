@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSanGUI.MyUserControl;
-using QuanLyTaiSanGUI.QLThietBi;
+using PTB.Entities;
+using PTB.DataFilter;
+using PTB_GUI.MyUserControl;
+using PTB_GUI.QLThietBi;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Localization;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.MyUC
+namespace PTB_GUI.MyUC
 {
     public partial class ucTreeViTri : UserControl
     {

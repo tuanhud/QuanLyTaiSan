@@ -1,11 +1,11 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.DataFilter
+namespace PTB.DataFilter
 {
     public class QuanTriVienFilter:_FilterAbstract<QuanTriVienFilter>
     {

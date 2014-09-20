@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Libraries;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
+using PTB.Libraries;
+using PTB.Entities;
+using PTB.DataFilter;
 
 namespace PTB_WEB.UserControl.SuCo
 {
@@ -20,7 +20,7 @@ namespace PTB_WEB.UserControl.SuCo
 
         public Guid idPhong = Guid.Empty;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
-        QuanLyTaiSan.Entities.Phong objPhong = null;
+        PTB.Entities.Phong objPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace PTB_WEB.UserControl.SuCo
             listViTriHienThi = ViTriHienThi.getAllHavePhong();
             if (listViTriHienThi.Count > 0)
             {
-                if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(QuanLyTaiSan.Entities.Phong).Name)).FirstOrDefault() != null)
+                if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(PTB.Entities.Phong).Name)).FirstOrDefault() != null)
                 {
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
@@ -57,7 +57,7 @@ namespace PTB_WEB.UserControl.SuCo
                         if (node != null)
                         {
                             node.Focus();
-                            objPhong = QuanLyTaiSan.Entities.Phong.getById(GUID.From(node.GetValue("id")));
+                            objPhong = PTB.Entities.Phong.getById(GUID.From(node.GetValue("id")));
                             if (objPhong != null)
                             {
                                 if (Request.QueryString["id"] != null)
@@ -71,7 +71,7 @@ namespace PTB_WEB.UserControl.SuCo
                                     {
                                         Response.Redirect(Request.Url.AbsolutePath);
                                     }
-                                    objSuCoPhong = QuanLyTaiSan.Entities.SuCoPhong.getById(idSuCo);
+                                    objSuCoPhong = PTB.Entities.SuCoPhong.getById(idSuCo);
                                     if (objSuCoPhong != null)
                                     {
                                         Panel_SuCo.Visible = true;
@@ -124,7 +124,7 @@ namespace PTB_WEB.UserControl.SuCo
 
         private void ASPxTreeList_ViTri_HtmlDataCellPrepared(object sender, DevExpress.Web.ASPxTreeList.TreeListHtmlDataCellEventArgs e)
         {
-            if (Object.Equals(e.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+            if (Object.Equals(e.GetValue("loai"), typeof(PTB.Entities.Phong).Name))
                 e.Cell.Font.Bold = true;
         }
 
@@ -134,7 +134,7 @@ namespace PTB_WEB.UserControl.SuCo
             DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
             if (node != null)
             {
-                if (Object.Equals(node.GetValue("loai"), typeof(QuanLyTaiSan.Entities.Phong).Name))
+                if (Object.Equals(node.GetValue("loai"), typeof(PTB.Entities.Phong).Name))
                     e.Result = Request.Url.AbsolutePath + "?key=" + key;
                 else
                     e.Result = "";

@@ -1,5 +1,5 @@
 ﻿using DevExpress.Web.ASPxTreeList;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using System;
 using SHARED.Libraries;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Libraries;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.ThietBi
 {
@@ -20,8 +20,8 @@ namespace PTB_WEB.UserControl.ThietBi
         string c1 = "Thiết bị đang được sử dụng";
         string c2 = "Thiết bị chưa được sử dụng";
 
-        List<QuanLyTaiSan.Entities.ThietBi> listThietBi = new List<QuanLyTaiSan.Entities.ThietBi>();
-        QuanLyTaiSan.Entities.ThietBi objThietBi = null;
+        List<PTB.Entities.ThietBi> listThietBi = new List<PTB.Entities.ThietBi>();
+        PTB.Entities.ThietBi objThietBi = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace PTB_WEB.UserControl.ThietBi
 
         public void LoadData()
         {
-            listThietBi = QuanLyTaiSan.Entities.ThietBi.getAll();
+            listThietBi = PTB.Entities.ThietBi.getAll();
             if (listThietBi.Count > 0)
             {
                 CreateNode();
@@ -76,7 +76,7 @@ namespace PTB_WEB.UserControl.ThietBi
                         Response.Redirect(Request.Url.AbsolutePath);
                         return;
                     }
-                    objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(idThietBi);
+                    objThietBi = PTB.Entities.ThietBi.getById(idThietBi);
                     if (objThietBi != null)
                     {
                         Panel_ThongTinObj.Visible = true;
@@ -148,20 +148,20 @@ namespace PTB_WEB.UserControl.ThietBi
 
         private void LoadDanhSachThietBi(int loai)
         {
-            List<QuanLyTaiSan.Entities.ThietBi> list = null;
+            List<PTB.Entities.ThietBi> list = null;
             switch (loai)
             {
                 case 1:
-                    list = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
+                    list = PTB.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
                     break;
                 case 2:
-                    list = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false).ToList();
+                    list = PTB.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == false).ToList();
                     break;
                 case 3:
-                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
+                    list = PTB.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
                     break;
                 case 4:
-                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
+                    list = PTB.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
                     break;
                 default:
                     Response.Redirect(Request.Url.AbsolutePath);
@@ -206,7 +206,7 @@ namespace PTB_WEB.UserControl.ThietBi
                 {
                     Response.Redirect(Request.Url.AbsolutePath);
                 }
-                QuanLyTaiSan.Entities.ThietBi ThietBiSearch = listThietBi.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
+                PTB.Entities.ThietBi ThietBiSearch = listThietBi.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
                 if (ThietBiSearch != null)
                 {
                     if (ThietBiSearch.loaithietbi != null)
@@ -255,17 +255,17 @@ namespace PTB_WEB.UserControl.ThietBi
         private int SearchPage(Guid GuidThietBiSearch, int key)
         {
             int Page = -1;
-            List<QuanLyTaiSan.Entities.ThietBi> list = null;
+            List<PTB.Entities.ThietBi> list = null;
             switch (key)
             {
                 case 1:
-                    list = QuanLyTaiSan.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
+                    list = PTB.Entities.ThietBi.getQuery().Where(c => c.loaithietbi.loaichung == true).ToList();
                     break;
                 case 3:
-                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
+                    list = PTB.Entities.ThietBi.getAllByTypeLoaiHavePhong(false);
                     break;
                 case 4:
-                    list = QuanLyTaiSan.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
+                    list = PTB.Entities.ThietBi.getAllByTypeLoaiNoPhong(false);
                     break;
                 default:
                     return -1;

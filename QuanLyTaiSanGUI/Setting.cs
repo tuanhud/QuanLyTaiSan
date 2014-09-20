@@ -1,8 +1,8 @@
 ﻿using DevExpress.LookAndFeel;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
-using QuanLyTaiSanGUI.HeThong;
-using QuanLyTaiSanGUI.Settings;
+using PTB.Entities;
+using PTB.Libraries;
+using PTB_GUI.HeThong;
+using PTB_GUI.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +13,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSanGUI.MyForm;
-using QuanLyTaiSan;
+using PTB_GUI.MyForm;
+using PTB;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class Setting : frmCustomXtraForm
     {

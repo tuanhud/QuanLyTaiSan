@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.QLTinhTrang
+﻿namespace PTB_GUI.QLTinhTrang
 {
     partial class ucQuanLyTinhTrang
     {
@@ -146,7 +146,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(268, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -157,7 +157,7 @@
             // btnR_Them
             // 
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Them.Image = global::QuanLyTaiSanGUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_2_24;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Them.Location = new System.Drawing.Point(242, 0);
             this.btnR_Them.Name = "btnR_Them";
@@ -168,7 +168,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::QuanLyTaiSanGUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(294, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
@@ -235,7 +235,7 @@
             // 
             // ribbonTinhTrang
             // 
-            this.ribbonTinhTrang.ApplicationIcon = global::QuanLyTaiSanGUI.Properties.Resources.Logo;
+            this.ribbonTinhTrang.ApplicationIcon = global::PTB_GUI.Properties.Resources.Logo;
             this.ribbonTinhTrang.ExpandCollapseItem.Id = 0;
             this.ribbonTinhTrang.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonTinhTrang.ExpandCollapseItem,
@@ -255,7 +255,7 @@
             // barButtonThemTinhTrang
             // 
             this.barButtonThemTinhTrang.Caption = "Thêm tình trạng";
-            this.barButtonThemTinhTrang.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.plus_2;
+            this.barButtonThemTinhTrang.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
             this.barButtonThemTinhTrang.Id = 39;
             this.barButtonThemTinhTrang.Name = "barButtonThemTinhTrang";
             this.barButtonThemTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemTinhTrang_ItemClick);
@@ -263,7 +263,7 @@
             // barButtonSuaTinhTrang
             // 
             this.barButtonSuaTinhTrang.Caption = "Sửa tình trạng";
-            this.barButtonSuaTinhTrang.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaTinhTrang.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
             this.barButtonSuaTinhTrang.Id = 40;
             this.barButtonSuaTinhTrang.Name = "barButtonSuaTinhTrang";
             this.barButtonSuaTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaTinhTrang_ItemClick);
@@ -271,7 +271,7 @@
             // barButtonXoaTinhTrang
             // 
             this.barButtonXoaTinhTrang.Caption = "Xóa tình trạng";
-            this.barButtonXoaTinhTrang.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.minus_2;
+            this.barButtonXoaTinhTrang.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
             this.barButtonXoaTinhTrang.Id = 41;
             this.barButtonXoaTinhTrang.Name = "barButtonXoaTinhTrang";
             this.barButtonXoaTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaTinhTrang_ItemClick);
@@ -279,7 +279,7 @@
             // barBtnUp
             // 
             this.barBtnUp.Caption = "Lên";
-            this.barBtnUp.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_up;
+            this.barBtnUp.Glyph = global::PTB_GUI.Properties.Resources.arrow_up;
             this.barBtnUp.Id = 43;
             this.barBtnUp.Name = "barBtnUp";
             this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
@@ -287,7 +287,7 @@
             // barBtnDown
             // 
             this.barBtnDown.Caption = "Xuống";
-            this.barBtnDown.Glyph = global::QuanLyTaiSanGUI.Properties.Resources.arrow_down;
+            this.barBtnDown.Glyph = global::PTB_GUI.Properties.Resources.arrow_down;
             this.barBtnDown.Id = 44;
             this.barBtnDown.Name = "barBtnDown";
             this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
@@ -296,7 +296,7 @@
             // 
             this.barBtnImport.Caption = "Import";
             this.barBtnImport.Id = 45;
-            this.barBtnImport.LargeGlyph = global::QuanLyTaiSanGUI.Properties.Resources.import_icon;
+            this.barBtnImport.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
@@ -306,7 +306,7 @@
             this.rbnGroupTinhTrang,
             this.rbnGroupOrder,
             this.rbnGroupImport});
-            this.rbnPageTinhTrang_Home.Image = global::QuanLyTaiSanGUI.Properties.Resources.tinhtrang;
+            this.rbnPageTinhTrang_Home.Image = global::PTB_GUI.Properties.Resources.tinhtrang;
             this.rbnPageTinhTrang_Home.Name = "rbnPageTinhTrang_Home";
             this.rbnPageTinhTrang_Home.Text = "Tình trạng";
             // 

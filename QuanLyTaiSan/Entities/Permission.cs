@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("PERMISSIONS")]
     public class Permission : _EntityAbstract1<Permission>

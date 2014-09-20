@@ -1,6 +1,6 @@
 ﻿using DevExpress.LookAndFeel;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.HeThong;
+using PTB.Entities;
+using PTB_GUI.HeThong;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     static class Program
     {
@@ -26,7 +26,7 @@ namespace QuanLyTaiSanGUI
                 DevExpress.Skins.SkinManager.EnableFormSkins();
 
                 //PRECONFIG
-                SHARED.Libraries.Debug.MODE = QuanLyTaiSan.Global.local_setting.debug_mode;
+                SHARED.Libraries.Debug.MODE = PTB.Global.local_setting.debug_mode;
 
                 //Application.Run(new Form1());
                 //Application.Run(new frmHinhAnh());

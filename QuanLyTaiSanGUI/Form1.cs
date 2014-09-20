@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
         public Form1()
         {
             InitializeComponent();
-            QuanLyTaiSanGUI.QLTinhTrang.ucQuanLyTinhTrang uc = new QuanLyTaiSanGUI.QLTinhTrang.ucQuanLyTinhTrang();
+            PTB_GUI.QLTinhTrang.ucQuanLyTinhTrang uc = new PTB_GUI.QLTinhTrang.ucQuanLyTinhTrang();
             uc.Dock = DockStyle.Fill;
             uc.loadData();
             panelControl1.Controls.Add(uc);

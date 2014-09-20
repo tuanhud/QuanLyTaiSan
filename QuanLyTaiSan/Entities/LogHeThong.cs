@@ -1,4 +1,4 @@
-﻿using QuanLyTaiSan.Entities;
+﻿using PTB.Entities;
 using SHARED.Interface;
 using SHARED.Libraries;
 using System;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyTaiSan.Entities
+namespace PTB.Entities
 {
     [Table("LOGHETHONGS")]
     public class LogHeThong : _EntityAbstract1<LogHeThong>

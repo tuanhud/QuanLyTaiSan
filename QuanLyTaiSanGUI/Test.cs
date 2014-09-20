@@ -1,5 +1,5 @@
-﻿using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+﻿using PTB.Entities;
+using PTB.Libraries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,13 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
-using QuanLyTaiSanGUI.Report;
+using PTB_GUI.Report;
 using DevExpress.XtraReports.UI;
 using DevExpress.LookAndFeel;
 using SHARED.Libraries;
-using QuanLyTaiSan.DataFilter.SearchFilter;
+using PTB.DataFilter.SearchFilter;
 
-namespace QuanLyTaiSanGUI
+namespace PTB_GUI
 {
     interface vdthoi{
         void reLoad();

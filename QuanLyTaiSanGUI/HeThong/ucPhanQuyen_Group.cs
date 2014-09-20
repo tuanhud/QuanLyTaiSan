@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraGrid;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.Entities;
+using PTB.Entities;
 using SHARED.Libraries;
-using QuanLyTaiSan;
+using PTB;
 
-namespace QuanLyTaiSanGUI.HeThong
+namespace PTB_GUI.HeThong
 {
     public partial class ucPhanQuyen_Group : UserControl
     {

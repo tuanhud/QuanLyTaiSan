@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSanGUI.MyUC;
+using PTB.DataFilter;
+using PTB.Entities;
+using PTB_GUI.MyUC;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.QLPhong
+namespace PTB_GUI.QLPhong
 {
     public partial class frmChuyen : DevExpress.XtraEditors.XtraForm
     {

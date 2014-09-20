@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.Report
+﻿namespace PTB_GUI.Report
 {
     partial class XtraReport1
     {

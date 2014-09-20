@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace QuanLyTaiSan.Libraries
+namespace PTB.Libraries
 {
     public static class DatabaseHelper
     {

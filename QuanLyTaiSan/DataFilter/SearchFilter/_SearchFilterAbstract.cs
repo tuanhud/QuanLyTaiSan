@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyTaiSan.DataFilter.SearchFilter
+namespace PTB.DataFilter.SearchFilter
 {
     public abstract class _SearchFilterAbstract<T>:_FilterAbstract<T>
     {

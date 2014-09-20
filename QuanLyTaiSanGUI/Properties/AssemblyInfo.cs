@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QuanLyTaiSanGUI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("PTB_GUI")]
+[assembly: AssemblyDescription("Phần mềm quản lý phòng thiết bị trường đại học")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("QuanLyTaiSanGUI")]
+[assembly: AssemblyCompany("SGU-Team")]
+[assembly: AssemblyProduct("PTB_GUI")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

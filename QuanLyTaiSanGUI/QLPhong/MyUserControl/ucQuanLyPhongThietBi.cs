@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.DataFilter;
+using PTB.Entities;
+using PTB.DataFilter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraBars.Ribbon;
-using QuanLyTaiSanGUI.MyUC;
+using PTB_GUI.MyUC;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraGrid.Views.Grid;
-using QuanLyTaiSanGUI.QLPhong;
+using PTB_GUI.QLPhong;
 using DevExpress.XtraGrid.Localization;
-using QuanLyTaiSanGUI.QLPhong.MyForm;
+using PTB_GUI.QLPhong.MyForm;
 using SHARED.Libraries;
 
-namespace QuanLyTaiSanGUI.MyUserControl
+namespace PTB_GUI.MyUserControl
 {
     public partial class ucQuanLyPhongThietBi : UserControl, _ourUcInterface
     {
@@ -507,7 +507,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
                 //if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
@@ -534,7 +534,7 @@ namespace QuanLyTaiSanGUI.MyUserControl
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitForm1), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
                 //if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiChung(open.FileName, "ThietBiChung"))
-                if (QuanLyTaiSanGUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
+                if (PTB_GUI.Libraries.ExcelDataBaseHelper.ImportThietBiRieng(open.FileName, "ThietBiRieng"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");

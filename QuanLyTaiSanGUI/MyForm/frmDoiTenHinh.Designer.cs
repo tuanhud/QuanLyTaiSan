@@ -1,4 +1,4 @@
-﻿namespace QuanLyTaiSanGUI.MyForm
+﻿namespace PTB_GUI.MyForm
 {
     partial class frmDoiTenHinh
     {

@@ -1,5 +1,5 @@
-﻿using QuanLyTaiSan;
-using QuanLyTaiSan.Entities;
+﻿using PTB;
+using PTB.Entities;
 using System;
 using SHARED.Libraries;
 using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace PTB_WEB.UserControl
                     }
                     Session["Username"] = Username;
                     QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
-                    QuanLyTaiSan.Global.current_quantrivien_login = _QuanTriVien;
+                    PTB.Global.current_quantrivien_login = _QuanTriVien;
                     Session["HoTen"] = _QuanTriVien.hoten;
                     Response.Redirect(Request.RawUrl);
                 }

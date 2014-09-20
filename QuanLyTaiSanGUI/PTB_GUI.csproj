@@ -7,8 +7,8 @@
     <ProjectGuid>{3270269A-0084-40B9-807D-91D29C3F5444}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuanLyTaiSanGUI</RootNamespace>
-    <AssemblyName>QuanLyTaiSanGUI</AssemblyName>
+    <RootNamespace>PTB_GUI</RootNamespace>
+    <AssemblyName>PTB_GUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
@@ -31,7 +31,7 @@
     <PublisherName>sgu</PublisherName>
     <SuiteName>sgu</SuiteName>
     <MinimumRequiredVersion>1.2.0.0</MinimumRequiredVersion>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -722,9 +722,9 @@
     <None Include="Resources\plus_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QuanLyTaiSan\QuanLyTaiSan.csproj">
+    <ProjectReference Include="..\QuanLyTaiSan\PTB.csproj">
       <Project>{3a9615f6-7f5b-4e10-ba63-b46b4cc00de1}</Project>
-      <Name>QuanLyTaiSan</Name>
+      <Name>PTB</Name>
     </ProjectReference>
     <ProjectReference Include="..\SHARED\SHARED.csproj">
       <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>

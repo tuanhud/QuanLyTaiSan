@@ -5,18 +5,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyTaiSan.Entities;
-using QuanLyTaiSan.Libraries;
+using PTB.Entities;
+using PTB.Libraries;
 
 namespace PTB_WEB.UserControl.LogThietBi
 {
     public partial class ucLogThietBi_Web : System.Web.UI.UserControl
     {
-        QuanLyTaiSan.Entities.ThietBi objThietBi = null;
-        List<QuanLyTaiSan.Entities.LogThietBi> listLogThietBi = new List<QuanLyTaiSan.Entities.LogThietBi>();
+        PTB.Entities.ThietBi objThietBi = null;
+        List<PTB.Entities.LogThietBi> listLogThietBi = new List<PTB.Entities.LogThietBi>();
         public Guid idLog = Guid.Empty;
-        QuanLyTaiSan.Entities.LogThietBi objLogThietBi = null;
-        QuanLyTaiSan.Entities.Phong objPhong = null;
+        PTB.Entities.LogThietBi objLogThietBi = null;
+        PTB.Entities.Phong objPhong = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,8 +41,8 @@ namespace PTB_WEB.UserControl.LogThietBi
                 {
                     Response.Redirect("~/");
                 }
-                objThietBi = QuanLyTaiSan.Entities.ThietBi.getById(id);
-                objPhong = QuanLyTaiSan.Entities.Phong.getById(idp);
+                objThietBi = PTB.Entities.ThietBi.getById(id);
+                objPhong = PTB.Entities.Phong.getById(idp);
                 if (objThietBi != null)
                 {
                     try

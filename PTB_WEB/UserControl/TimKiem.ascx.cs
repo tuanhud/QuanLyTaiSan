@@ -1,5 +1,5 @@
-﻿using QuanLyTaiSan.DataFilter;
-using QuanLyTaiSan.Entities;
+﻿using PTB.DataFilter;
+using PTB.Entities;
 using System;
 using SHARED.Libraries;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using QuanLyTaiSan.DataFilter.SearchFilter;
+using PTB.DataFilter.SearchFilter;
 
 namespace PTB_WEB.UserControl
 {
