@@ -97,7 +97,7 @@ namespace QuanLyTaiSan.Entities
         #region Override
         public override string niceName()
         {
-            return VNNAME + ": (" + key + " => " + value + ")";
+            return VNNAME + ": " + key;
         }
         #endregion
     }

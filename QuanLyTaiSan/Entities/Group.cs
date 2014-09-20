@@ -306,6 +306,28 @@ namespace QuanLyTaiSan.Entities
                             )
                     ).Count() > 0;
                 }
+                else if (__obj is LogHeThong)
+                {
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(LogHeThong.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is HinhAnh)
+                {
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(HinhAnh.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
 
             //quocdunginfo, xu ly cac class khác: ThietBi,...
             //...
@@ -444,6 +466,14 @@ namespace QuanLyTaiSan.Entities
                 else if (t == typeof(TinhTrang))
                 {
                     tmp = TinhTrang.USNAME;
+                }
+                else if (t == typeof(LogHeThong))
+                {
+                    tmp = LogHeThong.USNAME;
+                }
+                else if (t == typeof(HinhAnh))
+                {
+                    tmp = HinhAnh.USNAME;
                 }
                 //check usname vs key
                 re = query.Where(

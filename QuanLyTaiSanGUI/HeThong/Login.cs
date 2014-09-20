@@ -76,6 +76,8 @@ namespace QuanLyTaiSanGUI.HeThong
                 Global.current_quantrivien_login = QuanTriVien.getByUserName(viewLogin1.txtUsername.Text);
 
                 viewLogin1.txtMessage.Text = "Đăng nhập thành công!";
+                //Ghi log xuong he thong
+                LogHeThong.write("Đăng nhập thành công từ Winform");
                 this.show_frm_main();
             }
             else
