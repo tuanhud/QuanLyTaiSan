@@ -13,6 +13,7 @@ namespace PTB_WEB
     public partial class Default : System.Web.UI.MasterPage
     {
         public String page = "Default";
+        public String HoTen_Changed { get { return UserName.InnerText; } set { UserName.InnerText = value; } }
 
         public static string _IDSUCO = "";
         public static string _KEYSUCO = "";
@@ -30,7 +31,7 @@ namespace PTB_WEB
                     UserName.InnerText = Session["HoTen"].ToString();
                     HiddenFieldUserName.Value = Session["UserName"].ToString();
                 }
-                
+
                 if (!string.IsNullOrWhiteSpace(Page.Request["op"]))
                 {
                     if (Page.Request["op"].Equals("thoat"))
@@ -41,7 +42,7 @@ namespace PTB_WEB
                 }
 
                 if (page.Equals("LOGSUCOMOBILE"))
-                    Session["page"] = "LOGSUCOMOBILE";                    
+                    Session["page"] = "LOGSUCOMOBILE";
             }
             catch (Exception ex)
             {
@@ -59,11 +60,12 @@ namespace PTB_WEB
         protected void ParentClassActive(string category)
         {
             String[] ThuocQuanLyPhong = { "VITRI", "PHONG", "PHONGTHIETBI", "THIETBI", "LOAITHIETBI", "NHANVIEN", "SUCO", "LOGSUCOMOBILE" };
-            String[] ThuocAdmin = { "THONGTINCANHAN", "QUANLYMUONPHONG","QUANLYTAIKHOAN","SETTING" };
+            String[] ThuocAdmin = { "THONGTINCANHAN", "QUANLYMUONPHONG", "QUANLYTAIKHOAN", "SETTING" };
             String[] ThuocKhac = { "MUONPHONG", "QUANLYHINHANH" };
             string parent = "";
 
-            foreach(String temp in ThuocQuanLyPhong){
+            foreach (String temp in ThuocQuanLyPhong)
+            {
                 if (temp.Equals(page))
                 {
                     parent = "QuanLyPhong";

@@ -371,6 +371,29 @@
     <Content Include="ckeditor\skins\moonocolor\images\lock-open.png" />
     <Content Include="ckeditor\skins\moonocolor\images\lock.png" />
     <Content Include="ckeditor\skins\moonocolor\images\refresh.png" />
+    <Content Include="ckeditor\skins\Moono_blue\dialog.css" />
+    <Content Include="ckeditor\skins\Moono_blue\dialog_ie.css" />
+    <Content Include="ckeditor\skins\Moono_blue\dialog_ie7.css" />
+    <Content Include="ckeditor\skins\Moono_blue\dialog_ie8.css" />
+    <Content Include="ckeditor\skins\Moono_blue\dialog_iequirks.css" />
+    <Content Include="ckeditor\skins\Moono_blue\dialog_opera.css" />
+    <Content Include="ckeditor\skins\Moono_blue\editor.css" />
+    <Content Include="ckeditor\skins\Moono_blue\editor_gecko.css" />
+    <Content Include="ckeditor\skins\Moono_blue\editor_ie.css" />
+    <Content Include="ckeditor\skins\Moono_blue\editor_ie7.css" />
+    <Content Include="ckeditor\skins\Moono_blue\editor_ie8.css" />
+    <Content Include="ckeditor\skins\Moono_blue\editor_iequirks.css" />
+    <Content Include="ckeditor\skins\Moono_blue\icons.png" />
+    <Content Include="ckeditor\skins\Moono_blue\icons_hidpi.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\arrow.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\close.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\hidpi\close.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\hidpi\lock-open.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\hidpi\lock.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\hidpi\refresh.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\lock-open.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\lock.png" />
+    <Content Include="ckeditor\skins\Moono_blue\images\refresh.png" />
     <Content Include="ckeditor\skins\office2013\dialog.css" />
     <Content Include="ckeditor\skins\office2013\editor.css" />
     <Content Include="ckeditor\skins\office2013\icons.png" />
@@ -479,6 +502,7 @@
     <Content Include="ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="ckeditor\samples\sample_posteddata.php" />
     <Content Include="ckeditor\skins\moonocolor\readme.md" />
+    <Content Include="ckeditor\skins\Moono_blue\readme.md" />
     <None Include="Properties\PublishProfiles\dsesgu.edu.vn.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -1027,6 +1051,21 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ckeditor\skins\bootstrapck\.temp\css\" />
+    <Folder Include="ckeditor\skins\bootstrapck\images\hidpi\" />
+    <Folder Include="ckeditor\skins\bootstrapck\sample\css\" />
+    <Folder Include="ckeditor\skins\bootstrapck\sample\js\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\browser-specific\gecko\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\browser-specific\ie7\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\browser-specific\ie8\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\browser-specific\iequirks\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\browser-specific\ie\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\browser-specific\opera\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\components\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\config\" />
+    <Folder Include="ckeditor\skins\bootstrapck\scss\dialog\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -15,7 +15,7 @@
                 </div>
             </asp:Panel>
             <div class="row">
-                <asp:TextBox ID="TextBoxTaiKhoan" runat="server" CssClass="form-control" placeholder="Tài khoản" Text="admin"></asp:TextBox>
+                <asp:TextBox ID="TextBoxTaiKhoan" runat="server" CssClass="form-control" placeholder="Tài khoản"></asp:TextBox>
             </div>
             <br />
             <div class="row">

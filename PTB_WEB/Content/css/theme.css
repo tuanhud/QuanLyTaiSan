@@ -316,3 +316,6 @@ legend {
 .noboder tr, .noboder td{
     border:none !important;
 }
+.nobold{
+    font-weight: normal !important;
+}

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <DocumentData>
 <ProductID>{AFB904C4-C255-4540-B97E-A75A34F1FFB0}</ProductID>
-<ProductVersion>9.2.0.0</ProductVersion>
+<ProductVersion>9.3.0.0</ProductVersion>
 <ProductType/>
 <ArchiveFiles>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\QuanLyTaiSanGUI.exe</FullName>
-<FileName>QuanLyTaiSanGUI.exe</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\QuanLyPhongThietBi.exe</FullName>
+<FileName>QuanLyPhongThietBi.exe</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi</Source>
 <Ext>exe</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
@@ -28,7 +28,7 @@
 <SCStartPinOption>0</SCStartPinOption>
 <SCCust>0</SCCust>
 <CustSCPath/>
-<SCDesc>QuanLyTaiSanGUI</SCDesc>
+<SCDesc>Quan ly Phong Thiet bi</SCDesc>
 <SCComment/>
 <SCArgs/>
 <SCWork/>
@@ -51,11 +51,13 @@
 <OSCond>
 <OS>32768</OS>
 <OS>65535</OS>
-<OS>0</OS>
-<OS>0</OS>
-<OS>0</OS>
-<OS>65534</OS>
-<OS>65534</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
@@ -75,15 +77,299 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.BonusSkins.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\QuanLyPhongThietBi.exe.config</FullName>
+<FileName>QuanLyPhongThietBi.exe.config</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi</Source>
+<Ext>config</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Attachment\dotnetfx45_full_x86_x64.exe</FullName>
+<FileName>dotnetfx45_full_x86_x64.exe</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Attachment</Source>
+<Ext>exe</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Attachment</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>1</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc>Microsoft .NET Framework 4.5</SCDesc>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Attachment\SQLEXPR32_x86_ENU.exe</FullName>
+<FileName>SQLEXPR32_x86_ENU.exe</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Attachment</Source>
+<Ext>exe</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Attachment</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>1</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc>SQL Server 2008 R2 Express</SCDesc>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Attachment\SyncSDK-v2.1-x86-ENU.msi</FullName>
+<FileName>SyncSDK-v2.1-x86-ENU.msi</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Attachment</Source>
+<Ext>msi</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Attachment</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.BonusSkins.v13.2.dll</FullName>
 <FileName>DevExpress.BonusSkins.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -130,6 +416,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -144,15 +432,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Charts.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Charts.v13.2.Core.dll</FullName>
 <FileName>DevExpress.Charts.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -199,6 +487,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -213,15 +503,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Data.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Data.v13.2.dll</FullName>
 <FileName>DevExpress.Data.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -268,6 +558,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -282,15 +574,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Office.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Office.v13.2.Core.dll</FullName>
 <FileName>DevExpress.Office.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -337,6 +629,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -351,15 +645,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.PivotGrid.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.PivotGrid.v13.2.Core.dll</FullName>
 <FileName>DevExpress.PivotGrid.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -406,6 +700,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -420,15 +716,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Printing.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Printing.v13.2.Core.dll</FullName>
 <FileName>DevExpress.Printing.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -475,6 +771,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -489,15 +787,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.RichEdit.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.RichEdit.v13.2.Core.dll</FullName>
 <FileName>DevExpress.RichEdit.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -544,6 +842,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -558,15 +858,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Sparkline.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Sparkline.v13.2.Core.dll</FullName>
 <FileName>DevExpress.Sparkline.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -613,6 +913,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -627,15 +929,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Utils.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Utils.v13.2.dll</FullName>
 <FileName>DevExpress.Utils.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -682,6 +984,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -696,15 +1000,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Utils.v13.2.UI.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Utils.v13.2.UI.dll</FullName>
 <FileName>DevExpress.Utils.v13.2.UI.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -751,6 +1055,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -765,15 +1071,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.Web.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.Web.v13.2.dll</FullName>
 <FileName>DevExpress.Web.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -820,6 +1126,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -834,15 +1142,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraBars.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraBars.v13.2.dll</FullName>
 <FileName>DevExpress.XtraBars.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -889,6 +1197,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -903,15 +1213,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraCharts.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraCharts.v13.2.dll</FullName>
 <FileName>DevExpress.XtraCharts.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -958,6 +1268,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -972,15 +1284,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraEditors.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraEditors.v13.2.dll</FullName>
 <FileName>DevExpress.XtraEditors.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1027,6 +1339,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1041,15 +1355,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraGrid.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraGrid.v13.2.dll</FullName>
 <FileName>DevExpress.XtraGrid.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1096,6 +1410,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1110,15 +1426,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraLayout.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraLayout.v13.2.dll</FullName>
 <FileName>DevExpress.XtraLayout.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1165,6 +1481,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1179,15 +1497,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraNavBar.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraNavBar.v13.2.dll</FullName>
 <FileName>DevExpress.XtraNavBar.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1234,6 +1552,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1248,15 +1568,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraPivotGrid.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraPivotGrid.v13.2.dll</FullName>
 <FileName>DevExpress.XtraPivotGrid.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1303,6 +1623,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1317,15 +1639,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraPrinting.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraPrinting.v13.2.dll</FullName>
 <FileName>DevExpress.XtraPrinting.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1372,6 +1694,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1386,15 +1710,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraReports.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraReports.v13.2.dll</FullName>
 <FileName>DevExpress.XtraReports.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1441,6 +1765,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1455,15 +1781,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraReports.v13.2.Extensions.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraReports.v13.2.Extensions.dll</FullName>
 <FileName>DevExpress.XtraReports.v13.2.Extensions.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1510,6 +1836,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1524,15 +1852,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraRichEdit.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraRichEdit.v13.2.dll</FullName>
 <FileName>DevExpress.XtraRichEdit.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1579,6 +1907,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1593,15 +1923,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraScheduler.v13.2.Core.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraScheduler.v13.2.Core.dll</FullName>
 <FileName>DevExpress.XtraScheduler.v13.2.Core.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1648,6 +1978,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1662,15 +1994,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraScheduler.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraScheduler.v13.2.dll</FullName>
 <FileName>DevExpress.XtraScheduler.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1717,6 +2049,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1731,15 +2065,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\DevExpress.XtraTreeList.v13.2.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress\DevExpress.XtraTreeList.v13.2.dll</FullName>
 <FileName>DevExpress.XtraTreeList.v13.2.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Devexpress</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Devexpress</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1786,6 +2120,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1800,15 +2136,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\EntityFramework.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\EntityFramework\EntityFramework.dll</FullName>
 <FileName>EntityFramework.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\EntityFramework</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\EntityFramework</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1855,6 +2191,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -1869,15 +2207,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\EntityFramework.SqlServer.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\EntityFramework\EntityFramework.SqlServer.dll</FullName>
 <FileName>EntityFramework.SqlServer.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\EntityFramework</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\EntityFramework</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -1924,73 +2262,6 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.Data.dll</FullName>
-<FileName>Microsoft.Synchronization.Data.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
 </OSCond>
@@ -2007,498 +2278,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.Data.Server.dll</FullName>
-<FileName>Microsoft.Synchronization.Data.Server.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.Data.SqlServer.dll</FullName>
-<FileName>Microsoft.Synchronization.Data.SqlServer.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.Data.SqlServerCe.dll</FullName>
-<FileName>Microsoft.Synchronization.Data.SqlServerCe.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.dll</FullName>
-<FileName>Microsoft.Synchronization.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.Files.dll</FullName>
-<FileName>Microsoft.Synchronization.Files.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.MetadataStorage.dll</FullName>
-<FileName>Microsoft.Synchronization.MetadataStorage.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\Microsoft.Synchronization.SimpleProviders.dll</FullName>
-<FileName>Microsoft.Synchronization.SimpleProviders.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
-<Ext>dll</Ext>
-<RTSource>Archive</RTSource>
-<Desc/>
-<Recurse>1</Recurse>
-<MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
-<Overwrite>1</Overwrite>
-<Backup>0</Backup>
-<Protect>0</Protect>
-<InstallOrder>1000</InstallOrder>
-<SCStartRoot>0</SCStartRoot>
-<SCStartProgs>0</SCStartProgs>
-<SCAppFld>0</SCAppFld>
-<SCStartup>0</SCStartup>
-<SCDesk>0</SCDesk>
-<SCQLaunch>0</SCQLaunch>
-<SCStartPinOption>0</SCStartPinOption>
-<SCCust>0</SCCust>
-<CustSCPath/>
-<SCDesc/>
-<SCComment/>
-<SCArgs/>
-<SCWork/>
-<UseExtIco>0</UseExtIco>
-<IcoFN/>
-<IcoIdx>0</IcoIdx>
-<IcoShowMd>0</IcoShowMd>
-<IcoHK>0</IcoHK>
-<RegTTF>0</RegTTF>
-<TTFName/>
-<RegOCX>0</RegOCX>
-<RegTLB>0</RegTLB>
-<SupInUse>0</SupInUse>
-<Compress>1</Compress>
-<UseOrigAttr>1</UseOrigAttr>
-<Attr>0</Attr>
-<NoCRC>0</NoCRC>
-<NoRemove>0</NoRemove>
-<Shared>0</Shared>
-<OSCond>
-<OS>32768</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-<OS>65535</OS>
-</OSCond>
-<RTCond/>
-<BuildConfigs>
-<Cfg>All</Cfg>
-</BuildConfigs>
-<Package>None</Package>
-<Packages/>
-<Notes/>
-<CompSize>0</CompSize>
-<CRC>0</CRC>
-<StoreOnly>0</StoreOnly>
-</FileData>
-<FileData>
-<FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\QuanLyTaiSan.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Library\QuanLyTaiSan.dll</FullName>
 <FileName>QuanLyTaiSan.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Library</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Library</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -2545,6 +2333,8 @@
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <RTCond/>
 <BuildConfigs>
@@ -2559,15 +2349,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\SHARED.dll</FullName>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Library\SHARED.dll</FullName>
 <FileName>SHARED.dll</FileName>
-<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release</Source>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Library</Source>
 <Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Library</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -2603,6 +2393,8 @@
 <Shared>0</Shared>
 <OSCond>
 <OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
@@ -2628,15 +2420,15 @@
 </FileData>
 <FileData>
 <FldRef>0</FldRef>
-<FullName>D:\Project\QuanLyTaiSan\CauHinh.xml</FullName>
-<FileName>CauHinh.xml</FileName>
-<Source>D:\Project\QuanLyTaiSan</Source>
-<Ext>xml</Ext>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.Data.dll</FullName>
+<FileName>Microsoft.Synchronization.Data.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
 <RTSource>Archive</RTSource>
 <Desc/>
 <Recurse>1</Recurse>
 <MatchMode>0</MatchMode>
-<Dest>%AppFolder%</Dest>
+<Dest>%AppFolder%\Sync</Dest>
 <Overwrite>1</Overwrite>
 <Backup>0</Backup>
 <Protect>0</Protect>
@@ -2672,6 +2464,505 @@
 <Shared>0</Shared>
 <OSCond>
 <OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.Data.Server.dll</FullName>
+<FileName>Microsoft.Synchronization.Data.Server.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.Data.SqlServer.dll</FullName>
+<FileName>Microsoft.Synchronization.Data.SqlServer.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.Data.SqlServerCe.dll</FullName>
+<FileName>Microsoft.Synchronization.Data.SqlServerCe.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.dll</FullName>
+<FileName>Microsoft.Synchronization.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.Files.dll</FullName>
+<FileName>Microsoft.Synchronization.Files.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.MetadataStorage.dll</FullName>
+<FileName>Microsoft.Synchronization.MetadataStorage.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>None</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync\Microsoft.Synchronization.SimpleProviders.dll</FullName>
+<FileName>Microsoft.Synchronization.SimpleProviders.dll</FileName>
+<Source>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi\Sync</Source>
+<Ext>dll</Ext>
+<RTSource>Archive</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Dest>%AppFolder%\Sync</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCStartPinOption>0</SCStartPinOption>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
@@ -2707,33 +2998,43 @@
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -2742,7 +3043,7 @@
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -2752,17 +3053,7 @@
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -2782,26 +3073,26 @@
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -2959,6 +3250,25 @@ Otherwise, click Next to continue.
 <IDS_CTRL_HEADINGTEXT_BODY>Welcome</IDS_CTRL_HEADINGTEXT_BODY>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>Your text goes here.</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 <Screen>
@@ -2970,33 +3280,43 @@ Otherwise, click Next to continue.
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -3005,7 +3325,7 @@ Otherwise, click Next to continue.
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -3015,17 +3335,7 @@ Otherwise, click Next to continue.
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -3045,26 +3355,26 @@ Otherwise, click Next to continue.
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -3248,22 +3558,31 @@ end
 <IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
 <IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
 <IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
-<IDS_CTRL_SCROLLTEXT_BODY>LICENSE For QuanLyPhongThietBi
-
-1. The computer software, artwork and other components included in this version of product (collectively the "Software") are the exclusive copyrighted property of Tonec Inc. You must not (a) sell, rent, lease or sublicense all or any portion of the Software; (b) modify or prepare derivative works of the Software; (c) reverse engineer, decompile or disassemble the Software; (d) publish serial numbers or serial number generation algorithms.
-
-2. You are granted one user license to use the Software for non-commercial purposes during 30 days trial period on one computer. After the expiration of the trial period, you must either uninstall IDM or purchase it.
-
-3. The Software may be distributed freely if the distribution package is not modified and if you give a link to IDM home page. You must not bundle the Software in any other distribution packages and take distribution fees without our agreement.
-
-4 THE SOFTWARE IS DISTRIBUTED "AS IS". NO WARRANTY OF ANY KIND IS EXPRESSED OR IMPLIED. YOU USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY OTHER KIND OF LOSS WHILE USING OR MISUSING THE SOFTWARE.
-
-5. The installation and the usage of the Software mean the acceptance of these terms and conditions of the license.
-
-6. If you do not agree with the terms of this license you must stop the usage of the Software and uninstall it.</IDS_CTRL_SCROLLTEXT_BODY>
+<IDS_CTRL_SCROLLTEXT_BODY>Insert your license agreement text here...</IDS_CTRL_SCROLLTEXT_BODY>
 <IDS_CTRL_RADIOBTN_AGREE>I agree to the terms of this license agreement</IDS_CTRL_RADIOBTN_AGREE>
 <IDS_CTRL_RADIOBTN_DISAGREE>I do not agree to the terms of this license agreement</IDS_CTRL_RADIOBTN_DISAGREE>
 <IDS_CTRL_SCROLLTEXT_FILE/>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_SCROLLTEXT_BODY>Insert your license agreement text here...</IDS_CTRL_SCROLLTEXT_BODY>
+<IDS_CTRL_SCROLLTEXT_FILE/>
+<IDS_CTRL_RADIOBTN_AGREE>I agree to the terms of this license agreement</IDS_CTRL_RADIOBTN_AGREE>
+<IDS_CTRL_RADIOBTN_DISAGREE>I do not agree to the terms of this license agreement</IDS_CTRL_RADIOBTN_DISAGREE>
 </Messages>
 </SUF70Messages>
 </Languages>
@@ -3277,33 +3596,43 @@ end
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -3312,7 +3641,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -3322,17 +3651,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -3352,26 +3671,26 @@ end
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -4648,6 +4967,35 @@ end
 <IDS_CTRL_EDIT_MASK_PLACE_HOLDER_02> </IDS_CTRL_EDIT_MASK_PLACE_HOLDER_02>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>Please provide the following information: </IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_BOTTOMINSTRUCTIONS/>
+<IDS_CTRL_STATICTEXT_LABEL_01>Prompt 01:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_EDIT_01/>
+<IDS_CTRL_BUTTON_01>...</IDS_CTRL_BUTTON_01>
+<IDS_CTRL_EDIT_MASK_01/>
+<IDS_CTRL_EDIT_MASK_PLACE_HOLDER_01/>
+<IDS_CTRL_STATICTEXT_LABEL_02>Prompt 02:</IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_EDIT_02/>
+<IDS_CTRL_BUTTON_02>...</IDS_CTRL_BUTTON_02>
+<IDS_CTRL_EDIT_MASK_02/>
+<IDS_CTRL_EDIT_MASK_PLACE_HOLDER_02/>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 <Screen>
@@ -4659,33 +5007,43 @@ end
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -4694,7 +5052,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -4704,17 +5062,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -4734,26 +5082,26 @@ end
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -5042,6 +5390,29 @@ end
 <IDS_CTRL_STATICTEXT_SPACEAVAILABLE>Space available on selected drive: %SpaceAvailable%</IDS_CTRL_STATICTEXT_SPACEAVAILABLE>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_BUTTON_BROWSE>Change...</IDS_CTRL_BUTTON_BROWSE>
+<IDS_CTRL_EDIT_FOLDER>%AppFolder%</IDS_CTRL_EDIT_FOLDER>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>The software will be installed in the folder listed below. To select a different location, either type in a new path, or click Change to browse for an existing folder.</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>Install %ProductName% to:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_SPACEREQUIRED>Space required: %SpaceRequired%</IDS_CTRL_STATICTEXT_SPACEREQUIRED>
+<IDS_CTRL_STATICTEXT_SPACEAVAILABLE>Space available on selected drive: %SpaceAvailable%</IDS_CTRL_STATICTEXT_SPACEAVAILABLE>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 <Screen>
@@ -5053,33 +5424,43 @@ end
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -5088,7 +5469,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -5098,17 +5479,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -5128,26 +5499,26 @@ end
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -5413,6 +5784,28 @@ end
 <IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>%AppShortcutFolderName%</IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>The shortcut icons will be created in the folder indicated below. If you don't want to use the default folder, you can either type a new name, or select an existing folder from the list.</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>Shortcut Folder:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_RADIOBTN_PERUSER>Install shortcuts for current user only</IDS_CTRL_RADIOBTN_PERUSER>
+<IDS_CTRL_RADIOBTN_ALLUSERS>Make shortcuts available to all users</IDS_CTRL_RADIOBTN_ALLUSERS>
+<IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>%AppShortcutFolderName%</IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 <Screen>
@@ -5424,33 +5817,43 @@ end
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -5459,7 +5862,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -5469,17 +5872,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -5499,26 +5892,26 @@ end
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -5679,6 +6072,25 @@ Please click Next to proceed with the installation.</IDS_CTRL_STATICTEXT_BODY>
 <IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>Your text goes here.</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 </BeforeInstallingScreens>
@@ -5694,33 +6106,43 @@ Please click Next to proceed with the installation.</IDS_CTRL_STATICTEXT_BODY>
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -5729,7 +6151,7 @@ Please click Next to proceed with the installation.</IDS_CTRL_STATICTEXT_BODY>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -5739,17 +6161,7 @@ Please click Next to proceed with the installation.</IDS_CTRL_STATICTEXT_BODY>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -5769,26 +6181,26 @@ Please click Next to proceed with the installation.</IDS_CTRL_STATICTEXT_BODY>
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -5977,6 +6389,27 @@ end
 <IDS_CTRL_PROGRESS_BAR_02/>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>Please wait while setup actions are performed on your system.</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>Progress One</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_LABEL_02>Performing Actions...</IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing Actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 </Screens>
@@ -5991,33 +6424,43 @@ end
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -6026,7 +6469,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6036,17 +6479,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6066,26 +6499,26 @@ end
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -6241,6 +6674,25 @@ Please click Finish to exit this installer.
 <IDS_CTRL_HEADINGTEXT_BODY>Installation Successful</IDS_CTRL_HEADINGTEXT_BODY>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>Your text goes here.</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 </AfterInstallingScreens>
@@ -6369,33 +6821,43 @@ Please click Finish to exit this installer.
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -6404,7 +6866,7 @@ Please click Finish to exit this installer.
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6414,17 +6876,7 @@ Please click Finish to exit this installer.
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6444,26 +6896,26 @@ Please click Finish to exit this installer.
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -6619,6 +7071,25 @@ Otherwise, click Next to continue.
 <IDS_CTRL_HEADINGTEXT_BODY>Uninstall %ProductName%</IDS_CTRL_HEADINGTEXT_BODY>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>Your text goes here.</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 </BeforeScreens>
@@ -6634,33 +7105,43 @@ Otherwise, click Next to continue.
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -6669,7 +7150,7 @@ Otherwise, click Next to continue.
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6679,17 +7160,7 @@ Otherwise, click Next to continue.
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6709,26 +7180,26 @@ Otherwise, click Next to continue.
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -6911,6 +7382,27 @@ end
 <IDS_CTRL_PROGRESS_BAR_02/>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>Please wait while setup actions are performed on your system.</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>Progress One</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_LABEL_02>Performing Actions...</IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing Actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 </Screens>
@@ -6925,33 +7417,43 @@ end
 <StyleData>
 <CstClrs>0</CstClrs>
 <TBBG format="hex">ffffff</TBBG>
-<BDYBG format="hex">ece9d8</BDYBG>
-<FTBG format="hex">ece9d8</FTBG>
+<BDYBG format="hex">ffffff</BDYBG>
+<FTBG format="hex">ffffff</FTBG>
 <TBTXT format="hex">000000</TBTXT>
-<BDYTXT format="hex">000000</BDYTXT>
+<BDYTXT format="hex">ffffff</BDYTXT>
 <CBG format="hex">ffffff</CBG>
-<C3DFACE format="hex">ece9d8</C3DFACE>
-<C3DHLT format="hex">ece9d8</C3DHLT>
-<C3DLIT format="hex">ffffff</C3DLIT>
-<C3DSH format="hex">aca899</C3DSH>
-<CBTNTXT format="hex">000000</CBTNTXT>
+<C3DFACE format="hex">038df6</C3DFACE>
+<C3DHLT format="hex">038df6</C3DHLT>
+<C3DLIT format="hex">038df6</C3DLIT>
+<C3DSH format="hex">038df6</C3DSH>
+<CBTNTXT format="hex">ffffff</CBTNTXT>
 <CTEXT format="hex">000000</CTEXT>
-<CDISTXT format="hex">aca899</CDISTXT>
+<CDISTXT format="hex">c0c0c0</CDISTXT>
 <CPRGRS format="hex">316ac5</CPRGRS>
-<C3DSHDK format="hex">716f64</C3DSHDK>
-<TBIMG>111_X_63_cds.jpg</TBIMG>
-<SBIMG>166_X_312_cds.jpg</SBIMG>
-<BDIMG/>
-<BDFILL>0</BDFILL>
-<HDSEP>1</HDSEP>
-<FTSEP>1</FTSEP>
-<CstFnts>0</CstFnts>
+<C3DSHDK format="hex">038df6</C3DSHDK>
+<TBIMG>03_top.jpg</TBIMG>
+<SBIMG>03_side.jpg</SBIMG>
+<BDIMG>03_body.jpg</BDIMG>
+<BDFILL>1</BDFILL>
+<HDSEP>0</HDSEP>
+<FTSEP>0</FTSEP>
+<CstFnts>1</CstFnts>
 <Fonts>
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
 <Height>-13</Height>
 <Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-11</Height>
+<Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
@@ -6960,7 +7462,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-27</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -6970,17 +7472,7 @@ end
 <FontData>
 <FontName>Arial</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-24</Height>
-<Weight>700</Weight>
-<Italic>0</Italic>
-<Underline>0</Underline>
-<StrikeOut>0</StrikeOut>
-<AntiAlias>1</AntiAlias>
-</FontData>
-<FontData>
-<FontName>Arial</FontName>
-<CharacterSet>0</CharacterSet>
-<Height>-13</Height>
+<Height>-12</Height>
 <Weight>400</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
@@ -7000,26 +7492,26 @@ end
 </Fonts>
 <CAOff>
 <TP>0</TP>
-<L>15</L>
-<T>15</T>
+<L>22</L>
+<T>25</T>
 <R>15</R>
-<B>15</B>
+<B>20</B>
 </CAOff>
 <CAOff>
 <TP>1</TP>
-<L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<L>5</L>
+<T>90</T>
+<R>10</R>
+<B>3</B>
 </CAOff>
 <CAOff>
 <TP>2</TP>
 <L>15</L>
-<T>15</T>
-<R>15</R>
-<B>15</B>
+<T>115</T>
+<R>10</R>
+<B>2</B>
 </CAOff>
-<TBTXTX>10</TBTXTX>
+<TBTXTX>14</TBTXTX>
 <TBTXTY>10</TBTXTY>
 <ScreenW>497</ScreenW>
 <ScreenH>362</ScreenH>
@@ -7173,6 +7665,25 @@ Please click Finish to exit.
 <IDS_CTRL_HEADINGTEXT_BODY>Uninstallation Successful</IDS_CTRL_HEADINGTEXT_BODY>
 </Messages>
 </SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Header</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Subheader</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>Your text goes here.</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
 </Languages>
 </Screen>
 </AfterScreens>
@@ -7303,7 +7814,7 @@ g_HandleSystemReboot();
 <NumDaysBld>30</NumDaysBld>
 <NumDaysRun>30</NumDaysRun>
 <AbortNotWriteDFR>1</AbortNotWriteDFR>
-<ExpireDate>1413644167</ExpireDate>
+<ExpireDate>1413783278</ExpireDate>
 <TellUserDate>0</TellUserDate>
 <ExpireByUses>0</ExpireByUses>
 <UsesMethod>1</UsesMethod>
@@ -7311,7 +7822,7 @@ g_HandleSystemReboot();
 <NumUsesSystem>2</NumUsesSystem>
 <AbortNotWritable>1</AbortNotWritable>
 <TellUserUses>0</TellUserUses>
-<UniqueKey>7E183925-AA7E-418A-9C55-218A2E89E1D3</UniqueKey>
+<UniqueKey>66339E5E-BFB0-4D85-BA51-89DE25787D0F</UniqueKey>
 <ShowContactInfo>0</ShowContactInfo>
 <ContactName>%CompanyName%</ContactName>
 <ContactURL>%CompanyURL%</ContactURL>
@@ -7332,16 +7843,18 @@ g_HandleSystemReboot();
 <OS>65535</OS>
 <OS>65535</OS>
 <OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
 </OSCond>
 <ScreenWidth>0</ScreenWidth>
 <ScreenHeight>0</ScreenHeight>
 <ColorDepth>0</ColorDepth>
 <RAM>0</RAM>
 <AdminReq>1</AdminReq>
-<Action>1</Action>
+<Action>0</Action>
 </SetupRequirements>
 <Launcher/>
-<ProjectTheme>CD-ROM</ProjectTheme>
+<ProjectTheme>Airplane</ProjectTheme>
 <ProjFileDesc>New Project</ProjFileDesc>
 <ProjFileAuthor/>
 <ProjFileCompany/>
@@ -7349,9 +7862,9 @@ g_HandleSystemReboot();
 <ProjFileCopyright>Copyright 2014 </ProjFileCopyright>
 <ProjFileURL/>
 <ProjFileEmail/>
-<ProjFileCreatedVer>9.2.0.0</ProjFileCreatedVer>
-<ProjFileSavedVer>9.2.0.0</ProjFileSavedVer>
-<BaseFolderArchive>C:\Users\Admin\Desktop\QLPTB</BaseFolderArchive>
+<ProjFileCreatedVer>9.3.0.0</ProjFileCreatedVer>
+<ProjFileSavedVer>9.3.0.0</ProjFileSavedVer>
+<BaseFolderArchive>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\x86\Release\InstallQuanLyPhongThietBi</BaseFolderArchive>
 <BaseFolderExternal/>
 <UseSkinFile>0</UseSkinFile>
 <SkinFilename/>
@@ -7432,11 +7945,17 @@ g_HandleSystemReboot();
 <ID>13</ID>
 </Secondary>
 </Language>
+<Language>
+<Name>Vietnamese</Name>
+<Default>0</Default>
+<Primary>42</Primary>
+<Secondary/>
+</Language>
 </LangSettings>
 <SUF7SessionVars>
 <SessionVar>
 <Name>%ProductName%</Name>
-<Value>QuanLyPhongThietBi</Value>
+<Value>Quan ly Phong Thiet bi</Value>
 <Type>1</Type>
 </SessionVar>
 <SessionVar>
@@ -7446,12 +7965,12 @@ g_HandleSystemReboot();
 </SessionVar>
 <SessionVar>
 <Name>%ProductVer%</Name>
-<Value>1.0</Value>
+<Value>1.1</Value>
 <Type>1</Type>
 </SessionVar>
 <SessionVar>
 <Name>%Copyright%</Name>
-<Value>Copyright © 2013 %CompanyName%</Value>
+<Value>Ban quyen © 2014 %CompanyName%</Value>
 <Type>1</Type>
 </SessionVar>
 <SessionVar>
@@ -7489,11 +8008,11 @@ g_HandleSystemReboot();
 <PostBuildProg/>
 <PostBuildCmdLine/>
 <PostBuildWait>0</PostBuildWait>
-<Filename>QuanLyPhongThietBi.exe</Filename>
-<OutputFolder>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\bin\Debug\Install</OutputFolder>
+<Filename>setup.exe</Filename>
+<OutputFolder>C:\Users\Admin\Documents\Setup Factory 9\Output</OutputFolder>
 <SegmentSizeMode>0</SegmentSizeMode>
-<CustomSegSize>0</CustomSegSize>
-<CustomSegSizeMode>0</CustomSegSizeMode>
+<CustomSegSize>100</CustomSegSize>
+<CustomSegSizeMode>2</CustomSegSizeMode>
 <Platform>0</Platform>
 <CollectLaunchUserInfo>0</CollectLaunchUserInfo>
 <CodeSignLocation/>
@@ -7505,20 +8024,20 @@ g_HandleSystemReboot();
 <CodeSignSetups>0</CodeSignSetups>
 <CodeSigningTool>0</CodeSigningTool>
 <Arguments/>
-<UseCustomIcon>1</UseCustomIcon>
-<CustomIconFile>D:\Project\QuanLyTaiSan\QuanLyTaiSanGUI\Resources\favicon.ico</CustomIconFile>
-<ResourceFileVersion>1.0</ResourceFileVersion>
-<ResourceProductVersion>1.0</ResourceProductVersion>
-<ResourceCompanyName>DSESGU</ResourceCompanyName>
-<ResourceProductName>Phan mem Quan ly Phong Thiet Bi</ResourceProductName>
-<ResourceComments>Phan mem Quan ly Phong Thiet Bi</ResourceComments>
-<ResourceInternalName>DSESGU</ResourceInternalName>
-<ResourceFileDescription>Phan mem Quan ly Phong Thiet Bi</ResourceFileDescription>
-<ResourceCopyright>Ban quyen thuoc ve DSESGU</ResourceCopyright>
-<ResourceTrademarks>dsesgu.edu.vn</ResourceTrademarks>
+<UseCustomIcon>0</UseCustomIcon>
+<CustomIconFile/>
+<ResourceFileVersion>9.3.0.0</ResourceFileVersion>
+<ResourceProductVersion>9.3.0.0</ResourceProductVersion>
+<ResourceCompanyName>Indigo Rose Corporation</ResourceCompanyName>
+<ResourceProductName>Setup Factory Runtime</ResourceProductName>
+<ResourceComments>Created with Setup Factory</ResourceComments>
+<ResourceInternalName>sf_rt</ResourceInternalName>
+<ResourceFileDescription>Setup Application</ResourceFileDescription>
+<ResourceCopyright>Setup Engine Copyright © 1992-2014 Indigo Rose Corporation</ResourceCopyright>
+<ResourceTrademarks>Setup Factory is a trademark of Indigo Rose Corporation</ResourceTrademarks>
 <ResourcePrivateBuild/>
 <ResourceSpecialBuild/>
-<StampResources>1</StampResources>
+<StampResources>0</StampResources>
 <CompressionType CompressionSetting="LZMA_LOW" DictionarySize="24" WordSize="32" CPUThreads="2"/>
 <Vars/>
 </BuildConfig>

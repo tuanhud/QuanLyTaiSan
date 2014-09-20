@@ -47,7 +47,7 @@
                         </div>
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><b>DANH SÁCH TÀI KHOẢN GIẢNG VIÊN MƯỢN PHÒNG</b></h3>
+                                <h3 class="panel-title"><b>DANH SÁCH TÀI KHOẢN</b></h3>
                             </div>
                             <table class="table table-bordered table-striped valign_middle">
                                 <thead>
@@ -73,7 +73,7 @@
                                                 <td id="khoa<%#Eval("id")%>"><%# Eval("donvi") %></td>
                                                 <td><%# NgayTao() %></td>
                                                 <td id="mota<%#Eval("id")%>"><%#MoTa()%></td>
-                                                <td>
+                                                <td class="tdcenter">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                                             Công cụ&nbsp;<span class="caret"></span>

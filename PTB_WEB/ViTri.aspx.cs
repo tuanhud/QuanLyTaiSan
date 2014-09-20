@@ -12,6 +12,10 @@ namespace PTB_WEB
     public partial class ViTri : System.Web.UI.Page
     {
         Boolean isMobile = false;
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            DevExpress.Web.ASPxClasses.ASPxWebControl.GlobalTheme = "Moderno";
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

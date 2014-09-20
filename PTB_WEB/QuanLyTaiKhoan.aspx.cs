@@ -141,8 +141,13 @@ namespace PTB_WEB
                 _QuanTriVien.email = TextBoxEmail.Text;
 
                 QuanTriVien _QuanTriVienDangNhap = QuanTriVien.getByUserName(Session["UserName"].ToString());
-                if(!_QuanTriVienDangNhap.id.Equals(_QuanTriVien.id))
+                if (!_QuanTriVienDangNhap.id.Equals(_QuanTriVien.id))
                     _QuanTriVien.group = Group.getById(DropDownListNhom.SelectedValue.ToString());
+                else
+                {
+                    Session["HoTen"] = _QuanTriVien.hoten;
+                    ((Default)Page.Master).HoTen_Changed = Session["HoTen"].ToString();
+                }
 
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if (!TextBoxMatKhau.Text.Equals(string.Empty))

@@ -87,8 +87,12 @@ $(document).ready(function () {
             }
             else {
                 $("#ButtonLuu").click();
-                $("#ButtonDangNhap").click();
             }
+
+            if ($("#ButtonDangNhap").length > 0)
+                $("#ButtonDangNhap").click();
+            if ($("#ButtonLuuThongTinCaNhan").length > 0)
+                $("#ButtonLuuThongTinCaNhan").click();
             return false;
         }
         event.stopPropagation();

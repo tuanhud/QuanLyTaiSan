@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace PTB_WEB.UserControl
 {
@@ -18,11 +19,15 @@ namespace PTB_WEB.UserControl
             {
                 try
                 {
-                    if (!Convert.ToString(Session["Username_Remember"]).Equals(String.Empty))
+                    if (Request.Cookies["Username_Remember"] != null)
                     {
-                        TextBoxTaiKhoan.Text = Session["Username_Remember"].ToString();
-                        TextBoxMatKhau.Text = Session["Password_Remember"].ToString();
+                        TextBoxTaiKhoan.Text = Request.Cookies["Username_Remember"].Value;
+                        TextBoxMatKhau.Attributes.Add("value", Request.Cookies["Password_Remember"].Value);
                         CheckBoxNhoDangNhap.Checked = true;
+                    }
+                    else
+                    {
+                        CheckBoxNhoDangNhap.Checked = false;
                     }
                 }
                 catch (Exception ex)
@@ -63,13 +68,15 @@ namespace PTB_WEB.UserControl
                 {
                     if (CheckBoxNhoDangNhap.Checked == true)
                     {
-                        Session["Username_Remember"] = Username;
-                        Session["Password_Remember"] = Password;
+                        Response.Cookies["Username_Remember"].Value = Username;
+                        Response.Cookies["Password_Remember"].Value = Password;
+                        Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(30);
+                        Response.Cookies["Password_Remember"].Expires = DateTime.Now.AddDays(30);
                     }
                     else
                     {
-                        Session["Username_Remember"] = String.Empty;
-                        Session["Password_Remember"] = String.Empty;
+                        Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies["Password_Remember"].Expires = DateTime.Now.AddDays(-1);
                         CheckBoxNhoDangNhap.Checked = false;
                     }
                     Session["Username"] = Username;
