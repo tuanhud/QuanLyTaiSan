@@ -52,7 +52,7 @@
             this.checkBtnTinhTrang_P.Name = "checkBtnTinhTrang_P";
             this.checkBtnTinhTrang_P.Size = new System.Drawing.Size(264, 23);
             this.checkBtnTinhTrang_P.TabIndex = 4;
-            this.checkBtnTinhTrang_P.Text = "Tình trạng phòng";
+            this.checkBtnTinhTrang_P.Text = "Tình trạng \"sự cố phòng\"";
             this.checkBtnTinhTrang_P.CheckedChanged += new System.EventHandler(this.checkBtnTinhTrang_P_CheckedChanged);
             // 
             // checkBtnTinhTrang_TB
@@ -62,7 +62,7 @@
             this.checkBtnTinhTrang_TB.Name = "checkBtnTinhTrang_TB";
             this.checkBtnTinhTrang_TB.Size = new System.Drawing.Size(264, 23);
             this.checkBtnTinhTrang_TB.TabIndex = 5;
-            this.checkBtnTinhTrang_TB.Text = "Tình trạng thiết bị";
+            this.checkBtnTinhTrang_TB.Text = "Tình trạng \"thiết bị\"";
             this.checkBtnTinhTrang_TB.CheckedChanged += new System.EventHandler(this.checkBtnTinhTrang_TB_CheckedChanged);
             // 
             // ucQuanLyTinhTrang_Control
