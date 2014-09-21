@@ -15,11 +15,11 @@
     <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
     <%--<link href="Content/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />--%>
     <link href="Content/css/docs.min.css" rel="stylesheet" />
-    <link href="Content/css/theme.css" rel="stylesheet" />
     <link href="Content/css/Site.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/css/bootstrap-datetimepicker.css" />
     <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="Content/css/theme.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.11.1.min.js"></script>
     <script src="Scripts/myjs.js"></script>
     <%--<script src="Scripts/pace.min.js"></script>
@@ -30,7 +30,7 @@
 <body role="document" class="masterbody">
     <form runat="server" class="form-horizontal" role="form">
         <div class="container theme-showcase" role="main">
-            <div class="navbar navbar-default" role="navigation">
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
