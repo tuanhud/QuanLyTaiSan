@@ -22,19 +22,19 @@ namespace PTB.Libraries
             {
                 if (url == null || fail_url==null || collection == null)
                 {
-                    return HinhAnh.DEFAULT_IMAGE;
+                    return null;// HinhAnh.DEFAULT_IMAGE;
                 }
                 //Nếu nằm trong fail list thì return ảnh mặc định
                 if (fail_url.Contains(url))
                 {
-                    return HinhAnh.DEFAULT_IMAGE;
+                    return null;// HinhAnh.DEFAULT_IMAGE;
                 }
                 //tìm kiếm trong cache list
                 if (collection.ContainsKey(url))
                 {
                     return collection[url];
                 }
-                return HinhAnh.DEFAULT_IMAGE;
+                return null;// HinhAnh.DEFAULT_IMAGE;
             }
             /// <summary>
             /// Đánh dấu url fail, lần get kế tiếp từ CACHE sẽ trả về hình mặc định
