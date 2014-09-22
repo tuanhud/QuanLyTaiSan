@@ -40,7 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
-	<ExcludeFilesFromDeployment>Web.config</ExcludeFilesFromDeployment>
+    <ExcludeFilesFromDeployment>Web.config</ExcludeFilesFromDeployment>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CollectionPager, Version=0.0.0.0, Culture=neutral">
@@ -554,6 +554,7 @@
     <Content Include="Scripts\myjs.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\scriptgates.js" />
+    <Content Include="Scripts\sha1.min.js" />
     <Content Include="Setting.aspx" />
     <Content Include="SuCo.aspx" />
     <Content Include="ThietBis.aspx" />
@@ -1120,7 +1121,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-	<ExcludeFilesFromDeployment>Web.config</ExcludeFilesFromDeployment>
+    <ExcludeFilesFromDeployment>Web.config</ExcludeFilesFromDeployment>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

@@ -8,18 +8,18 @@
             <asp:Panel ID="PanelThongBao" runat="server" Visible="False">
                 <div class="row">
                     <div class="alert alert-danger" role="alert">
-<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <span class="glyphicon glyphicon-exclamation-sign"></span>
                         <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
                     </div>
                 </div>
             </asp:Panel>
             <div class="row">
-                <asp:TextBox ID="TextBoxTaiKhoan" runat="server" CssClass="form-control" placeholder="Tài khoản"></asp:TextBox>
+                <asp:TextBox ID="TextBoxTaiKhoan" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Tài khoản"></asp:TextBox>
             </div>
             <br />
             <div class="row">
-                <asp:TextBox ID="TextBoxMatKhau" runat="server" CssClass="form-control" placeholder="Mật khẩu" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="TextBoxMatKhau" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Mật khẩu" TextMode="Password"></asp:TextBox>
             </div>
             <br />
             <div class="row">
