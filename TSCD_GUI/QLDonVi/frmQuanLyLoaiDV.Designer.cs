@@ -240,6 +240,7 @@
             this.Name = "frmQuanLyLoaiDV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý loại đơn vị";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQuanLyLoaiDV_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
             this.splitContainerControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLoaiDV)).EndInit();

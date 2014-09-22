@@ -330,13 +330,7 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (checkworking())
-            {
-                if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn đóng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    this.Close();
-            }
-            else
-                this.Close();
+            this.Close();
         }
 
         private bool checkworking()
@@ -362,6 +356,15 @@ namespace TSCD_GUI.QLTaiSan
             catch
             {
                 return true;
+            }
+        }
+
+        private void frmQuanLyTinhTrang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (checkworking())
+            {
+                if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn đóng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    e.Cancel = true;
             }
         }
     }
