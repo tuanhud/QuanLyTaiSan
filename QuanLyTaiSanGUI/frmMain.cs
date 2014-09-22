@@ -213,12 +213,12 @@ namespace PTB_GUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhongThietbi_Home")))
                     {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
                         if (!open)
                             _ucQuanLyPhongThietBi.loadData();
                         else
                             _ucQuanLyPhongThietBi.loadData(objPhong.reload());
-                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                        _ucQuanLyPhongThietBi.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyPhongThietBi);
                     }
@@ -233,9 +233,9 @@ namespace PTB_GUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPagePhong_Home")))
                     {
-                        _ucQuanLyPhong.loadData();
                         navBarGroupQLPhong.ControlContainer.Controls.Clear();
                         _ucQuanLyPhong.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
+                        _ucQuanLyPhong.loadData();
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLyPhong);
                     }
@@ -248,12 +248,12 @@ namespace PTB_GUI
                     }
                     else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName("rbnPageSuCoPhong")))
                     {
+                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
+                        _ucQuanLySuCo.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
                         if (!open)
                             _ucQuanLySuCo.loadData();
                         else
                             _ucQuanLySuCo.loadData(objPhong.reload());
-                        navBarGroupQLPhong.ControlContainer.Controls.Clear();
-                        _ucQuanLySuCo.getTreeList().Parent = navBarGroupQLPhong.ControlContainer;
                         panelControl1.Controls.Clear();
                         panelControl1.Controls.Add(_ucQuanLySuCo);
                     }
