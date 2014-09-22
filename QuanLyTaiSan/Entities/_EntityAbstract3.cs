@@ -28,7 +28,6 @@ namespace PTB.Entities
         [Required]
         public String password { get; set; }
 
-        public String session_key { get; set; }
         #endregion
 
         #region Nghiep vu
@@ -47,28 +46,6 @@ namespace PTB.Entities
             }
             return hashed_pass.ToUpper().Equals(obj.password.ToUpper());
         }
-        public static Boolean checkLoginByIdSession(Guid id, String sessionKey)
-        {
-            //select doi tuong len
-            T obj = getById(id);
-            //validate
-            if (obj == null || sessionKey == null)
-            {
-                return false;
-            }
-            return sessionKey.ToUpper().Equals(obj.session_key.ToUpper());
-        }
-        public static Boolean checkLoginByUsernameSession(string username, String sessionKey)
-        {
-            //select doi tuong len
-            T obj = getByUserName(username);
-            //validate
-            if (obj == null || sessionKey == null)
-            {
-                return false;
-            }
-            return sessionKey.ToUpper().Equals(obj.session_key.ToUpper());
-        }
         /// <summary>
         /// username phải đưa vào trước, password phải được hashed trước </summary>
         public static Boolean checkLoginByUserNameHashed(String username, String hashed_pass)
@@ -81,33 +58,6 @@ namespace PTB.Entities
                 return false;
             }
             return hashed_pass.ToUpper().Equals(obj.password.ToUpper());
-        }
-        /// <summary>
-        /// Lấy session key, Auto commit
-        /// </summary>
-        /// <returns>null if fail</returns>
-        public string requestSessionKey()
-        {
-            if (session_key != null && !session_key.Equals(""))
-            {
-                return session_key;
-            }
-            //generate base on datetime
-            session_key = StringHelper.SHA1_Salt(DateTimeHelper.toMilisec(ServerTimeHelper.getNow()).ToString());
-            if (DBInstance.commit() > 0)
-            {
-                return session_key;
-            }
-            return null;
-        }
-        /// <summary>
-        /// Xóa phiên làm việc, auto commit
-        /// </summary>
-        /// <returns></returns>
-        public int releaseSessionKey()
-        {
-            session_key = "";
-            return DBInstance.commit();
         }
         public static Boolean isUsernameExist(String username)
         {
