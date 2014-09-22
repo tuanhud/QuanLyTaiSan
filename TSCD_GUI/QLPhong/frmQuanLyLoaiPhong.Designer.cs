@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlLoaiPhong = new DevExpress.XtraGrid.GridControl();
             this.gridViewLoaiPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -44,7 +45,7 @@
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLoaiPhong)).BeginInit();
@@ -239,6 +240,7 @@
             this.Name = "frmQuanLyLoaiPhong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý loại phòng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQuanLyLoaiPhong_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
             this.splitContainerControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLoaiPhong)).EndInit();

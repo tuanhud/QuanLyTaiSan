@@ -88,7 +88,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -602,6 +602,7 @@
     <EmbeddedResource Include="PhanCongQTV\ucPhanCongQTV.resx">
       <DependentUpon>ucPhanCongQTV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
       <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
@@ -709,7 +710,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="QuanLyTaiSanGUI_TemporaryKey.pfx" />
     <None Include="Resources\forward.png" />
   </ItemGroup>
   <ItemGroup>

@@ -242,7 +242,7 @@ namespace PTB_GUI.MyUserControl
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
-                setTextGroupControl("Chi thiết phòng", Color.Empty);
+                setTextGroupControl("Chi tiết phòng", Color.Empty);
                 listHinhAnhPhong = new List<HinhAnh>();
                 if (objPhong.hinhanhs != null)
                 {

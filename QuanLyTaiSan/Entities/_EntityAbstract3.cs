@@ -27,7 +27,7 @@ namespace PTB.Entities
         /// </summary>
         [Required]
         public String password { get; set; }
-        
+
         #endregion
 
         #region Nghiep vu
@@ -35,31 +35,30 @@ namespace PTB.Entities
         protected Boolean hashed = true;
         /// <summary>
         /// id, password hashed phải đưa vào trước </summary>
-        public static Boolean checkLoginById(Guid id, String raw_pass)
+        public static Boolean checkLoginById(Guid id, String hashed_pass)
         {
             //select doi tuong len
             T obj = getById(id);
             //validate
-            if (obj == null)
+            if (obj == null || hashed_pass==null)
             {
                 return false;
             }
-            return StringHelper.SHA1_Salt(raw_pass).ToUpper().Equals(obj.password.ToUpper());
+            return hashed_pass.ToUpper().Equals(obj.password.ToUpper());
         }
         /// <summary>
-        /// username phải đưa vào trước, password đưa vào qua hàm hashPassword </summary>
-        public static Boolean checkLoginByUserName(String username, String raw_pass)
+        /// username phải đưa vào trước, password phải được hashed trước </summary>
+        public static Boolean checkLoginByUserName(String username, String hashed_pass)
         {
             //select doi tuong len
             T obj = getByUserName(username);
             //validate
-            if (obj == null)
+            if (obj == null || hashed_pass==null)
             {
                 return false;
             }
-            return StringHelper.SHA1_Salt(raw_pass).ToUpper().Equals(obj.password.ToUpper());
+            return hashed_pass.ToUpper().Equals(obj.password.ToUpper());
         }
-
         public static Boolean isUsernameExist(String username)
         {
             return getByUserName(username)==null?false:true;
@@ -96,17 +95,25 @@ namespace PTB.Entities
             }
 
             //đổi pass
-            hashPassword(newPass);
+            newPass = hashPassword(newPass);
             return 1;
         }
         /// <summary>
-        /// Hash password và SET vào this.password
+        /// Hash password provider
         /// </summary>
         /// <param name="raw_pass">Mật khẩu thô</param>
-        public void hashPassword(String raw_pass)
+        public static string hashPassword(String raw_pass)
         {
-            password = StringHelper.SHA1_Salt(raw_pass);
-            hashed = true;
+            return StringHelper.SHA1_Salt(raw_pass);
+        }
+        /// <summary>
+        /// Hash pass và đưa vào this.password
+        /// </summary>
+        /// <param name="raw_pass"></param>
+        /// <returns></returns>
+        public void setPassword(string raw_pass)
+        {
+            this.password = hashPassword(raw_pass);
         }
         
         #endregion

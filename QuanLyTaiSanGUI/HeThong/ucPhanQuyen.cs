@@ -331,7 +331,7 @@ namespace PTB_GUI.HeThong
                 }
                 else if (function.Equals("add"))
                 {
-                    objQuanTriVien.hashPassword(txtMatKhauQuanTriVien.Text);
+                    objQuanTriVien.setPassword(txtMatKhauQuanTriVien.Text);
                     int re = objQuanTriVien.add();
                     if (re > 0)
                     {

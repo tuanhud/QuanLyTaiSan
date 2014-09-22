@@ -1,4 +1,5 @@
 ﻿using PTB.Entities;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -19,21 +20,21 @@ namespace PTB.Libraries
 
             public static Bitmap get(String url)
             {
-                if (url == null)
+                if (url == null || fail_url==null || collection == null)
                 {
-                    return null;
+                    return null;// HinhAnh.DEFAULT_IMAGE;
                 }
                 //Nếu nằm trong fail list thì return ảnh mặc định
                 if (fail_url.Contains(url))
                 {
-                    return HinhAnh.DEFAULT_IMAGE;
+                    return null;// HinhAnh.DEFAULT_IMAGE;
                 }
                 //tìm kiếm trong cache list
                 if (collection.ContainsKey(url))
                 {
                     return collection[url];
                 }
-                return null;
+                return null;// HinhAnh.DEFAULT_IMAGE;
             }
             /// <summary>
             /// Đánh dấu url fail, lần get kế tiếp từ CACHE sẽ trả về hình mặc định
@@ -41,7 +42,10 @@ namespace PTB.Libraries
             /// <param name="url"></param>
             public static void mark_url_fail(String url)
             {
-                fail_url.Add(url);
+                if (fail_url != null)
+                {
+                    fail_url.Add(url);
+                }
             }
             /// <summary>
             /// Đăng ký ảnh vào cache list, OVERRIDE MODE ON
@@ -50,11 +54,36 @@ namespace PTB.Libraries
             /// <param name="image"></param>
             public static void register(String url, Bitmap image)
             {
-                if (collection.ContainsKey(url))
+                try
                 {
-                    collection.Remove(url);
+                    if (collection.ContainsKey(url))
+                    {
+                        collection.Remove(url);
+                    }
+                    collection.Add(url, image);
                 }
-                collection.Add(url, image);
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            public static void release()
+            {
+                try
+                {
+                    if (collection != null)
+                    {
+                        collection.Clear();
+                    }
+                    if (fail_url != null)
+                    {
+                        fail_url.Clear();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                }
             }
         }
     }

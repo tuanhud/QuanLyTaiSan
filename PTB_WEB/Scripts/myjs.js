@@ -78,6 +78,15 @@ $(document).ready(function () {
             checktaikhoan(taikhoan);
         }
     });
+    $("#ButtonDangNhap").click(function () {
+        var pass_row = $("#TextBoxMatKhau").val();
+        var salt1 = "34@3%%6CV*&_+";
+        var salt2 = "hg13@';,Ghfya";
+        var salt = salt1 + "root" + salt2;
+        var shaObj = new jsSHA(salt, "TEXT");
+        var pass_hash = shaObj.getHash("SHA-1", "HEX");
+        $("#TextBoxMatKhau").val(pass_hash);
+    });
     $("input").keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -89,8 +98,9 @@ $(document).ready(function () {
                 $("#ButtonLuu").click();
             }
 
-            if ($("#ButtonDangNhap").length > 0)
+            if ($("#ButtonDangNhap").length > 0) {
                 $("#ButtonDangNhap").click();
+            }
             if ($("#ButtonLuuThongTinCaNhan").length > 0)
                 $("#ButtonLuuThongTinCaNhan").click();
             return false;

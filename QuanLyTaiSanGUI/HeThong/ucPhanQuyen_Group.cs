@@ -258,7 +258,7 @@ namespace PTB_GUI.HeThong
 
         private void btnPhanQuyen_Click(object sender, EventArgs e)
         {
-            frmSuaPermission frm = new frmSuaPermission(objGroup.permissions.ToList());
+            frmSuaPermission frm = new frmSuaPermission(new List<Permission>(listPermission));
             if (frm.ShowDialog() == DialogResult.Yes)
             {
                 listPermission = frm.getResult();

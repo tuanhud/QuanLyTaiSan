@@ -21,6 +21,7 @@
     <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
     <link href="Content/css/theme.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <script src="Scripts/sha1.js"></script>
     <script src="Scripts/myjs.js"></script>
     <%--<script src="Scripts/pace.min.js"></script>
     <link href="Content/css/pace.css" rel="stylesheet" />--%>
