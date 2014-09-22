@@ -35,7 +35,7 @@ namespace PTB.Entities
         protected Boolean hashed = true;
         /// <summary>
         /// id, password hashed phải đưa vào trước </summary>
-        public static Boolean checkLoginByIdHashed(Guid id, String hashed_pass)
+        public static Boolean checkLoginById(Guid id, String hashed_pass)
         {
             //select doi tuong len
             T obj = getById(id);
@@ -48,7 +48,7 @@ namespace PTB.Entities
         }
         /// <summary>
         /// username phải đưa vào trước, password phải được hashed trước </summary>
-        public static Boolean checkLoginByUserNameHashed(String username, String hashed_pass)
+        public static Boolean checkLoginByUserName(String username, String hashed_pass)
         {
             //select doi tuong len
             T obj = getByUserName(username);
