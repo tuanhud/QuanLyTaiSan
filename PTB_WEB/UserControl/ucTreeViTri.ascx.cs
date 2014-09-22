@@ -15,6 +15,20 @@ namespace PTB_WEB.UserControl
             ASPxTreeList_ViTri.ClientSideEvents.Init = "function(s, e) { s.SetFocusedNodeKey(''); }";
         }
 
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            if (MobileDetect.fBrowserIsMobile())
+            {
+                ASPxTreeList_ViTri.Theme = "Moderno";
+            }
+            else
+            {
+                ASPxTreeList_ViTri.Theme = "Aqua";
+            }
+        }
+
+
         protected void ASPxTreeList_ViTri_CustomDataCallback(object sender, DevExpress.Web.ASPxTreeList.TreeListCustomDataCallbackEventArgs e)
         {
             string key = e.Argument.ToString();
