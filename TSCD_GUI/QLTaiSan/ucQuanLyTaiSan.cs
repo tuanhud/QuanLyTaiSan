@@ -47,6 +47,11 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxDonVi1.DonVi = objNULL;
                 ucComboBoxDonVi2.DonVi = objNULL;
+
+                barBtnSuaTaiSan.Enabled = false;
+                barBtnXoaTaiSan.Enabled = false;
+                btnSua_r.Enabled = false;
+                btnXoa_r.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -64,8 +69,15 @@ namespace TSCD_GUI.QLTaiSan
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 DonVi DVSD = ucComboBoxDonVi2.DonVi;
-                ucGridControlTaiSan1.DataSource = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
+                ucGridControlTaiSan1.DataSource = list;
                 ucGridControlTaiSan1.ExpandAllGroups();
+
+                bool isEnabled = list.Count > 0;
+                barBtnSuaTaiSan.Enabled = isEnabled;
+                barBtnXoaTaiSan.Enabled = isEnabled;
+                btnSua_r.Enabled = isEnabled;
+                btnXoa_r.Enabled = isEnabled;
             }
             catch (Exception ex)
             {

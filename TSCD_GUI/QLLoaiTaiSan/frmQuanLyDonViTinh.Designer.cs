@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlDonViTinh = new DevExpress.XtraGrid.GridControl();
             this.gridViewDonViTinh = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -44,9 +47,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDonViTinh)).BeginInit();
@@ -98,6 +99,20 @@
             this.gridViewDonViTinh.OptionsView.ShowGroupPanel = false;
             this.gridViewDonViTinh.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewDonViTinh_FocusedRowChanged);
             this.gridViewDonViTinh.DataSourceChanged += new System.EventHandler(this.gridViewDonViTinh_DataSourceChanged);
+            // 
+            // colid
+            // 
+            this.colid.Caption = "id";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            // 
+            // colten
+            // 
+            this.colten.Caption = "Tên đơn vị tính";
+            this.colten.FieldName = "ten";
+            this.colten.Name = "colten";
+            this.colten.Visible = true;
+            this.colten.VisibleIndex = 0;
             // 
             // groupControlInfo
             // 
@@ -234,20 +249,6 @@
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
-            // colid
-            // 
-            this.colid.Caption = "id";
-            this.colid.FieldName = "id";
-            this.colid.Name = "colid";
-            // 
-            // colten
-            // 
-            this.colten.Caption = "Tên đơn vị tính";
-            this.colten.FieldName = "ten";
-            this.colten.Name = "colten";
-            this.colten.Visible = true;
-            this.colten.VisibleIndex = 0;
-            // 
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
@@ -261,6 +262,7 @@
             this.Name = "frmQuanLyDonViTinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý đơn vị tính";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQuanLyDonViTinh_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
             this.splitContainerControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDonViTinh)).EndInit();

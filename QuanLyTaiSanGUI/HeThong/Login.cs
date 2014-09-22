@@ -69,7 +69,7 @@ namespace PTB_GUI.HeThong
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Boolean re = QuanTriVien.checkLoginByUserName(viewLogin1.txtUsername.Text, viewLogin1.txtPassword.Text);
+            Boolean re = QuanTriVien.checkLoginByUserName(viewLogin1.txtUsername.Text,  QuanTriVien.hashPassword(viewLogin1.txtPassword.Text));
             if (re)
             {
                 //set global var

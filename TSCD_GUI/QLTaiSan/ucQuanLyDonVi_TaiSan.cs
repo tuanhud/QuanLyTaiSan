@@ -63,7 +63,14 @@ namespace TSCD_GUI.QLTaiSan
                 DonVi obj = ucTreeDonVi1.DonVi;
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
                 if (obj != null)
-                    ucGridControlTaiSan1.DataSource = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
+                {
+                    List<TaiSanHienThi> list = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
+                    ucGridControlTaiSan1.DataSource = list;
+
+                    bool isEnabled = list.Count > 0;
+                    barBtnSuaTaiSan.Enabled = isEnabled;
+                    barBtnXoaTaiSan.Enabled = isEnabled;
+                }
                 else
                     ucGridControlTaiSan1.DataSource = null;
                 ucGridControlTaiSan1.ExpandAllGroups();

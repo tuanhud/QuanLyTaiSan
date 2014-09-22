@@ -602,6 +602,7 @@
     <EmbeddedResource Include="PhanCongQTV\ucPhanCongQTV.resx">
       <DependentUpon>ucPhanCongQTV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QLLoaiThietBi\ucQuanLyLoaiTB.resx">
       <DependentUpon>ucQuanLyLoaiTB.cs</DependentUpon>
     </EmbeddedResource>
@@ -709,7 +710,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="QuanLyTaiSanGUI_TemporaryKey.pfx" />
     <None Include="Resources\forward.png" />
   </ItemGroup>
   <ItemGroup>
