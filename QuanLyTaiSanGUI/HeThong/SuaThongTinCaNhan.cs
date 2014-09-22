@@ -30,7 +30,7 @@ namespace PTB_GUI.HeThong
             //cap nhat mat khau
             if (!textEdit_oldpass.Text.Equals("") || !textEdit_newpass.Text.Equals("") || !textEdit_newpass_confirm.Text.Equals(""))
             {
-                if (QuanTriVien.checkLoginById(Global.current_quantrivien_login.id, textEdit_oldpass.Text))
+                if (QuanTriVien.checkLoginByIdHashed(Global.current_quantrivien_login.id, textEdit_oldpass.Text))
                 {
                     if (textEdit_newpass.Text.Equals("") || textEdit_newpass_confirm.Text.Equals(""))
                     {
@@ -41,7 +41,7 @@ namespace PTB_GUI.HeThong
                     {
                         if (textEdit_newpass.Text.Equals(textEdit_newpass_confirm.Text))
                         {
-                            Global.current_quantrivien_login.hashPassword(textEdit_newpass.Text);
+                            Global.current_quantrivien_login.setPassword(textEdit_newpass.Text);
                         }
                         else
                         {

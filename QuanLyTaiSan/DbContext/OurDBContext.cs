@@ -679,7 +679,7 @@ namespace PTB.Entities
                         QuanTriVien qtv = new QuanTriVien();
                         qtv.date_create = qtv.date_modified = ServerTimeHelper.getNow();
                         qtv.username = "root";
-                        qtv.hashPassword(qtv.username); //hashPassword("root") => "2B1ED923B31D1B0990A28C932565156D11F9F7D9"
+                        qtv.setPassword(qtv.username); //hashPassword("root") => "2B1ED923B31D1B0990A28C932565156D11F9F7D9"
                         qtv.hoten = "root";
                         qtv.mota = mota;
                         qtv.subId = qtv.username;

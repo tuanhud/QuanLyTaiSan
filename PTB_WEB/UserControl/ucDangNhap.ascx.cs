@@ -62,7 +62,7 @@ namespace PTB_WEB.UserControl
                     return;
                 }
 
-                Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserName(Username,Password);
+                Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserNameHashed(Username, Password);
 
                 if (KiemTraDangNhap)
                 {
