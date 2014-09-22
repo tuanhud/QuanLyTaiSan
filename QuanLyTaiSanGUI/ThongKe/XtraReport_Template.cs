@@ -14,6 +14,10 @@ namespace PTB_GUI.ThongKe
 {
     public partial class XtraReport_Template : DevExpress.XtraReports.UI.XtraReport
     {
+        int intMinimum = 4;
+        String strTag = "_STRING";
+
+        //Variable
         int NumberOfFieldGroup = 0;
         int WidthAdd = 20;
         int MaxLength = 0;
@@ -65,12 +69,19 @@ namespace PTB_GUI.ThongKe
                         {
                             foreach (DataColumn column in GridData.Tables[0].Columns)
                             {
-                                if (Object.Equals(column.ColumnName, GridViewVictim.Columns[i].FieldName))
+                                if (Object.Equals(column.ColumnName, GridViewVictim.Columns[i].Name + "_" + GridViewVictim.Columns[i].FieldName))
                                 {
                                     foreach (DataRow row in GridData.Tables[0].Rows)
                                     {
                                         string strGroup = string.Format("{0}: {1}", GridViewVictim.Columns[i].Caption, row[column.ColumnName]);
-                                        row[column.ColumnName] = strGroup;
+                                        if (Object.Equals(GridViewVictim.Columns[i].ColumnType, typeof(Int32)))
+                                        {
+                                            row[column.ColumnName + strTag] = strGroup;
+                                        }
+                                        else
+                                        {
+                                            row[column.ColumnName] = strGroup;
+                                        }
                                         if (MaxLength < strGroup.Length)
                                             MaxLength = strGroup.Length;
                                     }
@@ -80,6 +91,7 @@ namespace PTB_GUI.ThongKe
                     }
                 }
             }
+            MaxLength = MaxLength != 0 ? MaxLength > intMinimum ? MaxLength : intMinimum : 0;
             GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * (int)Math.Ceiling(this.myColumnStyle.Font.Size);
             //InitXtraReport(GridData, GridViewVictim);
             InitXtraReport_GroupHaveSum(GridData, GridViewVictim);
@@ -251,7 +263,7 @@ namespace PTB_GUI.ThongKe
                 {
                     structColumn _structColumn = new structColumn();
                     _structColumn.Caption = GridViewVictim.Columns[i].Caption;
-                    _structColumn.FieldName = GridViewVictim.Columns[i].FieldName;
+                    _structColumn.FieldName = GridViewVictim.Columns[i].Name + "_" + GridViewVictim.Columns[i].FieldName;
                     _structColumn.VisibleIndex = GridViewVictim.Columns[i].VisibleIndex;
                     _structColumn.IsNumber = false;
                     if (!Object.Equals(GridViewVictim.GetRowCellValue(0, GridViewVictim.Columns[i]), null))
@@ -311,7 +323,15 @@ namespace PTB_GUI.ThongKe
                     //_GroupHeaderBand.RepeatEveryPage = true;
 
                     XRTableCell XRTableCell_GroupText = new XRTableCell();
-                    XRTableCell_GroupText.DataBindings.Add("Text", this.DataSource, GridViewVictim.GroupedColumns[i].FieldName);
+                    if (Object.Equals(GridViewVictim.GroupedColumns[i].ColumnType, typeof(Int32)))
+                    {
+                        XRTableCell_GroupText.DataBindings.Add("Text", this.DataSource, GridViewVictim.GroupedColumns[i].Name + "_" + GridViewVictim.GroupedColumns[i].FieldName + strTag);
+                    }
+                    else
+                    {
+                        XRTableCell_GroupText.DataBindings.Add("Text", this.DataSource, GridViewVictim.GroupedColumns[i].Name + "_" + GridViewVictim.GroupedColumns[i].FieldName);
+                    }
+
                     XRTableCell_GroupText.Width = GroupColumnLength - i * WidthAdd;
                     //XRTableCell_GroupText.Height = 25;
 
@@ -352,7 +372,7 @@ namespace PTB_GUI.ThongKe
 
 
                     _GroupHeaderBand.Controls.Add(XRTable_Group);
-                    GroupField _GroupField = new GroupField(GridViewVictim.GroupedColumns[i].FieldName);
+                    GroupField _GroupField = new GroupField(GridViewVictim.GroupedColumns[i].Name + "_" + GridViewVictim.GroupedColumns[i].FieldName);
                     _GroupHeaderBand.GroupFields.Add(_GroupField);
                     this.Bands.Add(_GroupHeaderBand);
                 }
@@ -408,45 +428,46 @@ namespace PTB_GUI.ThongKe
             //{
             //    Bands.Add(PageFooterBand_Sum);
             //}
-
-            XRTable XRTable_Sum = new XRTable();
-            XRTableRow XRTableRow_Sum = new XRTableRow();
-
-            XRTableCell XRTableCell_SumFirst = new XRTableCell();
-            XRTableCell_SumFirst.Width = GroupColumnLength;
-            XRTableCell_SumFirst.Text = "";
-
-            XRTableRow_Sum.Cells.Add(XRTableCell_SumFirst);
-
-            for (int i = 0; i < colCount; i++)
+            if (listColumn.Where(item => item.IsNumber == true).ToList().Count > 0)
             {
-                XRTableCell XRTableCell_SumTemp = new XRTableCell();
-                XRTableCell_SumTemp.Width = (int)colWidth;
+                XRTable XRTable_Sum = new XRTable();
+                XRTableRow XRTableRow_Sum = new XRTableRow();
 
-                if (listColumn[i].IsNumber)
-                {
-                    XRTableCell_SumTemp.DataBindings.Add("Text", this.DataSource, listColumn[i].FieldName);
-                    XRTableCell_SumTemp.Summary.IgnoreNullValues = true;
-                    XRTableCell_SumTemp.Summary.Func = SummaryFunc.Sum;
-                    XRTableCell_SumTemp.Summary.Running = SummaryRunning.Report;
-                    XRTableCell_SumTemp.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-                }
-                else
-                {
-                    XRTableCell_SumTemp.Text = "";
-                }
+                XRTableCell XRTableCell_SumFirst = new XRTableCell();
+                XRTableCell_SumFirst.Width = GroupColumnLength;
+                XRTableCell_SumFirst.Text = "";
 
-                XRTableRow_Sum.Cells.Add(XRTableCell_SumTemp);
+                XRTableRow_Sum.Cells.Add(XRTableCell_SumFirst);
+
+                for (int i = 0; i < colCount; i++)
+                {
+                    XRTableCell XRTableCell_SumTemp = new XRTableCell();
+                    XRTableCell_SumTemp.Width = (int)colWidth;
+
+                    if (listColumn[i].IsNumber)
+                    {
+                        XRTableCell_SumTemp.DataBindings.Add("Text", this.DataSource, listColumn[i].FieldName);
+                        XRTableCell_SumTemp.Summary.IgnoreNullValues = true;
+                        XRTableCell_SumTemp.Summary.Func = SummaryFunc.Sum;
+                        XRTableCell_SumTemp.Summary.Running = SummaryRunning.Report;
+                        XRTableCell_SumTemp.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    }
+                    else
+                    {
+                        XRTableCell_SumTemp.Text = "";
+                    }
+
+                    XRTableRow_Sum.Cells.Add(XRTableCell_SumTemp);
+                }
+                XRTable_Sum.Rows.Add(XRTableRow_Sum);
+                XRTable_Sum.Width = pageWidth;
+                XRTable_Sum.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
+                XRTable_Sum.Styles.Style = this.mySumTableStyle;
+
+
+                Bands[BandKind.ReportFooter].Controls.Add(XRTable_Sum);
+                //this.Bands.Add(PageFooterBand_Sum);
             }
-            XRTable_Sum.Rows.Add(XRTableRow_Sum);
-            XRTable_Sum.Width = pageWidth;
-            XRTable_Sum.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
-            XRTable_Sum.Styles.Style = this.mySumTableStyle;
-
-
-            Bands[BandKind.ReportFooter].Controls.Add(XRTable_Sum);
-            //this.Bands.Add(PageFooterBand_Sum);
-
         }
 
         private void SetPositionXRLabel()

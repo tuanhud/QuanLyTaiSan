@@ -105,14 +105,22 @@ namespace PTB_GUI.ThongKe
             DataTable _DataTable = new DataTable();
             foreach (GridColumn column in gridView1.Columns)
             {
-                _DataTable.Columns.Add(column.FieldName, column.ColumnType);
+                _DataTable.Columns.Add(column.Name + "_" + column.FieldName, column.ColumnType);
+                if (Object.Equals(column.ColumnType, typeof(Int32)))
+                {
+                    _DataTable.Columns.Add(column.Name + "_" + column.FieldName + "_STRING", typeof(String));
+                }
             }
             for (int i = 0; i < gridView1.DataRowCount; i++)
             {
                 DataRow row = _DataTable.NewRow();
                 foreach (GridColumn column in gridView1.Columns)
                 {
-                    row[column.FieldName] = gridView1.GetRowCellValue(i, column);
+                    row[column.Name + "_" + column.FieldName] = gridView1.GetRowCellValue(i, column);
+                    if (Object.Equals(column.ColumnType, typeof(Int32)))
+                    {
+                        row[column.Name + "_" + column.FieldName + "_STRING"] = gridView1.GetRowCellValue(i, column);
+                    }
                 }
                 _DataTable.Rows.Add(row);
             }
