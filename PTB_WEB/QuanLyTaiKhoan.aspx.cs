@@ -151,7 +151,7 @@ namespace PTB_WEB
 
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
                 if (!TextBoxMatKhau.Text.Equals(string.Empty))
-                    _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
+                    _QuanTriVien.setPassword(TextBoxMatKhau.Text);
                 _QuanTriVien.donvi = TextBoxKhoa.Text;
                 _QuanTriVien.mota = TextBoxGhiChu.Text;
                 if (_QuanTriVien.update() > 0 && DBInstance.commit() > 0)
@@ -188,7 +188,7 @@ namespace PTB_WEB
                 _QuanTriVien.email = TextBoxEmail.Text;
                 _QuanTriVien.group = Group.getById(GUID.From(DropDownListNhom.SelectedValue));
                 _QuanTriVien.username = TextBoxTaiKhoan.Text;
-                _QuanTriVien.hashPassword(TextBoxMatKhau.Text);
+                _QuanTriVien.setPassword(TextBoxMatKhau.Text);
                 _QuanTriVien.donvi = TextBoxKhoa.Text;
                 _QuanTriVien.mota = TextBoxGhiChu.Text;
                 if (_QuanTriVien.add() > 0 && DBInstance.commit() > 0)

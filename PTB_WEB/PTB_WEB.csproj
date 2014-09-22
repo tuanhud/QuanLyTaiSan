@@ -554,7 +554,7 @@
     <Content Include="Scripts\myjs.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\scriptgates.js" />
-    <Content Include="Scripts\sha1.min.js" />
+    <Content Include="Scripts\sha1.js" />
     <Content Include="Setting.aspx" />
     <Content Include="SuCo.aspx" />
     <Content Include="ThietBis.aspx" />
