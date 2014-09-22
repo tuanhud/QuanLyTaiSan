@@ -23,13 +23,13 @@ namespace PTB_WEB
             if (PTB.Libraries.EmailHelper.sendMail(to, sub, msg) > 0)
             {
                 HideAllAlert();
-                ucSuccess.LabelInfo.Text += "";
+                ucSuccess.LabelInfo.Text += "Đã gửi thông tin của bạn đến Quản trị. Chúng tôi sẽ hồi âm trong thời gian sớm nhất.";
                 ucSuccess.Visible = true;
             }
             else
             {
                 HideAllAlert();
-                ucDanger.LabelInfo.Text = "";
+                ucDanger.LabelInfo.Text = "Có lỗi xảy ra. Vui lòng thử lại";
                 ucDanger.Visible = true;
             }
         }

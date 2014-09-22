@@ -21,7 +21,7 @@
                 <td>
                     <uc:ucSuccess runat="server" ID="ucSuccess" Visible="false" />
                     <uc:ucDanger runat="server" ID="ucDanger" Visible="false" />
-                    <asp:Panel ID="PanelInfo" runat="server" Visible="false">
+                    <asp:Panel ID="PanelInfo" runat="server">
                         <h3 class="title_green fix">Liên hệ với chúng tôi</h3>
                         <div class="col-lg-12">
                             <div class="form-group">
