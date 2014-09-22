@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="LienHe.aspx.cs" Inherits="PTB_WEB.LienHe" %>
 
 <%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
+<%@ Register Src="~/UserControl/Alert/ucSuccess.ascx" TagPrefix="uc" TagName="ucSuccess" %>
+<%@ Register Src="~/UserControl/Alert/ucDanger.ascx" TagPrefix="uc" TagName="ucDanger" %>
+
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -15,46 +19,42 @@
         <tbody>
             <tr>
                 <td>
-                    <h3 class="title_green fix">Liên hệ với chúng tôi</h3>
-                    <div class="col-lg-12">
-                        <asp:Panel ID="PanelThongBao" runat="server" Visible="false">
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <span class="glyphicon glyphicon-info-sign"></span>
-                                <asp:Label ID="LabelThongBao" runat="server" Text="Label"></asp:Label>
+                    <uc:ucSuccess runat="server" ID="ucSuccess" Visible="false" />
+                    <uc:ucDanger runat="server" ID="ucDanger" Visible="false" />
+                    <asp:Panel ID="PanelInfo" runat="server">
+                        <h3 class="title_green fix">Liên hệ với chúng tôi</h3>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Họ và Tên (*)</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox ID="TextHoVaTen" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
                             </div>
-                        </asp:Panel>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Họ và Tên</label>
-                            <div class="col-sm-10">
-                                <asp:TextBox ID="TextHoVaTen" runat="server" CssClass="form-control"></asp:TextBox>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Email (*)</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox ID="TextBoxEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                                <asp:TextBox ID="TextBoxEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Điện thoại (*)</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox ID="TextBoxDienThoai" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Điện thoại</label>
-                            <div class="col-sm-10">
-                                <asp:TextBox ID="TextBoxDienThoai" runat="server" CssClass="form-control"></asp:TextBox>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Nội dung (*)</label>
+                                <div class="col-sm-10">
+                                    <asp:TextBox ID="TextBoxNoiDung" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="3"></asp:TextBox>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Nội dung</label>
-                            <div class="col-sm-10">
-                                <asp:TextBox ID="TextBoxNoiDung" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="3"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <asp:Button ID="ButtonLienHe" runat="server" Text="Gửi" CssClass="btn btn-success" />
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <asp:Button ID="ButtonLienHe" runat="server" Text="Gửi" CssClass="btn btn-success" OnClick="ButtonLienHe_Click" />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </asp:Panel>
                 </td>
             </tr>
         </tbody>

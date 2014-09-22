@@ -13,22 +13,31 @@ namespace PTB_WEB {
     public partial class LienHe {
         
         /// <summary>
-        /// PanelThongBao control.
+        /// ucSuccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelThongBao;
+        protected global::PTB_WEB.UserControl.Alert.ucSuccess ucSuccess;
         
         /// <summary>
-        /// LabelThongBao control.
+        /// ucDanger control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelThongBao;
+        protected global::PTB_WEB.UserControl.Alert.ucDanger ucDanger;
+        
+        /// <summary>
+        /// PanelInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelInfo;
         
         /// <summary>
         /// TextHoVaTen control.

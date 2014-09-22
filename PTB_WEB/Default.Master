@@ -78,13 +78,13 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b><asp:HiddenField ID="HiddenFieldUserName" ClientIDMode="Static" runat="server" /><span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li <%if (page.Equals("THONGTINCANHAN")) Response.Write("class=\"active\""); %>><a href="ThongTinCaNhan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
-                                        <%if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenMuonPhong())
+                                        <%if (PTB.Libraries.PermissionHelper.QuyenMuonPhong())
                                           {%>
                                         <li <%if (page.Equals("QUANLYMUONPHONG")) Response.Write("class=\"active\""); %>><a href="QuanLyMuonPhong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Quản lý mượn phòng</a></li>
-                                        <%} if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenHienThiQuanTriVien())
+                                        <%} if (PTB.Libraries.PermissionHelper.QuyenHienThiQuanTriVien())
                                           {%>
                                         <li <%if (page.Equals("QUANLYTAIKHOAN")) Response.Write("class=\"active\""); %>><a href="QuanLyTaiKhoan.aspx"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Quản lý tài khoản</a></li>
-                                        <%} if (QuanLyTaiSan.Libraries.PermissionHelper.QuyenConfigEmailTemplate())
+                                        <%} if (PTB.Libraries.PermissionHelper.QuyenConfigEmailTemplate())
                                           {%>
                                         <li <%if (page.Equals("SETTING")) Response.Write("class=\"active\""); %>><a href="Setting.aspx"><span class="glyphicon glyphicon-cog"></span>&nbsp;Thiết lập</a></li>
                                         <%}%>

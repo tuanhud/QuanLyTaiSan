@@ -22,7 +22,7 @@ namespace PTB_WEB.UserControl
                     if (Request.Cookies["Username_Remember"] != null)
                     {
                         TextBoxTaiKhoan.Text = Request.Cookies["Username_Remember"].Value;
-                        TextBoxMatKhau.Attributes.Add("value", Request.Cookies["Password_Remember"].Value);
+                        TextBoxMatKhau.Attributes.Add("value", Request.Cookies["HashPassword_Remember"].Value);
                         CheckBoxNhoDangNhap.Checked = true;
                     }
                     else
@@ -47,7 +47,7 @@ namespace PTB_WEB.UserControl
             try
             {
                 string Username = TextBoxTaiKhoan.Text;
-                string Password = TextBoxMatKhau.Text;
+                string HashPassword = TextBoxMatKhau.Text;
 
                 if (Username == "")
                 {
@@ -55,28 +55,28 @@ namespace PTB_WEB.UserControl
                     LabelThongBao.Text = "Tài khoản không được trống";
                     return;
                 }
-                if (Password == "")
+                if (HashPassword == "")
                 {
                     PanelThongBao.Visible = true;
                     LabelThongBao.Text = "Mật khẩu không được trống";
                     return;
                 }
 
-                Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserName(Username, Password);
+                Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserName(Username, HashPassword);
 
                 if (KiemTraDangNhap)
                 {
                     if (CheckBoxNhoDangNhap.Checked == true)
                     {
                         Response.Cookies["Username_Remember"].Value = Username;
-                        Response.Cookies["Password_Remember"].Value = Password;
+                        Response.Cookies["HashPassword_Remember"].Value = HashPassword;
                         Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(30);
-                        Response.Cookies["Password_Remember"].Expires = DateTime.Now.AddDays(30);
+                        Response.Cookies["HashPassword_Remember"].Expires = DateTime.Now.AddDays(30);
                     }
                     else
                     {
                         Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(-1);
-                        Response.Cookies["Password_Remember"].Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies["HashPassword_Remember"].Expires = DateTime.Now.AddDays(-1);
                         CheckBoxNhoDangNhap.Checked = false;
                     }
                     Session["Username"] = Username;
