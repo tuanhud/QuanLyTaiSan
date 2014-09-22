@@ -86,7 +86,7 @@ namespace PTB_WEB
             Session["HoTen"] = _QuanTriVien.hoten = TextBoxHoTen.Text;
             ((Default)Page.Master).HoTen_Changed = Session["HoTen"].ToString();
             _QuanTriVien.email = TextBoxEmail.Text;
-            if (!TextBoxMatKhauMoi.Text.Equals("")) _QuanTriVien.hashPassword(TextBoxMatKhauMoi.Text);
+            if (!TextBoxMatKhauMoi.Text.Equals("")) _QuanTriVien.setPassword(TextBoxMatKhauMoi.Text);
             _QuanTriVien.donvi = TextBoxDonVi.Text;
             _QuanTriVien.mota = TextBoxGhiChu.Text;
             if (_QuanTriVien.update() > 0 && DBInstance.commit() > 0)
