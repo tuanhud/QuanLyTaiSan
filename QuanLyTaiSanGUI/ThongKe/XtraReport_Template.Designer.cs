@@ -73,29 +73,29 @@
             // 
             // myColumnStyle
             // 
-            this.myColumnStyle.BackColor = System.Drawing.Color.SkyBlue;
-            this.myColumnStyle.BorderColor = System.Drawing.Color.SkyBlue;
+            this.myColumnStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.myColumnStyle.BorderColor = System.Drawing.Color.Gainsboro;
             this.myColumnStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
             this.myColumnStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.myColumnStyle.BorderWidth = 0.5F;
-            this.myColumnStyle.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myColumnStyle.ForeColor = System.Drawing.Color.White;
+            this.myColumnStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myColumnStyle.ForeColor = System.Drawing.Color.Black;
             this.myColumnStyle.Name = "myColumnStyle";
             this.myColumnStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // myGroupStyle
             // 
-            this.myGroupStyle.BackColor = System.Drawing.Color.Black;
+            this.myGroupStyle.BackColor = System.Drawing.Color.Gainsboro;
             this.myGroupStyle.BorderColor = System.Drawing.Color.Gainsboro;
             this.myGroupStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
             this.myGroupStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.myGroupStyle.BorderWidth = 0.5F;
-            this.myGroupStyle.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myGroupStyle.ForeColor = System.Drawing.Color.White;
+            this.myGroupStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myGroupStyle.ForeColor = System.Drawing.Color.Black;
             this.myGroupStyle.Name = "myGroupStyle";
             this.myGroupStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
@@ -107,7 +107,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.myRowStyle.BorderWidth = 0.5F;
-            this.myRowStyle.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myRowStyle.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myRowStyle.Name = "myRowStyle";
             this.myRowStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
@@ -168,13 +168,13 @@
             // 
             // mySumTableStyle
             // 
-            this.mySumTableStyle.BackColor = System.Drawing.Color.OliveDrab;
+            this.mySumTableStyle.BackColor = System.Drawing.Color.Gainsboro;
             this.mySumTableStyle.BorderColor = System.Drawing.Color.Gainsboro;
             this.mySumTableStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.mySumTableStyle.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mySumTableStyle.ForeColor = System.Drawing.Color.White;
+            this.mySumTableStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mySumTableStyle.ForeColor = System.Drawing.Color.Black;
             this.mySumTableStyle.Name = "mySumTableStyle";
             this.mySumTableStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 

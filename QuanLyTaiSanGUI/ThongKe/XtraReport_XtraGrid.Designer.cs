@@ -164,7 +164,7 @@
             // 
             // xrLabel_Title
             // 
-            this.xrLabel_Title.Font = new System.Drawing.Font("Verdana", 14.25F);
+            this.xrLabel_Title.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel_Title.LocationFloat = new DevExpress.Utils.PointFloat(9.99999F, 95.41661F);
             this.xrLabel_Title.Multiline = true;
             this.xrLabel_Title.Name = "xrLabel_Title";
@@ -184,7 +184,7 @@
             this.PageFooter,
             this.ReportFooter,
             this.ReportHeader});
-            this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 47, 11);
             this.Version = "13.2";
             this.VerticalContentSplitting = DevExpress.XtraPrinting.VerticalContentSplitting.Smart;

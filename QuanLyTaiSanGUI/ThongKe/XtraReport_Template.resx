@@ -205,7 +205,7 @@
     <value>295.375</value>
   </data>
   <data name="xrLabel_Title.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 14.25pt</value>
+    <value>Tahoma, 14.25pt</value>
   </data>
   <data name="xrLabel_Title.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>9.999974, 95.41661</value>
@@ -239,7 +239,7 @@ TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
     <value>True</value>
   </metadata>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 9.75pt</value>
+    <value>Tahoma, 9.75pt</value>
   </data>
   <data name="$this.Margins" type="System.Drawing.Printing.Margins, System.Drawing">
     <value>100, 100, 47, 12</value>

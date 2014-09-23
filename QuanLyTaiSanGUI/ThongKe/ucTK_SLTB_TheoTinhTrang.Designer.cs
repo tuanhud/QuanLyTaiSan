@@ -112,18 +112,6 @@
             // 
             // gridView1
             // 
-            this.gridView1.AppearancePrint.FooterPanel.BackColor = System.Drawing.Color.OliveDrab;
-            this.gridView1.AppearancePrint.FooterPanel.ForeColor = System.Drawing.Color.White;
-            this.gridView1.AppearancePrint.FooterPanel.Options.UseBackColor = true;
-            this.gridView1.AppearancePrint.FooterPanel.Options.UseForeColor = true;
-            this.gridView1.AppearancePrint.GroupFooter.BackColor = System.Drawing.Color.White;
-            this.gridView1.AppearancePrint.GroupFooter.Options.UseBackColor = true;
-            this.gridView1.AppearancePrint.GroupRow.BackColor = System.Drawing.Color.Black;
-            this.gridView1.AppearancePrint.GroupRow.ForeColor = System.Drawing.Color.White;
-            this.gridView1.AppearancePrint.GroupRow.Options.UseBackColor = true;
-            this.gridView1.AppearancePrint.GroupRow.Options.UseForeColor = true;
-            this.gridView1.AppearancePrint.HeaderPanel.BackColor = System.Drawing.Color.White;
-            this.gridView1.AppearancePrint.HeaderPanel.Options.UseBackColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn3,
             this.gridColumn4,
