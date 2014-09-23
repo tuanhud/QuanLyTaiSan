@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTaiSan));
             this.dateNgayGhi = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
             this.txtSoHieu_CT = new DevExpress.XtraEditors.TextEdit();
@@ -334,6 +335,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(149, 540);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -344,6 +346,7 @@
             // btnHuy
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(230, 540);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -354,7 +357,7 @@
             // btnLoaiTS
             // 
             this.btnLoaiTS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiTS.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnLoaiTS.Image = ((System.Drawing.Image)(resources.GetObject("btnLoaiTS.Image")));
             this.btnLoaiTS.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnLoaiTS.Location = new System.Drawing.Point(368, 144);
             this.btnLoaiTS.Name = "btnLoaiTS";
@@ -365,7 +368,7 @@
             // btnTinhTrang
             // 
             this.btnTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTinhTrang.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnTinhTrang.Image = ((System.Drawing.Image)(resources.GetObject("btnTinhTrang.Image")));
             this.btnTinhTrang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnTinhTrang.Location = new System.Drawing.Point(368, 246);
             this.btnTinhTrang.Name = "btnTinhTrang";

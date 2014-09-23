@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyTaiSan));
             this.rbnControlTaiSan = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTaiSan = new DevExpress.XtraBars.BarButtonItem();
@@ -39,6 +40,7 @@
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
+            this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
@@ -52,7 +54,6 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -108,14 +109,18 @@
             // barBtnTinhTrang
             // 
             this.barBtnTinhTrang.Caption = "Tình trạng";
+            this.barBtnTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnTinhTrang.Glyph")));
             this.barBtnTinhTrang.Id = 5;
+            this.barBtnTinhTrang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTinhTrang.LargeGlyph")));
             this.barBtnTinhTrang.Name = "barBtnTinhTrang";
             this.barBtnTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTinhTrang_ItemClick);
             // 
             // barBtnImport
             // 
             this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
             this.barBtnImport.Id = 6;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
@@ -167,6 +172,14 @@
             this.groupControlMain.TabIndex = 3;
             this.groupControlMain.Text = "Tài sản";
             // 
+            // ucGridControlTaiSan1
+            // 
+            this.ucGridControlTaiSan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 84);
+            this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
+            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(854, 281);
+            this.ucGridControlTaiSan1.TabIndex = 8;
+            // 
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -181,7 +194,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_24;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(795, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -192,7 +205,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_24;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(769, 0);
             this.btnThem_r.Name = "btnThem_r";
@@ -264,6 +277,7 @@
             // 
             // btnTim
             // 
+            this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
             this.btnTim.Location = new System.Drawing.Point(692, 16);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
@@ -293,14 +307,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 49;
-            // 
-            // ucGridControlTaiSan1
-            // 
-            this.ucGridControlTaiSan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 84);
-            this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
-            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(854, 281);
-            this.ucGridControlTaiSan1.TabIndex = 8;
             // 
             // ucQuanLyTaiSan
             // 
