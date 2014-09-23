@@ -93,10 +93,10 @@ namespace TSCD_GUI.QLTaiSan
 
         private void enableButton(bool _enable)
         {
-            //barBtnUp.Enabled = _enable;
-            //barBtnDown.Enabled = _enable;
             btnSua_r.Enabled = _enable;
             btnXoa_r.Enabled = _enable;
+            btnUp_r.Enabled = _enable;
+            btnDown_r.Enabled = _enable;
         }
 
         private void clearText()
@@ -294,40 +294,6 @@ namespace TSCD_GUI.QLTaiSan
             setDataView();
         }
 
-        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            try
-            {
-                if (objTinhTrang != null && objTinhTrang.id != Guid.Empty)
-                {
-                    objTinhTrang.moveUp();
-                    DBInstance.commit();
-                    reloadAndFocused(objTinhTrang.id);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
-            }
-        }
-
-        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            try
-            {
-                if (objTinhTrang != null && objTinhTrang.id != Guid.Empty)
-                {
-                    objTinhTrang.moveDown();
-                    DBInstance.commit();
-                    reloadAndFocused(objTinhTrang.id);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
-            }
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -365,6 +331,40 @@ namespace TSCD_GUI.QLTaiSan
             {
                 if (XtraMessageBox.Show("Dữ liệu chưa được lưu, bạn có chắc chắn muốn đóng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     e.Cancel = true;
+            }
+        }
+
+        private void btnUp_r_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (objTinhTrang != null && objTinhTrang.id != Guid.Empty)
+                {
+                    objTinhTrang.moveUp();
+                    DBInstance.commit();
+                    reloadAndFocused(objTinhTrang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnUp_r_Click: " + ex.Message);
+            }
+        }
+
+        private void btnDown_r_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (objTinhTrang != null && objTinhTrang.id != Guid.Empty)
+                {
+                    objTinhTrang.moveDown();
+                    DBInstance.commit();
+                    reloadAndFocused(objTinhTrang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->btnDown_r_Click: " + ex.Message);
             }
         }
     }

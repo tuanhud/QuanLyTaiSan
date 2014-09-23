@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyViTri));
             this.rbnControlViTri = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemCoSo = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaCoSo = new DevExpress.XtraBars.BarButtonItem();
@@ -49,6 +50,7 @@
             this.colloai = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblThuoc = new DevExpress.XtraEditors.LabelControl();
             this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
@@ -60,7 +62,6 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.lblThuoc = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -234,7 +235,7 @@
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(478, 375);
+            this.treeListViTri.Size = new System.Drawing.Size(477, 375);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -281,6 +282,14 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // lblThuoc
+            // 
+            this.lblThuoc.Location = new System.Drawing.Point(6, 57);
+            this.lblThuoc.Name = "lblThuoc";
+            this.lblThuoc.Size = new System.Drawing.Size(33, 13);
+            this.lblThuoc.TabIndex = 12;
+            this.lblThuoc.Text = "Thuộc:";
+            // 
             // panelControlViTri
             // 
             this.panelControlViTri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -293,6 +302,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(168, 169);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -302,6 +312,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(87, 169);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -349,7 +360,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_24;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(291, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -360,7 +371,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_24;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(265, 0);
             this.btnThem_r.Name = "btnThem_r";
@@ -382,14 +393,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // lblThuoc
-            // 
-            this.lblThuoc.Location = new System.Drawing.Point(6, 57);
-            this.lblThuoc.Name = "lblThuoc";
-            this.lblThuoc.Size = new System.Drawing.Size(33, 13);
-            this.lblThuoc.TabIndex = 12;
-            this.lblThuoc.Text = "Thuộc:";
             // 
             // ucQuanLyViTri
             // 

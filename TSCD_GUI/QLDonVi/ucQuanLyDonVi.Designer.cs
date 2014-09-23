@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyDonVi));
             this.rbnControlDonVi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemDonVi = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaDonVi = new DevExpress.XtraBars.BarButtonItem();
@@ -63,7 +63,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -124,6 +124,7 @@
             // 
             this.barBtnLoaiDonVi.Caption = "Loại đơn vị";
             this.barBtnLoaiDonVi.Id = 4;
+            this.barBtnLoaiDonVi.LargeGlyph = global::TSCD_GUI.Properties.Resources.User_Group_icon;
             this.barBtnLoaiDonVi.Name = "barBtnLoaiDonVi";
             this.barBtnLoaiDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLoaiDonVi_ItemClick);
             // 
@@ -263,7 +264,7 @@
             // btnLoaiDonVi
             // 
             this.btnLoaiDonVi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoaiDonVi.Image = global::TSCD_GUI.Properties.Resources.plus_24;
+            this.btnLoaiDonVi.Image = ((System.Drawing.Image)(resources.GetObject("btnLoaiDonVi.Image")));
             this.btnLoaiDonVi.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnLoaiDonVi.Location = new System.Drawing.Point(343, 80);
             this.btnLoaiDonVi.Name = "btnLoaiDonVi";
@@ -273,6 +274,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(181, 212);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -282,6 +284,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(100, 212);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -303,7 +306,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_24;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(317, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -314,7 +317,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_24;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(291, 0);
             this.btnThem_r.Name = "btnThem_r";

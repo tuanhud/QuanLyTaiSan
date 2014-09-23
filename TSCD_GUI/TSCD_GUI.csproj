@@ -419,8 +419,14 @@
     <None Include="Resources\plus_24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\User-Group-icon.png" />
+    <None Include="Resources\measure-icon.png" />
+    <None Include="Resources\New-room-icon.png" />
+    <None Include="Resources\search_lense_22.png" />
     <None Include="Resources\thongtinphanmem.png" />
     <None Include="Resources\backgroundthongtinphanmem.png" />
+    <None Include="Resources\arrow_up_22.png" />
+    <None Include="Resources\arrow_down_22.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\logophanmem.png" />

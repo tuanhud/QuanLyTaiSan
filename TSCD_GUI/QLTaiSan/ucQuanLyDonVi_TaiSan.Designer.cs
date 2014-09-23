@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyDonVi_TaiSan));
             this.rbnControlDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTaiSan = new DevExpress.XtraBars.BarButtonItem();
@@ -103,28 +104,36 @@
             // barBtnIn
             // 
             this.barBtnIn.Caption = "In";
+            this.barBtnIn.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnIn.Glyph")));
             this.barBtnIn.Id = 4;
+            this.barBtnIn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnIn.LargeGlyph")));
             this.barBtnIn.Name = "barBtnIn";
             this.barBtnIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIn_ItemClick);
             // 
             // barBtnChuyen
             // 
             this.barBtnChuyen.Caption = "Chuyển";
+            this.barBtnChuyen.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyen.Glyph")));
             this.barBtnChuyen.Id = 5;
+            this.barBtnChuyen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyen.LargeGlyph")));
             this.barBtnChuyen.Name = "barBtnChuyen";
             this.barBtnChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyen_ItemClick);
             // 
             // barBtnLog
             // 
             this.barBtnLog.Caption = "Log";
+            this.barBtnLog.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnLog.Glyph")));
             this.barBtnLog.Id = 6;
+            this.barBtnLog.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnLog.LargeGlyph")));
             this.barBtnLog.Name = "barBtnLog";
             this.barBtnLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLog_ItemClick);
             // 
             // barBtnImport
             // 
             this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
             this.barBtnImport.Id = 7;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
@@ -205,7 +214,7 @@
             this.navBarGroupControlContainerDonVi.Controls.Add(this.ucTreeDonVi1);
             this.navBarGroupControlContainerDonVi.Controls.Add(this.treeListDonVi);
             this.navBarGroupControlContainerDonVi.Name = "navBarGroupControlContainerDonVi";
-            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(305, 290);
+            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(307, 279);
             this.navBarGroupControlContainerDonVi.TabIndex = 0;
             // 
             // ucTreeDonVi1
@@ -214,7 +223,7 @@
             this.ucTreeDonVi1.DonVi = null;
             this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
             this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(305, 290);
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(307, 279);
             this.ucTreeDonVi1.TabIndex = 1;
             // 
             // treeListDonVi
@@ -222,7 +231,7 @@
             this.treeListDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListDonVi.Location = new System.Drawing.Point(0, 0);
             this.treeListDonVi.Name = "treeListDonVi";
-            this.treeListDonVi.Size = new System.Drawing.Size(305, 290);
+            this.treeListDonVi.Size = new System.Drawing.Size(307, 279);
             this.treeListDonVi.TabIndex = 0;
             // 
             // groupControlMain

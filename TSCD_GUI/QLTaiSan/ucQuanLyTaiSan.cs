@@ -47,7 +47,7 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxDonVi1.DonVi = objNULL;
                 ucComboBoxDonVi2.DonVi = objNULL;
-
+                ucGridControlTaiSan1.DataSource = null;
                 barBtnSuaTaiSan.Enabled = false;
                 barBtnXoaTaiSan.Enabled = false;
                 btnSua_r.Enabled = false;
