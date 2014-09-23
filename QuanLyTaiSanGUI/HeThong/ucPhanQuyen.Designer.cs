@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhanQuyen = new DevExpress.XtraGrid.GridControl();
             this.gridViewPhanQuyen = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colhoten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colusername = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhoten = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colten_group = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_create = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colten_group = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit_mota = new DevExpress.XtraEditors.MemoEdit();
@@ -66,7 +65,7 @@
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -107,7 +106,7 @@
             this.gridControlPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhanQuyen.MainView = this.gridViewPhanQuyen;
             this.gridControlPhanQuyen.Name = "gridControlPhanQuyen";
-            this.gridControlPhanQuyen.Size = new System.Drawing.Size(505, 490);
+            this.gridControlPhanQuyen.Size = new System.Drawing.Size(506, 490);
             this.gridControlPhanQuyen.TabIndex = 0;
             this.gridControlPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhanQuyen});
@@ -132,6 +131,15 @@
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colten_group, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridViewPhanQuyen.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhanQuyen_FocusedRowChanged);
             // 
+            // colusername
+            // 
+            this.colusername.Caption = "Tài khoản";
+            this.colusername.FieldName = "username";
+            this.colusername.Name = "colusername";
+            this.colusername.Visible = true;
+            this.colusername.VisibleIndex = 0;
+            this.colusername.Width = 149;
+            // 
             // colhoten
             // 
             this.colhoten.Caption = "Họ tên";
@@ -141,14 +149,13 @@
             this.colhoten.VisibleIndex = 1;
             this.colhoten.Width = 182;
             // 
-            // colusername
+            // colten_group
             // 
-            this.colusername.Caption = "Tài khoản";
-            this.colusername.FieldName = "username";
-            this.colusername.Name = "colusername";
-            this.colusername.Visible = true;
-            this.colusername.VisibleIndex = 0;
-            this.colusername.Width = 149;
+            this.colten_group.Caption = "Nhóm quyền";
+            this.colten_group.FieldName = "ten_group";
+            this.colten_group.Name = "colten_group";
+            this.colten_group.Visible = true;
+            this.colten_group.VisibleIndex = 6;
             // 
             // coldate_create
             // 
@@ -167,14 +174,6 @@
             this.coldate_modified.Visible = true;
             this.coldate_modified.VisibleIndex = 3;
             this.coldate_modified.Width = 183;
-            // 
-            // colten_group
-            // 
-            this.colten_group.Caption = "Nhóm quyền";
-            this.colten_group.FieldName = "ten_group";
-            this.colten_group.Name = "colten_group";
-            this.colten_group.Visible = true;
-            this.colten_group.VisibleIndex = 6;
             // 
             // groupControl1
             // 
@@ -219,7 +218,7 @@
             this.memoEdit_mota.MenuManager = this.ribbonPhanQuyen;
             this.memoEdit_mota.Name = "memoEdit_mota";
             this.memoEdit_mota.Properties.ReadOnly = true;
-            this.memoEdit_mota.Size = new System.Drawing.Size(252, 96);
+            this.memoEdit_mota.Size = new System.Drawing.Size(243, 96);
             this.memoEdit_mota.TabIndex = 41;
             this.memoEdit_mota.UseOptimizedRendering = true;
             // 
@@ -328,7 +327,7 @@
             this.dateCreated.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateCreated.Properties.ReadOnly = true;
-            this.dateCreated.Size = new System.Drawing.Size(252, 20);
+            this.dateCreated.Size = new System.Drawing.Size(243, 20);
             this.dateCreated.TabIndex = 25;
             this.dateCreated.EditValueChanged += new System.EventHandler(this.dateCreated_EditValueChanged);
             // 
@@ -348,7 +347,7 @@
             this.txtXacNhanMK.Name = "txtXacNhanMK";
             this.txtXacNhanMK.Properties.PasswordChar = '●';
             this.txtXacNhanMK.Properties.ReadOnly = true;
-            this.txtXacNhanMK.Size = new System.Drawing.Size(252, 20);
+            this.txtXacNhanMK.Size = new System.Drawing.Size(243, 20);
             this.txtXacNhanMK.TabIndex = 20;
             // 
             // labelControl6
@@ -372,7 +371,7 @@
             this.lookUpEdit_group.Properties.DisplayMember = "ten";
             this.lookUpEdit_group.Properties.ReadOnly = true;
             this.lookUpEdit_group.Properties.ValueMember = "id";
-            this.lookUpEdit_group.Size = new System.Drawing.Size(252, 20);
+            this.lookUpEdit_group.Size = new System.Drawing.Size(243, 20);
             this.lookUpEdit_group.TabIndex = 30;
             this.lookUpEdit_group.ToolTip = "Chỉ có thể đổi Group cho tài khoản\r\nkhác tài khoản đang đăng nhập";
             // 
@@ -444,7 +443,7 @@
             this.txtMatKhauQuanTriVien.Name = "txtMatKhauQuanTriVien";
             this.txtMatKhauQuanTriVien.Properties.PasswordChar = '●';
             this.txtMatKhauQuanTriVien.Properties.ReadOnly = true;
-            this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(252, 20);
+            this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(243, 20);
             this.txtMatKhauQuanTriVien.TabIndex = 15;
             // 
             // txtTaiKhoanQuanTriVien
@@ -454,7 +453,7 @@
             this.txtTaiKhoanQuanTriVien.Location = new System.Drawing.Point(93, 79);
             this.txtTaiKhoanQuanTriVien.Name = "txtTaiKhoanQuanTriVien";
             this.txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
-            this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(252, 20);
+            this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(243, 20);
             this.txtTaiKhoanQuanTriVien.TabIndex = 10;
             // 
             // txtTenQuanTriVien
@@ -464,7 +463,7 @@
             this.txtTenQuanTriVien.Location = new System.Drawing.Point(93, 53);
             this.txtTenQuanTriVien.Name = "txtTenQuanTriVien";
             this.txtTenQuanTriVien.Properties.ReadOnly = true;
-            this.txtTenQuanTriVien.Size = new System.Drawing.Size(252, 20);
+            this.txtTenQuanTriVien.Size = new System.Drawing.Size(243, 20);
             this.txtTenQuanTriVien.TabIndex = 5;
             // 
             // txtMaQuanTriVien
@@ -474,7 +473,7 @@
             this.txtMaQuanTriVien.Location = new System.Drawing.Point(93, 27);
             this.txtMaQuanTriVien.Name = "txtMaQuanTriVien";
             this.txtMaQuanTriVien.Properties.ReadOnly = true;
-            this.txtMaQuanTriVien.Size = new System.Drawing.Size(252, 20);
+            this.txtMaQuanTriVien.Size = new System.Drawing.Size(243, 20);
             this.txtMaQuanTriVien.TabIndex = 1;
             // 
             // dxErrorProvider1

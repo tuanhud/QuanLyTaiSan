@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlGroup = new DevExpress.XtraGrid.GridControl();
             this.gridViewGroup = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -49,7 +48,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtKey = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGroup)).BeginInit();
@@ -88,7 +87,7 @@
             this.gridControlGroup.Location = new System.Drawing.Point(0, 0);
             this.gridControlGroup.MainView = this.gridViewGroup;
             this.gridControlGroup.Name = "gridControlGroup";
-            this.gridControlGroup.Size = new System.Drawing.Size(386, 492);
+            this.gridControlGroup.Size = new System.Drawing.Size(387, 492);
             this.gridControlGroup.TabIndex = 0;
             this.gridControlGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGroup});
@@ -165,7 +164,7 @@
             // btnPhanQuyen
             // 
             this.btnPhanQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPhanQuyen.Location = new System.Drawing.Point(240, 0);
+            this.btnPhanQuyen.Location = new System.Drawing.Point(225, 0);
             this.btnPhanQuyen.Name = "btnPhanQuyen";
             this.btnPhanQuyen.Size = new System.Drawing.Size(75, 23);
             this.btnPhanQuyen.TabIndex = 1;
@@ -206,7 +205,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(144, 170);
+            this.btnHuy.Location = new System.Drawing.Point(144, 171);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 7;
@@ -252,7 +251,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTen.Location = new System.Drawing.Point(63, 54);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(252, 20);
+            this.txtTen.Size = new System.Drawing.Size(237, 20);
             this.txtTen.TabIndex = 1;
             // 
             // txtKey
@@ -261,7 +260,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKey.Location = new System.Drawing.Point(63, 28);
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(252, 20);
+            this.txtKey.Size = new System.Drawing.Size(237, 20);
             this.txtKey.TabIndex = 0;
             // 
             // txtMoTa
@@ -270,7 +269,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoTa.Location = new System.Drawing.Point(63, 80);
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(252, 84);
+            this.txtMoTa.Size = new System.Drawing.Size(237, 84);
             this.txtMoTa.TabIndex = 2;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
