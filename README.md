@@ -1,17 +1,17 @@
--Dự án: Hệ phần mềm ứng dụng quản lý phòng thiết bị,
-tài sản cố định cho trường Đại học Sài Gòn (Ban cơ sở hạ tầng)
--Năm: 2014
--Thời gian bắt đầu dự án: giữa tháng 5 năm 2014
--Thời gian kết thúc: Đang cập nhật...
--Developer: See Contributor
--Mô tả khác: Đồ án tốt nghiệp đại học CNTT khóa 10 (năm 2010) của nhóm ***
-được hướng dẫn bởi thầy Cao Thái Phương Thanh (giảng viên khoa CNTT)
+-Dự án: Hệ phần mềm ứng dụng quản lý phòng thiết bị, <br>
+tài sản cố định cho trường Đại học Sài Gòn (Ban cơ sở hạ tầng) <br>
+-Năm: 2014<br>
+-Thời gian bắt đầu dự án: giữa tháng 5 năm 2014<br>
+-Thời gian kết thúc: Đang cập nhật...<br>
+-Developer: See Contributor<br>
+-Mô tả khác: Đồ án tốt nghiệp đại học CNTT khóa 10 (năm 2010) của nhóm ***<br>
+được hướng dẫn bởi thầy Cao Thái Phương Thanh (giảng viên khoa CNTT)<br>
 
--Đặc tả kỹ thuật:
-+Ngôn ngữ chính: C#
-+Phiên bản .NET và ASP.NET: 4.0
-+Thư viện bổ trợ
-__DEVExpress 13.2
-__Sync Framework 2.1
-__Entity framework 6.1.1 target .NET 4.0
-+SQL Server 2008 R2
+-Đặc tả kỹ thuật:<br>
++Ngôn ngữ chính: C#<br>
++Phiên bản .NET và ASP.NET: 4.0<br>
++Thư viện bổ trợ<br>
+__DEVExpress 13.2<br>
+__Sync Framework 2.1<br>
+__Entity framework 6.1.1 target .NET 4.0<br>
++SQL Server 2008 R2<br>
