@@ -11,7 +11,7 @@ tài sản cố định cho trường Đại học Sài Gòn (Ban cơ sở hạ 
 +Ngôn ngữ chính: C#<br>
 +Phiên bản .NET và ASP.NET: 4.0<br>
 +Thư viện bổ trợ<br>
-__DEVExpress 13.2<br>
+__DEVExpress 13.2.9<br>
 __Sync Framework 2.1<br>
 __Entity framework 6.1.1 target .NET 4.0<br>
-+SQL Server 2008 R2<br>
++SQL Server 2008 R2 to 2012<br>
