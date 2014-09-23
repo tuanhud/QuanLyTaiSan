@@ -95,6 +95,18 @@ namespace TSCD.Entities
             base.init();
             huuhinh = true;
         }
+        public override void doTrigger()
+        {
+            if (parent != null)
+            {
+                parent.trigger();
+            }
+            if (donvitinh != null)
+            {
+                donvitinh.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

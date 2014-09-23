@@ -373,7 +373,9 @@ namespace TSCD.Entities
         {
             try
             {
-                T prev = prevObj();
+                calculateOrderColumn();
+				
+				T prev = prevObj();
                 if (prev == null)
                 {
                     return;
@@ -400,7 +402,9 @@ namespace TSCD.Entities
         /// </summary>
         public virtual void moveDown()
         {
-            T next = nextObj();
+			calculateOrderColumn();
+			
+			T next = nextObj();
             if (next == null)
             {
                 return;
@@ -509,6 +513,7 @@ namespace TSCD.Entities
         public virtual void onBeforeUpdated()
         {
             date_modified = ServerTimeHelper.getNow();
+			doTrigger();
         }
         /// <summary>
         /// Chạy nghiệp vụ trước khi được thêm vào CSDL
@@ -517,6 +522,7 @@ namespace TSCD.Entities
         {
             //time
             date_create = date_modified = (date_create == null) ? ServerTimeHelper.getNow() : date_create;
+			doTrigger();
         }
 
         public virtual void onAfterUpdated()
@@ -577,6 +583,25 @@ namespace TSCD.Entities
         public virtual void doTrigger()
         {
             
+        }
+        /// <summary>
+        /// Run before moveUp/MoveDown để đảm bảo các item đều đã có trường order
+        /// Trường Date_Created phải unique
+        /// </summary>
+        protected static void calculateOrderColumn()
+        {
+            try
+            {
+                foreach (T item in db.Set<T>().Where(c => c.order == null || c.order == 0))
+                {
+                    item.order = DateTimeHelper.toMilisec(item.date_create);
+                    item.update();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
         }
     }
 }

@@ -215,6 +215,22 @@ namespace TSCD.Entities
             }
             return base.delete();
         }
+        public override void doTrigger()
+        {
+            if(coso!=null)
+            {
+                coso.trigger();
+            }
+            if (day != null)
+            {
+                day.trigger();
+            }
+            if (tang != null)
+            {
+                tang.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

@@ -85,17 +85,6 @@ namespace TSCD.Entities
             vitris = new List<ViTri>();
             tangs = new List<Tang>();
         }
-        public override int update()
-        {
-            ////have to load all [Required] FK object first
-            //if (coso != null)
-            //{
-            //    coso.trigger();
-            //}
-            
-            //...
-            return base.update();
-        }
         public override Dayy prevObj()
         {
             Dayy prev = null;
@@ -120,6 +109,15 @@ namespace TSCD.Entities
         {
             this.order = DateTimeHelper.toMilisec(date_create);
             base.onAfterAdded();
+        }
+        public override void doTrigger()
+        {
+            if(coso!=null)
+            {
+                coso.trigger();
+            }
+
+            base.doTrigger();
         }
         #endregion
     }

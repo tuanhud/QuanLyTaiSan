@@ -80,6 +80,14 @@ namespace TSCD.Entities
             base.init();
             //Không nhất thiết phải init tất cả các thuộc tính dạng List
         }
+        public override void doTrigger()
+        {
+            if (loaitaisan != null)
+            {
+                loaitaisan.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

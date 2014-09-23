@@ -10,14 +10,13 @@ using System.Threading.Tasks;
 
 namespace TSCD.Entities
 {
-    public abstract class _EntityAbstract3<T>: _EntityAbstract1<T>  where T : _EntityAbstract3<T>
+    public abstract class _EntityAbstract3<T> : _EntityAbstract1<T> /* ,_CRUDInterface<T>*/ where T : _EntityAbstract3<T>
     {
         #region Định nghĩa thuộc tính
-        [Required(ErrorMessage = "Họ tên không được trống")]
         public String hoten { get; set; }
 
         [Index(IsUnique = true)]
-        [StringLength(100,ErrorMessage="Tên đăng nhập tối đa 100 ký tự")]
+        [StringLength(100, ErrorMessage = "Tên đăng nhập tối đa 100 ký tự")]
         [Required(ErrorMessage = "Tên đăng nhập không được để trống")]
         [Display(Name = "Tên đăng nhập")]
         public String username { get; set; }
@@ -27,77 +26,41 @@ namespace TSCD.Entities
         /// </summary>
         [Required]
         public String password { get; set; }
-        
+
         #endregion
 
         #region Nghiep vu
-        
+
         protected Boolean hashed = true;
         /// <summary>
         /// id, password hashed phải đưa vào trước </summary>
-        public Boolean checkLoginById()
+        public static Boolean checkLoginById(Guid id, String hashed_pass)
         {
             //select doi tuong len
             T obj = getById(id);
             //validate
-            if (obj == null)
+            if (obj == null || hashed_pass == null)
             {
                 return false;
             }
-            //hash password
-            if (hashed)
-            {
-                if (password.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    this.id = obj.id;
-                    return true;
-                }
-            }
-            else
-            {
-                String hash = StringHelper.SHA1_Salt(password);
-                if (hash.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return hashed_pass.ToUpper().Equals(obj.password.ToUpper());
         }
         /// <summary>
-        /// username phải đưa vào trước, password đưa vào qua hàm hashPassword </summary>
-        public Boolean checkLoginByUserName()
+        /// username phải đưa vào trước, password phải được hashed trước </summary>
+        public static Boolean checkLoginByUserName(String username, String hashed_pass)
         {
             //select doi tuong len
             T obj = getByUserName(username);
             //validate
-            if (obj == null)
+            if (obj == null || hashed_pass == null)
             {
                 return false;
             }
-            //hash password
-            if (hashed)
-            {
-                if (password.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    this.id = obj.id;
-                    return true;
-                }
-            }
-            else
-            {
-                String hash = StringHelper.SHA1_Salt(password);
-                if (hash.ToUpper().Equals(obj.password.ToUpper()))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return hashed_pass.ToUpper().Equals(obj.password.ToUpper());
         }
-
         public static Boolean isUsernameExist(String username)
         {
-            return getByUserName(username)==null?false:true;
+            return getByUserName(username) == null ? false : true;
         }
 
         public static T getByUserName(String username)
@@ -131,19 +94,27 @@ namespace TSCD.Entities
             }
 
             //đổi pass
-            hashPassword(newPass);
+            newPass = hashPassword(newPass);
             return 1;
         }
         /// <summary>
-        /// Hash password và SET vào this.password
+        /// Hash password provider
         /// </summary>
         /// <param name="raw_pass">Mật khẩu thô</param>
-        public void hashPassword(String raw_pass)
+        public static string hashPassword(String raw_pass)
         {
-            password = StringHelper.SHA1_Salt(raw_pass);
-            hashed = true;
+            return StringHelper.SHA1_Salt(raw_pass);
         }
-        
+        /// <summary>
+        /// Hash pass và đưa vào this.password
+        /// </summary>
+        /// <param name="raw_pass"></param>
+        /// <returns></returns>
+        public void setPassword(string raw_pass)
+        {
+            this.password = hashPassword(raw_pass);
+        }
+
         #endregion
         #region Override
         #endregion

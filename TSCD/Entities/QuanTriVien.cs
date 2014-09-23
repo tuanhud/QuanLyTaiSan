@@ -90,17 +90,6 @@ namespace TSCD.Entities
         {
             base.init();
         }
-        public override int update()
-        {
-            ////have to load all [Required] FK object first
-            //if (group != null)
-            //{
-            //    group.trigger();
-            //}
-            
-            //...
-            return base.update();
-        }
         /// <summary>
         /// Trước khi add phải gọi hashPassword trước
         /// </summary>
@@ -108,6 +97,14 @@ namespace TSCD.Entities
         public override int add()
         {
             return base.add();
+        }
+        public override void doTrigger()
+        {
+            if (group != null)
+            {
+                group.trigger();
+            }
+            base.doTrigger();
         }
         #endregion
     }

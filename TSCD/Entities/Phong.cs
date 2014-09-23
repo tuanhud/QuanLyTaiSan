@@ -69,13 +69,17 @@ namespace TSCD.Entities
         {
             return VNNAME + ": " + ten + ", " + vitri.niceName();
         }
-        public override int update()
+        public override void doTrigger()
         {
-            //if (vitri != null)
-            //{
-            //    vitri.trigger();
-            //}
-            return base.update();
+            if (loaiphong != null)
+            {
+                loaiphong.trigger();
+            }
+            if (vitri != null)
+            {
+                vitri.trigger();
+            }
+            base.doTrigger();
         }
         #endregion
     }

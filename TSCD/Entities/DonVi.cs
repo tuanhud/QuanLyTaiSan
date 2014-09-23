@@ -128,6 +128,18 @@ namespace TSCD.Entities
         {
             base.init();
         }
+        public override void doTrigger()
+        {
+            if (parent != null)
+            {
+                parent.trigger();
+            }
+            if (loaidonvi != null)
+            {
+                loaidonvi.trigger();
+            }
+            base.doTrigger();
+        }
         #endregion
     }
 }

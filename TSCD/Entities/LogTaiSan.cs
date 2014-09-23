@@ -117,7 +117,42 @@ namespace TSCD.Entities
         #endregion
 
         #region Override
-
+        public override void doTrigger()
+        {
+            if (phong != null)
+            {
+                phong.trigger();
+            }
+            if (vitri != null)
+            {
+                vitri.trigger();
+            }
+            if (tinhtrang != null)
+            {
+                tinhtrang.trigger();
+            }
+            if (donviquanly != null)
+            {
+                donviquanly.trigger();
+            }
+            if (donvisudung != null)
+            {
+                donvisudung.trigger();
+            }
+            if (taisan != null)
+            {
+                taisan.trigger();
+            }
+            if (quantrivien != null)
+            {
+                quantrivien.trigger();
+            }
+            if (cttaisan_parent != null)
+            {
+                cttaisan_parent.trigger();
+            }
+            base.doTrigger();
+        }
 
         #endregion
     }

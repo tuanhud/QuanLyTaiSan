@@ -50,17 +50,6 @@ namespace TSCD.Entities
             base.init();
             this.vitris = new List<ViTri>();
         }
-        public override int update()
-        {
-            ////have to load all [Required] FK object first
-            //if (day != null)
-            //{
-            //    day.trigger();
-            //}
-            
-            //...
-            return base.update();
-        }
         public override int delete()
         {
             //Nếu có ít nhất 1 phòng sử dụng vị trí chứa tầng này thì KHÔNG cho xóa
@@ -103,6 +92,14 @@ namespace TSCD.Entities
         {
             this.order = DateTimeHelper.toMilisec(date_create);
             base.onAfterAdded();
+        }
+        public override void doTrigger()
+        {
+            if (day != null)
+            {
+                day.trigger();
+            }
+            base.doTrigger();
         }
         #endregion
     }
