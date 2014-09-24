@@ -81,11 +81,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeThong\frmQuanLyNhomQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frmQuanLyNhomQuyen.Designer.cs">
+      <DependentUpon>frmQuanLyNhomQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HeThong\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
+      <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="Libraries\ExcelDataBaseHelper.cs" />
     <Compile Include="MyForm\frmCustom.cs">
@@ -277,8 +289,14 @@
       <DependentUpon>WaitFormLoad.cs</DependentUpon>
     </Compile>
     <Compile Include="_ourUcInterface.cs" />
+    <EmbeddedResource Include="HeThong\frmQuanLyNhomQuyen.resx">
+      <DependentUpon>frmQuanLyNhomQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\ucPhanQuyen.resx">
+      <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frmCustom.resx">
       <DependentUpon>frmCustom.cs</DependentUpon>
