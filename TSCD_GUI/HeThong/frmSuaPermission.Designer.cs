@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaPermission));
             this.xtraTabControl_quyenCoDinh = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage_quyenCoDinh = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
@@ -128,7 +129,7 @@
             // 
             this.xtraTabPage_quyenCoDinh.Controls.Add(this.panelControl6);
             this.xtraTabPage_quyenCoDinh.Name = "xtraTabPage_quyenCoDinh";
-            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(753, 294);
+            this.xtraTabPage_quyenCoDinh.Size = new System.Drawing.Size(754, 297);
             this.xtraTabPage_quyenCoDinh.Text = "Quyền cố định";
             // 
             // panelControl6
@@ -138,7 +139,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(753, 294);
+            this.panelControl6.Size = new System.Drawing.Size(754, 297);
             this.panelControl6.TabIndex = 0;
             // 
             // listBoxControl_quyenCoDinh
@@ -146,7 +147,7 @@
             this.listBoxControl_quyenCoDinh.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBoxControl_quyenCoDinh.Location = new System.Drawing.Point(2, 2);
             this.listBoxControl_quyenCoDinh.Name = "listBoxControl_quyenCoDinh";
-            this.listBoxControl_quyenCoDinh.Size = new System.Drawing.Size(198, 290);
+            this.listBoxControl_quyenCoDinh.Size = new System.Drawing.Size(198, 293);
             this.listBoxControl_quyenCoDinh.TabIndex = 14;
             // 
             // btnThemQuyenCoDinh
@@ -163,7 +164,7 @@
             this.xtraTabPage_quyenObject.Controls.Add(this.xtraTabControl_doiTuongCuThe);
             this.xtraTabPage_quyenObject.Controls.Add(this.groupControl2);
             this.xtraTabPage_quyenObject.Name = "xtraTabPage_quyenObject";
-            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(753, 294);
+            this.xtraTabPage_quyenObject.Size = new System.Drawing.Size(754, 297);
             this.xtraTabPage_quyenObject.Text = "Quyền trên đối tượng cụ thể";
             // 
             // xtraTabControl_doiTuongCuThe
@@ -172,7 +173,7 @@
             this.xtraTabControl_doiTuongCuThe.Location = new System.Drawing.Point(134, 0);
             this.xtraTabControl_doiTuongCuThe.Name = "xtraTabControl_doiTuongCuThe";
             this.xtraTabControl_doiTuongCuThe.SelectedTabPage = this.xtraTabPage_CoSo;
-            this.xtraTabControl_doiTuongCuThe.Size = new System.Drawing.Size(619, 294);
+            this.xtraTabControl_doiTuongCuThe.Size = new System.Drawing.Size(620, 297);
             this.xtraTabControl_doiTuongCuThe.TabIndex = 8;
             this.xtraTabControl_doiTuongCuThe.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_CoSo});
@@ -182,7 +183,7 @@
             this.xtraTabPage_CoSo.Controls.Add(this.ucTreeDonVi1);
             this.xtraTabPage_CoSo.Controls.Add(this.panelControl1);
             this.xtraTabPage_CoSo.Name = "xtraTabPage_CoSo";
-            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(613, 266);
+            this.xtraTabPage_CoSo.Size = new System.Drawing.Size(615, 272);
             this.xtraTabPage_CoSo.Text = "Đơn vị";
             // 
             // ucTreeDonVi1
@@ -191,16 +192,16 @@
             this.ucTreeDonVi1.DonVi = null;
             this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
             this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(527, 266);
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(529, 272);
             this.ucTreeDonVi1.TabIndex = 9;
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnThemQuyenDonvi);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl1.Location = new System.Drawing.Point(527, 0);
+            this.panelControl1.Location = new System.Drawing.Point(529, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(86, 266);
+            this.panelControl1.Size = new System.Drawing.Size(86, 272);
             this.panelControl1.TabIndex = 8;
             // 
             // btnThemQuyenDonvi
@@ -223,7 +224,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(134, 294);
+            this.groupControl2.Size = new System.Drawing.Size(134, 297);
             this.groupControl2.TabIndex = 9;
             this.groupControl2.Text = "Tùy chọn quyền";
             // 
@@ -282,7 +283,7 @@
             this.xtraTabPage_quyenHangMuc.Controls.Add(this.listBoxControl_quyenHangMuc);
             this.xtraTabPage_quyenHangMuc.Controls.Add(this.groupControl3);
             this.xtraTabPage_quyenHangMuc.Name = "xtraTabPage_quyenHangMuc";
-            this.xtraTabPage_quyenHangMuc.Size = new System.Drawing.Size(753, 294);
+            this.xtraTabPage_quyenHangMuc.Size = new System.Drawing.Size(754, 297);
             this.xtraTabPage_quyenHangMuc.Text = "Quyền trên hạng mục";
             // 
             // panelControl5
@@ -291,7 +292,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(311, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(442, 294);
+            this.panelControl5.Size = new System.Drawing.Size(443, 297);
             this.panelControl5.TabIndex = 13;
             // 
             // btnThemQuyenHangMuc
@@ -308,7 +309,7 @@
             this.listBoxControl_quyenHangMuc.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBoxControl_quyenHangMuc.Location = new System.Drawing.Point(134, 0);
             this.listBoxControl_quyenHangMuc.Name = "listBoxControl_quyenHangMuc";
-            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(177, 294);
+            this.listBoxControl_quyenHangMuc.Size = new System.Drawing.Size(177, 297);
             this.listBoxControl_quyenHangMuc.TabIndex = 11;
             // 
             // groupControl3
@@ -322,7 +323,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(134, 294);
+            this.groupControl3.Size = new System.Drawing.Size(134, 297);
             this.groupControl3.TabIndex = 12;
             this.groupControl3.Text = "Tùy chọn quyền";
             // 
@@ -379,6 +380,7 @@
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(595, 231);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -389,6 +391,7 @@
             // btnHuy
             // 
             this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(676, 231);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -421,6 +424,7 @@
             // btn_XoaQuyen
             // 
             this.btn_XoaQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_XoaQuyen.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaQuyen.Image")));
             this.btn_XoaQuyen.Location = new System.Drawing.Point(677, -2);
             this.btn_XoaQuyen.Name = "btn_XoaQuyen";
             this.btn_XoaQuyen.Size = new System.Drawing.Size(64, 23);

@@ -254,7 +254,7 @@
             this.checkDVSD.Location = new System.Drawing.Point(335, 32);
             this.checkDVSD.MenuManager = this.rbnControlTaiSan;
             this.checkDVSD.Name = "checkDVSD";
-            this.checkDVSD.Properties.Caption = "Đơn vị quản lý:";
+            this.checkDVSD.Properties.Caption = "Đơn vị sử dụng:";
             this.checkDVSD.Size = new System.Drawing.Size(98, 19);
             this.checkDVSD.TabIndex = 59;
             // 
@@ -263,7 +263,7 @@
             this.checkDVQL.Location = new System.Drawing.Point(335, 7);
             this.checkDVQL.MenuManager = this.rbnControlTaiSan;
             this.checkDVQL.Name = "checkDVQL";
-            this.checkDVQL.Properties.Caption = "Đơn vị sử dụng:";
+            this.checkDVQL.Properties.Caption = "Đơn vị quản lý:";
             this.checkDVQL.Size = new System.Drawing.Size(98, 19);
             this.checkDVQL.TabIndex = 58;
             // 

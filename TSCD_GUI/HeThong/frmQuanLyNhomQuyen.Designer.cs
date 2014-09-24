@@ -41,7 +41,11 @@
             this.btnPhanQuyen = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlInfo = new DevExpress.XtraEditors.PanelControl();
             this.groupControlList = new DevExpress.XtraEditors.GroupControl();
-            this.listBoxQuyen = new DevExpress.XtraEditors.ListBoxControl();
+            this.gridControlQuyen = new DevExpress.XtraGrid.GridControl();
+            this.gridViewQuyen = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.coltranslated = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryMemoMoTa = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
@@ -53,7 +57,6 @@
             this.colmota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlGroup = new DevExpress.XtraGrid.GridControl();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKey.Properties)).BeginInit();
@@ -62,7 +65,9 @@
             this.panelControlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlList)).BeginInit();
             this.groupControlList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxQuyen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlQuyen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewQuyen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoMoTa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGroup)).BeginInit();
@@ -173,9 +178,9 @@
             // 
             this.groupControlList.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlList.AppearanceCaption.Options.UseFont = true;
+            this.groupControlList.Controls.Add(this.gridControlQuyen);
             this.groupControlList.Controls.Add(this.btnClose);
             this.groupControlList.Controls.Add(this.btnPhanQuyen);
-            this.groupControlList.Controls.Add(this.listBoxQuyen);
             this.groupControlList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlList.Location = new System.Drawing.Point(0, 202);
             this.groupControlList.Name = "groupControlList";
@@ -183,17 +188,52 @@
             this.groupControlList.TabIndex = 1;
             this.groupControlList.Text = "Quyền";
             // 
-            // listBoxQuyen
+            // gridControlQuyen
             // 
-            this.listBoxQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxQuyen.DisplayMember = "translated";
-            this.listBoxQuyen.Location = new System.Drawing.Point(6, 29);
-            this.listBoxQuyen.Name = "listBoxQuyen";
-            this.listBoxQuyen.Size = new System.Drawing.Size(302, 156);
-            this.listBoxQuyen.TabIndex = 0;
-            this.listBoxQuyen.ValueMember = "id";
+            this.gridControlQuyen.Location = new System.Drawing.Point(6, 29);
+            this.gridControlQuyen.MainView = this.gridViewQuyen;
+            this.gridControlQuyen.Name = "gridControlQuyen";
+            this.gridControlQuyen.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryMemoMoTa});
+            this.gridControlQuyen.Size = new System.Drawing.Size(302, 156);
+            this.gridControlQuyen.TabIndex = 8;
+            this.gridControlQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewQuyen});
+            // 
+            // gridViewQuyen
+            // 
+            this.gridViewQuyen.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.coltranslated});
+            this.gridViewQuyen.GridControl = this.gridControlQuyen;
+            this.gridViewQuyen.Name = "gridViewQuyen";
+            this.gridViewQuyen.OptionsBehavior.Editable = false;
+            this.gridViewQuyen.OptionsBehavior.ReadOnly = true;
+            this.gridViewQuyen.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewQuyen.OptionsView.RowAutoHeight = true;
+            this.gridViewQuyen.OptionsView.ShowGroupPanel = false;
+            // 
+            // coltranslated
+            // 
+            this.coltranslated.Caption = "Quyền";
+            this.coltranslated.ColumnEdit = this.repositoryMemoMoTa;
+            this.coltranslated.FieldName = "translated";
+            this.coltranslated.Name = "coltranslated";
+            this.coltranslated.Visible = true;
+            this.coltranslated.VisibleIndex = 0;
+            // 
+            // repositoryMemoMoTa
+            // 
+            this.repositoryMemoMoTa.Name = "repositoryMemoMoTa";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(233, 191);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupControlInfo
             // 
@@ -321,16 +361,6 @@
             this.splitContainerControlMain.TabIndex = 1;
             this.splitContainerControlMain.Text = "splitContainerControl1";
             // 
-            // btnClose
-            // 
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(233, 191);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "Đóng";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // frmQuanLyNhomQuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,7 +380,9 @@
             this.panelControlInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlList)).EndInit();
             this.groupControlList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxQuyen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlQuyen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewQuyen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryMemoMoTa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
@@ -375,7 +407,6 @@
         private DevExpress.XtraEditors.PanelControl panelControlInfo;
         private DevExpress.XtraEditors.GroupControl groupControlList;
         private DevExpress.XtraEditors.SimpleButton btnPhanQuyen;
-        private DevExpress.XtraEditors.ListBoxControl listBoxQuyen;
         private DevExpress.XtraEditors.GroupControl groupControlInfo;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnOK;
@@ -389,5 +420,9 @@
         private DevExpress.XtraEditors.SimpleButton btnSua_r;
         private DevExpress.XtraEditors.SimpleButton btnThem_r;
         private DevExpress.XtraEditors.SimpleButton btnClose;
+        private DevExpress.XtraGrid.GridControl gridControlQuyen;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewQuyen;
+        private DevExpress.XtraGrid.Columns.GridColumn coltranslated;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemoMoTa;
     }
 }
