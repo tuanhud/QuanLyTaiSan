@@ -11,7 +11,6 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using TSCD.DataFilter;
 using TSCD_GUI.MyForm;
-using TSCD.Entities;
 
 namespace TSCD_GUI.HeThong
 {

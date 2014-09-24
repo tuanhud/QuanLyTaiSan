@@ -97,7 +97,7 @@ namespace SHARED.Libraries
                 }
                 return re;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
