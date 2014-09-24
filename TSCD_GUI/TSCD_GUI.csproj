@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HeThong\frmSuaPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\frmSuaPermission.Designer.cs">
+      <DependentUpon>frmSuaPermission.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
       <DependentUpon>WaitFormLoad.cs</DependentUpon>
     </Compile>
     <Compile Include="_ourUcInterface.cs" />
+    <EmbeddedResource Include="HeThong\frmSuaPermission.resx">
+      <DependentUpon>frmSuaPermission.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

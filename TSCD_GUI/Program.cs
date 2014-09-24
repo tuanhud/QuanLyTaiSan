@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TSCD;
 using TSCD.Entities;
+using TSCD_GUI.HeThong;
 
 namespace TSCD_GUI
 {
@@ -33,8 +34,8 @@ namespace TSCD_GUI
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
             //Application.Run(new Test());
-            Application.Run(new Setting());
-            //Application.Run(new frmSuaPermission(QuanTriVien.getByUserName("admin").group.permissions.ToList()));
+            //Application.Run(new Setting());
+            Application.Run(new frmSuaPermission(new List<Permission>()));
             //Application.Run(new frmMain());
             //Application.Run(new SplashScreen1());
         }

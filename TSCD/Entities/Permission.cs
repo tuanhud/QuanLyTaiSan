@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -151,6 +152,62 @@ namespace TSCD.Entities
         public static bool canDo(string p)
         {
             return true;
+        }
+
+        /// <summary>
+        /// Chỉ có stand_alone Permission là mới tái sử dụng được object trong CSDL
+        /// </summary>
+        /// <param name="fixed_permission"></param>
+        /// <returns></returns>
+        public static Permission request(String fixed_permission = "")
+        {
+            try
+            {
+                if (fixed_permission == null || fixed_permission.Equals(""))
+                {
+                    return null;
+                }
+                Permission tmp = db.PERMISSIONS.Where(c =>
+                    Permission.STAND_ALONE_LIST.Contains(fixed_permission.ToUpper())
+                    &&
+                    c.allow_or_deny
+                    &&
+                    c.stand_alone
+                    &&
+                    c.key.ToUpper().Equals(fixed_permission.ToUpper())
+                ).FirstOrDefault();
+                if (tmp == null)
+                {
+                    tmp = new Permission();
+                    tmp.key = fixed_permission.ToUpper();
+                    tmp.stand_alone = true;
+                    tmp.recursive_to_child = true;
+                    tmp.allow_or_deny = true;
+                }
+                return tmp;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return null;
+            }
+        }
+        public static Permission request(Boolean stand_alone = false, String key = "", Boolean allow_or_deny = false, Boolean recursive_to_child = false, Boolean can_view = false, Boolean can_edit = false, Boolean can_delete = false, Boolean can_add = false)
+        {
+            if (key == null || key.Equals(""))
+            {
+                return null;
+            }
+            Permission tmp = new Permission();
+            tmp.key = key.ToUpper();
+            tmp.stand_alone = stand_alone;
+            tmp.recursive_to_child = recursive_to_child;
+            tmp.allow_or_deny = allow_or_deny;
+            tmp.can_add = can_add;
+            tmp.can_delete = can_delete;
+            tmp.can_edit = can_edit;
+            tmp.can_view = can_view;
+            return tmp;
         }
     }
 }
