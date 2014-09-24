@@ -1,0 +1,23 @@
+﻿Báo cáo trên 50 trang
+
+4 chương
+giới thiệu
+kết luận
+Nội dung
+Mô tả
+
+-Phân tích thiết kết (20 trang)
+-Thực thi
+	+ Chụp giao diện
+-Kiểm thử (5-7 trang)
+-Triển khai
+	+ Cài đặt, Test
+
+Sơ đồ:
+Class
+Mô tả
+comcept
+... (những sơ đồ thầy dạy)
+
+ko kể quy trình thiết kế giao diện nhưng phải chụp giao diện
+
