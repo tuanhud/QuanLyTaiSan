@@ -59,7 +59,7 @@ namespace TSCD_GUI.HeThong
         private void clearPermission()
         {
             listPermission.Clear();
-            listBoxQuyen.DataSource = null;
+            gridControlQuyen.DataSource = null;
         }
 
         private void SetTextGroupControl(String text, Color color)
@@ -74,7 +74,7 @@ namespace TSCD_GUI.HeThong
             btnHuy.Visible = _enable;
             //btnPhanQuyen.Visible = _enable;
             //Không được phân quyền cho Group của mình
-            //btnPhanQuyen.Enabled = (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
+            btnPhanQuyen.Enabled = !_enable; // (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
             txtKey.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
@@ -94,7 +94,7 @@ namespace TSCD_GUI.HeThong
             txtKey.Text = "";
             txtTen.Text = "";
             txtMoTa.Text = "";
-            listBoxQuyen.DataSource = null;
+            gridControlQuyen.DataSource = null;
         }
 
         private void gridViewGroup_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -117,7 +117,7 @@ namespace TSCD_GUI.HeThong
                         txtKey.Text = objGroup.key;
                         txtTen.Text = objGroup.ten;
                         txtMoTa.Text = objGroup.mota;
-                        listBoxQuyen.DataSource = objGroup.permissions.ToList();
+                        gridControlQuyen.DataSource = objGroup.permissions.ToList();
                         listPermission = objGroup.permissions.ToList();
                     }
                     else
@@ -248,12 +248,12 @@ namespace TSCD_GUI.HeThong
 
         private void btnPhanQuyen_Click(object sender, EventArgs e)
         {
-            //frmSuaPermission frm = new frmSuaPermission(new List<Permission>(listPermission));
-            //if (frm.ShowDialog() == DialogResult.Yes)
-            //{
-            //    listPermission = frm.getResult();
-            //    listBoxQuyen.DataSource = listPermission;
-            //}
+            frmSuaPermission frm = new frmSuaPermission(new List<Permission>(listPermission));
+            if (frm.ShowDialog() == DialogResult.Yes)
+            {
+                listPermission = frm.getResult();
+                gridControlQuyen.DataSource = listPermission;
+            }
         }
 
         public bool checkworking()
