@@ -25,7 +25,10 @@ namespace TSCD.Entities
         /// </summary>
         [Required]
         public long dongia { get; set; }
-
+        /// <summary>
+        /// Nước sản xuất
+        /// </summary>
+        public String nuocsx { get; set; }
         /*
          * FK
          */

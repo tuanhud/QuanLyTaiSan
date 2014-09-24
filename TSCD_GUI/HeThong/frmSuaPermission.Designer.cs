@@ -36,8 +36,9 @@
             this.xtraTabPage_quyenObject = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl_doiTuongCuThe = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage_CoSo = new DevExpress.XtraTab.XtraTabPage();
+            this.ucTreeDonVi1 = new TSCD_GUI.MyUserControl.ucTreeDonVi();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnThemQuyenCoSo = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThemQuyenDonvi = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.checkEdit_quyenXoa = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit_quyenXem = new DevExpress.XtraEditors.CheckEdit();
@@ -67,7 +68,6 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.panelControl_TOP = new DevExpress.XtraEditors.PanelControl();
-            this.ucTreeDonVi1 = new TSCD_GUI.MyUserControl.ucTreeDonVi();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl_quyenCoDinh)).BeginInit();
             this.xtraTabControl_quyenCoDinh.SuspendLayout();
             this.xtraTabPage_quyenCoDinh.SuspendLayout();
@@ -185,23 +185,32 @@
             this.xtraTabPage_CoSo.Size = new System.Drawing.Size(613, 266);
             this.xtraTabPage_CoSo.Text = "Đơn vị";
             // 
+            // ucTreeDonVi1
+            // 
+            this.ucTreeDonVi1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucTreeDonVi1.DonVi = null;
+            this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
+            this.ucTreeDonVi1.Name = "ucTreeDonVi1";
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(527, 266);
+            this.ucTreeDonVi1.TabIndex = 9;
+            // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnThemQuyenCoSo);
+            this.panelControl1.Controls.Add(this.btnThemQuyenDonvi);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelControl1.Location = new System.Drawing.Point(527, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(86, 266);
             this.panelControl1.TabIndex = 8;
             // 
-            // btnThemQuyenCoSo
+            // btnThemQuyenDonvi
             // 
-            this.btnThemQuyenCoSo.Location = new System.Drawing.Point(5, 5);
-            this.btnThemQuyenCoSo.Name = "btnThemQuyenCoSo";
-            this.btnThemQuyenCoSo.Size = new System.Drawing.Size(75, 23);
-            this.btnThemQuyenCoSo.TabIndex = 7;
-            this.btnThemQuyenCoSo.Text = "Cấp quyền";
-            this.btnThemQuyenCoSo.Click += new System.EventHandler(this.btnThemQuyenCoSo_Click);
+            this.btnThemQuyenDonvi.Location = new System.Drawing.Point(5, 5);
+            this.btnThemQuyenDonvi.Name = "btnThemQuyenDonvi";
+            this.btnThemQuyenDonvi.Size = new System.Drawing.Size(75, 23);
+            this.btnThemQuyenDonvi.TabIndex = 7;
+            this.btnThemQuyenDonvi.Text = "Cấp quyền";
+            this.btnThemQuyenDonvi.Click += new System.EventHandler(this.btnThemQuyenDonvi_Click);
             // 
             // groupControl2
             // 
@@ -476,15 +485,6 @@
             this.panelControl_TOP.Size = new System.Drawing.Size(763, 326);
             this.panelControl_TOP.TabIndex = 11;
             // 
-            // ucTreeDonVi1
-            // 
-            this.ucTreeDonVi1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTreeDonVi1.DonVi = null;
-            this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
-            this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(527, 266);
-            this.ucTreeDonVi1.TabIndex = 9;
-            // 
             // frmSuaPermission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -545,7 +545,7 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl_quyenCoDinh;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage_quyenCoDinh;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage_quyenObject;
-        private DevExpress.XtraEditors.SimpleButton btnThemQuyenCoSo;
+        private DevExpress.XtraEditors.SimpleButton btnThemQuyenDonvi;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl_doiTuongCuThe;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage_CoSo;
         private DevExpress.XtraEditors.SimpleButton btnOK;

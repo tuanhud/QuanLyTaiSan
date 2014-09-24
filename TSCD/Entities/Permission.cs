@@ -75,6 +75,8 @@ namespace TSCD.Entities
         protected override void init()
         {
             base.init();
+            donvis = new List<DonVi>();
+            groups = new List<Group>();
         }
         #endregion
 
@@ -140,7 +142,37 @@ namespace TSCD.Entities
         {
             get
             {
-                return "";
+                String delimiter = " | ";
+                String tmp = "";
+                tmp += allow_or_deny ? "Cho phép: " : "Cấm: ";
+                tmp += can_view ? "Xem, " : "";
+                tmp += can_add ? "Thêm, " : "";
+                tmp += can_edit ? "Sửa, " : "";
+                tmp += can_delete ? "Xóa, " : "";
+
+                tmp += "trên ";
+
+                //đơn vị
+                if (key.ToUpper().Equals(DonVi.USNAME))
+                {
+                    if (donvis.Count == 0)
+                    {
+                        tmp += "tất cả " + DonVi.VNNAME + " ";
+                    }
+                    else
+                    {
+                        tmp += DonVi.VNNAME + " {";
+                        tmp += String.Join(delimiter, donvis.Select(c => c.niceName()));//c.ten+" [ID="+c.id+"]"));
+                        tmp += "} ";
+                    }
+                    goto done;
+                }
+                
+                tmp += " " + key + " ";
+                return tmp;
+                done:
+                    tmp += recursive_to_child && !stand_alone ? " (và tất cả các đối tượng trực thuộc)" : "";
+                    return tmp;
             }
         }
 

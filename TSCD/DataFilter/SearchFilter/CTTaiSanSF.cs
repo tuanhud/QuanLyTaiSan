@@ -28,6 +28,7 @@ namespace TSCD.DataFilter.SearchFilter
             }
             if (loaiTaiSan != null)
             {
+                //tim kiem de quy cho loai tai san
                 List<LoaiTaiSan> list = loaiTaiSan.getAllChildsRecursive(true);
                 List<Guid> list_id = list.Select(c => c.id).ToList();
 
@@ -41,7 +42,11 @@ namespace TSCD.DataFilter.SearchFilter
                 }
                 else
                 {
-                    query = query.Where(c => (c.donviquanly != null) && (c.donviquanly.id == donViQuanLy.id));
+                    //tim kiem de quy cho dvquanly
+                    List<DonVi> list = donViQuanLy.getAllChildsRecursive();
+                    List<Guid> list_id = list.Select(c => c.id).ToList();
+
+                    query = query.Where(c => (c.donviquanly != null) && (list_id.Contains(c.donviquanly.id)));
                 }
             }
             if (timTheoDonViSD)
@@ -52,7 +57,11 @@ namespace TSCD.DataFilter.SearchFilter
                 }
                 else
                 {
-                    query = query.Where(c => (c.donvisudung != null) && (c.donvisudung.id == donViSuDung.id));
+                     //tim kiem de quy cho dvquanly
+                    List<DonVi> list = donViSuDung.getAllChildsRecursive();
+                    List<Guid> list_id = list.Select(c => c.id).ToList();
+
+                    query = query.Where(c => (c.donvisudung != null) && (list_id.Contains(c.donvisudung.id)));
                 }
             }
             return query;

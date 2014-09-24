@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1790A3F3-4540-4524-B031-6A159AD400DA}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TSCD</RootNamespace>
     <AssemblyName>TSCD</AssemblyName>
@@ -122,6 +122,10 @@
     <Compile Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.Designer.cs">
       <DependentUpon>201409061514123_rollback_LogHeThong_PrimaryKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.cs" />
+    <Compile Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.Designer.cs">
+      <DependentUpon>201409242349347_them_nuoc_san_xuat_choTaiSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,15 +134,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.resx">
       <DependentUpon>201409061514123_rollback_LogHeThong_PrimaryKey.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.resx">
+      <DependentUpon>201409242349347_them_nuoc_san_xuat_choTaiSan.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

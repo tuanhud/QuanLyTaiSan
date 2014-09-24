@@ -10,7 +10,7 @@ namespace TSCD
     {
         static void Main(string[] args)
         {
-            Application.Run(new Test());
+            //Application.Run(new Test());
         }
     }
 }
