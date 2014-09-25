@@ -153,7 +153,7 @@ namespace TSCD_GUI.QLTaiSan
         {
             try
             {
-                dateNgayGhi.EditValue = obj.ngay;
+                dateNgaySD.EditValue = obj.ngay;
                 txtSoHieu_CT.Text = obj.chungtu_sohieu;
                 dateNgay_CT.EditValue = obj.chungtu_ngay;
                 txtMa.Text = obj.taisan.subId;
@@ -162,6 +162,7 @@ namespace TSCD_GUI.QLTaiSan
                 txtSoLuong.EditValue = obj.soluong;
                 txtDonGia.EditValue = obj.taisan.dongia;
                 lookUpTinhTrang.EditValue = obj.tinhtrang_id;
+                txtNSX.Text = obj.taisan.nuocsx;
                 txtNguonGoc.Text = obj.nguongoc;
                 txtGhiChu.Text = obj.mota;
                 listCTTaiSan = obj.childs.ToList();
@@ -245,14 +246,14 @@ namespace TSCD_GUI.QLTaiSan
                 ts.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
                 ts.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
                 ts.subId = txtMa.Text;
-
+                ts.nuocsx = txtNSX.Text;
 
                 CTTaiSan obj = new CTTaiSan();
 
                 obj.taisan = ts;
                 obj.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
                 obj.chungtu_sohieu = txtSoHieu_CT.Text;
-                obj.ngay = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
+                obj.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
                 obj.nguongoc = txtNguonGoc.Text;
                 obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);
                 obj.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
@@ -296,7 +297,8 @@ namespace TSCD_GUI.QLTaiSan
                 objCTTaiSan.taisan.subId = txtMa.Text;
                 objCTTaiSan.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
                 objCTTaiSan.chungtu_sohieu = txtSoHieu_CT.Text;
-                objCTTaiSan.ngay = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
+                objCTTaiSan.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
+                objCTTaiSan.taisan.nuocsx = txtNSX.Text;
                 objCTTaiSan.nguongoc = txtNguonGoc.Text;
                 objCTTaiSan.soluong = Convert.ToInt32(txtSoLuong.EditValue);
                 objCTTaiSan.tinhtrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
