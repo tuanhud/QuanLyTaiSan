@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -219,6 +221,82 @@ namespace SHARED.Libraries
                     }
                 }
             }
+        }
+
+        public static DataSet FillDatasetFromGrid(DevExpress.XtraGrid.Views.Grid.GridView _GridView)
+        {
+            DataSet _DataSet = new DataSet();
+            DataTable _DataTable = new DataTable();
+            if (!Object.Equals(_GridView, null))
+            {
+                foreach (GridColumn _GridColumn in _GridView.Columns)
+                {
+                    _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName, _GridColumn.ColumnType);
+                    if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
+                    {
+                        if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                        {
+                            _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING", typeof(String));
+                        }
+                    }
+                }
+                for (int i = 0; i < _GridView.DataRowCount; i++)
+                {
+                    DataRow _DataRow = _DataTable.NewRow();
+                    foreach (GridColumn _GridColumn in _GridView.Columns)
+                    {
+                        _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = _GridView.GetRowCellValue(i, _GridColumn);
+                        if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
+                        {
+                            if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                            {
+                                _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = _GridView.GetRowCellValue(i, _GridColumn);
+                            }
+                        }
+                    }
+                    _DataTable.Rows.Add(_DataRow);
+                }
+            }
+            _DataSet.Tables.Add(_DataTable);
+            return _DataSet;
+        }
+
+        public static DataSet FillDatasetFromGrid(DevExpress.XtraGrid.Views.BandedGrid.BandedGridView _BandedGridView)
+        {
+            DataSet _DataSet = new DataSet();
+            DataTable _DataTable = new DataTable();
+            if (!Object.Equals(_BandedGridView, null))
+            {
+                foreach (GridColumn _GridColumn in _BandedGridView.Columns)
+                {
+                    _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName, _GridColumn.ColumnType);
+                    if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
+                    {
+                        if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                        {
+                            _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING", typeof(String));
+                        }
+                    }
+                }
+                for (int i = 0; i < _BandedGridView.DataRowCount; i++)
+                {
+                    DataRow _DataRow = _DataTable.NewRow();
+                    foreach (GridColumn _GridColumn in _BandedGridView.Columns)
+                    {
+                        _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                        if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
+                        {
+                            if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                            {
+                                _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                            }
+                        }
+                    }
+                    _DataTable.Rows.Add(_DataRow);
+                }
+            }
+            _DataSet.Tables.Add(_DataTable);
+            return _DataSet;
         }
     }
 }
