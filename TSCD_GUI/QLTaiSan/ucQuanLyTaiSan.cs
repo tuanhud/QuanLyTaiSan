@@ -12,6 +12,7 @@ using TSCD.Entities;
 using SHARED.Libraries;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using TSCD.DataFilter.SearchFilter;
+using DevExpress.XtraReports.UI;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -186,6 +187,18 @@ namespace TSCD_GUI.QLTaiSan
                 }
 
             }
+        }
+
+        private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
+            ReportPrintTool _ReportPrintTool = new ReportPrintTool(_XtraReportTSCD_Grid);
+            _ReportPrintTool.ShowPreviewDialog();
+        }
+
+        private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

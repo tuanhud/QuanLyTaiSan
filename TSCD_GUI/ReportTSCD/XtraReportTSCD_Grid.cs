@@ -18,10 +18,9 @@ namespace TSCD_GUI.ReportTSCD
             winControlContainer_GridControl.WinControl = _GridControl;
         }
 
-        public XtraReportTSCD_Grid(DevExpress.XtraGrid.GridControl _GridControl, Boolean Landscape)
+        public XtraReportTSCD_Grid(DevExpress.XtraGrid.GridControl _GridControl)
         {
             InitializeComponent();
-            this.Landscape = Landscape;
             this._GridControl = _GridControl;
             this._GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             InitGridView();

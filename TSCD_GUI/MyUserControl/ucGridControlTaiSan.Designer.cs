@@ -582,7 +582,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControlTaiSan;
+        public DevExpress.XtraGrid.GridControl gridControlTaiSan;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridViewTSKemTheo;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngayghi2;
