@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB {
+namespace TSCD_WEB.UserControl.ViTri {
     
     
-    public partial class Default {
+    public partial class ucViTri_BreadCrumb {
         
         /// <summary>
-        /// ucTimKiem control.
+        /// ucTimKiem_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem;
+        protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem_Mobile;
         
         /// <summary>
-        /// ucFooter control.
+        /// Label_TenViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.Footer.ucFooter ucFooter;
+        public global::System.Web.UI.WebControls.Label Label_TenViTri;
+        
+        /// <summary>
+        /// ucTimKiem_Web control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem_Web;
     }
 }

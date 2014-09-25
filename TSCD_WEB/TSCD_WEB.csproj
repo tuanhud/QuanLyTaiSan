@@ -38,6 +38,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -126,6 +136,7 @@
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\docs.min.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -144,6 +155,16 @@
     <Content Include="Scripts\scriptgates.js" />
     <Content Include="Scripts\sha1.js" />
     <Content Include="TaiSan.aspx" />
+    <Content Include="UserControl\Alert\ucDanger.ascx" />
+    <Content Include="UserControl\Alert\ucInfo.ascx" />
+    <Content Include="UserControl\Alert\ucSuccess.ascx" />
+    <Content Include="UserControl\Alert\ucWarning.ascx" />
+    <Content Include="UserControl\Footer\ucFooter.ascx" />
+    <Content Include="UserControl\TimKiem\ucTimKiem.ascx" />
+    <Content Include="UserControl\TreeViTri\ucTreeViTri.ascx" />
+    <Content Include="UserControl\ViTri\ucViTri_BreadCrumb.ascx" />
+    <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
+    <Content Include="UserControl\ViTri\ucViTri_Web.ascx" />
     <Content Include="ViTri.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -170,6 +191,7 @@
     <Compile Include="DonViTaiSan.aspx.designer.cs">
       <DependentUpon>DonViTaiSan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Library\DoSearch.cs" />
     <Compile Include="LoaiTaiSan.aspx.cs">
       <DependentUpon>LoaiTaiSan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +220,76 @@
     </Compile>
     <Compile Include="TaiSan.aspx.designer.cs">
       <DependentUpon>TaiSan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucDanger.ascx.cs">
+      <DependentUpon>ucDanger.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucDanger.ascx.designer.cs">
+      <DependentUpon>ucDanger.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucInfo.ascx.cs">
+      <DependentUpon>ucInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucInfo.ascx.designer.cs">
+      <DependentUpon>ucInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucSuccess.ascx.cs">
+      <DependentUpon>ucSuccess.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucSuccess.ascx.designer.cs">
+      <DependentUpon>ucSuccess.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucWarning.ascx.cs">
+      <DependentUpon>ucWarning.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Alert\ucWarning.ascx.designer.cs">
+      <DependentUpon>ucWarning.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Footer\ucFooter.ascx.cs">
+      <DependentUpon>ucFooter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Footer\ucFooter.ascx.designer.cs">
+      <DependentUpon>ucFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TimKiem\ucTimKiem.ascx.cs">
+      <DependentUpon>ucTimKiem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TimKiem\ucTimKiem.ascx.designer.cs">
+      <DependentUpon>ucTimKiem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\TreeViTri\ucTreeViTri.ascx.cs">
+      <DependentUpon>ucTreeViTri.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\TreeViTri\ucTreeViTri.ascx.designer.cs">
+      <DependentUpon>ucTreeViTri.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_BreadCrumb.ascx.cs">
+      <DependentUpon>ucViTri_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucViTri_BreadCrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Mobile.ascx.cs">
+      <DependentUpon>ucViTri_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Mobile.ascx.designer.cs">
+      <DependentUpon>ucViTri_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Web.ascx.cs">
+      <DependentUpon>ucViTri_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ViTri\ucViTri_Web.ascx.designer.cs">
+      <DependentUpon>ucViTri_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViTri.aspx.cs">
       <DependentUpon>ViTri.aspx</DependentUpon>
@@ -230,7 +322,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserControl\" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -22,22 +22,22 @@ namespace TSCD
         {
             get
             {
-                //if (SHARED.Global.WEB_MODE)
-                //{
-                //    QuanTriVien tmp = HttpContext.Current.Items["current_quantrivien_login"] as QuanTriVien;
-                //    if (tmp == null)
-                //    {
-                //        return null;
-                //    }
-                //    tmp = tmp.reload();
-                //    HttpContext.Current.Items["current_quantrivien_login"] = tmp;
-                //    return tmp;
-                //}
-                //else
-                //{
+                if (SHARED.Global.WEB_MODE)
+                {
+                    QuanTriVien tmp = HttpContext.Current.Items["current_quantrivien_login"] as QuanTriVien;
+                    if (tmp == null)
+                    {
+                        return null;
+                    }
+                    tmp = tmp.reload();
+                    HttpContext.Current.Items["current_quantrivien_login"] = tmp;
+                    return tmp;
+                }
+                else
+                {
                     //very importance because of OLD DBCONTEXT
                     return _current_quantrivien_login = _current_quantrivien_login == null ? null : _current_quantrivien_login.reload();
-                //}
+                }
             }
             set
             {
