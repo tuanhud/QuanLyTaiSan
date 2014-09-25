@@ -45,7 +45,7 @@ namespace TSCD.DataFilter
                     ngay_ct = ct.chungtu_ngay,
                     ten = ct.taisan.ten,
                     loaits = ct.taisan.loaitaisan.ten,
-                    donvitinh = ct.taisan.loaitaisan.donvitinh.ten,
+                    donvitinh = ct.taisan.loaitaisan.donvitinh != null ? ct.taisan.loaitaisan.donvitinh.ten : "",
                     soluong = ct.soluong,
                     dongia = ct.taisan.dongia,
                     thanhtien = ct.soluong * ct.taisan.dongia,
