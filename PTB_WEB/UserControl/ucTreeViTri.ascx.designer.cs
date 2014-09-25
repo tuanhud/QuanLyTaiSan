@@ -58,12 +58,12 @@ namespace PTB_WEB.UserControl {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton_Collapse;
         
         /// <summary>
-        /// ASPxTreeList_ViTri control.
+        /// PanelTreeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList_ViTri;
+        protected global::System.Web.UI.WebControls.Panel PanelTreeList;
     }
 }

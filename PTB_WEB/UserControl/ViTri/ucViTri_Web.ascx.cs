@@ -36,6 +36,7 @@ namespace PTB_WEB.UserControl.ViTri
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
+                _ucTreeViTri.CreateTreeList();
                 _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();

@@ -124,7 +124,8 @@ namespace PTB_WEB.UserControl.ThietBi
             ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("2", p2, null));
             ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("3", c1, "2"));
             ListTreeThietBi.Add(new Libraries.DrawTreeHelper.TreeThietBi("4", c2, "2"));
-            _ucTreeViTri.ASPxTreeList_ViTri.DataSource = ListTreeThietBi;
+            _ucTreeViTri.CreateTreeList();
+                    _ucTreeViTri.ASPxTreeList_ViTri.DataSource = ListTreeThietBi;
             _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
         }
 

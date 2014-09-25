@@ -25,7 +25,8 @@ namespace PTB_WEB.UserControl.LoaiThietBis
             listLoaiThietBi = PTB.Entities.LoaiThietBi.getAll();
             if (listLoaiThietBi.Count > 0)
             {
-                _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiThietBi;
+                _ucTreeViTri.CreateTreeList();
+                    _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiThietBi;
                 _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();
                 if (Request.QueryString["key"] != null)

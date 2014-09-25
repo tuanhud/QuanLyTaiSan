@@ -40,6 +40,7 @@ namespace PTB_WEB.UserControl.SuCo
             {
                 if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(PTB.Entities.Phong).Name)).FirstOrDefault() != null)
                 {
+                    _ucTreeViTri.CreateTreeList();
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)

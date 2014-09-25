@@ -323,3 +323,13 @@ legend {
     font-weight: normal !important;
 }
 
+.dxtlControl_Moderno, .dxtlDataTable{
+    border: none !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.dxtlFocusedNode_Moderno {
+    background-color:transparent;
+    color: #fe8f01;
+    font-weight:bold;
+}

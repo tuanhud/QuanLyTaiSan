@@ -39,6 +39,7 @@ namespace PTB_WEB.UserControl.PhongThietBi
                 if (listViTriHienThi.Where(item => Object.Equals(item.loai, typeof(PTB.Entities.Phong).Name)).FirstOrDefault() != null)
                 {
                     Panel_Chinh.Visible = true;
+                    _ucTreeViTri.CreateTreeList();
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)
