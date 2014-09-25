@@ -51,15 +51,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -86,7 +95,7 @@
     </Compile>
     <Compile Include="HeThong\frmSuaPermission.Designer.cs">
       <DependentUpon>frmSuaPermission.cs</DependentUpon>
-	</Compile>  
+    </Compile>
     <Compile Include="HeThong\frmQuanLyNhomQuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +255,12 @@
     <Compile Include="QLViTri\ucQuanLyViTri.Designer.cs">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportTSCD\XtraReportTSCD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReportTSCD.Designer.cs">
+      <DependentUpon>XtraReportTSCD.cs</DependentUpon>
+    </Compile>
     <Compile Include="RibbonFormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,7 +312,7 @@
     <Compile Include="_ourUcInterface.cs" />
     <EmbeddedResource Include="HeThong\frmSuaPermission.resx">
       <DependentUpon>frmSuaPermission.cs</DependentUpon>
-	</EmbeddedResource>  
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\frmQuanLyNhomQuyen.resx">
       <DependentUpon>frmQuanLyNhomQuyen.cs</DependentUpon>
     </EmbeddedResource>
@@ -384,6 +399,9 @@
     <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReportTSCD.resx">
+      <DependentUpon>XtraReportTSCD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,8 +430,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" >
-	</None>
+    <None Include="packages.config">
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_2.png" />
@@ -460,6 +478,7 @@
     <None Include="Resources\logophanmem.png" />
     <None Include="Resources\login1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -62,14 +62,13 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 46.87497F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 11.45833F;
+            this.BottomMargin.HeightF = 12.5F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -78,13 +77,13 @@
             // 
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrPageInfo1});
-            this.PageFooter.HeightF = 34.375F;
+            this.PageFooter.HeightF = 50F;
             this.PageFooter.Name = "PageFooter";
             // 
             // xrPageInfo1
             // 
             this.xrPageInfo1.Format = "Trang {0}/ {1}";
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 11.37498F);
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 9.999974F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo1.SizeF = new System.Drawing.SizeF(116.625F, 23F);
@@ -96,7 +95,7 @@
             this.xrLabel2,
             this.xrLabel_KeToanTruong,
             this.xrLabel_BanGiamHieu});
-            this.ReportFooter.HeightF = 298.9583F;
+            this.ReportFooter.HeightF = 300F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrPageInfo_CurrentDay
@@ -148,7 +147,7 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel1,
             this.xrLabel_Title});
-            this.ReportHeader.HeightF = 147.9166F;
+            this.ReportHeader.HeightF = 150F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // xrLabel1
@@ -185,7 +184,7 @@
             this.ReportFooter,
             this.ReportHeader});
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 47, 11);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 100, 12);
             this.Version = "13.2";
             this.VerticalContentSplitting = DevExpress.XtraPrinting.VerticalContentSplitting.Smart;
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
