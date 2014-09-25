@@ -60,7 +60,7 @@
             // 
             this.winControlContainer_GridControl.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.winControlContainer_GridControl.Name = "winControlContainer_GridControl";
-            this.winControlContainer_GridControl.SizeF = new System.Drawing.SizeF(999.9999F, 100F);
+            this.winControlContainer_GridControl.SizeF = new System.Drawing.SizeF(1050F, 100F);
             this.winControlContainer_GridControl.WinControl = null;
             // 
             // TopMargin
@@ -89,7 +89,7 @@
             // xrLabel_DonViTinh
             // 
             this.xrLabel_DonViTinh.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_DonViTinh.LocationFloat = new DevExpress.Utils.PointFloat(850.0001F, 125F);
+            this.xrLabel_DonViTinh.LocationFloat = new DevExpress.Utils.PointFloat(900.0001F, 125F);
             this.xrLabel_DonViTinh.Multiline = true;
             this.xrLabel_DonViTinh.Name = "xrLabel_DonViTinh";
             this.xrLabel_DonViTinh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -102,7 +102,7 @@
             // xrLabel_Title
             // 
             this.xrLabel_Title.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_Title.LocationFloat = new DevExpress.Utils.PointFloat(187.5F, 75F);
+            this.xrLabel_Title.LocationFloat = new DevExpress.Utils.PointFloat(212.5F, 75F);
             this.xrLabel_Title.Multiline = true;
             this.xrLabel_Title.Name = "xrLabel_Title";
             this.xrLabel_Title.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -115,7 +115,7 @@
             // xrLabel_MauBaoCao
             // 
             this.xrLabel_MauBaoCao.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_MauBaoCao.LocationFloat = new DevExpress.Utils.PointFloat(732.9165F, 0F);
+            this.xrLabel_MauBaoCao.LocationFloat = new DevExpress.Utils.PointFloat(782.9166F, 0F);
             this.xrLabel_MauBaoCao.Multiline = true;
             this.xrLabel_MauBaoCao.Name = "xrLabel_MauBaoCao";
             this.xrLabel_MauBaoCao.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -166,7 +166,7 @@
             // xrLabel_KeToanTruong
             // 
             this.xrLabel_KeToanTruong.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_KeToanTruong.LocationFloat = new DevExpress.Utils.PointFloat(400F, 100F);
+            this.xrLabel_KeToanTruong.LocationFloat = new DevExpress.Utils.PointFloat(425F, 100F);
             this.xrLabel_KeToanTruong.Multiline = true;
             this.xrLabel_KeToanTruong.Name = "xrLabel_KeToanTruong";
             this.xrLabel_KeToanTruong.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -179,7 +179,7 @@
             // xrLabel_GiamDoc
             // 
             this.xrLabel_GiamDoc.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_GiamDoc.LocationFloat = new DevExpress.Utils.PointFloat(799.9147F, 100F);
+            this.xrLabel_GiamDoc.LocationFloat = new DevExpress.Utils.PointFloat(849.9146F, 100F);
             this.xrLabel_GiamDoc.Multiline = true;
             this.xrLabel_GiamDoc.Name = "xrLabel_GiamDoc";
             this.xrLabel_GiamDoc.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -192,7 +192,7 @@
             // xrPageInfo_CurrentDay
             // 
             this.xrPageInfo_CurrentDay.Format = "{0:\"TP HCM, ngày\" dd \"tháng\" MM \"năm\" yyyy}";
-            this.xrPageInfo_CurrentDay.LocationFloat = new DevExpress.Utils.PointFloat(722.8313F, 50F);
+            this.xrPageInfo_CurrentDay.LocationFloat = new DevExpress.Utils.PointFloat(772.8312F, 50F);
             this.xrPageInfo_CurrentDay.Name = "xrPageInfo_CurrentDay";
             this.xrPageInfo_CurrentDay.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo_CurrentDay.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
@@ -209,7 +209,7 @@
             // 
             // xrPageInfo_Page
             // 
-            this.xrPageInfo_Page.Format = "Trang {0}/ {1}";
+            this.xrPageInfo_Page.Format = "Trang {0}/{1}";
             this.xrPageInfo_Page.LocationFloat = new DevExpress.Utils.PointFloat(0F, 9.999974F);
             this.xrPageInfo_Page.Name = "xrPageInfo_Page";
             this.xrPageInfo_Page.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -247,7 +247,7 @@
             this.PageFooter});
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(50, 50, 100, 12);
+            this.Margins = new System.Drawing.Printing.Margins(25, 25, 100, 12);
             this.PageHeight = 850;
             this.PageWidth = 1100;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {

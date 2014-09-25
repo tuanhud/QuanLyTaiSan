@@ -135,7 +135,7 @@
     <value>12.5</value>
   </data>
   <data name="xrPageInfo1.Format" xml:space="preserve">
-    <value>Trang {0}/ {1}</value>
+    <value>Trang {0}/{1}</value>
   </data>
   <data name="xrPageInfo1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
     <value>0, 9.999974</value>
@@ -148,7 +148,7 @@
     <value>50</value>
   </data>
   <data name="xrLabel_BanGiamHieu.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>449.9146, 81.49999</value>
+    <value>549.91, 100</value>
   </data>
   <data name="xrLabel_BanGiamHieu.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>200.0854, 49.54168</value>
@@ -161,7 +161,7 @@
     <value>TopCenter</value>
   </data>
   <data name="xrLabel_KeToanTruong.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>225, 81.49999</value>
+    <value>275, 100</value>
   </data>
   <data name="xrLabel_KeToanTruong.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>200.0854, 49.54168</value>
@@ -174,7 +174,7 @@
     <value>TopCenter</value>
   </data>
   <data name="xrLabel2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>0, 81.49999</value>
+    <value>0, 100</value>
   </data>
   <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>200.0854, 49.54168</value>
@@ -190,7 +190,7 @@
     <value>{0:"TP HCM, ngày" dd "tháng" MM "năm" yyyy}</value>
   </data>
   <data name="xrPageInfo_CurrentDay.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>372.8312, 48.12495</value>
+    <value>472.83, 50</value>
   </data>
   <data name="xrPageInfo_CurrentDay.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>277.1688, 23</value>
@@ -205,7 +205,7 @@
     <value>Tahoma, 14.25pt</value>
   </data>
   <data name="xrLabel_Title.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>9.999974, 95.41661</value>
+    <value>62.5, 100</value>
   </data>
   <data name="xrLabel_Title.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>630, 29.62497</value>
@@ -217,7 +217,7 @@
     <value>MiddleCenter</value>
   </data>
   <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v13.2">
-    <value>0, 10.0000067</value>
+    <value>0, 0</value>
   </data>
   <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>267.0834, 49.54168</value>
@@ -239,6 +239,6 @@ TRƯỜNG ĐẠI HỌC SÀI GÒN</value>
     <value>Tahoma, 9.75pt</value>
   </data>
   <data name="$this.Margins" type="System.Drawing.Printing.Margins, System.Drawing">
-    <value>100, 100, 100, 12</value>
+    <value>50, 50, 100, 12</value>
   </data>
 </root>

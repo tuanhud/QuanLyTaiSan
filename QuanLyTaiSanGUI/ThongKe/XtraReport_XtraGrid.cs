@@ -25,7 +25,7 @@ namespace PTB_GUI.ThongKe
             SetPositionXRLabel();
             this._GridControl = _GridControl;
             this._GridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            InitGridView();
+            SHARED.Libraries.ReportHelper.InitGridView(this._GridControl);
             winControlContainer_GridControl.WinControl = this._GridControl;
         }
 
@@ -42,64 +42,6 @@ namespace PTB_GUI.ThongKe
             xrPageInfo_CurrentDay.LocationF = new DevExpress.Utils.PointFloat((float)(pageWidth - (int)Math.Ceiling(xrPageInfo_CurrentDay.WidthF)), xrPageInfo_CurrentDay.LocationF.Y);
             xrLabel_BanGiamHieu.LocationF = new DevExpress.Utils.PointFloat((float)(pageWidth - (int)Math.Ceiling(xrLabel_BanGiamHieu.WidthF)), xrLabel_BanGiamHieu.LocationF.Y);
             xrLabel_KeToanTruong.LocationF = new DevExpress.Utils.PointFloat((float)((pageWidth - (int)Math.Ceiling(xrLabel_KeToanTruong.WidthF)) * 1.0 / 2), xrLabel_KeToanTruong.LocationF.Y);
-        }
-
-        private void InitGridView()
-        {
-            if (_GridControl.ViewCollection.Count > 0)
-            {
-                DevExpress.XtraGrid.Views.Grid.GridView _GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-                _GridView = _GridControl.ViewCollection[0] as DevExpress.XtraGrid.Views.Grid.GridView;
-                SetTheme(_GridView);
-                _GridView.GroupSummary.Clear();
-
-                for (int i = 0; i < _GridView.Columns.Count; i++)
-                {
-                    if (_GridView.Columns[i].Visible && _GridView.Columns[i].GroupIndex < 0)
-                    {
-                        if (!Object.Equals(_GridView.GetRowCellValue(0, _GridView.Columns[i]), null))
-                        {
-                            if (SHARED.Libraries.StringHelper.IsNumber(_GridView.GetRowCellValue(0, _GridView.Columns[i]).ToString()))
-                            {
-                                _GridView.Columns[i].SummaryItem.Collection.Clear();
-                                _GridView.Columns[i].Summary.Add(DevExpress.Data.SummaryItemType.Sum, _GridView.Columns[i].FieldName, "{0}");
-
-                                GridGroupSummaryItem itemTop = new GridGroupSummaryItem();
-                                itemTop.FieldName = _GridView.Columns[i].FieldName;
-                                itemTop.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                                itemTop.DisplayFormat = "(" + _GridView.Columns[i].Caption + ": {0})";
-                                _GridView.GroupSummary.Add(itemTop);
-
-                                GridGroupSummaryItem itemDown = new GridGroupSummaryItem();
-                                itemDown.FieldName = _GridView.Columns[i].FieldName;
-                                itemDown.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                                itemDown.DisplayFormat = "{0}";
-                                itemDown.ShowInGroupColumnFooter = _GridView.Columns[i];
-                                _GridView.GroupSummary.Add(itemDown);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void SetTheme(DevExpress.XtraGrid.Views.Grid.GridView _GridView)
-        {
-            _GridView.AppearancePrint.FooterPanel.BackColor = System.Drawing.Color.Gainsboro;
-            _GridView.AppearancePrint.FooterPanel.ForeColor = System.Drawing.Color.Black;
-            _GridView.AppearancePrint.FooterPanel.Options.UseBackColor = true;
-            _GridView.AppearancePrint.FooterPanel.Options.UseForeColor = true;
-
-            _GridView.AppearancePrint.GroupFooter.BackColor = System.Drawing.Color.White;
-            _GridView.AppearancePrint.GroupFooter.Options.UseBackColor = true;
-
-            _GridView.AppearancePrint.GroupRow.BackColor = System.Drawing.Color.Gainsboro;
-            _GridView.AppearancePrint.GroupRow.ForeColor = System.Drawing.Color.Black;
-            _GridView.AppearancePrint.GroupRow.Options.UseBackColor = true;
-            _GridView.AppearancePrint.GroupRow.Options.UseForeColor = true;
-
-            _GridView.AppearancePrint.HeaderPanel.BackColor = System.Drawing.Color.Gainsboro;
-            _GridView.AppearancePrint.HeaderPanel.Options.UseBackColor = true;
         }
     }
 }
