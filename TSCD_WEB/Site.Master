@@ -38,12 +38,12 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="Default.aspx">
-                            <img src="Images/ptb.png" alt="Phòng Thiết bị" class="logo" /></a>
+                            <img src="Images/ptb.png" alt="Tài sản cố định" class="logo" /></a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quản lý phòng <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quản lý tài sản <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Vị trí</a></li>
                                     <li><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>

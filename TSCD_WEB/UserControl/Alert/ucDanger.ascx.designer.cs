@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB {
+namespace TSCD_WEB.UserControl.Alert {
     
     
-    public partial class Default {
+    public partial class ucDanger {
         
         /// <summary>
-        /// ucTimKiem control.
+        /// LabelInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem;
-        
-        /// <summary>
-        /// ucFooter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TSCD_WEB.UserControl.Footer.ucFooter ucFooter;
+        public global::System.Web.UI.WebControls.Label LabelInfo;
     }
 }

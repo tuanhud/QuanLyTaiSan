@@ -5,18 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TSCD_WEB
+namespace TSCD_WEB.UserControl.Alert
 {
-    public partial class Site : System.Web.UI.MasterPage
+    public partial class ucWarning : System.Web.UI.UserControl
     {
-        public String page = "Default";
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        protected override void OnInit(EventArgs e)
-        {
-            //SHARED.Global.WEB_MODE = true;
         }
     }
 }
