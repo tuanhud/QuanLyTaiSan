@@ -198,7 +198,12 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
+            ReportDesignTool _ReportDesignTool = new ReportDesignTool(_XtraReportTSCD_Grid);
 
+            _ReportDesignTool.ShowDesignerDialog();
+            ReportPrintTool _ReportPrintTool = new ReportPrintTool(_ReportDesignTool.Report);
+            _ReportPrintTool.ShowPreviewDialog();
         }
     }
 }
