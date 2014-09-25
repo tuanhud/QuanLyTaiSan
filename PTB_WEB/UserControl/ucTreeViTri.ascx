@@ -16,7 +16,6 @@
             <h3></h3>
             <asp:Panel ID="PanelTreeList" runat="server"></asp:Panel>
             <h3></h3>
-            <h3></h3>
         </h3>
     </ContentTemplate>
 </asp:UpdatePanel>

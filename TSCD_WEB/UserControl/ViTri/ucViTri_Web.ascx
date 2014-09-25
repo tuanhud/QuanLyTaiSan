@@ -4,9 +4,6 @@
 <%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
 <%@ Register Src="~/UserControl/Alert/ucDanger.ascx" TagPrefix="uc" TagName="ucDanger" %>
 
-
-
-
 <uc:ucViTri_BreadCrumb runat="server" ID="ucViTri_BreadCrumb" />
 
 <table class="table largetable">

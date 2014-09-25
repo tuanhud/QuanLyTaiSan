@@ -29,6 +29,7 @@ namespace TSCD_WEB.UserControl.ViTri
             listViTriHienThi = ViTriHienThi.getAll();
             if (listViTriHienThi.Count > 0)
             {
+                ucTreeViTri.CreateTreeList();
                 ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();
