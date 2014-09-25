@@ -1,6 +1,6 @@
 ﻿namespace TSCD_GUI.ReportTSCD
 {
-    partial class XtraReportTSCD
+    partial class XtraReportTSCD_Grid
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.winControlContainer_GridControl = new DevExpress.XtraReports.UI.WinControlContainer();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -36,7 +37,6 @@
             this.xrLabel_Title = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_MauBaoCao = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_MaChuong = new DevExpress.XtraReports.UI.XRLabel();
-            this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel_NguoiLapBieu = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_KeToanTruong = new DevExpress.XtraReports.UI.XRLabel();
@@ -50,10 +50,18 @@
             // 
             // Detail
             // 
-            this.Detail.HeightF = 21F;
+            this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.winControlContainer_GridControl});
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // winControlContainer_GridControl
+            // 
+            this.winControlContainer_GridControl.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.winControlContainer_GridControl.Name = "winControlContainer_GridControl";
+            this.winControlContainer_GridControl.SizeF = new System.Drawing.SizeF(999.9999F, 100F);
+            this.winControlContainer_GridControl.WinControl = null;
             // 
             // TopMargin
             // 
@@ -131,11 +139,6 @@
             this.xrLabel_MaChuong.Text = "Mã chương: 599\r\nĐơn vị báo cáo: Trường Đại học Sài Gòn\r\nMã ĐV có QH với NS: 10860" +
     "78";
             this.xrLabel_MaChuong.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // PageHeader
-            // 
-            this.PageHeader.HeightF = 21F;
-            this.PageHeader.Name = "PageHeader";
             // 
             // ReportFooter
             // 
@@ -233,14 +236,13 @@
             this.xrControlStyle_Row.Name = "xrControlStyle_Row";
             this.xrControlStyle_Row.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // XtraReportTSCD
+            // XtraReportTSCD_Grid
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader,
-            this.PageHeader,
             this.ReportFooter,
             this.PageFooter});
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -262,7 +264,6 @@
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
-        private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo_Page;
@@ -276,5 +277,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel_DonViTinh;
         private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle_ColumnTitle;
         private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle_Row;
+        private DevExpress.XtraReports.UI.WinControlContainer winControlContainer_GridControl;
     }
 }

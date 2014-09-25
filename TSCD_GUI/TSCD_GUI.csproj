@@ -261,6 +261,12 @@
     <Compile Include="ReportTSCD\XtraReportTSCD.Designer.cs">
       <DependentUpon>XtraReportTSCD.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportTSCD\XtraReportTSCD_Grid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReportTSCD_Grid.Designer.cs">
+      <DependentUpon>XtraReportTSCD_Grid.cs</DependentUpon>
+    </Compile>
     <Compile Include="RibbonFormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,6 +349,7 @@
     <EmbeddedResource Include="MyUserControl\ucTreeViTri.resx">
       <DependentUpon>ucTreeViTri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -400,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTSCD\XtraReportTSCD.resx">
       <DependentUpon>XtraReportTSCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReportTSCD_Grid.resx">
+      <DependentUpon>XtraReportTSCD_Grid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>
