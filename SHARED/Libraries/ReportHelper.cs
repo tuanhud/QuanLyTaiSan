@@ -298,5 +298,77 @@ namespace SHARED.Libraries
             _DataSet.Tables.Add(_DataTable);
             return _DataSet;
         }
+
+        public static void CreateGroupValues(DataSet _DataSet, DevExpress.XtraGrid.Views.Grid.GridView _GridView, ref int MaxLength, String strTag)
+        {
+            if (_DataSet.Tables[0] != null)
+            {
+                if (_GridView.GroupCount > 0)
+                {
+                    for (int i = 0; i < _GridView.Columns.Count; i++)
+                    {
+                        if (!(_GridView.Columns[i].Visible && _GridView.Columns[i].GroupIndex < 0))
+                        {
+                            foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
+                            {
+                                if (Object.Equals(_DataColumn.ColumnName, _GridView.Columns[i].Name + "_" + _GridView.Columns[i].FieldName))
+                                {
+                                    foreach (DataRow row in _DataSet.Tables[0].Rows)
+                                    {
+                                        string strGroup = string.Format("{0}: {1}", _GridView.Columns[i].Caption, row[_DataColumn.ColumnName]);
+                                        if (Object.Equals(_GridView.Columns[i].ColumnType, typeof(Int32)))
+                                        {
+                                            row[_DataColumn.ColumnName + strTag] = strGroup;
+                                        }
+                                        else
+                                        {
+                                            row[_DataColumn.ColumnName] = strGroup;
+                                        }
+                                        if (MaxLength < strGroup.Length)
+                                            MaxLength = strGroup.Length;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void CreateGroupValues(DataSet _DataSet, DevExpress.XtraGrid.Views.BandedGrid.BandedGridView _BandedGridView, ref int MaxLength, String strTag)
+        {
+            if (_DataSet.Tables[0] != null)
+            {
+                if (_BandedGridView.GroupCount > 0)
+                {
+                    for (int i = 0; i < _BandedGridView.Columns.Count; i++)
+                    {
+                        if (!(_BandedGridView.Columns[i].Visible && _BandedGridView.Columns[i].GroupIndex < 0))
+                        {
+                            foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
+                            {
+                                if (Object.Equals(_DataColumn.ColumnName, _BandedGridView.Columns[i].Name + "_" + _BandedGridView.Columns[i].FieldName))
+                                {
+                                    foreach (DataRow row in _DataSet.Tables[0].Rows)
+                                    {
+                                        string strGroup = string.Format("{0}: {1}", _BandedGridView.Columns[i].Caption, row[_DataColumn.ColumnName]);
+                                        if (Object.Equals(_BandedGridView.Columns[i].ColumnType, typeof(Int32)))
+                                        {
+                                            row[_DataColumn.ColumnName + strTag] = strGroup;
+                                        }
+                                        else
+                                        {
+                                            row[_DataColumn.ColumnName] = strGroup;
+                                        }
+                                        if (MaxLength < strGroup.Length)
+                                            MaxLength = strGroup.Length;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

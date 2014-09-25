@@ -37,6 +37,43 @@ namespace PTB_GUI.ThongKe
             InitializeComponent();
         }
 
+        public XtraReport_Template(DevExpress.XtraGrid.GridControl _GridControl, Boolean Landscape)
+        {
+            InitializeComponent();
+            this.Landscape = Landscape;
+            DevExpress.XtraGrid.Views.Grid.GridView _GridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            DevExpress.XtraGrid.Views.BandedGrid.BandedGridView _BandedGridView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            try
+            {
+                _GridView = _GridControl.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+                _BandedGridView = _GridControl.MainView as DevExpress.XtraGrid.Views.BandedGrid.BandedGridView;
+            }
+            catch { }
+            int intType = -1;
+            if (Object.Equals(_GridView, null))
+            {
+                _GridView.Dispose();
+            }
+            else
+                intType = 0;
+            if (Object.Equals(_BandedGridView, null))
+            {
+                _BandedGridView.Dispose();
+            }
+            else
+                intType = 1;
+
+            switch (intType)
+            { 
+                case 0:
+                    ReportDataset = SHARED.Libraries.ReportHelper.FillDatasetFromGrid(_GridView);
+                    break;
+                case 1:
+                    ReportDataset = SHARED.Libraries.ReportHelper.FillDatasetFromGrid(_BandedGridView);
+                    break;
+            }
+        }
+
         public XtraReport_Template(DataSet _DataSet, GridView GridViewVictim, Boolean Landscape)
         {
             InitializeComponent();
@@ -56,6 +93,8 @@ namespace PTB_GUI.ThongKe
             //            WidthAdd = intAdd;
             //    }
             //}
+
+            /*
             if (_DataSet.Tables[0] != null)
             {
                 if (GridViewVictim.GroupCount > 0)
@@ -87,7 +126,9 @@ namespace PTB_GUI.ThongKe
                         }
                     }
                 }
-            }
+            }*/
+            SHARED.Libraries.ReportHelper.CreateGroupValues(_DataSet, GridViewVictim, ref MaxLength, strTag);
+
             MaxLength = MaxLength != 0 ? MaxLength > intMinimum ? MaxLength : intMinimum : 0;
             GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * (int)Math.Ceiling(this.myColumnStyle.Font.Size);
             InitXtraReport(_DataSet, GridViewVictim);
