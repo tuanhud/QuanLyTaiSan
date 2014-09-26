@@ -53,7 +53,7 @@
             this.gridControlTaiSan = new DevExpress.XtraGrid.GridControl();
             this.bandedGridViewTaiSan = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBandngay = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.colngayghi = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colngay = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBandchungtu = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colsohieuct = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colngayct = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -64,6 +64,7 @@
             this.colsoluong = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coldongia = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colthanhtien = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colnsx = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colnguongoc = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colloai = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -328,7 +329,7 @@
             this.gridBandchungtu,
             this.gridBandtaisan});
             this.bandedGridViewTaiSan.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.colngayghi,
+            this.colngay,
             this.colsohieuct,
             this.colngayct,
             this.colten,
@@ -338,6 +339,7 @@
             this.coldongia,
             this.colthanhtien,
             this.coltinhtrang,
+            this.colnsx,
             this.colnguongoc,
             this.colghichu,
             this.colid,
@@ -362,20 +364,20 @@
             // 
             // gridBandngay
             // 
-            this.gridBandngay.Columns.Add(this.colngayghi);
+            this.gridBandngay.Columns.Add(this.colngay);
             this.gridBandngay.Name = "gridBandngay";
             this.gridBandngay.VisibleIndex = 0;
             this.gridBandngay.Width = 87;
             // 
-            // colngayghi
+            // colngay
             // 
-            this.colngayghi.AppearanceHeader.Options.UseTextOptions = true;
-            this.colngayghi.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colngayghi.Caption = "Ngày, tháng ghi sổ";
-            this.colngayghi.FieldName = "ngayghi";
-            this.colngayghi.Name = "colngayghi";
-            this.colngayghi.Visible = true;
-            this.colngayghi.Width = 87;
+            this.colngay.AppearanceHeader.Options.UseTextOptions = true;
+            this.colngay.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colngay.Caption = "Ngày sử dụng";
+            this.colngay.FieldName = "ngay";
+            this.colngay.Name = "colngay";
+            this.colngay.Visible = true;
+            this.colngay.Width = 87;
             // 
             // gridBandchungtu
             // 
@@ -415,6 +417,7 @@
             this.gridBandtaisan.Columns.Add(this.colsoluong);
             this.gridBandtaisan.Columns.Add(this.coldongia);
             this.gridBandtaisan.Columns.Add(this.colthanhtien);
+            this.gridBandtaisan.Columns.Add(this.colnsx);
             this.gridBandtaisan.Columns.Add(this.colnguongoc);
             this.gridBandtaisan.Columns.Add(this.colloai);
             this.gridBandtaisan.Columns.Add(this.coltinhtrang);
@@ -425,7 +428,7 @@
             this.gridBandtaisan.Columns.Add(this.colghichu);
             this.gridBandtaisan.Name = "gridBandtaisan";
             this.gridBandtaisan.VisibleIndex = 2;
-            this.gridBandtaisan.Width = 815;
+            this.gridBandtaisan.Width = 890;
             // 
             // colten
             // 
@@ -481,6 +484,13 @@
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.Visible = true;
             this.colthanhtien.Width = 50;
+            // 
+            // colnsx
+            // 
+            this.colnsx.Caption = "Nước sản xuất";
+            this.colnsx.FieldName = "nuocsx";
+            this.colnsx.Name = "colnsx";
+            this.colnsx.Visible = true;
             // 
             // colnguongoc
             // 
@@ -572,7 +582,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControlTaiSan;
+        public DevExpress.XtraGrid.GridControl gridControlTaiSan;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridViewTSKemTheo;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngayghi2;
@@ -595,12 +605,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colghichu2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridViewTaiSan;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandngay;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngayghi;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandchungtu;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngay;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colsohieuct;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colngayct;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandtaisan;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colten;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryMemoTen;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldonvitinh;
@@ -616,5 +623,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldvsudung;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colghichu;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colnsx;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandngay;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandchungtu;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandtaisan;
     }
 }

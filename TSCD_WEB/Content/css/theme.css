@@ -1,0 +1,325 @@
+﻿body {
+  padding-bottom: 20px;
+}
+
+.logo {
+    margin-top: -10px;
+}
+
+.masterbody {
+    background: #eff7fc url(Images/bg-wall.png) repeat-x top left !important;
+}
+.navbar {
+    border-radius: 0px 0px 0px 0px !important;
+    margin-bottom: 1px !important;
+    border: none !important;
+}
+.dropdown-menu > li > a {
+    margin-left: 10px !important;
+}
+.popupmasterbody {
+    background-color: transparent;
+    padding:initial;
+}
+.popupmasterbody .largetable {
+    border-top: transparent solid 2px !important;
+    background-color: white;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase p .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.center {
+    max-width: 300px;
+    margin: 0 auto;
+}
+.center200 {
+    max-width: 200px;
+    margin: 0 auto;
+}
+.centerCollectionPager{
+    /*max-width: 300px;
+    margin: 0 auto;*/
+}
+.centered tr th, .centered tr td, .tdcenter{
+    text-align:center;
+    vertical-align:middle !important;
+}
+
+.centered2 tr th, .centered2 tr td, .tdcenter{
+    vertical-align:middle !important;
+}
+
+.CollectionPager {
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.CollectionPager span a{
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  color: #428bca;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.CollectionPager span a:hover,
+.CollectionPager span a:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.CollectionPager b{
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #428bca;
+  border: 1px solid #ddd;
+}
+.buttonthem {
+    margin-bottom: 10px;
+}
+#modelHinhAnh {
+    overflow: hidden;
+}
+#ImageUpload {
+    width:100%;
+    max-width: 300px;
+}
+#PanelThongTinCaNhan, #PanelEditThongTinCaNhan {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.right {
+    float:right;
+}
+.focusrow, .focusrow td {
+    background-color: #5cb85c !important;
+    color: white !important;
+}
+.dxtlControl_Aqua {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.dxtlFocusedNode_Aqua {
+    background-color:transparent;
+    color: #fe8f01;
+    font-weight:bold;
+}
+.dxpc-headerContent {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+.image_center {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+.image_center_mobile {
+    max-width: 200px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+.image_center_web {
+    max-width: 350px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+/***PopUp Plastic***/
+.dxpcLite_PlasticBlue{
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-clip: padding-box;
+    outline: none;
+}
+
+.largetable {
+    margin-top: -19px;
+    border-top: white solid 2px;
+    border-color: #bce8f1 !important;
+    border-top-color: white !important;
+    height: 400px;
+}
+
+.color_white {
+    color: white !important;
+}
+
+.title_orange {
+    border-bottom: solid 2px #fe8f01;
+    color: #fe8f01;
+    padding-bottom:10px;
+}
+.title_green {
+    border-bottom: solid 2px #1abc9c;
+    color: #1abc9c;
+    padding-bottom:10px;
+}
+.title_blue {
+    border-bottom: solid 2px blue;
+    color: blue;
+    padding-bottom: 10px;
+}
+.fix {
+    margin-top: 0px;
+}
+.valign_middle tr td {
+    vertical-align:middle !important;
+}
+
+.border_right {
+    border-right: solid 2px #EFF7FC !important;
+}
+
+#UpdateProgress {
+    float:right;
+}
+
+.footer {
+    border: medium none;
+    background: url("/Images/bg-footer.png") repeat-x scroll left bottom #FFF;
+    text-align: center;
+    color: #FFF;
+    padding: 20px;
+    margin-top: -18px !important;
+}
+.breadcrumb {
+    border-radius: 0px 0px 0px 0px !important;
+}
+
+/*Tìm kiếm*/
+.SearchPopup {
+    min-width: 100%;
+}
+.dxnb-header {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    border-bottom: solid 2px #fe8f01 !important;
+}
+.dxnb-headerCollapsed {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 18px;
+    border: solid 2px #fe8f01 !important;
+    background-color:transparent !important;
+}
+.dxnb-headerCollapsed a {
+    text-decoration: none !important;
+}
+.dxnb-ghtext {
+    color: #fe8f01 !important;
+    font-weight:bold;
+}
+.dxnb-item{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 16px !important;
+    padding: 5px 0px 5px 20px !important;
+}
+.NoResultsPanel {
+    
+}
+.dxnb-item a:hover {
+    
+}
+.timkiem {
+    margin: 0px !important;
+    color: #ffffff !important;
+    background-color: #428bca;
+}
+.fixpanel {
+    background-color: white;
+    padding: 25px !important;
+}
+#TbSearch {
+    background: url("/Images/timkiem.png") no-repeat scroll right center white;
+    min-height: 36px;
+    min-width: 255px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+#myTab {
+    margin-top: -10px !important;
+    border-bottom: solid 2px blue;
+    margin-bottom: 18px;
+}
+#myTab a:hover{
+    background-color: #e7e7e7 !important;
+    color: blue !important;
+}
+#myTab .active a{
+    background-color: #e7e7e7 !important;
+    color: blue !important;
+}
+#myTab a{
+    color: blue !important;
+    font-size: 22px;
+    border: none;
+    text-align: left !important;
+    border-bottom: solid 1px blue;
+    border-radius: 0px !important;
+    padding-bottom: 5px !important;
+    cursor: pointer;
+}
+.dropdown-menu li a {
+    padding: 10px !important;
+}
+.rowmobile {
+    margin:0px !important;
+}
+.rowmobile #TbSearch {
+    background: white !important;
+}
+.rowfix {
+    margin-right: -15px !important;
+    margin-top: -8px !important;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 90%;
+    line-height: 1.4em;
+    padding: 5px;
+    margin: 0 0 15px 2px;
+    width: 186px;
+}
+legend {
+    color: #333;
+    font-weight: bold;
+}
+#leftcolumn ul {
+    margin-left: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+#leftcolumn li {
+    padding-left: 18px;
+    background: url('http://skfox.com/jqExamples/images/list.png') no-repeat 0% .5em;
+    cursor: pointer;
+}
+.noboder tr, .noboder td{
+    border:none !important;
+}
+.nobold{
+    font-weight: normal !important;
+}
+

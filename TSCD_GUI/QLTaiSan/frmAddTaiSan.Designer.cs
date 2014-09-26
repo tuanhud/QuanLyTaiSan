@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTaiSan));
-            this.dateNgayGhi = new DevExpress.XtraEditors.DateEdit();
+            this.dateNgaySD = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
             this.txtSoHieu_CT = new DevExpress.XtraEditors.TextEdit();
             this.txtNguonGoc = new DevExpress.XtraEditors.TextEdit();
@@ -88,8 +88,10 @@
             this.coldvsudung = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colghichu = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties)).BeginInit();
+            this.txtNSX = new DevExpress.XtraEditors.TextEdit();
+            this.lblNSX = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).BeginInit();
@@ -103,53 +105,54 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNSX.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateNgayGhi
+            // dateNgaySD
             // 
-            this.dateNgayGhi.EditValue = null;
-            this.dateNgayGhi.Location = new System.Drawing.Point(79, 12);
-            this.dateNgayGhi.Name = "dateNgayGhi";
-            this.dateNgayGhi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateNgaySD.EditValue = null;
+            this.dateNgaySD.Location = new System.Drawing.Point(92, 12);
+            this.dateNgaySD.Name = "dateNgaySD";
+            this.dateNgaySD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgayGhi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateNgaySD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgayGhi.Size = new System.Drawing.Size(283, 20);
-            this.dateNgayGhi.TabIndex = 0;
+            this.dateNgaySD.Size = new System.Drawing.Size(270, 20);
+            this.dateNgaySD.TabIndex = 0;
             // 
             // dateNgay_CT
             // 
             this.dateNgay_CT.EditValue = null;
-            this.dateNgay_CT.Location = new System.Drawing.Point(311, 39);
+            this.dateNgay_CT.Location = new System.Drawing.Point(320, 39);
             this.dateNgay_CT.Name = "dateNgay_CT";
             this.dateNgay_CT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay_CT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgay_CT.Size = new System.Drawing.Size(114, 20);
+            this.dateNgay_CT.Size = new System.Drawing.Size(105, 20);
             this.dateNgay_CT.TabIndex = 1;
             // 
             // txtSoHieu_CT
             // 
-            this.txtSoHieu_CT.Location = new System.Drawing.Point(124, 39);
+            this.txtSoHieu_CT.Location = new System.Drawing.Point(137, 39);
             this.txtSoHieu_CT.Name = "txtSoHieu_CT";
-            this.txtSoHieu_CT.Size = new System.Drawing.Size(100, 20);
+            this.txtSoHieu_CT.Size = new System.Drawing.Size(87, 20);
             this.txtSoHieu_CT.TabIndex = 2;
             // 
             // txtNguonGoc
             // 
             this.txtNguonGoc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNguonGoc.Location = new System.Drawing.Point(79, 274);
+            this.txtNguonGoc.Location = new System.Drawing.Point(92, 300);
             this.txtNguonGoc.Name = "txtNguonGoc";
-            this.txtNguonGoc.Size = new System.Drawing.Size(283, 20);
+            this.txtNguonGoc.Size = new System.Drawing.Size(270, 20);
             this.txtNguonGoc.TabIndex = 7;
             // 
             // lookUpTinhTrang
             // 
             this.lookUpTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpTinhTrang.Location = new System.Drawing.Point(79, 248);
+            this.lookUpTinhTrang.Location = new System.Drawing.Point(92, 248);
             this.lookUpTinhTrang.Name = "lookUpTinhTrang";
             this.lookUpTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -158,20 +161,20 @@
             this.lookUpTinhTrang.Properties.DisplayMember = "value";
             this.lookUpTinhTrang.Properties.NullText = "[Chưa chọn tình trạng]";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
-            this.lookUpTinhTrang.Size = new System.Drawing.Size(283, 20);
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(270, 20);
             this.lookUpTinhTrang.TabIndex = 9;
             // 
             // lblNgayGhi
             // 
             this.lblNgayGhi.Location = new System.Drawing.Point(12, 16);
             this.lblNgayGhi.Name = "lblNgayGhi";
-            this.lblNgayGhi.Size = new System.Drawing.Size(60, 13);
+            this.lblNgayGhi.Size = new System.Drawing.Size(71, 13);
             this.lblNgayGhi.TabIndex = 11;
-            this.lblNgayGhi.Text = "Ngày ghi sổ:";
+            this.lblNgayGhi.Text = "Ngày sử dụng:";
             // 
             // lblSoHieu_CT
             // 
-            this.lblSoHieu_CT.Location = new System.Drawing.Point(79, 42);
+            this.lblSoHieu_CT.Location = new System.Drawing.Point(92, 42);
             this.lblSoHieu_CT.Name = "lblSoHieu_CT";
             this.lblSoHieu_CT.Size = new System.Drawing.Size(39, 13);
             this.lblSoHieu_CT.TabIndex = 12;
@@ -179,7 +182,7 @@
             // 
             // lblNgay_CT
             // 
-            this.lblNgay_CT.Location = new System.Drawing.Point(245, 42);
+            this.lblNgay_CT.Location = new System.Drawing.Point(254, 42);
             this.lblNgay_CT.Name = "lblNgay_CT";
             this.lblNgay_CT.Size = new System.Drawing.Size(60, 13);
             this.lblNgay_CT.TabIndex = 13;
@@ -235,7 +238,7 @@
             // 
             // lblNguocGoc
             // 
-            this.lblNguocGoc.Location = new System.Drawing.Point(12, 277);
+            this.lblNguocGoc.Location = new System.Drawing.Point(12, 303);
             this.lblNguocGoc.Name = "lblNguocGoc";
             this.lblNguocGoc.Size = new System.Drawing.Size(55, 13);
             this.lblNguocGoc.TabIndex = 21;
@@ -243,7 +246,7 @@
             // 
             // lblGhiChu
             // 
-            this.lblGhiChu.Location = new System.Drawing.Point(12, 302);
+            this.lblGhiChu.Location = new System.Drawing.Point(12, 329);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(39, 13);
             this.lblGhiChu.TabIndex = 22;
@@ -251,7 +254,7 @@
             // 
             // lbltxtThanhTien
             // 
-            this.lbltxtThanhTien.Location = new System.Drawing.Point(79, 226);
+            this.lbltxtThanhTien.Location = new System.Drawing.Point(92, 224);
             this.lbltxtThanhTien.Name = "lbltxtThanhTien";
             this.lbltxtThanhTien.Size = new System.Drawing.Size(50, 13);
             this.lbltxtThanhTien.TabIndex = 23;
@@ -283,13 +286,13 @@
             0,
             0,
             0});
-            this.txtSoLuong.Location = new System.Drawing.Point(79, 172);
+            this.txtSoLuong.Location = new System.Drawing.Point(92, 172);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
-            this.txtSoLuong.Size = new System.Drawing.Size(283, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(270, 20);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.EditValueChanged += new System.EventHandler(this.txtSoLuong_EditValueChanged);
             // 
@@ -302,13 +305,13 @@
             0,
             0,
             0});
-            this.txtDonGia.Location = new System.Drawing.Point(79, 198);
+            this.txtDonGia.Location = new System.Drawing.Point(92, 198);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDonGia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtDonGia.Properties.Mask.EditMask = "N00";
-            this.txtDonGia.Size = new System.Drawing.Size(283, 20);
+            this.txtDonGia.Size = new System.Drawing.Size(270, 20);
             this.txtDonGia.TabIndex = 6;
             this.txtDonGia.EditValueChanged += new System.EventHandler(this.txtDonGia_EditValueChanged);
             // 
@@ -316,9 +319,9 @@
             // 
             this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGhiChu.Location = new System.Drawing.Point(79, 300);
+            this.txtGhiChu.Location = new System.Drawing.Point(92, 326);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(283, 72);
+            this.txtGhiChu.Size = new System.Drawing.Size(270, 46);
             this.txtGhiChu.TabIndex = 10;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -326,9 +329,9 @@
             // 
             this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(79, 91);
+            this.txtTen.Location = new System.Drawing.Point(92, 91);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(348, 49);
+            this.txtTen.Size = new System.Drawing.Size(335, 49);
             this.txtTen.TabIndex = 3;
             this.txtTen.UseOptimizedRendering = true;
             // 
@@ -388,9 +391,9 @@
             // 
             this.txtMa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMa.Location = new System.Drawing.Point(79, 65);
+            this.txtMa.Location = new System.Drawing.Point(92, 65);
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(283, 20);
+            this.txtMa.Size = new System.Drawing.Size(270, 20);
             this.txtMa.TabIndex = 30;
             // 
             // dxErrorProviderInfo
@@ -402,9 +405,9 @@
             this.ucComboBoxLoaiTS1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucComboBoxLoaiTS1.LoaiTS = null;
-            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(79, 146);
+            this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(92, 146);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
-            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(283, 20);
+            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(270, 20);
             this.ucComboBoxLoaiTS1.TabIndex = 8;
             // 
             // lblTSKemTheo
@@ -692,11 +695,30 @@
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
             // 
+            // txtNSX
+            // 
+            this.txtNSX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNSX.Location = new System.Drawing.Point(92, 274);
+            this.txtNSX.Name = "txtNSX";
+            this.txtNSX.Size = new System.Drawing.Size(270, 20);
+            this.txtNSX.TabIndex = 39;
+            // 
+            // lblNSX
+            // 
+            this.lblNSX.Location = new System.Drawing.Point(12, 277);
+            this.lblNSX.Name = "lblNSX";
+            this.lblNSX.Size = new System.Drawing.Size(74, 13);
+            this.lblNSX.TabIndex = 40;
+            this.lblNSX.Text = "Nước sản xuất:";
+            // 
             // frmAddTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 575);
+            this.Controls.Add(this.lblNSX);
+            this.Controls.Add(this.txtNSX);
             this.Controls.Add(this.gridControlTaiSan);
             this.Controls.Add(this.btnAddExist);
             this.Controls.Add(this.btnAddNew);
@@ -728,7 +750,7 @@
             this.Controls.Add(this.txtNguonGoc);
             this.Controls.Add(this.txtSoHieu_CT);
             this.Controls.Add(this.dateNgay_CT);
-            this.Controls.Add(this.dateNgayGhi);
+            this.Controls.Add(this.dateNgaySD);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtDonGia);
             this.Controls.Add(this.txtGhiChu);
@@ -737,8 +759,8 @@
             this.Name = "frmAddTaiSan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm tài sản";
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayGhi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).EndInit();
@@ -752,6 +774,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNSX.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -759,7 +782,7 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.DateEdit dateNgayGhi;
+        private DevExpress.XtraEditors.DateEdit dateNgaySD;
         private DevExpress.XtraEditors.DateEdit dateNgay_CT;
         private DevExpress.XtraEditors.TextEdit txtSoHieu_CT;
         private DevExpress.XtraEditors.TextEdit txtNguonGoc;
@@ -817,5 +840,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldvsudung;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colghichu;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid;
+        private DevExpress.XtraEditors.LabelControl lblNSX;
+        private DevExpress.XtraEditors.TextEdit txtNSX;
     }
 }
