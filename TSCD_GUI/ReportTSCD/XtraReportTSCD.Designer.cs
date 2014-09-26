@@ -44,8 +44,8 @@
             this.xrPageInfo_CurrentDay = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo_Page = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrControlStyle_ColumnTitle = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrControlStyle_Row = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.myColumnStyle = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.myRowStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -212,26 +212,26 @@
             this.xrPageInfo_Page.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo_Page.SizeF = new System.Drawing.SizeF(116.625F, 23F);
             // 
-            // xrControlStyle_ColumnTitle
+            // myColumnStyle
             // 
-            this.xrControlStyle_ColumnTitle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            this.myColumnStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrControlStyle_ColumnTitle.BorderWidth = 0.5F;
-            this.xrControlStyle_ColumnTitle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrControlStyle_ColumnTitle.Name = "xrControlStyle_ColumnTitle";
-            this.xrControlStyle_ColumnTitle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.myColumnStyle.BorderWidth = 0.5F;
+            this.myColumnStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myColumnStyle.Name = "myColumnStyle";
+            this.myColumnStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrControlStyle_Row
+            // myRowStyle
             // 
-            this.xrControlStyle_Row.BackColor = System.Drawing.Color.Transparent;
-            this.xrControlStyle_Row.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            this.myRowStyle.BackColor = System.Drawing.Color.Transparent;
+            this.myRowStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrControlStyle_Row.BorderWidth = 0.5F;
-            this.xrControlStyle_Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrControlStyle_Row.Name = "xrControlStyle_Row";
-            this.xrControlStyle_Row.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.myRowStyle.BorderWidth = 0.5F;
+            this.myRowStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myRowStyle.Name = "myRowStyle";
+            this.myRowStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // XtraReportTSCD
             // 
@@ -249,8 +249,8 @@
             this.PageHeight = 850;
             this.PageWidth = 1100;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
-            this.xrControlStyle_ColumnTitle,
-            this.xrControlStyle_Row});
+            this.myColumnStyle,
+            this.myRowStyle});
             this.Version = "13.2";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -274,7 +274,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel_MauBaoCao;
         private DevExpress.XtraReports.UI.XRLabel xrLabel_MaChuong;
         private DevExpress.XtraReports.UI.XRLabel xrLabel_DonViTinh;
-        private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle_ColumnTitle;
-        private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle_Row;
+        private DevExpress.XtraReports.UI.XRControlStyle myColumnStyle;
+        private DevExpress.XtraReports.UI.XRControlStyle myRowStyle;
     }
 }

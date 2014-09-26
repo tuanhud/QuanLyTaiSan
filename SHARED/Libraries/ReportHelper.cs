@@ -240,10 +240,10 @@ namespace SHARED.Libraries
             {
                 foreach (GridColumn _GridColumn in _GridView.Columns)
                 {
-                    _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName, _GridColumn.ColumnType);
+                    _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName, Nullable.GetUnderlyingType(_GridColumn.ColumnType) ?? _GridColumn.ColumnType);
                     if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
                     {
-                        if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                        if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)) || Object.Equals(_GridColumn.ColumnType, typeof(float)) || Object.Equals(_GridColumn.ColumnType, typeof(DateTime)))
                         {
                             _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING", typeof(String));
                         }
@@ -254,12 +254,29 @@ namespace SHARED.Libraries
                     DataRow _DataRow = _DataTable.NewRow();
                     foreach (GridColumn _GridColumn in _GridView.Columns)
                     {
-                        _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = _GridView.GetRowCellValue(i, _GridColumn);
+                        var Value = _GridView.GetRowCellValue(i, _GridColumn);
+                        if (Object.Equals(Value, null))
+                        {
+                            _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = DBNull.Value;
+                        }
+                        else
+                        {
+                            _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = _GridView.GetRowCellValue(i, _GridColumn);
+                        }
+
                         if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
                         {
-                            if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                            if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)) || Object.Equals(_GridColumn.ColumnType, typeof(float)) || Object.Equals(_GridColumn.ColumnType, typeof(DateTime)))
                             {
-                                _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = _GridView.GetRowCellValue(i, _GridColumn);
+                                var Value_String = _GridView.GetRowCellValue(i, _GridColumn);
+                                if (Object.Equals(Value_String, null))
+                                {
+                                    _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = "";
+                                }
+                                else
+                                {
+                                    _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = _GridView.GetRowCellValue(i, _GridColumn);
+                                }
                             }
                         }
                     }
@@ -278,10 +295,10 @@ namespace SHARED.Libraries
             {
                 foreach (GridColumn _GridColumn in _BandedGridView.Columns)
                 {
-                    _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName, _GridColumn.ColumnType);
+                    _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName, Nullable.GetUnderlyingType(_GridColumn.ColumnType) ?? _GridColumn.ColumnType);
                     if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
                     {
-                        if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                        if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)) || Object.Equals(_GridColumn.ColumnType, typeof(float)) || Object.Equals(_GridColumn.ColumnType, typeof(DateTime)))
                         {
                             _DataTable.Columns.Add(_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING", typeof(String));
                         }
@@ -292,12 +309,29 @@ namespace SHARED.Libraries
                     DataRow _DataRow = _DataTable.NewRow();
                     foreach (GridColumn _GridColumn in _BandedGridView.Columns)
                     {
-                        _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                        var Value = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                        if (Object.Equals(Value, null))
+                        {
+                            _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = DBNull.Value;
+                        }
+                        else
+                        {
+                            _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName] = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                        }
+
                         if (!(_GridColumn.Visible && _GridColumn.GroupIndex < 0))
                         {
-                            if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)))
+                            if (Object.Equals(_GridColumn.ColumnType, typeof(Int32)) || Object.Equals(_GridColumn.ColumnType, typeof(float)) || Object.Equals(_GridColumn.ColumnType, typeof(DateTime)))
                             {
-                                _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                                var Value_String = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                                if (Object.Equals(Value_String, null))
+                                {
+                                    _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = "";
+                                }
+                                else
+                                {
+                                    _DataRow[_GridColumn.Name + "_" + _GridColumn.FieldName + "_STRING"] = _BandedGridView.GetRowCellValue(i, _GridColumn);
+                                }
                             }
                         }
                     }
@@ -314,28 +348,25 @@ namespace SHARED.Libraries
             {
                 if (_GridView.GroupCount > 0)
                 {
-                    for (int i = 0; i < _GridView.Columns.Count; i++)
+                    for (int i = 0; i < _GridView.GroupedColumns.Count; i++)
                     {
-                        if (!(_GridView.Columns[i].Visible && _GridView.Columns[i].GroupIndex < 0))
+                        foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
                         {
-                            foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
+                            if (Object.Equals(_DataColumn.ColumnName, _GridView.GroupedColumns[i].Name + "_" + _GridView.GroupedColumns[i].FieldName))
                             {
-                                if (Object.Equals(_DataColumn.ColumnName, _GridView.Columns[i].Name + "_" + _GridView.Columns[i].FieldName))
+                                foreach (DataRow row in _DataSet.Tables[0].Rows)
                                 {
-                                    foreach (DataRow row in _DataSet.Tables[0].Rows)
+                                    string strGroup = string.Format("{0}: {1}", _GridView.GroupedColumns[i].Caption, Object.Equals(row[_DataColumn.ColumnName], DBNull.Value) ? "" : row[_DataColumn.ColumnName]);
+                                    if (Object.Equals(_GridView.GroupedColumns[i].ColumnType, typeof(Int32)) || Object.Equals(_GridView.GroupedColumns[i].ColumnType, typeof(float)) || Object.Equals(_GridView.GroupedColumns[i].ColumnType, typeof(DateTime)))
                                     {
-                                        string strGroup = string.Format("{0}: {1}", _GridView.Columns[i].Caption, row[_DataColumn.ColumnName]);
-                                        if (Object.Equals(_GridView.Columns[i].ColumnType, typeof(Int32)))
-                                        {
-                                            row[_DataColumn.ColumnName + strTag] = strGroup;
-                                        }
-                                        else
-                                        {
-                                            row[_DataColumn.ColumnName] = strGroup;
-                                        }
-                                        if (MaxLength < strGroup.Length)
-                                            MaxLength = strGroup.Length;
+                                        row[_DataColumn.ColumnName + strTag] = strGroup;
                                     }
+                                    else
+                                    {
+                                        row[_DataColumn.ColumnName] = strGroup;
+                                    }
+                                    if (MaxLength < strGroup.Length)
+                                        MaxLength = strGroup.Length;
                                 }
                             }
                         }
@@ -350,28 +381,25 @@ namespace SHARED.Libraries
             {
                 if (_BandedGridView.GroupCount > 0)
                 {
-                    for (int i = 0; i < _BandedGridView.Columns.Count; i++)
+                    for (int i = 0; i < _BandedGridView.GroupedColumns.Count; i++)
                     {
-                        if (!(_BandedGridView.Columns[i].Visible && _BandedGridView.Columns[i].GroupIndex < 0))
+                        foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
                         {
-                            foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
+                            if (Object.Equals(_DataColumn.ColumnName, _BandedGridView.GroupedColumns[i].Name + "_" + _BandedGridView.GroupedColumns[i].FieldName))
                             {
-                                if (Object.Equals(_DataColumn.ColumnName, _BandedGridView.Columns[i].Name + "_" + _BandedGridView.Columns[i].FieldName))
+                                foreach (DataRow row in _DataSet.Tables[0].Rows)
                                 {
-                                    foreach (DataRow row in _DataSet.Tables[0].Rows)
+                                    string strGroup = string.Format("{0}: {1}", _BandedGridView.GroupedColumns[i].Caption, Object.Equals(row[_DataColumn.ColumnName], DBNull.Value) ? "" : row[_DataColumn.ColumnName]);
+                                    if (Object.Equals(_BandedGridView.GroupedColumns[i].ColumnType, typeof(Int32)) || Object.Equals(_BandedGridView.GroupedColumns[i].ColumnType, typeof(float)) || Object.Equals(_BandedGridView.GroupedColumns[i].ColumnType, typeof(DateTime)))
                                     {
-                                        string strGroup = string.Format("{0}: {1}", _BandedGridView.Columns[i].Caption, row[_DataColumn.ColumnName]);
-                                        if (Object.Equals(_BandedGridView.Columns[i].ColumnType, typeof(Int32)))
-                                        {
-                                            row[_DataColumn.ColumnName + strTag] = strGroup;
-                                        }
-                                        else
-                                        {
-                                            row[_DataColumn.ColumnName] = strGroup;
-                                        }
-                                        if (MaxLength < strGroup.Length)
-                                            MaxLength = strGroup.Length;
+                                        row[_DataColumn.ColumnName + strTag] = strGroup;
                                     }
+                                    else
+                                    {
+                                        row[_DataColumn.ColumnName] = strGroup;
+                                    }
+                                    if (MaxLength < strGroup.Length)
+                                        MaxLength = strGroup.Length;
                                 }
                             }
                         }
