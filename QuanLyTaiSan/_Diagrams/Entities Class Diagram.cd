@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PTB.Entities.DBInstance" Collapsed="true">
+    <Position X="7.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAEAAAAIAQAAAAAAAABAAAAAAAAAAAEAAAAAAAABg=</HashCode>
+      <FileName>DbContext\DBInstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.OurDBContext" Collapsed="true">
+    <Position X="9.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAIEIAJDABUBQQAQAAIAAgAEIJAyIAAAAAAAAAAoAg=</HashCode>
+      <FileName>DbContext\OurDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities._EntityAbstract1&lt;T&gt;" Collapsed="true">
+    <Position X="24" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAoAABEIAQhIAIAAABAQAAAAAIAAIBQYACkkpGggA=</HashCode>
+      <FileName>Entities\_EntityAbstract1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PTB.Entities._EntityAbstract2&lt;T&gt;" Collapsed="true">
+    <Position X="21.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIACAAAAAAGAAA=</HashCode>
+      <FileName>Entities\_EntityAbstract2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities._EntityAbstract3&lt;T&gt;" Collapsed="true">
+    <Position X="23.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAABAAAEAEAAgAACAAAAAIBAgAAQIA=</HashCode>
+      <FileName>Entities\_EntityAbstract3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.CoSo" Collapsed="true">
+    <Position X="14" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAIABAQAAAAAAAAIAQAAAhFAAAAA=</HashCode>
+      <FileName>Entities\CoSo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.CTThietBi" Collapsed="true">
+    <Position X="18.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAUABgAEAAAAAQJEAAAEAAAAQCAAkABCCAA=</HashCode>
+      <FileName>Entities\CTThietBi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.Dayy" Collapsed="true">
+    <Position X="7" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAAIABAQAAAAgAAIIBQQAAhBBAAAA=</HashCode>
+      <FileName>Entities\Dayy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.Group" Collapsed="true">
+    <Position X="19.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIACAAAAAAAAEgIAEAQQAAAEBAAMCQIAAABIEgAA=</HashCode>
+      <FileName>Entities\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.HinhAnh" Collapsed="true">
+    <Position X="26" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEAIAAAABIAAAERBAiAAAEFAAIgIQACAAAEkhmSAI=</HashCode>
+      <FileName>Entities\HinhAnh.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.LoaiThietBi" Collapsed="true">
+    <Position X="23.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAiAAAAAAAAABAAICBAQQAAAAAgAIAQQAAgABBAAA=</HashCode>
+      <FileName>Entities\LoaiThietBi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.LogHeThong" Collapsed="true">
+    <Position X="28.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAA=</HashCode>
+      <FileName>Entities\LogHeThong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.LogSuCoPhong" Collapsed="true">
+    <Position X="9.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAQAAAAAAAAQAAQAAAAEAAIQAAAAAABEAAA=</HashCode>
+      <FileName>Entities\LogSuCoPhong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.LogThietBi" Collapsed="true">
+    <Position X="16" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAgAUAAgAEAAAAAAQAAAAEAAAAAAAAAABECAA=</HashCode>
+      <FileName>Entities\LogThietBi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.NhanVienPT" Collapsed="true">
+    <Position X="18.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQAAAAAAAAAAEQAAAAAAAAIAQAgAAAAACAA=</HashCode>
+      <FileName>Entities\NhanVienPT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.Permission" Collapsed="true">
+    <Position X="26" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAACAAAQAAAAAAFgA6EAIKAAAEABIMGQAAAAEgEiAE=</HashCode>
+      <FileName>Entities\Permission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.PhieuMuonPhong" Collapsed="true">
+    <Position X="30.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAIAAAAAQAAEJAAAiAAAAABAAAIAQAAAAADQAEA=</HashCode>
+      <FileName>Entities\PhieuMuonPhong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.Phong" Collapsed="true">
+    <Position X="11.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAgCAAAAAABIAhAQQkAAAAAAIAQAAABBBAAAA=</HashCode>
+      <FileName>Entities\Phong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.QuanTriVien" Collapsed="true">
+    <Position X="23.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAIAAgAAAAAAAkgAAAASAEAAEBAAcCQIAAEAJGiAA=</HashCode>
+      <FileName>Entities\QuanTriVien.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.Setting" Collapsed="true">
+    <Position X="28.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAACAAAAAEAAAAAAAAACAIQAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Setting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.SuCoPhong" Collapsed="true">
+    <Position X="16.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAUAAAAAAIABAQBAAAAEAAYAQAAAEABGCAA=</HashCode>
+      <FileName>Entities\SuCoPhong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.Tang" Collapsed="true">
+    <Position X="20.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAggAAAAAAAAAAAAIABAQIAAAAAAAIAQQAAhBBAAAA=</HashCode>
+      <FileName>Entities\Tang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.ThietBi" Collapsed="true">
+    <Position X="13.75" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEABgAAAAAIABAQAEAAAAAAJAQAABAgBCAgA=</HashCode>
+      <FileName>Entities\ThietBi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.TinhTrang" Collapsed="true">
+    <Position X="21.5" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="PTB.Entities._EntityAbstract1&lt;T&gt;" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="24.562" Y="10.75" />
+        <Point X="24.562" Y="10.422" />
+        <Point X="24.766" Y="10.422" />
+        <Point X="24.766" Y="8.316" />
+        <Point X="22.25" Y="8.316" />
+        <Point X="22.25" Y="7.941" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAEAAAQAAAAAlAQAEAAABACcAQAAAgAAAAAA=</HashCode>
+      <FileName>Entities\TinhTrang.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.Entities.ViTri" Collapsed="true">
+    <Position X="30.5" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="PTB.Entities._EntityAbstract1&lt;T&gt;" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="24.562" Y="10.75" />
+        <Point X="24.562" Y="10.262" />
+        <Point X="24.745" Y="10.262" />
+        <Point X="24.745" Y="8.316" />
+        <Point X="31.25" Y="8.316" />
+        <Point X="31.25" Y="7.941" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAAAAAAAAAAQKAAAgAAAAAQAAAAgBECAA=</HashCode>
+      <FileName>Entities\ViTri.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

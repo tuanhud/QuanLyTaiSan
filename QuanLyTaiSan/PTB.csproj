@@ -83,6 +83,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions">
       <Private>True</Private>
@@ -235,6 +237,10 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="_Diagrams\DataFilter Class Diagram.cd" />
+    <None Include="_Diagrams\Entities Class Diagram.cd" />
+    <None Include="_Diagrams\Libraries Class Diagram.cd" />
+    <None Include="_Diagrams\SearchFilter Class Diagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -269,6 +275,9 @@
       <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
       <Name>SHARED</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

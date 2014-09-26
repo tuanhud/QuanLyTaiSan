@@ -1,0 +1,2777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PTBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="COSO_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COSO_PERMISSION">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COSOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar(max)" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CTTHIETBI_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CTTHIETBIS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ngay" Type="datetime" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="phong_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="thietbi_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DAY_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAY_PERMISSION">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAYS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="coso_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GROUP_PERMISSION">
+          <Key>
+            <PropertyRef Name="group_id" />
+            <PropertyRef Name="permission_id" />
+          </Key>
+          <Property Name="group_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="permission_id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GROUPS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="100" />
+          <Property Name="ten" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HINHANHS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="path" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LOAITHIETBIS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="loaichung" Type="bit" Nullable="false" />
+          <Property Name="parent_id" Type="uniqueidentifier" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LOGHETHONGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LOGSUCOPHONG_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOGSUCOPHONGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="sucophong_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LOGTHIETBI_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOGTHIETBIS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="thietbi_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="phong_id" Type="uniqueidentifier" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NHANVIENPT_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NHANVIENPTS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="gioitinh" Type="bit" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sodienthoai" Type="nvarchar(max)" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PERMISSIONS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="key" Type="nvarchar(max)" />
+          <Property Name="stand_alone" Type="bit" Nullable="false" />
+          <Property Name="allow_or_deny" Type="bit" Nullable="false" />
+          <Property Name="recursive_to_child" Type="bit" Nullable="false" />
+          <Property Name="can_view" Type="bit" Nullable="false" />
+          <Property Name="can_edit" Type="bit" Nullable="false" />
+          <Property Name="can_delete" Type="bit" Nullable="false" />
+          <Property Name="can_add" Type="bit" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PHIEUMUONPHONGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="donvi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ngaymuon" Type="datetime" Nullable="false" />
+          <Property Name="ngaytra" Type="datetime" Nullable="false" />
+          <Property Name="lydomuon" Type="nvarchar(max)" />
+          <Property Name="ghichu" Type="nvarchar(max)" />
+          <Property Name="trangthai" Type="int" Nullable="false" />
+          <Property Name="lop" Type="nvarchar(max)" />
+          <Property Name="sophong" Type="int" Nullable="false" />
+          <Property Name="nguoimuon_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nguoiduyet_id" Type="uniqueidentifier" />
+          <Property Name="soluongsv" Type="int" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PHONG_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PHONG_PERMISSION">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PHONGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" />
+          <Property Name="vitri_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nhanvienpt_id" Type="uniqueidentifier" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="QUANTRIVIENS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="donvi" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="group_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SETTINGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="value" Type="nvarchar(max)" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SUCOPHONG_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUCOPHONGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ngay" Type="datetime" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="phong_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TANG_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TANG_PERMISSION">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TANGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="day_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="THIETBI_HINHANH">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="THIETBIS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ngaymua" Type="datetime" />
+          <Property Name="loaithietbi_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TINHTRANGS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="255" />
+          <Property Name="value" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <EntityType Name="VITRIS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="coso_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="day_id" Type="uniqueidentifier" />
+          <Property Name="tang_id" Type="uniqueidentifier" />
+          <Property Name="subId" Type="nvarchar(max)" />
+          <Property Name="order" Type="bigint" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="date_create" Type="datetime" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_dbo_COSO_HINHANH_dbo_COSOS_id1">
+          <End Role="COSOS" Type="Self.COSOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COSO_HINHANH" Type="Self.COSO_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COSOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="COSO_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_COSO_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COSO_HINHANH" Type="Self.COSO_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="COSO_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_COSO_PERMISSION_dbo_COSOS_id1">
+          <End Role="COSOS" Type="Self.COSOS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COSO_PERMISSION" Type="Self.COSO_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COSOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="COSO_PERMISSION">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_COSO_PERMISSION_dbo_PERMISSIONS_id2">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COSO_PERMISSION" Type="Self.COSO_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="COSO_PERMISSION">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBI_HINHANH_dbo_CTTHIETBIS_id1">
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBIS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CTTHIETBI_HINHANH" Type="Self.CTTHIETBI_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CTTHIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBI_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBI_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CTTHIETBI_HINHANH" Type="Self.CTTHIETBI_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBI_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id">
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="1" />
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBIS">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id">
+          <End Role="THIETBIS" Type="Self.THIETBIS" Multiplicity="1" />
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBIS">
+              <PropertyRef Name="thietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANGS" Multiplicity="1" />
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBIS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DAY_HINHANH_dbo_DAYS_id1">
+          <End Role="DAYS" Type="Self.DAYS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DAY_HINHANH" Type="Self.DAY_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DAY_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DAY_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DAY_HINHANH" Type="Self.DAY_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DAY_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DAY_PERMISSION_dbo_DAYS_id1">
+          <End Role="DAYS" Type="Self.DAYS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DAY_PERMISSION" Type="Self.DAY_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DAY_PERMISSION">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DAY_PERMISSION_dbo_PERMISSIONS_id2">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DAY_PERMISSION" Type="Self.DAY_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DAY_PERMISSION">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DAYS_dbo_COSOS_coso_id">
+          <End Role="COSOS" Type="Self.COSOS" Multiplicity="1" />
+          <End Role="DAYS" Type="Self.DAYS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COSOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DAYS">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GROUP_PERMISSION_dbo_GROUPS_group_id">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUP_PERMISSION" Type="Self.GROUP_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GROUP_PERMISSION">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GROUP_PERMISSION_dbo_PERMISSIONS_permission_id">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUP_PERMISSION" Type="Self.GROUP_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GROUP_PERMISSION">
+              <PropertyRef Name="permission_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id">
+          <End Role="LOAITHIETBIS" Type="Self.LOAITHIETBIS" Multiplicity="0..1" />
+          <End Role="LOAITHIETBIS1" Type="Self.LOAITHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAITHIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOAITHIETBIS1">
+              <PropertyRef Name="parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONG_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LOGSUCOPHONG_HINHANH" Type="Self.LOGSUCOPHONG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONG_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONG_HINHANH_dbo_LOGSUCOPHONGS_id1">
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONGS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LOGSUCOPHONG_HINHANH" Type="Self.LOGSUCOPHONG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOGSUCOPHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONG_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIENS" Multiplicity="0..1" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONGS">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id">
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONGS" Multiplicity="1" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUCOPHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONGS">
+              <PropertyRef Name="sucophong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANGS" Multiplicity="1" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONGS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBI_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LOGTHIETBI_HINHANH" Type="Self.LOGTHIETBI_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBI_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBI_HINHANH_dbo_LOGTHIETBIS_id1">
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBIS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LOGTHIETBI_HINHANH" Type="Self.LOGTHIETBI_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOGTHIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBI_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id">
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="0..1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIENS" Multiplicity="0..1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id">
+          <End Role="THIETBIS" Type="Self.THIETBIS" Multiplicity="1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="thietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANGS" Multiplicity="1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_NHANVIENPT_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NHANVIENPT_HINHANH" Type="Self.NHANVIENPT_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NHANVIENPT_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_NHANVIENPT_HINHANH_dbo_NHANVIENPTS_id1">
+          <End Role="NHANVIENPTS" Type="Self.NHANVIENPTS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NHANVIENPT_HINHANH" Type="Self.NHANVIENPT_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIENPTS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NHANVIENPT_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIENS" Multiplicity="0..1" />
+          <End Role="PHIEUMUONPHONGS" Type="Self.PHIEUMUONPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHIEUMUONPHONGS">
+              <PropertyRef Name="nguoiduyet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIENS" Multiplicity="1" />
+          <End Role="PHIEUMUONPHONGS" Type="Self.PHIEUMUONPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHIEUMUONPHONGS">
+              <PropertyRef Name="nguoimuon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONG_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PHONG_HINHANH" Type="Self.PHONG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONG_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONG_HINHANH_dbo_PHONGS_id1">
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PHONG_HINHANH" Type="Self.PHONG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONG_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONG_PERMISSION_dbo_PERMISSIONS_id2">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PHONG_PERMISSION" Type="Self.PHONG_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONG_PERMISSION">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONG_PERMISSION_dbo_PHONGS_id1">
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PHONG_PERMISSION" Type="Self.PHONG_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONG_PERMISSION">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id">
+          <End Role="NHANVIENPTS" Type="Self.NHANVIENPTS" Multiplicity="0..1" />
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIENPTS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONGS">
+              <PropertyRef Name="nhanvienpt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIENS" Multiplicity="0..1" />
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONGS">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONGS_dbo_VITRIS_vitri_id">
+          <End Role="VITRIS" Type="Self.VITRIS" Multiplicity="1" />
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VITRIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONGS">
+              <PropertyRef Name="vitri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIENS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="QUANTRIVIENS">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUCOPHONG_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUCOPHONG_HINHANH" Type="Self.SUCOPHONG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SUCOPHONG_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUCOPHONG_HINHANH_dbo_SUCOPHONGS_id1">
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONGS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUCOPHONG_HINHANH" Type="Self.SUCOPHONG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUCOPHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SUCOPHONG_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id">
+          <End Role="PHONGS" Type="Self.PHONGS" Multiplicity="1" />
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SUCOPHONGS">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANGS" Multiplicity="1" />
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SUCOPHONGS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TANG_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TANG_HINHANH" Type="Self.TANG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TANG_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TANG_HINHANH_dbo_TANGS_id1">
+          <End Role="TANGS" Type="Self.TANGS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TANG_HINHANH" Type="Self.TANG_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TANG_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TANG_PERMISSION_dbo_PERMISSIONS_id2">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TANG_PERMISSION" Type="Self.TANG_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TANG_PERMISSION">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TANG_PERMISSION_dbo_TANGS_id1">
+          <End Role="TANGS" Type="Self.TANGS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TANG_PERMISSION" Type="Self.TANG_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TANG_PERMISSION">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TANGS_dbo_DAYS_day_id">
+          <End Role="DAYS" Type="Self.DAYS" Multiplicity="1" />
+          <End Role="TANGS" Type="Self.TANGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TANGS">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_THIETBI_HINHANH_dbo_HINHANHS_id2">
+          <End Role="HINHANHS" Type="Self.HINHANHS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="THIETBI_HINHANH" Type="Self.THIETBI_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HINHANHS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="THIETBI_HINHANH">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_THIETBI_HINHANH_dbo_THIETBIS_id1">
+          <End Role="THIETBIS" Type="Self.THIETBIS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="THIETBI_HINHANH" Type="Self.THIETBI_HINHANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="THIETBI_HINHANH">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id">
+          <End Role="LOAITHIETBIS" Type="Self.LOAITHIETBIS" Multiplicity="1" />
+          <End Role="THIETBIS" Type="Self.THIETBIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAITHIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="THIETBIS">
+              <PropertyRef Name="loaithietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VITRIS_dbo_COSOS_coso_id">
+          <End Role="COSOS" Type="Self.COSOS" Multiplicity="1" />
+          <End Role="VITRIS" Type="Self.VITRIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COSOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VITRIS">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VITRIS_dbo_DAYS_day_id">
+          <End Role="DAYS" Type="Self.DAYS" Multiplicity="0..1" />
+          <End Role="VITRIS" Type="Self.VITRIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VITRIS">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VITRIS_dbo_TANGS_tang_id">
+          <End Role="TANGS" Type="Self.TANGS" Multiplicity="0..1" />
+          <End Role="VITRIS" Type="Self.VITRIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VITRIS">
+              <PropertyRef Name="tang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PTBModelStoreContainer">
+          <EntitySet Name="COSO_HINHANH" EntityType="Self.COSO_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COSO_PERMISSION" EntityType="Self.COSO_PERMISSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COSOS" EntityType="Self.COSOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTTHIETBI_HINHANH" EntityType="Self.CTTHIETBI_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTTHIETBIS" EntityType="Self.CTTHIETBIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAY_HINHANH" EntityType="Self.DAY_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAY_PERMISSION" EntityType="Self.DAY_PERMISSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAYS" EntityType="Self.DAYS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUP_PERMISSION" EntityType="Self.GROUP_PERMISSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPS" EntityType="Self.GROUPS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HINHANHS" EntityType="Self.HINHANHS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAITHIETBIS" EntityType="Self.LOAITHIETBIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGHETHONGS" EntityType="Self.LOGHETHONGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGSUCOPHONG_HINHANH" EntityType="Self.LOGSUCOPHONG_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGSUCOPHONGS" EntityType="Self.LOGSUCOPHONGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGTHIETBI_HINHANH" EntityType="Self.LOGTHIETBI_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGTHIETBIS" EntityType="Self.LOGTHIETBIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIENPT_HINHANH" EntityType="Self.NHANVIENPT_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIENPTS" EntityType="Self.NHANVIENPTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERMISSIONS" EntityType="Self.PERMISSIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUMUONPHONGS" EntityType="Self.PHIEUMUONPHONGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONG_HINHANH" EntityType="Self.PHONG_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONG_PERMISSION" EntityType="Self.PHONG_PERMISSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONGS" EntityType="Self.PHONGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUANTRIVIENS" EntityType="Self.QUANTRIVIENS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SETTINGS" EntityType="Self.SETTINGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUCOPHONG_HINHANH" EntityType="Self.SUCOPHONG_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUCOPHONGS" EntityType="Self.SUCOPHONGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TANG_HINHANH" EntityType="Self.TANG_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TANG_PERMISSION" EntityType="Self.TANG_PERMISSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TANGS" EntityType="Self.TANGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THIETBI_HINHANH" EntityType="Self.THIETBI_HINHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THIETBIS" EntityType="Self.THIETBIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINHTRANGS" EntityType="Self.TINHTRANGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VITRIS" EntityType="Self.VITRIS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_COSO_HINHANH_dbo_COSOS_id1" Association="Self.FK_dbo_COSO_HINHANH_dbo_COSOS_id1">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="COSO_HINHANH" EntitySet="COSO_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_COSO_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_COSO_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="COSO_HINHANH" EntitySet="COSO_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_COSO_PERMISSION_dbo_COSOS_id1" Association="Self.FK_dbo_COSO_PERMISSION_dbo_COSOS_id1">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="COSO_PERMISSION" EntitySet="COSO_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_COSO_PERMISSION_dbo_PERMISSIONS_id2" Association="Self.FK_dbo_COSO_PERMISSION_dbo_PERMISSIONS_id2">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="COSO_PERMISSION" EntitySet="COSO_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBI_HINHANH_dbo_CTTHIETBIS_id1" Association="Self.FK_dbo_CTTHIETBI_HINHANH_dbo_CTTHIETBIS_id1">
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+            <End Role="CTTHIETBI_HINHANH" EntitySet="CTTHIETBI_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBI_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_CTTHIETBI_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="CTTHIETBI_HINHANH" EntitySet="CTTHIETBI_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id" Association="Self.FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id" Association="Self.FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id">
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DAY_HINHANH_dbo_DAYS_id1" Association="Self.FK_dbo_DAY_HINHANH_dbo_DAYS_id1">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="DAY_HINHANH" EntitySet="DAY_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DAY_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_DAY_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="DAY_HINHANH" EntitySet="DAY_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DAY_PERMISSION_dbo_DAYS_id1" Association="Self.FK_dbo_DAY_PERMISSION_dbo_DAYS_id1">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="DAY_PERMISSION" EntitySet="DAY_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DAY_PERMISSION_dbo_PERMISSIONS_id2" Association="Self.FK_dbo_DAY_PERMISSION_dbo_PERMISSIONS_id2">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="DAY_PERMISSION" EntitySet="DAY_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DAYS_dbo_COSOS_coso_id" Association="Self.FK_dbo_DAYS_dbo_COSOS_coso_id">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="DAYS" EntitySet="DAYS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GROUP_PERMISSION_dbo_GROUPS_group_id" Association="Self.FK_dbo_GROUP_PERMISSION_dbo_GROUPS_group_id">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUP_PERMISSION" EntitySet="GROUP_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GROUP_PERMISSION_dbo_PERMISSIONS_permission_id" Association="Self.FK_dbo_GROUP_PERMISSION_dbo_PERMISSIONS_permission_id">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="GROUP_PERMISSION" EntitySet="GROUP_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id" Association="Self.FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id">
+            <End Role="LOAITHIETBIS" EntitySet="LOAITHIETBIS" />
+            <End Role="LOAITHIETBIS1" EntitySet="LOAITHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONG_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_LOGSUCOPHONG_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="LOGSUCOPHONG_HINHANH" EntitySet="LOGSUCOPHONG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONG_HINHANH_dbo_LOGSUCOPHONGS_id1" Association="Self.FK_dbo_LOGSUCOPHONG_HINHANH_dbo_LOGSUCOPHONGS_id1">
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+            <End Role="LOGSUCOPHONG_HINHANH" EntitySet="LOGSUCOPHONG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id" Association="Self.FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id" Association="Self.FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id">
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBI_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_LOGTHIETBI_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="LOGTHIETBI_HINHANH" EntitySet="LOGTHIETBI_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBI_HINHANH_dbo_LOGTHIETBIS_id1" Association="Self.FK_dbo_LOGTHIETBI_HINHANH_dbo_LOGTHIETBIS_id1">
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+            <End Role="LOGTHIETBI_HINHANH" EntitySet="LOGTHIETBI_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id">
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_NHANVIENPT_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_NHANVIENPT_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="NHANVIENPT_HINHANH" EntitySet="NHANVIENPT_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_NHANVIENPT_HINHANH_dbo_NHANVIENPTS_id1" Association="Self.FK_dbo_NHANVIENPT_HINHANH_dbo_NHANVIENPTS_id1">
+            <End Role="NHANVIENPTS" EntitySet="NHANVIENPTS" />
+            <End Role="NHANVIENPT_HINHANH" EntitySet="NHANVIENPT_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id" Association="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="PHIEUMUONPHONGS" EntitySet="PHIEUMUONPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id" Association="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="PHIEUMUONPHONGS" EntitySet="PHIEUMUONPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONG_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_PHONG_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="PHONG_HINHANH" EntitySet="PHONG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONG_HINHANH_dbo_PHONGS_id1" Association="Self.FK_dbo_PHONG_HINHANH_dbo_PHONGS_id1">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="PHONG_HINHANH" EntitySet="PHONG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONG_PERMISSION_dbo_PERMISSIONS_id2" Association="Self.FK_dbo_PHONG_PERMISSION_dbo_PERMISSIONS_id2">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="PHONG_PERMISSION" EntitySet="PHONG_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONG_PERMISSION_dbo_PHONGS_id1" Association="Self.FK_dbo_PHONG_PERMISSION_dbo_PHONGS_id1">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="PHONG_PERMISSION" EntitySet="PHONG_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id" Association="Self.FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id">
+            <End Role="NHANVIENPTS" EntitySet="NHANVIENPTS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id" Association="Self.FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONGS_dbo_VITRIS_vitri_id" Association="Self.FK_dbo_PHONGS_dbo_VITRIS_vitri_id">
+            <End Role="VITRIS" EntitySet="VITRIS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id" Association="Self.FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUCOPHONG_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_SUCOPHONG_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="SUCOPHONG_HINHANH" EntitySet="SUCOPHONG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUCOPHONG_HINHANH_dbo_SUCOPHONGS_id1" Association="Self.FK_dbo_SUCOPHONG_HINHANH_dbo_SUCOPHONGS_id1">
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+            <End Role="SUCOPHONG_HINHANH" EntitySet="SUCOPHONG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id" Association="Self.FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TANG_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_TANG_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="TANG_HINHANH" EntitySet="TANG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TANG_HINHANH_dbo_TANGS_id1" Association="Self.FK_dbo_TANG_HINHANH_dbo_TANGS_id1">
+            <End Role="TANGS" EntitySet="TANGS" />
+            <End Role="TANG_HINHANH" EntitySet="TANG_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TANG_PERMISSION_dbo_PERMISSIONS_id2" Association="Self.FK_dbo_TANG_PERMISSION_dbo_PERMISSIONS_id2">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="TANG_PERMISSION" EntitySet="TANG_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TANG_PERMISSION_dbo_TANGS_id1" Association="Self.FK_dbo_TANG_PERMISSION_dbo_TANGS_id1">
+            <End Role="TANGS" EntitySet="TANGS" />
+            <End Role="TANG_PERMISSION" EntitySet="TANG_PERMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TANGS_dbo_DAYS_day_id" Association="Self.FK_dbo_TANGS_dbo_DAYS_day_id">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="TANGS" EntitySet="TANGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_THIETBI_HINHANH_dbo_HINHANHS_id2" Association="Self.FK_dbo_THIETBI_HINHANH_dbo_HINHANHS_id2">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="THIETBI_HINHANH" EntitySet="THIETBI_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_THIETBI_HINHANH_dbo_THIETBIS_id1" Association="Self.FK_dbo_THIETBI_HINHANH_dbo_THIETBIS_id1">
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+            <End Role="THIETBI_HINHANH" EntitySet="THIETBI_HINHANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id" Association="Self.FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id">
+            <End Role="LOAITHIETBIS" EntitySet="LOAITHIETBIS" />
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VITRIS_dbo_COSOS_coso_id" Association="Self.FK_dbo_VITRIS_dbo_COSOS_coso_id">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="VITRIS" EntitySet="VITRIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VITRIS_dbo_DAYS_day_id" Association="Self.FK_dbo_VITRIS_dbo_DAYS_day_id">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="VITRIS" EntitySet="VITRIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VITRIS_dbo_TANGS_tang_id" Association="Self.FK_dbo_VITRIS_dbo_TANGS_tang_id">
+            <End Role="TANGS" EntitySet="TANGS" />
+            <End Role="VITRIS" EntitySet="VITRIS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PTBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="COSO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DAYS" Relationship="Self.FK_dbo_DAYS_dbo_COSOS_coso_id" FromRole="COSOS" ToRole="DAYS" />
+          <NavigationProperty Name="VITRIS" Relationship="Self.FK_dbo_VITRIS_dbo_COSOS_coso_id" FromRole="COSOS" ToRole="VITRIS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.COSO_HINHANH" FromRole="COSOS" ToRole="HINHANHS" />
+          <NavigationProperty Name="PERMISSIONS" Relationship="Self.COSO_PERMISSION" FromRole="COSOS" ToRole="PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="CTTHIETBI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ngay" Type="DateTime" Precision="3" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="phong_id" Type="Guid" Nullable="false" />
+          <Property Name="thietbi_id" Type="Guid" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PHONG" Relationship="Self.FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id" FromRole="CTTHIETBIS" ToRole="PHONGS" />
+          <NavigationProperty Name="THIETBI" Relationship="Self.FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id" FromRole="CTTHIETBIS" ToRole="THIETBIS" />
+          <NavigationProperty Name="TINHTRANG" Relationship="Self.FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" FromRole="CTTHIETBIS" ToRole="TINHTRANGS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.CTTHIETBI_HINHANH" FromRole="CTTHIETBIS" ToRole="HINHANHS" />
+        </EntityType>
+        <EntityType Name="DAY">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coso_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="COSO" Relationship="Self.FK_dbo_DAYS_dbo_COSOS_coso_id" FromRole="DAYS" ToRole="COSOS" />
+          <NavigationProperty Name="TANGS" Relationship="Self.FK_dbo_TANGS_dbo_DAYS_day_id" FromRole="DAYS" ToRole="TANGS" />
+          <NavigationProperty Name="VITRIS" Relationship="Self.FK_dbo_VITRIS_dbo_DAYS_day_id" FromRole="DAYS" ToRole="VITRIS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.DAY_HINHANH" FromRole="DAYS" ToRole="HINHANHS" />
+          <NavigationProperty Name="PERMISSIONS" Relationship="Self.DAY_PERMISSION" FromRole="DAYS" ToRole="PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="GROUP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="QUANTRIVIENS" Relationship="Self.FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id" FromRole="GROUPS" ToRole="QUANTRIVIENS" />
+          <NavigationProperty Name="PERMISSIONS" Relationship="Self.GROUP_PERMISSION" FromRole="GROUPS" ToRole="PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="HINHANH">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="COSOS" Relationship="Self.COSO_HINHANH" FromRole="HINHANHS" ToRole="COSOS" />
+          <NavigationProperty Name="CTTHIETBIS" Relationship="Self.CTTHIETBI_HINHANH" FromRole="HINHANHS" ToRole="CTTHIETBIS" />
+          <NavigationProperty Name="DAYS" Relationship="Self.DAY_HINHANH" FromRole="HINHANHS" ToRole="DAYS" />
+          <NavigationProperty Name="LOGSUCOPHONGS" Relationship="Self.LOGSUCOPHONG_HINHANH" FromRole="HINHANHS" ToRole="LOGSUCOPHONGS" />
+          <NavigationProperty Name="LOGTHIETBIS" Relationship="Self.LOGTHIETBI_HINHANH" FromRole="HINHANHS" ToRole="LOGTHIETBIS" />
+          <NavigationProperty Name="NHANVIENPTS" Relationship="Self.NHANVIENPT_HINHANH" FromRole="HINHANHS" ToRole="NHANVIENPTS" />
+          <NavigationProperty Name="PHONGS" Relationship="Self.PHONG_HINHANH" FromRole="HINHANHS" ToRole="PHONGS" />
+          <NavigationProperty Name="SUCOPHONGS" Relationship="Self.SUCOPHONG_HINHANH" FromRole="HINHANHS" ToRole="SUCOPHONGS" />
+          <NavigationProperty Name="TANGS" Relationship="Self.TANG_HINHANH" FromRole="HINHANHS" ToRole="TANGS" />
+          <NavigationProperty Name="THIETBIS" Relationship="Self.THIETBI_HINHANH" FromRole="HINHANHS" ToRole="THIETBIS" />
+        </EntityType>
+        <EntityType Name="LOAITHIETBI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="loaichung" Type="Boolean" Nullable="false" />
+          <Property Name="parent_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LOAITHIETBIS1" Relationship="Self.FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id" FromRole="LOAITHIETBIS" ToRole="LOAITHIETBIS1" />
+          <NavigationProperty Name="LOAITHIETBI1" Relationship="Self.FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id" FromRole="LOAITHIETBIS1" ToRole="LOAITHIETBIS" />
+          <NavigationProperty Name="THIETBIS" Relationship="Self.FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id" FromRole="LOAITHIETBIS" ToRole="THIETBIS" />
+        </EntityType>
+        <EntityType Name="LOGHETHONG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LOGSUCOPHONG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="sucophong_id" Type="Guid" Nullable="false" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="QUANTRIVIEN" Relationship="Self.FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id" FromRole="LOGSUCOPHONGS" ToRole="QUANTRIVIENS" />
+          <NavigationProperty Name="SUCOPHONG" Relationship="Self.FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id" FromRole="LOGSUCOPHONGS" ToRole="SUCOPHONGS" />
+          <NavigationProperty Name="TINHTRANG" Relationship="Self.FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" FromRole="LOGSUCOPHONGS" ToRole="TINHTRANGS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.LOGSUCOPHONG_HINHANH" FromRole="LOGSUCOPHONGS" ToRole="HINHANHS" />
+        </EntityType>
+        <EntityType Name="LOGTHIETBI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="thietbi_id" Type="Guid" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="phong_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PHONG" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id" FromRole="LOGTHIETBIS" ToRole="PHONGS" />
+          <NavigationProperty Name="QUANTRIVIEN" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id" FromRole="LOGTHIETBIS" ToRole="QUANTRIVIENS" />
+          <NavigationProperty Name="THIETBI" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id" FromRole="LOGTHIETBIS" ToRole="THIETBIS" />
+          <NavigationProperty Name="TINHTRANG" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" FromRole="LOGTHIETBIS" ToRole="TINHTRANGS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.LOGTHIETBI_HINHANH" FromRole="LOGTHIETBIS" ToRole="HINHANHS" />
+        </EntityType>
+        <EntityType Name="NHANVIENPT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="gioitinh" Type="Boolean" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sodienthoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PHONGS" Relationship="Self.FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id" FromRole="NHANVIENPTS" ToRole="PHONGS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.NHANVIENPT_HINHANH" FromRole="NHANVIENPTS" ToRole="HINHANHS" />
+        </EntityType>
+        <EntityType Name="PERMISSION">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stand_alone" Type="Boolean" Nullable="false" />
+          <Property Name="allow_or_deny" Type="Boolean" Nullable="false" />
+          <Property Name="recursive_to_child" Type="Boolean" Nullable="false" />
+          <Property Name="can_view" Type="Boolean" Nullable="false" />
+          <Property Name="can_edit" Type="Boolean" Nullable="false" />
+          <Property Name="can_delete" Type="Boolean" Nullable="false" />
+          <Property Name="can_add" Type="Boolean" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="COSOS" Relationship="Self.COSO_PERMISSION" FromRole="PERMISSIONS" ToRole="COSOS" />
+          <NavigationProperty Name="DAYS" Relationship="Self.DAY_PERMISSION" FromRole="PERMISSIONS" ToRole="DAYS" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.GROUP_PERMISSION" FromRole="PERMISSIONS" ToRole="GROUPS" />
+          <NavigationProperty Name="PHONGS" Relationship="Self.PHONG_PERMISSION" FromRole="PERMISSIONS" ToRole="PHONGS" />
+          <NavigationProperty Name="TANGS" Relationship="Self.TANG_PERMISSION" FromRole="PERMISSIONS" ToRole="TANGS" />
+        </EntityType>
+        <EntityType Name="PHIEUMUONPHONG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="donvi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaymuon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ngaytra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lydomuon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="trangthai" Type="Int32" Nullable="false" />
+          <Property Name="lop" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sophong" Type="Int32" Nullable="false" />
+          <Property Name="nguoimuon_id" Type="Guid" Nullable="false" />
+          <Property Name="nguoiduyet_id" Type="Guid" />
+          <Property Name="soluongsv" Type="Int32" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="QUANTRIVIEN" Relationship="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id" FromRole="PHIEUMUONPHONGS" ToRole="QUANTRIVIENS" />
+          <NavigationProperty Name="QUANTRIVIEN1" Relationship="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id" FromRole="PHIEUMUONPHONGS" ToRole="QUANTRIVIENS" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vitri_id" Type="Guid" Nullable="false" />
+          <Property Name="nhanvienpt_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CTTHIETBIS" Relationship="Self.FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id" FromRole="PHONGS" ToRole="CTTHIETBIS" />
+          <NavigationProperty Name="LOGTHIETBIS" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id" FromRole="PHONGS" ToRole="LOGTHIETBIS" />
+          <NavigationProperty Name="NHANVIENPT" Relationship="Self.FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id" FromRole="PHONGS" ToRole="NHANVIENPTS" />
+          <NavigationProperty Name="QUANTRIVIEN" Relationship="Self.FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id" FromRole="PHONGS" ToRole="QUANTRIVIENS" />
+          <NavigationProperty Name="VITRI" Relationship="Self.FK_dbo_PHONGS_dbo_VITRIS_vitri_id" FromRole="PHONGS" ToRole="VITRIS" />
+          <NavigationProperty Name="SUCOPHONGS" Relationship="Self.FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id" FromRole="PHONGS" ToRole="SUCOPHONGS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.PHONG_HINHANH" FromRole="PHONGS" ToRole="HINHANHS" />
+          <NavigationProperty Name="PERMISSIONS" Relationship="Self.PHONG_PERMISSION" FromRole="PHONGS" ToRole="PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="QUANTRIVIEN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="donvi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="group_id" Type="Guid" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="GROUP" Relationship="Self.FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id" FromRole="QUANTRIVIENS" ToRole="GROUPS" />
+          <NavigationProperty Name="LOGSUCOPHONGS" Relationship="Self.FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id" FromRole="QUANTRIVIENS" ToRole="LOGSUCOPHONGS" />
+          <NavigationProperty Name="LOGTHIETBIS" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id" FromRole="QUANTRIVIENS" ToRole="LOGTHIETBIS" />
+          <NavigationProperty Name="PHIEUMUONPHONGS" Relationship="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id" FromRole="QUANTRIVIENS" ToRole="PHIEUMUONPHONGS" />
+          <NavigationProperty Name="PHIEUMUONPHONGS1" Relationship="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id" FromRole="QUANTRIVIENS" ToRole="PHIEUMUONPHONGS" />
+          <NavigationProperty Name="PHONGS" Relationship="Self.FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id" FromRole="QUANTRIVIENS" ToRole="PHONGS" />
+        </EntityType>
+        <EntityType Name="SETTING">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SUCOPHONG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ngay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="phong_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LOGSUCOPHONGS" Relationship="Self.FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id" FromRole="SUCOPHONGS" ToRole="LOGSUCOPHONGS" />
+          <NavigationProperty Name="PHONG" Relationship="Self.FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id" FromRole="SUCOPHONGS" ToRole="PHONGS" />
+          <NavigationProperty Name="TINHTRANG" Relationship="Self.FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" FromRole="SUCOPHONGS" ToRole="TINHTRANGS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.SUCOPHONG_HINHANH" FromRole="SUCOPHONGS" ToRole="HINHANHS" />
+        </EntityType>
+        <EntityType Name="TANG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="day_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DAY" Relationship="Self.FK_dbo_TANGS_dbo_DAYS_day_id" FromRole="TANGS" ToRole="DAYS" />
+          <NavigationProperty Name="VITRIS" Relationship="Self.FK_dbo_VITRIS_dbo_TANGS_tang_id" FromRole="TANGS" ToRole="VITRIS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.TANG_HINHANH" FromRole="TANGS" ToRole="HINHANHS" />
+          <NavigationProperty Name="PERMISSIONS" Relationship="Self.TANG_PERMISSION" FromRole="TANGS" ToRole="PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="THIETBI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaymua" Type="DateTime" Precision="3" />
+          <Property Name="loaithietbi_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CTTHIETBIS" Relationship="Self.FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id" FromRole="THIETBIS" ToRole="CTTHIETBIS" />
+          <NavigationProperty Name="LOAITHIETBI" Relationship="Self.FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id" FromRole="THIETBIS" ToRole="LOAITHIETBIS" />
+          <NavigationProperty Name="LOGTHIETBIS" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id" FromRole="THIETBIS" ToRole="LOGTHIETBIS" />
+          <NavigationProperty Name="HINHANHS" Relationship="Self.THIETBI_HINHANH" FromRole="THIETBIS" ToRole="HINHANHS" />
+        </EntityType>
+        <EntityType Name="TINHTRANG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <Property Name="type" Type="Int32" />
+          <NavigationProperty Name="CTTHIETBIS" Relationship="Self.FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" FromRole="TINHTRANGS" ToRole="CTTHIETBIS" />
+          <NavigationProperty Name="LOGSUCOPHONGS" Relationship="Self.FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" FromRole="TINHTRANGS" ToRole="LOGSUCOPHONGS" />
+          <NavigationProperty Name="LOGTHIETBIS" Relationship="Self.FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" FromRole="TINHTRANGS" ToRole="LOGTHIETBIS" />
+          <NavigationProperty Name="SUCOPHONGS" Relationship="Self.FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" FromRole="TINHTRANGS" ToRole="SUCOPHONGS" />
+        </EntityType>
+        <EntityType Name="VITRI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="coso_id" Type="Guid" Nullable="false" />
+          <Property Name="day_id" Type="Guid" />
+          <Property Name="tang_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" Precision="3" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="COSO" Relationship="Self.FK_dbo_VITRIS_dbo_COSOS_coso_id" FromRole="VITRIS" ToRole="COSOS" />
+          <NavigationProperty Name="DAY" Relationship="Self.FK_dbo_VITRIS_dbo_DAYS_day_id" FromRole="VITRIS" ToRole="DAYS" />
+          <NavigationProperty Name="PHONGS" Relationship="Self.FK_dbo_PHONGS_dbo_VITRIS_vitri_id" FromRole="VITRIS" ToRole="PHONGS" />
+          <NavigationProperty Name="TANG" Relationship="Self.FK_dbo_VITRIS_dbo_TANGS_tang_id" FromRole="VITRIS" ToRole="TANGS" />
+        </EntityType>
+        <Association Name="FK_dbo_DAYS_dbo_COSOS_coso_id">
+          <End Role="COSOS" Type="Self.COSO" Multiplicity="1" />
+          <End Role="DAYS" Type="Self.DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COSOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DAYS">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VITRIS_dbo_COSOS_coso_id">
+          <End Role="COSOS" Type="Self.COSO" Multiplicity="1" />
+          <End Role="VITRIS" Type="Self.VITRI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COSOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VITRIS">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id">
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="1" />
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBIS">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id">
+          <End Role="THIETBIS" Type="Self.THIETBI" Multiplicity="1" />
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBIS">
+              <PropertyRef Name="thietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANG" Multiplicity="1" />
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTHIETBIS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TANGS_dbo_DAYS_day_id">
+          <End Role="DAYS" Type="Self.DAY" Multiplicity="1" />
+          <End Role="TANGS" Type="Self.TANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TANGS">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VITRIS_dbo_DAYS_day_id">
+          <End Role="DAYS" Type="Self.DAY" Multiplicity="0..1" />
+          <End Role="VITRIS" Type="Self.VITRI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VITRIS">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id">
+          <End Role="GROUPS" Type="Self.GROUP" Multiplicity="1" />
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="QUANTRIVIENS">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id">
+          <End Role="LOAITHIETBIS" Type="Self.LOAITHIETBI" Multiplicity="0..1" />
+          <End Role="LOAITHIETBIS1" Type="Self.LOAITHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAITHIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOAITHIETBIS1">
+              <PropertyRef Name="parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id">
+          <End Role="LOAITHIETBIS" Type="Self.LOAITHIETBI" Multiplicity="1" />
+          <End Role="THIETBIS" Type="Self.THIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAITHIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="THIETBIS">
+              <PropertyRef Name="loaithietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIEN" Multiplicity="0..1" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONGS">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id">
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONG" Multiplicity="1" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUCOPHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONGS">
+              <PropertyRef Name="sucophong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANG" Multiplicity="1" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGSUCOPHONGS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id">
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="0..1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIEN" Multiplicity="0..1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id">
+          <End Role="THIETBIS" Type="Self.THIETBI" Multiplicity="1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THIETBIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="thietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANG" Multiplicity="1" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LOGTHIETBIS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id">
+          <End Role="NHANVIENPTS" Type="Self.NHANVIENPT" Multiplicity="0..1" />
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIENPTS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONGS">
+              <PropertyRef Name="nhanvienpt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIEN" Multiplicity="0..1" />
+          <End Role="PHIEUMUONPHONGS" Type="Self.PHIEUMUONPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHIEUMUONPHONGS">
+              <PropertyRef Name="nguoiduyet_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIEN" Multiplicity="1" />
+          <End Role="PHIEUMUONPHONGS" Type="Self.PHIEUMUONPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHIEUMUONPHONGS">
+              <PropertyRef Name="nguoimuon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+          <End Role="QUANTRIVIENS" Type="Self.QUANTRIVIEN" Multiplicity="0..1" />
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUANTRIVIENS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONGS">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PHONGS_dbo_VITRIS_vitri_id">
+          <End Role="VITRIS" Type="Self.VITRI" Multiplicity="1" />
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VITRIS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PHONGS">
+              <PropertyRef Name="vitri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id">
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="1" />
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SUCOPHONGS">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+          <End Role="TINHTRANGS" Type="Self.TINHTRANG" Multiplicity="1" />
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SUCOPHONGS">
+              <PropertyRef Name="tinhtrang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VITRIS_dbo_TANGS_tang_id">
+          <End Role="TANGS" Type="Self.TANG" Multiplicity="0..1" />
+          <End Role="VITRIS" Type="Self.VITRI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TANGS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VITRIS">
+              <PropertyRef Name="tang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COSO_HINHANH">
+          <End Role="COSOS" Type="Self.COSO" Multiplicity="*" />
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+        </Association>
+        <Association Name="COSO_PERMISSION">
+          <End Role="COSOS" Type="Self.COSO" Multiplicity="*" />
+          <End Role="PERMISSIONS" Type="Self.PERMISSION" Multiplicity="*" />
+        </Association>
+        <Association Name="CTTHIETBI_HINHANH">
+          <End Role="CTTHIETBIS" Type="Self.CTTHIETBI" Multiplicity="*" />
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+        </Association>
+        <Association Name="DAY_HINHANH">
+          <End Role="DAYS" Type="Self.DAY" Multiplicity="*" />
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+        </Association>
+        <Association Name="DAY_PERMISSION">
+          <End Role="DAYS" Type="Self.DAY" Multiplicity="*" />
+          <End Role="PERMISSIONS" Type="Self.PERMISSION" Multiplicity="*" />
+        </Association>
+        <Association Name="GROUP_PERMISSION">
+          <End Role="GROUPS" Type="Self.GROUP" Multiplicity="*" />
+          <End Role="PERMISSIONS" Type="Self.PERMISSION" Multiplicity="*" />
+        </Association>
+        <Association Name="LOGSUCOPHONG_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="LOGSUCOPHONGS" Type="Self.LOGSUCOPHONG" Multiplicity="*" />
+        </Association>
+        <Association Name="LOGTHIETBI_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="LOGTHIETBIS" Type="Self.LOGTHIETBI" Multiplicity="*" />
+        </Association>
+        <Association Name="NHANVIENPT_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="NHANVIENPTS" Type="Self.NHANVIENPT" Multiplicity="*" />
+        </Association>
+        <Association Name="PHONG_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="*" />
+        </Association>
+        <Association Name="PHONG_PERMISSION">
+          <End Role="PERMISSIONS" Type="Self.PERMISSION" Multiplicity="*" />
+          <End Role="PHONGS" Type="Self.PHONG" Multiplicity="*" />
+        </Association>
+        <Association Name="SUCOPHONG_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="SUCOPHONGS" Type="Self.SUCOPHONG" Multiplicity="*" />
+        </Association>
+        <Association Name="TANG_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="TANGS" Type="Self.TANG" Multiplicity="*" />
+        </Association>
+        <Association Name="TANG_PERMISSION">
+          <End Role="PERMISSIONS" Type="Self.PERMISSION" Multiplicity="*" />
+          <End Role="TANGS" Type="Self.TANG" Multiplicity="*" />
+        </Association>
+        <Association Name="THIETBI_HINHANH">
+          <End Role="HINHANHS" Type="Self.HINHANH" Multiplicity="*" />
+          <End Role="THIETBIS" Type="Self.THIETBI" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COSOS" EntityType="Self.COSO" />
+          <EntitySet Name="CTTHIETBIS" EntityType="Self.CTTHIETBI" />
+          <EntitySet Name="DAYS" EntityType="Self.DAY" />
+          <EntitySet Name="GROUPS" EntityType="Self.GROUP" />
+          <EntitySet Name="HINHANHS" EntityType="Self.HINHANH" />
+          <EntitySet Name="LOAITHIETBIS" EntityType="Self.LOAITHIETBI" />
+          <EntitySet Name="LOGHETHONGS" EntityType="Self.LOGHETHONG" />
+          <EntitySet Name="LOGSUCOPHONGS" EntityType="Self.LOGSUCOPHONG" />
+          <EntitySet Name="LOGTHIETBIS" EntityType="Self.LOGTHIETBI" />
+          <EntitySet Name="NHANVIENPTS" EntityType="Self.NHANVIENPT" />
+          <EntitySet Name="PERMISSIONS" EntityType="Self.PERMISSION" />
+          <EntitySet Name="PHIEUMUONPHONGS" EntityType="Self.PHIEUMUONPHONG" />
+          <EntitySet Name="PHONGS" EntityType="Self.PHONG" />
+          <EntitySet Name="QUANTRIVIENS" EntityType="Self.QUANTRIVIEN" />
+          <EntitySet Name="SETTINGS" EntityType="Self.SETTING" />
+          <EntitySet Name="SUCOPHONGS" EntityType="Self.SUCOPHONG" />
+          <EntitySet Name="TANGS" EntityType="Self.TANG" />
+          <EntitySet Name="THIETBIS" EntityType="Self.THIETBI" />
+          <EntitySet Name="TINHTRANGS" EntityType="Self.TINHTRANG" />
+          <EntitySet Name="VITRIS" EntityType="Self.VITRI" />
+          <AssociationSet Name="FK_dbo_DAYS_dbo_COSOS_coso_id" Association="Self.FK_dbo_DAYS_dbo_COSOS_coso_id">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="DAYS" EntitySet="DAYS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VITRIS_dbo_COSOS_coso_id" Association="Self.FK_dbo_VITRIS_dbo_COSOS_coso_id">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="VITRIS" EntitySet="VITRIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id" Association="Self.FK_dbo_CTTHIETBIS_dbo_PHONGS_phong_id">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id" Association="Self.FK_dbo_CTTHIETBIS_dbo_THIETBIS_thietbi_id">
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_CTTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TANGS_dbo_DAYS_day_id" Association="Self.FK_dbo_TANGS_dbo_DAYS_day_id">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="TANGS" EntitySet="TANGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VITRIS_dbo_DAYS_day_id" Association="Self.FK_dbo_VITRIS_dbo_DAYS_day_id">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="VITRIS" EntitySet="VITRIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id" Association="Self.FK_dbo_QUANTRIVIENS_dbo_GROUPS_group_id">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id" Association="Self.FK_dbo_LOAITHIETBIS_dbo_LOAITHIETBIS_parent_id">
+            <End Role="LOAITHIETBIS" EntitySet="LOAITHIETBIS" />
+            <End Role="LOAITHIETBIS1" EntitySet="LOAITHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id" Association="Self.FK_dbo_THIETBIS_dbo_LOAITHIETBIS_loaithietbi_id">
+            <End Role="LOAITHIETBIS" EntitySet="LOAITHIETBIS" />
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id" Association="Self.FK_dbo_LOGSUCOPHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id" Association="Self.FK_dbo_LOGSUCOPHONGS_dbo_SUCOPHONGS_sucophong_id">
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_LOGSUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_PHONGS_phong_id">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_QUANTRIVIENS_quantrivien_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_THIETBIS_thietbi_id">
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_LOGTHIETBIS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id" Association="Self.FK_dbo_PHONGS_dbo_NHANVIENPTS_nhanvienpt_id">
+            <End Role="NHANVIENPTS" EntitySet="NHANVIENPTS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id" Association="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoiduyet_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="PHIEUMUONPHONGS" EntitySet="PHIEUMUONPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id" Association="Self.FK_dbo_PHIEUMUONPHONGS_dbo_QUANTRIVIENS_nguoimuon_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="PHIEUMUONPHONGS" EntitySet="PHIEUMUONPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id" Association="Self.FK_dbo_PHONGS_dbo_QUANTRIVIENS_quantrivien_id">
+            <End Role="QUANTRIVIENS" EntitySet="QUANTRIVIENS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PHONGS_dbo_VITRIS_vitri_id" Association="Self.FK_dbo_PHONGS_dbo_VITRIS_vitri_id">
+            <End Role="VITRIS" EntitySet="VITRIS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id" Association="Self.FK_dbo_SUCOPHONGS_dbo_PHONGS_phong_id">
+            <End Role="PHONGS" EntitySet="PHONGS" />
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id" Association="Self.FK_dbo_SUCOPHONGS_dbo_TINHTRANGS_tinhtrang_id">
+            <End Role="TINHTRANGS" EntitySet="TINHTRANGS" />
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VITRIS_dbo_TANGS_tang_id" Association="Self.FK_dbo_VITRIS_dbo_TANGS_tang_id">
+            <End Role="TANGS" EntitySet="TANGS" />
+            <End Role="VITRIS" EntitySet="VITRIS" />
+          </AssociationSet>
+          <AssociationSet Name="COSO_HINHANH" Association="Self.COSO_HINHANH">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="COSO_PERMISSION" Association="Self.COSO_PERMISSION">
+            <End Role="COSOS" EntitySet="COSOS" />
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="CTTHIETBI_HINHANH" Association="Self.CTTHIETBI_HINHANH">
+            <End Role="CTTHIETBIS" EntitySet="CTTHIETBIS" />
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="DAY_HINHANH" Association="Self.DAY_HINHANH">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="DAY_PERMISSION" Association="Self.DAY_PERMISSION">
+            <End Role="DAYS" EntitySet="DAYS" />
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="GROUP_PERMISSION" Association="Self.GROUP_PERMISSION">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="LOGSUCOPHONG_HINHANH" Association="Self.LOGSUCOPHONG_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="LOGSUCOPHONGS" EntitySet="LOGSUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="LOGTHIETBI_HINHANH" Association="Self.LOGTHIETBI_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="LOGTHIETBIS" EntitySet="LOGTHIETBIS" />
+          </AssociationSet>
+          <AssociationSet Name="NHANVIENPT_HINHANH" Association="Self.NHANVIENPT_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="NHANVIENPTS" EntitySet="NHANVIENPTS" />
+          </AssociationSet>
+          <AssociationSet Name="PHONG_HINHANH" Association="Self.PHONG_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="PHONG_PERMISSION" Association="Self.PHONG_PERMISSION">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="PHONGS" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="SUCOPHONG_HINHANH" Association="Self.SUCOPHONG_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="SUCOPHONGS" EntitySet="SUCOPHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="TANG_HINHANH" Association="Self.TANG_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="TANGS" EntitySet="TANGS" />
+          </AssociationSet>
+          <AssociationSet Name="TANG_PERMISSION" Association="Self.TANG_PERMISSION">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="TANGS" EntitySet="TANGS" />
+          </AssociationSet>
+          <AssociationSet Name="THIETBI_HINHANH" Association="Self.THIETBI_HINHANH">
+            <End Role="HINHANHS" EntitySet="HINHANHS" />
+            <End Role="THIETBIS" EntitySet="THIETBIS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PTBModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="COSOS">
+            <EntityTypeMapping TypeName="PTBModel.COSO">
+              <MappingFragment StoreEntitySet="COSOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTTHIETBIS">
+            <EntityTypeMapping TypeName="PTBModel.CTTHIETBI">
+              <MappingFragment StoreEntitySet="CTTHIETBIS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="thietbi_id" ColumnName="thietbi_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAYS">
+            <EntityTypeMapping TypeName="PTBModel.DAY">
+              <MappingFragment StoreEntitySet="DAYS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="coso_id" ColumnName="coso_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS">
+            <EntityTypeMapping TypeName="PTBModel.GROUP">
+              <MappingFragment StoreEntitySet="GROUPS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HINHANHS">
+            <EntityTypeMapping TypeName="PTBModel.HINHANH">
+              <MappingFragment StoreEntitySet="HINHANHS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAITHIETBIS">
+            <EntityTypeMapping TypeName="PTBModel.LOAITHIETBI">
+              <MappingFragment StoreEntitySet="LOAITHIETBIS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="loaichung" ColumnName="loaichung" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGHETHONGS">
+            <EntityTypeMapping TypeName="PTBModel.LOGHETHONG">
+              <MappingFragment StoreEntitySet="LOGHETHONGS">
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGSUCOPHONGS">
+            <EntityTypeMapping TypeName="PTBModel.LOGSUCOPHONG">
+              <MappingFragment StoreEntitySet="LOGSUCOPHONGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="sucophong_id" ColumnName="sucophong_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGTHIETBIS">
+            <EntityTypeMapping TypeName="PTBModel.LOGTHIETBI">
+              <MappingFragment StoreEntitySet="LOGTHIETBIS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="thietbi_id" ColumnName="thietbi_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENPTS">
+            <EntityTypeMapping TypeName="PTBModel.NHANVIENPT">
+              <MappingFragment StoreEntitySet="NHANVIENPTS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISSIONS">
+            <EntityTypeMapping TypeName="PTBModel.PERMISSION">
+              <MappingFragment StoreEntitySet="PERMISSIONS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="stand_alone" ColumnName="stand_alone" />
+                <ScalarProperty Name="allow_or_deny" ColumnName="allow_or_deny" />
+                <ScalarProperty Name="recursive_to_child" ColumnName="recursive_to_child" />
+                <ScalarProperty Name="can_view" ColumnName="can_view" />
+                <ScalarProperty Name="can_edit" ColumnName="can_edit" />
+                <ScalarProperty Name="can_delete" ColumnName="can_delete" />
+                <ScalarProperty Name="can_add" ColumnName="can_add" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUMUONPHONGS">
+            <EntityTypeMapping TypeName="PTBModel.PHIEUMUONPHONG">
+              <MappingFragment StoreEntitySet="PHIEUMUONPHONGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="donvi" ColumnName="donvi" />
+                <ScalarProperty Name="ngaymuon" ColumnName="ngaymuon" />
+                <ScalarProperty Name="ngaytra" ColumnName="ngaytra" />
+                <ScalarProperty Name="lydomuon" ColumnName="lydomuon" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="lop" ColumnName="lop" />
+                <ScalarProperty Name="sophong" ColumnName="sophong" />
+                <ScalarProperty Name="nguoimuon_id" ColumnName="nguoimuon_id" />
+                <ScalarProperty Name="nguoiduyet_id" ColumnName="nguoiduyet_id" />
+                <ScalarProperty Name="soluongsv" ColumnName="soluongsv" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGS">
+            <EntityTypeMapping TypeName="PTBModel.PHONG">
+              <MappingFragment StoreEntitySet="PHONGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="nhanvienpt_id" ColumnName="nhanvienpt_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUANTRIVIENS">
+            <EntityTypeMapping TypeName="PTBModel.QUANTRIVIEN">
+              <MappingFragment StoreEntitySet="QUANTRIVIENS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="donvi" ColumnName="donvi" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SETTINGS">
+            <EntityTypeMapping TypeName="PTBModel.SETTING">
+              <MappingFragment StoreEntitySet="SETTINGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUCOPHONGS">
+            <EntityTypeMapping TypeName="PTBModel.SUCOPHONG">
+              <MappingFragment StoreEntitySet="SUCOPHONGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TANGS">
+            <EntityTypeMapping TypeName="PTBModel.TANG">
+              <MappingFragment StoreEntitySet="TANGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="day_id" ColumnName="day_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THIETBIS">
+            <EntityTypeMapping TypeName="PTBModel.THIETBI">
+              <MappingFragment StoreEntitySet="THIETBIS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="ngaymua" ColumnName="ngaymua" />
+                <ScalarProperty Name="loaithietbi_id" ColumnName="loaithietbi_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINHTRANGS">
+            <EntityTypeMapping TypeName="PTBModel.TINHTRANG">
+              <MappingFragment StoreEntitySet="TINHTRANGS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VITRIS">
+            <EntityTypeMapping TypeName="PTBModel.VITRI">
+              <MappingFragment StoreEntitySet="VITRIS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="coso_id" ColumnName="coso_id" />
+                <ScalarProperty Name="day_id" ColumnName="day_id" />
+                <ScalarProperty Name="tang_id" ColumnName="tang_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="COSO_HINHANH" TypeName="PTBModel.COSO_HINHANH" StoreEntitySet="COSO_HINHANH">
+            <EndProperty Name="COSOS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="COSO_PERMISSION" TypeName="PTBModel.COSO_PERMISSION" StoreEntitySet="COSO_PERMISSION">
+            <EndProperty Name="COSOS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="PERMISSIONS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CTTHIETBI_HINHANH" TypeName="PTBModel.CTTHIETBI_HINHANH" StoreEntitySet="CTTHIETBI_HINHANH">
+            <EndProperty Name="CTTHIETBIS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DAY_HINHANH" TypeName="PTBModel.DAY_HINHANH" StoreEntitySet="DAY_HINHANH">
+            <EndProperty Name="DAYS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DAY_PERMISSION" TypeName="PTBModel.DAY_PERMISSION" StoreEntitySet="DAY_PERMISSION">
+            <EndProperty Name="DAYS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="PERMISSIONS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="GROUP_PERMISSION" TypeName="PTBModel.GROUP_PERMISSION" StoreEntitySet="GROUP_PERMISSION">
+            <EndProperty Name="GROUPS">
+              <ScalarProperty Name="id" ColumnName="group_id" />
+            </EndProperty>
+            <EndProperty Name="PERMISSIONS">
+              <ScalarProperty Name="id" ColumnName="permission_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LOGSUCOPHONG_HINHANH" TypeName="PTBModel.LOGSUCOPHONG_HINHANH" StoreEntitySet="LOGSUCOPHONG_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="LOGSUCOPHONGS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LOGTHIETBI_HINHANH" TypeName="PTBModel.LOGTHIETBI_HINHANH" StoreEntitySet="LOGTHIETBI_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="LOGTHIETBIS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="NHANVIENPT_HINHANH" TypeName="PTBModel.NHANVIENPT_HINHANH" StoreEntitySet="NHANVIENPT_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="NHANVIENPTS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PHONG_HINHANH" TypeName="PTBModel.PHONG_HINHANH" StoreEntitySet="PHONG_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="PHONGS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PHONG_PERMISSION" TypeName="PTBModel.PHONG_PERMISSION" StoreEntitySet="PHONG_PERMISSION">
+            <EndProperty Name="PERMISSIONS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="PHONGS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SUCOPHONG_HINHANH" TypeName="PTBModel.SUCOPHONG_HINHANH" StoreEntitySet="SUCOPHONG_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="SUCOPHONGS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TANG_HINHANH" TypeName="PTBModel.TANG_HINHANH" StoreEntitySet="TANG_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="TANGS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TANG_PERMISSION" TypeName="PTBModel.TANG_PERMISSION" StoreEntitySet="TANG_PERMISSION">
+            <EndProperty Name="PERMISSIONS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="TANGS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="THIETBI_HINHANH" TypeName="PTBModel.THIETBI_HINHANH" StoreEntitySet="THIETBI_HINHANH">
+            <EndProperty Name="HINHANHS">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+            <EndProperty Name="THIETBIS">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

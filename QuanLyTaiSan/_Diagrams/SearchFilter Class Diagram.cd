@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PTB.DataFilter.SearchFilter._SearchFilterAbstract&lt;T&gt;" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAQAIAAAAAAAACAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\_SearchFilterAbstract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.CoSoSF" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\CoSoSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.DayySF" Collapsed="true">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\DayySF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.LoaiThietBiSF" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\LoaiThietBiSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.NhanVienPTSF" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAEAAEAAAAIAAAACAAAAgAAgA=</HashCode>
+      <FileName>DataFilter\SearchFilter\NhanVienPTSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.PhongSF" Collapsed="true">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\PhongSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.SuCoPhongSF" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAIAIAAAAAAAAAAAAAAACAAAAAAAAg=</HashCode>
+      <FileName>DataFilter\SearchFilter\SuCoPhongSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.TangSF" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\TangSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PTB.DataFilter.SearchFilter.ThietBiSF" Collapsed="true">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DataFilter\SearchFilter\ThietBiSF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

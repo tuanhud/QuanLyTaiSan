@@ -30,7 +30,7 @@ namespace PTB_GUI.HeThong
             //cap nhat mat khau
             if (!textEdit_oldpass.Text.Equals("") || !textEdit_newpass.Text.Equals("") || !textEdit_newpass_confirm.Text.Equals(""))
             {
-                if (QuanTriVien.checkLoginById(Global.current_quantrivien_login.id, textEdit_oldpass.Text))
+                if (QuanTriVien.checkLoginById(Global.current_quantrivien_login.id, QuanTriVien.hashPassword(textEdit_oldpass.Text)))
                 {
                     if (textEdit_newpass.Text.Equals("") || textEdit_newpass_confirm.Text.Equals(""))
                     {
