@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -126,6 +127,31 @@ namespace TSCD.Entities
             base.init();
             this.permissions = new List<Permission>();
             this.quantriviens = new List<QuanTriVien>();
+        }
+        public static new IQueryable<Group> getQuery()
+        {
+            try
+            {
+                db.GROUPS.AsQueryable().FirstOrDefault();
+                //Ẩn ROOT
+                return db.GROUPS.Where(c => !c.ten.ToLower().Equals("root")).AsQueryable();
+            }
+            catch (Exception)
+            {
+                return new List<Group>().AsQueryable();
+            }
+        }
+        public static new List<Group> getAll()
+        {
+            try
+            {
+                return db.GROUPS.Where(c => !c.ten.ToLower().Equals("root")).ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<Group>();
+            }
         }
         #endregion
     }

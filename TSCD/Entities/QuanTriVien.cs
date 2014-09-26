@@ -106,6 +106,41 @@ namespace TSCD.Entities
             }
             base.doTrigger();
         }
+        /// <summary>
+        /// Ho tro query
+        /// </summary>
+        /// <returns></returns>
+        public static new IQueryable<QuanTriVien> getQuery()
+        {
+            try
+            {
+                //validate
+                db.QUANTRIVIENS.AsQueryable().FirstOrDefault();
+                //Ẩn ROOT
+                return db.QUANTRIVIENS.Where(c => !c.username.ToLower().Equals("root")).AsQueryable();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<QuanTriVien>().AsQueryable();
+            }
+        }
+        /// <summary>
+        /// Ho tro day du lieu len san
+        /// </summary>
+        /// <returns></returns>
+        public static new List<QuanTriVien> getAll()
+        {
+            try
+            {
+                return db.QUANTRIVIENS.Where(c => !c.username.ToLower().Equals("root")).ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<QuanTriVien>();
+            }
+        }
         #endregion
     }
 }

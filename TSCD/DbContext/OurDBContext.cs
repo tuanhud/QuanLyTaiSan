@@ -115,9 +115,9 @@ namespace TSCD.Entities
         /// <summary>
         /// Dùng trong frm Sửa quyền
         /// </summary>
-        public static String[] entity_list =
+        public static String[] permission_entity_list =
         {
-            "COSO", "DAY", "TANG", "QUANTRIVIEN", "PHONG", "GROUP", "TINHTRANG"
+            CoSo.USNAME, Dayy.USNAME, Tang.USNAME, Phong.USNAME, LoaiPhong.USNAME, Group.USNAME, QuanTriVien.USNAME, DonVi.USNAME, DonViTinh.USNAME, LoaiDonVi.USNAME, LoaiTaiSan.USNAME, TaiSan.USNAME, TinhTrang.USNAME
         };
         /// <summary>
         /// for SYNC

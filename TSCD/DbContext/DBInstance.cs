@@ -16,50 +16,76 @@ namespace TSCD.Entities
 {
     public static class DBInstance
     {
-        #region Event 
+        #region Event
+        private static Boolean dbConnectionON = false;
         public delegate void DBConnectionChanged(EventArgs e);
         public static event DBConnectionChanged onDBConnectionDown;
         public static event DBConnectionChanged onDBConnectionUp;
 
         #endregion
-
+        /// <summary>
+        /// winform only
+        /// </summary>
         private static OurDBContext db = null;
-        public static OurDBContext DB
+        internal static OurDBContext DB
         {
             get
             {
-                if (db == null)
+                try
                 {
-                    if (SHARED.Global.USE_APP_CONFIG)
+                    if (SHARED.Global.WEB_MODE)
                     {
-                        db = new OurDBContext();
+                        OurDBContext tmp = HttpContext.Current.Items["db_context"] as OurDBContext;
+                        if (tmp == null)
+                        {
+                            tmp = new OurDBContext();
+                            HttpContext.Current.Items["db_context"] = tmp;
+                        }
+                        return tmp;
                     }
                     else
                     {
-                        db = new OurDBContext(Global.working_database.get_connection_string());
-                    }
-                }
+                        if (db == null)
+                        {
+                            if (SHARED.Global.USE_APP_CONFIG)
+                            {
+                                db = new OurDBContext();
+                            }
+                            else
+                            {
+                                db = new OurDBContext(Global.working_database.get_connection_string());
+                            }
+                        }
 
-                try
-                {
-                    db.Set<CoSo>().AsQueryable().FirstOrDefault();
-                    //Raise event
-                    if (onDBConnectionUp != null)
-                    {
-                        onDBConnectionUp(new EventArgs());
+                        try
+                        {
+                            db.Set<CoSo>().AsQueryable().FirstOrDefault();
+                            //Raise event
+                            if (!dbConnectionON && onDBConnectionUp != null)
+                            {
+                                onDBConnectionUp(new EventArgs());
+                            }
+                            dbConnectionON = true;
+                        }
+                        catch (Exception)
+                        {
+                            //DB CONNECTION FAIL
+                            Debug.WriteLine("=========DB CONNECTION FAIL==========");
+                            //Raise event
+                            if (dbConnectionON && onDBConnectionDown != null)
+                            {
+                                onDBConnectionDown(new EventArgs());
+                            }
+                            dbConnectionON = false;
+                        }
+                        return db;
                     }
                 }
-                catch (Exception)
+                catch (Exception t)
                 {
-                    //DB CONNECTION FAIl
-                    Debug.WriteLine("=========DB CONNECTION FAIL==========");
-                    //Raise event
-                    if (onDBConnectionDown != null)
-                    {
-                        onDBConnectionDown(new EventArgs());
-                    }
+                    Debug.WriteLine(t);
+                    return new OurDBContext();
                 }
-                return db;
             }
         }
         /// <summary>
@@ -74,7 +100,7 @@ namespace TSCD.Entities
                 db.Dispose();
                 db = null;
             }
-            
+
             db = DB;
         }
         /// <summary>
@@ -82,7 +108,7 @@ namespace TSCD.Entities
         /// </summary>
         private static void sync()
         {
-            Debug.WriteLine("======Location: DBInstance======");
+            Debug.WriteLine("======Location: DBInstance.commit======");
             Debug.WriteLine("======Start sync when insert, in new Thread======");
             Global.client_database.start_sync();
             Debug.WriteLine("======End sync when insert, in new Thread======");
@@ -105,7 +131,7 @@ namespace TSCD.Entities
                             int re = DB.SaveChanges();
                             dbTrans.Commit();
                             //sync when data done
-                            if (re > 0 && Global.working_database.use_db_cache)
+                            if (re > 0 && !SHARED.Global.WEB_MODE && Global.working_database.use_db_cache)
                             {
                                 Thread thread = new Thread(new ThreadStart(sync));
                                 thread.SetApartmentState(ApartmentState.STA);
@@ -118,7 +144,9 @@ namespace TSCD.Entities
                             Debug.WriteLine(ex);
                             try
                             {
+                                //rollback transaction
                                 dbTrans.Rollback();
+                                //discard all changed made fail
                                 DB.reloadAllFail();
                             }
                             catch (Exception exx)
@@ -129,12 +157,13 @@ namespace TSCD.Entities
                         }
                     }
                 }
+                return -1;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+                return -1;
             }
-            return -1;
         }
     }
 }
