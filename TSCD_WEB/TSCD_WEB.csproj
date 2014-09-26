@@ -42,6 +42,9 @@
       <HintPath>..\PTB_WEB\dll\CollectionPager.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -127,6 +130,7 @@
     <Content Include="Images\thongtinphanmem.png" />
     <Content Include="Images\thongtinwebsite.png" />
     <Content Include="Images\timkiem.png" />
+    <Content Include="LoaiPhong.aspx" />
     <Content Include="LoaiTaiSan.aspx" />
     <Content Include="Phong.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -163,7 +167,12 @@
     <Content Include="UserControl\Alert\ucSuccess.ascx" />
     <Content Include="UserControl\Alert\ucWarning.ascx" />
     <Content Include="UserControl\CollectionPager\ucCollectionPager.ascx" />
+    <Content Include="UserControl\DonVi\ucDonVi_Mobile.ascx" />
+    <Content Include="UserControl\DonVi\ucDonVi_Web.ascx" />
     <Content Include="UserControl\Footer\ucFooter.ascx" />
+    <Content Include="UserControl\LoaiPhong\ucLoaiPhong_BreadCrumb.ascx" />
+    <Content Include="UserControl\LoaiPhong\ucLoaiPhong_Mobile.ascx" />
+    <Content Include="UserControl\LoaiPhong\ucLoaiPhong_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_BreadCrumb.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
@@ -199,6 +208,13 @@
       <DependentUpon>DonViTaiSan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Library\DoSearch.cs" />
+    <Compile Include="LoaiPhong.aspx.cs">
+      <DependentUpon>LoaiPhong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoaiPhong.aspx.designer.cs">
+      <DependentUpon>LoaiPhong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoaiTaiSan.aspx.cs">
       <DependentUpon>LoaiTaiSan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,12 +279,47 @@
     <Compile Include="UserControl\CollectionPager\ucCollectionPager.ascx.designer.cs">
       <DependentUpon>ucCollectionPager.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\DonVi\ucDonVi_Mobile.ascx.cs">
+      <DependentUpon>ucDonVi_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DonVi\ucDonVi_Mobile.ascx.designer.cs">
+      <DependentUpon>ucDonVi_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\DonVi\ucDonVi_Web.ascx.cs">
+      <DependentUpon>ucDonVi_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DonVi\ucDonVi_Web.ascx.designer.cs">
+      <DependentUpon>ucDonVi_Web.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Footer\ucFooter.ascx.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\Footer\ucFooter.ascx.designer.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_BreadCrumb.ascx.cs">
+      <DependentUpon>ucLoaiPhong_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucLoaiPhong_BreadCrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_Mobile.ascx.cs">
+      <DependentUpon>ucLoaiPhong_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_Mobile.ascx.designer.cs">
+      <DependentUpon>ucLoaiPhong_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_Web.ascx.cs">
+      <DependentUpon>ucLoaiPhong_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_Web.ascx.designer.cs">
+      <DependentUpon>ucLoaiPhong_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_BreadCrumb.ascx.cs">
       <DependentUpon>ucPhong_BreadCrumb.ascx</DependentUpon>

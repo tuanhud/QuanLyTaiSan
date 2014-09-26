@@ -47,6 +47,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Vị trí</a></li>
                                     <li><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>
+                                    <li><a href="LoaiPhong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Loại phòng</a></li>
                                     <li><a href="DonVi.aspx"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Đơn vị</a></li>
                                     <li><a href="LoaiTaiSan.aspx"><span class="glyphicon glyphicon-phone"></span>&nbsp;Loại tài sản</a></li>
                                     <li><a href="TaiSan.aspx"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Tài sản</a></li>

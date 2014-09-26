@@ -13,6 +13,15 @@ namespace TSCD_WEB.UserControl.ViTri {
     public partial class ucViTri_BreadCrumb {
         
         /// <summary>
+        /// _MOBILE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _MOBILE;
+        
+        /// <summary>
         /// ucTimKiem_Mobile control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace TSCD_WEB.UserControl.ViTri {
         protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem_Mobile;
         
         /// <summary>
+        /// _KEY control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _KEY;
+        
+        /// <summary>
         /// Label_TenViTri control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace TSCD_WEB.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.Label Label_TenViTri;
+        
+        /// <summary>
+        /// _WEB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _WEB;
         
         /// <summary>
         /// ucTimKiem_Web control.

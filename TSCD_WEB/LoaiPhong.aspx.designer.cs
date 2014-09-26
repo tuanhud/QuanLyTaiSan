@@ -10,25 +10,25 @@
 namespace TSCD_WEB {
     
     
-    public partial class DonVi {
+    public partial class LoaiPhong {
         
         /// <summary>
-        /// ucDonVi_Web control.
+        /// ucLoaiPhong_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.DonVi.ucDonVi_Web ucDonVi_Web;
+        protected global::TSCD_WEB.UserControl.LoaiPhong.ucLoaiPhong_Web ucLoaiPhong_Web;
         
         /// <summary>
-        /// ucDonVi_Mobile control.
+        /// ucLoaiPhong_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.DonVi.ucDonVi_Mobile ucDonVi_Mobile;
+        protected global::TSCD_WEB.UserControl.LoaiPhong.ucLoaiPhong_Mobile ucLoaiPhong_Mobile;
         
         /// <summary>
         /// ucFooter control.

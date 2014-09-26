@@ -8,24 +8,24 @@ using System.Web.UI.WebControls;
 
 namespace TSCD_WEB
 {
-    public partial class DonVi : System.Web.UI.Page
+    public partial class LoaiPhong : System.Web.UI.Page
     {
         Boolean isMobile = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             Site SetClassActive = this.Master as Site;
-            SetClassActive.page = "DONVI";
+            SetClassActive.page = "LOAIPHONG";
 
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {
-                ucDonVi_Web.Visible = true;
-                ucDonVi_Web.LoadData();
+                ucLoaiPhong_Web.Visible = true;
+                ucLoaiPhong_Web.LoadData();
             }
             else
             {
-                ucDonVi_Mobile.Visible = true;
-                ucDonVi_Mobile.LoadData();
+                ucLoaiPhong_Mobile.Visible = true;
+                ucLoaiPhong_Mobile.LoadData();
             }
         }
     }

@@ -87,26 +87,8 @@ namespace TSCD_WEB.UserControl.Phong
                                 Label_ThongTinPhong.Text = "Thông tin phòng " + objPhong.ten;
                                 Label_MaPhong.Text = objPhong.subId;
                                 ucPhong_BreadCrumb.Label_TenPhong.Text = Label_TenPhong.Text = objPhong.ten;
-                                string strCoSo, strDay, strTang;
-                                strCoSo = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten : "";
-                                strDay = objPhong.vitri.day != null ? objPhong.vitri.day.ten : "";
-                                strTang = objPhong.vitri.tang != null ? objPhong.vitri.tang.ten : "";
-                                if (!strCoSo.Equals(""))
-                                {
-                                    Label_ViTriPhong.Text += strCoSo;
-                                    if (!strDay.Equals(""))
-                                    {
-                                        Label_ViTriPhong.Text += " - " + strDay;
-                                        if (!strTang.Equals(""))
-                                        {
-                                            Label_ViTriPhong.Text += " - " + strTang;
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    Label_ViTriPhong.Text = "[Không rõ]";
-                                }
+                                Label_LoaiPhong.Text = objPhong.loaiphong.ten;
+                                Label_ViTriPhong.Text = ViTriCuaPhong(objPhong);
                                 Label_MoTaPhong.Text = StringHelper.ConvertRNToBR(objPhong.mota);
                             }
                             else
@@ -139,6 +121,28 @@ namespace TSCD_WEB.UserControl.Phong
                 KhongCoDuLieu.Visible = true;
                 ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có phòng";
             }
+        }
+
+        protected string ViTriCuaPhong(TSCD.Entities.Phong objPhong)
+        {
+            string _strtemp = "", _strCoSo, _strDay, _strTang;
+            _strCoSo = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten : "";
+            _strDay = objPhong.vitri.day != null ? objPhong.vitri.day.ten : "";
+            _strTang = objPhong.vitri.tang != null ? objPhong.vitri.tang.ten : "";
+
+            if (!_strCoSo.Equals(""))
+            {
+                _strtemp += _strCoSo;
+                if (!_strDay.Equals(""))
+                {
+                    _strtemp += " - " + _strDay;
+                    if (!_strTang.Equals(""))
+                    {
+                        _strtemp += " - " + _strTang;
+                    }
+                }
+            }
+            return _strtemp == "" ? "[Không rõ]" : _strtemp;
         }
 
         private void LoadFocusedNodeData()
@@ -252,6 +256,8 @@ namespace TSCD_WEB.UserControl.Phong
                 id = item.id,
                 subid = item.subId,
                 ten = item.ten,
+                loai = item.loaiphong.ten,
+                vitri = ViTriCuaPhong(item),
                 url = StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
             }).ToList();
             _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = bind;

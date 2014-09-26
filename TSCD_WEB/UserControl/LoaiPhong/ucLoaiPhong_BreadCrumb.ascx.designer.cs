@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB.UserControl.Phong {
+namespace TSCD_WEB.UserControl.LoaiPhong {
     
     
-    public partial class ucPhong_BreadCrumb {
+    public partial class ucLoaiPhong_BreadCrumb {
         
         /// <summary>
         /// _MOBILE control.
@@ -40,13 +40,13 @@ namespace TSCD_WEB.UserControl.Phong {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl _KEY;
         
         /// <summary>
-        /// Label_TenViTri control.
+        /// Label_TenLoaiPhong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label Label_TenViTri;
+        public global::System.Web.UI.WebControls.Label Label_TenLoaiPhong;
         
         /// <summary>
         /// _ID control.

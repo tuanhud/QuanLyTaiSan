@@ -32,16 +32,16 @@
                         <tr>
                             <th>#</th>
                             <th>Tên phòng</th>
-                            <th>Mô tả</th>
+                            <th>Loại phòng</th>
                         </tr>
                     </thead>
                     <tbody class="centered">
                         <asp:Repeater ID="RepeaterDanhSachPhong" runat="server">
                             <ItemTemplate>
-                                <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer">
+                                <tr onclick="location.href='<%# Eval("url") %>'" style="cursor: pointer" <%# Eval("id").ToString() == idPhong.ToString()?" class=\"focusrow\"":"" %>>
                                     <td><%# Container.ItemIndex + 1 + ((_ucCollectionPager_DanhSachPhong.CollectionPager_Object.CurrentPage - 1)*_ucCollectionPager_DanhSachPhong.CollectionPager_Object.PageSize) %></td>
                                     <td><%# Eval("ten") %></td>
-                                    <td><%# Eval("subid") %></td>
+                                    <td><%# Eval("loai") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -53,7 +53,7 @@
         <tr id="ThongTin" runat="server" visible="false">
             <td>
                 <h3 class="title_green fix">Thông tin phòng</h3>
-                <table class="table table-striped noboder">
+                <table class="table table-striped">
                     <tbody>
                         <tr>
                             <td style="width: 120px">Mã phòng:</td>
@@ -65,6 +65,12 @@
                             <td>Tên phòng:</td>
                             <td>
                                 <asp:Label ID="Label_TenPhong" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Loại phòng:</td>
+                            <td>
+                                <asp:Label ID="Label_LoaiPhong" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>

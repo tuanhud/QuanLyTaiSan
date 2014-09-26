@@ -41,6 +41,15 @@
                         </div>
                     </a>
                 </div>
+                 <div class="widget widget2x2 widget_red animation unloaded">
+                    <a href="LoaiPhong.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/phong.png');">
+                                <span>LOẠI PHÒNG</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <div class="widget widget2x2 widget_darkblue animation unloaded">
                     <a href="DonVi.aspx">
                         <div class="widget_content">

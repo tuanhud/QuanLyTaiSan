@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB.UserControl.Phong {
+namespace TSCD_WEB.UserControl.LoaiPhong {
     
     
-    public partial class ucPhong_Mobile {
+    public partial class ucLoaiPhong_Web {
         
         /// <summary>
-        /// ucPhong_BreadCrumb control.
+        /// ucLoaiPhong_BreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.Phong.ucPhong_BreadCrumb ucPhong_BreadCrumb;
+        protected global::TSCD_WEB.UserControl.LoaiPhong.ucLoaiPhong_BreadCrumb ucLoaiPhong_BreadCrumb;
         
         /// <summary>
         /// KhongCoDuLieu control.
@@ -40,49 +40,67 @@ namespace TSCD_WEB.UserControl.Phong {
         protected global::TSCD_WEB.UserControl.Alert.ucDanger ucDanger_KhongCoDuLieu;
         
         /// <summary>
-        /// TreeViTri control.
+        /// infotr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow TreeViTri;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow infotr;
         
         /// <summary>
-        /// ucTreeViTri control.
+        /// _ucTreeViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.TreeViTri.ucTreeViTri ucTreeViTri;
+        protected global::TSCD_WEB.UserControl.TreeViTri.ucTreeViTri _ucTreeViTri;
         
         /// <summary>
-        /// KhongCoPhong control.
+        /// ChuaChonViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow KhongCoPhong;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell ChuaChonViTri;
         
         /// <summary>
-        /// ucWarning_KhongCoPhong control.
+        /// ucWarning_ChuaChonViTri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.Alert.ucWarning ucWarning_KhongCoPhong;
+        protected global::TSCD_WEB.UserControl.Alert.ucWarning ucWarning_ChuaChonViTri;
         
         /// <summary>
-        /// DanhSach control.
+        /// infotd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow DanhSach;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell infotd;
+        
+        /// <summary>
+        /// ThongTinPhong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ThongTinPhong;
+        
+        /// <summary>
+        /// Label_ThongTinPhong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ThongTinPhong;
         
         /// <summary>
         /// RepeaterDanhSachPhong control.
@@ -103,13 +121,13 @@ namespace TSCD_WEB.UserControl.Phong {
         protected global::TSCD_WEB.UserControl.CollectionPager.ucCollectionPager _ucCollectionPager_DanhSachPhong;
         
         /// <summary>
-        /// ThongTin control.
+        /// thongtin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow ThongTin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl thongtin;
         
         /// <summary>
         /// Label_MaPhong control.
@@ -155,5 +173,14 @@ namespace TSCD_WEB.UserControl.Phong {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MoTaPhong;
+        
+        /// <summary>
+        /// PanelChangePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelChangePage;
     }
 }

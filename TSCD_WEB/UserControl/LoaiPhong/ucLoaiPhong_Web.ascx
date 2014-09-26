@@ -1,11 +1,11 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucPhong_Web.ascx.cs" Inherits="TSCD_WEB.UserControl.Phong.ucPhong_Web" %>
-<%@ Register Src="~/UserControl/Phong/ucPhong_BreadCrumb.ascx" TagPrefix="uc" TagName="ucPhong_BreadCrumb" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucLoaiPhong_Web.ascx.cs" Inherits="TSCD_WEB.UserControl.LoaiPhong.ucLoaiPhong_Web" %>
+<%@ Register Src="~/UserControl/LoaiPhong/ucLoaiPhong_BreadCrumb.ascx" TagPrefix="uc" TagName="ucLoaiPhong_BreadCrumb" %>
 <%@ Register Src="~/UserControl/CollectionPager/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
 <%@ Register Src="~/UserControl/TreeViTri/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
 <%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
 <%@ Register Src="~/UserControl/Alert/ucDanger.ascx" TagPrefix="uc" TagName="ucDanger" %>
 
-<uc:ucPhong_BreadCrumb runat="server" ID="ucPhong_BreadCrumb" />
+<uc:ucLoaiPhong_BreadCrumb runat="server" ID="ucLoaiPhong_BreadCrumb" />
 
 <table class="table largetable">
     <tbody>
