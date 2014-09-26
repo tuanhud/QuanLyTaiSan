@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,14 @@ namespace SHARED.Libraries
 {
     public class ReportHelper
     {
+        public struct structColumn
+        {
+            public string Caption { get; set; }
+            public string FieldName { get; set; }
+            public int VisibleIndex { get; set; }
+            public Boolean IsNumber { get; set; }
+        }
+
         public static void SetTheme(DevExpress.XtraGrid.Views.Grid.GridView _GridView)
         {
             _GridView.AppearancePrint.EvenRow.BackColor = System.Drawing.Color.White;
@@ -369,6 +378,147 @@ namespace SHARED.Libraries
                     }
                 }
             }
+        }
+
+        public static List<structColumn> GetListColumnsVisible(DevExpress.XtraGrid.Views.Grid.GridView _GridView)
+        {
+            List<structColumn> ListColumns = new List<structColumn>();
+            try
+            {
+                if (_GridView != null)
+                {
+                    for (int i = 0; i < _GridView.Columns.Count; i++)
+                    {
+                        if (_GridView.Columns[i].Visible && _GridView.Columns[i].GroupIndex < 0)
+                        {
+                            structColumn _structColumn = new structColumn();
+                            _structColumn.Caption = _GridView.Columns[i].Caption;
+                            _structColumn.FieldName = _GridView.Columns[i].Name + "_" + _GridView.Columns[i].FieldName;
+                            _structColumn.VisibleIndex = _GridView.Columns[i].VisibleIndex;
+                            _structColumn.IsNumber = false;
+                            if (!Object.Equals(_GridView.GetRowCellValue(0, _GridView.Columns[i]), null))
+                            {
+                                if (SHARED.Libraries.StringHelper.IsNumber(_GridView.GetRowCellValue(0, _GridView.Columns[i]).ToString()))
+                                {
+                                    _structColumn.IsNumber = true;
+                                }
+                            }
+                            ListColumns.Add(_structColumn);
+                        }
+                    }
+                    ListColumns = ListColumns.OrderBy(item => item.VisibleIndex).ToList();
+                }
+            }
+            catch
+            { }
+            return ListColumns;
+        }
+
+        public static List<structColumn> GetListColumnsVisible(DevExpress.XtraGrid.Views.BandedGrid.BandedGridView _BandedGridView)
+        {
+            List<structColumn> ListColumns = new List<structColumn>();
+            try
+            {
+                if (_BandedGridView != null)
+                {
+                    for (int i = 0; i < _BandedGridView.Columns.Count; i++)
+                    {
+                        if (_BandedGridView.Columns[i].Visible && _BandedGridView.Columns[i].GroupIndex < 0)
+                        {
+                            structColumn _structColumn = new structColumn();
+                            _structColumn.Caption = _BandedGridView.Columns[i].Caption;
+                            _structColumn.FieldName = _BandedGridView.Columns[i].Name + "_" + _BandedGridView.Columns[i].FieldName;
+                            _structColumn.VisibleIndex = _BandedGridView.Columns[i].VisibleIndex;
+                            _structColumn.IsNumber = false;
+                            if (!Object.Equals(_BandedGridView.GetRowCellValue(0, _BandedGridView.Columns[i]), null))
+                            {
+                                if (SHARED.Libraries.StringHelper.IsNumber(_BandedGridView.GetRowCellValue(0, _BandedGridView.Columns[i]).ToString()))
+                                {
+                                    _structColumn.IsNumber = true;
+                                }
+                            }
+                            ListColumns.Add(_structColumn);
+                        }
+                    }
+                    ListColumns = ListColumns.OrderBy(item => item.VisibleIndex).ToList();
+                }
+            }
+            catch
+            { }
+            return ListColumns;
+        }
+
+        public static XRTable CreateLastSUMTable(XtraReport _XtraReport, List<structColumn> ListColumns, int GroupColumnLength, int pageWidth, int colWidth)
+        {
+            if (ListColumns.Where(item => item.IsNumber == true).ToList().Count > 0)
+            {
+                XRTable XRTable_Sum = new XRTable();
+                XRTableRow XRTableRow_Sum = new XRTableRow();
+
+                XRTableCell XRTableCell_CellFirst = new XRTableCell();
+                XRTableCell_CellFirst.Width = GroupColumnLength;
+                XRTableCell_CellFirst.Text = "";
+
+                XRTableRow_Sum.Cells.Add(XRTableCell_CellFirst);
+
+                for (int i = 0; i < ListColumns.Count; i++)
+                {
+                    XRTableCell XRTableCell_Cell = new XRTableCell();
+                    XRTableCell_Cell.Width = (int)colWidth;
+
+                    if (ListColumns[i].IsNumber)
+                    {
+                        XRTableCell_Cell.DataBindings.Add("Text", _XtraReport.DataSource, ListColumns[i].FieldName);
+                        XRTableCell_Cell.Summary.IgnoreNullValues = true;
+                        XRTableCell_Cell.Summary.Func = SummaryFunc.Sum;
+                        XRTableCell_Cell.Summary.Running = SummaryRunning.Report;
+                        XRTableCell_Cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                    }
+                    else
+                    {
+                        XRTableCell_Cell.Text = "";
+                    }
+
+                    XRTableRow_Sum.Cells.Add(XRTableCell_Cell);
+                }
+                XRTable_Sum.Rows.Add(XRTableRow_Sum);
+                XRTable_Sum.Width = pageWidth;
+                XRTable_Sum.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
+
+                return XRTable_Sum;
+            }
+            return null;
+        }
+
+        public static XRTable CreatePageHeaderTable(List<structColumn> ListColumns, int pageWidth, int colWidth, Boolean HaveColumnGroup, int GroupColumnLength)
+        {
+            try
+            {
+                XRTable XRTable_PageHeader = new XRTable();
+                XRTableRow XRTableRow_PageHeader = new XRTableRow();
+                if (HaveColumnGroup)
+                {
+                    XRTableCell XRTableCell_Cell = new XRTableCell();
+
+                    XRTableCell_Cell.Width = GroupColumnLength;
+                    XRTableCell_Cell.Text = "Nhóm";
+                    XRTableRow_PageHeader.Cells.Add(XRTableCell_Cell);
+                }
+                for (int i = 0; i < ListColumns.Count; i++)
+                {
+                    XRTableCell XRTableCell_Cell = new XRTableCell();
+                    XRTableCell_Cell.Width = (int)colWidth;
+                    XRTableCell_Cell.Text = ListColumns[i].Caption;
+                    XRTableRow_PageHeader.Cells.Add(XRTableCell_Cell);
+                }
+                XRTable_PageHeader.Rows.Add(XRTableRow_PageHeader);
+                XRTable_PageHeader.Width = pageWidth;
+                XRTable_PageHeader.Name = "XRTable_PageHeader";
+
+                return XRTable_PageHeader;
+            }
+            catch { }
+            return null;
         }
     }
 }

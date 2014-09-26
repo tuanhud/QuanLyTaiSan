@@ -22,15 +22,9 @@ namespace PTB_GUI.ThongKe
         int WidthAdd = 20;
         int MaxLength = 0;
         int GroupColumnLength = 0;
-        DataSet ReportDataset = new DataSet();
 
-        public struct structColumn
-        {
-            public string Caption { get; set; }
-            public string FieldName { get; set; }
-            public int VisibleIndex { get; set; }
-            public Boolean IsNumber { get; set; }
-        }
+
+        DataSet ReportDataset = new DataSet();
 
         public XtraReport_Template()
         {
@@ -64,7 +58,7 @@ namespace PTB_GUI.ThongKe
                 intType = 1;
 
             switch (intType)
-            { 
+            {
                 case 0:
                     ReportDataset = SHARED.Libraries.ReportHelper.FillDatasetFromGrid(_GridView);
                     break;
@@ -82,55 +76,11 @@ namespace PTB_GUI.ThongKe
             this.Landscape = Landscape;
             SetPositionXRLabel();
 
-            //if (GridViewVictim.GroupCount > 0)
-            //{
-            //    int intAdd = (PageSize.Width - (Margins.Left + Margins.Right)) / GridViewVictim.GroupCount;
-            //    if (intAdd < WidthAdd)
-            //    {
-            //        if (intAdd >= 0 && intAdd <= 10)
-            //            WidthAdd = 2;
-            //        else
-            //            WidthAdd = intAdd;
-            //    }
-            //}
-
-            /*
-            if (_DataSet.Tables[0] != null)
-            {
-                if (GridViewVictim.GroupCount > 0)
-                {
-                    for (int i = 0; i < GridViewVictim.Columns.Count; i++)
-                    {
-                        if (!(GridViewVictim.Columns[i].Visible && GridViewVictim.Columns[i].GroupIndex < 0))
-                        {
-                            foreach (DataColumn _DataColumn in _DataSet.Tables[0].Columns)
-                            {
-                                if (Object.Equals(_DataColumn.ColumnName, GridViewVictim.Columns[i].Name + "_" + GridViewVictim.Columns[i].FieldName))
-                                {
-                                    foreach (DataRow row in _DataSet.Tables[0].Rows)
-                                    {
-                                        string strGroup = string.Format("{0}: {1}", GridViewVictim.Columns[i].Caption, row[_DataColumn.ColumnName]);
-                                        if (Object.Equals(GridViewVictim.Columns[i].ColumnType, typeof(Int32)))
-                                        {
-                                            row[_DataColumn.ColumnName + strTag] = strGroup;
-                                        }
-                                        else
-                                        {
-                                            row[_DataColumn.ColumnName] = strGroup;
-                                        }
-                                        if (MaxLength < strGroup.Length)
-                                            MaxLength = strGroup.Length;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }*/
             SHARED.Libraries.ReportHelper.CreateGroupValues(_DataSet, GridViewVictim, ref MaxLength, strTag);
 
             MaxLength = MaxLength != 0 ? MaxLength > intMinimum ? MaxLength : intMinimum : 0;
             GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * (int)Math.Ceiling(this.myColumnStyle.Font.Size);
+
             InitXtraReport(_DataSet, GridViewVictim);
         }
 
@@ -139,62 +89,29 @@ namespace PTB_GUI.ThongKe
             this.DataSource = _DataSet;
             this.DataMember = _DataSet.Tables[0].TableName;
 
-            List<structColumn> ListColumns = new List<structColumn>();
-            for (int i = 0; i < GridViewVictim.Columns.Count; i++)
-            {
-                if (GridViewVictim.Columns[i].Visible && GridViewVictim.Columns[i].GroupIndex < 0)
-                {
-                    structColumn _structColumn = new structColumn();
-                    _structColumn.Caption = GridViewVictim.Columns[i].Caption;
-                    _structColumn.FieldName = GridViewVictim.Columns[i].Name + "_" + GridViewVictim.Columns[i].FieldName;
-                    _structColumn.VisibleIndex = GridViewVictim.Columns[i].VisibleIndex;
-                    _structColumn.IsNumber = false;
-                    if (!Object.Equals(GridViewVictim.GetRowCellValue(0, GridViewVictim.Columns[i]), null))
-                    {
-                        if (SHARED.Libraries.StringHelper.IsNumber(GridViewVictim.GetRowCellValue(0, GridViewVictim.Columns[i]).ToString()))
-                        {
-                            _structColumn.IsNumber = true;
-                        }
-                    }
-                    ListColumns.Add(_structColumn);
-                }
-            }
-            ListColumns = ListColumns.OrderBy(item => item.VisibleIndex).ToList();
+            List<SHARED.Libraries.ReportHelper.structColumn> ListColumns = SHARED.Libraries.ReportHelper.GetListColumnsVisible(GridViewVictim);
+
             InitTables(ListColumns, GridViewVictim);
         }
 
-        public void InitTables(List<structColumn> ListColumns, GridView GridViewVictim)
+        public void InitTables(List<SHARED.Libraries.ReportHelper.structColumn> ListColumns, GridView GridViewVictim)
         {
             int colCount = ListColumns.Count;
             int pageWidth = (PageWidth - (Margins.Left + Margins.Right));
             int colWidth = pageWidth / colCount;
 
-            XRTable XRTable_Column = new XRTable();
-            XRTableRow XRTableRow_Column = new XRTableRow();
-
-            XRTable XRTable_Row = new XRTable();
-            XRTableRow XRTableRow_Data = new XRTableRow();
-
             if (NumberOfFieldGroup > 0)
             {
-                XRTableCell XRTableCell_Column = new XRTableCell();
-
-                XRTableCell_Column.Width = GroupColumnLength;
-                XRTableCell_Column.Text = "Nhóm";
-                XRTableRow_Column.Cells.Add(XRTableCell_Column);
-
                 colWidth = (pageWidth - GroupColumnLength) / colCount;
+
 
                 for (int i = GridViewVictim.GroupCount - 1; i >= 0; i--)
                 {
-                    XRTable XRTable_Group = new XRTable();
-                    XRTable_Group.Styles.Style = this.myGroupStyle;
-                    XRTable_Group.LocationF = new DevExpress.Utils.PointFloat(0 + i * WidthAdd, 0);
+                    XRTable XRTable_GroupHeaderBand = new XRTable();
+                    XRTable_GroupHeaderBand.Styles.Style = this.myGroupStyle;
+                    XRTable_GroupHeaderBand.LocationF = new DevExpress.Utils.PointFloat(0 + i * WidthAdd, 0);
 
-                    XRTableRow XRTableRow_Group = new XRTableRow();
-
-                    GroupHeaderBand _GroupHeaderBand = new GroupHeaderBand();
-                    _GroupHeaderBand.Height = 25;
+                    XRTableRow XRTableRow_GroupHeaderBand = new XRTableRow();
 
                     XRTableCell XRTableCell_GroupText = new XRTableCell();
                     if (Object.Equals(GridViewVictim.GroupedColumns[i].ColumnType, typeof(Int32)))
@@ -205,16 +122,14 @@ namespace PTB_GUI.ThongKe
                     {
                         XRTableCell_GroupText.DataBindings.Add("Text", this.DataSource, GridViewVictim.GroupedColumns[i].Name + "_" + GridViewVictim.GroupedColumns[i].FieldName);
                     }
-
                     XRTableCell_GroupText.Width = GroupColumnLength - i * WidthAdd;
 
-                    XRTableRow_Group.Cells.Add(XRTableCell_GroupText);
+                    XRTableRow_GroupHeaderBand.Cells.Add(XRTableCell_GroupText);
 
                     for (int j = 0; j < colCount; j++)
                     {
                         XRTableCell XRTableCell_SumColumn = new XRTableCell();
                         XRTableCell_SumColumn.Width = (int)colWidth;
-
                         if (ListColumns[j].IsNumber)
                         {
                             XRTableCell_SumColumn.DataBindings.Add("Text", this.DataSource, ListColumns[j].FieldName);
@@ -227,88 +142,62 @@ namespace PTB_GUI.ThongKe
                         {
                             XRTableCell_SumColumn.Text = "";
                         }
-                        XRTableRow_Group.Cells.Add(XRTableCell_SumColumn);
+                        XRTableRow_GroupHeaderBand.Cells.Add(XRTableCell_SumColumn);
                     }
 
-                    XRTable_Group.Rows.Add(XRTableRow_Group);
-                    XRTable_Group.Width = pageWidth - (i * WidthAdd);
+                    XRTable_GroupHeaderBand.Rows.Add(XRTableRow_GroupHeaderBand);
+                    XRTable_GroupHeaderBand.Width = pageWidth - (i * WidthAdd);
 
-
-                    _GroupHeaderBand.Controls.Add(XRTable_Group);
+                    GroupHeaderBand _GroupHeaderBand = new GroupHeaderBand();
+                    _GroupHeaderBand.Controls.Add(XRTable_GroupHeaderBand);
+                    _GroupHeaderBand.Height = XRTable_GroupHeaderBand.Height;
                     GroupField _GroupField = new GroupField(GridViewVictim.GroupedColumns[i].Name + "_" + GridViewVictim.GroupedColumns[i].FieldName);
                     _GroupHeaderBand.GroupFields.Add(_GroupField);
                     this.Bands.Add(_GroupHeaderBand);
                 }
             }
 
+
+            XRTable XRTable_PageHeader = null;
+            if (NumberOfFieldGroup > 0)
+            {
+                XRTable_PageHeader = SHARED.Libraries.ReportHelper.CreatePageHeaderTable(ListColumns, pageWidth, colWidth, true, GroupColumnLength);
+            }
+            else
+            {
+                XRTable_PageHeader = SHARED.Libraries.ReportHelper.CreatePageHeaderTable(ListColumns, pageWidth, colWidth, false, 0);
+            }
+            if (!Object.Equals(XRTable_PageHeader, null))
+            {
+                XRTable_PageHeader.Styles.Style = this.myColumnStyle;
+                Bands[BandKind.PageHeader].Controls.Add(XRTable_PageHeader);
+            }
+
+            XRTable XRTable_Detail = new XRTable();
+            XRTableRow XRTableRow_Detail = new XRTableRow();
             for (int i = 0; i < colCount; i++)
             {
-                XRTableCell XRTableCell_Column = new XRTableCell();
-                XRTableCell_Column.Width = (int)colWidth;
-                XRTableCell_Column.Text = ListColumns[i].Caption;
-                XRTableRow_Column.Cells.Add(XRTableCell_Column);
-
-                XRTableCell XRTableCell_Data = new XRTableCell();
-
-                XRTableCell_Data.Width = (int)colWidth;
-                XRTableCell_Data.DataBindings.Add("Text", null, ListColumns[i].FieldName);
+                XRTableCell XRTableCell_Cell = new XRTableCell();
+                XRTableCell_Cell.Width = (int)colWidth;
+                XRTableCell_Cell.DataBindings.Add("Text", null, ListColumns[i].FieldName);
                 if (ListColumns[i].IsNumber)
-                    XRTableCell_Data.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-                XRTableRow_Data.Cells.Add(XRTableCell_Data);
+                    XRTableCell_Cell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+                XRTableRow_Detail.Cells.Add(XRTableCell_Cell);
             }
-            XRTable_Column.Rows.Add(XRTableRow_Column);
-            XRTable_Column.Width = pageWidth;
-            XRTable_Column.Name = "XRTable_Column";
-            XRTable_Column.Styles.Style = this.myColumnStyle;
-
-            XRTable_Row.Rows.Add(XRTableRow_Data);
+            XRTable_Detail.Rows.Add(XRTableRow_Detail);
             if (NumberOfFieldGroup > 0)
-                XRTable_Row.LocationF = new DevExpress.Utils.PointFloat((float)(GroupColumnLength), 0F);
-            XRTable_Row.Width = pageWidth - GroupColumnLength;
-            XRTable_Row.Name = "XRTable_Row";
-            XRTable_Row.Styles.Style = this.myRowStyle;
+                XRTable_Detail.LocationF = new DevExpress.Utils.PointFloat((float)(GroupColumnLength), 0F);
+            XRTable_Detail.Width = pageWidth - GroupColumnLength;
+            XRTable_Detail.Name = "XRTableRow_Detail";
+            XRTable_Detail.Styles.Style = this.myRowStyle;
+            Bands[BandKind.Detail].Controls.Add(XRTable_Detail);
 
-            Bands[BandKind.PageHeader].Controls.Add(XRTable_Column);
-            Bands[BandKind.Detail].Controls.Add(XRTable_Row);
 
-            //Add Last SUM
-            if (ListColumns.Where(item => item.IsNumber == true).ToList().Count > 0)
+            XRTable XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, GroupColumnLength, pageWidth, colWidth);
+            if (!Object.Equals(XRTable_LastSum, null))
             {
-                XRTable XRTable_Sum = new XRTable();
-                XRTableRow XRTableRow_Sum = new XRTableRow();
-
-                XRTableCell XRTableCell_SumFirst = new XRTableCell();
-                XRTableCell_SumFirst.Width = GroupColumnLength;
-                XRTableCell_SumFirst.Text = "";
-
-                XRTableRow_Sum.Cells.Add(XRTableCell_SumFirst);
-
-                for (int i = 0; i < colCount; i++)
-                {
-                    XRTableCell XRTableCell_SumTemp = new XRTableCell();
-                    XRTableCell_SumTemp.Width = (int)colWidth;
-
-                    if (ListColumns[i].IsNumber)
-                    {
-                        XRTableCell_SumTemp.DataBindings.Add("Text", this.DataSource, ListColumns[i].FieldName);
-                        XRTableCell_SumTemp.Summary.IgnoreNullValues = true;
-                        XRTableCell_SumTemp.Summary.Func = SummaryFunc.Sum;
-                        XRTableCell_SumTemp.Summary.Running = SummaryRunning.Report;
-                        XRTableCell_SumTemp.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-                    }
-                    else
-                    {
-                        XRTableCell_SumTemp.Text = "";
-                    }
-
-                    XRTableRow_Sum.Cells.Add(XRTableCell_SumTemp);
-                }
-                XRTable_Sum.Rows.Add(XRTableRow_Sum);
-                XRTable_Sum.Width = pageWidth;
-                XRTable_Sum.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
-                XRTable_Sum.Styles.Style = this.mySumTableStyle;
-
-                Bands[BandKind.ReportFooter].Controls.Add(XRTable_Sum);
+                XRTable_LastSum.Styles.Style = this.mySumTableStyle;
+                Bands[BandKind.ReportFooter].Controls.Add(XRTable_LastSum);
             }
         }
 
