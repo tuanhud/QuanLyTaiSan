@@ -220,3 +220,7 @@ FileSetup/
 MauImport/quanlytaisan
 Setup\Autosave
 _BaoCao\
+App.config
+Web.config
+Web.Debug.config
+Web.Release.config
