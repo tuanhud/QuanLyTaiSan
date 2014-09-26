@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CollectionPager">
+      <HintPath>..\PTB_WEB\dll\CollectionPager.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -159,6 +162,7 @@
     <Content Include="UserControl\Alert\ucInfo.ascx" />
     <Content Include="UserControl\Alert\ucSuccess.ascx" />
     <Content Include="UserControl\Alert\ucWarning.ascx" />
+    <Content Include="UserControl\CollectionPager\ucCollectionPager.ascx" />
     <Content Include="UserControl\Footer\ucFooter.ascx" />
     <Content Include="UserControl\Phong\ucPhong_BreadCrumb.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
@@ -252,6 +256,13 @@
     <Compile Include="UserControl\Alert\ucWarning.ascx.designer.cs">
       <DependentUpon>ucWarning.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\CollectionPager\ucCollectionPager.ascx.cs">
+      <DependentUpon>ucCollectionPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CollectionPager\ucCollectionPager.ascx.designer.cs">
+      <DependentUpon>ucCollectionPager.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Footer\ucFooter.ascx.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,18 +272,21 @@
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_BreadCrumb.ascx.cs">
       <DependentUpon>ucPhong_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_BreadCrumb.ascx.designer.cs">
       <DependentUpon>ucPhong_BreadCrumb.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Mobile.ascx.cs">
       <DependentUpon>ucPhong_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Mobile.ascx.designer.cs">
       <DependentUpon>ucPhong_Mobile.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_Web.ascx.designer.cs">
       <DependentUpon>ucPhong_Web.ascx</DependentUpon>

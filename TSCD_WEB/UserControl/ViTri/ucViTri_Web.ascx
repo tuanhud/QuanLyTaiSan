@@ -8,20 +8,19 @@
 
 <table class="table largetable">
     <tbody>
-        <tr>
-            <%if(loi){ %>
-            <td><uc:ucDanger runat="server" id="ucDanger_KhongCoDuLieu" /></td>
-            <%}else{ %>
-            <td style="width: 210px" class="border_right">
-                <uc:ucTreeViTri runat="server" id="ucTreeViTri" />
-            </td>
+        <tr id="KhongCoDuLieu" runat="server" visible="false">
             <td>
-                <%if (Request.QueryString["key"] == null)
-                  { %>
-                <uc:ucWarning runat="server" id="ucWarning_ChuaChonViTri" />
-                <%}
-                  else
-                  { %>
+                <uc:ucDanger runat="server" ID="ucDanger_KhongCoDuLieu" />
+            </td>
+        </tr>
+        <tr id="infotr" runat="server" visible="false">
+            <td style="width: 210px" class="border_right">
+                <uc:ucTreeViTri runat="server" ID="ucTreeViTri" />
+            </td>
+            <td id="ChuaChonViTri" runat="server" visible="false">
+                <uc:ucWarning runat="server" ID="ucWarning_ChuaChonViTri" />
+            </td>
+            <td id="infotd" runat="server" visible="false">
                 <h3 class="title_green fix">
                     <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label>
                 </h3>
@@ -47,9 +46,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <%} %>
             </td>
-            <%} %>
         </tr>
     </tbody>
 </table>

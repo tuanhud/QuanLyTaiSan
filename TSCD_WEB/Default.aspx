@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="Content/css/metro/website.css" />
     <script type="text/javascript" src="Scripts/scriptgates.js"></script>
     <div class="row timkiem">
-        <div class="input-group <%# isMobile? "col-xs-12 col-sm-12 col-md-12" : "col-lg-3" %> pull-right">
+        <div class="input-group <%Response.Write(isMobile ? "col-xs-12 col-sm-12 col-md-12" : "col-lg-3"); %> pull-right">
             <uc:ucTimKiem runat="server" ID="ucTimKiem" />
         </div>
     </div>

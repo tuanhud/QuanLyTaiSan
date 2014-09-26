@@ -22,6 +22,15 @@ namespace TSCD_WEB.UserControl.ViTri {
         protected global::TSCD_WEB.UserControl.ViTri.ucViTri_BreadCrumb ucViTri_BreadCrumb;
         
         /// <summary>
+        /// KhongCoDuLieu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow KhongCoDuLieu;
+        
+        /// <summary>
         /// ucDanger_KhongCoDuLieu control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace TSCD_WEB.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::TSCD_WEB.UserControl.Alert.ucDanger ucDanger_KhongCoDuLieu;
+        
+        /// <summary>
+        /// infotr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow infotr;
         
         /// <summary>
         /// ucTreeViTri control.
@@ -40,6 +58,15 @@ namespace TSCD_WEB.UserControl.ViTri {
         protected global::TSCD_WEB.UserControl.TreeViTri.ucTreeViTri ucTreeViTri;
         
         /// <summary>
+        /// ChuaChonViTri control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell ChuaChonViTri;
+        
+        /// <summary>
         /// ucWarning_ChuaChonViTri control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace TSCD_WEB.UserControl.ViTri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::TSCD_WEB.UserControl.Alert.ucWarning ucWarning_ChuaChonViTri;
+        
+        /// <summary>
+        /// infotd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell infotd;
         
         /// <summary>
         /// Label_ThongTin control.

@@ -38,7 +38,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="Default.aspx">
-                            <img src="Images/ptb.png" alt="Tài sản cố định" class="logo" /></a>
+                            <img src="Images/tscd.png" alt="Tài sản cố định" class="logo" /></a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">

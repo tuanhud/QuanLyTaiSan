@@ -4,8 +4,6 @@
 <%@ Register Src="~/UserControl/ViTri/ucViTri_Mobile.ascx" TagPrefix="uc" TagName="ucViTri_Mobile" %>
 <%@ Register Src="~/UserControl/Footer/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Vị trí :: Tài sản cố định :.</title>
 </asp:Content>

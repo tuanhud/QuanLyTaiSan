@@ -27,8 +27,10 @@ namespace TSCD_WEB.UserControl.ViTri
         public void LoadData()
         {
             listViTriHienThi = ViTriHienThi.getAll();
+
             if (listViTriHienThi.Count > 0)
             {
+                infotr.Visible = true;
                 ucTreeViTri.CreateTreeList();
                 ucTreeViTri.ASPxTreeList_ViTri.DataSource = listViTriHienThi;
                 ucTreeViTri.ASPxTreeList_ViTri.DataBind();
@@ -36,6 +38,7 @@ namespace TSCD_WEB.UserControl.ViTri
                 ClearData();
                 if (Request.QueryString["key"] != null)
                 {
+                    infotd.Visible = true;
                     string key = "";
                     try
                     {
@@ -58,15 +61,15 @@ namespace TSCD_WEB.UserControl.ViTri
                 }
                 else
                 {
+                    ChuaChonViTri.Visible = true;
                     DevExpress.Web.ASPxTreeList.TreeListNode node = ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
                     node.Focus();
-                    ucWarning_ChuaChonViTri.Visible = true;
                     ucWarning_ChuaChonViTri.LabelInfo.Text = "Chưa chọn vị trí";
                 }
             }
             else
             {
-                ucDanger_KhongCoDuLieu.Visible = true;
+                KhongCoDuLieu.Visible = true;
                 ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có vị trí";
             }
         }

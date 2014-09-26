@@ -3,7 +3,11 @@
 
 <%if (isMobile)
   { %>
-<uc:ucTimKiem runat="server" ID="ucTimKiem_Mobile" />
+<div class="row timkiem">
+    <div class="input-group col-xs-12 col-sm-12 col-md-12 pull-right">
+        <uc:ucTimKiem runat="server" ID="ucTimKiem_Mobile" />
+    </div>
+</div>
 <%} %>
 <ol class="breadcrumb">
     <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
