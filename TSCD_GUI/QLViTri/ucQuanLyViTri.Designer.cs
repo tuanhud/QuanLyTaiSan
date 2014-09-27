@@ -62,6 +62,8 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -87,9 +89,10 @@
             this.barBtnXoaDay,
             this.barBtnThemTang,
             this.barBtnSuaTang,
-            this.barBtnXoaTang});
+            this.barBtnXoaTang,
+            this.barBtnImport});
             this.rbnControlViTri.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlViTri.MaxItemId = 10;
+            this.rbnControlViTri.MaxItemId = 11;
             this.rbnControlViTri.Name = "rbnControlViTri";
             this.rbnControlViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri});
@@ -172,7 +175,8 @@
             this.rbnPageViTri.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupCoSo,
             this.rbnGroupDay,
-            this.rbnGroupTang});
+            this.rbnGroupTang,
+            this.rbnGroupImport});
             this.rbnPageViTri.Name = "rbnPageViTri";
             this.rbnPageViTri.Text = "Vị trí";
             // 
@@ -394,6 +398,22 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
+            this.barBtnImport.Id = 10;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +472,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraEditors.PanelControl panelControlViTri;
         private DevExpress.XtraEditors.LabelControl lblThuoc;
+        private DevExpress.XtraBars.BarButtonItem barBtnImport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
     }
 }
