@@ -1,4 +1,5 @@
-﻿using SHARED.Libraries;
+﻿using DevExpress.Web.ASPxTreeList;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,28 +7,45 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TSCD_WEB.UserControl.DonVi
+namespace TSCD_WEB.UserControl.LoaiTaiSan
 {
-    public partial class ucDonVi_Web : System.Web.UI.UserControl
+    public partial class ucLoaiTaiSan_Web : System.Web.UI.UserControl
     {
-        List<TSCD.Entities.DonVi> listDonVi = new List<TSCD.Entities.DonVi>();
-        TSCD.Entities.DonVi objDonVi = null;
+        List<TSCD.Entities.LoaiTaiSan> listLoaiTaiSan = new List<TSCD.Entities.LoaiTaiSan>();
+        TSCD.Entities.LoaiTaiSan objLoaiTaiSan = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
+                ucTreeViTri.Label_TenViTri.Text = "Loại tài sản";
             }
         }
         public void LoadData()
         {
-            listDonVi = TSCD.Entities.DonVi.getAll();
+            listLoaiTaiSan = TSCD.Entities.LoaiTaiSan.getAll();
 
-            if (listDonVi.Count > 0)
+            if (listLoaiTaiSan.Count > 0)
             {
                 infotr.Visible = true;
                 ucTreeViTri.CreateTreeList();
-                ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
+                if (!IsPostBack)
+                {
+                    TreeListDataColumn coldonvitinh = new TreeListDataColumn("donvitinh.ten", "Đơn vị tính");
+                    ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(coldonvitinh);
+
+                    TreeListCheckColumn colloaitaisanhuuhinh = new TreeListCheckColumn();
+                    colloaitaisanhuuhinh.FieldName = "huuhinh";
+                    colloaitaisanhuuhinh.Caption = "Loại tài sản hữu hình";
+                    ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaitaisanhuuhinh);
+                    
+                }
+                ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
+                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
+                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
+
+                ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiTaiSan;
                 ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                 SearchFunction();
                 ClearData();
@@ -56,39 +74,40 @@ namespace TSCD_WEB.UserControl.DonVi
                 }
                 else
                 {
-                    ChuaChonDonVi.Visible = true;
+                    ChuaChon.Visible = true;
                     DevExpress.Web.ASPxTreeList.TreeListNode node = ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
                     node.Focus();
-                    ucWarning_ChuaChonDonVi.LabelInfo.Text = "Chưa chọn đơn vị";
+                    ucWarning_ChuaChon.LabelInfo.Text = "Chưa chọn loại tài sản";
                 }
             }
             else
             {
                 KhongCoDuLieu.Visible = true;
-                ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có đơn vị";
+                ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có loại tài sản";
             }
         }
 
         private void ClearData()
         {
             Label_ThongTin.Text = "Thông tin";
-            Label_Ten.Text = "";
-            Label_Loai.Text = "";
             Label_Ma.Text = "";
+            Label_Ten.Text = "";
+            Label_DonViTinh.Text = "";
             Label_Thuoc.Text = "";
             Label_MoTa.Text = "";
         }
         private void LoadDataObj(Guid id)
         {
-            objDonVi = TSCD.Entities.DonVi.getById(id);
-            if (objDonVi != null)
+            objLoaiTaiSan = TSCD.Entities.LoaiTaiSan.getById(id);
+            if (objLoaiTaiSan != null)
             {
-                Label_ThongTin.Text = string.Format("Thông tin {0}", objDonVi.ten);
-                Label_Ma.Text = objDonVi.subId;
-                ucDonVi_BreadCrumb.Label_TenDonVi.Text = Label_Ten.Text = objDonVi.ten;
-                Label_Loai.Text = objDonVi.loaidonvi.ten;
-                Label_Thuoc.Text = objDonVi.parent == null ? "[Đại học Sài Gòn]" : objDonVi.parent.ten;
-                Label_MoTa.Text = StringHelper.ConvertRNToBR(objDonVi.mota);
+                Label_ThongTin.Text = string.Format("Thông tin {0}", objLoaiTaiSan.ten);
+                Label_Ma.Text = objLoaiTaiSan.subId;
+                ucLoaiTaiSan_BreadCrumb.Label_Ten.Text = Label_Ten.Text = objLoaiTaiSan.ten;
+                Label_DonViTinh.Text = objLoaiTaiSan.donvitinh == null ? "[Chưa có đơn vị]" : objLoaiTaiSan.donvitinh.ten;
+                Label_Loai.Text = objLoaiTaiSan.huuhinh == true ? "Loại tài sản hữu hình" : "Loại tài sản vô hình";
+                Label_Thuoc.Text = objLoaiTaiSan.parent == null ? "[Không thuộc loại nào]" : objLoaiTaiSan.parent.ten;
+                Label_MoTa.Text = StringHelper.ConvertRNToBR(objLoaiTaiSan.mota);
             }
             else
             {
@@ -98,7 +117,7 @@ namespace TSCD_WEB.UserControl.DonVi
 
         private void LoadFocusedNodeData()
         {
-            if (listDonVi.Count > 0)
+            if (listLoaiTaiSan.Count > 0)
             {
                 if (ucTreeViTri.ASPxTreeList_ViTri.FocusedNode != null && GUID.From(ucTreeViTri.ASPxTreeList_ViTri.FocusedNode.GetValue("id")) != Guid.Empty)
                 {

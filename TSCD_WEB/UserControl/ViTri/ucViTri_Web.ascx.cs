@@ -12,7 +12,6 @@ namespace TSCD_WEB.UserControl.ViTri
 {
     public partial class ucViTri_Web : System.Web.UI.UserControl
     {
-        public Boolean loi = false;
         List<ViTriHienThi> listViTriHienThi = new List<ViTriHienThi>();
         CoSo objCoSo = null;
         Dayy objDay = null;

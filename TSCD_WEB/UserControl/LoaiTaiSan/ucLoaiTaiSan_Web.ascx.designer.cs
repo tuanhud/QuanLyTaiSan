@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB.UserControl.DonVi {
+namespace TSCD_WEB.UserControl.LoaiTaiSan {
     
     
-    public partial class ucDonVi_Web {
+    public partial class ucLoaiTaiSan_Web {
         
         /// <summary>
-        /// ucDonVi_BreadCrumb control.
+        /// ucLoaiTaiSan_BreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.DonVi.ucDonVi_BreadCrumb ucDonVi_BreadCrumb;
+        protected global::TSCD_WEB.UserControl.LoaiTaiSan.ucLoaiTaiSan_BreadCrumb ucLoaiTaiSan_BreadCrumb;
         
         /// <summary>
         /// KhongCoDuLieu control.
@@ -58,22 +58,22 @@ namespace TSCD_WEB.UserControl.DonVi {
         protected global::TSCD_WEB.UserControl.TreeViTri.ucTreeViTri ucTreeViTri;
         
         /// <summary>
-        /// ChuaChonDonVi control.
+        /// ChuaChon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell ChuaChonDonVi;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell ChuaChon;
         
         /// <summary>
-        /// ucWarning_ChuaChonDonVi control.
+        /// ucWarning_ChuaChon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.Alert.ucWarning ucWarning_ChuaChonDonVi;
+        protected global::TSCD_WEB.UserControl.Alert.ucWarning ucWarning_ChuaChon;
         
         /// <summary>
         /// infotd control.
@@ -110,6 +110,15 @@ namespace TSCD_WEB.UserControl.DonVi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Ten;
+        
+        /// <summary>
+        /// Label_DonViTinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_DonViTinh;
         
         /// <summary>
         /// Label_Loai control.
