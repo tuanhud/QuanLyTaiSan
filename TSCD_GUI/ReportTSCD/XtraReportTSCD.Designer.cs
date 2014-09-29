@@ -217,7 +217,7 @@
             this.myColumnStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myColumnStyle.BorderWidth = 0.5F;
+            this.myColumnStyle.BorderWidth = 0.7F;
             this.myColumnStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myColumnStyle.Name = "myColumnStyle";
             this.myColumnStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -228,7 +228,7 @@
             this.myRowStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myRowStyle.BorderWidth = 0.5F;
+            this.myRowStyle.BorderWidth = 0.7F;
             this.myRowStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myRowStyle.Name = "myRowStyle";
             this.myRowStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
