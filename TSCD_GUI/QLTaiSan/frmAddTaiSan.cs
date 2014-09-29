@@ -265,12 +265,12 @@ namespace TSCD_GUI.QLTaiSan
                     re = DBInstance.commit();
                     if (re > 0)
                     {
-                        XtraMessageBox.Show("Pass");
+                        XtraMessageBox.Show("Thêm tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return obj.id;
                     }
                     else
                     {
-                        XtraMessageBox.Show("Fail");
+                        XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return Guid.Empty;
                     }
                 }
@@ -309,12 +309,12 @@ namespace TSCD_GUI.QLTaiSan
                     re = DBInstance.commit();
                 if (re > 0)
                 {
-                    XtraMessageBox.Show("Pass");
+                    XtraMessageBox.Show("Sửa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return objCTTaiSan.id;
                 }
                 else
                 {
-                    XtraMessageBox.Show("Fail");
+                    XtraMessageBox.Show("Sửa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return Guid.Empty;
                 }
             }

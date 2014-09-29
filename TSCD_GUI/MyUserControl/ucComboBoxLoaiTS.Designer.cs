@@ -45,7 +45,7 @@
             this.treeListLookUpLoaiTS.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.treeListLookUpLoaiTS.Properties.DisplayMember = "ten";
-            this.treeListLookUpLoaiTS.Properties.NullText = "[Loại tài sản]";
+            this.treeListLookUpLoaiTS.Properties.NullText = "[Chưa chọn loại tài sản]";
             this.treeListLookUpLoaiTS.Properties.TreeList = this.treeListLookUpLoaiTSTreeList;
             this.treeListLookUpLoaiTS.Properties.ValueMember = "id";
             this.treeListLookUpLoaiTS.Size = new System.Drawing.Size(200, 20);

@@ -74,11 +74,10 @@
             // 
             this.myColumnStyle.BackColor = System.Drawing.Color.White;
             this.myColumnStyle.BorderColor = System.Drawing.Color.Black;
-            this.myColumnStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
             this.myColumnStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myColumnStyle.BorderWidth = 0.5F;
+            this.myColumnStyle.BorderWidth = 0.7F;
             this.myColumnStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myColumnStyle.ForeColor = System.Drawing.Color.Black;
             this.myColumnStyle.Name = "myColumnStyle";
@@ -88,11 +87,10 @@
             // 
             this.myGroupStyle.BackColor = System.Drawing.Color.White;
             this.myGroupStyle.BorderColor = System.Drawing.Color.Black;
-            this.myGroupStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
             this.myGroupStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myGroupStyle.BorderWidth = 0.5F;
+            this.myGroupStyle.BorderWidth = 0.7F;
             this.myGroupStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myGroupStyle.ForeColor = System.Drawing.Color.Black;
             this.myGroupStyle.Name = "myGroupStyle";
@@ -101,11 +99,10 @@
             // myRowStyle
             // 
             this.myRowStyle.BorderColor = System.Drawing.Color.Black;
-            this.myRowStyle.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
             this.myRowStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.myRowStyle.BorderWidth = 0.5F;
+            this.myRowStyle.BorderWidth = 0.7F;
             this.myRowStyle.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myRowStyle.Name = "myRowStyle";
             this.myRowStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -171,6 +168,7 @@
             this.mySumTableStyle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.mySumTableStyle.BorderWidth = 0.7F;
             this.mySumTableStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mySumTableStyle.ForeColor = System.Drawing.Color.Black;
             this.mySumTableStyle.Name = "mySumTableStyle";

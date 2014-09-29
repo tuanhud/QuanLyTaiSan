@@ -7,72 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB.UserControl.TreeViTri {
+namespace TSCD_WEB.UserControl.LoaiTaiSan {
     
     
-    public partial class ucTreeViTri {
+    public partial class ucLoaiTaiSan_BreadCrumb {
         
         /// <summary>
-        /// ASPxTreeList1 control.
+        /// _MOBILE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _MOBILE;
         
         /// <summary>
-        /// UpdatePanel control.
+        /// ucTimKiem_Mobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem_Mobile;
         
         /// <summary>
-        /// Label_TenViTri control.
+        /// _KEY control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label Label_TenViTri;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _KEY;
         
         /// <summary>
-        /// UpdateProgress control.
+        /// Label_Ten control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress;
+        public global::System.Web.UI.WebControls.Label Label_Ten;
         
         /// <summary>
-        /// LinkButton_Expand control.
+        /// _WEB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_Expand;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _WEB;
         
         /// <summary>
-        /// LinkButton_Collapse control.
+        /// ucTimKiem_Web control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_Collapse;
-        
-        /// <summary>
-        /// PanelTreeList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelTreeList;
+        protected global::TSCD_WEB.UserControl.TimKiem.ucTimKiem ucTimKiem_Web;
     }
 }

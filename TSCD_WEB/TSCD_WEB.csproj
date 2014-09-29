@@ -47,6 +47,7 @@
     <Reference Include="DevExpress.Web.ASPxThemes.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
@@ -167,12 +168,16 @@
     <Content Include="UserControl\Alert\ucSuccess.ascx" />
     <Content Include="UserControl\Alert\ucWarning.ascx" />
     <Content Include="UserControl\CollectionPager\ucCollectionPager.ascx" />
+    <Content Include="UserControl\DonVi\ucDonVi_BreadCrumb.ascx" />
     <Content Include="UserControl\DonVi\ucDonVi_Mobile.ascx" />
     <Content Include="UserControl\DonVi\ucDonVi_Web.ascx" />
     <Content Include="UserControl\Footer\ucFooter.ascx" />
     <Content Include="UserControl\LoaiPhong\ucLoaiPhong_BreadCrumb.ascx" />
     <Content Include="UserControl\LoaiPhong\ucLoaiPhong_Mobile.ascx" />
     <Content Include="UserControl\LoaiPhong\ucLoaiPhong_Web.ascx" />
+    <Content Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_BreadCrumb.ascx" />
+    <Content Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_Mobile.ascx" />
+    <Content Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_Web.ascx" />
     <Content Include="UserControl\Phong\ucPhong_BreadCrumb.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Mobile.ascx" />
     <Content Include="UserControl\Phong\ucPhong_Web.ascx" />
@@ -279,6 +284,13 @@
     <Compile Include="UserControl\CollectionPager\ucCollectionPager.ascx.designer.cs">
       <DependentUpon>ucCollectionPager.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\DonVi\ucDonVi_BreadCrumb.ascx.cs">
+      <DependentUpon>ucDonVi_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DonVi\ucDonVi_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucDonVi_BreadCrumb.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\DonVi\ucDonVi_Mobile.ascx.cs">
       <DependentUpon>ucDonVi_Mobile.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -320,6 +332,27 @@
     </Compile>
     <Compile Include="UserControl\LoaiPhong\ucLoaiPhong_Web.ascx.designer.cs">
       <DependentUpon>ucLoaiPhong_Web.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_BreadCrumb.ascx.cs">
+      <DependentUpon>ucLoaiTaiSan_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucLoaiTaiSan_BreadCrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_Mobile.ascx.cs">
+      <DependentUpon>ucLoaiTaiSan_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_Mobile.ascx.designer.cs">
+      <DependentUpon>ucLoaiTaiSan_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_Web.ascx.cs">
+      <DependentUpon>ucLoaiTaiSan_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LoaiTaiSan\ucLoaiTaiSan_Web.ascx.designer.cs">
+      <DependentUpon>ucLoaiTaiSan_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Phong\ucPhong_BreadCrumb.ascx.cs">
       <DependentUpon>ucPhong_BreadCrumb.ascx</DependentUpon>
@@ -406,9 +439,6 @@
       <Project>{1790a3f3-4540-4524-b031-6a159ad400da}</Project>
       <Name>TSCD</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -26,6 +26,8 @@ namespace TSCD_GUI.QLTaiSan
         {
             rbnControlDonVi_TaiSan.Parent = null;
             ucTreeDonVi1.focusedNodeChanged = new MyUserControl.ucTreeDonVi.FocusedNodeChanged(reloadData);
+            ucGridControlTaiSan1.fileName = this.Name;
+            ucGridControlTaiSan1.createLayout();
         }
 
         public void loadData()
@@ -101,22 +103,34 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmInputViTri_DonVi frm = new frmInputViTri_DonVi(ucGridControlTaiSan1.CTTaiSan);
-            frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
-            frm.ShowDialog();
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmInputViTri_DonVi frm = new frmInputViTri_DonVi(obj);
+                frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnSuaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddTaiSan frm = new frmAddTaiSan(ucGridControlTaiSan1.CTTaiSan, true);
-            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-            frm.ShowDialog();
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmAddTaiSan frm = new frmAddTaiSan(obj, true);
+                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnLog_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLogTaiSan frm = new frmLogTaiSan(ucGridControlTaiSan1.CTTaiSan);
-            frm.ShowDialog();
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmLogTaiSan frm = new frmLogTaiSan(obj);
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -140,6 +154,11 @@ namespace TSCD_GUI.QLTaiSan
                 }
 
             }
+        }
+
+        private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ucGridControlTaiSan1.loadLayout(true);
         }
     }
 }

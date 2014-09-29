@@ -572,6 +572,8 @@
             this.Controls.Add(this.gridControlTaiSan);
             this.Name = "ucGridControlTaiSan";
             this.Size = new System.Drawing.Size(788, 481);
+            this.Load += new System.EventHandler(this.ucGridControlTaiSan_Load);
+            this.Leave += new System.EventHandler(this.ucGridControlTaiSan_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTSKemTheo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridViewTaiSan)).EndInit();

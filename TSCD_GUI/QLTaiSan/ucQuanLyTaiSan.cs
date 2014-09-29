@@ -27,6 +27,8 @@ namespace TSCD_GUI.QLTaiSan
         private void init()
         {
             rbnControlTaiSan.Parent = null;
+            ucGridControlTaiSan1.fileName = this.Name;
+            ucGridControlTaiSan1.createLayout();
         }
 
         public void loadData()
@@ -205,6 +207,11 @@ namespace TSCD_GUI.QLTaiSan
             _ReportDesignTool.ShowDesignerDialog();
             ReportPrintTool _ReportPrintTool = new ReportPrintTool(_ReportDesignTool.Report);
             _ReportPrintTool.ShowPreviewDialog();
+        }
+
+        private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ucGridControlTaiSan1.loadLayout(true);
         }
     }
 }
