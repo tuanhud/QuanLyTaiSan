@@ -52,6 +52,7 @@ namespace TSCD_GUI.Libraries
                 const int STT = 0;
                 const int SUBID = 1;
                 const int TEN = 3;
+                const int NSX = 6;
                 const int NGAY = 8;
                 const int DONGIA = 10;
                 const int PASS = 24;
@@ -82,6 +83,7 @@ namespace TSCD_GUI.Libraries
                                             TaiSan obj = new TaiSan();
                                             obj.subId = row[SUBID].ToString().Trim();
                                             obj.ten = row[TEN].ToString().Trim();
+                                            obj.nuocsx = row[NSX] != DBNull.Value ? row[NSX].ToString().Trim() : "";
                                             String str = row[DONGIA].ToString().Trim().Replace(" ", "");
                                             long dongia = long.Parse(str);
                                             obj.dongia = dongia;
@@ -89,6 +91,13 @@ namespace TSCD_GUI.Libraries
                                             CTTaiSan objCTTaiSan = new CTTaiSan();
                                             objCTTaiSan.taisan = obj;
                                             objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                            if (TinhTrang.getQuery().FirstOrDefault() == null)
+                                            {
+                                                TinhTrang objTinhTrang = new TinhTrang();
+                                                objTinhTrang.value = "Đang sử dụng";
+                                                objTinhTrang.add();
+                                                DBInstance.commit();
+                                            }
                                             objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
                                             objCTTaiSan.soluong = 1;
                                             if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
@@ -124,6 +133,13 @@ namespace TSCD_GUI.Libraries
                                                     CTTaiSan objCTTaiSan = new CTTaiSan();
                                                     objCTTaiSan.taisan = obj;
                                                     objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                                    if (TinhTrang.getQuery().FirstOrDefault() == null)
+                                                    {
+                                                        TinhTrang objTinhTrang = new TinhTrang();
+                                                        objTinhTrang.value = "Đang sử dụng";
+                                                        objTinhTrang.add();
+                                                        DBInstance.commit();
+                                                    }
                                                     objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
                                                     objCTTaiSan.soluong = 1;
                                                     if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
@@ -141,6 +157,7 @@ namespace TSCD_GUI.Libraries
                                                 obj = new TaiSan();
                                                 obj.subId = row[SUBID].ToString().Trim();
                                                 obj.ten = row[TEN].ToString().Trim();
+                                                obj.nuocsx = row[NSX] != DBNull.Value ? row[NSX].ToString().Trim() : "";
                                                 String str = row[DONGIA].ToString().Trim().Replace(" ", "");
                                                 long dongia = long.Parse(str);
                                                 obj.dongia = dongia;
@@ -148,6 +165,13 @@ namespace TSCD_GUI.Libraries
                                                 CTTaiSan objCTTaiSan = new CTTaiSan();
                                                 objCTTaiSan.taisan = obj;
                                                 objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                                if (TinhTrang.getQuery().FirstOrDefault() == null)
+                                                {
+                                                    TinhTrang objTinhTrang = new TinhTrang();
+                                                    objTinhTrang.value = "Đang sử dụng";
+                                                    objTinhTrang.add();
+                                                    DBInstance.commit();
+                                                }
                                                 objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
                                                 objCTTaiSan.soluong = 1;
                                                 if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
@@ -627,7 +651,7 @@ namespace TSCD_GUI.Libraries
 
                                         if (row[LOAIPHONG] != DBNull.Value)
                                         {
-                                            objLoai = LoaiPhong.getQuery().Where(c => c.ten.ToUpper() == row[LOAIPHONG].ToString().Trim().ToUpper()).FirstOrDefault();
+                                            objLoai = LoaiPhong.getAll().Where(c => c.ten.ToUpper().Equals(row[LOAIPHONG].ToString().Trim().ToUpper())).FirstOrDefault();
                                             if (objLoai == null || objLoai.id == Guid.Empty)
                                             {
                                                 ok = false;

@@ -45,6 +45,7 @@
             this.treeListLookUpDonVi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.treeListLookUpDonVi.Properties.DisplayMember = "ten";
+            this.treeListLookUpDonVi.Properties.NullText = "[Chưa chọn đơn vị]";
             this.treeListLookUpDonVi.Properties.TreeList = this.treeListLookUpDonViTreeList;
             this.treeListLookUpDonVi.Properties.ValueMember = "id";
             this.treeListLookUpDonVi.Size = new System.Drawing.Size(200, 20);

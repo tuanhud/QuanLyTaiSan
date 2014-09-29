@@ -11,11 +11,14 @@ using TSCD.DataFilter;
 using SHARED.Libraries;
 using TSCD.Entities;
 using DevExpress.XtraGrid.Views.BandedGrid;
+using System.IO;
 
 namespace TSCD_GUI.MyUserControl
 {
     public partial class ucGridControlTaiSan : DevExpress.XtraEditors.XtraUserControl
     {
+        public String fileName = "";
+
         public ucGridControlTaiSan()
         {
             InitializeComponent();
@@ -99,6 +102,75 @@ namespace TSCD_GUI.MyUserControl
             {
                 Debug.WriteLine(this.Name + "->bandedGridViewTaiSan_MasterRowGetChildList: " + ex.Message);
             }
+        }
+
+        public void createLayout()
+        {
+            String currentPath = Directory.GetCurrentDirectory();
+            String path = Path.Combine(currentPath, "Layout");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            String fileMaster = path + "//" + fileName + "_Master_Default.xml";
+            String fileDetail = path + "//" + fileName + "_Detail_Default.xml";
+            if (!System.IO.File.Exists(fileMaster))
+            {
+                bandedGridViewTaiSan.SaveLayoutToXml(fileMaster);
+            }
+            if (!System.IO.File.Exists(fileDetail))
+            {
+                bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+            }
+        }
+
+        public void saveLayout()
+        {
+            String currentPath = Directory.GetCurrentDirectory();
+            String path = Path.Combine(currentPath, "Layout");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            String fileMaster = path + "//" + fileName + "_Master_Current.xml";
+            String fileDetail = path + "//" + fileName + "_Detail_Current.xml";
+            bandedGridViewTaiSan.SaveLayoutToXml(fileMaster);
+            bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+        }
+
+        public void loadLayout(bool Default = false)
+        {
+            String currentPath = Directory.GetCurrentDirectory();
+            String path = Path.Combine(currentPath, "Layout");
+            if (Directory.Exists(path))
+            {
+                String fileMaster = "";
+                String fileDetail = "";
+                if (Default)
+                {
+                    fileMaster = path + "//" + fileName + "_Master_Default.xml";
+                    fileDetail = path + "//" + fileName + "_Detail_Default.xml";
+                }
+                else
+                {
+                    fileMaster = path + "//" + fileName + "_Master_Current.xml";
+                    fileDetail = path + "//" + fileName + "_Detail_Current.xml";
+                }
+                if (System.IO.File.Exists(fileMaster))
+                {
+                    bandedGridViewTaiSan.RestoreLayoutFromXml(fileMaster);
+                }
+                if (System.IO.File.Exists(fileDetail))
+                {
+                    bandedGridViewTSKemTheo.RestoreLayoutFromXml(fileDetail);
+                }
+            }
+        }
+
+        private void ucGridControlTaiSan_Leave(object sender, EventArgs e)
+        {
+            saveLayout();
+        }
+
+        private void ucGridControlTaiSan_Load(object sender, EventArgs e)
+        {
+            loadLayout();
         }
     }
 }

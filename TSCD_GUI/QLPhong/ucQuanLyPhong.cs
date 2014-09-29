@@ -418,6 +418,8 @@ namespace TSCD_GUI.QLPhong
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import không thành công!");
                 }
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
                 if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);

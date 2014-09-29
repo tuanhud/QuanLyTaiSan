@@ -47,12 +47,12 @@
             this.txtSoHieu_CT = new DevExpress.XtraEditors.TextEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
             this.dateNgayGhi = new DevExpress.XtraEditors.DateEdit();
+            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.ucComboBoxDonVi2 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxViTri2 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
-            this.lblTinhTrang = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).BeginInit();
@@ -199,9 +199,9 @@
             // 
             this.lblNgayGhi.Location = new System.Drawing.Point(10, 15);
             this.lblNgayGhi.Name = "lblNgayGhi";
-            this.lblNgayGhi.Size = new System.Drawing.Size(60, 13);
+            this.lblNgayGhi.Size = new System.Drawing.Size(71, 13);
             this.lblNgayGhi.TabIndex = 29;
-            this.lblNgayGhi.Text = "Ngày ghi sổ:";
+            this.lblNgayGhi.Text = "Ngày sử dụng:";
             // 
             // txtSoHieu_CT
             // 
@@ -233,6 +233,30 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayGhi.Size = new System.Drawing.Size(280, 20);
             this.dateNgayGhi.TabIndex = 26;
+            // 
+            // lblTinhTrang
+            // 
+            this.lblTinhTrang.Location = new System.Drawing.Point(10, 94);
+            this.lblTinhTrang.Name = "lblTinhTrang";
+            this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
+            this.lblTinhTrang.TabIndex = 33;
+            this.lblTinhTrang.Text = "Tình trạng:";
+            // 
+            // lookUpTinhTrang
+            // 
+            this.lookUpTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lookUpTinhTrang.Location = new System.Drawing.Point(94, 91);
+            this.lookUpTinhTrang.Name = "lookUpTinhTrang";
+            this.lookUpTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpTinhTrang.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("value", "Tình trạng")});
+            this.lookUpTinhTrang.Properties.DisplayMember = "value";
+            this.lookUpTinhTrang.Properties.NullText = "[Tình trạng]";
+            this.lookUpTinhTrang.Properties.ValueMember = "id";
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(345, 20);
+            this.lookUpTinhTrang.TabIndex = 34;
             // 
             // ucComboBoxDonVi2
             // 
@@ -275,29 +299,6 @@
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(346, 20);
             this.ucComboBoxViTri1.TabIndex = 0;
             this.ucComboBoxViTri1.ViTri = null;
-            // 
-            // lblTinhTrang
-            // 
-            this.lblTinhTrang.Location = new System.Drawing.Point(10, 94);
-            this.lblTinhTrang.Name = "lblTinhTrang";
-            this.lblTinhTrang.Size = new System.Drawing.Size(53, 13);
-            this.lblTinhTrang.TabIndex = 33;
-            this.lblTinhTrang.Text = "Tình trạng:";
-            // 
-            // lookUpTinhTrang
-            // 
-            this.lookUpTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpTinhTrang.Location = new System.Drawing.Point(94, 91);
-            this.lookUpTinhTrang.Name = "lookUpTinhTrang";
-            this.lookUpTinhTrang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpTinhTrang.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("value", "Tình trạng")});
-            this.lookUpTinhTrang.Properties.DisplayMember = "value";
-            this.lookUpTinhTrang.Properties.ValueMember = "id";
-            this.lookUpTinhTrang.Size = new System.Drawing.Size(345, 20);
-            this.lookUpTinhTrang.TabIndex = 34;
             // 
             // frmInputViTri_DonVi
             // 

@@ -37,11 +37,13 @@
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
@@ -80,9 +82,10 @@
             this.barBtnTinhTrang,
             this.barBtnImport,
             this.barBtnXuatBaoCao,
-            this.barBtnThietKe});
+            this.barBtnThietKe,
+            this.barBtnDefault});
             this.rbnControlTaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlTaiSan.MaxItemId = 9;
+            this.rbnControlTaiSan.MaxItemId = 10;
             this.rbnControlTaiSan.Name = "rbnControlTaiSan";
             this.rbnControlTaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageTaiSan});
@@ -147,13 +150,23 @@
             this.barBtnThietKe.Name = "barBtnThietKe";
             this.barBtnThietKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThietKe_ItemClick);
             // 
+            // barBtnDefault
+            // 
+            this.barBtnDefault.Caption = "Default";
+            this.barBtnDefault.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.Glyph")));
+            this.barBtnDefault.Id = 9;
+            this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
+            this.barBtnDefault.Name = "barBtnDefault";
+            this.barBtnDefault.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDefault_ItemClick);
+            // 
             // rbnPageTaiSan
             // 
             this.rbnPageTaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupTaiSan,
             this.rbnGroupTinhTrang,
             this.rbnGroupImport,
-            this.rbnGroupBaoCao});
+            this.rbnGroupBaoCao,
+            this.rbnGroupLayout});
             this.rbnPageTaiSan.Name = "rbnPageTaiSan";
             this.rbnPageTaiSan.Text = "Tài sản";
             // 
@@ -187,6 +200,13 @@
             this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
             this.rbnGroupBaoCao.ShowCaptionButton = false;
             this.rbnGroupBaoCao.Text = "Báo cáo";
+            // 
+            // rbnGroupLayout
+            // 
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
+            this.rbnGroupLayout.Name = "rbnGroupLayout";
+            this.rbnGroupLayout.ShowCaptionButton = false;
+            this.rbnGroupLayout.Text = "Layout";
             // 
             // groupControlMain
             // 
@@ -393,5 +413,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
         private DevExpress.XtraBars.BarButtonItem barBtnThietKe;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
+        private DevExpress.XtraBars.BarButtonItem barBtnDefault;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
     }
 }

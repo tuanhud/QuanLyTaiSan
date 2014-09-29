@@ -23,6 +23,8 @@ namespace TSCD_GUI.QLTaiSan
         public frmInputViTri_DonVi()
         {
             InitializeComponent();
+            ucComboBoxViTri1.NullText = "[Chưa chọn phòng]";
+            ucComboBoxViTri2.NullText = "[Chưa chọn vi trí]";
         }
 
         public frmInputViTri_DonVi(CTTaiSan _objCTTaiSan)
@@ -80,6 +82,11 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                DonVi objNULL = new DonVi();
+                objNULL.id = Guid.Empty;
+                objNULL.ten = "[Không có đơn vị]";
+                objNULL.parent = null;
+                list.Insert(0, objNULL);
                 ucComboBoxDonVi1.DataSource = list;
                 ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxViTri1.init(false, true);

@@ -46,6 +46,7 @@
             this.treeListLookUpViTri.Name = "treeListLookUpViTri";
             this.treeListLookUpViTri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.treeListLookUpViTri.Properties.NullText = "";
             this.treeListLookUpViTri.Properties.TreeList = this.treeListLookUpViTriTreeList;
             this.treeListLookUpViTri.Properties.ValueMember = "id";
             this.treeListLookUpViTri.Size = new System.Drawing.Size(200, 20);
