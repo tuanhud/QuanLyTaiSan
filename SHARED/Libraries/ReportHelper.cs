@@ -476,18 +476,21 @@ namespace SHARED.Libraries
             return ListColumns;
         }
 
-        public static XRTable CreateLastSUMTable(XtraReport _XtraReport, List<structColumn> ListColumns, int GroupColumnLength, int pageWidth, int colWidth)
+        public static XRTable CreateLastSUMTable(XtraReport _XtraReport, List<structColumn> ListColumns, int pageWidth, int colWidth, Boolean HaveGroup, int GroupColumnLength)
         {
             if (ListColumns.Where(item => item.IsNumber == true).ToList().Count > 0)
             {
                 XRTable XRTable_Sum = new XRTable();
                 XRTableRow XRTableRow_Sum = new XRTableRow();
 
-                XRTableCell XRTableCell_CellFirst = new XRTableCell();
-                XRTableCell_CellFirst.Width = GroupColumnLength;
-                XRTableCell_CellFirst.Text = "";
+                if (HaveGroup)
+                {
+                    XRTableCell XRTableCell_CellFirst = new XRTableCell();
+                    XRTableCell_CellFirst.Width = GroupColumnLength;
+                    XRTableCell_CellFirst.Text = "";
 
-                XRTableRow_Sum.Cells.Add(XRTableCell_CellFirst);
+                    XRTableRow_Sum.Cells.Add(XRTableCell_CellFirst);
+                }
 
                 for (int i = 0; i < ListColumns.Count; i++)
                 {
@@ -510,8 +513,8 @@ namespace SHARED.Libraries
                     XRTableRow_Sum.Cells.Add(XRTableCell_Cell);
                 }
                 XRTable_Sum.Rows.Add(XRTableRow_Sum);
-                XRTable_Sum.Width = pageWidth;
-                XRTable_Sum.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
+                //XRTable_Sum.Width = pageWidth;
+                //XRTable_Sum.LocationF = new DevExpress.Utils.PointFloat(0F, 0F);
 
                 return XRTable_Sum;
             }

@@ -193,10 +193,20 @@ namespace PTB_GUI.ThongKe
             Bands[BandKind.Detail].Controls.Add(XRTable_Detail);
 
 
-            XRTable XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, GroupColumnLength, pageWidth, colWidth);
+            XRTable XRTable_LastSum = null;
+            if (NumberOfFieldGroup > 0)
+            {
+                XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, true, GroupColumnLength);
+            }
+            else
+            {
+                XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, false, 0);
+            }
             if (!Object.Equals(XRTable_LastSum, null))
             {
                 XRTable_LastSum.Styles.Style = this.mySumTableStyle;
+                XRTable_LastSum.Location = new Point(0, 0);
+                XRTable_LastSum.Width = pageWidth;
                 Bands[BandKind.ReportFooter].Controls.Add(XRTable_LastSum);
             }
         }
