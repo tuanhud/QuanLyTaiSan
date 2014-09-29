@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using PTB;
 using PTB.Entities;
 using PTB_GUI.MyForm;
+using SHARED.Libraries;
 
 namespace PTB_GUI.HeThong
 {
@@ -94,15 +95,19 @@ namespace PTB_GUI.HeThong
 
         private void SuaThongTinCaNhan_Load(object sender, EventArgs e)
         {
-            if (Global.current_quantrivien_login == null)
+            try
             {
+                this.Text += " [" + Global.current_quantrivien_login.niceName() + "]";
+
+                textEdit_email.Text = Global.current_quantrivien_login.email;
+                textEdit_hoten.Text = Global.current_quantrivien_login.hoten;
+                memoEdit_mota.Text = Global.current_quantrivien_login.mota;
+            }catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+                XtraMessageBox.Show("Thông tin người dùng không hợp lệ, vui lòng khởi động lại phần mềm");
                 this.Close();
             }
-            this.Text += " ["+Global.current_quantrivien_login.niceName()+"]";
-
-            textEdit_email.Text = Global.current_quantrivien_login.email;
-            textEdit_hoten.Text = Global.current_quantrivien_login.hoten;
-            memoEdit_mota.Text = Global.current_quantrivien_login.mota;
         }
     }
 }
