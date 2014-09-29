@@ -24,16 +24,16 @@ namespace TSCD_GUI.QLTaiSan
         public frmInputViTri_DonVi()
         {
             InitializeComponent();
-            ucComboBoxViTri1.NullText = "[Chưa chọn phòng]";
-            ucComboBoxViTri2.NullText = "[Chưa chọn vi trí]";
+            ucComboBoxViTri1.NullText = "";//"[Chưa chọn phòng]";
+            ucComboBoxViTri2.NullText = "";//"[Chưa chọn vi trí]";
         }
 
         public frmInputViTri_DonVi(CTTaiSan _objCTTaiSan)
         {
             InitializeComponent();
             isChuyen = true;
-            ucComboBoxViTri1.NullText = "[Chưa chọn phòng]";
-            ucComboBoxViTri2.NullText = "[Chưa chọn vi trí]";
+            ucComboBoxViTri1.NullText = "";//"[Chưa chọn phòng]";
+            ucComboBoxViTri2.NullText = "";//"[Chưa chọn vi trí]";
             objCTTaiSan = _objCTTaiSan;
             loadData();
             setData();
@@ -92,8 +92,21 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxDonVi1.DataSource = list;
                 ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxViTri1.init(false, true);
-                ucComboBoxViTri1.DataSource = ViTriHienThi.getAllHavePhong();
-                ucComboBoxViTri2.DataSource = ViTriHienThi.getAll();
+                List<ViTriHienThi> listPhong = ViTriHienThi.getAllHavePhong();
+                ViTriHienThi objPhongNULL = new ViTriHienThi();
+                objPhongNULL.id = Guid.Empty;
+                objPhongNULL.ten = "[Không có phòng]";
+                objPhongNULL.loai = typeof(Phong).Name;
+                objPhongNULL.parent_id = Guid.Empty;
+                listPhong.Insert(0, objPhongNULL);
+                ucComboBoxViTri1.DataSource = listPhong;
+                List<ViTriHienThi> listViTri = ViTriHienThi.getAll();
+                ViTriHienThi objViTriNULL = new ViTriHienThi();
+                objViTriNULL.ten = "[Không có vị trí]";
+                objViTriNULL.loai = typeof(CoSo).Name;
+                objViTriNULL.parent_id = Guid.Empty;
+                listViTri.Insert(0, objViTriNULL);
+                ucComboBoxViTri2.DataSource = listViTri;
                 lookUpTinhTrang.Properties.DataSource = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
             }
             catch (Exception ex)
@@ -135,7 +148,7 @@ namespace TSCD_GUI.QLTaiSan
                         if (isChuyen)
                             XtraMessageBox.Show("Chuyển tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
-                            XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show("Chuyển tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
