@@ -16,6 +16,7 @@ namespace TSCD_GUI.QLTaiSan
     public partial class frmInputViTri_DonVi : DevExpress.XtraEditors.XtraForm
     {
         CTTaiSan objCTTaiSan = null;
+        bool isChuyen = false;
 
         public delegate void ReloadAndFocused(Guid id);
         public ReloadAndFocused reloadAndFocused = null;
@@ -30,6 +31,7 @@ namespace TSCD_GUI.QLTaiSan
         public frmInputViTri_DonVi(CTTaiSan _objCTTaiSan)
         {
             InitializeComponent();
+            isChuyen = true;
             ucComboBoxViTri1.NullText = "[Chưa chọn phòng]";
             ucComboBoxViTri2.NullText = "[Chưa chọn vi trí]";
             objCTTaiSan = _objCTTaiSan;
@@ -119,7 +121,10 @@ namespace TSCD_GUI.QLTaiSan
                     int re = objCTTaiSan.chuyenDoi(donViQL, donViSD, tinhTrang, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
                     if (re > 0 && DBInstance.commit() > 0)
                     {
-                        XtraMessageBox.Show("Pass");
+                        if(isChuyen)
+                            XtraMessageBox.Show("Chuyển tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            XtraMessageBox.Show("Thêm tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Guid id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly_id == donViQL.id && c.soluong == soLuong).FirstOrDefault().id;
                         if (reloadAndFocused != null)
                             reloadAndFocused(id);
@@ -127,7 +132,10 @@ namespace TSCD_GUI.QLTaiSan
                     }
                     else
                     {
-                        XtraMessageBox.Show("Fail");
+                        if (isChuyen)
+                            XtraMessageBox.Show("Chuyển tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

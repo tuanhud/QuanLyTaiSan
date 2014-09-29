@@ -17,6 +17,7 @@ using TSCD.Entities;
 using TSCD_GUI.Settings;
 using DevExpress.XtraEditors;
 using TSCD_GUI.HeThong;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI
 {
@@ -53,6 +54,11 @@ namespace TSCD_GUI
 
         private void init()
         {
+            //Việt hóa
+            DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
+            DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();
+            DevExpress.XtraEditors.Controls.Localizer.Active = new MyLocalizer();
+
             _ucQuanLyViTri = new ucQuanLyViTri();
             _ucQuanLyPhong = new ucQuanLyPhong();
             _ucQuanLyDonVi = new ucQuanLyDonVi();

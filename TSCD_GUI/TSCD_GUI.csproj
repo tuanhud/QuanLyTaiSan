@@ -177,6 +177,9 @@
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="Libraries\ExcelDataBaseHelper.cs" />
+    <Compile Include="Libraries\MyGridLocalizer.cs" />
+    <Compile Include="Libraries\MyLocalizer.cs" />
+    <Compile Include="Libraries\MyTreeListLocalizer.cs" />
     <Compile Include="MyForm\frmCustom.cs">
       <SubType>Form</SubType>
     </Compile>
