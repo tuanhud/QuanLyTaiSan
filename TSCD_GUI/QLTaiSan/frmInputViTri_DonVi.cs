@@ -69,7 +69,7 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
                 ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
                 ucComboBoxDonVi2.DonVi = objCTTaiSan.donvisudung;
-                txtSoLuong.Properties.MinValue = 1;
+                txtSoLuong.Properties.MinValue = 0;
                 txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
                 txtSoLuong.EditValue = objCTTaiSan.soluong;
             }
