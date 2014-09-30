@@ -1,23 +1,36 @@
-﻿Báo cáo trên 50 trang
+﻿-Báo cáo trên 50 trang
 
-4 chương
-giới thiệu
-kết luận
+-Số chương (xem lại trong mẫu)
+giới thiệu => 1 trang
+Lời cảm ơn => 1 trang
+Mô tả
 Nội dung
-Mô tả
+Kết luận => 2 trang
 
--Phân tích thiết kết (20 trang)
--Thực thi
-	+ Chụp giao diện
--Kiểm thử (5-7 trang)
--Triển khai
-	+ Cài đặt, Test
-
+-Phân tích thiết kế (~20 trang)
 Sơ đồ:
-Class
-Mô tả
-comcept
++Class Diagram (C#) => 3 trang
++Mô tả yêu cầu => 3 trang
++Conceptual Diagram => 1 trang
++Physical DB Diagram => 2 trang
++ERD => 1 trang
 ... (những sơ đồ thầy dạy)
 
-ko kể quy trình thiết kế giao diện nhưng phải chụp giao diện
+-Thực thi: Code, kỹ thuật code
+20 trang
 
+ko kể quy trình thiết kế giao diện prototype
+nhưng phải chụp giao diện của phần mềm
+
+-Kiểm thử: Unit test và Acception test => 5 trang
+
+-Triển khai
+	+ Cài đặt, vận hành
+	+ Bảo trì
+=> 3 trang
+
+
+Ghi chú thêm: Theo mô hình Agile nên phải ít nhất 2 xoắn ốc trở lên
+
+*Mô hình, hình vẽ => dịch tiếng việt ? Yes: No
+*Sơ đồ quá rộng (physical và class diagram) => chèn vô báo cáo A4 ? How

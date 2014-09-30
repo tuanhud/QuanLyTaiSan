@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="PTB.Entities.DBInstance" Collapsed="true">
-    <Position X="7.25" Y="12" Width="1.5" />
+  <Class Name="PTB.Entities.DBInstance">
+    <Position X="7.25" Y="12" Width="2" />
+    <NestedTypes>
+      <Delegate Name="PTB.Entities.DBInstance.DBConnectionChanged" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DbContext\DBInstance.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>QAAAEAAAAIAQAAAAAAAABAAAAAAAAAAAEAAAAAAAABg=</HashCode>
       <FileName>DbContext\DBInstance.cs</FileName>
