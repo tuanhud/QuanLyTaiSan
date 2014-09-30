@@ -34,3 +34,4 @@ Ghi chú thêm: Theo mô hình Agile nên phải ít nhất 2 xoắn ốc trở 
 
 *Mô hình, hình vẽ => dịch tiếng việt ? Yes: No
 *Sơ đồ quá rộng (physical và class diagram) => chèn vô báo cáo A4 ? How
+*Vẽ sơ đồ cho cả TSCD và PTB hay là riêng rẽ
