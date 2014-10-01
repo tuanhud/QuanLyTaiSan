@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhongThietBi));
             this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTBChung = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSua = new DevExpress.XtraBars.BarButtonItem();
@@ -82,7 +84,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -155,8 +157,9 @@
             // barButtonChuyen
             // 
             this.barButtonChuyen.Caption = "Chuyển";
+            this.barButtonChuyen.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonChuyen.Glyph")));
             this.barButtonChuyen.Id = 46;
-            this.barButtonChuyen.LargeGlyph = global::PTB_GUI.Properties.Resources.right_icon;
+            this.barButtonChuyen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonChuyen.LargeGlyph")));
             this.barButtonChuyen.Name = "barButtonChuyen";
             this.barButtonChuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonChuyen_ItemClick);
             // 
@@ -171,16 +174,18 @@
             // barBtnImportSL
             // 
             this.barBtnImportSL.Caption = "Import TB theo SL";
+            this.barBtnImportSL.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImportSL.Glyph")));
             this.barBtnImportSL.Id = 48;
-            this.barBtnImportSL.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
+            this.barBtnImportSL.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImportSL.LargeGlyph")));
             this.barBtnImportSL.Name = "barBtnImportSL";
             this.barBtnImportSL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportSL_ItemClick);
             // 
             // barBtnImportCT
             // 
             this.barBtnImportCT.Caption = "Import TB theo CT";
+            this.barBtnImportCT.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImportCT.Glyph")));
             this.barBtnImportCT.Id = 49;
-            this.barBtnImportCT.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
+            this.barBtnImportCT.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImportCT.LargeGlyph")));
             this.barBtnImportCT.Name = "barBtnImportCT";
             this.barBtnImportCT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportCT_ItemClick);
             // 
@@ -521,6 +526,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(148, 385);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -531,6 +537,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(67, 385);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);

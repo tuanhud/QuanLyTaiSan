@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTinhTrangVaSoLuong));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
@@ -72,7 +73,7 @@
             this.lookUpEdit1.Properties.DisplayMember = "value";
             this.lookUpEdit1.Properties.NullText = "";
             this.lookUpEdit1.Properties.ValueMember = "id";
-            this.lookUpEdit1.Size = new System.Drawing.Size(228, 20);
+            this.lookUpEdit1.Size = new System.Drawing.Size(237, 20);
             this.lookUpEdit1.TabIndex = 2;
             // 
             // spinEdit1
@@ -99,12 +100,13 @@
             0,
             0,
             0});
-            this.spinEdit1.Size = new System.Drawing.Size(228, 20);
+            this.spinEdit1.Size = new System.Drawing.Size(237, 20);
             this.spinEdit1.TabIndex = 3;
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(14, 164);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -115,7 +117,8 @@
             // btnHuy
             // 
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnHuy.Location = new System.Drawing.Point(219, 164);
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
+            this.btnHuy.Location = new System.Drawing.Point(230, 164);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 5;
@@ -125,9 +128,10 @@
             // btnYesToAll
             // 
             this.btnYesToAll.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnYesToAll.Image = ((System.Drawing.Image)(resources.GetObject("btnYesToAll.Image")));
             this.btnYesToAll.Location = new System.Drawing.Point(95, 164);
             this.btnYesToAll.Name = "btnYesToAll";
-            this.btnYesToAll.Size = new System.Drawing.Size(118, 23);
+            this.btnYesToAll.Size = new System.Drawing.Size(129, 23);
             this.btnYesToAll.TabIndex = 6;
             this.btnYesToAll.Text = "Tương tự cho tất cả";
             this.btnYesToAll.Click += new System.EventHandler(this.btnYesToAll_Click);
@@ -136,7 +140,7 @@
             // 
             this.txtGhiChu.Location = new System.Drawing.Point(71, 64);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(228, 94);
+            this.txtGhiChu.Size = new System.Drawing.Size(237, 94);
             this.txtGhiChu.TabIndex = 7;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -152,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 195);
+            this.ClientSize = new System.Drawing.Size(320, 195);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.btnYesToAll);
             this.Controls.Add(this.btnHuy);

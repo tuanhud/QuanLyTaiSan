@@ -39,8 +39,6 @@ namespace PTB_GUI
 {
     public partial class frmMain : frmCustom  //RibbonForm
     {
-        ucThongKeChiTiet _ucThongKeChiTiet = null;
-        ucThongKeTongQuat _ucThongKeTongQuat = null;
         ucPhanQuyen _ucPhanQuyen = null;
         ucQuanLyPhong _ucQuanLyPhong = null;
         ucQuanLyPhongThietBi _ucQuanLyPhongThietBi = null;
@@ -100,8 +98,6 @@ namespace PTB_GUI
             DevExpress.XtraEditors.Controls.Localizer.Active = new MyLocalizer();
             
 
-            _ucThongKeChiTiet = new ucThongKeChiTiet();
-            _ucThongKeTongQuat = new ucThongKeTongQuat();
             _ucPhanQuyen = new ucPhanQuyen();
             _ucQuanLyPhong = new ucQuanLyPhong();
 
@@ -120,8 +116,6 @@ namespace PTB_GUI
 
             //UserLookAndFeel.Default.SetSkinStyle(Properties.Settings.Default.skin);
             //DockStyle
-            _ucThongKeChiTiet.Dock = DockStyle.Fill;
-            _ucThongKeTongQuat.Dock = DockStyle.Fill;
             _ucPhanQuyen.Dock = DockStyle.Fill;
             _ucQuanLyPhong.Dock = DockStyle.Fill;
             _ucQuanLyPhongThietBi.Dock = DockStyle.Fill;
@@ -143,11 +137,12 @@ namespace PTB_GUI
             addRibbonPage(_ucQuanLyThietBi.getRibbon());
             addRibbonPage(_ucQuanLyLoaiTB.getRibbon());
             addRibbonPage(_ucQuanLyNhanVien.getRibbon());
-            addRibbonPage(_ucPhanQuyen.getRibbon());
-            addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
-            addRibbonPage(_ucQuanLySuCo.getRibbon());
             addRibbonPage(_ucPhanCongQTV.getRibbon());
             addRibbonPage(_ucQuanLyTinhTrang.getRibbon());
+            addRibbonPage(_ucQuanLySuCo.getRibbon());
+            addRibbonPage(_ucTK_SLTB_TheoTinhTrang.getRibbon());
+            addRibbonPage(_ucPhanQuyen.getRibbon());
+            
             addRibbonPage(_ucLogHeThong.getRibbon());
             drawEnd = true;
             ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName("rbnPageThongKe_Home");

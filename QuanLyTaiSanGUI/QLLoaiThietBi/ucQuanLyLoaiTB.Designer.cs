@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTB));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -245,6 +246,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(138, 327);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -255,6 +257,7 @@
             // 
             // btnOk
             // 
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.Location = new System.Drawing.Point(57, 327);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -378,8 +381,9 @@
             // barBtnImport
             // 
             this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
             this.barBtnImport.Id = 42;
-            this.barBtnImport.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
@@ -403,8 +407,8 @@
             // 
             this.rbnPageLoaiTB_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLoaiTB,
-            this.rbnGroupImport,
-            this.rbnGroupOrder});
+            this.rbnGroupOrder,
+            this.rbnGroupImport});
             this.rbnPageLoaiTB_Home.Image = global::PTB_GUI.Properties.Resources.chair_icon;
             this.rbnPageLoaiTB_Home.Name = "rbnPageLoaiTB_Home";
             this.rbnPageLoaiTB_Home.Text = "Loại thiết bị";

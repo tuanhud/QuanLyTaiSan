@@ -76,7 +76,7 @@
             // 
             this.rbnPagePhanCongQTV_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupPhanCong});
-            this.rbnPagePhanCongQTV_Home.Image = global::PTB_GUI.Properties.Resources.nhanvien;
+            this.rbnPagePhanCongQTV_Home.Image = ((System.Drawing.Image)(resources.GetObject("rbnPagePhanCongQTV_Home.Image")));
             this.rbnPagePhanCongQTV_Home.Name = "rbnPagePhanCongQTV_Home";
             this.rbnPagePhanCongQTV_Home.Text = "Phân công QTV";
             // 
@@ -90,6 +90,7 @@
             // barBtnPhanCong
             // 
             this.barBtnPhanCong.Caption = "Phân công";
+            this.barBtnPhanCong.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnPhanCong.Glyph")));
             this.barBtnPhanCong.Id = 21;
             this.barBtnPhanCong.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPhanCong.LargeGlyph")));
             this.barBtnPhanCong.Name = "barBtnPhanCong";
@@ -246,6 +247,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(164, 175);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -264,6 +266,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(83, 175);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);

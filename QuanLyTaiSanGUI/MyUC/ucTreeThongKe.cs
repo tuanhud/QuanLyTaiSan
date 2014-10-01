@@ -14,7 +14,7 @@ namespace PTB_GUI.MyUC
 {
     public partial class ucTreeThongKe : UserControl
     {
-        String type = "";
+        //String type = "";
         public ucTreeThongKe()
         {
             InitializeComponent();
@@ -57,14 +57,14 @@ namespace PTB_GUI.MyUC
 
         private void treeListThongKe_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
-            try
-            {
-                type = e.Node.GetValue(0).ToString();
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    type = e.Node.GetValue(0).ToString();
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
+            //}
         }
 
 

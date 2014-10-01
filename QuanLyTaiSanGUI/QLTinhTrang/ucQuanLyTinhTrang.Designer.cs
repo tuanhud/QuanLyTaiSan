@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyTinhTrang));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlTinhTrang = new DevExpress.XtraGrid.GridControl();
             this.gridViewTinhTrang = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -54,7 +56,7 @@
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
@@ -295,8 +297,9 @@
             // barBtnImport
             // 
             this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
             this.barBtnImport.Id = 45;
-            this.barBtnImport.LargeGlyph = global::PTB_GUI.Properties.Resources.import_icon;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
@@ -306,7 +309,7 @@
             this.rbnGroupTinhTrang,
             this.rbnGroupOrder,
             this.rbnGroupImport});
-            this.rbnPageTinhTrang_Home.Image = global::PTB_GUI.Properties.Resources.tinhtrang;
+            this.rbnPageTinhTrang_Home.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageTinhTrang_Home.Image")));
             this.rbnPageTinhTrang_Home.Name = "rbnPageTinhTrang_Home";
             this.rbnPageTinhTrang_Home.Text = "Tình trạng";
             // 

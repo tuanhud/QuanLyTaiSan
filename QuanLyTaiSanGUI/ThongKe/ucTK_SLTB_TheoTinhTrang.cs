@@ -30,7 +30,7 @@ namespace PTB_GUI.ThongKe
         {
             InitializeComponent();
             ribbonThongKe.Parent = null;
-            layout.save(gridView1);
+            layout.save(gridViewThongKe);
             loadData();
         }
 
@@ -51,12 +51,12 @@ namespace PTB_GUI.ThongKe
             //datetime
             dateEdit_to.EditValue = ServerTimeHelper.getNow();
 
-            gridControl1.DataSource = null;
+            gridControlThongKe.DataSource = null;
 
             //checkPermission
             btnOK.Enabled = /*btnPrint.Enabled =*/ simpleButton_View.Enabled = simpleButton_Design.Enabled = Permission.canDo(Permission._THONGKE_INBAOCAO);
 
-            layout.load(gridView1);
+            layout.load(gridViewThongKe);
         }
 
         public RibbonControl getRibbon()
@@ -89,7 +89,7 @@ namespace PTB_GUI.ThongKe
 
             List<TKSLThietBiFilter> list_tk = TKSLThietBiFilter.getAll(list_coso, list_ltb, list_tinhtrang, from, to, -1, 1);
 
-            gridControl1.DataSource = list_tk;
+            gridControlThongKe.DataSource = list_tk;
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
@@ -103,7 +103,7 @@ namespace PTB_GUI.ThongKe
             DataSet _DataSet = new DataSet();
             //Lay Data Tu GridView
             DataTable _DataTable = new DataTable();
-            foreach (GridColumn column in gridView1.Columns)
+            foreach (GridColumn column in gridViewThongKe.Columns)
             {
                 _DataTable.Columns.Add(column.Name + "_" + column.FieldName, column.ColumnType);
                 if (!(column.Visible && column.GroupIndex < 0))
@@ -114,17 +114,17 @@ namespace PTB_GUI.ThongKe
                     }
                 }
             }
-            for (int i = 0; i < gridView1.DataRowCount; i++)
+            for (int i = 0; i < gridViewThongKe.DataRowCount; i++)
             {
                 DataRow row = _DataTable.NewRow();
-                foreach (GridColumn column in gridView1.Columns)
+                foreach (GridColumn column in gridViewThongKe.Columns)
                 {
-                    row[column.Name + "_" + column.FieldName] = gridView1.GetRowCellValue(i, column);
+                    row[column.Name + "_" + column.FieldName] = gridViewThongKe.GetRowCellValue(i, column);
                     if (!(column.Visible && column.GroupIndex < 0))
                     {
                         if (Object.Equals(column.ColumnType, typeof(Int32)))
                         {
-                            row[column.Name + "_" + column.FieldName + "_STRING"] = gridView1.GetRowCellValue(i, column);
+                            row[column.Name + "_" + column.FieldName + "_STRING"] = gridViewThongKe.GetRowCellValue(i, column);
                         }
                     }
                 }
@@ -163,7 +163,7 @@ namespace PTB_GUI.ThongKe
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, checkEdit_Landscape.Checked);
+                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridViewThongKe, checkEdit_Landscape.Checked);
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
 
                 splashScreenManager_Report.CloseWaitForm();
@@ -175,7 +175,7 @@ namespace PTB_GUI.ThongKe
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1, checkEdit_Landscape.Checked);
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControlThongKe, checkEdit_Landscape.Checked);
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_XtraGrid);
 
                 splashScreenManager_Report.CloseWaitForm();
@@ -192,7 +192,7 @@ namespace PTB_GUI.ThongKe
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridView1, checkEdit_Landscape.Checked);
+                XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridViewThongKe, checkEdit_Landscape.Checked);
                 ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
 
                 splashScreenManager_Report.CloseWaitForm();
@@ -206,7 +206,7 @@ namespace PTB_GUI.ThongKe
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
 
-                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControl1, checkEdit_Landscape.Checked);
+                XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControlThongKe, checkEdit_Landscape.Checked);
                 ReportDesignTool designTool = new ReportDesignTool(_XtraReport_XtraGrid);
 
                 splashScreenManager_Report.CloseWaitForm();
@@ -214,6 +214,26 @@ namespace PTB_GUI.ThongKe
                 ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
                 printTool.ShowPreviewDialog();
             }
+        }
+
+        private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            layout.load(gridViewThongKe);
+        }
+
+        private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewThongKe.ExpandAllGroups();
+        }
+
+        private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewThongKe.CollapseAllGroups();
+        }
+
+        private void barBtnThongKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnOK.PerformClick();
         }
     }
 }

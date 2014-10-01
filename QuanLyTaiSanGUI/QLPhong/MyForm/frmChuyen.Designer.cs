@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChuyen));
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -53,21 +54,21 @@
             this.lblTen = new DevExpress.XtraEditors.LabelControl();
             this.lblLoai = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.btnImage = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSoLuong
@@ -194,6 +195,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(143, 207);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -203,6 +205,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(224, 207);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
@@ -322,6 +325,25 @@
             this.groupControl2.TabIndex = 22;
             this.groupControl2.Text = "Chuyển tình trạng";
             // 
+            // btnImage
+            // 
+            this.btnImage.Location = new System.Drawing.Point(305, 176);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(75, 23);
+            this.btnImage.TabIndex = 24;
+            this.btnImage.Text = "Chọn ảnh";
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            // 
+            // imageSlider1
+            // 
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider1.Location = new System.Drawing.Point(305, 50);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(120, 120);
+            this.imageSlider1.TabIndex = 23;
+            this.imageSlider1.Text = "imageSlider1";
+            this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
+            // 
             // lookUpTinhTrang
             // 
             this.lookUpTinhTrang.Location = new System.Drawing.Point(67, 103);
@@ -348,25 +370,6 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // imageSlider1
-            // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
-            this.imageSlider1.Location = new System.Drawing.Point(305, 50);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(120, 120);
-            this.imageSlider1.TabIndex = 23;
-            this.imageSlider1.Text = "imageSlider1";
-            this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
-            // 
-            // btnImage
-            // 
-            this.btnImage.Location = new System.Drawing.Point(305, 176);
-            this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 24;
-            this.btnImage.Text = "Chọn ảnh";
-            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
-            // 
             // frmChuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,10 +389,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
         }

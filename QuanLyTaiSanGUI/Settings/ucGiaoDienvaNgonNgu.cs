@@ -17,7 +17,7 @@ namespace PTB_GUI.Settings
     {
         string GiaoDien = Global.local_setting.ApplicationSkinName;
         GalleryItem _item = null;
-        bool Changed = false;
+        //bool Changed = false;
         public ucGiaoDienvaNgonNgu()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace PTB_GUI.Settings
         private void galleryControlGallery1_ItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
         {
             GiaoDien = e.Item.Tag.ToString();
-            Changed = true;
+            //Changed = true;
         }
 
         private void simpleButtonLuuGiaoDien_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace PTB_GUI.Settings
         {
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Global.local_setting.ApplicationSkinName;
             galleryControlGiaoDien.Gallery.SetItemCheck(_item, true);
-            Changed = false;
+            //Changed = false;
         }
 
         private void ucGiaoDienvaNgonNgu_Validating(object sender, CancelEventArgs e)

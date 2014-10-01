@@ -62,6 +62,7 @@
             this.coldate_modified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnNhomQuyen = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa_r = new DevExpress.XtraEditors.SimpleButton();
             this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
@@ -69,7 +70,6 @@
             this.rbnPhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.btnNhomQuyen = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dateCreated.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateCreated.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhanMK.Properties)).BeginInit();
@@ -322,7 +322,7 @@
             this.gridControlQTV.Location = new System.Drawing.Point(0, 0);
             this.gridControlQTV.MainView = this.gridViewQTV;
             this.gridControlQTV.Name = "gridControlQTV";
-            this.gridControlQTV.Size = new System.Drawing.Size(508, 355);
+            this.gridControlQTV.Size = new System.Drawing.Size(507, 355);
             this.gridControlQTV.TabIndex = 0;
             this.gridControlQTV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQTV});
@@ -436,6 +436,17 @@
             this.groupControlInfo.TabIndex = 2;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // btnNhomQuyen
+            // 
+            this.btnNhomQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNhomQuyen.Image = ((System.Drawing.Image)(resources.GetObject("btnNhomQuyen.Image")));
+            this.btnNhomQuyen.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnNhomQuyen.Location = new System.Drawing.Point(311, 182);
+            this.btnNhomQuyen.Name = "btnNhomQuyen";
+            this.btnNhomQuyen.Size = new System.Drawing.Size(23, 23);
+            this.btnNhomQuyen.TabIndex = 43;
+            this.btnNhomQuyen.Click += new System.EventHandler(this.btnNhomQuyen_Click);
+            // 
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -512,17 +523,6 @@
             this.txtMaQuanTriVien.Properties.ReadOnly = true;
             this.txtMaQuanTriVien.Size = new System.Drawing.Size(241, 20);
             this.txtMaQuanTriVien.TabIndex = 1;
-            // 
-            // btnNhomQuyen
-            // 
-            this.btnNhomQuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNhomQuyen.Image = ((System.Drawing.Image)(resources.GetObject("btnNhomQuyen.Image")));
-            this.btnNhomQuyen.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnNhomQuyen.Location = new System.Drawing.Point(311, 182);
-            this.btnNhomQuyen.Name = "btnNhomQuyen";
-            this.btnNhomQuyen.Size = new System.Drawing.Size(23, 23);
-            this.btnNhomQuyen.TabIndex = 43;
-            this.btnNhomQuyen.Click += new System.EventHandler(this.btnNhomQuyen_Click);
             // 
             // ucPhanQuyen
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaThongTinCaNhan));
             this.textEdit_newpass = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_newpass_confirm = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_oldpass = new DevExpress.XtraEditors.TextEdit();
@@ -107,6 +108,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.Location = new System.Drawing.Point(483, 164);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
