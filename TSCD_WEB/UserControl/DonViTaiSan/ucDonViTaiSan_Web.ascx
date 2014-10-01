@@ -1,0 +1,250 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucDonViTaiSan_Web.ascx.cs" Inherits="TSCD_WEB.UserControl.DonViTaiSan.ucDonViTaiSan_Web" %>
+<%@ Register Src="~/UserControl/DonViTaiSan/ucDonViTaiSan_BreadCrumb.ascx" TagPrefix="uc" TagName="ucDonViTaiSan_BreadCrumb" %>
+<%@ Register Src="~/UserControl/CollectionPager/ucCollectionPager.ascx" TagPrefix="uc" TagName="ucCollectionPager" %>
+<%@ Register Src="~/UserControl/TreeViTri/ucTreeViTri.ascx" TagPrefix="uc" TagName="ucTreeViTri" %>
+<%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
+<%@ Register Src="~/UserControl/Alert/ucDanger.ascx" TagPrefix="uc" TagName="ucDanger" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+<uc:ucDonViTaiSan_BreadCrumb runat="server" ID="ucDonViTaiSan_BreadCrumb" />
+
+<table class="table largetable">
+    <tbody>
+        <tr id="KhongCoDuLieu" runat="server" visible="false">
+            <td>
+                <uc:ucDanger runat="server" ID="ucDanger_KhongCoDuLieu" />
+            </td>
+        </tr>
+        <tr id="infotr" runat="server" visible="false">
+            <td style="width: 210px" class="border_right">
+                <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
+            </td>
+            <td id="ChuaChonViTri" runat="server" visible="false">
+                <uc:ucWarning runat="server" ID="ucWarning_ChuaChon" />
+            </td>
+            <td id="infotd" runat="server" visible="false">
+                <ul class="nav nav-tabs" role="tablist" id="myTab">
+                    <li class="active"><a href="#danhsach" role="tab" data-toggle="tab">Danh sách tài sản</a></li>
+                    <li id="ThongTinPhong" runat="server" visible="false"><a href="#thongtin" role="tab" data-toggle="tab">
+                        <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></a>
+                        <script>
+                            $(function () {
+                                $('#myTab a:last').tab('show')
+                            })
+                        </script>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="danhsach">
+                        <dx:ASPxGridView ID="ASPxGridView" KeyFieldName="id" ClientIDMode="Static" ClientInstanceName="ASPxGridView" runat="server" AutoGenerateColumns="False" EnableTheming="True" Theme="Aqua" Width="100%">
+                            <Columns>
+                                <dx:GridViewBandColumn Caption="">
+                                    <Columns>
+                                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="25">
+                                        </dx:GridViewCommandColumn>
+                                        <dx:GridViewDataTextColumn Caption="Loại tài sản" FieldName="loaits" GroupIndex="0" VisibleIndex="1">
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataDateColumn Caption="Ngày sử dụng" FieldName="ngay" VisibleIndex="2">
+                                            <CellStyle HorizontalAlign="Center"></CellStyle>
+                                            <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy"></PropertiesDateEdit>
+                                        </dx:GridViewDataDateColumn>
+                                    </Columns>
+                                </dx:GridViewBandColumn>
+                                <dx:GridViewBandColumn Caption="Chứng từ">
+                                    <Columns>
+                                        <dx:GridViewDataTextColumn Caption="Số hiệu" FieldName="sohieu_ct" VisibleIndex="3">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataDateColumn Caption="Ngày tháng" FieldName="ngay_ct" VisibleIndex="4">
+                                            <CellStyle HorizontalAlign="Center"></CellStyle>
+                                            <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy"></PropertiesDateEdit>
+                                        </dx:GridViewDataDateColumn>
+                                    </Columns>
+                                </dx:GridViewBandColumn>
+                                <dx:GridViewBandColumn Caption="">
+                                    <Columns>
+                                        <dx:GridViewDataTextColumn Caption="Tên TSCĐ" FieldName="ten" VisibleIndex="5" Width="300">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị" FieldName="donvitinh" VisibleIndex="6">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Số lượng" FieldName="soluong" VisibleIndex="7">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Đơn giá" FieldName="dongia" VisibleIndex="8" Width="150">
+                                            <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Thành tiền" FieldName="thanhtien" VisibleIndex="9" Width="150">
+                                            <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="10">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="11">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="12">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="13">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="14">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="15">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="16">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="17">
+                                            <Settings AutoFilterCondition="Contains" />
+                                        </dx:GridViewDataTextColumn>
+                                    </Columns>
+                                </dx:GridViewBandColumn>
+                            </Columns>
+                            <Styles>
+                                <SelectedRow BackColor="#C0FFC0" ForeColor="#0033FF"></SelectedRow>
+                            </Styles>
+                            <SettingsPager PageSize="20">
+                                <PageSizeItemSettings Visible="true" ShowAllItem="true" />
+                            </SettingsPager>
+                            <SettingsBehavior AllowSelectByRowClick="True" ColumnResizeMode="Control" />
+                            <Settings ShowFilterRow="True" ShowGroupPanel="True" ShowFooter="True" HorizontalScrollBarMode="Auto" />
+                            <SettingsCookies Enabled="false" />
+                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                        </dx:ASPxGridView>
+                    </div>
+                    <div class="tab-pane" id="thongtin" clientidmode="static" runat="server" visible="false">
+                        <table class="table largetable" style="height: auto">
+                            <tr>
+                                <td>
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 120px">Loại tài sản:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_LoaiTaiSan" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ngày sử dụng:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_NgaySuDung" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Số hiệu:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_SoHieu" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ngày tháng:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_NgayThang" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tên TSCĐ:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_TenTSCD" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đơn vị:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_DonVi" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Số lượng:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đơn giá:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_DonGia" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thành tiền:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_ThanhTien" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nước sản xuất:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_NuocSanXuat" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nguồn gốc:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_NguonGoc" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tình trạng:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_TinhTrang" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phòng:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_Phong" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vị trí:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_ViTri" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đơn vị quản lý:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_DonViQuanLy" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đơn vị sử dụng:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_DonViSuDung" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ghi chú:</td>
+                                                <td>
+                                                    <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<asp:Panel ID="PanelChangePage" runat="server" Visible="false">
+    <script>
+        $(function () {
+            $('#myTab a:first').tab('show')
+        })
+    </script>
+</asp:Panel>
