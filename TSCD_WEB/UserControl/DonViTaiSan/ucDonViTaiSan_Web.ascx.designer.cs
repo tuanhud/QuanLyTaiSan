@@ -103,6 +103,24 @@ namespace TSCD_WEB.UserControl.DonViTaiSan {
         protected global::System.Web.UI.WebControls.Label Label_ThongTin;
         
         /// <summary>
+        /// ASPxDropDownEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxDropDownEdit ASPxDropDownEdit;
+        
+        /// <summary>
+        /// HiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField;
+        
+        /// <summary>
         /// ASPxGridView control.
         /// </summary>
         /// <remarks>
