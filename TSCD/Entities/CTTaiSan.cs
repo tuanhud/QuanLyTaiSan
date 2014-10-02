@@ -312,8 +312,9 @@ namespace TSCD.Entities
                     //Step 3: Update lai soluong cho this -> update
                     this.chungtu_ngay = chungtu_ngay_moi;
                     this.chungtu_sohieu = chungtu_sohieu_moi;
-                    this.soluong -=soluong_moi;//importance!!!
+                    this.soluong -= soluong_moi;//importance!!!
                     this.nguongoc = ctts.nguongoc;
+                    this.ghichu = ghichu_moi;
                     this.update();
                     //Step 4: ghi nhan su giam cho this
                     LogTangGiamTaiSan log2 = this.generateLogTangGiamTaiSan();
