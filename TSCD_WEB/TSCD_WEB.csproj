@@ -168,6 +168,9 @@
     <Content Include="UserControl\Alert\ucSuccess.ascx" />
     <Content Include="UserControl\Alert\ucWarning.ascx" />
     <Content Include="UserControl\CollectionPager\ucCollectionPager.ascx" />
+    <Content Include="UserControl\DonViTaiSan\ucDonViTaiSan_BreadCrumb.ascx" />
+    <Content Include="UserControl\DonViTaiSan\ucDonViTaiSan_Mobile.ascx" />
+    <Content Include="UserControl\DonViTaiSan\ucDonViTaiSan_Web.ascx" />
     <Content Include="UserControl\DonVi\ucDonVi_BreadCrumb.ascx" />
     <Content Include="UserControl\DonVi\ucDonVi_Mobile.ascx" />
     <Content Include="UserControl\DonVi\ucDonVi_Web.ascx" />
@@ -283,6 +286,27 @@
     </Compile>
     <Compile Include="UserControl\CollectionPager\ucCollectionPager.ascx.designer.cs">
       <DependentUpon>ucCollectionPager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\DonViTaiSan\ucDonViTaiSan_BreadCrumb.ascx.cs">
+      <DependentUpon>ucDonViTaiSan_BreadCrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DonViTaiSan\ucDonViTaiSan_BreadCrumb.ascx.designer.cs">
+      <DependentUpon>ucDonViTaiSan_BreadCrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\DonViTaiSan\ucDonViTaiSan_Mobile.ascx.cs">
+      <DependentUpon>ucDonViTaiSan_Mobile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DonViTaiSan\ucDonViTaiSan_Mobile.ascx.designer.cs">
+      <DependentUpon>ucDonViTaiSan_Mobile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\DonViTaiSan\ucDonViTaiSan_Web.ascx.cs">
+      <DependentUpon>ucDonViTaiSan_Web.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DonViTaiSan\ucDonViTaiSan_Web.ascx.designer.cs">
+      <DependentUpon>ucDonViTaiSan_Web.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\DonVi\ucDonVi_BreadCrumb.ascx.cs">
       <DependentUpon>ucDonVi_BreadCrumb.ascx</DependentUpon>
@@ -439,6 +463,9 @@
       <Project>{1790a3f3-4540-4524-b031-6a159ad400da}</Project>
       <Name>TSCD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

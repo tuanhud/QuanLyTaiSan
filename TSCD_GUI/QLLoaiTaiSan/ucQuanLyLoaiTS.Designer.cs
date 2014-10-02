@@ -67,6 +67,8 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -91,9 +93,10 @@
             this.barBtnThemLoaiTS,
             this.barBtnSuaLoaiTS,
             this.barBtnXoaLoaiTS,
-            this.barBtnDonViTinh});
+            this.barBtnDonViTinh,
+            this.barBtnImport});
             this.rbnControlLoaiTS.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlLoaiTS.MaxItemId = 5;
+            this.rbnControlLoaiTS.MaxItemId = 6;
             this.rbnControlLoaiTS.Name = "rbnControlLoaiTS";
             this.rbnControlLoaiTS.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageLoaiTS});
@@ -135,7 +138,8 @@
             // 
             this.rbnPageLoaiTS.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLoaiTS,
-            this.rbnGroupDonViTinh});
+            this.rbnGroupDonViTinh,
+            this.rbnGroupImport});
             this.rbnPageLoaiTS.Name = "rbnPageLoaiTS";
             this.rbnPageLoaiTS.Text = "Loại tài sản";
             // 
@@ -457,6 +461,22 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
+            this.barBtnImport.Id = 5;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // ucQuanLyLoaiTS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,5 +544,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid_g;
         private DevExpress.XtraGrid.Columns.GridColumn colten_g;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colobj;
+        private DevExpress.XtraBars.BarButtonItem barBtnImport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
     }
 }

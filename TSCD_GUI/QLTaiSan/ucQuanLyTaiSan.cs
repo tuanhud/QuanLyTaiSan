@@ -13,6 +13,8 @@ using SHARED.Libraries;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using TSCD.DataFilter.SearchFilter;
 using DevExpress.XtraReports.UI;
+using System.IO;
+using System.Xml;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -55,6 +57,9 @@ namespace TSCD_GUI.QLTaiSan
                 barBtnXoaTaiSan.Enabled = false;
                 btnSua_r.Enabled = false;
                 btnXoa_r.Enabled = false;
+
+                loadSearchXml(this.Name);
+                Search();
             }
             catch (Exception ex)
             {
@@ -81,6 +86,8 @@ namespace TSCD_GUI.QLTaiSan
                 barBtnXoaTaiSan.Enabled = isEnabled;
                 btnSua_r.Enabled = isEnabled;
                 btnXoa_r.Enabled = isEnabled;
+
+                saveSearchXml(this.Name);
             }
             catch (Exception ex)
             {
@@ -177,7 +184,7 @@ namespace TSCD_GUI.QLTaiSan
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportTaiSan(open.FileName, "Import"))
+                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportTaiSan(open.FileName, "TaiSan"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -212,6 +219,104 @@ namespace TSCD_GUI.QLTaiSan
         private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ucGridControlTaiSan1.loadLayout(true);
+        }
+
+        public void saveSearchXml(String fileName)
+        {
+            try
+            {
+                String currentPath = Directory.GetCurrentDirectory();
+                String path = Path.Combine(currentPath, "Search");
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                String file = path + "//" + fileName + "_Search.xml";
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+
+                XmlWriter writer = XmlWriter.Create(file, settings);
+                writer.WriteStartDocument();
+                //writer.WriteComment("");
+                writer.WriteStartElement("Search");
+                writer.WriteAttributeString("cTen", checkTen.Checked ? "1" : "0");
+                writer.WriteAttributeString("vTen", txtTen.Text);
+                writer.WriteAttributeString("cLoai", checkLoai.Checked ? "1" : "0");
+                LoaiTaiSan loai = ucComboBoxLoaiTS1.LoaiTS;
+                writer.WriteAttributeString("vLoai", loai != null ? loai.id.ToString() : "");
+                writer.WriteAttributeString("cDVQL", checkDVQL.Checked ? "1" : "0");
+                DonVi dvql = ucComboBoxDonVi1.DonVi;
+                writer.WriteAttributeString("vDVQL", dvql != null ? dvql.id.ToString() : "");
+                writer.WriteAttributeString("cDVSD", checkDVSD.Checked ? "1" : "0");
+                DonVi dvsd = ucComboBoxDonVi1.DonVi;
+                writer.WriteAttributeString("vDVSD", dvsd != null ? dvsd.id.ToString() : "");
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
+
+                writer.Flush();
+                writer.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->saveSearchXml:" + ex.Message);
+            }
+        }
+
+        public void loadSearchXml(String fileName)
+        {
+            try
+            {
+                String currentPath = Directory.GetCurrentDirectory();
+                String path = Path.Combine(currentPath, "Search");
+                if (Directory.Exists(path))
+                {
+                    String file = path + "//" + fileName + "_Search.xml";
+                    if (System.IO.File.Exists(file))
+                    {
+                        XmlReader reader = XmlReader.Create(file);
+                        while (reader.Read())
+                        {
+                            if (reader.NodeType == XmlNodeType.Element && reader.Name == "Search")
+                            {
+                                checkTen.Checked = Convert.ToInt32(reader.GetAttribute(0)).Equals(1) ? true : false;
+                                txtTen.Text = reader.GetAttribute(1);
+                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(2)).Equals(1) ? true : false;
+                                ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(3)));
+                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(4)).Equals(1) ? true : false;
+                                ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(5)));
+                                checkDVSD.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
+                                ucComboBoxDonVi2.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(7)));
+                            }
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadSearchXml:" + ex.Message);
+            }
+        }
+
+        private void barBtnImportChungTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "All Excel Files(*.xls,*.xlsx)|*.xls;*.xlsx";
+            open.Title = "Chọn tập tin để Import";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportChungTu(open.FileName, "ChungTu"))
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import thành công!");
+                }
+                else
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("Import không thành công!");
+                }
+
+            }
         }
     }
 }

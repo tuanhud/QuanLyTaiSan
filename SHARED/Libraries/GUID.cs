@@ -17,7 +17,10 @@ namespace SHARED.Libraries
         {
             try
             {
-                return Guid.Parse(value);
+                if(!String.IsNullOrEmpty(value))
+                    return Guid.Parse(value);
+                else
+                    return Guid.Empty;
             }
             catch (Exception)
             {

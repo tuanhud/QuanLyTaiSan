@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHARED.Libraries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,23 @@ namespace TSCD_WEB
 {
     public partial class DonViTaiSan : System.Web.UI.Page
     {
+        Boolean isMobile = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Site SetClassActive = this.Master as Site;
+            SetClassActive.page = "DONVITAISAN";
 
+            isMobile = MobileDetect.fBrowserIsMobile();
+            if (!isMobile)
+            {
+                ucDonViTaiSan_Web.Visible = true;
+                ucDonViTaiSan_Web.LoadData();
+            }
+            else
+            {
+                ucDonViTaiSan_Mobile.Visible = true;
+                ucDonViTaiSan_Mobile.LoadData();
+            }
         }
     }
 }
