@@ -7,9 +7,6 @@
 <%@ Register Src="~/UserControl/Alert/ucWarning.ascx" TagPrefix="uc" TagName="ucWarning" %>
 <%@ Register Src="~/UserControl/Alert/ucDanger.ascx" TagPrefix="uc" TagName="ucDanger" %>
 
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>.: Quản lý mượn phòng :: Phòng Thiết bị :.</title>
 </asp:Content>

@@ -1,4 +1,5 @@
-﻿using DevExpress.Web.ASPxTreeList;
+﻿using DevExpress.Web.ASPxEditors;
+using DevExpress.Web.ASPxTreeList;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
@@ -131,9 +132,8 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         }
         private void LoadDanhSachTaiSan(Guid id)
         {
-            //listCTTaiSan = TSCD.Entities.CTTaiSan.getQuery().Where(c => c.donviquanly_id == id || c.donvisudung_id == id).ToList();
-
             TSCD.Entities.DonVi objDonVi = TSCD.Entities.DonVi.getById(id);
+            ucDonViTaiSan_BreadCrumb.Label_Ten.Text = objDonVi.ten;
             List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.Convert(objDonVi.getAllCTTaiSanRecursive());
 
             ASPxGridView.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
@@ -143,6 +143,21 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         private void ClearData()
         {
 
+        }
+
+        protected void ASPxButton_Click(object sender, EventArgs e)
+        {
+            string[] values = "nuocsx;nguongoc;tinhtrang;phong;vitri;dvquanly;dvsudung;ghichu".Split(';');
+            foreach (string val in values)
+            {
+                ASPxGridView.Columns[val].Visible = false;
+            }
+
+            values = HiddenField.Value.Split(';');
+            foreach (string val in values)
+            {
+                ASPxGridView.Columns[val].Visible = true;
+            }
         }
     }
 }

@@ -333,3 +333,7 @@ legend {
     color: #fe8f01;
     font-weight:bold;
 }
+
+.dxbButtonSys, .dxeButtonEditSys{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}

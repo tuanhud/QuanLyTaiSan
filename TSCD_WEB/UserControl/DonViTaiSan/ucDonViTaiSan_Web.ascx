@@ -19,7 +19,7 @@
             </td>
         </tr>
         <tr id="infotr" runat="server" visible="false">
-            <td style="width: 210px" class="border_right">
+            <td style="width: 300px;" class="border_right">
                 <uc:ucTreeViTri runat="server" ID="_ucTreeViTri" />
             </td>
             <td id="ChuaChonViTri" runat="server" visible="false">
@@ -39,11 +39,104 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="danhsach">
+                        <script type="text/javascript">
+                            // <![CDATA[
+                            var textSeparator = ";";
+                            var valueSeparator = ";";
+                            function OnListBoxSelectionChanged(listBox, args) {
+                                if (args.index == 0)
+                                    args.isSelected ? listBox.SelectAll() : listBox.UnselectAll();
+                                UpdateSelectAllItemState();
+                                UpdateText();
+                            }
+                            function UpdateSelectAllItemState() {
+                                IsAllSelected() ? checkListBox.SelectIndices([0]) : checkListBox.UnselectIndices([0]);
+                            }
+                            function IsAllSelected() {
+                                var selectedDataItemCount = checkListBox.GetItemCount() - (checkListBox.GetItem(0).selected ? 0 : 1);
+                                return checkListBox.GetSelectedItems().length == selectedDataItemCount;
+                            }
+                            function UpdateText() {
+                                var selectedItems = checkListBox.GetSelectedItems();
+                                checkComboBox.SetText(GetSelectedItemsText(selectedItems));
+                                $("#HiddenField").val(GetSelectedItemsValue(selectedItems));
+                            }
+                            function SynchronizeListBoxValues(dropDown, args) {
+                                checkListBox.UnselectAll();
+                                var texts = dropDown.GetText().split(textSeparator);
+                                var values = GetValuesByTexts(texts);
+                                checkListBox.SelectValues(values);
+                                UpdateSelectAllItemState();
+                                UpdateText(); // for remove non-existing texts
+                            }
+                            function GetSelectedItemsText(items) {
+                                var texts = [];
+                                for (var i = 0; i < items.length; i++)
+                                    if (items[i].index != 0)
+                                        texts.push(items[i].text);
+                                return texts.join(textSeparator);
+                            }
+                            function GetSelectedItemsValue(items) {
+                                var values = [];
+                                for (var i = 0; i < items.length; i++)
+                                    if (items[i].index != 0)
+                                        values.push(items[i].value);
+                                return values.join(valueSeparator);
+                            }
+                            function GetValuesByTexts(texts) {
+                                var actualValues = [];
+                                var item;
+                                for (var i = 0; i < texts.length; i++) {
+                                    item = checkListBox.FindItemByText(texts[i]);
+                                    if (item != null)
+                                        actualValues.push(item.value);
+                                }
+                                return actualValues;
+                            }
+                            // ]]>
+                        </script>
+                        <table>
+                            <tr>
+                                <td>Chọn cột cần hiển thị</td>
+                                <td style="padding-left: 10px">
+                                    <dx:ASPxDropDownEdit ID="ASPxDropDownEdit" ClientInstanceName="checkComboBox" Width="210px" Height="25px" runat="server" Theme="Aqua">
+                                        <DropDownWindowTemplate>
+                                            <dx:ASPxListBox Width="100%" ID="listBox" ClientInstanceName="checkListBox" SelectionMode="CheckColumn" runat="server" Theme="Aqua">
+                                                <Items>
+                                                    <dx:ListEditItem Text="(Chọn tất cả)" />
+                                                    <dx:ListEditItem Text="Nước sản xuất" Value="nuocsx" />
+                                                    <dx:ListEditItem Text="Nguồn gốc" Value="nguongoc" />
+                                                    <dx:ListEditItem Text="Tình trạng" Value="tinhtrang" />
+                                                    <dx:ListEditItem Text="Phòng" Value="phong" />
+                                                    <dx:ListEditItem Text="Vị trí" Value="vitri" />
+                                                    <dx:ListEditItem Text="Đơn vị quản lý" Value="dvquanly" />
+                                                    <dx:ListEditItem Text="Đơn vị sử dụng" Value="dvsudung" />
+                                                    <dx:ListEditItem Text="Ghi chú" Value="ghichu" />
+                                                </Items>
+                                                <ClientSideEvents SelectedIndexChanged="OnListBoxSelectionChanged" />
+                                            </dx:ASPxListBox>
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td style="padding: 4px">
+                                                        <dx:ASPxButton ID="ASPxButton" runat="server" Text="OK" Style="float: right" Theme="Aqua" OnClick="ASPxButton_Click">
+                                                            <ClientSideEvents Click="function(s, e){ checkComboBox.HideDropDown(); }" />
+                                                        </dx:ASPxButton>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </DropDownWindowTemplate>
+                                        <ClientSideEvents TextChanged="SynchronizeListBoxValues" DropDown="SynchronizeListBoxValues" />
+                                    </dx:ASPxDropDownEdit>
+                                    <asp:HiddenField ID="HiddenField" ClientIDMode="Static" runat="server" />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
                         <dx:ASPxGridView ID="ASPxGridView" KeyFieldName="id" ClientIDMode="Static" ClientInstanceName="ASPxGridView" runat="server" AutoGenerateColumns="False" EnableTheming="True" Theme="Aqua" Width="100%">
                             <Columns>
                                 <dx:GridViewBandColumn Caption="">
                                     <Columns>
-                                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="25">
+                                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="25" Visible="False">
                                         </dx:GridViewCommandColumn>
                                         <dx:GridViewDataTextColumn Caption="Loại tài sản" FieldName="loaits" GroupIndex="0" VisibleIndex="1">
                                         </dx:GridViewDataTextColumn>
@@ -69,7 +162,7 @@
                                         <dx:GridViewDataTextColumn Caption="Tên TSCĐ" FieldName="ten" VisibleIndex="5" Width="300">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Đơn vị" FieldName="donvitinh" VisibleIndex="6">
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị tính" FieldName="donvitinh" VisibleIndex="6">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
                                         <dx:GridViewDataTextColumn Caption="Số lượng" FieldName="soluong" VisibleIndex="7">
@@ -83,28 +176,28 @@
                                             <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="10">
+                                        <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="10" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="11">
+                                        <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="11" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="12">
+                                        <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="12" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="13">
+                                        <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="13" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="14">
+                                        <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="14" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="15">
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="15" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="16">
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="16" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="17">
+                                        <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="17" Visible="False">
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
                                     </Columns>

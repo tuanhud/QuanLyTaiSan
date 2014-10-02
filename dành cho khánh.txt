@@ -1,0 +1,6 @@
+Tìm kiếm, thống kê, báo cáo
+Số lượng dãy tầng phòng 
+Đếm theo loại phòng - tìm theo số lượng
+Gridview tăng giảm tài sản làm riêng
+
+Phòng học phải có chỗ ngồi
