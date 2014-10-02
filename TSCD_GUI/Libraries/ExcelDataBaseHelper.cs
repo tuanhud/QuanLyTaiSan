@@ -51,11 +51,11 @@ namespace TSCD_GUI.Libraries
                 System.Data.DataTable dt = new System.Data.DataTable();
                 const int STT = 0;
                 const int SUBID = 1;
-                const int TEN = 3;
-                const int NSX = 6;
-                const int NGAY = 8;
-                const int DONGIA = 10;
-                const int PASS = 24;
+                const int TEN = 2;
+                const int NSX = 3;
+                const int NGAY = 4;
+                const int DONGIA = 5;
+                const int PASS = 6;
                 LoaiTaiSan objLoaiTS = null;
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
@@ -68,7 +68,7 @@ namespace TSCD_GUI.Libraries
                             String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
                         if (row[PASS] == DBNull.Value || !row[PASS].Equals("Pass"))
                         {
-                            if (row[TEN] != DBNull.Value || String.IsNullOrWhiteSpace(row[TEN].ToString()))
+                            if (row[TEN] != DBNull.Value && !String.IsNullOrWhiteSpace(row[TEN].ToString()))
                             {
                                 if (row[SUBID] == DBNull.Value || String.IsNullOrWhiteSpace(row[SUBID].ToString()))
                                 {
@@ -91,14 +91,14 @@ namespace TSCD_GUI.Libraries
                                             CTTaiSan objCTTaiSan = new CTTaiSan();
                                             objCTTaiSan.taisan = obj;
                                             objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
-                                            if (TinhTrang.getQuery().FirstOrDefault() == null)
+                                            if (TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng")) == null)
                                             {
                                                 TinhTrang objTinhTrang = new TinhTrang();
                                                 objTinhTrang.value = "Đang sử dụng";
                                                 objTinhTrang.add();
                                                 DBInstance.commit();
                                             }
-                                            objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
+                                            objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng"));
                                             objCTTaiSan.soluong = 1;
                                             if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
                                             {
@@ -119,6 +119,7 @@ namespace TSCD_GUI.Libraries
                                                 if (objCTTaiSan2 != null)
                                                 {
                                                     objCTTaiSan2.donviquanly = objDonVi;
+                                                    objCTTaiSan2.donvisudung = objDonVi;
                                                     if (objCTTaiSan2.update() > 0 && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
@@ -133,14 +134,14 @@ namespace TSCD_GUI.Libraries
                                                     CTTaiSan objCTTaiSan = new CTTaiSan();
                                                     objCTTaiSan.taisan = obj;
                                                     objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
-                                                    if (TinhTrang.getQuery().FirstOrDefault() == null)
+                                                    if (TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng")) == null)
                                                     {
                                                         TinhTrang objTinhTrang = new TinhTrang();
                                                         objTinhTrang.value = "Đang sử dụng";
                                                         objTinhTrang.add();
                                                         DBInstance.commit();
                                                     }
-                                                    objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
+                                                    objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng"));
                                                     objCTTaiSan.soluong = 1;
                                                     if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
                                                     {
@@ -165,14 +166,14 @@ namespace TSCD_GUI.Libraries
                                                 CTTaiSan objCTTaiSan = new CTTaiSan();
                                                 objCTTaiSan.taisan = obj;
                                                 objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
-                                                if (TinhTrang.getQuery().FirstOrDefault() == null)
+                                                if (TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng")) == null)
                                                 {
                                                     TinhTrang objTinhTrang = new TinhTrang();
                                                     objTinhTrang.value = "Đang sử dụng";
                                                     objTinhTrang.add();
                                                     DBInstance.commit();
                                                 }
-                                                objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault();
+                                                objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng"));
                                                 objCTTaiSan.soluong = 1;
                                                 if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
                                                 {
@@ -190,6 +191,69 @@ namespace TSCD_GUI.Libraries
                                         Debug.WriteLine("ExcelDataBaseHelper->ImportTaiSan: " + ex.Message);
                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
                                     }
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportTaiSan: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static bool ImportChungTu(String fileName, String sheet)
+        {
+            try
+            {
+                int line = 0;
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int SOHIEU = 1;
+                const int NGAY = 2;
+                const int TEN = 3;
+                const int DONGIA = 6;
+                const int PASS = 8;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    int lines = dt.Rows.Count;
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        line++;
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import... " +
+                            String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        if (row[PASS] == DBNull.Value || !row[PASS].Equals("Pass"))
+                        {
+                            if (row[TEN] != DBNull.Value && !String.IsNullOrWhiteSpace(row[TEN].ToString()) && row[DONGIA] != DBNull.Value)
+                            {
+                                String ten = row[TEN].ToString().Trim().ToUpper();
+                                String str = row[DONGIA].ToString().Trim().Replace(" ", "");
+                                long dongia = long.Parse(str);
+                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu_sohieu == null && c.chungtu_ngay == null).FirstOrDefault();
+                                if (obj != null)
+                                {
+                                    obj.chungtu_sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
+                                    obj.chungtu_ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                    if (obj.update() > 0 && DBInstance.commit() > 0)
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không tìm thấy tài sản)");
                                 }
                             }
                             else
@@ -287,6 +351,109 @@ namespace TSCD_GUI.Libraries
             }
         }
 
+        public static bool ImportLoaiTS(String fileName, String sheet)
+        {
+            try
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int TEN = 1;
+                const int DONVITINH = 2;
+                const int LOAI = 3;
+                const int PARENT = 4;
+                const int PASS = 5;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        if (row[PASS] == DBNull.Value || !row[PASS].Equals("Pass"))
+                        {
+                            if (row[TEN] != DBNull.Value && row[LOAI] != DBNull.Value)
+                            {
+                                try
+                                {
+                                    if (row[PARENT] != DBNull.Value)
+                                    {
+                                        String tenParent = row[PARENT].ToString().Trim().ToUpper();
+                                        LoaiTaiSan objParent = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(tenParent)).FirstOrDefault();
+                                        if (objParent != null)
+                                        {
+                                            String ten = row[TEN].ToString().Trim().ToUpper();
+                                            LoaiTaiSan obj = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten)).FirstOrDefault();
+                                            if (obj == null)
+                                            {
+                                                obj = new LoaiTaiSan();
+                                                obj.ten = row[TEN].ToString().Trim();
+                                                obj.parent = objParent;
+                                                obj.donvitinh = row[DONVITINH] != DBNull.Value ? getDonViTinh(row[DONVITINH].ToString()) : null;
+                                                obj.huuhinh = Convert.ToBoolean(row[LOAI]);
+                                                if (obj.add() > 0 && DBInstance.commit() > 0)
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                }
+                                                else
+                                                {
+                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại tài sản cha)");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        String ten = row[TEN].ToString().Trim().ToUpper();
+                                        LoaiTaiSan obj = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten)).FirstOrDefault();
+                                        if (obj == null)
+                                        {
+                                            obj = new LoaiTaiSan();
+                                            obj.ten = row[TEN].ToString().Trim();
+                                            obj.donvitinh = row[DONVITINH] != DBNull.Value ? getDonViTinh(row[DONVITINH].ToString()) : null;
+                                            obj.huuhinh = Convert.ToBoolean(row[LOAI]);
+                                            if (obj.add() > 0 && DBInstance.commit() > 0)
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                            }
+                                            else
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Exist");
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine("ExcelDataBaseHelper->ImportDonVi: " + ex.Message);
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportDonVi: " + ex.Message);
+                return false;
+            }
+        }
+
         private static LoaiTaiSan getLoai(String _ten)
         {
             try
@@ -300,6 +467,28 @@ namespace TSCD_GUI.Libraries
                     obj.ten = ten;
                     obj.huuhinh = true;
                     obj.donvitinh = DonViTinh.getQuery().FirstOrDefault();
+                    if (obj.add() > 0 && DBInstance.commit() > 0)
+                        return obj;
+                    else return null;
+                }
+                return obj;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static DonViTinh getDonViTinh(String _ten)
+        {
+            try
+            {
+                String ten = _ten.Trim();
+                DonViTinh obj = DonViTinh.getQuery().Where(c => c.ten.ToUpper().Equals(ten.ToUpper())).FirstOrDefault();
+                if (obj == null)
+                {
+                    obj = new DonViTinh();
+                    obj.ten = ten;
                     if (obj.add() > 0 && DBInstance.commit() > 0)
                         return obj;
                     else return null;

@@ -55,6 +55,8 @@ namespace TSCD_GUI.QLTaiSan
             isChild = true;
             init();
             setData(_obj);
+            txtSoLuong.Properties.ReadOnly = true;
+            lookUpTinhTrang.Properties.ReadOnly = true;
         }
 
         public frmAddTaiSan(List<CTTaiSan> _list, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
@@ -345,7 +347,18 @@ namespace TSCD_GUI.QLTaiSan
 
         private void setDonViTinh()
         {
-            lbltxtDonViTinh.Text = ucComboBoxLoaiTS1.LoaiTS.donvitinh.ten;
+            try
+            {
+                LoaiTaiSan obj = ucComboBoxLoaiTS1.LoaiTS;
+                if (obj == null || obj.donvitinh == null)
+                    lbltxtDonViTinh.Text = "";
+                else
+                    lbltxtDonViTinh.Text = ucComboBoxLoaiTS1.LoaiTS.donvitinh.ten;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->setDonViTinh:" + ex.Message);
+            }
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -426,6 +439,16 @@ namespace TSCD_GUI.QLTaiSan
         {
             loadDataLoaiTS(list, true);
             ucComboBoxLoaiTS1.LoaiTS = objLoaiTS;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (bandedGridViewTaiSan.GetFocusedRow() != null)
+            {
+                CTTaiSan obj = (bandedGridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj;
+                listCTTaiSan.Remove(obj);
+                gridControlTaiSan.DataSource = listCTTaiSan;
+            }
         }
 
     }

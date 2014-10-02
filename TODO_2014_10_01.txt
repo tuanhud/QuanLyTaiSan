@@ -1,0 +1,5 @@
+load lai du lieu lan truoc
+web kiem tra quyen xem, xem tai san theo don vi
+thong ke -> bao nhieu phong, bao nhieu may chieu theo co so, so luong phong theo loai
+tu file excel chuyen thanh du lieu
+tang tinh ung dung: thong ke duoc file excel -> kiem tra xu ly voi du lieu cu

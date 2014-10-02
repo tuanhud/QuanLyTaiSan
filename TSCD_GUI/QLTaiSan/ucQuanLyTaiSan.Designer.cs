@@ -59,6 +59,7 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.barBtnImportChungTu = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -83,9 +84,10 @@
             this.barBtnImport,
             this.barBtnXuatBaoCao,
             this.barBtnThietKe,
-            this.barBtnDefault});
+            this.barBtnDefault,
+            this.barBtnImportChungTu});
             this.rbnControlTaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlTaiSan.MaxItemId = 10;
+            this.rbnControlTaiSan.MaxItemId = 11;
             this.rbnControlTaiSan.Name = "rbnControlTaiSan";
             this.rbnControlTaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageTaiSan});
@@ -125,7 +127,7 @@
             // 
             // barBtnImport
             // 
-            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Caption = "Import tài sản";
             this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
             this.barBtnImport.Id = 6;
             this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
@@ -164,9 +166,9 @@
             this.rbnPageTaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupTaiSan,
             this.rbnGroupTinhTrang,
-            this.rbnGroupImport,
             this.rbnGroupBaoCao,
-            this.rbnGroupLayout});
+            this.rbnGroupLayout,
+            this.rbnGroupImport});
             this.rbnPageTaiSan.Name = "rbnPageTaiSan";
             this.rbnPageTaiSan.Text = "Tài sản";
             // 
@@ -189,6 +191,7 @@
             // rbnGroupImport
             // 
             this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImportChungTu);
             this.rbnGroupImport.Name = "rbnGroupImport";
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
@@ -360,6 +363,15 @@
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 49;
             // 
+            // barBtnImportChungTu
+            // 
+            this.barBtnImportChungTu.Caption = "Import chứng từ";
+            this.barBtnImportChungTu.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImportChungTu.Glyph")));
+            this.barBtnImportChungTu.Id = 10;
+            this.barBtnImportChungTu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImportChungTu.LargeGlyph")));
+            this.barBtnImportChungTu.Name = "barBtnImportChungTu";
+            this.barBtnImportChungTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportChungTu_ItemClick);
+            // 
             // ucQuanLyTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,5 +427,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
         private DevExpress.XtraBars.BarButtonItem barBtnDefault;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
+        private DevExpress.XtraBars.BarButtonItem barBtnImportChungTu;
     }
 }
