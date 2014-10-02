@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhong));
             this.rbnControlPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnLoaiPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLoaiPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainerViTri = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
@@ -46,6 +47,7 @@
             this.gridViewPhong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colsochongoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,9 +68,8 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -83,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpLoaiView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoChoNgoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,6 +137,15 @@
             this.barBtnLoaiPhong.Name = "barBtnLoaiPhong";
             this.barBtnLoaiPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLoaiPhong_ItemClick);
             // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
+            this.barBtnImport.Id = 5;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // rbnPagePhong
             // 
             this.rbnPagePhong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -159,6 +170,13 @@
             this.rbnGroupLoaiPhong.Name = "rbnGroupLoaiPhong";
             this.rbnGroupLoaiPhong.ShowCaptionButton = false;
             this.rbnGroupLoaiPhong.Text = "Loại phòng";
+            // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
             // 
             // navBarControlLeft
             // 
@@ -221,6 +239,7 @@
             this.gridViewPhong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colten,
             this.colloai,
+            this.colsochongoi,
             this.colvitri,
             this.colid,
             this.colphong});
@@ -252,6 +271,14 @@
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;
             // 
+            // colsochongoi
+            // 
+            this.colsochongoi.Caption = "Số chỗ ngồi";
+            this.colsochongoi.FieldName = "sochongoi";
+            this.colsochongoi.Name = "colsochongoi";
+            this.colsochongoi.Visible = true;
+            this.colsochongoi.VisibleIndex = 2;
+            // 
             // colvitri
             // 
             this.colvitri.Caption = "Vị Trí";
@@ -259,7 +286,7 @@
             this.colvitri.Name = "colvitri";
             this.colvitri.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colvitri.Visible = true;
-            this.colvitri.VisibleIndex = 2;
+            this.colvitri.VisibleIndex = 3;
             // 
             // colid
             // 
@@ -291,6 +318,7 @@
             this.groupControlInfo.Controls.Add(this.btnSua_r);
             this.groupControlInfo.Controls.Add(this.btnThem_r);
             this.groupControlInfo.Controls.Add(this.txtMoTa);
+            this.groupControlInfo.Controls.Add(this.txtSoChoNgoi);
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
@@ -330,7 +358,7 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(148, 203);
+            this.btnHuy.Location = new System.Drawing.Point(148, 234);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 13;
@@ -340,7 +368,7 @@
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(67, 203);
+            this.btnOK.Location = new System.Drawing.Point(67, 234);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 12;
@@ -349,7 +377,7 @@
             // 
             // lblMoTa
             // 
-            this.lblMoTa.Location = new System.Drawing.Point(5, 112);
+            this.lblMoTa.Location = new System.Drawing.Point(5, 143);
             this.lblMoTa.Name = "lblMoTa";
             this.lblMoTa.Size = new System.Drawing.Size(31, 13);
             this.lblMoTa.TabIndex = 11;
@@ -451,32 +479,40 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(68, 109);
+            this.txtMoTa.Location = new System.Drawing.Point(68, 140);
             this.txtMoTa.MenuManager = this.rbnControlPhong;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(221, 88);
             this.txtMoTa.TabIndex = 7;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
+            // txtSoChoNgoi
+            // 
+            this.txtSoChoNgoi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSoChoNgoi.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtSoChoNgoi.Location = new System.Drawing.Point(68, 110);
+            this.txtSoChoNgoi.MenuManager = this.rbnControlPhong;
+            this.txtSoChoNgoi.Name = "txtSoChoNgoi";
+            this.txtSoChoNgoi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSoChoNgoi.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtSoChoNgoi.Properties.Mask.EditMask = "N00";
+            this.txtSoChoNgoi.Properties.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtSoChoNgoi.Size = new System.Drawing.Size(221, 20);
+            this.txtSoChoNgoi.TabIndex = 17;
+            // 
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // rbnGroupImport
-            // 
-            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
-            this.rbnGroupImport.Name = "rbnGroupImport";
-            this.rbnGroupImport.ShowCaptionButton = false;
-            this.rbnGroupImport.Text = "Import";
-            // 
-            // barBtnImport
-            // 
-            this.barBtnImport.Caption = "Import";
-            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
-            this.barBtnImport.Id = 5;
-            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
-            this.barBtnImport.Name = "barBtnImport";
-            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
             // ucQuanLyPhong
             // 
@@ -502,6 +538,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpLoaiView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoChoNgoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -549,5 +586,7 @@
         private DevExpress.XtraEditors.LabelControl lblViTri;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraEditors.SpinEdit txtSoChoNgoi;
+        private DevExpress.XtraGrid.Columns.GridColumn colsochongoi;
     }
 }

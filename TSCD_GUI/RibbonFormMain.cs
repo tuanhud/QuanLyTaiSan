@@ -18,6 +18,7 @@ using TSCD_GUI.Settings;
 using DevExpress.XtraEditors;
 using TSCD_GUI.HeThong;
 using TSCD_GUI.Libraries;
+using TSCD_GUI.ThongKe;
 
 namespace TSCD_GUI
 {
@@ -30,6 +31,7 @@ namespace TSCD_GUI
         ucQuanLyTaiSan _ucQuanLyTaiSan = null;
         ucQuanLyDonVi_TaiSan _ucQuanLyDonVi_TaiSan = null;
         ucPhanQuyen _ucPhanQuyen = null;
+        ucThongKe _ucThongKe = null;
 
         const String rbnPageViTri = "rbnPageViTri";
         const String rbnPagePhong = "rbnPagePhong";
@@ -38,6 +40,7 @@ namespace TSCD_GUI
         const String rbnPageTaiSan = "rbnPageTaiSan";
         const String rbnPageDonVi_TaiSan = "rbnPageDonVi_TaiSan";
         const String rbnPagePhanQuyen = "rbnPagePhanQuyen";
+        const String rbnPageThongKe = "rbnPageThongKe";
 
         ucCauHinh _ucCauHinh = null;
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
@@ -66,6 +69,7 @@ namespace TSCD_GUI
             _ucQuanLyTaiSan = new ucQuanLyTaiSan();
             _ucQuanLyDonVi_TaiSan = new ucQuanLyDonVi_TaiSan();
             _ucPhanQuyen = new ucPhanQuyen();
+            _ucThongKe = new ucThongKe();
 
             _ucQuanLyViTri.Dock = DockStyle.Fill;
             _ucQuanLyPhong.Dock = DockStyle.Fill;
@@ -74,6 +78,7 @@ namespace TSCD_GUI
             _ucQuanLyTaiSan.Dock = DockStyle.Fill;
             _ucQuanLyDonVi_TaiSan.Dock = DockStyle.Fill;
             _ucPhanQuyen.Dock = DockStyle.Fill;
+            _ucThongKe.Dock = DockStyle.Fill;
 
             addRibbonPage(_ucQuanLyViTri.getRibbonControl());
             addRibbonPage(_ucQuanLyPhong.getRibbonControl());
@@ -82,6 +87,7 @@ namespace TSCD_GUI
             addRibbonPage(_ucQuanLyTaiSan.getRibbonControl());
             addRibbonPage(_ucQuanLyDonVi_TaiSan.getRibbonControl());
             addRibbonPage(_ucPhanQuyen.getRibbonControl());
+            addRibbonPage(_ucThongKe.getRibbonControl());
 
             drawEnd = true;
 
@@ -145,6 +151,12 @@ namespace TSCD_GUI
                     _ucPhanQuyen.loadData();
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucPhanQuyen);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageThongKe)))
+                {
+                    _ucThongKe.loadData();
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucThongKe);
                 }
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }

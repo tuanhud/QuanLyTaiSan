@@ -750,11 +750,12 @@ namespace TSCD_GUI.Libraries
                 const int MAPHONG = 1;
                 const int TENPHONG = 2;
                 const int LOAIPHONG = 3;
-                const int MOTA = 4;
-                const int COSO = 5;
-                const int DAY = 6;
-                const int TANG = 7;
-                const int PASS = 8;
+                const int SOCHONGOI = 4;
+                const int MOTA = 5;
+                const int COSO = 6;
+                const int DAY = 7;
+                const int TANG = 8;
+                const int PASS = 9;
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
                 {
@@ -859,6 +860,7 @@ namespace TSCD_GUI.Libraries
                                             obj.subId = row[MAPHONG] != DBNull.Value ? row[MAPHONG].ToString().Trim() : null;
                                             obj.vitri = objViTri;
                                             obj.ten = row[TENPHONG].ToString().Trim();
+                                            obj.sochongoi = row[SOCHONGOI] != DBNull.Value ? Convert.ToInt32(row[SOCHONGOI].ToString()) : 0;
                                             obj.mota = row[MOTA].ToString().Trim();
                                             obj.loaiphong = objLoai;
                                             if (obj.add() > 0 && DBInstance.commit() > 0)

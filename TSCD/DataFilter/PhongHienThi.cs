@@ -11,6 +11,7 @@ namespace TSCD.DataFilter
         public Guid id { get; set; }
         public String ten { get; set; }
         public String loai { get; set; }
+        public int sochongoi { get; set; }
         public String vitri { get; set; }
         public Phong phong { get; set; }
 
@@ -24,6 +25,7 @@ namespace TSCD.DataFilter
                      id = p.id,
                      ten = p.ten,
                      loai = p.loaiphong.ten,
+                     sochongoi = p.sochongoi,
                      vitri = p.vitri.coso != null ? p.vitri.coso.ten + (p.vitri.day != null ? " - " + p.vitri.day.ten + (p.vitri.tang != null ? " - " + p.vitri.tang.ten : "") : "") : "",
                      phong = p
                  }).ToList();

@@ -176,6 +176,7 @@
     <Compile Include="HeThong\ucPhanQuyen.Designer.cs">
       <DependentUpon>ucPhanQuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\CheckedComboBoxEditHelper.cs" />
     <Compile Include="Libraries\ExcelDataBaseHelper.cs" />
     <Compile Include="Libraries\MyGridLocalizer.cs" />
     <Compile Include="Libraries\MyLocalizer.cs" />
@@ -374,6 +375,24 @@
     <Compile Include="SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKe\ucThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucThongKe.Designer.cs">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ucTKPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucTKPhong.Designer.cs">
+      <DependentUpon>ucTKPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ucTKTaiSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucTKTaiSan.Designer.cs">
+      <DependentUpon>ucTKTaiSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitFormLoad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,6 +516,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucThongKe.resx">
+      <DependentUpon>ucThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucTKPhong.resx">
+      <DependentUpon>ucTKPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucTKTaiSan.resx">
+      <DependentUpon>ucTKTaiSan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitFormLoad.resx">
       <DependentUpon>WaitFormLoad.cs</DependentUpon>

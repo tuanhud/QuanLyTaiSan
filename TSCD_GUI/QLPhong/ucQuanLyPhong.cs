@@ -144,6 +144,7 @@ namespace TSCD_GUI.QLPhong
             btnOK.Visible = _enable;
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
+            txtSoChoNgoi.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
             _ucComboBoxViTri.ReadOnly = !_enable;
             gridLookUpLoai.Properties.ReadOnly = !_enable;
@@ -165,6 +166,7 @@ namespace TSCD_GUI.QLPhong
         {
             txtTen.Text = "";
             txtMoTa.Text = "";
+            txtSoChoNgoi.EditValue = 0;
             gridLookUpLoai.EditValue = null;
         }
 
@@ -181,6 +183,7 @@ namespace TSCD_GUI.QLPhong
                         objPhong = gridViewPhong.GetFocusedRowCellValue(colphong) as Phong;
                         txtTen.Text = objPhong.ten;
                         txtMoTa.Text = objPhong.mota;
+                        txtSoChoNgoi.EditValue = objPhong.sochongoi;
                         gridLookUpLoai.EditValue = objPhong.loaiphong_id;
                         _ucComboBoxViTri.ViTri = objPhong.vitri;
                     }
@@ -210,6 +213,7 @@ namespace TSCD_GUI.QLPhong
                 objPhong.ten = txtTen.Text;
                 objPhong.mota = txtMoTa.Text;
                 objPhong.vitri = _ucComboBoxViTri.ViTri;
+                objPhong.sochongoi = Convert.ToInt32(txtSoChoNgoi.EditValue);
                 LoaiPhong obj = gridLookUpLoai.EditValue != null ? LoaiPhong.getById(GUID.From(gridLookUpLoai.EditValue)) : null;
                 objPhong.loaiphong = (obj != null && obj.id != Guid.Empty) ? obj : null;
             }
