@@ -24,14 +24,6 @@ namespace TSCD.Entities
         /// </summary>
         public String ghichu { get; set; }
         /// <summary>
-        /// Đánh dấu tăng tài sản (có thể là tăng cho trường hoặc tăng cho đơn vị do chuyển từ đơn vị khác sang)
-        /// </summary>
-        public Boolean isTang { get; set; }
-        /// <summary>
-        /// Chuyển từ đơn vị khác sang
-        /// </summary>
-        public Boolean isChuyen { get; set; }
-        /// <summary>
         /// Số lượng
         /// </summary>
         [Required]
@@ -116,11 +108,48 @@ namespace TSCD.Entities
 
         #region Nghiệp vụ
         /// <summary>
-        /// 
+        /// Chuyển tình trạng, vd báo giảm tài sản khi -> Thanh lý (Thanh lý.giam_taisan = true)
+        /// </summary>
+        /// <returns></returns>
+        public int chuyenTinhTrang(
+            DateTime chungtu_ngay_moi,
+            String chungtu_sohieu_moi,
+            TinhTrang tinhtrang_moi)
+        {
+            Boolean re = true;
+            //xét ràng buộc
+            if(tinhtrang_moi==null)
+            {
+                return -1;
+            }
+            //this đã bị báo là giảm tài sản rồi, không cho chuyển ngược lại
+            if(this.tinhtrang.giam_taisan)
+            {
+                return -1;
+            }
+            //begin common business
+            this.chungtu_ngay = chungtu_ngay_moi;
+            this.chungtu_sohieu = chungtu_sohieu_moi;
+            this.tinhtrang = tinhtrang_moi;
+            re = re && this.update()>0;
+            //nếu tình trạng hiểu là sự giảm => ghi log sự giảm
+            if(tinhtrang_moi.giam_taisan)
+            {
+                LogTangGiamTaiSan log = this.generateLogTangGiamTaiSan();
+                log.tang_giam = -1;
+                log.tang_giam_donvi = -1;
+                log.chuyenden_chuyendi = 0;//importance, do chỉ là đổi tình trạng trong cùng 1 đơn vị
+                re = re && log.add()>0;
+            }
+            //end
+            return re ? 1 : -1;
+        }
+        /// <summary>
+        /// Chuyển đổi đơn vị quản lý, nhung KHÔNG cho phép kèm tình trạng,
+        /// chuyển tình trạng dùng hàm riêng
         /// </summary>
         /// <param name="quanly_moi"></param>
         /// <param name="sudung_moi"></param>
-        /// <param name="tinhtrang_moi"></param>
         /// <param name="vitri_moi"></param>
         /// <param name="phong_moi"></param>
         /// <param name="chungtu_ngay_moi"></param>
@@ -129,73 +158,200 @@ namespace TSCD.Entities
         /// <param name="ghichu_moi"></param>
         /// <param name="ngay_moi"></param>
         /// <returns></returns>
-        public int chuyenDoi(DonVi quanly_moi, DonVi sudung_moi, TinhTrang tinhtrang_moi, ViTri vitri_moi, Phong phong_moi, CTTaiSan cttaisan_parent_moi, DateTime chungtu_ngay_moi, String chungtu_sohieu_moi, int soluong_moi=-1, String ghichu_moi="", DateTime? ngay_moi=null)
+        public int chuyenDonVi(
+            DonVi donviquanly_moi,
+            DonVi donvisudung_moi,
+            ViTri vitri_moi,
+            Phong phong_moi,
+            CTTaiSan cttaisan_parent_moi,
+            DateTime chungtu_ngay_moi,
+            String chungtu_sohieu_moi,
+            int soluong_moi=-1,
+            String ghichu_moi="",
+            DateTime? ngay_moi=null)
         {
             Boolean re = true;
             
-            //Kiem tra rang buoc ban dau
+            //Kiem tra rang buoc
             //So luong chuyen phai hop le
             if (soluong_moi > this.soluong)
             {
                 return -1;
             }
-
+            //tự chuyển đổi
+            if(soluong_moi<0)
+            {
+                soluong_moi = this.soluong;
+            }
+            //begin business
+            Boolean cungdonviquanly = donviquanly != null && donviquanly_moi != null && donviquanly.id == donviquanly_moi.id;
+            #region Chuyển toàn bộ
             //Chuyen toan bo
             if (soluong_moi <= 0 || soluong_moi == this.soluong)
             {
-                //Chi cap nhat lai Object hien tai
-                this.donviquanly = quanly_moi;
-                this.donvisudung = sudung_moi;
-                this.tinhtrang = tinhtrang_moi;
-                this.vitri = vitri_moi;
-                this.phong = phong_moi;
-                this.chungtu_ngay = chungtu_ngay_moi;
-                this.chungtu_sohieu = chungtu_sohieu_moi;
-                this.ghichu = ghichu_moi;
-                this.ngay = ngay_moi;
-                this.parent = cttaisan_parent_moi;
-                re = re && this.update() > 0;
+                //cung don vi quan ly
+                if(cungdonviquanly)
+                {
+                    //chi update lai this
+                    this.chungtu_ngay = chungtu_ngay_moi;
+                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.donvisudung = donvisudung_moi;
+                    this.ghichu = ghichu_moi;
+                    this.ngay = ngay_moi;
+                    this.parent = cttaisan_parent_moi;
+                    this.phong = phong_moi;
+                    this.vitri = vitri_moi;
+                    re = re && this.update() > 0;
+                }
+                //khac don vi quan ly
+                else
+                {
+                    //Step 1: Tao CTTS moi -> add
+                    CTTaiSan ctts = new CTTaiSan();
+                    ctts.chungtu_ngay = chungtu_ngay_moi;
+                    ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                    ctts.donviquanly = donviquanly_moi;
+                    ctts.donvisudung = donvisudung_moi;
+                    ctts.ghichu = ghichu_moi;
+                    ctts.mota = this.mota;
+                    ctts.ngay = ngay_moi;
+                    ctts.nguongoc = "[Hệ thống tự động tạo: chuyển từ " + (this.donviquanly == null ? "(null)" : this.donviquanly.niceName()) + " sang " + (donviquanly_moi == null ? "(null)" : donviquanly_moi.niceName()) + "]";
+                    ctts.parent = cttaisan_parent_moi;
+                    ctts.phong = phong_moi;
+                    ctts.soluong = this.soluong;
+                    ctts.subId = this.subId;
+                    ctts.taisan = this.taisan;
+                    ctts.tinhtrang = this.tinhtrang;
+                    ctts.vitri = vitri_moi;
+                    re = re && ctts.add() > 0;
+                    //Step 2: ghi log tang tai san cho ctts moi them
+                    LogTangGiamTaiSan log = ctts.generateLogTangGiamTaiSan();
+                    log.tang_giam = 0;
+                    log.tang_giam_donvi = 1;
+                    log.chuyenden_chuyendi = 1;
+                    re = re && log.add()>0;
+                    //Step 3: Update lai soluong cho this=0 -> update
+                    this.chungtu_ngay = chungtu_ngay_moi;
+                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.ghichu = ghichu_moi;
+                    this.soluong = 0;
+                    this.nguongoc = ctts.nguongoc;
+                    re = re && this.update()>0;
+                    //Step 4: ghi nhan su giam cho this
+                    LogTangGiamTaiSan log2 = this.generateLogTangGiamTaiSan();
+                    log2.soluong = soluong_moi;//importance!!!không dùng this.soluong
+                    log2.tang_giam = 0;
+                    log2.tang_giam_donvi = -1;
+                    log2.chuyenden_chuyendi = -1;
+                    re = re && log2.add()>0;
+                }
+                //end
+                return re ? 1 : -1;
             }
+            #endregion
+            #region Chuyển 1 phần số lượng
             else
             //Chuyen 1 phan so luong
             {
-                CTTaiSan ctts = new CTTaiSan();
-                ctts.taisan = this.taisan;
-                ctts.subId = this.subId;
-                ctts.chungtu_ngay = chungtu_ngay_moi;
-                ctts.chungtu_sohieu = chungtu_sohieu_moi;
-                ctts.donviquanly = quanly_moi;
-                ctts.donvisudung = sudung_moi;
-                ctts.ghichu = ghichu_moi;
-                ctts.isChuyen = true;
-                ctts.isTang = true;
-                ctts.mota = this.mota;
-                ctts.ngay = ngay_moi;
-                ctts.nguongoc = "";
-                ctts.phong = phong_moi;
-                ctts.vitri = vitri_moi;
-                ctts.soluong = soluong_moi;
-                ctts.tinhtrang = tinhtrang_moi;
-                ctts.parent = cttaisan_parent_moi;
-
-                //add cai moi
-                re = re && ctts.add()>0;
-
-                //update cai hien tai
-                //
-                this.isTang = false;
-                this.isChuyen = true;
-                this.chungtu_ngay = chungtu_ngay_moi;
-                this.chungtu_sohieu = chungtu_sohieu_moi;
-                this.ghichu = ghichu_moi;
-                this.ngay = ngay_moi;
-                this.soluong -= soluong_moi;
-                this.nguongoc = "";
-
-                re = re && this.update()>0;
+                //cung don vi quan ly
+                if (cungdonviquanly)
+                {
+                    //Tao CTTS moi
+                    CTTaiSan ctts = new CTTaiSan();
+                    ctts.chungtu_ngay = chungtu_ngay_moi;
+                    ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                    ctts.donvisudung = donvisudung_moi;
+                    ctts.ghichu = ghichu_moi;
+                    ctts.mota = this.mota;
+                    ctts.ngay = ngay_moi;
+                    ctts.nguongoc = "[Hệ thống tự động tạo: phân bổ nội " + (this.donviquanly == null ? "(null)" : this.donviquanly.niceName())+"]";
+                    ctts.parent = cttaisan_parent_moi;
+                    ctts.phong = phong_moi;
+                    ctts.soluong = soluong_moi;//importance!!!
+                    ctts.subId = this.subId;
+                    ctts.taisan = this.taisan;
+                    ctts.tinhtrang = this.tinhtrang;
+                    ctts.vitri = vitri_moi;
+                    ctts.add();
+                    //cap nhat lai soluong cho this
+                    this.chungtu_ngay = chungtu_ngay_moi;
+                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.ghichu = ghichu_moi;
+                    this.soluong -= soluong_moi;//importance!!!
+                    this.nguongoc = nguongoc;
+                    this.update();
+                    //KHONG ghi log tang giam
+                }
+                //khac don vi quan ly
+                else
+                {
+                    //Step 1: Tao CTTS moi -> add
+                    CTTaiSan ctts = new CTTaiSan();
+                    ctts.chungtu_ngay = chungtu_ngay_moi;
+                    ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                    ctts.donviquanly = donviquanly_moi;
+                    ctts.donvisudung = donvisudung_moi;
+                    ctts.ghichu = ghichu_moi;
+                    ctts.mota = this.mota;
+                    ctts.ngay = ngay_moi;
+                    ctts.nguongoc = "[Hệ thống tự động tạo: chuyển từ \"" + (this.donviquanly == null ? "null" : this.donviquanly.niceName()) + "\" sang \"" + (donviquanly_moi == null ? "null" : donviquanly_moi.niceName()) + "\"]";
+                    ctts.parent = cttaisan_parent_moi;
+                    ctts.phong = phong_moi;
+                    ctts.soluong = soluong_moi;//importance!!!
+                    ctts.subId = this.subId;
+                    ctts.taisan = this.taisan;
+                    ctts.tinhtrang = this.tinhtrang;
+                    ctts.vitri = vitri_moi;
+                    ctts.add();
+                    //Step 2: ghi log tang tai san cho ctts moi them
+                    LogTangGiamTaiSan log = ctts.generateLogTangGiamTaiSan();
+                    log.tang_giam = 0;
+                    log.tang_giam_donvi = 1;
+                    log.chuyenden_chuyendi = 1;
+                    log.add();
+                    //Step 3: Update lai soluong cho this -> update
+                    this.chungtu_ngay = chungtu_ngay_moi;
+                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.soluong -=soluong_moi;//importance!!!
+                    this.nguongoc = ctts.nguongoc;
+                    this.update();
+                    //Step 4: ghi nhan su giam cho this
+                    LogTangGiamTaiSan log2 = this.generateLogTangGiamTaiSan();
+                    log2.soluong = soluong_moi;//importance!!!Không dùng this.soluong
+                    log2.tang_giam = 0;
+                    log2.tang_giam_donvi = -1;
+                    log2.chuyenden_chuyendi = -1;
+                    log2.add();
+                }
             }
-            
+            #endregion
             return re?1:-1;
+        }
+        /// <summary>
+        /// Copy moi thuoc tinh,
+        /// co set mac dinh quantrivien lay tu Global qua
+        /// </summary>
+        /// <returns></returns>
+        private LogTangGiamTaiSan generateLogTangGiamTaiSan()
+        {
+            LogTangGiamTaiSan log = new LogTangGiamTaiSan();
+            log.chungtu_ngay = this.chungtu_ngay;
+            log.chungtu_sohieu = this.chungtu_sohieu;
+            log.cttaisan_parent = this.parent;
+            log.donviquanly = this.donviquanly;
+            log.donvisudung = this.donvisudung;
+            log.ghichu = this.ghichu;
+            log.nguongoc = this.nguongoc;
+            log.mota = this.mota;
+            log.ngay = this.ngay;
+            log.phong = this.phong;
+            log.quantrivien = Global.current_quantrivien_login;
+            log.soluong = this.soluong;
+            log.subId = this.subId;
+            log.taisan = this.taisan;
+            log.tinhtrang = this.tinhtrang;
+            log.vitri = this.vitri;
+            return log;
         }
 
         /// <summary>
@@ -210,19 +366,19 @@ namespace TSCD.Entities
                 return taisan.dongia * soluong;
             }
         }
-
+        /// <summary>
+        /// gh log sua doi (khac voi log tang giam)
+        /// </summary>
+        /// <returns></returns>
         private int writelog()
         {
-            //Ghi logtaisan
-            LogTaiSan log = new LogTaiSan();
-
+            //Ghi logsuataisan
+            LogSuaTaiSan log = new LogSuaTaiSan();
             log.chungtu_ngay = chungtu_ngay;
             log.chungtu_sohieu = chungtu_sohieu;
             log.donviquanly = donviquanly;
             log.donvisudung = donvisudung;
             log.ghichu = ghichu;
-            log.isChuyen = isChuyen;
-            log.isTang = isTang;
             log.mota = mota;
             log.phong = phong;
             log.quantrivien = Global.current_quantrivien_login;
@@ -232,7 +388,6 @@ namespace TSCD.Entities
             log.tinhtrang = tinhtrang;
             log.vitri = vitri;
             log.cttaisan_parent = parent;
-
             return log.add();
         }
         #endregion
@@ -263,13 +418,32 @@ namespace TSCD.Entities
         /// <returns></returns>
         public override int add()
         {
+            //kiem tra rang buoc
+            //thêm mới không được phép chỉ định giảm
+            if(tinhtrang.giam_taisan)
+            {
+                return -1;
+            }
             base.add();
+            //luon ghi log tang mac dinh khi them moi
+            LogTangGiamTaiSan log = this.generateLogTangGiamTaiSan();
+            log.chuyenden_chuyendi = 0;
+            log.tang_giam = 1;
+            log.tang_giam_donvi = 1;
+            log.add();
+            //ghi log sua doi
             return writelog();
+            
         }
-
+        /// <summary>
+        /// chi nen dung truc tiep khi cap nhat cac thuoc tinh dang mota,
+        /// Khong ghi log tang giam
+        /// </summary>
+        /// <returns></returns>
         public override int update()
         {
             base.update();
+            //ghi log sua doi
             return writelog();
         }
         /// <summary>
@@ -285,8 +459,8 @@ namespace TSCD.Entities
         {
             base.init();
 
-            isTang = true;
-            isChuyen = false;
+            //isTang = true;
+            //isChuyen = false;
             soluong = 1;
         }
         #endregion

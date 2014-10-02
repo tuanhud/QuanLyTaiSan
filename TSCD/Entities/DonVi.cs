@@ -61,8 +61,8 @@ namespace TSCD.Entities
         public virtual ICollection<CTTaiSan> cttaisan_dangsudungs { get; set; }
 
         
-        public virtual ICollection<LogTaiSan> logtaisan_dangquanlys { get; set; }
-        public virtual ICollection<LogTaiSan> logtaisan_dangsudungs { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtaisan_dangquanlys { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtaisan_dangsudungs { get; set; }
         #endregion
 
         #region Nghiệp vụ

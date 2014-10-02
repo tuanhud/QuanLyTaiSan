@@ -39,7 +39,7 @@ namespace TSCD.Entities
         public virtual LoaiTaiSan loaitaisan { get; set; }
 
         public virtual ICollection<CTTaiSan> cttaisans { get; set; }
-        public virtual ICollection<LogTaiSan> logtaisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtaisans { get; set; }
 
         #endregion
 

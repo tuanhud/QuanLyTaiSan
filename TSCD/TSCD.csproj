@@ -88,6 +88,7 @@
     <Compile Include="Entities\Dayy.cs" />
     <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\LogHeThong.cs" />
+    <Compile Include="Entities\LogSuaTaiSan.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Phong.cs" />
     <Compile Include="Entities\QuanTriVien.cs" />
@@ -99,7 +100,7 @@
     <Compile Include="Entities\DonViTinh.cs" />
     <Compile Include="Entities\LoaiDonVi.cs" />
     <Compile Include="Entities\LoaiTaiSan.cs" />
-    <Compile Include="Entities\LogTaiSan.cs" />
+    <Compile Include="Entities\LogTangGiamTaiSan.cs" />
     <Compile Include="Entities\TaiSan.cs" />
     <Compile Include="Entities\ViTri.cs" />
     <Compile Include="Entities\_EntityAbstract1.cs" />
@@ -125,6 +126,14 @@
     <Compile Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.cs" />
     <Compile Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.Designer.cs">
       <DependentUpon>201409242349347_them_nuoc_san_xuat_choTaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410020443364_dinhNghiaLaiSuTangGiamTaiSan.cs" />
+    <Compile Include="Migrations\201410020443364_dinhNghiaLaiSuTangGiamTaiSan.Designer.cs">
+      <DependentUpon>201410020443364_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.cs" />
+    <Compile Include="Migrations\201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.Designer.cs">
+      <DependentUpon>201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -163,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.resx">
       <DependentUpon>201409242349347_them_nuoc_san_xuat_choTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410020443364_dinhNghiaLaiSuTangGiamTaiSan.resx">
+      <DependentUpon>201410020443364_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.resx">
+      <DependentUpon>201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

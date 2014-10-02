@@ -131,7 +131,7 @@ namespace TSCD_GUI.QLTaiSan
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
                     DonVi donViSD = ucComboBoxDonVi2.DonVi;
                     String ghiChu = txtGhiChu.Text;
-                    int re = objCTTaiSan.chuyenDoi(donViQL, donViSD, tinhTrang, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
+                    int re = objCTTaiSan.chuyenDonVi(donViQL, donViSD, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
                     if (re > 0 && DBInstance.commit() > 0)
                     {
                         if(isChuyen)

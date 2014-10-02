@@ -28,19 +28,25 @@ namespace TSCD.Entities
         /// </summary>
         [Index(IsUnique = true)]
         [StringLength(100)]
-        public String key { get; set; } //vd:huhong
+        public String key { get; set; } //vd:thanhly
         /// <summary>
         /// Tên tiếng việt đầy đủ
         /// </summary>
         [Required]
         [Index(IsUnique = true)]
         [StringLength(255)]
-        public String value { get; set; } //vd: Hư hỏng
+        public String value { get; set; } //vd: Thanh ly
+
+        /// <summary>
+        /// true: dinh nghia tinh trang nay dong nghia voi viec giam tai san,
+        /// false: nguoc lai
+        /// </summary>
+        public Boolean giam_taisan { get; set; }
         /*
          * FK for QLTSCD
          */
         public virtual ICollection<CTTaiSan> cttaisans { get; set; }
-        public virtual ICollection<LogTaiSan> logtaisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtaisans { get; set; }
         #endregion
 
         #region Override
@@ -63,6 +69,7 @@ namespace TSCD.Entities
         protected override void init()
         {
             base.init();
+            giam_taisan = false;
         }
         public override int delete()
         {

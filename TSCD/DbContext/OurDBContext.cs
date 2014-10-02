@@ -106,7 +106,8 @@ namespace TSCD.Entities
         public DbSet<LoaiTaiSan> LOAITAISANS { get; set; }
         public DbSet<TaiSan> TAISANS { get; set; }
         public DbSet<CTTaiSan> CTTAISANS { get; set; }
-        public DbSet<LogTaiSan> LOGTAISANS { get; set; }
+        public DbSet<LogTangGiamTaiSan> LOGTANGGIAMTAISANS { get; set; }
+        public DbSet<LogSuaTaiSan> LOGSUATAISANS { get; set; }
         public DbSet<DonViTinh> DONVITINHS { get; set; }
         #endregion
 
@@ -157,7 +158,8 @@ namespace TSCD.Entities
             "LOAIDONVIS",//UNDEPENDENT
                 "DONVIS",
                     "CTTAISANS",
-                    "LOGTAISANS",
+                    "LOGTANGGIAMTAISANS",
+                    "LOGSUATAISANS"
             //END TSCD
         };
         #endregion
@@ -210,7 +212,7 @@ namespace TSCD.Entities
                 DONVIS.Find(Guid.Empty);
                 LOAIDONVIS.Find(Guid.Empty);
                 DONVITINHS.Find(Guid.Empty);
-                LOGTAISANS.Find(Guid.Empty);
+                LOGTANGGIAMTAISANS.Find(Guid.Empty);
 
                 return true;
             }
@@ -308,7 +310,7 @@ namespace TSCD.Entities
                 x.MapInheritedProperties();
             });
 
-            modelBuilder.Entity<LogTaiSan>().Map(x =>
+            modelBuilder.Entity<LogTangGiamTaiSan>().Map(x =>
             {
                 x.MapInheritedProperties();
             });
@@ -339,11 +341,11 @@ namespace TSCD.Entities
             .HasOptional(a => a.donvisudung)
             .WithMany(b => b.cttaisan_dangsudungs);
                 //LOGTAISAN
-            modelBuilder.Entity<LogTaiSan>()
+            modelBuilder.Entity<LogTangGiamTaiSan>()
             .HasOptional(a => a.donviquanly)
             .WithMany(b => b.logtaisan_dangquanlys);
 
-            modelBuilder.Entity<LogTaiSan>()
+            modelBuilder.Entity<LogTangGiamTaiSan>()
             .HasOptional(a => a.donvisudung)
             .WithMany(b => b.logtaisan_dangsudungs);
 

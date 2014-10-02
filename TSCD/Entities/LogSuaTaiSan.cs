@@ -10,10 +10,11 @@ namespace TSCD.Entities
     /// <summary>
     /// Lưu vết sự thay đổi trên 1 tài sản
     /// </summary>
-    [Table("LOGTAISANS")]
-    public class LogTaiSan:_EntityAbstract1<LogTaiSan>
+    [Table("LOGSUATAISANS")]
+    public class LogSuaTaiSan:_EntityAbstract1<LogSuaTaiSan>
     {
-        public LogTaiSan():base()
+        public LogSuaTaiSan()
+            : base()
         {
 
         }
@@ -23,13 +24,9 @@ namespace TSCD.Entities
         /// </summary>
         public String ghichu { get; set; }
         /// <summary>
-        /// Đánh dấu tăng tài sản (có thể là tăng cho trường hoặc tăng cho đơn vị do chuyển từ đơn vị khác sang)
+        /// Mô tả về nguồn gốc của tài sản này
         /// </summary>
-        public Boolean isTang { get; set; }
-        /// <summary>
-        /// Chuyển từ đơn vị khác sang
-        /// </summary>
-        public Boolean isChuyen { get; set; }
+        public String nguongoc { get; set; }
 
         [Required]
         public int soluong { get; set; }
