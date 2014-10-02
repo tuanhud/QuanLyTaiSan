@@ -16,6 +16,31 @@ namespace TSCD.DataFilter
         public Guid? parent_id { get; set; }
         public LoaiTaiSan obj { get; set; }
 
+        public static List<LoaiTSHienThi> Convert(IQueryable<LoaiTaiSan> list)
+        {
+            try
+            {
+                if (list == null)
+                    return null;
+                List<LoaiTSHienThi> re =
+                list.Select(ct => new LoaiTSHienThi
+                {
+                    id = ct.id,
+                    ten = ct.ten,
+                    donvitinh = ct.donvitinh != null ? ct.donvitinh.ten : "",
+                    huuhinh = ct.huuhinh,
+                    parent_id = ct.parent_id,
+                    obj = ct,
+                }).ToList();
+                return re;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("LoaiSTHienThi->Convert:" + ex.Message);
+                return null;
+            }
+        }
+
         public static List<LoaiTSHienThi> Convert(List<LoaiTaiSan> list)
         {
             try

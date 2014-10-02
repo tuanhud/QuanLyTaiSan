@@ -33,6 +33,7 @@
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.coldonvitinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colobj = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpLoaiTS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpLoaiTSTreeList)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +58,8 @@
             this.treeListLookUpLoaiTSTreeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colid,
             this.colten,
-            this.coldonvitinh});
+            this.coldonvitinh,
+            this.colobj});
             this.treeListLookUpLoaiTSTreeList.KeyFieldName = "id";
             this.treeListLookUpLoaiTSTreeList.Location = new System.Drawing.Point(0, 0);
             this.treeListLookUpLoaiTSTreeList.Name = "treeListLookUpLoaiTSTreeList";
@@ -90,13 +92,19 @@
             // 
             // coldonvitinh
             // 
-            this.coldonvitinh.Caption = "donvitinh";
-            this.coldonvitinh.FieldName = "donvitinh.ten";
+            this.coldonvitinh.Caption = "Đơn vị tính";
+            this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.OptionsColumn.ReadOnly = true;
             this.coldonvitinh.OptionsFilter.AutoFilterCondition = DevExpress.XtraTreeList.Columns.AutoFilterCondition.Contains;
             this.coldonvitinh.Visible = true;
             this.coldonvitinh.VisibleIndex = 1;
+            // 
+            // colobj
+            // 
+            this.colobj.Caption = "obj";
+            this.colobj.FieldName = "obj";
+            this.colobj.Name = "colobj";
             // 
             // ucComboBoxLoaiTS
             // 
@@ -118,5 +126,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colid;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colten;
         private DevExpress.XtraTreeList.Columns.TreeListColumn coldonvitinh;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colobj;
     }
 }

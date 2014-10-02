@@ -16,7 +16,7 @@ namespace TSCD_GUI.MyUserControl
 {
     public partial class ucComboBoxLoaiTS : DevExpress.XtraEditors.XtraUserControl
     {
-
+        bool isCheck = false;
         public delegate void EditValueChanged();
         public EditValueChanged editValueChanged = null;
 
@@ -31,6 +31,16 @@ namespace TSCD_GUI.MyUserControl
             {
                 treeListLookUpLoaiTS.Properties.DataSource = value;
             }
+        }
+
+        public void showCheck()
+        {
+            isCheck = true;
+            treeListLookUpLoaiTSTreeList.OptionsView.ShowCheckBoxes = true;
+            treeListLookUpLoaiTSTreeList.OptionsBehavior.AllowRecursiveNodeChecking = true;
+            treeListLookUpLoaiTSTreeList.OptionsView.ShowAutoFilterRow = false;
+            treeListLookUpLoaiTS.CustomDisplayText += treeListLookUpLoaiTS_CustomDisplayText;
+            treeListLookUpLoaiTS.Closed += treeListLookUpLoaiTS_Closed;
         }
 
         public LoaiTaiSan LoaiTS
@@ -111,6 +121,84 @@ namespace TSCD_GUI.MyUserControl
         {
             if (editValueChanged != null)
                 editValueChanged();
+        }
+
+        private void treeListLookUpLoaiTS_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            try
+            {
+                if (isCheck)
+                {
+                    String str = "";
+                    List<LoaiTaiSan> list = getListLoaiTS();
+                    foreach (LoaiTaiSan loaiTS in list)
+                    {
+                        str += loaiTS.ten + ", ";
+                    }
+                    if (str.Length > 2)
+                    {
+                        str = str.Substring(0, str.Length - 2);
+                    }
+                    e.DisplayText = str;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->treeListLookUpLoaiTS_CustomDisplayText: " + ex.Message);
+            }
+        }
+
+        public List<LoaiTaiSan> getListLoaiTS()
+        {
+            try
+            {
+                List<LoaiTaiSan> list = new List<LoaiTaiSan>();
+                List<TreeListNode> listNode = treeListLookUpLoaiTSTreeList.GetAllCheckedNodes();
+                foreach (TreeListNode node in listNode)
+                {
+                    LoaiTaiSan obj = node.GetValue(colobj) as LoaiTaiSan;
+                    list.Add(obj);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->getListLoaiTS: " + ex.Message);
+                return null;
+            }
+        }
+
+        private void treeListLookUpLoaiTS_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            try
+            {
+                if (isCheck)
+                {
+                    String str = "";
+                    List<LoaiTaiSan> list = getListLoaiTS();
+                    foreach (LoaiTaiSan loaiTS in list)
+                    {
+                        str += loaiTS.ten + ", ";
+                    }
+                    if (str.Length > 2)
+                    {
+                        str = str.Substring(0, str.Length - 2);
+                    }
+                    treeListLookUpLoaiTS.Text = str;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->treeListLookUpLoaiTS_CustomDisplayText: " + ex.Message);
+            }
+        }
+
+        public List<Guid> list_loaitaisan
+        {
+            get 
+            {
+            return getListLoaiTS().Select(c => c.id).ToList();
+            }
         }
     }
 }
