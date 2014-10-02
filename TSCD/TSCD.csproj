@@ -111,29 +111,9 @@
     <Compile Include="Global\server_database.cs" />
     <Compile Include="Global\sync.cs" />
     <Compile Include="Global\working_database.cs" />
-    <Compile Include="Migrations\201409050449468_basev1.cs" />
-    <Compile Include="Migrations\201409050449468_basev1.Designer.cs">
-      <DependentUpon>201409050449468_basev1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409060540041_them_thuoctinh_cho_LogTaiSan.cs" />
-    <Compile Include="Migrations\201409060540041_them_thuoctinh_cho_LogTaiSan.Designer.cs">
-      <DependentUpon>201409060540041_them_thuoctinh_cho_LogTaiSan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.cs" />
-    <Compile Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.Designer.cs">
-      <DependentUpon>201409061514123_rollback_LogHeThong_PrimaryKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.cs" />
-    <Compile Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.Designer.cs">
-      <DependentUpon>201409242349347_them_nuoc_san_xuat_choTaiSan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410020443364_dinhNghiaLaiSuTangGiamTaiSan.cs" />
-    <Compile Include="Migrations\201410020443364_dinhNghiaLaiSuTangGiamTaiSan.Designer.cs">
-      <DependentUpon>201410020443364_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.cs" />
-    <Compile Include="Migrations\201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.Designer.cs">
-      <DependentUpon>201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
+    <Compile Include="Migrations\201410020726320_basev2.cs" />
+    <Compile Include="Migrations\201410020726320_basev2.Designer.cs">
+      <DependentUpon>201410020726320_basev2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -161,26 +141,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409050449468_basev1.resx">
-      <DependentUpon>201409050449468_basev1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409060540041_them_thuoctinh_cho_LogTaiSan.resx">
-      <DependentUpon>201409060540041_them_thuoctinh_cho_LogTaiSan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409061514123_rollback_LogHeThong_PrimaryKey.resx">
-      <DependentUpon>201409061514123_rollback_LogHeThong_PrimaryKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409242349347_them_nuoc_san_xuat_choTaiSan.resx">
-      <DependentUpon>201409242349347_them_nuoc_san_xuat_choTaiSan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410020443364_dinhNghiaLaiSuTangGiamTaiSan.resx">
-      <DependentUpon>201410020443364_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.resx">
-      <DependentUpon>201410020610142_bosung_dinhNghiaLaiSuTangGiamTaiSan.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201410020726320_basev2.resx">
+      <DependentUpon>201410020726320_basev2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

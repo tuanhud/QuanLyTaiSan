@@ -23,6 +23,10 @@ namespace TSCD.Entities
         [Required]
         [StringLength(255)]
         public String ten { get; set; }
+        /// <summary>
+        /// Sô chỗ phục vụ
+        /// </summary>
+        public int sochongoi { get; set; }
         /*
          * FK
          */

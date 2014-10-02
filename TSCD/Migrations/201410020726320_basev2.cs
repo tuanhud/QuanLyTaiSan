@@ -3,7 +3,7 @@ namespace TSCD.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class basev1 : DbMigration
+    public partial class basev2 : DbMigration
     {
         public override void Up()
         {
@@ -84,6 +84,7 @@ namespace TSCD.Migrations
                     {
                         id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false, maxLength: 255),
+                        sochongoi = c.Int(nullable: false),
                         loaiphong_id = c.Guid(nullable: false),
                         vitri_id = c.Guid(nullable: false),
                         subId = c.String(),
@@ -120,8 +121,6 @@ namespace TSCD.Migrations
                     {
                         id = c.Guid(nullable: false, identity: true),
                         ghichu = c.String(),
-                        isTang = c.Boolean(nullable: false),
-                        isChuyen = c.Boolean(nullable: false),
                         soluong = c.Int(nullable: false),
                         nguongoc = c.String(),
                         ngay = c.DateTime(),
@@ -192,16 +191,20 @@ namespace TSCD.Migrations
                 .Index(t => t.ten, unique: true);
             
             CreateTable(
-                "dbo.LOGTAISANS",
+                "dbo.LOGTANGGIAMTAISANS",
                 c => new
                     {
                         id = c.Guid(nullable: false, identity: true),
                         ghichu = c.String(),
-                        isTang = c.Boolean(nullable: false),
-                        isChuyen = c.Boolean(nullable: false),
+                        nguongoc = c.String(),
+                        tang_giam = c.Int(nullable: false),
+                        tang_giam_donvi = c.Int(nullable: false),
+                        chuyenden_chuyendi = c.Int(nullable: false),
                         soluong = c.Int(nullable: false),
+                        ngay = c.DateTime(),
                         chungtu_sohieu = c.String(),
                         chungtu_ngay = c.DateTime(),
+                        cttaisan_parent_id = c.Guid(),
                         quantrivien_id = c.Guid(nullable: false),
                         taisan_id = c.Guid(nullable: false),
                         donviquanly_id = c.Guid(),
@@ -216,6 +219,7 @@ namespace TSCD.Migrations
                         date_modified = c.DateTime(),
                     })
                 .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.CTTAISANS", t => t.cttaisan_parent_id)
                 .ForeignKey("dbo.DONVIS", t => t.donviquanly_id)
                 .ForeignKey("dbo.DONVIS", t => t.donvisudung_id)
                 .ForeignKey("dbo.PHONGS", t => t.phong_id)
@@ -223,6 +227,7 @@ namespace TSCD.Migrations
                 .ForeignKey("dbo.TAISANS", t => t.taisan_id)
                 .ForeignKey("dbo.TINHTRANGS", t => t.tinhtrang_id)
                 .ForeignKey("dbo.VITRIS", t => t.vitri_id)
+                .Index(t => t.cttaisan_parent_id)
                 .Index(t => t.quantrivien_id)
                 .Index(t => t.taisan_id)
                 .Index(t => t.donviquanly_id)
@@ -239,7 +244,7 @@ namespace TSCD.Migrations
                         donvi = c.String(),
                         email = c.String(),
                         group_id = c.Guid(nullable: false),
-                        hoten = c.String(nullable: false),
+                        hoten = c.String(),
                         username = c.String(nullable: false, maxLength: 100),
                         password = c.String(nullable: false),
                         subId = c.String(),
@@ -297,6 +302,7 @@ namespace TSCD.Migrations
                         id = c.Guid(nullable: false, identity: true),
                         ten = c.String(nullable: false),
                         dongia = c.Long(nullable: false),
+                        nuocsx = c.String(),
                         loaitaisan_id = c.Guid(nullable: false),
                         subId = c.String(),
                         order = c.Long(),
@@ -353,6 +359,7 @@ namespace TSCD.Migrations
                         id = c.Guid(nullable: false, identity: true),
                         key = c.String(maxLength: 100),
                         value = c.String(nullable: false, maxLength: 255),
+                        giam_taisan = c.Boolean(nullable: false),
                         subId = c.String(),
                         order = c.Long(),
                         mota = c.String(),
@@ -367,10 +374,57 @@ namespace TSCD.Migrations
                 "dbo.LOGHETHONGS",
                 c => new
                     {
-                        mota = c.String(nullable: false, maxLength: 128),
-                        date_create = c.DateTime(nullable: false),
+                        id = c.Guid(nullable: false, identity: true),
+                        subId = c.String(),
+                        order = c.Long(),
+                        mota = c.String(),
+                        date_create = c.DateTime(),
+                        date_modified = c.DateTime(),
                     })
-                .PrimaryKey(t => new { t.mota, t.date_create });
+                .PrimaryKey(t => t.id);
+            
+            CreateTable(
+                "dbo.LOGSUATAISANS",
+                c => new
+                    {
+                        id = c.Guid(nullable: false, identity: true),
+                        ghichu = c.String(),
+                        nguongoc = c.String(),
+                        soluong = c.Int(nullable: false),
+                        ngay = c.DateTime(),
+                        chungtu_sohieu = c.String(),
+                        chungtu_ngay = c.DateTime(),
+                        cttaisan_parent_id = c.Guid(),
+                        quantrivien_id = c.Guid(nullable: false),
+                        taisan_id = c.Guid(nullable: false),
+                        donviquanly_id = c.Guid(),
+                        donvisudung_id = c.Guid(),
+                        tinhtrang_id = c.Guid(nullable: false),
+                        vitri_id = c.Guid(),
+                        phong_id = c.Guid(),
+                        subId = c.String(),
+                        order = c.Long(),
+                        mota = c.String(),
+                        date_create = c.DateTime(),
+                        date_modified = c.DateTime(),
+                    })
+                .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.CTTAISANS", t => t.cttaisan_parent_id)
+                .ForeignKey("dbo.DONVIS", t => t.donviquanly_id)
+                .ForeignKey("dbo.DONVIS", t => t.donvisudung_id)
+                .ForeignKey("dbo.PHONGS", t => t.phong_id)
+                .ForeignKey("dbo.QUANTRIVIENS", t => t.quantrivien_id)
+                .ForeignKey("dbo.TAISANS", t => t.taisan_id)
+                .ForeignKey("dbo.TINHTRANGS", t => t.tinhtrang_id)
+                .ForeignKey("dbo.VITRIS", t => t.vitri_id)
+                .Index(t => t.cttaisan_parent_id)
+                .Index(t => t.quantrivien_id)
+                .Index(t => t.taisan_id)
+                .Index(t => t.donviquanly_id)
+                .Index(t => t.donvisudung_id)
+                .Index(t => t.tinhtrang_id)
+                .Index(t => t.vitri_id)
+                .Index(t => t.phong_id);
             
             CreateTable(
                 "dbo.SETTINGS",
@@ -418,6 +472,14 @@ namespace TSCD.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.LOGSUATAISANS", "vitri_id", "dbo.VITRIS");
+            DropForeignKey("dbo.LOGSUATAISANS", "tinhtrang_id", "dbo.TINHTRANGS");
+            DropForeignKey("dbo.LOGSUATAISANS", "taisan_id", "dbo.TAISANS");
+            DropForeignKey("dbo.LOGSUATAISANS", "quantrivien_id", "dbo.QUANTRIVIENS");
+            DropForeignKey("dbo.LOGSUATAISANS", "phong_id", "dbo.PHONGS");
+            DropForeignKey("dbo.LOGSUATAISANS", "donvisudung_id", "dbo.DONVIS");
+            DropForeignKey("dbo.LOGSUATAISANS", "donviquanly_id", "dbo.DONVIS");
+            DropForeignKey("dbo.LOGSUATAISANS", "cttaisan_parent_id", "dbo.CTTAISANS");
             DropForeignKey("dbo.CTTAISANS", "vitri_id", "dbo.VITRIS");
             DropForeignKey("dbo.CTTAISANS", "tinhtrang_id", "dbo.TINHTRANGS");
             DropForeignKey("dbo.CTTAISANS", "taisan_id", "dbo.TAISANS");
@@ -426,19 +488,20 @@ namespace TSCD.Migrations
             DropForeignKey("dbo.CTTAISANS", "donviquanly_id", "dbo.DONVIS");
             DropForeignKey("dbo.DONVI_PERMISSION", "id2", "dbo.PERMISSIONS");
             DropForeignKey("dbo.DONVI_PERMISSION", "id1", "dbo.DONVIS");
-            DropForeignKey("dbo.LOGTAISANS", "vitri_id", "dbo.VITRIS");
-            DropForeignKey("dbo.LOGTAISANS", "tinhtrang_id", "dbo.TINHTRANGS");
-            DropForeignKey("dbo.LOGTAISANS", "taisan_id", "dbo.TAISANS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "vitri_id", "dbo.VITRIS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "tinhtrang_id", "dbo.TINHTRANGS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "taisan_id", "dbo.TAISANS");
             DropForeignKey("dbo.TAISANS", "loaitaisan_id", "dbo.LOAITAISANS");
             DropForeignKey("dbo.LOAITAISANS", "donvitinh_id", "dbo.DONVITINHS");
             DropForeignKey("dbo.LOAITAISANS", "parent_id", "dbo.LOAITAISANS");
-            DropForeignKey("dbo.LOGTAISANS", "quantrivien_id", "dbo.QUANTRIVIENS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "quantrivien_id", "dbo.QUANTRIVIENS");
             DropForeignKey("dbo.QUANTRIVIENS", "group_id", "dbo.GROUPS");
             DropForeignKey("dbo.GROUP_PERMISSION", "id2", "dbo.PERMISSIONS");
             DropForeignKey("dbo.GROUP_PERMISSION", "id1", "dbo.GROUPS");
-            DropForeignKey("dbo.LOGTAISANS", "phong_id", "dbo.PHONGS");
-            DropForeignKey("dbo.LOGTAISANS", "donvisudung_id", "dbo.DONVIS");
-            DropForeignKey("dbo.LOGTAISANS", "donviquanly_id", "dbo.DONVIS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "phong_id", "dbo.PHONGS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "donvisudung_id", "dbo.DONVIS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "donviquanly_id", "dbo.DONVIS");
+            DropForeignKey("dbo.LOGTANGGIAMTAISANS", "cttaisan_parent_id", "dbo.CTTAISANS");
             DropForeignKey("dbo.DONVIS", "loaidonvi_id", "dbo.LOAIDONVIS");
             DropForeignKey("dbo.DONVIS", "parent_id", "dbo.DONVIS");
             DropForeignKey("dbo.CTTAISANS", "parent_id", "dbo.CTTAISANS");
@@ -454,6 +517,14 @@ namespace TSCD.Migrations
             DropIndex("dbo.GROUP_PERMISSION", new[] { "id2" });
             DropIndex("dbo.GROUP_PERMISSION", new[] { "id1" });
             DropIndex("dbo.SETTINGS", new[] { "key" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "phong_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "vitri_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "tinhtrang_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "donvisudung_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "donviquanly_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "taisan_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "quantrivien_id" });
+            DropIndex("dbo.LOGSUATAISANS", new[] { "cttaisan_parent_id" });
             DropIndex("dbo.TINHTRANGS", new[] { "value" });
             DropIndex("dbo.TINHTRANGS", new[] { "key" });
             DropIndex("dbo.LOAITAISANS", new[] { "parent_id" });
@@ -463,13 +534,14 @@ namespace TSCD.Migrations
             DropIndex("dbo.GROUPS", new[] { "ten" });
             DropIndex("dbo.QUANTRIVIENS", new[] { "username" });
             DropIndex("dbo.QUANTRIVIENS", new[] { "group_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "phong_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "vitri_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "tinhtrang_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "donvisudung_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "donviquanly_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "taisan_id" });
-            DropIndex("dbo.LOGTAISANS", new[] { "quantrivien_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "phong_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "vitri_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "tinhtrang_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "donvisudung_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "donviquanly_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "taisan_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "quantrivien_id" });
+            DropIndex("dbo.LOGTANGGIAMTAISANS", new[] { "cttaisan_parent_id" });
             DropIndex("dbo.LOAIDONVIS", new[] { "ten" });
             DropIndex("dbo.DONVIS", new[] { "loaidonvi_id" });
             DropIndex("dbo.DONVIS", new[] { "parent_id" });
@@ -493,6 +565,7 @@ namespace TSCD.Migrations
             DropTable("dbo.DONVI_PERMISSION");
             DropTable("dbo.GROUP_PERMISSION");
             DropTable("dbo.SETTINGS");
+            DropTable("dbo.LOGSUATAISANS");
             DropTable("dbo.LOGHETHONGS");
             DropTable("dbo.TINHTRANGS");
             DropTable("dbo.DONVITINHS");
@@ -501,7 +574,7 @@ namespace TSCD.Migrations
             DropTable("dbo.PERMISSIONS");
             DropTable("dbo.GROUPS");
             DropTable("dbo.QUANTRIVIENS");
-            DropTable("dbo.LOGTAISANS");
+            DropTable("dbo.LOGTANGGIAMTAISANS");
             DropTable("dbo.LOAIDONVIS");
             DropTable("dbo.DONVIS");
             DropTable("dbo.CTTAISANS");

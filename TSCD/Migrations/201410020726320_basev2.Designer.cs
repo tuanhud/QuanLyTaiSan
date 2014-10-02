@@ -7,13 +7,13 @@ namespace TSCD.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class basev1 : IMigrationMetadata
+    public sealed partial class basev2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(basev1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(basev2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201409050449468_basev1"; }
+            get { return "201410020726320_basev2"; }
         }
         
         string IMigrationMetadata.Source
