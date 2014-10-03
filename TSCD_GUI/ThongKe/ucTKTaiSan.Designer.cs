@@ -37,12 +37,12 @@
             this.lblTuNgay = new DevExpress.XtraEditors.LabelControl();
             this.dateDenNgay = new DevExpress.XtraEditors.DateEdit();
             this.dateTuNgay = new DevExpress.XtraEditors.DateEdit();
-            this.lblViTri = new DevExpress.XtraEditors.LabelControl();
-            this.lblPhong = new DevExpress.XtraEditors.LabelControl();
+            this.lblCoSo = new DevExpress.XtraEditors.LabelControl();
             this.lblDonViSD = new DevExpress.XtraEditors.LabelControl();
             this.lblDonViQL = new DevExpress.XtraEditors.LabelControl();
             this.lblLoaiTaiSan = new DevExpress.XtraEditors.LabelControl();
             this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
+            this.checkedComboBoxCoSo = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
@@ -53,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateDenNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTuNgay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTuNgay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxCoSo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControlMain
@@ -90,13 +91,13 @@
             // 
             this.groupControlThongKe.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlThongKe.AppearanceCaption.Options.UseFont = true;
+            this.groupControlThongKe.Controls.Add(this.checkedComboBoxCoSo);
             this.groupControlThongKe.Controls.Add(this.ucComboBoxLoaiTS1);
             this.groupControlThongKe.Controls.Add(this.lblDenNgay);
             this.groupControlThongKe.Controls.Add(this.lblTuNgay);
             this.groupControlThongKe.Controls.Add(this.dateDenNgay);
             this.groupControlThongKe.Controls.Add(this.dateTuNgay);
-            this.groupControlThongKe.Controls.Add(this.lblViTri);
-            this.groupControlThongKe.Controls.Add(this.lblPhong);
+            this.groupControlThongKe.Controls.Add(this.lblCoSo);
             this.groupControlThongKe.Controls.Add(this.lblDonViSD);
             this.groupControlThongKe.Controls.Add(this.lblDonViQL);
             this.groupControlThongKe.Controls.Add(this.lblLoaiTaiSan);
@@ -162,21 +163,13 @@
             this.dateTuNgay.Size = new System.Drawing.Size(185, 20);
             this.dateTuNgay.TabIndex = 11;
             // 
-            // lblViTri
+            // lblCoSo
             // 
-            this.lblViTri.Location = new System.Drawing.Point(5, 186);
-            this.lblViTri.Name = "lblViTri";
-            this.lblViTri.Size = new System.Drawing.Size(21, 13);
-            this.lblViTri.TabIndex = 10;
-            this.lblViTri.Text = "Vị trí";
-            // 
-            // lblPhong
-            // 
-            this.lblPhong.Location = new System.Drawing.Point(5, 160);
-            this.lblPhong.Name = "lblPhong";
-            this.lblPhong.Size = new System.Drawing.Size(34, 13);
-            this.lblPhong.TabIndex = 9;
-            this.lblPhong.Text = "Phòng:";
+            this.lblCoSo.Location = new System.Drawing.Point(5, 160);
+            this.lblCoSo.Name = "lblCoSo";
+            this.lblCoSo.Size = new System.Drawing.Size(31, 13);
+            this.lblCoSo.TabIndex = 9;
+            this.lblCoSo.Text = "Cơ sở:";
             // 
             // lblDonViSD
             // 
@@ -205,12 +198,25 @@
             // btnThongKe
             // 
             this.btnThongKe.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnThongKe.Location = new System.Drawing.Point(88, 209);
+            this.btnThongKe.Location = new System.Drawing.Point(88, 183);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(75, 23);
             this.btnThongKe.TabIndex = 5;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
+            // checkedComboBoxCoSo
+            // 
+            this.checkedComboBoxCoSo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkedComboBoxCoSo.Location = new System.Drawing.Point(88, 157);
+            this.checkedComboBoxCoSo.Name = "checkedComboBoxCoSo";
+            this.checkedComboBoxCoSo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.checkedComboBoxCoSo.Properties.DisplayMember = "ten";
+            this.checkedComboBoxCoSo.Properties.ValueMember = "id";
+            this.checkedComboBoxCoSo.Size = new System.Drawing.Size(185, 20);
+            this.checkedComboBoxCoSo.TabIndex = 16;
             // 
             // ucTKTaiSan
             // 
@@ -230,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateDenNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTuNgay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTuNgay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxCoSo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,13 +251,13 @@
         private DevExpress.XtraEditors.LabelControl lblTuNgay;
         private DevExpress.XtraEditors.DateEdit dateDenNgay;
         private DevExpress.XtraEditors.DateEdit dateTuNgay;
-        private DevExpress.XtraEditors.LabelControl lblViTri;
-        private DevExpress.XtraEditors.LabelControl lblPhong;
+        private DevExpress.XtraEditors.LabelControl lblCoSo;
         private DevExpress.XtraEditors.LabelControl lblDonViSD;
         private DevExpress.XtraEditors.LabelControl lblDonViQL;
         private DevExpress.XtraEditors.LabelControl lblLoaiTaiSan;
         private DevExpress.XtraEditors.SimpleButton btnThongKe;
         private MyUserControl.ucComboBoxLoaiTS ucComboBoxLoaiTS1;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxCoSo;
 
     }
 }

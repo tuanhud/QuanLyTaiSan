@@ -41,7 +41,7 @@ namespace TSCD_GUI.QLTaiSan
                 //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllNoDonVi();
                 //DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
-                ucComboBoxLoaiTS1.DataSource = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
                 List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
                 DonVi objNULL = new DonVi();
                 objNULL.id = Guid.Empty;

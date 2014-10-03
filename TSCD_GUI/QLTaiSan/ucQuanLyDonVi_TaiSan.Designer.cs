@@ -37,12 +37,14 @@
             this.barBtnChuyen = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnLog = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupIn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLog = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupDonVi = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainerDonVi = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
@@ -50,8 +52,7 @@
             this.treeListDonVi = new DevExpress.XtraTreeList.TreeList();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
-            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi_TaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -73,9 +74,10 @@
             this.barBtnChuyen,
             this.barBtnLog,
             this.barBtnImport,
-            this.barBtnDefault});
+            this.barBtnDefault,
+            this.barBtnChuyenTinhTrang});
             this.rbnControlDonVi_TaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlDonVi_TaiSan.MaxItemId = 9;
+            this.rbnControlDonVi_TaiSan.MaxItemId = 10;
             this.rbnControlDonVi_TaiSan.Name = "rbnControlDonVi_TaiSan";
             this.rbnControlDonVi_TaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageDonVi_TaiSan});
@@ -115,7 +117,7 @@
             // 
             // barBtnChuyen
             // 
-            this.barBtnChuyen.Caption = "Chuyển";
+            this.barBtnChuyen.Caption = "Chuyển đơn vị";
             this.barBtnChuyen.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyen.Glyph")));
             this.barBtnChuyen.Id = 5;
             this.barBtnChuyen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyen.LargeGlyph")));
@@ -139,6 +141,15 @@
             this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
+            // barBtnDefault
+            // 
+            this.barBtnDefault.Caption = "Default";
+            this.barBtnDefault.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.Glyph")));
+            this.barBtnDefault.Id = 8;
+            this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
+            this.barBtnDefault.Name = "barBtnDefault";
+            this.barBtnDefault.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDefault_ItemClick);
             // 
             // rbnPageDonVi_TaiSan
             // 
@@ -171,6 +182,7 @@
             // rbnGroupChuyen
             // 
             this.rbnGroupChuyen.ItemLinks.Add(this.barBtnChuyen);
+            this.rbnGroupChuyen.ItemLinks.Add(this.barBtnChuyenTinhTrang);
             this.rbnGroupChuyen.Name = "rbnGroupChuyen";
             this.rbnGroupChuyen.ShowCaptionButton = false;
             this.rbnGroupChuyen.Text = "Chuyển";
@@ -188,6 +200,13 @@
             this.rbnGroupImport.Name = "rbnGroupImport";
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
+            // 
+            // rbnGroupLayout
+            // 
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
+            this.rbnGroupLayout.Name = "rbnGroupLayout";
+            this.rbnGroupLayout.ShowCaptionButton = false;
+            this.rbnGroupLayout.Text = "Layout";
             // 
             // navBarControlLeft
             // 
@@ -258,21 +277,14 @@
             this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 356);
             this.ucGridControlTaiSan1.TabIndex = 0;
             // 
-            // rbnGroupLayout
+            // barBtnChuyenTinhTrang
             // 
-            this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
-            this.rbnGroupLayout.Name = "rbnGroupLayout";
-            this.rbnGroupLayout.ShowCaptionButton = false;
-            this.rbnGroupLayout.Text = "Layout";
-            // 
-            // barBtnDefault
-            // 
-            this.barBtnDefault.Caption = "Default";
-            this.barBtnDefault.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.Glyph")));
-            this.barBtnDefault.Id = 8;
-            this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
-            this.barBtnDefault.Name = "barBtnDefault";
-            this.barBtnDefault.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDefault_ItemClick);
+            this.barBtnChuyenTinhTrang.Caption = "Chuyển tình trạng";
+            this.barBtnChuyenTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenTinhTrang.Glyph")));
+            this.barBtnChuyenTinhTrang.Id = 9;
+            this.barBtnChuyenTinhTrang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenTinhTrang.LargeGlyph")));
+            this.barBtnChuyenTinhTrang.Name = "barBtnChuyenTinhTrang";
+            this.barBtnChuyenTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyenTinhTrang_ItemClick);
             // 
             // ucQuanLyDonVi_TaiSan
             // 
@@ -320,5 +332,6 @@
         private MyUserControl.ucGridControlTaiSan ucGridControlTaiSan1;
         private DevExpress.XtraBars.BarButtonItem barBtnDefault;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
+        private DevExpress.XtraBars.BarButtonItem barBtnChuyenTinhTrang;
     }
 }

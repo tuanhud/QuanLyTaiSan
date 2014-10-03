@@ -52,6 +52,7 @@
             this.treeListLookUpViTri.Size = new System.Drawing.Size(200, 20);
             this.treeListLookUpViTri.TabIndex = 0;
             this.treeListLookUpViTri.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.treeListLookUpViTri_QueryCloseUp);
+            this.treeListLookUpViTri.EditValueChanged += new System.EventHandler(this.treeListLookUpViTri_EditValueChanged);
             this.treeListLookUpViTri.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.treeListLookUpViTri_CustomDisplayText);
             // 
             // treeListLookUpViTriTreeList

@@ -19,6 +19,8 @@ namespace TSCD_GUI.MyUserControl
     {
         bool chonDay = false;
         bool chonPhong = false;
+        public delegate void EditValueChanged();
+        public EditValueChanged editValueChanged = null;
 
         public ucComboBoxViTri()
         {
@@ -246,6 +248,12 @@ namespace TSCD_GUI.MyUserControl
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
+        }
+
+        private void treeListLookUpViTri_EditValueChanged(object sender, EventArgs e)
+        {
+            if (editValueChanged != null)
+                editValueChanged();
         }
     }
 }

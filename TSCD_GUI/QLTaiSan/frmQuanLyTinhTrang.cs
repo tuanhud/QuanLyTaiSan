@@ -86,6 +86,7 @@ namespace TSCD_GUI.QLTaiSan
             btnHuy.Visible = _enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
+            checkGiamTS.Properties.ReadOnly = !_enable;
             enableButton(!_enable);
             btnThem_r.Enabled = !_enable;
             working = _enable;
@@ -103,6 +104,7 @@ namespace TSCD_GUI.QLTaiSan
         {
             txtTen.Text = "";
             txtMoTa.Text = "";
+            checkGiamTS.Checked = false;
         }
 
         private void setDataView()
@@ -118,6 +120,7 @@ namespace TSCD_GUI.QLTaiSan
                     {
                         objTinhTrang = gridViewTinhTrang.GetFocusedRow() as TinhTrang;
                         txtTen.Text = objTinhTrang.value;
+                        checkGiamTS.Checked = objTinhTrang.giam_taisan;
                         txtMoTa.Text = objTinhTrang.mota;
                     }
                     else
@@ -144,6 +147,7 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 objTinhTrang.value = txtTen.Text;
+                objTinhTrang.giam_taisan = checkGiamTS.Checked;
                 objTinhTrang.mota = txtMoTa.Text;
                 objTinhTrang.key = StringHelper.CoDauThanhKhongDau(txtTen.Text).Replace(" ", String.Empty).ToUpper();
             }

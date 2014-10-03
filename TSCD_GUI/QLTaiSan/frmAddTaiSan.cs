@@ -105,7 +105,7 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 listLoaiTaiSan = LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+                ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(listLoaiTaiSan);
                 if (reLoadAndSetValueLoaiTS != null)
                     reLoadAndSetValueLoaiTS(listLoaiTaiSan);
             }
@@ -141,7 +141,7 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 listLoaiTaiSan = _listLoaiTaiSan;
-                ucComboBoxLoaiTS1.DataSource = listLoaiTaiSan;
+                ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(listLoaiTaiSan);
                 if (reload && reLoadAndSetValueLoaiTS != null)
                     reLoadAndSetValueLoaiTS(listLoaiTaiSan);
             }

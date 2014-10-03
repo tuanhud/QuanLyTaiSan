@@ -466,7 +466,7 @@ namespace TSCD_GUI.Libraries
                     obj = new LoaiTaiSan();
                     obj.ten = ten;
                     obj.huuhinh = true;
-                    obj.donvitinh = DonViTinh.getQuery().FirstOrDefault();
+                    obj.donvitinh = null;
                     if (obj.add() > 0 && DBInstance.commit() > 0)
                         return obj;
                     else return null;
@@ -484,6 +484,8 @@ namespace TSCD_GUI.Libraries
             try
             {
                 String ten = _ten.Trim();
+                if (String.IsNullOrEmpty(ten))
+                    return null;
                 DonViTinh obj = DonViTinh.getQuery().Where(c => c.ten.ToUpper().Equals(ten.ToUpper())).FirstOrDefault();
                 if (obj == null)
                 {

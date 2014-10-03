@@ -26,6 +26,7 @@ namespace TSCD_GUI.QLTaiSan
             InitializeComponent();
             ucComboBoxViTri1.NullText = "";//"[Chưa chọn phòng]";
             ucComboBoxViTri2.NullText = "";//"[Chưa chọn vi trí]";
+            ucComboBoxViTri1.editValueChanged = new MyUserControl.ucComboBoxViTri.EditValueChanged(phongEditValueChanged);
         }
 
         public frmInputViTri_DonVi(CTTaiSan _objCTTaiSan)
@@ -44,12 +45,15 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 objCTTaiSan = _objCTTaiSan;
-                lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
+                dateNgayGhi.EditValue = objCTTaiSan.ngay;
+                dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
+                txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
                 ucComboBoxDonVi1.DonVi = _objDonVi;
                 ucComboBoxDonVi2.DonVi = _objDonVi;
                 txtSoLuong.Properties.MinValue = 1;
                 txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
                 txtSoLuong.EditValue = objCTTaiSan.soluong;
+                lbltxtDonViTinh.Text = objCTTaiSan.taisan.loaitaisan.donvitinh != null ? objCTTaiSan.taisan.loaitaisan.donvitinh.ten : "";
             }
             catch (Exception ex)
             {
@@ -64,7 +68,6 @@ namespace TSCD_GUI.QLTaiSan
                 dateNgayGhi.EditValue = objCTTaiSan.ngay;
                 dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
                 txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
-                lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
                 ucComboBoxViTri1.Phong = objCTTaiSan.phong;
                 ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
                 ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
@@ -72,6 +75,7 @@ namespace TSCD_GUI.QLTaiSan
                 txtSoLuong.Properties.MinValue = 0;
                 txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
                 txtSoLuong.EditValue = objCTTaiSan.soluong;
+                lbltxtDonViTinh.Text = objCTTaiSan.taisan.loaitaisan.donvitinh != null ? objCTTaiSan.taisan.loaitaisan.donvitinh.ten : "";
             }
             catch (Exception ex)
             {
@@ -107,7 +111,6 @@ namespace TSCD_GUI.QLTaiSan
                 objViTriNULL.parent_id = Guid.Empty;
                 listViTri.Insert(0, objViTriNULL);
                 ucComboBoxViTri2.DataSource = listViTri;
-                lookUpTinhTrang.Properties.DataSource = TinhTrang.getQuery().OrderBy(c => c.order).ToList();
             }
             catch (Exception ex)
             {
@@ -125,7 +128,6 @@ namespace TSCD_GUI.QLTaiSan
                     String soHieu_CT = txtSoHieu_CT.Text;
                     DateTime ngay_CT = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
                     int soLuong = Convert.ToInt32(txtSoLuong.EditValue);
-                    TinhTrang tinhTrang = TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue));
                     Phong phong = ucComboBoxViTri1.Phong;
                     ViTri viTri = ucComboBoxViTri2.ViTri;
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
@@ -148,7 +150,7 @@ namespace TSCD_GUI.QLTaiSan
                         if (isChuyen)
                             XtraMessageBox.Show("Chuyển tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
-                            XtraMessageBox.Show("Chuyển tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show("Thêm tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -172,6 +174,13 @@ namespace TSCD_GUI.QLTaiSan
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void phongEditValueChanged()
+        {
+            Phong obj = ucComboBoxViTri1.Phong;
+            if (obj != null && obj.vitri != null)
+                ucComboBoxViTri2.ViTri = obj.vitri;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyTinhTrang));
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlTinhTrang = new DevExpress.XtraGrid.GridControl();
@@ -47,7 +48,9 @@
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.checkGiamTS = new DevExpress.XtraEditors.CheckEdit();
+            this.colgiamts = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
@@ -57,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkGiamTS.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControlMain
@@ -89,7 +93,8 @@
             // 
             this.gridViewTinhTrang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
-            this.coltinhtrang});
+            this.coltinhtrang,
+            this.colgiamts});
             this.gridViewTinhTrang.GridControl = this.gridControlTinhTrang;
             this.gridViewTinhTrang.Name = "gridViewTinhTrang";
             this.gridViewTinhTrang.OptionsBehavior.Editable = false;
@@ -119,6 +124,7 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
+            this.groupControlInfo.Controls.Add(this.checkGiamTS);
             this.groupControlInfo.Controls.Add(this.btnDown_r);
             this.groupControlInfo.Controls.Add(this.btnUp_r);
             this.groupControlInfo.Controls.Add(this.btnClose);
@@ -206,7 +212,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(5, 56);
+            this.labelControl4.Location = new System.Drawing.Point(5, 82);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(31, 13);
             this.labelControl4.TabIndex = 12;
@@ -216,7 +222,7 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(57, 53);
+            this.txtMoTa.Location = new System.Drawing.Point(57, 79);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(260, 90);
@@ -226,7 +232,7 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(159, 149);
+            this.btnHuy.Location = new System.Drawing.Point(159, 175);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 6;
@@ -237,7 +243,7 @@
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(78, 149);
+            this.btnOK.Location = new System.Drawing.Point(78, 175);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 5;
@@ -267,6 +273,22 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // checkGiamTS
+            // 
+            this.checkGiamTS.Location = new System.Drawing.Point(57, 54);
+            this.checkGiamTS.Name = "checkGiamTS";
+            this.checkGiamTS.Properties.Caption = "Giảm tài sản";
+            this.checkGiamTS.Size = new System.Drawing.Size(96, 19);
+            this.checkGiamTS.TabIndex = 19;
+            // 
+            // colgiamts
+            // 
+            this.colgiamts.Caption = "Giảm tài sản";
+            this.colgiamts.FieldName = "giam_taisan";
+            this.colgiamts.Name = "colgiamts";
+            this.colgiamts.Visible = true;
+            this.colgiamts.VisibleIndex = 1;
+            // 
             // frmQuanLyTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkGiamTS.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,6 +335,8 @@
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.SimpleButton btnDown_r;
         private DevExpress.XtraEditors.SimpleButton btnUp_r;
+        private DevExpress.XtraEditors.CheckEdit checkGiamTS;
+        private DevExpress.XtraGrid.Columns.GridColumn colgiamts;
 
     }
 }

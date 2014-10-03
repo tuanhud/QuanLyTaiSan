@@ -91,9 +91,13 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddTaiSanExist frm = new frmAddTaiSanExist(ucTreeDonVi1.DonVi);
-            frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
-            frm.ShowDialog();
+            DonVi obj = ucTreeDonVi1.DonVi;
+            if (obj != null)
+            {
+                frmAddTaiSanExist frm = new frmAddTaiSanExist(obj);
+                frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
 
         private void barBtnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -159,6 +163,17 @@ namespace TSCD_GUI.QLTaiSan
         private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ucGridControlTaiSan1.loadLayout(true);
+        }
+
+        private void barBtnChuyenTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmChuyenTinhTrang frm = new frmChuyenTinhTrang(obj);
+                frm.reloadAndFocused = new frmChuyenTinhTrang.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
     }
 }

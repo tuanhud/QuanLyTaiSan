@@ -76,6 +76,7 @@
     <Compile Include="DataFilter\LoaiTSHienThi.cs" />
     <Compile Include="DataFilter\Phong_ThongKe.cs" />
     <Compile Include="DataFilter\QuanTriVienHienThi.cs" />
+    <Compile Include="DataFilter\TaiSan_ThongKe.cs" />
     <Compile Include="DataFilter\_FilterAbstract.cs" />
     <Compile Include="DataFilter\PhongHienThi.cs" />
     <Compile Include="DataFilter\SearchFilter\CTTaiSanSF.cs" />
