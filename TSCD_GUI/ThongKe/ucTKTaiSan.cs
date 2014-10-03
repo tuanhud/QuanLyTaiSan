@@ -37,7 +37,7 @@ namespace TSCD_GUI.ThongKe
             //MessageBox.Show(str);
             List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             gridControlTaiSan.DataSource = TaiSan_ThongKe.getAll(list_coso, ucComboBoxLoaiTS1.list_loaitaisan);
-            gridViewTaiSan.PopulateColumns();
+            //bandedGridViewTaiSan.PopulateColumns();
         }
     }
 }

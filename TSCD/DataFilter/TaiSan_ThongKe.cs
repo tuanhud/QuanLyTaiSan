@@ -35,7 +35,6 @@ namespace TSCD.DataFilter
         public static List<TaiSan_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaitaisan = null)
         {
             IQueryable<CTTaiSan> query = CTTaiSan.getQuery();
-
             //LTB
             if (list_loaitaisan != null && list_loaitaisan.Count > 0)
             {
@@ -58,11 +57,11 @@ namespace TSCD.DataFilter
                 loaits = x.taisan.loaitaisan.ten,
                 donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
                 soluong_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                dongia_tang = !x.tinhtrang.giam_taisan ? (int?)x.taisan.dongia : null,
-                thanhtien_tang = !x.tinhtrang.giam_taisan ? (int?)x.soluong * x.taisan.dongia : null,
+                dongia_tang = !x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
+                thanhtien_tang = !x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
                 soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
-                dongia_giam = x.tinhtrang.giam_taisan ? (int?)x.taisan.dongia : null,
-                thanhtien_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong * x.taisan.dongia : null,
+                dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
+                thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
                 nuocsx = x.taisan.nuocsx,
                 nguongoc = x.nguongoc,
                 tinhtrang = x.tinhtrang.value,
