@@ -17,6 +17,7 @@ namespace TSCD_GUI.QLTaiSan
     {
         //ucQuanLyTaiSan
         DonVi objDonVi = null;
+        CTTaiSan objCTTaiSan = null;
         public delegate void ReloadAndFocused(Guid id);
         public ReloadAndFocused reloadAndFocused = null;
         frmInputViTri_DonVi frm = new frmInputViTri_DonVi();
@@ -40,11 +41,12 @@ namespace TSCD_GUI.QLTaiSan
             isTaiSan = true;
         }
 
-        public frmAddTaiSanExist(List<CTTaiSan> list)
+        public frmAddTaiSanExist(List<CTTaiSan> list, CTTaiSan obj)
         {
             InitializeComponent();
             loadData();
             listCTTaiSan = list;
+            objCTTaiSan = obj;
         }
 
         private void loadData()
@@ -77,22 +79,27 @@ namespace TSCD_GUI.QLTaiSan
                     }
                     else
                     {
-                        if (obj.parent != null)
+                        if (objCTTaiSan != null && obj.id.Equals(objCTTaiSan.id))
+                            XtraMessageBox.Show("Tài sản không thể kèm theo chính mình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
                         {
-                            if (XtraMessageBox.Show("Tài sản này đã được kèm theo một tài sản khác, bạn có chắc chắn muốn tiếp tục?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            if (obj.parent != null)
+                            {
+                                if (XtraMessageBox.Show("Tài sản này đã được kèm theo một tài sản khác, bạn có chắc chắn muốn tiếp tục?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                                {
+                                    listCTTaiSan.Add(obj);
+                                    if (reloadAndFocused != null)
+                                        reloadAndFocused(obj.id);
+                                    this.Close();
+                                }
+                            }
+                            else
                             {
                                 listCTTaiSan.Add(obj);
                                 if (reloadAndFocused != null)
                                     reloadAndFocused(obj.id);
                                 this.Close();
                             }
-                        }
-                        else
-                        {
-                            listCTTaiSan.Add(obj);
-                            if (reloadAndFocused != null)
-                                reloadAndFocused(obj.id);
-                            this.Close();
                         }
                     }
                 }

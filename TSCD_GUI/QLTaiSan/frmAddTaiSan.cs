@@ -405,7 +405,7 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnAddExist_Click(object sender, EventArgs e)
         {
-            frmAddTaiSanExist frm = new frmAddTaiSanExist(listCTTaiSan);
+            frmAddTaiSanExist frm = new frmAddTaiSanExist(listCTTaiSan, objCTTaiSan);
             frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reload);
             frm.ShowDialog();
         }
