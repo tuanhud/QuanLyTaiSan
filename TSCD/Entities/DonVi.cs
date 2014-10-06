@@ -85,7 +85,7 @@ namespace TSCD.Entities
         public IQueryable<CTTaiSan> getAllCTTaiSanRecursive()
         {
             List<Guid> tmp = this.getAllChildsRecursive(true).Select(c=>c.id).ToList();
-            return CTTaiSan.getQuery().Where(c => (c.donviquanly != null && tmp.Contains(c.donviquanly.id)) || (c.donvisudung != null && tmp.Contains(c.donvisudung.id)));
+            return CTTaiSan.getQuery().Where(c => c.soluong > 0 && ((c.donviquanly != null && tmp.Contains(c.donviquanly.id)) || (c.donvisudung != null && tmp.Contains(c.donvisudung.id))));
         }
         /// <summary>
         /// Lấy tất cả đám con cháu Đơn vị dưới root

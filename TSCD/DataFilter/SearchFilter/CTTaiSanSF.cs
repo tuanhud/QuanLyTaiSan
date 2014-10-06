@@ -24,7 +24,7 @@ namespace TSCD.DataFilter.SearchFilter
             var query = CTTaiSan.getQuery();
             if(tenTaiSan!=null && !tenTaiSan.Equals(""))
             {
-                query = query.Where(c => c.taisan.ten.ToLower().Contains(tenTaiSan.ToLower()));
+                query = query.Where(c => c.taisan.ten.ToLower().Contains(tenTaiSan.ToLower()) && c.soluong > 0);
             }
             if (loaiTaiSan != null)
             {
