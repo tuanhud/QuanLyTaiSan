@@ -54,6 +54,7 @@
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colloaits = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.groupControlThongKe = new DevExpress.XtraEditors.GroupControl();
+            this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.checkedComboBoxCoSo = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.lblDenNgay = new DevExpress.XtraEditors.LabelControl();
@@ -64,7 +65,7 @@
             this.lblDonViQL = new DevExpress.XtraEditors.LabelControl();
             this.lblLoaiTaiSan = new DevExpress.XtraEditors.LabelControl();
             this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
-            this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
+            this.btnThongKeTangGiam = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
@@ -308,6 +309,7 @@
             // 
             this.groupControlThongKe.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlThongKe.AppearanceCaption.Options.UseFont = true;
+            this.groupControlThongKe.Controls.Add(this.btnThongKeTangGiam);
             this.groupControlThongKe.Controls.Add(this.ucComboBoxDonVi1);
             this.groupControlThongKe.Controls.Add(this.checkedComboBoxCoSo);
             this.groupControlThongKe.Controls.Add(this.ucComboBoxLoaiTS1);
@@ -325,6 +327,16 @@
             this.groupControlThongKe.Size = new System.Drawing.Size(291, 491);
             this.groupControlThongKe.TabIndex = 0;
             this.groupControlThongKe.Text = "Thống kê";
+            // 
+            // ucComboBoxDonVi1
+            // 
+            this.ucComboBoxDonVi1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxDonVi1.DonVi = null;
+            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(88, 108);
+            this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
+            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(185, 20);
+            this.ucComboBoxDonVi1.TabIndex = 17;
             // 
             // checkedComboBoxCoSo
             // 
@@ -419,23 +431,21 @@
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnThongKe.Location = new System.Drawing.Point(88, 163);
+            this.btnThongKe.Location = new System.Drawing.Point(60, 163);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(75, 23);
+            this.btnThongKe.Size = new System.Drawing.Size(103, 23);
             this.btnThongKe.TabIndex = 5;
-            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.Text = "Thống kê hiện tại";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
-            // ucComboBoxDonVi1
+            // btnThongKeTangGiam
             // 
-            this.ucComboBoxDonVi1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucComboBoxDonVi1.DonVi = null;
-            this.ucComboBoxDonVi1.Location = new System.Drawing.Point(88, 108);
-            this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
-            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(185, 20);
-            this.ucComboBoxDonVi1.TabIndex = 17;
+            this.btnThongKeTangGiam.Location = new System.Drawing.Point(169, 163);
+            this.btnThongKeTangGiam.Name = "btnThongKeTangGiam";
+            this.btnThongKeTangGiam.Size = new System.Drawing.Size(104, 23);
+            this.btnThongKeTangGiam.TabIndex = 18;
+            this.btnThongKeTangGiam.Text = "Thống kê tăng giảm";
+            this.btnThongKeTangGiam.Click += new System.EventHandler(this.btnThongKeTangGiam_Click);
             // 
             // ucTKTaiSan
             // 
@@ -499,6 +509,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;
+        private DevExpress.XtraEditors.SimpleButton btnThongKeTangGiam;
 
     }
 }

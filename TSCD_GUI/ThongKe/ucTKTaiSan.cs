@@ -46,5 +46,12 @@ namespace TSCD_GUI.ThongKe
             gridControlTaiSan.DataSource = TaiSan_ThongKe.getAll(list_coso, ucComboBoxLoaiTS1.list_loaitaisan);
             //bandedGridViewTaiSan.PopulateColumns();
         }
+
+        private void btnThongKeTangGiam_Click(object sender, EventArgs e)
+        {
+            //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
+            DonVi obj = ucComboBoxDonVi1.DonVi;
+            gridControlTaiSan.DataSource = TaiSan_ThongKe.getTangGiamAll(obj != null ? obj.id : Guid.Empty, null, null);
+        }
     }
 }
