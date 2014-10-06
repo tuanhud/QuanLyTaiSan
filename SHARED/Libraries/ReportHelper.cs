@@ -483,7 +483,7 @@ namespace SHARED.Libraries
                 XRTable XRTable_Sum = new XRTable();
                 XRTableRow XRTableRow_Sum = new XRTableRow();
 
-                if (HaveGroup)
+                if (HaveGroup && GroupColumnLength > 0)
                 {
                     XRTableCell XRTableCell_CellFirst = new XRTableCell();
                     XRTableCell_CellFirst.Width = GroupColumnLength;

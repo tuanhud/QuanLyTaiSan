@@ -118,9 +118,8 @@ namespace TSCD_GUI.Libraries
                                                 CTTaiSan objCTTaiSan2 = CTTaiSan.getQuery().Where(c => c.taisan_id == obj.id).FirstOrDefault();
                                                 if (objCTTaiSan2 != null)
                                                 {
-                                                    objCTTaiSan2.donviquanly = objDonVi;
-                                                    objCTTaiSan2.donvisudung = objDonVi;
-                                                    if (objCTTaiSan2.update() > 0 && DBInstance.commit() > 0)
+                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, objDonVi, null, null, objCTTaiSan2.parent, objCTTaiSan2.chungtu_ngay, objCTTaiSan2.chungtu_sohieu, objCTTaiSan2.soluong) > 0 
+                                                        && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                     }

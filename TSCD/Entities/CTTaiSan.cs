@@ -164,7 +164,7 @@ namespace TSCD.Entities
             ViTri vitri_moi,
             Phong phong_moi,
             CTTaiSan cttaisan_parent_moi,
-            DateTime chungtu_ngay_moi,
+            DateTime? chungtu_ngay_moi,
             String chungtu_sohieu_moi,
             int soluong_moi=-1,
             String ghichu_moi="",

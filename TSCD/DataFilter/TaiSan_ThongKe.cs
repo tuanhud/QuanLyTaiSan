@@ -30,6 +30,7 @@ namespace TSCD.DataFilter
         public String dvquanly { get; set; }
         public String dvsudung { get; set; }
         public ICollection<CTTaiSan> childs { get; set; }
+        public DateTime? date_create { get; set; }
 
 
         public static List<TaiSan_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaitaisan = null)
@@ -104,7 +105,7 @@ namespace TSCD.DataFilter
             
 
             //FINAL SELECT
-            List<TaiSan_ThongKe> re = query.Select(x => new TaiSan_ThongKe
+            List<TaiSan_ThongKe> re = query.OrderByDescending(x => x.date_create).Select(x => new TaiSan_ThongKe
             {
                 id = x.id,
                 ngay = x.ngay,
@@ -131,6 +132,7 @@ namespace TSCD.DataFilter
                 x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
                 dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
                 dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
+                date_create = x.date_create,
             }
             ).ToList();
             return re;
