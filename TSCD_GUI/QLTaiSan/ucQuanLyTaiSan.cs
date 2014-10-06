@@ -200,10 +200,10 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
+            TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
             ReportPrintTool _ReportPrintTool = new ReportPrintTool(_XtraReportTSCD_Grid);
-            _ReportPrintTool.ShowPreviewDialog();*/
-            ReportTSCD.XtraReportTSCD _XtraReportTSCD = new ReportTSCD.XtraReportTSCD(ucGridControlTaiSan1.gridControlTaiSan);
+            _ReportPrintTool.ShowPreviewDialog();
+            //ReportTSCD.XtraReportTSCD _XtraReportTSCD = new ReportTSCD.XtraReportTSCD(ucGridControlTaiSan1.gridControlTaiSan);
         }
 
         private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

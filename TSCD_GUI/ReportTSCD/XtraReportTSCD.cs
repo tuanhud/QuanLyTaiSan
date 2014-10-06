@@ -199,12 +199,22 @@ namespace TSCD_GUI.ReportTSCD
             Bands[BandKind.Detail].Controls.Add(XRTable_Detail);
 
 
-            //XRTable XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, GroupColumnLength, pageWidth, colWidth);
-            //if (!Object.Equals(XRTable_LastSum, null))
-            //{
-            //    XRTable_LastSum.Styles.Style = this.myRowStyle;
-            //    Bands[BandKind.ReportFooter].Controls.Add(XRTable_LastSum);
-            //}
+            XRTable XRTable_LastSum = null;
+            if (NumberOfFieldGroup > 0)
+            {
+                XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, true, GroupColumnLength);
+            }
+            else
+            {
+                XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, false, 0);
+            }
+            if (!Object.Equals(XRTable_LastSum, null))
+            {
+                XRTable_LastSum.Styles.Style = this.myRowStyle;
+                XRTable_LastSum.Location = new Point(0, 0);
+                XRTable_LastSum.Width = pageWidth;
+                Bands[BandKind.ReportFooter].Controls.Add(XRTable_LastSum);
+            }
         }
 
         public void InitTables(List<SHARED.Libraries.ReportHelper.structColumn> ListColumns, DevExpress.XtraGrid.Views.BandedGrid.BandedGridView _BandedGridView)
