@@ -28,7 +28,7 @@ namespace TSCD_GUI.ThongKe
             List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
             DonVi objNULL = new DonVi();
             objNULL.id = Guid.Empty;
-            objNULL.ten = "[Không có đơn vị]";
+            objNULL.ten = "[Đại học Sài Gòn]";
             objNULL.parent = null;
             list.Insert(0, objNULL);
             ucComboBoxDonVi1.DataSource = list;
