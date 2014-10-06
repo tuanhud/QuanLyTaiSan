@@ -55,6 +55,10 @@ namespace TSCD_GUI.ThongKe
             {
                 _ucTKPhong.ExpandAllGroups();
             }
+            else if (current.Equals(_ucTKTaiSan))
+            {
+                _ucTKTaiSan.ExpandAllGroups();
+            }
         }
 
         private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -62,6 +66,10 @@ namespace TSCD_GUI.ThongKe
             if (current.Equals(_ucTKPhong))
             {
                 _ucTKPhong.CollapseAllGroups();
+            }
+            else if (current.Equals(_ucTKTaiSan))
+            {
+                _ucTKTaiSan.CollapseAllGroups();
             }
         }
 

@@ -53,5 +53,15 @@ namespace TSCD_GUI.ThongKe
             DonVi obj = ucComboBoxDonVi1.DonVi;
             gridControlTaiSan.DataSource = TaiSan_ThongKe.getTangGiamAll(obj != null ? obj.id : Guid.Empty, null, null);
         }
+
+        public void ExpandAllGroups()
+        {
+            bandedGridViewTaiSan.ExpandAllGroups();
+        }
+
+        public void CollapseAllGroups()
+        {
+            bandedGridViewTaiSan.CollapseAllGroups();
+        }
     }
 }
