@@ -25,6 +25,13 @@ namespace TSCD_GUI.ThongKe
         {
             ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
             checkedComboBoxCoSo.Properties.DataSource = CoSo.getQuery().OrderBy(c => c.order).ToList();
+            List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+            DonVi objNULL = new DonVi();
+            objNULL.id = Guid.Empty;
+            objNULL.ten = "[Đại học Sài Gòn]";
+            objNULL.parent = null;
+            list.Insert(0, objNULL);
+            ucComboBoxDonVi1.DataSource = list;
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
@@ -38,6 +45,13 @@ namespace TSCD_GUI.ThongKe
             List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             gridControlTaiSan.DataSource = TaiSan_ThongKe.getAll(list_coso, ucComboBoxLoaiTS1.list_loaitaisan);
             //bandedGridViewTaiSan.PopulateColumns();
+        }
+
+        private void btnThongKeTangGiam_Click(object sender, EventArgs e)
+        {
+            //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
+            DonVi obj = ucComboBoxDonVi1.DonVi;
+            gridControlTaiSan.DataSource = TaiSan_ThongKe.getTangGiamAll(obj != null ? obj.id : Guid.Empty, null, null);
         }
     }
 }

@@ -77,5 +77,63 @@ namespace TSCD.DataFilter
 
             return re;
         }
+        /// <summary>
+        /// Thống kê tăng giảm tài sản theo Đơn vị
+        /// </summary>
+        /// <param name="donviquanly">Guid.Empty=> Toan truong, not null: don vi (bao gom ca don vi con)</param>
+        /// <param name="ngay_from"></param>
+        /// <param name="ngay_to"></param>
+        /// <returns></returns>
+        public static List<TaiSan_ThongKe> getTangGiamAll(Guid donviquanly, DateTime? ngay_from=null, DateTime? ngay_to = null)
+        {
+            IQueryable<LogTangGiamTaiSan> query = LogTangGiamTaiSan.getQuery();
+            
+            //THONG KE TANG GIAM TREN DONVI
+            //DONVIQUANLY
+            if (donviquanly != Guid.Empty)
+            {
+                List<Guid>  list_donviquanly = DonVi.getById(donviquanly).getAllChildsRecursive().Select(x => x.id).ToList();
+                query = query.Where(x => x.donviquanly!=null && list_donviquanly.Contains(x.donviquanly.id));
+                query = query.Where(c => c.tang_giam_donvi != 0);
+            }
+            else
+            //THONG KE TANG GIAM TOAN TRUONG
+            {
+                query = query.Where(c=> c.tang_giam==1 || c.tang_giam == -1);
+            }
+            
+
+            //FINAL SELECT
+            List<TaiSan_ThongKe> re = query.Select(x => new TaiSan_ThongKe
+            {
+                id = x.id,
+                ngay = x.ngay,
+                sohieu_ct = x.chungtu_sohieu,
+                ngay_ct = x.chungtu_ngay,
+                ten = x.taisan.ten,
+                loaits = x.taisan.loaitaisan.ten,
+                donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
+
+                soluong_tang = (x.tang_giam==1 || x.tang_giam_donvi==1) ? (int?)x.soluong : null,
+                dongia_tang = (x.tang_giam==1 || x.tang_giam_donvi==1) ? (long?)x.taisan.dongia: null,
+                thanhtien_tang = (x.tang_giam == 1 || x.tang_giam_donvi == 1) ? (long?)x.soluong * x.taisan.dongia : null,
+
+                soluong_giam = (x.tang_giam == -1 || x.tang_giam_donvi == -1) ? (int?)x.soluong : null,
+                dongia_giam = (x.tang_giam == -1 || x.tang_giam_donvi == -1) ? (long?)x.taisan.dongia : null,
+                thanhtien_giam = (x.tang_giam == -1 || x.tang_giam_donvi == -1) ? (long?)x.soluong * x.taisan.dongia : null,
+                nuocsx = x.taisan.nuocsx,
+                nguongoc = x.nguongoc,
+                tinhtrang = x.tinhtrang.value,
+                ghichu = x.mota,
+                //childs = x.cttaisan_parent.childs,
+                phong = x.phong != null ? x.phong.ten : "",
+                vitri = x.vitri != null ? (x.vitri.coso != null ? x.vitri.coso.ten + (x.vitri.day != null ? " - " +
+                x.vitri.day.ten + (x.vitri.tang != null ? " - " + x.vitri.tang.ten : "") : "") : "") : "",
+                dvquanly = x.donviquanly != null ? x.donviquanly.ten : "",
+                dvsudung = x.donvisudung != null ? x.donvisudung.ten : "",
+            }
+            ).ToList();
+            return re;
+        }
     }
 }

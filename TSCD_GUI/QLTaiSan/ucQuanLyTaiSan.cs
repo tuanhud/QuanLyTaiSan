@@ -318,5 +318,16 @@ namespace TSCD_GUI.QLTaiSan
 
             }
         }
+
+        private void barBtnChuyenTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmChuyenTinhTrang frm = new frmChuyenTinhTrang(obj);
+                frm.reloadAndFocused = new frmChuyenTinhTrang.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
+        }
     }
 }
