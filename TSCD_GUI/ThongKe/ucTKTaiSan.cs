@@ -25,6 +25,13 @@ namespace TSCD_GUI.ThongKe
         {
             ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
             checkedComboBoxCoSo.Properties.DataSource = CoSo.getQuery().OrderBy(c => c.order).ToList();
+            List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+            DonVi objNULL = new DonVi();
+            objNULL.id = Guid.Empty;
+            objNULL.ten = "[Không có đơn vị]";
+            objNULL.parent = null;
+            list.Insert(0, objNULL);
+            ucComboBoxDonVi1.DataSource = list;
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
