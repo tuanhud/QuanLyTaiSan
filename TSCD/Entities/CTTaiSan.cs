@@ -223,7 +223,7 @@ namespace TSCD.Entities
                     ctts.taisan = this.taisan;
                     ctts.tinhtrang = this.tinhtrang;
                     ctts.vitri = vitri_moi;
-                    re = re && ctts.add() > 0;
+                    re = re && ctts.add_khongGhiLogTangGiam() > 0;
                     //Step 2: ghi log tang tai san cho ctts moi them
                     LogTangGiamTaiSan log = ctts.generateLogTangGiamTaiSan();
                     log.tang_giam = 0;
@@ -272,7 +272,7 @@ namespace TSCD.Entities
                     ctts.taisan = this.taisan;
                     ctts.tinhtrang = this.tinhtrang;
                     ctts.vitri = vitri_moi;
-                    ctts.add();
+                    ctts.add_khongGhiLogTangGiam();
                     //cap nhat lai soluong cho this
                     this.chungtu_ngay = chungtu_ngay_moi;
                     this.chungtu_sohieu = chungtu_sohieu_moi;
@@ -302,7 +302,7 @@ namespace TSCD.Entities
                     ctts.taisan = this.taisan;
                     ctts.tinhtrang = this.tinhtrang;
                     ctts.vitri = vitri_moi;
-                    ctts.add();
+                    ctts.add_khongGhiLogTangGiam();
                     //Step 2: ghi log tang tai san cho ctts moi them
                     LogTangGiamTaiSan log = ctts.generateLogTangGiamTaiSan();
                     log.tang_giam = 0;
@@ -395,6 +395,7 @@ namespace TSCD.Entities
 
         #region Override
         /// <summary>
+        ///    //Có tự đông ghi nhận tăng tài sản toàn trường
         ///    TaiSan ts = new TaiSan();
         ///    ts.ten = "Ten ts";
         ///    ts.dongia = 676542222;
@@ -434,7 +435,22 @@ namespace TSCD.Entities
             log.add();
             //ghi log sua doi
             return writelog();
-            
+        }
+        /// <summary>
+        /// Thêm CTTS nhưng không ghi log tăng giảm
+        /// </summary>
+        /// <returns></returns>
+        private int add_khongGhiLogTangGiam()
+        {
+            //kiem tra rang buoc
+            //thêm mới không được phép chỉ định giảm
+            if (tinhtrang.giam_taisan)
+            {
+                return -1;
+            }
+            base.add();
+            //ghi log sua doi
+            return writelog();
         }
         /// <summary>
         /// chi nen dung truc tiep khi cap nhat cac thuoc tinh dang mota,
