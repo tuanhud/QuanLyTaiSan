@@ -64,7 +64,6 @@
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cài đặt cấu hình";
-            this.Shown += new System.EventHandler(this.Setting_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienThiCauHinh)).EndInit();
             this.panelControlHienThiCauHinh.ResumeLayout(false);
             this.panelControlHienThiCauHinh.PerformLayout();

@@ -33,7 +33,7 @@ namespace PTB_GUI
 
             InitializeComponent();
             //Check kết nối tới CSDL nếu OK thì gọi login ngay lập tức
-            _passed = Global.working_database.isReady() > 0;
+            /*_passed = Global.working_database.isReady() > 0;
             if (_passed)
             {
                 this.show_frm_login();
@@ -45,8 +45,12 @@ namespace PTB_GUI
                 //load uc data
                 //Gây chậm khi cấu hình sai nên phải dùng waitform
                 ucCauHinh1.reLoad();
-            }
-
+            }*/
+            //register event
+            ucCauHinh1.viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.checkPoint);
+            //load uc data
+            //Gây chậm khi cấu hình sai nên phải dùng waitform
+            ucCauHinh1.reLoad();
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
@@ -56,11 +60,15 @@ namespace PTB_GUI
             //Kiem tra ket noi toi CSDL working de show form login len
             if (_passed)
             {
-                this.show_frm_login();
+                //this.show_frm_login();
+                Login _Login = new Login();
+                this.Hide();
+                _Login.ShowDialog();
+                this.Close();
             }
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Quyết định hành động kế tiếp khi hoàn tất form setting
         /// </summary>
         #region show from login in new thread
@@ -94,6 +102,6 @@ namespace PTB_GUI
                 }
                 catch (Exception) { }
             }
-        }
+        }*/
     }
 }
