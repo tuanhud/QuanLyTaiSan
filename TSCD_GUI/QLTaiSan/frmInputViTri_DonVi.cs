@@ -124,6 +124,8 @@ namespace TSCD_GUI.QLTaiSan
             {
                 if (checkInput())
                 {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
                     DateTime ngayGhi = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
                     String soHieu_CT = txtSoHieu_CT.Text;
                     DateTime ngay_CT = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
@@ -136,6 +138,7 @@ namespace TSCD_GUI.QLTaiSan
                     int re = objCTTaiSan.chuyenDonVi(donViQL, donViSD, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
                     if (re > 0 && DBInstance.commit() > 0)
                     {
+                        DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                         if(isChuyen)
                             XtraMessageBox.Show("Chuyển tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
@@ -147,6 +150,7 @@ namespace TSCD_GUI.QLTaiSan
                     }
                     else
                     {
+                        DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                         if (isChuyen)
                             XtraMessageBox.Show("Chuyển tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
