@@ -129,6 +129,7 @@
             // barBtnLog
             // 
             this.barBtnLog.Caption = "Log";
+            this.barBtnLog.Enabled = false;
             this.barBtnLog.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnLog.Glyph")));
             this.barBtnLog.Id = 6;
             this.barBtnLog.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnLog.LargeGlyph")));

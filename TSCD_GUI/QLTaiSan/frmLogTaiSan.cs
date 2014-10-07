@@ -21,7 +21,7 @@ namespace TSCD_GUI.QLTaiSan
         public frmLogTaiSan(CTTaiSan obj)
         {
             InitializeComponent();
-            gridControlLog.DataSource = obj.taisan.logtaisans;
+            gridControlLog.DataSource = LogSuaTaiSan.getQuery().Where(c=>c.taisan_id.Equals(obj.taisan_id)).ToList();
             gridViewLog.PopulateColumns();
         }
     }
