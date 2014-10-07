@@ -114,7 +114,7 @@ namespace TSCD.Entities
         public int chuyenTinhTrang(
             DateTime chungtu_ngay_moi,
             String chungtu_sohieu_moi,
-            TinhTrang tinhtrang_moi)
+            TinhTrang tinhtrang_moi, int soluong_moi=-1, String ghichu_moi="")
         {
             Boolean re = true;
             //xét ràng buộc
@@ -122,25 +122,77 @@ namespace TSCD.Entities
             {
                 return -1;
             }
+            if (soluong_moi > this.soluong)
+            {
+                return -1;
+            }
+            if (soluong_moi < 0)
+            {
+                soluong_moi = this.soluong;
+            }
             //this đã bị báo là giảm tài sản rồi, không cho chuyển ngược lại
             if(this.tinhtrang.giam_taisan)
             {
                 return -1;
             }
+
             //begin common business
             this.chungtu_ngay = chungtu_ngay_moi;
             this.chungtu_sohieu = chungtu_sohieu_moi;
-            this.tinhtrang = tinhtrang_moi;
-            re = re && this.update()>0;
-            //nếu tình trạng hiểu là sự giảm => ghi log sự giảm
-            if(tinhtrang_moi.giam_taisan)
+            this.ghichu = ghichu_moi;
+            //chuyển toàn bộ
+            if(soluong>=this.soluong)
             {
-                LogTangGiamTaiSan log = this.generateLogTangGiamTaiSan();
-                log.tang_giam = -1;
-                log.tang_giam_donvi = -1;
-                log.chuyenden_chuyendi = 0;//importance, do chỉ là đổi tình trạng trong cùng 1 đơn vị
-                re = re && log.add()>0;
+                this.tinhtrang = tinhtrang_moi;
+                re = re && this.update() > 0;
+
+                //nếu tình trạng hiểu là sự giảm => ghi log sự giảm cho toàn trường
+                if (tinhtrang_moi.giam_taisan)
+                {
+                    LogTangGiamTaiSan log = this.generateLogTangGiamTaiSan();
+                    log.tang_giam = -1;
+                    log.tang_giam_donvi = -1;
+                    log.chuyenden_chuyendi = 0;//importance, do chỉ là đổi tình trạng trong cùng 1 đơn vị
+                    re = re && log.add() > 0;
+                }
             }
+            //chuyển một phần
+            else
+            {
+                this.soluong -= soluong_moi;
+                re = re && this.update() > 0;
+                
+                //Thêm mới CTTS
+                //Step 1: Tao CTTS moi -> add
+                CTTaiSan ctts = new CTTaiSan();
+                ctts.chungtu_ngay = chungtu_ngay_moi;
+                ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                ctts.donviquanly = this.donviquanly;
+                ctts.donvisudung = this.donvisudung;
+                ctts.ghichu = ghichu_moi;
+                ctts.mota = this.mota;
+                ctts.ngay = this.ngay;
+                ctts.nguongoc = "";
+                ctts.parent = this.parent;
+                ctts.phong = this.phong;
+                ctts.soluong = soluong_moi;
+                ctts.subId = this.subId;
+                ctts.taisan = this.taisan;
+                ctts.tinhtrang = tinhtrang_moi;
+                ctts.vitri = this.vitri;
+                re = re && ctts.add_khongGhiLogTangGiam() > 0;
+
+                //nếu tình trạng hiểu là sự giảm => ghi log sự giảm cho toàn trường
+                if (tinhtrang_moi.giam_taisan)
+                {
+                    LogTangGiamTaiSan log = ctts.generateLogTangGiamTaiSan();
+                    log.tang_giam = -1;
+                    log.tang_giam_donvi = -1;
+                    log.chuyenden_chuyendi = 0;//importance, do chỉ là đổi tình trạng trong cùng 1 đơn vị
+                    re = re && log.add() > 0;
+                }
+            }
+            
             //end
             return re ? 1 : -1;
         }
