@@ -119,6 +119,7 @@
             this.barBtnXuatBaoCao.Id = 6;
             this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
             this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
+            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
             // 
             // barBtnThietKe
             // 
@@ -127,6 +128,7 @@
             this.barBtnThietKe.Id = 7;
             this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
             this.barBtnThietKe.Name = "barBtnThietKe";
+            this.barBtnThietKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThietKe_ItemClick);
             // 
             // rbnPageThongKe
             // 

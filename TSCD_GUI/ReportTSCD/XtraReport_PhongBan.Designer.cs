@@ -262,14 +262,12 @@
             // 
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.ProcessDuplicates = DevExpress.XtraReports.UI.ValueSuppressType.MergeByValue;
-            this.xrTableCell2.Text = "Tên, nhãn hiệu, quy cách tài sản cố định";
             this.xrTableCell2.Weight = 1.9270832824707032D;
             // 
             // xrTableCell3
             // 
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.ProcessDuplicates = DevExpress.XtraReports.UI.ValueSuppressType.MergeByValue;
-            this.xrTableCell3.Text = "Đơn vị tính";
             this.xrTableCell3.Weight = 0.84375D;
             // 
             // xrTableCell5
@@ -622,7 +620,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Middle.BorderWidth = 0.7F;
-            this.xrControlStyle_Middle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Middle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Middle.Name = "xrControlStyle_Middle";
             this.xrControlStyle_Middle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
@@ -633,7 +631,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Left.BorderWidth = 0.7F;
-            this.xrControlStyle_Left.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Left.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Left.Name = "xrControlStyle_Left";
             this.xrControlStyle_Left.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
@@ -644,7 +642,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrControlStyle_Right.BorderWidth = 0.7F;
-            this.xrControlStyle_Right.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrControlStyle_Right.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Right.Name = "xrControlStyle_Right";
             this.xrControlStyle_Right.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 

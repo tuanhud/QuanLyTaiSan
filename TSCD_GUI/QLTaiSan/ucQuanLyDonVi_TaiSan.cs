@@ -11,6 +11,7 @@ using TSCD.Entities;
 using TSCD.DataFilter;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using SHARED.Libraries;
+using DevExpress.XtraReports.UI;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -176,12 +177,18 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan(TaiSan_ThongKe.getAll(null, null, obj), obj);
+            ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
+            designTool.ShowDesignerDialog();
+            ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+            printTool.ShowPreviewDialog();
         }
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan(TaiSan_ThongKe.getAll(null, null, obj), obj);
+            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
+            printTool.ShowPreviewDialog();
         }
     }
 }

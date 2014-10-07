@@ -94,5 +94,15 @@ namespace TSCD_GUI.ThongKe
                 _ucTKTaiSan.loadLayout(true);
             }
         }
+
+        private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

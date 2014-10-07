@@ -194,7 +194,6 @@ namespace TSCD_GUI.QLTaiSan
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import không thành công!");
                 }
-
             }
         }
 
