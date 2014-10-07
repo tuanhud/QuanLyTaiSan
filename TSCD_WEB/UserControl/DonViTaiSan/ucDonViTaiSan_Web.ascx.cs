@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TSCD.DataFilter;
+using TSCD.Entities;
 using TSCD_WEB.UserControl.DangNhap;
 namespace TSCD_WEB.UserControl.DonViTaiSan
 {
@@ -32,87 +33,80 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                 DangNhap.Visible = false;
                 DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
                 _ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
-                listCTTaiSan = TSCD.Entities.CTTaiSan.getAll();
-                if (listCTTaiSan.Count > 0)
+                //listCTTaiSan = TSCD.Entities.CTTaiSan.getAll();
+                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW);
+                //listDonVi = TSCD.Entities.DonVi.getAll().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                if (listDonVi.Count > 0)
                 {
                     infotr.Visible = true;
-                    listDonVi = TSCD.Entities.DonVi.getAll().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-                    if (listDonVi.Count > 0)
+                    _ucTreeViTri.CreateTreeList();
+                    if (!IsPostBack)
                     {
-                        _ucTreeViTri.CreateTreeList();
-                        if (!IsPostBack)
-                        {
-                            TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
-                            _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
+                        TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
+                        _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
 
-                        }
-                        _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
-                        _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
-                        _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
-                        if (Request.QueryString["key"] != null)
+                    }
+                    _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                    _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
+                    _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                    if (Request.QueryString["key"] != null)
+                    {
+                        infotd.Visible = true;
+                        string key = "";
+                        try
                         {
-                            infotd.Visible = true;
-                            string key = "";
+                            key = Request.QueryString["key"].ToString();
+                        }
+                        catch
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
+                        if (node != null)
+                        {
+                            _ucTreeViTri.FocusAndExpandToNode(node);
+                            LoadFocusedNodeData();
+                        }
+                        else
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        if (Request.QueryString["id"] != null)
+                        {
+                            ThongTinPhong.Visible = true;
+                            thongtin.Visible = true;
+                            idCTTaiSan = Guid.Empty;
                             try
                             {
-                                key = Request.QueryString["key"].ToString();
+                                idCTTaiSan = GUID.From(Request.QueryString["id"]);
                             }
                             catch
                             {
                                 Response.Redirect(Request.Url.AbsolutePath);
                             }
 
-                            DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue(key);
-                            if (node != null)
+                            objCTTaiSan = TSCD.Entities.CTTaiSan.getById(idCTTaiSan);
+                            if (objCTTaiSan != null)
                             {
-                                _ucTreeViTri.FocusAndExpandToNode(node);
-                                LoadFocusedNodeData();
+                                Label_ThongTin.Text = "Thông tin tài sản " + objCTTaiSan.taisan.ten;
+
                             }
                             else
+                            {
                                 Response.Redirect(Request.Url.AbsolutePath);
-                            if (Request.QueryString["id"] != null)
-                            {
-                                ThongTinPhong.Visible = true;
-                                thongtin.Visible = true;
-                                idCTTaiSan = Guid.Empty;
-                                try
-                                {
-                                    idCTTaiSan = GUID.From(Request.QueryString["id"]);
-                                }
-                                catch
-                                {
-                                    Response.Redirect(Request.Url.AbsolutePath);
-                                }
-
-                                objCTTaiSan = TSCD.Entities.CTTaiSan.getById(idCTTaiSan);
-                                if (objCTTaiSan != null)
-                                {
-                                    Label_ThongTin.Text = "Thông tin tài sản " + objCTTaiSan.taisan.ten;
-
-                                }
-                                else
-                                {
-                                    Response.Redirect(Request.Url.AbsolutePath);
-                                }
-                            }
-                            else
-                            {
-                                ClearData();
                             }
                         }
                         else
                         {
-                            DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
-                            node.Focus();
-                            ChuaChonViTri.Visible = true;
-                            ucWarning_ChuaChon.LabelInfo.Text = "Chưa chọn đơn vị";
                             ClearData();
                         }
                     }
                     else
                     {
-                        KhongCoDuLieu.Visible = true;
-                        ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có đơn vị";
+                        DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.FindNodeByKeyValue("");
+                        node.Focus();
+                        ChuaChonViTri.Visible = true;
+                        ucWarning_ChuaChon.LabelInfo.Text = "Chưa chọn đơn vị";
+                        ClearData();
                     }
                 }
                 else
