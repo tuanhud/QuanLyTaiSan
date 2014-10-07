@@ -170,6 +170,12 @@
     <Compile Include="HeThong\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\SuaThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\SuaThongTinCaNhan.Designer.cs">
+      <DependentUpon>SuaThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\ucLogHeThong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -432,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\SuaThongTinCaNhan.resx">
+      <DependentUpon>SuaThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucLogHeThong.resx">
       <DependentUpon>ucLogHeThong.cs</DependentUpon>

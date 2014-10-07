@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SHARED.Libraries;
 using TSCD.Entities;
+using TSCD;
 
 namespace TSCD_GUI.HeThong
 {
@@ -24,9 +25,13 @@ namespace TSCD_GUI.HeThong
         Group objGroup = new Group();
         String function = "";
         bool working = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
 
         public void loadData()
         {
+            checkPermission();
             editGUI("view");
             listGroup = Group.getAll();
             gridControlGroup.DataSource = listGroup;
@@ -34,6 +39,20 @@ namespace TSCD_GUI.HeThong
             {
                 btnSua_r.Enabled = false;
                 btnXoa_r.Enabled = false;
+            }
+        }
+
+        private void checkPermission()
+        {
+            try
+            {
+                canAdd = Permission.canAdd<Group>();
+                canEdit = Permission.canEdit<Group>(null);
+                canDelete = Permission.canDelete<Group>(null);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
             }
         }
 
@@ -79,20 +98,20 @@ namespace TSCD_GUI.HeThong
             btnHuy.Visible = _enable;
             //btnPhanQuyen.Visible = _enable;
             //Không được phân quyền cho Group của mình
-            //btnPhanQuyen.Enabled = !_enable; // (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
+            btnPhanQuyen.Enabled = _enable && (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
             txtKey.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            btnPhanQuyen.Visible = _enable;
+            //btnPhanQuyen.Visible = _enable;
             working = _enable;
             enableButton(!_enable);
         }
 
         private void enableButton(bool _enable)
         {
-            btnThem_r.Enabled = _enable;
-            btnSua_r.Enabled = _enable;
-            btnXoa_r.Enabled = _enable;
+            btnThem_r.Enabled = _enable && canAdd;
+            btnSua_r.Enabled = _enable && canEdit;
+            btnXoa_r.Enabled = _enable && canDelete;
         }
 
         private void clearText()

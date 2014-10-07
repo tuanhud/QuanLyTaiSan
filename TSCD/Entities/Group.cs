@@ -109,7 +109,7 @@ namespace TSCD.Entities
                 if (__obj is DonVi)
                 {
                     var obj = __obj as DonVi;
-                    //Quyền Edit trên mọi Cơ sở hoặc trên CS này
+                    //Quyền Edit trên mọi Don vi hoặc trên Don vi này
                     re = query.Where(
                         c =>
                             c.key.ToUpper().Equals(DonVi.USNAME)
@@ -120,6 +120,16 @@ namespace TSCD.Entities
                                 (!c.stand_alone && c.donvis.Count > 0 && c.donvis.Select(m => m.id).Contains(obj.id))
                             )
                     ).Count() > 0;
+
+                    //Quyền edit Don vi chứa Don vi nay
+                    if (!re && obj.parent != null)
+                    {
+                        re = requestPermission<DonVi>(obj.parent, true, action);
+                        if (re)
+                        {
+                            goto done;
+                        }
+                    }
                 }
                 else if (__obj is CoSo)
                 {
