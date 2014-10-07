@@ -348,6 +348,18 @@
     <Compile Include="ReportTSCD\XtraReportTSCD_Grid.Designer.cs">
       <DependentUpon>XtraReportTSCD_Grid.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportTSCD\XtraReport_PhongBan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_PhongBan.Designer.cs">
+      <DependentUpon>XtraReport_PhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_SoTaiSanCoDinh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_SoTaiSanCoDinh.Designer.cs">
+      <DependentUpon>XtraReport_SoTaiSanCoDinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="RibbonFormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -515,6 +527,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTSCD\XtraReportTSCD_Grid.resx">
       <DependentUpon>XtraReportTSCD_Grid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_PhongBan.resx">
+      <DependentUpon>XtraReport_PhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_SoTaiSanCoDinh.resx">
+      <DependentUpon>XtraReport_SoTaiSanCoDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RibbonFormMain.resx">
       <DependentUpon>RibbonFormMain.cs</DependentUpon>

@@ -33,62 +33,367 @@ namespace TSCD.Entities
         public virtual ICollection<QuanTriVien> quantriviens { get; set; }
         #endregion
         #region Nghiệp vụ
-        public bool canEdit<T>(T __obj) where T:_EntityAbstract1<T>
+        private bool isRoot()
         {
-            Boolean re = false;
-            if (__obj == null)
+            return ten != null && ten.ToLower().Equals("root");
+        }
+        private bool hasROOTAccess()
+        {
+            try
             {
-                goto done;
+                return isRoot() || permissions.Where(c => c.key.ToUpper().Equals(Permission._SUPER_ADMIN.ToUpper())).Count() > 0;
             }
-            String obj_type = "";
-            //Xét quyền từ cao đến thấp (từ ưu tiên cao hơn xuống ưu tiên thấp hơn)
-            //Quyền ROOT
-            if (permissions.Where(c => c.key.ToUpper().Equals("ROOT")).FirstOrDefault() != null)
+            catch (Exception e)
             {
-                goto done;
+                Debug.WriteLine(e);
+                return false;
             }
-            //Quyền trên Object hoặc Fixed
-            if (__obj is DonVi)
+        }
+        private bool requestPermission<T>(T __obj, Boolean require_baoham = false, String action = "view") where T : new()
+        {
+            //đề phòng rớt mạng bị null object
+            try
             {
-                obj_type = "DONVI";
-                var obj = __obj as DonVi;
-                
-                //Quyền Edit trên mọi 
-                re = permissions.Where(
+                //Xét quyền từ cao đến thấp (từ ưu tiên cao hơn xuống ưu tiên thấp hơn)
+                //Quyền ROOT
+                if (hasROOTAccess())
+                {
+                    return true;
+                }
+                Boolean re = false;
+                Boolean needed_release_memory = false;
+                IEnumerable<Permission> query = permissions;
+
+                /*
+                 * Xét quyền deny
+                 */
+                //...
+                /*
+                 * Xét quyền allow
+                 */
+                //root common criteria
+                query = query.Where(
+                        c => c.allow_or_deny
+                        &&
+                        (
+                            (action.Equals("edit") && c.can_edit)
+                            ||
+                            (action.Equals("view") && c.can_view)
+                            ||
+                            (action.Equals("delete") && c.can_delete)
+                        )
+                );
+                //đang xét quyền cat_wide
+                if (__obj == null)
+                {
+                    ////common criteria
+                    query = query.Where(
+                        c =>
+                            c.stand_alone
+                    );
+                    ////final
+                    //goto done;
+                    __obj = new T();
+                    needed_release_memory = true;
+                    //override require_baoham
+                    require_baoham = false;
+                }
+                //đang xét quyền object_combined
+                //common criteria
+                query = query.Where(
                     c =>
-                        c.allow_or_deny==true
-                        &&
-                        c.key.ToUpper().Equals(obj_type)
-                        &&
-                        c.can_edit == true
-                        &&
+                        (!require_baoham || (require_baoham && c.recursive_to_child))
+                );
+
+                //specific object type
+                if (__obj is DonVi)
+                {
+                    var obj = __obj as DonVi;
+                    //Quyền Edit trên mọi Cơ sở hoặc trên CS này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(DonVi.USNAME)
+                            &&
                             (
-                                c.donvis.Count==0
+                                c.stand_alone
                                 ||
-                                c.donvis.Select(t=>t.id).Contains(obj.id)
+                                (!c.stand_alone && c.donvis.Count > 0 && c.donvis.Select(m => m.id).Contains(obj.id))
                             )
-                        ).FirstOrDefault() != null;
-            }
-            
+                    ).Count() > 0;
+                }
+                else if (__obj is CoSo)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(CoSo.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is Dayy)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(Dayy.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is Tang)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(Tang.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is Phong)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(Phong.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is Group)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(Group.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is QuanTriVien)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(QuanTriVien.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is DonViTinh)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(DonViTinh.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is LoaiDonVi)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(LoaiDonVi.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is LoaiPhong)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(LoaiPhong.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is LoaiTaiSan)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(LoaiTaiSan.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is TinhTrang)
+                {
+                    //Quyền edit LTB này
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(TinhTrang.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+                else if (__obj is LogHeThong)
+                {
+                    re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(LogHeThong.USNAME)
+                            &&
+                            (
+                                c.stand_alone
+                            )
+                    ).Count() > 0;
+                }
+
+            //quocdunginfo, xu ly cac class khác: ThietBi,...
+            //...
             //final 
             done:
+                //release memory if needed
+                if (needed_release_memory)
+                {
+                    __obj = default(T);
+                }
                 return re;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
+        }
+        /// <summary>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="__obj"></param>
+        /// <param name="require_baoham">Bắt buộc recursive_to_child == true</param>
+        /// <returns></returns>
+        public bool canEdit<T>(T __obj) where T : _EntityAbstract1<T>, new()
+        {
+            return requestPermission<T>(__obj, false, "edit");
         }
 
-        public bool canView<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canView<T>(T __obj) where T : _EntityAbstract1<T>, new()
         {
-            return true;
-            throw new NotImplementedException();
+            return requestPermission<T>(__obj, false, "view");
         }
-        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canDelete<T>(T __obj) where T : _EntityAbstract1<T>, new()
         {
-            return true;
-            throw new NotImplementedException();
+            return requestPermission<T>(__obj, false, "delete");
         }
-        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        public bool canAdd<T>(Boolean require_baoham = false) where T : _EntityAbstract1<T>, new()
         {
-            return true;
-            throw new NotImplementedException();
+            try
+            {
+                //ROOT check
+                if (hasROOTAccess())
+                {
+                    return true;
+                }
+                Type t = typeof(T);
+                Boolean re = false;
+
+                //common
+                IEnumerable<Permission> query = permissions;
+                query = query.Where(
+                    c =>
+                        c.stand_alone
+                        &&
+                        c.can_add
+                        &&
+                        (!require_baoham || (require_baoham && c.recursive_to_child))
+                );
+                //get USNAME
+                String tmp = "";
+                if (t == typeof(CoSo))
+                {
+                    tmp = CoSo.USNAME;
+                }
+                else if (t == typeof(Dayy))
+                {
+                    tmp = Dayy.USNAME;
+                }
+                else if (t == typeof(Tang))
+                {
+                    tmp = Tang.USNAME;
+                }
+                else if (t == typeof(Phong))
+                {
+                    tmp = Phong.USNAME;
+                }
+                else if (t == typeof(LoaiTaiSan))
+                {
+                    tmp = LoaiTaiSan.USNAME;
+                }
+                else if (t == typeof(LoaiDonVi))
+                {
+                    tmp = LoaiDonVi.USNAME;
+                }
+                else if (t == typeof(LoaiPhong))
+                {
+                    tmp = LoaiPhong.USNAME;
+                }
+                else if (t == typeof(TinhTrang))
+                {
+                    tmp = TinhTrang.USNAME;
+                }
+                else if (t == typeof(TaiSan))
+                {
+                    tmp = TaiSan.USNAME;
+                }
+                else if (t == typeof(Group))
+                {
+                    tmp = Group.USNAME;
+                }
+                else if (t == typeof(QuanTriVien))
+                {
+                    tmp = QuanTriVien.USNAME;
+                }
+                else if (t == typeof(DonViTinh))
+                {
+                    tmp = DonViTinh.USNAME;
+                }
+                else if (t == typeof(TinhTrang))
+                {
+                    tmp = TinhTrang.USNAME;
+                }
+                else if (t == typeof(LogHeThong))
+                {
+                    tmp = LogHeThong.USNAME;
+                }
+                //check usname vs key
+                re = query.Where(
+                        c =>
+                            c.key.ToUpper().Equals(tmp.ToUpper())
+                        ).Count() > 0;
+                //done:
+                return re;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
         }
         /// <summary>
         /// Kiểm tra quyền cố định,
@@ -154,5 +459,44 @@ namespace TSCD.Entities
             }
         }
         #endregion
+
+        public List<T> getAll<T>(string action) where T : _EntityAbstract1<T>, new()
+        {
+            var re = new List<T>();
+            var source = db.Set<T>().ToList();
+            
+            if(action.Equals(Permission._VIEW))
+            {
+                foreach(var item in source)
+                {
+                    if(canView<T>(item))
+                    {
+                        re.Add(item);
+                    }
+                }
+            }
+            else if (action.Equals(Permission._EDIT))
+            {
+                foreach (var item in source)
+                {
+                    if (canEdit<T>(item))
+                    {
+                        re.Add(item);
+                    }
+                }
+            }
+            else if (action.Equals(Permission._DELETE))
+            {
+                foreach (var item in source)
+                {
+                    if (canDelete<T>(item))
+                    {
+                        re.Add(item);
+                    }
+                }
+            }
+
+            return re;
+        }
     }
 }

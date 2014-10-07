@@ -38,6 +38,13 @@
             this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
@@ -52,9 +59,11 @@
             this.barBtnDefault,
             this.barBtnExpandAll,
             this.barBtnCollapseAll,
-            this.barBtnTKTaiSan});
+            this.barBtnTKTaiSan,
+            this.barBtnXuatBaoCao,
+            this.barBtnThietKe});
             this.rbnControlThongKe.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlThongKe.MaxItemId = 6;
+            this.rbnControlThongKe.MaxItemId = 8;
             this.rbnControlThongKe.Name = "rbnControlThongKe";
             this.rbnControlThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe});
@@ -77,6 +86,7 @@
             this.barBtnDefault.Id = 2;
             this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
             this.barBtnDefault.Name = "barBtnDefault";
+            this.barBtnDefault.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDefault_ItemClick);
             // 
             // barBtnExpandAll
             // 
@@ -106,12 +116,36 @@
             this.barBtnTKTaiSan.Name = "barBtnTKTaiSan";
             this.barBtnTKTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTaiSan_ItemClick);
             // 
+<<<<<<< HEAD
+=======
+            // barBtnXuatBaoCao
+            // 
+            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
+            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
+            this.barBtnXuatBaoCao.Id = 6;
+            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
+            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
+            // 
+            // barBtnThietKe
+            // 
+            this.barBtnThietKe.Caption = "Thiết kế";
+            this.barBtnThietKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.Glyph")));
+            this.barBtnThietKe.Id = 7;
+            this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
+            this.barBtnThietKe.Name = "barBtnThietKe";
+            // 
+>>>>>>> origin/master
             // rbnPageThongKe
             // 
             this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupThongKe,
+<<<<<<< HEAD
             this.rbnGroupLayout});
             this.rbnPageThongKe.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageThongKe.Image")));
+=======
+            this.rbnGroupLayout,
+            this.rbnGroupBaoCao});
+>>>>>>> origin/master
             this.rbnPageThongKe.Name = "rbnPageThongKe";
             this.rbnPageThongKe.Text = "Thống kê";
             // 
@@ -132,13 +166,30 @@
             this.rbnGroupLayout.ShowCaptionButton = false;
             this.rbnGroupLayout.Text = "Layout";
             // 
+<<<<<<< HEAD
+=======
+            // rbnGroupBaoCao
+            // 
+            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
+            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnThietKe);
+            this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
+            this.rbnGroupBaoCao.ShowCaptionButton = false;
+            this.rbnGroupBaoCao.Text = "Báo cáo";
+            // 
+>>>>>>> origin/master
             // panelControlMain
             // 
             this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+<<<<<<< HEAD
             this.panelControlMain.Location = new System.Drawing.Point(0, 145);
             this.panelControlMain.Name = "panelControlMain";
             this.panelControlMain.Size = new System.Drawing.Size(847, 344);
+=======
+            this.panelControlMain.Location = new System.Drawing.Point(0, 142);
+            this.panelControlMain.Name = "panelControlMain";
+            this.panelControlMain.Size = new System.Drawing.Size(847, 347);
+>>>>>>> origin/master
             this.panelControlMain.TabIndex = 1;
             // 
             // ucThongKe
@@ -168,5 +219,8 @@
         private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
         private DevExpress.XtraBars.BarButtonItem barBtnTKTaiSan;
+        private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
+        private DevExpress.XtraBars.BarButtonItem barBtnThietKe;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
     }
 }
