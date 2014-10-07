@@ -145,6 +145,7 @@
     <Content Include="Scripts\docs.min.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\TSCD.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />

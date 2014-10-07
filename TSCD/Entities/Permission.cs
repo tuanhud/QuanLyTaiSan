@@ -98,6 +98,14 @@ namespace TSCD.Entities
             donvis = new List<DonVi>();
             groups = new List<Group>();
         }
+        public static List<T> getAll<T>(string action="view") where T : _EntityAbstract1<T>, new()
+        {
+            if(Global.current_quantrivien_login!=null)
+            {
+                return Global.current_quantrivien_login.getAll<T>(action);
+            }
+            return new List<T>();
+        }
         #endregion
 
         #region Standalone Permission constant
