@@ -38,27 +38,34 @@ namespace TSCD.Entities
         [Required]
         [ForeignKey("group_id")]
         public virtual Group group { get; set; }
-
-        /// <summary>
-        /// Danh sách phiếu mà Quản trị viên này mượn
-        /// </summary>
         
         #endregion
 
         #region Hàm nghiệp vụ
-        public bool canView<T>(T obj) where T : _EntityAbstract1<T>
+        
+        /// <summary>
+        /// Xem Permission._VIEW, .... để xem các action có thể
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public List<T> getAll<T>(String action = "view") where T : _EntityAbstract1<T>, new()
+        {
+            return group.getAll<T>(action);
+        }
+        public bool canView<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return group.canView<T>((T)obj);
         }
-        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>
+        public bool canDelete<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return group.canDelete<T>((T)obj);
         }
-        public bool canAdd<T>() where T : _EntityAbstract1<T>
+        public bool canAdd<T>() where T : _EntityAbstract1<T>, new()
         {
             return group.canAdd<T>();
         }
-        public Boolean canEdit<T>(T obj) where T:_EntityAbstract1<T>
+        public Boolean canEdit<T>(T obj) where T : _EntityAbstract1<T>, new()
         {
             return group.canEdit<T>((T)obj);
         }

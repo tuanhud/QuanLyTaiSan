@@ -17,7 +17,7 @@
     <tbody>
         <tr id="DangNhap" runat="server" visible="false">
             <td>
-                <uc:ucDangNhap runat="server" ID="ucDangNhap"/>
+                <uc:ucDangNhap runat="server" ID="ucDangNhap" />
             </td>
         </tr>
         <tr id="KhongCoDuLieu" runat="server" visible="false">
@@ -217,7 +217,7 @@
                                 <PageSizeItemSettings Visible="true" ShowAllItem="true" />
                             </SettingsPager>
                             <SettingsBehavior AllowSelectByRowClick="True" ColumnResizeMode="Control" />
-                            <Settings ShowFilterRow="True" ShowGroupPanel="True" ShowFooter="True" HorizontalScrollBarMode="Auto" />
+                            <Settings ShowFilterRow="True" ShowFooter="True" HorizontalScrollBarMode="Auto" />
                             <SettingsCookies Enabled="false" />
                             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                         </dx:ASPxGridView>

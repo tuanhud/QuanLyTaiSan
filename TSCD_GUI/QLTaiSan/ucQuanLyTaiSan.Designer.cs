@@ -39,9 +39,11 @@
             this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImportChungTu = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -60,8 +62,6 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -173,6 +173,15 @@
             this.barBtnImportChungTu.Name = "barBtnImportChungTu";
             this.barBtnImportChungTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportChungTu_ItemClick);
             // 
+            // barBtnChuyenTinhTrang
+            // 
+            this.barBtnChuyenTinhTrang.Caption = "Chuyển tình trạng";
+            this.barBtnChuyenTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenTinhTrang.Glyph")));
+            this.barBtnChuyenTinhTrang.Id = 11;
+            this.barBtnChuyenTinhTrang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenTinhTrang.LargeGlyph")));
+            this.barBtnChuyenTinhTrang.Name = "barBtnChuyenTinhTrang";
+            this.barBtnChuyenTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyenTinhTrang_ItemClick);
+            // 
             // rbnPageTaiSan
             // 
             this.rbnPageTaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -200,6 +209,13 @@
             this.rbnGroupTinhTrang.Name = "rbnGroupTinhTrang";
             this.rbnGroupTinhTrang.ShowCaptionButton = false;
             this.rbnGroupTinhTrang.Text = "Tình trạng";
+            // 
+            // rbnGroupChuyen
+            // 
+            this.rbnGroupChuyen.ItemLinks.Add(this.barBtnChuyenTinhTrang);
+            this.rbnGroupChuyen.Name = "rbnGroupChuyen";
+            this.rbnGroupChuyen.ShowCaptionButton = false;
+            this.rbnGroupChuyen.Text = "Chuyển";
             // 
             // rbnGroupBaoCao
             // 
@@ -375,22 +391,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 49;
-            // 
-            // rbnGroupChuyen
-            // 
-            this.rbnGroupChuyen.ItemLinks.Add(this.barBtnChuyenTinhTrang);
-            this.rbnGroupChuyen.Name = "rbnGroupChuyen";
-            this.rbnGroupChuyen.ShowCaptionButton = false;
-            this.rbnGroupChuyen.Text = "Chuyển";
-            // 
-            // barBtnChuyenTinhTrang
-            // 
-            this.barBtnChuyenTinhTrang.Caption = "Chuyển tình trạng";
-            this.barBtnChuyenTinhTrang.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenTinhTrang.Glyph")));
-            this.barBtnChuyenTinhTrang.Id = 11;
-            this.barBtnChuyenTinhTrang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenTinhTrang.LargeGlyph")));
-            this.barBtnChuyenTinhTrang.Name = "barBtnChuyenTinhTrang";
-            this.barBtnChuyenTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyenTinhTrang_ItemClick);
             // 
             // ucQuanLyTaiSan
             // 

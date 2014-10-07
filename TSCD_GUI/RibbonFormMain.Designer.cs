@@ -50,8 +50,6 @@
             this.backstageViewItemSeparator5 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.backstageViewTabItemThoat = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.backstageViewItemSeparator6 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-            this.rbnPageMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupMain = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.backstageViewClientControl7 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
@@ -64,16 +62,15 @@
             // ribbonMain
             // 
             this.ribbonMain.ApplicationButtonDropDownControl = this.backstageViewControl;
+            this.ribbonMain.AutoSizeItems = true;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonMain.ExpandCollapseItem});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonMain.MaxItemId = 1;
             this.ribbonMain.Name = "ribbonMain";
-            this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.rbnPageMain});
             this.ribbonMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbonMain.Size = new System.Drawing.Size(834, 144);
+            this.ribbonMain.Size = new System.Drawing.Size(836, 54);
             this.ribbonMain.StatusBar = this.ribbonStatusBar;
             this.ribbonMain.SelectedPageChanging += new DevExpress.XtraBars.Ribbon.RibbonPageChangingEventHandler(this.ribbonMain_SelectedPageChanging);
             this.ribbonMain.SelectedPageChanged += new System.EventHandler(this.ribbonMain_SelectedPageChanged);
@@ -110,44 +107,44 @@
             // 
             // backstageViewClientControlCaiDatCauHinh
             // 
-            this.backstageViewClientControlCaiDatCauHinh.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlCaiDatCauHinh.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControlCaiDatCauHinh.Name = "backstageViewClientControlCaiDatCauHinh";
-            this.backstageViewClientControlCaiDatCauHinh.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlCaiDatCauHinh.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControlCaiDatCauHinh.TabIndex = 0;
             // 
             // backstageViewClientControlGiaoDienVaNgonNgu
             // 
-            this.backstageViewClientControlGiaoDienVaNgonNgu.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlGiaoDienVaNgonNgu.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControlGiaoDienVaNgonNgu.Name = "backstageViewClientControlGiaoDienVaNgonNgu";
-            this.backstageViewClientControlGiaoDienVaNgonNgu.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlGiaoDienVaNgonNgu.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControlGiaoDienVaNgonNgu.TabIndex = 1;
             // 
             // backstageViewClientControlCapNhatPhanMem
             // 
-            this.backstageViewClientControlCapNhatPhanMem.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlCapNhatPhanMem.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControlCapNhatPhanMem.Name = "backstageViewClientControlCapNhatPhanMem";
-            this.backstageViewClientControlCapNhatPhanMem.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlCapNhatPhanMem.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControlCapNhatPhanMem.TabIndex = 2;
             // 
             // backstageViewClientControlThongTinPhanMem
             // 
-            this.backstageViewClientControlThongTinPhanMem.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlThongTinPhanMem.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControlThongTinPhanMem.Name = "backstageViewClientControlThongTinPhanMem";
-            this.backstageViewClientControlThongTinPhanMem.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlThongTinPhanMem.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControlThongTinPhanMem.TabIndex = 3;
             // 
             // backstageViewClientControlKhoiDongLai
             // 
-            this.backstageViewClientControlKhoiDongLai.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlKhoiDongLai.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControlKhoiDongLai.Name = "backstageViewClientControlKhoiDongLai";
-            this.backstageViewClientControlKhoiDongLai.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlKhoiDongLai.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControlKhoiDongLai.TabIndex = 4;
             // 
             // backstageViewClientControlThoat
             // 
-            this.backstageViewClientControlThoat.Location = new System.Drawing.Point(201, 0);
+            this.backstageViewClientControlThoat.Location = new System.Drawing.Point(205, 0);
             this.backstageViewClientControlThoat.Name = "backstageViewClientControlThoat";
-            this.backstageViewClientControlThoat.Size = new System.Drawing.Size(234, 443);
+            this.backstageViewClientControlThoat.Size = new System.Drawing.Size(228, 441);
             this.backstageViewClientControlThoat.TabIndex = 5;
             // 
             // backstageViewTabItemCaiDatCauHinh
@@ -228,33 +225,20 @@
             // 
             this.backstageViewItemSeparator6.Name = "backstageViewItemSeparator6";
             // 
-            // rbnPageMain
-            // 
-            this.rbnPageMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupMain});
-            this.rbnPageMain.Name = "rbnPageMain";
-            this.rbnPageMain.Text = "Main";
-            // 
-            // rbnGroupMain
-            // 
-            this.rbnGroupMain.Name = "rbnGroupMain";
-            this.rbnGroupMain.ShowCaptionButton = false;
-            this.rbnGroupMain.Text = "Main";
-            // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 489);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 497);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMain;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(834, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(836, 23);
             // 
             // panelControlMain
             // 
             this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlMain.Location = new System.Drawing.Point(0, 144);
+            this.panelControlMain.Location = new System.Drawing.Point(0, 54);
             this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(834, 345);
+            this.panelControlMain.Size = new System.Drawing.Size(836, 443);
             this.panelControlMain.TabIndex = 2;
             // 
             // backstageViewClientControl7
@@ -275,13 +259,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 520);
+            this.ClientSize = new System.Drawing.Size(836, 520);
             this.Controls.Add(this.backstageViewControl);
             this.Controls.Add(this.panelControlMain);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMain);
             this.Name = "RibbonFormMain";
             this.Ribbon = this.ribbonMain;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý Tài sản cố định";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
@@ -295,8 +280,6 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonMain;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbnPageMain;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupMain;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraEditors.PanelControl panelControlMain;
         private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl;
