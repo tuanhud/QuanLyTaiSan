@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SHARED.Libraries;
 using TSCD.Entities;
+using TSCD;
 
 namespace TSCD_GUI.HeThong
 {
@@ -97,11 +98,11 @@ namespace TSCD_GUI.HeThong
             btnHuy.Visible = _enable;
             //btnPhanQuyen.Visible = _enable;
             //Không được phân quyền cho Group của mình
-            //btnPhanQuyen.Enabled = !_enable; // (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
+            btnPhanQuyen.Enabled = _enable && (Global.current_quantrivien_login != null && Global.current_quantrivien_login.group.id != objGroup.id);
             txtKey.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            btnPhanQuyen.Visible = _enable;
+            //btnPhanQuyen.Visible = _enable;
             working = _enable;
             enableButton(!_enable);
         }
