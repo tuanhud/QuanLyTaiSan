@@ -40,6 +40,8 @@ namespace TSCD_GUI.ThongKe
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
             coldate_create.Visible = false;
             //String str = "";
             //foreach (Guid id in ucComboBoxLoaiTS1.list_loaitaisan)
@@ -50,14 +52,18 @@ namespace TSCD_GUI.ThongKe
             List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             gridControlTaiSan.DataSource = TaiSan_ThongKe.getAll(list_coso, ucComboBoxLoaiTS1.list_loaitaisan, ucComboBoxDonVi1.DonVi);
             //bandedGridViewTaiSan.PopulateColumns();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         private void btnThongKeTangGiam_Click(object sender, EventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
             coldate_create.Visible = true;
             //List<Guid> list_coso = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxCoSo);
             DonVi obj = ucComboBoxDonVi1.DonVi;
             gridControlTaiSan.DataSource = TaiSan_ThongKe.getTangGiamAll(obj != null ? obj.id : Guid.Empty, null, null);
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
         public void ExpandAllGroups()

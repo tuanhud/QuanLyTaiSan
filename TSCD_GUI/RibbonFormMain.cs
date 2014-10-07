@@ -51,6 +51,7 @@ namespace TSCD_GUI
 
         bool drawEnd = false;
 
+
         public RibbonFormMain()
         {
             InitializeComponent();
@@ -95,7 +96,8 @@ namespace TSCD_GUI
             addRibbonPage(_ucLogHeThong.getRibbonControl());
 
             drawEnd = true;
-
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageLogHeThong);
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageViTri);
             backstageViewControl.SelectedTabIndex = 6;
             ThongTinPhanMem();
         }
