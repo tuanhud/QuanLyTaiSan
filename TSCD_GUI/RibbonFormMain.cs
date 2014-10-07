@@ -293,8 +293,8 @@ namespace TSCD_GUI
 
         private void barBtnUser_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
-            //frm.ShowDialog();
+            SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
+            frm.ShowDialog();
         }
     }
 }
