@@ -72,6 +72,26 @@ namespace TSCD.Entities
         #endregion
 
         #region Override
+        public static bool canEdit<T>(T obj) where T : _EntityAbstract1<T>, new()
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canEdit<T>(obj);
+        }
+        public static bool canView<T>(T obj) where T : _EntityAbstract1<T>, new()
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canView<T>(obj);
+        }
+        public static bool canDelete<T>(T obj) where T : _EntityAbstract1<T>, new()
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canDelete<T>(obj);
+        }
+        public static bool canAdd<T>() where T : _EntityAbstract1<T>, new()
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canAdd<T>();
+        }
+        public static bool canDo(String fixed_permission = "")
+        {
+            return Global.current_quantrivien_login != null && Global.current_quantrivien_login.canDo(fixed_permission);
+        }
         protected override void init()
         {
             base.init();
@@ -162,7 +182,7 @@ namespace TSCD.Entities
                     else
                     {
                         tmp += DonVi.VNNAME + " {";
-                        tmp += String.Join(delimiter, donvis.Select(c => c.niceName()));//c.ten+" [ID="+c.id+"]"));
+                        tmp += String.Join(delimiter, donvis.Select(c => c.niceName()));
                         tmp += "} ";
                     }
                     goto done;
@@ -175,16 +195,8 @@ namespace TSCD.Entities
                     return tmp;
             }
         }
-
         #endregion
 
-
-
-
-        public static bool canDo(string p)
-        {
-            return true;
-        }
 
         /// <summary>
         /// Chỉ có stand_alone Permission là mới tái sử dụng được object trong CSDL
@@ -240,6 +252,23 @@ namespace TSCD.Entities
             tmp.can_edit = can_edit;
             tmp.can_view = can_view;
             return tmp;
+        }
+
+        public static string _VIEW
+        {
+            get { return "view"; }
+        }
+        public static string _EDIT
+        {
+            get { return "edit"; }
+        }
+        public static string _DELETE
+        {
+            get { return "delete"; }
+        }
+        public static string _ADD
+        {
+            get { return "add"; }
         }
     }
 }
