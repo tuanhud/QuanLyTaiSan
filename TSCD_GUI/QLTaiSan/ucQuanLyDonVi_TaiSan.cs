@@ -17,6 +17,7 @@ namespace TSCD_GUI.QLTaiSan
     public partial class ucQuanLyDonVi_TaiSan : DevExpress.XtraEditors.XtraUserControl
     {
         List<TaiSanHienThi> list = new List<TaiSanHienThi>();
+        DonVi obj = new DonVi();
 
         public ucQuanLyDonVi_TaiSan()
         {
@@ -64,7 +65,7 @@ namespace TSCD_GUI.QLTaiSan
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
-                DonVi obj = ucTreeDonVi1.DonVi;
+                obj = ucTreeDonVi1.DonVi;
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
                 if (obj != null)
                 {
@@ -100,11 +101,6 @@ namespace TSCD_GUI.QLTaiSan
                 frm.reloadAndFocused = new frmAddTaiSanExist.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
-        }
-
-        private void barBtnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //bandedGridViewTaiSan.ShowRibbonPrintPreview();
         }
 
         private void barBtnChuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -176,6 +172,16 @@ namespace TSCD_GUI.QLTaiSan
                 frm.reloadAndFocused = new frmChuyenTinhTrang.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
+        }
+
+        private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
