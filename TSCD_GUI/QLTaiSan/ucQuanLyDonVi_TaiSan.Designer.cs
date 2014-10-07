@@ -115,7 +115,7 @@
             this.barBtnXuatBaoCao.Id = 4;
             this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
             this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
-            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIn_ItemClick);
+            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
             // 
             // barBtnChuyen
             // 
@@ -169,6 +169,7 @@
             this.barBtnThietKe.Id = 10;
             this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
             this.barBtnThietKe.Name = "barBtnThietKe";
+            this.barBtnThietKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThietKe_ItemClick);
             // 
             // rbnPageDonVi_TaiSan
             // 
