@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPhanQuyen));
             this.rbnGroupQTV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnThemQTV = new DevExpress.XtraBars.BarButtonItem();
@@ -48,7 +49,7 @@
             this.txtMatKhauQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.rbnPagePhanQuyen = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupNhomQuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnNhomQuyen = new DevExpress.XtraBars.BarButtonItem();
@@ -284,6 +285,7 @@
             this.rbnPagePhanQuyen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupQTV,
             this.rbnGroupNhomQuyen});
+            this.rbnPagePhanQuyen.Image = global::TSCD_GUI.Properties.Resources.phanquyen;
             this.rbnPagePhanQuyen.Name = "rbnPagePhanQuyen";
             this.rbnPagePhanQuyen.Text = "Phân quyền";
             // 
@@ -305,13 +307,13 @@
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.gridControlQTV);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(862, 355);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(862, 352);
             this.splitContainerControlMain.SplitterPosition = 350;
             this.splitContainerControlMain.TabIndex = 3;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -322,7 +324,7 @@
             this.gridControlQTV.Location = new System.Drawing.Point(0, 0);
             this.gridControlQTV.MainView = this.gridViewQTV;
             this.gridControlQTV.Name = "gridControlQTV";
-            this.gridControlQTV.Size = new System.Drawing.Size(507, 355);
+            this.gridControlQTV.Size = new System.Drawing.Size(508, 352);
             this.gridControlQTV.TabIndex = 0;
             this.gridControlQTV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQTV});
@@ -432,7 +434,7 @@
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(350, 355);
+            this.groupControlInfo.Size = new System.Drawing.Size(350, 352);
             this.groupControlInfo.TabIndex = 2;
             this.groupControlInfo.Text = "Chi tiết";
             // 
@@ -501,7 +503,7 @@
             this.rbnPhanQuyen.Name = "rbnPhanQuyen";
             this.rbnPhanQuyen.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhanQuyen});
-            this.rbnPhanQuyen.Size = new System.Drawing.Size(862, 142);
+            this.rbnPhanQuyen.Size = new System.Drawing.Size(862, 145);
             // 
             // btnThem_r
             // 

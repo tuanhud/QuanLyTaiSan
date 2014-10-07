@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucThongKe));
             this.rbnControlThongKe = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnTKPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
-            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTKTaiSan = new DevExpress.XtraBars.BarButtonItem();
+            this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.rbnControlThongKe.Name = "rbnControlThongKe";
             this.rbnControlThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe});
-            this.rbnControlThongKe.Size = new System.Drawing.Size(847, 142);
+            this.rbnControlThongKe.Size = new System.Drawing.Size(847, 145);
             // 
             // barBtnTKPhong
             // 
@@ -69,40 +69,6 @@
             this.barBtnTKPhong.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKPhong.LargeGlyph")));
             this.barBtnTKPhong.Name = "barBtnTKPhong";
             this.barBtnTKPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKPhong_ItemClick);
-            // 
-            // rbnPageThongKe
-            // 
-            this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupThongKe,
-            this.rbnGroupLayout});
-            this.rbnPageThongKe.Name = "rbnPageThongKe";
-            this.rbnPageThongKe.Text = "Thống kê";
-            // 
-            // rbnGroupThongKe
-            // 
-            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKPhong);
-            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTaiSan);
-            this.rbnGroupThongKe.Name = "rbnGroupThongKe";
-            this.rbnGroupThongKe.ShowCaptionButton = false;
-            this.rbnGroupThongKe.Text = "Thống kê";
-            // 
-            // panelControlMain
-            // 
-            this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlMain.Location = new System.Drawing.Point(0, 142);
-            this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(847, 347);
-            this.panelControlMain.TabIndex = 1;
-            // 
-            // rbnGroupLayout
-            // 
-            this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
-            this.rbnGroupLayout.ItemLinks.Add(this.barBtnExpandAll);
-            this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
-            this.rbnGroupLayout.Name = "rbnGroupLayout";
-            this.rbnGroupLayout.ShowCaptionButton = false;
-            this.rbnGroupLayout.Text = "Layout";
             // 
             // barBtnDefault
             // 
@@ -139,6 +105,41 @@
             this.barBtnTKTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKTaiSan.LargeGlyph")));
             this.barBtnTKTaiSan.Name = "barBtnTKTaiSan";
             this.barBtnTKTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTaiSan_ItemClick);
+            // 
+            // rbnPageThongKe
+            // 
+            this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbnGroupThongKe,
+            this.rbnGroupLayout});
+            this.rbnPageThongKe.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageThongKe.Image")));
+            this.rbnPageThongKe.Name = "rbnPageThongKe";
+            this.rbnPageThongKe.Text = "Thống kê";
+            // 
+            // rbnGroupThongKe
+            // 
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKPhong);
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTaiSan);
+            this.rbnGroupThongKe.Name = "rbnGroupThongKe";
+            this.rbnGroupThongKe.ShowCaptionButton = false;
+            this.rbnGroupThongKe.Text = "Thống kê";
+            // 
+            // rbnGroupLayout
+            // 
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnExpandAll);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
+            this.rbnGroupLayout.Name = "rbnGroupLayout";
+            this.rbnGroupLayout.ShowCaptionButton = false;
+            this.rbnGroupLayout.Text = "Layout";
+            // 
+            // panelControlMain
+            // 
+            this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControlMain.Location = new System.Drawing.Point(0, 145);
+            this.panelControlMain.Name = "panelControlMain";
+            this.panelControlMain.Size = new System.Drawing.Size(847, 344);
+            this.panelControlMain.TabIndex = 1;
             // 
             // ucThongKe
             // 

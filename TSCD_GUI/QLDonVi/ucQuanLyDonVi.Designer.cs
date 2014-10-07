@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyDonVi));
             this.rbnControlDonVi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemDonVi = new DevExpress.XtraBars.BarButtonItem();
@@ -63,7 +64,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -94,7 +95,7 @@
             this.rbnControlDonVi.Name = "rbnControlDonVi";
             this.rbnControlDonVi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageDonVi});
-            this.rbnControlDonVi.Size = new System.Drawing.Size(852, 142);
+            this.rbnControlDonVi.Size = new System.Drawing.Size(852, 145);
             // 
             // barBtnThemDonVi
             // 
@@ -133,6 +134,7 @@
             this.rbnPageDonVi.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupDonVi,
             this.rbnGroupLoaiDonVi});
+            this.rbnPageDonVi.Image = global::TSCD_GUI.Properties.Resources.Business_Org_Unit_icon;
             this.rbnPageDonVi.Name = "rbnPageDonVi";
             this.rbnPageDonVi.Text = "Đơn vị";
             // 
@@ -156,13 +158,13 @@
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.treeListDonVi);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(852, 366);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(852, 363);
             this.splitContainerControlMain.SplitterPosition = 381;
             this.splitContainerControlMain.TabIndex = 1;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -186,7 +188,7 @@
             this.treeListDonVi.ParentFieldName = "parent_id";
             this.treeListDonVi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpLoai});
-            this.treeListDonVi.Size = new System.Drawing.Size(466, 366);
+            this.treeListDonVi.Size = new System.Drawing.Size(467, 363);
             this.treeListDonVi.TabIndex = 0;
             this.treeListDonVi.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListDonVi_FocusedNodeChanged);
             // 
@@ -247,7 +249,7 @@
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(381, 366);
+            this.groupControlInfo.Size = new System.Drawing.Size(381, 363);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 

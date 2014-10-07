@@ -62,6 +62,7 @@
             // ribbonMain
             // 
             this.ribbonMain.ApplicationButtonDropDownControl = this.backstageViewControl;
+            this.ribbonMain.ApplicationIcon = global::TSCD_GUI.Properties.Resources.Logo;
             this.ribbonMain.AutoSizeItems = true;
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -264,11 +265,12 @@
             this.Controls.Add(this.panelControlMain);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RibbonFormMain";
             this.Ribbon = this.ribbonMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Quản lý Tài sản cố định";
+            this.Text = "Quản lý Tài sản cố định v1.0";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             this.backstageViewControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).EndInit();

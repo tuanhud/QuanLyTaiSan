@@ -40,10 +40,12 @@
             this.barBtnThemTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSuaTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTang = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageViTri = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupCoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupDay = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupTang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
             this.colten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -62,8 +64,6 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -96,7 +96,7 @@
             this.rbnControlViTri.Name = "rbnControlViTri";
             this.rbnControlViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri});
-            this.rbnControlViTri.Size = new System.Drawing.Size(840, 142);
+            this.rbnControlViTri.Size = new System.Drawing.Size(840, 145);
             // 
             // barBtnThemCoSo
             // 
@@ -170,6 +170,15 @@
             this.barBtnXoaTang.Name = "barBtnXoaTang";
             this.barBtnXoaTang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTang_ItemClick);
             // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
+            this.barBtnImport.Id = 10;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // rbnPageViTri
             // 
             this.rbnPageViTri.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -177,6 +186,7 @@
             this.rbnGroupDay,
             this.rbnGroupTang,
             this.rbnGroupImport});
+            this.rbnPageViTri.Image = global::TSCD_GUI.Properties.Resources.vitri;
             this.rbnPageViTri.Name = "rbnPageViTri";
             this.rbnPageViTri.Text = "Vị trí";
             // 
@@ -207,17 +217,24 @@
             this.rbnGroupTang.ShowCaptionButton = false;
             this.rbnGroupTang.Text = "Tầng";
             // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
             // splitContainerControlMain
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.treeListViTri);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(840, 375);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(840, 372);
             this.splitContainerControlMain.SplitterPosition = 358;
             this.splitContainerControlMain.TabIndex = 1;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -239,7 +256,7 @@
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(477, 375);
+            this.treeListViTri.Size = new System.Drawing.Size(478, 372);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -282,7 +299,7 @@
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(358, 375);
+            this.groupControlInfo.Size = new System.Drawing.Size(358, 372);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
@@ -397,22 +414,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // rbnGroupImport
-            // 
-            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
-            this.rbnGroupImport.Name = "rbnGroupImport";
-            this.rbnGroupImport.ShowCaptionButton = false;
-            this.rbnGroupImport.Text = "Import";
-            // 
-            // barBtnImport
-            // 
-            this.barBtnImport.Caption = "Import";
-            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
-            this.barBtnImport.Id = 10;
-            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
-            this.barBtnImport.Name = "barBtnImport";
-            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
             // ucQuanLyViTri
             // 
