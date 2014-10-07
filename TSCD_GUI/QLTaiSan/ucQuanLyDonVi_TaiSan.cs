@@ -16,6 +16,8 @@ namespace TSCD_GUI.QLTaiSan
 {
     public partial class ucQuanLyDonVi_TaiSan : DevExpress.XtraEditors.XtraUserControl
     {
+        List<TaiSanHienThi> list = new List<TaiSanHienThi>();
+
         public ucQuanLyDonVi_TaiSan()
         {
             InitializeComponent();
@@ -66,7 +68,7 @@ namespace TSCD_GUI.QLTaiSan
                 //gridControlTaiSan.DataSource = TaiSanHienThi.getAllByDonVi(obj);
                 if (obj != null)
                 {
-                    List<TaiSanHienThi> list = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
+                    list = TaiSanHienThi.Convert(obj.getAllCTTaiSanRecursive());
                     ucGridControlTaiSan1.DataSource = list;
 
                     bool isEnabled = list.Count > 0;
