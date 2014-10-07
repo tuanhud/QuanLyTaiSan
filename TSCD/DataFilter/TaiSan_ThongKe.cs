@@ -33,9 +33,15 @@ namespace TSCD.DataFilter
         public DateTime? date_create { get; set; }
 
 
-        public static List<TaiSan_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaitaisan = null)
+        public static List<TaiSan_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaitaisan = null, DonVi donvi = null)
         {
             IQueryable<CTTaiSan> query = CTTaiSan.getQuery();
+
+            if (donvi != null)
+            {
+                List<Guid> list_donviquanly = donvi.getAllChildsRecursive().Select(x => x.id).ToList();
+                query = query.Where(x => x.donviquanly != null && list_donviquanly.Contains(x.donviquanly.id));
+            }
             //LTB
             if (list_loaitaisan != null && list_loaitaisan.Count > 0)
             {
@@ -46,7 +52,6 @@ namespace TSCD.DataFilter
             {
                 query = query.Where(x => x.vitri.coso == null || list_coso.Contains(x.vitri.coso.id));
             }
-
             //FINAL SELECT
             List<TaiSan_ThongKe> re = query.Select(x => new TaiSan_ThongKe
             {

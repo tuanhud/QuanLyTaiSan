@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhong));
             this.rbnControlPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -69,7 +70,7 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -103,7 +104,7 @@
             this.rbnControlPhong.Name = "rbnControlPhong";
             this.rbnControlPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong});
-            this.rbnControlPhong.Size = new System.Drawing.Size(857, 142);
+            this.rbnControlPhong.Size = new System.Drawing.Size(857, 145);
             // 
             // barBtnThemPhong
             // 
@@ -152,6 +153,7 @@
             this.rbnGroupPhong,
             this.rbnGroupLoaiPhong,
             this.rbnGroupImport});
+            this.rbnPagePhong.Image = global::TSCD_GUI.Properties.Resources.phong;
             this.rbnPagePhong.Name = "rbnPagePhong";
             this.rbnPagePhong.Text = "Phòng";
             // 
@@ -185,11 +187,11 @@
             this.navBarControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControlLeft.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupViTri});
-            this.navBarControlLeft.Location = new System.Drawing.Point(0, 142);
+            this.navBarControlLeft.Location = new System.Drawing.Point(0, 145);
             this.navBarControlLeft.Name = "navBarControlLeft";
             this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 210;
             this.navBarControlLeft.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControlLeft.Size = new System.Drawing.Size(210, 379);
+            this.navBarControlLeft.Size = new System.Drawing.Size(210, 376);
             this.navBarControlLeft.TabIndex = 1;
             // 
             // navBarGroupViTri
@@ -204,20 +206,20 @@
             // navBarGroupControlContainerViTri
             // 
             this.navBarGroupControlContainerViTri.Name = "navBarGroupControlContainerViTri";
-            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(210, 276);
+            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(208, 284);
             this.navBarGroupControlContainerViTri.TabIndex = 0;
             // 
             // splitContainerControlMain
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(210, 142);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(210, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.gridControlPhong);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(647, 379);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(647, 376);
             this.splitContainerControlMain.SplitterPosition = 305;
             this.splitContainerControlMain.TabIndex = 2;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -229,7 +231,7 @@
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.MenuManager = this.rbnControlPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(337, 379);
+            this.gridControlPhong.Size = new System.Drawing.Size(338, 376);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -322,7 +324,7 @@
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(305, 379);
+            this.groupControlInfo.Size = new System.Drawing.Size(305, 376);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 

@@ -86,5 +86,13 @@ namespace TSCD_GUI.ThongKe
                 _ucTKTaiSan.loadData();
             }
         }
+
+        private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(current.Equals(_ucTKTaiSan))
+            {
+                _ucTKTaiSan.loadLayout(true);
+            }
+        }
     }
 }
