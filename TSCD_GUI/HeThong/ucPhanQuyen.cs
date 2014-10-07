@@ -21,6 +21,9 @@ namespace TSCD_GUI.HeThong
         private QuanTriVien objQTV = null;
         private String function = "";
         private bool working = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
 
         public ucPhanQuyen()
         {
@@ -28,10 +31,25 @@ namespace TSCD_GUI.HeThong
             rbnPhanQuyen.Parent = null;
         }
 
+        private void checkPermission()
+        {
+            try
+            {
+                canAdd = Permission.canAdd<QuanTriVien>();
+                canEdit = Permission.canEdit<QuanTriVien>(null);
+                canDelete = Permission.canDelete<QuanTriVien>(null);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
+            }
+        }
+
         public void loadData()
         {
             try
             {
+                checkPermission();
                 editGUI("view");
                 lookUpEdit_group.Properties.DataSource = Group.getAll();
                 gridControlQTV.DataSource = QuanTriVienHienThi.getAll();
@@ -93,18 +111,18 @@ namespace TSCD_GUI.HeThong
             //Không thể tự mình đổi group
             lookUpEdit_group.Properties.ReadOnly = !_enable;// || (Global.current_quantrivien_login != null && objQuanTriVien != null && objQuanTriVien != null && Global.current_quantrivien_login.id == objQuanTriVien.id && !function.Equals("add"));
             memoEdit_mota.Properties.ReadOnly = !_enable;
-            barBtnThemQTV.Enabled = !_enable;
-            btnThem_r.Enabled = !_enable;
+            barBtnThemQTV.Enabled = !_enable && canAdd;
+            btnThem_r.Enabled = !_enable && canAdd;
             enableButton(!_enable);
             working = _enable;
         }
 
         private void enableButton(bool _enable)
         {
-            barBtnSuaQTV.Enabled = _enable;
-            barBtnXoaQTV.Enabled = _enable;
-            btnSua_r.Enabled = _enable;
-            btnXoa_r.Enabled = _enable;
+            barBtnSuaQTV.Enabled = _enable && canEdit;
+            barBtnXoaQTV.Enabled = _enable && canDelete;
+            btnSua_r.Enabled = _enable && canEdit;
+            btnXoa_r.Enabled = _enable && canDelete;
         }
 
         private void clearText()

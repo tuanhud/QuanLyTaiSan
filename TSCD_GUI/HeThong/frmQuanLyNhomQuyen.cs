@@ -24,9 +24,13 @@ namespace TSCD_GUI.HeThong
         Group objGroup = new Group();
         String function = "";
         bool working = false;
+        bool canAdd = false;
+        bool canEdit = false;
+        bool canDelete = false;
 
         public void loadData()
         {
+            checkPermission();
             editGUI("view");
             listGroup = Group.getAll();
             gridControlGroup.DataSource = listGroup;
@@ -34,6 +38,20 @@ namespace TSCD_GUI.HeThong
             {
                 btnSua_r.Enabled = false;
                 btnXoa_r.Enabled = false;
+            }
+        }
+
+        private void checkPermission()
+        {
+            try
+            {
+                canAdd = Permission.canAdd<Group>();
+                canEdit = Permission.canEdit<Group>(null);
+                canDelete = Permission.canDelete<Group>(null);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->checkPermission: " + ex.Message);
             }
         }
 
@@ -90,9 +108,9 @@ namespace TSCD_GUI.HeThong
 
         private void enableButton(bool _enable)
         {
-            btnThem_r.Enabled = _enable;
-            btnSua_r.Enabled = _enable;
-            btnXoa_r.Enabled = _enable;
+            btnThem_r.Enabled = _enable && canAdd;
+            btnSua_r.Enabled = _enable && canEdit;
+            btnXoa_r.Enabled = _enable && canDelete;
         }
 
         private void clearText()
