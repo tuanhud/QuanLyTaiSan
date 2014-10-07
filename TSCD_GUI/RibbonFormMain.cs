@@ -32,6 +32,7 @@ namespace TSCD_GUI
         ucQuanLyDonVi_TaiSan _ucQuanLyDonVi_TaiSan = null;
         ucPhanQuyen _ucPhanQuyen = null;
         ucThongKe _ucThongKe = null;
+        ucLogHeThong _ucLogHeThong = null;
 
         const String rbnPageViTri = "rbnPageViTri";
         const String rbnPagePhong = "rbnPagePhong";
@@ -41,6 +42,7 @@ namespace TSCD_GUI
         const String rbnPageDonVi_TaiSan = "rbnPageDonVi_TaiSan";
         const String rbnPagePhanQuyen = "rbnPagePhanQuyen";
         const String rbnPageThongKe = "rbnPageThongKe";
+        const String rbnPageLogHeThong = "rbnPageLogHeThong";
 
         ucCauHinh _ucCauHinh = null;
         ucGiaoDienvaNgonNgu _ucGiaoDienvaNgonNgu = null;
@@ -70,6 +72,7 @@ namespace TSCD_GUI
             _ucQuanLyDonVi_TaiSan = new ucQuanLyDonVi_TaiSan();
             _ucPhanQuyen = new ucPhanQuyen();
             _ucThongKe = new ucThongKe();
+            _ucLogHeThong = new ucLogHeThong();
 
             _ucQuanLyViTri.Dock = DockStyle.Fill;
             _ucQuanLyPhong.Dock = DockStyle.Fill;
@@ -79,6 +82,7 @@ namespace TSCD_GUI
             _ucQuanLyDonVi_TaiSan.Dock = DockStyle.Fill;
             _ucPhanQuyen.Dock = DockStyle.Fill;
             _ucThongKe.Dock = DockStyle.Fill;
+            _ucLogHeThong.Dock = DockStyle.Fill;
 
             addRibbonPage(_ucQuanLyViTri.getRibbonControl());
             addRibbonPage(_ucQuanLyPhong.getRibbonControl());
@@ -88,6 +92,7 @@ namespace TSCD_GUI
             addRibbonPage(_ucQuanLyDonVi_TaiSan.getRibbonControl());
             addRibbonPage(_ucPhanQuyen.getRibbonControl());
             addRibbonPage(_ucThongKe.getRibbonControl());
+            addRibbonPage(_ucLogHeThong.getRibbonControl());
 
             drawEnd = true;
 
@@ -157,6 +162,12 @@ namespace TSCD_GUI
                     _ucThongKe.loadData();
                     panelControlMain.Controls.Clear();
                     panelControlMain.Controls.Add(_ucThongKe);
+                }
+                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
+                {
+                    _ucLogHeThong.loadData();
+                    panelControlMain.Controls.Clear();
+                    panelControlMain.Controls.Add(_ucLogHeThong);
                 }
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }

@@ -22,5 +22,21 @@ namespace TSCD.Entities
         #region Dinh nghia
         
         #endregion
+        public static List<LogHeThong> getAllByDK(DateTime? tuNgay, DateTime? denNgay, int gioiHan)
+        {
+            try
+            {
+                List<LogHeThong> re = db.LOGHETHONGS.Where(c => (tuNgay == null || c.date_create >= tuNgay) && (denNgay == null || c.date_create <= denNgay)).OrderByDescending(c => c.date_create).Take(gioiHan).ToList();
+                //    (from c in db.LOGHETHONGS
+                //     where ((tuNgay == null || c.date_create >= tuNgay) && (denNgay == null || c.date_create <= denNgay))
+                //     select c).OrderByDescending(c => c.date_create).Take(gioiHan).ToList();
+                return re;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return new List<LogHeThong>();
+            }
+        }
     }
 }
