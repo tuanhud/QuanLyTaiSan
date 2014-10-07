@@ -300,6 +300,7 @@
             // 
             this.barBtnNhomQuyen.Caption = "Nhóm quyền";
             this.barBtnNhomQuyen.Id = 8;
+            this.barBtnNhomQuyen.LargeGlyph = global::TSCD_GUI.Properties.Resources.User_Group_icon;
             this.barBtnNhomQuyen.Name = "barBtnNhomQuyen";
             this.barBtnNhomQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnNhomQuyen_ItemClick);
             // 
@@ -324,7 +325,7 @@
             this.gridControlQTV.Location = new System.Drawing.Point(0, 0);
             this.gridControlQTV.MainView = this.gridViewQTV;
             this.gridControlQTV.Name = "gridControlQTV";
-            this.gridControlQTV.Size = new System.Drawing.Size(508, 352);
+            this.gridControlQTV.Size = new System.Drawing.Size(507, 352);
             this.gridControlQTV.TabIndex = 0;
             this.gridControlQTV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQTV});

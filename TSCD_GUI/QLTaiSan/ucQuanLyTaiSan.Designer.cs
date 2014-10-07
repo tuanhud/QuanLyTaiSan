@@ -94,7 +94,7 @@
             this.rbnControlTaiSan.Name = "rbnControlTaiSan";
             this.rbnControlTaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageTaiSan});
-            this.rbnControlTaiSan.Size = new System.Drawing.Size(858, 142);
+            this.rbnControlTaiSan.Size = new System.Drawing.Size(858, 145);
             // 
             // barBtnThemTaiSan
             // 
@@ -191,6 +191,7 @@
             this.rbnGroupBaoCao,
             this.rbnGroupLayout,
             this.rbnGroupImport});
+            this.rbnPageTaiSan.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageTaiSan.Image")));
             this.rbnPageTaiSan.Name = "rbnPageTaiSan";
             this.rbnPageTaiSan.Text = "Tài sản";
             // 
@@ -250,9 +251,9 @@
             this.groupControlMain.Controls.Add(this.btnThem_r);
             this.groupControlMain.Controls.Add(this.panelControlTimKiem);
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControlMain.Location = new System.Drawing.Point(0, 142);
+            this.groupControlMain.Location = new System.Drawing.Point(0, 145);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(858, 367);
+            this.groupControlMain.Size = new System.Drawing.Size(858, 364);
             this.groupControlMain.TabIndex = 3;
             this.groupControlMain.Text = "Tài sản";
             // 
@@ -261,7 +262,7 @@
             this.ucGridControlTaiSan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 84);
             this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
-            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(854, 281);
+            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(854, 278);
             this.ucGridControlTaiSan1.TabIndex = 8;
             // 
             // btnXoa_r
