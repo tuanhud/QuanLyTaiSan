@@ -40,7 +40,6 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                         ucTreeViTri.CreateTreeList();
                         ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                         ucTreeViTri.ASPxTreeList_ViTri.DataBind();
-                        //SearchFunction();
                         if (Request.QueryString["key"] != null)
                         {
                             DanhSach.Visible = true;
@@ -75,14 +74,14 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                                     if (obj != null)
                                     {
                                         ucDonViTaiSan_BreadCrumb.Label_Ten.Text = obj.ten;
-                                        Label_NgaySuDung.Text = obj.ngay.ToString();
+                                        Label_NgaySuDung.Text = ((DateTime)obj.ngay).ToString("d/M/yyyy");
                                         Label_SoHieu.Text = obj.sohieu_ct;
-                                        Label_NgayThang.Text = obj.ngay_ct.ToString();
+                                        Label_NgayThang.Text = ((DateTime)obj.ngay_ct).ToString("d/M/yyyy");
                                         Label_TenTaiSan.Text = obj.ten;
                                         Label_DonViTinh.Text = obj.donvitinh;
                                         Label_SoLuong.Text = obj.soluong.ToString();
-                                        Label_DonGia.Text = obj.dongia.ToString();
-                                        Label_ThanhTien.Text = obj.thanhtien.ToString();
+                                        Label_DonGia.Text = obj.dongia.ToString("#,# VNĐ");
+                                        Label_ThanhTien.Text = obj.thanhtien.ToString("#,# VNĐ");
                                         Label_NuocSanXuat.Text = obj.nuocsx;
                                         Label_NguonGoc.Text = obj.nguongoc;
                                         Label_TinhTrang.Text = obj.tinhtrang;
@@ -97,8 +96,11 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                                         Response.Redirect(Request.Url.AbsolutePath);
                                     }
                                 }
-                                Guid _id = GUID.From(node.GetValue("id"));
-                                LoadDanhSachPhong(listPhong.Where(phong => phong.loaiphong.id != null).ToList().Where(phong => phong.loaiphong.id == _id).ToList());
+                                Guid _iddonvi = GUID.From(node.GetValue("id"));
+                                TSCD.Entities.DonVi objDonVi = TSCD.Entities.DonVi.getById(_iddonvi);
+                                ucDonViTaiSan_BreadCrumb.Label_Ten.Text = objDonVi.ten;
+                                List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.Convert(objDonVi.getAllCTTaiSanRecursive());
+                                LoadDanhSachTaiSan(listCTTaiSan);
                             }
                             else
                                 Response.Redirect(Request.Url.AbsolutePath);
@@ -112,145 +114,30 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                     else
                     {
                         KhongCoDuLieu.Visible = true;
-                        ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có phòng";
+                        ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có tài sản";
                     }
                 }
                 else
                 {
                     KhongCoDuLieu.Visible = true;
-                    ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có phòng";
+                    ucDanger_KhongCoDuLieu.LabelInfo.Text = "Chưa có tài sản";
                 }
             }
         }
 
-        protected string ViTriCuaPhong(TSCD.Entities.Phong objPhong)
-        {
-            string _strtemp = "", _strCoSo, _strDay, _strTang;
-            _strCoSo = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten : "";
-            _strDay = objPhong.vitri.day != null ? objPhong.vitri.day.ten : "";
-            _strTang = objPhong.vitri.tang != null ? objPhong.vitri.tang.ten : "";
-
-            if (!_strCoSo.Equals(""))
-            {
-                _strtemp += _strCoSo;
-                if (!_strDay.Equals(""))
-                {
-                    _strtemp += " - " + _strDay;
-                    if (!_strTang.Equals(""))
-                    {
-                        _strtemp += " - " + _strTang;
-                    }
-                }
-            }
-            return _strtemp == "" ? "[Không rõ]" : _strtemp;
-        }
-
-        private void LoadDanhSachPhong(List<TSCD.Entities.Phong> list)
+        private void LoadDanhSachTaiSan(List<TSCD.DataFilter.TaiSanHienThi> list)
         {
             var bind = list.Select(item => new
             {
                 id = item.id,
                 ten = item.ten,
-                loai = item.loaiphong.ten,
+                loai = item.loaits,
                 url = StringHelper.AddParameter(new Uri(Request.Url.AbsoluteUri), "id", item.id.ToString()).ToString()
             }).ToList();
-            _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSource = bind;
-            _ucCollectionPager_DanhSachPhong.CollectionPager_Object.BindToControl = RepeaterDanhSachPhong;
-            RepeaterDanhSachPhong.DataSource = _ucCollectionPager_DanhSachPhong.CollectionPager_Object.DataSourcePaged;
-            RepeaterDanhSachPhong.DataBind();
-        }
-        private void SearchFunction()
-        {
-            if (Request.QueryString["Search"] != null)
-            {
-                Guid SearchID = Guid.Empty;
-                try
-                {
-                    SearchID = GUID.From(Request.QueryString["Search"]);
-                }
-                catch
-                {
-                    Response.Redirect(Request.Url.AbsolutePath);
-                }
-                TSCD.Entities.Phong PhongSearch = listPhong.Where(item => Object.Equals(item.id, SearchID)).FirstOrDefault();
-                if (PhongSearch != null)
-                {
-                    Guid nodeGuid = Guid.Empty;
-                    int type = 0;
-                    if (PhongSearch.vitri != null)
-                    {
-                        if (PhongSearch.vitri.tang != null)
-                        {
-                            nodeGuid = PhongSearch.vitri.tang.id;
-                            type = 3;
-                        }
-                        else if (PhongSearch.vitri.day != null)
-                        {
-                            nodeGuid = PhongSearch.vitri.day.id;
-                            type = 2;
-                        }
-                        else if (PhongSearch.vitri.coso != null)
-                        {
-                            nodeGuid = PhongSearch.vitri.coso.id;
-                            type = 1;
-                        }
-                        else
-                            Response.Redirect(Request.Url.AbsolutePath);
-                    }
-                    else
-                        Response.Redirect(Request.Url.AbsolutePath);
-                    DevExpress.Web.ASPxTreeList.TreeListNode node = ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), nodeGuid.ToString())).FirstOrDefault();
-                    if (node != null)
-                    {
-                        int Page = SearchPage(nodeGuid, PhongSearch.id, type);
-                        if (Page != -1)
-                        {
-                            Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), PhongSearch.id.ToString(), Page.ToString()));
-                        }
-                        else
-                        {
-                            Response.Redirect(Request.Url.AbsolutePath);
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect(Request.Url.AbsolutePath);
-                    }
-                }
-                else
-                    Response.Redirect(Request.Url.AbsolutePath);
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        private int SearchPage(Guid GuidViTri, Guid GuidPhong, int type)
-        {
-            int Page = -1;
-            List<TSCD.Entities.Phong> listTemp = new List<TSCD.Entities.Phong>();
-            switch (type)
-            {
-                case 1:
-                    listTemp = listPhong.Where(phong => phong.vitri.coso_id != null).ToList().Where(phong => phong.vitri.coso_id == GuidViTri).ToList();
-                    break;
-                case 2:
-                    listTemp = listPhong.Where(phong => phong.vitri.day_id != null).ToList().Where(phong => phong.vitri.day_id == GuidViTri).ToList();
-                    break;
-                case 3:
-                    listTemp = listPhong.Where(phong => phong.vitri.tang_id != null).ToList().Where(phong => phong.vitri.tang_id == GuidViTri).ToList();
-                    break;
-                default:
-                    Response.Redirect(Request.Url.AbsolutePath);
-                    break;
-            }
-            int index = listTemp.IndexOf(listTemp.Where(item => Object.Equals(item.id, GuidPhong)).FirstOrDefault());
-            if (index != -1)
-            {
-                Page = index / _ucCollectionPager_DanhSachPhong.CollectionPager_Object.PageSize + 1;
-            }
-            return Page;
+            _ucCollectionPager_DanhSachTaiSan.CollectionPager_Object.DataSource = bind;
+            _ucCollectionPager_DanhSachTaiSan.CollectionPager_Object.BindToControl = RepeaterDanhSachTaiSan;
+            RepeaterDanhSachTaiSan.DataSource = _ucCollectionPager_DanhSachTaiSan.CollectionPager_Object.DataSourcePaged;
+            RepeaterDanhSachTaiSan.DataBind();
         }
     }
 }
