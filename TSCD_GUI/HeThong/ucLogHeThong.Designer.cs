@@ -57,11 +57,11 @@
             // gridControlLogHeThong
             // 
             this.gridControlLogHeThong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlLogHeThong.Location = new System.Drawing.Point(0, 142);
+            this.gridControlLogHeThong.Location = new System.Drawing.Point(0, 145);
             this.gridControlLogHeThong.MainView = this.gridViewLogHeThong;
             this.gridControlLogHeThong.MenuManager = this.ribbonLogHeThong;
             this.gridControlLogHeThong.Name = "gridControlLogHeThong";
-            this.gridControlLogHeThong.Size = new System.Drawing.Size(850, 375);
+            this.gridControlLogHeThong.Size = new System.Drawing.Size(850, 372);
             this.gridControlLogHeThong.TabIndex = 3;
             this.gridControlLogHeThong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLogHeThong});
@@ -125,7 +125,7 @@
             this.repositoryItemDateEdit1,
             this.repositoryItemDateEdit2,
             this.repositoryItemSpinEdit1});
-            this.ribbonLogHeThong.Size = new System.Drawing.Size(850, 142);
+            this.ribbonLogHeThong.Size = new System.Drawing.Size(850, 145);
             // 
             // barEditTuNgay
             // 
@@ -200,6 +200,7 @@
             // 
             this.rbnPageLogHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLogHeThong});
+            this.rbnPageLogHeThong.Image = global::TSCD_GUI.Properties.Resources.log_icon_16;
             this.rbnPageLogHeThong.Name = "rbnPageLogHeThong";
             this.rbnPageLogHeThong.Text = "Log hệ thống";
             // 

@@ -39,11 +39,12 @@
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLog = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
@@ -53,7 +54,6 @@
             this.treeListDonVi = new DevExpress.XtraTreeList.TreeList();
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
-            this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi_TaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -83,7 +83,7 @@
             this.rbnControlDonVi_TaiSan.Name = "rbnControlDonVi_TaiSan";
             this.rbnControlDonVi_TaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageDonVi_TaiSan});
-            this.rbnControlDonVi_TaiSan.Size = new System.Drawing.Size(861, 142);
+            this.rbnControlDonVi_TaiSan.Size = new System.Drawing.Size(861, 145);
             // 
             // barBtnThemTaiSan
             // 
@@ -115,7 +115,7 @@
             this.barBtnXuatBaoCao.Id = 4;
             this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
             this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
-            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnIn_ItemClick);
+            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
             // 
             // barBtnChuyen
             // 
@@ -129,6 +129,7 @@
             // barBtnLog
             // 
             this.barBtnLog.Caption = "Log";
+            this.barBtnLog.Enabled = false;
             this.barBtnLog.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnLog.Glyph")));
             this.barBtnLog.Id = 6;
             this.barBtnLog.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnLog.LargeGlyph")));
@@ -162,6 +163,15 @@
             this.barBtnChuyenTinhTrang.Name = "barBtnChuyenTinhTrang";
             this.barBtnChuyenTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyenTinhTrang_ItemClick);
             // 
+            // barBtnThietKe
+            // 
+            this.barBtnThietKe.Caption = "Thiết kế";
+            this.barBtnThietKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.Glyph")));
+            this.barBtnThietKe.Id = 10;
+            this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
+            this.barBtnThietKe.Name = "barBtnThietKe";
+            this.barBtnThietKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThietKe_ItemClick);
+            // 
             // rbnPageDonVi_TaiSan
             // 
             this.rbnPageDonVi_TaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -171,6 +181,7 @@
             this.rbnGroupBaoCao,
             this.rbnGroupImport,
             this.rbnGroupLayout});
+            this.rbnPageDonVi_TaiSan.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageDonVi_TaiSan.Image")));
             this.rbnPageDonVi_TaiSan.Name = "rbnPageDonVi_TaiSan";
             this.rbnPageDonVi_TaiSan.Text = "Đơn vị - Tài sản";
             // 
@@ -182,14 +193,6 @@
             this.rbnGroupTaiSan.Name = "rbnGroupTaiSan";
             this.rbnGroupTaiSan.ShowCaptionButton = false;
             this.rbnGroupTaiSan.Text = "Tài sản";
-            // 
-            // rbnGroupBaoCao
-            // 
-            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
-            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnThietKe);
-            this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
-            this.rbnGroupBaoCao.ShowCaptionButton = false;
-            this.rbnGroupBaoCao.Text = "Báo cáo";
             // 
             // rbnGroupChuyen
             // 
@@ -205,6 +208,14 @@
             this.rbnGroupLog.Name = "rbnGroupLog";
             this.rbnGroupLog.ShowCaptionButton = false;
             this.rbnGroupLog.Text = "Log";
+            // 
+            // rbnGroupBaoCao
+            // 
+            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
+            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnThietKe);
+            this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
+            this.rbnGroupBaoCao.ShowCaptionButton = false;
+            this.rbnGroupBaoCao.Text = "Báo cáo";
             // 
             // rbnGroupImport
             // 
@@ -227,11 +238,11 @@
             this.navBarControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControlLeft.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroupDonVi});
-            this.navBarControlLeft.Location = new System.Drawing.Point(0, 142);
+            this.navBarControlLeft.Location = new System.Drawing.Point(0, 145);
             this.navBarControlLeft.Name = "navBarControlLeft";
             this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 307;
             this.navBarControlLeft.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControlLeft.Size = new System.Drawing.Size(307, 382);
+            this.navBarControlLeft.Size = new System.Drawing.Size(307, 379);
             this.navBarControlLeft.TabIndex = 1;
             this.navBarControlLeft.Text = "navBarControl1";
             // 
@@ -249,7 +260,7 @@
             this.navBarGroupControlContainerDonVi.Controls.Add(this.ucTreeDonVi1);
             this.navBarGroupControlContainerDonVi.Controls.Add(this.treeListDonVi);
             this.navBarGroupControlContainerDonVi.Name = "navBarGroupControlContainerDonVi";
-            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(305, 290);
+            this.navBarGroupControlContainerDonVi.Size = new System.Drawing.Size(307, 276);
             this.navBarGroupControlContainerDonVi.TabIndex = 0;
             // 
             // ucTreeDonVi1
@@ -258,7 +269,7 @@
             this.ucTreeDonVi1.DonVi = null;
             this.ucTreeDonVi1.Location = new System.Drawing.Point(0, 0);
             this.ucTreeDonVi1.Name = "ucTreeDonVi1";
-            this.ucTreeDonVi1.Size = new System.Drawing.Size(305, 290);
+            this.ucTreeDonVi1.Size = new System.Drawing.Size(307, 276);
             this.ucTreeDonVi1.TabIndex = 1;
             // 
             // treeListDonVi
@@ -266,7 +277,7 @@
             this.treeListDonVi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListDonVi.Location = new System.Drawing.Point(0, 0);
             this.treeListDonVi.Name = "treeListDonVi";
-            this.treeListDonVi.Size = new System.Drawing.Size(305, 290);
+            this.treeListDonVi.Size = new System.Drawing.Size(307, 276);
             this.treeListDonVi.TabIndex = 0;
             // 
             // groupControlMain
@@ -275,9 +286,9 @@
             this.groupControlMain.AppearanceCaption.Options.UseFont = true;
             this.groupControlMain.Controls.Add(this.ucGridControlTaiSan1);
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControlMain.Location = new System.Drawing.Point(307, 142);
+            this.groupControlMain.Location = new System.Drawing.Point(307, 145);
             this.groupControlMain.Name = "groupControlMain";
-            this.groupControlMain.Size = new System.Drawing.Size(554, 382);
+            this.groupControlMain.Size = new System.Drawing.Size(554, 379);
             this.groupControlMain.TabIndex = 5;
             this.groupControlMain.Text = "Tài sản";
             // 
@@ -286,16 +297,8 @@
             this.ucGridControlTaiSan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 24);
             this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
-            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 356);
+            this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 353);
             this.ucGridControlTaiSan1.TabIndex = 0;
-            // 
-            // barBtnThietKe
-            // 
-            this.barBtnThietKe.Caption = "Thiết kế";
-            this.barBtnThietKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.Glyph")));
-            this.barBtnThietKe.Id = 10;
-            this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
-            this.barBtnThietKe.Name = "barBtnThietKe";
             // 
             // ucQuanLyDonVi_TaiSan
             // 

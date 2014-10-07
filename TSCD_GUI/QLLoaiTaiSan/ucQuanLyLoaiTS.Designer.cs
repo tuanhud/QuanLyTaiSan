@@ -35,9 +35,11 @@
             this.barBtnSuaLoaiTS = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaLoaiTS = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDonViTinh = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupDonViTinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTS = new DevExpress.XtraTreeList.TreeList();
             this.colid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -67,8 +69,6 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -100,7 +100,7 @@
             this.rbnControlLoaiTS.Name = "rbnControlLoaiTS";
             this.rbnControlLoaiTS.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageLoaiTS});
-            this.rbnControlLoaiTS.Size = new System.Drawing.Size(850, 142);
+            this.rbnControlLoaiTS.Size = new System.Drawing.Size(850, 145);
             // 
             // barBtnThemLoaiTS
             // 
@@ -134,12 +134,22 @@
             this.barBtnDonViTinh.Name = "barBtnDonViTinh";
             this.barBtnDonViTinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDonViTinh_ItemClick);
             // 
+            // barBtnImport
+            // 
+            this.barBtnImport.Caption = "Import";
+            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
+            this.barBtnImport.Id = 5;
+            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
+            this.barBtnImport.Name = "barBtnImport";
+            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
+            // 
             // rbnPageLoaiTS
             // 
             this.rbnPageLoaiTS.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupLoaiTS,
             this.rbnGroupDonViTinh,
             this.rbnGroupImport});
+            this.rbnPageLoaiTS.Image = global::TSCD_GUI.Properties.Resources.category_item_select_icon;
             this.rbnPageLoaiTS.Name = "rbnPageLoaiTS";
             this.rbnPageLoaiTS.Text = "Loại tài sản";
             // 
@@ -159,17 +169,24 @@
             this.rbnGroupDonViTinh.ShowCaptionButton = false;
             this.rbnGroupDonViTinh.Text = "Đơn vị tính";
             // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
+            // 
             // splitContainerControlMain
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 142);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(0, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.treeListLoaiTS);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(850, 370);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(850, 367);
             this.splitContainerControlMain.SplitterPosition = 372;
             this.splitContainerControlMain.TabIndex = 1;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -192,7 +209,7 @@
             this.treeListLoaiTS.OptionsView.ShowAutoFilterRow = true;
             this.treeListLoaiTS.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
             this.treeListLoaiTS.ParentFieldName = "parent_id";
-            this.treeListLoaiTS.Size = new System.Drawing.Size(473, 370);
+            this.treeListLoaiTS.Size = new System.Drawing.Size(474, 367);
             this.treeListLoaiTS.TabIndex = 0;
             this.treeListLoaiTS.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTS_FocusedNodeChanged);
             // 
@@ -259,7 +276,7 @@
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(372, 370);
+            this.groupControlInfo.Size = new System.Drawing.Size(372, 367);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
@@ -460,22 +477,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // rbnGroupImport
-            // 
-            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
-            this.rbnGroupImport.Name = "rbnGroupImport";
-            this.rbnGroupImport.ShowCaptionButton = false;
-            this.rbnGroupImport.Text = "Import";
-            // 
-            // barBtnImport
-            // 
-            this.barBtnImport.Caption = "Import";
-            this.barBtnImport.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.Glyph")));
-            this.barBtnImport.Id = 5;
-            this.barBtnImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnImport.LargeGlyph")));
-            this.barBtnImport.Name = "barBtnImport";
-            this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
             // ucQuanLyLoaiTS
             // 

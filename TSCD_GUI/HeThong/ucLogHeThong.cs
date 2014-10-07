@@ -22,6 +22,7 @@ namespace TSCD_GUI.HeThong
 
         public void loadData()
         {
+            barBtnViewLog.Enabled = Permission.canView<LogHeThong>(null);
             gridControlLogHeThong.DataSource = null;
         }
 

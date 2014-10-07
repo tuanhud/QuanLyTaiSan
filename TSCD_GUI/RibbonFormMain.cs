@@ -19,6 +19,7 @@ using DevExpress.XtraEditors;
 using TSCD_GUI.HeThong;
 using TSCD_GUI.Libraries;
 using TSCD_GUI.ThongKe;
+using TSCD;
 
 namespace TSCD_GUI
 {
@@ -51,6 +52,7 @@ namespace TSCD_GUI
 
         bool drawEnd = false;
 
+
         public RibbonFormMain()
         {
             InitializeComponent();
@@ -59,6 +61,15 @@ namespace TSCD_GUI
 
         private void init()
         {
+            //Hiện tên người dùng
+            if (Global.current_quantrivien_login != null)
+            {
+                if (Global.current_quantrivien_login.hoten != null)
+                    barBtnUser.Caption = Global.current_quantrivien_login.hoten;
+                else
+                    barBtnUser.Caption = "[Unknown]";
+            }
+
             //Việt hóa
             DevExpress.XtraGrid.Localization.GridLocalizer.Active = new MyGridLocalizer();
             DevExpress.XtraTreeList.Localization.TreeListLocalizer.Active = new MyTreeListLocalizer();
@@ -95,7 +106,8 @@ namespace TSCD_GUI
             addRibbonPage(_ucLogHeThong.getRibbonControl());
 
             drawEnd = true;
-
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageLogHeThong);
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageViTri);
             backstageViewControl.SelectedTabIndex = 6;
             ThongTinPhanMem();
         }
@@ -277,6 +289,12 @@ namespace TSCD_GUI
             {
                 System.Console.WriteLine(this.Name + "->ribbonMain_SelectedPageChanging: " + ex.Message);
             }
+        }
+
+        private void barBtnUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
+            //frm.ShowDialog();
         }
     }
 }

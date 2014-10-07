@@ -35,13 +35,13 @@
             this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTKTaiSan = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
+            this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.rbnControlThongKe.Name = "rbnControlThongKe";
             this.rbnControlThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe});
-            this.rbnControlThongKe.Size = new System.Drawing.Size(847, 142);
+            this.rbnControlThongKe.Size = new System.Drawing.Size(847, 145);
             // 
             // barBtnTKPhong
             // 
@@ -82,6 +82,7 @@
             this.barBtnDefault.Id = 2;
             this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
             this.barBtnDefault.Name = "barBtnDefault";
+            this.barBtnDefault.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDefault_ItemClick);
             // 
             // barBtnExpandAll
             // 
@@ -111,12 +112,29 @@
             this.barBtnTKTaiSan.Name = "barBtnTKTaiSan";
             this.barBtnTKTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTaiSan_ItemClick);
             // 
+            // barBtnXuatBaoCao
+            // 
+            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
+            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
+            this.barBtnXuatBaoCao.Id = 6;
+            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
+            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
+            // 
+            // barBtnThietKe
+            // 
+            this.barBtnThietKe.Caption = "Thiết kế";
+            this.barBtnThietKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.Glyph")));
+            this.barBtnThietKe.Id = 7;
+            this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
+            this.barBtnThietKe.Name = "barBtnThietKe";
+            // 
             // rbnPageThongKe
             // 
             this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupThongKe,
             this.rbnGroupLayout,
             this.rbnGroupBaoCao});
+            this.rbnPageThongKe.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageThongKe.Image")));
             this.rbnPageThongKe.Name = "rbnPageThongKe";
             this.rbnPageThongKe.Text = "Thống kê";
             // 
@@ -137,15 +155,6 @@
             this.rbnGroupLayout.ShowCaptionButton = false;
             this.rbnGroupLayout.Text = "Layout";
             // 
-            // panelControlMain
-            // 
-            this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlMain.Location = new System.Drawing.Point(0, 142);
-            this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(847, 347);
-            this.panelControlMain.TabIndex = 1;
-            // 
             // rbnGroupBaoCao
             // 
             this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
@@ -154,21 +163,14 @@
             this.rbnGroupBaoCao.ShowCaptionButton = false;
             this.rbnGroupBaoCao.Text = "Báo cáo";
             // 
-            // barBtnXuatBaoCao
+            // panelControlMain
             // 
-            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
-            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
-            this.barBtnXuatBaoCao.Id = 6;
-            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
-            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
-            // 
-            // barBtnThietKe
-            // 
-            this.barBtnThietKe.Caption = "Thiết kế";
-            this.barBtnThietKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.Glyph")));
-            this.barBtnThietKe.Id = 7;
-            this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
-            this.barBtnThietKe.Name = "barBtnThietKe";
+            this.panelControlMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControlMain.Location = new System.Drawing.Point(0, 145);
+            this.panelControlMain.Name = "panelControlMain";
+            this.panelControlMain.Size = new System.Drawing.Size(847, 344);
+            this.panelControlMain.TabIndex = 1;
             // 
             // ucThongKe
             // 
