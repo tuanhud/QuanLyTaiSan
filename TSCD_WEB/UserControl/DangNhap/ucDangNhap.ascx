@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucDangNhap.ascx.cs" Inherits="TSCD_WEB.UserControl.DangNhap.ucDangNhap" %>
-<div class="panel panel-success">
+<div class="panel panel-success center">
     <div class="panel-heading">
         <h3 class="panel-title">Đăng nhập</h3>
     </div>

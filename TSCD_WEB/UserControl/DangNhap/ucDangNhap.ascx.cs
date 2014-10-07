@@ -16,26 +16,30 @@ namespace TSCD_WEB.UserControl.DangNhap
             {
                 try
                 {
-                    if (Request.Cookies["Username_Remember"] != null)
+                    if (Session["UserName"] == null)
                     {
-                        string Username = Request.Cookies["Username_Remember"].Value;
-                        string HashPassword = Request.Cookies["HashPassword_Remember"].Value;
-                        Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserName(Username, HashPassword);
-                        if (KiemTraDangNhap)
+                        if (Request.Cookies["Username_Remember"] != null)
                         {
-                            Session["Username"] = Username;
-                            QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
-                            TSCD.Global.current_quantrivien_login = _QuanTriVien;
-                            Session["HoTen"] = _QuanTriVien.hoten;
-                            Response.Redirect(Request.RawUrl);
-                        }
-                        else
-                        {
-                            Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(-1);
-                            Response.Cookies["HashPassword_Remember"].Expires = DateTime.Now.AddDays(-1);
-                            Session.Abandon();
-                            PanelThongBao.Visible = true;
-                            LabelThongBao.Text = "Tài khoản hoặc mật khẩu không chính xác";
+                            string Username = Request.Cookies["Username_Remember"].Value;
+                            string HashPassword = Request.Cookies["HashPassword_Remember"].Value;
+                            Boolean KiemTraDangNhap = QuanTriVien.checkLoginByUserName(Username, HashPassword);
+                            if (KiemTraDangNhap)
+                            {
+                                Session["Username"] = Username;
+                                QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
+                                TSCD.Global.current_quantrivien_login = _QuanTriVien;
+                                Session["HoTen"] = _QuanTriVien.hoten;
+                                if (!Response.IsRequestBeingRedirected)
+                                    Response.Redirect(Request.RawUrl);
+                            }
+                            else
+                            {
+                                Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(-1);
+                                Response.Cookies["HashPassword_Remember"].Expires = DateTime.Now.AddDays(-1);
+                                Session.Abandon();
+                                PanelThongBao.Visible = true;
+                                LabelThongBao.Text = "Tài khoản hoặc mật khẩu không chính xác";
+                            }
                         }
                     }
                 }
@@ -86,7 +90,8 @@ namespace TSCD_WEB.UserControl.DangNhap
                     QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
                     TSCD.Global.current_quantrivien_login = _QuanTriVien;
                     Session["HoTen"] = _QuanTriVien.hoten;
-                    Response.Redirect(Request.RawUrl);
+                    if (!Response.IsRequestBeingRedirected)
+                        Response.Redirect(Request.RawUrl);
                 }
                 else
                 {

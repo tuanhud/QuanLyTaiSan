@@ -55,6 +55,20 @@
                                 </ul>
                             </li>
                         </ul>
+                        <ul class="nav navbar-nav navbar-right" id="ulDangNhap" runat="server" visible="false">
+                            <li <%if (page.Equals("DANGNHAP")) Response.Write("class=\"active\""); %>><a href="DangNhap.aspx"><span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;Đăng nhập</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" id="ulAdmin" runat="server" visible="false">
+                            <li class="dropdown <%ParentClassActive("Admin");%>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;Chào <b id="UserName" runat="server"></b>
+                                    <asp:HiddenField ID="HiddenFieldUserName" ClientIDMode="Static" runat="server" />
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li <%if (page.Equals("THONGTINCANHAN")) Response.Write("class=\"active\""); %>><a href="ThongTinCaNhan.aspx"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Thông tin cá nhân</a></li>
+                                    <li><a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Thoát</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -7,28 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB.UserControl.DonViTaiSan {
+namespace TSCD_WEB {
     
     
-    public partial class ucDonViTaiSan_Web {
+    public partial class ThongTinCaNhan {
         
         /// <summary>
-        /// ucDonViTaiSan_BreadCrumb control.
+        /// PanelDangNhap control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.DonViTaiSan.ucDonViTaiSan_BreadCrumb ucDonViTaiSan_BreadCrumb;
-        
-        /// <summary>
-        /// DangNhap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow DangNhap;
+        protected global::System.Web.UI.WebControls.Panel PanelDangNhap;
         
         /// <summary>
         /// ucDangNhap control.
@@ -40,282 +31,246 @@ namespace TSCD_WEB.UserControl.DonViTaiSan {
         protected global::TSCD_WEB.UserControl.DangNhap.ucDangNhap ucDangNhap;
         
         /// <summary>
-        /// KhongCoDuLieu control.
+        /// PanelThongBaoThanhCong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow KhongCoDuLieu;
+        protected global::System.Web.UI.WebControls.Panel PanelThongBaoThanhCong;
         
         /// <summary>
-        /// ucDanger_KhongCoDuLieu control.
+        /// LabelThongBaoThanhCong control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.Alert.ucDanger ucDanger_KhongCoDuLieu;
+        protected global::System.Web.UI.WebControls.Label LabelThongBaoThanhCong;
         
         /// <summary>
-        /// infotr control.
+        /// PanelThongBaoThatBai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow infotr;
+        protected global::System.Web.UI.WebControls.Panel PanelThongBaoThatBai;
         
         /// <summary>
-        /// _ucTreeViTri control.
+        /// LabelThongBaoThatBai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.TreeViTri.ucTreeViTri _ucTreeViTri;
+        protected global::System.Web.UI.WebControls.Label LabelThongBaoThatBai;
         
         /// <summary>
-        /// ChuaChonViTri control.
+        /// PanelEditThongTinCaNhan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell ChuaChonViTri;
+        protected global::System.Web.UI.WebControls.Panel PanelEditThongTinCaNhan;
         
         /// <summary>
-        /// ucWarning_ChuaChon control.
+        /// LabelHoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TSCD_WEB.UserControl.Alert.ucWarning ucWarning_ChuaChon;
+        protected global::System.Web.UI.WebControls.Label LabelHoTen;
         
         /// <summary>
-        /// infotd control.
+        /// TextBoxHoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell infotd;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxHoTen;
         
         /// <summary>
-        /// ThongTinPhong control.
+        /// TextBoxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ThongTinPhong;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
         
         /// <summary>
-        /// Label_ThongTin control.
+        /// DropDownListNhom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThongTin;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListNhom;
         
         /// <summary>
-        /// ASPxDropDownEdit control.
+        /// TextBoxTaiKhoan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxDropDownEdit ASPxDropDownEdit;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTaiKhoan;
         
         /// <summary>
-        /// HiddenField control.
+        /// TextBoxMatKhauMoi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMatKhauMoi;
         
         /// <summary>
-        /// ASPxGridView control.
+        /// TextBoxDonVi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView ASPxGridView;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDonVi;
         
         /// <summary>
-        /// thongtin control.
+        /// TextBoxGhiChu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl thongtin;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxGhiChu;
         
         /// <summary>
-        /// Label_LoaiTaiSan control.
+        /// ButtonLuuThongTinCaNhan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_LoaiTaiSan;
+        protected global::System.Web.UI.WebControls.Button ButtonLuuThongTinCaNhan;
         
         /// <summary>
-        /// Label_NgaySuDung control.
+        /// ButtonHuy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NgaySuDung;
+        protected global::System.Web.UI.WebControls.Button ButtonHuy;
         
         /// <summary>
-        /// Label_SoHieu control.
+        /// PanelThongTinCaNhan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_SoHieu;
+        protected global::System.Web.UI.WebControls.Panel PanelThongTinCaNhan;
         
         /// <summary>
-        /// Label_NgayThang control.
+        /// LinkButtonEditThongTinCaNhan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NgayThang;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonEditThongTinCaNhan;
         
         /// <summary>
-        /// Label_TenTSCD control.
+        /// LabelHoTens control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_TenTSCD;
+        protected global::System.Web.UI.WebControls.Label LabelHoTens;
         
         /// <summary>
-        /// Label_DonVi control.
+        /// LabelEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DonVi;
+        protected global::System.Web.UI.WebControls.Label LabelEmail;
         
         /// <summary>
-        /// Label_SoLuong control.
+        /// HiddenFieldIDNhom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_SoLuong;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldIDNhom;
         
         /// <summary>
-        /// Label_DonGia control.
+        /// LabelNhom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DonGia;
+        protected global::System.Web.UI.WebControls.Label LabelNhom;
         
         /// <summary>
-        /// Label_ThanhTien control.
+        /// LabelTaiKhoan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ThanhTien;
+        protected global::System.Web.UI.WebControls.Label LabelTaiKhoan;
         
         /// <summary>
-        /// Label_NuocSanXuat control.
+        /// LabelKhoa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NuocSanXuat;
+        protected global::System.Web.UI.WebControls.Label LabelKhoa;
         
         /// <summary>
-        /// Label_NguonGoc control.
+        /// LabelNgayTao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NguonGoc;
+        protected global::System.Web.UI.WebControls.Label LabelNgayTao;
         
         /// <summary>
-        /// Label_TinhTrang control.
+        /// LabelNgayChinhSua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_TinhTrang;
+        protected global::System.Web.UI.WebControls.Label LabelNgayChinhSua;
         
         /// <summary>
-        /// Label_Phong control.
+        /// LabelGhiChu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Phong;
+        protected global::System.Web.UI.WebControls.Label LabelGhiChu;
         
         /// <summary>
-        /// Label_ViTri control.
+        /// ucFooter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_ViTri;
-        
-        /// <summary>
-        /// Label_DonViQuanLy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DonViQuanLy;
-        
-        /// <summary>
-        /// Label_DonViSuDung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_DonViSuDung;
-        
-        /// <summary>
-        /// Label_GhiChu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_GhiChu;
-        
-        /// <summary>
-        /// PanelChangePage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelChangePage;
+        protected global::TSCD_WEB.UserControl.Footer.ucFooter ucFooter;
     }
 }

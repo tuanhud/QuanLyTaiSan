@@ -8,11 +8,18 @@
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Src="~/UserControl/DangNhap/ucDangNhap.ascx" TagPrefix="uc" TagName="ucDangNhap" %>
+
 
 <uc:ucDonViTaiSan_BreadCrumb runat="server" ID="ucDonViTaiSan_BreadCrumb" />
 
 <table class="table largetable">
     <tbody>
+        <tr id="DangNhap" runat="server" visible="false">
+            <td>
+                <uc:ucDangNhap runat="server" ID="ucDangNhap"/>
+            </td>
+        </tr>
         <tr id="KhongCoDuLieu" runat="server" visible="false">
             <td>
                 <uc:ucDanger runat="server" ID="ucDanger_KhongCoDuLieu" />

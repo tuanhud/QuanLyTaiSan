@@ -163,6 +163,7 @@
     <Content Include="Scripts\scriptgates.js" />
     <Content Include="Scripts\sha1.js" />
     <Content Include="TaiSan.aspx" />
+    <Content Include="ThongTinCaNhan.aspx" />
     <Content Include="UserControl\Alert\ucDanger.ascx" />
     <Content Include="UserControl\Alert\ucInfo.ascx" />
     <Content Include="UserControl\Alert\ucSuccess.ascx" />
@@ -252,6 +253,13 @@
     </Compile>
     <Compile Include="TaiSan.aspx.designer.cs">
       <DependentUpon>TaiSan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThongTinCaNhan.aspx.designer.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Alert\ucDanger.ascx.cs">
       <DependentUpon>ucDanger.ascx</DependentUpon>
