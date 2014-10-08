@@ -110,6 +110,8 @@
             this.bandedGridViewTSKemTheo.OptionsBehavior.Editable = false;
             this.bandedGridViewTSKemTheo.OptionsBehavior.ReadOnly = true;
             this.bandedGridViewTSKemTheo.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.bandedGridViewTSKemTheo.OptionsView.ColumnAutoWidth = false;
+            this.bandedGridViewTSKemTheo.OptionsView.RowAutoHeight = true;
             this.bandedGridViewTSKemTheo.OptionsView.ShowGroupPanel = false;
             this.bandedGridViewTSKemTheo.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai2, DevExpress.Data.ColumnSortOrder.Ascending)});
@@ -140,7 +142,7 @@
             this.gridBand2.Columns.Add(this.colngay_ct2);
             this.gridBand2.Name = "gridBand2";
             this.gridBand2.VisibleIndex = 1;
-            this.gridBand2.Width = 175;
+            this.gridBand2.Width = 155;
             // 
             // colsohieu_ct2
             // 
@@ -150,7 +152,6 @@
             this.colsohieu_ct2.FieldName = "sohieu_ct";
             this.colsohieu_ct2.Name = "colsohieu_ct2";
             this.colsohieu_ct2.Visible = true;
-            this.colsohieu_ct2.Width = 85;
             // 
             // colngay_ct2
             // 
@@ -160,7 +161,7 @@
             this.colngay_ct2.FieldName = "ngay_ct";
             this.colngay_ct2.Name = "colngay_ct2";
             this.colngay_ct2.Visible = true;
-            this.colngay_ct2.Width = 90;
+            this.colngay_ct2.Width = 80;
             // 
             // gridBand3
             // 
@@ -179,7 +180,7 @@
             this.gridBand3.Columns.Add(this.colghichu2);
             this.gridBand3.Name = "gridBand3";
             this.gridBand3.VisibleIndex = 2;
-            this.gridBand3.Width = 815;
+            this.gridBand3.Width = 1037;
             // 
             // colten2
             // 
@@ -189,7 +190,7 @@
             this.colten2.FieldName = "ten";
             this.colten2.Name = "colten2";
             this.colten2.Visible = true;
-            this.colten2.Width = 128;
+            this.colten2.Width = 155;
             // 
             // coldonvitinh2
             // 
@@ -199,7 +200,7 @@
             this.coldonvitinh2.FieldName = "donvitinh";
             this.coldonvitinh2.Name = "coldonvitinh2";
             this.coldonvitinh2.Visible = true;
-            this.coldonvitinh2.Width = 36;
+            this.coldonvitinh2.Width = 65;
             // 
             // colsoluong2
             // 
@@ -209,7 +210,7 @@
             this.colsoluong2.FieldName = "soluong";
             this.colsoluong2.Name = "colsoluong2";
             this.colsoluong2.Visible = true;
-            this.colsoluong2.Width = 41;
+            this.colsoluong2.Width = 53;
             // 
             // coldongia2
             // 
@@ -219,7 +220,7 @@
             this.coldongia2.FieldName = "dongia";
             this.coldongia2.Name = "coldongia2";
             this.coldongia2.Visible = true;
-            this.coldongia2.Width = 46;
+            this.coldongia2.Width = 63;
             // 
             // colthanhtien2
             // 
@@ -229,7 +230,7 @@
             this.colthanhtien2.FieldName = "thanhtien";
             this.colthanhtien2.Name = "colthanhtien2";
             this.colthanhtien2.Visible = true;
-            this.colthanhtien2.Width = 50;
+            this.colthanhtien2.Width = 70;
             // 
             // colnguongoc2
             // 
@@ -239,7 +240,7 @@
             this.colnguongoc2.FieldName = "nguongoc";
             this.colnguongoc2.Name = "colnguongoc2";
             this.colnguongoc2.Visible = true;
-            this.colnguongoc2.Width = 58;
+            this.colnguongoc2.Width = 69;
             // 
             // colloai2
             // 
@@ -258,7 +259,7 @@
             this.coltinhtrang2.FieldName = "tinhtrang";
             this.coltinhtrang2.Name = "coltinhtrang2";
             this.coltinhtrang2.Visible = true;
-            this.coltinhtrang2.Width = 71;
+            this.coltinhtrang2.Width = 85;
             // 
             // colphong2
             // 
@@ -266,6 +267,7 @@
             this.colphong2.FieldName = "phong";
             this.colphong2.Name = "colphong2";
             this.colphong2.Visible = true;
+            this.colphong2.Width = 90;
             // 
             // colvitri2
             // 
@@ -273,6 +275,7 @@
             this.colvitri2.FieldName = "vitri";
             this.colvitri2.Name = "colvitri2";
             this.colvitri2.Visible = true;
+            this.colvitri2.Width = 90;
             // 
             // coldvquanly2
             // 
@@ -280,6 +283,7 @@
             this.coldvquanly2.FieldName = "dvquanly";
             this.coldvquanly2.Name = "coldvquanly2";
             this.coldvquanly2.Visible = true;
+            this.coldvquanly2.Width = 90;
             // 
             // coldvsudung2
             // 
@@ -287,6 +291,7 @@
             this.coldvsudung2.FieldName = "dvsudung";
             this.coldvsudung2.Name = "coldvsudung2";
             this.coldvsudung2.Visible = true;
+            this.coldvsudung2.Width = 94;
             // 
             // colghichu2
             // 
@@ -296,7 +301,7 @@
             this.colghichu2.FieldName = "ghichu";
             this.colghichu2.Name = "colghichu2";
             this.colghichu2.Visible = true;
-            this.colghichu2.Width = 85;
+            this.colghichu2.Width = 113;
             // 
             // colid2
             // 
@@ -367,7 +372,7 @@
             this.gridBandngay.Columns.Add(this.colngay);
             this.gridBandngay.Name = "gridBandngay";
             this.gridBandngay.VisibleIndex = 0;
-            this.gridBandngay.Width = 87;
+            this.gridBandngay.Width = 79;
             // 
             // colngay
             // 
@@ -377,7 +382,7 @@
             this.colngay.FieldName = "ngay";
             this.colngay.Name = "colngay";
             this.colngay.Visible = true;
-            this.colngay.Width = 87;
+            this.colngay.Width = 79;
             // 
             // gridBandchungtu
             // 
@@ -388,7 +393,7 @@
             this.gridBandchungtu.Columns.Add(this.colngayct);
             this.gridBandchungtu.Name = "gridBandchungtu";
             this.gridBandchungtu.VisibleIndex = 1;
-            this.gridBandchungtu.Width = 175;
+            this.gridBandchungtu.Width = 134;
             // 
             // colsohieuct
             // 
@@ -398,7 +403,7 @@
             this.colsohieuct.FieldName = "sohieu_ct";
             this.colsohieuct.Name = "colsohieuct";
             this.colsohieuct.Visible = true;
-            this.colsohieuct.Width = 85;
+            this.colsohieuct.Width = 61;
             // 
             // colngayct
             // 
@@ -408,7 +413,7 @@
             this.colngayct.FieldName = "ngay_ct";
             this.colngayct.Name = "colngayct";
             this.colngayct.Visible = true;
-            this.colngayct.Width = 90;
+            this.colngayct.Width = 73;
             // 
             // gridBandtaisan
             // 
@@ -428,7 +433,7 @@
             this.gridBandtaisan.Columns.Add(this.colghichu);
             this.gridBandtaisan.Name = "gridBandtaisan";
             this.gridBandtaisan.VisibleIndex = 2;
-            this.gridBandtaisan.Width = 890;
+            this.gridBandtaisan.Width = 1037;
             // 
             // colten
             // 
@@ -439,7 +444,7 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.Visible = true;
-            this.colten.Width = 128;
+            this.colten.Width = 142;
             // 
             // repositoryMemoTen
             // 
@@ -453,7 +458,7 @@
             this.coldonvitinh.FieldName = "donvitinh";
             this.coldonvitinh.Name = "coldonvitinh";
             this.coldonvitinh.Visible = true;
-            this.coldonvitinh.Width = 36;
+            this.coldonvitinh.Width = 73;
             // 
             // colsoluong
             // 
@@ -463,7 +468,7 @@
             this.colsoluong.FieldName = "soluong";
             this.colsoluong.Name = "colsoluong";
             this.colsoluong.Visible = true;
-            this.colsoluong.Width = 41;
+            this.colsoluong.Width = 55;
             // 
             // coldongia
             // 
@@ -483,7 +488,7 @@
             this.colthanhtien.FieldName = "thanhtien";
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.Visible = true;
-            this.colthanhtien.Width = 50;
+            this.colthanhtien.Width = 70;
             // 
             // colnsx
             // 
@@ -491,6 +496,7 @@
             this.colnsx.FieldName = "nuocsx";
             this.colnsx.Name = "colnsx";
             this.colnsx.Visible = true;
+            this.colnsx.Width = 86;
             // 
             // colnguongoc
             // 
@@ -500,7 +506,7 @@
             this.colnguongoc.FieldName = "nguongoc";
             this.colnguongoc.Name = "colnguongoc";
             this.colnguongoc.Visible = true;
-            this.colnguongoc.Width = 58;
+            this.colnguongoc.Width = 72;
             // 
             // colloai
             // 
@@ -519,7 +525,7 @@
             this.coltinhtrang.FieldName = "tinhtrang";
             this.coltinhtrang.Name = "coltinhtrang";
             this.coltinhtrang.Visible = true;
-            this.coltinhtrang.Width = 71;
+            this.coltinhtrang.Width = 66;
             // 
             // colphong
             // 
@@ -527,6 +533,7 @@
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
             this.colphong.Visible = true;
+            this.colphong.Width = 70;
             // 
             // colvitri
             // 
@@ -534,6 +541,7 @@
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
             this.colvitri.Visible = true;
+            this.colvitri.Width = 70;
             // 
             // coldvquanly
             // 
@@ -541,6 +549,7 @@
             this.coldvquanly.FieldName = "dvquanly";
             this.coldvquanly.Name = "coldvquanly";
             this.coldvquanly.Visible = true;
+            this.coldvquanly.Width = 92;
             // 
             // coldvsudung
             // 
@@ -548,6 +557,7 @@
             this.coldvsudung.FieldName = "dvsudung";
             this.coldvsudung.Name = "coldvsudung";
             this.coldvsudung.Visible = true;
+            this.coldvsudung.Width = 95;
             // 
             // colghichu
             // 
@@ -557,7 +567,7 @@
             this.colghichu.FieldName = "ghichu";
             this.colghichu.Name = "colghichu";
             this.colghichu.Visible = true;
-            this.colghichu.Width = 85;
+            this.colghichu.Width = 100;
             // 
             // colid
             // 
