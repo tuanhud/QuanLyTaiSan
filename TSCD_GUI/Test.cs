@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SHARED.Libraries;
 using TSCD.Entities;
 
 namespace TSCD_GUI
@@ -17,7 +18,7 @@ namespace TSCD_GUI
         {
             InitializeComponent();
         }
-
+        private ChungTu ct= null;
         private void button1_Click(object sender, EventArgs e)
         {
             //Chọn files
@@ -26,7 +27,9 @@ namespace TSCD_GUI
             x.ShowDialog();
             string[] file_names = x.FileNames;
             //Tạo chứng từ mới
-            ChungTu ct = new ChungTu();
+            ct = new ChungTu();
+            ct.ngay = ServerTimeHelper.getNow();
+            ct.sohieu = "mã chứng từ";
             //Gán attchment
             foreach (string file_name in file_names)
             {
@@ -38,8 +41,8 @@ namespace TSCD_GUI
             ct.onUploadProgress += new SHARED.Libraries.FTPHelper.UploadProgress(this.onChungTu_Uploading);
             // do in background
             var taskA = new Task(() => ct.upload());
-            taskA.ContinueWith(new Action<Task>(this.onUploadFinish));
             taskA.Start();
+            taskA.ContinueWith(new Action<Task>(this.onUploadFinish));
 
         }
         private delegate void SetLabelProgress(string text);
@@ -61,7 +64,9 @@ namespace TSCD_GUI
 
         private void onUploadFinish(Task obj)
         {
-            MessageBox.Show("Upload finished!");
+            ct.add();
+            DBInstance.commit();
+            MessageBox.Show("Upload and add to DB finished!");
         }
 
         private void onChungTu_Uploading(long current, long total)

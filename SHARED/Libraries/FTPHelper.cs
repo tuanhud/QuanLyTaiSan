@@ -329,7 +329,7 @@ namespace SHARED.Libraries
         {
             get
             {
-                return 100*1024;
+                return 10*1024;
             }
         }
     }
