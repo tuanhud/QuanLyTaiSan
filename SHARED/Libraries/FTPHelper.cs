@@ -277,27 +277,39 @@ namespace SHARED.Libraries
 
         #endregion
 
-        public static int FTPUpload(String username, String password, String filePath, String fileName, String FTPAddress)
+        public delegate void UploadProgress(long current_kilobytes, long total_kilobytes);
+        public event UploadProgress onUploadProgress;
+        public int uploadFile(String local_abs_path, String ftp_abs_path, String username, String password)
         {
             try
             {
-                FtpWebRequest requestFTPUploader = (FtpWebRequest)WebRequest.Create(FTPAddress + fileName);
+                FtpWebRequest requestFTPUploader = (FtpWebRequest)WebRequest.Create(ftp_abs_path);
                 requestFTPUploader.Credentials = new NetworkCredential(username, password);
                 requestFTPUploader.Method = WebRequestMethods.Ftp.UploadFile;
 
-                FileInfo fileInfo = new FileInfo(filePath);
+                FileInfo fileInfo = new FileInfo(local_abs_path);
+                
+                long kb_size = fileInfo.Length / 1024;
+
                 FileStream fileStream = fileInfo.OpenRead();
 
-                int bufferLength = 2048;
+                int bufferLength = UPLOAD_BUFFER;
                 byte[] buffer = new byte[bufferLength];
 
                 Stream uploadStream = requestFTPUploader.GetRequestStream();
                 int contentLength = fileStream.Read(buffer, 0, bufferLength);
 
+                int count = 0;
                 while (contentLength != 0)
                 {
                     uploadStream.Write(buffer, 0, contentLength);
                     contentLength = fileStream.Read(buffer, 0, bufferLength);
+                    //progressing
+                    count++;
+                    if(onUploadProgress!=null)
+                    {
+                        onUploadProgress((count*bufferLength)/1024, kb_size);
+                    }
                 }
 
                 uploadStream.Close();
@@ -306,9 +318,18 @@ namespace SHARED.Libraries
                 requestFTPUploader = null;
                 return 1;
             }
-            catch
+            catch(Exception e)
             {
+                Debug.WriteLine(e);
                 return -1;
+            }
+        }
+
+        public static int UPLOAD_BUFFER
+        {
+            get
+            {
+                return 100*1024;
             }
         }
     }

@@ -28,19 +28,20 @@ namespace TSCD_GUI
             DevExpress.Skins.SkinManager.EnableFormSkins();
 
             //PRECONFIG
-            SHARED.Libraries.Debug.MODE = TSCD.Global.local_setting.debug_mode;
-            if (Global.working_database.isReady() > 0)
-            {
-                Application.Run(new Login());
-            }
-            else
-            {
-                Application.Run(new Setting());
-            }
+            //SHARED.Libraries.Debug.MODE = TSCD.Global.local_setting.debug_mode;
+            //if (Global.working_database.isReady() > 0)
+            //{
+            //    Application.Run(new Login());
+            //}
+            //else
+            //{
+            //    Application.Run(new Setting());
+            //}
+
             //Application.Run(new Form1());
             //Application.Run(new frmHinhAnh());
             //Application.Run(new frmThuVienHinhAnh());
-            //Application.Run(new Test());
+            Application.Run(new Test());
             //Application.Run(new Setting());
             //Application.Run(new frmSuaPermission(new List<Permission>()));
             //Application.Run(new frmMain());

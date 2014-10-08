@@ -348,6 +348,12 @@
     <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.Designer.cs">
       <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitForm_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,6 +557,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.resx">
       <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm_Report.resx">
       <DependentUpon>WaitForm_Report.cs</DependentUpon>

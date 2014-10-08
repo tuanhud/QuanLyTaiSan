@@ -13,11 +13,27 @@ namespace SHARED.Libraries
         /// <summary>
         /// Kiem tra file co ton tai
         /// </summary>
-        /// <param name="abs_path"></param>
+        /// <param name="local_abs_path"></param>
         /// <returns></returns>
-        public static Boolean isExist(String abs_path)
+        public static Boolean isExist(String local_abs_path)
         {
-            return File.Exists(abs_path);
+            return File.Exists(local_abs_path);
+        }
+        /// <summary>
+        /// Lấy tên file, bao gồm extension
+        /// </summary>
+        /// <param name="local_abs_path"></param>
+        /// <returns></returns>
+        public static String getFileName(String local_abs_path)
+        {
+            try
+            {
+                return Path.GetFileName(local_abs_path);
+            }catch(Exception e)
+            {
+                Debug.WriteLine(e);
+                return "";
+            }
         }
         /// <summary>
         /// vd: C:\Users\quocdunginfo\Documents\GitHub\QuanLyTaiSan\QuanLyTaiSan\bin\Debug,
@@ -84,6 +100,18 @@ namespace SHARED.Libraries
             {
                 Debug.WriteLine(e);
                 return -1;
+            }
+        }
+
+        public static long getFileSizeKilobyte(string LOCAL_FILE_PATH)
+        {
+            try
+            {
+                return (new FileInfo(LOCAL_FILE_PATH)).Length / 1024;
+            }catch(Exception e)
+            {
+                Debug.WriteLine(e);
+                return 0;
             }
         }
     }
