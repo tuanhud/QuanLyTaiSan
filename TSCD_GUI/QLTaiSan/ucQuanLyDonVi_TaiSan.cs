@@ -177,18 +177,26 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            splashScreenManager_Report.ShowWaitForm();
+            splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+            splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
             TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan(TaiSan_ThongKe.getAll(null, null, obj), obj);
             ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
             designTool.ShowDesignerDialog();
+            splashScreenManager_Report.CloseWaitForm();
             ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
             printTool.ShowPreviewDialog();
         }
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            splashScreenManager_Report.ShowWaitForm();
+            splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+            splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
             TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan(TaiSan_ThongKe.getAll(null, null, obj), obj);
             ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
             printTool.ShowPreviewDialog();
+            splashScreenManager_Report.CloseWaitForm();
         }
     }
 }
