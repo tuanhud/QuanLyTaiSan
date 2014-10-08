@@ -39,9 +39,9 @@ namespace TSCD_GUI.QLTaiSan
         private void setData()
         {
             dateNgayGhi.EditValue = objCTTaiSan.ngay;
-            dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
+            dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
             lookUpTinhTrang.EditValue = objCTTaiSan.tinhtrang_id;
-            txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
+            txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
             txtSoLuong.Properties.MinValue = 0;
             txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
             txtSoLuong.EditValue = objCTTaiSan.soluong;
@@ -58,7 +58,7 @@ namespace TSCD_GUI.QLTaiSan
                 int soLuong = Convert.ToInt32(txtSoLuong.EditValue);
                 TinhTrang tinhTrang = TinhTrang.getById(lookUpTinhTrang.EditValue);
                 String ghiChu = txtGhiChu.Text;
-                int re = objCTTaiSan.chuyenTinhTrang(ngay_CT, soHieu_CT, tinhTrang);
+                int re = 1;// objCTTaiSan.chuyenTinhTrang(ngay_CT, soHieu_CT, tinhTrang);
                 if (re > 0 && DBInstance.commit() > 0)
                 {
                     XtraMessageBox.Show("Chuyển tình trạng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

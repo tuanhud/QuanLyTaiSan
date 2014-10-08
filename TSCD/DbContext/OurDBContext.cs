@@ -109,6 +109,8 @@ namespace TSCD.Entities
         public DbSet<LogTangGiamTaiSan> LOGTANGGIAMTAISANS { get; set; }
         public DbSet<LogSuaTaiSan> LOGSUATAISANS { get; set; }
         public DbSet<DonViTinh> DONVITINHS { get; set; }
+        public DbSet<ChungTu> CHUNGTUS { get; set; }
+        public DbSet<Attachment> ATTACHMENTS { get; set; }
         #endregion
 
 
@@ -155,6 +157,9 @@ namespace TSCD.Entities
             "DONVITINHS",//UNDEPENTDENT
                 "LOAITAISANS",
                     "TAISANS",
+            "ATTACHMENTS",//UNDEPENTDENT
+            "CHUNGTUS",//UNDEPENTDENT
+            "CHUNGTU_ATTACHMENT",
             "LOAIDONVIS",//UNDEPENDENT
                 "DONVIS",
                     "CTTAISANS",
@@ -329,6 +334,16 @@ namespace TSCD.Entities
             {
                 x.MapInheritedProperties();
             });
+
+            modelBuilder.Entity<ChungTu>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
+
+            modelBuilder.Entity<Attachment>().Map(x =>
+            {
+                x.MapInheritedProperties();
+            });
             /*
              * Double 1-n relationship CHUTHE~CTTAISAN, CHUTHE~LOGTAISAN
              */
@@ -348,6 +363,21 @@ namespace TSCD.Entities
             modelBuilder.Entity<LogTangGiamTaiSan>()
             .HasOptional(a => a.donvisudung)
             .WithMany(b => b.logtaisan_dangsudungs);
+
+            /*
+             * n-n relationship CHUNGTU-ATTACHMENT,
+             * Định nghĩa chi tiết
+             */
+            modelBuilder.Entity<ChungTu>().
+            HasMany(c => c.attachments).
+            WithMany(p => p.chungtus).
+            Map(
+                m =>
+                {
+                    m.MapLeftKey("id1");
+                    m.MapRightKey("id2");
+                    m.ToTable("CHUNGTU_ATTACHMENT");
+                });
 
             /*
              * n-n relationship DONVI~PERMISSION,

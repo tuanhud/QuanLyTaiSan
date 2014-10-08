@@ -57,8 +57,8 @@ namespace TSCD.DataFilter
             {
                 id = x.id,
                 ngay = x.ngay,
-                sohieu_ct = x.chungtu_sohieu,
-                ngay_ct = x.chungtu_ngay,
+                sohieu_ct = x.chungtu.sohieu,
+                ngay_ct = x.chungtu.ngay,
                 ten = x.taisan.ten,
                 loaits = x.taisan.loaitaisan.ten,
                 donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
@@ -114,8 +114,8 @@ namespace TSCD.DataFilter
             {
                 id = x.id,
                 ngay = x.ngay,
-                sohieu_ct = x.chungtu_sohieu,
-                ngay_ct = x.chungtu_ngay,
+                sohieu_ct = x.chungtu.sohieu,
+                ngay_ct = x.chungtu.ngay,
                 ten = x.taisan.ten,
                 loaits = x.taisan.loaitaisan.ten,
                 donvitinh = x.taisan.loaitaisan.donvitinh != null ? x.taisan.loaitaisan.donvitinh.ten : "",
