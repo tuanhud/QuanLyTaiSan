@@ -85,6 +85,8 @@
     <Compile Include="DataFilter\ViTriHienThi.cs" />
     <Compile Include="DbContext\DBInstance.cs" />
     <Compile Include="DbContext\OurDBContext.cs" />
+    <Compile Include="Entities\Attachment.cs" />
+    <Compile Include="Entities\ChungTu.cs" />
     <Compile Include="Entities\LoaiPhong.cs" />
     <Compile Include="Entities\CoSo.cs" />
     <Compile Include="Entities\Dayy.cs" />
@@ -117,6 +119,10 @@
     <Compile Include="Migrations\201410020726320_basev2.Designer.cs">
       <DependentUpon>201410020726320_basev2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410080416246_tachChungTuRaEntity_themAttachment.cs" />
+    <Compile Include="Migrations\201410080416246_tachChungTuRaEntity_themAttachment.Designer.cs">
+      <DependentUpon>201410080416246_tachChungTuRaEntity_themAttachment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +151,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201410020726320_basev2.resx">
       <DependentUpon>201410020726320_basev2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410080416246_tachChungTuRaEntity_themAttachment.resx">
+      <DependentUpon>201410080416246_tachChungTuRaEntity_themAttachment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

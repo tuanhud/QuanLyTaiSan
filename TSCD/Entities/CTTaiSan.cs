@@ -37,14 +37,6 @@ namespace TSCD.Entities
         /// Ngày cấp, ngày có hiệu lực
         /// </summary>
         public DateTime? ngay { get; set; }
-        /// <summary>
-        /// Mã chứng từ
-        /// </summary>
-        public String chungtu_sohieu { get; set; }
-        /// <summary>
-        /// Ngày chứng từ
-        /// </summary>
-        public DateTime? chungtu_ngay { get; set; }
 
         /*
          * FK
@@ -100,6 +92,13 @@ namespace TSCD.Entities
         [ForeignKey("parent_id")]
         public virtual CTTaiSan parent { get; set; }
 
+        public Guid? chungtu_id { get; set; }
+        /// <summary>
+        /// Chứng từ
+        /// </summary>
+        [ForeignKey("chungtu_id")]
+        public virtual ChungTu chungtu { get; set; }
+
         /// <summary>
         /// Tài sản bên trong nó
         /// </summary>
@@ -112,8 +111,7 @@ namespace TSCD.Entities
         /// </summary>
         /// <returns></returns>
         public int chuyenTinhTrang(
-            DateTime chungtu_ngay_moi,
-            String chungtu_sohieu_moi,
+            ChungTu chungtu_moi,
             TinhTrang tinhtrang_moi, int soluong_moi=-1, String ghichu_moi="")
         {
             Boolean re = true;
@@ -137,8 +135,7 @@ namespace TSCD.Entities
             }
 
             //begin common business
-            this.chungtu_ngay = chungtu_ngay_moi;
-            this.chungtu_sohieu = chungtu_sohieu_moi;
+            this.chungtu = chungtu_moi;
             this.ghichu = ghichu_moi;
             //chuyển toàn bộ
             if(soluong>=this.soluong)
@@ -165,8 +162,7 @@ namespace TSCD.Entities
                 //Thêm mới CTTS
                 //Step 1: Tao CTTS moi -> add
                 CTTaiSan ctts = new CTTaiSan();
-                ctts.chungtu_ngay = chungtu_ngay_moi;
-                ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                ctts.chungtu = chungtu_moi;
                 ctts.donviquanly = this.donviquanly;
                 ctts.donvisudung = this.donvisudung;
                 ctts.ghichu = ghichu_moi;
@@ -216,8 +212,7 @@ namespace TSCD.Entities
             ViTri vitri_moi,
             Phong phong_moi,
             CTTaiSan cttaisan_parent_moi,
-            DateTime? chungtu_ngay_moi,
-            String chungtu_sohieu_moi,
+            ChungTu chungtu_moi,
             int soluong_moi=-1,
             String ghichu_moi="",
             DateTime? ngay_moi=null)
@@ -245,8 +240,7 @@ namespace TSCD.Entities
                 if(cungdonviquanly)
                 {
                     //chi update lai this
-                    this.chungtu_ngay = chungtu_ngay_moi;
-                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.chungtu = chungtu_moi;
                     this.donvisudung = donvisudung_moi;
                     this.ghichu = ghichu_moi;
                     this.ngay = ngay_moi;
@@ -260,8 +254,7 @@ namespace TSCD.Entities
                 {
                     //Step 1: Tao CTTS moi -> add
                     CTTaiSan ctts = new CTTaiSan();
-                    ctts.chungtu_ngay = chungtu_ngay_moi;
-                    ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                    ctts.chungtu = chungtu_moi;
                     ctts.donviquanly = donviquanly_moi;
                     ctts.donvisudung = donvisudung_moi;
                     ctts.ghichu = ghichu_moi;
@@ -283,8 +276,7 @@ namespace TSCD.Entities
                     log.chuyenden_chuyendi = 1;
                     re = re && log.add()>0;
                     //Step 3: Update lai soluong cho this=0 -> update
-                    this.chungtu_ngay = chungtu_ngay_moi;
-                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.chungtu = chungtu_moi;
                     this.ghichu = ghichu_moi;
                     this.soluong = 0;
                     this.nguongoc = ctts.nguongoc;
@@ -310,8 +302,7 @@ namespace TSCD.Entities
                 {
                     //Tao CTTS moi
                     CTTaiSan ctts = new CTTaiSan();
-                    ctts.chungtu_ngay = chungtu_ngay_moi;
-                    ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                    ctts.chungtu = chungtu_moi;
                     ctts.donvisudung = donvisudung_moi;
                     ctts.ghichu = ghichu_moi;
                     ctts.mota = this.mota;
@@ -326,8 +317,7 @@ namespace TSCD.Entities
                     ctts.vitri = vitri_moi;
                     ctts.add_khongGhiLogTangGiam();
                     //cap nhat lai soluong cho this
-                    this.chungtu_ngay = chungtu_ngay_moi;
-                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.chungtu = chungtu_moi;
                     this.ghichu = ghichu_moi;
                     this.soluong -= soluong_moi;//importance!!!
                     this.nguongoc = nguongoc;
@@ -339,8 +329,7 @@ namespace TSCD.Entities
                 {
                     //Step 1: Tao CTTS moi -> add
                     CTTaiSan ctts = new CTTaiSan();
-                    ctts.chungtu_ngay = chungtu_ngay_moi;
-                    ctts.chungtu_sohieu = chungtu_sohieu_moi;
+                    ctts.chungtu = chungtu_moi;
                     ctts.donviquanly = donviquanly_moi;
                     ctts.donvisudung = donvisudung_moi;
                     ctts.ghichu = ghichu_moi;
@@ -362,8 +351,7 @@ namespace TSCD.Entities
                     log.chuyenden_chuyendi = 1;
                     log.add();
                     //Step 3: Update lai soluong cho this -> update
-                    this.chungtu_ngay = chungtu_ngay_moi;
-                    this.chungtu_sohieu = chungtu_sohieu_moi;
+                    this.chungtu = chungtu_moi;
                     this.soluong -= soluong_moi;//importance!!!
                     this.nguongoc = ctts.nguongoc;
                     this.ghichu = ghichu_moi;
@@ -388,8 +376,7 @@ namespace TSCD.Entities
         private LogTangGiamTaiSan generateLogTangGiamTaiSan()
         {
             LogTangGiamTaiSan log = new LogTangGiamTaiSan();
-            log.chungtu_ngay = this.chungtu_ngay;
-            log.chungtu_sohieu = this.chungtu_sohieu;
+            log.chungtu = this.chungtu;
             log.cttaisan_parent = this.parent;
             log.donviquanly = this.donviquanly;
             log.donvisudung = this.donvisudung;
@@ -427,8 +414,7 @@ namespace TSCD.Entities
         {
             //Ghi logsuataisan
             LogSuaTaiSan log = new LogSuaTaiSan();
-            log.chungtu_ngay = chungtu_ngay;
-            log.chungtu_sohieu = chungtu_sohieu;
+            log.chungtu = this.chungtu;
             log.donviquanly = donviquanly;
             log.donvisudung = donvisudung;
             log.ghichu = ghichu;

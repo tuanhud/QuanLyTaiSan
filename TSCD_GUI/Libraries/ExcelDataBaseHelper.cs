@@ -118,15 +118,15 @@ namespace TSCD_GUI.Libraries
                                                 CTTaiSan objCTTaiSan2 = CTTaiSan.getQuery().Where(c => c.taisan_id == obj.id).FirstOrDefault();
                                                 if (objCTTaiSan2 != null)
                                                 {
-                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, objDonVi, null, null, objCTTaiSan2.parent, objCTTaiSan2.chungtu_ngay, objCTTaiSan2.chungtu_sohieu, objCTTaiSan2.soluong) > 0 
-                                                        && DBInstance.commit() > 0)
-                                                    {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
-                                                    }
-                                                    else
-                                                    {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
-                                                    }
+                                                    //if (objCTTaiSan2.chuyenDonVi(objDonVi, objDonVi, null, null, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong) > 0 
+                                                    //    && DBInstance.commit() > 0)
+                                                    //{
+                                                    //    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                    //}
+                                                    //else
+                                                    //{
+                                                    //    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                                    //}
                                                 }
                                                 else
                                                 {
@@ -236,11 +236,11 @@ namespace TSCD_GUI.Libraries
                                 String ten = row[TEN].ToString().Trim().ToUpper();
                                 String str = row[DONGIA].ToString().Trim().Replace(" ", "");
                                 long dongia = long.Parse(str);
-                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu_sohieu == null && c.chungtu_ngay == null).FirstOrDefault();
+                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu.sohieu == null && c.chungtu.ngay == null).FirstOrDefault();
                                 if (obj != null)
                                 {
-                                    obj.chungtu_sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
-                                    obj.chungtu_ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                    obj.chungtu.sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
+                                    obj.chungtu.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
                                     if (obj.update() > 0 && DBInstance.commit() > 0)
                                     {
                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");

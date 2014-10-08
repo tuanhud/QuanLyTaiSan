@@ -156,8 +156,8 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 dateNgaySD.EditValue = obj.ngay;
-                txtSoHieu_CT.Text = obj.chungtu_sohieu;
-                dateNgay_CT.EditValue = obj.chungtu_ngay;
+                txtSoHieu_CT.Text = obj.chungtu.sohieu;
+                dateNgay_CT.EditValue = obj.chungtu.ngay;
                 txtMa.Text = obj.taisan.subId;
                 txtTen.Text = obj.taisan.ten;
                 ucComboBoxLoaiTS1.LoaiTS = obj.taisan.loaitaisan;
@@ -253,8 +253,8 @@ namespace TSCD_GUI.QLTaiSan
                 CTTaiSan obj = new CTTaiSan();
 
                 obj.taisan = ts;
-                obj.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-                obj.chungtu_sohieu = txtSoHieu_CT.Text;
+                obj.chungtu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                obj.chungtu.sohieu = txtSoHieu_CT.Text;
                 obj.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
                 obj.nguongoc = txtNguonGoc.Text;
                 obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);
@@ -297,8 +297,8 @@ namespace TSCD_GUI.QLTaiSan
                 objCTTaiSan.taisan.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
                 objCTTaiSan.taisan.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
                 objCTTaiSan.taisan.subId = txtMa.Text;
-                objCTTaiSan.chungtu_ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-                objCTTaiSan.chungtu_sohieu = txtSoHieu_CT.Text;
+                objCTTaiSan.chungtu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                objCTTaiSan.chungtu.sohieu = txtSoHieu_CT.Text;
                 objCTTaiSan.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
                 objCTTaiSan.taisan.nuocsx = txtNSX.Text;
                 objCTTaiSan.nguongoc = txtNguonGoc.Text;

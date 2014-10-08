@@ -46,8 +46,8 @@ namespace TSCD_GUI.QLTaiSan
             {
                 objCTTaiSan = _objCTTaiSan;
                 dateNgayGhi.EditValue = objCTTaiSan.ngay;
-                dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
-                txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
+                dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
+                txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
                 ucComboBoxDonVi1.DonVi = _objDonVi;
                 ucComboBoxDonVi2.DonVi = _objDonVi;
                 txtSoLuong.Properties.MinValue = 1;
@@ -66,8 +66,8 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 dateNgayGhi.EditValue = objCTTaiSan.ngay;
-                dateNgay_CT.EditValue = objCTTaiSan.chungtu_ngay;
-                txtSoHieu_CT.Text = objCTTaiSan.chungtu_sohieu;
+                dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
+                txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
                 ucComboBoxViTri1.Phong = objCTTaiSan.phong;
                 ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
                 ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
@@ -135,7 +135,7 @@ namespace TSCD_GUI.QLTaiSan
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
                     DonVi donViSD = ucComboBoxDonVi2.DonVi;
                     String ghiChu = txtGhiChu.Text;
-                    int re = objCTTaiSan.chuyenDonVi(donViQL, donViSD, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
+                    int re = 1;// objCTTaiSan.chuyenDonVi(donViQL, donViSD, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
                     if (re > 0 && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);

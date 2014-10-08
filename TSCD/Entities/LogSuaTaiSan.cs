@@ -36,12 +36,16 @@ namespace TSCD.Entities
         /// </summary>
         public DateTime? ngay { get; set; }
 
-        public String chungtu_sohieu { get; set; }
-        public DateTime? chungtu_ngay { get; set; }
-
         /*
          * FK
          */
+        public Guid? chungtu_id { get; set; }
+        /// <summary>
+        /// Chứng từ
+        /// </summary>
+        [ForeignKey("chungtu_id")]
+        public virtual ChungTu chungtu { get; set; }
+
         public Guid? cttaisan_parent_id { get; set; }
         [ForeignKey("cttaisan_parent_id")]
         public CTTaiSan cttaisan_parent { get; set; }
