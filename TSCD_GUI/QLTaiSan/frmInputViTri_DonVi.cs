@@ -46,8 +46,8 @@ namespace TSCD_GUI.QLTaiSan
             {
                 objCTTaiSan = _objCTTaiSan;
                 dateNgayGhi.EditValue = objCTTaiSan.ngay;
-                dateNgay_CT.EditValue = objCTTaiSan.chungtu.ngay;
-                txtSoHieu_CT.Text = objCTTaiSan.chungtu.sohieu;
+                dateNgay_CT.EditValue = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.ngay : null;
+                txtSoHieu_CT.Text = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.sohieu : "";
                 ucComboBoxDonVi1.DonVi = _objDonVi;
                 ucComboBoxDonVi2.DonVi = _objDonVi;
                 txtSoLuong.Properties.MinValue = 1;

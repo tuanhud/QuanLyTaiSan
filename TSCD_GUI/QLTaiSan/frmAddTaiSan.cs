@@ -156,8 +156,8 @@ namespace TSCD_GUI.QLTaiSan
             try
             {
                 dateNgaySD.EditValue = obj.ngay;
-                txtSoHieu_CT.Text = obj.chungtu.sohieu;
-                dateNgay_CT.EditValue = obj.chungtu.ngay;
+                txtSoHieu_CT.Text = obj.chungtu != null ? obj.chungtu.sohieu : "";
+                dateNgay_CT.EditValue = obj.chungtu != null ? obj.chungtu.ngay : null;
                 txtMa.Text = obj.taisan.subId;
                 txtTen.Text = obj.taisan.ten;
                 ucComboBoxLoaiTS1.LoaiTS = obj.taisan.loaitaisan;
@@ -251,10 +251,11 @@ namespace TSCD_GUI.QLTaiSan
                 ts.nuocsx = txtNSX.Text;
 
                 CTTaiSan obj = new CTTaiSan();
-
+                ChungTu objChungTu = new ChungTu();
+                objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                objChungTu.sohieu = txtSoHieu_CT.Text;
                 obj.taisan = ts;
-                obj.chungtu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-                obj.chungtu.sohieu = txtSoHieu_CT.Text;
+                obj.chungtu = objChungTu;
                 obj.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
                 obj.nguongoc = txtNguonGoc.Text;
                 obj.soluong = Convert.ToInt32(txtSoLuong.EditValue);

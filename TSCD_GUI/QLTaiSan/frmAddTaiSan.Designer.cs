@@ -281,7 +281,7 @@
             this.txtSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSoLuong.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -291,6 +291,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
+            this.txtSoLuong.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtSoLuong.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtSoLuong.Size = new System.Drawing.Size(270, 20);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.EditValueChanged += new System.EventHandler(this.txtSoLuong_EditValueChanged);
@@ -310,6 +320,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtDonGia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtDonGia.Properties.Mask.EditMask = "N00";
+            this.txtDonGia.Properties.MaxValue = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
             this.txtDonGia.Size = new System.Drawing.Size(270, 20);
             this.txtDonGia.TabIndex = 6;
             this.txtDonGia.EditValueChanged += new System.EventHandler(this.txtDonGia_EditValueChanged);
@@ -444,7 +459,7 @@
             this.btnAddExist.Name = "btnAddExist";
             this.btnAddExist.Size = new System.Drawing.Size(59, 23);
             this.btnAddExist.TabIndex = 37;
-            this.btnAddExist.Text = "CSDL";
+            this.btnAddExist.Text = "Từ CSDL";
             this.btnAddExist.Click += new System.EventHandler(this.btnAddExist_Click);
             // 
             // btnAddNew
