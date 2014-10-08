@@ -43,7 +43,7 @@ namespace TSCD_GUI
                 ucCauHinh1.reLoad();
             }*/
             //register event
-            ucCauHinh1.viewCauHinhLocal1._btnSaveLocal.Click += new EventHandler(this.checkPoint);
+            ucCauHinh1.viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.checkPoint);
             //load uc data
             ucCauHinh1.reLoad();
         }

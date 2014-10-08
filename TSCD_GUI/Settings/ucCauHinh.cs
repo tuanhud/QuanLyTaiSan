@@ -7,75 +7,119 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TSCD.Entities;
-using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.Xml;
 using System.Text.RegularExpressions;
 using SHARED.Libraries;
 using TSCD;
-using TSCD_GUI;
-using SHARED.Views;
+using TSCD.Entities;
+using DevExpress.XtraEditors;
 
 namespace TSCD_GUI.Settings
 {
-    public partial class ucCauHinh : UserControl,_ourUcInterface
+    public partial class ucCauHinh : UserControl
     {
+        //Ket qua tra ve cho frm Setting neu can thiet
         public bool _passed = false;
+
         private bool can_init_server = false;
         private bool can_config_server = false;
         public ucCauHinh()
         {
             InitializeComponent();
             //register event handler
-            viewCauHinhLocal1._btnSaveLocal.Click += new EventHandler(this.btnSaveLocal_Click);
+            #region Local
+            viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.btnSaveLocal_Click);
             //Client
-            viewCauHinhLocal1._btnClientCleanUp.Click += new EventHandler(this.btnClientCleanUp_Click);
-            viewCauHinhLocal1._btnClientRemoveScope.Click += new EventHandler(this.btnClientRemoveScope_Click);
-            viewCauHinhLocal1._btnClientValidate.Click += new EventHandler(this.btnClientValidate_Click
+            viewCauHinhLocal._btnClientCleanUp.Click += new EventHandler(this.btnClientCleanUp_Click);
+            viewCauHinhLocal._btnClientRemoveScope.Click += new EventHandler(this.btnClientRemoveScope_Click);
+            viewCauHinhLocal._btnClientValidate.Click += new EventHandler(this.btnClientValidate_Click
                 );
-            viewCauHinhLocal1._btnClientDropDB.Click += new EventHandler(this.btnClientDropDB_Click);
+            viewCauHinhLocal._btnClientDropDB.Click += new EventHandler(this.btnClientDropDB_Click);
             //Server
-            viewCauHinhLocal1._btnServerCleanUp.Click += new EventHandler(this.btnServerCleanUp_Click);
-            viewCauHinhLocal1._btnServerRemoveScope.Click += new EventHandler(this.btnServerRemoveScope_Click);
-            viewCauHinhLocal1._btnServerValidate.Click += new EventHandler(this.btnServerValidate_Click);
+            viewCauHinhLocal._btnServerCleanUp.Click += new EventHandler(this.btnServerCleanUp_Click);
+            viewCauHinhLocal._btnServerRemoveScope.Click += new EventHandler(this.btnServerRemoveScope_Click);
+            viewCauHinhLocal._btnServerValidate.Click += new EventHandler(this.btnServerValidate_Click);
             //Sync
-            viewCauHinhLocal1._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
+            viewCauHinhLocal._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
+            //Developer
+            viewCauHinhLocal._btnImageCacheClear.Click += new EventHandler(this.btnImageCacheClear);
+            #endregion
+
+            #region Remote
+            viewCauHinhRemote1.btnRemoteSettingSave.Click += new EventHandler(this.btnRemoteSettingSave_Click);
+            viewCauHinhRemote1.btnSmtpSendTest.Click += new EventHandler(this.btnSmtpSendTest_Click);
+            #endregion
 
         }
+
+        private void btnImageCacheClear(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Xác nhận?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
+                //FileHelper.clearFolder(HinhAnh.CACHE_PATH);
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+            }
+        }
+        /// <summary>
+        /// Tải các casu hình lên
+        /// </summary>
         private void load_data()
         {
             /*
              * LOCAL SETTING
              */
             //CACHE SERVER
-            viewCauHinhLocal1._txtClientHost.Text = Global.local_setting.db_cache_host;
-            viewCauHinhLocal1._txtClientUsername.Text = Global.local_setting.db_cache_username;
-            viewCauHinhLocal1._txtClientPassword.Text = Global.local_setting.db_cache_password;
-            viewCauHinhLocal1._txtClientPort.Text = Global.local_setting.db_cache_port;
-            viewCauHinhLocal1._cbClientWA.Checked = Global.local_setting.db_cache_WA;
-            viewCauHinhLocal1._txtClientDBName.Text = Global.local_setting.db_cache_dbname;
+            viewCauHinhLocal._txtClientHost.Text = Global.local_setting.db_cache_host;
+            viewCauHinhLocal._txtClientUsername.Text = Global.local_setting.db_cache_username;
+            viewCauHinhLocal._txtClientPassword.Text = Global.local_setting.db_cache_password;
+            viewCauHinhLocal._txtClientPort.Text = Global.local_setting.db_cache_port;
+            viewCauHinhLocal._cbClientWA.Checked = Global.local_setting.db_cache_WA;
+            viewCauHinhLocal._txtClientDBName.Text = Global.local_setting.db_cache_dbname;
             //MAIN SERVER
-            viewCauHinhLocal1._txtServerHost.Text = Global.local_setting.db_server_host;
-            viewCauHinhLocal1._txtServerUsername.Text = Global.local_setting.db_server_username;
-            viewCauHinhLocal1._txtServerPassword.Text = Global.local_setting.db_server_password;
-            viewCauHinhLocal1._txtServerPort.Text = Global.local_setting.db_server_port;
-            viewCauHinhLocal1._cbServerWA.Checked = Global.local_setting.db_server_WA;
-            viewCauHinhLocal1._txtServerDBName.Text = Global.local_setting.db_server_dbname;
+            viewCauHinhLocal._txtServerHost.Text = Global.local_setting.db_server_host;
+            viewCauHinhLocal._txtServerUsername.Text = Global.local_setting.db_server_username;
+            viewCauHinhLocal._txtServerPassword.Text = Global.local_setting.db_server_password;
+            viewCauHinhLocal._txtServerPort.Text = Global.local_setting.db_server_port;
+            viewCauHinhLocal._cbServerWA.Checked = Global.local_setting.db_server_WA;
+            viewCauHinhLocal._txtServerDBName.Text = Global.local_setting.db_server_dbname;
             //IS USING DBCACHE
-            viewCauHinhLocal1._cbUseDBCache.Checked = Global.local_setting.use_db_cache;
+            viewCauHinhLocal._cbUseDBCache.Checked = Global.local_setting.use_db_cache;
             //Debug to file
-            viewCauHinhLocal1._cbDebugToFile.Checked = SHARED.Libraries.Debug.MODE == 1;
-            viewCauHinhLocal1._cbAutoSync.Checked = Global.local_setting.sync_auto;
-            viewCauHinhLocal1._txtSyncSecond.Text = Global.local_setting.sync_time_second.ToString();
-            
+            viewCauHinhLocal._cbDebugToFile.Checked = SHARED.Libraries.Debug.MODE == 1;
+            viewCauHinhLocal._cbAutoSync.Checked = Global.local_setting.sync_auto;
+            viewCauHinhLocal._txtSyncSecond.Text = Global.local_setting.sync_time_second.ToString();
+            /*
+             * REMOTE SETTING
+             */
+            //Phai co ket noi toi Database moi lay duoc remote 
+            if (Global.working_database.isReady() > 0)
+            {
+                //FTP
+                viewCauHinhRemote1.txtAddressFTP.Text = Global.remote_setting.ftp_host.HOST_NAME;
+                viewCauHinhRemote1.txtPrepathFTP.Text = Global.remote_setting.ftp_host.PRE_PATH;
+                viewCauHinhRemote1.txtUsernameFTP.Text = Global.remote_setting.ftp_host.USER_NAME;
+                viewCauHinhRemote1.txtPasswordFTP.Text = Global.remote_setting.ftp_host.PASS_WORD;
+                viewCauHinhRemote1.txtPortFTP.Text = Global.remote_setting.ftp_host.PORT;
+                //HTTP
+                viewCauHinhRemote1.txtAddressHTTP.Text = Global.remote_setting.http_host.HOST_NAME;
+                viewCauHinhRemote1.txtPrepathHTTP.Text = Global.remote_setting.http_host.PRE_PATH;
+                //SMTP
+                viewCauHinhRemote1.txtSmtpHost.Text = Global.remote_setting.smtp_config.SMTP_HOST;
+                viewCauHinhRemote1.txtSmtpPassword.Text = Global.remote_setting.smtp_config.SMTP_PASSWORD;
+                viewCauHinhRemote1.txtSmtpPort.Text = Global.remote_setting.smtp_config.SMTP_PORT.ToString();
+                viewCauHinhRemote1.txtSmtpUsername.Text = Global.remote_setting.smtp_config.SMTP_USERNAME;
+                viewCauHinhRemote1.cbSmtpUseSSL.Checked = Global.remote_setting.smtp_config.SMTP_USESSL;
+            }
             //disable some function base on current context and user
             can_config_server = Permission.canDo(Permission._SERVER_CONFIG);
             can_init_server = Global.current_quantrivien_login == null || can_config_server;
 
             //simpleButton_validateServer.Enabled = can_init_server;
-            viewCauHinhLocal1._btnServerCleanUp.Enabled = viewCauHinhLocal1._btnServerCleanUp.Enabled = can_config_server;
-            
+            viewCauHinhLocal._btnServerCleanUp.Enabled = viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
+            viewCauHinhRemote1.btnRemoteSettingSave.Enabled = can_config_server;
         }
         /// <summary>
         /// Lưu local setting
@@ -86,31 +130,31 @@ namespace TSCD_GUI.Settings
             /*
              * LOCAL SETTING
              */
-            if (viewCauHinhLocal1._cbUseDBCache.Checked)
+            if (viewCauHinhLocal._cbUseDBCache.Checked)
             {
                 //CACHE DB
-                Global.local_setting.db_cache_host = viewCauHinhLocal1._txtClientHost.Text;
-                Global.local_setting.db_cache_username = viewCauHinhLocal1._txtClientUsername.Text;
-                Global.local_setting.db_cache_password = viewCauHinhLocal1._txtClientPassword.Text;
-                Global.local_setting.db_cache_port = viewCauHinhLocal1._txtClientPort.Text;
-                Global.local_setting.db_cache_dbname = viewCauHinhLocal1._txtClientDBName.Text;
-                Global.local_setting.db_cache_WA = viewCauHinhLocal1._cbClientWA.Checked;
+                Global.local_setting.db_cache_host = viewCauHinhLocal._txtClientHost.Text;
+                Global.local_setting.db_cache_username = viewCauHinhLocal._txtClientUsername.Text;
+                Global.local_setting.db_cache_password = viewCauHinhLocal._txtClientPassword.Text;
+                Global.local_setting.db_cache_port = viewCauHinhLocal._txtClientPort.Text;
+                Global.local_setting.db_cache_dbname = viewCauHinhLocal._txtClientDBName.Text;
+                Global.local_setting.db_cache_WA = viewCauHinhLocal._cbClientWA.Checked;
             }
             //MAIN SERVER
-            Global.local_setting.db_server_host = viewCauHinhLocal1._txtServerHost.Text;
-            Global.local_setting.db_server_username = viewCauHinhLocal1._txtServerUsername.Text;
-            Global.local_setting.db_server_password = viewCauHinhLocal1._txtServerPassword.Text;
-            Global.local_setting.db_server_port = viewCauHinhLocal1._txtServerPort.Text;
-            Global.local_setting.db_server_dbname = viewCauHinhLocal1._txtServerDBName.Text;
-            Global.local_setting.db_server_WA = viewCauHinhLocal1._cbServerWA.Checked;
+            Global.local_setting.db_server_host = viewCauHinhLocal._txtServerHost.Text;
+            Global.local_setting.db_server_username = viewCauHinhLocal._txtServerUsername.Text;
+            Global.local_setting.db_server_password = viewCauHinhLocal._txtServerPassword.Text;
+            Global.local_setting.db_server_port = viewCauHinhLocal._txtServerPort.Text;
+            Global.local_setting.db_server_dbname = viewCauHinhLocal._txtServerDBName.Text;
+            Global.local_setting.db_server_WA = viewCauHinhLocal._cbServerWA.Checked;
 
             //IS USING DBCACHE
-            Global.local_setting.use_db_cache = viewCauHinhLocal1._cbUseDBCache.Checked;
+            Global.local_setting.use_db_cache = viewCauHinhLocal._cbUseDBCache.Checked;
             //debug mode
-            Global.local_setting.debug_mode = SHARED.Libraries.Debug.MODE = viewCauHinhLocal1._cbDebugToFile.Checked ? 1 : 0;
+            Global.local_setting.debug_mode = SHARED.Libraries.Debug.MODE = viewCauHinhLocal._cbDebugToFile.Checked ? 1 : 0;
 
-            Global.local_setting.sync_auto = viewCauHinhLocal1._cbAutoSync.Checked;
-            int sync_time = StringHelper.toInt(viewCauHinhLocal1._txtSyncSecond.Text);
+            Global.local_setting.sync_auto = viewCauHinhLocal._cbAutoSync.Checked;
+            int sync_time = StringHelper.toInt(viewCauHinhLocal._txtSyncSecond.Text);
             Global.local_setting.sync_time_second = sync_time <= 0 ? 20 : sync_time;
             //UPDATE LOCAL SETTING
             Global.local_setting.Save();
@@ -171,15 +215,59 @@ namespace TSCD_GUI.Settings
             }
         }
 
+        private void btnRemoteSettingSave_Click(object sender, EventArgs e)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang cập nhật...");
+            /*
+             * REMOTE SETTING
+             */
+            //FTP
+            Global.remote_setting.ftp_host.HOST_NAME = viewCauHinhRemote1.txtAddressFTP.Text;
+            Global.remote_setting.ftp_host.PRE_PATH = viewCauHinhRemote1.txtPrepathFTP.Text;
+            Global.remote_setting.ftp_host.USER_NAME = viewCauHinhRemote1.txtUsernameFTP.Text;
+            Global.remote_setting.ftp_host.PASS_WORD = viewCauHinhRemote1.txtPasswordFTP.Text;
+            Global.remote_setting.ftp_host.PORT = viewCauHinhRemote1.txtPortFTP.Text;
+
+            //if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
+            //    Global.remote_setting.ftp_host.USER_NAME,
+            //    Global.remote_setting.ftp_host.PASS_WORD,
+            //    10
+            //    ) > 0
+            //)
+            //{
+            Global.remote_setting.ftp_host.save();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("FTP Fail");
+            //    return;
+            //}
+
+            //HTTP
+            Global.remote_setting.http_host.HOST_NAME = viewCauHinhRemote1.txtAddressHTTP.Text;
+            Global.remote_setting.http_host.PORT = viewCauHinhRemote1.txtPortHTTP.Text;
+            Global.remote_setting.http_host.PRE_PATH = viewCauHinhRemote1.txtPrepathHTTP.Text;
+
+            Global.remote_setting.http_host.save();
+            //SMTP MAIL
+            Global.remote_setting.smtp_config.SMTP_HOST = viewCauHinhRemote1.txtSmtpHost.Text;
+            Global.remote_setting.smtp_config.SMTP_PASSWORD = viewCauHinhRemote1.txtSmtpPassword.Text;
+            Global.remote_setting.smtp_config.SMTP_PORT = StringHelper.toInt(viewCauHinhRemote1.txtSmtpPort.Text);
+            Global.remote_setting.smtp_config.SMTP_USERNAME = viewCauHinhRemote1.txtSmtpUsername.Text;
+            Global.remote_setting.smtp_config.SMTP_USESSL = viewCauHinhRemote1.cbSmtpUseSSL.Checked;
+
+            Global.remote_setting.smtp_config.save();
+
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+        }
 
         private void ucCauHinh_Load(object sender, EventArgs e)
         {
-            //txtAddressDatabase.Focus();
-            //load_DB_State();
+            //Không nên đặt các hàm load dữ liệu tự động trong UC
         }
         /// <summary>
-        /// Lưu lại cài đặt
-        /// 
+        /// Hiển thị các bút ứng với State hiện tại của cấu hình
         /// </summary>
         /// <returns>-5: FTP Fail, -2: SERVER DB FAIL, -3: CLIENT DB FAIL </returns>
         private int load_DB_State()
@@ -190,12 +278,12 @@ namespace TSCD_GUI.Settings
                 int server_ready = Global.server_database.isReady();
                 int client_ready = Global.client_database.isReady();
 
-                viewCauHinhLocal1._btnServerRemoveScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
-                viewCauHinhLocal1._btnServerCleanUp.Enabled = can_config_server;
-                viewCauHinhLocal1._btnServerValidate.Enabled = !(server_ready > 0) && can_init_server;
+                viewCauHinhLocal._btnServerRemoveScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
+                viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
+                viewCauHinhLocal._btnServerValidate.Enabled = !(server_ready > 0) && can_init_server;
 
-                viewCauHinhLocal1._btnClientRemoveScope.Enabled = Global.client_database.isHasScope() > 0;
-                viewCauHinhLocal1._btnClientValidate.Enabled = !(client_ready > 0);
+                viewCauHinhLocal._btnClientRemoveScope.Enabled = Global.client_database.isHasScope() > 0;
+                viewCauHinhLocal._btnClientValidate.Enabled = !(client_ready > 0);
                 if (client_ready < 0)
                 {
                     return -3;
@@ -208,9 +296,9 @@ namespace TSCD_GUI.Settings
             else
             {
                 int server_ready = Global.server_database.isReady();
-                viewCauHinhLocal1._btnServerRemoveScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
-                viewCauHinhLocal1._btnServerCleanUp.Enabled = can_config_server;
-                viewCauHinhLocal1._btnServerValidate.Enabled = !(server_ready > 0) && can_init_server;
+                viewCauHinhLocal._btnServerRemoveScope.Enabled = Global.server_database.isHasScope() > 0 && can_config_server;
+                viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
+                viewCauHinhLocal._btnServerValidate.Enabled = !(server_ready > 0) && can_init_server;
                 if (server_ready < 0)
                 {
                     return -2;
@@ -259,6 +347,7 @@ namespace TSCD_GUI.Settings
                 if (re > 0)
                 {
                     XtraMessageBox.Show("Lưu cài đặt thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //set result
                     _passed = true;
                     return;
                 }
@@ -350,13 +439,23 @@ namespace TSCD_GUI.Settings
             XmlNode node = xml.DocumentElement.SelectSingleNode("/Controls");
             DevExpress.XtraEditors.CheckEdit _CheckEdit = null;
             DevExpress.XtraEditors.TextEdit _TextEdit = null;
-            //viewCauHinhLocal1 Controls
+            //viewCauHinhLocal Controls
             foreach (XmlNode nodechild in node)
             {
-                _CheckEdit = this.viewCauHinhLocal1.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.CheckEdit;
+                _CheckEdit = this.viewCauHinhLocal.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.CheckEdit;
                 if (_CheckEdit != null)
                     _CheckEdit.Checked = Int32.Parse(nodechild.InnerText) > 0 ? true : false;
-                _TextEdit = this.viewCauHinhLocal1.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.TextEdit;
+                _TextEdit = this.viewCauHinhLocal.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.TextEdit;
+                if (_TextEdit != null)
+                    _TextEdit.Text = nodechild.InnerText;
+            }
+            //this Controls
+            foreach (XmlNode nodechild in node)
+            {
+                _CheckEdit = this.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.CheckEdit;
+                if (_CheckEdit != null)
+                    _CheckEdit.Checked = Int32.Parse(nodechild.InnerText) > 0 ? true : false;
+                _TextEdit = this.Controls.Find(nodechild.Name, true).FirstOrDefault() as DevExpress.XtraEditors.TextEdit;
                 if (_TextEdit != null)
                     _TextEdit.Text = nodechild.InnerText;
             }
@@ -366,33 +465,71 @@ namespace TSCD_GUI.Settings
         {
             String str = "";
             var XML = new XElement("Controls",
-                new XElement(viewCauHinhLocal1._cbUseDBCache.Name, (viewCauHinhLocal1._cbUseDBCache.Checked ? 1 : 0).ToString()),
-                new XElement(viewCauHinhLocal1._txtServerHost.Name, viewCauHinhLocal1._txtServerHost.Text),
-                new XElement(viewCauHinhLocal1._txtServerPort.Name, viewCauHinhLocal1._txtServerPort.Text),
-                new XElement(viewCauHinhLocal1._cbServerWA.Name, (viewCauHinhLocal1._cbServerWA.Checked ? 1 : 0).ToString()),
-                new XElement(viewCauHinhLocal1._txtServerUsername.Name, viewCauHinhLocal1._txtServerUsername.Text),
-                new XElement(viewCauHinhLocal1._txtServerPassword.Name, viewCauHinhLocal1._txtServerPassword.Text),
-                new XElement(viewCauHinhLocal1._txtServerDBName.Name, viewCauHinhLocal1._txtServerDBName.Text),
+                new XElement(viewCauHinhLocal._cbUseDBCache.Name, (viewCauHinhLocal._cbUseDBCache.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtServerHost.Name, viewCauHinhLocal._txtServerHost.Text),
+                new XElement(viewCauHinhLocal._txtServerPort.Name, viewCauHinhLocal._txtServerPort.Text),
+                new XElement(viewCauHinhLocal._cbServerWA.Name, (viewCauHinhLocal._cbServerWA.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtServerUsername.Name, viewCauHinhLocal._txtServerUsername.Text),
+                new XElement(viewCauHinhLocal._txtServerPassword.Name, viewCauHinhLocal._txtServerPassword.Text),
+                new XElement(viewCauHinhLocal._txtServerDBName.Name, viewCauHinhLocal._txtServerDBName.Text),
 
-                new XElement(viewCauHinhLocal1._txtClientHost.Name, viewCauHinhLocal1._txtClientHost.Text),
-                new XElement(viewCauHinhLocal1._txtClientPort.Name, viewCauHinhLocal1._txtClientPort.Text),
-                new XElement(viewCauHinhLocal1._cbClientWA.Name, (viewCauHinhLocal1._cbClientWA.Checked ? 1 : 0).ToString()),
-                new XElement(viewCauHinhLocal1._txtClientUsername.Name, viewCauHinhLocal1._txtClientUsername.Text),
-                new XElement(viewCauHinhLocal1._txtClientPassword.Name, viewCauHinhLocal1._txtClientPassword.Text),
-                new XElement(viewCauHinhLocal1._txtClientDBName.Name, viewCauHinhLocal1._txtClientDBName.Text),
-                new XElement(viewCauHinhLocal1._cbDebugToFile.Name, (viewCauHinhLocal1._cbDebugToFile.Checked ? 1 : 0).ToString()),
-                new XElement(viewCauHinhLocal1._txtSyncSecond.Name, viewCauHinhLocal1._txtSyncSecond.Text),
-                new XElement(viewCauHinhLocal1._cbAutoSync.Name, (viewCauHinhLocal1._cbAutoSync.Checked ? 1 : 0).ToString())
-                );
-                
+                new XElement(viewCauHinhLocal._txtClientHost.Name, viewCauHinhLocal._txtClientHost.Text),
+                new XElement(viewCauHinhLocal._txtClientPort.Name, viewCauHinhLocal._txtClientPort.Text),
+                new XElement(viewCauHinhLocal._cbClientWA.Name, (viewCauHinhLocal._cbClientWA.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtClientUsername.Name, viewCauHinhLocal._txtClientUsername.Text),
+                new XElement(viewCauHinhLocal._txtClientPassword.Name, viewCauHinhLocal._txtClientPassword.Text),
+                new XElement(viewCauHinhLocal._txtClientDBName.Name, viewCauHinhLocal._txtClientDBName.Text),
+                new XElement(viewCauHinhLocal._cbDebugToFile.Name, (viewCauHinhLocal._cbDebugToFile.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhLocal._txtSyncSecond.Name, viewCauHinhLocal._txtSyncSecond.Text),
+                new XElement(viewCauHinhLocal._cbAutoSync.Name, (viewCauHinhLocal._cbAutoSync.Checked ? 1 : 0).ToString()),
+
+
+                new XElement(viewCauHinhRemote1.txtAddressFTP.Name, viewCauHinhRemote1.txtAddressFTP.Text),
+                new XElement(viewCauHinhRemote1.txtPortFTP.Name, viewCauHinhRemote1.txtPortFTP.Text),
+                new XElement(viewCauHinhRemote1.txtPrepathFTP.Name, viewCauHinhRemote1.txtPrepathFTP.Text),
+                new XElement(viewCauHinhRemote1.txtUsernameFTP.Name, viewCauHinhRemote1.txtUsernameFTP.Text),
+                new XElement(viewCauHinhRemote1.txtPasswordFTP.Name, viewCauHinhRemote1.txtPasswordFTP.Text),
+                new XElement(viewCauHinhRemote1.txtAddressHTTP.Name, viewCauHinhRemote1.txtAddressHTTP.Text),
+                new XElement(viewCauHinhRemote1.txtPortHTTP.Name, viewCauHinhRemote1.txtPortHTTP.Text),
+                new XElement(viewCauHinhRemote1.txtPrepathHTTP.Name, viewCauHinhRemote1.txtPrepathHTTP.Text),
+                new XElement(viewCauHinhRemote1.txtSmtpHost.Name, viewCauHinhRemote1.txtSmtpHost.Text),
+                new XElement(viewCauHinhRemote1.txtSmtpPort.Name, viewCauHinhRemote1.txtSmtpPort.Text),
+                new XElement(viewCauHinhRemote1.cbSmtpUseSSL.Name, (viewCauHinhRemote1.cbSmtpUseSSL.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhRemote1.txtSmtpUsername.Name, viewCauHinhRemote1.txtSmtpUsername.Text),
+                new XElement(viewCauHinhRemote1.txtSmtpPassword.Name, viewCauHinhRemote1.txtSmtpPassword.Text));
+
             str = XML.ToString();
             return str;
         }
 
+        /// <summary>
+        /// Làm mới lại dữ liệu
+        /// </summary>
         public void reLoad()
         {
             load_data();
             load_DB_State();
+        }
+
+        private void btnSmtpSendTest_Click(object sender, EventArgs e)
+        {
+            if (SHARED.Libraries.EmailHelper.sendMail(
+                viewCauHinhRemote1.txtSmtpTestEmail.Text,
+                "Test email",
+                ServerTimeHelper.getNow().ToString(),
+                viewCauHinhRemote1.txtSmtpHost.Text,
+                StringHelper.toInt(viewCauHinhRemote1.txtSmtpPort.Text),
+                viewCauHinhRemote1.cbSmtpUseSSL.Checked,
+                viewCauHinhRemote1.txtSmtpUsername.Text,
+                viewCauHinhRemote1.txtSmtpPassword.Text
+                ) > 0)
+            {
+                MessageBox.Show("Email được gửi thành công, vui lòng kiểm tra hộp thư đến!");
+            }
+            else
+            {
+                MessageBox.Show("Gửi email bị lỗi!");
+            }
         }
 
         private void btnClientDropDB_Click(object sender, EventArgs e)

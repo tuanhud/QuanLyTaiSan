@@ -33,13 +33,16 @@
             this.simpleButton_Export = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.viewCauHinhLocal = new SHARED.Views.viewCauHinhLocal();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.viewCauHinhLocal1 = new SHARED.Views.viewCauHinhLocal();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.viewCauHinhRemote1 = new SHARED.Views.viewCauHinhRemote();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // simpleButton_Import
@@ -73,14 +76,23 @@
             this.xtraTabControl1.Size = new System.Drawing.Size(859, 452);
             this.xtraTabControl1.TabIndex = 132;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1});
+            this.xtraTabPage1,
+            this.xtraTabPage2});
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.viewCauHinhLocal1);
+            this.xtraTabPage1.Controls.Add(this.viewCauHinhLocal);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(853, 424);
             this.xtraTabPage1.Text = "Cấu hình cục bộ (Local)";
+            // 
+            // viewCauHinhLocal1
+            // 
+            this.viewCauHinhLocal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewCauHinhLocal.Location = new System.Drawing.Point(0, 0);
+            this.viewCauHinhLocal.Name = "viewCauHinhLocal1";
+            this.viewCauHinhLocal.Size = new System.Drawing.Size(853, 424);
+            this.viewCauHinhLocal.TabIndex = 0;
             // 
             // panelControl1
             // 
@@ -92,13 +104,20 @@
             this.panelControl1.Size = new System.Drawing.Size(91, 452);
             this.panelControl1.TabIndex = 133;
             // 
-            // viewCauHinhLocal1
+            // xtraTabPage2
             // 
-            this.viewCauHinhLocal1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewCauHinhLocal1.Location = new System.Drawing.Point(0, 0);
-            this.viewCauHinhLocal1.Name = "viewCauHinhLocal1";
-            this.viewCauHinhLocal1.Size = new System.Drawing.Size(853, 424);
-            this.viewCauHinhLocal1.TabIndex = 0;
+            this.xtraTabPage2.Controls.Add(this.viewCauHinhRemote1);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(853, 424);
+            this.xtraTabPage2.Text = "Cấu hình toàn cục (Remote)";
+            // 
+            // viewCauHinhRemote1
+            // 
+            this.viewCauHinhRemote1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewCauHinhRemote1.Location = new System.Drawing.Point(0, 0);
+            this.viewCauHinhRemote1.Name = "viewCauHinhRemote1";
+            this.viewCauHinhRemote1.Size = new System.Drawing.Size(853, 424);
+            this.viewCauHinhRemote1.TabIndex = 0;
             // 
             // ucCauHinh
             // 
@@ -116,6 +135,7 @@
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,6 +147,8 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        public SHARED.Views.viewCauHinhLocal viewCauHinhLocal1;
+        public SHARED.Views.viewCauHinhLocal viewCauHinhLocal;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private SHARED.Views.viewCauHinhRemote viewCauHinhRemote1;
     }
 }

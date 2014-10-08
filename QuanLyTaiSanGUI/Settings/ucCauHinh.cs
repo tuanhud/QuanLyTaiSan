@@ -28,6 +28,7 @@ namespace PTB_GUI.Settings
         {
             InitializeComponent();
             //register event handler
+            #region Local
             viewCauHinhLocal._btnSaveLocal.Click += new EventHandler(this.btnSaveLocal_Click);
             //Client
             viewCauHinhLocal._btnClientCleanUp.Click += new EventHandler(this.btnClientCleanUp_Click);
@@ -43,6 +44,12 @@ namespace PTB_GUI.Settings
             viewCauHinhLocal._btnStartSync.Click += new EventHandler(this.btnStartSync_Click);
             //Developer
             viewCauHinhLocal._btnImageCacheClear.Click += new EventHandler(this.btnImageCacheClear);
+            #endregion
+
+            #region Remote
+            viewCauHinhRemote1.btnRemoteSettingSave.Click += new EventHandler(this.btnRemoteSettingSave_Click);
+            viewCauHinhRemote1.btnSmtpSendTest.Click += new EventHandler(this.btnSmtpSendTest_Click);
+            #endregion
 
         }
 
@@ -91,20 +98,20 @@ namespace PTB_GUI.Settings
             if (Global.working_database.isReady()>0)
             {
                 //FTP
-                txtAddressFTP.Text = Global.remote_setting.ftp_host.HOST_NAME;
-                txtPrepathFTP.Text = Global.remote_setting.ftp_host.PRE_PATH;
-                txtUsernameFTP.Text = Global.remote_setting.ftp_host.USER_NAME;
-                txtPasswordFTP.Text = Global.remote_setting.ftp_host.PASS_WORD;
-                txtPortFTP.Text = Global.remote_setting.ftp_host.PORT;
+                viewCauHinhRemote1.txtAddressFTP.Text = Global.remote_setting.ftp_host.HOST_NAME;
+                viewCauHinhRemote1.txtPrepathFTP.Text = Global.remote_setting.ftp_host.PRE_PATH;
+                viewCauHinhRemote1.txtUsernameFTP.Text = Global.remote_setting.ftp_host.USER_NAME;
+                viewCauHinhRemote1.txtPasswordFTP.Text = Global.remote_setting.ftp_host.PASS_WORD;
+                viewCauHinhRemote1.txtPortFTP.Text = Global.remote_setting.ftp_host.PORT;
                 //HTTP
-                txtAddressHTTP.Text = Global.remote_setting.http_host.HOST_NAME;
-                txtPrepathHTTP.Text = Global.remote_setting.http_host.PRE_PATH;
+                viewCauHinhRemote1.txtAddressHTTP.Text = Global.remote_setting.http_host.HOST_NAME;
+                viewCauHinhRemote1.txtPrepathHTTP.Text = Global.remote_setting.http_host.PRE_PATH;
                 //SMTP
-                txtSmtpHost.Text = Global.remote_setting.smtp_config.SMTP_HOST;
-                txtSmtpPassword.Text = Global.remote_setting.smtp_config.SMTP_PASSWORD;
-                txtSmtpPort.Text = Global.remote_setting.smtp_config.SMTP_PORT.ToString();
-                txtSmtpUsername.Text = Global.remote_setting.smtp_config.SMTP_USERNAME;
-                cbSmtpUseSSL.Checked = Global.remote_setting.smtp_config.SMTP_USESSL;
+                viewCauHinhRemote1.txtSmtpHost.Text = Global.remote_setting.smtp_config.SMTP_HOST;
+                viewCauHinhRemote1.txtSmtpPassword.Text = Global.remote_setting.smtp_config.SMTP_PASSWORD;
+                viewCauHinhRemote1.txtSmtpPort.Text = Global.remote_setting.smtp_config.SMTP_PORT.ToString();
+                viewCauHinhRemote1.txtSmtpUsername.Text = Global.remote_setting.smtp_config.SMTP_USERNAME;
+                viewCauHinhRemote1.cbSmtpUseSSL.Checked = Global.remote_setting.smtp_config.SMTP_USESSL;
             }
             //disable some function base on current context and user
             can_config_server = Permission.canDo(Permission._SERVER_CONFIG);
@@ -112,7 +119,7 @@ namespace PTB_GUI.Settings
 
             //simpleButton_validateServer.Enabled = can_init_server;
             viewCauHinhLocal._btnServerCleanUp.Enabled = viewCauHinhLocal._btnServerCleanUp.Enabled = can_config_server;
-            btnRemoteSettingSave.Enabled = can_config_server;
+            viewCauHinhRemote1.btnRemoteSettingSave.Enabled = can_config_server;
         }
         /// <summary>
         /// Lưu local setting
@@ -216,11 +223,11 @@ namespace PTB_GUI.Settings
              * REMOTE SETTING
              */
             //FTP
-            Global.remote_setting.ftp_host.HOST_NAME = txtAddressFTP.Text;
-            Global.remote_setting.ftp_host.PRE_PATH = txtPrepathFTP.Text;
-            Global.remote_setting.ftp_host.USER_NAME = txtUsernameFTP.Text;
-            Global.remote_setting.ftp_host.PASS_WORD = txtPasswordFTP.Text;
-            Global.remote_setting.ftp_host.PORT = txtPortFTP.Text;
+            Global.remote_setting.ftp_host.HOST_NAME = viewCauHinhRemote1.txtAddressFTP.Text;
+            Global.remote_setting.ftp_host.PRE_PATH = viewCauHinhRemote1.txtPrepathFTP.Text;
+            Global.remote_setting.ftp_host.USER_NAME = viewCauHinhRemote1.txtUsernameFTP.Text;
+            Global.remote_setting.ftp_host.PASS_WORD = viewCauHinhRemote1.txtPasswordFTP.Text;
+            Global.remote_setting.ftp_host.PORT = viewCauHinhRemote1.txtPortFTP.Text;
 
             //if (FTPHelper.checkconnect(Global.remote_setting.ftp_host.HOST_NAME,
             //    Global.remote_setting.ftp_host.USER_NAME,
@@ -238,17 +245,17 @@ namespace PTB_GUI.Settings
             //}
 
             //HTTP
-            Global.remote_setting.http_host.HOST_NAME = txtAddressHTTP.Text;
-            Global.remote_setting.http_host.PORT = txtPortHTTP.Text;
-            Global.remote_setting.http_host.PRE_PATH = txtPrepathHTTP.Text;
+                Global.remote_setting.http_host.HOST_NAME = viewCauHinhRemote1.txtAddressHTTP.Text;
+                Global.remote_setting.http_host.PORT = viewCauHinhRemote1.txtPortHTTP.Text;
+                Global.remote_setting.http_host.PRE_PATH = viewCauHinhRemote1.txtPrepathHTTP.Text;
 
             Global.remote_setting.http_host.save();
             //SMTP MAIL
-            Global.remote_setting.smtp_config.SMTP_HOST = txtSmtpHost.Text;
-            Global.remote_setting.smtp_config.SMTP_PASSWORD = txtSmtpPassword.Text;
-            Global.remote_setting.smtp_config.SMTP_PORT = StringHelper.toInt(txtSmtpPort.Text);
-            Global.remote_setting.smtp_config.SMTP_USERNAME = txtSmtpUsername.Text;
-            Global.remote_setting.smtp_config.SMTP_USESSL = cbSmtpUseSSL.Checked;
+            Global.remote_setting.smtp_config.SMTP_HOST = viewCauHinhRemote1.txtSmtpHost.Text;
+            Global.remote_setting.smtp_config.SMTP_PASSWORD = viewCauHinhRemote1.txtSmtpPassword.Text;
+            Global.remote_setting.smtp_config.SMTP_PORT = StringHelper.toInt(viewCauHinhRemote1.txtSmtpPort.Text);
+            Global.remote_setting.smtp_config.SMTP_USERNAME = viewCauHinhRemote1.txtSmtpUsername.Text;
+            Global.remote_setting.smtp_config.SMTP_USESSL = viewCauHinhRemote1.cbSmtpUseSSL.Checked;
 
             Global.remote_setting.smtp_config.save();
 
@@ -477,19 +484,19 @@ namespace PTB_GUI.Settings
                 new XElement(viewCauHinhLocal._cbAutoSync.Name, (viewCauHinhLocal._cbAutoSync.Checked ? 1 : 0).ToString()),
 
 
-                new XElement(txtAddressFTP.Name, txtAddressFTP.Text),
-                new XElement(txtPortFTP.Name, txtPortFTP.Text),
-                new XElement(txtPrepathFTP.Name, txtPrepathFTP.Text),
-                new XElement(txtUsernameFTP.Name, txtUsernameFTP.Text),
-                new XElement(txtPasswordFTP.Name, txtPasswordFTP.Text),
-                new XElement(txtAddressHTTP.Name, txtAddressHTTP.Text),
-                new XElement(txtPortHTTP.Name, txtPortHTTP.Text),
-                new XElement(txtPrepathHTTP.Name, txtPrepathHTTP.Text),
-                new XElement(txtSmtpHost.Name, txtSmtpHost.Text),
-                new XElement(txtSmtpPort.Name, txtSmtpPort.Text),
-                new XElement(cbSmtpUseSSL.Name, (cbSmtpUseSSL.Checked ? 1 : 0).ToString()),
-                new XElement(txtSmtpUsername.Name, txtSmtpUsername.Text),
-                new XElement(txtSmtpPassword.Name, txtSmtpPassword.Text));
+                new XElement(viewCauHinhRemote1.txtAddressFTP.Name, viewCauHinhRemote1.txtAddressFTP.Text),
+                new XElement(viewCauHinhRemote1.txtPortFTP.Name, viewCauHinhRemote1.txtPortFTP.Text),
+                new XElement(viewCauHinhRemote1.txtPrepathFTP.Name, viewCauHinhRemote1.txtPrepathFTP.Text),
+                new XElement(viewCauHinhRemote1.txtUsernameFTP.Name, viewCauHinhRemote1.txtUsernameFTP.Text),
+                new XElement(viewCauHinhRemote1.txtPasswordFTP.Name, viewCauHinhRemote1.txtPasswordFTP.Text),
+                new XElement(viewCauHinhRemote1.txtAddressHTTP.Name, viewCauHinhRemote1.txtAddressHTTP.Text),
+                new XElement(viewCauHinhRemote1.txtPortHTTP.Name, viewCauHinhRemote1.txtPortHTTP.Text),
+                new XElement(viewCauHinhRemote1.txtPrepathHTTP.Name, viewCauHinhRemote1.txtPrepathHTTP.Text),
+                new XElement(viewCauHinhRemote1.txtSmtpHost.Name, viewCauHinhRemote1.txtSmtpHost.Text),
+                new XElement(viewCauHinhRemote1.txtSmtpPort.Name, viewCauHinhRemote1.txtSmtpPort.Text),
+                new XElement(viewCauHinhRemote1.cbSmtpUseSSL.Name, (viewCauHinhRemote1.cbSmtpUseSSL.Checked ? 1 : 0).ToString()),
+                new XElement(viewCauHinhRemote1.txtSmtpUsername.Name, viewCauHinhRemote1.txtSmtpUsername.Text),
+                new XElement(viewCauHinhRemote1.txtSmtpPassword.Name, viewCauHinhRemote1.txtSmtpPassword.Text));
 
             str = XML.ToString();
             return str;
@@ -507,14 +514,14 @@ namespace PTB_GUI.Settings
         private void btnSmtpSendTest_Click(object sender, EventArgs e)
         {
             if (SHARED.Libraries.EmailHelper.sendMail(
-                txtSmtpTestEmail.Text,
+                viewCauHinhRemote1.txtSmtpTestEmail.Text,
                 "Test email",
                 ServerTimeHelper.getNow().ToString(),
-                txtSmtpHost.Text,
-                StringHelper.toInt(txtSmtpPort.Text),
-                cbSmtpUseSSL.Checked,
-                txtSmtpUsername.Text,
-                txtSmtpPassword.Text                
+                viewCauHinhRemote1.txtSmtpHost.Text,
+                StringHelper.toInt(viewCauHinhRemote1.txtSmtpPort.Text),
+                viewCauHinhRemote1.cbSmtpUseSSL.Checked,
+                viewCauHinhRemote1.txtSmtpUsername.Text,
+                viewCauHinhRemote1.txtSmtpPassword.Text                
                 ) > 0)
             {
                 MessageBox.Show("Email được gửi thành công, vui lòng kiểm tra hộp thư đến!");

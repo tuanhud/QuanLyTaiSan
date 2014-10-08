@@ -105,7 +105,7 @@ namespace TSCD.Entities
         }
         public override string niceName()
         {
-            return VNNAME + ": (" + key + " => " + value + ")";
+            return VNNAME + ": " + key;
         }
         #endregion
     }
