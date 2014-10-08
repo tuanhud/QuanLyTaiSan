@@ -336,6 +336,24 @@
     <Compile Include="QLTaiSan\ucQuanLyTaiSan.Designer.cs">
       <DependentUpon>ucQuanLyTaiSan.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.Designer.cs">
+      <DependentUpon>XtraReport_BaoCaoTangGiamTSCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.Designer.cs">
+      <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitForm_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm_Report.Designer.cs">
+      <DependentUpon>WaitForm_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLViTri\ucQuanLyViTri.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -527,6 +545,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\ucQuanLyTaiSan.resx">
       <DependentUpon>ucQuanLyTaiSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.resx">
+      <DependentUpon>XtraReport_BaoCaoTangGiamTSCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.resx">
+      <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm_Report.resx">
+      <DependentUpon>WaitForm_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLViTri\ucQuanLyViTri.resx">
       <DependentUpon>ucQuanLyViTri.cs</DependentUpon>
