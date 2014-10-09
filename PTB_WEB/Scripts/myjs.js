@@ -86,7 +86,7 @@ $(document).ready(function () {
             var salt = salt1 + pass_row + salt2;
             var shaObj = new jsSHA(salt, "TEXT");
             var pass_hash = shaObj.getHash("SHA-1", "HEX");
-            $("#TextBoxMatKhau").val(pass_hash);
+            $("#HiddenFieldMatKhau").val(pass_hash);
         }
     });
     $("input").keypress(function (event) {

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,11 +36,13 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CollectionPager">
       <HintPath>..\PTB_WEB\dll\CollectionPager.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -65,9 +68,11 @@
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
@@ -140,10 +145,13 @@
     <Content Include="Content\css\site-datetimepicker.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Default.aspx" />
     <Content Include="DonVi.aspx" />
     <Content Include="DonViTaiSan.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Images\bg-footer.png" />
+    <Content Include="Images\bg-title.png" />
     <Content Include="Images\bg-wall.png" />
     <Content Include="Images\CollapseAllIcon.png" />
     <Content Include="Images\DeleteRed.png" />
@@ -176,9 +184,11 @@
     <Content Include="Images\metro\thongtincanhan.png" />
     <Content Include="Images\metro\vitri.png" />
     <Content Include="Images\ptb.png" />
+    <Content Include="Images\ptb1.png" />
     <Content Include="Images\thongtinphanmem.png" />
     <Content Include="Images\thongtinwebsite.png" />
     <Content Include="Images\timkiem.png" />
+    <Content Include="Images\tscd.png" />
     <Content Include="LoaiPhong.aspx" />
     <Content Include="LoaiTaiSan.aspx" />
     <Content Include="Phong.aspx" />
@@ -193,7 +203,10 @@
     <Content Include="Scripts\docs.min.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\TSCD.pubxml" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -241,8 +254,14 @@
     <Content Include="UserControl\ViTri\ucViTri_Mobile.ascx" />
     <Content Include="UserControl\ViTri\ucViTri_Web.ascx" />
     <Content Include="ViTri.aspx" />
-    <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -512,21 +531,17 @@
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SHARED\SHARED.csproj">
       <Project>{84ef1cd9-9dd3-4c1e-878a-3e6d2f8d496c}</Project>
       <Name>SHARED</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\TSCD\TSCD.csproj">
       <Project>{1790a3f3-4540-4524-b031-6a159ad400da}</Project>
       <Name>TSCD</Name>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

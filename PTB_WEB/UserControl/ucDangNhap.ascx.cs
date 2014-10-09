@@ -15,26 +15,6 @@ namespace PTB_WEB.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                try
-                {
-                    if (Request.Cookies["Username_Remember"] != null)
-                    {
-                        TextBoxTaiKhoan.Text = Request.Cookies["Username_Remember"].Value;
-                        TextBoxMatKhau.Attributes.Add("value", Request.Cookies["HashPassword_Remember"].Value);
-                        CheckBoxNhoDangNhap.Checked = true;
-                    }
-                    else
-                    {
-                        CheckBoxNhoDangNhap.Checked = false;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            }
         }
 
         protected void ButtonDangNhap_Click(object sender, EventArgs e)
@@ -47,7 +27,7 @@ namespace PTB_WEB.UserControl
             try
             {
                 string Username = TextBoxTaiKhoan.Text;
-                string HashPassword = TextBoxMatKhau.Text;
+                string HashPassword = HiddenFieldMatKhau.Value;
 
                 if (Username == "")
                 {
@@ -77,7 +57,6 @@ namespace PTB_WEB.UserControl
                     {
                         Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(-1);
                         Response.Cookies["HashPassword_Remember"].Expires = DateTime.Now.AddDays(-1);
-                        CheckBoxNhoDangNhap.Checked = false;
                     }
                     Session["Username"] = Username;
                     QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);

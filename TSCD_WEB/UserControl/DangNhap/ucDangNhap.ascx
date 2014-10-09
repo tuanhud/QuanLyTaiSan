@@ -20,6 +20,7 @@
             <br />
             <div class="row">
                 <asp:TextBox ID="TextBoxMatKhau" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Mật khẩu" TextMode="Password"></asp:TextBox>
+                <asp:HiddenField ID="HiddenFieldMatKhau" ClientIDMode="Static" runat="server" />
             </div>
             <br />
             <div class="row">

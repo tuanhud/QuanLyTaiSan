@@ -16,13 +16,7 @@ namespace TSCD_WEB
         {
             try
             {
-                if (!Convert.ToString(Session["Username"]).Equals(String.Empty))
-                {
-                    ulDangNhap.Visible = false;
-                    ulAdmin.Visible = true;
-                    UserName.InnerText = Session["HoTen"].ToString();
-                    HiddenFieldUserName.Value = Session["UserName"].ToString();
-                }
+                KiemTraDangNhap();
 
                 if (!string.IsNullOrWhiteSpace(Page.Request["op"]))
                 {
@@ -38,6 +32,51 @@ namespace TSCD_WEB
             catch (Exception ex)
             {
                 Console.Write(ex);
+            }
+        }
+
+        public void KiemTraDangNhap()
+        {
+            try
+            {
+                if (Object.Equals(Session["UserName"], null))
+                {
+                    if (!Object.Equals(Request.Cookies["Username_Remember"], null) && !Object.Equals(Request.Cookies["HashPassword_Remember"], null))
+                    {
+                        string Username = Request.Cookies["Username_Remember"].Value;
+                        string HashPassword = Request.Cookies["HashPassword_Remember"].Value;
+
+                        if (QuanTriVien.checkLoginByUserName(Username, HashPassword))
+                        {
+                            TSCD.Global.current_quantrivien_login = QuanTriVien.getByUserName(UserName.ToString());
+                            QuanTriVien _QuanTriVien = QuanTriVien.getByUserName(Username);
+                            Session["HoTen"] = _QuanTriVien.hoten;
+                            Session["UserName"] = Username;
+                            ulDangNhap.Visible = false;
+                            ulAdmin.Visible = true;
+                            UserName.InnerText = Session["HoTen"].ToString();
+                            HiddenFieldUserName.Value = Session["UserName"].ToString();
+                        }
+                        else
+                        {
+                            Response.Cookies["Username_Remember"].Expires = DateTime.Now.AddDays(-1);
+                            Response.Cookies["HashPassword_Remember"].Expires = DateTime.Now.AddDays(-1);
+                            Session.Abandon();
+                        }
+                        Response.Redirect(Request.RawUrl);
+                    }
+                }
+                else
+                {
+                    ulDangNhap.Visible = false;
+                    ulAdmin.Visible = true;
+                    UserName.InnerText = Session["HoTen"].ToString();
+                    HiddenFieldUserName.Value = Session["UserName"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
