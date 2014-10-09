@@ -194,35 +194,30 @@
             // 
             this.xrTableCell_SoThe.Name = "xrTableCell_SoThe";
             this.xrTableCell_SoThe.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoThe.Text = "Số thẻ";
             this.xrTableCell_SoThe.Weight = 0.53124988555908192D;
             // 
             // xrTableCell_SoHieuTang
             // 
             this.xrTableCell_SoHieuTang.Name = "xrTableCell_SoHieuTang";
             this.xrTableCell_SoHieuTang.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoHieuTang.Text = "Số hiệu";
             this.xrTableCell_SoHieuTang.Weight = 0.51953121185302742D;
             // 
             // xrTableCell_NgayThangTang
             // 
             this.xrTableCell_NgayThangTang.Name = "xrTableCell_NgayThangTang";
             this.xrTableCell_NgayThangTang.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NgayThangTang.Text = "Ngày tháng";
             this.xrTableCell_NgayThangTang.Weight = 0.52994808197021448D;
             // 
             // xrTableCell_TenTSCD
             // 
             this.xrTableCell_TenTSCD.Name = "xrTableCell_TenTSCD";
             this.xrTableCell_TenTSCD.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_TenTSCD.Text = "Tên TSCĐ";
             this.xrTableCell_TenTSCD.Weight = 0.52994798660278308D;
             // 
             // xrTableCell_NuocSX
             // 
             this.xrTableCell_NuocSX.Name = "xrTableCell_NuocSX";
             this.xrTableCell_NuocSX.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_NuocSX.Text = "Nước SX";
             this.xrTableCell_NuocSX.Weight = 0.47786420822143577D;
             // 
             // xrTableCell_NamSD
@@ -230,84 +225,72 @@
             this.xrTableCell_NamSD.Multiline = true;
             this.xrTableCell_NamSD.Name = "xrTableCell_NamSD";
             this.xrTableCell_NamSD.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NamSD.Text = "Năm SD";
             this.xrTableCell_NamSD.Weight = 0.47135478973388678D;
             // 
             // xrTableCell__SoHieuTSCD
             // 
             this.xrTableCell__SoHieuTSCD.Name = "xrTableCell__SoHieuTSCD";
             this.xrTableCell__SoHieuTSCD.StyleName = "xrControlStyle_Left";
-            this.xrTableCell__SoHieuTSCD.Text = "Số hiệu TSCĐ";
             this.xrTableCell__SoHieuTSCD.Weight = 0.42838468551635744D;
             // 
             // xrTableCell_NguyenGia
             // 
             this.xrTableCell_NguyenGia.Name = "xrTableCell_NguyenGia";
             this.xrTableCell_NguyenGia.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_NguyenGia.Text = "Nguyên giá";
             this.xrTableCell_NguyenGia.Weight = 0.75130286216735742D;
             // 
             // xrTableCell_TyLeHaoMon
             // 
             this.xrTableCell_TyLeHaoMon.Name = "xrTableCell_TyLeHaoMon";
             this.xrTableCell_TyLeHaoMon.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_TyLeHaoMon.Text = "Tỷ lệ %";
             this.xrTableCell_TyLeHaoMon.Weight = 0.520833373069764D;
             // 
             // xrTableCell_SoTienHaoMon
             // 
             this.xrTableCell_SoTienHaoMon.Name = "xrTableCell_SoTienHaoMon";
             this.xrTableCell_SoTienHaoMon.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoTienHaoMon.Text = "Số tiền";
             this.xrTableCell_SoTienHaoMon.Weight = 0.55208222150802544D;
             // 
             // xrTableCell_SoHMChuyenGiao
             // 
             this.xrTableCell_SoHMChuyenGiao.Name = "xrTableCell_SoHMChuyenGiao";
             this.xrTableCell_SoHMChuyenGiao.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoHMChuyenGiao.Text = "Số HM năm trước chuyển sang";
             this.xrTableCell_SoHMChuyenGiao.Weight = 0.74043748080730443D;
             // 
             // xrTableCell_SoHMNamNay
             // 
             this.xrTableCell_SoHMNamNay.Name = "xrTableCell_SoHMNamNay";
             this.xrTableCell_SoHMNamNay.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoHMNamNay.Text = "Số HM năm nay";
             this.xrTableCell_SoHMNamNay.Weight = 0.90331113040447231D;
             // 
             // xrTableCell_SoHMLuyKe
             // 
             this.xrTableCell_SoHMLuyKe.Name = "xrTableCell_SoHMLuyKe";
             this.xrTableCell_SoHMLuyKe.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoHMLuyKe.Text = "Số HM lũy kế";
             this.xrTableCell_SoHMLuyKe.Weight = 0.81458607852458953D;
             // 
             // xrTableCell_SoHieuGiam
             // 
             this.xrTableCell_SoHieuGiam.Name = "xrTableCell_SoHieuGiam";
             this.xrTableCell_SoHieuGiam.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoHieuGiam.Text = "Số hiệu";
             this.xrTableCell_SoHieuGiam.Weight = 0.58536790177226061D;
             // 
             // xrTableCell_NgayThangGiam
             // 
             this.xrTableCell_NgayThangGiam.Name = "xrTableCell_NgayThangGiam";
             this.xrTableCell_NgayThangGiam.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NgayThangGiam.Text = "Ngày tháng";
             this.xrTableCell_NgayThangGiam.Weight = 0.90421326920390122D;
             // 
             // xrTableCell_LyDoGiam
             // 
             this.xrTableCell_LyDoGiam.Name = "xrTableCell_LyDoGiam";
             this.xrTableCell_LyDoGiam.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_LyDoGiam.Text = "Lý do ghi giảm";
             this.xrTableCell_LyDoGiam.Weight = 0.66666688248515127D;
             // 
             // xrTableCell_GiaTriConLai
             // 
             this.xrTableCell_GiaTriConLai.Name = "xrTableCell_GiaTriConLai";
             this.xrTableCell_GiaTriConLai.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_GiaTriConLai.Text = "Giá trị còn lại";
             this.xrTableCell_GiaTriConLai.Weight = 0.57291795060038564D;
             // 
             // TopMargin

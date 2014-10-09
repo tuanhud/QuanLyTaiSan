@@ -8,6 +8,8 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraReports.UI;
+using TSCD.DataFilter;
 
 namespace TSCD_GUI.ThongKe
 {
@@ -89,7 +91,7 @@ namespace TSCD_GUI.ThongKe
 
         private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(current.Equals(_ucTKTaiSan))
+            if (current.Equals(_ucTKTaiSan))
             {
                 _ucTKTaiSan.loadLayout(true);
             }
@@ -97,12 +99,43 @@ namespace TSCD_GUI.ThongKe
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (current.Equals(_ucTKPhong))
+            {
+                XtraMessageBox.Show("Thống kê phòng chưa có báo cáo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (current.Equals(_ucTKTaiSan))
+            {
+                splashScreenManager_Report.ShowWaitForm();
+                splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
+
+                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
+                splashScreenManager_Report.CloseWaitForm();
+                printTool.ShowPreviewDialog();
+            }
         }
 
         private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraMessageBox.Show("Chưa có chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (current.Equals(_ucTKPhong))
+            {
+                XtraMessageBox.Show("Thống kê phòng chưa có báo cáo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (current.Equals(_ucTKTaiSan))
+            {
+                splashScreenManager_Report.ShowWaitForm();
+                splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
+                
+                ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
+                designTool.ShowDesignerDialog();
+                splashScreenManager_Report.CloseWaitForm();
+
+                ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                printTool.ShowPreviewDialog();
+            }
         }
     }
 }

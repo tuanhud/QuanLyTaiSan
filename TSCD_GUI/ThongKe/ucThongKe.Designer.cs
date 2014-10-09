@@ -42,6 +42,7 @@
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
+            this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
             this.SuspendLayout();
@@ -204,5 +205,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
         private DevExpress.XtraBars.BarButtonItem barBtnThietKe;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
     }
 }

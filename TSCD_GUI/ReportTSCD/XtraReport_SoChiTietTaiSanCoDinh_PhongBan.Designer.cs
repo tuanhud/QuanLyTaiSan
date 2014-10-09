@@ -85,6 +85,7 @@
             this.xrLabel_GiamDoc = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPageInfo_CurrentDay = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel_Nam = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_DonViTinh = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_PhongBan = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_Title = new DevExpress.XtraReports.UI.XRLabel();
@@ -96,7 +97,6 @@
             this.xrControlStyle_Middle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Left = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Right = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrLabel_Nam = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Header)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -139,35 +139,30 @@
             // 
             this.xrTableCell_SoHieu.Name = "xrTableCell_SoHieu";
             this.xrTableCell_SoHieu.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_SoHieu.Text = "Nhóm TSCĐ";
             this.xrTableCell_SoHieu.Weight = 1.1662499999999998D;
             // 
             // xrTableCell_NgayThang
             // 
             this.xrTableCell_NgayThang.Name = "xrTableCell_NgayThang";
             this.xrTableCell_NgayThang.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_NgayThang.Text = "Tên tài sản cố định";
             this.xrTableCell_NgayThang.Weight = 1.973349609375D;
             // 
             // xrTableCell_Ten
             // 
             this.xrTableCell_Ten.Name = "xrTableCell_Ten";
             this.xrTableCell_Ten.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_Ten.Text = "Nước sản xuất";
             this.xrTableCell_Ten.Weight = 0.75623447418212875D;
             // 
             // xrTableCell_DonViTinh
             // 
             this.xrTableCell_DonViTinh.Name = "xrTableCell_DonViTinh";
             this.xrTableCell_DonViTinh.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_DonViTinh.Text = "Ngày sử dụng";
             this.xrTableCell_DonViTinh.Weight = 0.82291536331176729D;
             // 
             // xrTableCell_SoLuongTang
             // 
             this.xrTableCell_SoLuongTang.Name = "xrTableCell_SoLuongTang";
             this.xrTableCell_SoLuongTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoLuongTang.Text = "Tỷ lệ HM (%năm)";
             this.xrTableCell_SoLuongTang.Weight = 0.67708467483520518D;
             // 
             // xrTableCell_DonGiaTang
@@ -175,35 +170,30 @@
             this.xrTableCell_DonGiaTang.Multiline = true;
             this.xrTableCell_DonGiaTang.Name = "xrTableCell_DonGiaTang";
             this.xrTableCell_DonGiaTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_DonGiaTang.Text = "Nguyên giá";
             this.xrTableCell_DonGiaTang.Weight = 1.0208326339721681D;
             // 
             // xrTableCell_ThanhTienTang
             // 
             this.xrTableCell_ThanhTienTang.Name = "xrTableCell_ThanhTienTang";
             this.xrTableCell_ThanhTienTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_ThanhTienTang.Text = "Giá trị hao mòn đầu kỳ";
             this.xrTableCell_ThanhTienTang.Weight = 0.947916851043701D;
             // 
             // xrTableCell_LyDo
             // 
             this.xrTableCell_LyDo.Name = "xrTableCell_LyDo";
             this.xrTableCell_LyDo.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_LyDo.Text = "Số hao mòn trong kỳ";
             this.xrTableCell_LyDo.Weight = 0.926216154098511D;
             // 
             // xrTableCell_SoLuongGiam
             // 
             this.xrTableCell_SoLuongGiam.Name = "xrTableCell_SoLuongGiam";
             this.xrTableCell_SoLuongGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoLuongGiam.Text = "Giá trị hao mòn lũy kế ";
             this.xrTableCell_SoLuongGiam.Weight = 1.0737823629379273D;
             // 
             // xrTableCell_DonGiaGiam
             // 
             this.xrTableCell_DonGiaGiam.Name = "xrTableCell_DonGiaGiam";
             this.xrTableCell_DonGiaGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_DonGiaGiam.Text = "Giá trị còn lại";
             this.xrTableCell_DonGiaGiam.Weight = 1.1354178762435914D;
             // 
             // TopMargin
@@ -554,6 +544,19 @@
             this.ReportHeader.HeightF = 200F;
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // xrLabel_Nam
+            // 
+            this.xrLabel_Nam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel_Nam.LocationFloat = new DevExpress.Utils.PointFloat(376.8749F, 124.5417F);
+            this.xrLabel_Nam.Multiline = true;
+            this.xrLabel_Nam.Name = "xrLabel_Nam";
+            this.xrLabel_Nam.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_Nam.SizeF = new System.Drawing.SizeF(300F, 25F);
+            this.xrLabel_Nam.StylePriority.UseFont = false;
+            this.xrLabel_Nam.StylePriority.UseTextAlignment = false;
+            this.xrLabel_Nam.Text = "Năm";
+            this.xrLabel_Nam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // xrLabel_DonViTinh
             // 
             this.xrLabel_DonViTinh.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -678,19 +681,6 @@
             this.xrControlStyle_Right.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Right.Name = "xrControlStyle_Right";
             this.xrControlStyle_Right.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel_Nam
-            // 
-            this.xrLabel_Nam.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_Nam.LocationFloat = new DevExpress.Utils.PointFloat(376.8749F, 124.5417F);
-            this.xrLabel_Nam.Multiline = true;
-            this.xrLabel_Nam.Name = "xrLabel_Nam";
-            this.xrLabel_Nam.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel_Nam.SizeF = new System.Drawing.SizeF(300F, 25F);
-            this.xrLabel_Nam.StylePriority.UseFont = false;
-            this.xrLabel_Nam.StylePriority.UseTextAlignment = false;
-            this.xrLabel_Nam.Text = "Năm";
-            this.xrLabel_Nam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // XtraReport_SoChiTietTaiSanCoDinh_PhongBan
             // 
