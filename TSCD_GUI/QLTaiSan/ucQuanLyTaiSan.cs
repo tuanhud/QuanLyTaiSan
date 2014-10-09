@@ -49,8 +49,16 @@ namespace TSCD_GUI.QLTaiSan
                 objNULL.parent = null;
                 list.Insert(0, objNULL);
                 ucComboBoxDonVi1.DataSource = list;
-                //ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxDonVi1.DonVi = objNULL;
+
+                List<ViTriHienThi> listViTri = ViTriHienThi.getAllHavePhong();
+                ViTriHienThi objNULL2 = new ViTriHienThi();
+                objNULL2.id = Guid.Empty;
+                objNULL2.ten = "[Không có vị trí]";
+                objNULL2.parent_id = Guid.Empty;
+                objNULL2.loai = typeof(Phong).Name;
+                listViTri.Insert(0, objNULL2);
+                ucComboBoxViTri1.DataSource = listViTri;
                 //ucComboBoxDonVi2.DonVi = objNULL;
                 ucGridControlTaiSan1.DataSource = null;
                 barBtnSuaTaiSan.Enabled = false;
@@ -76,8 +84,12 @@ namespace TSCD_GUI.QLTaiSan
                 String ten = checkTen.Checked ? txtTen.Text : null;
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
-                //DonVi DVSD = ucComboBoxDonVi2.DonVi;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null));
+                ViTri vitri = ucComboBoxViTri1.ViTri;
+                Phong phong = ucComboBoxViTri1.Phong;
+                bool isViTri = true;
+                if (vitri == null)
+                    isViTri = false;
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null, isViTri, vitri, !isViTri, phong));
                 ucGridControlTaiSan1.DataSource = list;
                 ucGridControlTaiSan1.ExpandAllGroups();
 
@@ -180,22 +192,7 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnXoa_r_Click(object sender, EventArgs e)
         {
-            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
-            if (obj != null)
-            {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    if (obj.delete() > 0 && DBInstance.commit() > 0)
-                    {
-                        XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadData();
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("Xóa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+            deleteObj();
         }
 
         private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -267,9 +264,9 @@ namespace TSCD_GUI.QLTaiSan
                 writer.WriteAttributeString("cDVQL", checkDVQL.Checked ? "1" : "0");
                 DonVi dvql = ucComboBoxDonVi1.DonVi;
                 writer.WriteAttributeString("vDVQL", dvql != null ? dvql.id.ToString() : "");
-                //writer.WriteAttributeString("cDVSD", checkViTri.Checked ? "1" : "0");
-                //DonVi dvsd = ucComboBoxDonVi1.DonVi;
-                //writer.WriteAttributeString("vDVSD", dvsd != null ? dvsd.id.ToString() : "");
+                writer.WriteAttributeString("cViTri", checkViTri.Checked ? "1" : "0");
+                Guid id = GUID.From(ucComboBoxViTri1.EditValue);
+                writer.WriteAttributeString("vViTri", id != Guid.Empty ? id.ToString() : "");
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
 
@@ -304,8 +301,8 @@ namespace TSCD_GUI.QLTaiSan
                                 ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(3)));
                                 checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(4)).Equals(1) ? true : false;
                                 ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(5)));
-                                //checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
-                                //ucComboBoxDonVi2.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(7)));
+                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
+                                ucComboBoxViTri1.EditValue = GUID.From(reader.GetAttribute(7));
                             }
                         }
                         reader.Close();
@@ -364,10 +361,10 @@ namespace TSCD_GUI.QLTaiSan
             {
                 if (XtraMessageBox.Show("Tài sản bị xóa sẽ mất log và không thể thống kê được nữa. \n Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (obj.delete() > 0 && DBInstance.commit() > 0)
+                    if (obj.taisan.delete() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadData();
+                        Search();
                     }
                     else
                     {

@@ -204,15 +204,20 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnXoaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            deleteObj();
+        }
+
+        private void deleteObj()
+        {
             CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
             if (obj != null)
             {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (XtraMessageBox.Show("Tài sản bị xóa sẽ mất log và không thể thống kê được nữa. \n Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (obj.delete() > 0 && DBInstance.commit() > 0)
+                    if (obj.taisan.delete() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadData();
+                        reloadData();
                     }
                     else
                     {
