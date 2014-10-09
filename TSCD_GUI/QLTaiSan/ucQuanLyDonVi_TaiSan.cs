@@ -74,11 +74,14 @@ namespace TSCD_GUI.QLTaiSan
                     ucGridControlTaiSan1.DataSource = list;
 
                     bool isEnabled = list.Count > 0;
-                    barBtnSuaTaiSan.Enabled = isEnabled;
-                    barBtnXoaTaiSan.Enabled = isEnabled;
+                    barBtnThemTaiSan.Enabled = true;
+                    barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = isEnabled;
                 }
                 else
+                {
                     ucGridControlTaiSan1.DataSource = null;
+                    barBtnThemTaiSan.Enabled = barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = false;
+                }
                 ucGridControlTaiSan1.ExpandAllGroups();
             }
             catch (Exception ex)
@@ -201,15 +204,20 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnXoaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            deleteObj();
+        }
+
+        private void deleteObj()
+        {
             CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
             if (obj != null)
             {
-                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (XtraMessageBox.Show("Tài sản bị xóa sẽ mất log và không thể thống kê được nữa. \n Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (obj.delete() > 0 && DBInstance.commit() > 0)
+                    if (obj.taisan.delete() > 0 && DBInstance.commit() > 0)
                     {
                         XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadData();
+                        reloadData();
                     }
                     else
                     {
