@@ -32,8 +32,10 @@
             this.label_uploading = new DevExpress.XtraEditors.LabelControl();
             this.gridControlAttachment = new DevExpress.XtraGrid.GridControl();
             this.gridViewAttachment = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colfile = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAttachment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAttachment)).BeginInit();
             this.SuspendLayout();
@@ -67,9 +69,22 @@
             // 
             // gridViewAttachment
             // 
+            this.gridViewAttachment.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colfile});
             this.gridViewAttachment.GridControl = this.gridControlAttachment;
             this.gridViewAttachment.Name = "gridViewAttachment";
+            this.gridViewAttachment.OptionsBehavior.Editable = false;
+            this.gridViewAttachment.OptionsBehavior.ReadOnly = true;
+            this.gridViewAttachment.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewAttachment.OptionsView.ShowGroupPanel = false;
+            // 
+            // colfile
+            // 
+            this.colfile.Caption = "File";
+            this.colfile.FieldName = "path";
+            this.colfile.Name = "colfile";
+            this.colfile.Visible = true;
+            this.colfile.VisibleIndex = 0;
             // 
             // btnDelete
             // 
@@ -82,18 +97,28 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(522, 323);
+            this.btnOK.Location = new System.Drawing.Point(441, 323);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(522, 323);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 23);
+            this.btnHuy.TabIndex = 9;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // frmFileChungTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 358);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.gridControlAttachment);
@@ -117,5 +142,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewAttachment;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraGrid.Columns.GridColumn colfile;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
     }
 }

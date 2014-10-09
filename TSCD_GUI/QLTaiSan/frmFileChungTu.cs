@@ -23,7 +23,6 @@ namespace TSCD_GUI.QLTaiSan
         public frmFileChungTu(ChungTu _obj)
         {
             InitializeComponent();
-            gridViewAttachment.PopulateColumns();
             this.ct2 = _obj;
             this.ct.attachments = new List<Attachment>(_obj.attachments);
             loadData();
@@ -131,6 +130,11 @@ namespace TSCD_GUI.QLTaiSan
             ct2.attachments = ct.attachments;
             ct2.update();
             DBInstance.commit();
+            this.Close();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
