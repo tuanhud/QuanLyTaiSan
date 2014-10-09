@@ -53,6 +53,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlTimKiem = new DevExpress.XtraEditors.PanelControl();
+            this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.checkTen = new DevExpress.XtraEditors.CheckEdit();
             this.checkLoai = new DevExpress.XtraEditors.CheckEdit();
             this.checkViTri = new DevExpress.XtraEditors.CheckEdit();
@@ -61,7 +62,8 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
+            this.rbnGroupAttachment = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnAttachment = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -88,9 +90,10 @@
             this.barBtnThietKe,
             this.barBtnDefault,
             this.barBtnImportChungTu,
-            this.barBtnChuyenTinhTrang});
+            this.barBtnChuyenTinhTrang,
+            this.barBtnAttachment});
             this.rbnControlTaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlTaiSan.MaxItemId = 12;
+            this.rbnControlTaiSan.MaxItemId = 13;
             this.rbnControlTaiSan.Name = "rbnControlTaiSan";
             this.rbnControlTaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageTaiSan});
@@ -191,7 +194,8 @@
             this.rbnGroupChuyen,
             this.rbnGroupBaoCao,
             this.rbnGroupLayout,
-            this.rbnGroupImport});
+            this.rbnGroupImport,
+            this.rbnGroupAttachment});
             this.rbnPageTaiSan.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageTaiSan.Image")));
             this.rbnPageTaiSan.Name = "rbnPageTaiSan";
             this.rbnPageTaiSan.Text = "Tài sản";
@@ -317,6 +321,16 @@
             this.panelControlTimKiem.Size = new System.Drawing.Size(854, 60);
             this.panelControlTimKiem.TabIndex = 2;
             // 
+            // ucComboBoxViTri1
+            // 
+            this.ucComboBoxViTri1.EditValue = null;
+            this.ucComboBoxViTri1.Location = new System.Drawing.Point(439, 33);
+            this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
+            this.ucComboBoxViTri1.Phong = null;
+            this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
+            this.ucComboBoxViTri1.TabIndex = 62;
+            this.ucComboBoxViTri1.ViTri = null;
+            // 
             // checkTen
             // 
             this.checkTen.Location = new System.Drawing.Point(7, 7);
@@ -386,14 +400,19 @@
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 49;
             // 
-            // ucComboBoxViTri1
+            // rbnGroupAttachment
             // 
-            this.ucComboBoxViTri1.Location = new System.Drawing.Point(439, 33);
-            this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
-            this.ucComboBoxViTri1.Phong = null;
-            this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxViTri1.TabIndex = 62;
-            this.ucComboBoxViTri1.ViTri = null;
+            this.rbnGroupAttachment.ItemLinks.Add(this.barBtnAttachment);
+            this.rbnGroupAttachment.Name = "rbnGroupAttachment";
+            this.rbnGroupAttachment.ShowCaptionButton = false;
+            this.rbnGroupAttachment.Text = "File chứng từ";
+            // 
+            // barBtnAttachment
+            // 
+            this.barBtnAttachment.Caption = "File chứng từ";
+            this.barBtnAttachment.Id = 12;
+            this.barBtnAttachment.Name = "barBtnAttachment";
+            this.barBtnAttachment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAttachment_ItemClick);
             // 
             // ucQuanLyTaiSan
             // 
@@ -453,5 +472,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnChuyenTinhTrang;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupChuyen;
         private MyUserControl.ucComboBoxViTri ucComboBoxViTri1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupAttachment;
+        private DevExpress.XtraBars.BarButtonItem barBtnAttachment;
     }
 }
