@@ -35,7 +35,6 @@
             this.lblPhong = new DevExpress.XtraEditors.LabelControl();
             this.lblViTri = new DevExpress.XtraEditors.LabelControl();
             this.lblDonViQL = new DevExpress.XtraEditors.LabelControl();
-            this.lblDonViSD = new DevExpress.XtraEditors.LabelControl();
             this.lblGhiChu = new DevExpress.XtraEditors.LabelControl();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -47,7 +46,6 @@
             this.txtSoHieu_CT = new DevExpress.XtraEditors.TextEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
             this.dateNgayGhi = new DevExpress.XtraEditors.DateEdit();
-            this.ucComboBoxDonVi2 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxViTri2 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
@@ -64,7 +62,7 @@
             // 
             this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGhiChu.Location = new System.Drawing.Point(94, 194);
+            this.txtGhiChu.Location = new System.Drawing.Point(93, 168);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(346, 75);
             this.txtGhiChu.TabIndex = 4;
@@ -121,17 +119,9 @@
             this.lblDonViQL.TabIndex = 9;
             this.lblDonViQL.Text = "Đơn vị quản lý:";
             // 
-            // lblDonViSD
-            // 
-            this.lblDonViSD.Location = new System.Drawing.Point(10, 171);
-            this.lblDonViSD.Name = "lblDonViSD";
-            this.lblDonViSD.Size = new System.Drawing.Size(77, 13);
-            this.lblDonViSD.TabIndex = 10;
-            this.lblDonViSD.Text = "Đơn vị sử dụng:";
-            // 
             // lblGhiChu
             // 
-            this.lblGhiChu.Location = new System.Drawing.Point(10, 197);
+            this.lblGhiChu.Location = new System.Drawing.Point(9, 171);
             this.lblGhiChu.Name = "lblGhiChu";
             this.lblGhiChu.Size = new System.Drawing.Size(39, 13);
             this.lblGhiChu.TabIndex = 11;
@@ -141,7 +131,7 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(147, 275);
+            this.btnOK.Location = new System.Drawing.Point(146, 249);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 12;
@@ -152,7 +142,7 @@
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(228, 275);
+            this.btnHuy.Location = new System.Drawing.Point(227, 249);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 13;
@@ -231,16 +221,6 @@
             this.dateNgayGhi.Size = new System.Drawing.Size(280, 20);
             this.dateNgayGhi.TabIndex = 26;
             // 
-            // ucComboBoxDonVi2
-            // 
-            this.ucComboBoxDonVi2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucComboBoxDonVi2.DonVi = null;
-            this.ucComboBoxDonVi2.Location = new System.Drawing.Point(94, 168);
-            this.ucComboBoxDonVi2.Name = "ucComboBoxDonVi2";
-            this.ucComboBoxDonVi2.Size = new System.Drawing.Size(346, 20);
-            this.ucComboBoxDonVi2.TabIndex = 3;
-            // 
             // ucComboBoxDonVi1
             // 
             this.ucComboBoxDonVi1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -277,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 307);
+            this.ClientSize = new System.Drawing.Size(454, 278);
             this.Controls.Add(this.lblChungTu);
             this.Controls.Add(this.lblNgay_CT);
             this.Controls.Add(this.lblSoHieu_CT);
@@ -289,18 +269,16 @@
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblGhiChu);
-            this.Controls.Add(this.lblDonViSD);
             this.Controls.Add(this.lblDonViQL);
             this.Controls.Add(this.lblViTri);
             this.Controls.Add(this.lblPhong);
             this.Controls.Add(this.lblSoLuong);
-            this.Controls.Add(this.ucComboBoxDonVi2);
             this.Controls.Add(this.ucComboBoxDonVi1);
             this.Controls.Add(this.ucComboBoxViTri2);
             this.Controls.Add(this.ucComboBoxViTri1);
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.txtSoLuong);
-            this.MinimumSize = new System.Drawing.Size(470, 345);
+            this.MinimumSize = new System.Drawing.Size(470, 316);
             this.Name = "frmInputViTri_DonVi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập thông tin";
@@ -321,14 +299,12 @@
         private MyUserControl.ucComboBoxViTri ucComboBoxViTri1;
         private MyUserControl.ucComboBoxViTri ucComboBoxViTri2;
         private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;
-        private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi2;
         private DevExpress.XtraEditors.MemoEdit txtGhiChu;
         private DevExpress.XtraEditors.LabelControl lblSoLuong;
         private DevExpress.XtraEditors.SpinEdit txtSoLuong;
         private DevExpress.XtraEditors.LabelControl lblPhong;
         private DevExpress.XtraEditors.LabelControl lblViTri;
         private DevExpress.XtraEditors.LabelControl lblDonViQL;
-        private DevExpress.XtraEditors.LabelControl lblDonViSD;
         private DevExpress.XtraEditors.LabelControl lblGhiChu;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnHuy;

@@ -49,7 +49,6 @@ namespace TSCD_GUI.QLTaiSan
                 dateNgay_CT.EditValue = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.ngay : null;
                 txtSoHieu_CT.Text = objCTTaiSan.chungtu != null ? objCTTaiSan.chungtu.sohieu : "";
                 ucComboBoxDonVi1.DonVi = _objDonVi;
-                ucComboBoxDonVi2.DonVi = _objDonVi;
                 txtSoLuong.Properties.MinValue = 1;
                 txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
                 txtSoLuong.EditValue = objCTTaiSan.soluong;
@@ -71,7 +70,6 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxViTri1.Phong = objCTTaiSan.phong;
                 ucComboBoxViTri2.ViTri = objCTTaiSan.vitri;
                 ucComboBoxDonVi1.DonVi = objCTTaiSan.donviquanly;
-                ucComboBoxDonVi2.DonVi = objCTTaiSan.donvisudung;
                 txtSoLuong.Properties.MinValue = 0;
                 txtSoLuong.Properties.MaxValue = objCTTaiSan.soluong;
                 txtSoLuong.EditValue = objCTTaiSan.soluong;
@@ -94,7 +92,6 @@ namespace TSCD_GUI.QLTaiSan
                 objNULL.parent = null;
                 list.Insert(0, objNULL);
                 ucComboBoxDonVi1.DataSource = list;
-                ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxViTri1.init(false, true);
                 List<ViTriHienThi> listPhong = ViTriHienThi.getAllHavePhong();
                 ViTriHienThi objPhongNULL = new ViTriHienThi();
@@ -127,15 +124,15 @@ namespace TSCD_GUI.QLTaiSan
                     DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
                     DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang xử lý...");
                     DateTime ngayGhi = dateNgayGhi.EditValue != null ? dateNgayGhi.DateTime : DateTime.Now;
-                    String soHieu_CT = txtSoHieu_CT.Text;
-                    DateTime ngay_CT = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                    ChungTu chungTu = new ChungTu();
+                    chungTu.sohieu = txtSoHieu_CT.Text;
+                    chungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
                     int soLuong = Convert.ToInt32(txtSoLuong.EditValue);
                     Phong phong = ucComboBoxViTri1.Phong;
                     ViTri viTri = ucComboBoxViTri2.ViTri;
                     DonVi donViQL = ucComboBoxDonVi1.DonVi;
-                    DonVi donViSD = ucComboBoxDonVi2.DonVi;
                     String ghiChu = txtGhiChu.Text;
-                    int re = 1;// objCTTaiSan.chuyenDonVi(donViQL, donViSD, viTri, phong, objCTTaiSan.parent, ngay_CT, soHieu_CT, soLuong, ghiChu, ngayGhi);
+                    int re = objCTTaiSan.chuyenDonVi(donViQL, null, viTri, phong, objCTTaiSan.parent, chungTu, soLuong, ghiChu, ngayGhi);
                     if (re > 0 && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);

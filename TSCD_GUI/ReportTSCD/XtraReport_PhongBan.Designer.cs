@@ -77,6 +77,19 @@
             this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow5 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell29 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell30 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell31 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_SUM_SoLuongTang = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell33 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_SUM_ThanhTienTang = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell35 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_SUM_SoLuongGiam = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell37 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_SUM_ThanhTienGiam = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel_NguoiLapBieu = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_KeToanTruong = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_GiamDoc = new DevExpress.XtraReports.UI.XRLabel();
@@ -93,19 +106,6 @@
             this.xrControlStyle_Middle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Left = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle_Right = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
-            this.xrTableRow5 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell29 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell30 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell31 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell_SUM_SoLuongTang = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell33 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell_SUM_ThanhTienTang = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell35 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell_SUM_SoLuongGiam = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell37 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell_SUM_ThanhTienGiam = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Detail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable_Header)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -149,35 +149,30 @@
             // 
             this.xrTableCell_SoHieu.Name = "xrTableCell_SoHieu";
             this.xrTableCell_SoHieu.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_SoHieu.Text = "Số hiệu";
             this.xrTableCell_SoHieu.Weight = 0.76041664123535146D;
             // 
             // xrTableCell_NgayThang
             // 
             this.xrTableCell_NgayThang.Name = "xrTableCell_NgayThang";
             this.xrTableCell_NgayThang.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell_NgayThang.Text = "Ngày tháng";
             this.xrTableCell_NgayThang.Weight = 0.88541664123535169D;
             // 
             // xrTableCell_Ten
             // 
             this.xrTableCell_Ten.Name = "xrTableCell_Ten";
             this.xrTableCell_Ten.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_Ten.Text = "Tên";
             this.xrTableCell_Ten.Weight = 1.7291671371459958D;
             // 
             // xrTableCell_DonViTinh
             // 
             this.xrTableCell_DonViTinh.Name = "xrTableCell_DonViTinh";
             this.xrTableCell_DonViTinh.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_DonViTinh.Text = "Đơn vị tính";
             this.xrTableCell_DonViTinh.Weight = 0.84374872207641582D;
             // 
             // xrTableCell_SoLuongTang
             // 
             this.xrTableCell_SoLuongTang.Name = "xrTableCell_SoLuongTang";
             this.xrTableCell_SoLuongTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoLuongTang.Text = "Số lượng";
             this.xrTableCell_SoLuongTang.Weight = 0.97916810989379888D;
             // 
             // xrTableCell_DonGiaTang
@@ -185,42 +180,36 @@
             this.xrTableCell_DonGiaTang.Multiline = true;
             this.xrTableCell_DonGiaTang.Name = "xrTableCell_DonGiaTang";
             this.xrTableCell_DonGiaTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_DonGiaTang.Text = "Đơn giá\r\n";
             this.xrTableCell_DonGiaTang.Weight = 0.82291576385498055D;
             // 
             // xrTableCell_ThanhTienTang
             // 
             this.xrTableCell_ThanhTienTang.Name = "xrTableCell_ThanhTienTang";
             this.xrTableCell_ThanhTienTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_ThanhTienTang.Text = "Thành tiền";
             this.xrTableCell_ThanhTienTang.Weight = 0.98958410263061514D;
             // 
             // xrTableCell_LyDo
             // 
             this.xrTableCell_LyDo.Name = "xrTableCell_LyDo";
             this.xrTableCell_LyDo.StyleName = "xrControlStyle_Left";
-            this.xrTableCell_LyDo.Text = "Lý do";
             this.xrTableCell_LyDo.Weight = 0.89496577262878441D;
             // 
             // xrTableCell_SoLuongGiam
             // 
             this.xrTableCell_SoLuongGiam.Name = "xrTableCell_SoLuongGiam";
             this.xrTableCell_SoLuongGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SoLuongGiam.Text = "Số lượng";
             this.xrTableCell_SoLuongGiam.Weight = 0.7716992330551149D;
             // 
             // xrTableCell_DonGiaGiam
             // 
             this.xrTableCell_DonGiaGiam.Name = "xrTableCell_DonGiaGiam";
             this.xrTableCell_DonGiaGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_DonGiaGiam.Text = "Đơn giá";
             this.xrTableCell_DonGiaGiam.Weight = 0.92708454847335819D;
             // 
             // xrTableCell_ThanhTienGiam
             // 
             this.xrTableCell_ThanhTienGiam.Name = "xrTableCell_ThanhTienGiam";
             this.xrTableCell_ThanhTienGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_ThanhTienGiam.Text = "Thành tiền";
             this.xrTableCell_ThanhTienGiam.Weight = 0.89583332777023317D;
             // 
             // TopMargin
@@ -475,6 +464,99 @@
             this.ReportFooter.HeightF = 300F;
             this.ReportFooter.Name = "ReportFooter";
             // 
+            // xrTable1
+            // 
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable1.Name = "xrTable1";
+            this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow5});
+            this.xrTable1.SizeF = new System.Drawing.SizeF(1050F, 25F);
+            // 
+            // xrTableRow5
+            // 
+            this.xrTableRow5.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell28,
+            this.xrTableCell29,
+            this.xrTableCell30,
+            this.xrTableCell31,
+            this.xrTableCell_SUM_SoLuongTang,
+            this.xrTableCell33,
+            this.xrTableCell_SUM_ThanhTienTang,
+            this.xrTableCell35,
+            this.xrTableCell_SUM_SoLuongGiam,
+            this.xrTableCell37,
+            this.xrTableCell_SUM_ThanhTienGiam});
+            this.xrTableRow5.Name = "xrTableRow5";
+            this.xrTableRow5.Weight = 1D;
+            // 
+            // xrTableCell28
+            // 
+            this.xrTableCell28.Name = "xrTableCell28";
+            this.xrTableCell28.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell28.Text = "Cộng";
+            this.xrTableCell28.Weight = 0.76041664123535146D;
+            // 
+            // xrTableCell29
+            // 
+            this.xrTableCell29.Name = "xrTableCell29";
+            this.xrTableCell29.StyleName = "xrControlStyle_Middle";
+            this.xrTableCell29.Weight = 0.88541664123535169D;
+            // 
+            // xrTableCell30
+            // 
+            this.xrTableCell30.Name = "xrTableCell30";
+            this.xrTableCell30.StyleName = "xrControlStyle_Left";
+            this.xrTableCell30.Weight = 1.7291671371459958D;
+            // 
+            // xrTableCell31
+            // 
+            this.xrTableCell31.Name = "xrTableCell31";
+            this.xrTableCell31.StyleName = "xrControlStyle_Left";
+            this.xrTableCell31.Weight = 0.84374872207641582D;
+            // 
+            // xrTableCell_SUM_SoLuongTang
+            // 
+            this.xrTableCell_SUM_SoLuongTang.Name = "xrTableCell_SUM_SoLuongTang";
+            this.xrTableCell_SUM_SoLuongTang.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_SoLuongTang.Weight = 0.97916810989379888D;
+            // 
+            // xrTableCell33
+            // 
+            this.xrTableCell33.Multiline = true;
+            this.xrTableCell33.Name = "xrTableCell33";
+            this.xrTableCell33.StyleName = "xrControlStyle_Right";
+            this.xrTableCell33.Weight = 0.82291576385498055D;
+            // 
+            // xrTableCell_SUM_ThanhTienTang
+            // 
+            this.xrTableCell_SUM_ThanhTienTang.Name = "xrTableCell_SUM_ThanhTienTang";
+            this.xrTableCell_SUM_ThanhTienTang.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_ThanhTienTang.Weight = 0.98958410263061514D;
+            // 
+            // xrTableCell35
+            // 
+            this.xrTableCell35.Name = "xrTableCell35";
+            this.xrTableCell35.StyleName = "xrControlStyle_Left";
+            this.xrTableCell35.Weight = 0.89496577262878441D;
+            // 
+            // xrTableCell_SUM_SoLuongGiam
+            // 
+            this.xrTableCell_SUM_SoLuongGiam.Name = "xrTableCell_SUM_SoLuongGiam";
+            this.xrTableCell_SUM_SoLuongGiam.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_SoLuongGiam.Weight = 0.7716992330551149D;
+            // 
+            // xrTableCell37
+            // 
+            this.xrTableCell37.Name = "xrTableCell37";
+            this.xrTableCell37.StyleName = "xrControlStyle_Right";
+            this.xrTableCell37.Weight = 0.92708454847335819D;
+            // 
+            // xrTableCell_SUM_ThanhTienGiam
+            // 
+            this.xrTableCell_SUM_ThanhTienGiam.Name = "xrTableCell_SUM_ThanhTienGiam";
+            this.xrTableCell_SUM_ThanhTienGiam.StyleName = "xrControlStyle_Right";
+            this.xrTableCell_SUM_ThanhTienGiam.Weight = 0.89583332777023317D;
+            // 
             // xrLabel_NguoiLapBieu
             // 
             this.xrLabel_NguoiLapBieu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -660,99 +742,6 @@
             this.xrControlStyle_Right.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrControlStyle_Right.Name = "xrControlStyle_Right";
             this.xrControlStyle_Right.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrTable1
-            // 
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrTable1.Name = "xrTable1";
-            this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow5});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(1050F, 25F);
-            // 
-            // xrTableRow5
-            // 
-            this.xrTableRow5.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell28,
-            this.xrTableCell29,
-            this.xrTableCell30,
-            this.xrTableCell31,
-            this.xrTableCell_SUM_SoLuongTang,
-            this.xrTableCell33,
-            this.xrTableCell_SUM_ThanhTienTang,
-            this.xrTableCell35,
-            this.xrTableCell_SUM_SoLuongGiam,
-            this.xrTableCell37,
-            this.xrTableCell_SUM_ThanhTienGiam});
-            this.xrTableRow5.Name = "xrTableRow5";
-            this.xrTableRow5.Weight = 1D;
-            // 
-            // xrTableCell28
-            // 
-            this.xrTableCell28.Name = "xrTableCell28";
-            this.xrTableCell28.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell28.Text = "Cộng";
-            this.xrTableCell28.Weight = 0.76041664123535146D;
-            // 
-            // xrTableCell29
-            // 
-            this.xrTableCell29.Name = "xrTableCell29";
-            this.xrTableCell29.StyleName = "xrControlStyle_Middle";
-            this.xrTableCell29.Weight = 0.88541664123535169D;
-            // 
-            // xrTableCell30
-            // 
-            this.xrTableCell30.Name = "xrTableCell30";
-            this.xrTableCell30.StyleName = "xrControlStyle_Left";
-            this.xrTableCell30.Weight = 1.7291671371459958D;
-            // 
-            // xrTableCell31
-            // 
-            this.xrTableCell31.Name = "xrTableCell31";
-            this.xrTableCell31.StyleName = "xrControlStyle_Left";
-            this.xrTableCell31.Weight = 0.84374872207641582D;
-            // 
-            // xrTableCell_SUM_SoLuongTang
-            // 
-            this.xrTableCell_SUM_SoLuongTang.Name = "xrTableCell_SUM_SoLuongTang";
-            this.xrTableCell_SUM_SoLuongTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoLuongTang.Weight = 0.97916810989379888D;
-            // 
-            // xrTableCell33
-            // 
-            this.xrTableCell33.Multiline = true;
-            this.xrTableCell33.Name = "xrTableCell33";
-            this.xrTableCell33.StyleName = "xrControlStyle_Right";
-            this.xrTableCell33.Weight = 0.82291576385498055D;
-            // 
-            // xrTableCell_SUM_ThanhTienTang
-            // 
-            this.xrTableCell_SUM_ThanhTienTang.Name = "xrTableCell_SUM_ThanhTienTang";
-            this.xrTableCell_SUM_ThanhTienTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_ThanhTienTang.Weight = 0.98958410263061514D;
-            // 
-            // xrTableCell35
-            // 
-            this.xrTableCell35.Name = "xrTableCell35";
-            this.xrTableCell35.StyleName = "xrControlStyle_Left";
-            this.xrTableCell35.Weight = 0.89496577262878441D;
-            // 
-            // xrTableCell_SUM_SoLuongGiam
-            // 
-            this.xrTableCell_SUM_SoLuongGiam.Name = "xrTableCell_SUM_SoLuongGiam";
-            this.xrTableCell_SUM_SoLuongGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoLuongGiam.Weight = 0.7716992330551149D;
-            // 
-            // xrTableCell37
-            // 
-            this.xrTableCell37.Name = "xrTableCell37";
-            this.xrTableCell37.StyleName = "xrControlStyle_Right";
-            this.xrTableCell37.Weight = 0.92708454847335819D;
-            // 
-            // xrTableCell_SUM_ThanhTienGiam
-            // 
-            this.xrTableCell_SUM_ThanhTienGiam.Name = "xrTableCell_SUM_ThanhTienGiam";
-            this.xrTableCell_SUM_ThanhTienGiam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_ThanhTienGiam.Weight = 0.89583332777023317D;
             // 
             // XtraReport_PhongBan
             // 

@@ -503,7 +503,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControlMain;
-        private DevExpress.XtraGrid.GridControl gridControlTaiSan;
+        public DevExpress.XtraGrid.GridControl gridControlTaiSan;
         private DevExpress.XtraEditors.GroupControl groupControlThongKe;
         private DevExpress.XtraEditors.LabelControl lblDenNgay;
         private DevExpress.XtraEditors.LabelControl lblTuNgay;

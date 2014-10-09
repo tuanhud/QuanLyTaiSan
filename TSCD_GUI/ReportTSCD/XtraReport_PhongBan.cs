@@ -12,7 +12,7 @@ namespace TSCD_GUI.ReportTSCD
 {
     public partial class XtraReport_PhongBan : DevExpress.XtraReports.UI.XtraReport
     {
-        DonVi obj = new DonVi();
+        DonVi obj = null;
 
         public XtraReport_PhongBan()
         {
@@ -24,6 +24,13 @@ namespace TSCD_GUI.ReportTSCD
             InitializeComponent();
             this.DataSource = list;
             this.obj = obj;
+            IntReport();
+        }
+
+        public XtraReport_PhongBan(List<TaiSan_ThongKe> list)
+        {
+            InitializeComponent();
+            this.DataSource = list;
             IntReport();
         }
 
