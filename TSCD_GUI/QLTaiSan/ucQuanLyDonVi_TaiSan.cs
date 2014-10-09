@@ -74,11 +74,14 @@ namespace TSCD_GUI.QLTaiSan
                     ucGridControlTaiSan1.DataSource = list;
 
                     bool isEnabled = list.Count > 0;
-                    barBtnSuaTaiSan.Enabled = isEnabled;
-                    barBtnXoaTaiSan.Enabled = isEnabled;
+                    barBtnThemTaiSan.Enabled = true;
+                    barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = isEnabled;
                 }
                 else
+                {
                     ucGridControlTaiSan1.DataSource = null;
+                    barBtnThemTaiSan.Enabled = barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = false;
+                }
                 ucGridControlTaiSan1.ExpandAllGroups();
             }
             catch (Exception ex)
