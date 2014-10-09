@@ -298,8 +298,18 @@ namespace TSCD_GUI.QLTaiSan
                 objCTTaiSan.taisan.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
                 objCTTaiSan.taisan.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
                 objCTTaiSan.taisan.subId = txtMa.Text;
-                objCTTaiSan.chungtu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-                objCTTaiSan.chungtu.sohieu = txtSoHieu_CT.Text;
+                if (objCTTaiSan.chungtu == null)
+                {
+                    ChungTu objChungTu = new ChungTu();
+                    objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                    objChungTu.sohieu = txtSoHieu_CT.Text;
+                    objCTTaiSan.chungtu = objChungTu;
+                }
+                else
+                {
+                    objCTTaiSan.chungtu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                    objCTTaiSan.chungtu.sohieu = txtSoHieu_CT.Text;
+                }
                 objCTTaiSan.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
                 objCTTaiSan.taisan.nuocsx = txtNSX.Text;
                 objCTTaiSan.nguongoc = txtNguonGoc.Text;

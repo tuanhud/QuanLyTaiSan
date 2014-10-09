@@ -89,6 +89,7 @@ namespace TSCD_GUI.Libraries
                                             obj.dongia = dongia;
                                             obj.loaitaisan = objLoaiTS;
                                             CTTaiSan objCTTaiSan = new CTTaiSan();
+                                            objCTTaiSan.chungtu = new ChungTu();
                                             objCTTaiSan.taisan = obj;
                                             objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
                                             if (TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng")) == null)
@@ -118,20 +119,20 @@ namespace TSCD_GUI.Libraries
                                                 CTTaiSan objCTTaiSan2 = CTTaiSan.getQuery().Where(c => c.taisan_id == obj.id).FirstOrDefault();
                                                 if (objCTTaiSan2 != null)
                                                 {
-                                                    //if (objCTTaiSan2.chuyenDonVi(objDonVi, objDonVi, null, null, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong) > 0 
-                                                    //    && DBInstance.commit() > 0)
-                                                    //{
-                                                    //    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
-                                                    //}
-                                                    //else
-                                                    //{
-                                                    //    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
-                                                    //}
+                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, null, null, null, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong, "", objCTTaiSan2.ngay) > 0 && DBInstance.commit() > 0)
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                    }
+                                                    else
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                                    }
                                                 }
                                                 else
                                                 {
                                                     CTTaiSan objCTTaiSan = new CTTaiSan();
                                                     objCTTaiSan.taisan = obj;
+                                                    objCTTaiSan.chungtu = new ChungTu();
                                                     objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
                                                     if (TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng")) == null)
                                                     {
@@ -142,9 +143,16 @@ namespace TSCD_GUI.Libraries
                                                     }
                                                     objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng"));
                                                     objCTTaiSan.soluong = 1;
-                                                    if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
+                                                    if (objCTTaiSan.add() > 0)
                                                     {
-                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                        if (objCTTaiSan.chuyenDonVi(objDonVi, null, null, null, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                                        {
+                                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                        }
+                                                        else
+                                                        {
+                                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                                        }
                                                     }
                                                     else
                                                     {
@@ -174,9 +182,16 @@ namespace TSCD_GUI.Libraries
                                                 }
                                                 objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng"));
                                                 objCTTaiSan.soluong = 1;
-                                                if (objCTTaiSan.add() > 0 && DBInstance.commit() > 0)
+                                                if (objCTTaiSan.add() > 0)
                                                 {
-                                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, null, null, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                                    }
+                                                    else
+                                                    {
+                                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                                    }
                                                 }
                                                 else
                                                 {
@@ -236,11 +251,21 @@ namespace TSCD_GUI.Libraries
                                 String ten = row[TEN].ToString().Trim().ToUpper();
                                 String str = row[DONGIA].ToString().Trim().Replace(" ", "");
                                 long dongia = long.Parse(str);
-                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu.sohieu == null && c.chungtu.ngay == null).FirstOrDefault();
+                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && (c.chungtu == null || (c.chungtu.sohieu == null && c.chungtu.ngay == null))).FirstOrDefault();
                                 if (obj != null)
                                 {
-                                    obj.chungtu.sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
-                                    obj.chungtu.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                    if (obj.chungtu == null)
+                                    {
+                                        ChungTu objChungTu = new ChungTu();
+                                        objChungTu.sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
+                                        objChungTu.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                        obj.chungtu = objChungTu;
+                                    }
+                                    else
+                                    {
+                                        obj.chungtu.sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
+                                        obj.chungtu.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                    }
                                     if (obj.update() > 0 && DBInstance.commit() > 0)
                                     {
                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");

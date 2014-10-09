@@ -49,9 +49,9 @@ namespace TSCD_GUI.QLTaiSan
                 objNULL.parent = null;
                 list.Insert(0, objNULL);
                 ucComboBoxDonVi1.DataSource = list;
-                ucComboBoxDonVi2.DataSource = list;
+                //ucComboBoxDonVi2.DataSource = list;
                 ucComboBoxDonVi1.DonVi = objNULL;
-                ucComboBoxDonVi2.DonVi = objNULL;
+                //ucComboBoxDonVi2.DonVi = objNULL;
                 ucGridControlTaiSan1.DataSource = null;
                 barBtnSuaTaiSan.Enabled = false;
                 barBtnXoaTaiSan.Enabled = false;
@@ -76,8 +76,8 @@ namespace TSCD_GUI.QLTaiSan
                 String ten = checkTen.Checked ? txtTen.Text : null;
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
-                DonVi DVSD = ucComboBoxDonVi2.DonVi;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, checkDVSD.Checked, DVSD));
+                //DonVi DVSD = ucComboBoxDonVi2.DonVi;
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null));
                 ucGridControlTaiSan1.DataSource = list;
                 ucGridControlTaiSan1.ExpandAllGroups();
 
@@ -267,9 +267,9 @@ namespace TSCD_GUI.QLTaiSan
                 writer.WriteAttributeString("cDVQL", checkDVQL.Checked ? "1" : "0");
                 DonVi dvql = ucComboBoxDonVi1.DonVi;
                 writer.WriteAttributeString("vDVQL", dvql != null ? dvql.id.ToString() : "");
-                writer.WriteAttributeString("cDVSD", checkDVSD.Checked ? "1" : "0");
-                DonVi dvsd = ucComboBoxDonVi1.DonVi;
-                writer.WriteAttributeString("vDVSD", dvsd != null ? dvsd.id.ToString() : "");
+                //writer.WriteAttributeString("cDVSD", checkViTri.Checked ? "1" : "0");
+                //DonVi dvsd = ucComboBoxDonVi1.DonVi;
+                //writer.WriteAttributeString("vDVSD", dvsd != null ? dvsd.id.ToString() : "");
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
 
@@ -304,8 +304,8 @@ namespace TSCD_GUI.QLTaiSan
                                 ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(3)));
                                 checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(4)).Equals(1) ? true : false;
                                 ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(5)));
-                                checkDVSD.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
-                                ucComboBoxDonVi2.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(7)));
+                                //checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
+                                //ucComboBoxDonVi2.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(7)));
                             }
                         }
                         reader.Close();
