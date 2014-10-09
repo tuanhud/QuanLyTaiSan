@@ -19,7 +19,18 @@ namespace TSCD.DataFilter.SearchFilter
         /// <param name="timTheoDonViSD">false=>ignore</param>
         /// <param name="donViSuDung"></param>
         /// <returns></returns>
-        public static IQueryable<CTTaiSan> search(String tenTaiSan="", LoaiTaiSan loaiTaiSan=null, Boolean timTheoDonViQL=false, DonVi donViQuanLy=null, Boolean timTheoDonViSD=false, DonVi donViSuDung=null)
+        public static IQueryable<CTTaiSan> search(
+            String tenTaiSan="", 
+            LoaiTaiSan loaiTaiSan=null,
+            Boolean timTheoDonViQL=false,
+            DonVi donViQuanLy=null,
+            Boolean timTheoDonViSD=false,
+            DonVi donViSuDung=null,
+            Boolean timTheoViTri=false,
+            ViTri vitri=null,
+            Boolean timTheoPhong=false,
+            Phong phong=null
+            )
         {
             var query = CTTaiSan.getQuery();
             query = query.Where(c => c.soluong > 0);
@@ -63,6 +74,36 @@ namespace TSCD.DataFilter.SearchFilter
                     List<Guid> list_id = list.Select(c => c.id).ToList();
 
                     query = query.Where(c => (c.donvisudung != null) && (list_id.Contains(c.donvisudung.id)));
+                }
+            }
+            if (timTheoViTri)
+            {
+                if (vitri == null)
+                {
+                    query = query.Where(c => c.vitri == null);
+                }
+                else
+                {
+                    query = query.Where(c =>
+                        //Tìm chính xác theo vị trí
+                        (c.vitri != null && c.vitri.id == vitri.id)
+                        ||
+                        //Tìm luôn record có phòng thuộc vitri
+                        (c.phong!=null && c.phong.vitri !=null && c.phong.vitri.id == vitri.id)
+                        );
+                }
+            }
+            if (timTheoPhong)
+            {
+                if (phong == null)
+                {
+                    query = query.Where(c => c.phong == null);
+                }
+                else
+                {
+                    query = query.Where(c =>
+                        (c.phong != null && c.phong.id == phong.id)
+                    );
                 }
             }
             return query;
