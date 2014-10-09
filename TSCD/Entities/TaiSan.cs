@@ -39,7 +39,8 @@ namespace TSCD.Entities
         public virtual LoaiTaiSan loaitaisan { get; set; }
 
         public virtual ICollection<CTTaiSan> cttaisans { get; set; }
-        public virtual ICollection<LogTangGiamTaiSan> logtaisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtanggiamtaisans { get; set; }
+        public virtual ICollection<LogSuaTaiSan> logsuataisans { get; set; }
 
         #endregion
 
@@ -90,6 +91,23 @@ namespace TSCD.Entities
                 loaitaisan.trigger();
             }
             base.doTrigger();
+        }
+        public override int delete()
+        {
+            //Tu dong xoa tat ca cac thu lien quan
+            while(cttaisans.Count > 0)
+            {
+                cttaisans.FirstOrDefault().delete();
+            }
+            while (logtanggiamtaisans.Count > 0)
+            {
+                logtanggiamtaisans.FirstOrDefault().delete();
+            }
+            while (logsuataisans.Count > 0)
+            {
+                logsuataisans.FirstOrDefault().delete();
+            }
+            return base.delete();
         }
         #endregion
     }

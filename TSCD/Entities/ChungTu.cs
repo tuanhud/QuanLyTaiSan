@@ -21,6 +21,9 @@ namespace TSCD.Entities
          * FK
          */
         public virtual ICollection<Attachment> attachments { get; set; }
+        public virtual ICollection<CTTaiSan> cttaisans { get; set; }
+        public virtual ICollection<LogSuaTaiSan> logsuataisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtanggiamtaisans { get; set; }
         #region Nghiep vu
         public event SHARED.Libraries.FTPHelper.UploadProgress onUploadProgress;
         /// <summary>
@@ -75,6 +78,14 @@ namespace TSCD.Entities
         {
             base.init();
             attachments = new List<Attachment>();
+        }
+        public override int delete()
+        {
+            while(attachments.Count>0)
+            {
+                attachments.FirstOrDefault().delete();
+            }
+            return base.delete();
         }
         #endregion
     }

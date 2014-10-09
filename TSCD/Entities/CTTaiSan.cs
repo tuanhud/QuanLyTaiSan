@@ -507,7 +507,11 @@ namespace TSCD.Entities
         /// <returns></returns>
         public override int delete()
         {
-            return -1;
+            if(chungtu!=null)
+            {
+                chungtu.delete();
+            }
+            return base.delete();
         }
 
         protected override void init()

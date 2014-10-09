@@ -118,6 +118,14 @@ namespace TSCD.Entities
         #endregion
 
         #region Override
+        public override int delete()
+        {
+            if (chungtu != null)
+            {
+                chungtu.delete();
+            }
+            return base.delete();
+        }
         public override void doTrigger()
         {
             if (phong != null)

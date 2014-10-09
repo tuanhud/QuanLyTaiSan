@@ -363,11 +363,21 @@ namespace TSCD.Entities
             modelBuilder.Entity<LogTangGiamTaiSan>()
             .HasOptional(a => a.donvisudung)
             .WithMany(b => b.logtaisan_dangsudungs);
+            /*
+             * Double 1-n relationship TaiSan- LogTangGiamTaiSan - LogSuaTaiSan
+             */
+            modelBuilder.Entity<LogSuaTaiSan>()
+            .HasRequired(a => a.taisan)
+            .WithMany(b => b.logsuataisans);
 
+            modelBuilder.Entity<LogTangGiamTaiSan>()
+            .HasRequired(a => a.taisan)
+            .WithMany(b => b.logtanggiamtaisans);
             /*
              * n-n relationship CHUNGTU-ATTACHMENT,
              * Định nghĩa chi tiết
              */
+            
             modelBuilder.Entity<ChungTu>().
             HasMany(c => c.attachments).
             WithMany(p => p.chungtus).
