@@ -24,11 +24,13 @@ namespace TSCD_GUI.QLTaiSan
         {
             InitializeComponent();
             gridViewAttachment.PopulateColumns();
-            this.ct = _obj;
+            this.ct2 = _obj;
+            this.ct.attachments = new List<Attachment>(_obj.attachments);
             loadData();
         }
 
-        private ChungTu ct = null;
+        private ChungTu ct = new ChungTu();
+        private ChungTu ct2 = null;
         private void btnChonFile_Click(object sender, EventArgs e)
         {
             //Chọn files
@@ -126,7 +128,8 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            ct.update();
+            ct2.attachments = ct.attachments;
+            ct2.update();
             DBInstance.commit();
             this.Close();
         }
