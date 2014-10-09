@@ -118,6 +118,7 @@
             this.barBtnXoaTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
             this.barBtnXoaTaiSan.Id = 3;
             this.barBtnXoaTaiSan.Name = "barBtnXoaTaiSan";
+            this.barBtnXoaTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTaiSan_ItemClick);
             // 
             // barBtnTinhTrang
             // 

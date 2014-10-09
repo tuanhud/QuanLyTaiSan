@@ -198,5 +198,25 @@ namespace TSCD_GUI.QLTaiSan
             printTool.ShowPreviewDialog();
             splashScreenManager_Report.CloseWaitForm();
         }
+
+        private void barBtnXoaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (obj.delete() > 0 && DBInstance.commit() > 0)
+                    {
+                        XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadData();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Xóa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

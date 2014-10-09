@@ -50,11 +50,11 @@
             this.backstageViewItemSeparator5 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.backstageViewTabItemThoat = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
             this.backstageViewItemSeparator6 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+            this.barBtnUser = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.backstageViewClientControl7 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.backstageViewTabItem7 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-            this.barBtnUser = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             this.backstageViewControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
@@ -228,6 +228,13 @@
             // 
             this.backstageViewItemSeparator6.Name = "backstageViewItemSeparator6";
             // 
+            // barBtnUser
+            // 
+            this.barBtnUser.Caption = "[Unkown]";
+            this.barBtnUser.Id = 1;
+            this.barBtnUser.Name = "barBtnUser";
+            this.barBtnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUser_ItemClick);
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barBtnUser);
@@ -259,13 +266,6 @@
             this.backstageViewTabItem7.Name = "backstageViewTabItem7";
             this.backstageViewTabItem7.Selected = false;
             // 
-            // barBtnUser
-            // 
-            this.barBtnUser.Caption = "[Unkown]";
-            this.barBtnUser.Id = 1;
-            this.barBtnUser.Name = "barBtnUser";
-            this.barBtnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUser_ItemClick);
-            // 
             // RibbonFormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +281,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý Tài sản cố định v1.0";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             this.backstageViewControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).EndInit();

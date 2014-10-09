@@ -22,9 +22,10 @@ namespace TSCD.DataFilter.SearchFilter
         public static IQueryable<CTTaiSan> search(String tenTaiSan="", LoaiTaiSan loaiTaiSan=null, Boolean timTheoDonViQL=false, DonVi donViQuanLy=null, Boolean timTheoDonViSD=false, DonVi donViSuDung=null)
         {
             var query = CTTaiSan.getQuery();
+            query = query.Where(c => c.soluong > 0);
             if(tenTaiSan!=null && !tenTaiSan.Equals(""))
             {
-                query = query.Where(c => c.taisan.ten.ToLower().Contains(tenTaiSan.ToLower()) && c.soluong > 0);
+                query = query.Where(c => c.taisan.ten.ToLower().Contains(tenTaiSan.ToLower()));
             }
             if (loaiTaiSan != null)
             {

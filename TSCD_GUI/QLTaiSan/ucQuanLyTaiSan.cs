@@ -140,9 +140,13 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnSuaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddTaiSan frm = new frmAddTaiSan(ucGridControlTaiSan1.CTTaiSan);
-            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-            frm.ShowDialog();
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmAddTaiSan frm = new frmAddTaiSan(obj);
+                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -165,14 +169,33 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnSua_r_Click(object sender, EventArgs e)
         {
-            frmAddTaiSan frm = new frmAddTaiSan(ucGridControlTaiSan1.CTTaiSan);
-            frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
-            frm.ShowDialog();
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmAddTaiSan frm = new frmAddTaiSan(obj);
+                frm.reloadAndFocused = new frmAddTaiSan.ReloadAndFocused(reloadAndFocused);
+                frm.ShowDialog();
+            }
         }
 
         private void btnXoa_r_Click(object sender, EventArgs e)
         {
-
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (obj.delete() > 0 && DBInstance.commit() > 0)
+                    {
+                        XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadData();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Xóa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void barBtnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -326,6 +349,26 @@ namespace TSCD_GUI.QLTaiSan
                 frmChuyenTinhTrang frm = new frmChuyenTinhTrang(obj);
                 frm.reloadAndFocused = new frmChuyenTinhTrang.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
+            }
+        }
+
+        private void barBtnXoaTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (obj.delete() > 0 && DBInstance.commit() > 0)
+                    {
+                        XtraMessageBox.Show("Xóa tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadData();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Xóa tài sản không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

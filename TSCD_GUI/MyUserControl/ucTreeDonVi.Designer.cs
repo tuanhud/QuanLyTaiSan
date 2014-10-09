@@ -64,6 +64,7 @@
             this.colten.Name = "colten";
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
+            this.colten.Width = 181;
             // 
             // colloai
             // 
@@ -72,6 +73,7 @@
             this.colloai.Name = "colloai";
             this.colloai.Visible = true;
             this.colloai.VisibleIndex = 1;
+            this.colloai.Width = 90;
             // 
             // colid
             // 
