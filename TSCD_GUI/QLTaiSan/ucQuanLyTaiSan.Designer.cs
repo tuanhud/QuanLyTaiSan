@@ -41,6 +41,7 @@
             this.barBtnImportChungTu = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnAttachment = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnChuyenDonVi = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,7 +65,6 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.barBtnChuyenDonVi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -191,9 +191,20 @@
             // barBtnAttachment
             // 
             this.barBtnAttachment.Caption = "File chứng từ";
+            this.barBtnAttachment.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnAttachment.Glyph")));
             this.barBtnAttachment.Id = 12;
+            this.barBtnAttachment.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnAttachment.LargeGlyph")));
             this.barBtnAttachment.Name = "barBtnAttachment";
             this.barBtnAttachment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAttachment_ItemClick);
+            // 
+            // barBtnChuyenDonVi
+            // 
+            this.barBtnChuyenDonVi.Caption = "Chuyển đơn vị";
+            this.barBtnChuyenDonVi.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenDonVi.Glyph")));
+            this.barBtnChuyenDonVi.Id = 13;
+            this.barBtnChuyenDonVi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenDonVi.LargeGlyph")));
+            this.barBtnChuyenDonVi.Name = "barBtnChuyenDonVi";
+            this.barBtnChuyenDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyenDonVi_ItemClick);
             // 
             // rbnPageTaiSan
             // 
@@ -416,15 +427,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 49;
-            // 
-            // barBtnChuyenDonVi
-            // 
-            this.barBtnChuyenDonVi.Caption = "Chuyển đơn vị";
-            this.barBtnChuyenDonVi.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenDonVi.Glyph")));
-            this.barBtnChuyenDonVi.Id = 13;
-            this.barBtnChuyenDonVi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenDonVi.LargeGlyph")));
-            this.barBtnChuyenDonVi.Name = "barBtnChuyenDonVi";
-            this.barBtnChuyenDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnChuyenDonVi_ItemClick);
             // 
             // ucQuanLyTaiSan
             // 

@@ -49,6 +49,7 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxViTri2 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
+            this.btnAttachment = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).BeginInit();
@@ -64,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGhiChu.Location = new System.Drawing.Point(93, 168);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(346, 75);
+            this.txtGhiChu.Size = new System.Drawing.Size(375, 75);
             this.txtGhiChu.TabIndex = 4;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -92,7 +93,7 @@
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtSoLuong.Size = new System.Drawing.Size(262, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(291, 20);
             this.txtSoLuong.TabIndex = 6;
             // 
             // lblPhong
@@ -131,7 +132,7 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(146, 249);
+            this.btnOK.Location = new System.Drawing.Point(160, 249);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 12;
@@ -142,7 +143,7 @@
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(227, 249);
+            this.btnHuy.Location = new System.Drawing.Point(241, 249);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 13;
@@ -152,7 +153,7 @@
             // lbltxtDonViTinh
             // 
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltxtDonViTinh.Location = new System.Drawing.Point(361, 67);
+            this.lbltxtDonViTinh.Location = new System.Drawing.Point(390, 67);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
             this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 14;
@@ -228,17 +229,18 @@
             this.ucComboBoxDonVi1.DonVi = null;
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(93, 142);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
-            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(346, 20);
+            this.ucComboBoxDonVi1.Size = new System.Drawing.Size(375, 20);
             this.ucComboBoxDonVi1.TabIndex = 2;
             // 
             // ucComboBoxViTri2
             // 
             this.ucComboBoxViTri2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxViTri2.EditValue = null;
             this.ucComboBoxViTri2.Location = new System.Drawing.Point(93, 116);
             this.ucComboBoxViTri2.Name = "ucComboBoxViTri2";
             this.ucComboBoxViTri2.Phong = null;
-            this.ucComboBoxViTri2.Size = new System.Drawing.Size(346, 20);
+            this.ucComboBoxViTri2.Size = new System.Drawing.Size(375, 20);
             this.ucComboBoxViTri2.TabIndex = 1;
             this.ucComboBoxViTri2.ViTri = null;
             // 
@@ -246,18 +248,30 @@
             // 
             this.ucComboBoxViTri1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxViTri1.EditValue = null;
             this.ucComboBoxViTri1.Location = new System.Drawing.Point(93, 90);
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
-            this.ucComboBoxViTri1.Size = new System.Drawing.Size(346, 20);
+            this.ucComboBoxViTri1.Size = new System.Drawing.Size(375, 20);
             this.ucComboBoxViTri1.TabIndex = 0;
             this.ucComboBoxViTri1.ViTri = null;
+            // 
+            // btnAttachment
+            // 
+            this.btnAttachment.Image = ((System.Drawing.Image)(resources.GetObject("btnAttachment.Image")));
+            this.btnAttachment.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAttachment.Location = new System.Drawing.Point(445, 36);
+            this.btnAttachment.Name = "btnAttachment";
+            this.btnAttachment.Size = new System.Drawing.Size(23, 23);
+            this.btnAttachment.TabIndex = 42;
+            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
             // 
             // frmInputViTri_DonVi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 278);
+            this.ClientSize = new System.Drawing.Size(483, 278);
+            this.Controls.Add(this.btnAttachment);
             this.Controls.Add(this.lblChungTu);
             this.Controls.Add(this.lblNgay_CT);
             this.Controls.Add(this.lblSoHieu_CT);
@@ -316,5 +330,6 @@
         private DevExpress.XtraEditors.TextEdit txtSoHieu_CT;
         private DevExpress.XtraEditors.DateEdit dateNgay_CT;
         private DevExpress.XtraEditors.DateEdit dateNgayGhi;
+        private DevExpress.XtraEditors.SimpleButton btnAttachment;
     }
 }

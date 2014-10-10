@@ -46,6 +46,7 @@
             this.lblSoLuong = new DevExpress.XtraEditors.LabelControl();
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAttachment = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpTinhTrang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHieu_CT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).BeginInit();
@@ -69,7 +70,7 @@
             this.lookUpTinhTrang.Properties.DisplayMember = "value";
             this.lookUpTinhTrang.Properties.NullText = "[Chưa chọn tình trạng]";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
-            this.lookUpTinhTrang.Size = new System.Drawing.Size(330, 20);
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(347, 20);
             this.lookUpTinhTrang.TabIndex = 0;
             // 
             // lblChungTu
@@ -127,7 +128,7 @@
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(235, 194);
+            this.btnHuy.Location = new System.Drawing.Point(244, 194);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 42;
@@ -138,7 +139,7 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(154, 194);
+            this.btnOK.Location = new System.Drawing.Point(163, 194);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 41;
@@ -159,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGhiChu.Location = new System.Drawing.Point(95, 113);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(358, 75);
+            this.txtGhiChu.Size = new System.Drawing.Size(375, 75);
             this.txtGhiChu.TabIndex = 39;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -186,7 +187,7 @@
             // lbltxtDonViTinh
             // 
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltxtDonViTinh.Location = new System.Drawing.Point(375, 64);
+            this.lbltxtDonViTinh.Location = new System.Drawing.Point(392, 64);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
             this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 45;
@@ -216,7 +217,7 @@
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtSoLuong.Size = new System.Drawing.Size(274, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(291, 20);
             this.txtSoLuong.TabIndex = 44;
             // 
             // btnTinhTrang
@@ -224,17 +225,30 @@
             this.btnTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTinhTrang.Image = ((System.Drawing.Image)(resources.GetObject("btnTinhTrang.Image")));
             this.btnTinhTrang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnTinhTrang.Location = new System.Drawing.Point(430, 85);
+            this.btnTinhTrang.Location = new System.Drawing.Point(447, 85);
             this.btnTinhTrang.Name = "btnTinhTrang";
             this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
             this.btnTinhTrang.TabIndex = 48;
             this.btnTinhTrang.Click += new System.EventHandler(this.btnTinhTrang_Click);
             // 
+            // btnAttachment
+            // 
+            this.btnAttachment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAttachment.Image = ((System.Drawing.Image)(resources.GetObject("btnAttachment.Image")));
+            this.btnAttachment.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAttachment.Location = new System.Drawing.Point(447, 35);
+            this.btnAttachment.Name = "btnAttachment";
+            this.btnAttachment.Size = new System.Drawing.Size(23, 23);
+            this.btnAttachment.TabIndex = 49;
+            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
+            // 
             // frmChuyenTinhTrang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 229);
+            this.ClientSize = new System.Drawing.Size(482, 229);
+            this.Controls.Add(this.btnAttachment);
             this.Controls.Add(this.btnTinhTrang);
             this.Controls.Add(this.lblNgayGhi);
             this.Controls.Add(this.dateNgayGhi);
@@ -252,6 +266,7 @@
             this.Controls.Add(this.txtSoHieu_CT);
             this.Controls.Add(this.dateNgay_CT);
             this.Controls.Add(this.lookUpTinhTrang);
+            this.MinimumSize = new System.Drawing.Size(498, 267);
             this.Name = "frmChuyenTinhTrang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chuyển tình trạng";
@@ -287,5 +302,6 @@
         private DevExpress.XtraEditors.LabelControl lblSoLuong;
         private DevExpress.XtraEditors.SpinEdit txtSoLuong;
         private DevExpress.XtraEditors.SimpleButton btnTinhTrang;
+        private DevExpress.XtraEditors.SimpleButton btnAttachment;
     }
 }

@@ -89,7 +89,7 @@ namespace TSCD_GUI.QLTaiSan
                 bool isViTri = true;
                 if (vitri == null)
                     isViTri = false;
-                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null, isViTri, vitri, !isViTri, phong));
+                List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
                 ucGridControlTaiSan1.DataSource = list;
                 ucGridControlTaiSan1.ExpandAllGroups();
 
