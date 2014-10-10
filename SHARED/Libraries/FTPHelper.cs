@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -279,50 +280,73 @@ namespace SHARED.Libraries
 
         public delegate void UploadProgress(long current_kilobytes, long total_kilobytes);
         public event UploadProgress onUploadProgress;
-        public int uploadFile(String local_abs_path, String ftp_abs_path, String username, String password)
+        public async Task<int> uploadFile(String local_abs_path, String ftp_abs_path, String username, String password, CancellationToken cancelToken = new CancellationToken())
         {
-            try
-            {
-                FtpWebRequest requestFTPUploader = (FtpWebRequest)WebRequest.Create(ftp_abs_path);
-                requestFTPUploader.Credentials = new NetworkCredential(username, password);
-                requestFTPUploader.Method = WebRequestMethods.Ftp.UploadFile;
-
-                FileInfo fileInfo = new FileInfo(local_abs_path);
-                
-                long kb_size = fileInfo.Length / 1024;
-
-                FileStream fileStream = fileInfo.OpenRead();
-
-                int bufferLength = UPLOAD_BUFFER;
-                byte[] buffer = new byte[bufferLength];
-
-                Stream uploadStream = requestFTPUploader.GetRequestStream();
-                int contentLength = fileStream.Read(buffer, 0, bufferLength);
-
-                int count = 0;
-                while (contentLength != 0)
+            return await Task.Factory.StartNew<int>(() => {
+                Stream uploadStream = null;
+                FileStream fileStream = null;
+                FtpWebRequest requestFTPUploader = null;
+                try
                 {
-                    uploadStream.Write(buffer, 0, contentLength);
-                    contentLength = fileStream.Read(buffer, 0, bufferLength);
-                    //progressing
-                    count++;
-                    if(onUploadProgress!=null)
+                   requestFTPUploader = (FtpWebRequest)WebRequest.Create(ftp_abs_path);
+                    requestFTPUploader.Credentials = new NetworkCredential(username, password);
+                    requestFTPUploader.Method = WebRequestMethods.Ftp.UploadFile;
+
+                    FileInfo fileInfo = new FileInfo(local_abs_path);
+
+                    long kb_size = fileInfo.Length / 1024;
+
+                    fileStream = fileInfo.OpenRead();
+
+                    int bufferLength = UPLOAD_BUFFER;
+                    byte[] buffer = new byte[bufferLength];
+
+                    uploadStream = requestFTPUploader.GetRequestStream();
+                    int contentLength = fileStream.Read(buffer, 0, bufferLength);
+
+                    int count = 0;
+                    long current_kb = 0;
+                    while (contentLength != 0)
                     {
-                        onUploadProgress((count*bufferLength)/1024, kb_size);
+                        uploadStream.Write(buffer, 0, contentLength);
+                        contentLength = fileStream.Read(buffer, 0, bufferLength);
+                        //progressing
+                        count++;
+                        if (onUploadProgress != null)
+                        {
+                            current_kb = (count * bufferLength) / 1024;
+                            onUploadProgress(current_kb>kb_size?kb_size:current_kb, kb_size);
+                        }
+                        //check canceled
+                        if (cancelToken.IsCancellationRequested)
+                        {
+                            // Clean up here, then...
+                            cancelToken.ThrowIfCancellationRequested();
+                        }
                     }
+                    return 1;
                 }
-
-                uploadStream.Close();
-                fileStream.Close();
-
-                requestFTPUploader = null;
-                return 1;
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine(e);
-                return -1;
-            }
+                catch (OperationCanceledException)
+                {
+                    Debug.WriteLine("Upload canceled!");
+                    return -1;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    return -1;
+                }
+                finally
+                {
+                    try
+                    {
+                        requestFTPUploader = null;
+                        uploadStream.Close();
+                        fileStream.Close();
+                    }
+                    catch (Exception) { }
+                }
+            }).ConfigureAwait(false);
         }
 
         public static int UPLOAD_BUFFER

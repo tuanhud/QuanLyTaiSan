@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using SHARED.Libraries;
 
@@ -30,7 +31,7 @@ namespace TSCD.Entities
         /// Upload tất cả this.attachments lên FTP server
         /// </summary>
         /// <returns></returns>
-        public int upload()
+        public async Task<int> upload(CancellationToken cancel=new CancellationToken())
         {
             try
             {
@@ -39,7 +40,7 @@ namespace TSCD.Entities
                 foreach (var item in attachments)
                 {
                     item.onUploadProgress += new SHARED.Libraries.FTPHelper.UploadProgress(this.onOneFileUploading);
-                    re = re && item.upload() > 0;
+                    re = re && (await item.upload(cancel)) > 0;
                 }
                 current_size = 0;
                 total_size = 0;

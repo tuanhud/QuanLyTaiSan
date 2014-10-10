@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using SHARED.Libraries;
 
 namespace TSCD.Entities
@@ -51,7 +53,7 @@ namespace TSCD.Entities
         /// set LOCAL_FILE_PATH trước: C:\folder\filename.xyz
         /// </summary>
         /// <returns></returns>
-        public int upload()
+        public async Task<int> upload(CancellationToken cancel=new CancellationToken())
         {
             try
             {
@@ -73,7 +75,7 @@ namespace TSCD.Entities
                 //upload len host
                 var uploader = new FTPHelper();
                 uploader.onUploadProgress += new FTPHelper.UploadProgress(this.onOneFileUploading);
-                int re = uploader.uploadFile(LOCAL_FILE_PATH, ftp_abs_path_tmp, Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD);
+                var re = await uploader.uploadFile(LOCAL_FILE_PATH, ftp_abs_path_tmp, Global.remote_setting.ftp_host.USER_NAME, Global.remote_setting.ftp_host.PASS_WORD,cancel);
 
                 //finish
                 return re;

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SHARED.Libraries;
@@ -19,6 +20,7 @@ namespace TSCD_GUI
             InitializeComponent();
         }
         private ChungTu ct= null;
+        CancellationTokenSource cancel = null;
         private void button1_Click(object sender, EventArgs e)
         {
             //Chọn files
@@ -40,10 +42,8 @@ namespace TSCD_GUI
             //register event
             ct.onUploadProgress += new SHARED.Libraries.FTPHelper.UploadProgress(this.onChungTu_Uploading);
             // do in background
-            var taskA = new Task(() => ct.upload());
-            taskA.Start();
-            taskA.ContinueWith(new Action<Task>(this.onUploadFinish));
-
+            cancel = new CancellationTokenSource();
+            var re = ct.upload(cancel.Token).ContinueWith(new Action<Task>(this.onUploadFinish));
         }
         private delegate void SetLabelProgress(string text);
         private void SetText(string text)
@@ -73,6 +73,11 @@ namespace TSCD_GUI
         {
             System.Diagnostics.Debug.WriteLine(current + "/" + total);
             this.SetText(current + "/" + total);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cancel.Cancel();
         }
     }
 }
