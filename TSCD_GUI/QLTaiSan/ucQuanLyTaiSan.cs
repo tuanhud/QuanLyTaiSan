@@ -379,7 +379,18 @@ namespace TSCD_GUI.QLTaiSan
             CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
             if (obj != null)
             {
-                frmFileChungTu frm = new frmFileChungTu(obj.chungtu);
+                frmFileChungTu frm = new frmFileChungTu(obj.chungtu, true);
+                frm.ShowDialog();
+            }
+        }
+
+        private void barBtnChuyenDonVi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmInputViTri_DonVi frm = new frmInputViTri_DonVi(obj);
+                frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
         }

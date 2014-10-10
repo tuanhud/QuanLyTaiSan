@@ -20,6 +20,7 @@ namespace TSCD_GUI.QLTaiSan
         List<CTTaiSan> listCTTaiSan = new List<CTTaiSan>();
         CTTaiSan objCTTaiSan = null;
         List<CTTaiSan> listCTTaiSan2 = new List<CTTaiSan>();
+        ChungTu objChungTu = null;
         bool isEdit = false;
         bool isChild = false;
         public delegate void ReloadAndFocused(Guid id);
@@ -49,6 +50,7 @@ namespace TSCD_GUI.QLTaiSan
         public frmAddTaiSan(CTTaiSan _obj, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
         {
             InitializeComponent();
+            objChungTu = new ChungTu();
             loadData(_listTinhTrang, _listLoaiTaiSan);
             objCTTaiSan = _obj;
             isEdit = true;
@@ -169,6 +171,7 @@ namespace TSCD_GUI.QLTaiSan
                 txtGhiChu.Text = obj.mota;
                 listCTTaiSan = obj.childs.ToList();
                 gridControlTaiSan.DataSource = TaiSanHienThi.Convert(listCTTaiSan);
+                objChungTu = obj.chungtu;
             }
             catch (Exception ex)
             {
@@ -251,7 +254,6 @@ namespace TSCD_GUI.QLTaiSan
                 ts.nuocsx = txtNSX.Text;
 
                 CTTaiSan obj = new CTTaiSan();
-                ChungTu objChungTu = new ChungTu();
                 objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
                 objChungTu.sohieu = txtSoHieu_CT.Text;
                 obj.taisan = ts;
@@ -298,18 +300,11 @@ namespace TSCD_GUI.QLTaiSan
                 objCTTaiSan.taisan.dongia = txtDonGia.EditValue != null ? long.Parse(txtDonGia.EditValue.ToString()) : 0;
                 objCTTaiSan.taisan.loaitaisan = ucComboBoxLoaiTS1.LoaiTS;
                 objCTTaiSan.taisan.subId = txtMa.Text;
-                if (objCTTaiSan.chungtu == null)
-                {
-                    ChungTu objChungTu = new ChungTu();
-                    objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-                    objChungTu.sohieu = txtSoHieu_CT.Text;
-                    objCTTaiSan.chungtu = objChungTu;
-                }
-                else
-                {
-                    objCTTaiSan.chungtu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
-                    objCTTaiSan.chungtu.sohieu = txtSoHieu_CT.Text;
-                }
+
+                objChungTu.ngay = dateNgay_CT.EditValue != null ? dateNgay_CT.DateTime : DateTime.Now;
+                objChungTu.sohieu = txtSoHieu_CT.Text;
+                objCTTaiSan.chungtu = objChungTu;
+
                 objCTTaiSan.ngay = dateNgaySD.EditValue != null ? dateNgaySD.DateTime : DateTime.Now;
                 objCTTaiSan.taisan.nuocsx = txtNSX.Text;
                 objCTTaiSan.nguongoc = txtNguonGoc.Text;
@@ -459,6 +454,16 @@ namespace TSCD_GUI.QLTaiSan
                 CTTaiSan obj = (bandedGridViewTaiSan.GetFocusedRow() as TaiSanHienThi).obj;
                 listCTTaiSan.Remove(obj);
                 gridControlTaiSan.DataSource = listCTTaiSan;
+            }
+        }
+
+        private void btnAttachment_Click(object sender, EventArgs e)
+        {
+            if (objChungTu != null)
+            {
+                frmFileChungTu frm = new frmFileChungTu(objChungTu);
+                if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    objChungTu = frm.ct;
             }
         }
 

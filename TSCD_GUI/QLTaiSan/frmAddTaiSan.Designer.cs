@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTaiSan));
             this.dateNgaySD = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
@@ -58,7 +59,7 @@
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.lblTSKemTheo = new DevExpress.XtraEditors.LabelControl();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
@@ -89,6 +90,7 @@
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.txtNSX = new DevExpress.XtraEditors.TextEdit();
             this.lblNSX = new DevExpress.XtraEditors.LabelControl();
+            this.btnAttachment = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgay_CT.Properties.CalendarTimeProperties)).BeginInit();
@@ -144,7 +146,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNguonGoc.Location = new System.Drawing.Point(92, 300);
             this.txtNguonGoc.Name = "txtNguonGoc";
-            this.txtNguonGoc.Size = new System.Drawing.Size(270, 20);
+            this.txtNguonGoc.Size = new System.Drawing.Size(295, 20);
             this.txtNguonGoc.TabIndex = 7;
             // 
             // lookUpTinhTrang
@@ -160,7 +162,7 @@
             this.lookUpTinhTrang.Properties.DisplayMember = "value";
             this.lookUpTinhTrang.Properties.NullText = "[Chưa chọn tình trạng]";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
-            this.lookUpTinhTrang.Size = new System.Drawing.Size(270, 20);
+            this.lookUpTinhTrang.Size = new System.Drawing.Size(295, 20);
             this.lookUpTinhTrang.TabIndex = 9;
             // 
             // lblNgayGhi
@@ -262,7 +264,7 @@
             // lbltxtDonViTinh
             // 
             this.lbltxtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbltxtDonViTinh.Location = new System.Drawing.Point(368, 175);
+            this.lbltxtDonViTinh.Location = new System.Drawing.Point(393, 175);
             this.lbltxtDonViTinh.Name = "lbltxtDonViTinh";
             this.lbltxtDonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lbltxtDonViTinh.TabIndex = 24;
@@ -301,7 +303,7 @@
             0,
             0,
             0});
-            this.txtSoLuong.Size = new System.Drawing.Size(270, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(295, 20);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.EditValueChanged += new System.EventHandler(this.txtSoLuong_EditValueChanged);
             // 
@@ -325,7 +327,7 @@
             232,
             0,
             0});
-            this.txtDonGia.Size = new System.Drawing.Size(270, 20);
+            this.txtDonGia.Size = new System.Drawing.Size(295, 20);
             this.txtDonGia.TabIndex = 6;
             this.txtDonGia.EditValueChanged += new System.EventHandler(this.txtDonGia_EditValueChanged);
             // 
@@ -335,7 +337,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGhiChu.Location = new System.Drawing.Point(92, 326);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(270, 46);
+            this.txtGhiChu.Size = new System.Drawing.Size(295, 46);
             this.txtGhiChu.TabIndex = 10;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
@@ -345,7 +347,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTen.Location = new System.Drawing.Point(92, 91);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(335, 49);
+            this.txtTen.Size = new System.Drawing.Size(360, 49);
             this.txtTen.TabIndex = 3;
             this.txtTen.UseOptimizedRendering = true;
             // 
@@ -353,7 +355,7 @@
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(149, 540);
+            this.btnOK.Location = new System.Drawing.Point(162, 540);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 26;
@@ -364,7 +366,7 @@
             // 
             this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(230, 540);
+            this.btnHuy.Location = new System.Drawing.Point(243, 540);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 27;
@@ -376,7 +378,7 @@
             this.btnLoaiTS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoaiTS.Image = ((System.Drawing.Image)(resources.GetObject("btnLoaiTS.Image")));
             this.btnLoaiTS.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnLoaiTS.Location = new System.Drawing.Point(368, 144);
+            this.btnLoaiTS.Location = new System.Drawing.Point(393, 144);
             this.btnLoaiTS.Name = "btnLoaiTS";
             this.btnLoaiTS.Size = new System.Drawing.Size(23, 23);
             this.btnLoaiTS.TabIndex = 28;
@@ -387,7 +389,7 @@
             this.btnTinhTrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTinhTrang.Image = ((System.Drawing.Image)(resources.GetObject("btnTinhTrang.Image")));
             this.btnTinhTrang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnTinhTrang.Location = new System.Drawing.Point(368, 246);
+            this.btnTinhTrang.Location = new System.Drawing.Point(393, 246);
             this.btnTinhTrang.Name = "btnTinhTrang";
             this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
             this.btnTinhTrang.TabIndex = 29;
@@ -407,7 +409,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMa.Location = new System.Drawing.Point(92, 65);
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(270, 20);
+            this.txtMa.Size = new System.Drawing.Size(295, 20);
             this.txtMa.TabIndex = 30;
             // 
             // dxErrorProviderInfo
@@ -421,7 +423,7 @@
             this.ucComboBoxLoaiTS1.LoaiTS = null;
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(92, 146);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
-            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(270, 20);
+            this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(295, 20);
             this.ucComboBoxLoaiTS1.TabIndex = 8;
             // 
             // lblTSKemTheo
@@ -435,7 +437,7 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(303, 376);
+            this.btnSua.Location = new System.Drawing.Point(328, 376);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(59, 23);
             this.btnSua.TabIndex = 34;
@@ -445,7 +447,7 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(368, 376);
+            this.btnXoa.Location = new System.Drawing.Point(393, 376);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(59, 23);
             this.btnXoa.TabIndex = 35;
@@ -455,7 +457,7 @@
             // btnAddExist
             // 
             this.btnAddExist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddExist.Location = new System.Drawing.Point(238, 376);
+            this.btnAddExist.Location = new System.Drawing.Point(263, 376);
             this.btnAddExist.Name = "btnAddExist";
             this.btnAddExist.Size = new System.Drawing.Size(59, 23);
             this.btnAddExist.TabIndex = 37;
@@ -465,7 +467,7 @@
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNew.Location = new System.Drawing.Point(173, 376);
+            this.btnAddNew.Location = new System.Drawing.Point(198, 376);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(59, 23);
             this.btnAddNew.TabIndex = 36;
@@ -480,7 +482,7 @@
             this.gridControlTaiSan.Location = new System.Drawing.Point(12, 405);
             this.gridControlTaiSan.MainView = this.bandedGridViewTaiSan;
             this.gridControlTaiSan.Name = "gridControlTaiSan";
-            this.gridControlTaiSan.Size = new System.Drawing.Size(415, 129);
+            this.gridControlTaiSan.Size = new System.Drawing.Size(440, 129);
             this.gridControlTaiSan.TabIndex = 38;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridViewTaiSan});
@@ -716,7 +718,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNSX.Location = new System.Drawing.Point(92, 274);
             this.txtNSX.Name = "txtNSX";
-            this.txtNSX.Size = new System.Drawing.Size(270, 20);
+            this.txtNSX.Size = new System.Drawing.Size(295, 20);
             this.txtNSX.TabIndex = 39;
             // 
             // lblNSX
@@ -727,11 +729,22 @@
             this.lblNSX.TabIndex = 40;
             this.lblNSX.Text = "Nước sản xuất:";
             // 
+            // btnAttachment
+            // 
+            this.btnAttachment.Image = ((System.Drawing.Image)(resources.GetObject("btnAttachment.Image")));
+            this.btnAttachment.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAttachment.Location = new System.Drawing.Point(431, 37);
+            this.btnAttachment.Name = "btnAttachment";
+            this.btnAttachment.Size = new System.Drawing.Size(23, 23);
+            this.btnAttachment.TabIndex = 41;
+            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
+            // 
             // frmAddTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 575);
+            this.ClientSize = new System.Drawing.Size(464, 575);
+            this.Controls.Add(this.btnAttachment);
             this.Controls.Add(this.lblNSX);
             this.Controls.Add(this.txtNSX);
             this.Controls.Add(this.gridControlTaiSan);
@@ -770,7 +783,7 @@
             this.Controls.Add(this.txtDonGia);
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.txtTen);
-            this.MinimumSize = new System.Drawing.Size(455, 450);
+            this.MinimumSize = new System.Drawing.Size(480, 613);
             this.Name = "frmAddTaiSan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm tài sản";
@@ -857,5 +870,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colid;
         private DevExpress.XtraEditors.LabelControl lblNSX;
         private DevExpress.XtraEditors.TextEdit txtNSX;
+        private DevExpress.XtraEditors.SimpleButton btnAttachment;
     }
 }

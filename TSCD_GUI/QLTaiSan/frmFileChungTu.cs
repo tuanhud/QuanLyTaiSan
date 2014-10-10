@@ -15,20 +15,23 @@ namespace TSCD_GUI.QLTaiSan
 {
     public partial class frmFileChungTu : DevExpress.XtraEditors.XtraForm
     {
+        bool save = false;
+
         public frmFileChungTu()
         {
             InitializeComponent();
         }
 
-        public frmFileChungTu(ChungTu _obj)
+        public frmFileChungTu(ChungTu _obj, bool _save = false)
         {
             InitializeComponent();
             this.ct2 = _obj;
+            this.save = _save;
             this.ct.attachments = new List<Attachment>(_obj.attachments);
             loadData();
         }
 
-        private ChungTu ct = new ChungTu();
+        public ChungTu ct = new ChungTu();
         private ChungTu ct2 = null;
         private void btnChonFile_Click(object sender, EventArgs e)
         {
@@ -127,15 +130,27 @@ namespace TSCD_GUI.QLTaiSan
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            ct2.attachments = ct.attachments;
-            ct2.update();
-            DBInstance.commit();
+            if (save)
+            {
+                ct2.attachments = ct.attachments;
+                ct2.update();
+                DBInstance.commit();
+            }
             this.Close();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            if (gridViewAttachment.GetFocusedRow() != null)
+            {
+                Attachment obj = gridViewAttachment.GetFocusedRow() as Attachment;
+                
+            }
         }
     }
 }

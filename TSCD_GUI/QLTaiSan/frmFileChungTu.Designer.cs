@@ -36,13 +36,14 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAttachment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAttachment)).BeginInit();
             this.SuspendLayout();
             // 
             // btnChonFile
             // 
-            this.btnChonFile.Location = new System.Drawing.Point(12, 12);
+            this.btnChonFile.Location = new System.Drawing.Point(12, 323);
             this.btnChonFile.Name = "btnChonFile";
             this.btnChonFile.Size = new System.Drawing.Size(75, 23);
             this.btnChonFile.TabIndex = 4;
@@ -51,7 +52,7 @@
             // 
             // label_uploading
             // 
-            this.label_uploading.Location = new System.Drawing.Point(113, 17);
+            this.label_uploading.Location = new System.Drawing.Point(103, 328);
             this.label_uploading.Name = "label_uploading";
             this.label_uploading.Size = new System.Drawing.Size(90, 13);
             this.label_uploading.TabIndex = 5;
@@ -59,10 +60,10 @@
             // 
             // gridControlAttachment
             // 
-            this.gridControlAttachment.Location = new System.Drawing.Point(12, 41);
+            this.gridControlAttachment.Location = new System.Drawing.Point(12, 12);
             this.gridControlAttachment.MainView = this.gridViewAttachment;
             this.gridControlAttachment.Name = "gridControlAttachment";
-            this.gridControlAttachment.Size = new System.Drawing.Size(585, 266);
+            this.gridControlAttachment.Size = new System.Drawing.Size(585, 305);
             this.gridControlAttachment.TabIndex = 6;
             this.gridControlAttachment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAttachment});
@@ -88,7 +89,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(522, 12);
+            this.btnDelete.Location = new System.Drawing.Point(279, 323);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 7;
@@ -97,6 +98,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(441, 323);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
@@ -113,11 +115,21 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(360, 323);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(75, 23);
+            this.btnDownload.TabIndex = 10;
+            this.btnDownload.Text = "Tải xuống";
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // frmFileChungTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 358);
+            this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnDelete);
@@ -144,5 +156,6 @@
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraGrid.Columns.GridColumn colfile;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraEditors.SimpleButton btnDownload;
     }
 }

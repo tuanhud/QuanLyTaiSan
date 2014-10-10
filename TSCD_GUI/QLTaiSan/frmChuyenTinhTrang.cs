@@ -82,5 +82,10 @@ namespace TSCD_GUI.QLTaiSan
             frm.ShowDialog();
             loadData();
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
