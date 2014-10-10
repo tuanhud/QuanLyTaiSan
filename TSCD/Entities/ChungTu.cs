@@ -39,6 +39,8 @@ namespace TSCD.Entities
                 total_size = ATTACHMENTS_SIZE;
                 foreach (var item in attachments)
                 {
+                    if (item.id != Guid.Empty)
+                        continue;
                     item.onUploadProgress += new SHARED.Libraries.FTPHelper.UploadProgress(this.onOneFileUploading);
                     re = re && (await item.upload(cancel)) > 0;
                 }

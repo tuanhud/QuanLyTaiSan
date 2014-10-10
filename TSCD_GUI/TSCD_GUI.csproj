@@ -319,6 +319,12 @@
     <Compile Include="QLTaiSan\frmChuyenTinhTrang.Designer.cs">
       <DependentUpon>frmChuyenTinhTrang.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTaiSan\frmFileChungTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiSan\frmFileChungTu.Designer.cs">
+      <DependentUpon>frmFileChungTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLTaiSan\frmInputViTri_DonVi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -552,6 +558,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmChuyenTinhTrang.resx">
       <DependentUpon>frmChuyenTinhTrang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiSan\frmFileChungTu.resx">
+      <DependentUpon>frmFileChungTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLTaiSan\frmInputViTri_DonVi.resx">
       <DependentUpon>frmInputViTri_DonVi.cs</DependentUpon>

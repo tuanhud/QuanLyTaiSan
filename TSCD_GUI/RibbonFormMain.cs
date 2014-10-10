@@ -126,7 +126,7 @@ namespace TSCD_GUI
             {
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-                //DBInstance.reNew();
+                DBInstance.reNew();
                 if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageViTri)))
                 {
                     _ucQuanLyViTri.loadData();

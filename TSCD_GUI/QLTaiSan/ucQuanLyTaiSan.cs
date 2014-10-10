@@ -373,5 +373,15 @@ namespace TSCD_GUI.QLTaiSan
                 }
             }
         }
+
+        private void barBtnAttachment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CTTaiSan obj = ucGridControlTaiSan1.CTTaiSan;
+            if (obj != null)
+            {
+                frmFileChungTu frm = new frmFileChungTu(obj.chungtu);
+                frm.ShowDialog();
+            }
+        }
     }
 }
