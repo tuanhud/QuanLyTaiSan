@@ -39,6 +39,7 @@ namespace TSCD_GUI.QLTaiSan
             objCTTaiSan = _objCTTaiSan;
             loadData();
             setData();
+            ucComboBoxViTri1.editValueChanged = new MyUserControl.ucComboBoxViTri.EditValueChanged(phongEditValueChanged);
         }
 
         public void setData(CTTaiSan _objCTTaiSan, DonVi _objDonVi)
@@ -106,6 +107,7 @@ namespace TSCD_GUI.QLTaiSan
                 ucComboBoxViTri1.DataSource = listPhong;
                 List<ViTriHienThi> listViTri = ViTriHienThi.getAll();
                 ViTriHienThi objViTriNULL = new ViTriHienThi();
+                objViTriNULL.id = Guid.Empty;
                 objViTriNULL.ten = "[Không có vị trí]";
                 objViTriNULL.loai = typeof(CoSo).Name;
                 objViTriNULL.parent_id = Guid.Empty;

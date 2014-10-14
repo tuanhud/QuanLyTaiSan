@@ -26,7 +26,8 @@ namespace TSCD.DataFilter
                      id = c.id,
                      ten = c.ten,
                      loai = typeof(CoSo).Name,
-                     order = c.order
+                     order = c.order,
+                     parent_id = c.id
                  }).OrderBy(c => c.order).ToList();
             return re;
         }
