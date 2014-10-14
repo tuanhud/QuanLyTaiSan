@@ -85,7 +85,10 @@ namespace TSCD.Entities
                 return -1;
             }
         }
-
+        public String getDownloadPath()
+        {
+            return Global.remote_setting.http_host.getCombinedPath(path);
+        }
         private void onOneFileUploading(long current, long total)
         {
             if(onUploadProgress!=null)
