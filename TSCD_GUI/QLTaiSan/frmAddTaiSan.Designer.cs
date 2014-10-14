@@ -294,7 +294,7 @@
             this.txtSoLuong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.MaxValue = new decimal(new int[] {
-            1,
+            999999999,
             0,
             0,
             0});
