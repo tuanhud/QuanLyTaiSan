@@ -218,6 +218,8 @@
             this.coldongia2.AppearanceHeader.Options.UseTextOptions = true;
             this.coldongia2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.coldongia2.Caption = "Đơn giá";
+            this.coldongia2.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.coldongia2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldongia2.FieldName = "dongia";
             this.coldongia2.Name = "coldongia2";
             this.coldongia2.Visible = true;
@@ -228,6 +230,8 @@
             this.colthanhtien2.AppearanceHeader.Options.UseTextOptions = true;
             this.colthanhtien2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colthanhtien2.Caption = "Thành tiền";
+            this.colthanhtien2.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.colthanhtien2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colthanhtien2.FieldName = "thanhtien";
             this.colthanhtien2.Name = "colthanhtien2";
             this.colthanhtien2.Visible = true;
@@ -477,6 +481,8 @@
             this.coldongia.AppearanceHeader.Options.UseTextOptions = true;
             this.coldongia.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.coldongia.Caption = "Đơn giá";
+            this.coldongia.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.coldongia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldongia.FieldName = "dongia";
             this.coldongia.Name = "coldongia";
             this.coldongia.Visible = true;
@@ -487,6 +493,8 @@
             this.colthanhtien.AppearanceHeader.Options.UseTextOptions = true;
             this.colthanhtien.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colthanhtien.Caption = "Thành tiền";
+            this.colthanhtien.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.colthanhtien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colthanhtien.FieldName = "thanhtien";
             this.colthanhtien.Name = "colthanhtien";
             this.colthanhtien.Visible = true;

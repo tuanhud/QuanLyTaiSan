@@ -78,7 +78,7 @@
             // 
             // barBtnDefault
             // 
-            this.barBtnDefault.Caption = "Default";
+            this.barBtnDefault.Caption = "Mặc định";
             this.barBtnDefault.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.Glyph")));
             this.barBtnDefault.Id = 2;
             this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
@@ -87,7 +87,7 @@
             // 
             // barBtnExpandAll
             // 
-            this.barBtnExpandAll.Caption = "Expand All";
+            this.barBtnExpandAll.Caption = "Mở rộng tất cả";
             this.barBtnExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.Glyph")));
             this.barBtnExpandAll.Id = 3;
             this.barBtnExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.LargeGlyph")));
@@ -96,7 +96,7 @@
             // 
             // barBtnCollapseAll
             // 
-            this.barBtnCollapseAll.Caption = "Collapse All";
+            this.barBtnCollapseAll.Caption = "Thu gọn tất cả";
             this.barBtnCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.Glyph")));
             this.barBtnCollapseAll.Id = 4;
             this.barBtnCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.LargeGlyph")));

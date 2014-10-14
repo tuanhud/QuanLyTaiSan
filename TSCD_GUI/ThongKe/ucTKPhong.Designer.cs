@@ -97,6 +97,7 @@
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewPhong.OptionsView.ShowFooter = true;
             // 
             // colid
             // 
@@ -109,6 +110,8 @@
             this.colphong.Caption = "Phòng";
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
+            this.colphong.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "phong", "{0} phòng")});
             this.colphong.Visible = true;
             this.colphong.VisibleIndex = 0;
             // 

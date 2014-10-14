@@ -347,7 +347,8 @@ namespace TSCD_GUI.QLTaiSan
         {
             if (txtSoLuong.EditValue != null && txtDonGia.EditValue != null)
             {
-                lbltxtThanhTien.Text = Convert.ToInt32(txtSoLuong.EditValue) * long.Parse(txtDonGia.EditValue.ToString()) +"";
+                long thanhtien = Convert.ToInt32(txtSoLuong.EditValue) * long.Parse(txtDonGia.EditValue.ToString());
+                lbltxtThanhTien.Text = String.Format("{0:### ### ### ###}", thanhtien);
             }
         }
 

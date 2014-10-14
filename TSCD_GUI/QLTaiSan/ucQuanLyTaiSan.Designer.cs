@@ -163,7 +163,7 @@
             // 
             // barBtnDefault
             // 
-            this.barBtnDefault.Caption = "Default";
+            this.barBtnDefault.Caption = "Mặc định";
             this.barBtnDefault.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.Glyph")));
             this.barBtnDefault.Id = 9;
             this.barBtnDefault.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnDefault.LargeGlyph")));
