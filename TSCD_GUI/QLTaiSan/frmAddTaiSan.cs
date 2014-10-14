@@ -20,7 +20,7 @@ namespace TSCD_GUI.QLTaiSan
         List<CTTaiSan> listCTTaiSan = new List<CTTaiSan>();
         CTTaiSan objCTTaiSan = null;
         List<CTTaiSan> listCTTaiSan2 = new List<CTTaiSan>();
-        ChungTu objChungTu = null;
+        ChungTu objChungTu = new ChungTu();
         bool isEdit = false;
         bool isChild = false;
         public delegate void ReloadAndFocused(Guid id);
@@ -50,7 +50,6 @@ namespace TSCD_GUI.QLTaiSan
         public frmAddTaiSan(CTTaiSan _obj, List<TinhTrang> _listTinhTrang, List<LoaiTaiSan> _listLoaiTaiSan)
         {
             InitializeComponent();
-            objChungTu = new ChungTu();
             loadData(_listTinhTrang, _listLoaiTaiSan);
             objCTTaiSan = _obj;
             isEdit = true;
@@ -67,6 +66,7 @@ namespace TSCD_GUI.QLTaiSan
             loadData(_listTinhTrang, _listLoaiTaiSan);
             listCTTaiSan2 = _list;
             isChild = true;
+            init();
         }
 
         private void init()

@@ -92,9 +92,9 @@ namespace TSCD_GUI.ThongKe
         private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (current.Equals(_ucTKTaiSan))
-            {
                 _ucTKTaiSan.loadLayout(true);
-            }
+            else if (current.Equals(_ucTKPhong))
+                _ucTKPhong.loadLayout(true);
         }
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
