@@ -36,7 +36,7 @@ namespace TSCD.DataFilter
         public static List<TaiSan_ThongKe> getAll(List<Guid> list_coso = null, List<Guid> list_loaitaisan = null, DonVi donvi = null)
         {
             IQueryable<CTTaiSan> query = CTTaiSan.getQuery();
-
+            query = query.Where(x => x.soluong > 0);
             if (donvi != null)
             {
                 List<Guid> list_donviquanly = donvi.getAllChildsRecursive().Select(x => x.id).ToList();
