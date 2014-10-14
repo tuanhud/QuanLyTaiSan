@@ -1,0 +1,3 @@
+Server URL: SQL5013.Smarterasp.net
+Database Name: DB_9B4694_khanhhc12
+Login Name: DB_9B4694_khanhhc12_admin
