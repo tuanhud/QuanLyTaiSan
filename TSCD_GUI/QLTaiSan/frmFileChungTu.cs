@@ -87,7 +87,7 @@ namespace TSCD_GUI.QLTaiSan
         {
             //ct.update();
             //DBInstance.commit();
-            MessageBox.Show("Upload and add to DB finished!");
+            MessageBox.Show("Upload thành công!");
             //DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             loadData();
         }
@@ -149,7 +149,6 @@ namespace TSCD_GUI.QLTaiSan
             if (gridViewAttachment.GetFocusedRow() != null)
             {
                 Attachment obj = gridViewAttachment.GetFocusedRow() as Attachment;
-                
             }
         }
     }

@@ -142,7 +142,11 @@ namespace TSCD_GUI.QLTaiSan
                             XtraMessageBox.Show("Chuyển tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                             XtraMessageBox.Show("Thêm tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Guid id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly_id == donViQL.id && c.soluong == soLuong).FirstOrDefault().id;
+                        Guid id;
+                        if(donViQL == null)
+                            id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly == null && c.soluong == soLuong).FirstOrDefault().id;
+                        else
+                            id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly_id == donViQL.id && c.soluong == soLuong).FirstOrDefault().id;
                         if (reloadAndFocused != null)
                             reloadAndFocused(id);
                         this.Close();
@@ -165,12 +169,12 @@ namespace TSCD_GUI.QLTaiSan
 
         private bool checkInput()
         {
-            DonVi donViQL = ucComboBoxDonVi1.DonVi;
-            if (donViQL == null && donViQL.id == Guid.Empty)
-            {
-                XtraMessageBox.Show("Chưa chọn đơn vị quản lý");
-                return false;
-            }
+            //DonVi donViQL = ucComboBoxDonVi1.DonVi;
+            //if (donViQL == null || donViQL.id == Guid.Empty)
+            //{
+            //    XtraMessageBox.Show("Chưa chọn đơn vị quản lý");
+            //    return false;
+            //}
             return true;
         }
 

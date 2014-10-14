@@ -92,8 +92,11 @@
             this.coltang});
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "phong", null, "[{0} phòng]")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "phong", null, "({0} phòng)")});
             this.gridViewPhong.Name = "gridViewPhong";
+            this.gridViewPhong.OptionsBehavior.Editable = false;
+            this.gridViewPhong.OptionsBehavior.ReadOnly = true;
+            this.gridViewPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
             // colid
             // 
@@ -220,6 +223,7 @@
             this.Controls.Add(this.splitContainerControlMain);
             this.Name = "ucTKPhong";
             this.Size = new System.Drawing.Size(813, 517);
+            this.Leave += new System.EventHandler(this.ucTKPhong_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
             this.splitContainerControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).EndInit();
