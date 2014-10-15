@@ -367,11 +367,17 @@
     <Compile Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.Designer.cs">
       <DependentUpon>XtraReport_BaoCaoTangGiamTSCD.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs">
+    <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.Designer.cs">
-      <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs</DependentUpon>
+    <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.Designer.cs">
+      <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_Template.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_Template.Designer.cs">
+      <DependentUpon>XtraReport_Template.cs</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
@@ -403,11 +409,11 @@
     <Compile Include="ReportTSCD\XtraReportTSCD_Grid.Designer.cs">
       <DependentUpon>XtraReportTSCD_Grid.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportTSCD\XtraReport_PhongBan.cs">
+    <Compile Include="ReportTSCD\XtraReport_SoTheoDoiTSCDTaiNoiSuDung.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReportTSCD\XtraReport_PhongBan.Designer.cs">
-      <DependentUpon>XtraReport_PhongBan.cs</DependentUpon>
+    <Compile Include="ReportTSCD\XtraReport_SoTheoDoiTSCDTaiNoiSuDung.Designer.cs">
+      <DependentUpon>XtraReport_SoTheoDoiTSCDTaiNoiSuDung.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportTSCD\XtraReport_SoTaiSanCoDinh.cs">
       <SubType>Component</SubType>
@@ -583,8 +589,8 @@
     <EmbeddedResource Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.resx">
       <DependentUpon>XtraReport_BaoCaoTangGiamTSCD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh_PhongBan.resx">
-      <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh_PhongBan.cs</DependentUpon>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.resx">
+      <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -601,8 +607,8 @@
     <EmbeddedResource Include="ReportTSCD\XtraReportTSCD_Grid.resx">
       <DependentUpon>XtraReportTSCD_Grid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportTSCD\XtraReport_PhongBan.resx">
-      <DependentUpon>XtraReport_PhongBan.cs</DependentUpon>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_SoTheoDoiTSCDTaiNoiSuDung.resx">
+      <DependentUpon>XtraReport_SoTheoDoiTSCDTaiNoiSuDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTSCD\XtraReport_SoTaiSanCoDinh.resx">
       <DependentUpon>XtraReport_SoTaiSanCoDinh.cs</DependentUpon>
