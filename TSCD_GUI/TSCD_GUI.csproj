@@ -373,12 +373,6 @@
     <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.Designer.cs">
       <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportTSCD\XtraReport_Template.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportTSCD\XtraReport_Template.Designer.cs">
-      <DependentUpon>XtraReport_Template.cs</DependentUpon>
-    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
