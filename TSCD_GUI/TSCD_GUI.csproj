@@ -367,6 +367,12 @@
     <Compile Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.Designer.cs">
       <DependentUpon>XtraReport_BaoCaoTangGiamTSCD.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportTSCD\XtraReport_BienBanGiaoNhanTSCD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTSCD\XtraReport_BienBanGiaoNhanTSCD.Designer.cs">
+      <DependentUpon>XtraReport_BienBanGiaoNhanTSCD.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -582,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTSCD\XtraReport_BaoCaoTangGiamTSCD.resx">
       <DependentUpon>XtraReport_BaoCaoTangGiamTSCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTSCD\XtraReport_BienBanGiaoNhanTSCD.resx">
+      <DependentUpon>XtraReport_BienBanGiaoNhanTSCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportTSCD\XtraReport_SoChiTietTaiSanCoDinh.resx">
       <DependentUpon>XtraReport_SoChiTietTaiSanCoDinh.cs</DependentUpon>
