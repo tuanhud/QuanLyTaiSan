@@ -118,7 +118,7 @@
             this.gridControlQuanTriVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlQuanTriVien.MainView = this.gridViewQuanTriVien;
             this.gridControlQuanTriVien.Name = "gridControlQuanTriVien";
-            this.gridControlQuanTriVien.Size = new System.Drawing.Size(509, 508);
+            this.gridControlQuanTriVien.Size = new System.Drawing.Size(510, 508);
             this.gridControlQuanTriVien.TabIndex = 0;
             this.gridControlQuanTriVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQuanTriVien});
@@ -251,7 +251,7 @@
             this.btnHuy.Location = new System.Drawing.Point(164, 175);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 12;
+            this.btnHuy.TabIndex = 6;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -270,7 +270,7 @@
             this.btnOK.Location = new System.Drawing.Point(83, 175);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 11;
+            this.btnOK.TabIndex = 5;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -329,7 +329,7 @@
             this.txtMota.Name = "txtMota";
             this.txtMota.Properties.ReadOnly = true;
             this.txtMota.Size = new System.Drawing.Size(253, 61);
-            this.txtMota.TabIndex = 13;
+            this.txtMota.TabIndex = 4;
             this.txtMota.UseOptimizedRendering = true;
             // 
             // ribbonPhanCongQTV

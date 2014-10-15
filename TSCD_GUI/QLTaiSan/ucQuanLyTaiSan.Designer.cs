@@ -296,7 +296,7 @@
             this.ucGridControlTaiSan1.Location = new System.Drawing.Point(2, 84);
             this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
             this.ucGridControlTaiSan1.Size = new System.Drawing.Size(854, 278);
-            this.ucGridControlTaiSan1.TabIndex = 8;
+            this.ucGridControlTaiSan1.TabIndex = 12;
             // 
             // btnXoa_r
             // 
@@ -306,7 +306,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(821, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 7;
+            this.btnXoa_r.TabIndex = 2;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -317,7 +317,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(795, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 6;
+            this.btnSua_r.TabIndex = 1;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -328,7 +328,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(769, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 5;
+            this.btnThem_r.TabIndex = 0;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // panelControlTimKiem
@@ -356,7 +356,7 @@
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxViTri1.TabIndex = 62;
+            this.ucComboBoxViTri1.TabIndex = 10;
             this.ucComboBoxViTri1.ViTri = null;
             // 
             // checkTen
@@ -366,7 +366,7 @@
             this.checkTen.Name = "checkTen";
             this.checkTen.Properties.Caption = "Tên TSCĐ:";
             this.checkTen.Size = new System.Drawing.Size(81, 19);
-            this.checkTen.TabIndex = 61;
+            this.checkTen.TabIndex = 3;
             // 
             // checkLoai
             // 
@@ -375,7 +375,7 @@
             this.checkLoai.Name = "checkLoai";
             this.checkLoai.Properties.Caption = "Loại tài sản:";
             this.checkLoai.Size = new System.Drawing.Size(80, 19);
-            this.checkLoai.TabIndex = 60;
+            this.checkLoai.TabIndex = 7;
             // 
             // checkViTri
             // 
@@ -384,7 +384,7 @@
             this.checkViTri.Name = "checkViTri";
             this.checkViTri.Properties.Caption = "Vị trí:";
             this.checkViTri.Size = new System.Drawing.Size(98, 19);
-            this.checkViTri.TabIndex = 59;
+            this.checkViTri.TabIndex = 9;
             // 
             // checkDVQL
             // 
@@ -393,7 +393,7 @@
             this.checkDVQL.Name = "checkDVQL";
             this.checkDVQL.Properties.Caption = "Đơn vị quản lý:";
             this.checkDVQL.Size = new System.Drawing.Size(98, 19);
-            this.checkDVQL.TabIndex = 58;
+            this.checkDVQL.TabIndex = 5;
             // 
             // btnTim
             // 
@@ -401,7 +401,7 @@
             this.btnTim.Location = new System.Drawing.Point(692, 16);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 52;
+            this.btnTim.TabIndex = 11;
             this.btnTim.Text = "Tìm";
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
@@ -411,7 +411,7 @@
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(439, 7);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxDonVi1.TabIndex = 51;
+            this.ucComboBoxDonVi1.TabIndex = 6;
             // 
             // ucComboBoxLoaiTS1
             // 
@@ -419,14 +419,14 @@
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(93, 33);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
             this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(200, 20);
-            this.ucComboBoxLoaiTS1.TabIndex = 50;
+            this.ucComboBoxLoaiTS1.TabIndex = 8;
             // 
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(93, 6);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(200, 20);
-            this.txtTen.TabIndex = 49;
+            this.txtTen.TabIndex = 4;
             // 
             // ucQuanLyTaiSan
             // 

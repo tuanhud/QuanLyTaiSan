@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhongThietBi));
             this.ribbonPhongThietBi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemTBChung = new DevExpress.XtraBars.BarButtonItem();
@@ -84,7 +83,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonPhongThietBi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupPhong)).BeginInit();
             this.groupPhong.SuspendLayout();
@@ -260,7 +259,7 @@
             this.gridControlCTThietBi.MainView = this.gridViewCTThietBi;
             this.gridControlCTThietBi.MenuManager = this.ribbonPhongThietBi;
             this.gridControlCTThietBi.Name = "gridControlCTThietBi";
-            this.gridControlCTThietBi.Size = new System.Drawing.Size(478, 529);
+            this.gridControlCTThietBi.Size = new System.Drawing.Size(479, 529);
             this.gridControlCTThietBi.TabIndex = 0;
             this.gridControlCTThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCTThietBi});
@@ -475,7 +474,7 @@
             this.btnR_Sua.Location = new System.Drawing.Point(290, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Sua.TabIndex = 28;
+            this.btnR_Sua.TabIndex = 1;
             this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // btnR_Xoa
@@ -486,7 +485,7 @@
             this.btnR_Xoa.Location = new System.Drawing.Point(316, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Xoa.TabIndex = 27;
+            this.btnR_Xoa.TabIndex = 2;
             this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // panelControl1
@@ -497,7 +496,7 @@
             this.panelControl1.Location = new System.Drawing.Point(72, 207);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(267, 20);
-            this.panelControl1.TabIndex = 3;
+            this.panelControl1.TabIndex = 7;
             // 
             // lblTenPhong
             // 
@@ -522,7 +521,7 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(268, 20);
-            this.txtMa.TabIndex = 1;
+            this.txtMa.TabIndex = 5;
             // 
             // btnHuy
             // 
@@ -530,7 +529,7 @@
             this.btnHuy.Location = new System.Drawing.Point(148, 385);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 8;
+            this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -541,7 +540,7 @@
             this.btnOK.Location = new System.Drawing.Point(67, 385);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 7;
+            this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -551,7 +550,7 @@
             this.btnImage.Location = new System.Drawing.Point(197, 28);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 9;
+            this.btnImage.TabIndex = 4;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
@@ -630,7 +629,7 @@
             this.dateLap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateLap.Properties.ReadOnly = true;
             this.dateLap.Size = new System.Drawing.Size(268, 20);
-            this.dateLap.TabIndex = 5;
+            this.dateLap.TabIndex = 9;
             // 
             // dateMua
             // 
@@ -650,7 +649,7 @@
             this.dateMua.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateMua.Properties.ReadOnly = true;
             this.dateMua.Size = new System.Drawing.Size(268, 20);
-            this.dateMua.TabIndex = 4;
+            this.dateMua.TabIndex = 8;
             // 
             // txtTen
             // 
@@ -660,7 +659,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(268, 20);
-            this.txtTen.TabIndex = 2;
+            this.txtTen.TabIndex = 6;
             // 
             // imageSlider1
             // 
@@ -668,7 +667,7 @@
             this.imageSlider1.Location = new System.Drawing.Point(71, 28);
             this.imageSlider1.Name = "imageSlider1";
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
-            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.TabIndex = 3;
             this.imageSlider1.Text = "imageSlider1";
             this.imageSlider1.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
@@ -681,7 +680,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(268, 68);
-            this.txtMoTa.TabIndex = 6;
+            this.txtMoTa.TabIndex = 10;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // dxErrorProvider1

@@ -319,7 +319,7 @@
             this.panelControlViTri.Location = new System.Drawing.Point(43, 54);
             this.panelControlViTri.Name = "panelControlViTri";
             this.panelControlViTri.Size = new System.Drawing.Size(297, 20);
-            this.panelControlViTri.TabIndex = 11;
+            this.panelControlViTri.TabIndex = 5;
             // 
             // btnHuy
             // 
@@ -327,7 +327,7 @@
             this.btnHuy.Location = new System.Drawing.Point(168, 169);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 10;
+            this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -337,7 +337,7 @@
             this.btnOK.Location = new System.Drawing.Point(87, 169);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 9;
+            this.btnOK.TabIndex = 7;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -365,7 +365,7 @@
             this.txtTen.MenuManager = this.rbnControlViTri;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(297, 20);
-            this.txtTen.TabIndex = 3;
+            this.txtTen.TabIndex = 4;
             // 
             // btnXoa_r
             // 
@@ -375,7 +375,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(317, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 2;
+            this.btnXoa_r.TabIndex = 3;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -386,7 +386,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(291, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 1;
+            this.btnSua_r.TabIndex = 2;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -397,7 +397,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(265, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 0;
+            this.btnThem_r.TabIndex = 1;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtMoTa
@@ -408,7 +408,7 @@
             this.txtMoTa.MenuManager = this.rbnControlViTri;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(297, 83);
-            this.txtMoTa.TabIndex = 4;
+            this.txtMoTa.TabIndex = 6;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // dxErrorProviderInfo

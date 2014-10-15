@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyTinhTrang));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlTinhTrang = new DevExpress.XtraGrid.GridControl();
@@ -56,7 +55,7 @@
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
@@ -90,7 +89,7 @@
             this.gridControlTinhTrang.Location = new System.Drawing.Point(0, 0);
             this.gridControlTinhTrang.MainView = this.gridViewTinhTrang;
             this.gridControlTinhTrang.Name = "gridControlTinhTrang";
-            this.gridControlTinhTrang.Size = new System.Drawing.Size(452, 396);
+            this.gridControlTinhTrang.Size = new System.Drawing.Size(453, 396);
             this.gridControlTinhTrang.TabIndex = 0;
             this.gridControlTinhTrang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTinhTrang});
@@ -153,7 +152,7 @@
             this.btnR_Sua.Location = new System.Drawing.Point(268, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Sua.TabIndex = 30;
+            this.btnR_Sua.TabIndex = 2;
             this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // btnR_Them
@@ -164,7 +163,7 @@
             this.btnR_Them.Location = new System.Drawing.Point(242, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Them.TabIndex = 29;
+            this.btnR_Them.TabIndex = 1;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
@@ -175,7 +174,7 @@
             this.btnR_Xoa.Location = new System.Drawing.Point(294, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Xoa.TabIndex = 28;
+            this.btnR_Xoa.TabIndex = 3;
             this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // labelControl4
@@ -194,25 +193,27 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(260, 120);
-            this.txtMoTa.TabIndex = 2;
+            this.txtMoTa.TabIndex = 5;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // btnHuy
             // 
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.Location = new System.Drawing.Point(138, 179);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 6;
+            this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOk
             // 
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.Location = new System.Drawing.Point(57, 179);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 5;
+            this.btnOk.TabIndex = 6;
             this.btnOk.Text = "OK";
             this.btnOk.Visible = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -225,7 +226,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(260, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 4;
             // 
             // labelControl2
             // 

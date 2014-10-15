@@ -66,7 +66,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(93, 168);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(375, 75);
-            this.txtGhiChu.TabIndex = 4;
+            this.txtGhiChu.TabIndex = 8;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
             // lblSoLuong
@@ -94,7 +94,7 @@
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.txtSoLuong.Size = new System.Drawing.Size(291, 20);
-            this.txtSoLuong.TabIndex = 6;
+            this.txtSoLuong.TabIndex = 4;
             // 
             // lblPhong
             // 
@@ -135,7 +135,7 @@
             this.btnOK.Location = new System.Drawing.Point(160, 249);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 12;
+            this.btnOK.TabIndex = 9;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -146,7 +146,7 @@
             this.btnHuy.Location = new System.Drawing.Point(241, 249);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 13;
+            this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -196,7 +196,7 @@
             this.txtSoHieu_CT.Location = new System.Drawing.Point(138, 38);
             this.txtSoHieu_CT.Name = "txtSoHieu_CT";
             this.txtSoHieu_CT.Size = new System.Drawing.Size(100, 20);
-            this.txtSoHieu_CT.TabIndex = 28;
+            this.txtSoHieu_CT.TabIndex = 1;
             // 
             // dateNgay_CT
             // 
@@ -208,7 +208,7 @@
             this.dateNgay_CT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay_CT.Size = new System.Drawing.Size(114, 20);
-            this.dateNgay_CT.TabIndex = 27;
+            this.dateNgay_CT.TabIndex = 2;
             // 
             // dateNgayGhi
             // 
@@ -220,7 +220,7 @@
             this.dateNgayGhi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayGhi.Size = new System.Drawing.Size(280, 20);
-            this.dateNgayGhi.TabIndex = 26;
+            this.dateNgayGhi.TabIndex = 0;
             // 
             // ucComboBoxDonVi1
             // 
@@ -230,7 +230,7 @@
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(93, 142);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(375, 20);
-            this.ucComboBoxDonVi1.TabIndex = 2;
+            this.ucComboBoxDonVi1.TabIndex = 7;
             // 
             // ucComboBoxViTri2
             // 
@@ -241,7 +241,7 @@
             this.ucComboBoxViTri2.Name = "ucComboBoxViTri2";
             this.ucComboBoxViTri2.Phong = null;
             this.ucComboBoxViTri2.Size = new System.Drawing.Size(375, 20);
-            this.ucComboBoxViTri2.TabIndex = 1;
+            this.ucComboBoxViTri2.TabIndex = 6;
             this.ucComboBoxViTri2.ViTri = null;
             // 
             // ucComboBoxViTri1
@@ -253,7 +253,7 @@
             this.ucComboBoxViTri1.Name = "ucComboBoxViTri1";
             this.ucComboBoxViTri1.Phong = null;
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(375, 20);
-            this.ucComboBoxViTri1.TabIndex = 0;
+            this.ucComboBoxViTri1.TabIndex = 5;
             this.ucComboBoxViTri1.ViTri = null;
             // 
             // btnAttachment
@@ -263,7 +263,7 @@
             this.btnAttachment.Location = new System.Drawing.Point(445, 36);
             this.btnAttachment.Name = "btnAttachment";
             this.btnAttachment.Size = new System.Drawing.Size(23, 23);
-            this.btnAttachment.TabIndex = 42;
+            this.btnAttachment.TabIndex = 3;
             this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
             // 
             // frmInputViTri_DonVi

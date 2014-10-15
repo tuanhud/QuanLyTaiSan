@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddTaiSan));
             this.dateNgaySD = new DevExpress.XtraEditors.DateEdit();
             this.dateNgay_CT = new DevExpress.XtraEditors.DateEdit();
@@ -58,7 +59,7 @@
             this.btnTinhTrang = new DevExpress.XtraEditors.SimpleButton();
             this.lblMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.lblTSKemTheo = new DevExpress.XtraEditors.LabelControl();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
@@ -130,14 +131,14 @@
             this.dateNgay_CT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay_CT.Size = new System.Drawing.Size(105, 20);
-            this.dateNgay_CT.TabIndex = 1;
+            this.dateNgay_CT.TabIndex = 2;
             // 
             // txtSoHieu_CT
             // 
             this.txtSoHieu_CT.Location = new System.Drawing.Point(137, 39);
             this.txtSoHieu_CT.Name = "txtSoHieu_CT";
             this.txtSoHieu_CT.Size = new System.Drawing.Size(87, 20);
-            this.txtSoHieu_CT.TabIndex = 2;
+            this.txtSoHieu_CT.TabIndex = 1;
             // 
             // txtNguonGoc
             // 
@@ -146,7 +147,7 @@
             this.txtNguonGoc.Location = new System.Drawing.Point(92, 300);
             this.txtNguonGoc.Name = "txtNguonGoc";
             this.txtNguonGoc.Size = new System.Drawing.Size(295, 20);
-            this.txtNguonGoc.TabIndex = 7;
+            this.txtNguonGoc.TabIndex = 13;
             // 
             // lookUpTinhTrang
             // 
@@ -162,7 +163,7 @@
             this.lookUpTinhTrang.Properties.NullText = "[Chưa chọn tình trạng]";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
             this.lookUpTinhTrang.Size = new System.Drawing.Size(295, 20);
-            this.lookUpTinhTrang.TabIndex = 9;
+            this.lookUpTinhTrang.TabIndex = 10;
             // 
             // lblNgayGhi
             // 
@@ -303,7 +304,7 @@
             0,
             0});
             this.txtSoLuong.Size = new System.Drawing.Size(295, 20);
-            this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.TabIndex = 8;
             this.txtSoLuong.EditValueChanged += new System.EventHandler(this.txtSoLuong_EditValueChanged);
             // 
             // txtDonGia
@@ -329,7 +330,7 @@
             0,
             0});
             this.txtDonGia.Size = new System.Drawing.Size(295, 20);
-            this.txtDonGia.TabIndex = 6;
+            this.txtDonGia.TabIndex = 9;
             this.txtDonGia.EditValueChanged += new System.EventHandler(this.txtDonGia_EditValueChanged);
             // 
             // txtGhiChu
@@ -339,7 +340,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(92, 326);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(295, 46);
-            this.txtGhiChu.TabIndex = 10;
+            this.txtGhiChu.TabIndex = 14;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
             // txtTen
@@ -349,7 +350,7 @@
             this.txtTen.Location = new System.Drawing.Point(92, 91);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(360, 49);
-            this.txtTen.TabIndex = 3;
+            this.txtTen.TabIndex = 5;
             this.txtTen.UseOptimizedRendering = true;
             // 
             // btnOK
@@ -359,7 +360,7 @@
             this.btnOK.Location = new System.Drawing.Point(162, 540);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 26;
+            this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -370,7 +371,7 @@
             this.btnHuy.Location = new System.Drawing.Point(243, 540);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 27;
+            this.btnHuy.TabIndex = 21;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -382,7 +383,7 @@
             this.btnLoaiTS.Location = new System.Drawing.Point(393, 144);
             this.btnLoaiTS.Name = "btnLoaiTS";
             this.btnLoaiTS.Size = new System.Drawing.Size(23, 23);
-            this.btnLoaiTS.TabIndex = 28;
+            this.btnLoaiTS.TabIndex = 7;
             this.btnLoaiTS.Click += new System.EventHandler(this.btnLoaiTS_Click);
             // 
             // btnTinhTrang
@@ -393,7 +394,7 @@
             this.btnTinhTrang.Location = new System.Drawing.Point(393, 246);
             this.btnTinhTrang.Name = "btnTinhTrang";
             this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
-            this.btnTinhTrang.TabIndex = 29;
+            this.btnTinhTrang.TabIndex = 11;
             this.btnTinhTrang.Click += new System.EventHandler(this.btnTinhTrang_Click);
             // 
             // lblMa
@@ -411,7 +412,7 @@
             this.txtMa.Location = new System.Drawing.Point(92, 65);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(295, 20);
-            this.txtMa.TabIndex = 30;
+            this.txtMa.TabIndex = 4;
             // 
             // dxErrorProviderInfo
             // 
@@ -425,7 +426,7 @@
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(92, 146);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
             this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(295, 20);
-            this.ucComboBoxLoaiTS1.TabIndex = 8;
+            this.ucComboBoxLoaiTS1.TabIndex = 6;
             // 
             // lblTSKemTheo
             // 
@@ -441,7 +442,7 @@
             this.btnSua.Location = new System.Drawing.Point(328, 376);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(59, 23);
-            this.btnSua.TabIndex = 34;
+            this.btnSua.TabIndex = 17;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -451,7 +452,7 @@
             this.btnXoa.Location = new System.Drawing.Point(393, 376);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(59, 23);
-            this.btnXoa.TabIndex = 35;
+            this.btnXoa.TabIndex = 18;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -461,7 +462,7 @@
             this.btnAddExist.Location = new System.Drawing.Point(263, 376);
             this.btnAddExist.Name = "btnAddExist";
             this.btnAddExist.Size = new System.Drawing.Size(59, 23);
-            this.btnAddExist.TabIndex = 37;
+            this.btnAddExist.TabIndex = 16;
             this.btnAddExist.Text = "Từ CSDL";
             this.btnAddExist.Click += new System.EventHandler(this.btnAddExist_Click);
             // 
@@ -471,7 +472,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(198, 376);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(59, 23);
-            this.btnAddNew.TabIndex = 36;
+            this.btnAddNew.TabIndex = 15;
             this.btnAddNew.Text = "Thêm mới";
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
@@ -484,7 +485,7 @@
             this.gridControlTaiSan.MainView = this.bandedGridViewTaiSan;
             this.gridControlTaiSan.Name = "gridControlTaiSan";
             this.gridControlTaiSan.Size = new System.Drawing.Size(440, 129);
-            this.gridControlTaiSan.TabIndex = 38;
+            this.gridControlTaiSan.TabIndex = 19;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridViewTaiSan});
             // 
@@ -720,7 +721,7 @@
             this.txtNSX.Location = new System.Drawing.Point(92, 274);
             this.txtNSX.Name = "txtNSX";
             this.txtNSX.Size = new System.Drawing.Size(295, 20);
-            this.txtNSX.TabIndex = 39;
+            this.txtNSX.TabIndex = 12;
             // 
             // lblNSX
             // 
@@ -737,7 +738,7 @@
             this.btnAttachment.Location = new System.Drawing.Point(431, 37);
             this.btnAttachment.Name = "btnAttachment";
             this.btnAttachment.Size = new System.Drawing.Size(23, 23);
-            this.btnAttachment.TabIndex = 41;
+            this.btnAttachment.TabIndex = 3;
             this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
             // 
             // frmAddTaiSan

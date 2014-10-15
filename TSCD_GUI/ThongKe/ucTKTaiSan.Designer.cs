@@ -106,7 +106,7 @@
             this.gridControlTaiSan.Name = "gridControlTaiSan";
             this.gridControlTaiSan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryMemoTen});
-            this.gridControlTaiSan.Size = new System.Drawing.Size(494, 491);
+            this.gridControlTaiSan.Size = new System.Drawing.Size(495, 491);
             this.gridControlTaiSan.TabIndex = 0;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridViewTaiSan});
@@ -379,7 +379,7 @@
             this.btnThongKeTangGiam.Location = new System.Drawing.Point(169, 163);
             this.btnThongKeTangGiam.Name = "btnThongKeTangGiam";
             this.btnThongKeTangGiam.Size = new System.Drawing.Size(104, 23);
-            this.btnThongKeTangGiam.TabIndex = 18;
+            this.btnThongKeTangGiam.TabIndex = 7;
             this.btnThongKeTangGiam.Text = "Thống kê tăng giảm";
             this.btnThongKeTangGiam.Click += new System.EventHandler(this.btnThongKeTangGiam_Click);
             // 
@@ -391,7 +391,7 @@
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(88, 108);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(185, 20);
-            this.ucComboBoxDonVi1.TabIndex = 17;
+            this.ucComboBoxDonVi1.TabIndex = 4;
             // 
             // checkedComboBoxCoSo
             // 
@@ -404,7 +404,7 @@
             this.checkedComboBoxCoSo.Properties.DisplayMember = "ten";
             this.checkedComboBoxCoSo.Properties.ValueMember = "id";
             this.checkedComboBoxCoSo.Size = new System.Drawing.Size(185, 20);
-            this.checkedComboBoxCoSo.TabIndex = 16;
+            this.checkedComboBoxCoSo.TabIndex = 5;
             // 
             // ucComboBoxLoaiTS1
             // 
@@ -414,7 +414,7 @@
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(88, 80);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
             this.ucComboBoxLoaiTS1.Size = new System.Drawing.Size(185, 20);
-            this.ucComboBoxLoaiTS1.TabIndex = 15;
+            this.ucComboBoxLoaiTS1.TabIndex = 3;
             // 
             // lblDenNgay
             // 
@@ -437,6 +437,7 @@
             this.dateDenNgay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateDenNgay.EditValue = null;
+            this.dateDenNgay.Enabled = false;
             this.dateDenNgay.Location = new System.Drawing.Point(88, 53);
             this.dateDenNgay.Name = "dateDenNgay";
             this.dateDenNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -444,13 +445,14 @@
             this.dateDenNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateDenNgay.Size = new System.Drawing.Size(185, 20);
-            this.dateDenNgay.TabIndex = 12;
+            this.dateDenNgay.TabIndex = 2;
             // 
             // dateTuNgay
             // 
             this.dateTuNgay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTuNgay.EditValue = null;
+            this.dateTuNgay.Enabled = false;
             this.dateTuNgay.Location = new System.Drawing.Point(88, 27);
             this.dateTuNgay.Name = "dateTuNgay";
             this.dateTuNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -458,7 +460,7 @@
             this.dateTuNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateTuNgay.Size = new System.Drawing.Size(185, 20);
-            this.dateTuNgay.TabIndex = 11;
+            this.dateTuNgay.TabIndex = 1;
             // 
             // lblCoSo
             // 
@@ -489,7 +491,7 @@
             this.btnThongKe.Location = new System.Drawing.Point(60, 163);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(103, 23);
-            this.btnThongKe.TabIndex = 5;
+            this.btnThongKe.TabIndex = 6;
             this.btnThongKe.Text = "Thống kê hiện tại";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 

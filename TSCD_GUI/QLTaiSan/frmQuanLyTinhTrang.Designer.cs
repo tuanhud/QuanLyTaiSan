@@ -35,7 +35,9 @@
             this.gridViewTinhTrang = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltinhtrang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colgiamts = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.checkGiamTS = new DevExpress.XtraEditors.CheckEdit();
             this.btnDown_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnUp_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -49,18 +51,16 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.checkGiamTS = new DevExpress.XtraEditors.CheckEdit();
-            this.colgiamts = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTinhTrang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkGiamTS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkGiamTS.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControlMain
@@ -84,7 +84,7 @@
             this.gridControlTinhTrang.Location = new System.Drawing.Point(0, 0);
             this.gridControlTinhTrang.MainView = this.gridViewTinhTrang;
             this.gridControlTinhTrang.Name = "gridControlTinhTrang";
-            this.gridControlTinhTrang.Size = new System.Drawing.Size(310, 381);
+            this.gridControlTinhTrang.Size = new System.Drawing.Size(311, 381);
             this.gridControlTinhTrang.TabIndex = 0;
             this.gridControlTinhTrang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTinhTrang});
@@ -120,6 +120,14 @@
             this.coltinhtrang.Visible = true;
             this.coltinhtrang.VisibleIndex = 0;
             // 
+            // colgiamts
+            // 
+            this.colgiamts.Caption = "Giảm tài sản";
+            this.colgiamts.FieldName = "giam_taisan";
+            this.colgiamts.Name = "colgiamts";
+            this.colgiamts.Visible = true;
+            this.colgiamts.VisibleIndex = 1;
+            // 
             // groupControlInfo
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
@@ -144,6 +152,14 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // checkGiamTS
+            // 
+            this.checkGiamTS.Location = new System.Drawing.Point(57, 54);
+            this.checkGiamTS.Name = "checkGiamTS";
+            this.checkGiamTS.Properties.Caption = "Giảm tài sản";
+            this.checkGiamTS.Size = new System.Drawing.Size(96, 19);
+            this.checkGiamTS.TabIndex = 7;
+            // 
             // btnDown_r
             // 
             this.btnDown_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -152,7 +168,7 @@
             this.btnDown_r.Location = new System.Drawing.Point(215, 0);
             this.btnDown_r.Name = "btnDown_r";
             this.btnDown_r.Size = new System.Drawing.Size(23, 23);
-            this.btnDown_r.TabIndex = 18;
+            this.btnDown_r.TabIndex = 2;
             this.btnDown_r.Click += new System.EventHandler(this.btnDown_r_Click);
             // 
             // btnUp_r
@@ -163,7 +179,7 @@
             this.btnUp_r.Location = new System.Drawing.Point(189, 0);
             this.btnUp_r.Name = "btnUp_r";
             this.btnUp_r.Size = new System.Drawing.Size(23, 23);
-            this.btnUp_r.TabIndex = 17;
+            this.btnUp_r.TabIndex = 1;
             this.btnUp_r.Click += new System.EventHandler(this.btnUp_r_Click);
             // 
             // btnClose
@@ -173,7 +189,7 @@
             this.btnClose.Location = new System.Drawing.Point(242, 346);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 16;
+            this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -185,7 +201,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(294, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 15;
+            this.btnXoa_r.TabIndex = 5;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -196,7 +212,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(268, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 14;
+            this.btnSua_r.TabIndex = 4;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -207,7 +223,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(242, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 13;
+            this.btnThem_r.TabIndex = 3;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // labelControl4
@@ -226,7 +242,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(260, 90);
-            this.txtMoTa.TabIndex = 2;
+            this.txtMoTa.TabIndex = 8;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // btnHuy
@@ -235,7 +251,7 @@
             this.btnHuy.Location = new System.Drawing.Point(159, 175);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 6;
+            this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -246,7 +262,7 @@
             this.btnOK.Location = new System.Drawing.Point(78, 175);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 5;
+            this.btnOK.TabIndex = 9;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOk_Click);
@@ -259,7 +275,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(260, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 6;
             // 
             // labelControl2
             // 
@@ -272,22 +288,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // checkGiamTS
-            // 
-            this.checkGiamTS.Location = new System.Drawing.Point(57, 54);
-            this.checkGiamTS.Name = "checkGiamTS";
-            this.checkGiamTS.Properties.Caption = "Giảm tài sản";
-            this.checkGiamTS.Size = new System.Drawing.Size(96, 19);
-            this.checkGiamTS.TabIndex = 19;
-            // 
-            // colgiamts
-            // 
-            this.colgiamts.Caption = "Giảm tài sản";
-            this.colgiamts.FieldName = "giam_taisan";
-            this.colgiamts.Name = "colgiamts";
-            this.colgiamts.Visible = true;
-            this.colgiamts.VisibleIndex = 1;
             // 
             // frmQuanLyTinhTrang
             // 
@@ -306,10 +306,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkGiamTS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoTa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProviderInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkGiamTS.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

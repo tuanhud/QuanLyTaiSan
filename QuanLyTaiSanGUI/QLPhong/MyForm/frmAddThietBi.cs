@@ -15,7 +15,7 @@ using SHARED.Libraries;
 
 namespace PTB_GUI.QLPhong.MyForm
 {
-    public partial class frmAddThietBi : PTB_GUI.MyForm.frmCustomXtraForm
+    public partial class frmAddThietBi : DevExpress.XtraEditors.XtraForm
     {
         ucQuanLyThietBi _ucQuanLyThietBi = new ucQuanLyThietBi(true);
         Phong objPhong = new Phong();

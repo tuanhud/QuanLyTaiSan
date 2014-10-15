@@ -12,7 +12,7 @@ using PTB.Entities;
 
 namespace PTB_GUI.QLPhong.MyForm
 {
-    public partial class frmTinhTrangVaSoLuong : PTB_GUI.MyForm.frmCustomXtraForm
+    public partial class frmTinhTrangVaSoLuong : DevExpress.XtraEditors.XtraForm
     {
 
         public delegate void SetTinhTrangAndSoLuong(TinhTrang _obj, int _sl, String _str, bool _all);

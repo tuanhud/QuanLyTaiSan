@@ -82,7 +82,7 @@
             this.gridControlDonViTinh.Location = new System.Drawing.Point(0, 0);
             this.gridControlDonViTinh.MainView = this.gridViewDonViTinh;
             this.gridControlDonViTinh.Name = "gridControlDonViTinh";
-            this.gridControlDonViTinh.Size = new System.Drawing.Size(313, 321);
+            this.gridControlDonViTinh.Size = new System.Drawing.Size(314, 321);
             this.gridControlDonViTinh.TabIndex = 0;
             this.gridControlDonViTinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDonViTinh});
@@ -144,7 +144,7 @@
             this.btnClose.Location = new System.Drawing.Point(203, 286);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 21;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -154,7 +154,7 @@
             this.btnHuy.Location = new System.Drawing.Point(147, 155);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 20;
+            this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -164,7 +164,7 @@
             this.btnOK.Location = new System.Drawing.Point(66, 155);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 19;
+            this.btnOK.TabIndex = 7;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -200,7 +200,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(251, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 15;
+            this.btnXoa_r.TabIndex = 3;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -211,7 +211,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(225, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 14;
+            this.btnSua_r.TabIndex = 2;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -222,7 +222,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(199, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 13;
+            this.btnThem_r.TabIndex = 1;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtTen
@@ -232,7 +232,7 @@
             this.txtTen.Location = new System.Drawing.Point(86, 55);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(188, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 5;
             // 
             // txtMa
             // 
@@ -241,7 +241,7 @@
             this.txtMa.Location = new System.Drawing.Point(86, 29);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(188, 20);
-            this.txtMa.TabIndex = 0;
+            this.txtMa.TabIndex = 4;
             // 
             // txtMoTa
             // 
@@ -250,7 +250,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(86, 81);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(188, 68);
-            this.txtMoTa.TabIndex = 2;
+            this.txtMoTa.TabIndex = 6;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // dxErrorProviderInfo

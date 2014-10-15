@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
@@ -67,7 +66,7 @@
             this.rbnGroupNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupNhanVienPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
@@ -107,7 +106,7 @@
             this.gridControlNhanVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlNhanVien.MainView = this.gridViewNhanVien;
             this.gridControlNhanVien.Name = "gridControlNhanVien";
-            this.gridControlNhanVien.Size = new System.Drawing.Size(513, 464);
+            this.gridControlNhanVien.Size = new System.Drawing.Size(514, 464);
             this.gridControlNhanVien.TabIndex = 0;
             this.gridControlNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhanVien});
@@ -235,7 +234,7 @@
             this.btnR_Sua.Location = new System.Drawing.Point(288, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Sua.TabIndex = 17;
+            this.btnR_Sua.TabIndex = 2;
             this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // btnHuy
@@ -257,7 +256,7 @@
             this.btnR_Them.Location = new System.Drawing.Point(262, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Them.TabIndex = 16;
+            this.btnR_Them.TabIndex = 1;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
@@ -268,7 +267,7 @@
             this.btnR_Xoa.Location = new System.Drawing.Point(314, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Xoa.TabIndex = 15;
+            this.btnR_Xoa.TabIndex = 3;
             this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // btnOK
@@ -287,7 +286,7 @@
             this.btnImage.Location = new System.Drawing.Point(210, 29);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(67, 23);
-            this.btnImage.TabIndex = 8;
+            this.btnImage.TabIndex = 5;
             this.btnImage.Text = "Chọn";
             this.btnImage.Visible = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
@@ -332,7 +331,7 @@
             this.txtSodt.Name = "txtSodt";
             this.txtSodt.Properties.ReadOnly = true;
             this.txtSodt.Size = new System.Drawing.Size(253, 20);
-            this.txtSodt.TabIndex = 3;
+            this.txtSodt.TabIndex = 8;
             // 
             // txtTen
             // 
@@ -342,7 +341,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(253, 20);
-            this.txtTen.TabIndex = 2;
+            this.txtTen.TabIndex = 7;
             // 
             // txtMa
             // 
@@ -352,7 +351,7 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(253, 20);
-            this.txtMa.TabIndex = 1;
+            this.txtMa.TabIndex = 6;
             // 
             // imageSlider1
             // 
@@ -360,7 +359,7 @@
             this.imageSlider1.Location = new System.Drawing.Point(84, 28);
             this.imageSlider1.Name = "imageSlider1";
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
-            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.TabIndex = 4;
             this.imageSlider1.Text = "imageSlider1";
             this.imageSlider1.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);

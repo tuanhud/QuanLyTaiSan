@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChuyen));
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -58,7 +57,7 @@
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.lookUpTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -95,7 +94,7 @@
             0,
             0});
             this.txtSoLuong.Size = new System.Drawing.Size(232, 20);
-            this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.TabIndex = 3;
             // 
             // labelControl1
             // 
@@ -175,7 +174,7 @@
             this.radioBtnChuyenPhong.Location = new System.Drawing.Point(146, 25);
             this.radioBtnChuyenPhong.Name = "radioBtnChuyenPhong";
             this.radioBtnChuyenPhong.Size = new System.Drawing.Size(95, 17);
-            this.radioBtnChuyenPhong.TabIndex = 17;
+            this.radioBtnChuyenPhong.TabIndex = 1;
             this.radioBtnChuyenPhong.Text = "Chuyển phòng";
             this.radioBtnChuyenPhong.UseVisualStyleBackColor = true;
             this.radioBtnChuyenPhong.CheckedChanged += new System.EventHandler(this.radioBtnChuyenPhong_CheckedChanged);
@@ -187,7 +186,7 @@
             this.radioBtnChuyenTinhTrang.Location = new System.Drawing.Point(12, 25);
             this.radioBtnChuyenTinhTrang.Name = "radioBtnChuyenTinhTrang";
             this.radioBtnChuyenTinhTrang.Size = new System.Drawing.Size(112, 17);
-            this.radioBtnChuyenTinhTrang.TabIndex = 18;
+            this.radioBtnChuyenTinhTrang.TabIndex = 0;
             this.radioBtnChuyenTinhTrang.TabStop = true;
             this.radioBtnChuyenTinhTrang.Text = "Chuyển tình trạng";
             this.radioBtnChuyenTinhTrang.UseVisualStyleBackColor = true;
@@ -199,7 +198,7 @@
             this.btnOK.Location = new System.Drawing.Point(143, 207);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 19;
+            this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -209,7 +208,7 @@
             this.btnHuy.Location = new System.Drawing.Point(224, 207);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 20;
+            this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -226,7 +225,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(67, 129);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(232, 72);
-            this.txtGhiChu.TabIndex = 17;
+            this.txtGhiChu.TabIndex = 5;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
             // groupControl1
@@ -330,7 +329,7 @@
             this.btnImage.Location = new System.Drawing.Point(305, 176);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 24;
+            this.btnImage.TabIndex = 7;
             this.btnImage.Text = "Chọn ảnh";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -340,7 +339,7 @@
             this.imageSlider1.Location = new System.Drawing.Point(305, 50);
             this.imageSlider1.Name = "imageSlider1";
             this.imageSlider1.Size = new System.Drawing.Size(120, 120);
-            this.imageSlider1.TabIndex = 23;
+            this.imageSlider1.TabIndex = 6;
             this.imageSlider1.Text = "imageSlider1";
             this.imageSlider1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSlider1_MouseDoubleClick);
             // 
@@ -356,7 +355,7 @@
             this.lookUpTinhTrang.Properties.NullText = "";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
             this.lookUpTinhTrang.Size = new System.Drawing.Size(232, 20);
-            this.lookUpTinhTrang.TabIndex = 22;
+            this.lookUpTinhTrang.TabIndex = 4;
             // 
             // panelControl1
             // 
@@ -364,7 +363,7 @@
             this.panelControl1.Location = new System.Drawing.Point(67, 50);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(232, 20);
-            this.panelControl1.TabIndex = 21;
+            this.panelControl1.TabIndex = 2;
             // 
             // dxErrorProvider1
             // 

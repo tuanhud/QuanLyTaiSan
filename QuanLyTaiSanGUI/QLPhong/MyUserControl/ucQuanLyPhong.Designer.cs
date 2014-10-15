@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhong));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
@@ -102,7 +101,7 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -155,7 +154,7 @@
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(482, 597);
+            this.gridControlPhong.Size = new System.Drawing.Size(483, 597);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -276,7 +275,7 @@
             this.xtraTabNhanVien.Name = "xtraTabNhanVien";
             this.xtraTabNhanVien.SelectedTabPage = this.xtraTabNhanVienPT;
             this.xtraTabNhanVien.Size = new System.Drawing.Size(346, 241);
-            this.xtraTabNhanVien.TabIndex = 11;
+            this.xtraTabNhanVien.TabIndex = 13;
             this.xtraTabNhanVien.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabNhanVienPT,
             this.xtraTabQuanTriVien});
@@ -292,7 +291,7 @@
             this.xtraTabNhanVienPT.Controls.Add(this.labelControl6);
             this.xtraTabNhanVienPT.Controls.Add(this.imgNhanVien);
             this.xtraTabNhanVienPT.Name = "xtraTabNhanVienPT";
-            this.xtraTabNhanVienPT.Size = new System.Drawing.Size(340, 213);
+            this.xtraTabNhanVienPT.Size = new System.Drawing.Size(341, 216);
             this.xtraTabNhanVienPT.Text = "Nhân viên phụ trách";
             // 
             // txtSoDienThoai
@@ -490,7 +489,7 @@
             this.xtraTabQuanTriVien.Controls.Add(this.txtUserQTV);
             this.xtraTabQuanTriVien.Controls.Add(this.txtTenQTV);
             this.xtraTabQuanTriVien.Name = "xtraTabQuanTriVien";
-            this.xtraTabQuanTriVien.Size = new System.Drawing.Size(340, 213);
+            this.xtraTabQuanTriVien.Size = new System.Drawing.Size(341, 216);
             this.xtraTabQuanTriVien.Text = "Quản trị viên";
             // 
             // labelControl4
@@ -608,7 +607,7 @@
             this.btnR_Sua.Location = new System.Drawing.Point(285, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Sua.TabIndex = 21;
+            this.btnR_Sua.TabIndex = 2;
             this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // btnR_Them
@@ -619,7 +618,7 @@
             this.btnR_Them.Location = new System.Drawing.Point(259, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Them.TabIndex = 20;
+            this.btnR_Them.TabIndex = 1;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
@@ -630,7 +629,7 @@
             this.btnR_Xoa.Location = new System.Drawing.Point(311, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Xoa.TabIndex = 19;
+            this.btnR_Xoa.TabIndex = 3;
             this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // searchLookUpEditNhanVienPT
@@ -649,7 +648,7 @@
             this.searchLookUpEditNhanVienPT.Properties.ValueMember = "id";
             this.searchLookUpEditNhanVienPT.Properties.View = this.searchLookUpEdit1View;
             this.searchLookUpEditNhanVienPT.Size = new System.Drawing.Size(255, 20);
-            this.searchLookUpEditNhanVienPT.TabIndex = 5;
+            this.searchLookUpEditNhanVienPT.TabIndex = 10;
             this.searchLookUpEditNhanVienPT.EditValueChanged += new System.EventHandler(this.searchLookUpEditNhanVienPT_EditValueChanged);
             // 
             // searchLookUpEdit1View
@@ -694,7 +693,7 @@
             this.panelControl1.Location = new System.Drawing.Point(79, 204);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(255, 20);
-            this.panelControl1.TabIndex = 3;
+            this.panelControl1.TabIndex = 8;
             // 
             // lblHinhPhong
             // 
@@ -709,7 +708,7 @@
             this.btnImage.Location = new System.Drawing.Point(205, 27);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 8;
+            this.btnImage.TabIndex = 5;
             this.btnImage.Text = "Chọn";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -719,7 +718,7 @@
             this.btnHuy.Location = new System.Drawing.Point(160, 304);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 7;
+            this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -729,7 +728,7 @@
             this.btnOK.Location = new System.Drawing.Point(79, 304);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 6;
+            this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -772,7 +771,7 @@
             this.txtMaPhong.Location = new System.Drawing.Point(79, 153);
             this.txtMaPhong.Name = "txtMaPhong";
             this.txtMaPhong.Size = new System.Drawing.Size(255, 20);
-            this.txtMaPhong.TabIndex = 1;
+            this.txtMaPhong.TabIndex = 6;
             // 
             // txtTenPhong
             // 
@@ -781,7 +780,7 @@
             this.txtTenPhong.Location = new System.Drawing.Point(79, 177);
             this.txtTenPhong.Name = "txtTenPhong";
             this.txtTenPhong.Size = new System.Drawing.Size(255, 20);
-            this.txtTenPhong.TabIndex = 2;
+            this.txtTenPhong.TabIndex = 7;
             // 
             // imgPhong
             // 
@@ -789,7 +788,7 @@
             this.imgPhong.Location = new System.Drawing.Point(79, 27);
             this.imgPhong.Name = "imgPhong";
             this.imgPhong.Size = new System.Drawing.Size(120, 120);
-            this.imgPhong.TabIndex = 0;
+            this.imgPhong.TabIndex = 4;
             this.imgPhong.Text = "imageSlider1";
             this.imgPhong.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imgPhong.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgPhong_MouseDoubleClick);
@@ -801,7 +800,7 @@
             this.txtMoTaPhong.Location = new System.Drawing.Point(79, 230);
             this.txtMoTaPhong.Name = "txtMoTaPhong";
             this.txtMoTaPhong.Size = new System.Drawing.Size(255, 49);
-            this.txtMoTaPhong.TabIndex = 4;
+            this.txtMoTaPhong.TabIndex = 9;
             this.txtMoTaPhong.UseOptimizedRendering = true;
             // 
             // colsoluong

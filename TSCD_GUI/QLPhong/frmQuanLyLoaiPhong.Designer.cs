@@ -79,7 +79,7 @@
             this.gridControlLoaiPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlLoaiPhong.MainView = this.gridViewLoaiPhong;
             this.gridControlLoaiPhong.Name = "gridControlLoaiPhong";
-            this.gridControlLoaiPhong.Size = new System.Drawing.Size(298, 351);
+            this.gridControlLoaiPhong.Size = new System.Drawing.Size(299, 351);
             this.gridControlLoaiPhong.TabIndex = 0;
             this.gridControlLoaiPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLoaiPhong});
@@ -141,7 +141,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(248, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 9;
+            this.btnXoa_r.TabIndex = 3;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -152,7 +152,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(222, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 8;
+            this.btnSua_r.TabIndex = 2;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -163,7 +163,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(196, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 7;
+            this.btnThem_r.TabIndex = 1;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // btnClose
@@ -172,7 +172,7 @@
             this.btnClose.Location = new System.Drawing.Point(203, 316);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 6;
+            this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -182,7 +182,7 @@
             this.btnHuy.Location = new System.Drawing.Point(141, 130);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 5;
+            this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -192,7 +192,7 @@
             this.btnOK.Location = new System.Drawing.Point(60, 130);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 4;
+            this.btnOK.TabIndex = 6;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -219,7 +219,7 @@
             this.txtTen.Location = new System.Drawing.Point(86, 28);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(185, 20);
-            this.txtTen.TabIndex = 0;
+            this.txtTen.TabIndex = 4;
             // 
             // txtMoTa
             // 
@@ -228,7 +228,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(86, 54);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(185, 70);
-            this.txtMoTa.TabIndex = 1;
+            this.txtMoTa.TabIndex = 5;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // dxErrorProviderInfo

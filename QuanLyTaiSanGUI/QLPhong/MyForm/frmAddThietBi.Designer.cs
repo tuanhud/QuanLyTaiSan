@@ -61,7 +61,7 @@
             this.panelControl1.Location = new System.Drawing.Point(12, 38);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(722, 438);
-            this.panelControl1.TabIndex = 1;
+            this.panelControl1.TabIndex = 0;
             // 
             // btnThem
             // 
@@ -69,7 +69,7 @@
             this.btnThem.Location = new System.Drawing.Point(233, 482);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 2;
+            this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -97,7 +97,7 @@
             this.btnThemVaDong.Location = new System.Drawing.Point(314, 482);
             this.btnThemVaDong.Name = "btnThemVaDong";
             this.btnThemVaDong.Size = new System.Drawing.Size(94, 23);
-            this.btnThemVaDong.TabIndex = 6;
+            this.btnThemVaDong.TabIndex = 2;
             this.btnThemVaDong.Text = "Thêm và Đóng";
             this.btnThemVaDong.Click += new System.EventHandler(this.btnThemVaDong_Click);
             // 

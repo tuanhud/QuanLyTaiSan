@@ -344,7 +344,7 @@
             this.panelControlViTri.Location = new System.Drawing.Point(68, 83);
             this.panelControlViTri.Name = "panelControlViTri";
             this.panelControlViTri.Size = new System.Drawing.Size(221, 20);
-            this.panelControlViTri.TabIndex = 15;
+            this.panelControlViTri.TabIndex = 7;
             // 
             // btnLoaiPhong
             // 
@@ -354,7 +354,7 @@
             this.btnLoaiPhong.Location = new System.Drawing.Point(266, 54);
             this.btnLoaiPhong.Name = "btnLoaiPhong";
             this.btnLoaiPhong.Size = new System.Drawing.Size(23, 23);
-            this.btnLoaiPhong.TabIndex = 14;
+            this.btnLoaiPhong.TabIndex = 6;
             this.btnLoaiPhong.Click += new System.EventHandler(this.btnLoaiPhong_Click);
             // 
             // btnHuy
@@ -363,7 +363,7 @@
             this.btnHuy.Location = new System.Drawing.Point(148, 234);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 13;
+            this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -373,7 +373,7 @@
             this.btnOK.Location = new System.Drawing.Point(67, 234);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 12;
+            this.btnOK.TabIndex = 10;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -415,7 +415,7 @@
             this.gridLookUpLoai.Properties.ValueMember = "id";
             this.gridLookUpLoai.Properties.View = this.gridLookUpLoaiView;
             this.gridLookUpLoai.Size = new System.Drawing.Size(192, 20);
-            this.gridLookUpLoai.TabIndex = 8;
+            this.gridLookUpLoai.TabIndex = 5;
             // 
             // gridLookUpLoaiView
             // 
@@ -442,7 +442,7 @@
             this.txtTen.MenuManager = this.rbnControlPhong;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(221, 20);
-            this.txtTen.TabIndex = 6;
+            this.txtTen.TabIndex = 4;
             // 
             // btnXoa_r
             // 
@@ -452,7 +452,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(266, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 5;
+            this.btnXoa_r.TabIndex = 3;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // btnSua_r
@@ -463,7 +463,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(240, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 4;
+            this.btnSua_r.TabIndex = 2;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // btnThem_r
@@ -474,7 +474,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(214, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 3;
+            this.btnThem_r.TabIndex = 1;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtMoTa
@@ -485,7 +485,7 @@
             this.txtMoTa.MenuManager = this.rbnControlPhong;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(221, 88);
-            this.txtMoTa.TabIndex = 7;
+            this.txtMoTa.TabIndex = 9;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // txtSoChoNgoi
@@ -510,7 +510,7 @@
             0,
             0});
             this.txtSoChoNgoi.Size = new System.Drawing.Size(221, 20);
-            this.txtSoChoNgoi.TabIndex = 17;
+            this.txtSoChoNgoi.TabIndex = 8;
             // 
             // dxErrorProviderInfo
             // 

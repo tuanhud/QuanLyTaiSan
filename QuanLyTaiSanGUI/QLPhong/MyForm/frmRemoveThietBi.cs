@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 
 namespace PTB_GUI.QLPhong.MyForm
 {
-    public partial class frmRemoveThietBi : PTB_GUI.MyForm.frmCustomXtraForm
+    public partial class frmRemoveThietBi : DevExpress.XtraEditors.XtraForm
     {
         public String mota = "";
         public frmRemoveThietBi()

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTB));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
@@ -52,7 +51,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControlLoai = new DevExpress.XtraEditors.LabelControl();
             this.labelControlTen = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             this.ribbonLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
@@ -62,8 +61,8 @@
             this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageLoaiTB_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTB)).BeginInit();
@@ -112,7 +111,7 @@
             this.treeListLoaiTB.OptionsFind.AlwaysVisible = true;
             this.treeListLoaiTB.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListLoaiTB.ParentFieldName = "parent_id";
-            this.treeListLoaiTB.Size = new System.Drawing.Size(589, 584);
+            this.treeListLoaiTB.Size = new System.Drawing.Size(590, 584);
             this.treeListLoaiTB.TabIndex = 0;
             this.treeListLoaiTB.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTB_FocusedNodeChanged);
             this.treeListLoaiTB.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -170,7 +169,7 @@
             this.btnImage.Location = new System.Drawing.Point(183, 54);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 31;
+            this.btnImage.TabIndex = 6;
             this.btnImage.Text = "Chọn";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -188,7 +187,7 @@
             this.imageSliderLoaiTB.Location = new System.Drawing.Point(57, 52);
             this.imageSliderLoaiTB.Name = "imageSliderLoaiTB";
             this.imageSliderLoaiTB.Size = new System.Drawing.Size(120, 120);
-            this.imageSliderLoaiTB.TabIndex = 30;
+            this.imageSliderLoaiTB.TabIndex = 5;
             this.imageSliderLoaiTB.Text = "imageSlider1";
             this.imageSliderLoaiTB.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             // 
@@ -200,7 +199,7 @@
             this.btnR_Sua.Location = new System.Drawing.Point(286, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Sua.TabIndex = 24;
+            this.btnR_Sua.TabIndex = 2;
             this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // labelControlMota
@@ -219,7 +218,7 @@
             this.btnR_Them.Location = new System.Drawing.Point(260, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Them.TabIndex = 23;
+            this.btnR_Them.TabIndex = 1;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // txtMoTa
@@ -230,7 +229,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(278, 91);
-            this.txtMoTa.TabIndex = 2;
+            this.txtMoTa.TabIndex = 8;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // btnR_Xoa
@@ -241,7 +240,7 @@
             this.btnR_Xoa.Location = new System.Drawing.Point(312, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Xoa.TabIndex = 22;
+            this.btnR_Xoa.TabIndex = 3;
             this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // btnHuy
@@ -250,7 +249,7 @@
             this.btnHuy.Location = new System.Drawing.Point(138, 327);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 6;
+            this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -261,7 +260,7 @@
             this.btnOk.Location = new System.Drawing.Point(57, 327);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 5;
+            this.btnOk.TabIndex = 10;
             this.btnOk.Text = "OK";
             this.btnOk.Visible = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -291,7 +290,7 @@
             this.lueThuoc.Properties.ReadOnly = true;
             this.lueThuoc.Properties.ValueMember = "id";
             this.lueThuoc.Size = new System.Drawing.Size(278, 20);
-            this.lueThuoc.TabIndex = 3;
+            this.lueThuoc.TabIndex = 9;
             // 
             // ceTBsoluonglon
             // 
@@ -311,7 +310,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(278, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 7;
             // 
             // labelControlLoai
             // 
@@ -422,13 +421,6 @@
             this.rbnGroupLoaiTB.ShowCaptionButton = false;
             this.rbnGroupLoaiTB.Text = "Loại thiết bị";
             // 
-            // rbnGroupImport
-            // 
-            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
-            this.rbnGroupImport.Name = "rbnGroupImport";
-            this.rbnGroupImport.ShowCaptionButton = false;
-            this.rbnGroupImport.Text = "Import";
-            // 
             // rbnGroupOrder
             // 
             this.rbnGroupOrder.ItemLinks.Add(this.barBtnUp);
@@ -436,6 +428,13 @@
             this.rbnGroupOrder.Name = "rbnGroupOrder";
             this.rbnGroupOrder.ShowCaptionButton = false;
             this.rbnGroupOrder.Text = "Sắp xếp";
+            // 
+            // rbnGroupImport
+            // 
+            this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
+            this.rbnGroupImport.Name = "rbnGroupImport";
+            this.rbnGroupImport.ShowCaptionButton = false;
+            this.rbnGroupImport.Text = "Import";
             // 
             // ucQuanLyLoaiTB
             // 

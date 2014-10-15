@@ -44,7 +44,7 @@
             this.btnOK.Location = new System.Drawing.Point(113, 146);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
+            this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -55,7 +55,7 @@
             this.btnHuy.Location = new System.Drawing.Point(194, 146);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 1;
+            this.btnHuy.TabIndex = 2;
             this.btnHuy.Text = "Hủy";
             // 
             // txtMota
@@ -63,7 +63,7 @@
             this.txtMota.Location = new System.Drawing.Point(58, 52);
             this.txtMota.Name = "txtMota";
             this.txtMota.Size = new System.Drawing.Size(301, 88);
-            this.txtMota.TabIndex = 2;
+            this.txtMota.TabIndex = 0;
             this.txtMota.UseOptimizedRendering = true;
             // 
             // labelControl1

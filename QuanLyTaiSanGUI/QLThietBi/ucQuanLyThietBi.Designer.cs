@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyThietBi));
             this.labelControlMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
@@ -64,7 +63,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -100,7 +99,7 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(266, 20);
-            this.txtMa.TabIndex = 2;
+            this.txtMa.TabIndex = 6;
             // 
             // btnHuy
             // 
@@ -108,7 +107,7 @@
             this.btnHuy.Location = new System.Drawing.Point(154, 382);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 9;
+            this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -118,7 +117,7 @@
             this.btnOk.Location = new System.Drawing.Point(73, 382);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 8;
+            this.btnOk.TabIndex = 11;
             this.btnOk.Text = "Ok";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -127,7 +126,7 @@
             this.btnImage.Location = new System.Drawing.Point(199, 27);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 1;
+            this.btnImage.TabIndex = 5;
             this.btnImage.Text = "Chọn";
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -189,7 +188,7 @@
             this.dateEditNgayMua.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditNgayMua.Properties.ReadOnly = true;
             this.dateEditNgayMua.Size = new System.Drawing.Size(266, 20);
-            this.dateEditNgayMua.TabIndex = 5;
+            this.dateEditNgayMua.TabIndex = 9;
             // 
             // txtTen
             // 
@@ -199,7 +198,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(266, 20);
-            this.txtTen.TabIndex = 3;
+            this.txtTen.TabIndex = 7;
             // 
             // imageSliderThietBi
             // 
@@ -207,7 +206,7 @@
             this.imageSliderThietBi.Location = new System.Drawing.Point(73, 27);
             this.imageSliderThietBi.Name = "imageSliderThietBi";
             this.imageSliderThietBi.Size = new System.Drawing.Size(120, 120);
-            this.imageSliderThietBi.TabIndex = 0;
+            this.imageSliderThietBi.TabIndex = 4;
             this.imageSliderThietBi.Text = "imageSlider1";
             this.imageSliderThietBi.ToolTip = "Nhấp đôi vào đây để phóng to hình ảnh";
             this.imageSliderThietBi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderThietBi_MouseDoubleClick);
@@ -220,7 +219,7 @@
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Properties.ReadOnly = true;
             this.txtMoTa.Size = new System.Drawing.Size(266, 118);
-            this.txtMoTa.TabIndex = 7;
+            this.txtMoTa.TabIndex = 10;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
             // groupControlThietBi
@@ -260,7 +259,7 @@
             this.btnR_Sua.Location = new System.Drawing.Point(290, 0);
             this.btnR_Sua.Name = "btnR_Sua";
             this.btnR_Sua.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Sua.TabIndex = 27;
+            this.btnR_Sua.TabIndex = 2;
             this.btnR_Sua.Click += new System.EventHandler(this.btnR_Sua_Click);
             // 
             // btnR_Them
@@ -271,7 +270,7 @@
             this.btnR_Them.Location = new System.Drawing.Point(264, 0);
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Them.TabIndex = 26;
+            this.btnR_Them.TabIndex = 1;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
@@ -282,7 +281,7 @@
             this.btnR_Xoa.Location = new System.Drawing.Point(316, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
             this.btnR_Xoa.Size = new System.Drawing.Size(23, 23);
-            this.btnR_Xoa.TabIndex = 25;
+            this.btnR_Xoa.TabIndex = 3;
             this.btnR_Xoa.Click += new System.EventHandler(this.btnR_Xoa_Click);
             // 
             // panelControlLoaiThietBi
@@ -310,7 +309,7 @@
             this.lueLoaiThietBi.Properties.ReadOnly = true;
             this.lueLoaiThietBi.Properties.ValueMember = "id";
             this.lueLoaiThietBi.Size = new System.Drawing.Size(265, 20);
-            this.lueLoaiThietBi.TabIndex = 4;
+            this.lueLoaiThietBi.TabIndex = 8;
             // 
             // ribbonThietBi
             // 
@@ -375,7 +374,7 @@
             this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlThietBi.MainView = this.gridViewThietBi;
             this.gridControlThietBi.Name = "gridControlThietBi";
-            this.gridControlThietBi.Size = new System.Drawing.Size(485, 495);
+            this.gridControlThietBi.Size = new System.Drawing.Size(486, 495);
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});

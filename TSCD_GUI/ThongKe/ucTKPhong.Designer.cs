@@ -75,7 +75,7 @@
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(540, 517);
+            this.gridControlPhong.Size = new System.Drawing.Size(541, 517);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -177,7 +177,7 @@
             this.btnThongKe.Location = new System.Drawing.Point(91, 81);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(75, 23);
-            this.btnThongKe.TabIndex = 6;
+            this.btnThongKe.TabIndex = 3;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
@@ -190,7 +190,7 @@
             this.checkedComboBoxLoaiPhong.Properties.DisplayMember = "ten";
             this.checkedComboBoxLoaiPhong.Properties.ValueMember = "id";
             this.checkedComboBoxLoaiPhong.Size = new System.Drawing.Size(181, 20);
-            this.checkedComboBoxLoaiPhong.TabIndex = 5;
+            this.checkedComboBoxLoaiPhong.TabIndex = 2;
             // 
             // checkedComboBoxCoSo
             // 
@@ -201,7 +201,7 @@
             this.checkedComboBoxCoSo.Properties.DisplayMember = "ten";
             this.checkedComboBoxCoSo.Properties.ValueMember = "id";
             this.checkedComboBoxCoSo.Size = new System.Drawing.Size(181, 20);
-            this.checkedComboBoxCoSo.TabIndex = 4;
+            this.checkedComboBoxCoSo.TabIndex = 1;
             // 
             // lblLoaiPhong
             // 

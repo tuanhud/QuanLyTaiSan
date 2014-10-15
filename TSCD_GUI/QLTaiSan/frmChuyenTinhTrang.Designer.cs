@@ -71,7 +71,7 @@
             this.lookUpTinhTrang.Properties.NullText = "[Chưa chọn tình trạng]";
             this.lookUpTinhTrang.Properties.ValueMember = "id";
             this.lookUpTinhTrang.Size = new System.Drawing.Size(347, 20);
-            this.lookUpTinhTrang.TabIndex = 0;
+            this.lookUpTinhTrang.TabIndex = 5;
             // 
             // lblChungTu
             // 
@@ -102,7 +102,7 @@
             this.txtSoHieu_CT.Location = new System.Drawing.Point(140, 35);
             this.txtSoHieu_CT.Name = "txtSoHieu_CT";
             this.txtSoHieu_CT.Size = new System.Drawing.Size(100, 20);
-            this.txtSoHieu_CT.TabIndex = 34;
+            this.txtSoHieu_CT.TabIndex = 1;
             // 
             // dateNgay_CT
             // 
@@ -114,7 +114,7 @@
             this.dateNgay_CT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay_CT.Size = new System.Drawing.Size(114, 20);
-            this.dateNgay_CT.TabIndex = 33;
+            this.dateNgay_CT.TabIndex = 2;
             // 
             // lblTinhTrang
             // 
@@ -131,7 +131,7 @@
             this.btnHuy.Location = new System.Drawing.Point(244, 194);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 42;
+            this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -142,7 +142,7 @@
             this.btnOK.Location = new System.Drawing.Point(163, 194);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 41;
+            this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -161,7 +161,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(95, 113);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(375, 75);
-            this.txtGhiChu.TabIndex = 39;
+            this.txtGhiChu.TabIndex = 7;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
             // lblNgayGhi
@@ -182,7 +182,7 @@
             this.dateNgayGhi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayGhi.Size = new System.Drawing.Size(280, 20);
-            this.dateNgayGhi.TabIndex = 46;
+            this.dateNgayGhi.TabIndex = 0;
             // 
             // lbltxtDonViTinh
             // 
@@ -218,7 +218,7 @@
             this.txtSoLuong.Properties.Mask.EditMask = "N00";
             this.txtSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.txtSoLuong.Size = new System.Drawing.Size(291, 20);
-            this.txtSoLuong.TabIndex = 44;
+            this.txtSoLuong.TabIndex = 4;
             // 
             // btnTinhTrang
             // 
@@ -228,7 +228,7 @@
             this.btnTinhTrang.Location = new System.Drawing.Point(447, 85);
             this.btnTinhTrang.Name = "btnTinhTrang";
             this.btnTinhTrang.Size = new System.Drawing.Size(23, 23);
-            this.btnTinhTrang.TabIndex = 48;
+            this.btnTinhTrang.TabIndex = 6;
             this.btnTinhTrang.Click += new System.EventHandler(this.btnTinhTrang_Click);
             // 
             // btnAttachment
@@ -240,7 +240,7 @@
             this.btnAttachment.Location = new System.Drawing.Point(447, 35);
             this.btnAttachment.Name = "btnAttachment";
             this.btnAttachment.Size = new System.Drawing.Size(23, 23);
-            this.btnAttachment.TabIndex = 49;
+            this.btnAttachment.TabIndex = 3;
             this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
             // 
             // frmChuyenTinhTrang

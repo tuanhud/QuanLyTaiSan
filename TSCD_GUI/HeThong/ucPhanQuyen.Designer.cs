@@ -136,7 +136,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateCreated.Properties.ReadOnly = true;
             this.dateCreated.Size = new System.Drawing.Size(241, 20);
-            this.dateCreated.TabIndex = 25;
+            this.dateCreated.TabIndex = 9;
             // 
             // lblXNMatKhau
             // 
@@ -155,7 +155,7 @@
             this.txtXacNhanMK.Properties.PasswordChar = '●';
             this.txtXacNhanMK.Properties.ReadOnly = true;
             this.txtXacNhanMK.Size = new System.Drawing.Size(241, 20);
-            this.txtXacNhanMK.TabIndex = 20;
+            this.txtXacNhanMK.TabIndex = 8;
             // 
             // lblNhom
             // 
@@ -180,7 +180,7 @@
             this.lookUpEdit_group.Properties.ReadOnly = true;
             this.lookUpEdit_group.Properties.ValueMember = "id";
             this.lookUpEdit_group.Size = new System.Drawing.Size(212, 20);
-            this.lookUpEdit_group.TabIndex = 30;
+            this.lookUpEdit_group.TabIndex = 10;
             this.lookUpEdit_group.ToolTip = "Chỉ có thể đổi Group cho tài khoản\r\nkhác tài khoản đang đăng nhập";
             // 
             // btnHuy
@@ -189,7 +189,7 @@
             this.btnHuy.Location = new System.Drawing.Point(174, 311);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 40;
+            this.btnHuy.TabIndex = 14;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Visible = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -200,7 +200,7 @@
             this.btnOK.Location = new System.Drawing.Point(93, 311);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 35;
+            this.btnOK.TabIndex = 13;
             this.btnOK.Text = "OK";
             this.btnOK.Visible = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -254,7 +254,7 @@
             this.txtMatKhauQuanTriVien.Properties.PasswordChar = '●';
             this.txtMatKhauQuanTriVien.Properties.ReadOnly = true;
             this.txtMatKhauQuanTriVien.Size = new System.Drawing.Size(241, 20);
-            this.txtMatKhauQuanTriVien.TabIndex = 15;
+            this.txtMatKhauQuanTriVien.TabIndex = 7;
             // 
             // txtTaiKhoanQuanTriVien
             // 
@@ -264,7 +264,7 @@
             this.txtTaiKhoanQuanTriVien.Name = "txtTaiKhoanQuanTriVien";
             this.txtTaiKhoanQuanTriVien.Properties.ReadOnly = true;
             this.txtTaiKhoanQuanTriVien.Size = new System.Drawing.Size(241, 20);
-            this.txtTaiKhoanQuanTriVien.TabIndex = 10;
+            this.txtTaiKhoanQuanTriVien.TabIndex = 6;
             // 
             // txtTenQuanTriVien
             // 
@@ -325,7 +325,7 @@
             this.gridControlQTV.Location = new System.Drawing.Point(0, 0);
             this.gridControlQTV.MainView = this.gridViewQTV;
             this.gridControlQTV.Name = "gridControlQTV";
-            this.gridControlQTV.Size = new System.Drawing.Size(507, 352);
+            this.gridControlQTV.Size = new System.Drawing.Size(508, 352);
             this.gridControlQTV.TabIndex = 0;
             this.gridControlQTV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewQTV});
@@ -447,7 +447,7 @@
             this.btnNhomQuyen.Location = new System.Drawing.Point(311, 182);
             this.btnNhomQuyen.Name = "btnNhomQuyen";
             this.btnNhomQuyen.Size = new System.Drawing.Size(23, 23);
-            this.btnNhomQuyen.TabIndex = 43;
+            this.btnNhomQuyen.TabIndex = 11;
             this.btnNhomQuyen.Click += new System.EventHandler(this.btnNhomQuyen_Click);
             // 
             // btnXoa_r
@@ -458,7 +458,7 @@
             this.btnXoa_r.Location = new System.Drawing.Point(311, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
-            this.btnXoa_r.TabIndex = 8;
+            this.btnXoa_r.TabIndex = 3;
             this.btnXoa_r.Click += new System.EventHandler(this.btnXoa_r_Click);
             // 
             // lblMoTa
@@ -477,7 +477,7 @@
             this.btnSua_r.Location = new System.Drawing.Point(285, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
-            this.btnSua_r.TabIndex = 7;
+            this.btnSua_r.TabIndex = 2;
             this.btnSua_r.Click += new System.EventHandler(this.btnSua_r_Click);
             // 
             // memoEdit_mota
@@ -487,7 +487,7 @@
             this.memoEdit_mota.Name = "memoEdit_mota";
             this.memoEdit_mota.Properties.ReadOnly = true;
             this.memoEdit_mota.Size = new System.Drawing.Size(241, 96);
-            this.memoEdit_mota.TabIndex = 41;
+            this.memoEdit_mota.TabIndex = 12;
             this.memoEdit_mota.UseOptimizedRendering = true;
             // 
             // rbnPhanQuyen
@@ -514,7 +514,7 @@
             this.btnThem_r.Location = new System.Drawing.Point(259, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
-            this.btnThem_r.TabIndex = 6;
+            this.btnThem_r.TabIndex = 1;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtMaQuanTriVien
@@ -525,7 +525,7 @@
             this.txtMaQuanTriVien.Name = "txtMaQuanTriVien";
             this.txtMaQuanTriVien.Properties.ReadOnly = true;
             this.txtMaQuanTriVien.Size = new System.Drawing.Size(241, 20);
-            this.txtMaQuanTriVien.TabIndex = 1;
+            this.txtMaQuanTriVien.TabIndex = 4;
             // 
             // ucPhanQuyen
             // 

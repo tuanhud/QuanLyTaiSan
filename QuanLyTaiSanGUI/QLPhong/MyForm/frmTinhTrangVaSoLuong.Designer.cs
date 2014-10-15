@@ -74,7 +74,7 @@
             this.lookUpEdit1.Properties.NullText = "";
             this.lookUpEdit1.Properties.ValueMember = "id";
             this.lookUpEdit1.Size = new System.Drawing.Size(237, 20);
-            this.lookUpEdit1.TabIndex = 2;
+            this.lookUpEdit1.TabIndex = 0;
             // 
             // spinEdit1
             // 
@@ -101,7 +101,7 @@
             0,
             0});
             this.spinEdit1.Size = new System.Drawing.Size(237, 20);
-            this.spinEdit1.TabIndex = 3;
+            this.spinEdit1.TabIndex = 1;
             // 
             // btnOK
             // 
@@ -110,7 +110,7 @@
             this.btnOK.Location = new System.Drawing.Point(14, 164);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 4;
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -132,7 +132,7 @@
             this.btnYesToAll.Location = new System.Drawing.Point(95, 164);
             this.btnYesToAll.Name = "btnYesToAll";
             this.btnYesToAll.Size = new System.Drawing.Size(129, 23);
-            this.btnYesToAll.TabIndex = 6;
+            this.btnYesToAll.TabIndex = 4;
             this.btnYesToAll.Text = "Tương tự cho tất cả";
             this.btnYesToAll.Click += new System.EventHandler(this.btnYesToAll_Click);
             // 
@@ -141,7 +141,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(71, 64);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(237, 94);
-            this.txtGhiChu.TabIndex = 7;
+            this.txtGhiChu.TabIndex = 2;
             this.txtGhiChu.UseOptimizedRendering = true;
             // 
             // labelControl3

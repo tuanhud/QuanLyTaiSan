@@ -47,7 +47,7 @@
             this.btnChonFile.Location = new System.Drawing.Point(12, 323);
             this.btnChonFile.Name = "btnChonFile";
             this.btnChonFile.Size = new System.Drawing.Size(75, 23);
-            this.btnChonFile.TabIndex = 4;
+            this.btnChonFile.TabIndex = 1;
             this.btnChonFile.Text = "Chọn files";
             this.btnChonFile.Click += new System.EventHandler(this.btnChonFile_Click);
             // 
@@ -68,7 +68,7 @@
             this.gridControlAttachment.MainView = this.gridViewAttachment;
             this.gridControlAttachment.Name = "gridControlAttachment";
             this.gridControlAttachment.Size = new System.Drawing.Size(585, 305);
-            this.gridControlAttachment.TabIndex = 6;
+            this.gridControlAttachment.TabIndex = 0;
             this.gridControlAttachment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAttachment});
             // 
@@ -98,7 +98,7 @@
             this.btnDelete.Location = new System.Drawing.Point(279, 323);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 7;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -110,7 +110,7 @@
             this.btnOK.Location = new System.Drawing.Point(441, 323);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 8;
+            this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -121,7 +121,7 @@
             this.btnHuy.Location = new System.Drawing.Point(522, 323);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
-            this.btnHuy.TabIndex = 9;
+            this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -132,7 +132,7 @@
             this.btnDownload.Location = new System.Drawing.Point(360, 323);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(75, 23);
-            this.btnDownload.TabIndex = 10;
+            this.btnDownload.TabIndex = 3;
             this.btnDownload.Text = "Tải xuống";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
