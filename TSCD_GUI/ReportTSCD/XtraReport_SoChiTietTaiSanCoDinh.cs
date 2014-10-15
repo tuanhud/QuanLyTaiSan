@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace TSCD_GUI.ReportTSCD
 {
-    public partial class XtraReport_SoChiTietTaiSanCoDinh_PhongBan : DevExpress.XtraReports.UI.XtraReport
+    public partial class XtraReport_SoChiTietTaiSanCoDinh : DevExpress.XtraReports.UI.XtraReport
     {
-        public XtraReport_SoChiTietTaiSanCoDinh_PhongBan()
+        public XtraReport_SoChiTietTaiSanCoDinh()
         {
             InitializeComponent();
         }

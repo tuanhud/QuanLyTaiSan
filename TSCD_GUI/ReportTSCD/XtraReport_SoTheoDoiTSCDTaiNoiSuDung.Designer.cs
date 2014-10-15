@@ -1,6 +1,6 @@
 ﻿namespace TSCD_GUI.ReportTSCD
 {
-    partial class XtraReport_PhongBan
+    partial class XtraReport_SoTheoDoiTSCDTaiNoiSuDung
     {
         /// <summary>
         /// Required designer variable.

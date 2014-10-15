@@ -10,16 +10,16 @@ using System.Linq;
 
 namespace TSCD_GUI.ReportTSCD
 {
-    public partial class XtraReport_PhongBan : DevExpress.XtraReports.UI.XtraReport
+    public partial class XtraReport_SoTheoDoiTSCDTaiNoiSuDung : DevExpress.XtraReports.UI.XtraReport
     {
         DonVi obj = null;
 
-        public XtraReport_PhongBan()
+        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung()
         {
             InitializeComponent();
         }
 
-        public XtraReport_PhongBan(List<TaiSan_ThongKe> list, DonVi obj)
+        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(List<TaiSan_ThongKe> list, DonVi obj)
         {
             InitializeComponent();
             this.DataSource = list;
@@ -27,7 +27,7 @@ namespace TSCD_GUI.ReportTSCD
             IntReport();
         }
 
-        public XtraReport_PhongBan(List<TaiSan_ThongKe> list)
+        public XtraReport_SoTheoDoiTSCDTaiNoiSuDung(List<TaiSan_ThongKe> list)
         {
             InitializeComponent();
             this.DataSource = list;

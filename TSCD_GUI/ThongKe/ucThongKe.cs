@@ -108,7 +108,7 @@ namespace TSCD_GUI.ThongKe
                 splashScreenManager_Report.ShowWaitForm();
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
-                TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
+                TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
 
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
                 splashScreenManager_Report.CloseWaitForm();
@@ -127,7 +127,7 @@ namespace TSCD_GUI.ThongKe
                 splashScreenManager_Report.ShowWaitForm();
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
-                TSCD_GUI.ReportTSCD.XtraReport_PhongBan _XtraReport_PhongBan = new ReportTSCD.XtraReport_PhongBan((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
+                TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
                 
                 ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
                 designTool.ShowDesignerDialog();
