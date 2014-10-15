@@ -56,6 +56,7 @@ namespace TSCD_GUI.Libraries
                 const int NGAY = 4;
                 const int DONGIA = 5;
                 const int PASS = 6;
+                const int PHONG = 7;
                 LoaiTaiSan objLoaiTS = null;
                 dt = OpenFile(fileName, sheet);
                 if (dt != null)
@@ -119,7 +120,22 @@ namespace TSCD_GUI.Libraries
                                                 CTTaiSan objCTTaiSan2 = CTTaiSan.getQuery().Where(c => c.taisan_id == obj.id).FirstOrDefault();
                                                 if (objCTTaiSan2 != null)
                                                 {
-                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, null, null, null, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong, "", objCTTaiSan2.ngay) > 0 && DBInstance.commit() > 0)
+                                                    Phong objPhong = null;
+                                                    ViTri objViTri = null;
+                                                    if(row[PHONG] != DBNull.Value)
+                                                    {
+                                                        string phong = row[PHONG].ToString().Trim();
+                                                        objPhong = Phong.getQuery().Where(c => c.ten.Equals(phong)).FirstOrDefault();
+                                                        if (objPhong == null)
+                                                        {
+                                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
+                                                            continue;
+                                                        }
+                                                        else
+                                                            objViTri = objPhong.vitri;
+                                                    }
+
+                                                    if (objCTTaiSan2.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan2.parent, objCTTaiSan2.chungtu, objCTTaiSan2.soluong, "", objCTTaiSan2.ngay) > 0 && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                     }
@@ -145,7 +161,21 @@ namespace TSCD_GUI.Libraries
                                                     objCTTaiSan.soluong = 1;
                                                     if (objCTTaiSan.add() > 0)
                                                     {
-                                                        if (objCTTaiSan.chuyenDonVi(objDonVi, null, null, null, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                                        Phong objPhong = null;
+                                                        ViTri objViTri = null;
+                                                        if (row[PHONG] != DBNull.Value)
+                                                        {
+                                                            string phong = row[PHONG].ToString().Trim();
+                                                            objPhong = Phong.getQuery().Where(c => c.ten.Equals(phong)).FirstOrDefault();
+                                                            if (objPhong == null)
+                                                            {
+                                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
+                                                                continue;
+                                                            }
+                                                            else
+                                                                objViTri = objPhong.vitri;
+                                                        }
+                                                        if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
                                                         {
                                                             WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                         }
@@ -184,7 +214,21 @@ namespace TSCD_GUI.Libraries
                                                 objCTTaiSan.soluong = 1;
                                                 if (objCTTaiSan.add() > 0)
                                                 {
-                                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, null, null, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                                    Phong objPhong = null;
+                                                    ViTri objViTri = null;
+                                                    if (row[PHONG] != DBNull.Value)
+                                                    {
+                                                        string phong = row[PHONG].ToString().Trim();
+                                                        objPhong = Phong.getQuery().Where(c => c.ten.Equals(phong)).FirstOrDefault();
+                                                        if (objPhong == null)
+                                                        {
+                                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
+                                                            continue;
+                                                        }
+                                                        else
+                                                            objViTri = objPhong.vitri;
+                                                    }
+                                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
                                                     {
                                                         WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
                                                     }
@@ -870,8 +914,11 @@ namespace TSCD_GUI.Libraries
                                             objLoai = LoaiPhong.getAll().Where(c => c.ten.ToUpper().Equals(row[LOAIPHONG].ToString().Trim().ToUpper())).FirstOrDefault();
                                             if (objLoai == null || objLoai.id == Guid.Empty)
                                             {
-                                                ok = false;
-                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại phòng)");
+                                                objLoai = new LoaiPhong();
+                                                objLoai.ten = row[LOAIPHONG].ToString().Trim();
+                                                objLoai.mota = row[LOAIPHONG].ToString().Trim();
+                                                //ok = false;
+                                                //WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại phòng)");
                                             }
                                         }
                                         else
