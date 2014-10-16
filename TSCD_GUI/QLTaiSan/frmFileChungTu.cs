@@ -10,13 +10,16 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using SHARED.Libraries;
 using System.Threading.Tasks;
+using System.Net;
+using System.IO;
 
 namespace TSCD_GUI.QLTaiSan
 {
     public partial class frmFileChungTu : DevExpress.XtraEditors.XtraForm
     {
         bool save = false;
-
+        Attachment objAttachment = null;
+        string path = "";
         public frmFileChungTu()
         {
             InitializeComponent();
@@ -56,15 +59,14 @@ namespace TSCD_GUI.QLTaiSan
                 //register event
                 ct.onUploadProgress += new SHARED.Libraries.FTPHelper.UploadProgress(this.onChungTu_Uploading);
                 // do in background
-                var taskA = new Task(() => ct.upload());
-                taskA.Start();
-                taskA.ContinueWith(new Action<Task>(this.onUploadFinish));
-
-                //DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
-                //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Uploading...");
-
+                //var taskA = new Task(() => ct.upload());
+                //taskA.ContinueWith(new Action<Task>(this.onUploadFinish));
+                //taskA.Start();
+                Task.Factory.StartNew(() => ct.upload().Wait())
+                .ContinueWith(new Action<Task>(this.onUploadFinish));
             }
         }
+
         private delegate void SetLabelProgress(string text);
         private void SetText(string text)
         {
@@ -87,7 +89,7 @@ namespace TSCD_GUI.QLTaiSan
         {
             //ct.update();
             //DBInstance.commit();
-            MessageBox.Show("Upload thành công!");
+            XtraMessageBox.Show("Upload thành công!");
             //DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             loadData();
         }
@@ -148,7 +150,47 @@ namespace TSCD_GUI.QLTaiSan
         {
             if (gridViewAttachment.GetFocusedRow() != null)
             {
-                Attachment obj = gridViewAttachment.GetFocusedRow() as Attachment;
+                objAttachment = gridViewAttachment.GetFocusedRow() as Attachment;
+                SaveFileDialog save = new SaveFileDialog();
+                save.FileName = objAttachment.path;
+                save.Filter = "All Files(*.*)|*.*";
+                save.Title = "Lưu tập tin đính kèm";
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        path = save.FileName;
+                        var taskA = new Task(() => download());
+                        taskA.Start();
+                        taskA.ContinueWith(new Action<Task>(this.onDownloadFinish));
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(this.Name + "->btnDownload_Click: " + ex);
+                    }
+                }
+            }
+        }
+
+        private void onDownloadFinish(Task obj)
+        {
+            XtraMessageBox.Show("Tải xuống thành công!");
+        }
+
+        private void download()
+        {
+            string url = objAttachment.getDownloadPath();
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
+
+            using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
+            {
+                using (Stream stream = httpWebReponse.GetResponseStream())
+                {
+                    using (System.IO.FileStream file = new System.IO.FileStream(path, FileMode.Create))
+                    {
+                        stream.CopyTo(file);
+                    }
+                }
             }
         }
     }
