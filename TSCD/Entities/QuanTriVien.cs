@@ -38,7 +38,8 @@ namespace TSCD.Entities
         [Required]
         [ForeignKey("group_id")]
         public virtual Group group { get; set; }
-        
+        public virtual ICollection<LogSuaTaiSan> logsuataisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtanggiamtaisans { get; set; }
         #endregion
 
         #region Hàm nghiệp vụ

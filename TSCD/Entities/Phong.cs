@@ -40,6 +40,11 @@ namespace TSCD.Entities
         [ForeignKey("vitri_id")]
         public virtual ViTri vitri { get; set; }
 
+        public virtual ICollection<CTTaiSan> cttaisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtanggiamtaisans { get; set; }
+
+        public virtual ICollection<LogSuaTaiSan> logsuataisans { get; set; }
+
         #endregion
         #region Nghiep vu
         public static List<Phong> getPhongByViTri(Guid _cosoid, Guid _dayid, Guid _tangid)

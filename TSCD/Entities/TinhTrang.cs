@@ -46,7 +46,8 @@ namespace TSCD.Entities
          * FK for QLTSCD
          */
         public virtual ICollection<CTTaiSan> cttaisans { get; set; }
-        public virtual ICollection<LogTangGiamTaiSan> logtaisans { get; set; }
+        public virtual ICollection<LogTangGiamTaiSan> logtanggiamtaisans { get; set; }
+        public virtual ICollection<LogSuaTaiSan> logsuataisans { get; set; }
         #endregion
 
         #region Override
