@@ -31,7 +31,7 @@ namespace TSCD_GUI
             SHARED.Libraries.Debug.MODE = TSCD.Global.local_setting.debug_mode;
             if (Global.working_database.isReady() > 0)
             {
-                Application.Run(new Login());
+                Application.Run(new ReportTSCD.frmReport());
             }
             else
             {
