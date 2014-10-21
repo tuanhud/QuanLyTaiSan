@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace SHARED.Libraries
 {
@@ -117,7 +118,7 @@ namespace SHARED.Libraries
                 Debug.WriteLine(ex);
             }
         }
-
+        private static Semaphore sync_semaphore = new Semaphore(1, 1);
         /// <summary>
         /// Through Execption when fail
         /// </summary>
@@ -127,6 +128,16 @@ namespace SHARED.Libraries
         /// <returns></returns>
         public static int start_sync(String client_connectionString, String server_connectionString, String scope_name)
         {
+            //Khóa phiên đa luồng
+            try
+            {
+                sync_semaphore.WaitOne();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
             SqlConnection clientConn = new SqlConnection(client_connectionString);
             // create a connection to the SyncDB server database
             SqlConnection serverConn = new SqlConnection(server_connectionString);
@@ -180,6 +191,15 @@ namespace SHARED.Libraries
             {
                 clientConn.Dispose();
                 serverConn.Dispose();
+                //Release phiên đa luồng
+                try
+                {
+                    sync_semaphore.Release(1);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
             }
         }
         /// <summary>
