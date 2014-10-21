@@ -146,9 +146,33 @@ namespace TSCD_GUI.QLTaiSan
             open.Title = "Chọn tập tin để Import";
             if (open.ShowDialog() == DialogResult.OK)
             {
+                //DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                //if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
+                //{
+                //    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                //    XtraMessageBox.Show("Import thành công!");
+                //}
+                //else
+                //{
+                //    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                //    XtraMessageBox.Show("Import không thành công!");
+                //}
+                //DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+                //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
+                //if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportDonVi(open.FileName, "DonVi", ""))
+                //{
+                //    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                //    XtraMessageBox.Show("Import thành công!");
+                //}
+                //else
+                //{
+                //    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                //    XtraMessageBox.Show("Import không thành công!");
+                //}
                 DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
                 DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportPhong(open.FileName, "Phong"))
+                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportTaiSan(open.FileName, "TaiSan"))
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import thành công!");
@@ -158,19 +182,6 @@ namespace TSCD_GUI.QLTaiSan
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import không thành công!");
                 }
-                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
-                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import...");
-                if (TSCD_GUI.Libraries.ExcelDataBaseHelper.ImportDonVi(open.FileName, "DonVi", "TaiSan"))
-                {
-                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
-                    XtraMessageBox.Show("Import thành công!");
-                }
-                else
-                {
-                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
-                    XtraMessageBox.Show("Import không thành công!");
-                }
-
             }
         }
 

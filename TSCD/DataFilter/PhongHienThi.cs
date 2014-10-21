@@ -28,7 +28,7 @@ namespace TSCD.DataFilter
                      sochongoi = p.sochongoi,
                      vitri = p.vitri.coso != null ? p.vitri.coso.ten + (p.vitri.day != null ? " - " + p.vitri.day.ten + (p.vitri.tang != null ? " - " + p.vitri.tang.ten : "") : "") : "",
                      phong = p
-                 }).ToList();
+                 }).OrderBy(c=>c.ten).ToList();
             return re;
         }
     }
