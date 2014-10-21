@@ -165,9 +165,9 @@ namespace PTB_GUI.ThongKe
 
                 XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridViewThongKe, checkEdit_Landscape.Checked);
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
-
-                printTool.ShowPreviewDialog();
                 splashScreenManager_Report.CloseWaitForm();
+                printTool.ShowPreviewDialog();
+                
             }
             else
             {
@@ -177,9 +177,9 @@ namespace PTB_GUI.ThongKe
 
                 XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControlThongKe, checkEdit_Landscape.Checked);
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_XtraGrid);
-
-                printTool.ShowPreviewDialog();
                 splashScreenManager_Report.CloseWaitForm();
+                printTool.ShowPreviewDialog();
+                
             }
         }
 
@@ -194,9 +194,9 @@ namespace PTB_GUI.ThongKe
 
                 XtraReport_Template _XtraReport_Template = new XtraReport_Template(FillDatasetFromGrid(), gridViewThongKe, checkEdit_Landscape.Checked);
                 ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
-
-                designTool.ShowDesignerDialog();
                 splashScreenManager_Report.CloseWaitForm();
+                designTool.ShowDesignerDialog();
+                
 
                 ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
                 printTool.ShowPreviewDialog();
@@ -209,9 +209,9 @@ namespace PTB_GUI.ThongKe
 
                 XtraReport_XtraGrid _XtraReport_XtraGrid = new XtraReport_XtraGrid(gridControlThongKe, checkEdit_Landscape.Checked);
                 ReportDesignTool designTool = new ReportDesignTool(_XtraReport_XtraGrid);
-                
-                designTool.ShowDesignerDialog();
                 splashScreenManager_Report.CloseWaitForm();
+                designTool.ShowDesignerDialog();
+                
 
                 ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
                 printTool.ShowPreviewDialog();

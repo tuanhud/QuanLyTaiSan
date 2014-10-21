@@ -106,7 +106,7 @@
             this.gridControlTaiSan.Name = "gridControlTaiSan";
             this.gridControlTaiSan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryMemoTen});
-            this.gridControlTaiSan.Size = new System.Drawing.Size(495, 491);
+            this.gridControlTaiSan.Size = new System.Drawing.Size(494, 491);
             this.gridControlTaiSan.TabIndex = 0;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridViewTaiSan});
