@@ -78,6 +78,33 @@ namespace TSCD_GUI.QLPhong
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
 
+        public void loadDataOnlyPhong()
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this.ParentForm, typeof(WaitFormLoad), true, true, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+            try
+            {
+                editGUI("view");
+                loadLoaiPhong();
+                _ViTriHienTai = _ucTreeViTri.Vitri;
+                if (_ViTriHienTai != null)
+                    listPhong = PhongHienThi.getPhongByViTri(_ViTriHienTai.coso != null ? _ViTriHienTai.coso.id : Guid.Empty, _ViTriHienTai.day != null ? _ViTriHienTai.day.id : Guid.Empty, _ViTriHienTai.tang != null ? _ViTriHienTai.tang.id : Guid.Empty);
+                else
+                    listPhong = null;
+                gridControlPhong.DataSource = listPhong;
+                if (listPhong == null || listPhong.Count() == 0)
+                {
+                    enableButton(false);
+                    gridLookUpLoai.EditValue = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->loadData: " + ex.Message);
+            }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+        }
+
         private void loadLoaiPhong()
         {
             gridLookUpLoai.Properties.DataSource = LoaiPhong.getQuery().OrderBy(c => c.order).ToList();
@@ -85,7 +112,7 @@ namespace TSCD_GUI.QLPhong
 
         private void reloadAndFocused(Guid _id)
         {
-            loadData();
+            loadDataOnlyPhong();
             int rowHandle = gridViewPhong.LocateByValue(colid.FieldName, _id);
             if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
                 gridViewPhong.FocusedRowHandle = rowHandle;

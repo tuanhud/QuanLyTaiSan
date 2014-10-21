@@ -267,6 +267,273 @@ namespace TSCD_GUI.Libraries
             }
         }
 
+        public static bool ImportTaiSan2(String fileName, String sheet)
+        {
+            try
+            {
+                int line = 0;
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int SOHIEU = 1;
+                const int NGAY = 2;
+                const int TEN = 3;
+                const int DONGIA = 6;
+                const int GHICHU = 8;
+                const int DONVI = 9;
+                const int PHONG = 10;
+                //const int TINHTRANG = 11;
+                const int LOAI = 12;
+                const int PASS = 13;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    int lines = dt.Rows.Count;
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        line++;
+                        if (line % 200 == 0)
+                            DBInstance.reNew();
+                        //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import... " +
+                        //    String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import... " + line + "/" + lines);
+                        if (row[PASS] == DBNull.Value || (!row[PASS].Equals("Pass") && !row[PASS].Equals("Error (Không đủ thông tin)")))
+                        {
+                            if (row[TEN] != DBNull.Value && !String.IsNullOrWhiteSpace(row[TEN].ToString()) && row[DONGIA] != DBNull.Value)
+                            {
+                                String sohieu_ct = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
+                                DateTime? ngay_ct = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                String ten = row[TEN].ToString().Trim().ToUpper();
+                                String str = row[DONGIA].ToString().Trim().Replace(" ", "");
+                                long dongia = long.Parse(str);
+                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu.sohieu == sohieu_ct && c.chungtu.ngay == ngay_ct && c.donviquanly == null && c.soluong == 1).FirstOrDefault();
+                                if (obj != null)
+                                {
+                                    if (row[LOAI] != DBNull.Value)
+                                    {
+                                        String ten_loai = row[DONVI].ToString().Trim().ToUpper();
+                                        LoaiTaiSan objLoaiTS = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten_loai)).FirstOrDefault();
+                                        if (objLoaiTS == null)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại tài sản)");
+                                            continue;
+                                        }
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Chưa xử lí)");
+                                    }
+                                    if (row[DONVI] != DBNull.Value)
+                                    {
+                                        String ma_donvi = row[DONVI].ToString().Trim().ToUpper();
+                                        DonVi objDonVi = DonVi.getQuery().Where(c => c.subId.ToUpper().Equals(ma_donvi)).FirstOrDefault();
+                                        if (objDonVi == null)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có đơn vị)");
+                                            continue;
+                                        }
+                                        String ghichu = row[GHICHU] != DBNull.Value ? row[GHICHU].ToString().Trim() : null;
+                                        Phong objPhong = null;
+                                        ViTri objViTri = null;
+                                        if(row[PHONG] != DBNull.Value)
+                                        {
+                                            String ten_phong = row[PHONG] != DBNull.Value ? row[PHONG].ToString().Trim().ToUpper() : null;
+                                            objPhong = Phong.getQuery().Where(c => c.ten.ToUpper().Equals(ten_phong)).FirstOrDefault();
+                                            if (objPhong == null)
+                                            {
+                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
+                                                continue;
+                                            }
+                                            //objViTri = objPhong.vitri;
+                                        }
+                                        if (obj.chuyenDonVi(objDonVi, null, objViTri, objPhong, obj.parent, obj.chungtu, obj.soluong, ghichu, obj.ngay) > 0 && DBInstance.commit() > 0)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                        }
+
+                                    }
+                                    //if (row[TINHTRANG] != DBNull.Value)
+                                    //{
+                                    //    String ten_tinhtrang = row[TINHTRANG].ToString().Trim().ToUpper();
+                                    //    TinhTrang objTinhTrang = TinhTrang.getQuery().Where(c => c.value.ToUpper().Equals(ten_tinhtrang)).FirstOrDefault();
+                                    //    if (objTinhTrang == null)
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tình trạng)");
+                                    //        continue;
+                                    //    }
+                                    //    if (obj.chuyenTinhTrang(obj.chungtu, objTinhTrang, obj.soluong, obj.ghichu) > 0 && DBInstance.commit() > 0)
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                    //    }
+
+                                    //}
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không tìm thấy tài sản)");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportTaiSan: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static bool ImportTaiSan3(String fileName, String sheet)
+        {
+            try
+            {
+                int line = 0;
+                System.Data.DataTable dt = new System.Data.DataTable();
+                const int STT = 0;
+                const int SOHIEU = 1;
+                const int NGAY = 2;
+                const int TEN = 3;
+                const int DONGIA = 6;
+                //const int GHICHU = 8;
+                const int DONVI = 9;
+                //const int PHONG = 10;
+                const int TINHTRANG = 11;
+                //const int LOAI = 12;
+                //const int PASS = 13;
+                dt = OpenFile(fileName, sheet);
+                if (dt != null)
+                {
+                    int lines = dt.Rows.Count;
+                    foreach (System.Data.DataRow row in dt.Rows)
+                    {
+                        line++;
+                        if (line % 200 == 0)
+                            DBInstance.reNew();
+                        //DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang Import... " +
+                        //    String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0.00}", (line * 1.0 / lines) * 100) + "%");
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Import... " + line + "/" + lines);
+                        if (row[TINHTRANG] != DBNull.Value)
+                        {
+                            if (row[TEN] != DBNull.Value && !String.IsNullOrWhiteSpace(row[TEN].ToString()) && row[DONGIA] != DBNull.Value)
+                            {
+                                String sohieu_ct = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
+                                DateTime? ngay_ct = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                String ten = row[TEN].ToString().Trim().ToUpper();
+                                String str = row[DONGIA].ToString().Trim().Replace(" ", "");
+                                long dongia = long.Parse(str);
+                                DonVi objDonVi = null;
+                                if (row[DONVI] != DBNull.Value)
+                                {
+                                    String ma_donvi = row[DONVI].ToString().Trim().ToUpper();
+                                    objDonVi = DonVi.getQuery().Where(c => c.subId.ToUpper().Equals(ma_donvi)).FirstOrDefault();
+                                    if (objDonVi == null)
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có đơn vị)");
+                                        continue;
+                                    }
+                                }
+                                CTTaiSan obj = null;
+                                if (objDonVi != null)
+                                    obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu.sohieu == sohieu_ct && c.chungtu.ngay == ngay_ct && c.donviquanly_id == objDonVi.id && c.soluong == 1).FirstOrDefault();
+                                else
+                                    obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu.sohieu == sohieu_ct && c.chungtu.ngay == ngay_ct && c.donviquanly == null && c.soluong == 1).FirstOrDefault();
+                                if (obj != null)
+                                {
+                                    //if (row[LOAI] != DBNull.Value)
+                                    //{
+                                    //    String ten_loai = row[DONVI].ToString().Trim().ToUpper();
+                                    //    LoaiTaiSan objLoaiTS = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten_loai)).FirstOrDefault();
+                                    //    if (objLoaiTS == null)
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại tài sản)");
+                                    //        continue;
+                                    //    }
+                                    //    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Chưa xử lí)");
+                                    //}
+                                    //if (row[DONVI] != DBNull.Value)
+                                    //{
+                                    //    String ma_donvi = row[DONVI].ToString().Trim().ToUpper();
+                                    //    DonVi objDonVi = DonVi.getQuery().Where(c => c.subId.ToUpper().Equals(ma_donvi)).FirstOrDefault();
+                                    //    if (objDonVi == null)
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có đơn vị)");
+                                    //        continue;
+                                    //    }
+                                    //    String ghichu = row[GHICHU] != DBNull.Value ? row[GHICHU].ToString().Trim() : null;
+                                    //    Phong objPhong = null;
+                                    //    ViTri objViTri = null;
+                                    //    if (row[PHONG] != DBNull.Value)
+                                    //    {
+                                    //        String ten_phong = row[PHONG] != DBNull.Value ? row[PHONG].ToString().Trim().ToUpper() : null;
+                                    //        objPhong = Phong.getQuery().Where(c => c.ten.ToUpper().Equals(ten_phong)).FirstOrDefault();
+                                    //        if (objPhong == null)
+                                    //        {
+                                    //            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
+                                    //            continue;
+                                    //        }
+                                    //        //objViTri = objPhong.vitri;
+                                    //    }
+                                    //    if (obj.chuyenDonVi(objDonVi, null, objViTri, objPhong, obj.parent, obj.chungtu, obj.soluong, ghichu, obj.ngay) > 0 && DBInstance.commit() > 0)
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                    //    }
+
+                                    //}
+                                    if (row[TINHTRANG] != DBNull.Value)
+                                    {
+                                        String ten_tinhtrang = row[TINHTRANG].ToString().Trim().ToUpper();
+                                        TinhTrang objTinhTrang = TinhTrang.getQuery().Where(c => c.value.ToUpper().Equals(ten_tinhtrang)).FirstOrDefault();
+                                        if (objTinhTrang == null)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có tình trạng)");
+                                            continue;
+                                        }
+                                        if (obj.chuyenTinhTrang(obj.chungtu, objTinhTrang, obj.soluong, obj.ghichu) > 0 && DBInstance.commit() > 0)
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                        }
+                                        else
+                                        {
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                        }
+
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không tìm thấy tài sản)");
+                                }
+                            }
+                            else
+                            {
+                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không đủ thông tin)");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ExcelDataBaseHelper->ImportTaiSan: " + ex.Message);
+                return false;
+            }
+        }
+
         public static bool ImportChungTu(String fileName, String sheet)
         {
             try
