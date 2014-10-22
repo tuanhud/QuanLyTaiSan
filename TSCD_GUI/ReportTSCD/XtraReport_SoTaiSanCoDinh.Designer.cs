@@ -792,7 +792,7 @@
             // 
             this.xrTableCell_SUM_NguyenGiaTang.Name = "xrTableCell_SUM_NguyenGiaTang";
             this.xrTableCell_SUM_NguyenGiaTang.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_NguyenGiaTang.Text = "Nguyên giá";
+            this.xrTableCell_SUM_NguyenGiaTang.Text = "0";
             this.xrTableCell_SUM_NguyenGiaTang.Weight = 0.75130286216735742D;
             // 
             // xrTableCell61
@@ -805,14 +805,14 @@
             // 
             this.xrTableCell_SUM_SoTienHM.Name = "xrTableCell_SUM_SoTienHM";
             this.xrTableCell_SUM_SoTienHM.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoTienHM.Text = "Số tiền";
+            this.xrTableCell_SUM_SoTienHM.Text = "0";
             this.xrTableCell_SUM_SoTienHM.Weight = 0.55208222150802544D;
             // 
             // xrTableCell_SUM_SoHMNamChuyenTiep
             // 
             this.xrTableCell_SUM_SoHMNamChuyenTiep.Name = "xrTableCell_SUM_SoHMNamChuyenTiep";
             this.xrTableCell_SUM_SoHMNamChuyenTiep.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoHMNamChuyenTiep.Text = "Số HM năm trước chuyển sang";
+            this.xrTableCell_SUM_SoHMNamChuyenTiep.Text = "0";
             this.xrTableCell_SUM_SoHMNamChuyenTiep.Weight = 0.74043748080730443D;
             // 
             // xrTableCell64
@@ -825,7 +825,7 @@
             // 
             this.xrTableCell_SUM_SoHMLuyKe.Name = "xrTableCell_SUM_SoHMLuyKe";
             this.xrTableCell_SUM_SoHMLuyKe.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoHMLuyKe.Text = "Số HM lũy kế";
+            this.xrTableCell_SUM_SoHMLuyKe.Text = "0";
             this.xrTableCell_SUM_SoHMLuyKe.Weight = 0.81458607852458953D;
             // 
             // xrTableCell66

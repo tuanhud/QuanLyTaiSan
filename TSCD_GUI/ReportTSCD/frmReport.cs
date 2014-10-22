@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using DevExpress.XtraReports.UI;
 using TSCD.DataFilter;
+using TSCD.DataFilter.SearchFilter;
 
 namespace TSCD_GUI.ReportTSCD
 {
@@ -21,11 +22,14 @@ namespace TSCD_GUI.ReportTSCD
         {
             InitializeComponent();
 
+            comboBoxEdit_LoaiBaoCao.SelectedIndex = 0;
+
             dateEdit_TuNgay.EditValue = DateTime.Today.Date;
             dateEdit_DenNgay.EditValue = DateTime.Today.Date;
-            dateEdit_TuNgay.Properties.ReadOnly = true;
-            dateEdit_DenNgay.Properties.ReadOnly = true;
+            dateEdit_TuNgay.Enabled = false;
+            dateEdit_DenNgay.Enabled = false;
 
+            ucComboBoxLoaiTS_LoaiTaiSan.showCheck();
             ucComboBoxLoaiTS_LoaiTaiSan.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
 
             DonVi objNULL = new DonVi();
@@ -42,13 +46,24 @@ namespace TSCD_GUI.ReportTSCD
 
         private void comboBoxEdit_LoaiBaoCao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxEdit_LoaiBaoCao.SelectedIndex >= 2)
+            switch (comboBoxEdit_LoaiBaoCao.SelectedIndex)
             {
-                ucComboBoxDonVi_ChonDonVi.ReadOnly = false;
-            }
-            else
-            {
-                ucComboBoxDonVi_ChonDonVi.ReadOnly = true;
+                case 0:
+                    checkedComboBoxEdit_ChonCoSo.Enabled = true;
+                    ucComboBoxDonVi_ChonDonVi.Enabled = false;
+                    break;
+                case 1:
+                    checkedComboBoxEdit_ChonCoSo.Enabled = true;
+                    ucComboBoxDonVi_ChonDonVi.Enabled = false;
+                    break;
+                case 2:
+                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
+                    ucComboBoxDonVi_ChonDonVi.Enabled = true;
+                    break;
+                case 3:
+                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
+                    ucComboBoxDonVi_ChonDonVi.Enabled = true;
+                    break;
             }
         }
 
@@ -62,13 +77,49 @@ namespace TSCD_GUI.ReportTSCD
             switch (comboBoxEdit_LoaiBaoCao.SelectedIndex)
             {
                 case 0:
-                    XtraMessageBox.Show("Chức năng này chưa có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Không có dữ liệu để thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 1:
-                    XtraMessageBox.Show("Chức năng này chưa có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Không có dữ liệu để thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 2:
-                    XtraMessageBox.Show("Chức năng này chưa có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Object.Equals(ucComboBoxDonVi_ChonDonVi.DonVi, null))
+                    {
+                        XtraMessageBox.Show("Chưa chọn đơn vị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (Object.Equals(ucComboBoxDonVi_ChonDonVi.DonVi.id, Guid.Empty))
+                    {
+                        XtraMessageBox.Show("Chưa chọn đơn vị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (checkEdit_XuatBaoCao.Checked)
+                    {
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(CTTaiSan.getAll()), ucComboBoxDonVi_ChonDonVi.DonVi);
+                        ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoChiTietTaiSanCoDinh);
+
+                        splashScreenManager_Report.CloseWaitForm();
+                        printTool.ShowPreviewDialog();
+                    }
+                    else if (checkEdit_ThietKe.Checked)
+                    {
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        TSCD_GUI.ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh _XtraReport_SoChiTietTaiSanCoDinh = new ReportTSCD.XtraReport_SoChiTietTaiSanCoDinh(TaiSanHienThi.Convert(CTTaiSan.getAll()), ucComboBoxDonVi_ChonDonVi.DonVi);
+                        ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoChiTietTaiSanCoDinh);
+
+                        splashScreenManager_Report.CloseWaitForm();
+                        designTool.ShowDesignerDialog();
+
+                        ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                        printTool.ShowPreviewDialog();
+                    }
                     break;
                 case 3:
                     if (Object.Equals(ucComboBoxDonVi_ChonDonVi.DonVi, null))
@@ -86,20 +137,25 @@ namespace TSCD_GUI.ReportTSCD
                         splashScreenManager_Report.ShowWaitForm();
                         splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                         splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
                         TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(TaiSan_ThongKe.getAll(null, null, ucComboBoxDonVi_ChonDonVi.DonVi), ucComboBoxDonVi_ChonDonVi.DonVi);
                         ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
-                        printTool.ShowPreviewDialog();
+
                         splashScreenManager_Report.CloseWaitForm();
+                        printTool.ShowPreviewDialog();
                     }
                     else if (checkEdit_ThietKe.Checked)
                     {
                         splashScreenManager_Report.ShowWaitForm();
                         splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                         splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
                         TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung(TaiSan_ThongKe.getAll(null, null, ucComboBoxDonVi_ChonDonVi.DonVi), ucComboBoxDonVi_ChonDonVi.DonVi);
                         ReportDesignTool designTool = new ReportDesignTool(_XtraReport_PhongBan);
-                        designTool.ShowDesignerDialog();
+
                         splashScreenManager_Report.CloseWaitForm();
+                        designTool.ShowDesignerDialog();
+
                         ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
                         printTool.ShowPreviewDialog();
                     }

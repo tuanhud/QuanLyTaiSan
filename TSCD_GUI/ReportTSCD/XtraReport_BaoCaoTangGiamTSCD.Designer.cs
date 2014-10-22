@@ -532,7 +532,7 @@
             // 
             this.xrTableCell_SUM_SoDauNam.Name = "xrTableCell_SUM_SoDauNam";
             this.xrTableCell_SUM_SoDauNam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoDauNam.Text = "Nguyên giá";
+            this.xrTableCell_SUM_SoDauNam.Text = "0";
             this.xrTableCell_SUM_SoDauNam.Weight = 0.76041810989379888D;
             // 
             // xrTableCell33
@@ -546,7 +546,7 @@
             // 
             this.xrTableCell_SUM_TangTrongNam.Name = "xrTableCell_SUM_TangTrongNam";
             this.xrTableCell_SUM_TangTrongNam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_TangTrongNam.Text = "Nguyên giá";
+            this.xrTableCell_SUM_TangTrongNam.Text = "0";
             this.xrTableCell_SUM_TangTrongNam.Weight = 0.89374937057495107D;
             // 
             // xrTableCell35
@@ -559,7 +559,7 @@
             // 
             this.xrTableCell_SUM_GiamTrongNam.Name = "xrTableCell_SUM_GiamTrongNam";
             this.xrTableCell_SUM_GiamTrongNam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_GiamTrongNam.Text = "Nguyên giá";
+            this.xrTableCell_SUM_GiamTrongNam.Text = "0";
             this.xrTableCell_SUM_GiamTrongNam.Weight = 0.82378297328948991D;
             // 
             // xrTableCell38
@@ -572,7 +572,7 @@
             // 
             this.xrTableCell_SUM_SoCuoiNam.Name = "xrTableCell_SUM_SoCuoiNam";
             this.xrTableCell_SUM_SoCuoiNam.StyleName = "xrControlStyle_Right";
-            this.xrTableCell_SUM_SoCuoiNam.Text = "Nguyên giá";
+            this.xrTableCell_SUM_SoCuoiNam.Text = "0";
             this.xrTableCell_SUM_SoCuoiNam.Weight = 0.92187550306320187D;
             // 
             // xrLabel_NguoiLapBieu

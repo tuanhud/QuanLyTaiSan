@@ -105,18 +105,21 @@ namespace TSCD_GUI.ThongKe
             }
             else if (current.Equals(_ucTKTaiSan))
             {
-                splashScreenManager_Report.ShowWaitForm();
+                ReportTSCD.frmReport _frmReport = new ReportTSCD.frmReport();
+                _frmReport.ShowDialog();
+                /*splashScreenManager_Report.ShowWaitForm();
                 splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
                 splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+                 * 
                 TSCD_GUI.ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung _XtraReport_PhongBan = new ReportTSCD.XtraReport_SoTheoDoiTSCDTaiNoiSuDung((List<TaiSan_ThongKe>)_ucTKTaiSan.gridControlTaiSan.DataSource);
 
                 ReportPrintTool printTool = new ReportPrintTool(_XtraReport_PhongBan);
                 splashScreenManager_Report.CloseWaitForm();
-                printTool.ShowPreviewDialog();
+                printTool.ShowPreviewDialog();*/
             }
         }
 
-        private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        /*private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (current.Equals(_ucTKPhong))
             {
@@ -137,6 +140,6 @@ namespace TSCD_GUI.ThongKe
                 ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
                 printTool.ShowPreviewDialog();
             }
-        }
+        }*/
     }
 }

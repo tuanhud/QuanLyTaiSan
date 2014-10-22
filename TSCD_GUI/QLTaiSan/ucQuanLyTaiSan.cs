@@ -219,13 +219,16 @@ namespace TSCD_GUI.QLTaiSan
 
         private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
+            ReportTSCD.frmReport _frmReport = new ReportTSCD.frmReport();
+            _frmReport.ShowDialog();
+            /*TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
             ReportPrintTool _ReportPrintTool = new ReportPrintTool(_XtraReportTSCD_Grid);
-            _ReportPrintTool.ShowPreviewDialog();
+            _ReportPrintTool.ShowPreviewDialog();*/
+
             //ReportTSCD.XtraReportTSCD _XtraReportTSCD = new ReportTSCD.XtraReportTSCD(ucGridControlTaiSan1.gridControlTaiSan);
         }
 
-        private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        /*private void barBtnThietKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TSCD_GUI.ReportTSCD.XtraReportTSCD_Grid _XtraReportTSCD_Grid = new ReportTSCD.XtraReportTSCD_Grid(ucGridControlTaiSan1.gridControlTaiSan);
             ReportDesignTool _ReportDesignTool = new ReportDesignTool(_XtraReportTSCD_Grid);
@@ -233,7 +236,7 @@ namespace TSCD_GUI.QLTaiSan
             _ReportDesignTool.ShowDesignerDialog();
             ReportPrintTool _ReportPrintTool = new ReportPrintTool(_ReportDesignTool.Report);
             _ReportPrintTool.ShowPreviewDialog();
-        }
+        }*/
 
         private void barBtnDefault_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

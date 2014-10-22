@@ -36,7 +36,6 @@
             this.barBtnTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThietKe = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImportChungTu = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
@@ -88,7 +87,6 @@
             this.barBtnTinhTrang,
             this.barBtnImport,
             this.barBtnXuatBaoCao,
-            this.barBtnThietKe,
             this.barBtnDefault,
             this.barBtnImportChungTu,
             this.barBtnChuyenTinhTrang,
@@ -151,15 +149,6 @@
             this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
             this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
             this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
-            // 
-            // barBtnThietKe
-            // 
-            this.barBtnThietKe.Caption = "Thiết kế";
-            this.barBtnThietKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.Glyph")));
-            this.barBtnThietKe.Id = 8;
-            this.barBtnThietKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnThietKe.LargeGlyph")));
-            this.barBtnThietKe.Name = "barBtnThietKe";
-            this.barBtnThietKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThietKe_ItemClick);
             // 
             // barBtnDefault
             // 
@@ -247,7 +236,6 @@
             // rbnGroupBaoCao
             // 
             this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
-            this.rbnGroupBaoCao.ItemLinks.Add(this.barBtnThietKe);
             this.rbnGroupBaoCao.Name = "rbnGroupBaoCao";
             this.rbnGroupBaoCao.ShowCaptionButton = false;
             this.rbnGroupBaoCao.Text = "Báo cáo";
@@ -478,7 +466,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
         private MyUserControl.ucGridControlTaiSan ucGridControlTaiSan1;
         private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
-        private DevExpress.XtraBars.BarButtonItem barBtnThietKe;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
         private DevExpress.XtraBars.BarButtonItem barBtnDefault;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;

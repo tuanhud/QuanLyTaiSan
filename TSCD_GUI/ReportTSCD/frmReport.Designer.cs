@@ -57,7 +57,6 @@
             // 
             // comboBoxEdit_LoaiBaoCao
             // 
-            this.comboBoxEdit_LoaiBaoCao.EditValue = "Báo cáo tăng giảm tài sản cố định";
             this.comboBoxEdit_LoaiBaoCao.Location = new System.Drawing.Point(116, 12);
             this.comboBoxEdit_LoaiBaoCao.Name = "comboBoxEdit_LoaiBaoCao";
             this.comboBoxEdit_LoaiBaoCao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -186,12 +185,12 @@
             // 
             // checkedComboBoxEdit_ChonCoSo
             // 
+            this.checkedComboBoxEdit_ChonCoSo.Location = new System.Drawing.Point(116, 142);
             this.checkedComboBoxEdit_ChonCoSo.Name = "checkedComboBoxEdit_ChonCoSo";
             this.checkedComboBoxEdit_ChonCoSo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.checkedComboBoxEdit_ChonCoSo.Properties.DisplayMember = "ten";
             this.checkedComboBoxEdit_ChonCoSo.Properties.ValueMember = "id";
-            this.checkedComboBoxEdit_ChonCoSo.Location = new System.Drawing.Point(116, 142);
             this.checkedComboBoxEdit_ChonCoSo.Size = new System.Drawing.Size(180, 20);
             this.checkedComboBoxEdit_ChonCoSo.TabIndex = 5;
             // 
@@ -235,6 +234,7 @@
             this.Controls.Add(this.comboBoxEdit_LoaiBaoCao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xuất báo cáo";
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit_LoaiBaoCao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_TuNgay.Properties.CalendarTimeProperties)).EndInit();
