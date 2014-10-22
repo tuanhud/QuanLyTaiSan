@@ -32,6 +32,7 @@ namespace TSCD_GUI.QLTaiSan
             ucTreeDonVi1.focusedNodeChanged = new MyUserControl.ucTreeDonVi.FocusedNodeChanged(reloadData);
             ucGridControlTaiSan1.fileName = this.Name;
             ucGridControlTaiSan1.createLayout();
+            ucGridControlTaiSan1.AlwaysVisibleFindPanel = true;
         }
 
         public void loadData()

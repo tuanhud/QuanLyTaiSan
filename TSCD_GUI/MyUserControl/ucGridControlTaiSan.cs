@@ -12,6 +12,8 @@ using SHARED.Libraries;
 using TSCD.Entities;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using System.IO;
+using DevExpress.XtraGrid.Views.Grid;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI.MyUserControl
 {
@@ -32,11 +34,19 @@ namespace TSCD_GUI.MyUserControl
             }
         }
 
+        public bool AlwaysVisibleFindPanel
+        {
+            set
+            {
+                gridViewTaiSan.OptionsFind.AlwaysVisible = value;
+            }
+        }
+
         public CTTaiSan CTTaiSan
         {
             get
             {
-                BandedGridView view = gridControlTaiSan.FocusedView as BandedGridView;
+                GridView view = gridControlTaiSan.FocusedView as GridView;
                 if (view.GetFocusedRow() != null)
                 {
                     return (view.GetFocusedRow() as TaiSanHienThi).obj;
@@ -48,18 +58,25 @@ namespace TSCD_GUI.MyUserControl
 
         public void ExpandAllGroups()
         {
-            bandedGridViewTaiSan.ExpandAllGroups();
+            //bandedGridViewTaiSan.ExpandAllGroups();
+            gridViewTaiSan.ExpandAllGroups();
         }
 
         public void reloadAndFocused(Guid _id)
         {
             try
             {
+                //if (_id != Guid.Empty)
+                //{
+                //    int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
+                //    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                //        bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                //}
                 if (_id != Guid.Empty)
                 {
-                    int rowHandle = bandedGridViewTaiSan.LocateByValue(colid.FieldName, _id);
+                    int rowHandle = gridViewTaiSan.LocateByValue(colid.FieldName, _id);
                     if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        bandedGridViewTaiSan.FocusedRowHandle = rowHandle;
+                        gridViewTaiSan.FocusedRowHandle = rowHandle;
                 }
             }
             catch (Exception ex)
@@ -72,7 +89,9 @@ namespace TSCD_GUI.MyUserControl
         {
             try
             {
-                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                //TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                //e.IsEmpty = c.childs == null || c.childs.Count == 0;
+                TaiSanHienThi c = (TaiSanHienThi)gridViewTaiSan.GetRow(e.RowHandle);
                 e.IsEmpty = c.childs == null || c.childs.Count == 0;
             }
             catch (Exception ex)
@@ -95,7 +114,9 @@ namespace TSCD_GUI.MyUserControl
         {
             try
             {
-                TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                //TaiSanHienThi c = (TaiSanHienThi)bandedGridViewTaiSan.GetRow(e.RowHandle);
+                //e.ChildList = TaiSanHienThi.Convert(c.childs);
+                TaiSanHienThi c = (TaiSanHienThi)gridViewTaiSan.GetRow(e.RowHandle);
                 e.ChildList = TaiSanHienThi.Convert(c.childs);
             }
             catch (Exception ex)
@@ -112,13 +133,21 @@ namespace TSCD_GUI.MyUserControl
                 Directory.CreateDirectory(path);
             String fileMaster = path + "//" + fileName + "_Master_Default.xml";
             String fileDetail = path + "//" + fileName + "_Detail_Default.xml";
+            //if (!System.IO.File.Exists(fileMaster))
+            //{
+            //    bandedGridViewTaiSan.SaveLayoutToXml(fileMaster);
+            //}
+            //if (!System.IO.File.Exists(fileDetail))
+            //{
+            //    bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+            //}
             if (!System.IO.File.Exists(fileMaster))
             {
-                bandedGridViewTaiSan.SaveLayoutToXml(fileMaster);
+                gridViewTaiSan.SaveLayoutToXml(fileMaster);
             }
             if (!System.IO.File.Exists(fileDetail))
             {
-                bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+                gridViewTaiSanKemTheo.SaveLayoutToXml(fileDetail);
             }
         }
 
@@ -130,8 +159,10 @@ namespace TSCD_GUI.MyUserControl
                 Directory.CreateDirectory(path);
             String fileMaster = path + "//" + fileName + "_Master_Current.xml";
             String fileDetail = path + "//" + fileName + "_Detail_Current.xml";
-            bandedGridViewTaiSan.SaveLayoutToXml(fileMaster);
-            bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+            //bandedGridViewTaiSan.SaveLayoutToXml(fileMaster);
+            //bandedGridViewTSKemTheo.SaveLayoutToXml(fileDetail);
+            gridViewTaiSan.SaveLayoutToXml(fileMaster);
+            gridViewTaiSanKemTheo.SaveLayoutToXml(fileDetail);
         }
 
         public void loadLayout(bool Default = false)
@@ -152,13 +183,21 @@ namespace TSCD_GUI.MyUserControl
                     fileMaster = path + "//" + fileName + "_Master_Current.xml";
                     fileDetail = path + "//" + fileName + "_Detail_Current.xml";
                 }
+                //if (System.IO.File.Exists(fileMaster))
+                //{
+                //    bandedGridViewTaiSan.RestoreLayoutFromXml(fileMaster);
+                //}
+                //if (System.IO.File.Exists(fileDetail))
+                //{
+                //    bandedGridViewTSKemTheo.RestoreLayoutFromXml(fileDetail);
+                //}
                 if (System.IO.File.Exists(fileMaster))
                 {
-                    bandedGridViewTaiSan.RestoreLayoutFromXml(fileMaster);
+                    gridViewTaiSan.RestoreLayoutFromXml(fileMaster);
                 }
                 if (System.IO.File.Exists(fileDetail))
                 {
-                    bandedGridViewTSKemTheo.RestoreLayoutFromXml(fileDetail);
+                    gridViewTaiSanKemTheo.RestoreLayoutFromXml(fileDetail);
                 }
             }
         }
@@ -171,6 +210,47 @@ namespace TSCD_GUI.MyUserControl
         private void ucGridControlTaiSan_Load(object sender, EventArgs e)
         {
             loadLayout();
+        }
+
+
+        private void gridView1_CustomRowFilter(object sender, DevExpress.XtraGrid.Views.Base.RowFilterEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                if (e.ListSourceRow >= 0 && !String.IsNullOrEmpty(view.FindFilterText))
+                {
+                    String text = view.GetRowCellValue(e.ListSourceRow, colten).ToString();
+                    String find = view.FindFilterText;
+                    if (find.Equals(StringHelper.CoDauThanhKhongDau(find)))
+                    {
+                        if (StringHelper.CoDauThanhKhongDau(text.ToUpper()).Contains(StringHelper.CoDauThanhKhongDau(find.ToUpper())))
+                        {
+                            e.Visible = true;
+                            e.Handled = true;
+                        }
+                        else
+                        {
+                            e.Visible = false;
+                            e.Handled = true;
+                        }
+                    }
+                    else
+                    {
+                        if (text.ToUpper().Contains(find.ToUpper()))
+                        {
+                            e.Visible = true;
+                            e.Handled = true;
+                        }
+                        else
+                        {
+                            e.Visible = false;
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+            catch { };
         }
     }
 }
