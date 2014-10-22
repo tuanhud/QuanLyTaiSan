@@ -762,5 +762,63 @@ namespace TSCD_GUI.QLViTri
 
             }
         }
+
+        private void barBtnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (node.Equals(typeof(CoSo).Name))
+                {
+                    objCoSo.moveUp();
+                    DBInstance.commit();
+                    reLoadAndSelectNode(objCoSo.id);
+                }
+                else if (node.Equals(typeof(Dayy).Name))
+                {
+                    objDay.moveUp();
+                    DBInstance.commit();
+                    reLoadAndSelectNode(objDay.id);
+                }
+                else if (node.Equals(typeof(Tang).Name))
+                {
+                    objTang.moveUp();
+                    DBInstance.commit();
+                    reLoadAndSelectNode(objTang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnUp_ItemClick: " + ex.Message);
+            }
+        }
+
+        private void barBtnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (node.Equals(typeof(CoSo).Name))
+                {
+                    objCoSo.moveDown();
+                    DBInstance.commit();
+                    reLoadAndSelectNode(objCoSo.id);
+                }
+                else if (node.Equals(typeof(Dayy).Name))
+                {
+                    objDay.moveDown();
+                    DBInstance.commit();
+                    reLoadAndSelectNode(objDay.id);
+                }
+                else if (node.Equals(typeof(Tang).Name))
+                {
+                    objTang.moveDown();
+                    DBInstance.commit();
+                    reLoadAndSelectNode(objTang.id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnDown_ItemClick: " + ex.Message);
+            }
+        }
     }
 }

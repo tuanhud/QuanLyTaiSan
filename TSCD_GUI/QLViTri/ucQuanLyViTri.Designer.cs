@@ -64,6 +64,9 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.rbnGroupSapXep = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -90,9 +93,11 @@
             this.barBtnThemTang,
             this.barBtnSuaTang,
             this.barBtnXoaTang,
-            this.barBtnImport});
+            this.barBtnImport,
+            this.barBtnUp,
+            this.barBtnDown});
             this.rbnControlViTri.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlViTri.MaxItemId = 11;
+            this.rbnControlViTri.MaxItemId = 13;
             this.rbnControlViTri.Name = "rbnControlViTri";
             this.rbnControlViTri.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageViTri});
@@ -185,6 +190,7 @@
             this.rbnGroupCoSo,
             this.rbnGroupDay,
             this.rbnGroupTang,
+            this.rbnGroupSapXep,
             this.rbnGroupImport});
             this.rbnPageViTri.Image = global::TSCD_GUI.Properties.Resources.vitri;
             this.rbnPageViTri.Name = "rbnPageViTri";
@@ -415,6 +421,30 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // rbnGroupSapXep
+            // 
+            this.rbnGroupSapXep.ItemLinks.Add(this.barBtnUp);
+            this.rbnGroupSapXep.ItemLinks.Add(this.barBtnDown);
+            this.rbnGroupSapXep.Name = "rbnGroupSapXep";
+            this.rbnGroupSapXep.ShowCaptionButton = false;
+            this.rbnGroupSapXep.Text = "Sắp xếp";
+            // 
+            // barBtnUp
+            // 
+            this.barBtnUp.Caption = "Lên";
+            this.barBtnUp.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnUp.Glyph")));
+            this.barBtnUp.Id = 11;
+            this.barBtnUp.Name = "barBtnUp";
+            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
+            // 
+            // barBtnDown
+            // 
+            this.barBtnDown.Caption = "Xuống";
+            this.barBtnDown.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDown.Glyph")));
+            this.barBtnDown.Id = 12;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
+            // 
             // ucQuanLyViTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,5 +505,8 @@
         private DevExpress.XtraEditors.LabelControl lblThuoc;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupSapXep;
+        private DevExpress.XtraBars.BarButtonItem barBtnUp;
+        private DevExpress.XtraBars.BarButtonItem barBtnDown;
     }
 }
