@@ -278,5 +278,10 @@ namespace TSCD_GUI.MyUserControl
 
             }
         }
+
+        private void gridViewTaiSan_ColumnFilterChanged(object sender, EventArgs e)
+        {
+            gridViewTaiSan.ExpandAllGroups();
+        }
     }
 }
