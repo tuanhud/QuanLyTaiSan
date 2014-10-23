@@ -37,7 +37,7 @@
             this.xrTableCell_TenTSCD = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_NuocSX = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_NamSD = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell__SoHieuTSCD = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell_SoHieuTSCD = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_NguyenGia = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_TyLeHaoMon = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell_SoTienHaoMon = new DevExpress.XtraReports.UI.XRTableCell();
@@ -176,7 +176,7 @@
             this.xrTableCell_TenTSCD,
             this.xrTableCell_NuocSX,
             this.xrTableCell_NamSD,
-            this.xrTableCell__SoHieuTSCD,
+            this.xrTableCell_SoHieuTSCD,
             this.xrTableCell_NguyenGia,
             this.xrTableCell_TyLeHaoMon,
             this.xrTableCell_SoTienHaoMon,
@@ -227,11 +227,11 @@
             this.xrTableCell_NamSD.StyleName = "xrControlStyle_Middle";
             this.xrTableCell_NamSD.Weight = 0.47135478973388678D;
             // 
-            // xrTableCell__SoHieuTSCD
+            // xrTableCell_SoHieuTSCD
             // 
-            this.xrTableCell__SoHieuTSCD.Name = "xrTableCell__SoHieuTSCD";
-            this.xrTableCell__SoHieuTSCD.StyleName = "xrControlStyle_Left";
-            this.xrTableCell__SoHieuTSCD.Weight = 0.42838468551635744D;
+            this.xrTableCell_SoHieuTSCD.Name = "xrTableCell_SoHieuTSCD";
+            this.xrTableCell_SoHieuTSCD.StyleName = "xrControlStyle_Left";
+            this.xrTableCell_SoHieuTSCD.Weight = 0.42838468551635744D;
             // 
             // xrTableCell_NguyenGia
             // 
@@ -417,7 +417,7 @@
             // xrTableCell8
             // 
             this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.Text = "Đơn vị tính";
+            this.xrTableCell8.Text = "Hao mòn 1 năm";
             this.xrTableCell8.Weight = 1.0729160308837891D;
             // 
             // xrTableCell12
@@ -1136,7 +1136,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_TenTSCD;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_NuocSX;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_NamSD;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell__SoHieuTSCD;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell_SoHieuTSCD;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_NguyenGia;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_TyLeHaoMon;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell_SoTienHaoMon;

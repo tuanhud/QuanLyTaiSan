@@ -11,6 +11,7 @@ using TSCD.Entities;
 using DevExpress.XtraReports.UI;
 using TSCD.DataFilter;
 using TSCD.DataFilter.SearchFilter;
+using TSCD_GUI.Libraries;
 
 namespace TSCD_GUI.ReportTSCD
 {
@@ -80,7 +81,55 @@ namespace TSCD_GUI.ReportTSCD
                     XtraMessageBox.Show("Không có dữ liệu để thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 1:
-                    XtraMessageBox.Show("Không có dữ liệu để thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    List<Guid> ListLoaiTS = ucComboBoxLoaiTS_LoaiTaiSan.list_loaitaisan;
+                    if (Object.Equals(ListLoaiTS, null))
+                    {
+                        XtraMessageBox.Show("Chưa chọn loại tài sản cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (!(ListLoaiTS.Count > 0))
+                    {
+                        XtraMessageBox.Show("Chưa chọn loại tài sản cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    List<Guid> ListCoSo = CheckedComboBoxEditHelper.getCheckedValueArray(checkedComboBoxEdit_ChonCoSo);
+                    if (Object.Equals(ListCoSo, null))
+                    {
+                        XtraMessageBox.Show("Chưa chọn cơ sở cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (!(ListCoSo.Count > 0))
+                    {
+                        XtraMessageBox.Show("Chưa chọn cơ sở cần thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (checkEdit_XuatBaoCao.Checked)
+                    {
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(TaiSan_ThongKe.getAll(ListCoSo, ListLoaiTS, null));
+                        ReportPrintTool printTool = new ReportPrintTool(_XtraReport_SoTaiSanCoDinh);
+
+                        splashScreenManager_Report.CloseWaitForm();
+                        printTool.ShowPreviewDialog();
+                    }
+                    else if (checkEdit_ThietKe.Checked)
+                    {
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        TSCD_GUI.ReportTSCD.XtraReport_SoTaiSanCoDinh _XtraReport_SoTaiSanCoDinh = new ReportTSCD.XtraReport_SoTaiSanCoDinh(TaiSan_ThongKe.getAll(ListCoSo, ListLoaiTS, null));
+                        ReportDesignTool designTool = new ReportDesignTool(_XtraReport_SoTaiSanCoDinh);
+
+                        splashScreenManager_Report.CloseWaitForm();
+                        designTool.ShowDesignerDialog();
+
+                        ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                        printTool.ShowPreviewDialog();
+                    }
                     break;
                 case 2:
                     if (Object.Equals(ucComboBoxDonVi_ChonDonVi.DonVi, null))
