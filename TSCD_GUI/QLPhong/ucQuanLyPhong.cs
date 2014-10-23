@@ -26,7 +26,7 @@ namespace TSCD_GUI.QLPhong
         String function = "";
         public bool working = false;
 
-        public delegate void SelectPageDonViTaiSan(Guid donvi_id, Guid phong_id);
+        public delegate void SelectPageDonViTaiSan(Guid? donvi_id, Guid? phong_id);
         public SelectPageDonViTaiSan selectPageDonViTaiSan = null;
 
         public ucQuanLyPhong()
@@ -469,18 +469,25 @@ namespace TSCD_GUI.QLPhong
 
         private void barBtnXemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (objPhong != null && objPhong.id != Guid.Empty)
+            try
             {
-                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id).FirstOrDefault();
-                if (obj == null)
+                if (objPhong != null && objPhong.id != Guid.Empty)
                 {
-                    XtraMessageBox.Show(objPhong.ten + " không chứa tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id).FirstOrDefault();
+                    if (obj == null)
+                    {
+                        XtraMessageBox.Show(objPhong.ten + " không chứa tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        if (selectPageDonViTaiSan != null)
+                            selectPageDonViTaiSan(obj.donviquanly_id, obj.phong_id);
+                    }
                 }
-                else
-                {
-                    //if (selectPageDonViTaiSan != null)
-                        //selectPageDonViTaiSan(obj.donviquanly_id, obj.phong_id);
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnXemTaiSan_ItemClick: " + ex.Message);
             }
         }
     }

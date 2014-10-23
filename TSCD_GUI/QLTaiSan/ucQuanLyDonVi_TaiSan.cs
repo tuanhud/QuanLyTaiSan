@@ -36,14 +36,16 @@ namespace TSCD_GUI.QLTaiSan
             ucGridControlTaiSan1.createLayout();
         }
 
-        public void loadData(DonVi obj = null)
+        public void loadData(DonVi donvi = null, Phong phong = null)
         {
             try
             {
                 ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-                if (obj != null)
-                    ucTreeDonVi1.DonVi = obj;
+                if (donvi != null)
+                    ucTreeDonVi1.DonVi = donvi;
                 reloadData();
+                if (phong != null)
+                    ucGridControlTaiSan1.ExpandGroupRow(phong.ten);
             }
             catch (Exception ex)
             {
