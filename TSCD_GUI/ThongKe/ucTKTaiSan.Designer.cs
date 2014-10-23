@@ -376,9 +376,9 @@
             // 
             // btnThongKeTangGiam
             // 
-            this.btnThongKeTangGiam.Location = new System.Drawing.Point(169, 163);
+            this.btnThongKeTangGiam.Location = new System.Drawing.Point(60, 192);
             this.btnThongKeTangGiam.Name = "btnThongKeTangGiam";
-            this.btnThongKeTangGiam.Size = new System.Drawing.Size(104, 23);
+            this.btnThongKeTangGiam.Size = new System.Drawing.Size(172, 23);
             this.btnThongKeTangGiam.TabIndex = 7;
             this.btnThongKeTangGiam.Text = "Thống kê tăng giảm";
             this.btnThongKeTangGiam.Click += new System.EventHandler(this.btnThongKeTangGiam_Click);
@@ -410,6 +410,7 @@
             // 
             this.ucComboBoxLoaiTS1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(88, 80);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
@@ -490,9 +491,9 @@
             // 
             this.btnThongKe.Location = new System.Drawing.Point(60, 163);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(103, 23);
+            this.btnThongKe.Size = new System.Drawing.Size(172, 23);
             this.btnThongKe.TabIndex = 6;
-            this.btnThongKe.Text = "Thống kê hiện tại";
+            this.btnThongKe.Text = "Thống kê tài sản tại nơi sử dụng";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // ucTKTaiSan

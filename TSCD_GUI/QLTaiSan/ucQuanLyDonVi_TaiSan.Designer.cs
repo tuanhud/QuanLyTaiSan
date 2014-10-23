@@ -40,6 +40,8 @@
             this.barBtnDefault = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnChuyenTinhTrang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnAttachment = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageDonVi_TaiSan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupChuyen = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -56,8 +58,6 @@
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
             this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
-            this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi_TaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -179,6 +179,24 @@
             this.barBtnAttachment.Name = "barBtnAttachment";
             this.barBtnAttachment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAttachment_ItemClick);
             // 
+            // barBtnExpandAll
+            // 
+            this.barBtnExpandAll.Caption = "Mở rộng tất cả";
+            this.barBtnExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.Glyph")));
+            this.barBtnExpandAll.Id = 12;
+            this.barBtnExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.LargeGlyph")));
+            this.barBtnExpandAll.Name = "barBtnExpandAll";
+            this.barBtnExpandAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExpandAll_ItemClick);
+            // 
+            // barBtnCollapseAll
+            // 
+            this.barBtnCollapseAll.Caption = "Thu gọn tất cả";
+            this.barBtnCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.Glyph")));
+            this.barBtnCollapseAll.Id = 13;
+            this.barBtnCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.LargeGlyph")));
+            this.barBtnCollapseAll.Name = "barBtnCollapseAll";
+            this.barBtnCollapseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCollapseAll_ItemClick);
+            // 
             // rbnPageDonVi_TaiSan
             // 
             this.rbnPageDonVi_TaiSan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -191,7 +209,7 @@
             this.rbnGroupAttachment});
             this.rbnPageDonVi_TaiSan.Image = ((System.Drawing.Image)(resources.GetObject("rbnPageDonVi_TaiSan.Image")));
             this.rbnPageDonVi_TaiSan.Name = "rbnPageDonVi_TaiSan";
-            this.rbnPageDonVi_TaiSan.Text = "Đơn vị - Tài sản";
+            this.rbnPageDonVi_TaiSan.Text = "Tài sản - Đơn vị";
             // 
             // rbnGroupTaiSan
             // 
@@ -315,24 +333,6 @@
             this.ucGridControlTaiSan1.Name = "ucGridControlTaiSan1";
             this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 353);
             this.ucGridControlTaiSan1.TabIndex = 0;
-            // 
-            // barBtnExpandAll
-            // 
-            this.barBtnExpandAll.Caption = "Mở rộng tất cả";
-            this.barBtnExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.Glyph")));
-            this.barBtnExpandAll.Id = 12;
-            this.barBtnExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.LargeGlyph")));
-            this.barBtnExpandAll.Name = "barBtnExpandAll";
-            this.barBtnExpandAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExpandAll_ItemClick);
-            // 
-            // barBtnCollapseAll
-            // 
-            this.barBtnCollapseAll.Caption = "Thu gọn tất cả";
-            this.barBtnCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.Glyph")));
-            this.barBtnCollapseAll.Id = 13;
-            this.barBtnCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.LargeGlyph")));
-            this.barBtnCollapseAll.Name = "barBtnCollapseAll";
-            this.barBtnCollapseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCollapseAll_ItemClick);
             // 
             // ucQuanLyDonVi_TaiSan
             // 

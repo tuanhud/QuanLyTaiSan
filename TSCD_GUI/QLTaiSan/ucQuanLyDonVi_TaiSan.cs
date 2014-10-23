@@ -31,15 +31,18 @@ namespace TSCD_GUI.QLTaiSan
             rbnControlDonVi_TaiSan.Parent = null;
             ucTreeDonVi1.focusedNodeChanged = new MyUserControl.ucTreeDonVi.FocusedNodeChanged(reloadData);
             ucGridControlTaiSan1.fileName = this.Name;
-            ucGridControlTaiSan1.createLayout();
             ucGridControlTaiSan1.AlwaysVisibleFindPanel = true;
+            ucGridControlTaiSan1.GroupingPhong();
+            ucGridControlTaiSan1.createLayout();
         }
 
-        public void loadData()
+        public void loadData(DonVi obj = null)
         {
             try
             {
                 ucTreeDonVi1.DataSource = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+                if (obj != null)
+                    ucTreeDonVi1.DonVi = obj;
                 reloadData();
             }
             catch (Exception ex)
@@ -83,7 +86,7 @@ namespace TSCD_GUI.QLTaiSan
                     ucGridControlTaiSan1.DataSource = null;
                     barBtnThemTaiSan.Enabled = barBtnSuaTaiSan.Enabled = barBtnXoaTaiSan.Enabled = barBtnChuyen.Enabled = barBtnChuyenTinhTrang.Enabled = false;
                 }
-                ucGridControlTaiSan1.ExpandAllGroups();
+                ucGridControlTaiSan1.CollapseAllGroups();
             }
             catch (Exception ex)
             {

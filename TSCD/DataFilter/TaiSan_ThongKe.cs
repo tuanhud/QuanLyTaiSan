@@ -12,6 +12,10 @@ namespace TSCD.DataFilter
         public DateTime? ngay { get; set; }
         public String sohieu_ct { get; set; }
         public DateTime? ngay_ct { get; set; }
+        public String sohieu_ct_tang { get; set; }
+        public DateTime? ngay_ct_tang { get; set; }
+        public String sohieu_ct_giam { get; set; }
+        public DateTime? ngay_ct_giam { get; set; }
         public String ten { get; set; }
         public String loaits { get; set; }
         public String donvitinh { get; set; }
@@ -68,6 +72,10 @@ namespace TSCD.DataFilter
                 soluong_giam = x.tinhtrang.giam_taisan ? (int?)x.soluong : null,
                 dongia_giam = x.tinhtrang.giam_taisan ? (long?)x.taisan.dongia : null,
                 thanhtien_giam = x.tinhtrang.giam_taisan ? (long?)x.soluong * x.taisan.dongia : null,
+                sohieu_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
+                ngay_ct_tang = !x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
+                sohieu_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.sohieu : "") : "",
+                ngay_ct_giam = x.tinhtrang.giam_taisan ? (x.chungtu != null ? x.chungtu.ngay : null) : null,
                 nuocsx = x.taisan.nuocsx,
                 nguongoc = x.nguongoc,
                 tinhtrang = x.tinhtrang.value,

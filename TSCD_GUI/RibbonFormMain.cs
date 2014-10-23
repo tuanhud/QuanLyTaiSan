@@ -52,6 +52,8 @@ namespace TSCD_GUI
 
         bool drawEnd = false;
 
+        Guid donvi_id = Guid.Empty;
+        Guid phong_id = Guid.Empty;
 
         public RibbonFormMain()
         {
@@ -77,6 +79,7 @@ namespace TSCD_GUI
 
             _ucQuanLyViTri = new ucQuanLyViTri();
             _ucQuanLyPhong = new ucQuanLyPhong();
+            _ucQuanLyPhong.selectPageDonViTaiSan = new ucQuanLyPhong.SelectPageDonViTaiSan(SelectPageDonViTaiSan);
             _ucQuanLyDonVi = new ucQuanLyDonVi();
             _ucQuanLyLoaiTS = new ucQuanLyLoaiTS();
             _ucQuanLyTaiSan = new ucQuanLyTaiSan();
@@ -183,6 +186,13 @@ namespace TSCD_GUI
                 }
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
             }
+        }
+
+        public void SelectPageDonViTaiSan(Guid donvi_id, Guid phong_id)
+        {
+            this.donvi_id = donvi_id;
+            this.phong_id = phong_id;
+            ribbonMain.SelectedPage = ribbonMain.Pages.GetPageByName(rbnPageDonVi_TaiSan);
         }
 
         private void backstageViewTabItemCaiDatCauHinh_SelectedChanged(object sender, BackstageViewItemEventArgs e)

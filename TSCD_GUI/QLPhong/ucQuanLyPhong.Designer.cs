@@ -40,6 +40,7 @@
             this.rbnGroupPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLoaiPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainerViTri = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
@@ -71,6 +72,7 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.barBtnXemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -98,9 +100,10 @@
             this.barBtnSuaPhong,
             this.barBtnXoaPhong,
             this.barBtnLoaiPhong,
-            this.barBtnImport});
+            this.barBtnImport,
+            this.barBtnXemTaiSan});
             this.rbnControlPhong.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlPhong.MaxItemId = 6;
+            this.rbnControlPhong.MaxItemId = 7;
             this.rbnControlPhong.Name = "rbnControlPhong";
             this.rbnControlPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong});
@@ -152,7 +155,8 @@
             this.rbnPagePhong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupPhong,
             this.rbnGroupLoaiPhong,
-            this.rbnGroupImport});
+            this.rbnGroupImport,
+            this.rbnGroupTaiSan});
             this.rbnPagePhong.Image = global::TSCD_GUI.Properties.Resources.phong;
             this.rbnPagePhong.Name = "rbnPagePhong";
             this.rbnPagePhong.Text = "Phòng";
@@ -180,6 +184,13 @@
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
             // 
+            // rbnGroupTaiSan
+            // 
+            this.rbnGroupTaiSan.ItemLinks.Add(this.barBtnXemTaiSan);
+            this.rbnGroupTaiSan.Name = "rbnGroupTaiSan";
+            this.rbnGroupTaiSan.ShowCaptionButton = false;
+            this.rbnGroupTaiSan.Text = "Tài sản";
+            // 
             // navBarControlLeft
             // 
             this.navBarControlLeft.ActiveGroup = this.navBarGroupViTri;
@@ -206,7 +217,7 @@
             // navBarGroupControlContainerViTri
             // 
             this.navBarGroupControlContainerViTri.Name = "navBarGroupControlContainerViTri";
-            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(208, 284);
+            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(210, 273);
             this.navBarGroupControlContainerViTri.TabIndex = 0;
             // 
             // splitContainerControlMain
@@ -231,7 +242,7 @@
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.MenuManager = this.rbnControlPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(338, 376);
+            this.gridControlPhong.Size = new System.Drawing.Size(337, 376);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -516,6 +527,15 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
+            // barBtnXemTaiSan
+            // 
+            this.barBtnXemTaiSan.Caption = "Xem tài sản";
+            this.barBtnXemTaiSan.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXemTaiSan.Glyph")));
+            this.barBtnXemTaiSan.Id = 6;
+            this.barBtnXemTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXemTaiSan.LargeGlyph")));
+            this.barBtnXemTaiSan.Name = "barBtnXemTaiSan";
+            this.barBtnXemTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXemTaiSan_ItemClick);
+            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,5 +610,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
         private DevExpress.XtraEditors.SpinEdit txtSoChoNgoi;
         private DevExpress.XtraGrid.Columns.GridColumn colsochongoi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupTaiSan;
+        private DevExpress.XtraBars.BarButtonItem barBtnXemTaiSan;
     }
 }

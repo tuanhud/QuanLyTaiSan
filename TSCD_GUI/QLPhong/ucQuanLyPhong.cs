@@ -26,6 +26,9 @@ namespace TSCD_GUI.QLPhong
         String function = "";
         public bool working = false;
 
+        public delegate void SelectPageDonViTaiSan(Guid donvi_id, Guid phong_id);
+        public SelectPageDonViTaiSan selectPageDonViTaiSan = null;
+
         public ucQuanLyPhong()
         {
             InitializeComponent();
@@ -460,6 +463,23 @@ namespace TSCD_GUI.QLPhong
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                     XtraMessageBox.Show("Import không thành công!");
+                }
+            }
+        }
+
+        private void barBtnXemTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (objPhong != null && objPhong.id != Guid.Empty)
+            {
+                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id).FirstOrDefault();
+                if (obj == null)
+                {
+                    XtraMessageBox.Show(objPhong.ten + " không chứa tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //if (selectPageDonViTaiSan != null)
+                        //selectPageDonViTaiSan(obj.donviquanly_id, obj.phong_id);
                 }
             }
         }

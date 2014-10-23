@@ -36,6 +36,13 @@ namespace TSCD_GUI.MyUserControl
             }
         }
 
+        public void GroupingPhong()
+        {
+            gridViewTaiSan.ClearGrouping();
+            gridViewTaiSan.Columns[colphong.FieldName].GroupIndex = 0;
+            gridViewTaiSan.Columns[colloai.FieldName].GroupIndex = 1;
+        }
+
         public bool AlwaysVisibleFindPanel
         {
             set
