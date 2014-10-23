@@ -41,10 +41,13 @@
             this.barBtnSuaTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXoaTang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageViTri = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupCoSo = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupDay = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupTang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupSapXep = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitContainerControlMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListViTri = new DevExpress.XtraTreeList.TreeList();
@@ -64,9 +67,6 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.rbnGroupSapXep = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnUp = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnDown = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlViTri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -184,6 +184,22 @@
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
+            // barBtnUp
+            // 
+            this.barBtnUp.Caption = "Lên";
+            this.barBtnUp.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnUp.Glyph")));
+            this.barBtnUp.Id = 11;
+            this.barBtnUp.Name = "barBtnUp";
+            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
+            // 
+            // barBtnDown
+            // 
+            this.barBtnDown.Caption = "Xuống";
+            this.barBtnDown.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDown.Glyph")));
+            this.barBtnDown.Id = 12;
+            this.barBtnDown.Name = "barBtnDown";
+            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
+            // 
             // rbnPageViTri
             // 
             this.rbnPageViTri.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -223,6 +239,14 @@
             this.rbnGroupTang.ShowCaptionButton = false;
             this.rbnGroupTang.Text = "Tầng";
             // 
+            // rbnGroupSapXep
+            // 
+            this.rbnGroupSapXep.ItemLinks.Add(this.barBtnUp);
+            this.rbnGroupSapXep.ItemLinks.Add(this.barBtnDown);
+            this.rbnGroupSapXep.Name = "rbnGroupSapXep";
+            this.rbnGroupSapXep.ShowCaptionButton = false;
+            this.rbnGroupSapXep.Text = "Sắp xếp";
+            // 
             // rbnGroupImport
             // 
             this.rbnGroupImport.ItemLinks.Add(this.barBtnImport);
@@ -260,9 +284,10 @@
             this.treeListViTri.OptionsBehavior.EnableFiltering = true;
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
+            this.treeListViTri.OptionsFind.HighlightFindResults = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.ParentFieldName = "parent_id";
-            this.treeListViTri.Size = new System.Drawing.Size(478, 372);
+            this.treeListViTri.Size = new System.Drawing.Size(477, 372);
             this.treeListViTri.TabIndex = 0;
             this.treeListViTri.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListViTri_FocusedNodeChanged);
             this.treeListViTri.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -420,30 +445,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // rbnGroupSapXep
-            // 
-            this.rbnGroupSapXep.ItemLinks.Add(this.barBtnUp);
-            this.rbnGroupSapXep.ItemLinks.Add(this.barBtnDown);
-            this.rbnGroupSapXep.Name = "rbnGroupSapXep";
-            this.rbnGroupSapXep.ShowCaptionButton = false;
-            this.rbnGroupSapXep.Text = "Sắp xếp";
-            // 
-            // barBtnUp
-            // 
-            this.barBtnUp.Caption = "Lên";
-            this.barBtnUp.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnUp.Glyph")));
-            this.barBtnUp.Id = 11;
-            this.barBtnUp.Name = "barBtnUp";
-            this.barBtnUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUp_ItemClick);
-            // 
-            // barBtnDown
-            // 
-            this.barBtnDown.Caption = "Xuống";
-            this.barBtnDown.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnDown.Glyph")));
-            this.barBtnDown.Id = 12;
-            this.barBtnDown.Name = "barBtnDown";
-            this.barBtnDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDown_ItemClick);
             // 
             // ucQuanLyViTri
             // 

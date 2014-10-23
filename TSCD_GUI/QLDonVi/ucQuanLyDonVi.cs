@@ -10,6 +10,9 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using SHARED.Libraries;
 using TSCD_GUI.MyUserControl;
+using DevExpress.XtraTreeList.Columns;
+using DevExpress.XtraTreeList.Nodes;
+using DevExpress.XtraTreeList;
 
 namespace TSCD_GUI.QLDonVi
 {
@@ -409,6 +412,26 @@ namespace TSCD_GUI.QLDonVi
             {
                 return true;
             }
+        }
+
+        private void OnFilterNode(object sender, FilterNodeEventArgs e)
+        {
+            List<TreeListColumn> filteredColumns = e.Node.TreeList.Columns.Cast<TreeListColumn>(
+                ).ToList();
+            if (filteredColumns.Count == 0) return;
+            if (string.IsNullOrEmpty(treeListDonVi.FindFilterText)) return;
+            e.Handled = true;
+            e.Node.Visible = filteredColumns.Any(c => IsNodeMatchFilter(e.Node, c));
+            e.Node.Expanded = e.Node.Visible;
+        }
+
+        bool IsNodeMatchFilter(TreeListNode node, TreeListColumn column)
+        {
+            string filterValue = treeListDonVi.FindFilterText;
+            if (StringHelper.CoDauThanhKhongDau(node.GetDisplayText(column)).ToUpper().Contains(StringHelper.CoDauThanhKhongDau(filterValue).ToUpper())) return true;
+            foreach (TreeListNode n in node.Nodes)
+                if (IsNodeMatchFilter(n, column)) return true;
+            return false;
         }
     }
 }

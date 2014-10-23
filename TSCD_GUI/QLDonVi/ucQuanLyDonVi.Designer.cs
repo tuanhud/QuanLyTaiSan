@@ -188,9 +188,10 @@
             this.treeListDonVi.ParentFieldName = "parent_id";
             this.treeListDonVi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpLoai});
-            this.treeListDonVi.Size = new System.Drawing.Size(467, 363);
+            this.treeListDonVi.Size = new System.Drawing.Size(466, 363);
             this.treeListDonVi.TabIndex = 0;
             this.treeListDonVi.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListDonVi_FocusedNodeChanged);
+            this.treeListDonVi.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
             // 
             // colid
             // 
