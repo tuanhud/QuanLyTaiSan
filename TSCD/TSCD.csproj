@@ -92,7 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataFilter\TaiSan_ThongKe_SoDauNam.cs" />
+    <Compile Include="DataFilter\TK_TangGiam_TheoLoaiTS.cs" />
     <Compile Include="DataFilter\LoaiTSHienThi.cs" />
     <Compile Include="DataFilter\Phong_ThongKe.cs" />
     <Compile Include="DataFilter\QuanTriVienHienThi.cs" />
