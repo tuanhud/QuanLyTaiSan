@@ -300,13 +300,13 @@ namespace TSCD_GUI.QLTaiSan
                             if (reader.NodeType == XmlNodeType.Element && reader.Name == "Search")
                             {
                                 //checkTen.Checked = Convert.ToInt32(reader.GetAttribute(0)).Equals(1) ? true : false;
-                                txtTen.Text = reader.GetAttribute(1);
-                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(2)).Equals(1) ? true : false;
-                                ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(3)));
-                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(4)).Equals(1) ? true : false;
-                                ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(5)));
-                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(6)).Equals(1) ? true : false;
-                                ucComboBoxViTri1.EditValue = GUID.From(reader.GetAttribute(7));
+                                txtTen.Text = reader.GetAttribute(0);
+                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(1)).Equals(1) ? true : false;
+                                ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(2)));
+                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(3)).Equals(1) ? true : false;
+                                ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(4)));
+                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(5)).Equals(1) ? true : false;
+                                ucComboBoxViTri1.EditValue = GUID.From(reader.GetAttribute(6));
                             }
                         }
                         reader.Close();
@@ -408,6 +408,16 @@ namespace TSCD_GUI.QLTaiSan
             ucComboBoxDonVi1.DonVi = null;
             checkViTri.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
+        }
+
+        private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ucGridControlTaiSan1.ExpandAllGroups();
+        }
+
+        private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ucGridControlTaiSan1.CollapseAllGroups();
         }
     }
 }

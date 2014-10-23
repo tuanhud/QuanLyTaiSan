@@ -267,5 +267,15 @@ namespace TSCD_GUI.QLTaiSan
                 frm.ShowDialog();
             }
         }
+
+        private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ucGridControlTaiSan1.ExpandAllGroups();
+        }
+
+        private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ucGridControlTaiSan1.CollapseAllGroups();
+        }
     }
 }

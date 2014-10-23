@@ -300,58 +300,64 @@ namespace TSCD_GUI.Libraries
                         {
                             if (row[TEN] != DBNull.Value && !String.IsNullOrWhiteSpace(row[TEN].ToString()) && row[DONGIA] != DBNull.Value)
                             {
-                                String sohieu_ct = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString().Trim() : null;
-                                DateTime? ngay_ct = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
-                                String ten = row[TEN].ToString().Trim().ToUpper();
+                                TaiSan obj = new TaiSan();
+                                obj.ten = row[TEN].ToString().Trim();
                                 String str = row[DONGIA].ToString().Trim().Replace(" ", "");
                                 long dongia = long.Parse(str);
-                                CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.taisan.ten.ToUpper().Equals(ten) && c.taisan.dongia.Equals(dongia) && c.chungtu.sohieu == sohieu_ct && c.chungtu.ngay == ngay_ct && c.donviquanly == null && c.soluong == 1).FirstOrDefault();
-                                if (obj != null)
+                                obj.dongia = dongia;
+                                if (row[LOAI] == DBNull.Value)
                                 {
-                                    if (row[LOAI] != DBNull.Value)
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loai)");
+                                    continue;
+                                }
+                                string str1 = row[LOAI].ToString().Trim();
+                                obj.loaitaisan = LoaiTaiSan.getQuery().Where(c => c.ten.Equals(str1)).FirstOrDefault();
+                                CTTaiSan objCTTaiSan = new CTTaiSan();
+                                objCTTaiSan.taisan = obj;
+                                objCTTaiSan.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                ChungTu objChungTu = new ChungTu();
+                                objChungTu.sohieu = row[SOHIEU] != DBNull.Value ? row[SOHIEU].ToString() : null;
+                                objChungTu.ngay = row[NGAY] != DBNull.Value ? (DateTime?)Convert.ToDateTime(row[NGAY]) : null;
+                                objCTTaiSan.chungtu = objChungTu;
+                                objCTTaiSan.mota = row[GHICHU] != DBNull.Value ? row[GHICHU].ToString() : null;
+                                objCTTaiSan.tinhtrang = TinhTrang.getQuery().FirstOrDefault(c => c.value.Equals("Đang sử dụng"));
+                                objCTTaiSan.soluong = 1;
+                                if (objCTTaiSan.add() > 0)
+                                {
+                                    if (row[DONVI] == DBNull.Value)
+                                        continue;
+                                    string str2 = row[DONVI].ToString().Trim();
+                                    DonVi objDonVi = DonVi.getQuery().Where(c => c.subId.Equals(str2)).FirstOrDefault();
+                                    Phong objPhong = null;
+                                    ViTri objViTri = null;
+                                    if (row[PHONG] != DBNull.Value)
                                     {
-                                        String ten_loai = row[DONVI].ToString().Trim().ToUpper();
-                                        LoaiTaiSan objLoaiTS = LoaiTaiSan.getQuery().Where(c => c.ten.ToUpper().Equals(ten_loai)).FirstOrDefault();
-                                        if (objLoaiTS == null)
+                                        string phong = row[PHONG].ToString().Trim();
+                                        objPhong = Phong.getQuery().Where(c => c.ten.Equals(phong)).FirstOrDefault();
+                                        if (objPhong == null)
                                         {
-                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có loại tài sản)");
+                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
                                             continue;
                                         }
-                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Chưa xử lí)");
-                                    }
-                                    if (row[DONVI] != DBNull.Value)
-                                    {
-                                        String ma_donvi = row[DONVI].ToString().Trim().ToUpper();
-                                        DonVi objDonVi = DonVi.getQuery().Where(c => c.subId.ToUpper().Equals(ma_donvi)).FirstOrDefault();
-                                        if (objDonVi == null)
-                                        {
-                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có đơn vị)");
-                                            continue;
-                                        }
-                                        String ghichu = row[GHICHU] != DBNull.Value ? row[GHICHU].ToString().Trim() : null;
-                                        Phong objPhong = null;
-                                        ViTri objViTri = null;
-                                        if(row[PHONG] != DBNull.Value)
-                                        {
-                                            String ten_phong = row[PHONG] != DBNull.Value ? row[PHONG].ToString().Trim().ToUpper() : null;
-                                            objPhong = Phong.getQuery().Where(c => c.ten.ToUpper().Equals(ten_phong)).FirstOrDefault();
-                                            if (objPhong == null)
-                                            {
-                                                WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không có phòng)");
-                                                continue;
-                                            }
+                                        //else
                                             //objViTri = objPhong.vitri;
-                                        }
-                                        if (obj.chuyenDonVi(objDonVi, null, objViTri, objPhong, obj.parent, obj.chungtu, obj.soluong, ghichu, obj.ngay) > 0 && DBInstance.commit() > 0)
-                                        {
-                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
-                                        }
-                                        else
-                                        {
-                                            WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
-                                        }
-
                                     }
+                                    if (objCTTaiSan.chuyenDonVi(objDonVi, null, objViTri, objPhong, objCTTaiSan.parent, objCTTaiSan.chungtu, objCTTaiSan.soluong, "", objCTTaiSan.ngay) > 0 && DBInstance.commit() > 0)
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Pass");
+                                    }
+                                    else
+                                    {
+                                        WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                        continue;
+                                    }
+                                }
+                                else
+                                {
+                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error");
+                                    continue;
+                                }
+
                                     //if (row[TINHTRANG] != DBNull.Value)
                                     //{
                                     //    String ten_tinhtrang = row[TINHTRANG].ToString().Trim().ToUpper();
@@ -371,11 +377,7 @@ namespace TSCD_GUI.Libraries
                                     //    }
 
                                     //}
-                                }
-                                else
-                                {
-                                    WriteFile(fileName, sheet, row[STT].ToString().Trim(), "Error (Không tìm thấy tài sản)");
-                                }
+ 
                             }
                             else
                             {

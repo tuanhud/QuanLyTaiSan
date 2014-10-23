@@ -56,6 +56,8 @@
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.ucGridControlTaiSan1 = new TSCD_GUI.MyUserControl.ucGridControlTaiSan();
             this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+            this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi_TaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -79,9 +81,11 @@
             this.barBtnImport,
             this.barBtnDefault,
             this.barBtnChuyenTinhTrang,
-            this.barBtnAttachment});
+            this.barBtnAttachment,
+            this.barBtnExpandAll,
+            this.barBtnCollapseAll});
             this.rbnControlDonVi_TaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlDonVi_TaiSan.MaxItemId = 12;
+            this.rbnControlDonVi_TaiSan.MaxItemId = 14;
             this.rbnControlDonVi_TaiSan.Name = "rbnControlDonVi_TaiSan";
             this.rbnControlDonVi_TaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageDonVi_TaiSan});
@@ -230,6 +234,8 @@
             // rbnGroupLayout
             // 
             this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnExpandAll);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
             this.rbnGroupLayout.Name = "rbnGroupLayout";
             this.rbnGroupLayout.ShowCaptionButton = false;
             this.rbnGroupLayout.Text = "Layout";
@@ -310,6 +316,24 @@
             this.ucGridControlTaiSan1.Size = new System.Drawing.Size(550, 353);
             this.ucGridControlTaiSan1.TabIndex = 0;
             // 
+            // barBtnExpandAll
+            // 
+            this.barBtnExpandAll.Caption = "Mở rộng tất cả";
+            this.barBtnExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.Glyph")));
+            this.barBtnExpandAll.Id = 12;
+            this.barBtnExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.LargeGlyph")));
+            this.barBtnExpandAll.Name = "barBtnExpandAll";
+            this.barBtnExpandAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExpandAll_ItemClick);
+            // 
+            // barBtnCollapseAll
+            // 
+            this.barBtnCollapseAll.Caption = "Thu gọn tất cả";
+            this.barBtnCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.Glyph")));
+            this.barBtnCollapseAll.Id = 13;
+            this.barBtnCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.LargeGlyph")));
+            this.barBtnCollapseAll.Name = "barBtnCollapseAll";
+            this.barBtnCollapseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCollapseAll_ItemClick);
+            // 
             // ucQuanLyDonVi_TaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +383,8 @@
         private DevExpress.XtraBars.BarButtonItem barBtnChuyenTinhTrang;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupAttachment;
         private DevExpress.XtraBars.BarButtonItem barBtnAttachment;
+        private DevExpress.XtraBars.BarButtonItem barBtnExpandAll;
+        private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
     }
 }

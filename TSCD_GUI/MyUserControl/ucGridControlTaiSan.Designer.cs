@@ -228,7 +228,7 @@
             this.colnguongoc2.FieldName = "nguongoc";
             this.colnguongoc2.Name = "colnguongoc2";
             this.colnguongoc2.Visible = true;
-            this.colnguongoc2.VisibleIndex = 9;
+            this.colnguongoc2.VisibleIndex = 13;
             this.colnguongoc2.Width = 69;
             // 
             // colghichu2
@@ -239,7 +239,7 @@
             this.colghichu2.FieldName = "ghichu";
             this.colghichu2.Name = "colghichu2";
             this.colghichu2.Visible = true;
-            this.colghichu2.VisibleIndex = 10;
+            this.colghichu2.VisibleIndex = 12;
             this.colghichu2.Width = 113;
             // 
             // colid2
@@ -254,7 +254,7 @@
             this.colphong2.FieldName = "phong";
             this.colphong2.Name = "colphong2";
             this.colphong2.Visible = true;
-            this.colphong2.VisibleIndex = 11;
+            this.colphong2.VisibleIndex = 9;
             this.colphong2.Width = 90;
             // 
             // colvitri2
@@ -263,7 +263,7 @@
             this.colvitri2.FieldName = "vitri";
             this.colvitri2.Name = "colvitri2";
             this.colvitri2.Visible = true;
-            this.colvitri2.VisibleIndex = 12;
+            this.colvitri2.VisibleIndex = 10;
             this.colvitri2.Width = 90;
             // 
             // coldvquanly2
@@ -272,7 +272,7 @@
             this.coldvquanly2.FieldName = "dvquanly";
             this.coldvquanly2.Name = "coldvquanly2";
             this.coldvquanly2.Visible = true;
-            this.coldvquanly2.VisibleIndex = 13;
+            this.coldvquanly2.VisibleIndex = 11;
             this.coldvquanly2.Width = 90;
             // 
             // coldvsudung2
@@ -280,8 +280,6 @@
             this.coldvsudung2.Caption = "Đơn vị sử dụng";
             this.coldvsudung2.FieldName = "dvsudung";
             this.coldvsudung2.Name = "coldvsudung2";
-            this.coldvsudung2.Visible = true;
-            this.coldvsudung2.VisibleIndex = 14;
             this.coldvsudung2.Width = 94;
             // 
             // gridControlTaiSan
@@ -325,6 +323,8 @@
             this.coldvsudung});
             this.gridViewTaiSan.GridControl = this.gridControlTaiSan;
             this.gridViewTaiSan.GroupCount = 1;
+            this.gridViewTaiSan.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", null, "(Số lượng={0})")});
             this.gridViewTaiSan.Name = "gridViewTaiSan";
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
@@ -336,6 +336,7 @@
             this.gridViewTaiSan.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewTaiSan.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridViewTaiSan.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridViewTaiSan_PopupMenuShowing);
             this.gridViewTaiSan.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.gridView1_CustomRowFilter);
             // 
             // colngay
@@ -475,7 +476,7 @@
             this.colnguongoc.FieldName = "nguongoc";
             this.colnguongoc.Name = "colnguongoc";
             this.colnguongoc.Visible = true;
-            this.colnguongoc.VisibleIndex = 10;
+            this.colnguongoc.VisibleIndex = 14;
             this.colnguongoc.Width = 72;
             // 
             // colghichu
@@ -486,7 +487,7 @@
             this.colghichu.FieldName = "ghichu";
             this.colghichu.Name = "colghichu";
             this.colghichu.Visible = true;
-            this.colghichu.VisibleIndex = 11;
+            this.colghichu.VisibleIndex = 13;
             this.colghichu.Width = 100;
             // 
             // colid
@@ -501,7 +502,7 @@
             this.colphong.FieldName = "phong";
             this.colphong.Name = "colphong";
             this.colphong.Visible = true;
-            this.colphong.VisibleIndex = 12;
+            this.colphong.VisibleIndex = 10;
             this.colphong.Width = 70;
             // 
             // colvitri
@@ -510,7 +511,7 @@
             this.colvitri.FieldName = "vitri";
             this.colvitri.Name = "colvitri";
             this.colvitri.Visible = true;
-            this.colvitri.VisibleIndex = 13;
+            this.colvitri.VisibleIndex = 11;
             this.colvitri.Width = 70;
             // 
             // coldvquanly
@@ -519,7 +520,7 @@
             this.coldvquanly.FieldName = "dvquanly";
             this.coldvquanly.Name = "coldvquanly";
             this.coldvquanly.Visible = true;
-            this.coldvquanly.VisibleIndex = 14;
+            this.coldvquanly.VisibleIndex = 12;
             this.coldvquanly.Width = 92;
             // 
             // coldvsudung
@@ -527,8 +528,6 @@
             this.coldvsudung.Caption = "Đơn vị sử dụng";
             this.coldvsudung.FieldName = "dvsudung";
             this.coldvsudung.Name = "coldvsudung";
-            this.coldvsudung.Visible = true;
-            this.coldvsudung.VisibleIndex = 15;
             this.coldvsudung.Width = 95;
             // 
             // ucGridControlTaiSan

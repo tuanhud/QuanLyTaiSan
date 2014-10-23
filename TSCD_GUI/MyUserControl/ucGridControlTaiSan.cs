@@ -14,6 +14,8 @@ using DevExpress.XtraGrid.Views.BandedGrid;
 using System.IO;
 using DevExpress.XtraGrid.Views.Grid;
 using TSCD_GUI.Libraries;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraGrid.Menu;
 
 namespace TSCD_GUI.MyUserControl
 {
@@ -60,6 +62,12 @@ namespace TSCD_GUI.MyUserControl
         {
             //bandedGridViewTaiSan.ExpandAllGroups();
             gridViewTaiSan.ExpandAllGroups();
+        }
+
+        public void CollapseAllGroups()
+        {
+            //bandedGridViewTaiSan.ExpandAllGroups();
+            gridViewTaiSan.CollapseAllGroups();
         }
 
         public void reloadAndFocused(Guid _id)
@@ -251,6 +259,24 @@ namespace TSCD_GUI.MyUserControl
                 }
             }
             catch { };
+        }
+
+        private void gridViewTaiSan_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Column)
+            {
+                DevExpress.XtraGrid.Menu.GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
+                //Erasing the default menu items 
+                foreach (DXMenuItem item in menu.Items)
+                {
+                    if (item.Caption.Equals("Show Find Panel"))
+                    {
+                        item.Visible = false;
+                        break;
+                    }
+                }
+
+            }
         }
     }
 }

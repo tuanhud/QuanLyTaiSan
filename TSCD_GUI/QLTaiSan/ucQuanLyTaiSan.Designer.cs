@@ -55,6 +55,8 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlTimKiem = new DevExpress.XtraEditors.PanelControl();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
+            this.lblTenTS = new DevExpress.XtraEditors.LabelControl();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
             this.checkLoai = new DevExpress.XtraEditors.CheckEdit();
             this.checkViTri = new DevExpress.XtraEditors.CheckEdit();
@@ -63,8 +65,8 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.lblTenTS = new DevExpress.XtraEditors.LabelControl();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
+            this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -91,9 +93,11 @@
             this.barBtnImportChungTu,
             this.barBtnChuyenTinhTrang,
             this.barBtnAttachment,
-            this.barBtnChuyenDonVi});
+            this.barBtnChuyenDonVi,
+            this.barBtnExpandAll,
+            this.barBtnCollapseAll});
             this.rbnControlTaiSan.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlTaiSan.MaxItemId = 14;
+            this.rbnControlTaiSan.MaxItemId = 16;
             this.rbnControlTaiSan.Name = "rbnControlTaiSan";
             this.rbnControlTaiSan.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageTaiSan});
@@ -243,6 +247,8 @@
             // rbnGroupLayout
             // 
             this.rbnGroupLayout.ItemLinks.Add(this.barBtnDefault);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnExpandAll);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
             this.rbnGroupLayout.Name = "rbnGroupLayout";
             this.rbnGroupLayout.ShowCaptionButton = false;
             this.rbnGroupLayout.Text = "Layout";
@@ -338,6 +344,23 @@
             this.panelControlTimKiem.Size = new System.Drawing.Size(854, 60);
             this.panelControlTimKiem.TabIndex = 2;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(773, 16);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // lblTenTS
+            // 
+            this.lblTenTS.Location = new System.Drawing.Point(9, 9);
+            this.lblTenTS.Name = "lblTenTS";
+            this.lblTenTS.Size = new System.Drawing.Size(57, 13);
+            this.lblTenTS.TabIndex = 12;
+            this.lblTenTS.Text = "Tên tài sản:";
+            // 
             // ucComboBoxViTri1
             // 
             this.ucComboBoxViTri1.EditValue = null;
@@ -395,6 +418,7 @@
             // 
             // ucComboBoxLoaiTS1
             // 
+            this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(93, 33);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";
@@ -408,22 +432,23 @@
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 4;
             // 
-            // lblTenTS
+            // barBtnExpandAll
             // 
-            this.lblTenTS.Location = new System.Drawing.Point(9, 9);
-            this.lblTenTS.Name = "lblTenTS";
-            this.lblTenTS.Size = new System.Drawing.Size(57, 13);
-            this.lblTenTS.TabIndex = 12;
-            this.lblTenTS.Text = "Tên tài sản:";
+            this.barBtnExpandAll.Caption = "Mở rộng tất cả";
+            this.barBtnExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.Glyph")));
+            this.barBtnExpandAll.Id = 14;
+            this.barBtnExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.LargeGlyph")));
+            this.barBtnExpandAll.Name = "barBtnExpandAll";
+            this.barBtnExpandAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExpandAll_ItemClick);
             // 
-            // btnClear
+            // barBtnCollapseAll
             // 
-            this.btnClear.Location = new System.Drawing.Point(773, 16);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 13;
-            this.btnClear.Text = "Clear";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.barBtnCollapseAll.Caption = "Thu gọn tất cả";
+            this.barBtnCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.Glyph")));
+            this.barBtnCollapseAll.Id = 15;
+            this.barBtnCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.LargeGlyph")));
+            this.barBtnCollapseAll.Name = "barBtnCollapseAll";
+            this.barBtnCollapseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCollapseAll_ItemClick);
             // 
             // ucQuanLyTaiSan
             // 
@@ -486,5 +511,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnChuyenDonVi;
         private DevExpress.XtraEditors.LabelControl lblTenTS;
         private DevExpress.XtraEditors.SimpleButton btnClear;
+        private DevExpress.XtraBars.BarButtonItem barBtnExpandAll;
+        private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
     }
 }
