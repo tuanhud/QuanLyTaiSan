@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using TSCD.Entities;
 using TSCD.DataFilter;
 using SHARED.Libraries;
+using DevExpress.XtraReports.UI;
 
 namespace TSCD_GUI.QLTaiSan
 {
@@ -140,15 +141,37 @@ namespace TSCD_GUI.QLTaiSan
                     if (re > 0 && DBInstance.commit() > 0)
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
-                        if(isChuyen)
+                        if (isChuyen)
                             XtraMessageBox.Show("Chuyển tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                             XtraMessageBox.Show("Thêm tài sản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Guid id;
-                        if(donViQL == null)
-                            id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly == null && c.soluong == soLuong).FirstOrDefault().id;
+                        CTTaiSan _CTTaiSanTemp;
+                        if (donViQL == null)
+                        {
+                            _CTTaiSanTemp = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly == null && c.soluong == soLuong).FirstOrDefault();
+                            if (!Object.Equals(_CTTaiSanTemp, null))
+                                id = _CTTaiSanTemp.id;
+                            else
+                                id = Guid.Empty;
+                        }
                         else
-                            id = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly_id == donViQL.id && c.soluong == soLuong).FirstOrDefault().id;
+                        {
+                            _CTTaiSanTemp = CTTaiSan.getQuery().Where(c => c.taisan_id == objCTTaiSan.taisan_id && c.donviquanly_id == donViQL.id && c.soluong == soLuong).FirstOrDefault();
+                            if (!Object.Equals(_CTTaiSanTemp, null))
+                                id = _CTTaiSanTemp.id;
+                            else
+                                id = Guid.Empty;
+                        }
+                        if (donViQL != null)
+                        {
+                            if (XtraMessageBox.Show("Bạn có muốn xuất biên bản giao nhận tài sản cố định không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                            {
+                                ReportTSCD.XtraReport_BienBanGiaoNhanTSCD _XtraReport_BienBanGiaoNhanTSCD = new ReportTSCD.XtraReport_BienBanGiaoNhanTSCD(_CTTaiSanTemp, objChungTu, donViQL);
+                                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BienBanGiaoNhanTSCD);
+                                printTool.ShowPreviewDialog();
+                            }
+                        }
                         if (reloadAndFocused != null)
                             reloadAndFocused(id);
                         this.Close();
