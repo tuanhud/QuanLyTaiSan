@@ -71,6 +71,26 @@ namespace TSCD_GUI.MyUserControl
             gridViewTaiSan.ExpandAllGroups();
         }
 
+        public void ExpandGroupRow(String ten)
+        {
+            try
+            {
+                int id = gridViewTaiSan.LocateByValue(colphong.FieldName, ten);
+                int temp = 0;
+                while (id != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                {
+                    temp = id;
+                    id = gridViewTaiSan.GetParentRowHandle(id);
+                }
+                gridViewTaiSan.ExpandGroupRow(temp, true);
+                gridViewTaiSan.FocusedRowHandle = temp;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->ExpandGroupRow:" + ex.Message);
+            }
+        }
+
         public void CollapseAllGroups()
         {
             //bandedGridViewTaiSan.ExpandAllGroups();

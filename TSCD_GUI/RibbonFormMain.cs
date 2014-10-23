@@ -20,6 +20,7 @@ using TSCD_GUI.HeThong;
 using TSCD_GUI.Libraries;
 using TSCD_GUI.ThongKe;
 using TSCD;
+using SHARED.Libraries;
 
 namespace TSCD_GUI
 {
@@ -52,8 +53,8 @@ namespace TSCD_GUI
 
         bool drawEnd = false;
 
-        Guid donvi_id = Guid.Empty;
-        Guid phong_id = Guid.Empty;
+        Guid? donvi_id = null;
+        Guid? phong_id = null;
 
         public RibbonFormMain()
         {
@@ -125,70 +126,80 @@ namespace TSCD_GUI
 
         private void ribbonMain_SelectedPageChanged(object sender, EventArgs e)
         {
-            if (drawEnd)
+            try
             {
-                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
-                DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
-                DBInstance.reNew();
-                if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageViTri)))
+                if (drawEnd)
                 {
-                    _ucQuanLyViTri.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucQuanLyViTri);
+                    DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(WaitFormLoad), true, true, false);
+                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
+                    DBInstance.reNew();
+                    if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageViTri)))
+                    {
+                        _ucQuanLyViTri.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucQuanLyViTri);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhong)))
+                    {
+                        _ucQuanLyPhong.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucQuanLyPhong);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi)))
+                    {
+                        _ucQuanLyDonVi.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucQuanLyDonVi);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLoaiTS)))
+                    {
+                        _ucQuanLyLoaiTS.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucQuanLyLoaiTS);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageTaiSan)))
+                    {
+                        _ucQuanLyTaiSan.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucQuanLyTaiSan);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi_TaiSan)))
+                    {
+                        _ucQuanLyDonVi_TaiSan.loadData(DonVi.getById(donvi_id), Phong.getById(phong_id));
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucQuanLyDonVi_TaiSan);
+                        donvi_id = null;
+                        phong_id = null;
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen)))
+                    {
+                        _ucPhanQuyen.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucPhanQuyen);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageThongKe)))
+                    {
+                        _ucThongKe.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucThongKe);
+                    }
+                    else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
+                    {
+                        _ucLogHeThong.loadData();
+                        panelControlMain.Controls.Clear();
+                        panelControlMain.Controls.Add(_ucLogHeThong);
+                    }
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhong)))
-                {
-                    _ucQuanLyPhong.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucQuanLyPhong);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi)))
-                {
-                    _ucQuanLyDonVi.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucQuanLyDonVi);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLoaiTS)))
-                {
-                    _ucQuanLyLoaiTS.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucQuanLyLoaiTS);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageTaiSan)))
-                {
-                    _ucQuanLyTaiSan.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucQuanLyTaiSan);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageDonVi_TaiSan)))
-                {
-                    _ucQuanLyDonVi_TaiSan.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucQuanLyDonVi_TaiSan);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPagePhanQuyen)))
-                {
-                    _ucPhanQuyen.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucPhanQuyen);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageThongKe)))
-                {
-                    _ucThongKe.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucThongKe);
-                }
-                else if (ribbonMain.SelectedPage.Equals(ribbonMain.Pages.GetPageByName(rbnPageLogHeThong)))
-                {
-                    _ucLogHeThong.loadData();
-                    panelControlMain.Controls.Clear();
-                    panelControlMain.Controls.Add(_ucLogHeThong);
-                }
+            }
+            catch (Exception ex)
+            {
                 DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                Debug.WriteLine(this.Name + "->ribbonMain_SelectedPageChanged: " + ex.Message);
             }
         }
 
-        public void SelectPageDonViTaiSan(Guid donvi_id, Guid phong_id)
+        public void SelectPageDonViTaiSan(Guid? donvi_id, Guid? phong_id)
         {
             this.donvi_id = donvi_id;
             this.phong_id = phong_id;
