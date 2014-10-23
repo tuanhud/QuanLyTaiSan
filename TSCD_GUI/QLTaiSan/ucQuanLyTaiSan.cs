@@ -81,7 +81,8 @@ namespace TSCD_GUI.QLTaiSan
             DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormCaption("Đang tải dữ liệu...");
             try
             {
-                String ten = checkTen.Checked ? txtTen.Text : null;
+                //String ten = checkTen.Checked ? txtTen.Text : null;
+                String ten = txtTen.Text;
                 LoaiTaiSan loai = checkLoai.Checked ? ucComboBoxLoaiTS1.LoaiTS : null;
                 DonVi DVQL = ucComboBoxDonVi1.DonVi;
                 ViTri vitri = ucComboBoxViTri1.ViTri;
@@ -259,7 +260,7 @@ namespace TSCD_GUI.QLTaiSan
                 writer.WriteStartDocument();
                 //writer.WriteComment("");
                 writer.WriteStartElement("Search");
-                writer.WriteAttributeString("cTen", checkTen.Checked ? "1" : "0");
+                //writer.WriteAttributeString("cTen", checkTen.Checked ? "1" : "0");
                 writer.WriteAttributeString("vTen", txtTen.Text);
                 writer.WriteAttributeString("cLoai", checkLoai.Checked ? "1" : "0");
                 LoaiTaiSan loai = ucComboBoxLoaiTS1.LoaiTS;
@@ -298,7 +299,7 @@ namespace TSCD_GUI.QLTaiSan
                         {
                             if (reader.NodeType == XmlNodeType.Element && reader.Name == "Search")
                             {
-                                checkTen.Checked = Convert.ToInt32(reader.GetAttribute(0)).Equals(1) ? true : false;
+                                //checkTen.Checked = Convert.ToInt32(reader.GetAttribute(0)).Equals(1) ? true : false;
                                 txtTen.Text = reader.GetAttribute(1);
                                 checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(2)).Equals(1) ? true : false;
                                 ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(3)));
@@ -396,6 +397,17 @@ namespace TSCD_GUI.QLTaiSan
                 frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadAndFocused);
                 frm.ShowDialog();
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtTen.Text = "";
+            checkLoai.Checked = false;
+            ucComboBoxLoaiTS1.EditValue = null;
+            checkDVQL.Checked = false;
+            ucComboBoxDonVi1.DonVi = null;
+            checkViTri.Checked = false;
+            ucComboBoxViTri1.EditValue = Guid.Empty;
         }
     }
 }

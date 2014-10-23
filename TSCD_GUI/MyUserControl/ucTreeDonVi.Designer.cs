@@ -49,6 +49,7 @@
             this.treeListDonVi.OptionsBehavior.EnableFiltering = true;
             this.treeListDonVi.OptionsFind.AllowFindPanel = true;
             this.treeListDonVi.OptionsFind.AlwaysVisible = true;
+            this.treeListDonVi.OptionsFind.HighlightFindResults = false;
             this.treeListDonVi.OptionsFind.ShowFindButton = false;
             this.treeListDonVi.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListDonVi.ParentFieldName = "parent_id";

@@ -200,5 +200,32 @@ namespace TSCD_GUI.MyUserControl
             return getListLoaiTS().Select(c => c.id).ToList();
             }
         }
+
+        public Object EditValue
+        {
+            get
+            {
+                try
+                {
+                    return treeListLookUpLoaiTS.EditValue;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->EditValue: " + ex.Message);
+                    return null;
+                }
+            }
+            set
+            {
+                try
+                {
+                    treeListLookUpLoaiTS.EditValue = value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->EditValue: " + ex.Message);
+                }
+            }
+        }
     }
 }

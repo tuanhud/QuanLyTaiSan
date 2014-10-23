@@ -56,7 +56,6 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlTimKiem = new DevExpress.XtraEditors.PanelControl();
             this.ucComboBoxViTri1 = new TSCD_GUI.MyUserControl.ucComboBoxViTri();
-            this.checkTen = new DevExpress.XtraEditors.CheckEdit();
             this.checkLoai = new DevExpress.XtraEditors.CheckEdit();
             this.checkViTri = new DevExpress.XtraEditors.CheckEdit();
             this.checkDVQL = new DevExpress.XtraEditors.CheckEdit();
@@ -64,12 +63,13 @@
             this.ucComboBoxDonVi1 = new TSCD_GUI.MyUserControl.ucComboBoxDonVi();
             this.ucComboBoxLoaiTS1 = new TSCD_GUI.MyUserControl.ucComboBoxLoaiTS();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.lblTenTS = new DevExpress.XtraEditors.LabelControl();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTimKiem)).BeginInit();
             this.panelControlTimKiem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDVQL.Properties)).BeginInit();
@@ -322,8 +322,9 @@
             // panelControlTimKiem
             // 
             this.panelControlTimKiem.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControlTimKiem.Controls.Add(this.btnClear);
+            this.panelControlTimKiem.Controls.Add(this.lblTenTS);
             this.panelControlTimKiem.Controls.Add(this.ucComboBoxViTri1);
-            this.panelControlTimKiem.Controls.Add(this.checkTen);
             this.panelControlTimKiem.Controls.Add(this.checkLoai);
             this.panelControlTimKiem.Controls.Add(this.checkViTri);
             this.panelControlTimKiem.Controls.Add(this.checkDVQL);
@@ -346,15 +347,6 @@
             this.ucComboBoxViTri1.Size = new System.Drawing.Size(200, 20);
             this.ucComboBoxViTri1.TabIndex = 10;
             this.ucComboBoxViTri1.ViTri = null;
-            // 
-            // checkTen
-            // 
-            this.checkTen.Location = new System.Drawing.Point(7, 7);
-            this.checkTen.MenuManager = this.rbnControlTaiSan;
-            this.checkTen.Name = "checkTen";
-            this.checkTen.Properties.Caption = "Tên TSCĐ:";
-            this.checkTen.Size = new System.Drawing.Size(81, 19);
-            this.checkTen.TabIndex = 3;
             // 
             // checkLoai
             // 
@@ -416,6 +408,23 @@
             this.txtTen.Size = new System.Drawing.Size(200, 20);
             this.txtTen.TabIndex = 4;
             // 
+            // lblTenTS
+            // 
+            this.lblTenTS.Location = new System.Drawing.Point(9, 9);
+            this.lblTenTS.Name = "lblTenTS";
+            this.lblTenTS.Size = new System.Drawing.Size(57, 13);
+            this.lblTenTS.TabIndex = 12;
+            this.lblTenTS.Text = "Tên tài sản:";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(773, 16);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // ucQuanLyTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,7 +438,7 @@
             this.groupControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTimKiem)).EndInit();
             this.panelControlTimKiem.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkTen.Properties)).EndInit();
+            this.panelControlTimKiem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkDVQL.Properties)).EndInit();
@@ -453,7 +462,6 @@
         private MyUserControl.ucComboBoxDonVi ucComboBoxDonVi1;
         private MyUserControl.ucComboBoxLoaiTS ucComboBoxLoaiTS1;
         private DevExpress.XtraEditors.TextEdit txtTen;
-        private DevExpress.XtraEditors.CheckEdit checkTen;
         private DevExpress.XtraEditors.CheckEdit checkLoai;
         private DevExpress.XtraEditors.CheckEdit checkViTri;
         private DevExpress.XtraEditors.CheckEdit checkDVQL;
@@ -476,5 +484,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupAttachment;
         private DevExpress.XtraBars.BarButtonItem barBtnAttachment;
         private DevExpress.XtraBars.BarButtonItem barBtnChuyenDonVi;
+        private DevExpress.XtraEditors.LabelControl lblTenTS;
+        private DevExpress.XtraEditors.SimpleButton btnClear;
     }
 }
