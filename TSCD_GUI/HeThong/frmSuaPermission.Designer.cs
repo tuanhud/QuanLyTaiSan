@@ -497,6 +497,7 @@
             this.Controls.Add(this.panelControl_TOP);
             this.Controls.Add(this.panelControl_BOTTOM);
             this.Name = "frmSuaPermission";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa quyền";
             this.Load += new System.EventHandler(this.frmSuaPermission_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl_quyenCoDinh)).EndInit();

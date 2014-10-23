@@ -315,6 +315,7 @@ namespace TSCD_GUI
         private void barBtnUser_ItemClick(object sender, ItemClickEventArgs e)
         {
             SuaThongTinCaNhan frm = new SuaThongTinCaNhan();
+            frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
         }
     }

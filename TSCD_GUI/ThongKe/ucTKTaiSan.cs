@@ -27,6 +27,7 @@ namespace TSCD_GUI.ThongKe
         {
             loadLayout();
             gridControlTaiSan.DataSource = null;
+            ucComboBoxLoaiTS1.DataSource = null;
             ucComboBoxLoaiTS1.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
             checkedComboBoxCoSo.Properties.DataSource = CoSo.getQuery().OrderBy(c => c.order).ToList();
             List<DonVi> list = DonVi.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
@@ -35,6 +36,7 @@ namespace TSCD_GUI.ThongKe
             objNULL.ten = "[Đại học Sài Gòn]";
             objNULL.parent = null;
             list.Insert(0, objNULL);
+            ucComboBoxDonVi1.DataSource = null;
             ucComboBoxDonVi1.DataSource = list;
         }
 

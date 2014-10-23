@@ -45,8 +45,9 @@
             this.ClientSize = new System.Drawing.Size(553, 185);
             this.Controls.Add(this.viewSuaThongTinCaNhan1);
             this.MaximumSize = new System.Drawing.Size(569, 224);
-            this.MinimumSize = new System.Drawing.Size(569, 224);
+            this.MinimumSize = new System.Drawing.Size(569, 223);
             this.Name = "SuaThongTinCaNhan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin cá nhân";
             this.Load += new System.EventHandler(this.SuaThongTinCaNhan_Load);
             this.ResumeLayout(false);

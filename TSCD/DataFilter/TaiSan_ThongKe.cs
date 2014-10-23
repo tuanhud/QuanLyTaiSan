@@ -54,7 +54,9 @@ namespace TSCD.DataFilter
             //COSO
             if (list_coso != null && list_coso.Count > 0)
             {
-                query = query.Where(x => x.vitri.coso == null || list_coso.Contains(x.vitri.coso.id));
+                List<Guid> list_phong = Phong.getQuery().Where(x => list_coso.Contains(x.vitri.coso.id)).Select(c=>c.id).ToList();
+                //query = query.Where(x => x.vitri.coso == null || list_coso.Contains(x.vitri.coso.id));
+                query = query.Where(x => list_coso.Contains(x.vitri.coso.id) || list_phong.Contains(x.phong.id));
             }
             //FINAL SELECT
             List<TaiSan_ThongKe> re = query.Select(x => new TaiSan_ThongKe
