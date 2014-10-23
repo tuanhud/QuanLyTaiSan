@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PopupSite.master.cs" Inherits="TSCD_WEB.PopupSite" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/css/blueimp-gallery.css" rel="stylesheet" />
+    <link href="Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
+    <link href="Content/css/docs.min.css" rel="stylesheet" />
+    <link href="Content/css/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/css/site-datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/css/bootstrap-datetimepicker.css" />
+    <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="Content/css/theme.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <script src="Scripts/sha1.js"></script>
+    <script src="Scripts/myjs.js"></script>
+</head>
+<body role="document" style="margin-top: 10px;">
+    <form runat="server" class="form-horizontal" role="form">
+        <asp:ScriptManager ID="ScriptManager" runat="server" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </form>
+    <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/docs.min.js"></script>
+    <script src="Scripts/moment.js"></script>
+    <script src="Scripts/bootstrap-datetimepicker.js"></script>
+    <script src="Scripts/bootstrap-select.js"></script>
+    <script src="Scripts/jquery.blueimp-gallery.min.js"></script>
+    <script src="Scripts/bootstrap-image-gallery.js"></script>
+</body>
+</html>
