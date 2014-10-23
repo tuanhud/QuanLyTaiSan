@@ -145,7 +145,7 @@
             this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
             this.rbnGroupLayout.Name = "rbnGroupLayout";
             this.rbnGroupLayout.ShowCaptionButton = false;
-            this.rbnGroupLayout.Text = "Layout";
+            this.rbnGroupLayout.Text = "Trình bài";
             // 
             // rbnGroupBaoCao
             // 

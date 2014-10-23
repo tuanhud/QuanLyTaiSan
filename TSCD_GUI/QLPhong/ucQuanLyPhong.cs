@@ -490,5 +490,15 @@ namespace TSCD_GUI.QLPhong
                 Debug.WriteLine(this.Name + "->barBtnXemTaiSan_ItemClick: " + ex.Message);
             }
         }
+
+        private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewPhong.ExpandAllGroups();
+        }
+
+        private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewPhong.CollapseAllGroups();
+        }
     }
 }

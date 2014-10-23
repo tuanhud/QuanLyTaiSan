@@ -92,7 +92,7 @@
             this.coltang});
             this.gridViewPhong.GridControl = this.gridControlPhong;
             this.gridViewPhong.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "phong", null, "({0} phòng)")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "phong", null, "(Số lượng={0})")});
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
