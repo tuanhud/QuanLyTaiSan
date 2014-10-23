@@ -31,21 +31,30 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             else
             {
                 DangNhap.Visible = false;
-                DevExpress.Web.ASPxTreeList.TreeListTextColumn _TreeListTextColumn = new DevExpress.Web.ASPxTreeList.TreeListTextColumn();
-                _ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
                 //listCTTaiSan = TSCD.Entities.CTTaiSan.getAll();
-                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW);
+                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c=>c.ten).ToList();
                 //listDonVi = TSCD.Entities.DonVi.getAll().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
+
                 if (listDonVi.Count > 0)
                 {
                     infotr.Visible = true;
+
                     _ucTreeViTri.CreateTreeList();
                     if (!IsPostBack)
                     {
+                        TreeListTextColumn _TreeListTextColumn = new TreeListTextColumn();
+                        _ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
+
                         TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
                         _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
-
                     }
+
+
+                    _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
                     _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
@@ -70,35 +79,6 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                         }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
-                        if (Request.QueryString["id"] != null)
-                        {
-                            ThongTinPhong.Visible = true;
-                            thongtin.Visible = true;
-                            idCTTaiSan = Guid.Empty;
-                            try
-                            {
-                                idCTTaiSan = GUID.From(Request.QueryString["id"]);
-                            }
-                            catch
-                            {
-                                Response.Redirect(Request.Url.AbsolutePath);
-                            }
-
-                            objCTTaiSan = TSCD.Entities.CTTaiSan.getById(idCTTaiSan);
-                            if (objCTTaiSan != null)
-                            {
-                                Label_ThongTin.Text = "Thông tin tài sản " + objCTTaiSan.taisan.ten;
-
-                            }
-                            else
-                            {
-                                Response.Redirect(Request.Url.AbsolutePath);
-                            }
-                        }
-                        else
-                        {
-                            ClearData();
-                        }
                     }
                     else
                     {

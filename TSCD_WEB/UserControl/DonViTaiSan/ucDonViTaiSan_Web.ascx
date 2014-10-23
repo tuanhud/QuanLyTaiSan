@@ -33,17 +33,6 @@
                 <uc:ucWarning runat="server" ID="ucWarning_ChuaChon" />
             </td>
             <td id="infotd" runat="server" visible="false">
-                <ul class="nav nav-tabs" role="tablist" id="myTab">
-                    <li class="active"><a href="#danhsach" role="tab" data-toggle="tab">Danh sách tài sản</a></li>
-                    <li id="ThongTinPhong" runat="server" visible="false"><a href="#thongtin" role="tab" data-toggle="tab">
-                        <asp:Label ID="Label_ThongTin" runat="server" Text="Thông tin"></asp:Label></a>
-                        <script>
-                            $(function () {
-                                $('#myTab a:last').tab('show')
-                            })
-                        </script>
-                    </li>
-                </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="danhsach">
                         <script type="text/javascript">
@@ -104,6 +93,7 @@
                         </script>
                         <table>
                             <tr>
+                                <h3 class="title_green fix">Danh sách tài sản</h3>
                                 <td>Chọn cột cần hiển thị</td>
                                 <td style="padding-left: 10px">
                                     <dx:ASPxDropDownEdit ID="ASPxDropDownEdit" ClientInstanceName="checkComboBox" Width="210px" Height="25px" runat="server" Theme="Aqua">
@@ -222,129 +212,8 @@
                             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                         </dx:ASPxGridView>
                     </div>
-                    <div class="tab-pane" id="thongtin" clientidmode="static" runat="server" visible="false">
-                        <table class="table largetable" style="height: auto">
-                            <tr>
-                                <td>
-                                    <table class="table table-striped">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 120px">Loại tài sản:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_LoaiTaiSan" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ngày sử dụng:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_NgaySuDung" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Số hiệu:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_SoHieu" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ngày tháng:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_NgayThang" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tên TSCĐ:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_TenTSCD" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Đơn vị:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_DonVi" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Số lượng:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_SoLuong" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Đơn giá:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_DonGia" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Thành tiền:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_ThanhTien" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nước sản xuất:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_NuocSanXuat" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nguồn gốc:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_NguonGoc" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tình trạng:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_TinhTrang" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Phòng:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_Phong" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Vị trí:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_ViTri" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Đơn vị quản lý:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_DonViQuanLy" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Đơn vị sử dụng:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_DonViSuDung" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ghi chú:</td>
-                                                <td>
-                                                    <asp:Label ID="Label_GhiChu" runat="server"></asp:Label>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
-<asp:Panel ID="PanelChangePage" runat="server" Visible="false">
-    <script>
-        $(function () {
-            $('#myTab a:first').tab('show')
-        })
-    </script>
-</asp:Panel>
