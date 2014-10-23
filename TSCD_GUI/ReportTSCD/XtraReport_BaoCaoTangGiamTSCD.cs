@@ -29,7 +29,7 @@ namespace TSCD_GUI.ReportTSCD
                 //group truoc
 
                 xrTableCell_LoaiTaiSanNhomTaiSan.DataBindings.Add("Text", null, "sohieu_ct");
-                xrTableCell_NgayThang.DataBindings.Add("Text", null, "ngay_ct", "{0:dd/MM/yyyy}");
+                /*xrTableCell_NgayThang.DataBindings.Add("Text", null, "ngay_ct", "{0:dd/MM/yyyy}");
                 xrTableCell_Ten.DataBindings.Add("Text", null, "ten");
                 xrTableCell_DonViTinh.DataBindings.Add("Text", null, "donvitinh");
 
@@ -40,19 +40,15 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_LyDo.DataBindings.Add("Text", null, "ghichu");
                 xrTableCell_SoLuongGiam.DataBindings.Add("Text", null, "soluong_giam");
                 xrTableCell_DonGiaGiam.DataBindings.Add("Text", null, "dongia_giam");
-                xrTableCell_ThanhTienGiam.DataBindings.Add("Text", null, "thanhtien_giam");
+                xrTableCell_ThanhTienGiam.DataBindings.Add("Text", null, "thanhtien_giam");*/
 
                 IntSUM();
-            }
-            if (!Object.Equals(obj, null))
-            {
-                xrLabel_PhongBan.Text = "Phòng ban: " + obj.ten;
             }
         }
 
         private void IntSUM()
         {
-            xrTableCell_SUM_SoLuongTang.DataBindings.Add("Text", this.DataSource, "soluong_tang");
+            /*xrTableCell_SUM_SoLuongTang.DataBindings.Add("Text", this.DataSource, "soluong_tang");
             xrTableCell_SUM_SoLuongTang.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_SoLuongTang.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_SoLuongTang.Summary.Running = SummaryRunning.Report;
@@ -74,7 +70,7 @@ namespace TSCD_GUI.ReportTSCD
             xrTableCell_SUM_ThanhTienGiam.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_ThanhTienGiam.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_ThanhTienGiam.Summary.Running = SummaryRunning.Report;
-            xrTableCell_SUM_ThanhTienGiam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            xrTableCell_SUM_ThanhTienGiam.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;*/
         }
     }
 }
