@@ -31,6 +31,9 @@ namespace TSCD_GUI.QLTaiSan
             rbnControlTaiSan.Parent = null;
             ucGridControlTaiSan1.fileName = this.Name;
             ucGridControlTaiSan1.createLayout();
+            ucComboBoxLoaiTS1.editValueChanged = new MyUserControl.ucComboBoxLoaiTS.EditValueChanged(CheckedLoaiTS);
+            ucComboBoxViTri1.editValueChanged = new MyUserControl.ucComboBoxViTri.EditValueChanged(CheckedViTri);
+            ucComboBoxDonVi1.editValueChanged = new MyUserControl.ucComboBoxDonVi.EditValueChanged(CheckedDonVi);
         }
 
         public void loadData()
@@ -419,6 +422,21 @@ namespace TSCD_GUI.QLTaiSan
         private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ucGridControlTaiSan1.CollapseAllGroups();
+        }
+
+        private void CheckedLoaiTS()
+        {
+            checkLoai.Checked = true;
+        }
+
+        private void CheckedViTri()
+        {
+            checkViTri.Checked = true;
+        }
+
+        private void CheckedDonVi()
+        {
+            checkDVQL.Checked = true;
         }
     }
 }

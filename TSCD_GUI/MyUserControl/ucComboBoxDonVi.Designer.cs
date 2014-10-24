@@ -50,6 +50,7 @@
             this.treeListLookUpDonVi.Properties.ValueMember = "id";
             this.treeListLookUpDonVi.Size = new System.Drawing.Size(200, 20);
             this.treeListLookUpDonVi.TabIndex = 0;
+            this.treeListLookUpDonVi.EditValueChanged += new System.EventHandler(this.treeListLookUpDonVi_EditValueChanged);
             // 
             // treeListLookUpDonViTreeList
             // 

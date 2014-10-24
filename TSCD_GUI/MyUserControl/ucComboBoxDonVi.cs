@@ -16,6 +16,9 @@ namespace TSCD_GUI.MyUserControl
 {
     public partial class ucComboBoxDonVi : DevExpress.XtraEditors.XtraUserControl
     {
+        public delegate void EditValueChanged();
+        public EditValueChanged editValueChanged = null;
+
         public ucComboBoxDonVi()
         {
             InitializeComponent();
@@ -106,6 +109,12 @@ namespace TSCD_GUI.MyUserControl
             foreach (TreeListNode n in node.Nodes)
                 if (IsNodeMatchFilter(n, column)) return true;
             return false;
+        }
+
+        private void treeListLookUpDonVi_EditValueChanged(object sender, EventArgs e)
+        {
+            if (editValueChanged != null)
+                editValueChanged();
         }
     }
 }
