@@ -195,11 +195,11 @@ namespace TSCD_GUI.QLTaiSan
         private bool checkInput()
         {
             //DonVi donViQL = ucComboBoxDonVi1.DonVi;
-            //if (donViQL == null || donViQL.id == Guid.Empty)
-            //{
-            //    XtraMessageBox.Show("Chưa chọn đơn vị quản lý");
-            //    return false;
-            //}
+            if (objCTTaiSan != null && objCTTaiSan.tinhtrang.giam_taisan)
+            {
+                XtraMessageBox.Show("Tài sản này đã thanh lý!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             return true;
         }
 

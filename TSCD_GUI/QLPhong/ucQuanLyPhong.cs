@@ -11,6 +11,7 @@ using TSCD.DataFilter;
 using TSCD.Entities;
 using SHARED.Libraries;
 using TSCD_GUI.MyUserControl;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace TSCD_GUI.QLPhong
 {
@@ -499,6 +500,75 @@ namespace TSCD_GUI.QLPhong
         private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             gridViewPhong.CollapseAllGroups();
+        }
+
+        private void gridViewPhong_CustomRowFilter(object sender, DevExpress.XtraGrid.Views.Base.RowFilterEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                if (e.ListSourceRow >= 0 && !String.IsNullOrEmpty(view.FindFilterText))
+                {
+                    String text = view.GetRowCellValue(e.ListSourceRow, colten).ToString();
+                    String find = view.FindFilterText;
+                    if (find.Equals(StringHelper.CoDauThanhKhongDau(find)))
+                    {
+                        if (StringHelper.CoDauThanhKhongDau(text.ToUpper()).Contains(StringHelper.CoDauThanhKhongDau(find.ToUpper())))
+                        {
+                            e.Visible = true;
+                            e.Handled = true;
+                        }
+                        else
+                        {
+                            e.Visible = false;
+                            e.Handled = true;
+                        }
+                    }
+                    else
+                    {
+                        if (text.ToUpper().Contains(find.ToUpper()))
+                        {
+                            e.Visible = true;
+                            e.Handled = true;
+                        }
+                        else
+                        {
+                            e.Visible = false;
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+            catch { };
+        }
+
+        private void btnHuy_VisibleChanged(object sender, EventArgs e)
+        {
+            btnXemTaiSan.Visible = !btnHuy.Visible;
+        }
+
+        private void btnXemTaiSan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (objPhong != null && objPhong.id != Guid.Empty)
+                {
+                    CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id && c.soluong > 0).FirstOrDefault();
+                    if (obj == null)
+                    {
+                        XtraMessageBox.Show(objPhong.ten + " không chứa tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        if (selectPageDonViTaiSan != null)
+                            selectPageDonViTaiSan(obj.donviquanly_id, obj.phong_id);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(this.Name + "->barBtnXemTaiSan_ItemClick: " + ex.Message);
+            }
         }
     }
 }
