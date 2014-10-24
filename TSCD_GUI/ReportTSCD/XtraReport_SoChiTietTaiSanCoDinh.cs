@@ -41,7 +41,7 @@ namespace TSCD_GUI.ReportTSCD
                 xrTableCell_NuocSanXuat.DataBindings.Add("Text", null, "nuocsx");
                 xrTableCell_NgaySuDung.DataBindings.Add("Text", null, "ngay", "{0:dd/MM/yyyy}");
 
-                xrTableCell_NguyenGia.DataBindings.Add("Text", null, "thanhtien");
+                xrTableCell_NguyenGia.DataBindings.Add("Text", null, "thanhtien", "{0:### ### ### ###}");
                 IntSUM();
             }
             if (!Object.Equals(obj, null))
@@ -52,7 +52,7 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
-            xrTableCell_SUM_NguyenGia.DataBindings.Add("Text", this.DataSource, "thanhtien");
+            xrTableCell_SUM_NguyenGia.DataBindings.Add("Text", this.DataSource, "thanhtien", "{0:### ### ### ###}");
             xrTableCell_SUM_NguyenGia.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_NguyenGia.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_NguyenGia.Summary.Running = SummaryRunning.Report;

@@ -33,7 +33,7 @@ namespace TSCD_GUI.ReportTSCD
 
                 xrTableCell_NamSD.DataBindings.Add("Text", null, "ngay", "{0:yyyy}");
                 xrTableCell_SoHieuTSCD.DataBindings.Add("Text", null, "sohieu_ct");
-                xrTableCell_NguyenGia.DataBindings.Add("Text", null, "dongia_tang");
+                xrTableCell_NguyenGia.DataBindings.Add("Text", null, "dongia_tang", "{0:### ### ### ###}");
 
                 xrTableCell_SoHieuGiam.DataBindings.Add("Text", null, "sohieu_ct_giam");
                 xrTableCell_NgayThangGiam.DataBindings.Add("Text", null, "ngay_ct_giam", "{0:dd/MM/yyyy}");
@@ -45,7 +45,7 @@ namespace TSCD_GUI.ReportTSCD
 
         private void IntSUM()
         {
-            xrTableCell_SUM_NguyenGiaTang.DataBindings.Add("Text", this.DataSource, "dongia_tang");
+            xrTableCell_SUM_NguyenGiaTang.DataBindings.Add("Text", this.DataSource, "dongia_tang", "{0:### ### ### ###}");
             xrTableCell_SUM_NguyenGiaTang.Summary.IgnoreNullValues = true;
             xrTableCell_SUM_NguyenGiaTang.Summary.Func = SummaryFunc.Sum;
             xrTableCell_SUM_NguyenGiaTang.Summary.Running = SummaryRunning.Report;

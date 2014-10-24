@@ -27,8 +27,6 @@ namespace TSCD_GUI.ReportTSCD
 
             dateEdit_TuNgay.EditValue = DateTime.Today.Date;
             dateEdit_DenNgay.EditValue = DateTime.Today.Date;
-            dateEdit_TuNgay.Enabled = false;
-            dateEdit_DenNgay.Enabled = false;
 
             ucComboBoxLoaiTS_LoaiTaiSan.showCheck();
             ucComboBoxLoaiTS_LoaiTaiSan.DataSource = LoaiTSHienThi.Convert(LoaiTaiSan.getQuery().OrderBy(c => c.parent_id).ThenBy(c => c.ten));
@@ -50,20 +48,32 @@ namespace TSCD_GUI.ReportTSCD
             switch (comboBoxEdit_LoaiBaoCao.SelectedIndex)
             {
                 case 0:
-                    checkedComboBoxEdit_ChonCoSo.Enabled = true;
+                    dateEdit_TuNgay.Enabled = true;
+                    dateEdit_DenNgay.Enabled = true;
+                    ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
+                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
                 case 1:
-                    checkedComboBoxEdit_ChonCoSo.Enabled = true;
+                    dateEdit_TuNgay.Enabled = false;
+                    dateEdit_DenNgay.Enabled = false;
+                    ucComboBoxLoaiTS_LoaiTaiSan.Enabled = true;
                     ucComboBoxDonVi_ChonDonVi.Enabled = false;
+                    checkedComboBoxEdit_ChonCoSo.Enabled = true;
                     break;
                 case 2:
-                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
+                    dateEdit_TuNgay.Enabled = false;
+                    dateEdit_DenNgay.Enabled = false;
+                    ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = true;
+                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
                 case 3:
-                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
+                    dateEdit_TuNgay.Enabled = false;
+                    dateEdit_DenNgay.Enabled = false;
+                    ucComboBoxLoaiTS_LoaiTaiSan.Enabled = false;
                     ucComboBoxDonVi_ChonDonVi.Enabled = true;
+                    checkedComboBoxEdit_ChonCoSo.Enabled = false;
                     break;
             }
         }
@@ -78,7 +88,51 @@ namespace TSCD_GUI.ReportTSCD
             switch (comboBoxEdit_LoaiBaoCao.SelectedIndex)
             {
                 case 0:
-                    XtraMessageBox.Show("Không có dữ liệu để thống kê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (((DateTime)dateEdit_TuNgay.EditValue).Date > DateTime.Today.Date)
+                    {
+                        XtraMessageBox.Show("Ngày từ không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dateEdit_TuNgay.Focus();
+                        return;
+                    }
+                    if (((DateTime)dateEdit_DenNgay.EditValue).Date > DateTime.Today.Date)
+                    {
+                        XtraMessageBox.Show("Ngày đến không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dateEdit_DenNgay.Focus();
+                        return;
+                    }
+                    if (((DateTime)dateEdit_TuNgay.EditValue).Date > ((DateTime)dateEdit_DenNgay.EditValue).Date)
+                    {
+                        XtraMessageBox.Show("Ngày từ không được lớn hơn ngày đến", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dateEdit_TuNgay.Focus();
+                        return;
+                    }
+                    if (checkEdit_XuatBaoCao.Checked)
+                    {
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(TK_TangGiam_TheoLoaiTS.getAll(((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date), ((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date);
+                        ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BaoCaoTangGiamTSCD);
+
+                        splashScreenManager_Report.CloseWaitForm();
+                        printTool.ShowPreviewDialog();
+                    }
+                    else if (checkEdit_ThietKe.Checked)
+                    {
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        TSCD_GUI.ReportTSCD.XtraReport_BaoCaoTangGiamTSCD _XtraReport_BaoCaoTangGiamTSCD = new ReportTSCD.XtraReport_BaoCaoTangGiamTSCD(TK_TangGiam_TheoLoaiTS.getAll(((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date), ((DateTime)dateEdit_TuNgay.EditValue).Date, ((DateTime)dateEdit_DenNgay.EditValue).Date);
+                        ReportDesignTool designTool = new ReportDesignTool(_XtraReport_BaoCaoTangGiamTSCD);
+
+                        splashScreenManager_Report.CloseWaitForm();
+                        designTool.ShowDesignerDialog();
+
+                        ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                        printTool.ShowPreviewDialog();
+                    }
                     break;
                 case 1:
                     List<Guid> ListLoaiTS = ucComboBoxLoaiTS_LoaiTaiSan.list_loaitaisan;

@@ -93,8 +93,8 @@ namespace TSCD_GUI.ReportTSCD
 
                         xrTableCell_TenQuiCachKEMTHEO.DataBindings.Add("Text", bind, "tentaisan");
                         xrTableCell_DonViTinhKEMTHEO.DataBindings.Add("Text", bind, "donvitinh");
-                        xrTableCell_SoLuongKEMTHEO.DataBindings.Add("Text", bind, "soluong");
-                        xrTableCell_GiaTriKEMTHEO.DataBindings.Add("Text", bind, "giatri");
+                        xrTableCell_SoLuongKEMTHEO.DataBindings.Add("Text", bind, "soluong", "{0:### ### ### ###}");
+                        xrTableCell_GiaTriKEMTHEO.DataBindings.Add("Text", bind, "giatri", "{0:### ### ### ###}");
                     }
                     else
                         XuliTable_PhuTungKemTheo();
