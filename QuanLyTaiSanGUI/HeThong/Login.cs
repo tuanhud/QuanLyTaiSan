@@ -18,7 +18,7 @@ using SHARED.Libraries;
 
 namespace PTB_GUI.HeThong
 {
-    public partial class Login : frmCustomXtraForm
+    public partial class Login : XtraForm
     {
         public Login()
         {

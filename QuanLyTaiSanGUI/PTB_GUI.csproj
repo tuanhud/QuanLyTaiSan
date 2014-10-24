@@ -362,12 +362,6 @@
     <Compile Include="MyUC\MyLayout.cs" />
     <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
-    <Compile Include="MyUC\ucThemSuaXoaButton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MyUC\ucThemSuaXoaButton.Designer.cs">
-      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -600,9 +594,6 @@
     <EmbeddedResource Include="HeThong\ucPhanQuyen_Group.resx">
       <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucThemSuaXoaButton.resx">
-      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
       <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
     </EmbeddedResource>
@@ -808,11 +799,17 @@
     <None Include="Resources\log-icon-32.png" />
     <None Include="Resources\close_delete.png" />
     <None Include="Resources\check.png" />
+    <None Include="Resources\delete_19.png" />
+    <None Include="Resources\delete_32.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />
     <None Include="Resources\Status-dialog-warning-icon.png" />
     <None Include="Resources\Maps-icon.png" />
+    <None Include="Resources\pencil_19.png" />
+    <None Include="Resources\pencil_32.png" />
+    <None Include="Resources\plus_19.png" />
+    <None Include="Resources\plus_32.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

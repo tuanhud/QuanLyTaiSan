@@ -1448,7 +1448,19 @@ div.Spacer
 {
     font-weight: bold;
 }
-#ASPxGridView_DXMainTable{
+/*#ASPxGridView_DXMainTable{
     white-space: nowrap !important;
     overflow:hidden !important;
+}*/
+#ContentPlaceHolder1_ucDonViTaiSan_Web__ucTreeViTri_ctl01_HDR th, #ContentPlaceHolder1_ucLoaiTaiSan_Web_ucTreeViTri_ctl01_HDR th{
+    background-color: #428BCA !important;
+    color:white !important;
+}
+.dxtlHeader_Aqua {
+    background: none !important;
+    border: none !important;
+    color:white !important;
+}
+.dxtl table td {
+    color:white !important;
 }

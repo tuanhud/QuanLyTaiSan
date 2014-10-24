@@ -153,29 +153,29 @@ namespace PTB_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_19 {
+            get {
+                object obj = ResourceManager.GetObject("delete_19", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_32 {
+            get {
+                object obj = ResourceManager.GetObject("delete_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward {
             get {
                 object obj = ResourceManager.GetObject("forward", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fs_view_icon {
-            get {
-                object obj = ResourceManager.GetObject("fs-view-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap import_icon {
-            get {
-                object obj = ResourceManager.GetObject("import-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,26 +233,6 @@ namespace PTB_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minus_2 {
-            get {
-                object obj = ResourceManager.GetObject("minus_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minus_2_24 {
-            get {
-                object obj = ResourceManager.GetObject("minus_2_24", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap nhanvien {
             get {
                 object obj = ResourceManager.GetObject("nhanvien", resourceCulture);
@@ -263,9 +243,9 @@ namespace PTB_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pencil_edit {
+        internal static System.Drawing.Bitmap pencil_19 {
             get {
-                object obj = ResourceManager.GetObject("pencil_edit", resourceCulture);
+                object obj = ResourceManager.GetObject("pencil_19", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +253,9 @@ namespace PTB_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pencil_edit_24 {
+        internal static System.Drawing.Bitmap pencil_32 {
             get {
-                object obj = ResourceManager.GetObject("pencil_edit_24", resourceCulture);
+                object obj = ResourceManager.GetObject("pencil_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +293,9 @@ namespace PTB_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap plus_2 {
+        internal static System.Drawing.Bitmap plus_19 {
             get {
-                object obj = ResourceManager.GetObject("plus_2", resourceCulture);
+                object obj = ResourceManager.GetObject("plus_19", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +303,9 @@ namespace PTB_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap plus_2_24 {
+        internal static System.Drawing.Bitmap plus_32 {
             get {
-                object obj = ResourceManager.GetObject("plus_2_24", resourceCulture);
+                object obj = ResourceManager.GetObject("plus_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

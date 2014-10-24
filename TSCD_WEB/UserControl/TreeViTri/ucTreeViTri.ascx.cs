@@ -19,10 +19,6 @@ namespace TSCD_WEB.UserControl.TreeViTri
         public void CreateTreeList()
         {
             Boolean IsMobile = MobileDetect.fBrowserIsMobile();
-
-            TreeListDataColumn colTen = new TreeListDataColumn("ten", "Tên");
-            ASPxTreeList_ViTri.Columns.Add(colTen);
-
             ASPxTreeList_ViTri.AutoGenerateColumns = false;
             ASPxTreeList_ViTri.ClientInstanceName = "treeList";
             ASPxTreeList_ViTri.KeyFieldName = "id";
@@ -36,6 +32,7 @@ namespace TSCD_WEB.UserControl.TreeViTri
             ASPxTreeList_ViTri.SettingsDataSecurity.AllowEdit = false;
             ASPxTreeList_ViTri.SettingsDataSecurity.AllowDelete = false;
             ASPxTreeList_ViTri.SettingsDataSecurity.AllowInsert = false;
+            ASPxTreeList_ViTri.Styles.AlternatingNode.Enabled = DevExpress.Utils.DefaultBoolean.True;
 
             ASPxTreeList_ViTri.ClientSideEvents.CustomDataCallback = "function(s, e) {if(e.result != '') document.location = e.result;}";
             ASPxTreeList_ViTri.ClientSideEvents.NodeClick = "function(s, e) { var key = e.nodeKey; treeList.PerformCustomDataCallback(key)}";

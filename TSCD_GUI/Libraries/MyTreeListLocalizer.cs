@@ -11,6 +11,8 @@ namespace TSCD_GUI.Libraries
         {
             if (id == DevExpress.XtraTreeList.Localization.TreeListStringId.FindControlFindButton)
                 return "Tìm kiếm";
+            if (id == DevExpress.XtraTreeList.Localization.TreeListStringId.FindControlClearButton)
+                return "Làm sạch";
             return base.GetLocalizedString(id);
         }
     }

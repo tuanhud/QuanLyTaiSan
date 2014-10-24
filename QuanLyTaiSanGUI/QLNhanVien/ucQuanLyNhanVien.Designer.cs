@@ -229,7 +229,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_19;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(288, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -251,7 +251,7 @@
             // btnR_Them
             // 
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_19;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Them.Location = new System.Drawing.Point(262, 0);
             this.btnR_Them.Name = "btnR_Them";
@@ -262,7 +262,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.delete_19;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(314, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
@@ -385,7 +385,7 @@
             // barBtnThemNhanVien
             // 
             this.barBtnThemNhanVien.Caption = "Thêm nhân viên";
-            this.barBtnThemNhanVien.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
+            this.barBtnThemNhanVien.Glyph = global::PTB_GUI.Properties.Resources.plus_32;
             this.barBtnThemNhanVien.Id = 18;
             this.barBtnThemNhanVien.Name = "barBtnThemNhanVien";
             this.barBtnThemNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemNhanVien_ItemClick);
@@ -393,7 +393,7 @@
             // barBtnSuaNhanVien
             // 
             this.barBtnSuaNhanVien.Caption = "Sửa nhân viên";
-            this.barBtnSuaNhanVien.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaNhanVien.Glyph = global::PTB_GUI.Properties.Resources.pencil_32;
             this.barBtnSuaNhanVien.Id = 19;
             this.barBtnSuaNhanVien.Name = "barBtnSuaNhanVien";
             this.barBtnSuaNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaNhanVien_ItemClick);
@@ -401,7 +401,7 @@
             // barBtnXoaNhanVien
             // 
             this.barBtnXoaNhanVien.Caption = "Xóa nhân viên";
-            this.barBtnXoaNhanVien.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
+            this.barBtnXoaNhanVien.Glyph = global::PTB_GUI.Properties.Resources.delete_32;
             this.barBtnXoaNhanVien.Id = 20;
             this.barBtnXoaNhanVien.Name = "barBtnXoaNhanVien";
             this.barBtnXoaNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaNhanVien_ItemClick);

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.ucThemSuaXoaButton1 = new PTB_GUI.MyUC.ucThemSuaXoaButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -44,16 +43,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.EnabledChanged += new System.EventHandler(this.button1_EnabledChanged);
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ucThemSuaXoaButton1
-            // 
-            this.ucThemSuaXoaButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.ucThemSuaXoaButton1.Appearance.Options.UseBackColor = true;
-            this.ucThemSuaXoaButton1.Location = new System.Drawing.Point(12, 12);
-            this.ucThemSuaXoaButton1.Name = "ucThemSuaXoaButton1";
-            this.ucThemSuaXoaButton1.Size = new System.Drawing.Size(84, 32);
-            this.ucThemSuaXoaButton1.TabIndex = 0;
-            this.ucThemSuaXoaButton1.ButtonThemClick += new PTB_GUI.MyUC.MyEventHandler(this.ucThemSuaXoaButton1_ButtonThemClick);
             // 
             // label1
             // 
@@ -81,7 +70,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.ucThemSuaXoaButton1);
             this.Name = "Test";
             this.Text = "Test";
             this.ResumeLayout(false);
@@ -91,7 +79,6 @@
 
         #endregion
 
-        private MyUC.ucThemSuaXoaButton ucThemSuaXoaButton1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

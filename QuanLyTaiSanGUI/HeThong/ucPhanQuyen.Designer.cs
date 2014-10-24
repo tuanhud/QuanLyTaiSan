@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPhanQuyen));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhanQuyen = new DevExpress.XtraGrid.GridControl();
@@ -67,7 +66,7 @@
             this.txtTaiKhoanQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenQuanTriVien = new DevExpress.XtraEditors.TextEdit();
             this.txtMaQuanTriVien = new DevExpress.XtraEditors.TextEdit();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhanQuyen)).BeginInit();
@@ -108,7 +107,7 @@
             this.gridControlPhanQuyen.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhanQuyen.MainView = this.gridViewPhanQuyen;
             this.gridControlPhanQuyen.Name = "gridControlPhanQuyen";
-            this.gridControlPhanQuyen.Size = new System.Drawing.Size(505, 490);
+            this.gridControlPhanQuyen.Size = new System.Drawing.Size(506, 490);
             this.gridControlPhanQuyen.TabIndex = 0;
             this.gridControlPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhanQuyen});
@@ -245,7 +244,7 @@
             // barButtonThemQTV
             // 
             this.barButtonThemQTV.Caption = "Thêm quản trị viên";
-            this.barButtonThemQTV.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
+            this.barButtonThemQTV.Glyph = global::PTB_GUI.Properties.Resources.plus_32;
             this.barButtonThemQTV.Id = 1;
             this.barButtonThemQTV.Name = "barButtonThemQTV";
             this.barButtonThemQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemQTV_ItemClick);
@@ -253,7 +252,7 @@
             // barButtonSuaQTV
             // 
             this.barButtonSuaQTV.Caption = "Sửa quản trị viên";
-            this.barButtonSuaQTV.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaQTV.Glyph = global::PTB_GUI.Properties.Resources.pencil_32;
             this.barButtonSuaQTV.Id = 2;
             this.barButtonSuaQTV.Name = "barButtonSuaQTV";
             this.barButtonSuaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaQTV_ItemClick);
@@ -261,7 +260,7 @@
             // barButtonXoaQTV
             // 
             this.barButtonXoaQTV.Caption = "Xóa quản trị viên";
-            this.barButtonXoaQTV.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
+            this.barButtonXoaQTV.Glyph = global::PTB_GUI.Properties.Resources.delete_32;
             this.barButtonXoaQTV.Id = 3;
             this.barButtonXoaQTV.Name = "barButtonXoaQTV";
             this.barButtonXoaQTV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaQTV_ItemClick);
@@ -269,7 +268,7 @@
             // barBtnThemGroup
             // 
             this.barBtnThemGroup.Caption = "Thêm nhóm quyền";
-            this.barBtnThemGroup.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
+            this.barBtnThemGroup.Glyph = global::PTB_GUI.Properties.Resources.plus_32;
             this.barBtnThemGroup.Id = 4;
             this.barBtnThemGroup.Name = "barBtnThemGroup";
             this.barBtnThemGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemGroup_ItemClick);
@@ -277,7 +276,7 @@
             // barBtnSuaGroup
             // 
             this.barBtnSuaGroup.Caption = "Sửa nhóm quyền";
-            this.barBtnSuaGroup.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaGroup.Glyph = global::PTB_GUI.Properties.Resources.pencil_32;
             this.barBtnSuaGroup.Id = 5;
             this.barBtnSuaGroup.Name = "barBtnSuaGroup";
             this.barBtnSuaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaGroup_ItemClick);
@@ -285,7 +284,7 @@
             // barBtnXoaGroup
             // 
             this.barBtnXoaGroup.Caption = "Xóa nhóm quyền";
-            this.barBtnXoaGroup.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
+            this.barBtnXoaGroup.Glyph = global::PTB_GUI.Properties.Resources.delete_32;
             this.barBtnXoaGroup.Id = 6;
             this.barBtnXoaGroup.Name = "barBtnXoaGroup";
             this.barBtnXoaGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaGroup_ItemClick);

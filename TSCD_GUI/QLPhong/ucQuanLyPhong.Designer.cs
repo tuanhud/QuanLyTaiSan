@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhong));
             this.rbnControlPhong = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemPhong = new DevExpress.XtraBars.BarButtonItem();
@@ -77,7 +76,7 @@
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -119,7 +118,7 @@
             // barBtnThemPhong
             // 
             this.barBtnThemPhong.Caption = "Thêm phòng";
-            this.barBtnThemPhong.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
+            this.barBtnThemPhong.Glyph = global::TSCD_GUI.Properties.Resources.plus_32;
             this.barBtnThemPhong.Id = 1;
             this.barBtnThemPhong.Name = "barBtnThemPhong";
             this.barBtnThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemPhong_ItemClick);
@@ -127,7 +126,7 @@
             // barBtnSuaPhong
             // 
             this.barBtnSuaPhong.Caption = "Sửa phòng";
-            this.barBtnSuaPhong.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaPhong.Glyph = global::TSCD_GUI.Properties.Resources.pencil_32;
             this.barBtnSuaPhong.Id = 2;
             this.barBtnSuaPhong.Name = "barBtnSuaPhong";
             this.barBtnSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaPhong_ItemClick);
@@ -135,7 +134,7 @@
             // barBtnXoaPhong
             // 
             this.barBtnXoaPhong.Caption = "Xóa phòng";
-            this.barBtnXoaPhong.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
+            this.barBtnXoaPhong.Glyph = global::TSCD_GUI.Properties.Resources.delete_32;
             this.barBtnXoaPhong.Id = 3;
             this.barBtnXoaPhong.Name = "barBtnXoaPhong";
             this.barBtnXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaPhong_ItemClick);
@@ -244,9 +243,9 @@
             this.navBarGroupViTri});
             this.navBarControlLeft.Location = new System.Drawing.Point(0, 145);
             this.navBarControlLeft.Name = "navBarControlLeft";
-            this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 210;
+            this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 246;
             this.navBarControlLeft.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControlLeft.Size = new System.Drawing.Size(210, 376);
+            this.navBarControlLeft.Size = new System.Drawing.Size(246, 376);
             this.navBarControlLeft.TabIndex = 1;
             // 
             // navBarGroupViTri
@@ -261,20 +260,20 @@
             // navBarGroupControlContainerViTri
             // 
             this.navBarGroupControlContainerViTri.Name = "navBarGroupControlContainerViTri";
-            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(208, 284);
+            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(244, 284);
             this.navBarGroupControlContainerViTri.TabIndex = 0;
             // 
             // splitContainerControlMain
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(210, 145);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(246, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.gridControlPhong);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(647, 376);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(611, 376);
             this.splitContainerControlMain.SplitterPosition = 305;
             this.splitContainerControlMain.TabIndex = 2;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -286,7 +285,7 @@
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.MenuManager = this.rbnControlPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(338, 376);
+            this.gridControlPhong.Size = new System.Drawing.Size(302, 376);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -532,7 +531,7 @@
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.minus_2_24;
+            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.delete_19;
             this.btnXoa_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnXoa_r.Location = new System.Drawing.Point(266, 0);
             this.btnXoa_r.Name = "btnXoa_r";
@@ -543,7 +542,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_19;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(240, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -554,7 +553,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_19;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(214, 0);
             this.btnThem_r.Name = "btnThem_r";

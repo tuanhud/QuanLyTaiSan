@@ -48,7 +48,6 @@ namespace PTB_GUI
         private void ucThemSuaXoaButton1_ButtonThemClick(object sender, EventArgs e)
         {
             MessageBox.Show("them click");
-            ucThemSuaXoaButton1.btnSua.Hide();
         }
 
         public void reLoad()

@@ -108,7 +108,7 @@
             this.gridControlThongKe.Location = new System.Drawing.Point(0, 0);
             this.gridControlThongKe.MainView = this.gridViewThongKe;
             this.gridControlThongKe.Name = "gridControlThongKe";
-            this.gridControlThongKe.Size = new System.Drawing.Size(495, 473);
+            this.gridControlThongKe.Size = new System.Drawing.Size(496, 473);
             this.gridControlThongKe.TabIndex = 1;
             this.gridControlThongKe.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThongKe});
