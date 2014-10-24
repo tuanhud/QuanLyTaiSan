@@ -43,12 +43,22 @@ namespace TSCD.DataFilter
                 foreach (var taisan in item.taisans)
                 {
                     //Tính số đầu năm
-                    foreach (var ctts in taisan.cttaisans.Where(c=>c.soluong>0 && c.ngay!=null && c.ngay<from))
+                    foreach (var ctts in taisan.cttaisans.Where(
+                        c=>
+                            c.soluong>0
+                            &&
+                            (
+                                (c.ngay!=null && c.ngay<from)
+                                ||
+                                (c.date_create!=null && c.date_create<from)
+                            )
+                        )
+                    )
                     {
                         obj.sodaunam_soluong += ctts.soluong;
                         obj.sodaunam_giatri += ctts.thanhtien;
                     }
-                    var list_log_ctts = taisan.logtanggiamtaisans.Where(c => c.ngay != null && c.ngay >= from && c.ngay <= to && c.soluong > 0);
+                    var list_log_ctts = taisan.logtanggiamtaisans.Where(c => c.date_create != null && c.date_create >= from && c.date_create <= to && c.soluong > 0);
 
                     //Tính tăng/giảm trong năm
                     foreach (var ctts in list_log_ctts.Where(c => c.tang_giam == 1 || c.tang_giam == -1))
