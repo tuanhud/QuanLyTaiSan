@@ -819,17 +819,29 @@ namespace PTB_GUI.MyUserControl
 
         private void gridViewPhong_DoubleClick(object sender, EventArgs e)
         {
-            if (loadDataByPhong != null && objPhong != null && objPhong.id != Guid.Empty)
+            if (objPhong != null && objPhong.id != Guid.Empty)
             {
-                loadDataByPhong(objPhong, "thietbi");
+                if (objPhong.ctthietbis.Count > 0)
+                {
+                    if (loadDataByPhong != null)
+                        loadDataByPhong(objPhong, "thietbi");
+                }
+                else
+                    XtraMessageBox.Show("Phòng này không có thiết bị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void barBtnSuCo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (loadDataByPhong != null && objPhong != null && objPhong.id != Guid.Empty)
+            if (objPhong != null && objPhong.id != Guid.Empty)
             {
-                loadDataByPhong(objPhong, "suco");
+                if (objPhong.sucophongs.Count > 0)
+                {
+                    if (loadDataByPhong != null)
+                        loadDataByPhong(objPhong, "suco");
+                }
+                else
+                    XtraMessageBox.Show("Phòng này không có sự cố!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
