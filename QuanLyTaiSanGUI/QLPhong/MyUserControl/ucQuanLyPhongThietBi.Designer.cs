@@ -140,7 +140,7 @@
             // barButtonSua
             // 
             this.barButtonSua.Caption = "Sửa thiết bị";
-            this.barButtonSua.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
+            this.barButtonSua.Glyph = global::PTB_GUI.Properties.Resources.pencil_32;
             this.barButtonSua.Id = 43;
             this.barButtonSua.Name = "barButtonSua";
             this.barButtonSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaTB_ItemClick);
@@ -148,7 +148,7 @@
             // barButtonXoa
             // 
             this.barButtonXoa.Caption = "Loại bỏ TB";
-            this.barButtonXoa.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
+            this.barButtonXoa.Glyph = global::PTB_GUI.Properties.Resources.delete_32;
             this.barButtonXoa.Id = 44;
             this.barButtonXoa.Name = "barButtonXoa";
             this.barButtonXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaTB_ItemClick);
@@ -469,7 +469,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_19;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(290, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -480,7 +480,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.delete_19;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(316, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";

@@ -808,11 +808,17 @@
     <None Include="Resources\log-icon-32.png" />
     <None Include="Resources\close_delete.png" />
     <None Include="Resources\check.png" />
+    <None Include="Resources\delete_19.png" />
+    <None Include="Resources\delete_32.png" />
     <Content Include="Resources\login.ico" />
     <Content Include="Resources\login.png" />
     <None Include="Resources\Status-media-playlist-repeat-icon.png" />
     <None Include="Resources\Status-dialog-warning-icon.png" />
     <None Include="Resources\Maps-icon.png" />
+    <None Include="Resources\pencil_19.png" />
+    <None Include="Resources\pencil_32.png" />
+    <None Include="Resources\plus_19.png" />
+    <None Include="Resources\plus_32.png" />
     <Content Include="Resources\thietbi.png" />
     <None Include="Resources\thietbi1.png" />
   </ItemGroup>

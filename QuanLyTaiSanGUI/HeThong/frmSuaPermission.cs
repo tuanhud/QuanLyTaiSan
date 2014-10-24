@@ -14,7 +14,7 @@ using PTB_GUI.MyForm;
 
 namespace PTB_GUI.HeThong
 {
-    public partial class frmSuaPermission : frmCustomXtraForm
+    public partial class frmSuaPermission : XtraForm
     {
         private List<Permission> input = null;
         public frmSuaPermission()

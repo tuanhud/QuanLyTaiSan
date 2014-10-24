@@ -15,7 +15,7 @@ using SHARED.Libraries;
 
 namespace PTB_GUI.HeThong
 {
-    public partial class SuaThongTinCaNhan : frmCustomXtraForm
+    public partial class SuaThongTinCaNhan : XtraForm
     {
         public SuaThongTinCaNhan()
         {

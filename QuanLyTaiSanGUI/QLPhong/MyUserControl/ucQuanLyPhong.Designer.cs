@@ -327,7 +327,7 @@
             // barButtonThemPhong
             // 
             this.barButtonThemPhong.Caption = "Thêm phòng";
-            this.barButtonThemPhong.Glyph = global::PTB_GUI.Properties.Resources.plus_2;
+            this.barButtonThemPhong.Glyph = global::PTB_GUI.Properties.Resources.plus_32;
             this.barButtonThemPhong.Id = 39;
             this.barButtonThemPhong.Name = "barButtonThemPhong";
             this.barButtonThemPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonThemPhong_ItemClick);
@@ -335,7 +335,7 @@
             // barButtonSuaPhong
             // 
             this.barButtonSuaPhong.Caption = "Sửa phòng";
-            this.barButtonSuaPhong.Glyph = global::PTB_GUI.Properties.Resources.pencil_edit;
+            this.barButtonSuaPhong.Glyph = global::PTB_GUI.Properties.Resources.pencil_32;
             this.barButtonSuaPhong.Id = 40;
             this.barButtonSuaPhong.Name = "barButtonSuaPhong";
             this.barButtonSuaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSuaPhong_ItemClick);
@@ -343,7 +343,7 @@
             // barButtonXoaPhong
             // 
             this.barButtonXoaPhong.Caption = "Xóa phòng";
-            this.barButtonXoaPhong.Glyph = global::PTB_GUI.Properties.Resources.minus_2;
+            this.barButtonXoaPhong.Glyph = global::PTB_GUI.Properties.Resources.delete_32;
             this.barButtonXoaPhong.Id = 41;
             this.barButtonXoaPhong.Name = "barButtonXoaPhong";
             this.barButtonXoaPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaPhong_ItemClick);
@@ -602,7 +602,7 @@
             // btnR_Sua
             // 
             this.btnR_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_edit_24;
+            this.btnR_Sua.Image = global::PTB_GUI.Properties.Resources.pencil_19;
             this.btnR_Sua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Sua.Location = new System.Drawing.Point(285, 0);
             this.btnR_Sua.Name = "btnR_Sua";
@@ -613,7 +613,7 @@
             // btnR_Them
             // 
             this.btnR_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_2_24;
+            this.btnR_Them.Image = global::PTB_GUI.Properties.Resources.plus_19;
             this.btnR_Them.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Them.Location = new System.Drawing.Point(259, 0);
             this.btnR_Them.Name = "btnR_Them";
@@ -624,7 +624,7 @@
             // btnR_Xoa
             // 
             this.btnR_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.minus_2_24;
+            this.btnR_Xoa.Image = global::PTB_GUI.Properties.Resources.delete_19;
             this.btnR_Xoa.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnR_Xoa.Location = new System.Drawing.Point(311, 0);
             this.btnR_Xoa.Name = "btnR_Xoa";
