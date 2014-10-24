@@ -368,7 +368,7 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 13;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Làm sạch";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // lblTenTS

@@ -11,6 +11,8 @@ namespace TSCD_GUI.Libraries
         {
             if (id == DevExpress.XtraGrid.Localization.GridStringId.FindControlFindButton)
                 return "Tìm kiếm";
+            if (id == DevExpress.XtraGrid.Localization.GridStringId.FindControlClearButton)
+                return "Làm sạch";
             if (id == DevExpress.XtraGrid.Localization.GridStringId.GridGroupPanelText)
                 return "Kéo thả một cột vào đây để nhóm theo cột đó";
             return base.GetLocalizedString(id);
