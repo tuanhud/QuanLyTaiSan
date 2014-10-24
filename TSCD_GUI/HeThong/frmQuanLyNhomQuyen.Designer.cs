@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyNhomQuyen));
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.lblMoTa = new DevExpress.XtraEditors.LabelControl();
@@ -261,7 +260,7 @@
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.minus_2_24;
+            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.delete_19;
             this.btnXoa_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnXoa_r.Location = new System.Drawing.Point(277, 0);
             this.btnXoa_r.Name = "btnXoa_r";
@@ -272,7 +271,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_19;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(251, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -283,7 +282,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_19;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(225, 0);
             this.btnThem_r.Name = "btnThem_r";

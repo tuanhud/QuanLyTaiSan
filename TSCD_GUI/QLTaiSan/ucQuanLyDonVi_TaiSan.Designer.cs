@@ -94,7 +94,7 @@
             // barBtnThemTaiSan
             // 
             this.barBtnThemTaiSan.Caption = "Thêm tài sản";
-            this.barBtnThemTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
+            this.barBtnThemTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.plus_32;
             this.barBtnThemTaiSan.Id = 1;
             this.barBtnThemTaiSan.Name = "barBtnThemTaiSan";
             this.barBtnThemTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemTaiSan_ItemClick);
@@ -102,7 +102,7 @@
             // barBtnSuaTaiSan
             // 
             this.barBtnSuaTaiSan.Caption = "Sửa tài sản";
-            this.barBtnSuaTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.pencil_32;
             this.barBtnSuaTaiSan.Id = 2;
             this.barBtnSuaTaiSan.Name = "barBtnSuaTaiSan";
             this.barBtnSuaTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaTaiSan_ItemClick);
@@ -110,7 +110,7 @@
             // barBtnXoaTaiSan
             // 
             this.barBtnXoaTaiSan.Caption = "Xóa tài sản";
-            this.barBtnXoaTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
+            this.barBtnXoaTaiSan.Glyph = global::TSCD_GUI.Properties.Resources.delete_32;
             this.barBtnXoaTaiSan.Id = 3;
             this.barBtnXoaTaiSan.Name = "barBtnXoaTaiSan";
             this.barBtnXoaTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaTaiSan_ItemClick);

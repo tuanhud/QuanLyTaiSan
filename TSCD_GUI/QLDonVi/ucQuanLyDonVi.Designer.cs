@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyDonVi));
             this.rbnControlDonVi = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemDonVi = new DevExpress.XtraBars.BarButtonItem();
@@ -64,7 +63,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -100,7 +99,7 @@
             // barBtnThemDonVi
             // 
             this.barBtnThemDonVi.Caption = "Thêm đơn vị";
-            this.barBtnThemDonVi.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
+            this.barBtnThemDonVi.Glyph = global::TSCD_GUI.Properties.Resources.plus_32;
             this.barBtnThemDonVi.Id = 1;
             this.barBtnThemDonVi.Name = "barBtnThemDonVi";
             this.barBtnThemDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemDonVi_ItemClick);
@@ -108,7 +107,7 @@
             // barBtnSuaDonVi
             // 
             this.barBtnSuaDonVi.Caption = "Sửa đơn vị";
-            this.barBtnSuaDonVi.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaDonVi.Glyph = global::TSCD_GUI.Properties.Resources.pencil_32;
             this.barBtnSuaDonVi.Id = 2;
             this.barBtnSuaDonVi.Name = "barBtnSuaDonVi";
             this.barBtnSuaDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaDonVi_ItemClick);
@@ -116,7 +115,7 @@
             // barBtnXoaDonVi
             // 
             this.barBtnXoaDonVi.Caption = "Xóa đơn vị";
-            this.barBtnXoaDonVi.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
+            this.barBtnXoaDonVi.Glyph = global::TSCD_GUI.Properties.Resources.delete_32;
             this.barBtnXoaDonVi.Id = 3;
             this.barBtnXoaDonVi.Name = "barBtnXoaDonVi";
             this.barBtnXoaDonVi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaDonVi_ItemClick);
@@ -188,7 +187,7 @@
             this.treeListDonVi.ParentFieldName = "parent_id";
             this.treeListDonVi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryLookUpLoai});
-            this.treeListDonVi.Size = new System.Drawing.Size(466, 363);
+            this.treeListDonVi.Size = new System.Drawing.Size(467, 363);
             this.treeListDonVi.TabIndex = 0;
             this.treeListDonVi.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListDonVi_FocusedNodeChanged);
             this.treeListDonVi.FilterNode += new DevExpress.XtraTreeList.FilterNodeEventHandler(this.OnFilterNode);
@@ -298,7 +297,7 @@
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.minus_2_24;
+            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.delete_19;
             this.btnXoa_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnXoa_r.Location = new System.Drawing.Point(343, 0);
             this.btnXoa_r.Name = "btnXoa_r";
@@ -309,7 +308,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_19;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(317, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -320,7 +319,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_19;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(291, 0);
             this.btnThem_r.Name = "btnThem_r";

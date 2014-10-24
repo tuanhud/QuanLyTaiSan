@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTS));
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -68,7 +67,7 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
@@ -105,7 +104,7 @@
             // barBtnThemLoaiTS
             // 
             this.barBtnThemLoaiTS.Caption = "Thêm loại tài sản";
-            this.barBtnThemLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.plus_2;
+            this.barBtnThemLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.plus_32;
             this.barBtnThemLoaiTS.Id = 1;
             this.barBtnThemLoaiTS.Name = "barBtnThemLoaiTS";
             this.barBtnThemLoaiTS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemLoaiTS_ItemClick);
@@ -113,7 +112,7 @@
             // barBtnSuaLoaiTS
             // 
             this.barBtnSuaLoaiTS.Caption = "Sửa loại tài sản";
-            this.barBtnSuaLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.pencil_edit;
+            this.barBtnSuaLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.pencil_32;
             this.barBtnSuaLoaiTS.Id = 2;
             this.barBtnSuaLoaiTS.Name = "barBtnSuaLoaiTS";
             this.barBtnSuaLoaiTS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSuaLoaiTS_ItemClick);
@@ -121,7 +120,7 @@
             // barBtnXoaLoaiTS
             // 
             this.barBtnXoaLoaiTS.Caption = "Xóa loại tài sản";
-            this.barBtnXoaLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.minus_2;
+            this.barBtnXoaLoaiTS.Glyph = global::TSCD_GUI.Properties.Resources.delete_32;
             this.barBtnXoaLoaiTS.Id = 3;
             this.barBtnXoaLoaiTS.Name = "barBtnXoaLoaiTS";
             this.barBtnXoaLoaiTS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoaLoaiTS_ItemClick);
@@ -433,7 +432,7 @@
             // btnXoa_r
             // 
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.minus_2_24;
+            this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.delete_19;
             this.btnXoa_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnXoa_r.Location = new System.Drawing.Point(333, 0);
             this.btnXoa_r.Name = "btnXoa_r";
@@ -444,7 +443,7 @@
             // btnSua_r
             // 
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_edit_22;
+            this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_19;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSua_r.Location = new System.Drawing.Point(307, 0);
             this.btnSua_r.Name = "btnSua_r";
@@ -455,7 +454,7 @@
             // btnThem_r
             // 
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_2_22;
+            this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_19;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnThem_r.Location = new System.Drawing.Point(281, 0);
             this.btnThem_r.Name = "btnThem_r";
