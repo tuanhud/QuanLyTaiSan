@@ -58,6 +58,7 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblSoChoNgoi = new DevExpress.XtraEditors.LabelControl();
             this.lblViTri = new DevExpress.XtraEditors.LabelControl();
             this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             this.btnLoaiPhong = new DevExpress.XtraEditors.SimpleButton();
@@ -76,7 +77,6 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.lblSoChoNgoi = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -388,6 +388,14 @@
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
             // 
+            // lblSoChoNgoi
+            // 
+            this.lblSoChoNgoi.Location = new System.Drawing.Point(5, 113);
+            this.lblSoChoNgoi.Name = "lblSoChoNgoi";
+            this.lblSoChoNgoi.Size = new System.Drawing.Size(59, 13);
+            this.lblSoChoNgoi.TabIndex = 17;
+            this.lblSoChoNgoi.Text = "Số chỗ ngồi:";
+            // 
             // lblViTri
             // 
             this.lblViTri.Location = new System.Drawing.Point(5, 85);
@@ -575,14 +583,6 @@
             // dxErrorProviderInfo
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
-            // 
-            // lblSoChoNgoi
-            // 
-            this.lblSoChoNgoi.Location = new System.Drawing.Point(5, 113);
-            this.lblSoChoNgoi.Name = "lblSoChoNgoi";
-            this.lblSoChoNgoi.Size = new System.Drawing.Size(59, 13);
-            this.lblSoChoNgoi.TabIndex = 17;
-            this.lblSoChoNgoi.Text = "Số chỗ ngồi:";
             // 
             // ucQuanLyPhong
             // 

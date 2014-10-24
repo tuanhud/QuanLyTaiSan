@@ -473,7 +473,7 @@ namespace TSCD_GUI.QLPhong
             {
                 if (objPhong != null && objPhong.id != Guid.Empty)
                 {
-                    CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id).FirstOrDefault();
+                    CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id && c.soluong > 0).FirstOrDefault();
                     if (obj == null)
                     {
                         XtraMessageBox.Show(objPhong.ten + " không chứa tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

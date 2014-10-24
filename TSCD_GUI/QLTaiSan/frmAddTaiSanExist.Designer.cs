@@ -37,7 +37,7 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(641, 441);
+            this.btnAdd.Location = new System.Drawing.Point(690, 441);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
@@ -48,7 +48,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(722, 441);
+            this.btnClose.Location = new System.Drawing.Point(771, 441);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -62,20 +62,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ucQuanLyTaiSan1.Location = new System.Drawing.Point(0, 0);
             this.ucQuanLyTaiSan1.Name = "ucQuanLyTaiSan1";
-            this.ucQuanLyTaiSan1.Size = new System.Drawing.Size(809, 435);
+            this.ucQuanLyTaiSan1.Size = new System.Drawing.Size(858, 435);
             this.ucQuanLyTaiSan1.TabIndex = 0;
             // 
             // frmAddTaiSanExist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 476);
+            this.ClientSize = new System.Drawing.Size(858, 476);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ucQuanLyTaiSan1);
+            this.MinimumSize = new System.Drawing.Size(874, 514);
             this.Name = "frmAddTaiSanExist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddTaiSan_DonVi";
+            this.Text = "Thêm tài sản vào đơn vị";
             this.ResumeLayout(false);
 
         }
