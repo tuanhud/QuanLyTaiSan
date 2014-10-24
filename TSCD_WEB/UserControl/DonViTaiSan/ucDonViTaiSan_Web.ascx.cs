@@ -31,10 +31,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             else
             {
                 DangNhap.Visible = false;
-                //listCTTaiSan = TSCD.Entities.CTTaiSan.getAll();
                 listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c=>c.ten).ToList();
-                //listDonVi = TSCD.Entities.DonVi.getAll().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
-
                 if (listDonVi.Count > 0)
                 {
                     infotr.Visible = true;
@@ -141,7 +138,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
 
         protected void ASPxButton_Click(object sender, EventArgs e)
         {
-            string[] values = "nuocsx;nguongoc;tinhtrang;phong;vitri;dvquanly;dvsudung;ghichu".Split(';');
+            string[] values = "nuocsx;nguongoc;phong;vitri;dvquanly;dvsudung;ghichu".Split(';');
             foreach (string val in values)
             {
                 ASPxGridView.Columns[val].Visible = false;

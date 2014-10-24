@@ -16,8 +16,7 @@
 
 
 <uc:ucDonViTaiSan_BreadCrumb runat="server" ID="ucDonViTaiSan_BreadCrumb" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<table id="tableabc" class="table largetable">
+<table class="table largetable">
     <tbody>
         <tr id="DangNhap" runat="server" visible="false">
             <td>
@@ -114,7 +113,6 @@
                                             <dx:ListEditItem Text="(Chọn tất cả)" />
                                             <dx:ListEditItem Text="Nước sản xuất" Value="nuocsx" />
                                             <dx:ListEditItem Text="Nguồn gốc" Value="nguongoc" />
-                                            <dx:ListEditItem Text="Tình trạng" Value="tinhtrang" />
                                             <dx:ListEditItem Text="Phòng" Value="phong" />
                                             <dx:ListEditItem Text="Vị trí" Value="vitri" />
                                             <dx:ListEditItem Text="Đơn vị quản lý" Value="dvquanly" />
@@ -141,75 +139,67 @@
                 </table>
                 <br />
                 <dx:ASPxGridView ID="ASPxGridView" KeyFieldName="id" ClientIDMode="Static" ClientInstanceName="ASPxGridView" runat="server" AutoGenerateColumns="False" EnableTheming="True" Theme="Aqua" Width="100%">
+                    <GroupSummary>
+                        <dx:ASPxSummaryItem FieldName="soluong" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Số lượng = {0}" />
+                        <dx:ASPxSummaryItem FieldName="thanhtien" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Tổng tiền = {0:#,# VNĐ}" />
+                    </GroupSummary>
                     <Columns>
-                        <dx:GridViewBandColumn Caption="">
-                            <Columns>
-                                <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="25" Visible="False">
-                                </dx:GridViewCommandColumn>
-                                <dx:GridViewDataTextColumn Caption="Loại tài sản" FieldName="loaits" GroupIndex="0" VisibleIndex="1">
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataDateColumn Caption="Ngày sử dụng" FieldName="ngay" VisibleIndex="2">
-                                    <CellStyle HorizontalAlign="Center"></CellStyle>
-                                    <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy"></PropertiesDateEdit>
-                                </dx:GridViewDataDateColumn>
-                            </Columns>
-                        </dx:GridViewBandColumn>
-                        <dx:GridViewBandColumn Caption="Chứng từ">
-                            <Columns>
-                                <dx:GridViewDataTextColumn Caption="Số hiệu" FieldName="sohieu_ct" VisibleIndex="3">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataDateColumn Caption="Ngày tháng" FieldName="ngay_ct" VisibleIndex="4">
-                                    <CellStyle HorizontalAlign="Center"></CellStyle>
-                                    <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy"></PropertiesDateEdit>
-                                </dx:GridViewDataDateColumn>
-                            </Columns>
-                        </dx:GridViewBandColumn>
-                        <dx:GridViewBandColumn Caption="">
-                            <Columns>
-                                <dx:GridViewDataTextColumn Caption="Tên TSCĐ" FieldName="ten" VisibleIndex="5" Width="300">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Đơn vị tính" FieldName="donvitinh" VisibleIndex="6">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Số lượng" FieldName="soluong" VisibleIndex="7">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Đơn giá" FieldName="dongia" VisibleIndex="8" Width="150">
-                                    <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Thành tiền" FieldName="thanhtien" VisibleIndex="9" Width="150">
-                                    <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="10" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="11" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="12" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="13" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="14" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="15" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="16" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="17" Visible="False">
-                                    <Settings AutoFilterCondition="Contains" />
-                                </dx:GridViewDataTextColumn>
-                            </Columns>
-                        </dx:GridViewBandColumn>
+                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="40" Visible="true">
+                        </dx:GridViewCommandColumn>
+                        <dx:GridViewDataTextColumn Caption="Loại tài sản" FieldName="loaits" VisibleIndex="1" GroupIndex="0">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataDateColumn Caption="Ngày sử dụng" FieldName="ngay" VisibleIndex="2">
+                            <CellStyle HorizontalAlign="Center"></CellStyle>
+                            <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy"></PropertiesDateEdit>
+                        </dx:GridViewDataDateColumn>
+                        <dx:GridViewDataTextColumn Caption="Số hiệu chứng từ" FieldName="sohieu_ct" VisibleIndex="3" Width="120">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataDateColumn Caption="Ngày tháng chứng từ" FieldName="ngay_ct" VisibleIndex="4" Width="140">
+                            <CellStyle HorizontalAlign="Center"></CellStyle>
+                            <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy"></PropertiesDateEdit>
+                        </dx:GridViewDataDateColumn>
+                        <dx:GridViewDataTextColumn Caption="Tên TSCĐ" FieldName="ten" VisibleIndex="5" Width="300">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Đơn vị tính" FieldName="donvitinh" VisibleIndex="6" Width="70">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Số lượng" FieldName="soluong" VisibleIndex="7" Width="60">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Đơn giá" FieldName="dongia" VisibleIndex="8" Width="150">
+                            <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Thành tiền" FieldName="thanhtien" VisibleIndex="9" Width="150">
+                            <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="10">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="11" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="12" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="13" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="14" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="15" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="16" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="17" Visible="False">
+                            <Settings AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
                     </Columns>
                     <Styles>
                         <SelectedRow BackColor="#C0FFC0" ForeColor="#0033FF"></SelectedRow>
@@ -218,8 +208,8 @@
                         <PageSizeItemSettings Visible="true" ShowAllItem="true" />
                     </SettingsPager>
                     <SettingsBehavior AllowSelectByRowClick="True" ColumnResizeMode="Control" />
-                    <Settings ShowFilterRow="True" ShowFooter="True" HorizontalScrollBarMode="Auto" />
-                    <SettingsCookies Enabled="true" />
+                    <Settings ShowFilterRow="True" ShowFooter="True" HorizontalScrollBarMode="Auto" ShowGroupPanel="True" />
+                    <SettingsCookies Enabled="True" />
                     <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                 </dx:ASPxGridView>
             </td>
@@ -228,6 +218,6 @@
 </table>
 
 <dx:ASPxLoadingPanel ID="lp" runat="server" Theme="Moderno" ClientInstanceName="lp"></dx:ASPxLoadingPanel>
-<dx:ASPxPopupControl ID="popup" runat="server" ClientInstanceName="popup" ShowPinButton="true" ShowCloseButton="true" ShowMaximizeButton="true" Maximized="true" ScrollBars="None" ShowFooter="true" FooterText="" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Danh sách tài sản" Theme="PlasticBlue" AllowResize="True" AllowDragging="true" AutoUpdatePosition="True" Width="800px" Height="600px" ContentUrl="javascript:void(0);">
+<dx:ASPxPopupControl ID="popup" runat="server" ClientInstanceName="popup" ShowRefreshButton="true" ShowPinButton="true" ShowCloseButton="true" ShowMaximizeButton="true" Maximized="true" ScrollBars="None" ShowFooter="true" FooterText="" CloseAction="CloseButton" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Danh sách tài sản" Theme="PlasticBlue" AllowResize="True" AllowDragging="true" AutoUpdatePosition="True" Width="800px" Height="600px" ContentUrl="javascript:void(0);">
     <ClientSideEvents Init="OnPopupInit" Shown="OnPopupShown" />
 </dx:ASPxPopupControl>

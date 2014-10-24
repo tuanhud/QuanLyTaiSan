@@ -92,7 +92,7 @@ namespace TSCD_GUI.QLTaiSan
                     isViTri = false;
                 List<TaiSanHienThi> list = TaiSanHienThi.Convert(CTTaiSanSF.search(ten, loai, checkDVQL.Checked, DVQL, false, null, isViTri && checkViTri.Checked, vitri, !isViTri && checkViTri.Checked, phong));
                 ucGridControlTaiSan1.DataSource = list;
-                ucGridControlTaiSan1.ExpandAllGroups();
+                
 
                 bool isEnabled = list.Count > 0;
                 barBtnSuaTaiSan.Enabled = isEnabled;
@@ -101,6 +101,7 @@ namespace TSCD_GUI.QLTaiSan
                 btnXoa_r.Enabled = isEnabled;
 
                 saveSearchXml(this.Name);
+                ucGridControlTaiSan1.CollapseAllGroups();
             }
             catch (Exception ex)
             {

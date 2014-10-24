@@ -58,6 +58,7 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnXemTaiSan = new DevExpress.XtraEditors.SimpleButton();
             this.lblSoChoNgoi = new DevExpress.XtraEditors.LabelControl();
             this.lblViTri = new DevExpress.XtraEditors.LabelControl();
             this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
@@ -224,6 +225,7 @@
             this.rbnGroupTaiSan.Name = "rbnGroupTaiSan";
             this.rbnGroupTaiSan.ShowCaptionButton = false;
             this.rbnGroupTaiSan.Text = "Tài sản";
+            this.rbnGroupTaiSan.Visible = false;
             // 
             // rbnGroupLayout
             // 
@@ -305,11 +307,14 @@
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
             this.gridViewPhong.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridViewPhong.OptionsFind.AlwaysVisible = true;
+            this.gridViewPhong.OptionsFind.FindFilterColumns = "ten";
+            this.gridViewPhong.OptionsFind.HighlightFindResults = false;
             this.gridViewPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
             this.gridViewPhong.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewPhong.OptionsView.ShowFooter = true;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
+            this.gridViewPhong.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.gridViewPhong_CustomRowFilter);
             this.gridViewPhong.DataSourceChanged += new System.EventHandler(this.gridViewPhong_DataSourceChanged);
             // 
             // colten
@@ -365,6 +370,7 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
+            this.groupControlInfo.Controls.Add(this.btnXemTaiSan);
             this.groupControlInfo.Controls.Add(this.lblSoChoNgoi);
             this.groupControlInfo.Controls.Add(this.lblViTri);
             this.groupControlInfo.Controls.Add(this.panelControlViTri);
@@ -387,6 +393,16 @@
             this.groupControlInfo.Size = new System.Drawing.Size(305, 376);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
+            // 
+            // btnXemTaiSan
+            // 
+            this.btnXemTaiSan.Image = ((System.Drawing.Image)(resources.GetObject("btnXemTaiSan.Image")));
+            this.btnXemTaiSan.Location = new System.Drawing.Point(68, 234);
+            this.btnXemTaiSan.Name = "btnXemTaiSan";
+            this.btnXemTaiSan.Size = new System.Drawing.Size(90, 23);
+            this.btnXemTaiSan.TabIndex = 18;
+            this.btnXemTaiSan.Text = "Xem tài sản";
+            this.btnXemTaiSan.Click += new System.EventHandler(this.btnXemTaiSan_Click);
             // 
             // lblSoChoNgoi
             // 
@@ -428,17 +444,18 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(148, 234);
+            this.btnHuy.Location = new System.Drawing.Point(149, 234);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.VisibleChanged += new System.EventHandler(this.btnHuy_VisibleChanged);
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(67, 234);
+            this.btnOK.Location = new System.Drawing.Point(68, 234);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 10;
@@ -664,5 +681,6 @@
         private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
         private DevExpress.XtraEditors.LabelControl lblSoChoNgoi;
+        private DevExpress.XtraEditors.SimpleButton btnXemTaiSan;
     }
 }
