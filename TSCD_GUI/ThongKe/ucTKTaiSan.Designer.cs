@@ -235,7 +235,7 @@
             // coldongia_tang
             // 
             this.coldongia_tang.Caption = "Đơn giá";
-            this.coldongia_tang.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.coldongia_tang.DisplayFormat.FormatString = "{0:### ### ### ##0}";
             this.coldongia_tang.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldongia_tang.FieldName = "dongia_tang";
             this.coldongia_tang.Name = "coldongia_tang";
@@ -244,7 +244,7 @@
             // colthanhtien_tang
             // 
             this.colthanhtien_tang.Caption = "Thành tiền";
-            this.colthanhtien_tang.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.colthanhtien_tang.DisplayFormat.FormatString = "{0:### ### ### ##0}";
             this.colthanhtien_tang.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colthanhtien_tang.FieldName = "thanhtien_tang";
             this.colthanhtien_tang.Name = "colthanhtien_tang";
@@ -270,7 +270,7 @@
             // coldongia_giam
             // 
             this.coldongia_giam.Caption = "Đơn giá";
-            this.coldongia_giam.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.coldongia_giam.DisplayFormat.FormatString = "{0:### ### ### ##0}";
             this.coldongia_giam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coldongia_giam.FieldName = "dongia_giam";
             this.coldongia_giam.Name = "coldongia_giam";
@@ -279,7 +279,7 @@
             // colthanhtien_giam
             // 
             this.colthanhtien_giam.Caption = "Thành tiền";
-            this.colthanhtien_giam.DisplayFormat.FormatString = "{0:### ### ### ###}";
+            this.colthanhtien_giam.DisplayFormat.FormatString = "{0:### ### ### ##0}";
             this.colthanhtien_giam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colthanhtien_giam.FieldName = "thanhtien_giam";
             this.colthanhtien_giam.Name = "colthanhtien_giam";
