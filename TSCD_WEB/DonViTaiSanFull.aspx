@@ -140,7 +140,7 @@
                     <dx:ASPxGridView ID="ASPxGridView" KeyFieldName="id" ClientIDMode="Static" ClientInstanceName="ASPxGridView" runat="server" AutoGenerateColumns="False" EnableTheming="True" Theme="Aqua" Width="100%">
                     <GroupSummary>
                         <dx:ASPxSummaryItem FieldName="soluong" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Số lượng = {0}" />
-                        <dx:ASPxSummaryItem FieldName="thanhtien" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Tổng tiền = {0:#,# VNĐ}" />
+                        <dx:ASPxSummaryItem FieldName="thanhtien" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Tổng tiền = {0:# # VNĐ}" />
                     </GroupSummary>
                     <Columns>
                         <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="40" Visible="true">
@@ -168,11 +168,11 @@
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Đơn giá" FieldName="dongia" VisibleIndex="8" Width="150">
-                            <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
+                            <PropertiesTextEdit DisplayFormatString="### ### ### ###"></PropertiesTextEdit>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Thành tiền" FieldName="thanhtien" VisibleIndex="9" Width="150">
-                            <PropertiesTextEdit DisplayFormatString="#,# VNĐ"></PropertiesTextEdit>
+                            <PropertiesTextEdit DisplayFormatString="# #"></PropertiesTextEdit>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="10">

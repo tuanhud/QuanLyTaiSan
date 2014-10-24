@@ -1,4 +1,5 @@
-﻿using DevExpress.Web.ASPxEditors;
+﻿using DevExpress.Web.ASPxClasses;
+using DevExpress.Web.ASPxEditors;
 using DevExpress.Web.ASPxTreeList;
 using SHARED.Libraries;
 using System;
@@ -20,7 +21,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         public TSCD.Entities.CTTaiSan objCTTaiSan = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
         public void LoadData()
         {
@@ -31,30 +32,31 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             else
             {
                 DangNhap.Visible = false;
-                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c=>c.ten).ToList();
+                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
                 if (listDonVi.Count > 0)
                 {
                     infotr.Visible = true;
-
                     _ucTreeViTri.CreateTreeList();
                     if (!IsPostBack)
                     {
                         TreeListTextColumn _TreeListTextColumn = new TreeListTextColumn();
-                        _ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
+                        _ucTreeViTri.Label_TenViTri.Text = "Danh sách đơn vị";
 
-                        TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
-                        _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
+                        TreeListDataColumn colDonvi = new TreeListDataColumn("ten", "Đơn vị");
+                        _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colDonvi);
+                        //TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
+                        //_ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
                     }
-
-
-                    _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
-                    
+                    //_ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Control;
+                    _ucTreeViTri.ASPxTreeList_ViTri.Width = Unit.Percentage(100);
+                    //_ucTreeViTri.ASPxTreeList_ViTri.Settings.GridLines = GridLines.Vertical;
                     //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
                     //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
                     //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
                     //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
 
-                    _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)
