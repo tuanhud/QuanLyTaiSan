@@ -1,5 +1,4 @@
-﻿using DevExpress.Web.ASPxEditors;
-using DevExpress.Web.ASPxTreeList;
+﻿using DevExpress.Web.ASPxTreeList;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
@@ -9,10 +8,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TSCD.DataFilter;
 using TSCD.Entities;
-using TSCD_WEB.UserControl.DangNhap;
-namespace TSCD_WEB.UserControl.DonViTaiSan
+
+namespace TSCD_WEB
 {
-    public partial class ucDonViTaiSan_Web : System.Web.UI.UserControl
+    public partial class DonViTaiSanFull : System.Web.UI.Page
     {
         public Guid idCTTaiSan = Guid.Empty;
         List<TSCD.Entities.DonVi> listDonVi = new List<TSCD.Entities.DonVi>();
@@ -20,7 +19,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         public TSCD.Entities.CTTaiSan objCTTaiSan = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            LoadData();
         }
         public void LoadData()
         {
@@ -32,7 +31,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             {
                 DangNhap.Visible = false;
                 //listCTTaiSan = TSCD.Entities.CTTaiSan.getAll();
-                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c=>c.ten).ToList();
+                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
                 //listDonVi = TSCD.Entities.DonVi.getAll().OrderBy(c => c.parent_id).ThenBy(c => c.ten).ToList();
 
                 if (listDonVi.Count > 0)
@@ -51,12 +50,10 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
 
 
                     _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
-                    
-                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
-                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
-                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
-                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
-
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
                     _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
@@ -127,7 +124,6 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         private void LoadDanhSachTaiSan(Guid id)
         {
             TSCD.Entities.DonVi objDonVi = TSCD.Entities.DonVi.getById(id);
-            ucDonViTaiSan_BreadCrumb.Label_Ten.Text = objDonVi.ten;
             List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.Convert(objDonVi.getAllCTTaiSanRecursive());
 
             ASPxGridView.Styles.Header.HorizontalAlign = HorizontalAlign.Center;

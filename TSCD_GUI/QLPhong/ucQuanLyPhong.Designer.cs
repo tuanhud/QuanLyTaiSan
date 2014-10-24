@@ -36,11 +36,15 @@
             this.barBtnXoaPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnLoaiPhong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXemTaiSan = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnExpandAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPagePhong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLoaiPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupTaiSan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.navBarControlLeft = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroupViTri = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainerViTri = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
@@ -54,6 +58,7 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblSoChoNgoi = new DevExpress.XtraEditors.LabelControl();
             this.lblViTri = new DevExpress.XtraEditors.LabelControl();
             this.panelControlViTri = new DevExpress.XtraEditors.PanelControl();
             this.btnLoaiPhong = new DevExpress.XtraEditors.SimpleButton();
@@ -72,7 +77,6 @@
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
             this.txtSoChoNgoi = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.barBtnXemTaiSan = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlLeft)).BeginInit();
             this.navBarControlLeft.SuspendLayout();
@@ -101,9 +105,11 @@
             this.barBtnXoaPhong,
             this.barBtnLoaiPhong,
             this.barBtnImport,
-            this.barBtnXemTaiSan});
+            this.barBtnXemTaiSan,
+            this.barBtnExpandAll,
+            this.barBtnCollapseAll});
             this.rbnControlPhong.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlPhong.MaxItemId = 7;
+            this.rbnControlPhong.MaxItemId = 9;
             this.rbnControlPhong.Name = "rbnControlPhong";
             this.rbnControlPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong});
@@ -150,13 +156,41 @@
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
+            // barBtnXemTaiSan
+            // 
+            this.barBtnXemTaiSan.Caption = "Xem tài sản";
+            this.barBtnXemTaiSan.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXemTaiSan.Glyph")));
+            this.barBtnXemTaiSan.Id = 6;
+            this.barBtnXemTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXemTaiSan.LargeGlyph")));
+            this.barBtnXemTaiSan.Name = "barBtnXemTaiSan";
+            this.barBtnXemTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXemTaiSan_ItemClick);
+            // 
+            // barBtnExpandAll
+            // 
+            this.barBtnExpandAll.Caption = "Mở rộng tất cả";
+            this.barBtnExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.Glyph")));
+            this.barBtnExpandAll.Id = 7;
+            this.barBtnExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExpandAll.LargeGlyph")));
+            this.barBtnExpandAll.Name = "barBtnExpandAll";
+            this.barBtnExpandAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExpandAll_ItemClick);
+            // 
+            // barBtnCollapseAll
+            // 
+            this.barBtnCollapseAll.Caption = "Thu gọn tất cả";
+            this.barBtnCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.Glyph")));
+            this.barBtnCollapseAll.Id = 8;
+            this.barBtnCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnCollapseAll.LargeGlyph")));
+            this.barBtnCollapseAll.Name = "barBtnCollapseAll";
+            this.barBtnCollapseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCollapseAll_ItemClick);
+            // 
             // rbnPagePhong
             // 
             this.rbnPagePhong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupPhong,
             this.rbnGroupLoaiPhong,
             this.rbnGroupImport,
-            this.rbnGroupTaiSan});
+            this.rbnGroupTaiSan,
+            this.rbnGroupLayout});
             this.rbnPagePhong.Image = global::TSCD_GUI.Properties.Resources.phong;
             this.rbnPagePhong.Name = "rbnPagePhong";
             this.rbnPagePhong.Text = "Phòng";
@@ -191,6 +225,14 @@
             this.rbnGroupTaiSan.ShowCaptionButton = false;
             this.rbnGroupTaiSan.Text = "Tài sản";
             // 
+            // rbnGroupLayout
+            // 
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnExpandAll);
+            this.rbnGroupLayout.ItemLinks.Add(this.barBtnCollapseAll);
+            this.rbnGroupLayout.Name = "rbnGroupLayout";
+            this.rbnGroupLayout.ShowCaptionButton = false;
+            this.rbnGroupLayout.Text = "Trình bày";
+            // 
             // navBarControlLeft
             // 
             this.navBarControlLeft.ActiveGroup = this.navBarGroupViTri;
@@ -217,7 +259,7 @@
             // navBarGroupControlContainerViTri
             // 
             this.navBarGroupControlContainerViTri.Name = "navBarGroupControlContainerViTri";
-            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(210, 273);
+            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(208, 284);
             this.navBarGroupControlContainerViTri.TabIndex = 0;
             // 
             // splitContainerControlMain
@@ -242,7 +284,7 @@
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.MenuManager = this.rbnControlPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(337, 376);
+            this.gridControlPhong.Size = new System.Drawing.Size(338, 376);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -257,12 +299,16 @@
             this.colid,
             this.colphong});
             this.gridViewPhong.GridControl = this.gridControlPhong;
+            this.gridViewPhong.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", null, "(Số lượng={0})")});
             this.gridViewPhong.Name = "gridViewPhong";
             this.gridViewPhong.OptionsBehavior.Editable = false;
             this.gridViewPhong.OptionsBehavior.ReadOnly = true;
+            this.gridViewPhong.OptionsCustomization.AllowQuickHideColumns = false;
             this.gridViewPhong.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridViewPhong.OptionsView.ShowAutoFilterRow = true;
             this.gridViewPhong.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridViewPhong.OptionsView.ShowFooter = true;
             this.gridViewPhong.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewPhong_FocusedRowChanged);
             this.gridViewPhong.DataSourceChanged += new System.EventHandler(this.gridViewPhong_DataSourceChanged);
             // 
@@ -272,6 +318,8 @@
             this.colten.FieldName = "ten";
             this.colten.Name = "colten";
             this.colten.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            this.colten.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", "{0} phòng")});
             this.colten.Visible = true;
             this.colten.VisibleIndex = 0;
             // 
@@ -317,6 +365,7 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
+            this.groupControlInfo.Controls.Add(this.lblSoChoNgoi);
             this.groupControlInfo.Controls.Add(this.lblViTri);
             this.groupControlInfo.Controls.Add(this.panelControlViTri);
             this.groupControlInfo.Controls.Add(this.btnLoaiPhong);
@@ -338,6 +387,14 @@
             this.groupControlInfo.Size = new System.Drawing.Size(305, 376);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
+            // 
+            // lblSoChoNgoi
+            // 
+            this.lblSoChoNgoi.Location = new System.Drawing.Point(5, 113);
+            this.lblSoChoNgoi.Name = "lblSoChoNgoi";
+            this.lblSoChoNgoi.Size = new System.Drawing.Size(59, 13);
+            this.lblSoChoNgoi.TabIndex = 17;
+            this.lblSoChoNgoi.Text = "Số chỗ ngồi:";
             // 
             // lblViTri
             // 
@@ -527,15 +584,6 @@
             // 
             this.dxErrorProviderInfo.ContainerControl = this;
             // 
-            // barBtnXemTaiSan
-            // 
-            this.barBtnXemTaiSan.Caption = "Xem tài sản";
-            this.barBtnXemTaiSan.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXemTaiSan.Glyph")));
-            this.barBtnXemTaiSan.Id = 6;
-            this.barBtnXemTaiSan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXemTaiSan.LargeGlyph")));
-            this.barBtnXemTaiSan.Name = "barBtnXemTaiSan";
-            this.barBtnXemTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXemTaiSan_ItemClick);
-            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,5 +660,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colsochongoi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupTaiSan;
         private DevExpress.XtraBars.BarButtonItem barBtnXemTaiSan;
+        private DevExpress.XtraBars.BarButtonItem barBtnExpandAll;
+        private DevExpress.XtraBars.BarButtonItem barBtnCollapseAll;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
+        private DevExpress.XtraEditors.LabelControl lblSoChoNgoi;
     }
 }

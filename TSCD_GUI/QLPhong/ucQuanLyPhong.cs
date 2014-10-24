@@ -473,7 +473,7 @@ namespace TSCD_GUI.QLPhong
             {
                 if (objPhong != null && objPhong.id != Guid.Empty)
                 {
-                    CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id).FirstOrDefault();
+                    CTTaiSan obj = CTTaiSan.getQuery().Where(c => c.phong_id == objPhong.id && c.soluong > 0).FirstOrDefault();
                     if (obj == null)
                     {
                         XtraMessageBox.Show(objPhong.ten + " không chứa tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -489,6 +489,16 @@ namespace TSCD_GUI.QLPhong
             {
                 Debug.WriteLine(this.Name + "->barBtnXemTaiSan_ItemClick: " + ex.Message);
             }
+        }
+
+        private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewPhong.ExpandAllGroups();
+        }
+
+        private void barBtnCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewPhong.CollapseAllGroups();
         }
     }
 }

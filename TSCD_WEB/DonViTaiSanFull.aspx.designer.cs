@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSCD_WEB.UserControl.DonViTaiSan {
+namespace TSCD_WEB {
     
     
-    public partial class ucDonViTaiSan_Web {
-        
-        /// <summary>
-        /// ucDonViTaiSan_BreadCrumb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TSCD_WEB.UserControl.DonViTaiSan.ucDonViTaiSan_BreadCrumb ucDonViTaiSan_BreadCrumb;
+    public partial class DonViTaiSanFull {
         
         /// <summary>
         /// DangNhap control.
@@ -173,23 +164,5 @@ namespace TSCD_WEB.UserControl.DonViTaiSan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView.ASPxGridView ASPxGridView;
-        
-        /// <summary>
-        /// lp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLoadingPanel.ASPxLoadingPanel lp;
-        
-        /// <summary>
-        /// popup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl popup;
     }
 }

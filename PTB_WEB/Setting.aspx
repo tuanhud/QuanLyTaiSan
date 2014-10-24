@@ -8,7 +8,7 @@
 <%@ Register Src="~/UserControl/ucDangNhap.ascx" TagPrefix="uc" TagName="ucDangNhap" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>.: Cài đặt hệ thống :: Phòng Thiết bị :.</title>
+    <title>.: Cài đặt hệ thống :: Quản lý Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="ckeditor/ckeditor.js"></script>

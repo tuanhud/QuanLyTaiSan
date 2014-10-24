@@ -5,7 +5,7 @@
 <%@ Register Src="~/UserControl/Search/ucTimKiem_Mobile.ascx" TagPrefix="uc" TagName="ucTimKiem_Mobile" %>
 <%@ Register Src="~/UserControl/Search/ucTimKiem_Web.ascx" TagPrefix="uc" TagName="ucTimKiem_Web" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>.: Phòng Thiết bị :.</title>
+    <title>.: Quản lý Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" type="text/css" href="Content/css/metro/metro.css" />
@@ -23,7 +23,7 @@
     <%}%>
     <div class="panel-body fixpanel">
         <div class="row">
-            <h3 class="title_orange fix">Phòng Thiết bị</h3>
+            <h3 class="title_orange fix">Quản lý Thiết bị</h3>
         </div>
         <div class="row">
             <div class="widget_container full">

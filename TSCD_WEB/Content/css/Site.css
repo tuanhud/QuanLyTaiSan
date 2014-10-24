@@ -1448,3 +1448,7 @@ div.Spacer
 {
     font-weight: bold;
 }
+#ASPxGridView_DXMainTable{
+    white-space: nowrap !important;
+    overflow:hidden !important;
+}

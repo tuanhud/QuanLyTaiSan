@@ -40,10 +40,11 @@ namespace TSCD_WEB.UserControl.LoaiTaiSan
                     
                 }
                 ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
-                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
-                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
-                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
-                ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
+                
+                //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+                //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
+                //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
+                //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
 
                 ucTreeViTri.ASPxTreeList_ViTri.DataSource = listLoaiTaiSan;
                 ucTreeViTri.ASPxTreeList_ViTri.DataBind();

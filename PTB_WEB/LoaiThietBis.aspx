@@ -6,7 +6,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>.: Loại thiết bị :: Phòng Thiết bị :.</title>
+    <title>.: Loại thiết bị :: Quản lý Thiết bị :.</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="Panel_Web" runat="server" Visible="false">

@@ -324,7 +324,7 @@
             this.gridViewTaiSan.GridControl = this.gridControlTaiSan;
             this.gridViewTaiSan.GroupCount = 1;
             this.gridViewTaiSan.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ten", null, "(Số lượng={0})")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "soluong", null, "(Số lượng={0})")});
             this.gridViewTaiSan.Name = "gridViewTaiSan";
             this.gridViewTaiSan.OptionsBehavior.Editable = false;
             this.gridViewTaiSan.OptionsBehavior.ReadOnly = true;
@@ -336,6 +336,10 @@
             this.gridViewTaiSan.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewTaiSan.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colloai, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridViewTaiSan.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.bandedGridViewTaiSan_MasterRowEmpty);
+            this.gridViewTaiSan.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.bandedGridViewTaiSan_MasterRowGetChildList);
+            this.gridViewTaiSan.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.bandedGridViewTaiSan_MasterRowGetRelationName);
+            this.gridViewTaiSan.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.bandedGridViewTaiSan_MasterRowGetRelationCount);
             this.gridViewTaiSan.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridViewTaiSan_PopupMenuShowing);
             this.gridViewTaiSan.ColumnFilterChanged += new System.EventHandler(this.gridViewTaiSan_ColumnFilterChanged);
             this.gridViewTaiSan.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.gridView1_CustomRowFilter);

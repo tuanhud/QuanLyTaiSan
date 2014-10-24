@@ -5,7 +5,7 @@
 <%@ Register Src="~/UserControl/ucFooter.ascx" TagPrefix="uc" TagName="ucFooter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>.: Phòng :: Phòng Thiết bị :.</title>
+    <title>.: Phòng :: Quản lý Thiết bị :.</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

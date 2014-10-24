@@ -19,6 +19,7 @@ namespace TSCD_WEB
             isMobile = MobileDetect.fBrowserIsMobile();
             if (!isMobile)
             {
+                DevExpress.Web.ASPxClasses.ASPxWebControl.RegisterBaseScript(this);
                 ucDonViTaiSan_Web.Visible = true;
                 ucDonViTaiSan_Web.LoadData();
             }

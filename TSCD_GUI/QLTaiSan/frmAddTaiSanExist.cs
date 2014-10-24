@@ -68,14 +68,17 @@ namespace TSCD_GUI.QLTaiSan
                 {
                     if (isTaiSan)
                     {
-                        if (obj.donviquanly == null || obj.donvisudung == null)
+                        if (obj.donviquanly == null && !obj.tinhtrang.giam_taisan)
                         {
                             frm.reloadAndFocused = new frmInputViTri_DonVi.ReloadAndFocused(reloadData);
                             frm.setData(obj, objDonVi);
                             frm.ShowDialog();
                         }
-                        else
-                            XtraMessageBox.Show("Tài sản này có đơn vị quản lý hoặc sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (obj.donviquanly != null)
+                            XtraMessageBox.Show("Tài sản này đã có đơn vị quản lý", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (obj.tinhtrang.giam_taisan)
+                            XtraMessageBox.Show("Tài sản này đã thanh lý", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     }
                     else
                     {

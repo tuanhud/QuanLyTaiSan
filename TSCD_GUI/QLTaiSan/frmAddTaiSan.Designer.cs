@@ -422,6 +422,7 @@
             // 
             this.ucComboBoxLoaiTS1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucComboBoxLoaiTS1.EditValue = null;
             this.ucComboBoxLoaiTS1.LoaiTS = null;
             this.ucComboBoxLoaiTS1.Location = new System.Drawing.Point(92, 146);
             this.ucComboBoxLoaiTS1.Name = "ucComboBoxLoaiTS1";

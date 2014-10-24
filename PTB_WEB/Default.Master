@@ -46,7 +46,7 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown <%ParentClassActive("QuanLyPhong");%>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quản lý phòng <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quản lý thiết bị <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li <%if (page.Equals("VITRI")) Response.Write("class=\"active\""); %>><a href="ViTri.aspx"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Vị trí</a></li>
                                     <li <%if (page.Equals("PHONG")) Response.Write("class=\"active\""); %>><a href="Phong.aspx"><span class="glyphicon glyphicon-tasks"></span>&nbsp;Phòng</a></li>
