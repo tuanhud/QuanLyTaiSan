@@ -243,9 +243,9 @@
             this.navBarGroupViTri});
             this.navBarControlLeft.Location = new System.Drawing.Point(0, 145);
             this.navBarControlLeft.Name = "navBarControlLeft";
-            this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 210;
+            this.navBarControlLeft.OptionsNavPane.ExpandedWidth = 246;
             this.navBarControlLeft.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControlLeft.Size = new System.Drawing.Size(210, 376);
+            this.navBarControlLeft.Size = new System.Drawing.Size(246, 376);
             this.navBarControlLeft.TabIndex = 1;
             // 
             // navBarGroupViTri
@@ -260,20 +260,20 @@
             // navBarGroupControlContainerViTri
             // 
             this.navBarGroupControlContainerViTri.Name = "navBarGroupControlContainerViTri";
-            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(208, 284);
+            this.navBarGroupControlContainerViTri.Size = new System.Drawing.Size(244, 284);
             this.navBarGroupControlContainerViTri.TabIndex = 0;
             // 
             // splitContainerControlMain
             // 
             this.splitContainerControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControlMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControlMain.Location = new System.Drawing.Point(210, 145);
+            this.splitContainerControlMain.Location = new System.Drawing.Point(246, 145);
             this.splitContainerControlMain.Name = "splitContainerControlMain";
             this.splitContainerControlMain.Panel1.Controls.Add(this.gridControlPhong);
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(647, 376);
+            this.splitContainerControlMain.Size = new System.Drawing.Size(611, 376);
             this.splitContainerControlMain.SplitterPosition = 305;
             this.splitContainerControlMain.TabIndex = 2;
             this.splitContainerControlMain.Text = "splitContainerControl1";
@@ -285,7 +285,7 @@
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.MenuManager = this.rbnControlPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(338, 376);
+            this.gridControlPhong.Size = new System.Drawing.Size(302, 376);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
