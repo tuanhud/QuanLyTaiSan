@@ -362,12 +362,6 @@
     <Compile Include="MyUC\MyLayout.cs" />
     <Compile Include="MyUC\MyLocalizer.cs" />
     <Compile Include="MyUC\MyTreeListLocalizer.cs" />
-    <Compile Include="MyUC\ucThemSuaXoaButton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MyUC\ucThemSuaXoaButton.Designer.cs">
-      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyUC\ucTreePhongHaveCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -599,9 +593,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\ucPhanQuyen_Group.resx">
       <DependentUpon>ucPhanQuyen_Group.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyUC\ucThemSuaXoaButton.resx">
-      <DependentUpon>ucThemSuaXoaButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUC\ucTreePhongHaveCheck.resx">
       <DependentUpon>ucTreePhongHaveCheck.cs</DependentUpon>
