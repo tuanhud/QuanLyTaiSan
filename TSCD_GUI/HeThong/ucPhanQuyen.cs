@@ -344,27 +344,30 @@ namespace TSCD_GUI.HeThong
         {
             try
             {
-                if (Global.current_quantrivien_login == null)
+                if (XtraMessageBox.Show("Bạn có chắc là muốn xóa quản trị viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    return;
-                }
-                if (Global.current_quantrivien_login.id == objQTV.id)
-                {
-                    MessageBox.Show("Không thể xóa bản thân!");
-                    return;
-                }
-
-                int re = objQTV.delete();
-                if (re > 0)
-                {
-                    if (DBInstance.commit() > 0)
+                    if (Global.current_quantrivien_login == null)
                     {
-                        MessageBox.Show("Xóa thành công!");
-                        loadData();
                         return;
                     }
+                    if (Global.current_quantrivien_login.id == objQTV.id)
+                    {
+                        MessageBox.Show("Không thể xóa bản thân!");
+                        return;
+                    }
+
+                    int re = objQTV.delete();
+                    if (re > 0)
+                    {
+                        if (DBInstance.commit() > 0)
+                        {
+                            MessageBox.Show("Xóa thành công!");
+                            loadData();
+                            return;
+                        }
+                    }
+                    MessageBox.Show("Xóa KHÔNG thành công");
                 }
-                MessageBox.Show("Xóa KHÔNG thành công");
             }
             catch (Exception ex)
             {
