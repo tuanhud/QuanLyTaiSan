@@ -1,0 +1,21 @@
+1.2. Lược đồ quan niệm
+1.3. Lược đồ trường hợp sử dụng (Use cases)
+1.4. Lược đồ CSDL mức vật lý
+•	smtp_config: Các cấu hình gửi mail ?? có gửi mail gì hay ko
+1.6. Lược đồ tuần tự (sequences)
+1.6.1. Lược đồ 1
+...Chỉ vẽ hình rồi đưa vào
+1.6.2. Lược đồ 2
+...Chỉ vẽ hình rồi đưa vào
+1.6.3. Lược đồ 3
+...Chỉ vẽ hình rồi đưa vào
+1.6.4. Lược đồ 4
+...Chỉ vẽ hình rồi đưa vào
+1.6.5. Lược đồ 5
+...Chỉ vẽ hình rồi đưa vào
+
+-Thư viện DevExpress 13.2.9
+-Thư viện Bootstrap 3.0
+
+-Nên sử dụng ASP.NET MVC hay ASP.NET Webform ?
+=> Hiện DevExpress chỉ hỗ trợ ASP.NET Webform, do đó để sử dụng được các công nghệ của DevExpress dành cho nền tảng Web thì ASP.NET Webform là lựa chọn phù hợp nhất. sai
