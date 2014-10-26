@@ -87,10 +87,10 @@
                     <table>
                         <tr>
                             <h3 class="title_green fix">
-                                <asp:LinkButton ID="LinkButton_ThuLai" runat="server" ToolTip="Thu Lai" OnClick="LinkButton_ThuLai_Click"><img src="../../Images/thulai.png" alt="Thu lai" /></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton_MoRa" runat="server" ToolTip="Mo Ra" OnClick="LinkButton_MoRa_Click"><img src="../../Images/mora.png" alt="Mo ra" /></asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton_Expand" runat="server" ToolTip="Expand All" OnClick="LinkButton_Expand_Click"><img src="../../Images/toggle-expand-alt_blue.png" alt="Expand All" /></asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton_Collapse" runat="server" ToolTip="Collapse All" OnClick="LinkButton_Collapse_Click"><img src="../../Images/toggle-collapse-alt.png" alt="Collapse All" /></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton_ThuLai" runat="server" OnClick="LinkButton_ThuLai_Click" ToolTip="Thu Lai"><i class="glyphicon glyphicon-chevron-left"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton_MoRa" runat="server" OnClick="LinkButton_MoRa_Click" ToolTip="Mo Ra"><i class="glyphicon glyphicon-chevron-right"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton_Expand" runat="server" OnClick="LinkButton_Expand_Click" ToolTip="Expand All"><i class="glyphicon glyphicon-plus"></i></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton_Collapse" runat="server" OnClick="LinkButton_Collapse_Click" ToolTip="Collapse All"><i class="glyphicon glyphicon-minus"></i></asp:LinkButton>
                                 Danh sách tài sản
                             </h3>
                             <td>Chọn cột cần hiển thị</td>
@@ -137,15 +137,13 @@
                         </tr>
                     </table>
                     <br />
-                    <dx:ASPxGridView ID="ASPxGridView" KeyFieldName="id" ClientIDMode="Static" ClientInstanceName="ASPxGridView" runat="server" AutoGenerateColumns="False" EnableTheming="True" Theme="Aqua" Width="100%">
+                    <dx:ASPxGridView ID="ASPxGridView" KeyFieldName="id" ClientIDMode="Static" ClientInstanceName="ASPxGridView" runat="server" AutoGenerateColumns="False" EnableTheming="True" Theme="Metropolis" Width="100%">
                     <GroupSummary>
                         <dx:ASPxSummaryItem FieldName="soluong" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Số lượng = {0}" />
-                        <dx:ASPxSummaryItem FieldName="thanhtien" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Tổng tiền = {0:# # VNĐ}" />
+                        <dx:ASPxSummaryItem FieldName="thanhtien" ShowInColumn="loaits" SummaryType="Sum" DisplayFormat="Tổng tiền = {0:### ### ### ###}" />
                     </GroupSummary>
                     <Columns>
-                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" Width="40" Visible="true">
-                        </dx:GridViewCommandColumn>
-                        <dx:GridViewDataTextColumn Caption="Loại tài sản" FieldName="loaits" VisibleIndex="1" GroupIndex="0">
+                        <dx:GridViewDataTextColumn Caption="Loại tài sản" FieldName="loaits" VisibleIndex="1" GroupIndex="1" SortIndex="1">
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataDateColumn Caption="Ngày sử dụng" FieldName="ngay" VisibleIndex="2">
                             <CellStyle HorizontalAlign="Center"></CellStyle>
@@ -172,43 +170,44 @@
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Thành tiền" FieldName="thanhtien" VisibleIndex="9" Width="150">
-                            <PropertiesTextEdit DisplayFormatString="# #"></PropertiesTextEdit>
+                            <PropertiesTextEdit DisplayFormatString="### ### ### ###"></PropertiesTextEdit>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Tình trạng" FieldName="tinhtrang" VisibleIndex="10">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="11">
+                        <dx:GridViewDataTextColumn Caption="Nước sản xuất" FieldName="nuocsx" VisibleIndex="11" Visible="False">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="12">
+                        <dx:GridViewDataTextColumn Caption="Nguồn gốc" FieldName="nguongoc" VisibleIndex="12" Visible="False">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="13">
+                        <dx:GridViewDataTextColumn Caption="Ghi chú" FieldName="ghichu" VisibleIndex="13" Visible="False">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="14">
+                        <dx:GridViewDataTextColumn Caption="Phòng" FieldName="phong" VisibleIndex="14" GroupIndex="0" SortIndex="0" SortOrder="Ascending">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="15">
+                        <dx:GridViewDataTextColumn Caption="Vị trí" FieldName="vitri" VisibleIndex="15" Visible="False">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="16">
+                        <dx:GridViewDataTextColumn Caption="Đơn vị quản lý" FieldName="dvquanly" VisibleIndex="16" Visible="False">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="17">
+                        <dx:GridViewDataTextColumn Caption="Đơn vị sử dụng" FieldName="dvsudung" VisibleIndex="17" Visible="False">
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                     </Columns>
                     <Styles>
-                        <SelectedRow BackColor="#C0FFC0" ForeColor="#0033FF"></SelectedRow>
+                        <AlternatingRow BackColor="#FFFFCC"></AlternatingRow>
+                        <SelectedRow BackColor="Transparent" ForeColor="#3333ff" Font-Bold="true"></SelectedRow>
                     </Styles>
                     <SettingsPager PageSize="20">
                         <PageSizeItemSettings Visible="true" ShowAllItem="true" />
                     </SettingsPager>
                     <SettingsBehavior AllowSelectByRowClick="True" ColumnResizeMode="Control" />
-                    <Settings ShowFilterRow="True" ShowFooter="True" HorizontalScrollBarMode="Auto" ShowGroupPanel="True" />
-                    <SettingsCookies Enabled="True" />
+                    <Settings ShowFooter="True" HorizontalScrollBarMode="Auto" ShowGroupPanel="True" UseFixedTableLayout="True" />
+                    <SettingsCookies Enabled="False" />
                     <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                 </dx:ASPxGridView>
                 </td>

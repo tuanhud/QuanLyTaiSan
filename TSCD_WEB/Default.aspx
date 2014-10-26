@@ -41,15 +41,6 @@
                         </div>
                     </a>
                 </div>
-                 <div class="widget widget2x2 widget_red animation unloaded">
-                    <a href="LoaiPhong.aspx">
-                        <div class="widget_content">
-                            <div class="main" style="background-image: url('Images/metro/phong.png');">
-                                <span>LOẠI PHÒNG</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
                 <div class="widget widget2x2 widget_darkblue animation unloaded">
                     <a href="DonVi.aspx">
                         <div class="widget_content">
@@ -59,16 +50,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="widget widget2x2 widget_blue widget_link animation unloaded">
-                    <a href="LoaiTaiSan.aspx">
-                        <div class="widget_content">
-                            <div class="main" style="background-image: url('Images/metro/thietbi.png');">
-                                <span>LOẠI TÀI SẢN</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="widget widget2x2 widget_darkgreen animation unloaded">
+                <div class="widget widget4x2 widget_darkgreen animation unloaded">
                     <a href="TaiSan.aspx">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/loaithietbi.png');">
@@ -77,16 +59,91 @@
                         </div>
                     </a>
                 </div>
-                <div class="widget widget2x2 widget_darkred animation unloaded">
+                <div class="widget widget4x2 widget_blue animation unloaded">
                     <a href="DonViTaiSan.aspx">
                         <div class="widget_content">
-                            <div class="main" style="background-image: url('Images/metro/nhanvien.png');">
+                            <div class="main" style="background-image: url('Images/metro/quanlymuonphong.png');">
                                 <span>ĐƠN VỊ - TÀI SẢN</span>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <h3 class="title_green fix">Loại tài sản cố định</h3>
+        </div>
+        <div class="row">
+            <div class="widget_container full">
+                <div class="widget widget2x2 widget_blue animation unloaded">
+                    <a href="ViTri.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/muonphong.png');">
+                                <span>LOẠI PHÒNG</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="widget widget4x2 widget_darkgreen animation unloaded">
+                    <a href="Phong.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/loaidonvi.png');">
+                                <span>LOẠI ĐƠN VỊ</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                 <div class="widget widget4x2 widget_darkblue animation unloaded">
+                    <a href="LoaiPhong.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/thietbi.png');">
+                                <span>LOẠI TÀI SẢN</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="widget widget2x2 widget_red animation unloaded">
+                    <a href="ThongTin.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/thongtin.png');">
+                                <span>THÔNG TIN</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="widget widget2x2 widget_orange animation unloaded">
+                    <a href="LienHe.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/lienhe.png');">
+                                <span>LIÊN HỆ</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="title_blue fix">Bảng điều khiển</h3>
+        </div>
+        <div class="row">
+            <div class="widget widget4x2 widget_blue animation unloaded">
+                    <a href="ThongTinCaNhan.aspx">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/thongtincanhan.png');">
+                                <span>THÔNG TIN CÁ NHÂN</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="widget widget2x2 widget_red animation unloaded">
+                    <a href="?op=thoat" onclick="return confirm('Bạn muốn thoát?');">
+                        <div class="widget_content">
+                            <div class="main" style="background-image: url('Images/metro/thoat.png');">
+                                <span>THOÁT RA</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
         </div>
     </div>
     <uc:ucFooter runat="server" ID="ucFooter" />

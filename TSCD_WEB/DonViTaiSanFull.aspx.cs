@@ -1,4 +1,5 @@
-﻿using DevExpress.Web.ASPxTreeList;
+﻿using DevExpress.Web.ASPxClasses;
+using DevExpress.Web.ASPxTreeList;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
@@ -40,19 +41,21 @@ namespace TSCD_WEB
                     if (!IsPostBack)
                     {
                         TreeListTextColumn _TreeListTextColumn = new TreeListTextColumn();
-                        _ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
+                        _ucTreeViTri.Label_TenViTri.Text = "Danh sách đơn vị";
 
-                        TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
-                        _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
+                        TreeListDataColumn colDonvi = new TreeListDataColumn("ten", "Đơn vị");
+                        _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colDonvi);
                     }
 
+                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Control;
+                    _ucTreeViTri.ASPxTreeList_ViTri.Width = Unit.Percentage(100);
 
-                    _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
-                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
-                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
-                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
-                    _ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
-                    _ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.LastPageButton.Visible = false;
+                    //_ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
                     if (Request.QueryString["key"] != null)
