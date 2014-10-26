@@ -179,6 +179,9 @@ namespace PTB.Entities
             ngaymua = ngaymua == null ? ServerTimeHelper.getNow() : ngaymua;
             base.onBeforeAdded();
         }
+        /// <summary>
+        /// Hàm khởi tạo Thiết bị
+        /// </summary>
         protected override void init()
         {
             base.init();

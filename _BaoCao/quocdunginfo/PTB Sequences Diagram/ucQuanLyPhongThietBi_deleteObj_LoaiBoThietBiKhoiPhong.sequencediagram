@@ -91,14 +91,14 @@
               <lifelineMoniker Id="da9b5e5b-9ada-4ab4-a15a-ee3835369064" LastKnownName="frm : frmRemoveThietBi" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="69d85431-2934-4e39-99d4-d759734ea48e" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6d40c85d-ebf7-4cf9-9795-a75a590f7b37" LastKnownName="this : ucQuanLyPhongThietBi" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="767eebb2-dade-46b7-b5ca-9255dbeb46da" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="da9b5e5b-9ada-4ab4-a15a-ee3835369064" LastKnownName="frm : frmRemoveThietBi" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="69d85431-2934-4e39-99d4-d759734ea48e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6d40c85d-ebf7-4cf9-9795-a75a590f7b37" LastKnownName="this : ucQuanLyPhongThietBi" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="efa79ce5-c896-411f-bcdd-45e5ade26064" name="ExecutionOccurrenceSpecification">
@@ -221,14 +221,14 @@
               <lifelineMoniker Id="815ceaa9-6ecd-425b-80ec-2c1791c26fe2" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="ae55c111-e910-4518-b4ac-fc36d46fd531" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6d40c85d-ebf7-4cf9-9795-a75a590f7b37" LastKnownName="this : ucQuanLyPhongThietBi" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="95ad1d0e-8cc4-4948-97e1-129a739efbf6" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="815ceaa9-6ecd-425b-80ec-2c1791c26fe2" LastKnownName="this.objCTThietBi : CTThietBi" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ae55c111-e910-4518-b4ac-fc36d46fd531" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6d40c85d-ebf7-4cf9-9795-a75a590f7b37" LastKnownName="this : ucQuanLyPhongThietBi" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="86c44595-abf1-4157-ae32-d048e744613b" name="ExecutionOccurrenceSpecification">

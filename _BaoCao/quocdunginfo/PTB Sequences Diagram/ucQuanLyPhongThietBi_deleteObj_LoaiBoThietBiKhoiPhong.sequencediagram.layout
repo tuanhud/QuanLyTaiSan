@@ -94,7 +94,7 @@
         <dotNetExecutionSpecificationShapeMoniker Id="7f8c7437-bf24-49f5-9938-f3f6291206c9" />
       </nodes>
     </returnMessageConnector>
-    <lostFoundMessageConnector edgePoints="[(3.2 : 1.9); (4.075 : 1.9)]" fixedFrom="Caller" fixedTo="Caller" TargetRelationshipDomainClassId="e24617ce-6c7e-4c7d-802a-63014f02e313" customColor="Black" visible="true" visualStyleMode="Modified" messageId="00000000-0000-0000-0000-000000000000">
+    <lostFoundMessageConnector edgePoints="[(3.2 : 1.9); (4.075 : 1.9)]" fixedFrom="Caller" fixedTo="Caller" TargetRelationshipDomainClassId="e24617ce-6c7e-4c7d-802a-63014f02e313" customColor="Black" visible="true" visualStyleMode="Custom" messageId="00000000-0000-0000-0000-000000000000">
       <relativeChildShapes />
       <nodes>
         <dotNetExecutionSpecificationShapeMoniker Id="da6bbcb2-1775-4604-9db9-3d4910aee543" />

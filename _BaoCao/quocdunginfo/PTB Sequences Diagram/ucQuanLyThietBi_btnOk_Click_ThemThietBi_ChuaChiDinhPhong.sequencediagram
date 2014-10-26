@@ -178,7 +178,7 @@
                   </combinedFragment>
                 </fragments>
                 <guard>
-                  <interactionConstraint Id="3674790e-5b50-422a-8bdc-103d3bc3f1a8" guardText="Kiểm tra dữ liệu" />
+                  <interactionConstraint Id="3674790e-5b50-422a-8bdc-103d3bc3f1a8" />
                 </guard>
                 <operandOccurrenceSpecifications>
                   <operandOccurrenceSpecificationMoniker Id="7916688d-458c-4d7c-85c6-301e12f6750e" LastKnownName="OperandOccurrenceSpecification" />
@@ -433,14 +433,14 @@
               <lifelineMoniker Id="d3c4244f-8539-4f5e-a044-6b718cb174ff" LastKnownName="DBInstance" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="f0df83cb-3a0a-4169-af8d-3e6013e58aab" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d3c4244f-8539-4f5e-a044-6b718cb174ff" LastKnownName="DBInstance" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="a89336b0-54a1-48af-9833-694e86e26da0" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="6bae45cc-82b9-43f1-b659-74dcd1fbc4f7" LastKnownName="this : ucQuanLyThietBi" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f0df83cb-3a0a-4169-af8d-3e6013e58aab" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d3c4244f-8539-4f5e-a044-6b718cb174ff" LastKnownName="DBInstance" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="e3f8f1f6-f8e1-497c-b84e-9072d38103c4" name="MessageOccurrenceSpecification">
@@ -614,7 +614,7 @@
               <messageOccurrenceSpecificationMoniker Id="aaa4a740-775a-4916-8b90-5c81a6cabb04" LastKnownName="MessageOccurrenceSpecification" />
             </receiveEvent>
           </message>
-          <message Id="f73d9b1e-3768-4fd4-953e-a74923380986" name="checkInput" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="checkInput()">
+          <message Id="f73d9b1e-3768-4fd4-953e-a74923380986" name="Kiểm tra dữ liệu" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="checkInput()">
             <referencesInternal>
               <reference Id="3b8c2ca6-230f-45d1-bf31-b936ff703d44" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PTB_GUI.QLThietBi)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLThietBi Type=ucQuanLyThietBi)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLThietBi Type=ucQuanLyThietBi Member=checkInput)&quot;)" tag="DGQL" />
               <reference Id="2b0ea374-fd69-4073-8768-dd7922d0d905" handle="(Assembly=&quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&quot; Namespace=PTB_GUI.QLThietBi Type=ucQuanLyThietBi Member=checkInput)" tag="DGML" />
@@ -646,7 +646,7 @@
               <messageOccurrenceSpecificationMoniker Id="9ed7e3b9-0593-462b-ab13-040773a2870a" LastKnownName="MessageOccurrenceSpecification" />
             </receiveEvent>
           </message>
-          <message Id="7ec750b3-e965-453b-b0a6-526469fcefc5" name="CRUD" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="CRUD()">
+          <message Id="7ec750b3-e965-453b-b0a6-526469fcefc5" name="Kiểm tra dữ liệu" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="checkInput()">
             <referencesInternal>
               <reference Id="74b62f7b-b7a5-40d5-9b9e-7a70817381d0" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PTB_GUI.QLThietBi)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLThietBi Type=ucQuanLyThietBi)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLThietBi Type=ucQuanLyThietBi Member=CRUD)&quot;)" tag="DGQL" />
               <reference Id="2025d794-163f-4221-9b5a-28bfc0ea2ec9" handle="(Assembly=&quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&quot; Namespace=PTB_GUI.QLThietBi Type=ucQuanLyThietBi Member=CRUD)" tag="DGML" />

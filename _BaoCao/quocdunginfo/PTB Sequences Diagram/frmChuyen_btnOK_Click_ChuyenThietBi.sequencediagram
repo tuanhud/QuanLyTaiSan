@@ -19,7 +19,6 @@
               <messageOccurrenceSpecificationMoniker Id="47b0f6ea-58bf-45cb-8d0d-94dd0c131aac" LastKnownName="MessageOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="265e3bd6-e35d-49fb-90f8-a52ce2faedef" LastKnownName="ExecutionOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="ea467de2-eaa7-4cb0-b51e-a70739e21afe" LastKnownName="ExecutionOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="3ad4a88e-2047-4b9c-8a05-b15339c9a5b0" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" LastKnownName="OperandOccurrenceSpecification" />
               <messageOccurrenceSpecificationMoniker Id="37a5c66b-0e61-47c7-b6bb-6c5c4a0c5d97" LastKnownName="MessageOccurrenceSpecification" />
               <messageOccurrenceSpecificationMoniker Id="70f98d00-5d84-438f-8b29-eb782c206cd1" LastKnownName="MessageOccurrenceSpecification" />
@@ -32,7 +31,6 @@
               <messageOccurrenceSpecificationMoniker Id="45180dc4-1ab7-40dc-b3bf-8758a5ec791d" LastKnownName="MessageOccurrenceSpecification" />
               <messageOccurrenceSpecificationMoniker Id="1a542256-e2f2-46be-9285-d35afe2803b6" LastKnownName="MessageOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="496d0a38-aab3-43ba-9fcc-4b095c589526" LastKnownName="OperandOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="66da9eab-2a52-4711-9fd0-21fb4f66464c" LastKnownName="OperandOccurrenceSpecification" />
             </nestedOccurrences>
           </behaviorExecutionSpecification>
           <executionOccurrenceSpecification Id="0f43aed9-3cbe-42b7-abd4-2e8d4e3109cd" name="ExecutionOccurrenceSpecification">
@@ -95,7 +93,7 @@
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
             </covered>
           </executionOccurrenceSpecification>
-          <combinedFragment Id="3d9fe2eb-d39f-4e6b-9d98-8b4894b7a557" name="CombinedFragment2" interactionOperator="Opt" customInteractionOperator="If">
+          <combinedFragment Id="20b68b2c-6c4e-4d83-bd07-557965e6f128" name="CombinedFragment1" interactionOperator="Alt" customInteractionOperator="If">
             <coveredLifelines>
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
               <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
@@ -103,106 +101,53 @@
               <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
             </coveredLifelines>
             <operands>
-              <interactionOperand Id="8d708b57-33bf-415d-9058-5bd74dac0615" name="InteractionOperand1">
+              <interactionOperand Id="140ac2f4-8bcc-448d-bf21-7cf8495af3cd" name="InteractionOperand1">
                 <coveredLifelines>
                   <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
                   <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
                   <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
                   <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
                 </coveredLifelines>
-                <fragments>
-                  <combinedFragment Id="20b68b2c-6c4e-4d83-bd07-557965e6f128" name="CombinedFragment1" interactionOperator="Alt" customInteractionOperator="If">
-                    <coveredLifelines>
-                      <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
-                      <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
-                      <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-                      <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
-                    </coveredLifelines>
-                    <operands>
-                      <interactionOperand Id="140ac2f4-8bcc-448d-bf21-7cf8495af3cd" name="InteractionOperand1">
-                        <coveredLifelines>
-                          <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
-                          <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
-                          <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-                          <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
-                        </coveredLifelines>
-                        <guard>
-                          <interactionConstraint Id="e8206185-98d8-48d9-94ce-7ac4052a0d94" guardText="Chuyển phòng" />
-                        </guard>
-                        <operandOccurrenceSpecifications>
-                          <operandOccurrenceSpecificationMoniker Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="0db4e753-3ce2-4f80-b8b0-72eae087ba0b" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="0755271d-b0c1-42d5-a5c5-bddf662dff03" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="0d847894-4d40-42da-aaad-c86bc87758f1" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="2deaa651-6807-4300-844b-39aaf40181b5" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="8170d602-71de-44bc-9230-86683f23df11" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="8c4c5b4e-db2b-4b61-af53-b0ec1d5260a8" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="7a9a14f7-9e00-4419-b480-fa81e83cbbf5" LastKnownName="OperandOccurrenceSpecification" />
-                        </operandOccurrenceSpecifications>
-                      </interactionOperand>
-                      <interactionOperand Id="b36f4446-d3f4-4bc3-b3fc-e1e5a890583b" name="InteractionOperand2">
-                        <coveredLifelines>
-                          <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
-                          <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
-                          <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-                          <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
-                        </coveredLifelines>
-                        <guard>
-                          <interactionConstraint Id="1fa946ba-779d-42d6-99bf-e04689574e50" guardText="Chuyển tình trạng" />
-                        </guard>
-                        <operandOccurrenceSpecifications>
-                          <operandOccurrenceSpecificationMoniker Id="df514249-068b-486e-9df7-547982df2fc2" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="496d0a38-aab3-43ba-9fcc-4b095c589526" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="0208f2a4-e27f-431c-89e7-82af9c97cb74" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="901d9ece-4ff8-48c5-8255-67dbf6fd43c5" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="bf9b0819-0379-49a8-ae0b-f407151a550a" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="c966de95-54e5-4f79-b5be-e2e45903faf6" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="ef52232f-9151-4043-8398-328fc48e488b" LastKnownName="OperandOccurrenceSpecification" />
-                          <operandOccurrenceSpecificationMoniker Id="1703e0fd-c7de-49bc-b822-cbfc9814f2e0" LastKnownName="OperandOccurrenceSpecification" />
-                        </operandOccurrenceSpecifications>
-                      </interactionOperand>
-                    </operands>
-                  </combinedFragment>
-                </fragments>
                 <guard>
-                  <interactionConstraint Id="bf67377c-d719-420e-a569-6d746b7fdd1a" guardText="Kiểm tra dữ liệu đúng" />
+                  <interactionConstraint Id="e8206185-98d8-48d9-94ce-7ac4052a0d94" guardText="Chuyển phòng" />
                 </guard>
                 <operandOccurrenceSpecifications>
-                  <operandOccurrenceSpecificationMoniker Id="3ad4a88e-2047-4b9c-8a05-b15339c9a5b0" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="66da9eab-2a52-4711-9fd0-21fb4f66464c" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="86649b3b-ec51-4e68-8bdf-13575780ec98" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="be7b8a99-2e71-4eec-89db-8ab4b5a25089" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="e4697ecd-2b22-409d-a676-22b33fe7dc26" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="62961b6f-454c-4ac7-a5c7-0419caed7f9f" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="a95479bf-19ba-4b12-93b2-6ef301369046" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="e48e9ce2-a6ac-4fa7-b6c5-5bec136988c3" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="0db4e753-3ce2-4f80-b8b0-72eae087ba0b" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="0755271d-b0c1-42d5-a5c5-bddf662dff03" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="0d847894-4d40-42da-aaad-c86bc87758f1" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="2deaa651-6807-4300-844b-39aaf40181b5" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="8170d602-71de-44bc-9230-86683f23df11" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="8c4c5b4e-db2b-4b61-af53-b0ec1d5260a8" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="7a9a14f7-9e00-4419-b480-fa81e83cbbf5" LastKnownName="OperandOccurrenceSpecification" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+              <interactionOperand Id="b36f4446-d3f4-4bc3-b3fc-e1e5a890583b" name="InteractionOperand2">
+                <coveredLifelines>
+                  <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
+                  <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
+                  <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
+                  <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint Id="1fa946ba-779d-42d6-99bf-e04689574e50" guardText="Chuyển tình trạng" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker Id="df514249-068b-486e-9df7-547982df2fc2" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="496d0a38-aab3-43ba-9fcc-4b095c589526" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="0208f2a4-e27f-431c-89e7-82af9c97cb74" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="901d9ece-4ff8-48c5-8255-67dbf6fd43c5" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="bf9b0819-0379-49a8-ae0b-f407151a550a" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="c966de95-54e5-4f79-b5be-e2e45903faf6" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="ef52232f-9151-4043-8398-328fc48e488b" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="1703e0fd-c7de-49bc-b822-cbfc9814f2e0" LastKnownName="OperandOccurrenceSpecification" />
                 </operandOccurrenceSpecifications>
               </interactionOperand>
             </operands>
           </combinedFragment>
-          <operandOccurrenceSpecification Id="3ad4a88e-2047-4b9c-8a05-b15339c9a5b0" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="e4697ecd-2b22-409d-a676-22b33fe7dc26" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="86649b3b-ec51-4e68-8bdf-13575780ec98" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a95479bf-19ba-4b12-93b2-6ef301369046" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0755271d-b0c1-42d5-a5c5-bddf662dff03" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="8c4c5b4e-db2b-4b61-af53-b0ec1d5260a8" name="OperandOccurrenceSpecification">
@@ -210,9 +155,9 @@
               <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="0755271d-b0c1-42d5-a5c5-bddf662dff03" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
+              <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="2deaa651-6807-4300-844b-39aaf40181b5" name="OperandOccurrenceSpecification">
@@ -330,6 +275,11 @@
               <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="0d847894-4d40-42da-aaad-c86bc87758f1" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="0db4e753-3ce2-4f80-b8b0-72eae087ba0b" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
@@ -345,7 +295,12 @@
               <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0d847894-4d40-42da-aaad-c86bc87758f1" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="ef52232f-9151-4043-8398-328fc48e488b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="0208f2a4-e27f-431c-89e7-82af9c97cb74" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
@@ -355,19 +310,9 @@
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0208f2a4-e27f-431c-89e7-82af9c97cb74" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="bf9b0819-0379-49a8-ae0b-f407151a550a" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="ef52232f-9151-4043-8398-328fc48e488b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="d6fb35be-80b8-49c9-9f31-a7a6b60e5e06" name="BehaviorExecutionSpecification">
@@ -500,26 +445,6 @@
               <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="e48e9ce2-a6ac-4fa7-b6c5-5bec136988c3" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="be7b8a99-2e71-4eec-89db-8ab4b5a25089" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="66da9eab-2a52-4711-9fd0-21fb4f66464c" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="62961b6f-454c-4ac7-a5c7-0419caed7f9f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
-            </covered>
-          </operandOccurrenceSpecification>
           <executionOccurrenceSpecification Id="738e6d9f-f286-459d-a9b2-da68664c14b2" name="ExecutionOccurrenceSpecification">
             <event>
               <executionOccurrenceSpecificationReferencesEvent>
@@ -548,14 +473,12 @@
               <reference Id="a1a1ed8c-7d2c-4a0b-b9d1-1c1402dd7235" handle="(Assembly=&quot;$(3a9615f6-7f5b-4e10-ba63-b46b4cc00de1.OutputPathUri)&quot; Namespace=PTB.Entities Type=CTThietBi)" tag="DGML" />
             </referencesInternal>
             <topLevelOccurrences>
-              <operandOccurrenceSpecificationMoniker Id="86649b3b-ec51-4e68-8bdf-13575780ec98" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="0755271d-b0c1-42d5-a5c5-bddf662dff03" LastKnownName="OperandOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="252a5eaf-4770-4c9a-b772-bacd7e22bc6a" LastKnownName="ExecutionOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="3e82bcf1-5181-4d28-81ef-99875f4bf4d5" LastKnownName="ExecutionOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="0d847894-4d40-42da-aaad-c86bc87758f1" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="0208f2a4-e27f-431c-89e7-82af9c97cb74" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="901d9ece-4ff8-48c5-8255-67dbf6fd43c5" LastKnownName="OperandOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="be7b8a99-2e71-4eec-89db-8ab4b5a25089" LastKnownName="OperandOccurrenceSpecification" />
             </topLevelOccurrences>
           </lifeline>
           <lifeline Id="6376ee36-e57a-45ae-bc6b-4acff641a539" name="this.objCTThietBi : CTThietBi" isActor="false" lifelineDisplayName="this.objCTThietBi : CTThietBi" referencedInstance="(Assembly=$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri) Namespace=PTB_GUI.QLPhong Type=frmChuyen Member=objCTThietBi ObjectInstance=&quot;Object instance 145&quot;)" referencedType="PTB‎.Entities‎.CTThietBi">
@@ -564,14 +487,12 @@
               <reference Id="8e22624c-bcd7-4555-9895-85229b0dd6e5" handle="(Assembly=&quot;$(3a9615f6-7f5b-4e10-ba63-b46b4cc00de1.OutputPathUri)&quot; Namespace=PTB.Entities Type=CTThietBi)" tag="DGML" />
             </referencesInternal>
             <topLevelOccurrences>
-              <operandOccurrenceSpecificationMoniker Id="a95479bf-19ba-4b12-93b2-6ef301369046" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="8c4c5b4e-db2b-4b61-af53-b0ec1d5260a8" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="7a9a14f7-9e00-4419-b480-fa81e83cbbf5" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="ef52232f-9151-4043-8398-328fc48e488b" LastKnownName="OperandOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="95e5a668-1b8e-428d-8198-99720667132e" LastKnownName="ExecutionOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="b1dafc97-d69f-4c0e-887e-637535fea496" LastKnownName="ExecutionOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="1703e0fd-c7de-49bc-b822-cbfc9814f2e0" LastKnownName="OperandOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="e48e9ce2-a6ac-4fa7-b6c5-5bec136988c3" LastKnownName="OperandOccurrenceSpecification" />
             </topLevelOccurrences>
           </lifeline>
           <lifeline Id="550c8c19-348f-4151-9b08-7945231652bc" name="DBInstance" isActor="false" lifelineDisplayName="DBInstance" referencedType="PTB‎.Entities‎.DBInstance">
@@ -580,7 +501,6 @@
               <reference Id="735fc5ad-d02d-44a8-90c1-e13bbc7d28de" handle="(Assembly=&quot;$(3a9615f6-7f5b-4e10-ba63-b46b4cc00de1.OutputPathUri)&quot; Namespace=PTB.Entities Type=DBInstance)" tag="DGML" />
             </referencesInternal>
             <topLevelOccurrences>
-              <operandOccurrenceSpecificationMoniker Id="e4697ecd-2b22-409d-a676-22b33fe7dc26" LastKnownName="OperandOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="2deaa651-6807-4300-844b-39aaf40181b5" LastKnownName="OperandOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="b6e1e15b-4a50-4c70-9e2a-c1956a61adde" LastKnownName="ExecutionOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="347a518e-04e8-4fc1-a350-46e622c0c832" LastKnownName="ExecutionOccurrenceSpecification" />
@@ -589,7 +509,6 @@
               <executionOccurrenceSpecificationMoniker Id="8ced3871-285a-4988-9469-8288f3f37f1c" LastKnownName="ExecutionOccurrenceSpecification" />
               <executionOccurrenceSpecificationMoniker Id="1d8a3b97-9493-41a2-9d59-084bb24e3b59" LastKnownName="ExecutionOccurrenceSpecification" />
               <operandOccurrenceSpecificationMoniker Id="c966de95-54e5-4f79-b5be-e2e45903faf6" LastKnownName="OperandOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="62961b6f-454c-4ac7-a5c7-0419caed7f9f" LastKnownName="OperandOccurrenceSpecification" />
             </topLevelOccurrences>
           </lifeline>
         </lifelines>
@@ -606,7 +525,7 @@
               <messageOccurrenceSpecificationMoniker Id="c4fd4448-b249-4303-be18-22175da5a822" LastKnownName="MessageOccurrenceSpecification" />
             </receiveEvent>
           </message>
-          <message Id="f1ab8fa1-f671-4ab9-a215-65689c93bb68" name="CheckInput" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="CheckInput()">
+          <message Id="f1ab8fa1-f671-4ab9-a215-65689c93bb68" name="Kiểm tra dữ liệu" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="CheckInput()">
             <referencesInternal>
               <reference Id="c13e795d-b9e7-4355-8ad2-efa3d79831ef" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PTB_GUI.QLPhong)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLPhong Type=frmChuyen)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLPhong Type=frmChuyen Member=CheckInput)&quot;)" tag="DGQL" />
               <reference Id="c8433fe6-e294-4a61-bbee-6e0000152b76" handle="(Assembly=&quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&quot; Namespace=PTB_GUI.QLPhong Type=frmChuyen Member=CheckInput)" tag="DGML" />
