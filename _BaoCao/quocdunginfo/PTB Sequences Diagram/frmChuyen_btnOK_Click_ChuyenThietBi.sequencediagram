@@ -145,16 +145,6 @@
               </interactionOperand>
             </operands>
           </combinedFragment>
-          <operandOccurrenceSpecification Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="8c4c5b4e-db2b-4b61-af53-b0ec1d5260a8" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="0755271d-b0c1-42d5-a5c5-bddf662dff03" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="ad90b19d-a81d-48c2-b80b-65a67de175ed" LastKnownName="this.objCTThietBi : CTThietBi" />
@@ -163,6 +153,16 @@
           <operandOccurrenceSpecification Id="2deaa651-6807-4300-844b-39aaf40181b5" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="bb34cce6-9ca0-4fab-a8d3-225b7ca3fa88" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="8c4c5b4e-db2b-4b61-af53-b0ec1d5260a8" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="1b8ad46f-1960-48e5-be33-8682d49d2a29" name="BehaviorExecutionSpecification">
@@ -350,14 +350,14 @@
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="9caa970f-d3ea-48ff-8e42-10bf41d26f9e" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="75e7ef07-1fc6-4464-94d6-10154ca8b503" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="9caa970f-d3ea-48ff-8e42-10bf41d26f9e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="b1dafc97-d69f-4c0e-887e-637535fea496" name="ExecutionOccurrenceSpecification">
@@ -425,6 +425,11 @@
               <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c966de95-54e5-4f79-b5be-e2e45903faf6" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="496d0a38-aab3-43ba-9fcc-4b095c589526" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="b1624b4c-a510-4678-add7-e33e583648a6" LastKnownName="this : frmChuyen" />
@@ -438,11 +443,6 @@
           <operandOccurrenceSpecification Id="1703e0fd-c7de-49bc-b822-cbfc9814f2e0" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="6376ee36-e57a-45ae-bc6b-4acff641a539" LastKnownName="this.objCTThietBi : CTThietBi" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c966de95-54e5-4f79-b5be-e2e45903faf6" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="550c8c19-348f-4151-9b08-7945231652bc" LastKnownName="DBInstance" />
             </covered>
           </operandOccurrenceSpecification>
           <executionOccurrenceSpecification Id="738e6d9f-f286-459d-a9b2-da68664c14b2" name="ExecutionOccurrenceSpecification">

@@ -106,17 +106,12 @@
               <lifelineMoniker Id="f595775c-9415-475f-918a-50f643043710" LastKnownName="_EntityAbstract1&lt;CoSo&gt;" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="07b838f9-18f8-46cc-ae4d-d6207761a0c5" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="f595775c-9415-475f-918a-50f643043710" LastKnownName="_EntityAbstract1&lt;CoSo&gt;" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="ad207a14-8e09-468c-8798-b05acd03ee62" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="2c59421e-8405-4530-bf05-b16417a063f4" name="MessageOccurrenceSpecification">
+          <messageOccurrenceSpecification Id="07b838f9-18f8-46cc-ae4d-d6207761a0c5" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="f595775c-9415-475f-918a-50f643043710" LastKnownName="_EntityAbstract1&lt;CoSo&gt;" />
             </covered>
@@ -124,6 +119,11 @@
           <messageOccurrenceSpecification Id="07ff1111-b92e-4895-8b55-bd04bf4659e1" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="2c59421e-8405-4530-bf05-b16417a063f4" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="f595775c-9415-475f-918a-50f643043710" LastKnownName="_EntityAbstract1&lt;CoSo&gt;" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="e52245bf-a4d0-497a-89ef-4c40c0ece543" name="ExecutionOccurrenceSpecification">
@@ -266,11 +266,6 @@
               <messageOccurrenceSpecificationMoniker Id="6523eadc-e52b-4795-9b83-61a497c3a042" LastKnownName="MessageOccurrenceSpecification" />
               <messageOccurrenceSpecificationMoniker Id="502bcc0f-2c98-4ff1-a243-f15fdfc06da3" LastKnownName="MessageOccurrenceSpecification" />
               <messageOccurrenceSpecificationMoniker Id="b08ad1ba-ef5c-4ecb-b4ae-b57bbaa5f7f3" LastKnownName="MessageOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="58b76706-0516-4a8b-8c00-7a986b5fe95b" LastKnownName="OperandOccurrenceSpecification" />
-              <messageOccurrenceSpecificationMoniker Id="c7869aa0-136b-48d0-9875-1d9f5ff556c2" LastKnownName="MessageOccurrenceSpecification" />
-              <executionOccurrenceSpecificationMoniker Id="012b4569-17b5-4657-afa2-92a278c82386" LastKnownName="ExecutionOccurrenceSpecification" />
-              <executionOccurrenceSpecificationMoniker Id="a31eea93-db7c-40b6-80d6-319d6c525641" LastKnownName="ExecutionOccurrenceSpecification" />
-              <operandOccurrenceSpecificationMoniker Id="bf3974fd-36ad-4998-9aa0-469e3a68771f" LastKnownName="OperandOccurrenceSpecification" />
             </nestedOccurrences>
           </behaviorExecutionSpecification>
           <executionOccurrenceSpecification Id="96df826c-2c44-4cc0-8ebb-d90ede7b54af" name="ExecutionOccurrenceSpecification">
@@ -313,14 +308,14 @@
               <lifelineMoniker Id="659807e3-7392-4839-a61f-1ce48d7329f4" LastKnownName="this.objDay : Dayy" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="4d79b636-59f3-432e-8aaa-8738b7bb7668" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="659807e3-7392-4839-a61f-1ce48d7329f4" LastKnownName="this.objDay : Dayy" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="f74c0fe7-050d-4794-8dca-15dbf5a67d80" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4d79b636-59f3-432e-8aaa-8738b7bb7668" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="659807e3-7392-4839-a61f-1ce48d7329f4" LastKnownName="this.objDay : Dayy" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="3ca71255-6c41-4820-957f-d053d0d37acc" name="MessageOccurrenceSpecification">
@@ -368,14 +363,14 @@
               <lifelineMoniker Id="c5d89096-9e0b-4890-95eb-7e0bec2386be" LastKnownName="DBInstance" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="502bcc0f-2c98-4ff1-a243-f15fdfc06da3" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="2219ee71-b060-4c6f-acfa-23f9bcbb482e" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="c5d89096-9e0b-4890-95eb-7e0bec2386be" LastKnownName="DBInstance" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="502bcc0f-2c98-4ff1-a243-f15fdfc06da3" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="b08ad1ba-ef5c-4ecb-b4ae-b57bbaa5f7f3" name="MessageOccurrenceSpecification">
@@ -398,79 +393,6 @@
               <lifelineMoniker Id="c5d89096-9e0b-4890-95eb-7e0bec2386be" LastKnownName="DBInstance" />
             </covered>
           </executionOccurrenceSpecification>
-          <combinedFragment Id="c8dbc4e5-8578-4a3e-b4bd-86b6af85329c" name="CombinedFragment2" interactionOperator="Alt" customInteractionOperator="If">
-            <coveredLifelines>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </coveredLifelines>
-            <operands>
-              <interactionOperand Id="2d0be945-c387-4590-a49d-2c6e81200bd9" name="InteractionOperand1">
-                <coveredLifelines>
-                  <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-                </coveredLifelines>
-                <guard>
-                  <interactionConstraint Id="33211d6b-7546-44c2-bbd3-1b24aa4b3075" guardText="Cập nhật thành công" />
-                </guard>
-                <operandOccurrenceSpecifications>
-                  <operandOccurrenceSpecificationMoniker Id="58b76706-0516-4a8b-8c00-7a986b5fe95b" LastKnownName="OperandOccurrenceSpecification" />
-                  <operandOccurrenceSpecificationMoniker Id="bf3974fd-36ad-4998-9aa0-469e3a68771f" LastKnownName="OperandOccurrenceSpecification" />
-                </operandOccurrenceSpecifications>
-              </interactionOperand>
-            </operands>
-          </combinedFragment>
-          <operandOccurrenceSpecification Id="58b76706-0516-4a8b-8c00-7a986b5fe95b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="c7869aa0-136b-48d0-9875-1d9f5ff556c2" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <behaviorExecutionSpecification Id="8a2a3a81-e2fb-443d-a3c3-3cc20b6ef444" name="BehaviorExecutionSpecification">
-            <coveredLifelines>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </coveredLifelines>
-            <finish>
-              <executionOccurrenceSpecificationMoniker Id="a31eea93-db7c-40b6-80d6-319d6c525641" LastKnownName="ExecutionOccurrenceSpecification" />
-            </finish>
-            <start>
-              <executionOccurrenceSpecificationMoniker Id="012b4569-17b5-4657-afa2-92a278c82386" LastKnownName="ExecutionOccurrenceSpecification" />
-            </start>
-            <nestedOccurrences>
-              <messageOccurrenceSpecificationMoniker Id="6a741d97-8de5-4c3a-ab38-628aab8505f6" LastKnownName="MessageOccurrenceSpecification" />
-            </nestedOccurrences>
-          </behaviorExecutionSpecification>
-          <executionOccurrenceSpecification Id="012b4569-17b5-4657-afa2-92a278c82386" name="ExecutionOccurrenceSpecification">
-            <event>
-              <executionOccurrenceSpecificationReferencesEvent>
-                <executionEventMoniker Id="c709df17-14bd-4206-99b8-2d15df82fcb9" LastKnownName="ExecutionEvent" />
-              </executionOccurrenceSpecificationReferencesEvent>
-            </event>
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="6a741d97-8de5-4c3a-ab38-628aab8505f6" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <executionOccurrenceSpecification Id="a31eea93-db7c-40b6-80d6-319d6c525641" name="ExecutionOccurrenceSpecification">
-            <event>
-              <executionOccurrenceSpecificationReferencesEvent>
-                <executionEventMoniker Id="aab65abc-dd95-4cea-afea-6550d31f9489" LastKnownName="ExecutionEvent" />
-              </executionOccurrenceSpecificationReferencesEvent>
-            </event>
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="bf3974fd-36ad-4998-9aa0-469e3a68771f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ac7293c-fb12-4c5c-a8c8-218af1d78db5" LastKnownName="this : ucQuanLyViTri" />
-            </covered>
-          </operandOccurrenceSpecification>
           <executionOccurrenceSpecification Id="d8a282fa-78a4-4bca-8c8c-0579fcd0b530" name="ExecutionOccurrenceSpecification">
             <event>
               <executionOccurrenceSpecificationReferencesEvent>
@@ -653,18 +575,6 @@
               <messageOccurrenceSpecificationMoniker Id="b08ad1ba-ef5c-4ecb-b4ae-b57bbaa5f7f3" LastKnownName="MessageOccurrenceSpecification" />
             </receiveEvent>
           </message>
-          <message Id="20c2864d-afc4-4c7d-8194-8279f074e255" name="Tải lại dữ liệu và hiển thị thông báo thành công" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true" signatureText="reLoad(objDay)">
-            <referencesInternal>
-              <reference Id="ee138f93-1b36-47b2-943a-442d9bd90ad7" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=PTB_GUI.QLViTri.MyUserControl)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLViTri.MyUserControl Type=ucQuanLyViTri)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&amp;quot; Namespace=PTB_GUI.QLViTri.MyUserControl Type=ucQuanLyViTri Member=(Name=reLoadAndSelectNode OverloadingParameters=[(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&amp;quot; Namespace=System Type=Guid),(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&amp;quot; Namespace=System Type=Boolean)]))&quot;)" tag="DGQL" />
-              <reference Id="0c57ecd4-429e-411f-9c54-7db4b6a7c642" handle="(Assembly=&quot;$(3270269a-0084-40b9-807d-91d29c3f5444.OutputPathUri)&quot; Namespace=PTB_GUI.QLViTri.MyUserControl Type=ucQuanLyViTri Member=(Name=reLoadAndSelectNode OverloadingParameters=[(Assembly=&quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Guid),(Assembly=&quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Boolean)]))" tag="DGML" />
-            </referencesInternal>
-            <sendEvent>
-              <messageOccurrenceSpecificationMoniker Id="c7869aa0-136b-48d0-9875-1d9f5ff556c2" LastKnownName="MessageOccurrenceSpecification" />
-            </sendEvent>
-            <receiveEvent>
-              <messageOccurrenceSpecificationMoniker Id="6a741d97-8de5-4c3a-ab38-628aab8505f6" LastKnownName="MessageOccurrenceSpecification" />
-            </receiveEvent>
-          </message>
         </messages>
       </interaction>
     </packageHasNamedElement>
@@ -697,12 +607,6 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <executionEvent Id="c4eb414b-f9bc-4826-b636-eadc73074c6b" name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent Id="c709df17-14bd-4206-99b8-2d15df82fcb9" name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent Id="aab65abc-dd95-4cea-afea-6550d31f9489" name="ExecutionEvent" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <executionEvent Id="ef6750e9-6587-4d71-8902-9454cbc599b9" name="ExecutionEvent" />

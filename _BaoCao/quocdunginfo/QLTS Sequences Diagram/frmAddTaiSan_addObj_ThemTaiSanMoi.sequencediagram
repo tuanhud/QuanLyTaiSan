@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="43e3867a-80a0-4fdb-8619-604616a819de" name="frmAddTaiSan_addObj" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="edf065a0-b8b2-4e11-8c4c-0702131491d8" name="frmAddTaiSan_addObj" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification Id="09330697-3ffb-44c8-a527-8e86196cec57" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="24f2d9a7-3aa9-41df-a94d-a5a908a5a0a4" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="2598f579-bd3e-4308-81af-b746be459aa3" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="699a5f6a-bccc-49a3-a6bd-cdef5edb8616" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="bfed2632-fa99-4f46-8e5c-cf4cca76d415" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="437615ca-6c33-434e-bd53-a1ded3fb08c6" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="c95d1a0f-a6c2-4fd1-975b-b63b4859184e" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="67f29afb-1d22-4978-ad91-8e1bf5b33f75" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="875b7f84-b758-4da5-a50e-9f1e731d79b6" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="9ae0b9e1-5e54-41c5-ab47-3c56ecaa403b" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="b2fcb054-ee80-403d-b42e-7733660e9377" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="04480788-ef15-4aa1-858f-f66fd5e2945d" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="aac742ca-ea28-47b6-b02e-ebb3137c188f" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="063bc70e-bd03-4339-80b8-2d479bead11f" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="2598f579-bd3e-4308-81af-b746be459aa3" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="3c15f91e-31cf-49c1-92c8-943a7880b398" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget Id="6e0db119-c50a-4253-87f0-fd4c1450d11f" name="LostFoundTarget" />
+          <messageOccurrenceSpecification Id="699a5f6a-bccc-49a3-a6bd-cdef5edb8616" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="ee751629-bbf3-482a-bac0-3f86e46e9bf7" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="13698d3e-a14d-4203-91bd-e22660b77b19" LastKnownName="ts : TaiSan" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="18814f73-2438-4ae0-8f86-ef79c990d95d" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="e2bc1938-c640-4157-a0a6-e0c7c412fcc4" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="14742f68-f092-4774-8a07-bf81efa9f3a9" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="34735be6-603a-4c88-b24d-c6c0ed2cedd7" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="e2bc1938-c640-4157-a0a6-e0c7c412fcc4" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="4e177815-7a7f-420e-a3cb-5cc4b3c5ad39" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="13698d3e-a14d-4203-91bd-e22660b77b19" LastKnownName="ts : TaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="bfed2632-fa99-4f46-8e5c-cf4cca76d415" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="14742f68-f092-4774-8a07-bf81efa9f3a9" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="13698d3e-a14d-4203-91bd-e22660b77b19" LastKnownName="ts : TaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="34735be6-603a-4c88-b24d-c6c0ed2cedd7" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="13698d3e-a14d-4203-91bd-e22660b77b19" LastKnownName="ts : TaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="437615ca-6c33-434e-bd53-a1ded3fb08c6" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="18814f73-2438-4ae0-8f86-ef79c990d95d" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="47b076b2-084e-4f3d-b74c-bb69157839ec" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="13698d3e-a14d-4203-91bd-e22660b77b19" LastKnownName="ts : TaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="ea772a42-a279-4c39-b0bd-bcfc596a1809" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d3c58cd6-d84c-4c03-8f39-27bcc2539cdf" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="73f28357-3c42-4b69-9aac-4b2b3340713b" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="859abd9c-6604-4130-b329-7d01f6fb735c" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="37885280-4a8a-4ad1-ae85-9c46c8f59363" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="73f28357-3c42-4b69-9aac-4b2b3340713b" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="04c7d574-13f7-447d-ad38-47046f05a37d" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="c95d1a0f-a6c2-4fd1-975b-b63b4859184e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="859abd9c-6604-4130-b329-7d01f6fb735c" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="67f29afb-1d22-4978-ad91-8e1bf5b33f75" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="37885280-4a8a-4ad1-ae85-9c46c8f59363" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d3c58cd6-d84c-4c03-8f39-27bcc2539cdf" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="f6f30feb-fb51-4025-ab85-bacc54a077e9" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="6878c747-f9e0-43b5-886f-b0c0a43b5ac2" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="d7406c0f-6849-4b20-83ed-c0c8557d20f1" LastKnownName="_EntityAbstract1&lt;TinhTrang&gt;" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="55e75dc5-6468-457f-866c-c37f4ee622e3" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="c56c6b08-436b-40a6-8ae3-4983077a76b4" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="9ab16b22-020d-4de6-b9ce-f3d35d7021a6" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="491403fd-139f-43cf-b633-bc718f3166d1" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="c56c6b08-436b-40a6-8ae3-4983077a76b4" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="0feb1c74-bb82-4fa4-bc30-3fc8d41fbc0e" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="d7406c0f-6849-4b20-83ed-c0c8557d20f1" LastKnownName="_EntityAbstract1&lt;TinhTrang&gt;" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="875b7f84-b758-4da5-a50e-9f1e731d79b6" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="9ab16b22-020d-4de6-b9ce-f3d35d7021a6" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d7406c0f-6849-4b20-83ed-c0c8557d20f1" LastKnownName="_EntityAbstract1&lt;TinhTrang&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="9ae0b9e1-5e54-41c5-ab47-3c56ecaa403b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="491403fd-139f-43cf-b633-bc718f3166d1" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d7406c0f-6849-4b20-83ed-c0c8557d20f1" LastKnownName="_EntityAbstract1&lt;TinhTrang&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="55e75dc5-6468-457f-866c-c37f4ee622e3" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="b7597d32-3d7a-4187-97e5-2863d0aa0972" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="d7406c0f-6849-4b20-83ed-c0c8557d20f1" LastKnownName="_EntityAbstract1&lt;TinhTrang&gt;" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="a8ebf210-8e33-494b-b3b1-1a0ff3450568" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="f8d17ab2-2e21-43f9-aa4e-a122aad1b045" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="bf9d0ade-2d84-4314-b247-aaaca2cfea32" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="dd90a3d7-53d4-4345-b83d-432a38fac9d7" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="78b0c222-e233-4f2f-afd1-bda0e2f35853" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="bf9d0ade-2d84-4314-b247-aaaca2cfea32" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="b805d601-b66b-4bb3-b3cc-933f4bdaa36d" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="dd90a3d7-53d4-4345-b83d-432a38fac9d7" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="b2fcb054-ee80-403d-b42e-7733660e9377" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="04480788-ef15-4aa1-858f-f66fd5e2945d" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="78b0c222-e233-4f2f-afd1-bda0e2f35853" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="f8d17ab2-2e21-43f9-aa4e-a122aad1b045" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="2d3be9ab-2420-44cc-a9a7-6b705ad41929" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" LastKnownName="obj : CTTaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="4bd64f93-402b-41f7-986d-e8d9383e19a0" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="479042cd-b678-4c84-bfbe-252f0e881f58" LastKnownName="DBInstance" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="24f0a188-ca5b-466c-bd42-ae8c6a046222" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="628477dc-5362-4754-b5b2-41c79a1964a4" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="ae184736-cd16-46a3-a0a5-af8842d53fc7" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="a329a817-0709-41bb-b1c6-925ed7cb41d9" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="628477dc-5362-4754-b5b2-41c79a1964a4" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="6ac7ebcf-7415-4ddc-ab0c-871c3eb87ab4" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="479042cd-b678-4c84-bfbe-252f0e881f58" LastKnownName="DBInstance" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="aac742ca-ea28-47b6-b02e-ebb3137c188f" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ae184736-cd16-46a3-a0a5-af8842d53fc7" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="479042cd-b678-4c84-bfbe-252f0e881f58" LastKnownName="DBInstance" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="063bc70e-bd03-4339-80b8-2d479bead11f" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a329a817-0709-41bb-b1c6-925ed7cb41d9" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="479042cd-b678-4c84-bfbe-252f0e881f58" LastKnownName="DBInstance" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="24f0a188-ca5b-466c-bd42-ae8c6a046222" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="b079c8ec-df86-4285-91a9-7d6813b27480" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="479042cd-b678-4c84-bfbe-252f0e881f58" LastKnownName="DBInstance" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="24f2d9a7-3aa9-41df-a94d-a5a908a5a0a4" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="f6f3a0a3-8be4-4682-bf48-1d85197974d7" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" LastKnownName="this : frmAddTaiSan" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="1db13ecc-ba18-45a7-9455-d27ce5d23190" name="this : frmAddTaiSan" isActor="false" lifelineDisplayName="this : frmAddTaiSan" referencedInstance="(Assembly=$(fe72a1a2-e1aa-42da-8922-f70feb3ac9b9.OutputPathUri) Namespace=TSCD_GUI.QLTaiSan Type=frmAddTaiSan ObjectInstance=&quot;Object instance 1&quot;)" referencedType="TSCD_GUI‎.QLTaiSan‎.frmAddTaiSan">
+            <referencesInternal>
+              <reference Id="35b76db8-f4c8-49be-9010-ed77c620b7b9" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD_GUI.QLTaiSan)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(fe72a1a2-e1aa-42da-8922-f70feb3ac9b9.OutputPathUri)&amp;quot; Namespace=TSCD_GUI.QLTaiSan Type=frmAddTaiSan)&quot;)" tag="DGQL" />
+              <reference Id="30995d39-7735-4a4e-9c53-492bb248831f" handle="(Assembly=&quot;$(fe72a1a2-e1aa-42da-8922-f70feb3ac9b9.OutputPathUri)&quot; Namespace=TSCD_GUI.QLTaiSan Type=frmAddTaiSan)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="2598f579-bd3e-4308-81af-b746be459aa3" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="24f2d9a7-3aa9-41df-a94d-a5a908a5a0a4" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="13698d3e-a14d-4203-91bd-e22660b77b19" name="ts : TaiSan" isActor="false" lifelineDisplayName="ts : TaiSan" referencedInstance="(Assembly=$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri) Namespace=TSCD.Entities Type=TaiSan ObjectInstance=&quot;Object instance 2&quot;)" referencedType="TSCD‎.Entities‎.TaiSan">
+            <referencesInternal>
+              <reference Id="9bc3dc8e-5123-486f-b01c-5b62e47c269e" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=TaiSan)&quot;)" tag="DGQL" />
+              <reference Id="bfb08a4a-a1b8-4179-8a9f-a5742ac42a7c" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=TaiSan)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="e2bc1938-c640-4157-a0a6-e0c7c412fcc4" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="18814f73-2438-4ae0-8f86-ef79c990d95d" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="8f1ebbfc-e873-43c7-8722-ec7a866656d1" name="obj : CTTaiSan" isActor="false" lifelineDisplayName="obj : CTTaiSan" referencedInstance="(Assembly=$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri) Namespace=TSCD.Entities Type=CTTaiSan ObjectInstance=&quot;Object instance 30&quot;)" referencedType="TSCD‎.Entities‎.CTTaiSan">
+            <referencesInternal>
+              <reference Id="a7619c70-3268-4169-950c-188bea720d53" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=CTTaiSan)&quot;)" tag="DGQL" />
+              <reference Id="5d33b03f-55d2-4d76-8dbf-649766be651b" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=CTTaiSan)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="73f28357-3c42-4b69-9aac-4b2b3340713b" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="d3c58cd6-d84c-4c03-8f39-27bcc2539cdf" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="bf9d0ade-2d84-4314-b247-aaaca2cfea32" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="f8d17ab2-2e21-43f9-aa4e-a122aad1b045" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="d7406c0f-6849-4b20-83ed-c0c8557d20f1" name="_EntityAbstract1&lt;TinhTrang&gt;" isActor="false" lifelineDisplayName="_EntityAbstract1&lt;TinhTrang&gt;" referencedType="TSCD‎.Entities‎._EntityAbstract1‎&lt;TinhTrang‎&gt;">
+            <referencesInternal>
+              <reference Id="3c203926-db67-4937-8283-93ec41a81a32" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=(Name=_EntityAbstract1 GenericParameterCount=1))&quot;)" tag="DGQL" />
+              <reference Id="fd182975-7eeb-4de2-a0aa-41bc140ba15f" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=(Name=_EntityAbstract1 GenericParameterCount=1))" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="c56c6b08-436b-40a6-8ae3-4983077a76b4" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="55e75dc5-6468-457f-866c-c37f4ee622e3" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="479042cd-b678-4c84-bfbe-252f0e881f58" name="DBInstance" isActor="false" lifelineDisplayName="DBInstance" referencedType="TSCD‎.Entities‎.DBInstance">
+            <referencesInternal>
+              <reference Id="07f61918-bac5-44a2-9ec5-8fd20e5da1a7" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=DBInstance)&quot;)" tag="DGQL" />
+              <reference Id="11787f39-4457-49be-a5db-b0f376e035b2" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=DBInstance)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="628477dc-5362-4754-b5b2-41c79a1964a4" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="24f0a188-ca5b-466c-bd42-ae8c6a046222" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="1be323ad-5808-42a7-aab0-2bc00090a200" name="addObj" messageKind="Found" messageSort="AsynchCall" createSelfMessage="false">
+            <referencesInternal>
+              <reference Id="fe34cb69-4634-4b19-bdea-08dced877fcb" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD_GUI.QLTaiSan)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(fe72a1a2-e1aa-42da-8922-f70feb3ac9b9.OutputPathUri)&amp;quot; Namespace=TSCD_GUI.QLTaiSan Type=frmAddTaiSan)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(fe72a1a2-e1aa-42da-8922-f70feb3ac9b9.OutputPathUri)&amp;quot; Namespace=TSCD_GUI.QLTaiSan Type=frmAddTaiSan Member=addObj)&quot;)" tag="DGQL" />
+              <reference Id="7c92d7d7-68ea-4286-bd6b-0890606329ed" handle="(Assembly=&quot;$(fe72a1a2-e1aa-42da-8922-f70feb3ac9b9.OutputPathUri)&quot; Namespace=TSCD_GUI.QLTaiSan Type=frmAddTaiSan Member=addObj)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <lostFoundTargetMoniker Id="6e0db119-c50a-4253-87f0-fd4c1450d11f" LastKnownName="LostFoundTarget" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="699a5f6a-bccc-49a3-a6bd-cdef5edb8616" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="b1d808cf-784d-40c7-a028-b3b602cdf0b7" name="Create TaiSan" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new TaiSan()">
+            <referencesInternal>
+              <reference Id="cf7e893b-efbb-46b4-a53b-d6c68150dea6" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=TaiSan)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=TaiSan Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="34520153-9383-4907-a33d-ce9936c78691" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=TaiSan Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="bfed2632-fa99-4f46-8e5c-cf4cca76d415" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="14742f68-f092-4774-8a07-bf81efa9f3a9" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="bcf8ec87-ffbc-4b41-bd4b-c3876c6e3f82" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="34735be6-603a-4c88-b24d-c6c0ed2cedd7" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="437615ca-6c33-434e-bd53-a1ded3fb08c6" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="6a72ba18-9eb7-407e-b2c6-c5e6352b8c3d" name="Create CTTaiSan" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new CTTaiSan()">
+            <referencesInternal>
+              <reference Id="92ba847e-c749-4bd6-9c31-68ba37ae3e82" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=CTTaiSan)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=CTTaiSan Member=.ctor)&quot;)" tag="DGQL" />
+              <reference Id="ca3d65a6-bda7-44c4-bff4-62b5c3a6b8d3" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=CTTaiSan Member=.ctor)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="c95d1a0f-a6c2-4fd1-975b-b63b4859184e" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="859abd9c-6604-4130-b329-7d01f6fb735c" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="5a9cfe9c-6432-4822-a613-cd98cfb8be49" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="37885280-4a8a-4ad1-ae85-9c46c8f59363" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="67f29afb-1d22-4978-ad91-8e1bf5b33f75" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="2b8a5227-4eff-467d-a4b6-9517c2166e76" name="getById" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="TinhTrang.getById(GUID.From(lookUpTinhTrang.EditValue))">
+            <referencesInternal>
+              <reference Id="0914f1ec-150c-47a1-a4ff-7c3ad62198bc" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=(Name=_EntityAbstract1 GenericParameterCount=1))&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=(Name=_EntityAbstract1 GenericParameterCount=1) Member=(Name=getById OverloadingParameters=[(Assembly=&amp;quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&amp;quot; Namespace=System Type=Guid)]))&quot;)" tag="DGQL" />
+              <reference Id="2e466e22-7cba-41c5-b232-e03554c37363" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=(Name=_EntityAbstract1 GenericParameterCount=1) Member=(Name=getById OverloadingParameters=[(Assembly=&quot;$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Guid)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="875b7f84-b758-4da5-a50e-9f1e731d79b6" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="9ab16b22-020d-4de6-b9ce-f3d35d7021a6" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="887f2ff5-95d2-49c2-aa4e-3cd32995e549" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="491403fd-139f-43cf-b633-bc718f3166d1" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="9ae0b9e1-5e54-41c5-ab47-3c56ecaa403b" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="7526a870-20d5-49d6-be16-30ce0671d77c" name="add" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="obj.add()">
+            <referencesInternal>
+              <reference Id="b6ba0db1-227b-47ea-b715-01a826319fbb" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=CTTaiSan)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=CTTaiSan Member=add)&quot;)" tag="DGQL" />
+              <reference Id="af3e3fa1-c2f8-448d-ab3e-09076ee36f10" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=CTTaiSan Member=add)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="b2fcb054-ee80-403d-b42e-7733660e9377" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="dd90a3d7-53d4-4345-b83d-432a38fac9d7" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="033da207-835d-4195-bd27-00765a6e34a5" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="78b0c222-e233-4f2f-afd1-bda0e2f35853" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="04480788-ef15-4aa1-858f-f66fd5e2945d" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="1035a02e-8539-4567-8222-a45ecf01b533" name="commit" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false" signatureText="DBInstance.commit()">
+            <referencesInternal>
+              <reference Id="b534138d-6717-48be-905b-948f5c81c320" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=TSCD.Entities)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=DBInstance)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&amp;quot; Namespace=TSCD.Entities Type=DBInstance Member=commit)&quot;)" tag="DGQL" />
+              <reference Id="1a000312-b107-4b67-89ee-65abacc4d915" handle="(Assembly=&quot;$(1790a3f3-4540-4524-b031-6a159ad400da.OutputPathUri)&quot; Namespace=TSCD.Entities Type=DBInstance Member=commit)" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="aac742ca-ea28-47b6-b02e-ebb3137c188f" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="ae184736-cd16-46a3-a0a5-af8842d53fc7" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="6918cf49-4cb6-4c9b-88c9-2a21459a885a" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="a329a817-0709-41bb-b1c6-925ed7cb41d9" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="063bc70e-bd03-4339-80b8-2d479bead11f" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="3c15f91e-31cf-49c1-92c8-943a7880b398" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="f6f3a0a3-8be4-4682-bf48-1d85197974d7" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="4e177815-7a7f-420e-a3cb-5cc4b3c5ad39" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="47b076b2-084e-4f3d-b74c-bb69157839ec" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="04c7d574-13f7-447d-ad38-47046f05a37d" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="f6f30feb-fb51-4025-ab85-bacc54a077e9" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="0feb1c74-bb82-4fa4-bc30-3fc8d41fbc0e" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="b7597d32-3d7a-4187-97e5-2863d0aa0972" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="b805d601-b66b-4bb3-b3cc-933f4bdaa36d" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="2d3be9ab-2420-44cc-a9a7-6b705ad41929" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="6ac7ebcf-7415-4ddc-ab0c-871c3eb87ab4" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="b079c8ec-df86-4285-91a9-7d6813b27480" name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+</SequenceDesignerModel>
