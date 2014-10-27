@@ -106,7 +106,7 @@
             this.gridControlTaiSan.Name = "gridControlTaiSan";
             this.gridControlTaiSan.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryMemoTen});
-            this.gridControlTaiSan.Size = new System.Drawing.Size(495, 491);
+            this.gridControlTaiSan.Size = new System.Drawing.Size(494, 491);
             this.gridControlTaiSan.TabIndex = 0;
             this.gridControlTaiSan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.bandedGridViewTaiSan});
@@ -376,6 +376,7 @@
             // 
             // btnThongKeTangGiam
             // 
+            this.btnThongKeTangGiam.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnThongKeTangGiam.Location = new System.Drawing.Point(60, 192);
             this.btnThongKeTangGiam.Name = "btnThongKeTangGiam";
             this.btnThongKeTangGiam.Size = new System.Drawing.Size(172, 23);
@@ -490,6 +491,7 @@
             // 
             // btnThongKe
             // 
+            this.btnThongKe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnThongKe.Location = new System.Drawing.Point(60, 163);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(172, 23);
