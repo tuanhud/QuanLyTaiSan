@@ -396,12 +396,11 @@
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(908, 600);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Quản lý phòng học v1.2";
+            this.Text = "Quản lý thiết bị v1.2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             this.backstageViewControl1.ResumeLayout(false);
