@@ -34,6 +34,7 @@ namespace TSCD_GUI.ThongKe
 
         public void loadData()
         {
+            barBtnTKPhong.PerformClick();
             barBtnTKTaiSan.PerformClick();
         }
 
