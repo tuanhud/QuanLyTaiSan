@@ -1,0 +1,1340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Edmx Version="3.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Runtime>
+    <ConceptualModels>
+      <Schema Namespace="PTB.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CoSo" customannotation:ClrType="PTB.Entities.CoSo, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.CoSo_hinhanhs" FromRole="CoSo_hinhanhs_Source" ToRole="CoSo_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="Dayy" customannotation:ClrType="PTB.Entities.Dayy, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coso_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.Dayy_hinhanhs" FromRole="Dayy_hinhanhs_Source" ToRole="Dayy_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="HinhAnh" customannotation:ClrType="PTB.Entities.HinhAnh, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="cosos" Relationship="Self.CoSo_hinhanhs" FromRole="CoSo_hinhanhs_Target" ToRole="CoSo_hinhanhs_Source" />
+          <NavigationProperty Name="ctthietbis" Relationship="Self.CTThietBi_hinhanhs" FromRole="CTThietBi_hinhanhs_Target" ToRole="CTThietBi_hinhanhs_Source" />
+          <NavigationProperty Name="days" Relationship="Self.Dayy_hinhanhs" FromRole="Dayy_hinhanhs_Target" ToRole="Dayy_hinhanhs_Source" />
+          <NavigationProperty Name="logsucophongs" Relationship="Self.LogSuCoPhong_hinhanhs" FromRole="LogSuCoPhong_hinhanhs_Target" ToRole="LogSuCoPhong_hinhanhs_Source" />
+          <NavigationProperty Name="logthietbis" Relationship="Self.LogThietBi_hinhanhs" FromRole="LogThietBi_hinhanhs_Target" ToRole="LogThietBi_hinhanhs_Source" />
+          <NavigationProperty Name="nhanvienpts" Relationship="Self.NhanVienPT_hinhanhs" FromRole="NhanVienPT_hinhanhs_Target" ToRole="NhanVienPT_hinhanhs_Source" />
+          <NavigationProperty Name="phongs" Relationship="Self.Phong_hinhanhs" FromRole="Phong_hinhanhs_Target" ToRole="Phong_hinhanhs_Source" />
+          <NavigationProperty Name="sucophongs" Relationship="Self.SuCoPhong_hinhanhs" FromRole="SuCoPhong_hinhanhs_Target" ToRole="SuCoPhong_hinhanhs_Source" />
+          <NavigationProperty Name="tangs" Relationship="Self.Tang_hinhanhs" FromRole="Tang_hinhanhs_Target" ToRole="Tang_hinhanhs_Source" />
+          <NavigationProperty Name="thietbis" Relationship="Self.ThietBi_hinhanhs" FromRole="ThietBi_hinhanhs_Target" ToRole="ThietBi_hinhanhs_Source" />
+        </EntityType>
+        <EntityType Name="CTThietBi" customannotation:ClrType="PTB.Entities.CTThietBi, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngay" Type="DateTime" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="phong_id" Type="Guid" Nullable="false" />
+          <Property Name="thietbi_id" Type="Guid" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.CTThietBi_hinhanhs" FromRole="CTThietBi_hinhanhs_Source" ToRole="CTThietBi_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="Phong" customannotation:ClrType="PTB.Entities.Phong, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vitri_id" Type="Guid" Nullable="false" />
+          <Property Name="nhanvienpt_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.Phong_hinhanhs" FromRole="Phong_hinhanhs_Source" ToRole="Phong_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="LogThietBi" customannotation:ClrType="PTB.Entities.LogThietBi, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="thietbi_id" Type="Guid" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="phong_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.LogThietBi_hinhanhs" FromRole="LogThietBi_hinhanhs_Source" ToRole="LogThietBi_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="Tang" customannotation:ClrType="PTB.Entities.Tang, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="day_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.Tang_hinhanhs" FromRole="Tang_hinhanhs_Source" ToRole="Tang_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="LogSuCoPhong" customannotation:ClrType="PTB.Entities.LogSuCoPhong, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="sucophong_id" Type="Guid" Nullable="false" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.LogSuCoPhong_hinhanhs" FromRole="LogSuCoPhong_hinhanhs_Source" ToRole="LogSuCoPhong_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="SuCoPhong" customannotation:ClrType="PTB.Entities.SuCoPhong, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngay" Type="DateTime" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="phong_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.SuCoPhong_hinhanhs" FromRole="SuCoPhong_hinhanhs_Source" ToRole="SuCoPhong_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="ThietBi" customannotation:ClrType="PTB.Entities.ThietBi, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaymua" Type="DateTime" />
+          <Property Name="loaithietbi_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.ThietBi_hinhanhs" FromRole="ThietBi_hinhanhs_Source" ToRole="ThietBi_hinhanhs_Target" />
+        </EntityType>
+        <EntityType Name="NhanVienPT" customannotation:ClrType="PTB.Entities.NhanVienPT, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gioitinh" Type="Boolean" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sodienthoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="hinhanhs" Relationship="Self.NhanVienPT_hinhanhs" FromRole="NhanVienPT_hinhanhs_Source" ToRole="NhanVienPT_hinhanhs_Target" />
+        </EntityType>
+        <Association Name="CTThietBi_hinhanhs">
+          <End Role="CTThietBi_hinhanhs_Source" Type="Self.CTThietBi" Multiplicity="*" />
+          <End Role="CTThietBi_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="Phong_hinhanhs">
+          <End Role="Phong_hinhanhs_Source" Type="Self.Phong" Multiplicity="*" />
+          <End Role="Phong_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="LogThietBi_hinhanhs">
+          <End Role="LogThietBi_hinhanhs_Source" Type="Self.LogThietBi" Multiplicity="*" />
+          <End Role="LogThietBi_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="Tang_hinhanhs">
+          <End Role="Tang_hinhanhs_Source" Type="Self.Tang" Multiplicity="*" />
+          <End Role="Tang_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="LogSuCoPhong_hinhanhs">
+          <End Role="LogSuCoPhong_hinhanhs_Source" Type="Self.LogSuCoPhong" Multiplicity="*" />
+          <End Role="LogSuCoPhong_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="SuCoPhong_hinhanhs">
+          <End Role="SuCoPhong_hinhanhs_Source" Type="Self.SuCoPhong" Multiplicity="*" />
+          <End Role="SuCoPhong_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="ThietBi_hinhanhs">
+          <End Role="ThietBi_hinhanhs_Source" Type="Self.ThietBi" Multiplicity="*" />
+          <End Role="ThietBi_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="NhanVienPT_hinhanhs">
+          <End Role="NhanVienPT_hinhanhs_Source" Type="Self.NhanVienPT" Multiplicity="*" />
+          <End Role="NhanVienPT_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="Dayy_hinhanhs">
+          <End Role="Dayy_hinhanhs_Source" Type="Self.Dayy" Multiplicity="*" />
+          <End Role="Dayy_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <Association Name="CoSo_hinhanhs">
+          <End Role="CoSo_hinhanhs_Source" Type="Self.CoSo" Multiplicity="*" />
+          <End Role="CoSo_hinhanhs_Target" Type="Self.HinhAnh" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="OurDBContext" customannotation:UseClrTypes="true">
+          <EntitySet Name="COSOS" EntityType="Self.CoSo" />
+          <EntitySet Name="DAYYS" EntityType="Self.Dayy" />
+          <EntitySet Name="HINHANHS" EntityType="Self.HinhAnh" />
+          <EntitySet Name="CTTHIETBIS" EntityType="Self.CTThietBi" />
+          <EntitySet Name="PHONGS" EntityType="Self.Phong" />
+          <EntitySet Name="LOGTHIETBIS" EntityType="Self.LogThietBi" />
+          <EntitySet Name="TANGS" EntityType="Self.Tang" />
+          <EntitySet Name="LOGSUCOPHONGS" EntityType="Self.LogSuCoPhong" />
+          <EntitySet Name="SUCOPHONGS" EntityType="Self.SuCoPhong" />
+          <EntitySet Name="THIETBIS" EntityType="Self.ThietBi" />
+          <EntitySet Name="NHANVIENPTS" EntityType="Self.NhanVienPT" />
+          <AssociationSet Name="CTThietBi_hinhanhs" Association="Self.CTThietBi_hinhanhs">
+            <End Role="CTThietBi_hinhanhs_Source" EntitySet="CTTHIETBIS" />
+            <End Role="CTThietBi_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="Phong_hinhanhs" Association="Self.Phong_hinhanhs">
+            <End Role="Phong_hinhanhs_Source" EntitySet="PHONGS" />
+            <End Role="Phong_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="LogThietBi_hinhanhs" Association="Self.LogThietBi_hinhanhs">
+            <End Role="LogThietBi_hinhanhs_Source" EntitySet="LOGTHIETBIS" />
+            <End Role="LogThietBi_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="Tang_hinhanhs" Association="Self.Tang_hinhanhs">
+            <End Role="Tang_hinhanhs_Source" EntitySet="TANGS" />
+            <End Role="Tang_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuCoPhong_hinhanhs" Association="Self.LogSuCoPhong_hinhanhs">
+            <End Role="LogSuCoPhong_hinhanhs_Source" EntitySet="LOGSUCOPHONGS" />
+            <End Role="LogSuCoPhong_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="SuCoPhong_hinhanhs" Association="Self.SuCoPhong_hinhanhs">
+            <End Role="SuCoPhong_hinhanhs_Source" EntitySet="SUCOPHONGS" />
+            <End Role="SuCoPhong_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="ThietBi_hinhanhs" Association="Self.ThietBi_hinhanhs">
+            <End Role="ThietBi_hinhanhs_Source" EntitySet="THIETBIS" />
+            <End Role="ThietBi_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="NhanVienPT_hinhanhs" Association="Self.NhanVienPT_hinhanhs">
+            <End Role="NhanVienPT_hinhanhs_Source" EntitySet="NHANVIENPTS" />
+            <End Role="NhanVienPT_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="Dayy_hinhanhs" Association="Self.Dayy_hinhanhs">
+            <End Role="Dayy_hinhanhs_Source" EntitySet="DAYYS" />
+            <End Role="Dayy_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+          <AssociationSet Name="CoSo_hinhanhs" Association="Self.CoSo_hinhanhs">
+            <End Role="CoSo_hinhanhs_Source" EntitySet="COSOS" />
+            <End Role="CoSo_hinhanhs_Target" EntitySet="HINHANHS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </ConceptualModels>
+    <Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeFirstDatabase" CdmEntityContainer="OurDBContext">
+          <EntitySetMapping Name="COSOS">
+            <EntityTypeMapping TypeName="PTB.Entities.CoSo">
+              <MappingFragment StoreEntitySet="CoSo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAYYS">
+            <EntityTypeMapping TypeName="PTB.Entities.Dayy">
+              <MappingFragment StoreEntitySet="Dayy">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="coso_id" ColumnName="coso_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HINHANHS">
+            <EntityTypeMapping TypeName="PTB.Entities.HinhAnh">
+              <MappingFragment StoreEntitySet="HinhAnh">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTTHIETBIS">
+            <EntityTypeMapping TypeName="PTB.Entities.CTThietBi">
+              <MappingFragment StoreEntitySet="CTThietBi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="thietbi_id" ColumnName="thietbi_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGS">
+            <EntityTypeMapping TypeName="PTB.Entities.Phong">
+              <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="nhanvienpt_id" ColumnName="nhanvienpt_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGTHIETBIS">
+            <EntityTypeMapping TypeName="PTB.Entities.LogThietBi">
+              <MappingFragment StoreEntitySet="LogThietBi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="thietbi_id" ColumnName="thietbi_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TANGS">
+            <EntityTypeMapping TypeName="PTB.Entities.Tang">
+              <MappingFragment StoreEntitySet="Tang">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="day_id" ColumnName="day_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGSUCOPHONGS">
+            <EntityTypeMapping TypeName="PTB.Entities.LogSuCoPhong">
+              <MappingFragment StoreEntitySet="LogSuCoPhong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="sucophong_id" ColumnName="sucophong_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUCOPHONGS">
+            <EntityTypeMapping TypeName="PTB.Entities.SuCoPhong">
+              <MappingFragment StoreEntitySet="SuCoPhong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THIETBIS">
+            <EntityTypeMapping TypeName="PTB.Entities.ThietBi">
+              <MappingFragment StoreEntitySet="ThietBi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="ngaymua" ColumnName="ngaymua" />
+                <ScalarProperty Name="loaithietbi_id" ColumnName="loaithietbi_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENPTS">
+            <EntityTypeMapping TypeName="PTB.Entities.NhanVienPT">
+              <MappingFragment StoreEntitySet="NhanVienPT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CTThietBi_hinhanhs" TypeName="PTB.Entities.CTThietBi_hinhanhs" StoreEntitySet="CTThietBiHinhAnh">
+            <EndProperty Name="CTThietBi_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="CTThietBi_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Phong_hinhanhs" TypeName="PTB.Entities.Phong_hinhanhs" StoreEntitySet="PhongHinhAnh">
+            <EndProperty Name="Phong_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="Phong_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LogThietBi_hinhanhs" TypeName="PTB.Entities.LogThietBi_hinhanhs" StoreEntitySet="LogThietBiHinhAnh">
+            <EndProperty Name="LogThietBi_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="LogThietBi_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Tang_hinhanhs" TypeName="PTB.Entities.Tang_hinhanhs" StoreEntitySet="TangHinhAnh">
+            <EndProperty Name="Tang_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="Tang_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LogSuCoPhong_hinhanhs" TypeName="PTB.Entities.LogSuCoPhong_hinhanhs" StoreEntitySet="LogSuCoPhongHinhAnh">
+            <EndProperty Name="LogSuCoPhong_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="LogSuCoPhong_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SuCoPhong_hinhanhs" TypeName="PTB.Entities.SuCoPhong_hinhanhs" StoreEntitySet="SuCoPhongHinhAnh">
+            <EndProperty Name="SuCoPhong_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="SuCoPhong_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ThietBi_hinhanhs" TypeName="PTB.Entities.ThietBi_hinhanhs" StoreEntitySet="ThietBiHinhAnh">
+            <EndProperty Name="ThietBi_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="ThietBi_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="NhanVienPT_hinhanhs" TypeName="PTB.Entities.NhanVienPT_hinhanhs" StoreEntitySet="NhanVienPTHinhAnh">
+            <EndProperty Name="NhanVienPT_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="NhanVienPT_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Dayy_hinhanhs" TypeName="PTB.Entities.Dayy_hinhanhs" StoreEntitySet="DayyHinhAnh">
+            <EndProperty Name="Dayy_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="Dayy_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CoSo_hinhanhs" TypeName="PTB.Entities.CoSo_hinhanhs" StoreEntitySet="CoSoHinhAnh">
+            <EndProperty Name="CoSo_hinhanhs_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="CoSo_hinhanhs_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </Mappings>
+    <StorageModels>
+      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CoSo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" customannotation:Index="{ IsUnique: True }" MaxLength="255" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Dayy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="coso_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_coso_id, Order: 0 }" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="HinhAnh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="path" Type="nvarchar" customannotation:Index="{ IsUnique: True }" MaxLength="255" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CTThietBi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngay" Type="datetime" Nullable="true" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="phong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_phong_id, Order: 0 }" Nullable="false" />
+          <Property Name="thietbi_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_thietbi_id, Order: 0 }" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="vitri_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_vitri_id, Order: 0 }" Nullable="false" />
+          <Property Name="nhanvienpt_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_nhanvienpt_id, Order: 0 }" Nullable="true" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="LogThietBi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="thietbi_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_thietbi_id, Order: 0 }" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="phong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_phong_id, Order: 0 }" Nullable="true" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Tang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="day_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_day_id, Order: 0 }" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="LogSuCoPhong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="sucophong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_sucophong_id, Order: 0 }" Nullable="false" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="SuCoPhong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngay" Type="datetime" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="phong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_phong_id, Order: 0 }" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="ThietBi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ngaymua" Type="datetime" Nullable="true" />
+          <Property Name="loaithietbi_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_loaithietbi_id, Order: 0 }" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="NhanVienPT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gioitinh" Type="bit" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sodienthoai" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CTThietBiHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhongHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogThietBiHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TangHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogSuCoPhongHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuCoPhongHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ThietBiHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NhanVienPTHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DayyHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CoSoHinhAnh">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <Association Name="Dayy_coso">
+          <End Role="CoSo" Type="Self.CoSo" Multiplicity="1" />
+          <End Role="Dayy" Type="Self.Dayy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoSo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dayy">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTThietBi_hinhanhs_Source">
+          <End Role="CTThietBi" Type="Self.CTThietBi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CTThietBiHinhAnh" Type="Self.CTThietBiHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CTThietBi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTThietBiHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTThietBi_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CTThietBiHinhAnh" Type="Self.CTThietBiHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTThietBiHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Phong_hinhanhs_Source">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhongHinhAnh" Type="Self.PhongHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhongHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Phong_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhongHinhAnh" Type="Self.PhongHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhongHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogThietBi_hinhanhs_Source">
+          <End Role="LogThietBi" Type="Self.LogThietBi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LogThietBiHinhAnh" Type="Self.LogThietBiHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LogThietBi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogThietBiHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogThietBi_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LogThietBiHinhAnh" Type="Self.LogThietBiHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogThietBiHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogThietBi_phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="LogThietBi" Type="Self.LogThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogThietBi">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tang_day">
+          <End Role="Dayy" Type="Self.Dayy" Multiplicity="1" />
+          <End Role="Tang" Type="Self.Tang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dayy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tang">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tang_hinhanhs_Source">
+          <End Role="Tang" Type="Self.Tang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TangHinhAnh" Type="Self.TangHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TangHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tang_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TangHinhAnh" Type="Self.TangHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TangHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogSuCoPhong_hinhanhs_Source">
+          <End Role="LogSuCoPhong" Type="Self.LogSuCoPhong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LogSuCoPhongHinhAnh" Type="Self.LogSuCoPhongHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LogSuCoPhong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogSuCoPhongHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogSuCoPhong_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LogSuCoPhongHinhAnh" Type="Self.LogSuCoPhongHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogSuCoPhongHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SuCoPhong_hinhanhs_Source">
+          <End Role="SuCoPhong" Type="Self.SuCoPhong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SuCoPhongHinhAnh" Type="Self.SuCoPhongHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuCoPhong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SuCoPhongHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SuCoPhong_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SuCoPhongHinhAnh" Type="Self.SuCoPhongHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SuCoPhongHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SuCoPhong_phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="SuCoPhong" Type="Self.SuCoPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SuCoPhong">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogSuCoPhong_sucophong">
+          <End Role="SuCoPhong" Type="Self.SuCoPhong" Multiplicity="1" />
+          <End Role="LogSuCoPhong" Type="Self.LogSuCoPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuCoPhong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogSuCoPhong">
+              <PropertyRef Name="sucophong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ThietBi_hinhanhs_Source">
+          <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ThietBiHinhAnh" Type="Self.ThietBiHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThietBi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ThietBiHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ThietBi_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ThietBiHinhAnh" Type="Self.ThietBiHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ThietBiHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogThietBi_thietbi">
+          <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="1" />
+          <End Role="LogThietBi" Type="Self.LogThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThietBi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogThietBi">
+              <PropertyRef Name="thietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NhanVienPT_hinhanhs_Source">
+          <End Role="NhanVienPT" Type="Self.NhanVienPT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVienPTHinhAnh" Type="Self.NhanVienPTHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVienPT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NhanVienPTHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NhanVienPT_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NhanVienPTHinhAnh" Type="Self.NhanVienPTHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NhanVienPTHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NhanVienPT_phongs">
+          <End Role="NhanVienPT" Type="Self.NhanVienPT" Multiplicity="0..1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVienPT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="nhanvienpt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTThietBi_phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="CTThietBi" Type="Self.CTThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTThietBi">
+              <PropertyRef Name="phong_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTThietBi_thietbi">
+          <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="1" />
+          <End Role="CTThietBi" Type="Self.CTThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThietBi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTThietBi">
+              <PropertyRef Name="thietbi_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Dayy_hinhanhs_Source">
+          <End Role="Dayy" Type="Self.Dayy" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DayyHinhAnh" Type="Self.DayyHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dayy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DayyHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Dayy_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DayyHinhAnh" Type="Self.DayyHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DayyHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoSo_hinhanhs_Source">
+          <End Role="CoSo" Type="Self.CoSo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CoSoHinhAnh" Type="Self.CoSoHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoSo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CoSoHinhAnh">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoSo_hinhanhs_Target">
+          <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CoSoHinhAnh" Type="Self.CoSoHinhAnh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhAnh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CoSoHinhAnh">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" Table="COSOS" />
+          <EntitySet Name="Dayy" EntityType="Self.Dayy" Schema="dbo" Table="DAYS" />
+          <EntitySet Name="HinhAnh" EntityType="Self.HinhAnh" Schema="dbo" Table="HINHANHS" />
+          <EntitySet Name="CTThietBi" EntityType="Self.CTThietBi" Schema="dbo" Table="CTTHIETBIS" />
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" Table="PHONGS" />
+          <EntitySet Name="LogThietBi" EntityType="Self.LogThietBi" Schema="dbo" Table="LOGTHIETBIS" />
+          <EntitySet Name="Tang" EntityType="Self.Tang" Schema="dbo" Table="TANGS" />
+          <EntitySet Name="LogSuCoPhong" EntityType="Self.LogSuCoPhong" Schema="dbo" Table="LOGSUCOPHONGS" />
+          <EntitySet Name="SuCoPhong" EntityType="Self.SuCoPhong" Schema="dbo" Table="SUCOPHONGS" />
+          <EntitySet Name="ThietBi" EntityType="Self.ThietBi" Schema="dbo" Table="THIETBIS" />
+          <EntitySet Name="NhanVienPT" EntityType="Self.NhanVienPT" Schema="dbo" Table="NHANVIENPTS" />
+          <EntitySet Name="CTThietBiHinhAnh" EntityType="Self.CTThietBiHinhAnh" Schema="dbo" Table="CTTHIETBI_HINHANH" />
+          <EntitySet Name="PhongHinhAnh" EntityType="Self.PhongHinhAnh" Schema="dbo" Table="PHONG_HINHANH" />
+          <EntitySet Name="LogThietBiHinhAnh" EntityType="Self.LogThietBiHinhAnh" Schema="dbo" Table="LOGTHIETBI_HINHANH" />
+          <EntitySet Name="TangHinhAnh" EntityType="Self.TangHinhAnh" Schema="dbo" Table="TANG_HINHANH" />
+          <EntitySet Name="LogSuCoPhongHinhAnh" EntityType="Self.LogSuCoPhongHinhAnh" Schema="dbo" Table="LOGSUCOPHONG_HINHANH" />
+          <EntitySet Name="SuCoPhongHinhAnh" EntityType="Self.SuCoPhongHinhAnh" Schema="dbo" Table="SUCOPHONG_HINHANH" />
+          <EntitySet Name="ThietBiHinhAnh" EntityType="Self.ThietBiHinhAnh" Schema="dbo" Table="THIETBI_HINHANH" />
+          <EntitySet Name="NhanVienPTHinhAnh" EntityType="Self.NhanVienPTHinhAnh" Schema="dbo" Table="NHANVIENPT_HINHANH" />
+          <EntitySet Name="DayyHinhAnh" EntityType="Self.DayyHinhAnh" Schema="dbo" Table="DAY_HINHANH" />
+          <EntitySet Name="CoSoHinhAnh" EntityType="Self.CoSoHinhAnh" Schema="dbo" Table="COSO_HINHANH" />
+          <AssociationSet Name="Dayy_coso" Association="Self.Dayy_coso">
+            <End Role="CoSo" EntitySet="CoSo" />
+            <End Role="Dayy" EntitySet="Dayy" />
+          </AssociationSet>
+          <AssociationSet Name="CTThietBi_hinhanhs_Source" Association="Self.CTThietBi_hinhanhs_Source">
+            <End Role="CTThietBi" EntitySet="CTThietBi" />
+            <End Role="CTThietBiHinhAnh" EntitySet="CTThietBiHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="CTThietBi_hinhanhs_Target" Association="Self.CTThietBi_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="CTThietBiHinhAnh" EntitySet="CTThietBiHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="Phong_hinhanhs_Source" Association="Self.Phong_hinhanhs_Source">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="PhongHinhAnh" EntitySet="PhongHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="Phong_hinhanhs_Target" Association="Self.Phong_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="PhongHinhAnh" EntitySet="PhongHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="LogThietBi_hinhanhs_Source" Association="Self.LogThietBi_hinhanhs_Source">
+            <End Role="LogThietBi" EntitySet="LogThietBi" />
+            <End Role="LogThietBiHinhAnh" EntitySet="LogThietBiHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="LogThietBi_hinhanhs_Target" Association="Self.LogThietBi_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="LogThietBiHinhAnh" EntitySet="LogThietBiHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="LogThietBi_phong" Association="Self.LogThietBi_phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="LogThietBi" EntitySet="LogThietBi" />
+          </AssociationSet>
+          <AssociationSet Name="Tang_day" Association="Self.Tang_day">
+            <End Role="Dayy" EntitySet="Dayy" />
+            <End Role="Tang" EntitySet="Tang" />
+          </AssociationSet>
+          <AssociationSet Name="Tang_hinhanhs_Source" Association="Self.Tang_hinhanhs_Source">
+            <End Role="Tang" EntitySet="Tang" />
+            <End Role="TangHinhAnh" EntitySet="TangHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="Tang_hinhanhs_Target" Association="Self.Tang_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="TangHinhAnh" EntitySet="TangHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuCoPhong_hinhanhs_Source" Association="Self.LogSuCoPhong_hinhanhs_Source">
+            <End Role="LogSuCoPhong" EntitySet="LogSuCoPhong" />
+            <End Role="LogSuCoPhongHinhAnh" EntitySet="LogSuCoPhongHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuCoPhong_hinhanhs_Target" Association="Self.LogSuCoPhong_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="LogSuCoPhongHinhAnh" EntitySet="LogSuCoPhongHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="SuCoPhong_hinhanhs_Source" Association="Self.SuCoPhong_hinhanhs_Source">
+            <End Role="SuCoPhong" EntitySet="SuCoPhong" />
+            <End Role="SuCoPhongHinhAnh" EntitySet="SuCoPhongHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="SuCoPhong_hinhanhs_Target" Association="Self.SuCoPhong_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="SuCoPhongHinhAnh" EntitySet="SuCoPhongHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="SuCoPhong_phong" Association="Self.SuCoPhong_phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="SuCoPhong" EntitySet="SuCoPhong" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuCoPhong_sucophong" Association="Self.LogSuCoPhong_sucophong">
+            <End Role="SuCoPhong" EntitySet="SuCoPhong" />
+            <End Role="LogSuCoPhong" EntitySet="LogSuCoPhong" />
+          </AssociationSet>
+          <AssociationSet Name="ThietBi_hinhanhs_Source" Association="Self.ThietBi_hinhanhs_Source">
+            <End Role="ThietBi" EntitySet="ThietBi" />
+            <End Role="ThietBiHinhAnh" EntitySet="ThietBiHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="ThietBi_hinhanhs_Target" Association="Self.ThietBi_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="ThietBiHinhAnh" EntitySet="ThietBiHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="LogThietBi_thietbi" Association="Self.LogThietBi_thietbi">
+            <End Role="ThietBi" EntitySet="ThietBi" />
+            <End Role="LogThietBi" EntitySet="LogThietBi" />
+          </AssociationSet>
+          <AssociationSet Name="NhanVienPT_hinhanhs_Source" Association="Self.NhanVienPT_hinhanhs_Source">
+            <End Role="NhanVienPT" EntitySet="NhanVienPT" />
+            <End Role="NhanVienPTHinhAnh" EntitySet="NhanVienPTHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="NhanVienPT_hinhanhs_Target" Association="Self.NhanVienPT_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="NhanVienPTHinhAnh" EntitySet="NhanVienPTHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="NhanVienPT_phongs" Association="Self.NhanVienPT_phongs">
+            <End Role="NhanVienPT" EntitySet="NhanVienPT" />
+            <End Role="Phong" EntitySet="Phong" />
+          </AssociationSet>
+          <AssociationSet Name="CTThietBi_phong" Association="Self.CTThietBi_phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="CTThietBi" EntitySet="CTThietBi" />
+          </AssociationSet>
+          <AssociationSet Name="CTThietBi_thietbi" Association="Self.CTThietBi_thietbi">
+            <End Role="ThietBi" EntitySet="ThietBi" />
+            <End Role="CTThietBi" EntitySet="CTThietBi" />
+          </AssociationSet>
+          <AssociationSet Name="Dayy_hinhanhs_Source" Association="Self.Dayy_hinhanhs_Source">
+            <End Role="Dayy" EntitySet="Dayy" />
+            <End Role="DayyHinhAnh" EntitySet="DayyHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="Dayy_hinhanhs_Target" Association="Self.Dayy_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="DayyHinhAnh" EntitySet="DayyHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="CoSo_hinhanhs_Source" Association="Self.CoSo_hinhanhs_Source">
+            <End Role="CoSo" EntitySet="CoSo" />
+            <End Role="CoSoHinhAnh" EntitySet="CoSoHinhAnh" />
+          </AssociationSet>
+          <AssociationSet Name="CoSo_hinhanhs_Target" Association="Self.CoSo_hinhanhs_Target">
+            <End Role="HinhAnh" EntitySet="HinhAnh" />
+            <End Role="CoSoHinhAnh" EntitySet="CoSoHinhAnh" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </StorageModels>
+  </Runtime>
+  <Designer>
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <Diagrams >
+      <Diagram DiagramId="ec072497000b425bbf627390a278a384" Name="Diagram1">
+        <EntityTypeShape EntityType="PTB.Entities.CoSo" Width="1.5" PointX="5.25" PointY="26.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.Dayy" Width="1.5" PointX="3" PointY="26.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.HinhAnh" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.CTThietBi" Width="1.5" PointX="9.375" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.Phong" Width="1.5" PointX="7.5" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.LogThietBi" Width="1.5" PointX="9.375" PointY="26.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.Tang" Width="1.5" PointX="9.375" PointY="24.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.LogSuCoPhong" Width="1.5" PointX="3" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.SuCoPhong" Width="1.5" PointX="3" PointY="24.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.ThietBi" Width="1.5" PointX="5.25" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.NhanVienPT" Width="1.5" PointX="7.125" PointY="26.5" IsExpanded="false" />
+        <AssociationConnector Association="PTB.Entities.CTThietBi_hinhanhs" ManuallyRouted="true" >
+          <ConnectorPoint PointX="9.3749999999999982" PointY="24.025" />
+          <ConnectorPoint PointX="9" PointY="24.46039849312432" />
+          <ConnectorPoint PointX="7.125" PointY="24.46039849312432" />
+          <ConnectorPoint PointX="6.75" PointY="24.881768230769229" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTB.Entities.Phong_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.LogThietBi_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.Tang_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.LogSuCoPhong_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.SuCoPhong_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.ThietBi_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.NhanVienPT_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.Dayy_hinhanhs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.CoSo_hinhanhs" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</Edmx>

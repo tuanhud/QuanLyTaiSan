@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Edmx Version="3.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Runtime>
+    <ConceptualModels>
+      <Schema Namespace="PTB.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Phong" customannotation:ClrType="PTB.Entities.Phong, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vitri_id" Type="Guid" Nullable="false" />
+          <Property Name="nhanvienpt_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="nhanvienpt" Relationship="Self.NhanVienPT_phongs" FromRole="NhanVienPT_phongs_Target" ToRole="NhanVienPT_phongs_Source" />
+          <NavigationProperty Name="quantrivien" Relationship="Self.QuanTriVien_phongs" FromRole="QuanTriVien_phongs_Target" ToRole="QuanTriVien_phongs_Source" />
+          </EntityType>
+        <EntityType Name="QuanTriVien" customannotation:ClrType="PTB.Entities.QuanTriVien, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donvi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="group_id" Type="Guid" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="phongs" Relationship="Self.QuanTriVien_phongs" FromRole="QuanTriVien_phongs_Source" ToRole="QuanTriVien_phongs_Target" />
+        </EntityType>
+        <EntityType Name="NhanVienPT" customannotation:ClrType="PTB.Entities.NhanVienPT, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gioitinh" Type="Boolean" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sodienthoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="phongs" Relationship="Self.NhanVienPT_phongs" FromRole="NhanVienPT_phongs_Source" ToRole="NhanVienPT_phongs_Target" />
+        </EntityType>
+        <Association Name="QuanTriVien_phongs">
+          <End Role="QuanTriVien_phongs_Source" Type="Self.QuanTriVien" Multiplicity="0..1" />
+          <End Role="QuanTriVien_phongs_Target" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuanTriVien_phongs_Source">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="QuanTriVien_phongs_Target">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NhanVienPT_phongs">
+          <End Role="NhanVienPT_phongs_Source" Type="Self.NhanVienPT" Multiplicity="0..1" />
+          <End Role="NhanVienPT_phongs_Target" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVienPT_phongs_Source">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NhanVienPT_phongs_Target">
+              <PropertyRef Name="nhanvienpt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OurDBContext" customannotation:UseClrTypes="true">
+          <EntitySet Name="PHONGS" EntityType="Self.Phong" />
+          <EntitySet Name="QUANTRIVIENS" EntityType="Self.QuanTriVien" />
+          <EntitySet Name="NHANVIENPTS" EntityType="Self.NhanVienPT" />
+          <AssociationSet Name="QuanTriVien_phongs" Association="Self.QuanTriVien_phongs">
+            <End Role="QuanTriVien_phongs_Source" EntitySet="QUANTRIVIENS" />
+            <End Role="QuanTriVien_phongs_Target" EntitySet="PHONGS" />
+          </AssociationSet>
+          <AssociationSet Name="NhanVienPT_phongs" Association="Self.NhanVienPT_phongs">
+            <End Role="NhanVienPT_phongs_Source" EntitySet="NHANVIENPTS" />
+            <End Role="NhanVienPT_phongs_Target" EntitySet="PHONGS" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema>
+    </ConceptualModels>
+    <Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeFirstDatabase" CdmEntityContainer="OurDBContext">
+          <EntitySetMapping Name="PHONGS">
+            <EntityTypeMapping TypeName="PTB.Entities.Phong">
+              <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="nhanvienpt_id" ColumnName="nhanvienpt_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUANTRIVIENS">
+            <EntityTypeMapping TypeName="PTB.Entities.QuanTriVien">
+              <MappingFragment StoreEntitySet="QuanTriVien">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="donvi" ColumnName="donvi" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENPTS">
+            <EntityTypeMapping TypeName="PTB.Entities.NhanVienPT">
+              <MappingFragment StoreEntitySet="NhanVienPT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </Mappings>
+    <StorageModels>
+      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="vitri_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_vitri_id, Order: 0 }" Nullable="false" />
+          <Property Name="nhanvienpt_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_nhanvienpt_id, Order: 0 }" Nullable="true" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="QuanTriVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="donvi" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="group_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_group_id, Order: 0 }" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="username" Type="nvarchar" customannotation:Index="{ IsUnique: True }" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="NhanVienPT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gioitinh" Type="bit" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sodienthoai" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <Association Name="QuanTriVien_phongs">
+          <End Role="QuanTriVien" Type="Self.QuanTriVien" Multiplicity="0..1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuanTriVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="quantrivien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NhanVienPT_phongs">
+          <End Role="NhanVienPT" Type="Self.NhanVienPT" Multiplicity="0..1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVienPT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="nhanvienpt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" Table="PHONGS" />
+          <EntitySet Name="QuanTriVien" EntityType="Self.QuanTriVien" Schema="dbo" Table="QUANTRIVIENS" />
+          <EntitySet Name="NhanVienPT" EntityType="Self.NhanVienPT" Schema="dbo" Table="NHANVIENPTS" />
+          <AssociationSet Name="QuanTriVien_phongs" Association="Self.QuanTriVien_phongs">
+            <End Role="QuanTriVien" EntitySet="QuanTriVien" />
+            <End Role="Phong" EntitySet="Phong" />
+          </AssociationSet>
+          <AssociationSet Name="NhanVienPT_phongs" Association="Self.NhanVienPT_phongs">
+            <End Role="NhanVienPT" EntitySet="NhanVienPT" />
+            <End Role="Phong" EntitySet="Phong" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema>
+    </StorageModels>
+  </Runtime>
+  <Designer>
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <Diagrams >
+      <Diagram DiagramId="f7da822426cc493383aae1262bfa29a7" Name="Diagram1">
+        <EntityTypeShape EntityType="PTB.Entities.Phong" Width="1.5" PointX="7.5" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.QuanTriVien" Width="1.5" PointX="5.375" PointY="23.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.NhanVienPT" Width="1.5" PointX="9.625" PointY="23.625" IsExpanded="false" />
+        <AssociationConnector Association="PTB.Entities.QuanTriVien_phongs" ManuallyRouted="false" />
+        <AssociationConnector Association="PTB.Entities.NhanVienPT_phongs" ManuallyRouted="false" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</Edmx>

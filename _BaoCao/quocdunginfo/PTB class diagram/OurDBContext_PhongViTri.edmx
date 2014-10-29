@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Edmx Version="3.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Runtime>
+    <ConceptualModels>
+      <Schema Namespace="PTB.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType customannotation:ClrType="PTB.Entities.CoSo, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="CoSo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Guid" />
+          <Property Name="ten" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="diachi" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="subId" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="days" Relationship="Self.Dayy_coso" FromRole="Dayy_coso_Target" ToRole="Dayy_coso_Source" />
+          <NavigationProperty Name="ViTri" Relationship="PTB.Entities.ViTriCoSo" FromRole="CoSo" ToRole="ViTri" />
+        </EntityType>
+        <EntityType customannotation:ClrType="PTB.Entities.Dayy, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="Dayy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Guid" />
+          <Property Name="ten" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="coso_id" Nullable="false" Type="Guid" />
+          <Property Name="subId" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="coso" Relationship="Self.Dayy_coso" FromRole="Dayy_coso_Source" ToRole="Dayy_coso_Target" />
+          <NavigationProperty Name="tangs" Relationship="Self.Tang_day" FromRole="Tang_day_Target" ToRole="Tang_day_Source" />
+          <NavigationProperty Name="vitris" Relationship="Self.ViTri_day" FromRole="ViTri_day_Target" ToRole="ViTri_day_Source" />
+        </EntityType>
+        <EntityType customannotation:ClrType="PTB.Entities.Phong, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="Phong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Guid" />
+          <Property Name="ten" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="vitri_id" Nullable="false" Type="Guid" />
+          <Property Name="nhanvienpt_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" />
+          <Property Name="subId" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="vitri" Relationship="Self.Phong_vitri" FromRole="Phong_vitri_Source" ToRole="Phong_vitri_Target" />
+        </EntityType>
+        <EntityType customannotation:ClrType="PTB.Entities.Tang, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="Tang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Guid" />
+          <Property Name="ten" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="day_id" Nullable="false" Type="Guid" />
+          <Property Name="subId" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="day" Relationship="Self.Tang_day" FromRole="Tang_day_Source" ToRole="Tang_day_Target" />
+          <NavigationProperty Name="vitris" Relationship="Self.ViTri_tang" FromRole="ViTri_tang_Target" ToRole="ViTri_tang_Source" />
+        </EntityType>
+        <EntityType customannotation:ClrType="PTB.Entities.ViTri, PTB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="ViTri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Guid" />
+          <Property Name="coso_id" Nullable="false" Type="Guid" />
+          <Property Name="day_id" Type="Guid" />
+          <Property Name="tang_id" Type="Guid" />
+          <Property Name="subId" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="day" Relationship="Self.ViTri_day" FromRole="ViTri_day_Source" ToRole="ViTri_day_Target" />
+          <NavigationProperty Name="phongs" Relationship="Self.Phong_vitri" FromRole="Phong_vitri_Target" ToRole="Phong_vitri_Source" />
+          <NavigationProperty Name="tang" Relationship="Self.ViTri_tang" FromRole="ViTri_tang_Source" ToRole="ViTri_tang_Target" />
+          <NavigationProperty Name="CoSoes" Relationship="PTB.Entities.ViTriCoSo" FromRole="ViTri" ToRole="CoSo" />
+        </EntityType>
+        <Association Name="Dayy_coso">
+          <End Type="Self.Dayy" Multiplicity="*" Role="Dayy_coso_Source" />
+          <End Type="Self.CoSo" Multiplicity="1" Role="Dayy_coso_Target" />
+          <ReferentialConstraint>
+            <Principal Role="Dayy_coso_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dayy_coso_Source">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tang_day">
+          <End Type="Self.Tang" Multiplicity="*" Role="Tang_day_Source" />
+          <End Type="Self.Dayy" Multiplicity="1" Role="Tang_day_Target" />
+          <ReferentialConstraint>
+            <Principal Role="Tang_day_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tang_day_Source">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ViTri_day">
+          <End Type="Self.ViTri" Multiplicity="*" Role="ViTri_day_Source" />
+          <End Type="Self.Dayy" Multiplicity="0..1" Role="ViTri_day_Target" />
+          <ReferentialConstraint>
+            <Principal Role="ViTri_day_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ViTri_day_Source">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ViTri_tang">
+          <End Type="Self.ViTri" Multiplicity="*" Role="ViTri_tang_Source" />
+          <End Type="Self.Tang" Multiplicity="0..1" Role="ViTri_tang_Target" />
+          <ReferentialConstraint>
+            <Principal Role="ViTri_tang_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ViTri_tang_Source">
+              <PropertyRef Name="tang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Phong_vitri">
+          <End Type="Self.Phong" Multiplicity="*" Role="Phong_vitri_Source" />
+          <End Type="Self.ViTri" Multiplicity="1" Role="Phong_vitri_Target" />
+          <ReferentialConstraint>
+            <Principal Role="Phong_vitri_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Phong_vitri_Source">
+              <PropertyRef Name="vitri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OurDBContext" customannotation:UseClrTypes="true">
+          <EntitySet Name="COSOS" EntityType="Self.CoSo" />
+          <EntitySet Name="DAYYS" EntityType="Self.Dayy" />
+          <EntitySet Name="PHONGS" EntityType="Self.Phong" />
+          <EntitySet Name="TANGS" EntityType="Self.Tang" />
+          <EntitySet Name="VITRIS" EntityType="Self.ViTri" />
+          <AssociationSet Name="Dayy_coso" Association="Self.Dayy_coso">
+            <End EntitySet="DAYYS" Role="Dayy_coso_Source" />
+            <End EntitySet="COSOS" Role="Dayy_coso_Target" />
+          </AssociationSet>
+          <AssociationSet Name="Tang_day" Association="Self.Tang_day">
+            <End EntitySet="TANGS" Role="Tang_day_Source" />
+            <End EntitySet="DAYYS" Role="Tang_day_Target" />
+          </AssociationSet>
+          <AssociationSet Name="ViTri_day" Association="Self.ViTri_day">
+            <End EntitySet="VITRIS" Role="ViTri_day_Source" />
+            <End EntitySet="DAYYS" Role="ViTri_day_Target" />
+          </AssociationSet>
+          <AssociationSet Name="ViTri_tang" Association="Self.ViTri_tang">
+            <End EntitySet="VITRIS" Role="ViTri_tang_Source" />
+            <End EntitySet="TANGS" Role="ViTri_tang_Target" />
+          </AssociationSet>
+          <AssociationSet Name="Phong_vitri" Association="Self.Phong_vitri">
+            <End EntitySet="PHONGS" Role="Phong_vitri_Source" />
+            <End EntitySet="VITRIS" Role="Phong_vitri_Target" />
+          </AssociationSet>
+          <AssociationSet Name="ViTriCoSo" Association="PTB.Entities.ViTriCoSo">
+            <End Role="ViTri" EntitySet="VITRIS" />
+            <End Role="CoSo" EntitySet="COSOS" />
+          </AssociationSet>
+          </EntityContainer>
+        <Association Name="ViTriCoSo">
+          <End Type="PTB.Entities.ViTri" Role="ViTri" Multiplicity="1" />
+          <End Type="PTB.Entities.CoSo" Role="CoSo" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </ConceptualModels>
+    <Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeFirstDatabase" CdmEntityContainer="OurDBContext">
+          <EntitySetMapping Name="COSOS">
+            <EntityTypeMapping TypeName="PTB.Entities.CoSo">
+              <MappingFragment StoreEntitySet="CoSo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAYYS">
+            <EntityTypeMapping TypeName="PTB.Entities.Dayy">
+              <MappingFragment StoreEntitySet="Dayy">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="coso_id" ColumnName="coso_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGS">
+            <EntityTypeMapping TypeName="PTB.Entities.Phong">
+              <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="nhanvienpt_id" ColumnName="nhanvienpt_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TANGS">
+            <EntityTypeMapping TypeName="PTB.Entities.Tang">
+              <MappingFragment StoreEntitySet="Tang">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="day_id" ColumnName="day_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VITRIS">
+            <EntityTypeMapping TypeName="PTB.Entities.ViTri">
+              <MappingFragment StoreEntitySet="ViTri">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="coso_id" ColumnName="coso_id" />
+                <ScalarProperty Name="day_id" ColumnName="day_id" />
+                <ScalarProperty Name="tang_id" ColumnName="tang_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </Mappings>
+    <StorageModels>
+      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CoSo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="uniqueidentifier" />
+          <Property customannotation:Index="{ IsUnique: True }" Name="ten" Nullable="false" MaxLength="255" Type="nvarchar" />
+          <Property Name="diachi" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="subId" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="order" Nullable="true" Type="bigint" />
+          <Property Name="mota" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="date_create" Nullable="true" Type="datetime" />
+          <Property Name="date_modified" Nullable="true" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Dayy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="uniqueidentifier" />
+          <Property Name="ten" Nullable="false" Type="nvarchar(max)" />
+          <Property customannotation:Index="{ Name: IX_coso_id, Order: 0 }" Name="coso_id" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="subId" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="order" Nullable="true" Type="bigint" />
+          <Property Name="mota" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="date_create" Nullable="true" Type="datetime" />
+          <Property Name="date_modified" Nullable="true" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="uniqueidentifier" />
+          <Property Name="ten" Nullable="true" Type="nvarchar(max)" />
+          <Property customannotation:Index="{ Name: IX_vitri_id, Order: 0 }" Name="vitri_id" Nullable="false" Type="uniqueidentifier" />
+          <Property customannotation:Index="{ Name: IX_nhanvienpt_id, Order: 0 }" Name="nhanvienpt_id" Nullable="true" Type="uniqueidentifier" />
+          <Property customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Name="quantrivien_id" Nullable="true" Type="uniqueidentifier" />
+          <Property Name="subId" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="order" Nullable="true" Type="bigint" />
+          <Property Name="mota" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="date_create" Nullable="true" Type="datetime" />
+          <Property Name="date_modified" Nullable="true" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="uniqueidentifier" />
+          <Property Name="ten" Nullable="false" Type="nvarchar(max)" />
+          <Property customannotation:Index="{ Name: IX_day_id, Order: 0 }" Name="day_id" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="subId" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="order" Nullable="true" Type="bigint" />
+          <Property Name="mota" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="date_create" Nullable="true" Type="datetime" />
+          <Property Name="date_modified" Nullable="true" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ViTri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="uniqueidentifier" />
+          <Property customannotation:Index="{ Name: IX_coso_id, Order: 0 }" Name="coso_id" Nullable="false" Type="uniqueidentifier" />
+          <Property customannotation:Index="{ Name: IX_day_id, Order: 0 }" Name="day_id" Nullable="true" Type="uniqueidentifier" />
+          <Property customannotation:Index="{ Name: IX_tang_id, Order: 0 }" Name="tang_id" Nullable="true" Type="uniqueidentifier" />
+          <Property Name="subId" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="order" Nullable="true" Type="bigint" />
+          <Property Name="mota" Nullable="true" Type="nvarchar(max)" />
+          <Property Name="date_create" Nullable="true" Type="datetime" />
+          <Property Name="date_modified" Nullable="true" Type="datetime" />
+        </EntityType>
+        <Association Name="Dayy_coso">
+          <End Type="Self.CoSo" Multiplicity="1" Role="CoSo" />
+          <End Type="Self.Dayy" Multiplicity="*" Role="Dayy" />
+          <ReferentialConstraint>
+            <Principal Role="CoSo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dayy">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tang_day">
+          <End Type="Self.Dayy" Multiplicity="1" Role="Dayy" />
+          <End Type="Self.Tang" Multiplicity="*" Role="Tang" />
+          <ReferentialConstraint>
+            <Principal Role="Dayy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tang">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ViTri_coso">
+          <End Type="Self.CoSo" Multiplicity="1" Role="CoSo" />
+          <End Type="Self.ViTri" Multiplicity="*" Role="ViTri" />
+          <ReferentialConstraint>
+            <Principal Role="CoSo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ViTri">
+              <PropertyRef Name="coso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ViTri_day">
+          <End Type="Self.Dayy" Multiplicity="0..1" Role="Dayy" />
+          <End Type="Self.ViTri" Multiplicity="*" Role="ViTri" />
+          <ReferentialConstraint>
+            <Principal Role="Dayy">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ViTri">
+              <PropertyRef Name="day_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ViTri_tang">
+          <End Type="Self.Tang" Multiplicity="0..1" Role="Tang" />
+          <End Type="Self.ViTri" Multiplicity="*" Role="ViTri" />
+          <ReferentialConstraint>
+            <Principal Role="Tang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ViTri">
+              <PropertyRef Name="tang_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Phong_vitri">
+          <End Type="Self.ViTri" Multiplicity="1" Role="ViTri" />
+          <End Type="Self.Phong" Multiplicity="*" Role="Phong" />
+          <ReferentialConstraint>
+            <Principal Role="ViTri">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="vitri_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" Table="COSOS" />
+          <EntitySet Name="Dayy" EntityType="Self.Dayy" Schema="dbo" Table="DAYS" />
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" Table="PHONGS" />
+          <EntitySet Name="Tang" EntityType="Self.Tang" Schema="dbo" Table="TANGS" />
+          <EntitySet Name="ViTri" EntityType="Self.ViTri" Schema="dbo" Table="VITRIS" />
+          <AssociationSet Name="Dayy_coso" Association="Self.Dayy_coso">
+            <End EntitySet="CoSo" Role="CoSo" />
+            <End EntitySet="Dayy" Role="Dayy" />
+          </AssociationSet>
+          <AssociationSet Name="Tang_day" Association="Self.Tang_day">
+            <End EntitySet="Dayy" Role="Dayy" />
+            <End EntitySet="Tang" Role="Tang" />
+          </AssociationSet>
+          <AssociationSet Name="ViTri_coso" Association="Self.ViTri_coso">
+            <End EntitySet="CoSo" Role="CoSo" />
+            <End EntitySet="ViTri" Role="ViTri" />
+          </AssociationSet>
+          <AssociationSet Name="ViTri_day" Association="Self.ViTri_day">
+            <End EntitySet="Dayy" Role="Dayy" />
+            <End EntitySet="ViTri" Role="ViTri" />
+          </AssociationSet>
+          <AssociationSet Name="ViTri_tang" Association="Self.ViTri_tang">
+            <End EntitySet="Tang" Role="Tang" />
+            <End EntitySet="ViTri" Role="ViTri" />
+          </AssociationSet>
+          <AssociationSet Name="Phong_vitri" Association="Self.Phong_vitri">
+            <End EntitySet="ViTri" Role="ViTri" />
+            <End EntitySet="Phong" Role="Phong" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema>
+    </StorageModels>
+  </Runtime>
+  <Designer>
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <Diagrams >
+      <Diagram DiagramId="ae5a3a819fc74cc68aeeecd499d4f5c8" Name="Diagram1" ZoomLevel="121">
+        <EntityTypeShape EntityType="PTB.Entities.CoSo" PointX="9.5" PointY="25.125" Width="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.Dayy" PointX="7.75" PointY="26.25" Width="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.Phong" PointX="9.625" PointY="24.125" Width="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.Tang" PointX="6" PointY="25.25" Width="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PTB.Entities.ViTri" PointX="7.5" PointY="24.125" Width="1.5" IsExpanded="false" />
+        <AssociationConnector ManuallyRouted="false" Association="PTB.Entities.Dayy_coso" />
+        <AssociationConnector ManuallyRouted="false" Association="PTB.Entities.Tang_day" />
+        <AssociationConnector ManuallyRouted="false" Association="PTB.Entities.ViTri_day" >
+        </AssociationConnector>
+        <AssociationConnector ManuallyRouted="false" Association="PTB.Entities.ViTri_tang" />
+        <AssociationConnector ManuallyRouted="false" Association="PTB.Entities.Phong_vitri" />
+        <AssociationConnector Association="PTB.Entities.ViTriCoSo" ManuallyRouted="true" >
+          <ConnectorPoint PointX="8.69840149276002" PointY="24.525" />
+          <ConnectorPoint PointX="8.69840149276002" PointY="25.125" />
+          <ConnectorPoint PointX="9.5765890821230784" PointY="25.125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</Edmx>
