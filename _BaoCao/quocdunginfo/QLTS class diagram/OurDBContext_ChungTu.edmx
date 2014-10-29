@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Edmx Version="3.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Runtime>
+    <ConceptualModels>
+      <Schema Namespace="TSCD.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attachment" customannotation:ClrType="TSCD.Entities.Attachment, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="Int64" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="chungtus" Relationship="Self.ChungTu_attachments" FromRole="ChungTu_attachments_Target" ToRole="ChungTu_attachments_Source" />
+        </EntityType>
+        <EntityType Name="ChungTu" customannotation:ClrType="TSCD.Entities.ChungTu, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sohieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ngay" Type="DateTime" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="attachments" Relationship="Self.ChungTu_attachments" FromRole="ChungTu_attachments_Source" ToRole="ChungTu_attachments_Target" />
+          <NavigationProperty Name="cttaisans" Relationship="Self.CTTaiSan_chungtu" FromRole="CTTaiSan_chungtu_Target" ToRole="CTTaiSan_chungtu_Source" />
+          <NavigationProperty Name="logsuataisans" Relationship="Self.LogSuaTaiSan_chungtu" FromRole="LogSuaTaiSan_chungtu_Target" ToRole="LogSuaTaiSan_chungtu_Source" />
+          <NavigationProperty Name="logtanggiamtaisans" Relationship="Self.LogTangGiamTaiSan_chungtu" FromRole="LogTangGiamTaiSan_chungtu_Target" ToRole="LogTangGiamTaiSan_chungtu_Source" />
+        </EntityType>
+        <EntityType Name="CTTaiSan" customannotation:ClrType="TSCD.Entities.CTTaiSan, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="nguongoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ngay" Type="DateTime" />
+          <Property Name="donviquanly_id" Type="Guid" />
+          <Property Name="donvisudung_id" Type="Guid" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="vitri_id" Type="Guid" />
+          <Property Name="phong_id" Type="Guid" />
+          <Property Name="taisan_id" Type="Guid" Nullable="false" />
+          <Property Name="parent_id" Type="Guid" />
+          <Property Name="chungtu_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="chungtu" Relationship="Self.CTTaiSan_chungtu" FromRole="CTTaiSan_chungtu_Source" ToRole="CTTaiSan_chungtu_Target" />
+          </EntityType>
+        <EntityType Name="LogTangGiamTaiSan" customannotation:ClrType="TSCD.Entities.LogTangGiamTaiSan, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nguongoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tang_giam" Type="Int32" Nullable="false" />
+          <Property Name="tang_giam_donvi" Type="Int32" Nullable="false" />
+          <Property Name="chuyenden_chuyendi" Type="Int32" Nullable="false" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="ngay" Type="DateTime" />
+          <Property Name="chungtu_id" Type="Guid" />
+          <Property Name="cttaisan_parent_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" Nullable="false" />
+          <Property Name="taisan_id" Type="Guid" Nullable="false" />
+          <Property Name="donviquanly_id" Type="Guid" />
+          <Property Name="donvisudung_id" Type="Guid" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="vitri_id" Type="Guid" />
+          <Property Name="phong_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="chungtu" Relationship="Self.LogTangGiamTaiSan_chungtu" FromRole="LogTangGiamTaiSan_chungtu_Source" ToRole="LogTangGiamTaiSan_chungtu_Target" />
+          </EntityType>
+        <EntityType Name="LogSuaTaiSan" customannotation:ClrType="TSCD.Entities.LogSuaTaiSan, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nguongoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="ngay" Type="DateTime" />
+          <Property Name="chungtu_id" Type="Guid" />
+          <Property Name="cttaisan_parent_id" Type="Guid" />
+          <Property Name="quantrivien_id" Type="Guid" Nullable="false" />
+          <Property Name="taisan_id" Type="Guid" Nullable="false" />
+          <Property Name="donviquanly_id" Type="Guid" />
+          <Property Name="donvisudung_id" Type="Guid" />
+          <Property Name="tinhtrang_id" Type="Guid" Nullable="false" />
+          <Property Name="vitri_id" Type="Guid" />
+          <Property Name="phong_id" Type="Guid" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="chungtu" Relationship="Self.LogSuaTaiSan_chungtu" FromRole="LogSuaTaiSan_chungtu_Source" ToRole="LogSuaTaiSan_chungtu_Target" />
+          </EntityType>
+        <Association Name="ChungTu_attachments">
+          <End Role="ChungTu_attachments_Source" Type="Self.ChungTu" Multiplicity="*" />
+          <End Role="ChungTu_attachments_Target" Type="Self.Attachment" Multiplicity="*" />
+        </Association>
+        <Association Name="CTTaiSan_chungtu">
+          <End Role="CTTaiSan_chungtu_Source" Type="Self.CTTaiSan" Multiplicity="*" />
+          <End Role="CTTaiSan_chungtu_Target" Type="Self.ChungTu" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CTTaiSan_chungtu_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTaiSan_chungtu_Source">
+              <PropertyRef Name="chungtu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogTangGiamTaiSan_chungtu">
+          <End Role="LogTangGiamTaiSan_chungtu_Source" Type="Self.LogTangGiamTaiSan" Multiplicity="*" />
+          <End Role="LogTangGiamTaiSan_chungtu_Target" Type="Self.ChungTu" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LogTangGiamTaiSan_chungtu_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogTangGiamTaiSan_chungtu_Source">
+              <PropertyRef Name="chungtu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogSuaTaiSan_chungtu">
+          <End Role="LogSuaTaiSan_chungtu_Source" Type="Self.LogSuaTaiSan" Multiplicity="*" />
+          <End Role="LogSuaTaiSan_chungtu_Target" Type="Self.ChungTu" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LogSuaTaiSan_chungtu_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogSuaTaiSan_chungtu_Source">
+              <PropertyRef Name="chungtu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OurDBContext" customannotation:UseClrTypes="true">
+          <EntitySet Name="ATTACHMENTS" EntityType="Self.Attachment" />
+          <EntitySet Name="CHUNGTUS" EntityType="Self.ChungTu" />
+          <EntitySet Name="CTTAISANS" EntityType="Self.CTTaiSan" />
+          <EntitySet Name="LOGTANGGIAMTAISANS" EntityType="Self.LogTangGiamTaiSan" />
+          <EntitySet Name="LOGSUATAISANS" EntityType="Self.LogSuaTaiSan" />
+          <AssociationSet Name="ChungTu_attachments" Association="Self.ChungTu_attachments">
+            <End Role="ChungTu_attachments_Source" EntitySet="CHUNGTUS" />
+            <End Role="ChungTu_attachments_Target" EntitySet="ATTACHMENTS" />
+          </AssociationSet>
+          <AssociationSet Name="CTTaiSan_chungtu" Association="Self.CTTaiSan_chungtu">
+            <End Role="CTTaiSan_chungtu_Source" EntitySet="CTTAISANS" />
+            <End Role="CTTaiSan_chungtu_Target" EntitySet="CHUNGTUS" />
+          </AssociationSet>
+          <AssociationSet Name="LogTangGiamTaiSan_chungtu" Association="Self.LogTangGiamTaiSan_chungtu">
+            <End Role="LogTangGiamTaiSan_chungtu_Source" EntitySet="LOGTANGGIAMTAISANS" />
+            <End Role="LogTangGiamTaiSan_chungtu_Target" EntitySet="CHUNGTUS" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuaTaiSan_chungtu" Association="Self.LogSuaTaiSan_chungtu">
+            <End Role="LogSuaTaiSan_chungtu_Source" EntitySet="LOGSUATAISANS" />
+            <End Role="LogSuaTaiSan_chungtu_Target" EntitySet="CHUNGTUS" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema>
+    </ConceptualModels>
+    <Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeFirstDatabase" CdmEntityContainer="OurDBContext">
+          <EntitySetMapping Name="ATTACHMENTS">
+            <EntityTypeMapping TypeName="TSCD.Entities.Attachment">
+              <MappingFragment StoreEntitySet="Attachment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUNGTUS">
+            <EntityTypeMapping TypeName="TSCD.Entities.ChungTu">
+              <MappingFragment StoreEntitySet="ChungTu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sohieu" ColumnName="sohieu" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTTAISANS">
+            <EntityTypeMapping TypeName="TSCD.Entities.CTTaiSan">
+              <MappingFragment StoreEntitySet="CTTaiSan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="nguongoc" ColumnName="nguongoc" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="donviquanly_id" ColumnName="donviquanly_id" />
+                <ScalarProperty Name="donvisudung_id" ColumnName="donvisudung_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="taisan_id" ColumnName="taisan_id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="chungtu_id" ColumnName="chungtu_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGTANGGIAMTAISANS">
+            <EntityTypeMapping TypeName="TSCD.Entities.LogTangGiamTaiSan">
+              <MappingFragment StoreEntitySet="LogTangGiamTaiSan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="nguongoc" ColumnName="nguongoc" />
+                <ScalarProperty Name="tang_giam" ColumnName="tang_giam" />
+                <ScalarProperty Name="tang_giam_donvi" ColumnName="tang_giam_donvi" />
+                <ScalarProperty Name="chuyenden_chuyendi" ColumnName="chuyenden_chuyendi" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="chungtu_id" ColumnName="chungtu_id" />
+                <ScalarProperty Name="cttaisan_parent_id" ColumnName="cttaisan_parent_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="taisan_id" ColumnName="taisan_id" />
+                <ScalarProperty Name="donviquanly_id" ColumnName="donviquanly_id" />
+                <ScalarProperty Name="donvisudung_id" ColumnName="donvisudung_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGSUATAISANS">
+            <EntityTypeMapping TypeName="TSCD.Entities.LogSuaTaiSan">
+              <MappingFragment StoreEntitySet="LogSuaTaiSan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="nguongoc" ColumnName="nguongoc" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="chungtu_id" ColumnName="chungtu_id" />
+                <ScalarProperty Name="cttaisan_parent_id" ColumnName="cttaisan_parent_id" />
+                <ScalarProperty Name="quantrivien_id" ColumnName="quantrivien_id" />
+                <ScalarProperty Name="taisan_id" ColumnName="taisan_id" />
+                <ScalarProperty Name="donviquanly_id" ColumnName="donviquanly_id" />
+                <ScalarProperty Name="donvisudung_id" ColumnName="donvisudung_id" />
+                <ScalarProperty Name="tinhtrang_id" ColumnName="tinhtrang_id" />
+                <ScalarProperty Name="vitri_id" ColumnName="vitri_id" />
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ChungTu_attachments" TypeName="TSCD.Entities.ChungTu_attachments" StoreEntitySet="ChungTuAttachment">
+            <EndProperty Name="ChungTu_attachments_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="ChungTu_attachments_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </Mappings>
+    <StorageModels>
+      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="path" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="size" Type="bigint" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="ChungTu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sohieu" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ngay" Type="datetime" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CTTaiSan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ghichu" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="nguongoc" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="ngay" Type="datetime" Nullable="true" />
+          <Property Name="donviquanly_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_donviquanly_id, Order: 0 }" Nullable="true" />
+          <Property Name="donvisudung_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_donvisudung_id, Order: 0 }" Nullable="true" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="vitri_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_vitri_id, Order: 0 }" Nullable="true" />
+          <Property Name="phong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_phong_id, Order: 0 }" Nullable="true" />
+          <Property Name="taisan_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_taisan_id, Order: 0 }" Nullable="false" />
+          <Property Name="parent_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_parent_id, Order: 0 }" Nullable="true" />
+          <Property Name="chungtu_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_chungtu_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="LogTangGiamTaiSan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ghichu" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="nguongoc" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="tang_giam" Type="int" Nullable="false" />
+          <Property Name="tang_giam_donvi" Type="int" Nullable="false" />
+          <Property Name="chuyenden_chuyendi" Type="int" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="ngay" Type="datetime" Nullable="true" />
+          <Property Name="chungtu_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_chungtu_id, Order: 0 }" Nullable="true" />
+          <Property Name="cttaisan_parent_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_cttaisan_parent_id, Order: 0 }" Nullable="true" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Nullable="false" />
+          <Property Name="taisan_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_taisan_id, Order: 0 }" Nullable="false" />
+          <Property Name="donviquanly_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_donviquanly_id, Order: 0 }" Nullable="true" />
+          <Property Name="donvisudung_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_donvisudung_id, Order: 0 }" Nullable="true" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="vitri_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_vitri_id, Order: 0 }" Nullable="true" />
+          <Property Name="phong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_phong_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="LogSuaTaiSan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ghichu" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="nguongoc" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="ngay" Type="datetime" Nullable="true" />
+          <Property Name="chungtu_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_chungtu_id, Order: 0 }" Nullable="true" />
+          <Property Name="cttaisan_parent_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_cttaisan_parent_id, Order: 0 }" Nullable="true" />
+          <Property Name="quantrivien_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_quantrivien_id, Order: 0 }" Nullable="false" />
+          <Property Name="taisan_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_taisan_id, Order: 0 }" Nullable="false" />
+          <Property Name="donviquanly_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_donviquanly_id, Order: 0 }" Nullable="true" />
+          <Property Name="donvisudung_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_donvisudung_id, Order: 0 }" Nullable="true" />
+          <Property Name="tinhtrang_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_tinhtrang_id, Order: 0 }" Nullable="false" />
+          <Property Name="vitri_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_vitri_id, Order: 0 }" Nullable="true" />
+          <Property Name="phong_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_phong_id, Order: 0 }" Nullable="true" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="ChungTuAttachment">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <Association Name="ChungTu_attachments_Source">
+          <End Role="ChungTu" Type="Self.ChungTu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChungTuAttachment" Type="Self.ChungTuAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChungTu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChungTuAttachment">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ChungTu_attachments_Target">
+          <End Role="Attachment" Type="Self.Attachment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChungTuAttachment" Type="Self.ChungTuAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attachment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChungTuAttachment">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTTaiSan_childs">
+          <End Role="CTTaiSan" Type="Self.CTTaiSan" Multiplicity="0..1" />
+          <End Role="CTTaiSanSelf" Type="Self.CTTaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CTTaiSan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTaiSanSelf">
+              <PropertyRef Name="parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTTaiSan_chungtu">
+          <End Role="ChungTu" Type="Self.ChungTu" Multiplicity="0..1" />
+          <End Role="CTTaiSan" Type="Self.CTTaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChungTu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CTTaiSan">
+              <PropertyRef Name="chungtu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogTangGiamTaiSan_chungtu">
+          <End Role="ChungTu" Type="Self.ChungTu" Multiplicity="0..1" />
+          <End Role="LogTangGiamTaiSan" Type="Self.LogTangGiamTaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChungTu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogTangGiamTaiSan">
+              <PropertyRef Name="chungtu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogTangGiamTaiSan_cttaisan_parent">
+          <End Role="CTTaiSan" Type="Self.CTTaiSan" Multiplicity="0..1" />
+          <End Role="LogTangGiamTaiSan" Type="Self.LogTangGiamTaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CTTaiSan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogTangGiamTaiSan">
+              <PropertyRef Name="cttaisan_parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogSuaTaiSan_chungtu">
+          <End Role="ChungTu" Type="Self.ChungTu" Multiplicity="0..1" />
+          <End Role="LogSuaTaiSan" Type="Self.LogSuaTaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChungTu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogSuaTaiSan">
+              <PropertyRef Name="chungtu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogSuaTaiSan_cttaisan_parent">
+          <End Role="CTTaiSan" Type="Self.CTTaiSan" Multiplicity="0..1" />
+          <End Role="LogSuaTaiSan" Type="Self.LogSuaTaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CTTaiSan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LogSuaTaiSan">
+              <PropertyRef Name="cttaisan_parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="Attachment" EntityType="Self.Attachment" Schema="dbo" Table="ATTACHMENTS" />
+          <EntitySet Name="ChungTu" EntityType="Self.ChungTu" Schema="dbo" Table="CHUNGTUS" />
+          <EntitySet Name="CTTaiSan" EntityType="Self.CTTaiSan" Schema="dbo" Table="CTTAISANS" />
+          <EntitySet Name="LogTangGiamTaiSan" EntityType="Self.LogTangGiamTaiSan" Schema="dbo" Table="LOGTANGGIAMTAISANS" />
+          <EntitySet Name="LogSuaTaiSan" EntityType="Self.LogSuaTaiSan" Schema="dbo" Table="LOGSUATAISANS" />
+          <EntitySet Name="ChungTuAttachment" EntityType="Self.ChungTuAttachment" Schema="dbo" Table="CHUNGTU_ATTACHMENT" />
+          <AssociationSet Name="ChungTu_attachments_Source" Association="Self.ChungTu_attachments_Source">
+            <End Role="ChungTu" EntitySet="ChungTu" />
+            <End Role="ChungTuAttachment" EntitySet="ChungTuAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="ChungTu_attachments_Target" Association="Self.ChungTu_attachments_Target">
+            <End Role="Attachment" EntitySet="Attachment" />
+            <End Role="ChungTuAttachment" EntitySet="ChungTuAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="CTTaiSan_childs" Association="Self.CTTaiSan_childs">
+            <End Role="CTTaiSan" EntitySet="CTTaiSan" />
+            <End Role="CTTaiSanSelf" EntitySet="CTTaiSan" />
+          </AssociationSet>
+          <AssociationSet Name="CTTaiSan_chungtu" Association="Self.CTTaiSan_chungtu">
+            <End Role="ChungTu" EntitySet="ChungTu" />
+            <End Role="CTTaiSan" EntitySet="CTTaiSan" />
+          </AssociationSet>
+          <AssociationSet Name="LogTangGiamTaiSan_chungtu" Association="Self.LogTangGiamTaiSan_chungtu">
+            <End Role="ChungTu" EntitySet="ChungTu" />
+            <End Role="LogTangGiamTaiSan" EntitySet="LogTangGiamTaiSan" />
+          </AssociationSet>
+          <AssociationSet Name="LogTangGiamTaiSan_cttaisan_parent" Association="Self.LogTangGiamTaiSan_cttaisan_parent">
+            <End Role="CTTaiSan" EntitySet="CTTaiSan" />
+            <End Role="LogTangGiamTaiSan" EntitySet="LogTangGiamTaiSan" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuaTaiSan_chungtu" Association="Self.LogSuaTaiSan_chungtu">
+            <End Role="ChungTu" EntitySet="ChungTu" />
+            <End Role="LogSuaTaiSan" EntitySet="LogSuaTaiSan" />
+          </AssociationSet>
+          <AssociationSet Name="LogSuaTaiSan_cttaisan_parent" Association="Self.LogSuaTaiSan_cttaisan_parent">
+            <End Role="CTTaiSan" EntitySet="CTTaiSan" />
+            <End Role="LogSuaTaiSan" EntitySet="LogSuaTaiSan" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema>
+    </StorageModels>
+  </Runtime>
+  <Designer>
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <Diagrams >
+      <Diagram DiagramId="e439bd495fb7458e9d4f30199b0555f8" Name="Diagram1">
+        <EntityTypeShape EntityType="TSCD.Entities.Attachment" Width="1.5" PointX="8.5" PointY="19.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.ChungTu" Width="1.5" PointX="8.5" PointY="20.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.CTTaiSan" Width="1.5" PointX="10.625" PointY="20.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.LogTangGiamTaiSan" Width="1.875" PointX="8.25" PointY="21.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.LogSuaTaiSan" Width="1.5" PointX="6.25" PointY="20.375" IsExpanded="false" />
+        <AssociationConnector Association="TSCD.Entities.ChungTu_attachments" ManuallyRouted="false" />
+        <AssociationConnector Association="TSCD.Entities.CTTaiSan_chungtu" ManuallyRouted="false" />
+        <AssociationConnector Association="TSCD.Entities.LogTangGiamTaiSan_chungtu" ManuallyRouted="false" />
+        <AssociationConnector Association="TSCD.Entities.LogSuaTaiSan_chungtu" ManuallyRouted="false" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</Edmx>

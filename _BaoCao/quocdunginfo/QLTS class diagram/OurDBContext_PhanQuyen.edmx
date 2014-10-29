@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Edmx Version="3.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <Runtime>
+    <ConceptualModels>
+      <Schema Namespace="TSCD.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DonVi" customannotation:ClrType="TSCD.Entities.DonVi, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parent_id" Type="Guid" />
+          <Property Name="loaidonvi_id" Type="Guid" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="permissions" Relationship="Self.DonVi_permissions" FromRole="DonVi_permissions_Source" ToRole="DonVi_permissions_Target" />
+        </EntityType>
+        <EntityType Name="QuanTriVien" customannotation:ClrType="TSCD.Entities.QuanTriVien, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donvi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="group_id" Type="Guid" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="group" Relationship="Self.QuanTriVien_group" FromRole="QuanTriVien_group_Source" ToRole="QuanTriVien_group_Target" />
+        </EntityType>
+        <EntityType Name="Group" customannotation:ClrType="TSCD.Entities.Group, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="key" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="permissions" Relationship="Self.Group_permissions" FromRole="Group_permissions_Source" ToRole="Group_permissions_Target" />
+          <NavigationProperty Name="quantriviens" Relationship="Self.QuanTriVien_group" FromRole="QuanTriVien_group_Target" ToRole="QuanTriVien_group_Source" />
+        </EntityType>
+        <EntityType Name="Permission" customannotation:ClrType="TSCD.Entities.Permission, TSCD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stand_alone" Type="Boolean" Nullable="false" />
+          <Property Name="allow_or_deny" Type="Boolean" Nullable="false" />
+          <Property Name="recursive_to_child" Type="Boolean" Nullable="false" />
+          <Property Name="can_view" Type="Boolean" Nullable="false" />
+          <Property Name="can_edit" Type="Boolean" Nullable="false" />
+          <Property Name="can_delete" Type="Boolean" Nullable="false" />
+          <Property Name="can_add" Type="Boolean" Nullable="false" />
+          <Property Name="subId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="order" Type="Int64" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_create" Type="DateTime" />
+          <Property Name="date_modified" Type="DateTime" />
+          <NavigationProperty Name="donvis" Relationship="Self.DonVi_permissions" FromRole="DonVi_permissions_Target" ToRole="DonVi_permissions_Source" />
+          <NavigationProperty Name="groups" Relationship="Self.Group_permissions" FromRole="Group_permissions_Target" ToRole="Group_permissions_Source" />
+        </EntityType>
+        <Association Name="Group_permissions">
+          <End Role="Group_permissions_Source" Type="Self.Group" Multiplicity="*" />
+          <End Role="Group_permissions_Target" Type="Self.Permission" Multiplicity="*" />
+        </Association>
+        <Association Name="QuanTriVien_group">
+          <End Role="QuanTriVien_group_Source" Type="Self.QuanTriVien" Multiplicity="*" />
+          <End Role="QuanTriVien_group_Target" Type="Self.Group" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="QuanTriVien_group_Target">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="QuanTriVien_group_Source">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DonVi_permissions">
+          <End Role="DonVi_permissions_Source" Type="Self.DonVi" Multiplicity="*" />
+          <End Role="DonVi_permissions_Target" Type="Self.Permission" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="OurDBContext" customannotation:UseClrTypes="true">
+          <EntitySet Name="DONVIS" EntityType="Self.DonVi" />
+          <EntitySet Name="QUANTRIVIENS" EntityType="Self.QuanTriVien" />
+          <EntitySet Name="GROUPS" EntityType="Self.Group" />
+          <EntitySet Name="PERMISSIONS" EntityType="Self.Permission" />
+          <AssociationSet Name="Group_permissions" Association="Self.Group_permissions">
+            <End Role="Group_permissions_Source" EntitySet="GROUPS" />
+            <End Role="Group_permissions_Target" EntitySet="PERMISSIONS" />
+          </AssociationSet>
+          <AssociationSet Name="QuanTriVien_group" Association="Self.QuanTriVien_group">
+            <End Role="QuanTriVien_group_Source" EntitySet="QUANTRIVIENS" />
+            <End Role="QuanTriVien_group_Target" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="DonVi_permissions" Association="Self.DonVi_permissions">
+            <End Role="DonVi_permissions_Source" EntitySet="DONVIS" />
+            <End Role="DonVi_permissions_Target" EntitySet="PERMISSIONS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </ConceptualModels>
+    <Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CodeFirstDatabase" CdmEntityContainer="OurDBContext">
+          <EntitySetMapping Name="DONVIS">
+            <EntityTypeMapping TypeName="TSCD.Entities.DonVi">
+              <MappingFragment StoreEntitySet="DonVi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="loaidonvi_id" ColumnName="loaidonvi_id" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUANTRIVIENS">
+            <EntityTypeMapping TypeName="TSCD.Entities.QuanTriVien">
+              <MappingFragment StoreEntitySet="QuanTriVien">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="donvi" ColumnName="donvi" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="hoten" ColumnName="hoten" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS">
+            <EntityTypeMapping TypeName="TSCD.Entities.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISSIONS">
+            <EntityTypeMapping TypeName="TSCD.Entities.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="stand_alone" ColumnName="stand_alone" />
+                <ScalarProperty Name="allow_or_deny" ColumnName="allow_or_deny" />
+                <ScalarProperty Name="recursive_to_child" ColumnName="recursive_to_child" />
+                <ScalarProperty Name="can_view" ColumnName="can_view" />
+                <ScalarProperty Name="can_edit" ColumnName="can_edit" />
+                <ScalarProperty Name="can_delete" ColumnName="can_delete" />
+                <ScalarProperty Name="can_add" ColumnName="can_add" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="date_create" ColumnName="date_create" />
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Group_permissions" TypeName="TSCD.Entities.Group_permissions" StoreEntitySet="GroupPermission">
+            <EndProperty Name="Group_permissions_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="Group_permissions_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DonVi_permissions" TypeName="TSCD.Entities.DonVi_permissions" StoreEntitySet="DonViPermission">
+            <EndProperty Name="DonVi_permissions_Source">
+              <ScalarProperty Name="id" ColumnName="id1" />
+            </EndProperty>
+            <EndProperty Name="DonVi_permissions_Target">
+              <ScalarProperty Name="id" ColumnName="id2" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </Mappings>
+    <StorageModels>
+      <Schema Namespace="CodeFirstDatabaseSchema" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DonVi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="parent_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_parent_id, Order: 0 }" Nullable="true" />
+          <Property Name="loaidonvi_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_loaidonvi_id, Order: 0 }" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="QuanTriVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="donvi" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="group_id" Type="uniqueidentifier" customannotation:Index="{ Name: IX_group_id, Order: 0 }" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="username" Type="nvarchar" customannotation:Index="{ IsUnique: True }" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="100" Nullable="true" />
+          <Property Name="ten" Type="nvarchar" customannotation:Index="{ IsUnique: True }" MaxLength="100" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="key" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="stand_alone" Type="bit" Nullable="false" />
+          <Property Name="allow_or_deny" Type="bit" Nullable="false" />
+          <Property Name="recursive_to_child" Type="bit" Nullable="false" />
+          <Property Name="can_view" Type="bit" Nullable="false" />
+          <Property Name="can_edit" Type="bit" Nullable="false" />
+          <Property Name="can_delete" Type="bit" Nullable="false" />
+          <Property Name="can_add" Type="bit" Nullable="false" />
+          <Property Name="subId" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="order" Type="bigint" Nullable="true" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="date_create" Type="datetime" Nullable="true" />
+          <Property Name="date_modified" Type="datetime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="GroupPermission">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DonViPermission">
+          <Key>
+            <PropertyRef Name="id1" />
+            <PropertyRef Name="id2" />
+          </Key>
+          <Property Name="id1" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id1, Order: 0 }" Nullable="false" />
+          <Property Name="id2" Type="uniqueidentifier" customannotation:Index="{ Name: IX_id2, Order: 0 }" Nullable="false" />
+        </EntityType>
+        <Association Name="DonVi_childs">
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="0..1" />
+          <End Role="DonViSelf" Type="Self.DonVi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonViSelf">
+              <PropertyRef Name="parent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Group_permissions_Source">
+          <End Role="Group" Type="Self.Group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GroupPermission" Type="Self.GroupPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GroupPermission">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Group_permissions_Target">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GroupPermission" Type="Self.GroupPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GroupPermission">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuanTriVien_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="QuanTriVien" Type="Self.QuanTriVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="QuanTriVien">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DonVi_permissions_Source">
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DonViPermission" Type="Self.DonViPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonViPermission">
+              <PropertyRef Name="id1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DonVi_permissions_Target">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DonViPermission" Type="Self.DonViPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DonViPermission">
+              <PropertyRef Name="id2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CodeFirstDatabase">
+          <EntitySet Name="DonVi" EntityType="Self.DonVi" Schema="dbo" Table="DONVIS" />
+          <EntitySet Name="QuanTriVien" EntityType="Self.QuanTriVien" Schema="dbo" Table="QUANTRIVIENS" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" Table="GROUPS" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" Table="PERMISSIONS" />
+          <EntitySet Name="GroupPermission" EntityType="Self.GroupPermission" Schema="dbo" Table="GROUP_PERMISSION" />
+          <EntitySet Name="DonViPermission" EntityType="Self.DonViPermission" Schema="dbo" Table="DONVI_PERMISSION" />
+          <AssociationSet Name="DonVi_childs" Association="Self.DonVi_childs">
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="DonViSelf" EntitySet="DonVi" />
+          </AssociationSet>
+          <AssociationSet Name="Group_permissions_Source" Association="Self.Group_permissions_Source">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="GroupPermission" EntitySet="GroupPermission" />
+          </AssociationSet>
+          <AssociationSet Name="Group_permissions_Target" Association="Self.Group_permissions_Target">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="GroupPermission" EntitySet="GroupPermission" />
+          </AssociationSet>
+          <AssociationSet Name="QuanTriVien_group" Association="Self.QuanTriVien_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="QuanTriVien" EntitySet="QuanTriVien" />
+          </AssociationSet>
+          <AssociationSet Name="DonVi_permissions_Source" Association="Self.DonVi_permissions_Source">
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="DonViPermission" EntitySet="DonViPermission" />
+          </AssociationSet>
+          <AssociationSet Name="DonVi_permissions_Target" Association="Self.DonVi_permissions_Target">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="DonViPermission" EntitySet="DonViPermission" />
+          </AssociationSet>
+          </EntityContainer>
+      </Schema>
+    </StorageModels>
+  </Runtime>
+  <Designer>
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="ProcessDependentTemplatesOnSave" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <Diagrams >
+      <Diagram DiagramId="1088a5766ea04d4c9ef1a327cc1642d0" Name="Diagram1">
+        <EntityTypeShape EntityType="TSCD.Entities.DonVi" Width="1.5" PointX="15.5" PointY="18" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.QuanTriVien" Width="1.5" PointX="13.375" PointY="19.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.Group" Width="1.5" PointX="15.5" PointY="19.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="TSCD.Entities.Permission" Width="1.5" PointX="17.625" PointY="19.125" IsExpanded="false" />
+        <AssociationConnector Association="TSCD.Entities.Group_permissions" ManuallyRouted="false" />
+        <AssociationConnector Association="TSCD.Entities.QuanTriVien_group" ManuallyRouted="false" />
+        <AssociationConnector Association="TSCD.Entities.DonVi_permissions" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</Edmx>
