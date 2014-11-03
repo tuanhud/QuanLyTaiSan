@@ -1,0 +1,21 @@
+﻿B1. Nói lý do có phân mềm.
+B2. Phần mềm đc xây dựng chung chia ra 2 phân hệ.
+	- Xin phép cho 2 nhóm (1 nhóm trình bày chức năng, 1 nhóm trình bày công nghệ).
+Nếu OK:
+#Chức năng:
+- Dựa trên sơ đồ quan nệm trinh bày từ thực thể quan trọng nhất phát triển ra (Thiết bị, Tài sản).
+-> Tự bung dựa vào chức năng chính (thêm - sửa - xóa)
+-> Trinh bày thống kê, báo cáo (báo cáo tĩnh, báo cáo động) (TSCĐ không có báo cáo động).
+-> Phân quyền theo thực thể và theo hạng mục.
+* Nói về chức năng web
+	+ TB: Xem tb theo phòng...
+	+ TS: có phân quyền...
+#Công nghệ:
+- 3 lớp, EF, Sync, devexpress, WRD.
+
+*Chung:
+- Các bản phân tích thiết kế cho 2 bên:
+	+ Làm chung sử dụng chung.
+	+ Làm riêng sử dụng chung.
+- Áp dụng chung các kỹ thuật và mô hình.
+*Riêng: Nghiệp vụ.

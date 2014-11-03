@@ -1,0 +1,38 @@
+﻿Page 1:
++ Lý do ra đời phần mềm
++ Tổng quan phần mềm
++ Chi tiết các ứng dụng
++ Lý do ra đời web + mobile
++ Chức năng web:
+	- Xem ds đơn vị - tài sản, vị trí, phòng
+	- Phân quyền theo đơn vị. Hiển thị dữ liệu theo phân quyền.
+	- Nhóm lọc dữ liệu theo đơn vị tài sản.
++ Windows app
++ Giới thiệu giao diện phần mềm
+	- Sử dụng dev, hỗ trợ nhiều chức năng.
++ Chức năng phần mềm
+	- Xem thông tin tài sản theo đơn vị, phòng, vị trí.
+	- Thống kê, báo cáo.
+	
+Page 2:
+- Chức năng 1 nhóm nói
+- Kỹ thuật 1 nhóm nói
+2 nhóm làm
+- Chức năng: tách ra 2 phần mềm rõ ràng (khác nhau ở chỗ nào)
+- Kỹ thuật: Đồng bộ, dev, EF, WRD, hệ thống phân quyền trên web.
+- Chủ yếu nói chức năng:
+ + Nói rõ chức năng phần mềm, thêm sửa xóa cục chính->các cục phụ kèm theo
+ + Các chức năng báo cáo
+ + Dựa trên sơ đồ thực thể kết hợp
+- Nói 10', 5' demo. Làm sẵn kịch bản demo (sửa, thông kê, sửa xem web co thay đổi?).
+- Thầy Hà góp ý sửa cuốn -> sửa.
+			//					phần mềm -> xem lại.	
+*Để làm chức năng cần những kỹ thuật:
+- Theo mô hình phân lớp có sử dụng EF
+- Lấy nhân viên làm ví dụ.
+- Dùng CSDL tập trung -> sync
+- Dùng devexpress cho web + win
+- Dùng công nghệ WRD
+iso modeling
+
+*Tại sao lại chọn công nghệ ...?
