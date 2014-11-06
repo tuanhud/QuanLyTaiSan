@@ -164,7 +164,8 @@ namespace TSCD.Entities
                 "DONVIS",
                     "CTTAISANS",
                     "LOGTANGGIAMTAISANS",
-                    "LOGSUATAISANS"
+                    "LOGSUATAISANS",
+                    "DONVI_PERMISSION"
             //END TSCD
         };
         #endregion
