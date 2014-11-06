@@ -135,6 +135,7 @@
     <Compile Include="Global\server_database.cs" />
     <Compile Include="Global\sync.cs" />
     <Compile Include="Global\working_database.cs" />
+    <Compile Include="Libraries\DatabaseHelper.cs" />
     <Compile Include="Migrations\201410020726320_basev2.cs" />
     <Compile Include="Migrations\201410020726320_basev2.Designer.cs">
       <DependentUpon>201410020726320_basev2.cs</DependentUpon>

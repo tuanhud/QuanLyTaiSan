@@ -60,6 +60,8 @@ namespace TSCD_GUI
         {
             InitializeComponent();
             init();
+            //Tự động đồng bộ sau thời gian
+            TSCD.Libraries.DatabaseHelper.autoSyncInNewThread();
         }
 
         private void init()

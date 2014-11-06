@@ -67,7 +67,8 @@ namespace PTB_GUI
             init();
             DBInstance.onDBConnectionDown += new DBInstance.DBConnectionChanged(this.rotmang);
             DBInstance.onDBConnectionUp += new DBInstance.DBConnectionChanged(this.comang);
-            DatabaseHelper.autoSyncInNewThread();
+            //tự động đồng bộ sau thời gian
+            PTB.Libraries.DatabaseHelper.autoSyncInNewThread();
         }
 
         private void rotmang(EventArgs e)
