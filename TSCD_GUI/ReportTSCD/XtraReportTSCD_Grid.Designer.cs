@@ -33,10 +33,9 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel_DonViTinh = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_Title = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel_MauBaoCao = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel_MaChuong = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_Title_TopRight = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel_Title_TopLeft = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel_NguoiLapBieu = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel_KeToanTruong = new DevExpress.XtraReports.UI.XRLabel();
@@ -79,25 +78,11 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel_DonViTinh,
             this.xrLabel_Title,
-            this.xrLabel_MauBaoCao,
-            this.xrLabel_MaChuong});
+            this.xrLabel_Title_TopRight,
+            this.xrLabel_Title_TopLeft});
             this.ReportHeader.HeightF = 150F;
             this.ReportHeader.Name = "ReportHeader";
-            // 
-            // xrLabel_DonViTinh
-            // 
-            this.xrLabel_DonViTinh.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_DonViTinh.LocationFloat = new DevExpress.Utils.PointFloat(900.0001F, 125F);
-            this.xrLabel_DonViTinh.Multiline = true;
-            this.xrLabel_DonViTinh.Name = "xrLabel_DonViTinh";
-            this.xrLabel_DonViTinh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel_DonViTinh.SizeF = new System.Drawing.SizeF(150F, 25F);
-            this.xrLabel_DonViTinh.StylePriority.UseFont = false;
-            this.xrLabel_DonViTinh.StylePriority.UseTextAlignment = false;
-            this.xrLabel_DonViTinh.Text = "Đơn vị tính: đồng";
-            this.xrLabel_DonViTinh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel_Title
             // 
@@ -112,33 +97,32 @@
             this.xrLabel_Title.Text = "BÁO CÁO TÌNH HÌNH TĂNG, GIẢM TÀI SẢN CỐ ĐỊNH\r\nNăm 2014";
             this.xrLabel_Title.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrLabel_MauBaoCao
+            // xrLabel_Title_TopRight
             // 
-            this.xrLabel_MauBaoCao.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_MauBaoCao.LocationFloat = new DevExpress.Utils.PointFloat(782.9166F, 0F);
-            this.xrLabel_MauBaoCao.Multiline = true;
-            this.xrLabel_MauBaoCao.Name = "xrLabel_MauBaoCao";
-            this.xrLabel_MauBaoCao.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel_MauBaoCao.SizeF = new System.Drawing.SizeF(267.0834F, 49.54168F);
-            this.xrLabel_MauBaoCao.StylePriority.UseFont = false;
-            this.xrLabel_MauBaoCao.StylePriority.UseTextAlignment = false;
-            this.xrLabel_MauBaoCao.Text = "Mẫu số B04_H1\r\n(Ban hành theo QĐ 19/2006/QĐ-BTC ngày 30/3/2006 của Bộ trưởng Bộ T" +
+            this.xrLabel_Title_TopRight.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel_Title_TopRight.LocationFloat = new DevExpress.Utils.PointFloat(782.9166F, 0F);
+            this.xrLabel_Title_TopRight.Multiline = true;
+            this.xrLabel_Title_TopRight.Name = "xrLabel_Title_TopRight";
+            this.xrLabel_Title_TopRight.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_Title_TopRight.SizeF = new System.Drawing.SizeF(267.0834F, 49.54168F);
+            this.xrLabel_Title_TopRight.StylePriority.UseFont = false;
+            this.xrLabel_Title_TopRight.StylePriority.UseTextAlignment = false;
+            this.xrLabel_Title_TopRight.Text = "Mẫu số B04_H1\r\n(Ban hành theo QĐ 19/2006/QĐ-BTC ngày 30/3/2006 của Bộ trưởng Bộ T" +
     "ài chính)";
-            this.xrLabel_MauBaoCao.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel_Title_TopRight.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
-            // xrLabel_MaChuong
+            // xrLabel_Title_TopLeft
             // 
-            this.xrLabel_MaChuong.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel_MaChuong.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLabel_MaChuong.Multiline = true;
-            this.xrLabel_MaChuong.Name = "xrLabel_MaChuong";
-            this.xrLabel_MaChuong.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel_MaChuong.SizeF = new System.Drawing.SizeF(267.0834F, 49.54168F);
-            this.xrLabel_MaChuong.StylePriority.UseFont = false;
-            this.xrLabel_MaChuong.StylePriority.UseTextAlignment = false;
-            this.xrLabel_MaChuong.Text = "Mã chương: 599\r\nĐơn vị báo cáo: Trường Đại học Sài Gòn\r\nMã ĐV có QH với NS: 10860" +
-    "78";
-            this.xrLabel_MaChuong.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel_Title_TopLeft.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel_Title_TopLeft.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel_Title_TopLeft.Multiline = true;
+            this.xrLabel_Title_TopLeft.Name = "xrLabel_Title_TopLeft";
+            this.xrLabel_Title_TopLeft.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel_Title_TopLeft.SizeF = new System.Drawing.SizeF(267.0834F, 49.54168F);
+            this.xrLabel_Title_TopLeft.StylePriority.UseFont = false;
+            this.xrLabel_Title_TopLeft.StylePriority.UseTextAlignment = false;
+            this.xrLabel_Title_TopLeft.Text = "ỦY BAN NHÂN DÂN TP. HỒ CHÍ MINH\r\nTRƯỜNG ĐẠI HỌC SÀI GÒN";
+            this.xrLabel_Title_TopLeft.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // ReportFooter
             // 
@@ -272,9 +256,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel_KeToanTruong;
         private DevExpress.XtraReports.UI.XRLabel xrLabel_GiamDoc;
         private DevExpress.XtraReports.UI.XRLabel xrLabel_Title;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel_MauBaoCao;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel_MaChuong;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel_DonViTinh;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_Title_TopRight;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel_Title_TopLeft;
         private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle_ColumnTitle;
         private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle_Row;
         private DevExpress.XtraReports.UI.WinControlContainer winControlContainer_GridControl;

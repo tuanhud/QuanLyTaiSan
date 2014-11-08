@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyThietBi));
             this.labelControlMa = new DevExpress.XtraEditors.LabelControl();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
@@ -53,8 +54,12 @@
             this.barButtonThemThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaThietBi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonXoaThietBi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemMacDinh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemExpandAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThietBi_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThietBi = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.gridControlThietBi = new DevExpress.XtraGrid.GridControl();
             this.gridViewThietBi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,7 +68,7 @@
             this.colloai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colngaymua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMua.Properties)).BeginInit();
@@ -319,9 +324,12 @@
             this.ribbonThietBi.ExpandCollapseItem,
             this.barButtonThemThietBi,
             this.barButtonSuaThietBi,
-            this.barButtonXoaThietBi});
+            this.barButtonXoaThietBi,
+            this.barButtonItemMacDinh,
+            this.barButtonItemExpandAll,
+            this.barButtonItemCollapseAll});
             this.ribbonThietBi.Location = new System.Drawing.Point(0, 0);
-            this.ribbonThietBi.MaxItemId = 43;
+            this.ribbonThietBi.MaxItemId = 46;
             this.ribbonThietBi.Name = "ribbonThietBi";
             this.ribbonThietBi.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThietBi_Home});
@@ -351,10 +359,38 @@
             this.barButtonXoaThietBi.Name = "barButtonXoaThietBi";
             this.barButtonXoaThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonXoaThietBi_ItemClick);
             // 
+            // barButtonItemMacDinh
+            // 
+            this.barButtonItemMacDinh.Caption = "Mặc định";
+            this.barButtonItemMacDinh.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemMacDinh.Glyph")));
+            this.barButtonItemMacDinh.Id = 43;
+            this.barButtonItemMacDinh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemMacDinh.LargeGlyph")));
+            this.barButtonItemMacDinh.Name = "barButtonItemMacDinh";
+            this.barButtonItemMacDinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMacDinh_ItemClick);
+            // 
+            // barButtonItemExpandAll
+            // 
+            this.barButtonItemExpandAll.Caption = "Mở rộng  tất cả";
+            this.barButtonItemExpandAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemExpandAll.Glyph")));
+            this.barButtonItemExpandAll.Id = 44;
+            this.barButtonItemExpandAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemExpandAll.LargeGlyph")));
+            this.barButtonItemExpandAll.Name = "barButtonItemExpandAll";
+            this.barButtonItemExpandAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExpandAll_ItemClick);
+            // 
+            // barButtonItemCollapseAll
+            // 
+            this.barButtonItemCollapseAll.Caption = "Thu vào tất cả";
+            this.barButtonItemCollapseAll.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemCollapseAll.Glyph")));
+            this.barButtonItemCollapseAll.Id = 45;
+            this.barButtonItemCollapseAll.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemCollapseAll.LargeGlyph")));
+            this.barButtonItemCollapseAll.Name = "barButtonItemCollapseAll";
+            this.barButtonItemCollapseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCollapseAll_ItemClick);
+            // 
             // rbnPageThietBi_Home
             // 
             this.rbnPageThietBi_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbnGroupThietBi});
+            this.rbnGroupThietBi,
+            this.rbnGroupLayout});
             this.rbnPageThietBi_Home.Image = global::PTB_GUI.Properties.Resources.thietbi;
             this.rbnPageThietBi_Home.Name = "rbnPageThietBi_Home";
             this.rbnPageThietBi_Home.Text = "Thiết bị";
@@ -368,13 +404,21 @@
             this.rbnGroupThietBi.ShowCaptionButton = false;
             this.rbnGroupThietBi.Text = "Thiết bị";
             // 
+            // rbnGroupLayout
+            // 
+            this.rbnGroupLayout.ItemLinks.Add(this.barButtonItemMacDinh);
+            this.rbnGroupLayout.ItemLinks.Add(this.barButtonItemExpandAll);
+            this.rbnGroupLayout.ItemLinks.Add(this.barButtonItemCollapseAll);
+            this.rbnGroupLayout.Name = "rbnGroupLayout";
+            this.rbnGroupLayout.Text = "Layout";
+            // 
             // gridControlThietBi
             // 
             this.gridControlThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlThietBi.MainView = this.gridViewThietBi;
             this.gridControlThietBi.Name = "gridControlThietBi";
-            this.gridControlThietBi.Size = new System.Drawing.Size(486, 495);
+            this.gridControlThietBi.Size = new System.Drawing.Size(485, 495);
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});
@@ -531,6 +575,10 @@
         private DevExpress.XtraEditors.SimpleButton btnR_Them;
         private DevExpress.XtraEditors.SimpleButton btnR_Xoa;
         private DevExpress.XtraGrid.Columns.GridColumn colma;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemMacDinh;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemExpandAll;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupLayout;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemCollapseAll;
 
     }
 }

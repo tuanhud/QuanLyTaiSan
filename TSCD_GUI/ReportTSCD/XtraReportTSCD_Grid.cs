@@ -31,5 +31,20 @@ namespace TSCD_GUI.ReportTSCD
         {
             this._GridControl = _GridControl;
         }
+
+        public void SetTextTitle(String strText)
+        {
+            xrLabel_Title.Text = strText;
+        }
+
+        public void SetTextTitle_TopLeft(String strText)
+        {
+            xrLabel_Title_TopLeft.Text = strText;
+        }
+
+        public void SetTextTitle_TopRight(String strText)
+        {
+            xrLabel_Title_TopRight.Text = strText;
+        }
     }
 }

@@ -16,10 +16,12 @@ using PTB_GUI.MyUC;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid;
 using SHARED.Libraries;
+using PTB_GUI.ThongKe;
+using DevExpress.XtraReports.UI;
 
 namespace PTB_GUI.QLNhanVien
 {
-    public partial class ucQuanLyNhanVien : UserControl,_ourUcInterface
+    public partial class ucQuanLyNhanVien : UserControl, _ourUcInterface
     {
         ucTreePhongHaveCheck _ucTreePhongHaveCheck = new ucTreePhongHaveCheck();
         List<NhanVienPT> NhanVienPTs = new List<NhanVienPT>();
@@ -43,7 +45,7 @@ namespace PTB_GUI.QLNhanVien
 
         private void init()
         {
-             ribbonNhanVienPT.Parent = null;
+            ribbonNhanVienPT.Parent = null;
             _ucTreePhongHaveCheck.Dock = DockStyle.Fill;
             _ucTreePhongHaveCheck.loadListPhong = new ucTreePhongHaveCheck.LoadListPhong(LoadListPhong);
             //gridViewNhanVien.Columns[colhoten.FieldName].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
@@ -60,7 +62,7 @@ namespace PTB_GUI.QLNhanVien
                 checkPermission();
                 editGUI("view");
                 layout.load(gridViewNhanVien);
-                NhanVienPTs = NhanVienPT.getQuery().OrderBy(c=>c.hoten).ToList();
+                NhanVienPTs = NhanVienPT.getQuery().OrderBy(c => c.hoten).ToList();
                 gridControlNhanVien.DataSource = NhanVienPTs;
                 if (NhanVienPTs.Count == 0)
                 {
@@ -181,7 +183,7 @@ namespace PTB_GUI.QLNhanVien
             try
             {
                 dxErrorProvider1.ClearErrors();
-                if(!function.Equals("view")) 
+                if (!function.Equals("view"))
                     editGUI("view");
                 if (gridViewNhanVien.RowCount > 0)
                 {
@@ -554,7 +556,7 @@ namespace PTB_GUI.QLNhanVien
                 else
                     return working;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(this.Name + "->checkworking: " + ex.Message);
                 return true;
@@ -607,6 +609,51 @@ namespace PTB_GUI.QLNhanVien
         public void reLoad()
         {
             throw new NotImplementedException();
+        }
+
+        private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Object.Equals(NhanVienPTs, null))
+            {
+                XtraMessageBox.Show("Chưa có nhân viên phụ trách", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (NhanVienPTs.Count > 0)
+            {
+                try
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PTB_GUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+                    splashScreenManager_Report.ShowWaitForm();
+                    splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                    splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                    XtraReport_Template _XtraReport_Template = new XtraReport_Template(SHARED.Libraries.ReportHelper.FillDatasetFromGrid(gridViewNhanVien), gridViewNhanVien, barCheckItemLandscape.Checked, false);
+                    _XtraReport_Template.SetTitleText("Danh Sách Nhân Viên Phụ Trách");
+                    if (barCheckItemThietKe.Checked)
+                    {
+                        ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
+                        splashScreenManager_Report.CloseWaitForm();
+                        designTool.ShowDesignerDialog();
+
+                        ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                        printTool.ShowPreviewDialog();
+                    }
+                    else
+                    {
+                        ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
+                        splashScreenManager_Report.CloseWaitForm();
+                        printTool.ShowPreviewDialog();
+                    }
+                }
+                catch
+                {
+                    XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Chưa có nhân viên phụ trách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

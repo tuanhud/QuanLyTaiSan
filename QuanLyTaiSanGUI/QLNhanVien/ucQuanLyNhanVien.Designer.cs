@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyNhanVien));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlNhanVien = new DevExpress.XtraGrid.GridControl();
@@ -66,7 +67,11 @@
             this.rbnGroupNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupNhanVienPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.rbnGroupXuatBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItemThietKe = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemLandscape = new DevExpress.XtraBars.BarCheckItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
@@ -106,7 +111,7 @@
             this.gridControlNhanVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlNhanVien.MainView = this.gridViewNhanVien;
             this.gridControlNhanVien.Name = "gridControlNhanVien";
-            this.gridControlNhanVien.Size = new System.Drawing.Size(514, 464);
+            this.gridControlNhanVien.Size = new System.Drawing.Size(513, 464);
             this.gridControlNhanVien.TabIndex = 0;
             this.gridControlNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhanVien});
@@ -374,9 +379,12 @@
             this.barBtnSuaNhanVien,
             this.barBtnXoaNhanVien,
             this.barBtnPhanCong,
-            this.barBtnImport});
+            this.barBtnImport,
+            this.barBtnXuatBaoCao,
+            this.barCheckItemThietKe,
+            this.barCheckItemLandscape});
             this.ribbonNhanVienPT.Location = new System.Drawing.Point(0, 0);
-            this.ribbonNhanVienPT.MaxItemId = 40;
+            this.ribbonNhanVienPT.MaxItemId = 43;
             this.ribbonNhanVienPT.Name = "ribbonNhanVienPT";
             this.ribbonNhanVienPT.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageNhanVien_Home});
@@ -429,7 +437,8 @@
             this.rbnPageNhanVien_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbnGroupNhanVien,
             this.rbnGroupNhanVienPhong,
-            this.rbnGroupImport});
+            this.rbnGroupImport,
+            this.rbnGroupXuatBaoCao});
             this.rbnPageNhanVien_Home.Image = global::PTB_GUI.Properties.Resources.nhanvien;
             this.rbnPageNhanVien_Home.Name = "rbnPageNhanVien_Home";
             this.rbnPageNhanVien_Home.Text = "Nhân viên";
@@ -460,6 +469,37 @@
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
+            // 
+            // rbnGroupXuatBaoCao
+            // 
+            this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
+            this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barCheckItemThietKe);
+            this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barCheckItemLandscape);
+            this.rbnGroupXuatBaoCao.Name = "rbnGroupXuatBaoCao";
+            this.rbnGroupXuatBaoCao.Text = "Báo cáo";
+            // 
+            // barBtnXuatBaoCao
+            // 
+            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
+            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
+            this.barBtnXuatBaoCao.Id = 40;
+            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
+            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
+            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
+            // 
+            // barCheckItemThietKe
+            // 
+            this.barCheckItemThietKe.Caption = "Thiết kế";
+            this.barCheckItemThietKe.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.barCheckItemThietKe.Id = 41;
+            this.barCheckItemThietKe.Name = "barCheckItemThietKe";
+            // 
+            // barCheckItemLandscape
+            // 
+            this.barCheckItemLandscape.Caption = "Landscape";
+            this.barCheckItemLandscape.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.barCheckItemLandscape.Id = 42;
+            this.barCheckItemLandscape.Name = "barCheckItemLandscape";
             // 
             // ucQuanLyNhanVien
             // 
@@ -532,5 +572,9 @@
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
+        private DevExpress.XtraBars.BarCheckItem barCheckItemThietKe;
+        private DevExpress.XtraBars.BarCheckItem barCheckItemLandscape;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupXuatBaoCao;
     }
 }
