@@ -1,4 +1,5 @@
-﻿using SHARED.Libraries;
+﻿using DevExpress.Web.ASPxTreeList;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace TSCD_WEB.UserControl.ViTri
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Vị Trí";
+                ucTreeViTri.Label_TenViTri.Text = "Vị trí";
             }
         }
         public void LoadData()

@@ -165,6 +165,7 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\theme.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DonVi.aspx" />
     <Content Include="DonViTaiSan.aspx" />
@@ -290,6 +291,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangNhap.aspx.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DangNhap.aspx.designer.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -319,6 +327,7 @@
       <DependentUpon>DonViTaiSanFull.aspx</DependentUpon>
     </Compile>
     <Compile Include="Library\DoSearch.cs" />
+    <Compile Include="Library\StringHelper.cs" />
     <Compile Include="LoaiPhong.aspx.cs">
       <DependentUpon>LoaiPhong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using TSCD.DataFilter.SearchFilter;
 
 namespace TSCD_WEB.UserControl.TimKiem
 {
@@ -27,44 +28,44 @@ namespace TSCD_WEB.UserControl.TimKiem
             List<DoSearch> Searchs = new List<DoSearch>();
             try
             {
-                //List<CoSoSF> ListCoSoSF = CoSoSF.search(request).Take(limit).ToList();
-                //foreach (CoSoSF _CoSoSF in ListCoSoSF)
-                //{
-                //    if (_CoSoSF.match_field.FirstOrDefault().Equals("ten"))
-                //        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.ten, "TENCOSO"));
-                //    else
-                //        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.subId, "MACOSO"));
-                //}
+                List<CoSoSF> ListCoSoSF = CoSoSF.search(request).Take(limit).ToList();
+                foreach (CoSoSF _CoSoSF in ListCoSoSF)
+                {
+                    if (_CoSoSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.ten, "TENCOSO"));
+                    else
+                        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.subId, "MACOSO"));
+                }
 
-                //List<DayySF> ListDayySF = DayySF.search(request).Take(limit).ToList();
-                //foreach (DayySF _DayySF in ListDayySF)
-                //{
-                //    if (_DayySF.match_field.FirstOrDefault().Equals("ten"))
-                //        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.ten, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
-                //    else
-                //        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.subId, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
-                //}
+                List<DayySF> ListDayySF = DayySF.search(request).Take(limit).ToList();
+                foreach (DayySF _DayySF in ListDayySF)
+                {
+                    if (_DayySF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.ten, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
+                    else
+                        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.subId, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
+                }
 
-                //List<TangSF> ListTangSF = TangSF.search(request).Take(limit).ToList();
-                //foreach (TangSF _TangSF in ListTangSF)
-                //{
-                //    if (_TangSF.match_field.FirstOrDefault().Equals("ten"))
-                //        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.ten, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
-                //    else
-                //        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.subId, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "MATANG"));
-                //}
+                List<TangSF> ListTangSF = TangSF.search(request).Take(limit).ToList();
+                foreach (TangSF _TangSF in ListTangSF)
+                {
+                    if (_TangSF.match_field.FirstOrDefault().Equals("ten"))
+                        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.ten, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
+                    else
+                        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.subId, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "MATANG"));
+                }
 
-                //List<PhongSF> ListPhongSF = PhongSF.search(request).Take(limit).ToList();
-                //foreach (PhongSF _PhongSF in ListPhongSF)
-                //{
-                //    string strViTri = Libraries.StringHelper.StringViTriPhong(_PhongSF.obj);
-                //    if (_PhongSF.match_field.FirstOrDefault().Equals("ten"))
-                //    {
-                //        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
-                //    }
-                //    else
-                //        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
-                //}
+                List<PhongSF> ListPhongSF = PhongSF.search(request).Take(limit).ToList();
+                foreach (PhongSF _PhongSF in ListPhongSF)
+                {
+                    string strViTri = Libraries.StringHelper.StringViTriPhong(_PhongSF.obj);
+                    if (_PhongSF.match_field.FirstOrDefault().Equals("ten"))
+                    {
+                        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
+                    }
+                    else
+                        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
+                }
 
                 //List<ThietBiSF> ListThietBiSF = ThietBiSF.search(request).Take(limit).ToList();
                 //foreach (ThietBiSF _ThietBiSF in ListThietBiSF)

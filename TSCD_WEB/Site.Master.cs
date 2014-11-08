@@ -65,6 +65,11 @@ namespace TSCD_WEB
                         }
                         Response.Redirect(Request.RawUrl);
                     }
+                    else
+                    {
+                        ulDangNhap.Visible = true;
+                        ulAdmin.Visible = false;
+                    }
                 }
                 else
                 {

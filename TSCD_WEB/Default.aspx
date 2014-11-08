@@ -51,7 +51,7 @@
                     </a>
                 </div>
                 <div class="widget widget4x2 widget_darkgreen animation unloaded">
-                    <a href="TaiSan.aspx">
+                    <a href="javascript:;" onclick="alert('Đang xây dựng');">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/loaithietbi.png');">
                                 <span>TÀI SẢN</span>
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="widget_container full">
                 <div class="widget widget2x2 widget_blue animation unloaded">
-                    <a href="ViTri.aspx">
+                    <a href="javascript:;" onclick="alert('Đang xây dựng');">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/muonphong.png');">
                                 <span>LOẠI PHÒNG</span>
@@ -85,7 +85,7 @@
                     </a>
                 </div>
                 <div class="widget widget4x2 widget_darkgreen animation unloaded">
-                    <a href="Phong.aspx">
+                    <a href="javascript:;" onclick="alert('Đang xây dựng');">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/loaidonvi.png');">
                                 <span>LOẠI ĐƠN VỊ</span>
@@ -94,7 +94,7 @@
                     </a>
                 </div>
                  <div class="widget widget4x2 widget_darkblue animation unloaded">
-                    <a href="LoaiPhong.aspx">
+                    <a href="javascript:;" onclick="alert('Đang xây dựng');">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/thietbi.png');">
                                 <span>LOẠI TÀI SẢN</span>
@@ -103,7 +103,7 @@
                     </a>
                 </div>
                 <div class="widget widget2x2 widget_red animation unloaded">
-                    <a href="ThongTin.aspx">
+                    <a href="javascript:;" onclick="alert('Đang xây dựng');">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/thongtin.png');">
                                 <span>THÔNG TIN</span>
@@ -112,7 +112,7 @@
                     </a>
                 </div>
                 <div class="widget widget2x2 widget_orange animation unloaded">
-                    <a href="LienHe.aspx">
+                    <a href="javascript:;" onclick="alert('Đang xây dựng');">
                         <div class="widget_content">
                             <div class="main" style="background-image: url('Images/metro/lienhe.png');">
                                 <span>LIÊN HỆ</span>

@@ -28,5 +28,5 @@
     </ContentCollection>
     <LoadingDivStyle CssClass="LoadingDiv"></LoadingDivStyle>
     <LoadingPanelStyle CssClass="SearchLoadingPanel"></LoadingPanelStyle>
-    <LoadingPanelImage Url="../Images/loading.gif"></LoadingPanelImage>
+    <LoadingPanelImage Url="/Images/loading.gif"></LoadingPanelImage>
 </dx:ASPxPopupControl>
