@@ -19,6 +19,8 @@ using PTB_GUI.QLPhong;
 using DevExpress.XtraGrid.Localization;
 using PTB_GUI.QLPhong.MyForm;
 using SHARED.Libraries;
+using PTB_GUI.ThongKe;
+using DevExpress.XtraReports.UI;
 
 namespace PTB_GUI.MyUserControl
 {
@@ -208,7 +210,7 @@ namespace PTB_GUI.MyUserControl
                 dateLap.EditValue = _obj.ngay;
                 _ucTreeLoaiTB.setLoai(_obj.thietbi.loaithietbi);
                 listHinh = _obj.thietbi.hinhanhs.ToList();
-                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c=>c.phong_id==_obj.phong.id && c.soluong > 0).OrderByDescending(c=>c.date_create).ToList();
+                gridControlLog.DataSource = _obj.thietbi.logthietbis.Where(c => c.phong_id == _obj.phong.id && c.soluong > 0).OrderByDescending(c => c.date_create).ToList();
                 reloadImage();
             }
             catch (Exception ex)
@@ -255,9 +257,9 @@ namespace PTB_GUI.MyUserControl
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
-            if(objCTThietBi != null && 
-                objCTThietBi.thietbi != null && 
-                objCTThietBi.thietbi.loaithietbi != null && 
+            if (objCTThietBi != null &&
+                objCTThietBi.thietbi != null &&
+                objCTThietBi.thietbi.loaithietbi != null &&
                 objCTThietBi.thietbi.loaithietbi.loaichung && _enable)
                 dateMua.Properties.ReadOnly = true;
             else
@@ -553,6 +555,67 @@ namespace PTB_GUI.MyUserControl
         public void reLoad()
         {
             throw new NotImplementedException();
+        }
+
+        private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Object.Equals(objPhong, null))
+            {
+                XtraMessageBox.Show("Chưa chọn phòng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Object.Equals(objPhong.id, Guid.Empty))
+            {
+                XtraMessageBox.Show("Chưa chọn phòng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            String strViTri = "[Không Rõ]";
+            if (!Object.Equals(objPhong.vitri, null))
+                strViTri = objPhong.vitri.coso != null ? objPhong.vitri.coso.ten + (objPhong.vitri.day != null ? " - " + objPhong.vitri.day.ten + (objPhong.vitri.tang != null ? " - " + objPhong.vitri.tang.ten : "") : "") : "";
+            if (Object.Equals(listCTThietBis, null))
+            {
+                XtraMessageBox.Show(String.Format("Phòng {0} ({1}) chưa có thiết bị!", objPhong.ten, strViTri), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                if (listCTThietBis.Count > 0)
+                {
+                    try
+                    {
+                        DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PTB_GUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        XtraReport_Template _XtraReport_Template = new XtraReport_Template(SHARED.Libraries.ReportHelper.FillDatasetFromGrid(gridViewCTThietBi), gridViewCTThietBi, barCheckItemLandscape.Checked);
+                        _XtraReport_Template.SetTitleText(String.Format("Danh Sách Thiết Bị Tại Phòng: {0} ({1})", objPhong.ten, strViTri));
+                        if (barCheckItemThietKe.Checked)
+                        {
+                            ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
+                            splashScreenManager_Report.CloseWaitForm();
+                            designTool.ShowDesignerDialog();
+
+                            ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                            printTool.ShowPreviewDialog();
+                        }
+                        else
+                        {
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
+                            splashScreenManager_Report.CloseWaitForm();
+                            printTool.ShowPreviewDialog();
+                        }
+                    }
+                    catch
+                    {
+                        XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show(String.Format("Phòng {0} ({1}) chưa có thiết bị!", objPhong.ten, strViTri), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

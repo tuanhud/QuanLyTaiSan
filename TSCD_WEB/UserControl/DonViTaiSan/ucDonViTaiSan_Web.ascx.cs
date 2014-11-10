@@ -21,7 +21,10 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         public TSCD.Entities.CTTaiSan objCTTaiSan = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                _ucTreeViTri.Label_TenViTri.Text = "Danh sách đơn vị";
+            }
         }
         public void LoadData()
         {
@@ -37,19 +40,19 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                 {
                     infotr.Visible = true;
                     _ucTreeViTri.CreateTreeList();
-                    if (!IsPostBack)
-                    {
-                        TreeListTextColumn _TreeListTextColumn = new TreeListTextColumn();
-                        _ucTreeViTri.Label_TenViTri.Text = "Danh sách đơn vị";
+                    //if (!IsPostBack)
+                    //{
+                    //    TreeListTextColumn _TreeListTextColumn = new TreeListTextColumn();
+                    //    _ucTreeViTri.Label_TenViTri.Text = "Danh sách đơn vị";
 
-                        TreeListDataColumn colDonvi = new TreeListDataColumn("ten", "Đơn vị");
-                        _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colDonvi);
-                        //TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
-                        //_ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
-                    }
+                    //    TreeListDataColumn colDonvi = new TreeListDataColumn("ten", "Đơn vị");
+                    //    _ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colDonvi);
+                    //    //TreeListDataColumn colloaidonvi = new TreeListDataColumn("loaidonvi.ten", "Loại đơn vị");
+                    //    //_ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaidonvi);
+                    //}
                     //_ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Control;
-                    _ucTreeViTri.ASPxTreeList_ViTri.Width = Unit.Percentage(100);
+                    //_ucTreeViTri.ASPxTreeList_ViTri.Width = Unit.Percentage(100);
                     //_ucTreeViTri.ASPxTreeList_ViTri.Settings.GridLines = GridLines.Vertical;
                     //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
                     //_ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;

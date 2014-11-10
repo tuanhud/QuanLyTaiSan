@@ -1,4 +1,5 @@
-﻿using DevExpress.Web.ASPxTreeList;
+﻿using DevExpress.Web.ASPxClasses;
+using DevExpress.Web.ASPxTreeList;
 using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
@@ -28,19 +29,18 @@ namespace TSCD_WEB.UserControl.LoaiTaiSan
             {
                 infotr.Visible = true;
                 ucTreeViTri.CreateTreeList();
-                if (!IsPostBack)
-                {
-                    TreeListDataColumn coldonvitinh = new TreeListDataColumn("donvitinh.ten", "Đơn vị tính");
-                    ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(coldonvitinh);
+                //if (!IsPostBack)
+                //{
+                //    //TreeListDataColumn coldonvitinh = new TreeListDataColumn("donvitinh.ten", "Đơn vị tính");
+                //    //ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(coldonvitinh);
 
-                    TreeListCheckColumn colloaitaisanhuuhinh = new TreeListCheckColumn();
-                    colloaitaisanhuuhinh.FieldName = "huuhinh";
-                    colloaitaisanhuuhinh.Caption = "Loại tài sản hữu hình";
-                    ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaitaisanhuuhinh);
-                    
-                }
-                ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
-                
+                //    //TreeListCheckColumn colloaitaisanhuuhinh = new TreeListCheckColumn();
+                //    //colloaitaisanhuuhinh.FieldName = "huuhinh";
+                //    //colloaitaisanhuuhinh.Caption = "Loại tài sản hữu hình";
+                //    //ucTreeViTri.ASPxTreeList_ViTri.Columns.Add(colloaitaisanhuuhinh);
+                //}
+                //ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
+                //ucTreeViTri.ASPxTreeList_ViTri.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Control;
                 //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.Mode = TreeListPagerMode.ShowPager;
                 //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.PageSize = 10;
                 //ucTreeViTri.ASPxTreeList_ViTri.SettingsPager.NextPageButton.Visible = false;

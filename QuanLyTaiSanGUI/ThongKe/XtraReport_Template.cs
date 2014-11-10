@@ -22,7 +22,7 @@ namespace PTB_GUI.ThongKe
         int WidthAdd = 20;
         int MaxLength = 0;
         int GroupColumnLength = 0;
-
+        Boolean LastSUM = true;
 
         DataSet ReportDataset = new DataSet();
 
@@ -79,7 +79,25 @@ namespace PTB_GUI.ThongKe
             SHARED.Libraries.ReportHelper.CreateGroupValues(_DataSet, GridViewVictim, ref MaxLength, strTag);
 
             MaxLength = MaxLength != 0 ? MaxLength > intMinimum ? MaxLength : intMinimum : 0;
-            GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * (int)Math.Ceiling(this.myColumnStyle.Font.Size);
+            //GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * (int)Math.Ceiling(this.myColumnStyle.Font.Size);
+            GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * 6;
+
+            InitXtraReport(_DataSet, GridViewVictim);
+        }
+
+        public XtraReport_Template(DataSet _DataSet, GridView GridViewVictim, Boolean Landscape, Boolean LastSUM)
+        {
+            InitializeComponent();
+            this.LastSUM = LastSUM;
+            NumberOfFieldGroup = GridViewVictim.GroupCount;
+            this.Landscape = Landscape;
+            SetPositionXRLabel();
+
+            SHARED.Libraries.ReportHelper.CreateGroupValues(_DataSet, GridViewVictim, ref MaxLength, strTag);
+
+            MaxLength = MaxLength != 0 ? MaxLength > intMinimum ? MaxLength : intMinimum : 0;
+            //GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * (int)Math.Ceiling(this.myColumnStyle.Font.Size);
+            GroupColumnLength = NumberOfFieldGroup * WidthAdd + MaxLength * 6;
 
             InitXtraReport(_DataSet, GridViewVictim);
         }
@@ -193,21 +211,24 @@ namespace PTB_GUI.ThongKe
             Bands[BandKind.Detail].Controls.Add(XRTable_Detail);
 
 
-            XRTable XRTable_LastSum = null;
-            if (NumberOfFieldGroup > 0)
+            if (LastSUM)
             {
-                XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, true, GroupColumnLength);
-            }
-            else
-            {
-                XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, false, 0);
-            }
-            if (!Object.Equals(XRTable_LastSum, null))
-            {
-                XRTable_LastSum.Styles.Style = this.mySumTableStyle;
-                XRTable_LastSum.Location = new Point(0, 0);
-                XRTable_LastSum.Width = pageWidth;
-                Bands[BandKind.ReportFooter].Controls.Add(XRTable_LastSum);
+                XRTable XRTable_LastSum = null;
+                if (NumberOfFieldGroup > 0)
+                {
+                    XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, true, GroupColumnLength);
+                }
+                else
+                {
+                    XRTable_LastSum = SHARED.Libraries.ReportHelper.CreateLastSUMTable(this, ListColumns, pageWidth, colWidth, false, 0);
+                }
+                if (!Object.Equals(XRTable_LastSum, null))
+                {
+                    XRTable_LastSum.Styles.Style = this.mySumTableStyle;
+                    XRTable_LastSum.Location = new Point(0, 0);
+                    XRTable_LastSum.Width = pageWidth;
+                    Bands[BandKind.ReportFooter].Controls.Add(XRTable_LastSum);
+                }
             }
         }
 
@@ -219,6 +240,11 @@ namespace PTB_GUI.ThongKe
             xrPageInfo_CurrentDay.LocationF = new DevExpress.Utils.PointFloat((float)(pageWidth - (int)Math.Ceiling(xrPageInfo_CurrentDay.WidthF)), xrPageInfo_CurrentDay.LocationF.Y);
             xrLabel_BanGiamHieu.LocationF = new DevExpress.Utils.PointFloat((float)(pageWidth - (int)Math.Ceiling(xrLabel_BanGiamHieu.WidthF)), xrLabel_BanGiamHieu.LocationF.Y);
             xrLabel_KeToanTruong.LocationF = new DevExpress.Utils.PointFloat((float)((pageWidth - (int)Math.Ceiling(xrLabel_KeToanTruong.WidthF)) * 1.0 / 2), xrLabel_KeToanTruong.LocationF.Y);
+        }
+
+        public void SetTitleText(String strText)
+        {
+            xrLabel_Title.Text = strText;
         }
     }
 }

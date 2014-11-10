@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyPhong));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
@@ -101,7 +102,11 @@
             this.coltenthietbi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rbnGroupPhong_Phong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.rbnGroupXuatBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItemThietKe = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemLandscape = new DevExpress.XtraBars.BarCheckItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -154,7 +159,7 @@
             this.gridControlPhong.Location = new System.Drawing.Point(0, 0);
             this.gridControlPhong.MainView = this.gridViewPhong;
             this.gridControlPhong.Name = "gridControlPhong";
-            this.gridControlPhong.Size = new System.Drawing.Size(483, 597);
+            this.gridControlPhong.Size = new System.Drawing.Size(482, 597);
             this.gridControlPhong.TabIndex = 0;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewPhong});
@@ -291,7 +296,7 @@
             this.xtraTabNhanVienPT.Controls.Add(this.labelControl6);
             this.xtraTabNhanVienPT.Controls.Add(this.imgNhanVien);
             this.xtraTabNhanVienPT.Name = "xtraTabNhanVienPT";
-            this.xtraTabNhanVienPT.Size = new System.Drawing.Size(341, 216);
+            this.xtraTabNhanVienPT.Size = new System.Drawing.Size(340, 213);
             this.xtraTabNhanVienPT.Text = "Nhân viên phụ trách";
             // 
             // txtSoDienThoai
@@ -316,9 +321,12 @@
             this.barButtonXoaPhong,
             this.barButtonShowListTB,
             this.barBtnSuCo,
-            this.barBtnImport});
+            this.barBtnImport,
+            this.barBtnXuatBaoCao,
+            this.barCheckItemThietKe,
+            this.barCheckItemLandscape});
             this.ribbonPhong.Location = new System.Drawing.Point(0, 0);
-            this.ribbonPhong.MaxItemId = 46;
+            this.ribbonPhong.MaxItemId = 49;
             this.ribbonPhong.Name = "ribbonPhong";
             this.ribbonPhong.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPagePhong_Home});
@@ -381,7 +389,8 @@
             this.rbnGroupPhong,
             this.rbnGroupThietBi,
             this.rbnGroupSuCo,
-            this.rbnGroupImport});
+            this.rbnGroupImport,
+            this.rbnGroupXuatBaoCao});
             this.rbnPagePhong_Home.Image = global::PTB_GUI.Properties.Resources.phong1;
             this.rbnPagePhong_Home.Name = "rbnPagePhong_Home";
             this.rbnPagePhong_Home.Text = "Phòng";
@@ -489,7 +498,7 @@
             this.xtraTabQuanTriVien.Controls.Add(this.txtUserQTV);
             this.xtraTabQuanTriVien.Controls.Add(this.txtTenQTV);
             this.xtraTabQuanTriVien.Name = "xtraTabQuanTriVien";
-            this.xtraTabQuanTriVien.Size = new System.Drawing.Size(341, 216);
+            this.xtraTabQuanTriVien.Size = new System.Drawing.Size(340, 213);
             this.xtraTabQuanTriVien.Text = "Quản trị viên";
             // 
             // labelControl4
@@ -842,6 +851,37 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.RightToLeft = true;
             // 
+            // rbnGroupXuatBaoCao
+            // 
+            this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
+            this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barCheckItemThietKe);
+            this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barCheckItemLandscape);
+            this.rbnGroupXuatBaoCao.Name = "rbnGroupXuatBaoCao";
+            this.rbnGroupXuatBaoCao.Text = "Báo cáo";
+            // 
+            // barBtnXuatBaoCao
+            // 
+            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
+            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
+            this.barBtnXuatBaoCao.Id = 46;
+            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
+            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
+            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
+            // 
+            // barCheckItemThietKe
+            // 
+            this.barCheckItemThietKe.Caption = "Thiết kế";
+            this.barCheckItemThietKe.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.barCheckItemThietKe.Id = 47;
+            this.barCheckItemThietKe.Name = "barCheckItemThietKe";
+            // 
+            // barCheckItemLandscape
+            // 
+            this.barCheckItemLandscape.Caption = "Landscape";
+            this.barCheckItemLandscape.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.barCheckItemLandscape.Id = 48;
+            this.barCheckItemLandscape.Name = "barCheckItemLandscape";
+            // 
             // ucQuanLyPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -964,5 +1004,9 @@
         private DevExpress.XtraEditors.TextEdit txtEmailQTV;
         private DevExpress.XtraEditors.TextEdit txtUserQTV;
         private DevExpress.XtraEditors.TextEdit txtTenQTV;
+        private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
+        private DevExpress.XtraBars.BarCheckItem barCheckItemThietKe;
+        private DevExpress.XtraBars.BarCheckItem barCheckItemLandscape;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupXuatBaoCao;
     }
 }

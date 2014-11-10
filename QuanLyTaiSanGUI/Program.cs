@@ -1,4 +1,5 @@
 ﻿using DevExpress.LookAndFeel;
+using PTB;
 using PTB.Entities;
 using PTB_GUI.HeThong;
 using SHARED.Libraries;
@@ -24,7 +25,7 @@ namespace PTB_GUI
                 Application.SetCompatibleTextRenderingDefault(false);
                 DevExpress.UserSkins.BonusSkins.Register();
                 DevExpress.Skins.SkinManager.EnableFormSkins();
-
+                UserLookAndFeel.Default.SetSkinStyle(Global.local_setting.ApplicationSkinName);
                 //PRECONFIG
                 SHARED.Libraries.Debug.MODE = PTB.Global.local_setting.debug_mode;
                 if (PTB.Global.working_database.isReady() > 0)

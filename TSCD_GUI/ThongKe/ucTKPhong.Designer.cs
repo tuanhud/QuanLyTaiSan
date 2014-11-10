@@ -243,7 +243,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControlMain;
-        private DevExpress.XtraGrid.GridControl gridControlPhong;
+        public DevExpress.XtraGrid.GridControl gridControlPhong;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewPhong;
         private DevExpress.XtraEditors.GroupControl groupControlThongKe;
         private DevExpress.XtraEditors.SimpleButton btnThongKe;

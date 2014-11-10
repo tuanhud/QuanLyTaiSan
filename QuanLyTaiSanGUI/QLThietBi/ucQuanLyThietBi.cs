@@ -16,6 +16,7 @@ using PTB_GUI.MyUC;
 using PTB.Entities;
 using DevExpress.XtraGrid;
 using SHARED.Libraries;
+using DevExpress.XtraBars;
 
 namespace PTB_GUI.QLThietBi
 {
@@ -147,6 +148,21 @@ namespace PTB_GUI.QLThietBi
                 btnR_Them.Visible = !loaiChung;
                 btnR_Sua.Visible = !loaiChung;
                 btnR_Xoa.Visible = !loaiChung;
+
+                rbnGroupLayout.Visible = !loaiChung;
+                if (loaiChung)
+                {
+                    barButtonItemMacDinh.Visibility = BarItemVisibility.Never;
+                    barButtonItemExpandAll.Visibility = BarItemVisibility.Never;
+                    barButtonItemCollapseAll.Visibility = BarItemVisibility.Never;
+                }
+                else
+                {
+                    barButtonItemMacDinh.Visibility = BarItemVisibility.Always;
+                    barButtonItemExpandAll.Visibility = BarItemVisibility.Always;
+                    barButtonItemCollapseAll.Visibility = BarItemVisibility.Always;
+                }
+                
                 gridViewThietBi.Columns[colngaymua.FieldName].Visible = !loaiChung;
                 gridViewThietBi.Columns[colma.FieldName].Visible = !loaiChung;
                 gridViewThietBi.Columns[colten.FieldName].Visible = !loaiChung;
@@ -889,6 +905,21 @@ namespace PTB_GUI.QLThietBi
             {
                 Debug.WriteLine(this.Name + "->gridViewThietBi_RowClick: " + ex.Message);
             }
+        }
+
+        private void barButtonItemMacDinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            layout.load(gridViewThietBi);
+        }
+
+        private void barButtonItemExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewThietBi.ExpandAllGroups();
+        }
+
+        private void barButtonItemCollapseAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridViewThietBi.CollapseAllGroups();
         }
     }
 }

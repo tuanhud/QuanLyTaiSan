@@ -19,6 +19,8 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Localization;
 using PTB.Libraries;
 using SHARED.Libraries;
+using PTB_GUI.ThongKe;
+using DevExpress.XtraReports.UI;
 
 namespace PTB_GUI.MyUserControl
 {
@@ -405,7 +407,7 @@ namespace PTB_GUI.MyUserControl
                     case "delete":
                         if (objPhong != null)
                         {
-                            if(XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            if (XtraMessageBox.Show("Bạn có chắc là muốn xóa phòng?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
                                 int reee = objPhong.delete();
                                 if (reee > 0 && DBInstance.commit() > 0)
@@ -413,7 +415,7 @@ namespace PTB_GUI.MyUserControl
                                     XtraMessageBox.Show("Xóa phòng thành công!");
                                     reLoad();
                                 }
-                                else if(reee == -2)
+                                else if (reee == -2)
                                 {
                                     XtraMessageBox.Show("Có thiết bị trong phòng. Vui lòng xóa thiết bị trước!");
                                 }
@@ -775,21 +777,21 @@ namespace PTB_GUI.MyUserControl
                 else
                 {
                     //chưa kiểm tra vị trí
-                    if (!searchLookUpEditNhanVienPT.EditValue.Equals(-1) && searchLookUpEditNhanVienPT.EditValue != null )
+                    if (!searchLookUpEditNhanVienPT.EditValue.Equals(-1) && searchLookUpEditNhanVienPT.EditValue != null)
                         return
                             objPhong.hinhanhs.Except(listHinhAnhPhong).Count() > 0 ||
-                            listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 || 
-                            objPhong.subId != txtMaPhong.Text || 
-                            objPhong.ten != txtTenPhong.Text || 
+                            listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 ||
+                            objPhong.subId != txtMaPhong.Text ||
+                            objPhong.ten != txtTenPhong.Text ||
                             objPhong.mota != txtMoTaPhong.Text ||
                             objPhong.nhanvienpt_id != GUID.From(searchLookUpEditNhanVienPT.EditValue);
                     else
-                        return 
+                        return
                             objPhong.hinhanhs.Except(listHinhAnhPhong).Count() > 0 ||
-                            listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 || 
-                            objPhong.subId != txtMaPhong.Text || 
-                            objPhong.ten != txtTenPhong.Text || 
-                            objPhong.mota != txtMoTaPhong.Text || 
+                            listHinhAnhPhong.Except(objPhong.hinhanhs).Count() > 0 ||
+                            objPhong.subId != txtMaPhong.Text ||
+                            objPhong.ten != txtTenPhong.Text ||
+                            objPhong.mota != txtMoTaPhong.Text ||
                             objPhong.nhanvienpt_id != null;
                 }
             }
@@ -869,6 +871,61 @@ namespace PTB_GUI.MyUserControl
                     loadData();
                 }
 
+            }
+        }
+
+        private void barBtnXuatBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Object.Equals(_ViTriHienTai, null))
+            {
+                XtraMessageBox.Show("Chưa chọn vị trí!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Object.Equals(listPhong, null))
+            {
+                XtraMessageBox.Show("Không có phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                String strViTri = _ViTriHienTai.coso != null ? _ViTriHienTai.coso.ten + (_ViTriHienTai.day != null ? " - " + _ViTriHienTai.day.ten + (_ViTriHienTai.tang != null ? " - " + _ViTriHienTai.tang.ten : "") : "") : "";
+                if (listPhong.Count > 0)
+                {
+                    try
+                    {
+                        DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PTB_GUI.WaitForm1), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+                        splashScreenManager_Report.ShowWaitForm();
+                        splashScreenManager_Report.SetWaitFormCaption("Đang tạo report");
+                        splashScreenManager_Report.SetWaitFormDescription("Vui lòng chờ trong giây lát...");
+
+                        XtraReport_Template _XtraReport_Template = new XtraReport_Template(SHARED.Libraries.ReportHelper.FillDatasetFromGrid(gridViewPhong), gridViewPhong, barCheckItemLandscape.Checked);
+                        _XtraReport_Template.SetTitleText("Danh Sách Phòng Tại: " + strViTri);
+                        if (barCheckItemThietKe.Checked)
+                        {
+                            ReportDesignTool designTool = new ReportDesignTool(_XtraReport_Template);
+                            splashScreenManager_Report.CloseWaitForm();
+                            designTool.ShowDesignerDialog();
+
+                            ReportPrintTool printTool = new ReportPrintTool(designTool.Report);
+                            printTool.ShowPreviewDialog();
+                        }
+                        else
+                        {
+                            ReportPrintTool printTool = new ReportPrintTool(_XtraReport_Template);
+                            splashScreenManager_Report.CloseWaitForm();
+                            printTool.ShowPreviewDialog();
+                        }
+                    }
+                    catch
+                    {
+                        XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    strViTri = "[" + strViTri + "]";
+                    XtraMessageBox.Show(strViTri + " không có phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

@@ -23,7 +23,9 @@ namespace TSCD_WEB.UserControl.TreeViTri
             ASPxTreeList_ViTri.ClientInstanceName = "treeList";
             ASPxTreeList_ViTri.KeyFieldName = "id";
             ASPxTreeList_ViTri.ParentFieldName = "parent_id";
-            ASPxTreeList_ViTri.Width = 100 / 100;
+            TreeListDataColumn colten = new TreeListDataColumn("ten", "Tên");
+            ASPxTreeList_ViTri.Columns.Add(colten);
+            ASPxTreeList_ViTri.Width = Unit.Percentage(100);
             ASPxTreeList_ViTri.Settings.ShowColumnHeaders = false;
             ASPxTreeList_ViTri.SettingsBehavior.AllowFocusedNode = true;
             ASPxTreeList_ViTri.SettingsBehavior.FocusNodeOnExpandButtonClick = false;

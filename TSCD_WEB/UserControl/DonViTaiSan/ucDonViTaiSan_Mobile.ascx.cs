@@ -1,4 +1,5 @@
-﻿using SHARED.Libraries;
+﻿using DevExpress.Web.ASPxTreeList;
+using SHARED.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,10 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         string key = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                ucTreeViTri.Label_TenViTri.Text = "Chọn đơn vị cần xem";
+            }
         }
 
         public void LoadData()
@@ -30,7 +34,6 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             else
             {
                 DangNhap.Visible = false;
-                ucTreeViTri.Label_TenViTri.Text = "Chọn đơn vị cần xem";
                 listDonVi = TSCD.Entities.DonVi.getAll();
                 if (listDonVi.Count > 0)
                 {
