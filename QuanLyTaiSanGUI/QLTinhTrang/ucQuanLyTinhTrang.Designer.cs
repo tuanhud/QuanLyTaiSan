@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyTinhTrang));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControlTinhTrang = new DevExpress.XtraGrid.GridControl();
@@ -55,7 +56,7 @@
             this.rbnGroupTinhTrang = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupOrder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTinhTrang)).BeginInit();
@@ -164,6 +165,7 @@
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 1;
+            this.btnR_Them.Visible = false;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa

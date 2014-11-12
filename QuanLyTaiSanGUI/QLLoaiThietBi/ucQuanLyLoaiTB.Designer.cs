@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTB));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeListLoaiTB = new DevExpress.XtraTreeList.TreeList();
@@ -51,7 +52,7 @@
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.labelControlLoai = new DevExpress.XtraEditors.LabelControl();
             this.labelControlTen = new DevExpress.XtraEditors.LabelControl();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ribbonLoaiTB = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonThemLoaiTB = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonSuaLoaiTB = new DevExpress.XtraBars.BarButtonItem();
@@ -219,6 +220,7 @@
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 1;
+            this.btnR_Them.Visible = false;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // txtMoTa

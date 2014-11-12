@@ -276,6 +276,7 @@
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 1;
+            this.btnR_Them.Visible = false;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
@@ -418,7 +419,7 @@
             this.gridControlThietBi.Location = new System.Drawing.Point(0, 0);
             this.gridControlThietBi.MainView = this.gridViewThietBi;
             this.gridControlThietBi.Name = "gridControlThietBi";
-            this.gridControlThietBi.Size = new System.Drawing.Size(485, 495);
+            this.gridControlThietBi.Size = new System.Drawing.Size(486, 495);
             this.gridControlThietBi.TabIndex = 0;
             this.gridControlThietBi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewThietBi});

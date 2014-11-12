@@ -63,15 +63,15 @@
             this.barBtnXoaNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnPhanCong = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnImport = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItemThietKe = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemLandscape = new DevExpress.XtraBars.BarCheckItem();
             this.rbnPageNhanVien_Home = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupNhanVienPhong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupImport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.rbnGroupXuatBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
-            this.barCheckItemThietKe = new DevExpress.XtraBars.BarCheckItem();
-            this.barCheckItemLandscape = new DevExpress.XtraBars.BarCheckItem();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
@@ -111,7 +111,7 @@
             this.gridControlNhanVien.Location = new System.Drawing.Point(0, 0);
             this.gridControlNhanVien.MainView = this.gridViewNhanVien;
             this.gridControlNhanVien.Name = "gridControlNhanVien";
-            this.gridControlNhanVien.Size = new System.Drawing.Size(513, 464);
+            this.gridControlNhanVien.Size = new System.Drawing.Size(514, 464);
             this.gridControlNhanVien.TabIndex = 0;
             this.gridControlNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhanVien});
@@ -262,6 +262,7 @@
             this.btnR_Them.Name = "btnR_Them";
             this.btnR_Them.Size = new System.Drawing.Size(23, 23);
             this.btnR_Them.TabIndex = 1;
+            this.btnR_Them.Visible = false;
             this.btnR_Them.Click += new System.EventHandler(this.btnR_Them_Click);
             // 
             // btnR_Xoa
@@ -432,6 +433,29 @@
             this.barBtnImport.Name = "barBtnImport";
             this.barBtnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImport_ItemClick);
             // 
+            // barBtnXuatBaoCao
+            // 
+            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
+            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
+            this.barBtnXuatBaoCao.Id = 40;
+            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
+            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
+            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
+            // 
+            // barCheckItemThietKe
+            // 
+            this.barCheckItemThietKe.Caption = "Thiết kế";
+            this.barCheckItemThietKe.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.barCheckItemThietKe.Id = 41;
+            this.barCheckItemThietKe.Name = "barCheckItemThietKe";
+            // 
+            // barCheckItemLandscape
+            // 
+            this.barCheckItemLandscape.Caption = "Landscape";
+            this.barCheckItemLandscape.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.barCheckItemLandscape.Id = 42;
+            this.barCheckItemLandscape.Name = "barCheckItemLandscape";
+            // 
             // rbnPageNhanVien_Home
             // 
             this.rbnPageNhanVien_Home.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -466,10 +490,6 @@
             this.rbnGroupImport.ShowCaptionButton = false;
             this.rbnGroupImport.Text = "Import";
             // 
-            // dxErrorProvider1
-            // 
-            this.dxErrorProvider1.ContainerControl = this;
-            // 
             // rbnGroupXuatBaoCao
             // 
             this.rbnGroupXuatBaoCao.ItemLinks.Add(this.barBtnXuatBaoCao);
@@ -478,28 +498,9 @@
             this.rbnGroupXuatBaoCao.Name = "rbnGroupXuatBaoCao";
             this.rbnGroupXuatBaoCao.Text = "Báo cáo";
             // 
-            // barBtnXuatBaoCao
+            // dxErrorProvider1
             // 
-            this.barBtnXuatBaoCao.Caption = "Xuất báo cáo";
-            this.barBtnXuatBaoCao.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.Glyph")));
-            this.barBtnXuatBaoCao.Id = 40;
-            this.barBtnXuatBaoCao.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnXuatBaoCao.LargeGlyph")));
-            this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
-            this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
-            // 
-            // barCheckItemThietKe
-            // 
-            this.barCheckItemThietKe.Caption = "Thiết kế";
-            this.barCheckItemThietKe.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.barCheckItemThietKe.Id = 41;
-            this.barCheckItemThietKe.Name = "barCheckItemThietKe";
-            // 
-            // barCheckItemLandscape
-            // 
-            this.barCheckItemLandscape.Caption = "Landscape";
-            this.barCheckItemLandscape.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.barCheckItemLandscape.Id = 42;
-            this.barCheckItemLandscape.Name = "barCheckItemLandscape";
+            this.dxErrorProvider1.ContainerControl = this;
             // 
             // ucQuanLyNhanVien
             // 

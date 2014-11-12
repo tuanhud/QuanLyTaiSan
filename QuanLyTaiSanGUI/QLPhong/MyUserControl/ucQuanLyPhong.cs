@@ -837,13 +837,13 @@ namespace PTB_GUI.MyUserControl
         {
             if (objPhong != null && objPhong.id != Guid.Empty)
             {
-                if (objPhong.sucophongs.Count > 0)
-                {
+            //    if (objPhong.sucophongs.Count > 0)
+            //    {
                     if (loadDataByPhong != null)
                         loadDataByPhong(objPhong, "suco");
-                }
-                else
-                    XtraMessageBox.Show("Phòng này không có sự cố!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    else
+            //        XtraMessageBox.Show("Phòng này không có sự cố!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
