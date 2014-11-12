@@ -172,7 +172,7 @@ namespace PTB.Entities
                 logtb.quantrivien = Global.current_quantrivien_login;
 
                 //call manual because of 2nd SaveChanges
-                //logtb.onBeforeAdded();
+                logtb.onBeforeAdded();
                 return logtb.add();
             }
             catch (Exception e)
