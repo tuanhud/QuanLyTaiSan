@@ -192,7 +192,7 @@
             // 
             // barBtnChuyenDonVi
             // 
-            this.barBtnChuyenDonVi.Caption = "Chuyển đơn vị";
+            this.barBtnChuyenDonVi.Caption = "Chuyển vị trí";
             this.barBtnChuyenDonVi.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenDonVi.Glyph")));
             this.barBtnChuyenDonVi.Id = 13;
             this.barBtnChuyenDonVi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnChuyenDonVi.LargeGlyph")));
@@ -341,6 +341,7 @@
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 0;
+            this.btnThem_r.Visible = false;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // panelControlTimKiem

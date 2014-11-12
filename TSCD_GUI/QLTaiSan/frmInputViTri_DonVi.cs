@@ -163,15 +163,15 @@ namespace TSCD_GUI.QLTaiSan
                             else
                                 id = Guid.Empty;
                         }
-                        if (donViQL != null)
-                        {
-                            if (XtraMessageBox.Show("Bạn có muốn xuất biên bản giao nhận tài sản cố định không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
-                            {
-                                ReportTSCD.XtraReport_BienBanGiaoNhanTSCD _XtraReport_BienBanGiaoNhanTSCD = new ReportTSCD.XtraReport_BienBanGiaoNhanTSCD(_CTTaiSanTemp, objChungTu, donViQL);
-                                ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BienBanGiaoNhanTSCD);
-                                printTool.ShowPreviewDialog();
-                            }
-                        }
+                        //if (donViQL != null)
+                        //{
+                        //    if (XtraMessageBox.Show("Bạn có muốn xuất biên bản giao nhận tài sản cố định không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                        //    {
+                        //        ReportTSCD.XtraReport_BienBanGiaoNhanTSCD _XtraReport_BienBanGiaoNhanTSCD = new ReportTSCD.XtraReport_BienBanGiaoNhanTSCD(_CTTaiSanTemp, objChungTu, donViQL);
+                        //        ReportPrintTool printTool = new ReportPrintTool(_XtraReport_BienBanGiaoNhanTSCD);
+                        //        printTool.ShowPreviewDialog();
+                        //    }
+                        //}
                         if (reloadAndFocused != null)
                             reloadAndFocused(id);
                         this.Close();

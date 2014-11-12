@@ -50,6 +50,7 @@
             this.treeListViTri.OptionsFind.AllowFindPanel = true;
             this.treeListViTri.OptionsFind.AlwaysVisible = true;
             this.treeListViTri.OptionsFind.HighlightFindResults = false;
+            this.treeListViTri.OptionsFind.ShowClearButton = false;
             this.treeListViTri.OptionsFind.ShowFindButton = false;
             this.treeListViTri.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListViTri.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;

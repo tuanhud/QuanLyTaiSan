@@ -460,6 +460,7 @@
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 1;
+            this.btnThem_r.Visible = false;
             this.btnThem_r.Click += new System.EventHandler(this.btnThem_r_Click);
             // 
             // txtMoTa
