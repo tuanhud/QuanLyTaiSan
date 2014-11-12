@@ -1,4 +1,8 @@
-﻿Các trang cần in lại
+﻿netsh wlan set hostednetwork mode=allow ssid=wifi-win8 key=12345678
+netsh wlan start hostednetwork
+
+
+Các trang cần in lại
 
 
 
