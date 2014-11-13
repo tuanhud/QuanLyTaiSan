@@ -7,12 +7,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using TSCD.DataFilter;
 using TSCD.DataFilter.SearchFilter;
+using TSCD.Entities;
 
 namespace TSCD_WEB.UserControl.TimKiem
 {
     public partial class ucTimKiem : System.Web.UI.UserControl
     {
+        public static List<TSCD.Entities.DonVi> listDonVi;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -28,43 +31,56 @@ namespace TSCD_WEB.UserControl.TimKiem
             List<DoSearch> Searchs = new List<DoSearch>();
             try
             {
-                List<CoSoSF> ListCoSoSF = CoSoSF.search(request).Take(limit).ToList();
-                foreach (CoSoSF _CoSoSF in ListCoSoSF)
-                {
-                    if (_CoSoSF.match_field.FirstOrDefault().Equals("ten"))
-                        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.ten, "TENCOSO"));
-                    else
-                        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.subId, "MACOSO"));
-                }
+                //List<CoSoSF> ListCoSoSF = CoSoSF.search(request).Take(limit).ToList();
+                //foreach (CoSoSF _CoSoSF in ListCoSoSF)
+                //{
+                //    if (_CoSoSF.match_field.FirstOrDefault().Equals("ten"))
+                //        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.ten, "TENCOSO"));
+                //    else
+                //        Searchs.Add(new DoSearch(_CoSoSF.obj.id, _CoSoSF.obj.subId, "MACOSO"));
+                //}
 
-                List<DayySF> ListDayySF = DayySF.search(request).Take(limit).ToList();
-                foreach (DayySF _DayySF in ListDayySF)
-                {
-                    if (_DayySF.match_field.FirstOrDefault().Equals("ten"))
-                        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.ten, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
-                    else
-                        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.subId, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
-                }
+                //List<DayySF> ListDayySF = DayySF.search(request).Take(limit).ToList();
+                //foreach (DayySF _DayySF in ListDayySF)
+                //{
+                //    if (_DayySF.match_field.FirstOrDefault().Equals("ten"))
+                //        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.ten, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "TENDAY"));
+                //    else
+                //        Searchs.Add(new DoSearch(_DayySF.obj.id, string.Format("{0} ({1})", _DayySF.obj.subId, _DayySF.obj.coso != null ? _DayySF.obj.coso.ten : "[Cơ sở]"), "MADAY"));
+                //}
 
-                List<TangSF> ListTangSF = TangSF.search(request).Take(limit).ToList();
-                foreach (TangSF _TangSF in ListTangSF)
-                {
-                    if (_TangSF.match_field.FirstOrDefault().Equals("ten"))
-                        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.ten, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
-                    else
-                        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.subId, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "MATANG"));
-                }
+                //List<TangSF> ListTangSF = TangSF.search(request).Take(limit).ToList();
+                //foreach (TangSF _TangSF in ListTangSF)
+                //{
+                //    if (_TangSF.match_field.FirstOrDefault().Equals("ten"))
+                //        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.ten, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "TENTANG"));
+                //    else
+                //        Searchs.Add(new DoSearch(_TangSF.obj.id, string.Format("{0} ({1} - {2})", _TangSF.obj.subId, _TangSF.obj.day != null ? _TangSF.obj.day.coso != null ? _TangSF.obj.day.coso.ten : "[Cơ sở]" : "[Cơ sở]", _TangSF.obj.day != null ? _TangSF.obj.day.ten : "[Dãy]"), "MATANG"));
+                //}
 
-                List<PhongSF> ListPhongSF = PhongSF.search(request).Take(limit).ToList();
-                foreach (PhongSF _PhongSF in ListPhongSF)
+                //List<PhongSF> ListPhongSF = PhongSF.search(request).Take(limit).ToList();
+                //foreach (PhongSF _PhongSF in ListPhongSF)
+                //{
+                //    string strViTri = Libraries.StringHelper.StringViTriPhong(_PhongSF.obj);
+                //    if (_PhongSF.match_field.FirstOrDefault().Equals("ten"))
+                //    {
+                //        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
+                //    }
+                //    else
+                //        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
+                //}
+                
+                listDonVi  = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
+                if (listDonVi != null && listDonVi.Count > 0)
                 {
-                    string strViTri = Libraries.StringHelper.StringViTriPhong(_PhongSF.obj);
-                    if (_PhongSF.match_field.FirstOrDefault().Equals("ten"))
+                    foreach (TSCD.Entities.DonVi _DonVi in listDonVi)
                     {
-                        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.ten, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "TENPHONG"));
+                        List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.ConvertUsingSearch(_DonVi.getAllCTTaiSanRecursive(), request);
+                        foreach (var TaiSanCustom in listCTTaiSan)
+                        {
+                            Searchs.Add(new DoSearch(TaiSanCustom.id, TaiSanCustom.ten, "TENTAISAN"));
+                        }
                     }
-                    else
-                        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
                 }
 
                 //List<ThietBiSF> ListThietBiSF = ThietBiSF.search(request).Take(limit).ToList();
@@ -105,10 +121,7 @@ namespace TSCD_WEB.UserControl.TimKiem
                 //        Searchs.Add(new DoSearch(_SuCoPhongSF.obj.id, _SuCoPhongSF.obj.mota, "MOTASUCO"));
                 //}
             }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-            }
+            catch { }
             return Searchs;
         }
 
@@ -150,13 +163,13 @@ namespace TSCD_WEB.UserControl.TimKiem
                     name = "Tên phòng";
                     url = "/Phong.aspx?Search=";
                     break;
-                case "MATHIETBI":
-                    name = "Mã thiết bị";
-                    url = "/ThietBis.aspx?Search=";
+                case "MATAISAN":
+                    name = "Mã tài sản";
+                    url = "/DonViTaiSan.aspx?Search=";
                     break;
-                case "TENTHIETBI":
-                    name = "Tên thiết bị";
-                    url = "/ThietBis.aspx?Search=";
+                case "TENTAISAN":
+                    name = "Tên tài sản";
+                    url = "/DonViTaiSan.aspx?Search=";
                     break;
                 case "MALOAITHIETBI":
                     name = "Mã loại thiết bị";
@@ -234,7 +247,10 @@ namespace TSCD_WEB.UserControl.TimKiem
                 resultsPanel.Visible = false;
                 noResultsPanel.Visible = true;
                 var requestText = noResultsPanel.FindControl("RequestText") as HtmlGenericControl;
-                requestText.InnerHtml = text;
+                if (listDonVi != null && listDonVi.Count > 0)
+                    requestText.InnerHtml = "Không tìm thấy nội dung phù hợp với " + text;
+                else
+                    requestText.InnerHtml = "Bảo mật dữ liệu. Đăng nhập trước khi tìm kiếm";
             }
         }
     }

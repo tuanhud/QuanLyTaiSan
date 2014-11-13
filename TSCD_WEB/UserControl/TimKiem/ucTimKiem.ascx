@@ -14,15 +14,14 @@
         <dx:PopupControlContentControl>
             <div runat="server" id="ResultsPanel" visible="false" class="ResultsPanel">
                 <dx:ASPxNavBar runat="server" ID="SearchResultsNavBar" ClientInstanceName="SearchResultsNavBar" CssClass="ResultsNavBar" EnableTheming="false"
-                    EnableViewState="false" EnableClientSideAPI="true" AllowSelectItem="true"
-                    Width="100%" ShowExpandButtons="false" AccessibilityCompliant="true" EncodeHtml="false">
+                    EnableViewState="false" EnableClientSideAPI="true" AllowSelectItem="true" ShowExpandButtons="false" AccessibilityCompliant="true" EncodeHtml="false">
                     <ItemTextTemplate>
                         <div id="sr_<%# Container.Item.Group.Index %>_<%# Container.Item.Index %>"><%# Container.Item.Text %></div>
                     </ItemTextTemplate>
                 </dx:ASPxNavBar>
             </div>
             <div runat="server" id="NoResultsPanel" class="NoResultsPanel" visible="false">
-                Không tìm thấy nội dung phù hợp với <b runat="server" id="RequestText"></b>.
+                <p runat="server" id="RequestText"></p>
             </div>
         </dx:PopupControlContentControl>
     </ContentCollection>

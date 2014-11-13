@@ -62,6 +62,8 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                     //_ucTreeViTri.ASPxTreeList_ViTri.Settings.ShowColumnHeaders = true;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                     _ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+
+                    SearchFunction();
                     if (Request.QueryString["key"] != null)
                     {
                         if (Session["DangMo"] != null)
@@ -95,6 +97,22 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                         }
                         else
                             Response.Redirect(Request.Url.AbsolutePath);
+                        if (Request.QueryString["id"] != null)
+                        {
+                            string id = "";
+                            try
+                            {
+                                id = Request.QueryString["id"].ToString();
+                            }
+                            catch
+                            {
+                                Response.Redirect(Request.Url.AbsolutePath);
+                            }
+                            int index_id = ASPxGridView.FindVisibleIndexByKeyValue(id);
+                            ASPxGridView.Selection.SetSelection(index_id, true);
+                            int pagesize = ASPxGridView.SettingsPager.PageSize;
+                            ASPxGridView.PageIndex = index_id / pagesize + 1;
+                        }
                     }
                     else
                     {
@@ -135,6 +153,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             ASPxGridView.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
             ASPxGridView.DataSource = listCTTaiSan;
             ASPxGridView.DataBind();
+            ASPxGridView.ExpandAll();
         }
         private void ClearData()
         {
@@ -180,6 +199,43 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         protected void LinkButton_Collapse_Click(object sender, EventArgs e)
         {
             ASPxGridView.CollapseAll();
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+
+                TSCD.Entities.CTTaiSan CTTaiSanSearch = TSCD.Entities.CTTaiSan.getById(SearchID);
+                if (CTTaiSanSearch != null)
+                {
+                    Guid nodeGuid = GUID.From(CTTaiSanSearch.donviquanly_id);
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = _ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), nodeGuid.ToString())).FirstOrDefault();
+                    if (node != null)
+                    {
+                        Response.Redirect(string.Format("{0}?key={1}&id={2}", Request.Url.AbsolutePath, node.Key.ToString(), SearchID.ToString()));
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                    Response.Redirect(Request.Url.AbsolutePath);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

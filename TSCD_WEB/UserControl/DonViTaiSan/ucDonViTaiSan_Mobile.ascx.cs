@@ -44,6 +44,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                         ucTreeViTri.CreateTreeList();
                         ucTreeViTri.ASPxTreeList_ViTri.DataSource = listDonVi;
                         ucTreeViTri.ASPxTreeList_ViTri.DataBind();
+                        SearchFunction();
                         if (Request.QueryString["key"] != null)
                         {
                             DanhSach.Visible = true;
@@ -142,6 +143,63 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             _ucCollectionPager_DanhSachTaiSan.CollectionPager_Object.BindToControl = RepeaterDanhSachTaiSan;
             RepeaterDanhSachTaiSan.DataSource = _ucCollectionPager_DanhSachTaiSan.CollectionPager_Object.DataSourcePaged;
             RepeaterDanhSachTaiSan.DataBind();
+        }
+
+        private void SearchFunction()
+        {
+            if (Request.QueryString["Search"] != null)
+            {
+                Guid SearchID = Guid.Empty;
+                try
+                {
+                    SearchID = GUID.From(Request.QueryString["Search"]);
+                }
+                catch
+                {
+                    Response.Redirect(Request.Url.AbsolutePath);
+                }
+                TSCD.Entities.CTTaiSan CTTaiSanSearch = TSCD.Entities.CTTaiSan.getById(SearchID);
+                if (CTTaiSanSearch != null)
+                {
+                    Guid nodeGuid = GUID.From(CTTaiSanSearch.donviquanly_id);
+                    DevExpress.Web.ASPxTreeList.TreeListNode node = ucTreeViTri.ASPxTreeList_ViTri.GetAllNodes().Where(item => Object.Equals(item.GetValue("id").ToString(), nodeGuid.ToString())).FirstOrDefault();
+                    if (node != null)
+                    {
+                        int Page = SearchPage(nodeGuid, SearchID);
+                        if (Page != -1)
+                        {
+                            Response.Redirect(string.Format("{0}?key={1}&id={2}&Page={3}", Request.Url.AbsolutePath, node.Key.ToString(), SearchID.ToString(), Page.ToString()));
+                        }
+                        else
+                        {
+                            Response.Redirect(Request.Url.AbsolutePath);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect(Request.Url.AbsolutePath);
+                    }
+                }
+                else
+                    Response.Redirect(Request.Url.AbsolutePath);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private int SearchPage(Guid GuidDonVi, Guid GuidCTTaiSan)
+        {
+            int Page = -1;
+            TSCD.Entities.DonVi objDonVi = TSCD.Entities.DonVi.getById(GuidDonVi);
+            List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.Convert(objDonVi.getAllCTTaiSanRecursive());
+            int index = listCTTaiSan.IndexOf(listCTTaiSan.Where(item => Object.Equals(item.id, GuidCTTaiSan)).FirstOrDefault());
+            if (index != -1)
+            {
+                Page = index / _ucCollectionPager_DanhSachTaiSan.CollectionPager_Object.PageSize + 1;
+            }
+            return Page;
         }
     }
 }
