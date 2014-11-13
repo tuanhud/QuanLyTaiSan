@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TSCD.DataFilter;
+using TSCD.Entities;
 
 namespace TSCD_WEB.UserControl.DonViTaiSan
 {
@@ -34,7 +35,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
             else
             {
                 DangNhap.Visible = false;
-                listDonVi = TSCD.Entities.DonVi.getAll();
+                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
                 if (listDonVi.Count > 0)
                 {
                     TreeViTri.Visible = true;

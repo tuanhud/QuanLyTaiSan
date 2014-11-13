@@ -187,6 +187,7 @@
     <Content Include="Images\metro\dangnhap.png" />
     <Content Include="Images\metro\envato_sprite.png" />
     <Content Include="Images\metro\lienhe.png" />
+    <Content Include="Images\metro\loaidonvi.png" />
     <Content Include="Images\metro\loaithietbi.png" />
     <Content Include="Images\metro\muonphong.png" />
     <Content Include="Images\metro\next.png" />
@@ -205,6 +206,7 @@
     <Content Include="Images\metro\thongtin.png" />
     <Content Include="Images\metro\thongtincanhan.png" />
     <Content Include="Images\metro\vitri.png" />
+    <Content Include="Images\metro\VLC A.png" />
     <Content Include="Images\mora.png" />
     <Content Include="Images\ptb.png" />
     <Content Include="Images\ptb1.png" />
