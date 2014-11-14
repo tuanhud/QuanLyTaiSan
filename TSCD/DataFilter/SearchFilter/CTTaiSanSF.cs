@@ -2,12 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SHARED.Libraries;
 using TSCD.Entities;
 
 namespace TSCD.DataFilter.SearchFilter
 {
-    public class CTTaiSanSF:_SearchFilterAbstract<CTTaiSanSF>
+    public class CTTaiSanSF:_SearchFilterAbstract<CTTaiSan>
     {
+        public static List<CTTaiSanSF> searchByDonvi(string key_word, List<DonVi> donvis)
+        {
+            List<CTTaiSanSF> re = new List<CTTaiSanSF>();
+            List<CTTaiSan> tmp = new List<CTTaiSan>();
+            try
+            {
+                foreach (var item in donvis)
+                {
+                    tmp.AddRange(
+                        item.cttaisans.Where(c => c.taisan.ten.ToLower().Contains(key_word))
+                    );
+                }
+                foreach (var item in tmp)
+                {
+                    CTTaiSanSF obj = new CTTaiSanSF();
+                    obj.obj = item;
+                    obj.match_field.Add("taisan.ten");
+                    re.Add(obj);
+                }
+                return re;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return re;
+            }
+        }
         /// <summary>
         /// Hàm tìm kiếm dạng QueryAble, sau khi lấy kết quả có thể 
         /// lọc lần 2 bằng Where rồi gọi .ToList(); sẽ ra được kết quả sau cùng
