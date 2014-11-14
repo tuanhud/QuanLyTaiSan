@@ -70,6 +70,29 @@ namespace TSCD.DataFilter
             }
         }
 
+        public static List<TaiSanHienThi> ConvertUsingSearch(IQueryable<CTTaiSan> list, string request)
+        {
+            try
+            {
+                request = SHARED.Libraries.StringHelper.CoDauThanhKhongDau(request).ToUpper();
+                if (list == null)
+                    return null;
+                List<TaiSanHienThi> re =
+                list.Select(ct => new TaiSanHienThi
+                {
+                    id = ct.id,
+                    ten = ct.taisan.ten,
+                    obj = ct
+                }).Where(c => c.ten.ToUpper().Contains(request)).ToList();
+                return re;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("TaiSanHienThi->Convert:" + ex.Message);
+                return null;
+            }
+        }
+
         public static List<TaiSanHienThi> Convert(IQueryable<CTTaiSan> list)
         {
             try

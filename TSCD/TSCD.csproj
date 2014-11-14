@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="DataFilter\SearchFilter\CoSoSF.cs" />
     <Compile Include="DataFilter\SearchFilter\DayySF.cs" />
+    <Compile Include="DataFilter\SearchFilter\DonViTaiSanFS.cs" />
     <Compile Include="DataFilter\SearchFilter\PhongSF.cs" />
     <Compile Include="DataFilter\SearchFilter\TangSF.cs" />
     <Compile Include="DataFilter\TK_TangGiam_TheoLoaiTS.cs" />
