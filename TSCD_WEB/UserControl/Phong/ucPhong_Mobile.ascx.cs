@@ -21,7 +21,7 @@ namespace TSCD_WEB.UserControl.Phong
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Chọn vị trí cần xem";
+                ucTreeViTri.Label_TenViTri.Text = "Vị trí";
             }
         }
 

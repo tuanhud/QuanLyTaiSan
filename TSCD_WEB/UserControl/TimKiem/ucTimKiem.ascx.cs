@@ -69,19 +69,28 @@ namespace TSCD_WEB.UserControl.TimKiem
                 //    else
                 //        Searchs.Add(new DoSearch(_PhongSF.obj.id, string.Format("{0}{1}", _PhongSF.obj.subId, !Object.Equals(strViTri, "") ? " " + strViTri : ""), "MAPHONG"));
                 //}
-                
-                listDonVi  = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
-                if (listDonVi != null && listDonVi.Count > 0)
+                listDonVi = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
+                List<CTTaiSanSF> ListCTTaiSanSF = CTTaiSanSF.searchByDonvi(request, listDonVi).Take(limit).ToList();
+                foreach (CTTaiSanSF _CTTaiSanSF in ListCTTaiSanSF)
                 {
-                    foreach (TSCD.Entities.DonVi _DonVi in listDonVi)
+                    if (_CTTaiSanSF.match_field.FirstOrDefault().Equals("taisan.ten"))
                     {
-                        List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.ConvertUsingSearch(_DonVi.getAllCTTaiSanRecursive(), request);
-                        foreach (var TaiSanCustom in listCTTaiSan)
-                        {
-                            Searchs.Add(new DoSearch(TaiSanCustom.id, TaiSanCustom.ten, "TENTAISAN"));
-                        }
+                        Searchs.Add(new DoSearch(_CTTaiSanSF.obj.id, _CTTaiSanSF.obj.taisan.ten, "TENTAISAN"));
                     }
                 }
+                
+                //listDonVi  = Permission.getAll<TSCD.Entities.DonVi>(Permission._VIEW).OrderBy(c => c.ten).ToList();
+                //if (listDonVi != null && listDonVi.Count > 0)
+                //{
+                //    foreach (TSCD.Entities.DonVi _DonVi in listDonVi)
+                //    {
+                //        List<TaiSanHienThi> listCTTaiSan = TaiSanHienThi.ConvertUsingSearch(_DonVi.getAllCTTaiSanRecursive(), request);
+                //        foreach (var TaiSanCustom in listCTTaiSan)
+                //        {
+                //            Searchs.Add(new DoSearch(TaiSanCustom.id, TaiSanCustom.ten, "TENTAISAN"));
+                //        }
+                //    }
+                //}
 
                 //List<ThietBiSF> ListThietBiSF = ThietBiSF.search(request).Take(limit).ToList();
                 //foreach (ThietBiSF _ThietBiSF in ListThietBiSF)

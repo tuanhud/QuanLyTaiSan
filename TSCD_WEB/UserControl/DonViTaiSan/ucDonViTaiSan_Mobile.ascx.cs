@@ -22,7 +22,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Chọn đơn vị cần xem";
+                ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
             }
         }
 

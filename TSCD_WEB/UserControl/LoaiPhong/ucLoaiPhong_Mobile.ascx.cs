@@ -19,7 +19,7 @@ namespace TSCD_WEB.UserControl.LoaiPhong
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Chọn loại phòng cần xem";
+                ucTreeViTri.Label_TenViTri.Text = "Loại phòng";
             }
         }
 

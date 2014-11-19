@@ -20,7 +20,7 @@ namespace TSCD_WEB.UserControl.ViTri
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Chọn vị trí cần xem";
+                ucTreeViTri.Label_TenViTri.Text = "Vị trí";
             }
         }
 

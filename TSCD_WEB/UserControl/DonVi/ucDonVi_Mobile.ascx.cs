@@ -16,7 +16,7 @@ namespace TSCD_WEB.UserControl.DonVi
         {
             if (!IsPostBack)
             {
-                ucTreeViTri.Label_TenViTri.Text = "Chọn đơn vị cần xem";
+                ucTreeViTri.Label_TenViTri.Text = "Đơn vị";
             }
         }
 

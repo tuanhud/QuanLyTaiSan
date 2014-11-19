@@ -111,7 +111,7 @@ namespace TSCD_WEB.UserControl.DonViTaiSan
                             int index_id = ASPxGridView.FindVisibleIndexByKeyValue(id);
                             ASPxGridView.Selection.SetSelection(index_id, true);
                             int pagesize = ASPxGridView.SettingsPager.PageSize;
-                            ASPxGridView.PageIndex = index_id / pagesize + 1;
+                            ASPxGridView.PageIndex = index_id / pagesize;
                         }
                     }
                     else
