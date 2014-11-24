@@ -296,6 +296,25 @@ namespace TSCD_GUI.QLTaiSan
                 if (Directory.Exists(path))
                 {
                     String file = path + "//" + fileName + "_Search.xml";
+                    if (!File.Exists(file))
+                    {
+                        XmlWriterSettings settings = new XmlWriterSettings();
+                        settings.Indent = true;
+                        XmlWriter writer_new = XmlWriter.Create(file, settings);
+                        writer_new.WriteStartDocument();
+                        writer_new.WriteStartElement("Search");
+                        writer_new.WriteAttributeString("vTen", "Không có");
+                        writer_new.WriteAttributeString("cLoai", "0");
+                        writer_new.WriteAttributeString("vLoai", "");
+                        writer_new.WriteAttributeString("cDVQL", "0");
+                        writer_new.WriteAttributeString("vDVQL", "");
+                        writer_new.WriteAttributeString("cViTri", "0");
+                        writer_new.WriteAttributeString("vViTri", "");
+                        writer_new.WriteEndElement();
+                        writer_new.WriteEndDocument();
+                        writer_new.Flush();
+                        writer_new.Close();
+                    }
                     if (System.IO.File.Exists(file))
                     {
                         XmlReader reader = XmlReader.Create(file);
@@ -305,12 +324,12 @@ namespace TSCD_GUI.QLTaiSan
                             {
                                 //checkTen.Checked = Convert.ToInt32(reader.GetAttribute(0)).Equals(1) ? true : false;
                                 txtTen.Text = reader.GetAttribute(0);
-                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(1)).Equals(1) ? true : false;
                                 ucComboBoxLoaiTS1.LoaiTS = LoaiTaiSan.getById(GUID.From(reader.GetAttribute(2)));
-                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(3)).Equals(1) ? true : false;
+                                checkLoai.Checked = Convert.ToInt32(reader.GetAttribute(1)).Equals(1) ? true : false;
                                 ucComboBoxDonVi1.DonVi = DonVi.getById(GUID.From(reader.GetAttribute(4)));
-                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(5)).Equals(1) ? true : false;
+                                checkDVQL.Checked = Convert.ToInt32(reader.GetAttribute(3)).Equals(1) ? true : false;
                                 ucComboBoxViTri1.EditValue = GUID.From(reader.GetAttribute(6));
+                                checkViTri.Checked = Convert.ToInt32(reader.GetAttribute(5)).Equals(1) ? true : false;
                             }
                         }
                         reader.Close();
