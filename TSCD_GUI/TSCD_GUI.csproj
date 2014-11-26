@@ -391,6 +391,24 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKe\ucTKHaoMon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucTKHaoMon.Designer.cs">
+      <DependentUpon>ucTKHaoMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ucTKTHPhong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucTKTHPhong.Designer.cs">
+      <DependentUpon>ucTKTHPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\ucTKTHTaiSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKe\ucTKTHTaiSan.Designer.cs">
+      <DependentUpon>ucTKTHTaiSan.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitForm_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -606,6 +624,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucTKHaoMon.resx">
+      <DependentUpon>ucTKHaoMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucTKTHPhong.resx">
+      <DependentUpon>ucTKTHPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\ucTKTHTaiSan.resx">
+      <DependentUpon>ucTKTHTaiSan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm_Report.resx">
       <DependentUpon>WaitForm_Report.cs</DependentUpon>

@@ -116,5 +116,32 @@ namespace TSCD_GUI.MyUserControl
             if (editValueChanged != null)
                 editValueChanged();
         }
+
+        public Object EditValue
+        {
+            get
+            {
+                try
+                {
+                    return treeListLookUpDonVi.EditValue;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->EditValue: " + ex.Message);
+                    return null;
+                }
+            }
+            set
+            {
+                try
+                {
+                    treeListLookUpDonVi.EditValue = value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(this.Name + "->EditValue: " + ex.Message);
+                }
+            }
+        }
     }
 }

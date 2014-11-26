@@ -36,13 +36,16 @@
             this.barBtnCollapseAll = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTKTaiSan = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnXuatBaoCao = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemXuatThongKe = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTKHaoMon = new DevExpress.XtraBars.BarButtonItem();
             this.rbnPageThongKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbnGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupLayout = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbnGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.splashScreenManager_Report = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::TSCD_GUI.QLTaiSan.WaitForm_Report), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
-            this.barButtonItemXuatThongKe = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTKTHPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTKTHTaiSan = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +61,12 @@
             this.barBtnCollapseAll,
             this.barBtnTKTaiSan,
             this.barBtnXuatBaoCao,
-            this.barButtonItemXuatThongKe});
+            this.barButtonItemXuatThongKe,
+            this.barBtnTKHaoMon,
+            this.barBtnTKTHPhong,
+            this.barBtnTKTHTaiSan});
             this.rbnControlThongKe.Location = new System.Drawing.Point(0, 0);
-            this.rbnControlThongKe.MaxItemId = 9;
+            this.rbnControlThongKe.MaxItemId = 12;
             this.rbnControlThongKe.Name = "rbnControlThongKe";
             this.rbnControlThongKe.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbnPageThongKe});
@@ -122,6 +128,25 @@
             this.barBtnXuatBaoCao.Name = "barBtnXuatBaoCao";
             this.barBtnXuatBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXuatBaoCao_ItemClick);
             // 
+            // barButtonItemXuatThongKe
+            // 
+            this.barButtonItemXuatThongKe.Caption = "Xuất thống kê";
+            this.barButtonItemXuatThongKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemXuatThongKe.Glyph")));
+            this.barButtonItemXuatThongKe.Id = 8;
+            this.barButtonItemXuatThongKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemXuatThongKe.LargeGlyph")));
+            this.barButtonItemXuatThongKe.Name = "barButtonItemXuatThongKe";
+            this.barButtonItemXuatThongKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemXuatThongKe_ItemClick);
+            // 
+            // barBtnTKHaoMon
+            // 
+            this.barBtnTKHaoMon.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barBtnTKHaoMon.Caption = "Thống kê hao mòn";
+            this.barBtnTKHaoMon.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKHaoMon.Glyph")));
+            this.barBtnTKHaoMon.Id = 9;
+            this.barBtnTKHaoMon.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnTKHaoMon.LargeGlyph")));
+            this.barBtnTKHaoMon.Name = "barBtnTKHaoMon";
+            this.barBtnTKHaoMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKHaoMon_ItemClick);
+            // 
             // rbnPageThongKe
             // 
             this.rbnPageThongKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -136,6 +161,9 @@
             // 
             this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKPhong);
             this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTaiSan);
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKHaoMon);
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTHPhong);
+            this.rbnGroupThongKe.ItemLinks.Add(this.barBtnTKTHTaiSan);
             this.rbnGroupThongKe.Name = "rbnGroupThongKe";
             this.rbnGroupThongKe.ShowCaptionButton = false;
             this.rbnGroupThongKe.Text = "Thống kê";
@@ -166,14 +194,21 @@
             this.panelControlMain.Size = new System.Drawing.Size(847, 344);
             this.panelControlMain.TabIndex = 1;
             // 
-            // barButtonItemXuatThongKe
+            // barBtnTKTHPhong
             // 
-            this.barButtonItemXuatThongKe.Caption = "Xuất thống kê";
-            this.barButtonItemXuatThongKe.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemXuatThongKe.Glyph")));
-            this.barButtonItemXuatThongKe.Id = 8;
-            this.barButtonItemXuatThongKe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItemXuatThongKe.LargeGlyph")));
-            this.barButtonItemXuatThongKe.Name = "barButtonItemXuatThongKe";
-            this.barButtonItemXuatThongKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemXuatThongKe_ItemClick);
+            this.barBtnTKTHPhong.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barBtnTKTHPhong.Caption = "Thống kê tổng hợp phòng";
+            this.barBtnTKTHPhong.Id = 10;
+            this.barBtnTKTHPhong.Name = "barBtnTKTHPhong";
+            this.barBtnTKTHPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTHPhong_ItemClick);
+            // 
+            // barBtnTKTHTaiSan
+            // 
+            this.barBtnTKTHTaiSan.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barBtnTKTHTaiSan.Caption = "Thống kê tổng hợp tài sản";
+            this.barBtnTKTHTaiSan.Id = 11;
+            this.barBtnTKTHTaiSan.Name = "barBtnTKTHTaiSan";
+            this.barBtnTKTHTaiSan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTKTHTaiSan_ItemClick);
             // 
             // ucThongKe
             // 
@@ -205,6 +240,9 @@
         private DevExpress.XtraBars.BarButtonItem barBtnXuatBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupBaoCao;
         private DevExpress.XtraBars.BarButtonItem barButtonItemXuatThongKe;
+        private DevExpress.XtraBars.BarButtonItem barBtnTKHaoMon;
+        private DevExpress.XtraBars.BarButtonItem barBtnTKTHPhong;
+        private DevExpress.XtraBars.BarButtonItem barBtnTKTHTaiSan;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_Report;
     }
 }

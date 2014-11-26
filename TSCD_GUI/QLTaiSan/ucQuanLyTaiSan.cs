@@ -425,12 +425,12 @@ namespace TSCD_GUI.QLTaiSan
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtTen.Text = "";
-            checkLoai.Checked = false;
             ucComboBoxLoaiTS1.EditValue = null;
-            checkDVQL.Checked = false;
+            checkLoai.Checked = false;
             ucComboBoxDonVi1.DonVi = null;
-            checkViTri.Checked = false;
+            checkDVQL.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
+            checkViTri.Checked = false;
         }
 
         private void barBtnExpandAll_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

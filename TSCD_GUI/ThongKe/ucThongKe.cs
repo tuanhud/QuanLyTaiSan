@@ -18,6 +18,9 @@ namespace TSCD_GUI.ThongKe
     {
         ucTKPhong _ucTKPhong = new ucTKPhong();
         ucTKTaiSan _ucTKTaiSan = new ucTKTaiSan();
+        ucTKHaoMon _ucTKHaoMon = new ucTKHaoMon();
+        ucTKTHPhong _ucTKTHPhong = new ucTKTHPhong();
+        ucTKTHTaiSan _ucTKTHTaiSan = new ucTKTHTaiSan();
         Control current = null;
 
         public ucThongKe()
@@ -26,6 +29,9 @@ namespace TSCD_GUI.ThongKe
             rbnControlThongKe.Parent = null;
             _ucTKPhong.Dock = DockStyle.Fill;
             _ucTKTaiSan.Dock = DockStyle.Fill;
+            _ucTKHaoMon.Dock = DockStyle.Fill;
+            _ucTKTHPhong.Dock = DockStyle.Fill;
+            _ucTKTHTaiSan.Dock = DockStyle.Fill;
         }
 
         public RibbonControl getRibbonControl()
@@ -46,6 +52,9 @@ namespace TSCD_GUI.ThongKe
             else
             {
                 barBtnTKTaiSan.Down = false;
+                barBtnTKHaoMon.Down = false;
+                barBtnTKTHTaiSan.Down = false;
+                barBtnTKTHTaiSan.Down = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKPhong);
                 current = _ucTKPhong;
@@ -84,6 +93,9 @@ namespace TSCD_GUI.ThongKe
             else
             {
                 barBtnTKPhong.Down = false;
+                barBtnTKHaoMon.Down = false;
+                barBtnTKTHTaiSan.Down = false;
+                barBtnTKTHTaiSan.Down = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKTaiSan);
                 current = _ucTKTaiSan;
@@ -181,6 +193,57 @@ namespace TSCD_GUI.ThongKe
             catch
             {
                 XtraMessageBox.Show("Đã xảy ra lỗi!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void barBtnTKHaoMon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!barBtnTKHaoMon.Down)
+                barBtnTKHaoMon.Down = true;
+            else
+            {
+                barBtnTKPhong.Down = false;
+                barBtnTKTaiSan.Down = false;
+                barBtnTKTHTaiSan.Down = false;
+                barBtnTKTHTaiSan.Down = false;
+                panelControlMain.Controls.Clear();
+                panelControlMain.Controls.Add(_ucTKHaoMon);
+                current = _ucTKHaoMon;
+                _ucTKHaoMon.loadData();
+            }
+        }
+
+        private void barBtnTKTHPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!barBtnTKTHPhong.Down)
+                barBtnTKTHPhong.Down = true;
+            else
+            {
+                barBtnTKPhong.Down = false;
+                barBtnTKTaiSan.Down = false;
+                barBtnTKTHTaiSan.Down = false;
+                barBtnTKHaoMon.Down = false;
+                panelControlMain.Controls.Clear();
+                panelControlMain.Controls.Add(_ucTKTHPhong);
+                current = _ucTKTHPhong;
+                //_ucTKTHPhong.loadData();
+            }
+        }
+
+        private void barBtnTKTHTaiSan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!barBtnTKTHTaiSan.Down)
+                barBtnTKTHTaiSan.Down = true;
+            else
+            {
+                barBtnTKPhong.Down = false;
+                barBtnTKTaiSan.Down = false;
+                barBtnTKTHPhong.Down = false;
+                barBtnTKHaoMon.Down = false;
+                panelControlMain.Controls.Clear();
+                panelControlMain.Controls.Add(_ucTKTHTaiSan);
+                current = _ucTKTHTaiSan;
+                _ucTKTHTaiSan.loadData();
             }
         }
     }
