@@ -16,16 +16,27 @@ namespace TSCD_GUI.ThongKe
 {
     public partial class ucThongKe : DevExpress.XtraEditors.XtraUserControl
     {
-        ucTKPhong _ucTKPhong = new ucTKPhong();
-        ucTKTaiSan _ucTKTaiSan = new ucTKTaiSan();
-        ucTKHaoMon _ucTKHaoMon = new ucTKHaoMon();
-        ucTKTHPhong _ucTKTHPhong = new ucTKTHPhong();
-        ucTKTHTaiSan _ucTKTHTaiSan = new ucTKTHTaiSan();
+        ucTKPhong _ucTKPhong = null;
+        ucTKTaiSan _ucTKTaiSan = null;
+        ucTKHaoMon _ucTKHaoMon = null;
+        ucTKTHPhong _ucTKTHPhong = null;
+        ucTKTHTaiSan _ucTKTHTaiSan = null;
         Control current = null;
 
         public ucThongKe()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            _ucTKPhong = new ucTKPhong();
+            _ucTKTaiSan = new ucTKTaiSan();
+            _ucTKHaoMon = new ucTKHaoMon();
+            _ucTKTHPhong = new ucTKTHPhong();
+            _ucTKTHTaiSan = new ucTKTHTaiSan();
+
             rbnControlThongKe.Parent = null;
             _ucTKPhong.Dock = DockStyle.Fill;
             _ucTKTaiSan.Dock = DockStyle.Fill;
@@ -53,7 +64,7 @@ namespace TSCD_GUI.ThongKe
             {
                 barBtnTKTaiSan.Down = false;
                 barBtnTKHaoMon.Down = false;
-                barBtnTKTHTaiSan.Down = false;
+                barBtnTKTHPhong.Down = false;
                 barBtnTKTHTaiSan.Down = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKPhong);
@@ -94,7 +105,7 @@ namespace TSCD_GUI.ThongKe
             {
                 barBtnTKPhong.Down = false;
                 barBtnTKHaoMon.Down = false;
-                barBtnTKTHTaiSan.Down = false;
+                barBtnTKTHPhong.Down = false;
                 barBtnTKTHTaiSan.Down = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKTaiSan);
@@ -204,7 +215,7 @@ namespace TSCD_GUI.ThongKe
             {
                 barBtnTKPhong.Down = false;
                 barBtnTKTaiSan.Down = false;
-                barBtnTKTHTaiSan.Down = false;
+                barBtnTKTHPhong.Down = false;
                 barBtnTKTHTaiSan.Down = false;
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKHaoMon);

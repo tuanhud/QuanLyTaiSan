@@ -97,6 +97,12 @@ namespace TSCD_GUI.ThongKe
             checkDonVi.Checked = false;
             ucComboBoxViTri1.EditValue = Guid.Empty;
             checkViTri.Checked = false;
+            dateNgayTK.EditValue = null;
+            spinEdit1.EditValue = null;
+            if (comboBoxEdit1.Properties.Items.Count > 0)
+                comboBoxEdit1.SelectedIndex = 0;
+            if (comboBoxEdit2.Properties.Items.Count > 0)
+                comboBoxEdit2.SelectedIndex = 0;
         }
     }
 }

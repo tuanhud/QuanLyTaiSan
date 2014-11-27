@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucTKTHTaiSan));
             this.panelSearch = new DevExpress.XtraEditors.PanelControl();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblDonGia = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
@@ -59,11 +62,10 @@
             this.colvitri = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldvql = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblDonGia = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).BeginInit();
             this.panelSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoaiTS.Properties)).BeginInit();
@@ -73,8 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTaiSan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSearch
@@ -101,6 +101,42 @@
             this.panelSearch.Size = new System.Drawing.Size(832, 82);
             this.panelSearch.TabIndex = 0;
             // 
+            // spinEdit1
+            // 
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(124, 29);
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit1.Size = new System.Drawing.Size(90, 20);
+            this.spinEdit1.TabIndex = 31;
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Location = new System.Drawing.Point(84, 29);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
+            "=",
+            ">=",
+            ">",
+            "<="});
+            this.comboBoxEdit2.Size = new System.Drawing.Size(34, 20);
+            this.comboBoxEdit2.TabIndex = 30;
+            // 
+            // lblDonGia
+            // 
+            this.lblDonGia.Location = new System.Drawing.Point(5, 32);
+            this.lblDonGia.Name = "lblDonGia";
+            this.lblDonGia.Size = new System.Drawing.Size(41, 13);
+            this.lblDonGia.TabIndex = 29;
+            this.lblDonGia.Text = "Đơn giá:";
+            // 
             // comboBoxEdit1
             // 
             this.comboBoxEdit1.Location = new System.Drawing.Point(84, 5);
@@ -109,8 +145,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
             "=",
+            ">=",
             ">",
-            "<"});
+            "<="});
             this.comboBoxEdit1.Size = new System.Drawing.Size(34, 20);
             this.comboBoxEdit1.TabIndex = 28;
             // 
@@ -189,6 +226,7 @@
             // ucComboBoxDonVi1
             // 
             this.ucComboBoxDonVi1.DonVi = null;
+            this.ucComboBoxDonVi1.EditValue = null;
             this.ucComboBoxDonVi1.Location = new System.Drawing.Point(372, 5);
             this.ucComboBoxDonVi1.Name = "ucComboBoxDonVi1";
             this.ucComboBoxDonVi1.Size = new System.Drawing.Size(200, 20);
@@ -363,41 +401,6 @@
             this.coldvql.Visible = true;
             this.coldvql.VisibleIndex = 12;
             // 
-            // lblDonGia
-            // 
-            this.lblDonGia.Location = new System.Drawing.Point(5, 32);
-            this.lblDonGia.Name = "lblDonGia";
-            this.lblDonGia.Size = new System.Drawing.Size(41, 13);
-            this.lblDonGia.TabIndex = 29;
-            this.lblDonGia.Text = "Đơn giá:";
-            // 
-            // comboBoxEdit2
-            // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(84, 29);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
-            "=",
-            ">",
-            "<"});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(34, 20);
-            this.comboBoxEdit2.TabIndex = 30;
-            // 
-            // spinEdit1
-            // 
-            this.spinEdit1.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spinEdit1.Location = new System.Drawing.Point(124, 29);
-            this.spinEdit1.Name = "spinEdit1";
-            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit1.Size = new System.Drawing.Size(90, 20);
-            this.spinEdit1.TabIndex = 31;
-            // 
             // ucTKTHTaiSan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +412,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelSearch)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkViTri.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkLoaiTS.Properties)).EndInit();
@@ -418,8 +423,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTaiSan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTaiSan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
