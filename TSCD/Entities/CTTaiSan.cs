@@ -34,7 +34,7 @@ namespace TSCD.Entities
         /// </summary>
         public String nguongoc { get; set; }
         /// <summary>
-        /// Ngày cấp, ngày có hiệu lực
+        /// Ngày cấp, ngày có hiệu lực (ngay khai bao TS)
         /// </summary>
         public DateTime? ngay { get; set; }
 

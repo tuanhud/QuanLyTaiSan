@@ -31,9 +31,17 @@ namespace TSCD.Entities
         /// </summary>
         public int sonamsudung { get; set; }
         /// <summary>
+        /// Số năm sử dụng (Theo quyet dinh moi T32)
+        /// </summary>
+        public int sonamsudung_2 { get; set; }
+        /// <summary>
         /// Phần trăm hao mòn/năm
         /// </summary>
         public int phantramhaomon { get; set; }
+        /// <summary>
+        /// Phần trăm hao mòn/năm
+        /// </summary>
+        public int phantramhaomon_2 { get; set; }
         /*
          * FK
          */

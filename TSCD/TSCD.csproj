@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201410080921295_suaAttachment_size_int_to_long.Designer.cs">
       <DependentUpon>201410080921295_suaAttachment_size_int_to_long.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411270412315_ThemSoNamSuDungTheoQuyetDinhMoi.cs" />
+    <Compile Include="Migrations\201411270412315_ThemSoNamSuDungTheoQuyetDinhMoi.Designer.cs">
+      <DependentUpon>201411270412315_ThemSoNamSuDungTheoQuyetDinhMoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410080921295_suaAttachment_size_int_to_long.resx">
       <DependentUpon>201410080921295_suaAttachment_size_int_to_long.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411270412315_ThemSoNamSuDungTheoQuyetDinhMoi.resx">
+      <DependentUpon>201411270412315_ThemSoNamSuDungTheoQuyetDinhMoi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
