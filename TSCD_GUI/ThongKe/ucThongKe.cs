@@ -237,7 +237,7 @@ namespace TSCD_GUI.ThongKe
                 panelControlMain.Controls.Clear();
                 panelControlMain.Controls.Add(_ucTKTHPhong);
                 current = _ucTKTHPhong;
-                //_ucTKTHPhong.loadData();
+                _ucTKTHPhong.loadData();
             }
         }
 

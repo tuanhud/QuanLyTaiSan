@@ -123,6 +123,7 @@
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 29;
             this.btnClear.Text = "Làm sạch";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnTim
             // 
@@ -174,6 +175,8 @@
             this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
             this.checkedComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.checkedComboBoxEdit1.Properties.DisplayMember = "ten";
+            this.checkedComboBoxEdit1.Properties.ValueMember = "id";
             this.checkedComboBoxEdit1.Size = new System.Drawing.Size(130, 20);
             this.checkedComboBoxEdit1.TabIndex = 1;
             // 
