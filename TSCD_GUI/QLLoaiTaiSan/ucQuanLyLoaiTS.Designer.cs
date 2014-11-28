@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucQuanLyLoaiTS));
             this.rbnControlLoaiTS = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnThemLoaiTS = new DevExpress.XtraBars.BarButtonItem();
@@ -47,6 +48,10 @@
             this.colhuuhinh = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colobj = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lblHaoMon32 = new DevExpress.XtraEditors.LabelControl();
+            this.lblHaoMon351 = new DevExpress.XtraEditors.LabelControl();
+            this.spinHaoMon32 = new DevExpress.XtraEditors.SpinEdit();
+            this.spinHaoMon351 = new DevExpress.XtraEditors.SpinEdit();
             this.panelControlParent = new DevExpress.XtraEditors.PanelControl();
             this.checkHuuHinh = new DevExpress.XtraEditors.CheckEdit();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -67,13 +72,15 @@
             this.btnSua_r = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem_r = new DevExpress.XtraEditors.SimpleButton();
             this.txtMoTa = new DevExpress.XtraEditors.MemoEdit();
-            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+            this.dxErrorProviderInfo = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).BeginInit();
             this.splitContainerControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLoaiTS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinHaoMon32.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinHaoMon351.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkHuuHinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpDonVi.Properties)).BeginInit();
@@ -185,8 +192,8 @@
             this.splitContainerControlMain.Panel1.Text = "Panel1";
             this.splitContainerControlMain.Panel2.Controls.Add(this.groupControlInfo);
             this.splitContainerControlMain.Panel2.Text = "Panel2";
-            this.splitContainerControlMain.Size = new System.Drawing.Size(850, 367);
-            this.splitContainerControlMain.SplitterPosition = 372;
+            this.splitContainerControlMain.Size = new System.Drawing.Size(850, 387);
+            this.splitContainerControlMain.SplitterPosition = 398;
             this.splitContainerControlMain.TabIndex = 1;
             this.splitContainerControlMain.Text = "splitContainerControl1";
             // 
@@ -208,7 +215,7 @@
             this.treeListLoaiTS.OptionsView.ShowAutoFilterRow = true;
             this.treeListLoaiTS.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
             this.treeListLoaiTS.ParentFieldName = "parent_id";
-            this.treeListLoaiTS.Size = new System.Drawing.Size(474, 367);
+            this.treeListLoaiTS.Size = new System.Drawing.Size(447, 387);
             this.treeListLoaiTS.TabIndex = 0;
             this.treeListLoaiTS.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListLoaiTS_FocusedNodeChanged);
             // 
@@ -255,6 +262,10 @@
             // 
             this.groupControlInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlInfo.AppearanceCaption.Options.UseFont = true;
+            this.groupControlInfo.Controls.Add(this.lblHaoMon32);
+            this.groupControlInfo.Controls.Add(this.lblHaoMon351);
+            this.groupControlInfo.Controls.Add(this.spinHaoMon32);
+            this.groupControlInfo.Controls.Add(this.spinHaoMon351);
             this.groupControlInfo.Controls.Add(this.panelControlParent);
             this.groupControlInfo.Controls.Add(this.checkHuuHinh);
             this.groupControlInfo.Controls.Add(this.btnHuy);
@@ -275,9 +286,63 @@
             this.groupControlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlInfo.Location = new System.Drawing.Point(0, 0);
             this.groupControlInfo.Name = "groupControlInfo";
-            this.groupControlInfo.Size = new System.Drawing.Size(372, 367);
+            this.groupControlInfo.Size = new System.Drawing.Size(398, 387);
             this.groupControlInfo.TabIndex = 0;
             this.groupControlInfo.Text = "Chi tiết";
+            // 
+            // lblHaoMon32
+            // 
+            this.lblHaoMon32.Location = new System.Drawing.Point(6, 203);
+            this.lblHaoMon32.Name = "lblHaoMon32";
+            this.lblHaoMon32.Size = new System.Drawing.Size(130, 13);
+            this.lblHaoMon32.TabIndex = 25;
+            this.lblHaoMon32.Text = "Tỷ lệ hao mòn theo QĐ 32:";
+            // 
+            // lblHaoMon351
+            // 
+            this.lblHaoMon351.Location = new System.Drawing.Point(6, 158);
+            this.lblHaoMon351.Name = "lblHaoMon351";
+            this.lblHaoMon351.Size = new System.Drawing.Size(136, 13);
+            this.lblHaoMon351.TabIndex = 24;
+            this.lblHaoMon351.Text = "Tỷ lệ hao mòn theo QĐ 351:";
+            // 
+            // spinHaoMon32
+            // 
+            this.spinHaoMon32.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spinHaoMon32.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinHaoMon32.Location = new System.Drawing.Point(87, 222);
+            this.spinHaoMon32.MenuManager = this.rbnControlLoaiTS;
+            this.spinHaoMon32.Name = "spinHaoMon32";
+            this.spinHaoMon32.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinHaoMon32.Properties.DisplayFormat.FormatString = "0%";
+            this.spinHaoMon32.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.spinHaoMon32.Size = new System.Drawing.Size(294, 20);
+            this.spinHaoMon32.TabIndex = 23;
+            // 
+            // spinHaoMon351
+            // 
+            this.spinHaoMon351.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spinHaoMon351.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinHaoMon351.Location = new System.Drawing.Point(87, 177);
+            this.spinHaoMon351.MenuManager = this.rbnControlLoaiTS;
+            this.spinHaoMon351.Name = "spinHaoMon351";
+            this.spinHaoMon351.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinHaoMon351.Properties.DisplayFormat.FormatString = "0%";
+            this.spinHaoMon351.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.spinHaoMon351.Size = new System.Drawing.Size(294, 20);
+            this.spinHaoMon351.TabIndex = 22;
             // 
             // panelControlParent
             // 
@@ -286,7 +351,7 @@
             this.panelControlParent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControlParent.Location = new System.Drawing.Point(88, 132);
             this.panelControlParent.Name = "panelControlParent";
-            this.panelControlParent.Size = new System.Drawing.Size(268, 20);
+            this.panelControlParent.Size = new System.Drawing.Size(294, 20);
             this.panelControlParent.TabIndex = 9;
             // 
             // checkHuuHinh
@@ -301,7 +366,7 @@
             // btnHuy
             // 
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.Location = new System.Drawing.Point(169, 247);
+            this.btnHuy.Location = new System.Drawing.Point(168, 337);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 12;
@@ -311,7 +376,7 @@
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(88, 247);
+            this.btnOK.Location = new System.Drawing.Point(87, 337);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 11;
@@ -330,7 +395,7 @@
             // 
             // lblMoTa
             // 
-            this.lblMoTa.Location = new System.Drawing.Point(6, 161);
+            this.lblMoTa.Location = new System.Drawing.Point(5, 251);
             this.lblMoTa.Name = "lblMoTa";
             this.lblMoTa.Size = new System.Drawing.Size(31, 13);
             this.lblMoTa.TabIndex = 21;
@@ -380,7 +445,7 @@
             this.gridLookUpDonVi.Properties.DisplayMember = "ten";
             this.gridLookUpDonVi.Properties.ValueMember = "id";
             this.gridLookUpDonVi.Properties.View = this.gridLookUpDonViView;
-            this.gridLookUpDonVi.Size = new System.Drawing.Size(239, 20);
+            this.gridLookUpDonVi.Size = new System.Drawing.Size(265, 20);
             this.gridLookUpDonVi.TabIndex = 6;
             // 
             // gridLookUpDonViView
@@ -416,7 +481,7 @@
             this.txtTen.Location = new System.Drawing.Point(88, 54);
             this.txtTen.MenuManager = this.rbnControlLoaiTS;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(268, 20);
+            this.txtTen.Size = new System.Drawing.Size(294, 20);
             this.txtTen.TabIndex = 5;
             // 
             // txtMa
@@ -426,7 +491,7 @@
             this.txtMa.Location = new System.Drawing.Point(88, 28);
             this.txtMa.MenuManager = this.rbnControlLoaiTS;
             this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(268, 20);
+            this.txtMa.Size = new System.Drawing.Size(294, 20);
             this.txtMa.TabIndex = 4;
             // 
             // btnXoa_r
@@ -434,7 +499,7 @@
             this.btnXoa_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoa_r.Image = global::TSCD_GUI.Properties.Resources.delete_19;
             this.btnXoa_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnXoa_r.Location = new System.Drawing.Point(333, 0);
+            this.btnXoa_r.Location = new System.Drawing.Point(359, 0);
             this.btnXoa_r.Name = "btnXoa_r";
             this.btnXoa_r.Size = new System.Drawing.Size(23, 23);
             this.btnXoa_r.TabIndex = 3;
@@ -445,7 +510,7 @@
             this.btnSua_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua_r.Image = global::TSCD_GUI.Properties.Resources.pencil_19;
             this.btnSua_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSua_r.Location = new System.Drawing.Point(307, 0);
+            this.btnSua_r.Location = new System.Drawing.Point(333, 0);
             this.btnSua_r.Name = "btnSua_r";
             this.btnSua_r.Size = new System.Drawing.Size(23, 23);
             this.btnSua_r.TabIndex = 2;
@@ -456,7 +521,7 @@
             this.btnThem_r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem_r.Image = global::TSCD_GUI.Properties.Resources.plus_19;
             this.btnThem_r.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnThem_r.Location = new System.Drawing.Point(281, 0);
+            this.btnThem_r.Location = new System.Drawing.Point(307, 0);
             this.btnThem_r.Name = "btnThem_r";
             this.btnThem_r.Size = new System.Drawing.Size(23, 23);
             this.btnThem_r.TabIndex = 1;
@@ -467,10 +532,10 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(88, 158);
+            this.txtMoTa.Location = new System.Drawing.Point(87, 248);
             this.txtMoTa.MenuManager = this.rbnControlLoaiTS;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(268, 83);
+            this.txtMoTa.Size = new System.Drawing.Size(294, 83);
             this.txtMoTa.TabIndex = 10;
             this.txtMoTa.UseOptimizedRendering = true;
             // 
@@ -485,7 +550,7 @@
             this.Controls.Add(this.splitContainerControlMain);
             this.Controls.Add(this.rbnControlLoaiTS);
             this.Name = "ucQuanLyLoaiTS";
-            this.Size = new System.Drawing.Size(850, 512);
+            this.Size = new System.Drawing.Size(850, 532);
             ((System.ComponentModel.ISupportInitialize)(this.rbnControlLoaiTS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControlMain)).EndInit();
             this.splitContainerControlMain.ResumeLayout(false);
@@ -493,6 +558,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).EndInit();
             this.groupControlInfo.ResumeLayout(false);
             this.groupControlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinHaoMon32.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinHaoMon351.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlParent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkHuuHinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpDonVi.Properties)).EndInit();
@@ -547,5 +614,9 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colobj;
         private DevExpress.XtraBars.BarButtonItem barBtnImport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbnGroupImport;
+        private DevExpress.XtraEditors.LabelControl lblHaoMon32;
+        private DevExpress.XtraEditors.LabelControl lblHaoMon351;
+        private DevExpress.XtraEditors.SpinEdit spinHaoMon32;
+        private DevExpress.XtraEditors.SpinEdit spinHaoMon351;
     }
 }

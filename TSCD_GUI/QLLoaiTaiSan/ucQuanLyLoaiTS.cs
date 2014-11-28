@@ -115,6 +115,8 @@ namespace TSCD_GUI.QLLoaiTaiSan
             txtMa.Properties.ReadOnly = !_enable;
             txtTen.Properties.ReadOnly = !_enable;
             txtMoTa.Properties.ReadOnly = !_enable;
+            spinHaoMon351.Properties.ReadOnly = !_enable;
+            spinHaoMon32.Properties.ReadOnly = !_enable;
             checkHuuHinh.Properties.ReadOnly = !_enable;
             _ucComboBoxLoaiTS.ReadOnly = !_enable;
             gridLookUpDonVi.Properties.ReadOnly = !_enable;
@@ -156,6 +158,8 @@ namespace TSCD_GUI.QLLoaiTaiSan
                             txtMa.Text = objLoaiTaiSan.subId;
                             txtTen.Text = objLoaiTaiSan.ten;
                             txtMoTa.Text = objLoaiTaiSan.mota;
+                            spinHaoMon351.EditValue = objLoaiTaiSan.phantramhaomon;
+                            spinHaoMon32.EditValue = objLoaiTaiSan.phantramhaomon_2;
                             checkHuuHinh.Checked = objLoaiTaiSan.huuhinh;
                             gridLookUpDonVi.EditValue = objLoaiTaiSan.donvitinh != null ? objLoaiTaiSan.donvitinh.id : Guid.Empty;
                             _ucComboBoxLoaiTS.LoaiTS = objLoaiTaiSan.parent != null ? objLoaiTaiSan.parent : new LoaiTaiSan();
@@ -191,6 +195,8 @@ namespace TSCD_GUI.QLLoaiTaiSan
                 objLoaiTaiSan.subId = txtMa.Text;
                 objLoaiTaiSan.ten = txtTen.Text;
                 objLoaiTaiSan.mota = txtMoTa.Text;
+                objLoaiTaiSan.phantramhaomon = spinHaoMon351.EditValue != null ? int.Parse(spinHaoMon351.EditValue.ToString()) : 0;
+                objLoaiTaiSan.phantramhaomon_2 = spinHaoMon32.EditValue != null ? int.Parse(spinHaoMon351.EditValue.ToString()) : 0;
                 objLoaiTaiSan.huuhinh = checkHuuHinh.Checked;
                 DonViTinh objDonVi = gridLookUpDonVi.EditValue != null ? DonViTinh.getById(GUID.From(gridLookUpDonVi.EditValue)) : null;
                 objLoaiTaiSan.donvitinh = (objDonVi != null && objDonVi.id != Guid.Empty) ? objDonVi : null;
